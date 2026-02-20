@@ -1,0 +1,205 @@
+//
+//  ItemDetailView.swift
+//  Tine
+//
+//  Created by Kenneth Johannes Fang on 18/02/26.
+//
+
+import SwiftUI
+
+// MARK: - Icon Picker
+
+struct IconPickerView: View {
+    @Binding var selectedIcon: String
+    @Environment(\.dismiss) var dismiss
+
+    @State private var searchText = ""
+
+    private let columns = [GridItem(.adaptive(minimum: 48), spacing: 8)]
+
+    private var results: [SFSymbolEntry] {
+        SFSymbolCatalog.search(searchText)
+    }
+
+    var body: some View {
+        NavigationStack {
+            ScrollView {
+                LazyVGrid(columns: columns, spacing: 8) {
+                    ForEach(results) { entry in
+                        let isSelected = selectedIcon == entry.name
+                        Button {
+                            selectedIcon = entry.name
+                            dismiss()
+                        } label: {
+                            Image(systemName: entry.name)
+                                .font(.title3)
+                                .frame(width: 48, height: 48)
+                                .foregroundStyle(isSelected ? .white : .primary)
+                                .background(isSelected ? Color.accentColor : Color.clear)
+                                .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                                .contentShape(Rectangle())
+                        }
+                        .buttonStyle(.plain)
+                        .accessibilityLabel(entry.name)
+                    }
+                }
+                .padding()
+            }
+            .navigationTitle("Choose Icon")
+            #if os(iOS)
+            .navigationBarTitleDisplayMode(.inline)
+            #endif
+            .searchable(text: $searchText, prompt: "Search icons")
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        #if os(macOS)
+                        Text("Cancel")
+                        #else
+                        Image(systemName: "xmark")
+                        #endif
+                    }
+                }
+            }
+        }
+        #if os(macOS)
+        .frame(minWidth: 360, idealWidth: 420, minHeight: 400, idealHeight: 500)
+        #endif
+    }
+}
+
+// MARK: - Item Detail
+
+struct TextDetailView: View {
+    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var store: SnippetStore
+
+    let existingItem: Snippet?
+
+    @State private var name: String
+    @State private var value: String
+    @State private var icon: String
+    @State private var showIconPicker = false
+
+    init(item: Snippet?) {
+        self.existingItem = item
+        _name = State(initialValue: item?.name ?? "")
+        _value = State(initialValue: item?.value ?? "")
+        _icon = State(initialValue: item?.icon ?? "document")
+    }
+
+    var isEditing: Bool { existingItem != nil }
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Section("Name") {
+                    TextField("e.g. Email", text: $name)
+                }
+                Section("Icon") {
+                    #if os(macOS)
+                    HStack {
+                        Image(systemName: icon)
+                            .font(.title2)
+                            .foregroundStyle(.tint)
+                        Spacer()
+                        Button("Change Icon") {
+                            showIconPicker = true
+                        }
+                    }
+                    #else
+                    Button {
+                        showIconPicker = true
+                    } label: {
+                        HStack {
+                            Image(systemName: icon)
+                                .font(.title2)
+                                .foregroundStyle(.tint)
+                                .frame(width: 36, height: 36)
+                            Text("Change Icon")
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundStyle(.tertiary)
+                        }
+                    }
+                    .foregroundStyle(.primary)
+                    #endif
+                }
+                Section("Text") {
+                    TextEditor(text: $value)
+                        .frame(minHeight: 120)
+                        .scrollContentBackground(.hidden)
+                }
+                if isEditing {
+                    Section {
+                        Button("Delete Snippet", role: .destructive) {
+                            if let item = existingItem {
+                                store.delete(item)
+                            }
+                            dismiss()
+                        }
+                    }
+                }
+            }
+            .formStyle(.grouped)
+            .navigationTitle(isEditing ? "Edit Snippet" : "New Snippet")
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        #if os(macOS)
+                        Text("Cancel")
+                        #else
+                        Image(systemName: "xmark")
+                        #endif
+                    }
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button {
+                        if let existing = existingItem {
+                            var updated = existing
+                            updated.name = name
+                            updated.value = value
+                            updated.icon = icon
+                            store.update(updated)
+                        } else {
+                            store.add(
+                                Snippet(
+                                    name: name,
+                                    value: value,
+                                    icon: icon
+                                )
+                            )
+                        }
+                        dismiss()
+                    } label: {
+                        #if os(macOS)
+                        Text("Save")
+                        #else
+                        Image(systemName: "checkmark")
+                        #endif
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .disabled(name.isEmpty || value.isEmpty)
+                }
+            }
+            .sheet(isPresented: $showIconPicker) {
+                IconPickerView(selectedIcon: $icon)
+            }
+        }
+        #if os(macOS)
+        .frame(minWidth: 420, idealWidth: 480, minHeight: 400, idealHeight: 500)
+        #endif
+    }
+}
+
+#Preview {
+    TextDetailView(item: Snippet(name: "Hello", value: "Hello", icon: "car.fill"))
+    #if os(macOS)
+    .frame(width: 400, height: 500)
+    #endif
+}

@@ -1,0 +1,582 @@
+//
+//  MainContentView.swift
+//  Tine
+//
+//  Created by Kenneth Johannes Fang on 18/02/26.
+//
+
+import SwiftUI
+
+#if os(iOS)
+import UIKit
+private let platformGroupedBackground = UIColor.systemGroupedBackground
+private let platformSecondaryGroupedBackground = UIColor.secondarySystemGroupedBackground
+#else
+import AppKit
+private let platformGroupedBackground = NSColor(white: 0.93, alpha: 1.0)
+private let platformSecondaryGroupedBackground = NSColor.white
+#endif
+
+// MARK: - Cross-Platform Image Helpers
+
+#if os(iOS)
+func loadPlatformImage(from data: Data) -> UIImage? {
+    UIImage(data: data)
+}
+
+extension Image {
+    init(platformImage: UIImage) {
+        self.init(uiImage: platformImage)
+    }
+}
+#else
+func loadPlatformImage(from data: Data) -> NSImage? {
+    NSImage(data: data)
+}
+
+extension Image {
+    init(platformImage: NSImage) {
+        self.init(nsImage: platformImage)
+    }
+}
+#endif
+
+// MARK: - Main Content
+
+struct MainContentView: View {
+    @EnvironmentObject var store: SnippetStore
+
+    @State private var searchText = ""
+    @State private var selectedItem: Snippet? = nil
+    @State private var showAddText = false
+    @State private var showAddImage = false
+    @Binding var showSettings: Bool
+    
+    @State private var isSelecting = false
+    @State private var selectedSnippets = Set<UUID>()
+    @State private var showDeleteConfirmation = false
+    @State private var snippetToDelete: Snippet?
+    @State private var panGesture: UIPanGestureRecognizer?
+    @State private var snippetLocations: [UUID: CGRect] = [:]
+
+    init(showSettings: Binding<Bool> = .constant(false)) {
+        _showSettings = showSettings
+    }
+
+    let columns = [GridItem(.adaptive(minimum: 160, maximum: 240), spacing: 12)]
+
+    var filtered: [Snippet] {
+        if searchText.isEmpty { return store.snippets }
+        return store.snippets.filter {
+            $0.name.localizedCaseInsensitiveContains(searchText) ||
+            $0.value.localizedCaseInsensitiveContains(searchText)
+        }
+    }
+
+    var body: some View {
+        NavigationStack {
+            ScrollView {
+                LazyVGrid(columns: columns, spacing: 12) {
+                    ForEach(filtered) { item in
+                        CardView(
+                            item: item,
+                            isSelecting: isSelecting,
+                            isSelected: selectedSnippets.contains(item.id),
+                            onEdit: {
+                                selectedItem = item
+                            },
+                            onToggleSelection: {
+                                toggleSelection(for: item)
+                            },
+                            onDelete: {
+                                snippetToDelete = item
+                                showDeleteConfirmation = true
+                            }
+                        )
+                        .frame(height: 140)
+                        .onGeometryChange(for: CGRect.self) {
+                            $0.frame(in: .global)
+                        } action: { newValue in
+                            snippetLocations[item.id] = newValue
+                        }
+                    }
+                }
+                .padding()
+            }
+            .background(Color(platformGroupedBackground))
+            .navigationTitle("My Snippets")
+            .searchable(text: $searchText, prompt: "Search snippets")
+            .toolbar {
+                ToolbarItemGroup(placement: .primaryAction) {
+                    if isSelecting {
+                        Button("Cancel") {
+                            isSelecting = false
+                            selectedSnippets.removeAll()
+                        }
+                    } else {
+                        Menu {
+                            Button {
+                                showAddText = true
+                            } label: {
+                                Label("Text Snippet", systemImage: "doc.text")
+                            }
+                            Button {
+                                showAddImage = true
+                            } label: {
+                                Label("Image Snippet", systemImage: "photo")
+                            }
+                        } label: {
+                            Image(systemName: "plus")
+                        }
+                        
+                        Menu {
+                            Button {
+                                isSelecting = true
+                            } label: {
+                                Label("Select Snippets", systemImage: "checkmark.circle")
+                            }
+                            
+                            Button {
+                                showSettings = true
+                            } label: {
+                                Label("Settings", systemImage: "gearshape")
+                            }
+                        } label: {
+                            Image(systemName: "ellipsis")
+                        }
+                    }
+                }
+                
+                ToolbarItemGroup(placement: .bottomBar) {
+                    if isSelecting {
+                        Spacer()
+                        Button(role: .destructive) {
+                            if !selectedSnippets.isEmpty {
+                                showDeleteConfirmation = true
+                            }
+                        } label: {
+                            Image(systemName: "trash")
+                                .foregroundStyle(selectedSnippets.isEmpty ? Color.secondary : Color.red)
+                        }
+                        .disabled(selectedSnippets.isEmpty)
+                        .confirmationDialog(
+                            "Delete \(selectedSnippets.count) item\(selectedSnippets.count == 1 ? "" : "s")?",
+                            isPresented: Binding(
+                                get: { showDeleteConfirmation && snippetToDelete == nil },
+                                set: { if !$0 { showDeleteConfirmation = false } }
+                            ),
+                            titleVisibility: .visible
+                        ) {
+                            Button("Delete", role: .destructive) {
+                                deleteSelectedSnippets()
+                            }
+                            Button("Cancel", role: .cancel) {}
+                        }
+                    }
+                }
+            }
+            .sheet(item: $selectedItem) { item in
+                switch item.kind {
+                case .text:
+                    TextDetailView(item: item)
+                case .image:
+                    ImageDetailView(item: item)
+                }
+            }
+            .sheet(isPresented: $showAddText) {
+                TextDetailView(item: nil)
+            }
+            .sheet(isPresented: $showAddImage) {
+                ImageDetailView(item: nil)
+            }
+            .sheet(isPresented: $showSettings) {
+                SettingsView()
+            }
+            .alert(
+                "Delete \"\(snippetToDelete?.name ?? "")\"?",
+                isPresented: Binding(
+                    get: { showDeleteConfirmation && snippetToDelete != nil },
+                    set: { if !$0 { showDeleteConfirmation = false; snippetToDelete = nil } }
+                ),
+                presenting: snippetToDelete
+            ) { snippet in
+                Button("Delete", role: .destructive) {
+                    store.delete(snippet)
+                    snippetToDelete = nil
+                    showDeleteConfirmation = false
+                }
+                Button("Cancel", role: .cancel) {
+                    snippetToDelete = nil
+                    showDeleteConfirmation = false
+                }
+            }
+            .onChange(of: isSelecting) { oldValue, newValue in
+                if #available(iOS 18.0, *) {
+                    panGesture?.isEnabled = newValue
+                }
+                if !newValue {
+                    selectedSnippets.removeAll()
+                }
+            }
+            .modifier(PanGestureModifier(
+                isSelecting: isSelecting,
+                panGesture: $panGesture,
+                onPanChange: onPanGestureChange
+            ))
+        }
+    }
+
+    private func onPanGestureChange(_ gesture: UIPanGestureRecognizer) {
+        let location = gesture.location(in: gesture.view)
+        
+        // Find which snippet is under the pan location
+        for (id, rect) in snippetLocations {
+            if rect.contains(location) {
+                if !selectedSnippets.contains(id) {
+                    selectedSnippets.insert(id)
+                }
+            }
+        }
+    }
+
+    private func toggleSelection(for snippet: Snippet) {
+        if selectedSnippets.contains(snippet.id) {
+            selectedSnippets.remove(snippet.id)
+        } else {
+            selectedSnippets.insert(snippet.id)
+        }
+    }
+    
+    private func deleteSelectedSnippets() {
+        let snippetsToDelete = store.snippets.filter { selectedSnippets.contains($0.id) }
+        for snippet in snippetsToDelete {
+            store.delete(snippet)
+        }
+        selectedSnippets.removeAll()
+        isSelecting = false
+        showDeleteConfirmation = false
+    }
+}
+
+// MARK: - Pan Gesture Recognizer
+
+@available(iOS 18.0, *)
+struct PanGestureRecognizer: UIGestureRecognizerRepresentable {
+    var handle: (UIPanGestureRecognizer) -> ()
+    
+    func makeUIGestureRecognizer(context: Context) -> UIPanGestureRecognizer {
+        return UIPanGestureRecognizer()
+    }
+    
+    func updateUIGestureRecognizer(_ recognizer: UIPanGestureRecognizer, context: Context) {
+        
+    }
+    
+    func handleUIGestureRecognizerAction(_ recognizer: UIPanGestureRecognizer, context: Context) {
+        handle(recognizer)
+    }
+}
+
+// MARK: - Pan Gesture Modifier
+
+struct PanGestureModifier: ViewModifier {
+    let isSelecting: Bool
+    @Binding var panGesture: UIPanGestureRecognizer?
+    let onPanChange: (UIPanGestureRecognizer) -> Void
+    
+    func body(content: Content) -> some View {
+        if #available(iOS 18.0, *) {
+            content
+                .gesture(
+                    PanGestureRecognizer { gesture in
+                        if panGesture == nil {
+                            panGesture = gesture
+                            gesture.isEnabled = isSelecting
+                        }
+                        
+                        if gesture.state == .began || gesture.state == .changed {
+                            onPanChange(gesture)
+                        }
+                    }
+                )
+        } else {
+            content
+        }
+    }
+}
+
+// MARK: - Card Shape
+
+private let cardShape = RoundedRectangle(
+    cornerRadius: .init(24),
+    style: .continuous
+)
+
+// MARK: - Card View
+
+struct CardView: View {
+    @EnvironmentObject var store: SnippetStore
+
+    let item: Snippet
+    let isSelecting: Bool
+    let isSelected: Bool
+    let onEdit: () -> Void
+    let onToggleSelection: () -> Void
+    let onDelete: () -> Void
+
+    @State private var copied = false
+
+    var body: some View {
+        Group {
+            switch item.kind {
+            case .text:
+                textCard
+            case .image:
+                imageCard
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .background(Color(platformSecondaryGroupedBackground))
+        .contentShape(cardShape)
+        .clipShape(cardShape)
+        #if os(iOS)
+        .contentShape(.contextMenuPreview, cardShape)
+        #endif
+        .overlay(alignment: .center) {
+            if copied {
+                Label("Copied", systemImage: "checkmark")
+                    .font(.subheadline.weight(.semibold))
+                    .padding(.horizontal, 14)
+                    .padding(.vertical, 8)
+                    .background(.thinMaterial)
+                    .clipShape(Capsule())
+                    .transition(.scale(scale: 0.8).combined(with: .opacity))
+            }
+        }
+        .animation(.spring(), value: copied)
+        .contextMenu {
+            if !isSelecting {
+                Button {
+                    copyToClipboard()
+                } label: {
+                    Label("Copy", systemImage: "doc.on.doc")
+                }
+
+                Button {
+                    onEdit()
+                } label: {
+                    Label("Edit", systemImage: "pencil")
+                }
+
+                Divider()
+
+                Button(role: .destructive) {
+                    onDelete()
+                } label: {
+                    Label("Delete", systemImage: "trash")
+                }
+            }
+        } preview: {
+            previewContent
+        }
+        .onTapGesture {
+            if isSelecting {
+                onToggleSelection()
+            } else {
+                copyToClipboard()
+            }
+        }
+    }
+
+    // MARK: - Text Card
+
+    private var textCard: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack(alignment: .center) {
+                Image(systemName: item.icon)
+                    .font(.title2)
+                    .foregroundStyle(.tint)
+                Spacer()
+                topRightButton
+            }
+            Text(item.name)
+                .font(.headline)
+                .lineLimit(1)
+            Text(item.value)
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .lineLimit(3)
+                .truncationMode(.tail)
+        }
+        .padding()
+    }
+
+    // MARK: - Image Card
+
+    private var imageCard: some View {
+        GeometryReader { geo in
+            ZStack(alignment: .bottomLeading) {
+                if let filename = item.imageFilename,
+                   let data = store.loadImageData(named: filename),
+                   let img = loadPlatformImage(from: data) {
+                    Image(platformImage: img)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: geo.size.width, height: geo.size.height)
+                        .clipped()
+                } else {
+                    Color.secondary.opacity(0.15)
+                    Image(systemName: "photo")
+                        .font(.largeTitle)
+                        .foregroundStyle(.secondary)
+                        .frame(width: geo.size.width, height: geo.size.height)
+                }
+
+                VStack(alignment: .leading) {
+                    HStack {
+                        Spacer()
+                        topRightButton
+                            .shadow(radius: 2)
+                    }
+                    Spacer()
+                    Text(item.name)
+                        .font(.headline)
+                        .foregroundStyle(.white)
+                        .shadow(color: .black.opacity(0.5), radius: 4, y: 2)
+                        .lineLimit(1)
+                }
+                .padding()
+                .frame(width: geo.size.width, height: geo.size.height, alignment: .topLeading)
+                .background(
+                    LinearGradient(
+                        colors: [.clear, .clear, .black.opacity(0.4)],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                )
+            }
+        }
+    }
+
+    // MARK: - Preview Content
+    
+    @ViewBuilder
+    private var previewContent: some View {
+        switch item.kind {
+        case .text:
+            VStack(alignment: .leading, spacing: 12) {
+                HStack {
+                    Image(systemName: item.icon)
+                        .font(.title2)
+                        .foregroundStyle(.tint)
+                    Text(item.name)
+                        .font(.headline)
+                    Spacer()
+                }
+                
+                ScrollView {
+                    Text(item.value)
+                        .font(.body)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+            }
+            .padding()
+            .frame(width: 300)
+            .background(Color(platformSecondaryGroupedBackground))
+            
+        case .image:
+            VStack(spacing: 0) {
+                HStack {
+                    Image(systemName: item.icon)
+                        .foregroundStyle(.tint)
+                    Text(item.name)
+                        .font(.headline)
+                    Spacer()
+                }
+                .padding()
+                .background(Color(platformSecondaryGroupedBackground))
+                
+                if let filename = item.imageFilename,
+                   let data = store.loadImageData(named: filename),
+                   let img = loadPlatformImage(from: data) {
+                    Image(platformImage: img)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxHeight: 500)
+                }
+            }
+            .frame(width: 300)
+        }
+    }
+
+    // MARK: - Shared
+
+    private var topRightButton: some View {
+        Button {
+            if isSelecting {
+                onToggleSelection()
+            } else {
+                onEdit()
+            }
+        } label: {
+            ZStack {
+                if !isSelecting {
+                    Circle()
+                        .fill(item.kind == .image ? AnyShapeStyle(.thinMaterial) : AnyShapeStyle(.quinary))
+                }
+                
+                Image(systemName: isSelecting ? (isSelected ? "checkmark.circle.fill" : "circle") : "ellipsis")
+                    .font(isSelecting ? .title2 : .subheadline)
+                    .foregroundStyle(isSelecting && isSelected ? Color.accentColor : Color.primary)
+                    .scaleEffect(!isSelecting || isSelected ? 1.0 : 0.85)
+                    .rotationEffect(.degrees(!isSelecting || isSelected ? 0 : -10))
+                    .animation(.spring(duration: 0.15), value: isSelected)
+            }
+            .frame(width: 36, height: 36)
+        }
+        .buttonStyle(.plain)
+    }
+
+    private func copyToClipboard() {
+        switch item.kind {
+        case .text:
+            #if os(iOS)
+            UIPasteboard.general.string = item.value
+            #else
+            NSPasteboard.general.clearContents()
+            NSPasteboard.general.setString(item.value, forType: .string)
+            #endif
+
+        case .image:
+            if let filename = item.imageFilename,
+               let data = store.loadImageData(named: filename) {
+                #if os(iOS)
+                if let uiImage = UIImage(data: data) {
+                    UIPasteboard.general.image = uiImage
+                }
+                #else
+                if let nsImage = NSImage(data: data) {
+                    NSPasteboard.general.clearContents()
+                    NSPasteboard.general.writeObjects([nsImage])
+                }
+                #endif
+            }
+        }
+
+        copied = true
+        Task {
+            try? await Task.sleep(for: .seconds(1.5))
+            copied = false
+        }
+    }
+}
+
+// MARK: - Preview
+
+#Preview {
+    MainContentView()
+        .environmentObject(SnippetStore.shared)
+    #if os(macOS)
+        .frame(width: 400, height: 500)
+    #endif
+}
