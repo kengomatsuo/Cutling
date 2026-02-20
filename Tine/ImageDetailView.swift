@@ -39,7 +39,8 @@ struct ImageDetailView: View {
     @State private var imageData: Data?
     @State private var selectedPhoto: PhotosPickerItem? = nil
     @State private var showFilePicker = false
-
+    @State private var showDeleteAlert = false
+    
     init(item: Snippet?) {
         self.existingItem = item
         _name = State(initialValue: item?.name ?? "")
@@ -60,15 +61,23 @@ struct ImageDetailView: View {
                 if isEditing {
                     Section {
                         Button("Delete Snippet", role: .destructive) {
-                            if let item = existingItem {
-                                store.delete(item)
-                            }
-                            dismiss()
+                            showDeleteAlert = true
                         }
                     }
                 }
             }
             .formStyle(.grouped)
+            .alert("Delete Snippet?", isPresented: $showDeleteAlert) {
+                Button("Delete", role: .destructive) {
+                    if let item = existingItem {
+                        store.delete(item)
+                    }
+                    dismiss()
+                }
+                Button("Cancel", role: .cancel) {}
+            } message: {
+                Text("This action cannot be undone.")
+            }
             .navigationTitle(isEditing ? "Edit Image" : "New Image")
             #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)

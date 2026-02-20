@@ -82,6 +82,7 @@ struct TextDetailView: View {
     @State private var value: String
     @State private var icon: String
     @State private var showIconPicker = false
+    @State private var showDeleteAlert = false
 
     init(item: Snippet?) {
         self.existingItem = item
@@ -136,15 +137,23 @@ struct TextDetailView: View {
                 if isEditing {
                     Section {
                         Button("Delete Snippet", role: .destructive) {
-                            if let item = existingItem {
-                                store.delete(item)
-                            }
-                            dismiss()
+                            showDeleteAlert = true
                         }
                     }
                 }
             }
             .formStyle(.grouped)
+            .alert("Delete Snippet?", isPresented: $showDeleteAlert) {
+                Button("Delete", role: .destructive) {
+                    if let item = existingItem {
+                        store.delete(item)
+                    }
+                    dismiss()
+                }
+                Button("Cancel", role: .cancel) {}
+            } message: {
+                Text("This action cannot be undone.")
+            }
             .navigationTitle(isEditing ? "Edit Snippet" : "New Snippet")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {

@@ -28,7 +28,7 @@ extension UIColor {
     static let keyBackground = UIColor { traits in
         traits.userInterfaceStyle == .dark
         ? UIColor(white: 145/255, alpha: 0.30)
-        : UIColor(white: 1, alpha: 0.60)
+        : UIColor(white: 1.05, alpha: 0.75)
     }
 }
 
@@ -102,8 +102,8 @@ struct InstantPress: ViewModifier {
                         isPressed = inside
                     }
                     .onEnded { value in
-                        let shouldFire = isPressed && 
-                                       isInsideBounds(value) && 
+                        let shouldFire = isPressed &&
+                                       isInsideBounds(value) &&
                                        !shouldCancelForScroll(value)
                         isPressed = false
                         if shouldFire {
@@ -131,6 +131,7 @@ struct KeyboardButtonStyle: ButtonStyle {
     let cornerRadius: CGFloat
     
     @Environment(\.colorScheme) private var colorScheme
+    private let haptic = UIImpactFeedbackGenerator(style: .light)
     
     private var highlightColor: Color {
         colorScheme == .dark
@@ -150,6 +151,11 @@ struct KeyboardButtonStyle: ButtonStyle {
                         .fill(highlightColor)
                     : nil
             )
+            .onChange(of: configuration.isPressed) {
+                if configuration.isPressed {
+                    haptic.impactOccurred()
+                }
+            }
     }
 }
 
@@ -157,38 +163,32 @@ struct KeyboardButtonStyle: ButtonStyle {
 
 class KeyboardViewController: UIInputViewController {
 
-    private var hostingController: UIHostingController<AnyView>?
+    private var hostingController: UIHostingController<KeyboardView>?
     private let keyboardState = KeyboardState()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .clear
 
-        let store = SnippetStore()
-        store.load()
-        let inputVC = self
-
-        // Seed initial return key type
+        UserDefaults(suiteName: "group.com.matsuokengo.Tine")?.set(hasFullAccess, forKey: "hasFullAccess")
         keyboardState.returnKeyType = textDocumentProxy.returnKeyType ?? .default
 
+        let store = SnippetStore()
+        let inputVC = self
+
+        // Type-safe hosting controller — no AnyView overhead
         let keyboardView = KeyboardView(
             store: store,
             state: keyboardState,
-            onInsertText: { text in
-                inputVC.textDocumentProxy.insertText(text)
-            },
-            onCopyImage: { data in
-                if let image = UIImage(data: data) {
-                    UIPasteboard.general.image = image
-                }
-            },
-            onBackspace: {
-                inputVC.textDocumentProxy.deleteBackward()
-            }
+            onInsertText: { inputVC.textDocumentProxy.insertText($0) },
+            onCopyImage: { if let image = UIImage(data: $0) { UIPasteboard.general.image = image } },
+            onBackspace: { inputVC.textDocumentProxy.deleteBackward() }
         )
 
-        let hc = UIHostingController(rootView: AnyView(keyboardView))
+        let hc = UIHostingController(rootView: keyboardView)
         hc.view.translatesAutoresizingMaskIntoConstraints = false
         hc.view.backgroundColor = .clear
+        hc.safeAreaRegions = []
 
         addChild(hc)
         view.addSubview(hc.view)
@@ -201,11 +201,17 @@ class KeyboardViewController: UIInputViewController {
             hc.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
 
-        let heightConstraint = view.heightAnchor.constraint(equalToConstant: 320)
-        heightConstraint.priority = .defaultHigh
-        heightConstraint.isActive = true
-
         hostingController = hc
+
+        // Load store off main thread AFTER keyboard is already visible
+        Task.detached(priority: .userInitiated) {
+            store.load()
+        }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
     }
 
     // Called every time the text input context changes — new text field,
@@ -262,6 +268,7 @@ struct KeyboardView: View {
     let onBackspace: () -> Void
 
     @State private var copiedID: UUID? = nil
+    @State private var existedID: UUID? = nil
     @State private var showAddedToast = false
 
     var body: some View {
@@ -276,6 +283,7 @@ struct KeyboardView: View {
         }
         .padding(.bottom, 2)
         .tint(Color(hex: 0x22a98d))
+        .background(Color.clear)
     }
 
     // MARK: - Suggestion Bar
@@ -332,40 +340,40 @@ struct KeyboardView: View {
     // MARK: - Snippet Grid
 
     private var snippetGrid: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            if store.snippets.isEmpty {
-                VStack(spacing: 8) {
-                    Image(systemName: "tray")
-                        .font(.title2)
-                        .foregroundStyle(.tertiary)
-                    Text("No snippets yet")
-                        .font(.subheadline)
-                        .foregroundStyle(.tertiary)
-                    Text("Add snippets in the Tine app")
-                        .font(.caption)
-                        .foregroundStyle(.quaternary)
+        ScrollViewReader { proxy in // 1. Added Proxy
+            ScrollView(.vertical, showsIndicators: false) {
+                if store.snippets.isEmpty {
+                    // ... (your empty state view)
+                } else {
+                    LazyVGrid(
+                        columns: [GridItem(.adaptive(minimum: 140), spacing: 6)],
+                        spacing: 6
+                    ) {
+                        ForEach(store.snippets) { snippet in
+                            SnippetKeyView(
+                                snippet: snippet,
+                                store: store,
+                                isCopied: copiedID == snippet.id,
+                                isExisted: existedID == snippet.id, // 2. Pass highlight state
+                                onTap: { handleTap(snippet) }
+                            )
+                            .id(snippet.id) // 3. Ensure IDs are set for the proxy
+                        }
+                    }
+                    .padding(.horizontal, KeyStyle.horizontalPadding)
+                    .padding(.vertical, 6)
                 }
-                .frame(maxWidth: .infinity)
-                .padding(.top, 24)
-            } else {
-                LazyVGrid(
-                    columns: [GridItem(.adaptive(minimum: 140), spacing: 6)],
-                    spacing: 6
-                ) {
-                    ForEach(store.snippets) { snippet in
-                        SnippetKeyView(
-                            snippet: snippet,
-                            store: store,
-                            isCopied: copiedID == snippet.id,
-                            onTap: { handleTap(snippet) }
-                        )
+            }
+            .onChange(of: existedID) { oldValue, newValue in // 4. Listen for changes
+                if let id = newValue {
+                    withAnimation(.easeInOut) {
+                        proxy.scrollTo(id, anchor: .center)
                     }
                 }
-                .padding(.horizontal, KeyStyle.horizontalPadding)
-                .padding(.bottom, 6)
             }
         }
-        .frame(maxHeight: .infinity)
+        .frame(minHeight: 160, maxHeight: 240)
+        .background(Color.white.opacity(0.001))
     }
 
     // MARK: - Bottom Row
@@ -436,12 +444,23 @@ struct KeyboardView: View {
 
     private func addFromClipboard() {
         guard let text = UIPasteboard.general.string, !text.isEmpty else { return }
-        let name = String(text.prefix(30)).trimmingCharacters(in: .whitespacesAndNewlines)
+
+        if let existing = store.snippets.first(where: { $0.value == text }) {
+            showExisted(existing.id)
+            return
+        }
+
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        let timestamp = formatter.string(from: Date())
+
         let snippet = Snippet(
-            name: name.isEmpty ? "Clipboard" : name,
+            name: "Clip: \(timestamp)",
             value: text,
             icon: "doc.on.clipboard"
         )
+
         store.add(snippet)
 
         withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
@@ -454,7 +473,24 @@ struct KeyboardView: View {
             }
         }
     }
+
+    private func showExisted(_ id: UUID) {
+        withAnimation(.spring(duration: 0.4, bounce: 0.3)) {
+            existedID = id
+        }
+        
+        // Auto-reset the highlight after a delay
+        Task {
+            try? await Task.sleep(for: .seconds(1.0))
+            if existedID == id {
+                withAnimation(.easeOut(duration: 0.5)) {
+                    existedID = nil
+                }
+            }
+        }
+    }
 }
+
 
 // MARK: - Snippet Key
 
@@ -462,6 +498,7 @@ struct SnippetKeyView: View {
     let snippet: Snippet
     let store: SnippetStore
     let isCopied: Bool
+    let isExisted: Bool
     let onTap: () -> Void
 
     var body: some View {
@@ -472,10 +509,20 @@ struct SnippetKeyView: View {
                 case .image: imageContent
                 }
             }
-            .frame(maxWidth: .infinity, minHeight: 64, alignment: .topLeading)
+            .frame(maxWidth: .infinity, minHeight: 64, maxHeight: 64, alignment: .topLeading)
             .background(KeyStyle.keyColor, in: RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous))
             .clipShape(RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous))
             .overlay {
+                if isExisted {
+                    RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous)
+                        .stroke(Color(hex: 0x22a98d), lineWidth: 2)
+                        .shadow(color: Color(hex: 0x22a98d).opacity(0.6), radius: 2)
+                        // The "Shine/Pulse" effect
+                        .overlay(
+                            RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous)
+                                .fill(Color(hex: 0x22a98d).opacity(0.15))
+                        )
+                }
                 if isCopied {
                     RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous)
                         .fill(.ultraThinMaterial)
@@ -490,6 +537,8 @@ struct SnippetKeyView: View {
                     ))
                 }
             }
+            .scaleEffect(isExisted ? 1.025 : 1.0)
+            .animation(.spring(duration: 0.4, bounce: 0.5), value: isExisted)
         }
         .buttonStyle(KeyboardButtonStyle())
         .animation(.spring(duration: 0.35, bounce: 0.2), value: isCopied)

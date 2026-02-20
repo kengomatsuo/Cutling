@@ -58,6 +58,9 @@ struct MainContentView: View {
     @State private var snippetToDelete: Snippet?
     @State private var panGesture: UIPanGestureRecognizer?
     @State private var snippetLocations: [UUID: CGRect] = [:]
+    @State private var panStartIndex: Int? = nil
+    @State private var panIsDeselecting: Bool = false
+    @State private var selectionBeforePan: Set<UUID> = []
 
     init(showSettings: Binding<Bool> = .constant(false)) {
         _showSettings = showSettings
@@ -76,32 +79,53 @@ struct MainContentView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                LazyVGrid(columns: columns, spacing: 12) {
-                    ForEach(filtered) { item in
-                        CardView(
-                            item: item,
-                            isSelecting: isSelecting,
-                            isSelected: selectedSnippets.contains(item.id),
-                            onEdit: {
-                                selectedItem = item
-                            },
-                            onToggleSelection: {
-                                toggleSelection(for: item)
-                            },
-                            onDelete: {
-                                snippetToDelete = item
-                                showDeleteConfirmation = true
+                if filtered.isEmpty {
+                    VStack(spacing: 12) {
+                        Image(systemName: searchText.isEmpty ? "tray" : "magnifyingglass")
+                            .font(.system(size: 48, weight: .thin))
+                            .foregroundStyle(.tertiary)
+                        Text(searchText.isEmpty ? "No Snippets Yet" : "No Results")
+                            .font(.title3.weight(.semibold))
+                            .foregroundStyle(.secondary)
+                        Text(searchText.isEmpty ? "Tap + to add your first snippet." : "Try a different search term.")
+                            .font(.subheadline)
+                            .foregroundStyle(.tertiary)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 80)
+                } else {
+                    LazyVGrid(columns: columns, spacing: 12) {
+                        ForEach(filtered) { item in
+                            CardView(
+                                item: item,
+                                isSelecting: isSelecting,
+                                isSelected: selectedSnippets.contains(item.id),
+                                onEdit: {
+                                    selectedItem = item
+                                },
+                                onToggleSelection: {
+                                    toggleSelection(for: item)
+                                },
+                                onDelete: {
+                                    snippetToDelete = item
+                                    showDeleteConfirmation = true
+                                }
+                            )
+                            .frame(height: 140)
+                            .transition(.asymmetric(
+                                insertion: .scale(scale: 0.85).combined(with: .opacity),
+                                removal: .scale(scale: 0.85).combined(with: .opacity)
+                            ))
+                            .onGeometryChange(for: CGRect.self) {
+                                $0.frame(in: .global)
+                            } action: { newValue in
+                                snippetLocations[item.id] = newValue
                             }
-                        )
-                        .frame(height: 140)
-                        .onGeometryChange(for: CGRect.self) {
-                            $0.frame(in: .global)
-                        } action: { newValue in
-                            snippetLocations[item.id] = newValue
                         }
                     }
+                    .padding()
+                    .animation(.spring(duration: 0.35, bounce: 0.2), value: filtered.map(\.id))
                 }
-                .padding()
             }
             .background(Color(platformGroupedBackground))
             .navigationTitle("My Snippets")
@@ -201,7 +225,9 @@ struct MainContentView: View {
                 presenting: snippetToDelete
             ) { snippet in
                 Button("Delete", role: .destructive) {
-                    store.delete(snippet)
+                    withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
+                        store.delete(snippet)
+                    }
                     snippetToDelete = nil
                     showDeleteConfirmation = false
                 }
@@ -214,28 +240,48 @@ struct MainContentView: View {
                 if #available(iOS 18.0, *) {
                     panGesture?.isEnabled = newValue
                 }
-                if !newValue {
+                if !newValue && !selectedSnippets.isEmpty {
                     selectedSnippets.removeAll()
                 }
             }
             .modifier(PanGestureModifier(
                 isSelecting: isSelecting,
                 panGesture: $panGesture,
-                onPanChange: onPanGestureChange
+                onPanChange: onPanGestureChange,
+                onPanEnd: {
+                    panStartIndex = nil
+                    panIsDeselecting = false
+                    selectionBeforePan = []
+                }
             ))
         }
     }
 
     private func onPanGestureChange(_ gesture: UIPanGestureRecognizer) {
         let location = gesture.location(in: gesture.view)
-        
-        // Find which snippet is under the pan location
-        for (id, rect) in snippetLocations {
-            if rect.contains(location) {
-                if !selectedSnippets.contains(id) {
-                    selectedSnippets.insert(id)
-                }
-            }
+
+        guard let currentIndex = filtered.indices.first(where: {
+            snippetLocations[filtered[$0].id]?.contains(location) == true
+        }) else { return }
+
+        if gesture.state == .began {
+            panStartIndex = currentIndex
+            selectionBeforePan = selectedSnippets
+            panIsDeselecting = selectedSnippets.contains(filtered[currentIndex].id)
+        }
+
+        guard let startIndex = panStartIndex else { return }
+
+        let range = startIndex <= currentIndex
+            ? startIndex...currentIndex
+            : currentIndex...startIndex
+
+        let rangeIDs = Set(range.map { filtered[$0].id })
+
+        if panIsDeselecting {
+            selectedSnippets = selectionBeforePan.subtracting(rangeIDs)
+        } else {
+            selectedSnippets = selectionBeforePan.union(rangeIDs)
         }
     }
 
@@ -249,12 +295,16 @@ struct MainContentView: View {
     
     private func deleteSelectedSnippets() {
         let snippetsToDelete = store.snippets.filter { selectedSnippets.contains($0.id) }
-        for snippet in snippetsToDelete {
-            store.delete(snippet)
-        }
-        selectedSnippets.removeAll()
-        isSelecting = false
         showDeleteConfirmation = false
+        withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
+            for snippet in snippetsToDelete {
+                store.delete(snippet)
+            }
+        }
+        Task { @MainActor in
+            selectedSnippets.removeAll()
+            isSelecting = false
+        }
     }
 }
 
@@ -268,9 +318,7 @@ struct PanGestureRecognizer: UIGestureRecognizerRepresentable {
         return UIPanGestureRecognizer()
     }
     
-    func updateUIGestureRecognizer(_ recognizer: UIPanGestureRecognizer, context: Context) {
-        
-    }
+    func updateUIGestureRecognizer(_ recognizer: UIPanGestureRecognizer, context: Context) {}
     
     func handleUIGestureRecognizerAction(_ recognizer: UIPanGestureRecognizer, context: Context) {
         handle(recognizer)
@@ -283,7 +331,8 @@ struct PanGestureModifier: ViewModifier {
     let isSelecting: Bool
     @Binding var panGesture: UIPanGestureRecognizer?
     let onPanChange: (UIPanGestureRecognizer) -> Void
-    
+    let onPanEnd: () -> Void
+
     func body(content: Content) -> some View {
         if #available(iOS 18.0, *) {
             content
@@ -293,9 +342,13 @@ struct PanGestureModifier: ViewModifier {
                             panGesture = gesture
                             gesture.isEnabled = isSelecting
                         }
-                        
-                        if gesture.state == .began || gesture.state == .changed {
+                        switch gesture.state {
+                        case .began, .changed:
                             onPanChange(gesture)
+                        case .ended, .cancelled, .failed:
+                            onPanEnd()
+                        default:
+                            break
                         }
                     }
                 )
@@ -474,11 +527,10 @@ struct CardView: View {
                     Spacer()
                 }
                 
-                ScrollView {
-                    Text(item.value)
-                        .font(.body)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                }
+                Text(item.value)
+                    .font(.body)
+                    .lineLimit(18)
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding()
             .frame(width: 300)
