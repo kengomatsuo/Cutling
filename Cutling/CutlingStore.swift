@@ -38,6 +38,7 @@ class CutlingStore: ObservableObject {
     static let shared = CutlingStore()
 
     @Published var cutlings: [Cutling] = []
+    @Published var lastAddedCutlingID: UUID?
 
     private let defaults: UserDefaults
     private let imagesDirectory: URL
@@ -175,6 +176,7 @@ class CutlingStore: ObservableObject {
 
     func add(_ cutling: Cutling) {
         cutlings.append(cutling)
+        lastAddedCutlingID = cutling.id
         save()
     }
     

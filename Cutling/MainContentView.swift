@@ -70,6 +70,7 @@ struct MainContentView: View {
     #endif
 
     @State private var cutlingLocations: [UUID: CGRect] = [:]
+    @State private var hasScrolledToNew = false
 
     init(showSettings: Binding<Bool> = .constant(false)) {
         _showSettings = showSettings
@@ -237,6 +238,7 @@ struct MainContentView: View {
                         }
                     }
                     .padding()
+                    .padding(.bottom, 160)
                     .animation(.spring(duration: 0.35, bounce: 0.2), value: filtered.map(\.id))
                 }
             }
@@ -429,6 +431,20 @@ struct MainContentView: View {
                 }
                 #endif
             }
+            .onChange(of: store.lastAddedCutlingID) { _, newID in
+                guard newID != nil, !hasScrolledToNew else { return }
+                hasScrolledToNew = true
+                
+                // Wait a moment for the view to appear in the list
+                Task { @MainActor in
+                    try? await Task.sleep(for: .milliseconds(100))
+                    scrollToBottom()
+                    
+                    // Reset the flag after a delay
+                    try? await Task.sleep(for: .seconds(1))
+                    hasScrolledToNew = false
+                }
+            }
             #if os(iOS)
             .modifier(PanGestureModifier(
                 isSelecting: isSelecting,
@@ -548,6 +564,19 @@ struct MainContentView: View {
             isSelecting = false
         }
     }
+    
+    // MARK: - Scroll to New Item
+    
+    private func scrollToBottom() {
+        #if os(iOS)
+        withAnimation(.spring(duration: 0.5, bounce: 0.3)) {
+            scrollProperties.position.scrollTo(edge: .bottom)
+        }
+        #else
+        // On macOS, we can use the same approach if needed
+        // For now, the list is typically smaller and visible
+        #endif
+    }
 }
 
 // MARK: - Pan Gesture Recognizer
@@ -624,6 +653,11 @@ struct CardView: View {
     let onDelete: () -> Void
 
     @State private var copied = false
+    
+    #if os(iOS)
+    // Reusable haptic generator for better performance
+    private static let haptic = UIImpactFeedbackGenerator(style: .light)
+    #endif
 
     var body: some View {
         Group {
@@ -679,6 +713,9 @@ struct CardView: View {
             previewContent
         }
         .onTapGesture {
+            #if os(iOS)
+            Self.haptic.impactOccurred()
+            #endif
             if isSelecting {
                 onToggleSelection()
             } else {
