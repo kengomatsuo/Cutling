@@ -168,7 +168,11 @@ class KeyboardViewController: UIInputViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .clear
+        
+        let desiredHeight: CGFloat = 348
+        let constraint = view.heightAnchor.constraint(equalToConstant: desiredHeight)
+        constraint.priority = .required
+        constraint.isActive = true
 
         UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(hasFullAccess, forKey: "hasFullAccess")
         keyboardState.returnKeyType = textDocumentProxy.returnKeyType ?? .default
@@ -275,11 +279,15 @@ struct KeyboardView: View {
         VStack(spacing: 6) {
             suggestionBar
                 .padding(.horizontal, KeyStyle.horizontalPadding)
+                .padding(.top, 6)
+                .frame(height: KeyStyle.keyHeight + 6)
 
             snippetGrid
+                .frame(height: 240)
 
             bottomRow
                 .padding(.horizontal, KeyStyle.horizontalPadding)
+                .frame(height: KeyStyle.keyHeight)
         }
         .padding(.bottom, 2)
         .tint(Color(hex: 0x22a98d))
@@ -372,7 +380,6 @@ struct KeyboardView: View {
                 }
             }
         }
-        .frame(minHeight: 160, maxHeight: 240)
         .background(Color.white.opacity(0.001))
     }
 

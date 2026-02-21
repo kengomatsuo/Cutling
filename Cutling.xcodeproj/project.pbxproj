@@ -16,7 +16,7 @@
 			containerPortal = CF1F45EF2F457B3C00582E62 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CFA06CA32F45AD10005CD274;
-			remoteInfo = TineKeyboard;
+			remoteInfo = CutlingKeyboard;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -40,6 +40,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		CF1817532F49590000709DC0 /* Exceptions for "Cutling" folder in "Cutling" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = CF1F45F62F457B3C00582E62 /* Cutling */;
+		};
+		CF1817552F49595300709DC0 /* Exceptions for "Cutling" folder in "CutlingKeyboard" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Snippet.swift,
+				SnippetStore.swift,
+			);
+			target = CFA06CA32F45AD10005CD274 /* CutlingKeyboard */;
+		};
 		CFA06CAC2F45AD10005CD274 /* Exceptions for "CutlingKeyboard" folder in "CutlingKeyboard" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -52,6 +67,10 @@
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		CF1F45F92F457B3C00582E62 /* Cutling */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				CF1817532F49590000709DC0 /* Exceptions for "Cutling" folder in "Cutling" target */,
+				CF1817552F49595300709DC0 /* Exceptions for "Cutling" folder in "CutlingKeyboard" target */,
+			);
 			path = Cutling;
 			sourceTree = "<group>";
 		};
@@ -124,7 +143,7 @@
 			name = Cutling;
 			packageProductDependencies = (
 			);
-			productName = Tine;
+			productName = Cutling;
 			productReference = CF1F45F72F457B3C00582E62 /* Cutling.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -146,7 +165,7 @@
 			name = CutlingKeyboard;
 			packageProductDependencies = (
 			);
-			productName = TineKeyboard;
+			productName = CutlingKeyboard;
 			productReference = CFA06CA42F45AD10005CD274 /* CutlingKeyboard.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
