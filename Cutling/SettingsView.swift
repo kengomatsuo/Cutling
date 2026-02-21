@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var store: CutlingStore
     @State private var isKeyboardAdded = false
     @State private var hasFullAccess = false
     @State private var showSetupGuide = false
@@ -57,6 +58,15 @@ struct SettingsView: View {
                     } label: {
                         Label("Keyboard Setup Guide", systemImage: "book.pages")
                     }
+                }
+                
+                Section {
+                    LabeledContent("Text Cutlings", value: "\(store.textCutlingsCount) / \(CutlingStore.maxTextCutlings)")
+                    LabeledContent("Image Cutlings", value: "\(store.imageCutlingsCount) / \(CutlingStore.maxImageCutlings)")
+                } header: {
+                    Text("Storage")
+                } footer: {
+                    Text("iOS limits keyboard extensions to 77 MB of memory. Images use more memory than text, so we limit them to \(CutlingStore.maxImageCutlings) while allowing up to \(CutlingStore.maxTextCutlings) text cutlings. This ensures your keyboard stays fast and reliable.")
                 }
 
                 Section("About") {

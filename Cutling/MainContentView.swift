@@ -53,6 +53,8 @@ struct MainContentView: View {
     @Binding var showSettings: Bool
     
     @State private var showKeyboardSetup = false
+    @State private var showLimitAlert = false
+    @State private var limitAlertMessage = ""
 
     @State private var isSelecting = false
     @State private var selectedCutlings = Set<UUID>()
@@ -99,6 +101,40 @@ struct MainContentView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
+                // Storage usage indicator
+                VStack(spacing: 6) {
+                    HStack(spacing: 12) {
+                        // Text count
+                        HStack(spacing: 4) {
+                            Image(systemName: "doc.text")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                            Text("\(store.textCutlingsCount)/\(CutlingStore.maxTextCutlings)")
+                                .font(.caption.weight(.medium))
+                                .foregroundStyle(.secondary)
+                        }
+                        
+                        // Image count
+                        HStack(spacing: 4) {
+                            Image(systemName: "photo")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                            Text("\(store.imageCutlingsCount)/\(CutlingStore.maxImageCutlings)")
+                                .font(.caption.weight(.medium))
+                                .foregroundStyle(.secondary)
+                        }
+                        
+                        Spacer()
+                    }
+                    .padding(.horizontal)
+                    .padding(.top, 8)
+                    
+                    if !filtered.isEmpty {
+                        Divider()
+                            .padding(.horizontal)
+                    }
+                }
+                
                 if filtered.isEmpty {
                     VStack(spacing: 12) {
                         Image(systemName: searchText.isEmpty ? "tray" : "magnifyingglass")
@@ -170,12 +206,24 @@ struct MainContentView: View {
                     } else {
                         Menu {
                             Button {
-                                showAddText = true
+                                let canAddText = store.canAdd(.text)
+                                if canAddText.allowed {
+                                    showAddText = true
+                                } else {
+                                    limitAlertMessage = canAddText.reason ?? "Cannot add text cutling"
+                                    showLimitAlert = true
+                                }
                             } label: {
                                 Label("Text Cutling", systemImage: "doc.text")
                             }
                             Button {
-                                showAddImage = true
+                                let canAddImage = store.canAdd(.image)
+                                if canAddImage.allowed {
+                                    showAddImage = true
+                                } else {
+                                    limitAlertMessage = canAddImage.reason ?? "Cannot add image cutling"
+                                    showLimitAlert = true
+                                }
                             } label: {
                                 Label("Image Cutling", systemImage: "photo")
                             }
@@ -257,6 +305,11 @@ struct MainContentView: View {
             }
             .sheet(isPresented: $showKeyboardSetup) {
                 KeyboardSetupView(isOnboarding: false)
+            }
+            .alert("Limit Reached", isPresented: $showLimitAlert) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text(limitAlertMessage)
             }
             .alert(
                 "Delete \"\(cutlingToDelete?.name ?? "")\"?",

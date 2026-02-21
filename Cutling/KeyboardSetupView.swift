@@ -192,6 +192,31 @@ struct KeyboardSetupView: View {
                     } footer: {
                         Text("You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard.")
                     }
+                    
+                    // Limits explanation
+                    Section {
+                        VStack(alignment: .leading, spacing: 8) {
+                            HStack {
+                                Image(systemName: "doc.text")
+                                    .foregroundStyle(.secondary)
+                                    .frame(width: 24)
+                                Text("Up to **\(CutlingStore.maxTextCutlings) text** cutlings")
+                                    .font(.subheadline)
+                            }
+                            
+                            HStack {
+                                Image(systemName: "photo")
+                                    .foregroundStyle(.secondary)
+                                    .frame(width: 24)
+                                Text("Up to **\(CutlingStore.maxImageCutlings) image** cutlings")
+                                    .font(.subheadline)
+                            }
+                        }
+                    } header: {
+                        Text("Storage Limits")
+                    } footer: {
+                        Text("iOS limits keyboard extensions to 77 MB of memory. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones.")
+                    }
                 }
             }
             .navigationTitle("Keyboard Setup")

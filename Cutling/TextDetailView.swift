@@ -87,6 +87,8 @@ struct TextDetailView: View {
     @State private var icon: String
     @State private var showIconPicker = false
     @State private var showDeleteAlert = false
+    @State private var showLimitAlert = false
+    @State private var limitAlertMessage = ""
 
     init(item: Cutling?) {
         self.existingItem = item
@@ -135,7 +137,7 @@ struct TextDetailView: View {
                 }
                 Section("Text") {
                     TextEditor(text: $value)
-                        .frame(minHeight: 120)
+                        .frame(minHeight: 120, maxHeight: 650)
                         .scrollContentBackground(.hidden)
                 }
                 if isEditing {
@@ -183,16 +185,24 @@ struct TextDetailView: View {
                             updated.value = value
                             updated.icon = icon
                             store.update(updated)
+                            dismiss()
                         } else {
-                            store.add(
-                                Cutling(
-                                    name: name,
-                                    value: value,
-                                    icon: icon
+                            // Check limit for new cutlings
+                            let canAdd = store.canAdd(.text)
+                            if canAdd.allowed {
+                                store.add(
+                                    Cutling(
+                                        name: name,
+                                        value: value,
+                                        icon: icon
+                                    )
                                 )
-                            )
+                                dismiss()
+                            } else {
+                                limitAlertMessage = canAdd.reason ?? "Cannot add more text cutlings."
+                                showLimitAlert = true
+                            }
                         }
-                        dismiss()
                     } label: {
                         #if os(macOS)
                         Text("Save")
@@ -210,6 +220,11 @@ struct TextDetailView: View {
             }
             .sheet(isPresented: $showIconPicker) {
                 IconPickerView(selectedIcon: $icon)
+            }
+            .alert("Limit Reached", isPresented: $showLimitAlert) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text(limitAlertMessage)
             }
         }
         #if os(macOS)

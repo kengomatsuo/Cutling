@@ -17,6 +17,22 @@ import AppKit
 let appGroupID = "group.com.matsuokengo.Cutling"
 private let cutlingsKey = "savedCutlings"
 
+// MARK: - Cutling Limits
+
+/// Limits are enforced to keep the keyboard extension under iOS's strict 77 MB memory limit.
+/// - Text cutlings are lightweight (~1-5 KB each)
+/// - Image cutlings are heavier (~50-500 KB each, even with thumbnails)
+extension CutlingStore {
+    /// Maximum number of image cutlings allowed (prevents memory crashes)
+    static let maxImageCutlings = 50
+    
+    /// Maximum number of text cutlings allowed
+    static let maxTextCutlings = 200
+    
+    /// Total limit across both types (safety net)
+    static let maxTotalCutlings = 250
+}
+
 class CutlingStore: ObservableObject {
     static let shared = CutlingStore()
 
@@ -63,7 +79,7 @@ class CutlingStore: ObservableObject {
         
         // Configure thumbnail cache limits (crucial for keyboard extension memory limits)
         #if os(iOS)
-        thumbnailCache.countLimit = 50  // Maximum 50 thumbnails in memory
+        thumbnailCache.countLimit = 30  // Maximum 30 thumbnails in memory
         thumbnailCache.totalCostLimit = 10 * 1024 * 1024  // 10 MB max for images
         #endif
 
@@ -155,6 +171,43 @@ class CutlingStore: ObservableObject {
     func add(_ cutling: Cutling) {
         cutlings.append(cutling)
         save()
+    }
+    
+    // MARK: - Limit Checks
+    
+    /// Check if adding a new cutling of the given type would exceed limits
+    func canAdd(_ kind: CutlingKind) -> (allowed: Bool, reason: String?) {
+        let totalCount = cutlings.count
+        let imageCount = cutlings.filter { $0.kind == .image }.count
+        let textCount = cutlings.filter { $0.kind == .text }.count
+        
+        // Check total limit first
+        if totalCount >= Self.maxTotalCutlings {
+            return (false, "You've reached the maximum of \(Self.maxTotalCutlings) total cutlings. Delete some to add more.")
+        }
+        
+        // Check type-specific limits
+        switch kind {
+        case .image:
+            if imageCount >= Self.maxImageCutlings {
+                return (false, "You've reached the maximum of \(Self.maxImageCutlings) image cutlings. Images use significant memory in the keyboard. Delete some images to add more.")
+            }
+        case .text:
+            if textCount >= Self.maxTextCutlings {
+                return (false, "You've reached the maximum of \(Self.maxTextCutlings) text cutlings. Delete some to add more.")
+            }
+        }
+        
+        return (true, nil)
+    }
+    
+    /// Current counts for display purposes
+    var imageCutlingsCount: Int {
+        cutlings.filter { $0.kind == .image }.count
+    }
+    
+    var textCutlingsCount: Int {
+        cutlings.filter { $0.kind == .text }.count
     }
 
     func update(_ cutling: Cutling) {

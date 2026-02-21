@@ -285,6 +285,8 @@ struct KeyboardView: View {
     @State private var existedID: UUID? = nil
     @State private var showAddedToast = false
     @State private var showNoAccessToast = false
+    @State private var showLimitToast = false
+    @State private var limitToastMessage = ""
 
     var body: some View {
         VStack(spacing: 6) {
@@ -347,9 +349,13 @@ struct KeyboardView: View {
                 if showNoAccessToast {
                     toastOverlay(icon: "lock.fill", text: "Full Access Required")
                 }
+                if showLimitToast {
+                    toastOverlay(icon: "exclamationmark.triangle", text: limitToastMessage)
+                }
             }
             .animation(.spring(duration: 0.35, bounce: 0.2), value: showAddedToast)
             .animation(.spring(duration: 0.35, bounce: 0.2), value: showNoAccessToast)
+            .animation(.spring(duration: 0.35, bounce: 0.2), value: showLimitToast)
 
             Link(destination: URL(string: "cutling://open")!) {
                 Image(systemName: "arrow.up.forward.square")
@@ -502,6 +508,13 @@ struct KeyboardView: View {
         if let image = UIPasteboard.general.image,
            let imageData = image.pngData() {
             
+            // Check image limit
+            let canAdd = store.canAdd(.image)
+            if !canAdd.allowed {
+                showLimitReached(canAdd.reason ?? "Limit reached")
+                return
+            }
+            
             let id = UUID()
             var cutling = Cutling(
                 id: id,
@@ -534,6 +547,13 @@ struct KeyboardView: View {
             showExisted(existing.id)
             return
         }
+        
+        // Check text limit
+        let canAdd = store.canAdd(.text)
+        if !canAdd.allowed {
+            showLimitReached(canAdd.reason ?? "Limit reached")
+            return
+        }
 
         let cutling = Cutling(
             name: "Clip: \(timestamp)",
@@ -562,6 +582,27 @@ struct KeyboardView: View {
             try? await Task.sleep(for: .seconds(1.5))
             withAnimation(.easeOut(duration: 0.25)) {
                 showNoAccessToast = false
+            }
+        }
+    }
+    
+    private func showLimitReached(_ message: String) {
+        // Shorten the message for keyboard display
+        if message.contains("image") {
+            limitToastMessage = "Image Limit: \(CutlingStore.maxImageCutlings)"
+        } else if message.contains("text") {
+            limitToastMessage = "Text Limit: \(CutlingStore.maxTextCutlings)"
+        } else {
+            limitToastMessage = "Limit Reached"
+        }
+        
+        withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
+            showLimitToast = true
+        }
+        Task {
+            try? await Task.sleep(for: .seconds(2.0))
+            withAnimation(.easeOut(duration: 0.25)) {
+                showLimitToast = false
             }
         }
     }

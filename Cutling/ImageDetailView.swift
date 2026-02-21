@@ -40,6 +40,8 @@ struct ImageDetailView: View {
     @State private var selectedPhoto: PhotosPickerItem? = nil
     @State private var showFilePicker = false
     @State private var showDeleteAlert = false
+    @State private var showLimitAlert = false
+    @State private var limitAlertMessage = ""
     
     init(item: Cutling?) {
         self.existingItem = item
@@ -140,6 +142,11 @@ struct ImageDetailView: View {
                     imageData = store.loadImageData(named: filename)
                 }
             }
+            .alert("Limit Reached", isPresented: $showLimitAlert) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text(limitAlertMessage)
+            }
         }
         #if os(macOS)
         .frame(minWidth: 420, idealWidth: 480, minHeight: 400, idealHeight: 500)
@@ -218,7 +225,16 @@ struct ImageDetailView: View {
             }
 
             store.update(updated)
+            dismiss()
         } else {
+            // Check limit for new cutlings
+            let canAdd = store.canAdd(.image)
+            if !canAdd.allowed {
+                limitAlertMessage = canAdd.reason ?? "Cannot add more image cutlings."
+                showLimitAlert = true
+                return
+            }
+            
             let id = UUID()
             var cutling = Cutling(
                 id: id,
@@ -234,7 +250,7 @@ struct ImageDetailView: View {
             }
 
             store.add(cutling)
+            dismiss()
         }
-        dismiss()
     }
 }
