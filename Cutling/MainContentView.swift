@@ -125,9 +125,11 @@ struct MainContentView: View {
         var manualScrollOffset: CGFloat = 0
         var timer: Timer?
         var direction: ScrollDirection = .none
+        /// Pixels per tick — updated continuously as finger moves within edge zone.
+        var speed: CGFloat = 0
     }
 
-    private enum ScrollDirection {
+    nonisolated private enum ScrollDirection {
         case up
         case down
         case none
@@ -250,12 +252,13 @@ struct MainContentView: View {
                     guard scrollProperties.timer == nil else { return }
                     scrollProperties.manualScrollOffset = scrollProperties.currentScrollOffset
 
-                    scrollProperties.timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
-                        if newValue == .up {
-                            scrollProperties.manualScrollOffset -= 3
+                    scrollProperties.timer = Timer.scheduledTimer(withTimeInterval: 0.005, repeats: true) { _ in
+                        let speed = scrollProperties.speed
+                        if case .up = scrollProperties.direction {
+                            scrollProperties.manualScrollOffset -= speed
                         }
-                        if newValue == .down {
-                            scrollProperties.manualScrollOffset += 3
+                        if case .down = scrollProperties.direction {
+                            scrollProperties.manualScrollOffset += speed
                         }
                         scrollProperties.position.scrollTo(y: scrollProperties.manualScrollOffset)
                     }
@@ -267,6 +270,9 @@ struct MainContentView: View {
             #endif
             .background(Color(platformGroupedBackground))
             .navigationTitle("My Cutlings")
+            #if os(iOS)
+            .navigationBarTitleDisplayMode(isSelecting ? .inline : .large)
+            #endif
             .searchable(text: $searchText, prompt: "Search cutlings")
             .toolbar {
                 ToolbarItemGroup(placement: .primaryAction) {
@@ -440,7 +446,7 @@ struct MainContentView: View {
     private func onGestureChange(_ gesture: UIPanGestureRecognizer) {
         guard let view = gesture.view else { return }
         let position = gesture.location(in: view)
-        let edgeThreshold: CGFloat = 80
+        let edgeThreshold: CGFloat = 320
 
         if let fallingIndex = filtered.indices.first(where: {
             cutlingLocations[filtered[$0].id]?.contains(position) == true
@@ -464,12 +470,17 @@ struct MainContentView: View {
             }
         }
 
-        // Check scroll direction based on finger position relative to view bounds
+        // Check scroll direction and calculate speed based on how deep into the edge zone
         if position.y < edgeThreshold {
+            let depth = (edgeThreshold - position.y) / edgeThreshold // 0…1
+            scrollProperties.speed = 3 + depth * 12 // 3…15
             scrollProperties.direction = .up
         } else if position.y > view.bounds.height - edgeThreshold {
+            let depth = (position.y - (view.bounds.height - edgeThreshold)) / edgeThreshold // 0…1
+            scrollProperties.speed = 3 + depth * 12 // 3…15
             scrollProperties.direction = .down
         } else {
+            scrollProperties.speed = 0
             scrollProperties.direction = .none
         }
     }
@@ -493,6 +504,7 @@ struct MainContentView: View {
         scrollProperties.timer?.invalidate()
         scrollProperties.timer = nil
         scrollProperties.direction = .none
+        scrollProperties.speed = 0
     }
     #endif
 
@@ -817,7 +829,7 @@ struct CardView: View {
                         isSelecting && isSelected ? Color.accentColor : Color.primary
                     )
                     .scaleEffect(!isSelecting || isSelected ? 1.0 : 0.85)
-                    .rotationEffect(.degrees(!isSelecting || isSelected ? 0 : -10))
+                    .rotationEffect(.degrees(!isSelecting || isSelected ? 0 : -15))
                     .animation(.spring(duration: 0.15), value: isSelected)
             }
             .frame(width: 36, height: 36)
