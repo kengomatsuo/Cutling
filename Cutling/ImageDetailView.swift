@@ -31,9 +31,9 @@ struct PickedImage: Transferable {
 
 struct ImageDetailView: View {
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var store: SnippetStore
+    @EnvironmentObject var store: CutlingStore
 
-    let existingItem: Snippet?
+    let existingItem: Cutling?
 
     @State private var name: String
     @State private var imageData: Data?
@@ -41,7 +41,7 @@ struct ImageDetailView: View {
     @State private var showFilePicker = false
     @State private var showDeleteAlert = false
     
-    init(item: Snippet?) {
+    init(item: Cutling?) {
         self.existingItem = item
         _name = State(initialValue: item?.name ?? "")
     }
@@ -60,14 +60,14 @@ struct ImageDetailView: View {
                 }
                 if isEditing {
                     Section {
-                        Button("Delete Snippet", role: .destructive) {
+                        Button("Delete Cutling", role: .destructive) {
                             showDeleteAlert = true
                         }
                     }
                 }
             }
             .formStyle(.grouped)
-            .alert("Delete Snippet?", isPresented: $showDeleteAlert) {
+            .alert("Delete Cutling?", isPresented: $showDeleteAlert) {
                 Button("Delete", role: .destructive) {
                     if let item = existingItem {
                         store.delete(item)
@@ -89,19 +89,27 @@ struct ImageDetailView: View {
                     } label: {
                         #if os(macOS)
                         Text("Cancel")
-                        #else
-                        Image(systemName: "xmark")
+                        #elseif os(iOS)
+                        if #available(iOS 26, *) {
+                            Image(systemName: "xmark")
+                        } else {
+                            Text("Cancel")
+                        }
                         #endif
                     }
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     Button {
-                        saveSnippet()
+                        saveCutling()
                     } label: {
                         #if os(macOS)
                         Text("Save")
-                        #else
-                        Image(systemName: "checkmark")
+                        #elseif os(iOS)
+                        if #available(iOS 26, *) {
+                            Image(systemName: "checkmark")
+                        } else {
+                            Text("Save")
+                        }
                         #endif
                     }
                     .buttonStyle(.borderedProminent)
@@ -197,7 +205,7 @@ struct ImageDetailView: View {
 
     // MARK: - Save
 
-    private func saveSnippet() {
+    private func saveCutling() {
         if let existing = existingItem {
             var updated = existing
             updated.name = name
@@ -212,7 +220,7 @@ struct ImageDetailView: View {
             store.update(updated)
         } else {
             let id = UUID()
-            var snippet = Snippet(
+            var cutling = Cutling(
                 id: id,
                 name: name,
                 value: "",
@@ -222,10 +230,10 @@ struct ImageDetailView: View {
             )
 
             if let imageData {
-                snippet.imageFilename = store.saveImageData(imageData, for: id)
+                cutling.imageFilename = store.saveImageData(imageData, for: id)
             }
 
-            store.add(snippet)
+            store.add(cutling)
         }
         dismiss()
     }

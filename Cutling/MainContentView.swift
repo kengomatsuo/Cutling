@@ -44,22 +44,24 @@ extension Image {
 // MARK: - Main Content
 
 struct MainContentView: View {
-    @EnvironmentObject var store: SnippetStore
+    @EnvironmentObject var store: CutlingStore
 
     @State private var searchText = ""
-    @State private var selectedItem: Snippet? = nil
+    @State private var selectedItem: Cutling? = nil
     @State private var showAddText = false
     @State private var showAddImage = false
     @Binding var showSettings: Bool
     
+    @State private var showKeyboardSetup = false
+
     @State private var isSelecting = false
-    @State private var selectedSnippets = Set<UUID>()
+    @State private var selectedCutlings = Set<UUID>()
     @State private var showDeleteConfirmation = false
-    @State private var snippetToDelete: Snippet?
+    @State private var cutlingToDelete: Cutling?
     #if os(iOS)
     @State private var panGesture: UIPanGestureRecognizer?
     #endif
-    @State private var snippetLocations: [UUID: CGRect] = [:]
+    @State private var cutlingLocations: [UUID: CGRect] = [:]
     @State private var panStartIndex: Int? = nil
     @State private var panIsDeselecting: Bool = false
     @State private var selectionBeforePan: Set<UUID> = []
@@ -68,11 +70,27 @@ struct MainContentView: View {
         _showSettings = showSettings
     }
 
+    // MARK: - Keyboard Status
+
+    private var isKeyboardAdded: Bool {
+        let bundleID = Bundle.main.bundleIdentifier ?? ""
+        let keyboards = UserDefaults.standard.stringArray(forKey: "AppleKeyboards") ?? []
+        return keyboards.contains(where: { $0.hasPrefix(bundleID) })
+    }
+
+    private var hasFullAccess: Bool {
+        UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.bool(forKey: "hasFullAccess") ?? false
+    }
+
+    private var keyboardNeedsAttention: Bool {
+        !isKeyboardAdded || !hasFullAccess
+    }
+
     let columns = [GridItem(.adaptive(minimum: 160, maximum: 240), spacing: 12)]
 
-    var filtered: [Snippet] {
-        if searchText.isEmpty { return store.snippets }
-        return store.snippets.filter {
+    var filtered: [Cutling] {
+        if searchText.isEmpty { return store.cutlings }
+        return store.cutlings.filter {
             $0.name.localizedCaseInsensitiveContains(searchText) ||
             $0.value.localizedCaseInsensitiveContains(searchText)
         }
@@ -86,10 +104,10 @@ struct MainContentView: View {
                         Image(systemName: searchText.isEmpty ? "tray" : "magnifyingglass")
                             .font(.system(size: 48, weight: .thin))
                             .foregroundStyle(.tertiary)
-                        Text(searchText.isEmpty ? "No Snippets Yet" : "No Results")
+                        Text(searchText.isEmpty ? "No Cutlings Yet" : "No Results")
                             .font(.title3.weight(.semibold))
                             .foregroundStyle(.secondary)
-                        Text(searchText.isEmpty ? "Tap + to add your first snippet." : "Try a different search term.")
+                        Text(searchText.isEmpty ? "Tap + to add your first cutling." : "Try a different search term.")
                             .font(.subheadline)
                             .foregroundStyle(.tertiary)
                     }
@@ -101,7 +119,7 @@ struct MainContentView: View {
                             CardView(
                                 item: item,
                                 isSelecting: isSelecting,
-                                isSelected: selectedSnippets.contains(item.id),
+                                isSelected: selectedCutlings.contains(item.id),
                                 onEdit: {
                                     selectedItem = item
                                 },
@@ -109,7 +127,7 @@ struct MainContentView: View {
                                     toggleSelection(for: item)
                                 },
                                 onDelete: {
-                                    snippetToDelete = item
+                                    cutlingToDelete = item
                                     showDeleteConfirmation = true
                                 }
                             )
@@ -121,7 +139,7 @@ struct MainContentView: View {
                             .onGeometryChange(for: CGRect.self) {
                                 $0.frame(in: .global)
                             } action: { newValue in
-                                snippetLocations[item.id] = newValue
+                                cutlingLocations[item.id] = newValue
                             }
                         }
                     }
@@ -130,26 +148,36 @@ struct MainContentView: View {
                 }
             }
             .background(Color(platformGroupedBackground))
-            .navigationTitle("My Snippets")
-            .searchable(text: $searchText, prompt: "Search snippets")
+            .navigationTitle("My Cutlings")
+            .searchable(text: $searchText, prompt: "Search cutlings")
             .toolbar {
                 ToolbarItemGroup(placement: .primaryAction) {
                     if isSelecting {
-                        Button("Cancel") {
+                        Button {
                             isSelecting = false
-                            selectedSnippets.removeAll()
+                            selectedCutlings.removeAll()
+                        } label: {
+                            #if os(macOS)
+                            Text("Cancel")
+                            #elseif os(iOS)
+                            if #available(iOS 26, *) {
+                                Image(systemName: "xmark")
+                            } else {
+                                Text("Cancel")
+                            }
+                            #endif
                         }
                     } else {
                         Menu {
                             Button {
                                 showAddText = true
                             } label: {
-                                Label("Text Snippet", systemImage: "doc.text")
+                                Label("Text Cutling", systemImage: "doc.text")
                             }
                             Button {
                                 showAddImage = true
                             } label: {
-                                Label("Image Snippet", systemImage: "photo")
+                                Label("Image Cutling", systemImage: "photo")
                             }
                         } label: {
                             Image(systemName: "plus")
@@ -159,9 +187,17 @@ struct MainContentView: View {
                             Button {
                                 isSelecting = true
                             } label: {
-                                Label("Select Snippets", systemImage: "checkmark.circle")
+                                Label("Select Cutlings", systemImage: "checkmark.circle")
                             }
-                            
+
+                            if keyboardNeedsAttention {
+                                Button {
+                                    showKeyboardSetup = true
+                                } label: {
+                                    Label("Keyboard Setup", systemImage: "exclamationmark.triangle")
+                                }
+                            }
+
                             Button {
                                 showSettings = true
                             } label: {
@@ -169,6 +205,7 @@ struct MainContentView: View {
                             }
                         } label: {
                             Image(systemName: "ellipsis")
+                            // use keyboardNeedsAttention to render badge
                         }
                     }
                 }
@@ -177,24 +214,24 @@ struct MainContentView: View {
                     if isSelecting {
                         Spacer()
                         Button(role: .destructive) {
-                            if !selectedSnippets.isEmpty {
+                            if !selectedCutlings.isEmpty {
                                 showDeleteConfirmation = true
                             }
                         } label: {
                             Image(systemName: "trash")
-                                .foregroundStyle(selectedSnippets.isEmpty ? Color.secondary : Color.red)
+                                .foregroundStyle(selectedCutlings.isEmpty ? Color.secondary : Color.red)
                         }
-                        .disabled(selectedSnippets.isEmpty)
+                        .disabled(selectedCutlings.isEmpty)
                         .confirmationDialog(
-                            "Delete \(selectedSnippets.count) item\(selectedSnippets.count == 1 ? "" : "s")?",
+                            "Delete \(selectedCutlings.count) item\(selectedCutlings.count == 1 ? "" : "s")?",
                             isPresented: Binding(
-                                get: { showDeleteConfirmation && snippetToDelete == nil },
+                                get: { showDeleteConfirmation && cutlingToDelete == nil },
                                 set: { if !$0 { showDeleteConfirmation = false } }
                             ),
                             titleVisibility: .visible
                         ) {
                             Button("Delete", role: .destructive) {
-                                deleteSelectedSnippets()
+                                deleteSelectedCutlings()
                             }
                             Button("Cancel", role: .cancel) {}
                         }
@@ -218,23 +255,26 @@ struct MainContentView: View {
             .sheet(isPresented: $showSettings) {
                 SettingsView()
             }
+            .sheet(isPresented: $showKeyboardSetup) {
+                KeyboardSetupView(isOnboarding: false)
+            }
             .alert(
-                "Delete \"\(snippetToDelete?.name ?? "")\"?",
+                "Delete \"\(cutlingToDelete?.name ?? "")\"?",
                 isPresented: Binding(
-                    get: { showDeleteConfirmation && snippetToDelete != nil },
-                    set: { if !$0 { showDeleteConfirmation = false; snippetToDelete = nil } }
+                    get: { showDeleteConfirmation && cutlingToDelete != nil },
+                    set: { if !$0 { showDeleteConfirmation = false; cutlingToDelete = nil } }
                 ),
-                presenting: snippetToDelete
-            ) { snippet in
+                presenting: cutlingToDelete
+            ) { cutling in
                 Button("Delete", role: .destructive) {
                     withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
-                        store.delete(snippet)
+                        store.delete(cutling)
                     }
-                    snippetToDelete = nil
+                    cutlingToDelete = nil
                     showDeleteConfirmation = false
                 }
                 Button("Cancel", role: .cancel) {
-                    snippetToDelete = nil
+                    cutlingToDelete = nil
                     showDeleteConfirmation = false
                 }
             }
@@ -244,8 +284,8 @@ struct MainContentView: View {
                     panGesture?.isEnabled = newValue
                 }
                 #endif
-                if !newValue && !selectedSnippets.isEmpty {
-                    selectedSnippets.removeAll()
+                if !newValue && !selectedCutlings.isEmpty {
+                    selectedCutlings.removeAll()
                 }
             }
             #if os(iOS)
@@ -268,13 +308,13 @@ struct MainContentView: View {
         let location = gesture.location(in: gesture.view)
 
         guard let currentIndex = filtered.indices.first(where: {
-            snippetLocations[filtered[$0].id]?.contains(location) == true
+            cutlingLocations[filtered[$0].id]?.contains(location) == true
         }) else { return }
 
         if gesture.state == .began {
             panStartIndex = currentIndex
-            selectionBeforePan = selectedSnippets
-            panIsDeselecting = selectedSnippets.contains(filtered[currentIndex].id)
+            selectionBeforePan = selectedCutlings
+            panIsDeselecting = selectedCutlings.contains(filtered[currentIndex].id)
         }
 
         guard let startIndex = panStartIndex else { return }
@@ -286,31 +326,31 @@ struct MainContentView: View {
         let rangeIDs = Set(range.map { filtered[$0].id })
 
         if panIsDeselecting {
-            selectedSnippets = selectionBeforePan.subtracting(rangeIDs)
+            selectedCutlings = selectionBeforePan.subtracting(rangeIDs)
         } else {
-            selectedSnippets = selectionBeforePan.union(rangeIDs)
+            selectedCutlings = selectionBeforePan.union(rangeIDs)
         }
     }
     #endif
 
-    private func toggleSelection(for snippet: Snippet) {
-        if selectedSnippets.contains(snippet.id) {
-            selectedSnippets.remove(snippet.id)
+    private func toggleSelection(for cutling: Cutling) {
+        if selectedCutlings.contains(cutling.id) {
+            selectedCutlings.remove(cutling.id)
         } else {
-            selectedSnippets.insert(snippet.id)
+            selectedCutlings.insert(cutling.id)
         }
     }
     
-    private func deleteSelectedSnippets() {
-        let snippetsToDelete = store.snippets.filter { selectedSnippets.contains($0.id) }
+    private func deleteSelectedCutlings() {
+        let cutlingsToDelete = store.cutlings.filter { selectedCutlings.contains($0.id) }
         showDeleteConfirmation = false
         withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
-            for snippet in snippetsToDelete {
-                store.delete(snippet)
+            for cutling in cutlingsToDelete {
+                store.delete(cutling)
             }
         }
         Task { @MainActor in
-            selectedSnippets.removeAll()
+            selectedCutlings.removeAll()
             isSelecting = false
         }
     }
@@ -380,9 +420,9 @@ private let cardShape = RoundedRectangle(
 // MARK: - Card View
 
 struct CardView: View {
-    @EnvironmentObject var store: SnippetStore
+    @EnvironmentObject var store: CutlingStore
 
-    let item: Snippet
+    let item: Cutling
     let isSelecting: Bool
     let isSelected: Bool
     let onEdit: () -> Void
@@ -639,7 +679,7 @@ struct CardView: View {
 
 #Preview {
     MainContentView()
-        .environmentObject(SnippetStore.shared)
+        .environmentObject(CutlingStore.shared)
     #if os(macOS)
         .frame(width: 400, height: 500)
     #endif

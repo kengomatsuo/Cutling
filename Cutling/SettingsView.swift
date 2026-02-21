@@ -11,6 +11,7 @@ struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
     @State private var isKeyboardAdded = false
     @State private var hasFullAccess = false
+    @State private var showSetupGuide = false
 
     private var isKeyboardEnabled: Bool {
         let bundleID = Bundle.main.bundleIdentifier ?? ""
@@ -50,6 +51,12 @@ struct SettingsView: View {
                             Label("Open Settings to Enable", systemImage: "arrow.up.forward.square")
                         }
                     }
+
+                    Button {
+                        showSetupGuide = true
+                    } label: {
+                        Label("Keyboard Setup Guide", systemImage: "book.pages")
+                    }
                 }
 
                 Section("About") {
@@ -68,8 +75,12 @@ struct SettingsView: View {
                     } label: {
                         #if os(macOS)
                         Text("Done")
-                        #else
-                        Image(systemName: "xmark")
+                        #elseif os(iOS)
+                        if #available(iOS 26, *) {
+                            Image(systemName: "xmark")
+                        } else {
+                            Text("Done")
+                        }
                         #endif
                     }
                 }
@@ -77,6 +88,9 @@ struct SettingsView: View {
             .onAppear {
                 isKeyboardAdded = isKeyboardEnabled
                 hasFullAccess = fullAccessEnabled
+            }
+            .sheet(isPresented: $showSetupGuide) {
+                KeyboardSetupView(isOnboarding: false)
             }
         }
         #if os(macOS)

@@ -50,8 +50,8 @@
 		CF1817552F49595300709DC0 /* Exceptions for "Cutling" folder in "CutlingKeyboard" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Snippet.swift,
-				SnippetStore.swift,
+				Cutling.swift,
+				CutlingStore.swift,
 			);
 			target = CFA06CA32F45AD10005CD274 /* CutlingKeyboard */;
 		};
@@ -502,7 +502,7 @@
 				DEVELOPMENT_TEAM = PM3K35YS39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CutlingKeyboard/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CutlingKeyboard;
+				INFOPLIST_KEY_CFBundleDisplayName = Cutling;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -537,7 +537,7 @@
 				DEVELOPMENT_TEAM = PM3K35YS39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CutlingKeyboard/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CutlingKeyboard;
+				INFOPLIST_KEY_CFBundleDisplayName = Cutling;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (

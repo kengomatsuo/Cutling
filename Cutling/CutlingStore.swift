@@ -15,12 +15,12 @@ import AppKit
 #endif
 
 let appGroupID = "group.com.matsuokengo.Cutling"
-private let snippetsKey = "savedCutlings"
+private let cutlingsKey = "savedCutlings"
 
 class CutlingStore: ObservableObject {
     static let shared = CutlingStore()
 
-    @Published var snippets: [Cutling] = []
+    @Published var cutlings: [Cutling] = []
 
     private let defaults: UserDefaults
     private let imagesDirectory: URL
@@ -70,7 +70,7 @@ class CutlingStore: ObservableObject {
     }
     
     private func setupDarwinNotification() {
-        let notificationName = "com.matsuokengo.Cutling.snippetsChanged" as CFString
+        let notificationName = "com.matsuokengo.Cutling.cutlingsChanged" as CFString
         
         let observer = UnsafeRawPointer(Unmanaged.passUnretained(self).toOpaque())
         CFNotificationCenterAddObserver(
@@ -92,10 +92,10 @@ class CutlingStore: ObservableObject {
     private var lastLoadedData: Data?
     
     private func loadIfChanged() {
-        guard let data = defaults.data(forKey: snippetsKey) else {
+        guard let data = defaults.data(forKey: cutlingsKey) else {
             // Data was deleted
-            if !snippets.isEmpty {
-                snippets = []
+            if !cutlings.isEmpty {
+                cutlings = []
             }
             return
         }
@@ -105,8 +105,8 @@ class CutlingStore: ObservableObject {
             lastLoadedData = data
             if let decoded = try? JSONDecoder().decode([Cutling].self, from: data) {
                 DispatchQueue.main.async {
-                    self.snippets = decoded
-                    print("🔄 Reloaded \(decoded.count) snippets from shared storage")
+                    self.cutlings = decoded
+                    print("🔄 Reloaded \(decoded.count) cutlings from shared storage")
                 }
             }
         }
@@ -115,56 +115,56 @@ class CutlingStore: ObservableObject {
     // MARK: - CRUD
 
     func load() {
-        guard let data = defaults.data(forKey: snippetsKey),
+        guard let data = defaults.data(forKey: cutlingsKey),
               let decoded = try? JSONDecoder().decode([Cutling].self, from: data)
         else { 
             lastLoadedData = nil
             return 
         }
         lastLoadedData = data
-        snippets = decoded
+        cutlings = decoded
     }
 
     func save() {
-        guard let encoded = try? JSONEncoder().encode(snippets) else { return }
+        guard let encoded = try? JSONEncoder().encode(cutlings) else { return }
         lastLoadedData = encoded
-        defaults.set(encoded, forKey: snippetsKey)
+        defaults.set(encoded, forKey: cutlingsKey)
         
         // Notify other processes (keyboard extension or main app)
         CFNotificationCenterPostNotification(
             CFNotificationCenterGetDarwinNotifyCenter(),
-            CFNotificationName("com.matsuokengo.Cutling.snippetsChanged" as CFString),
+            CFNotificationName("com.matsuokengo.Cutling.cutlingsChanged" as CFString),
             nil,
             nil,
             true
         )
     }
 
-    func add(_ snippet: Cutling) {
-        snippets.append(snippet)
+    func add(_ cutling: Cutling) {
+        cutlings.append(cutling)
         save()
     }
 
-    func update(_ snippet: Cutling) {
-        if let i = snippets.firstIndex(where: { $0.id == snippet.id }) {
-            snippets[i] = snippet
+    func update(_ cutling: Cutling) {
+        if let i = cutlings.firstIndex(where: { $0.id == cutling.id }) {
+            cutlings[i] = cutling
             save()
         }
     }
 
-    func delete(_ snippet: Cutling) {
-        if let filename = snippet.imageFilename {
+    func delete(_ cutling: Cutling) {
+        if let filename = cutling.imageFilename {
             deleteImageFile(named: filename)
         }
-        snippets.removeAll { $0.id == snippet.id }
+        cutlings.removeAll { $0.id == cutling.id }
         save()
     }
 
     // MARK: - Image File Management
 
     @discardableResult
-    func saveImageData(_ data: Data, for snippetID: UUID) -> String? {
-        let filename = snippetID.uuidString + ".png"
+    func saveImageData(_ data: Data, for cutlingID: UUID) -> String? {
+        let filename = cutlingID.uuidString + ".png"
         let fileURL = imagesDirectory.appendingPathComponent(filename)
         do {
             try data.write(to: fileURL)
@@ -195,8 +195,8 @@ class CutlingStore: ObservableObject {
     // MARK: - Seed
 
     func seedIfEmpty() {
-        guard snippets.isEmpty else { return }
-        snippets = [
+        guard cutlings.isEmpty else { return }
+        cutlings = [
             Cutling(name: "Email", value: "email@example.com", icon: "envelope"),
             Cutling(name: "Phone", value: "+1 234 567 8900", icon: "phone"),
             Cutling(name: "Address", value: "123 Main St, Apartment 4A, City, Postal Code, Country", icon: "house"),

@@ -38,6 +38,7 @@ extension UIColor {
 /// The VC writes; the SwiftUI view observes.
 final class KeyboardState: ObservableObject {
     @Published var returnKeyType: UIReturnKeyType = .default
+    @Published var hasFullAccess: Bool = false
 }
 
 // MARK: - Instant Press Modifier
@@ -166,18 +167,22 @@ class KeyboardViewController: UIInputViewController {
     private var hostingController: UIHostingController<KeyboardView>?
     private let keyboardState = KeyboardState()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        let desiredHeight: CGFloat = 348
-        let constraint = view.heightAnchor.constraint(equalToConstant: desiredHeight)
-        constraint.priority = .required
-        constraint.isActive = true
+//        let desiredHeight: CGFloat = 348
+//        let constraint = view.heightAnchor.constraint(equalToConstant: desiredHeight)
+//        constraint.priority = .required
+//        constraint.isActive = true
 
-        UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(hasFullAccess, forKey: "hasFullAccess")
+        // Sync full-access state to shared UserDefaults AND observable state
+        let fullAccess = hasFullAccess
+        print(fullAccess)
+        UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(fullAccess, forKey: "hasFullAccess")
+        keyboardState.hasFullAccess = fullAccess
         keyboardState.returnKeyType = textDocumentProxy.returnKeyType ?? .default
 
-        let store = SnippetStore()
+        let store = CutlingStore()
         let inputVC = self
 
         // Type-safe hosting controller — no AnyView overhead
@@ -265,7 +270,7 @@ struct ReturnKeyInfo {
 // MARK: - Keyboard Root View
 
 struct KeyboardView: View {
-    let store: SnippetStore
+    let store: CutlingStore
     @ObservedObject var state: KeyboardState
     let onInsertText: (String) -> Void
     let onCopyImage: (Data) -> Void
@@ -274,15 +279,16 @@ struct KeyboardView: View {
     @State private var copiedID: UUID? = nil
     @State private var existedID: UUID? = nil
     @State private var showAddedToast = false
+    @State private var showNoAccessToast = false
 
     var body: some View {
         VStack(spacing: 6) {
             suggestionBar
                 .padding(.horizontal, KeyStyle.horizontalPadding)
-                .padding(.top, 6)
                 .frame(height: KeyStyle.keyHeight + 6)
+                .padding(.top, 6)
 
-            snippetGrid
+            cutlingGrid
                 .frame(height: 240)
 
             bottomRow
@@ -298,40 +304,47 @@ struct KeyboardView: View {
 
     private var suggestionBar: some View {
         HStack(spacing: 6) {
-            HStack(spacing: 6) {
-                Image(systemName: "doc.on.clipboard")
-                    .font(.system(size: 15, weight: .medium))
-                Text("Add from Clipboard")
-                    .font(.system(size: 16))
-            }
-            .frame(maxWidth: .infinity)
-            .frame(height: KeyStyle.keyHeight)
-            .instantPress(cornerRadius: 99) {
-                addFromClipboard()
+            Group {
+                if state.hasFullAccess {
+                    // Normal clipboard button
+                    HStack(spacing: 6) {
+                        Image(systemName: "doc.on.clipboard")
+                            .font(.system(size: 15, weight: .medium))
+                        Text("Add from Clipboard")
+                            .font(.system(size: 16))
+                    }
+                    .frame(maxWidth: .infinity)
+                    .frame(height: KeyStyle.keyHeight)
+                    .instantPress(cornerRadius: 99) {
+                        addFromClipboard()
+                    }
+                } else {
+                    // No full access — show disabled state that opens settings
+                    Link(destination: URL(string: "cutling://settings")!) {
+                        HStack(spacing: 6) {
+                            Image(systemName: "lock.fill")
+                                .font(.system(size: 13, weight: .medium))
+                                .foregroundStyle(.secondary)
+                            Text("Enable Full Access for Clipboard")
+                                .font(.system(size: 14))
+                                .foregroundStyle(.secondary)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .frame(height: KeyStyle.keyHeight)
+                    }
+                    .buttonStyle(.plain)
+                }
             }
             .overlay {
                 if showAddedToast {
-                    HStack(spacing: 5) {
-                        Image(systemName: "checkmark")
-                            .font(.system(size: 13, weight: .semibold))
-                        Text("Added!")
-                            .font(.system(size: 15, weight: .semibold))
-                    }
-                    .foregroundStyle(.primary)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: KeyStyle.keyHeight)
-                    .background(
-                        .ultraThinMaterial,
-                        in: RoundedRectangle(cornerRadius: 99, style: .continuous)
-                    )
-                    .transition(.asymmetric(
-                        insertion: .scale(scale: 0.85).combined(with: .opacity),
-                        removal: .opacity
-                    ))
-                    .allowsHitTesting(false)
+                    toastOverlay(icon: "checkmark", text: "Added!")
+                }
+                if showNoAccessToast {
+                    toastOverlay(icon: "lock.fill", text: "Full Access Required")
                 }
             }
             .animation(.spring(duration: 0.35, bounce: 0.2), value: showAddedToast)
+            .animation(.spring(duration: 0.35, bounce: 0.2), value: showNoAccessToast)
 
             Link(destination: URL(string: "cutling://open")!) {
                 Image(systemName: "arrow.up.forward.square")
@@ -345,34 +358,55 @@ struct KeyboardView: View {
         }
     }
 
-    // MARK: - Snippet Grid
+    private func toastOverlay(icon: String, text: String) -> some View {
+        HStack(spacing: 5) {
+            Image(systemName: icon)
+                .font(.system(size: 13, weight: .semibold))
+            Text(text)
+                .font(.system(size: 15, weight: .semibold))
+        }
+        .foregroundStyle(.primary)
+        .frame(maxWidth: .infinity)
+        .frame(height: KeyStyle.keyHeight)
+        .background(
+            .ultraThinMaterial,
+            in: RoundedRectangle(cornerRadius: 99, style: .continuous)
+        )
+        .transition(.asymmetric(
+            insertion: .scale(scale: 0.85).combined(with: .opacity),
+            removal: .opacity
+        ))
+        .allowsHitTesting(false)
+    }
 
-    private var snippetGrid: some View {
-        ScrollViewReader { proxy in // 1. Added Proxy
+    // MARK: - Cutling Grid
+
+    private var cutlingGrid: some View {
+        ScrollViewReader { proxy in
             ScrollView(.vertical, showsIndicators: false) {
-                if store.snippets.isEmpty {
+                if store.cutlings.isEmpty {
                     // ... (your empty state view)
                 } else {
                     LazyVGrid(
                         columns: [GridItem(.adaptive(minimum: 140), spacing: 6)],
                         spacing: 6
                     ) {
-                        ForEach(store.snippets) { snippet in
-                            SnippetKeyView(
-                                snippet: snippet,
+                        ForEach(store.cutlings) { cutling in
+                            CutlingKeyView(
+                                cutling: cutling,
                                 store: store,
-                                isCopied: copiedID == snippet.id,
-                                isExisted: existedID == snippet.id, // 2. Pass highlight state
-                                onTap: { handleTap(snippet) }
+                                isCopied: copiedID == cutling.id,
+                                isExisted: existedID == cutling.id,
+                                onTap: { handleTap(cutling) }
                             )
-                            .id(snippet.id) // 3. Ensure IDs are set for the proxy
+                            .id(cutling.id)
                         }
                     }
                     .padding(.horizontal, KeyStyle.horizontalPadding)
                     .padding(.vertical, 6)
                 }
             }
-            .onChange(of: existedID) { oldValue, newValue in // 4. Listen for changes
+            .onChange(of: existedID) { oldValue, newValue in
                 if let id = newValue {
                     withAnimation(.easeInOut) {
                         proxy.scrollTo(id, anchor: .center)
@@ -421,16 +455,20 @@ struct KeyboardView: View {
 
     // MARK: - Actions
 
-    private func handleTap(_ snippet: Snippet) {
-        switch snippet.kind {
+    private func handleTap(_ cutling: Cutling) {
+        switch cutling.kind {
         case .text:
-            onInsertText(snippet.value)
-            showCopied(snippet.id)
+            onInsertText(cutling.value)
+            showCopied(cutling.id)
         case .image:
-            if let filename = snippet.imageFilename,
+            if !state.hasFullAccess {
+                flashNoAccess()
+                return
+            }
+            if let filename = cutling.imageFilename,
                let data = store.loadImageData(named: filename) {
                 onCopyImage(data)
-                showCopied(snippet.id)
+                showCopied(cutling.id)
             }
         }
     }
@@ -452,7 +490,7 @@ struct KeyboardView: View {
     private func addFromClipboard() {
         guard let text = UIPasteboard.general.string, !text.isEmpty else { return }
 
-        if let existing = store.snippets.first(where: { $0.value == text }) {
+        if let existing = store.cutlings.first(where: { $0.value == text }) {
             showExisted(existing.id)
             return
         }
@@ -462,13 +500,13 @@ struct KeyboardView: View {
         formatter.timeStyle = .short
         let timestamp = formatter.string(from: Date())
 
-        let snippet = Snippet(
+        let cutling = Cutling(
             name: "Clip: \(timestamp)",
             value: text,
             icon: "doc.on.clipboard"
         )
 
-        store.add(snippet)
+        store.add(cutling)
 
         withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
             showAddedToast = true
@@ -477,6 +515,18 @@ struct KeyboardView: View {
             try? await Task.sleep(for: .seconds(1.5))
             withAnimation(.easeOut(duration: 0.25)) {
                 showAddedToast = false
+            }
+        }
+    }
+
+    private func flashNoAccess() {
+        withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
+            showNoAccessToast = true
+        }
+        Task {
+            try? await Task.sleep(for: .seconds(1.5))
+            withAnimation(.easeOut(duration: 0.25)) {
+                showNoAccessToast = false
             }
         }
     }
@@ -499,11 +549,11 @@ struct KeyboardView: View {
 }
 
 
-// MARK: - Snippet Key
+// MARK: - Cutling Key
 
-struct SnippetKeyView: View {
-    let snippet: Snippet
-    let store: SnippetStore
+struct CutlingKeyView: View {
+    let cutling: Cutling
+    let store: CutlingStore
     let isCopied: Bool
     let isExisted: Bool
     let onTap: () -> Void
@@ -511,7 +561,7 @@ struct SnippetKeyView: View {
     var body: some View {
         Button(action: onTap) {
             Group {
-                switch snippet.kind {
+                switch cutling.kind {
                 case .text:  textContent
                 case .image: imageContent
                 }
@@ -534,7 +584,7 @@ struct SnippetKeyView: View {
                     RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous)
                         .fill(.ultraThinMaterial)
                     Label(
-                        snippet.kind == .text ? "Inserted" : "Copied",
+                        cutling.kind == .text ? "Inserted" : "Copied",
                         systemImage: "checkmark"
                     )
                     .font(.subheadline.weight(.semibold))
@@ -554,14 +604,14 @@ struct SnippetKeyView: View {
     private var textContent: some View {
         VStack(alignment: .leading, spacing: 4) {
             HStack(spacing: 4) {
-                Image(systemName: snippet.icon)
+                Image(systemName: cutling.icon)
                     .font(.system(size: 13))
                     .foregroundStyle(.tint)
-                Text(snippet.name)
+                Text(cutling.name)
                     .font(.system(size: 14, weight: .semibold))
                     .lineLimit(1)
             }
-            Text(snippet.value)
+            Text(cutling.value)
                 .font(.system(size: 12))
                 .foregroundStyle(.secondary)
                 .lineLimit(2)
@@ -573,7 +623,7 @@ struct SnippetKeyView: View {
     private var imageContent: some View {
         GeometryReader { geo in
             ZStack(alignment: .bottomLeading) {
-                if let filename = snippet.imageFilename,
+                if let filename = cutling.imageFilename,
                    let data = store.loadImageData(named: filename),
                    let uiImage = UIImage(data: data) {
                     Image(uiImage: uiImage)
@@ -590,7 +640,7 @@ struct SnippetKeyView: View {
                         }
                 }
 
-                Text(snippet.name)
+                Text(cutling.name)
                     .font(.system(size: 13, weight: .semibold))
                     .foregroundStyle(.white)
                     .shadow(color: .black.opacity(0.4), radius: 2, y: 1)

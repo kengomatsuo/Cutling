@@ -57,8 +57,12 @@ struct IconPickerView: View {
                     } label: {
                         #if os(macOS)
                         Text("Cancel")
-                        #else
-                        Image(systemName: "xmark")
+                        #elseif os(iOS)
+                        if #available(iOS 26, *) {
+                            Image(systemName: "xmark")
+                        } else {
+                            Text("Cancel")
+                        }
                         #endif
                     }
                 }
@@ -74,9 +78,9 @@ struct IconPickerView: View {
 
 struct TextDetailView: View {
     @Environment(\.dismiss) var dismiss
-    @EnvironmentObject var store: SnippetStore
+    @EnvironmentObject var store: CutlingStore
 
-    let existingItem: Snippet?
+    let existingItem: Cutling?
 
     @State private var name: String
     @State private var value: String
@@ -84,7 +88,7 @@ struct TextDetailView: View {
     @State private var showIconPicker = false
     @State private var showDeleteAlert = false
 
-    init(item: Snippet?) {
+    init(item: Cutling?) {
         self.existingItem = item
         _name = State(initialValue: item?.name ?? "")
         _value = State(initialValue: item?.value ?? "")
@@ -136,14 +140,14 @@ struct TextDetailView: View {
                 }
                 if isEditing {
                     Section {
-                        Button("Delete Snippet", role: .destructive) {
+                        Button("Delete Cutling", role: .destructive) {
                             showDeleteAlert = true
                         }
                     }
                 }
             }
             .formStyle(.grouped)
-            .alert("Delete Snippet?", isPresented: $showDeleteAlert) {
+            .alert("Delete Cutling?", isPresented: $showDeleteAlert) {
                 Button("Delete", role: .destructive) {
                     if let item = existingItem {
                         store.delete(item)
@@ -154,7 +158,7 @@ struct TextDetailView: View {
             } message: {
                 Text("This action cannot be undone.")
             }
-            .navigationTitle(isEditing ? "Edit Snippet" : "New Snippet")
+            .navigationTitle(isEditing ? "Edit Cutling" : "New Cutling")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button {
@@ -162,8 +166,12 @@ struct TextDetailView: View {
                     } label: {
                         #if os(macOS)
                         Text("Cancel")
-                        #else
-                        Image(systemName: "xmark")
+                        #elseif os(iOS)
+                        if #available(iOS 26, *) {
+                            Image(systemName: "xmark")
+                        } else {
+                            Text("Cancel")
+                        }
                         #endif
                     }
                 }
@@ -177,7 +185,7 @@ struct TextDetailView: View {
                             store.update(updated)
                         } else {
                             store.add(
-                                Snippet(
+                                Cutling(
                                     name: name,
                                     value: value,
                                     icon: icon
@@ -188,8 +196,12 @@ struct TextDetailView: View {
                     } label: {
                         #if os(macOS)
                         Text("Save")
-                        #else
-                        Image(systemName: "checkmark")
+                        #elseif os(iOS)
+                        if #available(iOS 26, *) {
+                            Image(systemName: "checkmark")
+                        } else {
+                            Text("Save")
+                        }
                         #endif
                     }
                     .buttonStyle(.borderedProminent)
@@ -207,7 +219,7 @@ struct TextDetailView: View {
 }
 
 #Preview {
-    TextDetailView(item: Snippet(name: "Hello", value: "Hello", icon: "car.fill"))
+    TextDetailView(item: Cutling(name: "Hello", value: "Hello", icon: "car.fill"))
     #if os(macOS)
     .frame(width: 400, height: 500)
     #endif
