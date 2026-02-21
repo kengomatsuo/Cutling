@@ -81,6 +81,7 @@ struct TextDetailView: View {
     @EnvironmentObject var store: CutlingStore
 
     let existingItem: Cutling?
+    let autoPasteFromClipboard: Bool
 
     @State private var name: String
     @State private var value: String
@@ -89,9 +90,11 @@ struct TextDetailView: View {
     @State private var showDeleteAlert = false
     @State private var showLimitAlert = false
     @State private var limitAlertMessage = ""
+    @State private var hasClipboardText = false
 
-    init(item: Cutling?) {
+    init(item: Cutling?, autoPasteFromClipboard: Bool = false) {
         self.existingItem = item
+        self.autoPasteFromClipboard = autoPasteFromClipboard
         _name = State(initialValue: item?.name ?? "")
         _value = State(initialValue: item?.value ?? "")
         _icon = State(initialValue: item?.icon ?? "document")
@@ -140,17 +143,19 @@ struct TextDetailView: View {
                         .frame(minHeight: 120, maxHeight: 650)
                         .scrollContentBackground(.hidden)
                 }
-                Section {
-                    Button {
-                        pasteFromClipboard()
-                    } label: {
-                        Label("Paste from Clipboard", systemImage: "doc.on.clipboard")
+                if hasClipboardText {
+                    Section {
+                        Button {
+                            pasteFromClipboard()
+                        } label: {
+                            Label("Paste from Clipboard", systemImage: "doc.on.clipboard")
+                        }
+                        .foregroundStyle(.primary)
+                    } header: {
+                        Text("Quick Actions")
+                    } footer: {
+                        Text("This will replace the current text with whatever is in your clipboard.")
                     }
-                    .foregroundStyle(.primary)
-                } header: {
-                    Text("Quick Actions")
-                } footer: {
-                    Text("This will replace the current text with whatever is in your clipboard.")
                 }
                 if isEditing {
                     Section {
@@ -238,6 +243,13 @@ struct TextDetailView: View {
             } message: {
                 Text(limitAlertMessage)
             }
+            .onAppear {
+                checkClipboard()
+                
+                if autoPasteFromClipboard {
+                    pasteFromClipboard()
+                }
+            }
         }
         #if os(macOS)
         .frame(minWidth: 420, idealWidth: 480, minHeight: 400, idealHeight: 500)
@@ -245,6 +257,18 @@ struct TextDetailView: View {
     }
     
     // MARK: - Actions
+    
+    private func checkClipboard() {
+        #if os(iOS)
+        hasClipboardText = UIPasteboard.general.hasStrings && !(UIPasteboard.general.string?.isEmpty ?? true)
+        #else
+        if let text = NSPasteboard.general.string(forType: .string) {
+            hasClipboardText = !text.isEmpty
+        } else {
+            hasClipboardText = false
+        }
+        #endif
+    }
     
     private func pasteFromClipboard() {
         #if os(iOS)

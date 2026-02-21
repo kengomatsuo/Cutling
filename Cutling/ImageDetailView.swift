@@ -34,6 +34,7 @@ struct ImageDetailView: View {
     @EnvironmentObject var store: CutlingStore
 
     let existingItem: Cutling?
+    let autoPasteFromClipboard: Bool
 
     @State private var name: String
     @State private var imageData: Data?
@@ -42,9 +43,11 @@ struct ImageDetailView: View {
     @State private var showDeleteAlert = false
     @State private var showLimitAlert = false
     @State private var limitAlertMessage = ""
+    @State private var hasClipboardImage = false
     
-    init(item: Cutling?) {
+    init(item: Cutling?, autoPasteFromClipboard: Bool = false) {
         self.existingItem = item
+        self.autoPasteFromClipboard = autoPasteFromClipboard
         _name = State(initialValue: item?.name ?? "")
     }
 
@@ -60,17 +63,19 @@ struct ImageDetailView: View {
                     imagePreview
                     pickerButtons
                 }
-                Section {
-                    Button {
-                        pasteFromClipboard()
-                    } label: {
-                        Label("Paste from Clipboard", systemImage: "doc.on.clipboard")
+                if hasClipboardImage {
+                    Section {
+                        Button {
+                            pasteFromClipboard()
+                        } label: {
+                            Label("Paste from Clipboard", systemImage: "doc.on.clipboard")
+                        }
+                        .foregroundStyle(.primary)
+                    } header: {
+                        Text("Quick Actions")
+                    } footer: {
+                        Text("This will replace the current image with whatever is in your clipboard.")
                     }
-                    .foregroundStyle(.primary)
-                } header: {
-                    Text("Quick Actions")
-                } footer: {
-                    Text("This will replace the current image with whatever is in your clipboard.")
                 }
                 if isEditing {
                     Section {
@@ -152,6 +157,11 @@ struct ImageDetailView: View {
             .onAppear {
                 if let filename = existingItem?.imageFilename {
                     imageData = store.loadImageData(named: filename)
+                }
+                checkClipboard()
+                
+                if autoPasteFromClipboard {
+                    pasteFromClipboard()
                 }
             }
             .alert("Limit Reached", isPresented: $showLimitAlert) {
@@ -267,6 +277,14 @@ struct ImageDetailView: View {
     }
     
     // MARK: - Actions
+    
+    private func checkClipboard() {
+        #if os(iOS)
+        hasClipboardImage = UIPasteboard.general.hasImages
+        #else
+        hasClipboardImage = NSPasteboard.general.canReadObject(forClasses: [NSImage.self], options: nil)
+        #endif
+    }
     
     private func pasteFromClipboard() {
         #if os(iOS)

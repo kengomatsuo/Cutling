@@ -39,6 +39,7 @@ extension UIColor {
 final class KeyboardState: ObservableObject {
     @Published var returnKeyType: UIReturnKeyType = .default
     @Published var hasFullAccess: Bool = false
+    @Published var hasClipboardContent: Bool = false
 }
 
 // MARK: - Instant Press Modifier
@@ -179,6 +180,9 @@ class KeyboardViewController: UIInputViewController {
         UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(fullAccess, forKey: "hasFullAccess")
         keyboardState.hasFullAccess = fullAccess
         keyboardState.returnKeyType = textDocumentProxy.returnKeyType ?? .default
+        
+        // Update clipboard status (safe - doesn't trigger permission prompt)
+        updateClipboardStatus()
 
         // Only create the hosting controller once
         if hostingController == nil {
@@ -236,6 +240,15 @@ class KeyboardViewController: UIInputViewController {
         if keyboardState.returnKeyType != newType {
             keyboardState.returnKeyType = newType
         }
+        // Update clipboard status when switching text fields
+        updateClipboardStatus()
+    }
+    
+    // MARK: - Clipboard Status
+    
+    private func updateClipboardStatus() {
+        // Only use hasImages and hasStrings - these do NOT trigger permission prompts
+        keyboardState.hasClipboardContent = UIPasteboard.general.hasImages || UIPasteboard.general.hasStrings
     }
 }
 
@@ -312,8 +325,8 @@ struct KeyboardView: View {
     private var suggestionBar: some View {
         HStack(spacing: 6) {
             Group {
-                if state.hasFullAccess {
-                    // Normal clipboard button
+                if state.hasFullAccess && state.hasClipboardContent {
+                    // Normal clipboard button - only shown when clipboard has content
                     HStack(spacing: 6) {
                         Image(systemName: "doc.on.clipboard")
                             .font(.system(size: 15, weight: .medium))
@@ -325,7 +338,7 @@ struct KeyboardView: View {
                     .instantPress(cornerRadius: 99) {
                         addFromClipboard()
                     }
-                } else {
+                } else if !state.hasFullAccess {
                     // No full access — show disabled state that opens settings
                     Link(destination: URL(string: "cutling://settings")!) {
                         HStack(spacing: 6) {
@@ -340,6 +353,18 @@ struct KeyboardView: View {
                         .frame(height: KeyStyle.keyHeight)
                     }
                     .buttonStyle(.plain)
+                } else {
+                    // Has full access but no clipboard content - show placeholder
+                    HStack(spacing: 6) {
+                        Image(systemName: "doc.on.clipboard")
+                            .font(.system(size: 15, weight: .medium))
+                            .foregroundStyle(.tertiary)
+                        Text("Clipboard Empty")
+                            .font(.system(size: 16))
+                            .foregroundStyle(.tertiary)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .frame(height: KeyStyle.keyHeight)
                 }
             }
             .overlay {
