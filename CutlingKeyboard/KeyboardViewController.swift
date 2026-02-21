@@ -508,6 +508,12 @@ struct KeyboardView: View {
         if let image = UIPasteboard.general.image,
            let imageData = image.pngData() {
             
+            // Check for duplicate image first
+            if let existing = store.findDuplicateImage(data: imageData) {
+                showExisted(existing.id)
+                return
+            }
+            
             // Check image limit
             let canAdd = store.canAdd(.image)
             if !canAdd.allowed {

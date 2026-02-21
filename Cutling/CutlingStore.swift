@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import CryptoKit
 
 #if os(iOS)
 import UIKit
@@ -209,6 +210,26 @@ class CutlingStore: ObservableObject {
     var textCutlingsCount: Int {
         cutlings.filter { $0.kind == .text }.count
     }
+    
+    // MARK: - Duplicate Detection
+    
+    /// Find an existing image cutling with matching image data
+    /// Uses SHA256 hash for efficient comparison without loading all images
+    func findDuplicateImage(data: Data) -> Cutling? {
+        let newHash = data.sha256Hash()
+        
+        for cutling in cutlings where cutling.kind == .image {
+            guard let filename = cutling.imageFilename else { continue }
+            
+            // Load existing image data and compare hashes
+            if let existingData = loadImageData(named: filename),
+               existingData.sha256Hash() == newHash {
+                return cutling
+            }
+        }
+        
+        return nil
+    }
 
     func update(_ cutling: Cutling) {
         if let i = cutlings.firstIndex(where: { $0.id == cutling.id }) {
@@ -311,3 +332,14 @@ class CutlingStore: ObservableObject {
         save()
     }
 }
+
+// MARK: - Data Hashing Extension
+
+extension Data {
+    /// Generate SHA256 hash for efficient image comparison
+    func sha256Hash() -> String {
+        let hashed = SHA256.hash(data: self)
+        return hashed.compactMap { String(format: "%02x", $0) }.joined()
+    }
+}
+
