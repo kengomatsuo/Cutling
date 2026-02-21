@@ -140,6 +140,18 @@ struct TextDetailView: View {
                         .frame(minHeight: 120, maxHeight: 650)
                         .scrollContentBackground(.hidden)
                 }
+                Section {
+                    Button {
+                        pasteFromClipboard()
+                    } label: {
+                        Label("Paste from Clipboard", systemImage: "doc.on.clipboard")
+                    }
+                    .foregroundStyle(.primary)
+                } header: {
+                    Text("Quick Actions")
+                } footer: {
+                    Text("This will replace the current text with whatever is in your clipboard.")
+                }
                 if isEditing {
                     Section {
                         Button("Delete Cutling", role: .destructive) {
@@ -229,6 +241,20 @@ struct TextDetailView: View {
         }
         #if os(macOS)
         .frame(minWidth: 420, idealWidth: 480, minHeight: 400, idealHeight: 500)
+        #endif
+    }
+    
+    // MARK: - Actions
+    
+    private func pasteFromClipboard() {
+        #if os(iOS)
+        if let text = UIPasteboard.general.string, !text.isEmpty {
+            value = text
+        }
+        #else
+        if let text = NSPasteboard.general.string(forType: .string), !text.isEmpty {
+            value = text
+        }
         #endif
     }
 }

@@ -60,6 +60,18 @@ struct ImageDetailView: View {
                     imagePreview
                     pickerButtons
                 }
+                Section {
+                    Button {
+                        pasteFromClipboard()
+                    } label: {
+                        Label("Paste from Clipboard", systemImage: "doc.on.clipboard")
+                    }
+                    .foregroundStyle(.primary)
+                } header: {
+                    Text("Quick Actions")
+                } footer: {
+                    Text("This will replace the current image with whatever is in your clipboard.")
+                }
                 if isEditing {
                     Section {
                         Button("Delete Cutling", role: .destructive) {
@@ -252,5 +264,22 @@ struct ImageDetailView: View {
             store.add(cutling)
             dismiss()
         }
+    }
+    
+    // MARK: - Actions
+    
+    private func pasteFromClipboard() {
+        #if os(iOS)
+        if let image = UIPasteboard.general.image, let data = image.pngData() {
+            imageData = data
+        }
+        #else
+        if let image = NSPasteboard.general.readObjects(forClasses: [NSImage.self])?.first as? NSImage,
+           let tiffData = image.tiffRepresentation,
+           let bitmapImage = NSBitmapImageRep(data: tiffData),
+           let data = bitmapImage.representation(using: .png, properties: [:]) {
+            imageData = data
+        }
+        #endif
     }
 }

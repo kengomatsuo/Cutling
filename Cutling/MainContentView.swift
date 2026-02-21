@@ -57,16 +57,19 @@ struct MainContentView: View {
     @State private var limitAlertMessage = ""
 
     @State private var isSelecting = false
-    @State private var selectedCutlings = Set<UUID>()
     @State private var showDeleteConfirmation = false
     @State private var cutlingToDelete: Cutling?
+
     #if os(iOS)
     @State private var panGesture: UIPanGestureRecognizer?
+    @State private var selectionProperties: SelectionProperties = .init()
+    @State private var scrollProperties: ScrollProperties = .init()
+    #else
+    // macOS doesn't use pan gesture selection, so just keep a simple set
+    @State private var selectedCutlingIDs: Set<UUID> = []
     #endif
+
     @State private var cutlingLocations: [UUID: CGRect] = [:]
-    @State private var panStartIndex: Int? = nil
-    @State private var panIsDeselecting: Bool = false
-    @State private var selectionBeforePan: Set<UUID> = []
 
     init(showSettings: Binding<Bool> = .constant(false)) {
         _showSettings = showSettings
@@ -98,13 +101,56 @@ struct MainContentView: View {
         }
     }
 
+    // MARK: - Selection & Scroll Types
+
+    #if os(iOS)
+    /// Mirrors SelectionProperties from the reference.
+    private struct SelectionProperties {
+        var start: Int?
+        var end: Int?
+        /// The live selected IDs (shown in the UI during and after a drag).
+        var selectedIDs: Set<UUID> = []
+        /// The committed selected IDs from before the current drag began.
+        var previousIDs: Set<UUID> = []
+        /// IDs that will be removed from selection when the drag ends (deselect-drag).
+        var toBeDeletedIDs: Set<UUID> = []
+        /// Whether the current drag is a deselect-drag.
+        var isDeleteDrag: Bool = false
+    }
+
+    /// Mirrors ScrollProperties from the reference.
+    private struct ScrollProperties {
+        var position: ScrollPosition = .init()
+        var currentScrollOffset: CGFloat = 0
+        var manualScrollOffset: CGFloat = 0
+        var timer: Timer?
+        var direction: ScrollDirection = .none
+    }
+
+    private enum ScrollDirection {
+        case up
+        case down
+        case none
+    }
+    #endif
+
+    /// Cross-platform accessor for the current selected IDs.
+    private var selectedIDs: Set<UUID> {
+        #if os(iOS)
+        selectionProperties.selectedIDs
+        #else
+        selectedCutlingIDs
+        #endif
+    }
+
+    // MARK: - Body
+
     var body: some View {
         NavigationStack {
             ScrollView {
                 // Storage usage indicator
                 VStack(spacing: 6) {
                     HStack(spacing: 12) {
-                        // Text count
                         HStack(spacing: 4) {
                             Image(systemName: "doc.text")
                                 .font(.caption)
@@ -114,7 +160,6 @@ struct MainContentView: View {
                                 .foregroundStyle(.secondary)
                         }
                         
-                        // Image count
                         HStack(spacing: 4) {
                             Image(systemName: "photo")
                                 .font(.caption)
@@ -152,10 +197,19 @@ struct MainContentView: View {
                 } else {
                     LazyVGrid(columns: columns, spacing: 12) {
                         ForEach(filtered) { item in
+                            let isSelected = selectedIDs.contains(item.id)
+                            let isMarkedForDeletion: Bool = {
+                                #if os(iOS)
+                                selectionProperties.toBeDeletedIDs.contains(item.id)
+                                #else
+                                false
+                                #endif
+                            }()
+
                             CardView(
                                 item: item,
                                 isSelecting: isSelecting,
-                                isSelected: selectedCutlings.contains(item.id),
+                                isSelected: isSelected && !isMarkedForDeletion,
                                 onEdit: {
                                     selectedItem = item
                                 },
@@ -172,6 +226,7 @@ struct MainContentView: View {
                                 insertion: .scale(scale: 0.85).combined(with: .opacity),
                                 removal: .scale(scale: 0.85).combined(with: .opacity)
                             ))
+                            .id(item.id)
                             .onGeometryChange(for: CGRect.self) {
                                 $0.frame(in: .global)
                             } action: { newValue in
@@ -183,6 +238,33 @@ struct MainContentView: View {
                     .animation(.spring(duration: 0.35, bounce: 0.2), value: filtered.map(\.id))
                 }
             }
+            #if os(iOS)
+            .scrollPosition($scrollProperties.position)
+            .onScrollGeometryChange(for: CGFloat.self, of: {
+                $0.contentOffset.y + $0.contentInsets.top
+            }, action: { _, newValue in
+                scrollProperties.currentScrollOffset = newValue
+            })
+            .onChange(of: scrollProperties.direction) { _, newValue in
+                if newValue != .none {
+                    guard scrollProperties.timer == nil else { return }
+                    scrollProperties.manualScrollOffset = scrollProperties.currentScrollOffset
+
+                    scrollProperties.timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
+                        if newValue == .up {
+                            scrollProperties.manualScrollOffset -= 3
+                        }
+                        if newValue == .down {
+                            scrollProperties.manualScrollOffset += 3
+                        }
+                        scrollProperties.position.scrollTo(y: scrollProperties.manualScrollOffset)
+                    }
+                    scrollProperties.timer?.fire()
+                } else {
+                    resetScrollTimer()
+                }
+            }
+            #endif
             .background(Color(platformGroupedBackground))
             .navigationTitle("My Cutlings")
             .searchable(text: $searchText, prompt: "Search cutlings")
@@ -191,7 +273,6 @@ struct MainContentView: View {
                     if isSelecting {
                         Button {
                             isSelecting = false
-                            selectedCutlings.removeAll()
                         } label: {
                             #if os(macOS)
                             Text("Cancel")
@@ -253,7 +334,6 @@ struct MainContentView: View {
                             }
                         } label: {
                             Image(systemName: "ellipsis")
-                            // use keyboardNeedsAttention to render badge
                         }
                     }
                 }
@@ -262,16 +342,16 @@ struct MainContentView: View {
                     if isSelecting {
                         Spacer()
                         Button(role: .destructive) {
-                            if !selectedCutlings.isEmpty {
+                            if !selectedIDs.isEmpty {
                                 showDeleteConfirmation = true
                             }
                         } label: {
                             Image(systemName: "trash")
-                                .foregroundStyle(selectedCutlings.isEmpty ? Color.secondary : Color.red)
+                                .foregroundStyle(selectedIDs.isEmpty ? Color.secondary : Color.red)
                         }
-                        .disabled(selectedCutlings.isEmpty)
+                        .disabled(selectedIDs.isEmpty)
                         .confirmationDialog(
-                            "Delete \(selectedCutlings.count) item\(selectedCutlings.count == 1 ? "" : "s")?",
+                            "Delete \(selectedIDs.count) item\(selectedIDs.count == 1 ? "" : "s")?",
                             isPresented: Binding(
                                 get: { showDeleteConfirmation && cutlingToDelete == nil },
                                 set: { if !$0 { showDeleteConfirmation = false } }
@@ -331,71 +411,116 @@ struct MainContentView: View {
                     showDeleteConfirmation = false
                 }
             }
-            .onChange(of: isSelecting) { oldValue, newValue in
+            .onChange(of: isSelecting) { _, newValue in
                 #if os(iOS)
-                if #available(iOS 18.0, *) {
-                    panGesture?.isEnabled = newValue
+                panGesture?.isEnabled = newValue
+                if !newValue {
+                    selectionProperties = .init()
+                }
+                #else
+                if !newValue {
+                    selectedCutlingIDs.removeAll()
                 }
                 #endif
-                if !newValue && !selectedCutlings.isEmpty {
-                    selectedCutlings.removeAll()
-                }
             }
             #if os(iOS)
             .modifier(PanGestureModifier(
                 isSelecting: isSelecting,
                 panGesture: $panGesture,
-                onPanChange: onPanGestureChange,
-                onPanEnd: {
-                    panStartIndex = nil
-                    panIsDeselecting = false
-                    selectionBeforePan = []
-                }
+                onPanChange: onGestureChange,
+                onPanEnd: onGestureEnded
             ))
             #endif
         }
     }
 
+    // MARK: - Gesture Handling (mirrors reference exactly)
+
     #if os(iOS)
-    private func onPanGestureChange(_ gesture: UIPanGestureRecognizer) {
-        let location = gesture.location(in: gesture.view)
+    private func onGestureChange(_ gesture: UIPanGestureRecognizer) {
+        guard let view = gesture.view else { return }
+        let position = gesture.location(in: view)
+        let edgeThreshold: CGFloat = 80
 
-        guard let currentIndex = filtered.indices.first(where: {
-            cutlingLocations[filtered[$0].id]?.contains(location) == true
-        }) else { return }
+        if let fallingIndex = filtered.indices.first(where: {
+            cutlingLocations[filtered[$0].id]?.contains(position) == true
+        }) {
+            if selectionProperties.start == nil {
+                selectionProperties.start = fallingIndex
+                selectionProperties.isDeleteDrag = selectionProperties.previousIDs.contains(filtered[fallingIndex].id)
+            }
 
-        if gesture.state == .began {
-            panStartIndex = currentIndex
-            selectionBeforePan = selectedCutlings
-            panIsDeselecting = selectedCutlings.contains(filtered[currentIndex].id)
+            selectionProperties.end = fallingIndex
+
+            if let start = selectionProperties.start, let end = selectionProperties.end {
+                let range = (start > end ? end...start : start...end)
+                let rangeIDs = Set(range.map { filtered[$0].id })
+
+                if selectionProperties.isDeleteDrag {
+                    selectionProperties.toBeDeletedIDs = selectionProperties.previousIDs.intersection(rangeIDs)
+                } else {
+                    selectionProperties.selectedIDs = selectionProperties.previousIDs.union(rangeIDs)
+                }
+            }
         }
 
-        guard let startIndex = panStartIndex else { return }
-
-        let range = startIndex <= currentIndex
-            ? startIndex...currentIndex
-            : currentIndex...startIndex
-
-        let rangeIDs = Set(range.map { filtered[$0].id })
-
-        if panIsDeselecting {
-            selectedCutlings = selectionBeforePan.subtracting(rangeIDs)
+        // Check scroll direction based on finger position relative to view bounds
+        if position.y < edgeThreshold {
+            scrollProperties.direction = .up
+        } else if position.y > view.bounds.height - edgeThreshold {
+            scrollProperties.direction = .down
         } else {
-            selectedCutlings = selectionBeforePan.union(rangeIDs)
+            scrollProperties.direction = .none
         }
+    }
+
+    private func onGestureEnded() {
+        // Remove IDs that were marked for deletion during a deselect-drag
+        selectionProperties.selectedIDs.subtract(selectionProperties.toBeDeletedIDs)
+        selectionProperties.toBeDeletedIDs = []
+
+        // Commit the current selection as the new baseline
+        selectionProperties.previousIDs = selectionProperties.selectedIDs
+        selectionProperties.start = nil
+        selectionProperties.end = nil
+        selectionProperties.isDeleteDrag = false
+
+        resetScrollTimer()
+    }
+
+    private func resetScrollTimer() {
+        scrollProperties.manualScrollOffset = 0
+        scrollProperties.timer?.invalidate()
+        scrollProperties.timer = nil
+        scrollProperties.direction = .none
     }
     #endif
 
+    // MARK: - Tap Selection
+
     private func toggleSelection(for cutling: Cutling) {
-        if selectedCutlings.contains(cutling.id) {
-            selectedCutlings.remove(cutling.id)
+        #if os(iOS)
+        if selectionProperties.selectedIDs.contains(cutling.id) {
+            selectionProperties.selectedIDs.remove(cutling.id)
         } else {
-            selectedCutlings.insert(cutling.id)
+            selectionProperties.selectedIDs.insert(cutling.id)
         }
+        // Commit after tap, just like the reference
+        selectionProperties.previousIDs = selectionProperties.selectedIDs
+        #else
+        if selectedCutlingIDs.contains(cutling.id) {
+            selectedCutlingIDs.remove(cutling.id)
+        } else {
+            selectedCutlingIDs.insert(cutling.id)
+        }
+        #endif
     }
-    
+
+    // MARK: - Delete
+
     private func deleteSelectedCutlings() {
-        let cutlingsToDelete = store.cutlings.filter { selectedCutlings.contains($0.id) }
+        let idsToDelete = selectedIDs
+        let cutlingsToDelete = store.cutlings.filter { idsToDelete.contains($0.id) }
         showDeleteConfirmation = false
         withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
             for cutling in cutlingsToDelete {
@@ -403,7 +528,11 @@ struct MainContentView: View {
             }
         }
         Task { @MainActor in
-            selectedCutlings.removeAll()
+            #if os(iOS)
+            selectionProperties = .init()
+            #else
+            selectedCutlingIDs.removeAll()
+            #endif
             isSelecting = false
         }
     }
@@ -575,9 +704,8 @@ struct CardView: View {
         GeometryReader { geo in
             ZStack(alignment: .bottomLeading) {
                 if let filename = item.imageFilename,
-                   let data = store.loadImageData(named: filename),
-                   let img = loadPlatformImage(from: data) {
-                    Image(platformImage: img)
+                   let thumbnail = store.loadThumbnail(named: filename) {
+                    Image(platformImage: thumbnail)
                         .resizable()
                         .scaledToFill()
                         .frame(width: geo.size.width, height: geo.size.height)
@@ -684,7 +812,10 @@ struct CardView: View {
                 
                 Image(systemName: isSelecting ? (isSelected ? "checkmark.circle.fill" : "circle") : "ellipsis")
                     .font(isSelecting ? .title2 : .subheadline)
-                    .foregroundStyle(isSelecting && isSelected ? Color.accentColor : Color.primary)
+                    .foregroundStyle(
+                        isSelecting && isSelected ? Color.white : Color.primary,
+                        isSelecting && isSelected ? Color.accentColor : Color.primary
+                    )
                     .scaleEffect(!isSelecting || isSelected ? 1.0 : 0.85)
                     .rotationEffect(.degrees(!isSelecting || isSelected ? 0 : -10))
                     .animation(.spring(duration: 0.15), value: isSelected)
