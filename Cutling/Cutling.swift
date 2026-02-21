@@ -1,5 +1,5 @@
 //
-//  Snippet.swift
+//  Cutling.swift
 //  Cutling
 //
 //  Created by Kenneth Johannes Fang on 18/02/26.
@@ -7,17 +7,17 @@
 
 import Foundation
 
-enum SnippetKind: String, Codable {
+enum CutlingKind: String, Codable {
     case text
     case image
 }
 
-struct Snippet: Identifiable, Codable {
+struct Cutling: Identifiable, Codable {
     var id: UUID
     var name: String
     var value: String
     var icon: String
-    var kind: SnippetKind
+    var kind: CutlingKind
     var imageFilename: String?
     
     init(
@@ -25,7 +25,7 @@ struct Snippet: Identifiable, Codable {
         name: String,
         value: String,
         icon: String,
-        kind: SnippetKind = .text,
+        kind: CutlingKind = .text,
         imageFilename: String? = nil
     ) {
         self.id = id

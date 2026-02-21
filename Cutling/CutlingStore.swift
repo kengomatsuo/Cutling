@@ -1,5 +1,5 @@
 //
-//  SnippetStore.swift
+//  CutlingStore.swift
 //  Cutling
 //
 //  Created by Kenneth Johannes Fang on 18/02/26.
@@ -15,12 +15,12 @@ import AppKit
 #endif
 
 let appGroupID = "group.com.matsuokengo.Cutling"
-private let snippetsKey = "savedSnippets"
+private let snippetsKey = "savedCutlings"
 
-class SnippetStore: ObservableObject {
-    static let shared = SnippetStore()
+class CutlingStore: ObservableObject {
+    static let shared = CutlingStore()
 
-    @Published var snippets: [Snippet] = []
+    @Published var snippets: [Cutling] = []
 
     private let defaults: UserDefaults
     private let imagesDirectory: URL
@@ -78,7 +78,7 @@ class SnippetStore: ObservableObject {
             observer,
             { _, observer, _, _, _ in
                 guard let observer = observer else { return }
-                let store = Unmanaged<SnippetStore>.fromOpaque(observer).takeUnretainedValue()
+                let store = Unmanaged<CutlingStore>.fromOpaque(observer).takeUnretainedValue()
                 store.loadIfChanged()
             },
             notificationName,
@@ -103,7 +103,7 @@ class SnippetStore: ObservableObject {
         // Only reload if the data actually changed
         if data != lastLoadedData {
             lastLoadedData = data
-            if let decoded = try? JSONDecoder().decode([Snippet].self, from: data) {
+            if let decoded = try? JSONDecoder().decode([Cutling].self, from: data) {
                 DispatchQueue.main.async {
                     self.snippets = decoded
                     print("🔄 Reloaded \(decoded.count) snippets from shared storage")
@@ -116,7 +116,7 @@ class SnippetStore: ObservableObject {
 
     func load() {
         guard let data = defaults.data(forKey: snippetsKey),
-              let decoded = try? JSONDecoder().decode([Snippet].self, from: data)
+              let decoded = try? JSONDecoder().decode([Cutling].self, from: data)
         else { 
             lastLoadedData = nil
             return 
@@ -140,19 +140,19 @@ class SnippetStore: ObservableObject {
         )
     }
 
-    func add(_ snippet: Snippet) {
+    func add(_ snippet: Cutling) {
         snippets.append(snippet)
         save()
     }
 
-    func update(_ snippet: Snippet) {
+    func update(_ snippet: Cutling) {
         if let i = snippets.firstIndex(where: { $0.id == snippet.id }) {
             snippets[i] = snippet
             save()
         }
     }
 
-    func delete(_ snippet: Snippet) {
+    func delete(_ snippet: Cutling) {
         if let filename = snippet.imageFilename {
             deleteImageFile(named: filename)
         }
@@ -197,9 +197,9 @@ class SnippetStore: ObservableObject {
     func seedIfEmpty() {
         guard snippets.isEmpty else { return }
         snippets = [
-            Snippet(name: "Email", value: "email@example.com", icon: "envelope"),
-            Snippet(name: "Phone", value: "+1 234 567 8900", icon: "phone"),
-            Snippet(name: "Address", value: "123 Main St, Apartment 4A, City, Postal Code, Country", icon: "house"),
+            Cutling(name: "Email", value: "email@example.com", icon: "envelope"),
+            Cutling(name: "Phone", value: "+1 234 567 8900", icon: "phone"),
+            Cutling(name: "Address", value: "123 Main St, Apartment 4A, City, Postal Code, Country", icon: "house"),
         ]
         save()
     }
