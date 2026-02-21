@@ -56,7 +56,9 @@ struct MainContentView: View {
     @State private var selectedSnippets = Set<UUID>()
     @State private var showDeleteConfirmation = false
     @State private var snippetToDelete: Snippet?
+    #if os(iOS)
     @State private var panGesture: UIPanGestureRecognizer?
+    #endif
     @State private var snippetLocations: [UUID: CGRect] = [:]
     @State private var panStartIndex: Int? = nil
     @State private var panIsDeselecting: Bool = false
@@ -237,13 +239,16 @@ struct MainContentView: View {
                 }
             }
             .onChange(of: isSelecting) { oldValue, newValue in
+                #if os(iOS)
                 if #available(iOS 18.0, *) {
                     panGesture?.isEnabled = newValue
                 }
+                #endif
                 if !newValue && !selectedSnippets.isEmpty {
                     selectedSnippets.removeAll()
                 }
             }
+            #if os(iOS)
             .modifier(PanGestureModifier(
                 isSelecting: isSelecting,
                 panGesture: $panGesture,
@@ -254,9 +259,11 @@ struct MainContentView: View {
                     selectionBeforePan = []
                 }
             ))
+            #endif
         }
     }
 
+    #if os(iOS)
     private func onPanGestureChange(_ gesture: UIPanGestureRecognizer) {
         let location = gesture.location(in: gesture.view)
 
@@ -284,6 +291,7 @@ struct MainContentView: View {
             selectedSnippets = selectionBeforePan.union(rangeIDs)
         }
     }
+    #endif
 
     private func toggleSelection(for snippet: Snippet) {
         if selectedSnippets.contains(snippet.id) {
@@ -310,6 +318,7 @@ struct MainContentView: View {
 
 // MARK: - Pan Gesture Recognizer
 
+#if os(iOS)
 @available(iOS 18.0, *)
 struct PanGestureRecognizer: UIGestureRecognizerRepresentable {
     var handle: (UIPanGestureRecognizer) -> ()
@@ -324,9 +333,11 @@ struct PanGestureRecognizer: UIGestureRecognizerRepresentable {
         handle(recognizer)
     }
 }
+#endif
 
 // MARK: - Pan Gesture Modifier
 
+#if os(iOS)
 struct PanGestureModifier: ViewModifier {
     let isSelecting: Bool
     @Binding var panGesture: UIPanGestureRecognizer?
@@ -357,6 +368,7 @@ struct PanGestureModifier: ViewModifier {
         }
     }
 }
+#endif
 
 // MARK: - Card Shape
 

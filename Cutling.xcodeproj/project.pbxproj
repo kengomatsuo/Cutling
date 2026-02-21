@@ -47,30 +47,11 @@
 			);
 			target = CFA06CA32F45AD10005CD274 /* CutlingKeyboard */;
 		};
-		CFA06CB82F45D3E1005CD274 /* Exceptions for "Cutling" folder in "CutlingKeyboard" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Snippet.swift,
-				SnippetStore.swift,
-			);
-			target = CFA06CA32F45AD10005CD274 /* CutlingKeyboard */;
-		};
-		CFA06CBF2F473DAA005CD274 /* Exceptions for "Cutling" folder in "Cutling" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = CF1F45F62F457B3C00582E62 /* Cutling */;
-		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		CF1F45F92F457B3C00582E62 /* Cutling */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				CFA06CBF2F473DAA005CD274 /* Exceptions for "Cutling" folder in "Cutling" target */,
-				CFA06CB82F45D3E1005CD274 /* Exceptions for "Cutling" folder in "CutlingKeyboard" target */,
-			);
 			path = Cutling;
 			sourceTree = "<group>";
 		};

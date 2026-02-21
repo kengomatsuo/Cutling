@@ -41,9 +41,11 @@ struct SettingsView: View {
 
                     if !isKeyboardAdded || !hasFullAccess {
                         Button {
+                            #if os(iOS)
                             if let url = URL(string: UIApplication.openSettingsURLString) {
                                 UIApplication.shared.open(url)
                             }
+                            #endif
                         } label: {
                             Label("Open Settings to Enable", systemImage: "arrow.up.forward.square")
                         }
