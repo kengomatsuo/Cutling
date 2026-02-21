@@ -25,6 +25,12 @@ class CutlingStore: ObservableObject {
     private let defaults: UserDefaults
     private let imagesDirectory: URL
     private var cancellables = Set<AnyCancellable>()
+    
+    // CRITICAL: Memory-efficient image cache with automatic eviction
+    private var thumbnailCache = NSCache<NSString, UIImage>()
+    
+    // Maximum thumbnail size for keyboard (reduces memory dramatically)
+    private let maxThumbnailSize: CGFloat = 200
 
     init() {
         // Use App Group defaults if available, otherwise fall back to standard
@@ -54,6 +60,12 @@ class CutlingStore: ObservableObject {
                 print("❌ Failed to create images directory: \(error)")
             }
         }
+        
+        // Configure thumbnail cache limits (crucial for keyboard extension memory limits)
+        #if os(iOS)
+        thumbnailCache.countLimit = 50  // Maximum 50 thumbnails in memory
+        thumbnailCache.totalCostLimit = 10 * 1024 * 1024  // 10 MB max for images
+        #endif
 
         load()
         
@@ -186,10 +198,52 @@ class CutlingStore: ObservableObject {
             return nil
         }
     }
+    
+    /// CRITICAL: Load downsampled thumbnail instead of full image to save memory
+    /// This can reduce memory usage by 10-50x depending on original image size
+    func loadThumbnail(named filename: String) -> UIImage? {
+        // Check cache first
+        if let cached = thumbnailCache.object(forKey: filename as NSString) {
+            return cached
+        }
+        
+        let fileURL = imagesDirectory.appendingPathComponent(filename)
+        
+        // Use ImageIO for efficient downsampling without loading full image into memory
+        guard let imageSource = CGImageSourceCreateWithURL(fileURL as CFURL, nil) else {
+            return nil
+        }
+        
+        let options: [CFString: Any] = [
+            kCGImageSourceCreateThumbnailFromImageAlways: true,
+            kCGImageSourceCreateThumbnailWithTransform: true,
+            kCGImageSourceThumbnailMaxPixelSize: maxThumbnailSize
+        ]
+        
+        guard let cgImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, options as CFDictionary) else {
+            return nil
+        }
+        
+        let thumbnail = UIImage(cgImage: cgImage)
+        
+        // Cache it with cost based on pixel count
+        let cost = Int(thumbnail.size.width * thumbnail.size.height * thumbnail.scale * thumbnail.scale)
+        thumbnailCache.setObject(thumbnail, forKey: filename as NSString, cost: cost)
+        
+        return thumbnail
+    }
 
     func deleteImageFile(named filename: String) {
         let fileURL = imagesDirectory.appendingPathComponent(filename)
         try? FileManager.default.removeItem(at: fileURL)
+        
+        // Also remove from cache
+        thumbnailCache.removeObject(forKey: filename as NSString)
+    }
+    
+    /// Clear thumbnail cache to free memory if needed
+    func clearThumbnailCache() {
+        thumbnailCache.removeAllObjects()
     }
 
     // MARK: - Seed

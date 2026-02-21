@@ -166,15 +166,13 @@ class KeyboardViewController: UIInputViewController {
 
     private var hostingController: UIHostingController<KeyboardView>?
     private let keyboardState = KeyboardState()
+    
+    // CRITICAL: Reuse the shared store instance to avoid duplicate loading
+    private let store = CutlingStore.shared
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        let desiredHeight: CGFloat = 348
-//        let constraint = view.heightAnchor.constraint(equalToConstant: desiredHeight)
-//        constraint.priority = .required
-//        constraint.isActive = true
-
         // Sync full-access state to shared UserDefaults AND observable state
         let fullAccess = hasFullAccess
         print(fullAccess)
@@ -182,39 +180,46 @@ class KeyboardViewController: UIInputViewController {
         keyboardState.hasFullAccess = fullAccess
         keyboardState.returnKeyType = textDocumentProxy.returnKeyType ?? .default
 
-        let store = CutlingStore()
-        let inputVC = self
+        // Only create the hosting controller once
+        if hostingController == nil {
+            let inputVC = self
 
-        // Type-safe hosting controller — no AnyView overhead
-        let keyboardView = KeyboardView(
-            store: store,
-            state: keyboardState,
-            onInsertText: { inputVC.textDocumentProxy.insertText($0) },
-            onCopyImage: { if let image = UIImage(data: $0) { UIPasteboard.general.image = image } },
-            onBackspace: { inputVC.textDocumentProxy.deleteBackward() }
-        )
+            // Type-safe hosting controller — no AnyView overhead
+            let keyboardView = KeyboardView(
+                store: store,
+                state: keyboardState,
+                onInsertText: { inputVC.textDocumentProxy.insertText($0) },
+                onCopyImage: { if let image = UIImage(data: $0) { UIPasteboard.general.image = image } },
+                onBackspace: { inputVC.textDocumentProxy.deleteBackward() }
+            )
 
-        let hc = UIHostingController(rootView: keyboardView)
-        hc.view.translatesAutoresizingMaskIntoConstraints = false
-        hc.view.backgroundColor = .clear
-        hc.safeAreaRegions = []
+            let hc = UIHostingController(rootView: keyboardView)
+            hc.view.translatesAutoresizingMaskIntoConstraints = false
+            hc.view.backgroundColor = .clear
+            hc.safeAreaRegions = []
 
-        addChild(hc)
-        view.addSubview(hc.view)
-        hc.didMove(toParent: self)
+            addChild(hc)
+            view.addSubview(hc.view)
+            hc.didMove(toParent: self)
 
-        NSLayoutConstraint.activate([
-            hc.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            hc.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            hc.view.topAnchor.constraint(equalTo: view.topAnchor),
-            hc.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        ])
+            NSLayoutConstraint.activate([
+                hc.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                hc.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                hc.view.topAnchor.constraint(equalTo: view.topAnchor),
+                hc.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            ])
 
-        hostingController = hc
-
-        // Load store off main thread AFTER keyboard is already visible
-        Task.detached(priority: .userInitiated) {
-            store.load()
+            hostingController = hc
+            
+            // Listen for memory warnings and clear image cache
+            NotificationCenter.default.addObserver(
+                forName: UIApplication.didReceiveMemoryWarningNotification,
+                object: nil,
+                queue: .main
+            ) { [weak self] _ in
+                print("⚠️ Memory warning received - clearing thumbnail cache")
+                self?.store.clearThumbnailCache()
+            }
         }
     }
     
@@ -488,17 +493,47 @@ struct KeyboardView: View {
     }
 
     private func addFromClipboard() {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        let timestamp = formatter.string(from: Date())
+        
+        // Check for image first
+        if let image = UIPasteboard.general.image,
+           let imageData = image.pngData() {
+            
+            let id = UUID()
+            var cutling = Cutling(
+                id: id,
+                name: "Image: \(timestamp)",
+                value: "",
+                icon: "photo",
+                kind: .image,
+                imageFilename: nil
+            )
+            
+            cutling.imageFilename = store.saveImageData(imageData, for: id)
+            store.add(cutling)
+            
+            withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
+                showAddedToast = true
+            }
+            Task {
+                try? await Task.sleep(for: .seconds(1.5))
+                withAnimation(.easeOut(duration: 0.25)) {
+                    showAddedToast = false
+                }
+            }
+            return
+        }
+        
+        // Otherwise check for text
         guard let text = UIPasteboard.general.string, !text.isEmpty else { return }
 
         if let existing = store.cutlings.first(where: { $0.value == text }) {
             showExisted(existing.id)
             return
         }
-
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .short
-        let timestamp = formatter.string(from: Date())
 
         let cutling = Cutling(
             name: "Clip: \(timestamp)",
@@ -568,6 +603,7 @@ struct CutlingKeyView: View {
             }
             .frame(maxWidth: .infinity, minHeight: 64, maxHeight: 64, alignment: .topLeading)
             .background(KeyStyle.keyColor, in: RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous))
+            .contentShape(RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous))
             .clipShape(RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous))
             .overlay {
                 if isExisted {
@@ -624,9 +660,9 @@ struct CutlingKeyView: View {
         GeometryReader { geo in
             ZStack(alignment: .bottomLeading) {
                 if let filename = cutling.imageFilename,
-                   let data = store.loadImageData(named: filename),
-                   let uiImage = UIImage(data: data) {
-                    Image(uiImage: uiImage)
+                   let thumbnail = store.loadThumbnail(named: filename) {
+                    // Use thumbnail instead of full-size image
+                    Image(uiImage: thumbnail)
                         .resizable()
                         .scaledToFill()
                         .frame(width: geo.size.width, height: geo.size.height)
