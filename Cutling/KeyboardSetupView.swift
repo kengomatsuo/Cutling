@@ -215,7 +215,7 @@ struct KeyboardSetupView: View {
                     } header: {
                         Text("Storage Limits")
                     } footer: {
-                        Text("iOS limits keyboard extensions to 77 MB of memory. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones.")
+                        Text("Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones.")
                     }
                 }
             }

@@ -50,7 +50,6 @@ struct MainContentView: View {
     @State private var selectedItem: Cutling? = nil
     @State private var showAddText = false
     @State private var showAddImage = false
-    @State private var autoPasteOnAdd = false
     @Binding var showSettings: Bool
     
     @State private var showKeyboardSetup = false
@@ -72,20 +71,11 @@ struct MainContentView: View {
 
     @State private var cutlingLocations: [UUID: CGRect] = [:]
     @State private var hasScrolledToNew = false
-    @State private var hasClipboardContent = false
 
     init(showSettings: Binding<Bool> = .constant(false)) {
         _showSettings = showSettings
     }
     
-    // MARK: - Clipboard Type
-    
-    private enum ClipboardContentType {
-        case text
-        case image
-        case none
-    }
-
     // MARK: - Keyboard Status
 
     private var isKeyboardAdded: Bool {
@@ -304,16 +294,6 @@ struct MainContentView: View {
                         }
                     } else {
                         Menu {
-                            if hasClipboardContent {
-                                Button {
-                                    addFromClipboard()
-                                } label: {
-                                    Label("From Clipboard", systemImage: "doc.on.clipboard")
-                                }
-                                
-                                Divider()
-                            }
-                            
                             Button {
                                 let canAddText = store.canAdd(.text)
                                 if canAddText.allowed {
@@ -403,16 +383,10 @@ struct MainContentView: View {
                 }
             }
             .sheet(isPresented: $showAddText) {
-                TextDetailView(item: nil, autoPasteFromClipboard: autoPasteOnAdd)
-                    .onDisappear {
-                        autoPasteOnAdd = false
-                    }
+                TextDetailView(item: nil)
             }
             .sheet(isPresented: $showAddImage) {
-                ImageDetailView(item: nil, autoPasteFromClipboard: autoPasteOnAdd)
-                    .onDisappear {
-                        autoPasteOnAdd = false
-                    }
+                ImageDetailView(item: nil)
             }
             .sheet(isPresented: $showSettings) {
                 SettingsView()
@@ -471,16 +445,13 @@ struct MainContentView: View {
                     hasScrolledToNew = false
                 }
             }
-            .onAppear {
-                updateClipboardStatus()
-            }
             #if os(iOS)
             .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
-                updateClipboardStatus()
+                // App became active
             }
             #else
             .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
-                updateClipboardStatus()
+                // App became active
             }
             #endif
             #if os(iOS)
@@ -614,68 +585,6 @@ struct MainContentView: View {
         // On macOS, we can use the same approach if needed
         // For now, the list is typically smaller and visible
         #endif
-    }
-    
-    // MARK: - Clipboard Management
-    
-    private func updateClipboardStatus() {
-        #if os(iOS)
-        // Only use hasImages and hasStrings - these do NOT trigger permission prompts
-        hasClipboardContent = UIPasteboard.general.hasImages || UIPasteboard.general.hasStrings
-        #else
-        // On macOS, we can safely check for images and strings
-        hasClipboardContent = NSPasteboard.general.canReadObject(forClasses: [NSImage.self], options: nil) ||
-                            NSPasteboard.general.availableType(from: [.string]) != nil
-        #endif
-    }
-    
-    private func checkClipboard() -> ClipboardContentType {
-        #if os(iOS)
-        if UIPasteboard.general.hasImages {
-            return .image
-        } else if UIPasteboard.general.hasStrings, !(UIPasteboard.general.string?.isEmpty ?? true) {
-            return .text
-        } else {
-            return .none
-        }
-        #else
-        if NSPasteboard.general.canReadObject(forClasses: [NSImage.self], options: nil) {
-            return .image
-        } else if let text = NSPasteboard.general.string(forType: .string), !text.isEmpty {
-            return .text
-        } else {
-            return .none
-        }
-        #endif
-    }
-    
-    private func addFromClipboard() {
-        // Check clipboard at the moment of button press
-        let clipboardContentType = checkClipboard()
-        
-        switch clipboardContentType {
-        case .text:
-            let canAdd = store.canAdd(.text)
-            if canAdd.allowed {
-                autoPasteOnAdd = true
-                showAddText = true
-            } else {
-                limitAlertMessage = canAdd.reason ?? "Cannot add text cutling"
-                showLimitAlert = true
-            }
-        case .image:
-            let canAdd = store.canAdd(.image)
-            if canAdd.allowed {
-                autoPasteOnAdd = true
-                showAddImage = true
-            } else {
-                limitAlertMessage = canAdd.reason ?? "Cannot add image cutling"
-                showLimitAlert = true
-            }
-        case .none:
-            limitAlertMessage = "No text or image found in clipboard"
-            showLimitAlert = true
-        }
     }
 }
 
@@ -965,7 +874,7 @@ struct CardView: View {
                         isSelecting && isSelected ? Color.white : Color.primary,
                         isSelecting && isSelected ? Color.accentColor : Color.primary
                     )
-                    .scaleEffect(!isSelecting || isSelected ? 1.0 : 0.85)
+                    .scaleEffect(!isSelecting || isSelected ? 1.3 : 1.2)
                     .rotationEffect(.degrees(!isSelecting || isSelected ? 0 : -15))
                     .animation(.spring(duration: 0.15), value: isSelected)
             }

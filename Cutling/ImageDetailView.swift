@@ -161,7 +161,15 @@ struct ImageDetailView: View {
                 checkClipboard()
                 
                 if autoPasteFromClipboard {
-                    pasteFromClipboard()
+                    // Delay paste so the sheet is fully presented before iOS
+                    // shows the paste-permission prompt. Without this delay the
+                    // prompt is suppressed during the sheet transition animation
+                    // and the paste silently fails on the first attempt.
+                    Task { @MainActor in
+                        try? await Task.sleep(for: .milliseconds(500))
+                        print("Auto Paste Called!")
+                        pasteFromClipboard()
+                    }
                 }
             }
             .alert("Limit Reached", isPresented: $showLimitAlert) {
@@ -187,7 +195,7 @@ struct ImageDetailView: View {
                 .frame(maxWidth: .infinity)
         } else {
             RoundedRectangle(cornerRadius: 12, style: .continuous)
-                .fill(.quaternary)
+                .fill(.quinary)
                 .frame(height: 120)
                 .overlay {
                     VStack(spacing: 6) {
@@ -288,11 +296,30 @@ struct ImageDetailView: View {
     
     private func pasteFromClipboard() {
         #if os(iOS)
-        if let image = UIPasteboard.general.image, let data = image.pngData() {
+        // First try to get raw image data (preserves GIFs, etc.)
+        if let data = UIPasteboard.general.data(forPasteboardType: UTType.gif.identifier) {
             imageData = data
+        } else if let data = UIPasteboard.general.data(forPasteboardType: UTType.png.identifier) {
+            imageData = data
+        } else if let data = UIPasteboard.general.data(forPasteboardType: UTType.jpeg.identifier) {
+            imageData = data
+        } else if let image = UIPasteboard.general.image {
+            // Fallback: convert UIImage to PNG or JPEG
+            if let data = image.pngData() {
+                imageData = data
+            } else if let data = image.jpegData(compressionQuality: 1.0) {
+                imageData = data
+            }
         }
         #else
-        if let image = NSPasteboard.general.readObjects(forClasses: [NSImage.self])?.first as? NSImage,
+        // macOS: try to get raw data first
+        if let data = NSPasteboard.general.data(forType: .gif) {
+            imageData = data
+        } else if let data = NSPasteboard.general.data(forType: .png) {
+            imageData = data
+        } else if let data = NSPasteboard.general.data(forType: .jpeg) {
+            imageData = data
+        } else if let image = NSPasteboard.general.readObjects(forClasses: [NSImage.self])?.first as? NSImage,
            let tiffData = image.tiffRepresentation,
            let bitmapImage = NSBitmapImageRep(data: tiffData),
            let data = bitmapImage.representation(using: .png, properties: [:]) {

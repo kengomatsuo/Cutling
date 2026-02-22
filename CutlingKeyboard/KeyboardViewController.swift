@@ -8,6 +8,7 @@
 import UIKit
 import SwiftUI
 import Combine
+import UniformTypeIdentifiers
 
 // MARK: - Hex Color Extension
 
@@ -529,10 +530,25 @@ struct KeyboardView: View {
         formatter.timeStyle = .short
         let timestamp = formatter.string(from: Date())
         
-        // Check for image first
-        if let image = UIPasteboard.general.image,
-           let imageData = image.pngData() {
-            
+        // Check for image first - try to get raw data to preserve format (GIF, etc.)
+        var imageData: Data?
+        
+        if let data = UIPasteboard.general.data(forPasteboardType: UTType.gif.identifier) {
+            imageData = data
+        } else if let data = UIPasteboard.general.data(forPasteboardType: UTType.png.identifier) {
+            imageData = data
+        } else if let data = UIPasteboard.general.data(forPasteboardType: UTType.jpeg.identifier) {
+            imageData = data
+        } else if let image = UIPasteboard.general.image {
+            // Fallback: convert UIImage to PNG or JPEG
+            if let data = image.pngData() {
+                imageData = data
+            } else if let data = image.jpegData(compressionQuality: 1.0) {
+                imageData = data
+            }
+        }
+        
+        if let imageData {
             // Check for duplicate image first
             if let existing = store.findDuplicateImage(data: imageData) {
                 showExisted(existing.id)

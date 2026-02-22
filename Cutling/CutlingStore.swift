@@ -20,7 +20,7 @@ private let cutlingsKey = "savedCutlings"
 
 // MARK: - Cutling Limits
 
-/// Limits are enforced to keep the keyboard extension under iOS's strict 77 MB memory limit.
+/// Limits are enforced to keep the keyboard extension under iOS's strict memory limit.
 /// - Text cutlings are lightweight (~1-5 KB each)
 /// - Image cutlings are heavier (~50-500 KB each, even with thumbnails)
 extension CutlingStore {
@@ -295,17 +295,41 @@ class CutlingStore: ObservableObject {
             return nil
         }
         
+        // Get image properties to determine aspect ratio
+        guard let properties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as? [CFString: Any],
+              let width = properties[kCGImagePropertyPixelWidth] as? CGFloat,
+              let height = properties[kCGImagePropertyPixelHeight] as? CGFloat else {
+            return nil
+        }
+        
+        // Calculate size to downsample to (larger dimension to ensure we can crop a square)
+        let maxDimension = max(width, height)
+        let minDimension = min(width, height)
+        let scale = maxThumbnailSize / minDimension
+        let downsampleSize = maxDimension * scale
+        
         let options: [CFString: Any] = [
             kCGImageSourceCreateThumbnailFromImageAlways: true,
             kCGImageSourceCreateThumbnailWithTransform: true,
-            kCGImageSourceThumbnailMaxPixelSize: maxThumbnailSize
+            kCGImageSourceThumbnailMaxPixelSize: downsampleSize
         ]
         
         guard let cgImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, options as CFDictionary) else {
             return nil
         }
         
-        let thumbnail = UIImage(cgImage: cgImage)
+        // Crop to square from center
+        let imageWidth = CGFloat(cgImage.width)
+        let imageHeight = CGFloat(cgImage.height)
+        let squareSize = min(imageWidth, imageHeight)
+        let x = (imageWidth - squareSize) / 2
+        let y = (imageHeight - squareSize) / 2
+        
+        guard let croppedCGImage = cgImage.cropping(to: CGRect(x: x, y: y, width: squareSize, height: squareSize)) else {
+            return nil
+        }
+        
+        let thumbnail = UIImage(cgImage: croppedCGImage)
         
         // Cache it with cost based on pixel count
         let cost = Int(thumbnail.size.width * thumbnail.size.height * thumbnail.scale * thumbnail.scale)
@@ -327,17 +351,41 @@ class CutlingStore: ObservableObject {
             return nil
         }
         
+        // Get image properties to determine aspect ratio
+        guard let properties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as? [CFString: Any],
+              let width = properties[kCGImagePropertyPixelWidth] as? CGFloat,
+              let height = properties[kCGImagePropertyPixelHeight] as? CGFloat else {
+            return nil
+        }
+        
+        // Calculate size to downsample to (larger dimension to ensure we can crop a square)
+        let maxDimension = max(width, height)
+        let minDimension = min(width, height)
+        let scale = maxThumbnailSize / minDimension
+        let downsampleSize = maxDimension * scale
+        
         let options: [CFString: Any] = [
             kCGImageSourceCreateThumbnailFromImageAlways: true,
             kCGImageSourceCreateThumbnailWithTransform: true,
-            kCGImageSourceThumbnailMaxPixelSize: maxThumbnailSize
+            kCGImageSourceThumbnailMaxPixelSize: downsampleSize
         ]
         
         guard let cgImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, options as CFDictionary) else {
             return nil
         }
         
-        let thumbnail = NSImage(cgImage: cgImage, size: NSSize(width: cgImage.width, height: cgImage.height))
+        // Crop to square from center
+        let imageWidth = CGFloat(cgImage.width)
+        let imageHeight = CGFloat(cgImage.height)
+        let squareSize = min(imageWidth, imageHeight)
+        let x = (imageWidth - squareSize) / 2
+        let y = (imageHeight - squareSize) / 2
+        
+        guard let croppedCGImage = cgImage.cropping(to: CGRect(x: x, y: y, width: squareSize, height: squareSize)) else {
+            return nil
+        }
+        
+        let thumbnail = NSImage(cgImage: croppedCGImage, size: NSSize(width: squareSize, height: squareSize))
         
         // Cache it
         thumbnailCache.setObject(thumbnail, forKey: filename as NSString)

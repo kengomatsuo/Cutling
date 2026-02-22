@@ -1,5 +1,5 @@
 //
-//  ItemDetailView.swift
+//  TextDetailView.swift
 //  Cutling
 //
 //  Created by Kenneth Johannes Fang on 18/02/26.
@@ -247,7 +247,14 @@ struct TextDetailView: View {
                 checkClipboard()
                 
                 if autoPasteFromClipboard {
-                    pasteFromClipboard()
+                    // Delay paste so the sheet is fully presented before iOS
+                    // shows the paste-permission prompt. Without this delay the
+                    // prompt is suppressed during the sheet transition animation
+                    // and the paste silently fails on the first attempt.
+                    Task { @MainActor in
+                        try? await Task.sleep(for: .milliseconds(500))
+                        pasteFromClipboard()
+                    }
                 }
             }
         }
@@ -260,7 +267,11 @@ struct TextDetailView: View {
     
     private func checkClipboard() {
         #if os(iOS)
-        hasClipboardText = UIPasteboard.general.hasStrings && !(UIPasteboard.general.string?.isEmpty ?? true)
+        // Only use hasStrings — does NOT trigger the paste-permission prompt.
+        // The actual .string access happens in pasteFromClipboard() which is
+        // called either by the user tapping "Paste from Clipboard" or after
+        // the delayed auto-paste.
+        hasClipboardText = UIPasteboard.general.hasStrings
         #else
         if let text = NSPasteboard.general.string(forType: .string) {
             hasClipboardText = !text.isEmpty
