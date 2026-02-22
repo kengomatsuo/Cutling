@@ -301,6 +301,77 @@ enum KeyStyle {
         // iPhone in portrait (default)
         return 52
     }
+    
+    static func keySpacing(for sizeClass: UserInterfaceSizeClass?) -> CGFloat {
+        // iPad uses larger spacing for better touch targets
+        if sizeClass == .regular {
+            return 8
+        }
+        // iPhone uses tighter spacing
+        return 6
+    }
+    
+    // MARK: - Card Sizing
+    
+    static func cardHeight(for sizeClass: UserInterfaceSizeClass?) -> CGFloat {
+        if sizeClass == .regular {
+            return 80  // Larger cards for iPad
+        }
+        return 64  // iPhone
+    }
+    
+    static func cardMinWidth(for sizeClass: UserInterfaceSizeClass?) -> CGFloat {
+        if sizeClass == .regular {
+            return 180  // Wider cards for iPad
+        }
+        return 140  // iPhone
+    }
+    
+    // MARK: - Icon Sizing
+    
+    static func iconSize(for sizeClass: UserInterfaceSizeClass?) -> CGFloat {
+        if sizeClass == .regular {
+            return 16  // Larger icons for iPad
+        }
+        return 13  // iPhone
+    }
+    
+    static func buttonIconSize(for sizeClass: UserInterfaceSizeClass?) -> CGFloat {
+        if sizeClass == .regular {
+            return 22  // Larger button icons for iPad
+        }
+        return 18  // iPhone
+    }
+    
+    // MARK: - Text Sizing
+    
+    static func titleSize(for sizeClass: UserInterfaceSizeClass?) -> CGFloat {
+        if sizeClass == .regular {
+            return 17  // Larger titles for iPad
+        }
+        return 14  // iPhone
+    }
+    
+    static func bodySize(for sizeClass: UserInterfaceSizeClass?) -> CGFloat {
+        if sizeClass == .regular {
+            return 15  // Larger body text for iPad
+        }
+        return 12  // iPhone
+    }
+    
+    static func buttonTextSize(for sizeClass: UserInterfaceSizeClass?) -> CGFloat {
+        if sizeClass == .regular {
+            return 18  // Larger button text for iPad
+        }
+        return 16  // iPhone
+    }
+    
+    static func cardPadding(for sizeClass: UserInterfaceSizeClass?) -> CGFloat {
+        if sizeClass == .regular {
+            return 12  // More padding for iPad
+        }
+        return 10  // iPhone
+    }
 }
 
 // MARK: - Return Key Descriptor
@@ -362,13 +433,17 @@ struct KeyboardView: View {
     private var smallKeyWidth: CGFloat {
         KeyStyle.smallKeyWidth(for: horizontalSizeClass, isLandscape: isLandscape)
     }
+    
+    private var keySpacing: CGFloat {
+        KeyStyle.keySpacing(for: horizontalSizeClass)
+    }
 
     var body: some View {
-        VStack(spacing: 6) {
+        VStack(spacing: keySpacing) {
             suggestionBar
                 .padding(.horizontal, KeyStyle.horizontalPadding)
-                .frame(height: keyHeight + 6)
-                .padding(.top, 6)
+                .frame(height: keyHeight + keySpacing)
+                .padding(.top, keySpacing)
 
             cutlingGrid
                 .frame(height: gridHeight)
@@ -385,15 +460,15 @@ struct KeyboardView: View {
     // MARK: - Suggestion Bar
 
     private var suggestionBar: some View {
-        HStack(spacing: 6) {
+        HStack(spacing: keySpacing) {
             Group {
                 if state.hasFullAccess && state.hasClipboardContent {
                     // Normal clipboard button - only shown when clipboard has content
                     HStack(spacing: 6) {
                         Image(systemName: "doc.on.clipboard")
-                            .font(.system(size: 15, weight: .medium))
+                            .font(.system(size: KeyStyle.iconSize(for: horizontalSizeClass) + 2, weight: .medium))
                         Text("Add from Clipboard")
-                            .font(.system(size: 16))
+                            .font(.system(size: KeyStyle.buttonTextSize(for: horizontalSizeClass)))
                     }
                     .frame(maxWidth: .infinity)
                     .frame(height: keyHeight)
@@ -405,10 +480,10 @@ struct KeyboardView: View {
                     Link(destination: URL(string: "cutling://settings")!) {
                         HStack(spacing: 6) {
                             Image(systemName: "lock.fill")
-                                .font(.system(size: 13, weight: .medium))
+                                .font(.system(size: KeyStyle.iconSize(for: horizontalSizeClass), weight: .medium))
                                 .foregroundStyle(.secondary)
                             Text("Enable Full Access for Clipboard")
-                                .font(.system(size: 14))
+                                .font(.system(size: KeyStyle.buttonTextSize(for: horizontalSizeClass) - 2))
                                 .foregroundStyle(.secondary)
                         }
                         .frame(maxWidth: .infinity)
@@ -419,10 +494,10 @@ struct KeyboardView: View {
                     // Has full access but no clipboard content - show placeholder
                     HStack(spacing: 6) {
                         Image(systemName: "doc.on.clipboard")
-                            .font(.system(size: 15, weight: .medium))
+                            .font(.system(size: KeyStyle.iconSize(for: horizontalSizeClass) + 2, weight: .medium))
                             .foregroundStyle(.tertiary)
                         Text("Clipboard Empty")
-                            .font(.system(size: 16))
+                            .font(.system(size: KeyStyle.buttonTextSize(for: horizontalSizeClass)))
                             .foregroundStyle(.tertiary)
                     }
                     .frame(maxWidth: .infinity)
@@ -446,7 +521,7 @@ struct KeyboardView: View {
 
             Link(destination: URL(string: "cutling://open")!) {
                 Image(systemName: "arrow.up.forward.square")
-                    .font(.system(size: 18, weight: .medium))
+                    .font(.system(size: KeyStyle.buttonIconSize(for: horizontalSizeClass), weight: .medium))
                     .foregroundStyle(.primary)
                     .frame(width: keyHeight, height: keyHeight)
                     .background(Color.white.opacity(0.001))
@@ -486,8 +561,8 @@ struct KeyboardView: View {
                     // ... (your empty state view)
                 } else {
                     LazyVGrid(
-                        columns: [GridItem(.adaptive(minimum: 140), spacing: 6)],
-                        spacing: 6
+                        columns: [GridItem(.adaptive(minimum: KeyStyle.cardMinWidth(for: horizontalSizeClass)), spacing: keySpacing)],
+                        spacing: keySpacing
                     ) {
                         ForEach(store.cutlings) { cutling in
                             CutlingKeyView(
@@ -501,7 +576,7 @@ struct KeyboardView: View {
                         }
                     }
                     .padding(.horizontal, KeyStyle.horizontalPadding)
-                    .padding(.vertical, 6)
+                    .padding(.vertical, keySpacing)
                 }
             }
             .onChange(of: existedID) { oldValue, newValue in
@@ -520,14 +595,17 @@ struct KeyboardView: View {
     private var bottomRow: some View {
         let info = ReturnKeyInfo.from(state.returnKeyType)
 
-        return HStack(spacing: 5) {
+        return HStack(spacing: keySpacing) {
             // Next Keyboard (Globe) - only shown when needed
             if state.needsInputModeSwitchKey {
                 Image(systemName: "globe")
                     .font(.system(size: 20, weight: .light))
                     .frame(width: smallKeyWidth, height: keyHeight)
                     .background(KeyStyle.keyColor, in: RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous))
-                    .instantPress { onSwitchKeyboard() }
+                    .onTapGesture {
+                        // Tap: switch to next keyboard
+                        onSwitchKeyboard()
+                    }
             }
             
             // Backspace
@@ -750,6 +828,12 @@ struct CutlingKeyView: View {
     let isCopied: Bool
     let isExisted: Bool
     let onTap: () -> Void
+    
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    
+    private var cardHeight: CGFloat {
+        KeyStyle.cardHeight(for: horizontalSizeClass)
+    }
 
     var body: some View {
         Button(action: onTap) {
@@ -759,7 +843,7 @@ struct CutlingKeyView: View {
                 case .image: imageContent
                 }
             }
-            .frame(maxWidth: .infinity, minHeight: 64, maxHeight: 64, alignment: .topLeading)
+            .frame(maxWidth: .infinity, minHeight: cardHeight, maxHeight: cardHeight, alignment: .topLeading)
             .background(KeyStyle.keyColor, in: RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous))
             .contentShape(RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous))
             .clipShape(RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous))
@@ -799,19 +883,19 @@ struct CutlingKeyView: View {
         VStack(alignment: .leading, spacing: 4) {
             HStack(spacing: 4) {
                 Image(systemName: cutling.icon)
-                    .font(.system(size: 13))
+                    .font(.system(size: KeyStyle.iconSize(for: horizontalSizeClass)))
                     .foregroundStyle(.tint)
                 Text(cutling.name)
-                    .font(.system(size: 14, weight: .semibold))
+                    .font(.system(size: KeyStyle.titleSize(for: horizontalSizeClass), weight: .semibold))
                     .lineLimit(1)
             }
             Text(cutling.value)
-                .font(.system(size: 12))
+                .font(.system(size: KeyStyle.bodySize(for: horizontalSizeClass)))
                 .foregroundStyle(.secondary)
                 .lineLimit(2)
                 .multilineTextAlignment(.leading)
         }
-        .padding(10)
+        .padding(KeyStyle.cardPadding(for: horizontalSizeClass))
     }
 
     private var imageContent: some View {
@@ -835,10 +919,10 @@ struct CutlingKeyView: View {
                 }
 
                 Text(cutling.name)
-                    .font(.system(size: 13, weight: .semibold))
+                    .font(.system(size: KeyStyle.titleSize(for: horizontalSizeClass) - 2, weight: .semibold))
                     .foregroundStyle(.white)
                     .shadow(color: .black.opacity(0.4), radius: 2, y: 1)
-                    .padding(8)
+                    .padding(KeyStyle.cardPadding(for: horizontalSizeClass) - 2)
                     .frame(width: geo.size.width, alignment: .leading)
                     .background(
                         LinearGradient(

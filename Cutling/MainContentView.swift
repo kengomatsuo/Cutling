@@ -382,11 +382,6 @@ struct MainContentView: View {
                 }
                 .padding(.horizontal)
                 .padding(.top, 8)
-                
-                if !filtered.isEmpty {
-                    Divider()
-                        .padding(.horizontal)
-                }
             }
             
             if filtered.isEmpty {
