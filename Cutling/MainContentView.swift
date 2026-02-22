@@ -41,12 +41,21 @@ extension Image {
 }
 #endif
 
+// MARK: - Mode Enum
+
+enum MainContentMode: Equatable {
+    case browsing
+    case selecting
+    case ordering
+}
+
 // MARK: - Main Content
 
 struct MainContentView: View {
     @EnvironmentObject var store: CutlingStore
 
     @State private var searchText = ""
+    @State private var searchIsPresented = false
     @State private var selectedItem: Cutling? = nil
     @State private var showAddText = false
     @State private var showAddImage = false
@@ -56,7 +65,8 @@ struct MainContentView: View {
     @State private var showLimitAlert = false
     @State private var limitAlertMessage = ""
 
-    @State private var isSelecting = false
+    @State private var mode: MainContentMode = .browsing
+    @State private var displayedTitle: String = "My Cutlings"
     @State private var showDeleteConfirmation = false
     @State private var cutlingToDelete: Cutling?
 
@@ -150,319 +160,535 @@ struct MainContentView: View {
 
     var body: some View {
         NavigationStack {
-            ScrollView {
-                // Storage usage indicator
-                VStack(spacing: 6) {
-                    HStack(spacing: 12) {
-                        HStack(spacing: 4) {
-                            Image(systemName: "doc.text")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                            Text("\(store.textCutlingsCount)/\(CutlingStore.maxTextCutlings)")
-                                .font(.caption.weight(.medium))
-                                .foregroundStyle(.secondary)
+            mainContent
+                .modifier(SheetsModifier(
+                    selectedItem: $selectedItem,
+                    showAddText: $showAddText,
+                    showAddImage: $showAddImage,
+                    showSettings: $showSettings,
+                    showKeyboardSetup: $showKeyboardSetup
+                ))
+                .modifier(AlertsModifier(
+                    showLimitAlert: $showLimitAlert,
+                    limitAlertMessage: limitAlertMessage,
+                    showDeleteConfirmation: $showDeleteConfirmation,
+                    cutlingToDelete: $cutlingToDelete,
+                    onDelete: { cutling in
+                        withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
+                            store.delete(cutling)
                         }
-                        
-                        HStack(spacing: 4) {
-                            Image(systemName: "photo")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                            Text("\(store.imageCutlingsCount)/\(CutlingStore.maxImageCutlings)")
-                                .font(.caption.weight(.medium))
-                                .foregroundStyle(.secondary)
-                        }
-                        
-                        Spacer()
+                        cutlingToDelete = nil
+                        showDeleteConfirmation = false
+                    },
+                    onCancel: {
+                        cutlingToDelete = nil
+                        showDeleteConfirmation = false
                     }
-                    .padding(.horizontal)
-                    .padding(.top, 8)
-                    
-                    if !filtered.isEmpty {
-                        Divider()
-                            .padding(.horizontal)
-                    }
+                ))
+                .modifier(ChangeHandlersModifier(
+                    mode: mode,
+                    selectedIDs: selectedIDs,
+                    lastAddedCutlingID: store.lastAddedCutlingID,
+                    hasScrolledToNew: $hasScrolledToNew,
+                    displayedTitle: $displayedTitle,
+                    navigationTitle: navigationTitle,
+                    onModeChange: handleModeChange,
+                    onScrollToNew: scrollToBottom
+                ))
+                #if os(iOS)
+                .modifier(PanGestureModifier(
+                    isSelecting: mode == .selecting,
+                    panGesture: $panGesture,
+                    onPanChange: onGestureChange,
+                    onPanEnd: onGestureEnded
+                ))
+                #endif
+        }
+    }
+    
+    // MARK: - Main Content View
+    
+    private var mainContent: some View {
+        Group {
+            if mode == .ordering {
+                orderingListView
+            } else {
+                gridScrollView
+            }
+        }
+        .background(Color(platformGroupedBackground))
+        .navigationTitle(displayedTitle)
+        #if os(iOS)
+        .navigationBarTitleDisplayMode(mode == .browsing ? .large : .inline)
+        #endif
+        .searchable(text: $searchText, isPresented: $searchIsPresented, prompt: "Search cutlings")
+        .toolbar(mode != .browsing ? .visible : .hidden, for: .bottomBar)
+        .toolbar {
+            ToolbarItemGroup(placement: .primaryAction) {
+                primaryToolbarContent
+            }
+            
+            ToolbarItemGroup(placement: .bottomBar) {
+                bottomToolbarContent
+            }
+        }
+    }
+    
+    // MARK: - Toolbar Content Views
+    
+    @ViewBuilder
+    private var primaryToolbarContent: some View {
+        switch mode {
+        case .browsing:
+            browsingToolbarItems
+        case .selecting:
+            selectingPrimaryToolbarItems
+        case .ordering:
+            orderingPrimaryToolbarItems
+        }
+    }
+    
+    @ViewBuilder
+    private var bottomToolbarContent: some View {
+        switch mode {
+        case .selecting:
+            selectingBottomToolbarItems
+        case .ordering:
+            orderingBottomToolbarItems
+        case .browsing:
+            EmptyView()
+        }
+    }
+    
+    // MARK: - Mode Change Handler
+    
+    private func handleModeChange(_ newValue: MainContentMode) {
+        #if os(iOS)
+        panGesture?.isEnabled = newValue == .selecting
+        if newValue != .selecting {
+            selectionProperties = .init()
+        }
+        #else
+        if newValue != .selecting {
+            selectedCutlingIDs.removeAll()
+        }
+        #endif
+        
+        // Clear search when leaving browsing
+        if newValue != .browsing {
+            withAnimation {
+                searchText = ""
+                searchIsPresented = false
+            }
+        }
+        
+        // Delay title only when returning to browsing (large title expands);
+        // update immediately for selecting/ordering (title shrinks to inline).
+        if newValue == .browsing {
+            Task { @MainActor in
+                if #available(iOS 26, *) {
+                    try? await Task.sleep(for: .milliseconds(750))
                 }
-                
-                if filtered.isEmpty {
-                    VStack(spacing: 12) {
-                        Image(systemName: searchText.isEmpty ? "tray" : "magnifyingglass")
-                            .font(.system(size: 48, weight: .thin))
-                            .foregroundStyle(.tertiary)
-                        Text(searchText.isEmpty ? "No Cutlings Yet" : "No Results")
-                            .font(.title3.weight(.semibold))
+                displayedTitle = navigationTitle
+            }
+        } else {
+            displayedTitle = navigationTitle
+        }
+    }
+
+    // MARK: - Navigation Title
+
+    private var navigationTitle: String {
+        switch mode {
+        case .browsing:
+            return "My Cutlings"
+        case .selecting:
+            let count = selectedIDs.count
+            return count == 0 ? "Select Items" : "\(count) Selected"
+        case .ordering:
+            return "Reorder"
+        }
+    }
+
+    // MARK: - Ordering List View
+
+    private var orderingListView: some View {
+        List {
+            ForEach(store.cutlings) { item in
+                HStack(spacing: 12) {
+                    Image(systemName: item.icon)
+                        .font(.title3)
+                        .foregroundStyle(.tint)
+                        .frame(width: 28)
+
+                    if item.kind == .image,
+                       let filename = item.imageFilename,
+                       let thumbnail = store.loadThumbnail(named: filename) {
+                        Image(platformImage: thumbnail)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 40, height: 40)
+                            .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                    }
+
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(item.name)
+                            .font(.body.weight(.medium))
+                            .lineLimit(1)
+                        if item.kind == .text {
+                            Text(item.value)
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                                .lineLimit(1)
+                        }
+                    }
+
+                    Spacer()
+                }
+                .padding(.vertical, 4)
+            }
+            .onMove(perform: moveCutlings)
+        }
+        .environment(\.editMode, .constant(.active))
+        .listStyle(.insetGrouped)
+    }
+
+    // MARK: - Grid Scroll View
+
+    private var gridScrollView: some View {
+        ScrollView {
+            // Storage usage indicator
+            VStack(spacing: 6) {
+                HStack(spacing: 12) {
+                    HStack(spacing: 4) {
+                        Image(systemName: "doc.text")
+                            .font(.caption)
                             .foregroundStyle(.secondary)
-                        Text(searchText.isEmpty ? "Tap + to add your first cutling." : "Try a different search term.")
-                            .font(.subheadline)
-                            .foregroundStyle(.tertiary)
+                        Text("\(store.textCutlingsCount)/\(CutlingStore.maxTextCutlings)")
+                            .font(.caption.weight(.medium))
+                            .foregroundStyle(.secondary)
                     }
-                    .frame(maxWidth: .infinity)
-                    .padding(.top, 80)
-                } else {
-                    LazyVGrid(columns: columns, spacing: 12) {
-                        ForEach(filtered) { item in
-                            let isSelected = selectedIDs.contains(item.id)
-                            let isMarkedForDeletion: Bool = {
-                                #if os(iOS)
-                                selectionProperties.toBeDeletedIDs.contains(item.id)
-                                #else
-                                false
-                                #endif
-                            }()
-
-                            CardView(
-                                item: item,
-                                isSelecting: isSelecting,
-                                isSelected: isSelected && !isMarkedForDeletion,
-                                onEdit: {
-                                    selectedItem = item
-                                },
-                                onToggleSelection: {
-                                    toggleSelection(for: item)
-                                },
-                                onDelete: {
-                                    cutlingToDelete = item
-                                    showDeleteConfirmation = true
-                                }
-                            )
-                            .frame(height: 140)
-                            .transition(.asymmetric(
-                                insertion: .scale(scale: 0.85).combined(with: .opacity),
-                                removal: .scale(scale: 0.85).combined(with: .opacity)
-                            ))
-                            .id(item.id)
-                            .onGeometryChange(for: CGRect.self) {
-                                $0.frame(in: .global)
-                            } action: { newValue in
-                                cutlingLocations[item.id] = newValue
-                            }
-                        }
+                    
+                    HStack(spacing: 4) {
+                        Image(systemName: "photo")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                        Text("\(store.imageCutlingsCount)/\(CutlingStore.maxImageCutlings)")
+                            .font(.caption.weight(.medium))
+                            .foregroundStyle(.secondary)
                     }
-                    .padding()
-                    .padding(.bottom, 160)
-                    .animation(.spring(duration: 0.35, bounce: 0.2), value: filtered.map(\.id))
+                    
+                    Spacer()
                 }
-            }
-            #if os(iOS)
-            .scrollPosition($scrollProperties.position)
-            .onScrollGeometryChange(for: CGFloat.self, of: {
-                $0.contentOffset.y + $0.contentInsets.top
-            }, action: { _, newValue in
-                scrollProperties.currentScrollOffset = newValue
-            })
-            .onChange(of: scrollProperties.direction) { _, newValue in
-                if newValue != .none {
-                    guard scrollProperties.timer == nil else { return }
-                    scrollProperties.manualScrollOffset = scrollProperties.currentScrollOffset
-
-                    scrollProperties.timer = Timer.scheduledTimer(withTimeInterval: 0.005, repeats: true) { _ in
-                        let speed = scrollProperties.speed
-                        if case .up = scrollProperties.direction {
-                            scrollProperties.manualScrollOffset -= speed
-                        }
-                        if case .down = scrollProperties.direction {
-                            scrollProperties.manualScrollOffset += speed
-                        }
-                        scrollProperties.position.scrollTo(y: scrollProperties.manualScrollOffset)
-                    }
-                    scrollProperties.timer?.fire()
-                } else {
-                    resetScrollTimer()
-                }
-            }
-            #endif
-            .background(Color(platformGroupedBackground))
-            .navigationTitle("My Cutlings")
-            #if os(iOS)
-            .navigationBarTitleDisplayMode(isSelecting ? .inline : .large)
-            #endif
-            .searchable(text: $searchText, prompt: "Search cutlings")
-            .toolbar {
-                ToolbarItemGroup(placement: .primaryAction) {
-                    if isSelecting {
-                        Button {
-                            isSelecting = false
-                        } label: {
-                            #if os(macOS)
-                            Text("Cancel")
-                            #elseif os(iOS)
-                            if #available(iOS 26, *) {
-                                Image(systemName: "xmark")
-                            } else {
-                                Text("Cancel")
-                            }
-                            #endif
-                        }
-                    } else {
-                        Menu {
-                            Button {
-                                let canAddText = store.canAdd(.text)
-                                if canAddText.allowed {
-                                    showAddText = true
-                                } else {
-                                    limitAlertMessage = canAddText.reason ?? "Cannot add text cutling"
-                                    showLimitAlert = true
-                                }
-                            } label: {
-                                Label("Text Cutling", systemImage: "doc.text")
-                            }
-                            Button {
-                                let canAddImage = store.canAdd(.image)
-                                if canAddImage.allowed {
-                                    showAddImage = true
-                                } else {
-                                    limitAlertMessage = canAddImage.reason ?? "Cannot add image cutling"
-                                    showLimitAlert = true
-                                }
-                            } label: {
-                                Label("Image Cutling", systemImage: "photo")
-                            }
-                        } label: {
-                            Image(systemName: "plus")
-                        }
-                        
-                        Menu {
-                            Button {
-                                isSelecting = true
-                            } label: {
-                                Label("Select Cutlings", systemImage: "checkmark.circle")
-                            }
-
-                            if keyboardNeedsAttention {
-                                Button {
-                                    showKeyboardSetup = true
-                                } label: {
-                                    Label("Keyboard Setup", systemImage: "exclamationmark.triangle")
-                                }
-                            }
-
-                            Button {
-                                showSettings = true
-                            } label: {
-                                Label("Settings", systemImage: "gearshape")
-                            }
-                        } label: {
-                            Image(systemName: "ellipsis")
-                        }
-                    }
-                }
+                .padding(.horizontal)
+                .padding(.top, 8)
                 
-                ToolbarItemGroup(placement: .bottomBar) {
-                    if isSelecting {
-                        Spacer()
-                        Button(role: .destructive) {
-                            if !selectedIDs.isEmpty {
+                if !filtered.isEmpty {
+                    Divider()
+                        .padding(.horizontal)
+                }
+            }
+            
+            if filtered.isEmpty {
+                VStack(spacing: 12) {
+                    Image(systemName: searchText.isEmpty ? "tray" : "magnifyingglass")
+                        .font(.system(size: 48, weight: .thin))
+                        .foregroundStyle(.tertiary)
+                    Text(searchText.isEmpty ? "No Cutlings Yet" : "No Results")
+                        .font(.title3.weight(.semibold))
+                        .foregroundStyle(.secondary)
+                    Text(searchText.isEmpty ? "Tap + to add your first cutling." : "Try a different search term.")
+                        .font(.subheadline)
+                        .foregroundStyle(.tertiary)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(.top, 80)
+            } else {
+                LazyVGrid(columns: columns, spacing: 12) {
+                    ForEach(filtered) { item in
+                        let isSelected = selectedIDs.contains(item.id)
+                        let isMarkedForDeletion: Bool = {
+                            #if os(iOS)
+                            selectionProperties.toBeDeletedIDs.contains(item.id)
+                            #else
+                            false
+                            #endif
+                        }()
+
+                        CardView(
+                            item: item,
+                            isSelecting: mode == .selecting,
+                            isSelected: isSelected && !isMarkedForDeletion,
+                            onEdit: {
+                                selectedItem = item
+                            },
+                            onToggleSelection: {
+                                toggleSelection(for: item)
+                            },
+                            onDelete: {
+                                cutlingToDelete = item
                                 showDeleteConfirmation = true
                             }
-                        } label: {
-                            Image(systemName: "trash")
-                                .foregroundStyle(selectedIDs.isEmpty ? Color.secondary : Color.red)
-                        }
-                        .disabled(selectedIDs.isEmpty)
-                        .confirmationDialog(
-                            "Delete \(selectedIDs.count) item\(selectedIDs.count == 1 ? "" : "s")?",
-                            isPresented: Binding(
-                                get: { showDeleteConfirmation && cutlingToDelete == nil },
-                                set: { if !$0 { showDeleteConfirmation = false } }
-                            ),
-                            titleVisibility: .visible
-                        ) {
-                            Button("Delete", role: .destructive) {
-                                deleteSelectedCutlings()
-                            }
-                            Button("Cancel", role: .cancel) {}
+                        )
+                        .frame(height: 140)
+                        .transition(.asymmetric(
+                            insertion: .scale(scale: 0.85).combined(with: .opacity),
+                            removal: .scale(scale: 0.85).combined(with: .opacity)
+                        ))
+                        .id(item.id)
+                        .onGeometryChange(for: CGRect.self) {
+                            $0.frame(in: .global)
+                        } action: { newValue in
+                            cutlingLocations[item.id] = newValue
                         }
                     }
                 }
+                .padding()
+                .padding(.bottom, 160)
+                .animation(.spring(duration: 0.35, bounce: 0.2), value: filtered.map(\.id))
             }
-            .sheet(item: $selectedItem) { item in
-                switch item.kind {
-                case .text:
-                    TextDetailView(item: item)
-                case .image:
-                    ImageDetailView(item: item)
-                }
-            }
-            .sheet(isPresented: $showAddText) {
-                TextDetailView(item: nil)
-            }
-            .sheet(isPresented: $showAddImage) {
-                ImageDetailView(item: nil)
-            }
-            .sheet(isPresented: $showSettings) {
-                SettingsView()
-            }
-            .sheet(isPresented: $showKeyboardSetup) {
-                KeyboardSetupView(isOnboarding: false)
-            }
-            .alert("Limit Reached", isPresented: $showLimitAlert) {
-                Button("OK", role: .cancel) {}
-            } message: {
-                Text(limitAlertMessage)
-            }
-            .alert(
-                "Delete \"\(cutlingToDelete?.name ?? "")\"?",
-                isPresented: Binding(
-                    get: { showDeleteConfirmation && cutlingToDelete != nil },
-                    set: { if !$0 { showDeleteConfirmation = false; cutlingToDelete = nil } }
-                ),
-                presenting: cutlingToDelete
-            ) { cutling in
-                Button("Delete", role: .destructive) {
-                    withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
-                        store.delete(cutling)
+        }
+        #if os(iOS)
+        .scrollPosition($scrollProperties.position)
+        .onScrollGeometryChange(for: CGFloat.self, of: {
+            $0.contentOffset.y + $0.contentInsets.top
+        }, action: { _, newValue in
+            scrollProperties.currentScrollOffset = newValue
+        })
+        .onChange(of: scrollProperties.direction) { _, newValue in
+            if newValue != .none {
+                guard scrollProperties.timer == nil else { return }
+                scrollProperties.manualScrollOffset = scrollProperties.currentScrollOffset
+
+                scrollProperties.timer = Timer.scheduledTimer(withTimeInterval: 0.005, repeats: true) { _ in
+                    let speed = scrollProperties.speed
+                    if case .up = scrollProperties.direction {
+                        scrollProperties.manualScrollOffset -= speed
                     }
-                    cutlingToDelete = nil
-                    showDeleteConfirmation = false
+                    if case .down = scrollProperties.direction {
+                        scrollProperties.manualScrollOffset += speed
+                    }
+                    scrollProperties.position.scrollTo(y: scrollProperties.manualScrollOffset)
                 }
-                Button("Cancel", role: .cancel) {
-                    cutlingToDelete = nil
-                    showDeleteConfirmation = false
+                scrollProperties.timer?.fire()
+            } else {
+                resetScrollTimer()
+            }
+        }
+        #endif
+    }
+
+    // MARK: - Toolbar Content
+
+    @ViewBuilder
+    private var browsingToolbarItems: some View {
+        Menu {
+            Button {
+                let canAddText = store.canAdd(.text)
+                if canAddText.allowed {
+                    showAddText = true
+                } else {
+                    limitAlertMessage = canAddText.reason ?? "Cannot add text cutling"
+                    showLimitAlert = true
+                }
+            } label: {
+                Label("Text Cutling", systemImage: "doc.text")
+            }
+            Button {
+                let canAddImage = store.canAdd(.image)
+                if canAddImage.allowed {
+                    showAddImage = true
+                } else {
+                    limitAlertMessage = canAddImage.reason ?? "Cannot add image cutling"
+                    showLimitAlert = true
+                }
+            } label: {
+                Label("Image Cutling", systemImage: "photo")
+            }
+        } label: {
+            Image(systemName: "plus")
+        }
+        
+        Menu {
+            Button {
+                withAnimation { mode = .selecting }
+            } label: {
+                Label("Select Cutlings", systemImage: "checkmark.circle")
+            }
+            
+            Button {
+                withAnimation { mode = .ordering }
+            } label: {
+                Label("Reorder Cutlings", systemImage: "arrow.up.arrow.down")
+            }
+            .disabled(store.cutlings.count < 2)
+
+            if keyboardNeedsAttention {
+                Button {
+                    showKeyboardSetup = true
+                } label: {
+                    Label("Keyboard Setup", systemImage: "exclamationmark.triangle")
                 }
             }
-            .onChange(of: isSelecting) { _, newValue in
-                #if os(iOS)
-                panGesture?.isEnabled = newValue
-                if !newValue {
-                    selectionProperties = .init()
-                }
-                #else
-                if !newValue {
-                    selectedCutlingIDs.removeAll()
-                }
-                #endif
+
+            Button {
+                showSettings = true
+            } label: {
+                Label("Settings", systemImage: "gearshape")
             }
-            .onChange(of: store.lastAddedCutlingID) { _, newID in
-                guard newID != nil, !hasScrolledToNew else { return }
-                hasScrolledToNew = true
-                
-                // Wait a moment for the view to appear in the list
-                Task { @MainActor in
-                    try? await Task.sleep(for: .milliseconds(100))
-                    scrollToBottom()
-                    
-                    // Reset the flag after a delay
-                    try? await Task.sleep(for: .seconds(1))
-                    hasScrolledToNew = false
-                }
+        } label: {
+            Image(systemName: "ellipsis")
+        }
+    }
+
+    @ViewBuilder
+    private var selectingPrimaryToolbarItems: some View {
+        Button {
+            withAnimation { mode = .browsing }
+        } label: {
+            #if os(macOS)
+            Text("Cancel")
+            #elseif os(iOS)
+            if #available(iOS 26, *) {
+                Image(systemName: "xmark")
+            } else {
+                Text("Cancel")
             }
-            #if os(iOS)
-            .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
-                // App became active
-            }
-            #else
-            .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
-                // App became active
-            }
-            #endif
-            #if os(iOS)
-            .modifier(PanGestureModifier(
-                isSelecting: isSelecting,
-                panGesture: $panGesture,
-                onPanChange: onGestureChange,
-                onPanEnd: onGestureEnded
-            ))
             #endif
         }
+    }
+
+    @ViewBuilder
+    private var orderingPrimaryToolbarItems: some View {
+        Button {
+            withAnimation { mode = .browsing }
+        } label: {
+            #if os(macOS)
+            Text("Done")
+            #elseif os(iOS)
+            if #available(iOS 26, *) {
+                Image(systemName: "checkmark")
+            } else {
+                Text("Done")
+            }
+            #endif
+        }
+    }
+
+    @ViewBuilder
+    private var selectingBottomToolbarItems: some View {
+        Spacer()
+        Button(role: .destructive) {
+            if !selectedIDs.isEmpty {
+                showDeleteConfirmation = true
+            }
+        } label: {
+            Image(systemName: "trash")
+                .foregroundStyle(selectedIDs.isEmpty ? Color.secondary : Color.red)
+        }
+        .disabled(selectedIDs.isEmpty)
+        .confirmationDialog(
+            "Delete \(selectedIDs.count) item\(selectedIDs.count == 1 ? "" : "s")?",
+            isPresented: Binding(
+                get: { showDeleteConfirmation && cutlingToDelete == nil },
+                set: { if !$0 { showDeleteConfirmation = false } }
+            ),
+            titleVisibility: .visible
+        ) {
+            Button("Delete", role: .destructive) {
+                deleteSelectedCutlings()
+            }
+            Button("Cancel", role: .cancel) {}
+        }
+    }
+
+    @ViewBuilder
+    private var orderingBottomToolbarItems: some View {
+        Menu {
+            Button {
+                sortCutlings(by: .nameAscending)
+            } label: {
+                Label("Name (A → Z)", systemImage: "textformat.abc")
+            }
+            Button {
+                sortCutlings(by: .nameDescending)
+            } label: {
+                Label("Name (Z → A)", systemImage: "textformat.abc")
+            }
+            Divider()
+            Button {
+                sortCutlings(by: .textFirst)
+            } label: {
+                Label("Text First", systemImage: "doc.text")
+            }
+            Button {
+                sortCutlings(by: .imageFirst)
+            } label: {
+                Label("Images First", systemImage: "photo")
+            }
+            Divider()
+            Button {
+                sortCutlings(by: .shortestFirst)
+            } label: {
+                Label("Shortest First", systemImage: "text.line.first.and.arrowtriangle.forward")
+            }
+            Button {
+                sortCutlings(by: .longestFirst)
+            } label: {
+                Label("Longest First", systemImage: "text.line.last.and.arrowtriangle.forward")
+            }
+            Divider()
+            Button {
+                sortCutlings(by: .reverse)
+            } label: {
+                Label("Reverse Order", systemImage: "arrow.up.arrow.down")
+            }
+        } label: {
+            Label("Sort", systemImage: "arrow.up.arrow.down.circle")
+        }
+        Spacer()
+    }
+
+    // MARK: - Sorting
+
+    private enum SortOrder {
+        case nameAscending, nameDescending
+        case textFirst, imageFirst
+        case shortestFirst, longestFirst
+        case reverse
+    }
+
+    private func sortCutlings(by order: SortOrder) {
+        withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
+            switch order {
+            case .nameAscending:
+                store.sortCutlings { $0.name.localizedCaseInsensitiveCompare($1.name) == .orderedAscending }
+            case .nameDescending:
+                store.sortCutlings { $0.name.localizedCaseInsensitiveCompare($1.name) == .orderedDescending }
+            case .textFirst:
+                store.sortCutlings { lhs, rhs in
+                    if lhs.kind == rhs.kind { return lhs.name.localizedCaseInsensitiveCompare(rhs.name) == .orderedAscending }
+                    return lhs.kind == .text
+                }
+            case .imageFirst:
+                store.sortCutlings { lhs, rhs in
+                    if lhs.kind == rhs.kind { return lhs.name.localizedCaseInsensitiveCompare(rhs.name) == .orderedAscending }
+                    return lhs.kind == .image
+                }
+            case .shortestFirst:
+                store.sortCutlings { $0.value.count < $1.value.count }
+            case .longestFirst:
+                store.sortCutlings { $0.value.count > $1.value.count }
+            case .reverse:
+                store.reverseCutlings()
+            }
+        }
+    }
+
+    // MARK: - Move / Reorder
+
+    private func moveCutlings(from source: IndexSet, to destination: Int) {
+        store.moveCutlings(fromOffsets: source, toOffset: destination)
     }
 
     // MARK: - Gesture Handling (mirrors reference exactly)
@@ -570,7 +796,7 @@ struct MainContentView: View {
             #else
             selectedCutlingIDs.removeAll()
             #endif
-            isSelecting = false
+            withAnimation { mode = .browsing }
         }
     }
     
@@ -669,67 +895,88 @@ struct CardView: View {
     #endif
 
     var body: some View {
-        Group {
-            switch item.kind {
-            case .text:
-                textCard
-            case .image:
-                imageCard
-            }
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .background(Color(platformSecondaryGroupedBackground))
-        .contentShape(cardShape)
-        .clipShape(cardShape)
-        #if os(iOS)
-        .contentShape(.contextMenuPreview, cardShape)
-        #endif
-        .overlay(alignment: .center) {
-            if copied {
-                Label("Copied", systemImage: "checkmark")
-                    .font(.subheadline.weight(.semibold))
-                    .padding(.horizontal, 14)
-                    .padding(.vertical, 8)
-                    .background(.thinMaterial)
-                    .clipShape(Capsule())
-                    .transition(.scale(scale: 0.8).combined(with: .opacity))
-            }
-        }
-        .animation(.spring(), value: copied)
-        .contextMenu {
-            if !isSelecting {
-                Button {
-                    copyToClipboard()
-                } label: {
-                    Label("Copy", systemImage: "doc.on.doc")
-                }
-
-                Button {
-                    onEdit()
-                } label: {
-                    Label("Edit", systemImage: "pencil")
-                }
-
-                Divider()
-
-                Button(role: .destructive) {
-                    onDelete()
-                } label: {
-                    Label("Delete", systemImage: "trash")
-                }
-            }
-        } preview: {
-            previewContent
-        }
-        .onTapGesture {
+        cardContent
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            .background(Color(platformSecondaryGroupedBackground))
+            .contentShape(cardShape)
+            .clipShape(cardShape)
             #if os(iOS)
-            Self.haptic.impactOccurred()
+            .contentShape(.contextMenuPreview, cardShape)
             #endif
-            if isSelecting {
-                onToggleSelection()
-            } else {
-                copyToClipboard()
+            .overlay(alignment: .center) {
+                copiedOverlay
             }
+            .animation(.spring(), value: copied)
+            .contextMenu {
+                cardContextMenu
+            } preview: {
+                previewContent
+            }
+            .onTapGesture {
+                handleTap()
+            }
+    }
+    
+    // MARK: - Card Content
+    
+    @ViewBuilder
+    private var cardContent: some View {
+        switch item.kind {
+        case .text:
+            textCard
+        case .image:
+            imageCard
+        }
+    }
+    
+    @ViewBuilder
+    private var copiedOverlay: some View {
+        if copied {
+            Label("Copied", systemImage: "checkmark")
+                .font(.subheadline.weight(.semibold))
+                .padding(.horizontal, 14)
+                .padding(.vertical, 8)
+                .background(.thinMaterial)
+                .clipShape(Capsule())
+                .transition(.scale(scale: 0.8).combined(with: .opacity))
+        }
+    }
+    
+    @ViewBuilder
+    private var cardContextMenu: some View {
+        if !isSelecting {
+            Button {
+                copyToClipboard()
+            } label: {
+                Label("Copy", systemImage: "doc.on.doc")
+            }
+
+            Button {
+                onEdit()
+            } label: {
+                Label("Edit", systemImage: "pencil")
+            }
+
+            Divider()
+
+            Button(role: .destructive) {
+                onDelete()
+            } label: {
+                Label("Delete", systemImage: "trash")
+            }
+        }
+    }
+    
+    private func handleTap() {
+        #if os(iOS)
+        if !isSelecting {
+            Self.haptic.impactOccurred()
+        }
+        #endif
+        if isSelecting {
+            onToggleSelection()
+        } else {
+            copyToClipboard()
         }
     }
 
@@ -868,15 +1115,24 @@ struct CardView: View {
                         .fill(item.kind == .image ? AnyShapeStyle(.thinMaterial) : AnyShapeStyle(.quinary))
                 }
                 
-                Image(systemName: isSelecting ? (isSelected ? "checkmark.circle.fill" : "circle") : "ellipsis")
-                    .font(isSelecting ? .title2 : .subheadline)
-                    .foregroundStyle(
-                        isSelecting && isSelected ? Color.white : Color.primary,
-                        isSelecting && isSelected ? Color.accentColor : Color.primary
-                    )
-                    .scaleEffect(!isSelecting || isSelected ? 1.3 : 1.2)
-                    .rotationEffect(.degrees(!isSelecting || isSelected ? 0 : -15))
-                    .animation(.spring(duration: 0.15), value: isSelected)
+                if isSelecting {
+                    // Selection mode: animate between circle and checkmark
+                    Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
+                        .font(.title2)
+                        .foregroundStyle(
+                            isSelected ? Color.white : (item.kind == .image ? Color.white : Color.primary),
+                            isSelected ? Color.accentColor : (item.kind == .image ? Color.white : Color.primary)
+                        )
+                        .scaleEffect(isSelected ? 1.3 : 1.2)
+                        .rotationEffect(.degrees(isSelected ? 0 : -15))
+                        .animation(.spring(duration: 0.15), value: isSelected)
+                } else {
+                    // Browse mode: no animation
+                    Image(systemName: "ellipsis")
+                        .font(.subheadline)
+                        .foregroundStyle(Color.primary)
+                        .scaleEffect(1.3)
+                }
             }
             .frame(width: 36, height: 36)
         }
@@ -914,6 +1170,121 @@ struct CardView: View {
             try? await Task.sleep(for: .seconds(1.5))
             copied = false
         }
+    }
+}
+
+// MARK: - Helper View Modifiers
+
+struct SheetsModifier: ViewModifier {
+    @EnvironmentObject var store: CutlingStore
+    @Binding var selectedItem: Cutling?
+    @Binding var showAddText: Bool
+    @Binding var showAddImage: Bool
+    @Binding var showSettings: Bool
+    @Binding var showKeyboardSetup: Bool
+    
+    func body(content: Content) -> some View {
+        content
+            .sheet(item: $selectedItem) { item in
+                switch item.kind {
+                case .text:
+                    TextDetailView(item: item)
+                case .image:
+                    ImageDetailView(item: item)
+                }
+            }
+            .sheet(isPresented: $showAddText) {
+                TextDetailView(item: nil)
+            }
+            .sheet(isPresented: $showAddImage) {
+                ImageDetailView(item: nil)
+            }
+            .sheet(isPresented: $showSettings) {
+                SettingsView()
+            }
+            .sheet(isPresented: $showKeyboardSetup) {
+                KeyboardSetupView(isOnboarding: false)
+            }
+    }
+}
+
+struct AlertsModifier: ViewModifier {
+    @EnvironmentObject var store: CutlingStore
+    @Binding var showLimitAlert: Bool
+    let limitAlertMessage: String
+    @Binding var showDeleteConfirmation: Bool
+    @Binding var cutlingToDelete: Cutling?
+    let onDelete: (Cutling) -> Void
+    let onCancel: () -> Void
+    
+    func body(content: Content) -> some View {
+        content
+            .alert("Limit Reached", isPresented: $showLimitAlert) {
+                Button("OK", role: .cancel) {}
+            } message: {
+                Text(limitAlertMessage)
+            }
+            .alert(
+                "Delete \"\(cutlingToDelete?.name ?? "")\"?",
+                isPresented: Binding(
+                    get: { showDeleteConfirmation && cutlingToDelete != nil },
+                    set: { if !$0 { showDeleteConfirmation = false; cutlingToDelete = nil } }
+                ),
+                presenting: cutlingToDelete
+            ) { cutling in
+                Button("Delete", role: .destructive) {
+                    onDelete(cutling)
+                }
+                Button("Cancel", role: .cancel) {
+                    onCancel()
+                }
+            }
+    }
+}
+
+struct ChangeHandlersModifier: ViewModifier {
+    let mode: MainContentMode
+    let selectedIDs: Set<UUID>
+    let lastAddedCutlingID: UUID?
+    @Binding var hasScrolledToNew: Bool
+    @Binding var displayedTitle: String
+    let navigationTitle: String
+    let onModeChange: (MainContentMode) -> Void
+    let onScrollToNew: () -> Void
+    
+    func body(content: Content) -> some View {
+        content
+            .onChange(of: mode) { _, newValue in
+                onModeChange(newValue)
+            }
+            .onChange(of: selectedIDs) { _, _ in
+                if mode == .selecting {
+                    displayedTitle = navigationTitle
+                }
+            }
+            .onChange(of: lastAddedCutlingID) { _, newID in
+                guard newID != nil, !hasScrolledToNew else { return }
+                hasScrolledToNew = true
+                
+                // Wait a moment for the view to appear in the list
+                Task { @MainActor in
+                    try? await Task.sleep(for: .milliseconds(100))
+                    onScrollToNew()
+                    
+                    // Reset the flag after a delay
+                    try? await Task.sleep(for: .seconds(1))
+                    hasScrolledToNew = false
+                }
+            }
+            #if os(iOS)
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+                // App became active
+            }
+            #else
+            .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
+                // App became active
+            }
+            #endif
     }
 }
 

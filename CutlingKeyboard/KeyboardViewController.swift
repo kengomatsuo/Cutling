@@ -41,6 +41,7 @@ final class KeyboardState: ObservableObject {
     @Published var returnKeyType: UIReturnKeyType = .default
     @Published var hasFullAccess: Bool = false
     @Published var hasClipboardContent: Bool = false
+    @Published var needsInputModeSwitchKey: Bool = false
 }
 
 // MARK: - Instant Press Modifier
@@ -181,6 +182,7 @@ class KeyboardViewController: UIInputViewController {
         UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(fullAccess, forKey: "hasFullAccess")
         keyboardState.hasFullAccess = fullAccess
         keyboardState.returnKeyType = textDocumentProxy.returnKeyType ?? .default
+        keyboardState.needsInputModeSwitchKey = needsInputModeSwitchKey
         
         // Update clipboard status (safe - doesn't trigger permission prompt)
         updateClipboardStatus()
@@ -195,7 +197,8 @@ class KeyboardViewController: UIInputViewController {
                 state: keyboardState,
                 onInsertText: { inputVC.textDocumentProxy.insertText($0) },
                 onCopyImage: { if let image = UIImage(data: $0) { UIPasteboard.general.image = image } },
-                onBackspace: { inputVC.textDocumentProxy.deleteBackward() }
+                onBackspace: { inputVC.textDocumentProxy.deleteBackward() },
+                onSwitchKeyboard: { inputVC.advanceToNextInputMode() }
             )
 
             let hc = UIHostingController(rootView: keyboardView)
@@ -257,9 +260,47 @@ class KeyboardViewController: UIInputViewController {
 
 enum KeyStyle {
     static let cornerRadius: CGFloat = 12
-    static let keyHeight: CGFloat = 44
     static let horizontalPadding: CGFloat = 6
     static let keyColor = Color(UIColor.keyBackground)
+    
+    static func keyHeight(for sizeClass: UserInterfaceSizeClass?, isLandscape: Bool) -> CGFloat {
+        // iPad uses regular size class in both orientations
+        if sizeClass == .regular {
+            return 64
+        }
+        // iPhone in landscape
+        if isLandscape {
+            return 32
+        }
+        // iPhone in portrait (default)
+        return 44
+    }
+    
+    static func gridHeight(for sizeClass: UserInterfaceSizeClass?, isLandscape: Bool) -> CGFloat {
+        // iPad uses regular size class in both orientations
+        if sizeClass == .regular {
+            return 240
+        }
+        // iPhone in landscape
+        if isLandscape {
+            return 120
+        }
+        // iPhone in portrait (default)
+        return 180
+    }
+    
+    static func smallKeyWidth(for sizeClass: UserInterfaceSizeClass?, isLandscape: Bool) -> CGFloat {
+        // iPad uses regular size class in both orientations
+        if sizeClass == .regular {
+            return 72
+        }
+        // iPhone in landscape
+        if isLandscape {
+            return 64
+        }
+        // iPhone in portrait (default)
+        return 52
+    }
 }
 
 // MARK: - Return Key Descriptor
@@ -294,6 +335,7 @@ struct KeyboardView: View {
     let onInsertText: (String) -> Void
     let onCopyImage: (Data) -> Void
     let onBackspace: () -> Void
+    let onSwitchKeyboard: () -> Void
 
     @State private var copiedID: UUID? = nil
     @State private var existedID: UUID? = nil
@@ -301,20 +343,39 @@ struct KeyboardView: View {
     @State private var showNoAccessToast = false
     @State private var showLimitToast = false
     @State private var limitToastMessage = ""
+    
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
+    
+    private var isLandscape: Bool {
+        verticalSizeClass == .compact
+    }
+    
+    private var keyHeight: CGFloat {
+        KeyStyle.keyHeight(for: horizontalSizeClass, isLandscape: isLandscape)
+    }
+    
+    private var gridHeight: CGFloat {
+        KeyStyle.gridHeight(for: horizontalSizeClass, isLandscape: isLandscape)
+    }
+    
+    private var smallKeyWidth: CGFloat {
+        KeyStyle.smallKeyWidth(for: horizontalSizeClass, isLandscape: isLandscape)
+    }
 
     var body: some View {
         VStack(spacing: 6) {
             suggestionBar
                 .padding(.horizontal, KeyStyle.horizontalPadding)
-                .frame(height: KeyStyle.keyHeight + 6)
+                .frame(height: keyHeight + 6)
                 .padding(.top, 6)
 
             cutlingGrid
-                .frame(height: 240)
+                .frame(height: gridHeight)
 
             bottomRow
                 .padding(.horizontal, KeyStyle.horizontalPadding)
-                .frame(height: KeyStyle.keyHeight)
+                .frame(height: keyHeight)
         }
         .padding(.bottom, 2)
         .tint(Color(hex: 0x22a98d))
@@ -335,7 +396,7 @@ struct KeyboardView: View {
                             .font(.system(size: 16))
                     }
                     .frame(maxWidth: .infinity)
-                    .frame(height: KeyStyle.keyHeight)
+                    .frame(height: keyHeight)
                     .instantPress(cornerRadius: 99) {
                         addFromClipboard()
                     }
@@ -351,7 +412,7 @@ struct KeyboardView: View {
                                 .foregroundStyle(.secondary)
                         }
                         .frame(maxWidth: .infinity)
-                        .frame(height: KeyStyle.keyHeight)
+                        .frame(height: keyHeight)
                     }
                     .buttonStyle(.plain)
                 } else {
@@ -365,7 +426,7 @@ struct KeyboardView: View {
                             .foregroundStyle(.tertiary)
                     }
                     .frame(maxWidth: .infinity)
-                    .frame(height: KeyStyle.keyHeight)
+                    .frame(height: keyHeight)
                 }
             }
             .overlay {
@@ -387,7 +448,7 @@ struct KeyboardView: View {
                 Image(systemName: "arrow.up.forward.square")
                     .font(.system(size: 18, weight: .medium))
                     .foregroundStyle(.primary)
-                    .frame(width: KeyStyle.keyHeight, height: KeyStyle.keyHeight)
+                    .frame(width: keyHeight, height: keyHeight)
                     .background(Color.white.opacity(0.001))
                     .contentShape(Circle())
             }
@@ -404,7 +465,7 @@ struct KeyboardView: View {
         }
         .foregroundStyle(.primary)
         .frame(maxWidth: .infinity)
-        .frame(height: KeyStyle.keyHeight)
+        .frame(height: keyHeight)
         .background(
             .ultraThinMaterial,
             in: RoundedRectangle(cornerRadius: 99, style: .continuous)
@@ -460,17 +521,26 @@ struct KeyboardView: View {
         let info = ReturnKeyInfo.from(state.returnKeyType)
 
         return HStack(spacing: 5) {
+            // Next Keyboard (Globe) - only shown when needed
+            if state.needsInputModeSwitchKey {
+                Image(systemName: "globe")
+                    .font(.system(size: 20, weight: .light))
+                    .frame(width: smallKeyWidth, height: keyHeight)
+                    .background(KeyStyle.keyColor, in: RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous))
+                    .instantPress { onSwitchKeyboard() }
+            }
+            
             // Backspace
             Image(systemName: "delete.left")
                 .font(.system(size: 20, weight: .light))
-                .frame(width: 52, height: KeyStyle.keyHeight)
+                .frame(width: smallKeyWidth, height: keyHeight)
                 .background(KeyStyle.keyColor, in: RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous))
                 .instantPress { onBackspace() }
 
             // Space
             Text("")
                 .font(.system(size: 17))
-                .frame(maxWidth: .infinity, minHeight: KeyStyle.keyHeight)
+                .frame(maxWidth: .infinity, minHeight: keyHeight)
                 .background(KeyStyle.keyColor, in: RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous))
                 .instantPress { onInsertText(" ") }
 
@@ -478,7 +548,7 @@ struct KeyboardView: View {
             Image(systemName: info.icon)
                 .font(.system(size: 18, weight: info.isAction ? .semibold : .light))
                 .foregroundStyle(info.isAction ? .white : .primary)
-                .frame(width: 92, height: KeyStyle.keyHeight)
+                .frame(width: 92, height: keyHeight)
                 .background(
                     info.isAction
                         ? AnyShapeStyle(Color(hex: 0x22a98d))

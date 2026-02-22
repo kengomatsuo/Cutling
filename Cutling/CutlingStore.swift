@@ -11,6 +11,7 @@ import CryptoKit
 
 #if os(iOS)
 import UIKit
+import SwiftUI
 #else
 import AppKit
 #endif
@@ -178,6 +179,21 @@ class CutlingStore: ObservableObject {
         cutlings.append(cutling)
         lastAddedCutlingID = cutling.id
         save()
+    }
+    
+    func sortCutlings(by areInIncreasingOrder: (Cutling, Cutling) -> Bool) {
+        cutlings.sort(by: areInIncreasingOrder)
+        save()
+    }
+
+    func reverseCutlings() {
+        cutlings.reverse()
+        save()
+    }
+    
+    func moveCutlings(fromOffsets source: IndexSet, toOffset destination: Int) {
+        cutlings.move(fromOffsets: source, toOffset: destination)
+        save() // or however you persist
     }
     
     // MARK: - Limit Checks
