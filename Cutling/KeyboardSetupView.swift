@@ -103,10 +103,12 @@ struct KeyboardSetupView: View {
                 } header: {
                     Text("Setup Progress")
                 } footer: {
-                    if !keyboardDetected {
+                    if !fullAccessDetected {
                         VStack(alignment: .leading, spacing: 4) {
                             Text("**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list.")
                             Text("**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere.")
+                            Text("**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status.")
+                            Text("**Step 4:** You're good to go! The usage guide is provided below.")
                         }
                     }
                 }
@@ -129,8 +131,6 @@ struct KeyboardSetupView: View {
                         TextField("Tap here, then switch to Cutling", text: $testText)
                             .focused($testFieldFocused)
                     }
-                } footer: {
-                    Text("**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status.")
                 }
 
                 // How to use (shown when done)
