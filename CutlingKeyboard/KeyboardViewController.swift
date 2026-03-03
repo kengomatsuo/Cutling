@@ -40,7 +40,6 @@ extension UIColor {
 final class KeyboardState: ObservableObject {
     @Published var returnKeyType: UIReturnKeyType = .default
     @Published var hasFullAccess: Bool = false
-    @Published var hasClipboardContent: Bool = false
     @Published var needsInputModeSwitchKey: Bool = false
 }
 
@@ -184,9 +183,6 @@ class KeyboardViewController: UIInputViewController {
         keyboardState.returnKeyType = textDocumentProxy.returnKeyType ?? .default
         keyboardState.needsInputModeSwitchKey = needsInputModeSwitchKey
         
-        // Update clipboard status (safe - doesn't trigger permission prompt)
-        updateClipboardStatus()
-
         // Only create the hosting controller once
         if hostingController == nil {
             let inputVC = self
@@ -244,15 +240,6 @@ class KeyboardViewController: UIInputViewController {
         if keyboardState.returnKeyType != newType {
             keyboardState.returnKeyType = newType
         }
-        // Update clipboard status when switching text fields
-        updateClipboardStatus()
-    }
-    
-    // MARK: - Clipboard Status
-    
-    private func updateClipboardStatus() {
-        // Only use hasImages and hasStrings - these do NOT trigger permission prompts
-        keyboardState.hasClipboardContent = UIPasteboard.general.hasImages || UIPasteboard.general.hasStrings
     }
 }
 
@@ -410,8 +397,10 @@ struct KeyboardView: View {
 
     @State private var copiedID: UUID? = nil
     @State private var existedID: UUID? = nil
+    @State private var newlyAddedID: UUID? = nil
     @State private var showAddedToast = false
     @State private var showNoAccessToast = false
+    @State private var showEmptyClipboardToast = false
     @State private var showLimitToast = false
     @State private var limitToastMessage = ""
     
@@ -462,8 +451,8 @@ struct KeyboardView: View {
     private var suggestionBar: some View {
         HStack(spacing: keySpacing) {
             Group {
-                if state.hasFullAccess && state.hasClipboardContent {
-                    // Normal clipboard button - only shown when clipboard has content
+                if state.hasFullAccess {
+                    // Always-active clipboard button — checks clipboard at tap time
                     HStack(spacing: 6) {
                         Image(systemName: "doc.on.clipboard")
                             .font(.system(size: KeyStyle.iconSize(for: horizontalSizeClass) + 2, weight: .medium))
@@ -475,7 +464,7 @@ struct KeyboardView: View {
                     .instantPress(cornerRadius: 99) {
                         addFromClipboard()
                     }
-                } else if !state.hasFullAccess {
+                } else {
                     // No full access — show disabled state that opens settings
                     Link(destination: URL(string: "cutling://settings")!) {
                         HStack(spacing: 6) {
@@ -490,18 +479,6 @@ struct KeyboardView: View {
                         .frame(height: keyHeight)
                     }
                     .buttonStyle(.plain)
-                } else {
-                    // Has full access but no clipboard content - show placeholder
-                    HStack(spacing: 6) {
-                        Image(systemName: "doc.on.clipboard")
-                            .font(.system(size: KeyStyle.iconSize(for: horizontalSizeClass) + 2, weight: .medium))
-                            .foregroundStyle(.tertiary)
-                        Text("Clipboard Empty")
-                            .font(.system(size: KeyStyle.buttonTextSize(for: horizontalSizeClass)))
-                            .foregroundStyle(.tertiary)
-                    }
-                    .frame(maxWidth: .infinity)
-                    .frame(height: keyHeight)
                 }
             }
             .overlay {
@@ -511,12 +488,16 @@ struct KeyboardView: View {
                 if showNoAccessToast {
                     toastOverlay(icon: "lock.fill", text: "Full Access Required")
                 }
+                if showEmptyClipboardToast {
+                    toastOverlay(icon: "doc.on.clipboard", text: "Clipboard Empty")
+                }
                 if showLimitToast {
                     toastOverlay(icon: "exclamationmark.triangle", text: limitToastMessage)
                 }
             }
             .animation(.spring(duration: 0.35, bounce: 0.2), value: showAddedToast)
             .animation(.spring(duration: 0.35, bounce: 0.2), value: showNoAccessToast)
+            .animation(.spring(duration: 0.35, bounce: 0.2), value: showEmptyClipboardToast)
             .animation(.spring(duration: 0.35, bounce: 0.2), value: showLimitToast)
 
             Link(destination: URL(string: "cutling://open")!) {
@@ -584,6 +565,14 @@ struct KeyboardView: View {
                     withAnimation(.easeInOut) {
                         proxy.scrollTo(id, anchor: .center)
                     }
+                }
+            }
+            .onChange(of: newlyAddedID) { oldValue, newValue in
+                if let id = newValue {
+                    withAnimation(.easeInOut) {
+                        proxy.scrollTo(id, anchor: .center)
+                    }
+                    newlyAddedID = nil
                 }
             }
         }
@@ -722,6 +711,7 @@ struct KeyboardView: View {
             
             cutling.imageFilename = store.saveImageData(imageData, for: id)
             store.add(cutling)
+            newlyAddedID = id
             
             withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
                 showAddedToast = true
@@ -736,7 +726,10 @@ struct KeyboardView: View {
         }
         
         // Otherwise check for text
-        guard let text = UIPasteboard.general.string, !text.isEmpty else { return }
+        guard let text = UIPasteboard.general.string, !text.isEmpty else {
+            flashEmptyClipboard()
+            return
+        }
 
         if let existing = store.cutlings.first(where: { $0.value == text }) {
             showExisted(existing.id)
@@ -757,6 +750,7 @@ struct KeyboardView: View {
         )
 
         store.add(cutling)
+        newlyAddedID = cutling.id
 
         withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
             showAddedToast = true
@@ -770,6 +764,7 @@ struct KeyboardView: View {
     }
 
     private func flashNoAccess() {
+        UINotificationFeedbackGenerator().notificationOccurred(.warning)
         withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
             showNoAccessToast = true
         }
@@ -780,8 +775,22 @@ struct KeyboardView: View {
             }
         }
     }
+
+    private func flashEmptyClipboard() {
+        UINotificationFeedbackGenerator().notificationOccurred(.warning)
+        withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
+            showEmptyClipboardToast = true
+        }
+        Task {
+            try? await Task.sleep(for: .seconds(1.5))
+            withAnimation(.easeOut(duration: 0.25)) {
+                showEmptyClipboardToast = false
+            }
+        }
+    }
     
     private func showLimitReached(_ message: String) {
+        UINotificationFeedbackGenerator().notificationOccurred(.error)
         // Shorten the message for keyboard display
         if message.contains("image") {
             limitToastMessage = "Image Limit: \(CutlingStore.maxImageCutlings)"
