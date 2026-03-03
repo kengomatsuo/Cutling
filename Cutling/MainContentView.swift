@@ -9,12 +9,8 @@ import SwiftUI
 
 #if os(iOS)
 import UIKit
-private let platformGroupedBackground = UIColor.systemGroupedBackground
-private let platformSecondaryGroupedBackground = UIColor.secondarySystemGroupedBackground
 #else
 import AppKit
-private let platformGroupedBackground = NSColor(white: 0.93, alpha: 1.0)
-private let platformSecondaryGroupedBackground = NSColor.white
 #endif
 
 // MARK: - Cross-Platform Image Helpers
@@ -88,6 +84,7 @@ struct MainContentView: View {
     
     // MARK: - Keyboard Status
 
+    #if os(iOS)
     private var isKeyboardAdded: Bool {
         let bundleID = Bundle.main.bundleIdentifier ?? ""
         let keyboards = UserDefaults.standard.stringArray(forKey: "AppleKeyboards") ?? []
@@ -101,8 +98,15 @@ struct MainContentView: View {
     private var keyboardNeedsAttention: Bool {
         !isKeyboardAdded || !hasFullAccess
     }
+    #endif
 
+    #if os(iOS)
     let columns = [GridItem(.adaptive(minimum: 160, maximum: 240), spacing: 12)]
+    private let cardHeight: CGFloat = 140
+    #else
+    let columns = [GridItem(.adaptive(minimum: 180, maximum: 280), spacing: 14)]
+    private let cardHeight: CGFloat = 160
+    #endif
 
     var filtered: [Cutling] {
         if searchText.isEmpty { return store.cutlings }
@@ -216,21 +220,33 @@ struct MainContentView: View {
                 gridScrollView
             }
         }
-        .background(Color(platformGroupedBackground))
+        #if os(iOS)
+        .background(.background.secondary)
+        #else
+        .background(.background)
+        #endif
         .navigationTitle(displayedTitle)
         #if os(iOS)
         .navigationBarTitleDisplayMode(mode == .browsing ? .large : .inline)
         #endif
         .searchable(text: $searchText, isPresented: $searchIsPresented, prompt: "Search cutlings")
+        #if os(iOS)
         .toolbar(mode != .browsing ? .visible : .hidden, for: .bottomBar)
+        #endif
         .toolbar {
             ToolbarItemGroup(placement: .primaryAction) {
                 primaryToolbarContent
             }
             
+            #if os(iOS)
             ToolbarItemGroup(placement: .bottomBar) {
                 bottomToolbarContent
             }
+            #else
+            ToolbarItemGroup(placement: .automatic) {
+                macOSToolbarContent
+            }
+            #endif
         }
     }
     
@@ -259,6 +275,54 @@ struct MainContentView: View {
             EmptyView()
         }
     }
+    
+    #if os(macOS)
+    @ViewBuilder
+    private var macOSToolbarContent: some View {
+        switch mode {
+        case .selecting:
+            Button(role: .destructive) {
+                if !selectedIDs.isEmpty {
+                    showDeleteConfirmation = true
+                }
+            } label: {
+                Label("Delete", systemImage: "trash")
+            }
+            .keyboardShortcut(.delete, modifiers: [])
+            .disabled(selectedIDs.isEmpty)
+            .confirmationDialog(
+                "Delete \(selectedIDs.count) item\(selectedIDs.count == 1 ? "" : "s")?",
+                isPresented: Binding(
+                    get: { showDeleteConfirmation && cutlingToDelete == nil },
+                    set: { if !$0 { showDeleteConfirmation = false } }
+                ),
+                titleVisibility: .visible
+            ) {
+                Button("Delete", role: .destructive) {
+                    deleteSelectedCutlings()
+                }
+                Button("Cancel", role: .cancel) {}
+            }
+        case .ordering:
+            Menu {
+                Button { sortCutlings(by: .nameAscending) } label: { Label("Name (A → Z)", systemImage: "textformat.abc") }
+                Button { sortCutlings(by: .nameDescending) } label: { Label("Name (Z → A)", systemImage: "textformat.abc") }
+                Divider()
+                Button { sortCutlings(by: .textFirst) } label: { Label("Text First", systemImage: "doc.text") }
+                Button { sortCutlings(by: .imageFirst) } label: { Label("Images First", systemImage: "photo") }
+                Divider()
+                Button { sortCutlings(by: .shortestFirst) } label: { Label("Shortest First", systemImage: "text.line.first.and.arrowtriangle.forward") }
+                Button { sortCutlings(by: .longestFirst) } label: { Label("Longest First", systemImage: "text.line.last.and.arrowtriangle.forward") }
+                Divider()
+                Button { sortCutlings(by: .reverse) } label: { Label("Reverse Order", systemImage: "arrow.up.arrow.down") }
+            } label: {
+                Label("Sort", systemImage: "arrow.up.arrow.down.circle")
+            }
+        case .browsing:
+            EmptyView()
+        }
+    }
+    #endif
     
     // MARK: - Mode Change Handler
     
@@ -349,8 +413,12 @@ struct MainContentView: View {
             }
             .onMove(perform: moveCutlings)
         }
+        #if os(iOS)
         .environment(\.editMode, .constant(.active))
         .listStyle(.insetGrouped)
+        #else
+        .listStyle(.inset)
+        #endif
     }
 
     // MARK: - Grid Scroll View
@@ -425,7 +493,7 @@ struct MainContentView: View {
                                 showDeleteConfirmation = true
                             }
                         )
-                        .frame(height: 140)
+                        .frame(height: cardHeight)
                         .transition(.asymmetric(
                             insertion: .scale(scale: 0.85).combined(with: .opacity),
                             removal: .scale(scale: 0.85).combined(with: .opacity)
@@ -439,7 +507,11 @@ struct MainContentView: View {
                     }
                 }
                 .padding()
-                .padding(.bottom, 160)
+                #if os(iOS)
+                .padding(.bottom, searchIsPresented ? 0 : 160)
+                #else
+                .padding(.bottom, 40)
+                #endif
                 .animation(.spring(duration: 0.35, bounce: 0.2), value: filtered.map(\.id))
             }
         }
@@ -489,6 +561,9 @@ struct MainContentView: View {
             } label: {
                 Label("Text Cutling", systemImage: "doc.text")
             }
+            #if os(macOS)
+            .keyboardShortcut("n", modifiers: [.command])
+            #endif
             Button {
                 let canAddImage = store.canAdd(.image)
                 if canAddImage.allowed {
@@ -500,6 +575,9 @@ struct MainContentView: View {
             } label: {
                 Label("Image Cutling", systemImage: "photo")
             }
+            #if os(macOS)
+            .keyboardShortcut("n", modifiers: [.command, .shift])
+            #endif
         } label: {
             Image(systemName: "plus")
         }
@@ -518,6 +596,7 @@ struct MainContentView: View {
             }
             .disabled(store.cutlings.count < 2)
 
+            #if os(iOS)
             if keyboardNeedsAttention {
                 Button {
                     showKeyboardSetup = true
@@ -525,6 +604,7 @@ struct MainContentView: View {
                     Label("Keyboard Setup", systemImage: "exclamationmark.triangle")
                 }
             }
+            #endif
 
             Button {
                 showSettings = true
@@ -892,7 +972,7 @@ struct CardView: View {
     var body: some View {
         cardContent
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-            .background(Color(platformSecondaryGroupedBackground))
+            .background(.background.secondary)
             .contentShape(cardShape)
             .clipShape(cardShape)
             #if os(iOS)
@@ -902,11 +982,17 @@ struct CardView: View {
                 copiedOverlay
             }
             .animation(.spring(), value: copied)
+            #if os(iOS)
             .contextMenu {
                 cardContextMenu
             } preview: {
                 previewContent
             }
+            #else
+            .contextMenu {
+                cardContextMenu
+            }
+            #endif
             .onTapGesture {
                 handleTap()
             }
@@ -1045,7 +1131,8 @@ struct CardView: View {
     }
 
     // MARK: - Preview Content
-    
+
+    #if os(iOS)
     @ViewBuilder
     private var previewContent: some View {
         switch item.kind {
@@ -1067,7 +1154,7 @@ struct CardView: View {
             }
             .padding()
             .frame(width: 300)
-            .background(Color(platformSecondaryGroupedBackground))
+            .background(.background)
             
         case .image:
             VStack(spacing: 0) {
@@ -1079,7 +1166,7 @@ struct CardView: View {
                     Spacer()
                 }
                 .padding()
-                .background(Color(platformSecondaryGroupedBackground))
+                .background(.background)
                 
                 if let filename = item.imageFilename,
                    let data = store.loadImageData(named: filename),
@@ -1093,6 +1180,7 @@ struct CardView: View {
             .frame(width: 300)
         }
     }
+    #endif
 
     // MARK: - Shared
 
@@ -1197,9 +1285,11 @@ struct SheetsModifier: ViewModifier {
             .sheet(isPresented: $showSettings) {
                 SettingsView()
             }
+            #if os(iOS)
             .sheet(isPresented: $showKeyboardSetup) {
                 KeyboardSetupView(isOnboarding: false)
             }
+            #endif
     }
 }
 

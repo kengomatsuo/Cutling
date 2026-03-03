@@ -22,9 +22,15 @@ struct CutlingApp: App {
                 .environmentObject(store)
                 .onAppear {
                     store.seedIfEmpty()
+                    #if os(iOS)
                     if !hasCompletedOnboarding {
                         showOnboarding = true
                     }
+                    #else
+                    if !hasCompletedOnboarding {
+                        hasCompletedOnboarding = true
+                    }
+                    #endif
                 }
                 .onOpenURL { url in
                     if url.scheme == "cutling", url.host == "settings" {
@@ -37,15 +43,17 @@ struct CutlingApp: App {
                         store.load()
                     }
                 }
+                #if os(iOS)
                 .sheet(isPresented: $showOnboarding) {
                     KeyboardSetupView(isOnboarding: true) {
                         hasCompletedOnboarding = true
                     }
                     .interactiveDismissDisabled()
                 }
+                #endif
         }
         #if os(macOS)
-        .defaultSize(width: 600, height: 500)
+        .defaultSize(width: 700, height: 550)
         #endif
     }
 }

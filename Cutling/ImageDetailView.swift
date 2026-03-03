@@ -313,11 +313,11 @@ struct ImageDetailView: View {
         }
         #else
         // macOS: try to get raw data first
-        if let data = NSPasteboard.general.data(forType: .gif) {
+        if let data = NSPasteboard.general.data(forType: NSPasteboard.PasteboardType(UTType.gif.identifier)) {
             imageData = data
         } else if let data = NSPasteboard.general.data(forType: .png) {
             imageData = data
-        } else if let data = NSPasteboard.general.data(forType: .jpeg) {
+        } else if let data = NSPasteboard.general.data(forType: NSPasteboard.PasteboardType(UTType.jpeg.identifier)) {
             imageData = data
         } else if let image = NSPasteboard.general.readObjects(forClasses: [NSImage.self])?.first as? NSImage,
            let tiffData = image.tiffRepresentation,

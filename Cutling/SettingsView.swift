@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var store: CutlingStore
+    #if os(iOS)
     @State private var isKeyboardAdded = false
     @State private var hasFullAccess = false
     @State private var showSetupGuide = false
@@ -23,10 +24,12 @@ struct SettingsView: View {
     private var fullAccessEnabled: Bool {
         UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.bool(forKey: "hasFullAccess") ?? false
     }
+    #endif
 
     var body: some View {
         NavigationStack {
             Form {
+                #if os(iOS)
                 Section("Keyboard Setup") {
                     HStack {
                         Label("Keyboard Added", systemImage: "keyboard")
@@ -43,11 +46,9 @@ struct SettingsView: View {
 
                     if !isKeyboardAdded || !hasFullAccess {
                         Button {
-                            #if os(iOS)
                             if let url = URL(string: UIApplication.openSettingsURLString) {
                                 UIApplication.shared.open(url)
                             }
-                            #endif
                         } label: {
                             Label("Open Settings to Enable", systemImage: "arrow.up.forward.square")
                         }
@@ -59,6 +60,7 @@ struct SettingsView: View {
                         Label("Keyboard Setup Guide", systemImage: "book.pages")
                     }
                 }
+                #endif
                 
                 Section {
                     LabeledContent("Text Cutlings", value: "\(store.textCutlingsCount) / \(CutlingStore.maxTextCutlings)")
@@ -66,7 +68,11 @@ struct SettingsView: View {
                 } header: {
                     Text("Storage")
                 } footer: {
+                    #if os(iOS)
                     Text("Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to \(CutlingStore.maxImageCutlings) while allowing up to \(CutlingStore.maxTextCutlings) text cutlings. This ensures your keyboard stays fast and reliable.")
+                    #else
+                    Text("Images use more storage than text. You can have up to \(CutlingStore.maxImageCutlings) image cutlings and \(CutlingStore.maxTextCutlings) text cutlings.")
+                    #endif
                 }
 
                 Section("About") {
@@ -95,6 +101,7 @@ struct SettingsView: View {
                     }
                 }
             }
+            #if os(iOS)
             .onAppear {
                 isKeyboardAdded = isKeyboardEnabled
                 hasFullAccess = fullAccessEnabled
@@ -102,6 +109,7 @@ struct SettingsView: View {
             .sheet(isPresented: $showSetupGuide) {
                 KeyboardSetupView(isOnboarding: false)
             }
+            #endif
         }
         #if os(macOS)
         .frame(minWidth: 360, idealWidth: 400, minHeight: 250, idealHeight: 300)

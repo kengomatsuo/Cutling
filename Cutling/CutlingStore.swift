@@ -14,6 +14,7 @@ import UIKit
 import SwiftUI
 #else
 import AppKit
+import SwiftUI
 #endif
 
 let appGroupID = "group.com.matsuokengo.Cutling"
