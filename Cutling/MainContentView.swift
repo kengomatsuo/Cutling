@@ -1265,9 +1265,14 @@ struct SheetsModifier: ViewModifier {
     @Binding var showAddImage: Bool
     @Binding var showSettings: Bool
     @Binding var showKeyboardSetup: Bool
-    
+
+    #if os(macOS)
+    @Environment(\.openWindow) private var openWindow
+    #endif
+
     func body(content: Content) -> some View {
         content
+            #if os(iOS)
             .sheet(item: $selectedItem) { item in
                 switch item.kind {
                 case .text:
@@ -1282,12 +1287,33 @@ struct SheetsModifier: ViewModifier {
             .sheet(isPresented: $showAddImage) {
                 ImageDetailView(item: nil)
             }
+            #endif
             .sheet(isPresented: $showSettings) {
                 SettingsView()
             }
             #if os(iOS)
             .sheet(isPresented: $showKeyboardSetup) {
                 KeyboardSetupView(isOnboarding: false)
+            }
+            #endif
+            #if os(macOS)
+            .onChange(of: selectedItem) { _, newItem in
+                if let item = newItem {
+                    openWindow(id: "editCutling", value: item.id)
+                    selectedItem = nil
+                }
+            }
+            .onChange(of: showAddText) { _, show in
+                if show {
+                    openWindow(id: "addText")
+                    showAddText = false
+                }
+            }
+            .onChange(of: showAddImage) { _, show in
+                if show {
+                    openWindow(id: "addImage")
+                    showAddImage = false
+                }
             }
             #endif
     }

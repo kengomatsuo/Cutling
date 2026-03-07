@@ -12,7 +12,7 @@ enum CutlingKind: String, Codable {
     case image
 }
 
-struct Cutling: Identifiable, Codable {
+struct Cutling: Identifiable, Codable, Hashable {
     var id: UUID
     var name: String
     var value: String
