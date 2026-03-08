@@ -222,7 +222,7 @@ struct MainContentView: View {
             }
         }
         #if os(iOS)
-        .background(.background.secondary)
+        .background(Color(uiColor: .systemGroupedBackground))
         #else
         .background(.background)
         #endif
@@ -982,7 +982,11 @@ struct CardView: View {
     var body: some View {
         cardContent
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+            #if os(iOS)
+            .background(Color(uiColor: .secondarySystemGroupedBackground))
+            #else
             .background(.background.secondary)
+            #endif
             .contentShape(cardShape)
             .clipShape(cardShape)
             #if os(iOS)
