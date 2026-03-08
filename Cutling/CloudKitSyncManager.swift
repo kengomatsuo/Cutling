@@ -79,18 +79,27 @@ final actor CloudKitSyncManager {
     private var kvsObserver: NSObjectProtocol?
 
     private func startKVSObserver() {
-        let kvs = NSUbiquitousKeyValueStore.default
-        kvs.synchronize()
-        kvsObserver = NotificationCenter.default.addObserver(
-            forName: NSUbiquitousKeyValueStore.didChangeExternallyNotification,
-            object: kvs,
-            queue: .main
-        ) { [weak self] _ in
-            guard let self else { return }
-            Task { [weak self] in
-                await self?.fetchChanges()
+        Task { @MainActor in
+            let kvs = NSUbiquitousKeyValueStore.default
+            kvs.synchronize()
+            let observer = NotificationCenter.default.addObserver(
+                forName: NSUbiquitousKeyValueStore.didChangeExternallyNotification,
+                object: kvs,
+                queue: .main
+            ) { [weak self] notification in
+                print("📡 KVS didChangeExternally received")
+                guard let self else { return }
+                Task {
+                    await self.directFetchFromCloudKit()
+                }
             }
+            await self.setKVSObserver(observer)
+            print("📡 KVS observer registered")
         }
+    }
+
+    private func setKVSObserver(_ observer: NSObjectProtocol) {
+        kvsObserver = observer
     }
 
     private func stopKVSObserver() {
@@ -102,9 +111,12 @@ final actor CloudKitSyncManager {
 
     /// Notify other devices that we made a change, via KVS (faster than waiting for CK silent push).
     private func pokeOtherDevices() {
-        let kvs = NSUbiquitousKeyValueStore.default
-        kvs.set(Date().timeIntervalSince1970, forKey: Self.kvsPokeKey)
-        kvs.synchronize()
+        Task { @MainActor in
+            let kvs = NSUbiquitousKeyValueStore.default
+            kvs.set(Date().timeIntervalSince1970, forKey: CloudKitSyncManager.kvsPokeKey)
+            kvs.synchronize()
+            print("📡 KVS poke sent: \(Date())")
+        }
     }
 
     // MARK: - Lifecycle
@@ -154,7 +166,6 @@ final actor CloudKitSyncManager {
             .saveZone(CKRecordZone(zoneName: Self.zoneName))
         ])
         syncEngine.state.add(pendingRecordZoneChanges: [.saveRecord(recordID)])
-        pokeOtherDevices()
     }
 
     func enqueueDelete(_ cutlingID: UUID) {
@@ -163,7 +174,6 @@ final actor CloudKitSyncManager {
             zoneID: CKRecordZone.ID(zoneName: Self.zoneName)
         )
         syncEngine.state.add(pendingRecordZoneChanges: [.deleteRecord(recordID)])
-        pokeOtherDevices()
     }
 
     func enqueueAllCutlings(_ cutlings: [Cutling]) {
@@ -175,10 +185,45 @@ final actor CloudKitSyncManager {
             .saveRecord(CKRecord.ID(recordName: $0.id.uuidString, zoneID: zoneID))
         }
         syncEngine.state.add(pendingRecordZoneChanges: saves)
-        pokeOtherDevices()
     }
 
     // MARK: - State Persistence
+
+    /// Direct CloudKit query, bypassing CKSyncEngine (for KVS-triggered fast sync).
+    /// Fetches ALL records in our zone and rebuilds the full cutlings list.
+    private func directFetchFromCloudKit() async {
+        print("📡 directFetchFromCloudKit: starting")
+        await setSyncing(true)
+        let zoneID = CKRecordZone.ID(zoneName: Self.zoneName)
+        let query = CKQuery(recordType: Self.cutlingRecordType, predicate: NSPredicate(value: true))
+        
+        do {
+            let (results, _) = try await container.privateCloudDatabase.records(
+                matching: query,
+                inZoneWith: zoneID
+            )
+            
+            var remoteCutlings: [Cutling] = []
+            for (_, result) in results {
+                if case .success(let record) = result {
+                    setLastKnownRecord(record, for: record.recordID.recordName)
+                    if let c = cutling(from: record) {
+                        remoteCutlings.append(c)
+                    }
+                }
+            }
+            remoteCutlings.sort { $0.sortOrder < $1.sortOrder }
+            print("📡 directFetchFromCloudKit: got \(remoteCutlings.count) cutlings")
+            
+            let updated = remoteCutlings
+            Task { @MainActor in
+                self.store.applyRemoteChanges(updated)
+            }
+        } catch {
+            Self.log.error("directFetchFromCloudKit failed: \(error)")
+        }
+        await setSyncing(false)
+    }
 
     private func loadStateSerialization() -> CKSyncEngine.State.Serialization? {
         guard let data = try? Data(contentsOf: stateURL) else { return nil }
@@ -308,6 +353,7 @@ final actor CloudKitSyncManager {
     // MARK: - Apply Remote Changes to Local Store
 
     private func applyRemoteModifications(_ modifications: [CKDatabase.RecordZoneChange.Modification]) async {
+        print("📡 Applying \(modifications.count) remote modifications")
         var currentCutlings = await MainActor.run { store.cutlings }
 
         for modification in modifications {
@@ -368,6 +414,7 @@ final actor CloudKitSyncManager {
 extension CloudKitSyncManager: CKSyncEngineDelegate {
 
     nonisolated func handleEvent(_ event: CKSyncEngine.Event, syncEngine: CKSyncEngine) async {
+        print("📡 CKSyncEngine event: \(event)")
         switch event {
 
         case .stateUpdate(let stateUpdate):
@@ -483,6 +530,11 @@ extension CloudKitSyncManager: CKSyncEngineDelegate {
         for savedRecord in event.savedRecords {
             let id = savedRecord.recordID.recordName
             setLastKnownRecord(savedRecord, for: id)
+        }
+
+        // Poke other devices now that records are on the server
+        if !event.savedRecords.isEmpty || !event.deletedRecordIDs.isEmpty {
+            pokeOtherDevices()
         }
 
         // Handle failed saves
