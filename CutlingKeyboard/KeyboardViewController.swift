@@ -62,8 +62,8 @@ struct InstantPress: ViewModifier {
     private var highlightColor: Color {
         if let fill { return fill }
         return colorScheme == .dark
-            ? Color.white.opacity(0.18)
-            : Color.black.opacity(0.12)
+            ? Color.white.opacity(0.3)
+            : Color.black.opacity(0.25)
     }
 
     private func shouldCancelForScroll(_ value: DragGesture.Value) -> Bool {
@@ -388,7 +388,7 @@ struct ReturnKeyInfo {
 // MARK: - Keyboard Root View
 
 struct KeyboardView: View {
-    let store: CutlingStore
+    @ObservedObject var store: CutlingStore
     @ObservedObject var state: KeyboardState
     let onInsertText: (String) -> Void
     let onCopyImage: (Data) -> Void
@@ -536,16 +536,17 @@ struct KeyboardView: View {
     // MARK: - Cutling Grid
 
     private var cutlingGrid: some View {
-        ScrollViewReader { proxy in
+        let liveCutlings = store.cutlings.filter { !$0.isExpired }
+        return ScrollViewReader { proxy in
             ScrollView(.vertical, showsIndicators: false) {
-                if store.cutlings.isEmpty {
+                if liveCutlings.isEmpty {
                     // ... (your empty state view)
                 } else {
                     LazyVGrid(
                         columns: [GridItem(.adaptive(minimum: KeyStyle.cardMinWidth(for: horizontalSizeClass)), spacing: keySpacing)],
                         spacing: keySpacing
                     ) {
-                        ForEach(store.cutlings) { cutling in
+                        ForEach(liveCutlings) { cutling in
                             CutlingKeyView(
                                 cutling: cutling,
                                 store: store,
@@ -554,12 +555,17 @@ struct KeyboardView: View {
                                 onTap: { handleTap(cutling) }
                             )
                             .id(cutling.id)
+                            .transition(.asymmetric(
+                                insertion: .scale(scale: 0.8).combined(with: .opacity),
+                                removal: .scale(scale: 0.8).combined(with: .opacity)
+                            ))
                         }
                     }
                     .padding(.horizontal, KeyStyle.horizontalPadding)
                     .padding(.vertical, keySpacing)
                 }
             }
+            .animation(.spring(duration: 0.4, bounce: 0.2), value: liveCutlings.map(\.id))
             .onChange(of: existedID) { oldValue, newValue in
                 if let id = newValue {
                     withAnimation(.easeInOut) {

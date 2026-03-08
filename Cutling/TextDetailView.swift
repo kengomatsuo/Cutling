@@ -91,6 +91,8 @@ struct TextDetailView: View {
     @State private var showLimitAlert = false
     @State private var limitAlertMessage = ""
     @State private var hasClipboardText = false
+    @State private var autoDeleteEnabled: Bool
+    @State private var deleteAt: Date
 
     init(item: Cutling?, autoPasteFromClipboard: Bool = false) {
         self.existingItem = item
@@ -98,6 +100,8 @@ struct TextDetailView: View {
         _name = State(initialValue: item?.name ?? "")
         _value = State(initialValue: item?.value ?? "")
         _icon = State(initialValue: item?.icon ?? "document")
+        _autoDeleteEnabled = State(initialValue: item?.expiresAt != nil)
+        _deleteAt = State(initialValue: item?.expiresAt ?? Date().addingTimeInterval(86400))
     }
 
     var isEditing: Bool { existingItem != nil }
@@ -154,6 +158,7 @@ struct TextDetailView: View {
                         .foregroundStyle(value.count > CutlingStore.maxTextLength - 500 ? .orange : .secondary)
                         .font(.caption)
                 }
+                ExpirationPickerSection(autoDeleteEnabled: $autoDeleteEnabled, deleteAt: $deleteAt)
                 if hasClipboardText {
                     Section {
                         Button {
@@ -212,6 +217,7 @@ struct TextDetailView: View {
                             updated.name = name
                             updated.value = value
                             updated.icon = icon
+                            updated.expiresAt = autoDeleteEnabled ? deleteAt : nil
                             store.update(updated)
                             dismiss()
                         } else {
@@ -222,7 +228,8 @@ struct TextDetailView: View {
                                     Cutling(
                                         name: name,
                                         value: value,
-                                        icon: icon
+                                        icon: icon,
+                                        expiresAt: autoDeleteEnabled ? deleteAt : nil
                                     )
                                 )
                                 dismiss()

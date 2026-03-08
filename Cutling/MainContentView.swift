@@ -109,8 +109,9 @@ struct MainContentView: View {
     #endif
 
     var filtered: [Cutling] {
-        if searchText.isEmpty { return store.cutlings }
-        return store.cutlings.filter {
+        let live = store.cutlings.filter { !$0.isExpired }
+        if searchText.isEmpty { return live }
+        return live.filter {
             $0.name.localizedCaseInsensitiveContains(searchText) ||
             $0.value.localizedCaseInsensitiveContains(searchText)
         }
@@ -449,7 +450,7 @@ struct MainContentView: View {
                     
                     if store.isSyncing {
                         ProgressView()
-                            .scaleEffect(0.4)
+                            .scaleEffect(0.6)
                             .frame(width: 10, height: 10)
                     }
                     
@@ -1089,6 +1090,16 @@ struct CardView: View {
                 .foregroundStyle(.secondary)
                 .lineLimit(3)
                 .truncationMode(.tail)
+            if let expiresAt = item.expiresAt, expiresAt > Date() {
+                Spacer(minLength: 0)
+                Label {
+                    Text(expiresAt, style: .timer)
+                } icon: {
+                    Image(systemName: "clock")
+                }
+                .font(.caption2)
+                .foregroundStyle(.orange)
+            }
         }
         .padding()
     }
@@ -1120,11 +1131,24 @@ struct CardView: View {
                             .shadow(radius: 2)
                     }
                     Spacer()
-                    Text(item.name)
-                        .font(.headline)
-                        .foregroundStyle(.white)
-                        .shadow(color: .black.opacity(0.5), radius: 4, y: 2)
-                        .lineLimit(1)
+                    HStack {
+                        Text(item.name)
+                            .font(.headline)
+                            .foregroundStyle(.white)
+                            .shadow(color: .black.opacity(0.5), radius: 4, y: 2)
+                            .lineLimit(1)
+                        if let expiresAt = item.expiresAt, expiresAt > Date() {
+                            Spacer()
+                            Label {
+                                Text(expiresAt, style: .timer)
+                            } icon: {
+                                Image(systemName: "clock")
+                            }
+                            .font(.caption2)
+                            .foregroundStyle(.white.opacity(0.85))
+                            .shadow(color: .black.opacity(0.5), radius: 4, y: 2)
+                        }
+                    }
                 }
                 .padding()
                 .frame(width: geo.size.width, height: geo.size.height, alignment: .topLeading)

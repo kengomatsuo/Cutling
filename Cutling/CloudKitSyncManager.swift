@@ -193,7 +193,7 @@ final actor CloudKitSyncManager {
     /// Fetches ALL records in our zone and rebuilds the full cutlings list.
     private func directFetchFromCloudKit() async {
         print("📡 directFetchFromCloudKit: starting")
-        await setSyncing(true)
+        setSyncing(true)
         let zoneID = CKRecordZone.ID(zoneName: Self.zoneName)
         let query = CKQuery(recordType: Self.cutlingRecordType, predicate: NSPredicate(value: true))
         
@@ -222,7 +222,7 @@ final actor CloudKitSyncManager {
         } catch {
             Self.log.error("directFetchFromCloudKit failed: \(error)")
         }
-        await setSyncing(false)
+        setSyncing(false)
     }
 
     private func loadStateSerialization() -> CKSyncEngine.State.Serialization? {
@@ -290,6 +290,11 @@ final actor CloudKitSyncManager {
         record["kind"] = cutling.kind.rawValue as CKRecordValue
         record["sortOrder"] = cutling.sortOrder as CKRecordValue
         record["lastModifiedDate"] = cutling.lastModifiedDate as CKRecordValue
+        if let expiresAt = cutling.expiresAt {
+            record["expiresAt"] = expiresAt as CKRecordValue
+        } else {
+            record["expiresAt"] = nil
+        }
 
         // Image asset
         if cutling.kind == .image, let filename = cutling.imageFilename {
@@ -321,6 +326,7 @@ final actor CloudKitSyncManager {
 
         let sortOrder = record["sortOrder"] as? Int ?? 0
         let lastModified = record["lastModifiedDate"] as? Date ?? (record.modificationDate ?? Date())
+        let expiresAt = record["expiresAt"] as? Date
 
         var imageFilename: String? = nil
         if kind == .image, let asset = record["imageAsset"] as? CKAsset, let fileURL = asset.fileURL {
@@ -346,7 +352,8 @@ final actor CloudKitSyncManager {
             kind: kind,
             imageFilename: imageFilename,
             sortOrder: sortOrder,
-            lastModifiedDate: lastModified
+            lastModifiedDate: lastModified,
+            expiresAt: expiresAt
         )
     }
 

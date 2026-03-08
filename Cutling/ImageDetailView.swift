@@ -44,11 +44,15 @@ struct ImageDetailView: View {
     @State private var showLimitAlert = false
     @State private var limitAlertMessage = ""
     @State private var hasClipboardImage = false
+    @State private var autoDeleteEnabled: Bool
+    @State private var deleteAt: Date
     
     init(item: Cutling?, autoPasteFromClipboard: Bool = false) {
         self.existingItem = item
         self.autoPasteFromClipboard = autoPasteFromClipboard
         _name = State(initialValue: item?.name ?? "")
+        _autoDeleteEnabled = State(initialValue: item?.expiresAt != nil)
+        _deleteAt = State(initialValue: item?.expiresAt ?? Date().addingTimeInterval(86400))
     }
 
     var isEditing: Bool { existingItem != nil }
@@ -63,6 +67,7 @@ struct ImageDetailView: View {
                     imagePreview
                     pickerButtons
                 }
+                ExpirationPickerSection(autoDeleteEnabled: $autoDeleteEnabled, deleteAt: $deleteAt)
                 if hasClipboardImage {
                     Section {
                         Button {
@@ -246,6 +251,7 @@ struct ImageDetailView: View {
         if let existing = existingItem {
             var updated = existing
             updated.name = name
+            updated.expiresAt = autoDeleteEnabled ? deleteAt : nil
 
             if let newImageData = imageData {
                 if let oldFilename = existing.imageFilename {
@@ -272,7 +278,8 @@ struct ImageDetailView: View {
                 value: "",
                 icon: "photo",
                 kind: .image,
-                imageFilename: nil
+                imageFilename: nil,
+                expiresAt: autoDeleteEnabled ? deleteAt : nil
             )
 
             if let imageData {

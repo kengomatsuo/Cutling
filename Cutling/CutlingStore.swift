@@ -117,6 +117,9 @@ class CutlingStore: ObservableObject {
         
         // Listen for Darwin notifications (cross-process)
         setupDarwinNotification()
+        
+        // Schedule purge for the next expiring cutling
+        schedulePurgeTimer()
     }
     
     private func setupDarwinNotification() {
@@ -157,7 +160,8 @@ class CutlingStore: ObservableObject {
             if let decoded = try? JSONDecoder().decode([Cutling].self, from: data) {
                 DispatchQueue.main.async {
                     self.cutlings = decoded
-                    print("🔄 Reloaded \(decoded.count) cutlings from shared storage")
+                    self.purgeExpired()
+                    print("🔄 Reloaded \(self.cutlings.count) cutlings from shared storage")
                     
                     #if !KEYBOARD_EXTENSION
                     // Sync new/changed cutlings added by keyboard extension
@@ -194,6 +198,60 @@ class CutlingStore: ObservableObject {
         }
         lastLoadedData = data
         cutlings = decoded
+        purgeExpired()
+    }
+
+    /// Removes expired cutlings and enqueues CloudKit deletes for them.
+    func purgeExpired() {
+        let expired = cutlings.filter { $0.isExpired }
+        guard !expired.isEmpty else { return }
+        
+        for item in expired {
+            if let filename = item.imageFilename {
+                deleteImageFile(named: filename)
+            }
+        }
+        
+        cutlings.removeAll { $0.isExpired }
+        save()
+        
+        #if !KEYBOARD_EXTENSION
+        if let sm = syncManager {
+            Task {
+                for item in expired {
+                    await sm.enqueueDelete(item.id)
+                }
+            }
+        }
+        #endif
+        
+        // Schedule next purge
+        schedulePurgeTimer()
+    }
+    
+    private var purgeTimer: Timer?
+    
+    /// Schedules a timer to fire at the next cutling's expiration time.
+    func schedulePurgeTimer() {
+        purgeTimer?.invalidate()
+        purgeTimer = nil
+        
+        // Find the earliest future expiration
+        let nextExpiration = cutlings
+            .compactMap { $0.expiresAt }
+            .filter { $0 > Date() }
+            .min()
+        
+        guard let fireDate = nextExpiration else { return }
+        
+        // Add a tiny buffer so the cutling is definitely expired when we fire
+        let timer = Timer(fireAt: fireDate.addingTimeInterval(0.5), interval: 0, target: self, selector: #selector(purgeTimerFired), userInfo: nil, repeats: false)
+        RunLoop.main.add(timer, forMode: .common)
+        purgeTimer = timer
+    }
+    
+    @objc private func purgeTimerFired() {
+        purgeExpired()
     }
 
     func save() {
@@ -218,6 +276,7 @@ class CutlingStore: ObservableObject {
         cutlings.append(c)
         lastAddedCutlingID = c.id
         save()
+        schedulePurgeTimer()
         #if !KEYBOARD_EXTENSION
         if let sm = syncManager { Task { await sm.enqueueSave(c) } }
         #endif
@@ -307,6 +366,7 @@ class CutlingStore: ObservableObject {
             c.lastModifiedDate = Date()
             cutlings[i] = c
             save()
+            schedulePurgeTimer()
             #if !KEYBOARD_EXTENSION
             if let sm = syncManager { Task { await sm.enqueueSave(c) } }
             #endif
@@ -487,6 +547,7 @@ class CutlingStore: ObservableObject {
     func applyRemoteChanges(_ updated: [Cutling]) {
         cutlings = updated
         save()
+        schedulePurgeTimer()
     }
 
     /// Enqueue all cutlings for sync (used after reorder).
