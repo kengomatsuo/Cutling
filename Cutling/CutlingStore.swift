@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import CryptoKit
+import CloudKit
 
 #if os(iOS)
 import UIKit
@@ -19,6 +20,9 @@ import SwiftUI
 
 let appGroupID = "group.com.matsuokengo.Cutling"
 private let cutlingsKey = "savedCutlings"
+
+// Key used in NSUbiquitousKeyValueStore for syncing text cutlings across devices
+private let kvsTextCutlingsKey = "syncedTextCutlings"
 
 // MARK: - Cutling Limits
 
@@ -41,10 +45,37 @@ class CutlingStore: ObservableObject {
 
     @Published var cutlings: [Cutling] = []
     @Published var lastAddedCutlingID: UUID?
+    @Published var iCloudSyncEnabled: Bool = true
 
     private let defaults: UserDefaults
-    private let imagesDirectory: URL
+    let imagesDirectory: URL
     private var cancellables = Set<AnyCancellable>()
+    
+    // MARK: - iCloud Sync
+    
+    /// NSUbiquitousKeyValueStore for syncing text cutlings across devices.
+    /// This is Apple's iCloud Key-Value Store — a network-synchronized version
+    /// of UserDefaults. It has a 1 MB total limit and max 1024 keys, which is
+    /// well within our needs for text cutlings (up to 200 items, ~1-5 KB each).
+    /// Both the main app and keyboard extension can share this store using the
+    /// same ubiquity-kvstore-identifier in their entitlements.
+    private let kvStore = NSUbiquitousKeyValueStore.default
+    
+    /// CloudSyncManager handles image cutling sync via CKSyncEngine.
+    /// CKSyncEngine (iOS 17+ / macOS 14+) manages CloudKit sync operations
+    /// including scheduling, retries, conflict resolution, and state persistence.
+    /// Images are stored as CKAsset objects within CKRecords in the user's
+    /// private CloudKit database. Only the main app runs this — the keyboard
+    /// extension reads synced images from the shared App Group container.
+    @available(iOS 17.0, macOS 14.0, *)
+    private var cloudSyncManager: CloudSyncManager? {
+        get { _cloudSyncManager as? CloudSyncManager }
+        set { _cloudSyncManager = newValue }
+    }
+    private var _cloudSyncManager: AnyObject?
+    
+    // Tracks whether we're currently processing a remote KVS change to avoid feedback loops
+    private var isProcessingRemoteKVSChange = false
     
     // CRITICAL: Memory-efficient image cache with automatic eviction
     #if os(iOS)
@@ -103,6 +134,254 @@ class CutlingStore: ObservableObject {
         
         // Listen for Darwin notifications (cross-process)
         setupDarwinNotification()
+        
+        // Listen for iCloud Key-Value Store changes from other devices.
+        // NSUbiquitousKeyValueStore.didChangeExternallyNotification fires when
+        // another device updates the KVS. The notification's userInfo contains:
+        // - NSUbiquitousKeyValueStoreChangeReasonKey: why the change happened
+        //   (server change, initial sync, quota violation, or account change)
+        // - NSUbiquitousKeyValueStoreChangedKeysKey: which keys changed
+        setupKVSSync()
+    }
+    
+    // MARK: - iCloud KVS Setup
+    
+    private func setupKVSSync() {
+        NotificationCenter.default
+            .publisher(for: NSUbiquitousKeyValueStore.didChangeExternallyNotification, object: kvStore)
+            .sink { [weak self] notification in
+                self?.handleKVSChange(notification)
+            }
+            .store(in: &cancellables)
+        
+        // Trigger an initial sync pull from iCloud
+        kvStore.synchronize()
+    }
+    
+    private func handleKVSChange(_ notification: Notification) {
+        guard let userInfo = notification.userInfo else { return }
+        
+        // Check the reason for the change
+        let reason = userInfo[NSUbiquitousKeyValueStoreChangeReasonKey] as? Int ?? -1
+        
+        switch reason {
+        case NSUbiquitousKeyValueStoreServerChange:
+            print("☁️ iCloud KVS: Server change received")
+        case NSUbiquitousKeyValueStoreInitialSyncChange:
+            print("☁️ iCloud KVS: Initial sync completed")
+        case NSUbiquitousKeyValueStoreQuotaViolationChange:
+            print("⚠️ iCloud KVS: Quota violated — too much data stored (1 MB limit)")
+            return
+        case NSUbiquitousKeyValueStoreAccountChange:
+            print("☁️ iCloud KVS: Account changed")
+        default:
+            print("☁️ iCloud KVS: Unknown change reason \(reason)")
+        }
+        
+        // Check if our text cutlings key was among the changed keys
+        if let changedKeys = userInfo[NSUbiquitousKeyValueStoreChangedKeysKey] as? [String],
+           changedKeys.contains(kvsTextCutlingsKey) {
+            mergeRemoteTextCutlings()
+        }
+    }
+    
+    /// Merge text cutlings received from iCloud KVS into the local store.
+    /// Strategy: Union merge — add any cutlings from the remote that we don't
+    /// have locally (by ID). If a cutling exists locally with the same ID,
+    /// keep the local version (last-write-wins is handled by KVS at the
+    /// whole-key level; within a single device we trust local state).
+    private func mergeRemoteTextCutlings() {
+        guard !isProcessingRemoteKVSChange else { return }
+        isProcessingRemoteKVSChange = true
+        defer { isProcessingRemoteKVSChange = false }
+        
+        guard let data = kvStore.data(forKey: kvsTextCutlingsKey),
+              let remoteCutlings = try? JSONDecoder().decode([Cutling].self, from: data) else {
+            return
+        }
+        
+        let localIDs = Set(cutlings.map(\.id))
+        let localTextCutlings = cutlings.filter { $0.kind == .text }
+        let localTextIDs = Set(localTextCutlings.map(\.id))
+        let remoteTextIDs = Set(remoteCutlings.map(\.id))
+        
+        var changed = false
+        
+        // Add remote cutlings that don't exist locally
+        for remote in remoteCutlings where !localIDs.contains(remote.id) {
+            cutlings.append(remote)
+            changed = true
+            print("☁️ Added remote text cutling: \(remote.name)")
+        }
+        
+        // Update existing text cutlings with remote data
+        for remote in remoteCutlings {
+            if let localIndex = cutlings.firstIndex(where: { $0.id == remote.id && $0.kind == .text }) {
+                if cutlings[localIndex] != remote {
+                    cutlings[localIndex] = remote
+                    changed = true
+                    print("☁️ Updated text cutling from remote: \(remote.name)")
+                }
+            }
+        }
+        
+        // Remove text cutlings that were deleted on the remote (they exist locally
+        // but not in the remote set). Only remove if the remote set is non-empty
+        // (empty remote set on first sync should not delete local data).
+        if !remoteCutlings.isEmpty {
+            let removedIDs = localTextIDs.subtracting(remoteTextIDs)
+            if !removedIDs.isEmpty {
+                cutlings.removeAll { removedIDs.contains($0.id) && $0.kind == .text }
+                changed = true
+                print("☁️ Removed \(removedIDs.count) text cutlings deleted on remote")
+            }
+        }
+        
+        if changed {
+            save()
+            print("☁️ Merged \(remoteCutlings.count) remote text cutlings")
+        }
+    }
+    
+    /// Push current text cutlings to iCloud KVS for cross-device sync.
+    private func syncTextCutlingsToKVS() {
+        guard !isProcessingRemoteKVSChange else { return }
+        
+        let textCutlings = cutlings.filter { $0.kind == .text }
+        guard let data = try? JSONEncoder().encode(textCutlings) else { return }
+        
+        kvStore.set(data, forKey: kvsTextCutlingsKey)
+        // Note: We don't need to call kvStore.synchronize() after every write.
+        // The system coalesces changes and syncs automatically. Calling synchronize()
+        // too frequently can cause iCloud to throttle updates (sync time increases
+        // from ~10-20s to several minutes). We only call it on initial setup.
+    }
+    
+    // MARK: - CloudKit Image Sync Setup
+    
+    /// Initialize CloudKit image sync. Call this early in the app lifecycle.
+    /// Only the main app should call this — NOT the keyboard extension.
+    /// CKSyncEngine requires the CloudKit and Push Notifications entitlements,
+    /// and relies on remote notifications for sync, which are not available
+    /// in keyboard extensions.
+    func setupCloudKitSync() {
+        guard iCloudSyncEnabled else { return }
+        
+        if #available(iOS 17.0, macOS 14.0, *) {
+            let manager = CloudSyncManager()
+            manager.onRemoteImageChange = { [weak self] received, deletedIDs in
+                self?.handleRemoteImageChanges(received: received, deletedIDs: deletedIDs)
+            }
+            self.cloudSyncManager = manager
+            print("☁️ CloudKit image sync initialized")
+            
+            // Queue any existing local image cutlings that may not have been synced yet
+            syncAllLocalImageCutlings()
+        }
+    }
+    
+    /// Handle image cutlings that arrived from or were deleted on other devices.
+    @available(iOS 17.0, macOS 14.0, *)
+    private func handleRemoteImageChanges(received: [ImageCutlingRecord], deletedIDs: [CKRecord.ID]) {
+        var changed = false
+        
+        // Process received image cutlings
+        for record in received {
+            // Copy the downloaded asset to our images directory
+            if let assetURL = record.downloadedAssetURL {
+                let destinationURL = imagesDirectory.appendingPathComponent(record.imageFilename)
+                do {
+                    // Remove existing file if present
+                    if FileManager.default.fileExists(atPath: destinationURL.path) {
+                        try FileManager.default.removeItem(at: destinationURL)
+                    }
+                    try FileManager.default.copyItem(at: assetURL, to: destinationURL)
+                    print("☁️ Downloaded image asset: \(record.imageFilename)")
+                } catch {
+                    print("❌ Failed to copy downloaded image: \(error)")
+                    continue
+                }
+            }
+            
+            // Add or update the cutling in our local store
+            if let existingIndex = cutlings.firstIndex(where: { $0.id == record.cutlingID }) {
+                cutlings[existingIndex].name = record.name
+                cutlings[existingIndex].icon = record.icon
+                cutlings[existingIndex].imageFilename = record.imageFilename
+            } else {
+                let cutling = Cutling(
+                    id: record.cutlingID,
+                    name: record.name,
+                    value: "",
+                    icon: record.icon,
+                    kind: .image,
+                    imageFilename: record.imageFilename
+                )
+                cutlings.append(cutling)
+            }
+            changed = true
+        }
+        
+        // Process deletions
+        for recordID in deletedIDs {
+            if let cutlingID = UUID(uuidString: recordID.recordName),
+               let index = cutlings.firstIndex(where: { $0.id == cutlingID }) {
+                let cutling = cutlings[index]
+                if let filename = cutling.imageFilename {
+                    deleteImageFile(named: filename)
+                }
+                cutlings.remove(at: index)
+                changed = true
+                print("☁️ Deleted image cutling from remote: \(cutlingID)")
+            }
+        }
+        
+        if changed {
+            DispatchQueue.main.async {
+                self.save()
+            }
+        }
+    }
+    
+    /// Queue all local image cutlings for CloudKit sync.
+    @available(iOS 17.0, macOS 14.0, *)
+    private func syncAllLocalImageCutlings() {
+        guard let manager = cloudSyncManager else { return }
+        
+        for cutling in cutlings where cutling.kind == .image {
+            guard let filename = cutling.imageFilename else { continue }
+            let record = ImageCutlingRecord(
+                cutlingID: cutling.id,
+                name: cutling.name,
+                icon: cutling.icon,
+                imageFilename: filename
+            )
+            manager.queueImageUpload(record)
+        }
+    }
+    
+    /// Queue a single image cutling for CloudKit upload.
+    private func syncImageCutlingToCloud(_ cutling: Cutling) {
+        guard iCloudSyncEnabled, cutling.kind == .image else { return }
+        guard let filename = cutling.imageFilename else { return }
+        
+        if #available(iOS 17.0, macOS 14.0, *) {
+            cloudSyncManager?.queueImageUpload(ImageCutlingRecord(
+                cutlingID: cutling.id,
+                name: cutling.name,
+                icon: cutling.icon,
+                imageFilename: filename
+            ))
+        }
+    }
+    
+    /// Queue an image cutling for CloudKit deletion.
+    private func syncImageDeletionToCloud(_ cutling: Cutling) {
+        guard iCloudSyncEnabled, cutling.kind == .image else { return }
+        
+        if #available(iOS 17.0, macOS 14.0, *) {
+            cloudSyncManager?.queueImageDeletion(cutlingID: cutling.id)
+        }
     }
     
     private func setupDarwinNotification() {
@@ -174,12 +453,20 @@ class CutlingStore: ObservableObject {
             nil,
             true
         )
+        
+        // Sync text cutlings to iCloud KVS for cross-device sync
+        syncTextCutlingsToKVS()
     }
 
     func add(_ cutling: Cutling) {
         cutlings.append(cutling)
         lastAddedCutlingID = cutling.id
         save()
+        
+        // Queue image for CloudKit sync
+        if cutling.kind == .image {
+            syncImageCutlingToCloud(cutling)
+        }
     }
     
     func sortCutlings(by areInIncreasingOrder: (Cutling, Cutling) -> Bool) {
@@ -194,7 +481,7 @@ class CutlingStore: ObservableObject {
     
     func moveCutlings(fromOffsets source: IndexSet, toOffset destination: Int) {
         cutlings.move(fromOffsets: source, toOffset: destination)
-        save() // or however you persist
+        save()
     }
     
     // MARK: - Limit Checks
@@ -258,10 +545,20 @@ class CutlingStore: ObservableObject {
         if let i = cutlings.firstIndex(where: { $0.id == cutling.id }) {
             cutlings[i] = cutling
             save()
+            
+            // Queue image for CloudKit sync if it's an image cutling
+            if cutling.kind == .image {
+                syncImageCutlingToCloud(cutling)
+            }
         }
     }
 
     func delete(_ cutling: Cutling) {
+        // Queue CloudKit deletion before removing locally
+        if cutling.kind == .image {
+            syncImageDeletionToCloud(cutling)
+        }
+        
         if let filename = cutling.imageFilename {
             deleteImageFile(named: filename)
         }
@@ -446,4 +743,3 @@ extension Data {
         return hashed.compactMap { String(format: "%02x", $0) }.joined()
     }
 }
-
