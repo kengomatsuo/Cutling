@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var store: CutlingStore
+    @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
     #if os(iOS)
     @State private var isKeyboardAdded = false
     @State private var hasFullAccess = false
@@ -61,6 +62,16 @@ struct SettingsView: View {
                     }
                 }
                 #endif
+                
+                Section {
+                    Toggle(isOn: $iCloudSyncEnabled) {
+                        Label("iCloud Sync", systemImage: "icloud")
+                    }
+                } header: {
+                    Text("iCloud")
+                } footer: {
+                    Text("Sync your cutlings across all your devices using iCloud.")
+                }
                 
                 Section {
                     LabeledContent("Text Cutlings", value: "\(store.textCutlingsCount) / \(CutlingStore.maxTextCutlings)")

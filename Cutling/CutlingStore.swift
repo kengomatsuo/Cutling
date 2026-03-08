@@ -49,6 +49,12 @@ class CutlingStore: ObservableObject {
 
     @Published var cutlings: [Cutling] = []
     @Published var lastAddedCutlingID: UUID?
+    #if !KEYBOARD_EXTENSION
+    @Published var isSyncing: Bool = false
+
+    /// Set by CutlingApp when iCloud sync is enabled.
+    var syncManager: CloudKitSyncManager?
+    #endif
 
     private let defaults: UserDefaults
     let imagesDirectory: URL
@@ -185,24 +191,36 @@ class CutlingStore: ObservableObject {
     }
 
     func add(_ cutling: Cutling) {
-        cutlings.append(cutling)
-        lastAddedCutlingID = cutling.id
+        var c = cutling
+        c.sortOrder = cutlings.count
+        c.lastModifiedDate = Date()
+        cutlings.append(c)
+        lastAddedCutlingID = c.id
         save()
+        #if !KEYBOARD_EXTENSION
+        if let sm = syncManager { Task { await sm.enqueueSave(c) } }
+        #endif
     }
     
     func sortCutlings(by areInIncreasingOrder: (Cutling, Cutling) -> Bool) {
         cutlings.sort(by: areInIncreasingOrder)
+        updateSortOrders()
         save()
+        enqueueAllForSync()
     }
 
     func reverseCutlings() {
         cutlings.reverse()
+        updateSortOrders()
         save()
+        enqueueAllForSync()
     }
     
     func moveCutlings(fromOffsets source: IndexSet, toOffset destination: Int) {
         cutlings.move(fromOffsets: source, toOffset: destination)
+        updateSortOrders()
         save()
+        enqueueAllForSync()
     }
     
     // MARK: - Limit Checks
@@ -264,8 +282,13 @@ class CutlingStore: ObservableObject {
 
     func update(_ cutling: Cutling) {
         if let i = cutlings.firstIndex(where: { $0.id == cutling.id }) {
-            cutlings[i] = cutling
+            var c = cutling
+            c.lastModifiedDate = Date()
+            cutlings[i] = c
             save()
+            #if !KEYBOARD_EXTENSION
+            if let sm = syncManager { Task { await sm.enqueueSave(c) } }
+            #endif
         }
     }
 
@@ -275,6 +298,9 @@ class CutlingStore: ObservableObject {
         }
         cutlings.removeAll { $0.id == cutling.id }
         save()
+        #if !KEYBOARD_EXTENSION
+        if let sm = syncManager { Task { await sm.enqueueDelete(cutling.id) } }
+        #endif
     }
 
     // MARK: - Image File Management
@@ -430,6 +456,31 @@ class CutlingStore: ObservableObject {
     /// Clear thumbnail cache to free memory if needed
     func clearThumbnailCache() {
         thumbnailCache.removeAllObjects()
+    }
+
+    // MARK: - Sync Helpers
+
+    #if !KEYBOARD_EXTENSION
+    /// Called by CloudKitSyncManager when remote changes arrive.
+    @MainActor
+    func applyRemoteChanges(_ updated: [Cutling]) {
+        cutlings = updated
+        save()
+    }
+
+    /// Enqueue all cutlings for sync (used after reorder).
+    private func enqueueAllForSync() {
+        if let sm = syncManager { Task { await sm.enqueueAllCutlings(cutlings) } }
+    }
+    #else
+    private func enqueueAllForSync() {}
+    #endif
+
+    /// Update sortOrder to match current array positions.
+    private func updateSortOrders() {
+        for i in cutlings.indices {
+            cutlings[i].sortOrder = i
+        }
     }
 
     // MARK: - Seed

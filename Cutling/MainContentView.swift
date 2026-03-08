@@ -447,6 +447,12 @@ struct MainContentView: View {
                             .foregroundStyle(.secondary)
                     }
                     
+                    if store.isSyncing {
+                        ProgressView()
+                            .scaleEffect(0.4)
+                            .frame(width: 10, height: 10)
+                    }
+                    
                     Spacer()
                 }
                 .padding(.horizontal)

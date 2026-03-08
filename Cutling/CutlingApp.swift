@@ -31,6 +31,7 @@ struct CutlingApp: App {
     @Environment(\.scenePhase) private var scenePhase
 
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
+    @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
 
     var body: some Scene {
         WindowGroup {
@@ -38,6 +39,7 @@ struct CutlingApp: App {
                 .environmentObject(store)
                 .onAppear {
                     store.seedIfEmpty()
+                    configureSyncIfNeeded()
                     #if os(iOS)
                     if !hasCompletedOnboarding {
                         showOnboarding = true
@@ -47,6 +49,13 @@ struct CutlingApp: App {
                         hasCompletedOnboarding = true
                     }
                     #endif
+                }
+                .onChange(of: iCloudSyncEnabled) { _, enabled in
+                    if enabled {
+                        startSync()
+                    } else {
+                        stopSync()
+                    }
                 }
                 .onOpenURL { url in
                     if url.scheme == "cutling", url.host == "settings" {
@@ -96,5 +105,27 @@ struct CutlingApp: App {
         }
         .defaultSize(width: 480, height: 500)
         #endif
+    }
+
+    // MARK: - iCloud Sync
+
+    private func configureSyncIfNeeded() {
+        if iCloudSyncEnabled {
+            startSync()
+        }
+    }
+
+    private func startSync() {
+        let manager = CloudKitSyncManager(store: store)
+        store.syncManager = manager
+        Task { await manager.start() }
+    }
+
+    private func stopSync() {
+        if let manager = store.syncManager {
+            Task { await manager.stop() }
+        }
+        store.syncManager = nil
+        store.isSyncing = false
     }
 }
