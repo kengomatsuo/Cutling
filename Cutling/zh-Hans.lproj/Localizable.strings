@@ -1,0 +1,139 @@
+/* MARK: - Navigation & Titles */
+"My Cutlings" = "我的剪切片段";
+"Select Items" = "选择项目";
+"%lld Selected" = "已选择 %lld 项";
+"Reorder" = "重新排序";
+"Settings" = "设置";
+"Keyboard Setup" = "键盘设置";
+"New Cutling" = "新建剪切片段";
+"Edit Cutling" = "编辑剪切片段";
+"New Image" = "新建图片";
+"Edit Image" = "编辑图片";
+"Choose Icon" = "选择图标";
+
+/* MARK: - Common Actions */
+"Cancel" = "取消";
+"Done" = "完成";
+"Save" = "保存";
+"Delete" = "删除";
+"Copy" = "复制";
+"Edit" = "编辑";
+"Sort" = "排序";
+"OK" = "好";
+
+/* MARK: - Menu Items */
+"Text Cutling" = "文本剪切片段";
+"Image Cutling" = "图片剪切片段";
+"Select Cutlings" = "选择剪切片段";
+"Reorder Cutlings" = "重新排列剪切片段";
+"Keyboard Setup Guide" = "键盘设置指南";
+"Name (A → Z)" = "名称（A → Z）";
+"Name (Z → A)" = "名称（Z → A）";
+"Text First" = "文本优先";
+"Images First" = "图片优先";
+"Shortest First" = "最短优先";
+"Longest First" = "最长优先";
+"Reverse Order" = "反向排列";
+
+/* MARK: - Empty States */
+"No Cutlings Yet" = "暂无剪切片段";
+"No Results" = "无结果";
+"Tap + to add your first cutling." = "点击 + 添加您的第一个剪切片段。";
+"Try a different search term." = "请尝试其他搜索词。";
+
+/* MARK: - Search */
+"Search cutlings" = "搜索剪切片段";
+"Search icons" = "搜索图标";
+
+/* MARK: - Form Labels */
+"Name" = "名称";
+"Icon" = "图标";
+"Text" = "文本";
+"Image" = "图片";
+"Color" = "颜色";
+"Quick Actions" = "快速操作";
+"Auto-Delete" = "自动删除";
+"Delete At" = "删除时间";
+"Category" = "分类";
+
+/* MARK: - Placeholders */
+"e.g. Email" = "例如：邮箱";
+"e.g. Signature, QR Code" = "例如：签名、二维码";
+
+/* MARK: - Buttons & Actions */
+"Change Icon" = "更改图标";
+"Paste from Clipboard" = "从剪贴板粘贴";
+"Delete Cutling" = "删除剪切片段";
+"Open Settings to Enable" = "打开设置以启用";
+"Photos Library" = "照片图库";
+"Choose File" = "选择文件";
+"Choose from Photos" = "从照片中选择";
+"Choose from Files" = "从文件中选择";
+"Copy Images" = "复制图片";
+"Add from Clipboard" = "从剪贴板添加";
+"Insert Text Instantly" = "即时插入文本";
+"Switch to Cutling Keyboard" = "切换到 Cutling 键盘";
+
+/* MARK: - Settings Sections */
+"iCloud" = "iCloud";
+"iCloud Sync" = "iCloud 同步";
+"Sync your cutlings across all your devices using iCloud." = "使用 iCloud 在所有设备间同步您的剪切片段。";
+"Storage" = "存储";
+"Text Cutlings" = "文本剪切片段";
+"Image Cutlings" = "图片剪切片段";
+"Max Text Length" = "最大文本长度";
+"%lld chars" = "%lld 字";
+"About" = "关于";
+"Version" = "版本";
+"Keyboard Added" = "键盘已添加";
+"Full Access" = "完全访问";
+
+/* MARK: - Image Picker */
+"No image selected" = "未选择图片";
+
+/* MARK: - Footer Texts */
+"This will replace the current text with whatever is in your clipboard." = "这将用剪贴板内容替换当前文本。";
+"This will replace the current image with whatever is in your clipboard." = "这将用剪贴板内容替换当前图片。";
+"This cutling will be automatically deleted at the selected date and time." = "此剪切片段将在选定的日期和时间自动删除。";
+"Each text cutling can hold up to %lld characters." = "每个文本剪切片段最多可包含 %lld 个字符。";
+
+/* MARK: - Alerts */
+"Limit Reached" = "已达上限";
+"Delete Cutling?" = "删除剪切片段？";
+"This action cannot be undone." = "此操作无法撤销。";
+"Cannot add text cutling" = "无法添加文本剪切片段";
+"Cannot add image cutling" = "无法添加图片剪切片段";
+"Cannot add more text cutlings." = "无法再添加更多文本剪切片段。";
+"Cannot add more image cutlings." = "无法再添加更多图片剪切片段。";
+
+/* MARK: - CutlingStore Errors */
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "剪切片段数量已达上限（%lld）。请删除一些后再添加。";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "图片剪切片段已达上限（%lld）。图片在键盘中占用较多内存。请删除一些后再添加。";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "文本剪切片段已达上限（%lld）。请删除一些后再添加。";
+
+/* MARK: - Clipboard Feedback */
+"Copied" = "已复制";
+"Inserted" = "已插入";
+
+/* MARK: - Keyboard Setup */
+"Setup Progress" = "设置进度";
+"Open Cutling Settings" = "打开 Cutling 设置";
+"Tap here, then switch to Cutling" = "在此点击，然后切换到 Cutling";
+"How to Use Your Keyboard" = "键盘使用方法";
+"Storage Limits" = "存储限制";
+"You're All Set!" = "设置完成！";
+"Set Up Your Keyboard" = "设置键盘";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Cutling 键盘已准备就绪！在任何地方输入时，点击键盘上的🌐地球图标切换到 Cutling。";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "按照以下两个简单步骤开始使用您的自定义键盘。完成每个步骤后，此页面将自动更新。";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**第1步：** 点击下方「打开 Cutling 设置」，进入**键盘**，从列表中选择 **Cutling**。";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**第2步：** 确保**允许完全访问**已开启。这将允许键盘将图片复制到剪贴板。您的数据始终保持私密，不会发送到任何地方。";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**第3步：** 点击文本输入框，使用键盘上的🌐地球图标选择「Cutling」，以更新「完全访问」状态。";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**第4步：** 一切就绪！使用指南在下方提供。";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "在任何应用中输入时，点击或长按键盘左下角的🌐地球键，然后选择 Cutling";
+"Tap any text cutling and it will be typed into your current text field immediately" = "点击任意文本剪切片段，它将立即输入到当前文本框中";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "点击图片剪切片段可将其复制到剪贴板，然后粘贴到您正在使用的应用中（通常是长按后选择粘贴）。Apple 目前不支持在此应用中直接粘贴图片。";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "复制任意文本，然后在 Cutling 键盘中点击「从剪贴板添加」按钮，即可保存为新的剪切片段";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "您可以在主 Cutling 应用中管理所有剪切片段。您的更改将立即反映在键盘中。";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "键盘扩展有严格的内存限制以确保系统稳定性。图片比文本占用更多内存，因此我们限制了数量以保持键盘快速可靠。达到限制时，只需删除一些剪切片段即可添加新的。";
+"Up to **%lld text** cutlings" = "最多 **%lld 个文本**剪切片段";
+"Up to **%lld image** cutlings" = "最多 **%lld 个图片**剪切片段";

@@ -266,7 +266,7 @@ struct ImageDetailView: View {
             // Check limit for new cutlings
             let canAdd = store.canAdd(.image)
             if !canAdd.allowed {
-                limitAlertMessage = canAdd.reason ?? "Cannot add more image cutlings."
+                limitAlertMessage = canAdd.reason ?? String(localized: "Cannot add more image cutlings.")
                 showLimitAlert = true
                 return
             }

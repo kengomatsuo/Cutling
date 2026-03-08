@@ -1,0 +1,139 @@
+/* MARK: - Navigation & Titles */
+"My Cutlings" = "マイカットリング";
+"Select Items" = "アイテムを選択";
+"%lld Selected" = "%lld 件選択中";
+"Reorder" = "並べ替え";
+"Settings" = "設定";
+"Keyboard Setup" = "キーボード設定";
+"New Cutling" = "新規カットリング";
+"Edit Cutling" = "カットリングを編集";
+"New Image" = "新規画像";
+"Edit Image" = "画像を編集";
+"Choose Icon" = "アイコンを選択";
+
+/* MARK: - Common Actions */
+"Cancel" = "キャンセル";
+"Done" = "完了";
+"Save" = "保存";
+"Delete" = "削除";
+"Copy" = "コピー";
+"Edit" = "編集";
+"Sort" = "並べ替え";
+"OK" = "OK";
+
+/* MARK: - Menu Items */
+"Text Cutling" = "テキストカットリング";
+"Image Cutling" = "画像カットリング";
+"Select Cutlings" = "カットリングを選択";
+"Reorder Cutlings" = "カットリングを並べ替え";
+"Keyboard Setup Guide" = "キーボード設定ガイド";
+"Name (A → Z)" = "名前（A → Z）";
+"Name (Z → A)" = "名前（Z → A）";
+"Text First" = "テキスト優先";
+"Images First" = "画像優先";
+"Shortest First" = "短い順";
+"Longest First" = "長い順";
+"Reverse Order" = "逆順";
+
+/* MARK: - Empty States */
+"No Cutlings Yet" = "カットリングがありません";
+"No Results" = "結果なし";
+"Tap + to add your first cutling." = "+ をタップして最初のカットリングを追加しましょう。";
+"Try a different search term." = "別のキーワードで検索してください。";
+
+/* MARK: - Search */
+"Search cutlings" = "カットリングを検索";
+"Search icons" = "アイコンを検索";
+
+/* MARK: - Form Labels */
+"Name" = "名前";
+"Icon" = "アイコン";
+"Text" = "テキスト";
+"Image" = "画像";
+"Color" = "カラー";
+"Quick Actions" = "クイックアクション";
+"Auto-Delete" = "自動削除";
+"Delete At" = "削除日時";
+"Category" = "カテゴリ";
+
+/* MARK: - Placeholders */
+"e.g. Email" = "例：メール";
+"e.g. Signature, QR Code" = "例：署名、QRコード";
+
+/* MARK: - Buttons & Actions */
+"Change Icon" = "アイコンを変更";
+"Paste from Clipboard" = "クリップボードから貼り付け";
+"Delete Cutling" = "カットリングを削除";
+"Open Settings to Enable" = "設定を開いて有効にする";
+"Photos Library" = "フォトライブラリ";
+"Choose File" = "ファイルを選択";
+"Choose from Photos" = "写真から選択";
+"Choose from Files" = "ファイルから選択";
+"Copy Images" = "画像をコピー";
+"Add from Clipboard" = "クリップボードから追加";
+"Insert Text Instantly" = "テキストを即座に入力";
+"Switch to Cutling Keyboard" = "Cutlingキーボードに切り替える";
+
+/* MARK: - Settings Sections */
+"iCloud" = "iCloud";
+"iCloud Sync" = "iCloud同期";
+"Sync your cutlings across all your devices using iCloud." = "iCloudを使ってすべてのデバイスでカットリングを同期します。";
+"Storage" = "ストレージ";
+"Text Cutlings" = "テキストカットリング";
+"Image Cutlings" = "画像カットリング";
+"Max Text Length" = "最大テキスト長";
+"%lld chars" = "%lld 文字";
+"About" = "このアプリについて";
+"Version" = "バージョン";
+"Keyboard Added" = "キーボード追加済み";
+"Full Access" = "フルアクセス";
+
+/* MARK: - Image Picker */
+"No image selected" = "画像未選択";
+
+/* MARK: - Footer Texts */
+"This will replace the current text with whatever is in your clipboard." = "クリップボードの内容で現在のテキストが置き換えられます。";
+"This will replace the current image with whatever is in your clipboard." = "クリップボードの内容で現在の画像が置き換えられます。";
+"This cutling will be automatically deleted at the selected date and time." = "選択した日時にカットリングが自動的に削除されます。";
+"Each text cutling can hold up to %lld characters." = "テキストカットリングは最大%lld文字まで保持できます。";
+
+/* MARK: - Alerts */
+"Limit Reached" = "上限に達しました";
+"Delete Cutling?" = "カットリングを削除しますか？";
+"This action cannot be undone." = "この操作は元に戻せません。";
+"Cannot add text cutling" = "テキストカットリングを追加できません";
+"Cannot add image cutling" = "画像カットリングを追加できません";
+"Cannot add more text cutlings." = "これ以上テキストカットリングを追加できません。";
+"Cannot add more image cutlings." = "これ以上画像カットリングを追加できません。";
+
+/* MARK: - CutlingStore Errors */
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "カットリングの合計上限（%lld）に達しました。いくつか削除してから追加してください。";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "画像カットリングの上限（%lld）に達しました。キーボードのメモリを節約するため制限しています。いくつか削除してから追加してください。";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "テキストカットリングの上限（%lld）に達しました。いくつか削除してから追加してください。";
+
+/* MARK: - Clipboard Feedback */
+"Copied" = "コピー済み";
+"Inserted" = "挿入済み";
+
+/* MARK: - Keyboard Setup */
+"Setup Progress" = "設定の進捗";
+"Open Cutling Settings" = "Cutling設定を開く";
+"Tap here, then switch to Cutling" = "ここをタップして、Cutlingに切り替えてください";
+"How to Use Your Keyboard" = "キーボードの使い方";
+"Storage Limits" = "ストレージの上限";
+"You're All Set!" = "設定完了！";
+"Set Up Your Keyboard" = "キーボードを設定する";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Cutlingキーボードの準備ができました！どこかで文字を入力するとき、キーボードの🌐地球儀アイコンをタップしてCutlingに切り替えてください。";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "以下の2つの簡単な手順に従って、カスタムキーボードの使用を開始してください。各手順を完了するとこのページが自動的に更新されます。";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**ステップ1:** 下の「Cutling設定を開く」をタップし、**キーボード**に進んでリストから**Cutling**を選択してください。";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**ステップ2:** **フルアクセスを許可**がオンになっていることを確認してください。これにより、キーボードが画像をクリップボードにコピーできます。データはプライベートに保たれ、外部に送信されることはありません。";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**ステップ3:** テキスト入力をタップし、キーボードの🌐地球儀アイコンを使って「Cutling」を選択し、「フルアクセス」ステータスを更新してください。";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**ステップ4:** 準備完了です！使い方ガイドは以下に記載されています。";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "任意のアプリで入力中に、キーボード左下の🌐地球儀キーをタップまたは長押しして、Cutlingを選択してください";
+"Tap any text cutling and it will be typed into your current text field immediately" = "テキストカットリングをタップすると、現在のテキストフィールドに即座に入力されます";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "画像カットリングをタップするとクリップボードにコピーされます。その後、使用中のアプリに貼り付けてください（通常は長押しして「ペースト」を選択）。Appleは現在、このアプリへの直接の画像貼り付けをサポートしていません。";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "任意のテキストをコピーして、Cutlingキーボードの「クリップボードから追加」ボタンをタップすると、新しいカットリングとして保存されます";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "すべてのカットリングはメインのCutlingアプリで管理できます。変更はキーボードに即座に反映されます。";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "システムの安定性を確保するため、キーボード拡張機能には厳しいメモリ制限があります。画像はテキストよりも多くのメモリを使用するため、キーボードを高速かつ信頼性の高い状態に保つために制限しています。制限に達した場合は、いくつかのカットリングを削除して新しいものを追加してください。";
+"Up to **%lld text** cutlings" = "最大**%lld件のテキスト**カットリング";
+"Up to **%lld image** cutlings" = "最大**%lld件の画像**カットリング";

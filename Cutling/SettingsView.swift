@@ -76,7 +76,7 @@ struct SettingsView: View {
                 Section {
                     LabeledContent("Text Cutlings", value: "\(store.textCutlingsCount) / \(CutlingStore.maxTextCutlings)")
                     LabeledContent("Image Cutlings", value: "\(store.imageCutlingsCount) / \(CutlingStore.maxImageCutlings)")
-                    LabeledContent("Max Text Length", value: "\(CutlingStore.maxTextLength) chars")
+                    LabeledContent("Max Text Length", value: String(localized: "\(CutlingStore.maxTextLength) chars"))
                 } header: {
                     Text("Storage")
                 } footer: {

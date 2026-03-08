@@ -483,13 +483,13 @@ struct KeyboardView: View {
             }
             .overlay {
                 if showAddedToast {
-                    toastOverlay(icon: "checkmark", text: "Added!")
+                    toastOverlay(icon: "checkmark", text: String(localized: "Added!"))
                 }
                 if showNoAccessToast {
-                    toastOverlay(icon: "lock.fill", text: "Full Access Required")
+                    toastOverlay(icon: "lock.fill", text: String(localized: "Full Access Required"))
                 }
                 if showEmptyClipboardToast {
-                    toastOverlay(icon: "doc.on.clipboard", text: "Clipboard Empty")
+                    toastOverlay(icon: "doc.on.clipboard", text: String(localized: "Clipboard Empty"))
                 }
                 if showLimitToast {
                     toastOverlay(icon: "exclamationmark.triangle", text: limitToastMessage)
@@ -708,7 +708,7 @@ struct KeyboardView: View {
             let id = UUID()
             var cutling = Cutling(
                 id: id,
-                name: "Image: \(timestamp)",
+                name: String(localized: "Image: \(timestamp)"),
                 value: "",
                 icon: "photo",
                 kind: .image,
@@ -755,7 +755,7 @@ struct KeyboardView: View {
         }
 
         let cutling = Cutling(
-            name: "Clip: \(timestamp)",
+            name: String(localized: "Clip: \(timestamp)"),
             value: text,
             icon: "doc.on.clipboard"
         )
@@ -804,11 +804,11 @@ struct KeyboardView: View {
         UINotificationFeedbackGenerator().notificationOccurred(.error)
         // Shorten the message for keyboard display
         if message.contains("image") {
-            limitToastMessage = "Image Limit: \(CutlingStore.maxImageCutlings)"
+            limitToastMessage = String(localized: "Image Limit: \(CutlingStore.maxImageCutlings)")
         } else if message.contains("text") {
-            limitToastMessage = "Text Limit: \(CutlingStore.maxTextCutlings)"
+            limitToastMessage = String(localized: "Text Limit: \(CutlingStore.maxTextCutlings)")
         } else {
-            limitToastMessage = "Limit Reached"
+            limitToastMessage = String(localized: "Limit Reached")
         }
         
         withAnimation(.spring(duration: 0.35, bounce: 0.2)) {

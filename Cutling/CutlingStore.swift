@@ -313,18 +313,18 @@ class CutlingStore: ObservableObject {
         
         // Check total limit first
         if totalCount >= Self.maxTotalCutlings {
-            return (false, "You've reached the maximum of \(Self.maxTotalCutlings) total cutlings. Delete some to add more.")
+            return (false, String(localized: "You've reached the maximum of \(Self.maxTotalCutlings) total cutlings. Delete some to add more."))
         }
         
         // Check type-specific limits
         switch kind {
         case .image:
             if imageCount >= Self.maxImageCutlings {
-                return (false, "You've reached the maximum of \(Self.maxImageCutlings) image cutlings. Images use significant memory in the keyboard. Delete some images to add more.")
+                return (false, String(localized: "You've reached the maximum of \(Self.maxImageCutlings) image cutlings. Images use significant memory in the keyboard. Delete some images to add more."))
             }
         case .text:
             if textCount >= Self.maxTextCutlings {
-                return (false, "You've reached the maximum of \(Self.maxTextCutlings) text cutlings. Delete some to add more.")
+                return (false, String(localized: "You've reached the maximum of \(Self.maxTextCutlings) text cutlings. Delete some to add more."))
             }
         }
         

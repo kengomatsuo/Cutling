@@ -266,7 +266,7 @@ struct TextDetailView: View {
                                 )
                                 dismiss()
                             } else {
-                                limitAlertMessage = canAdd.reason ?? "Cannot add more text cutlings."
+                                limitAlertMessage = canAdd.reason ?? String(localized: "Cannot add more text cutlings.")
                                 showLimitAlert = true
                             }
                         }

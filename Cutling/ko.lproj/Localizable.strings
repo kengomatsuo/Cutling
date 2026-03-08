@@ -1,0 +1,139 @@
+/* MARK: - Navigation & Titles */
+"My Cutlings" = "내 컷팅스";
+"Select Items" = "항목 선택";
+"%lld Selected" = "%lld개 선택됨";
+"Reorder" = "순서 변경";
+"Settings" = "설정";
+"Keyboard Setup" = "키보드 설정";
+"New Cutling" = "새 컷팅";
+"Edit Cutling" = "컷팅 편집";
+"New Image" = "새 이미지";
+"Edit Image" = "이미지 편집";
+"Choose Icon" = "아이콘 선택";
+
+/* MARK: - Common Actions */
+"Cancel" = "취소";
+"Done" = "완료";
+"Save" = "저장";
+"Delete" = "삭제";
+"Copy" = "복사";
+"Edit" = "편집";
+"Sort" = "정렬";
+"OK" = "확인";
+
+/* MARK: - Menu Items */
+"Text Cutling" = "텍스트 컷팅";
+"Image Cutling" = "이미지 컷팅";
+"Select Cutlings" = "컷팅 선택";
+"Reorder Cutlings" = "컷팅 순서 변경";
+"Keyboard Setup Guide" = "키보드 설정 가이드";
+"Name (A → Z)" = "이름 (A → Z)";
+"Name (Z → A)" = "이름 (Z → A)";
+"Text First" = "텍스트 우선";
+"Images First" = "이미지 우선";
+"Shortest First" = "짧은 것 먼저";
+"Longest First" = "긴 것 먼저";
+"Reverse Order" = "역순";
+
+/* MARK: - Empty States */
+"No Cutlings Yet" = "컷팅이 없습니다";
+"No Results" = "결과 없음";
+"Tap + to add your first cutling." = "+ 를 탭하여 첫 번째 컷팅을 추가하세요.";
+"Try a different search term." = "다른 검색어를 시도해 보세요.";
+
+/* MARK: - Search */
+"Search cutlings" = "컷팅 검색";
+"Search icons" = "아이콘 검색";
+
+/* MARK: - Form Labels */
+"Name" = "이름";
+"Icon" = "아이콘";
+"Text" = "텍스트";
+"Image" = "이미지";
+"Color" = "색상";
+"Quick Actions" = "빠른 작업";
+"Auto-Delete" = "자동 삭제";
+"Delete At" = "삭제 시간";
+"Category" = "카테고리";
+
+/* MARK: - Placeholders */
+"e.g. Email" = "예: 이메일";
+"e.g. Signature, QR Code" = "예: 서명, QR 코드";
+
+/* MARK: - Buttons & Actions */
+"Change Icon" = "아이콘 변경";
+"Paste from Clipboard" = "클립보드에서 붙여넣기";
+"Delete Cutling" = "컷팅 삭제";
+"Open Settings to Enable" = "설정을 열어 활성화";
+"Photos Library" = "사진 보관함";
+"Choose File" = "파일 선택";
+"Choose from Photos" = "사진에서 선택";
+"Choose from Files" = "파일에서 선택";
+"Copy Images" = "이미지 복사";
+"Add from Clipboard" = "클립보드에서 추가";
+"Insert Text Instantly" = "텍스트 즉시 삽입";
+"Switch to Cutling Keyboard" = "Cutling 키보드로 전환";
+
+/* MARK: - Settings Sections */
+"iCloud" = "iCloud";
+"iCloud Sync" = "iCloud 동기화";
+"Sync your cutlings across all your devices using iCloud." = "iCloud를 사용하여 모든 기기에서 컷팅을 동기화합니다.";
+"Storage" = "저장공간";
+"Text Cutlings" = "텍스트 컷팅";
+"Image Cutlings" = "이미지 컷팅";
+"Max Text Length" = "최대 텍스트 길이";
+"%lld chars" = "%lld자";
+"About" = "정보";
+"Version" = "버전";
+"Keyboard Added" = "키보드 추가됨";
+"Full Access" = "전체 접근";
+
+/* MARK: - Image Picker */
+"No image selected" = "이미지 없음";
+
+/* MARK: - Footer Texts */
+"This will replace the current text with whatever is in your clipboard." = "현재 텍스트가 클립보드 내용으로 대체됩니다.";
+"This will replace the current image with whatever is in your clipboard." = "현재 이미지가 클립보드 내용으로 대체됩니다.";
+"This cutling will be automatically deleted at the selected date and time." = "선택한 날짜와 시간에 컷팅이 자동으로 삭제됩니다.";
+"Each text cutling can hold up to %lld characters." = "텍스트 컷팅은 최대 %lld자까지 보유할 수 있습니다.";
+
+/* MARK: - Alerts */
+"Limit Reached" = "한도 도달";
+"Delete Cutling?" = "컷팅을 삭제하시겠습니까?";
+"This action cannot be undone." = "이 작업은 취소할 수 없습니다.";
+"Cannot add text cutling" = "텍스트 컷팅을 추가할 수 없습니다";
+"Cannot add image cutling" = "이미지 컷팅을 추가할 수 없습니다";
+"Cannot add more text cutlings." = "더 이상 텍스트 컷팅을 추가할 수 없습니다.";
+"Cannot add more image cutlings." = "더 이상 이미지 컷팅을 추가할 수 없습니다.";
+
+/* MARK: - CutlingStore Errors */
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "컷팅 총 한도(%lld개)에 도달했습니다. 일부를 삭제하고 추가하세요.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "이미지 컷팅 한도(%lld개)에 도달했습니다. 이미지는 키보드 메모리를 많이 사용합니다. 일부를 삭제하고 추가하세요.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "텍스트 컷팅 한도(%lld개)에 도달했습니다. 일부를 삭제하고 추가하세요.";
+
+/* MARK: - Clipboard Feedback */
+"Copied" = "복사됨";
+"Inserted" = "삽입됨";
+
+/* MARK: - Keyboard Setup */
+"Setup Progress" = "설정 진행 상황";
+"Open Cutling Settings" = "Cutling 설정 열기";
+"Tap here, then switch to Cutling" = "여기를 탭한 후 Cutling으로 전환하세요";
+"How to Use Your Keyboard" = "키보드 사용 방법";
+"Storage Limits" = "저장공간 한도";
+"You're All Set!" = "모두 완료되었습니다!";
+"Set Up Your Keyboard" = "키보드 설정하기";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Cutling 키보드가 준비되었습니다! 어디서든 입력할 때 키보드의 🌐 지구본 아이콘을 탭하여 Cutling으로 전환하세요.";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "아래의 두 가지 간단한 단계를 따라 커스텀 키보드를 시작하세요. 각 단계를 완료하면 이 페이지가 자동으로 업데이트됩니다.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**1단계:** 아래 'Cutling 설정 열기'를 탭하고 **키보드**로 이동하여 목록에서 **Cutling**을 선택하세요.";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**2단계:** **전체 접근 허용**이 켜져 있는지 확인하세요. 이를 통해 키보드가 이미지를 클립보드에 복사할 수 있습니다. 데이터는 비공개로 유지되며 외부로 전송되지 않습니다.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**3단계:** 텍스트 입력을 탭하고 키보드의 🌐 지구본 아이콘을 사용하여 \"Cutling\"을 선택하여 \"전체 접근\" 상태를 업데이트하세요.";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**4단계:** 준비 완료입니다! 사용 가이드는 아래에 제공됩니다.";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "어떤 앱에서든 입력할 때 키보드 왼쪽 하단의 🌐 지구본 키를 탭하거나 길게 누른 다음 Cutling을 선택하세요";
+"Tap any text cutling and it will be typed into your current text field immediately" = "텍스트 컷팅을 탭하면 현재 텍스트 필드에 즉시 입력됩니다";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "이미지 컷팅을 탭하면 클립보드에 복사됩니다. 사용 중인 앱에 붙여넣으세요(보통 길게 탭한 후 붙여넣기 선택). Apple은 현재 이 앱에 이미지를 직접 붙여넣는 것을 지원하지 않습니다.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "텍스트를 복사한 후 Cutling 키보드에서 '클립보드에서 추가' 버튼을 탭하면 새 컷팅으로 저장됩니다";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "모든 컷팅은 메인 Cutling 앱에서 관리할 수 있습니다. 변경 사항은 키보드에 즉시 반영됩니다.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "시스템 안정성을 위해 키보드 확장은 엄격한 메모리 제한이 있습니다. 이미지는 텍스트보다 많은 메모리를 사용하므로 키보드 성능 유지를 위해 제한합니다. 한도에 도달하면 일부 컷팅을 삭제하고 새로운 것을 추가하세요.";
+"Up to **%lld text** cutlings" = "최대 **%lld개 텍스트** 컷팅";
+"Up to **%lld image** cutlings" = "최대 **%lld개 이미지** 컷팅";

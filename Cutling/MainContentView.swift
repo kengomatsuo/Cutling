@@ -367,12 +367,12 @@ struct MainContentView: View {
     private var navigationTitle: String {
         switch mode {
         case .browsing:
-            return "My Cutlings"
+            return String(localized: "My Cutlings")
         case .selecting:
             let count = selectedIDs.count
-            return count == 0 ? "Select Items" : "\(count) Selected"
+            return count == 0 ? String(localized: "Select Items") : String(localized: "\(count) Selected")
         case .ordering:
-            return "Reorder"
+            return String(localized: "Reorder")
         }
     }
 
@@ -515,11 +515,11 @@ struct MainContentView: View {
                     }
                 }
                 .padding()
-                #if os(iOS)
-                .padding(.bottom, searchIsPresented ? 0 : 160)
-                #else
-                .padding(.bottom, 40)
-                #endif
+//                #if os(iOS)
+//                .padding(.bottom, searchIsPresented ? 0 : 160)
+//                #else
+//                .padding(.bottom, 40)
+//                #endif
                 .animation(.spring(duration: 0.35, bounce: 0.2), value: filtered.map(\.id))
             }
         }
@@ -563,7 +563,7 @@ struct MainContentView: View {
                 if canAddText.allowed {
                     showAddText = true
                 } else {
-                    limitAlertMessage = canAddText.reason ?? "Cannot add text cutling"
+                    limitAlertMessage = canAddText.reason ?? String(localized: "Cannot add text cutling")
                     showLimitAlert = true
                 }
             } label: {
@@ -577,7 +577,7 @@ struct MainContentView: View {
                 if canAddImage.allowed {
                     showAddImage = true
                 } else {
-                    limitAlertMessage = canAddImage.reason ?? "Cannot add image cutling"
+                    limitAlertMessage = canAddImage.reason ?? String(localized: "Cannot add image cutling")
                     showLimitAlert = true
                 }
             } label: {

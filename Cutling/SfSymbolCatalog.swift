@@ -194,7 +194,6 @@ struct SFSymbolCatalog {
         .init(id: "bolt.horizontal", keywords: ["connection", "ethernet", "thunderbolt", "wired", "cable"]),
         .init(id: "cellularbars", keywords: ["signal", "mobile", "cellular", "reception", "coverage"]),
         .init(id: "personalhotspot", keywords: ["hotspot", "tethering", "share", "wifi", "mobile"]),
-        .init(id: "airdrop", keywords: ["share", "transfer", "nearby", "send", "receive", "wireless"]),
         .init(id: "airplayaudio", keywords: ["airplay", "stream", "cast", "audio", "wireless"]),
         .init(id: "airplayvideo", keywords: ["airplay", "stream", "cast", "video", "wireless", "mirror"]),
     ]
@@ -289,7 +288,7 @@ struct SFSymbolCatalog {
         .init(id: "figure.run", keywords: ["exercise", "running", "fitness", "sport", "jog", "marathon", "cardio"]),
         .init(id: "figure.walk", keywords: ["walk", "steps", "fitness", "stroll", "pedestrian", "hike"]),
         .init(id: "figure.hiking", keywords: ["hike", "trail", "outdoor", "walk", "nature", "trek"]),
-        .init(id: "figure.swimming", keywords: ["swim", "pool", "water", "exercise", "sport", "aquatic"]),
+        .init(id: "figure.pool.swim", keywords: ["swim", "pool", "water", "exercise", "sport", "aquatic"]),
         .init(id: "figure.yoga", keywords: ["yoga", "meditation", "stretch", "relax", "flexibility", "zen"]),
         .init(id: "figure.dance", keywords: ["dance", "party", "move", "fun", "music", "rhythm"]),
         .init(id: "figure.tennis", keywords: ["tennis", "sport", "racket", "game", "court"]),
@@ -607,7 +606,7 @@ struct SFSymbolCatalog {
         .init(id: "arrow.up.and.down.and.arrow.left.and.right", keywords: ["move", "drag", "reposition", "all directions"]),
         .init(id: "arrow.left.and.right", keywords: ["horizontal", "resize", "width", "expand"]),
         .init(id: "arrow.up.and.down", keywords: ["vertical", "resize", "height", "expand"]),
-        .init(id: "arrow.expand", keywords: ["expand", "fullscreen", "maximize", "enlarge"]),
+        .init(id: "arrow.up.left.and.arrow.down.right", keywords: ["expand", "fullscreen", "maximize", "enlarge"]),
         .init(id: "arrow.down.to.line", keywords: ["download", "bottom", "end", "dock"]),
         .init(id: "arrow.up.to.line", keywords: ["upload", "top", "start", "undock"]),
     ]
