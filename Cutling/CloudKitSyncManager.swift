@@ -9,8 +9,6 @@ import CloudKit
 import Foundation
 import os.log
 
-private nonisolated(unsafe) let logger = Logger(subsystem: "com.matsuokengo.Cutling", category: "CloudKitSync")
-
 /// Manages CloudKit synchronization using CKSyncEngine.
 /// Designed as an actor to isolate all CloudKit work from the main thread,
 /// avoiding the "Publishing changes from background threads" issue.
@@ -18,6 +16,7 @@ final actor CloudKitSyncManager {
 
     // MARK: - Constants
 
+    private static let log = Logger(subsystem: "com.matsuokengo.Cutling", category: "CloudKitSync")
     static let containerID = "iCloud.com.matsuokengo.Cutling"
     static let zoneName = "CutlingZone"
     static let cutlingRecordType = "Cutling"
@@ -52,7 +51,7 @@ final actor CloudKitSyncManager {
         // Persist sync engine state and record metadata in the app group container
         let baseURL: URL
         if let containerURL = FileManager.default.containerURL(
-            forSecurityApplicationGroupIdentifier: appGroupID
+            forSecurityApplicationGroupIdentifier: "group.com.matsuokengo.Cutling"
         ) {
             baseURL = containerURL
         } else {
@@ -65,20 +64,68 @@ final actor CloudKitSyncManager {
         }
         self.stateURL = syncDir.appendingPathComponent("SyncEngineState.json")
         self.metadataURL = syncDir.appendingPathComponent("RecordMetadata.json")
+    }
 
-        loadRecordMetadata()
+    /// Must be called after init to load persisted metadata.
+    private func ensureMetadataLoaded() {
+        if lastKnownRecordMetadata.isEmpty {
+            loadRecordMetadata()
+        }
+    }
+
+    // MARK: - KVS Poke (fast cross-device notification)
+
+    private static let kvsPokeKey = "lastChangeTimestamp"
+    private var kvsObserver: NSObjectProtocol?
+
+    private func startKVSObserver() {
+        let kvs = NSUbiquitousKeyValueStore.default
+        kvs.synchronize()
+        kvsObserver = NotificationCenter.default.addObserver(
+            forName: NSUbiquitousKeyValueStore.didChangeExternallyNotification,
+            object: kvs,
+            queue: .main
+        ) { [weak self] _ in
+            guard let self else { return }
+            Task { [weak self] in
+                await self?.fetchChanges()
+            }
+        }
+    }
+
+    private func stopKVSObserver() {
+        if let obs = kvsObserver {
+            NotificationCenter.default.removeObserver(obs)
+            kvsObserver = nil
+        }
+    }
+
+    /// Notify other devices that we made a change, via KVS (faster than waiting for CK silent push).
+    private func pokeOtherDevices() {
+        let kvs = NSUbiquitousKeyValueStore.default
+        kvs.set(Date().timeIntervalSince1970, forKey: Self.kvsPokeKey)
+        kvs.synchronize()
     }
 
     // MARK: - Lifecycle
 
     func start() {
+        ensureMetadataLoaded()
         _ = syncEngine // Triggers lazy init
-        logger.log("CloudKitSyncManager started")
+        startKVSObserver()
+        Self.log.log("CloudKitSyncManager started")
     }
 
     func stop() {
+        stopKVSObserver()
         _syncEngine = nil
-        logger.log("CloudKitSyncManager stopped")
+        Self.log.log("CloudKitSyncManager stopped")
+    }
+
+    /// Manually trigger a fetch — call on app foreground for faster sync.
+    func fetchChanges() async {
+        guard _syncEngine != nil else { return }
+        try? await syncEngine.fetchChanges()
     }
 
     // MARK: - Engine Init
@@ -93,7 +140,7 @@ final actor CloudKitSyncManager {
         config.automaticallySync = true
         let engine = CKSyncEngine(config)
         _syncEngine = engine
-        logger.log("Initialized CKSyncEngine")
+        Self.log.log("Initialized CKSyncEngine")
     }
 
     // MARK: - Public: Enqueue Local Changes
@@ -107,6 +154,7 @@ final actor CloudKitSyncManager {
             .saveZone(CKRecordZone(zoneName: Self.zoneName))
         ])
         syncEngine.state.add(pendingRecordZoneChanges: [.saveRecord(recordID)])
+        pokeOtherDevices()
     }
 
     func enqueueDelete(_ cutlingID: UUID) {
@@ -115,6 +163,7 @@ final actor CloudKitSyncManager {
             zoneID: CKRecordZone.ID(zoneName: Self.zoneName)
         )
         syncEngine.state.add(pendingRecordZoneChanges: [.deleteRecord(recordID)])
+        pokeOtherDevices()
     }
 
     func enqueueAllCutlings(_ cutlings: [Cutling]) {
@@ -126,6 +175,7 @@ final actor CloudKitSyncManager {
             .saveRecord(CKRecord.ID(recordName: $0.id.uuidString, zoneID: zoneID))
         }
         syncEngine.state.add(pendingRecordZoneChanges: saves)
+        pokeOtherDevices()
     }
 
     // MARK: - State Persistence
@@ -140,7 +190,7 @@ final actor CloudKitSyncManager {
             let data = try JSONEncoder().encode(state)
             try data.write(to: stateURL)
         } catch {
-            logger.error("Failed to save engine state: \(error)")
+            Self.log.error("Failed to save engine state: \(error)")
         }
     }
 
@@ -215,12 +265,12 @@ final actor CloudKitSyncManager {
               let icon = record["icon"] as? String,
               let kindRaw = record["kind"] as? String,
               let kind = CutlingKind(rawValue: kindRaw) else {
-            logger.error("Failed to decode cutling from record \(record.recordID)")
+            Self.log.error("Failed to decode cutling from record \(record.recordID)")
             return nil
         }
 
         guard let id = UUID(uuidString: record.recordID.recordName) else {
-            logger.error("Invalid UUID in record name: \(record.recordID.recordName)")
+            Self.log.error("Invalid UUID in record name: \(record.recordID.recordName)")
             return nil
         }
 
@@ -239,7 +289,7 @@ final actor CloudKitSyncManager {
                 try FileManager.default.copyItem(at: fileURL, to: destURL)
                 imageFilename = filename
             } catch {
-                logger.error("Failed to copy image asset: \(error)")
+                Self.log.error("Failed to copy image asset: \(error)")
             }
         }
 
@@ -354,7 +404,7 @@ extension CloudKitSyncManager: CKSyncEngineDelegate {
             await setSyncing(false)
 
         @unknown default:
-            logger.info("Unknown sync event: \(event)")
+            Self.log.info("Unknown sync event: \(event)")
         }
     }
 
@@ -400,7 +450,7 @@ extension CloudKitSyncManager: CKSyncEngineDelegate {
             saveRecordMetadata()
 
         @unknown default:
-            logger.info("Unknown account change: \(event)")
+            Self.log.info("Unknown account change: \(event)")
         }
     }
 
@@ -444,7 +494,7 @@ extension CloudKitSyncManager: CKSyncEngineDelegate {
             case .serverRecordChanged:
                 // Conflict: merge using last-writer-wins
                 guard let serverRecord = failure.error.serverRecord else {
-                    logger.error("No server record for conflict on \(id)")
+                    Self.log.error("No server record for conflict on \(id)")
                     continue
                 }
                 if let remoteCutling = cutling(from: serverRecord) {
@@ -486,10 +536,10 @@ extension CloudKitSyncManager: CKSyncEngineDelegate {
             case .networkFailure, .networkUnavailable, .zoneBusy, .serviceUnavailable,
                  .notAuthenticated, .operationCancelled:
                 // Transient — CKSyncEngine auto-retries these
-                logger.debug("Retryable error for \(id): \(failure.error)")
+                Self.log.debug("Retryable error for \(id): \(failure.error)")
 
             default:
-                logger.fault("Unhandled error saving \(id): \(failure.error)")
+                Self.log.fault("Unhandled error saving \(id): \(failure.error)")
             }
         }
 

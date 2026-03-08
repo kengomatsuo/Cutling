@@ -63,9 +63,12 @@ struct CutlingApp: App {
                     }
                 }
                 .onChange(of: scenePhase) { _, newPhase in
-                    // Reload when app becomes active (e.g., returning from keyboard)
                     if newPhase == .active {
                         store.load()
+                        // Trigger immediate CloudKit fetch on foreground
+                        if let sm = store.syncManager {
+                            Task { await sm.fetchChanges() }
+                        }
                     }
                 }
                 #if os(iOS)

@@ -7,12 +7,12 @@
 
 import Foundation
 
-enum CutlingKind: String, Codable {
+enum CutlingKind: String, Codable, Sendable {
     case text
     case image
 }
 
-struct Cutling: Identifiable, Codable, Hashable {
+struct Cutling: Identifiable, Codable, Hashable, Sendable {
     var id: UUID
     var name: String
     var value: String
@@ -22,7 +22,7 @@ struct Cutling: Identifiable, Codable, Hashable {
     var sortOrder: Int
     var lastModifiedDate: Date
     
-    init(
+    nonisolated init(
         id: UUID = UUID(),
         name: String,
         value: String,

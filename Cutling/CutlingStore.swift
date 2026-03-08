@@ -152,11 +152,32 @@ class CutlingStore: ObservableObject {
         
         // Only reload if the data actually changed
         if data != lastLoadedData {
+            let oldCutlings = cutlings
             lastLoadedData = data
             if let decoded = try? JSONDecoder().decode([Cutling].self, from: data) {
                 DispatchQueue.main.async {
                     self.cutlings = decoded
                     print("🔄 Reloaded \(decoded.count) cutlings from shared storage")
+                    
+                    #if !KEYBOARD_EXTENSION
+                    // Sync new/changed cutlings added by keyboard extension
+                    let oldIDs = Set(oldCutlings.map { $0.id })
+                    let newIDs = Set(decoded.map { $0.id })
+                    let newCutlings = decoded.filter { !oldIDs.contains($0.id) }
+                    let deletedIDs = oldIDs.subtracting(newIDs)
+                    if let sm = self.syncManager {
+                        if !newCutlings.isEmpty || !deletedIDs.isEmpty {
+                            Task {
+                                for c in newCutlings {
+                                    await sm.enqueueSave(c)
+                                }
+                                for id in deletedIDs {
+                                    await sm.enqueueDelete(id)
+                                }
+                            }
+                        }
+                    }
+                    #endif
                 }
             }
         }
