@@ -726,10 +726,15 @@ struct KeyboardView: View {
         }
         
         // Otherwise check for text
-        guard let text = UIPasteboard.general.string, !text.isEmpty else {
+        guard let rawText = UIPasteboard.general.string, !rawText.isEmpty else {
             flashEmptyClipboard()
             return
         }
+        
+        // Truncate to character limit
+        let text = rawText.count > CutlingStore.maxTextLength
+            ? String(rawText.prefix(CutlingStore.maxTextLength))
+            : rawText
 
         if let existing = store.cutlings.first(where: { $0.value == text }) {
             showExisted(existing.id)

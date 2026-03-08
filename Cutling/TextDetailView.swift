@@ -138,10 +138,21 @@ struct TextDetailView: View {
                     .foregroundStyle(.primary)
                     #endif
                 }
-                Section("Text") {
+                Section {
                     TextEditor(text: $value)
                         .frame(minHeight: 120, maxHeight: 650)
                         .scrollContentBackground(.hidden)
+                        .onChange(of: value) {
+                            if value.count > CutlingStore.maxTextLength {
+                                value = String(value.prefix(CutlingStore.maxTextLength))
+                            }
+                        }
+                } header: {
+                    Text("Text")
+                } footer: {
+                    Text("\(value.count) / \(CutlingStore.maxTextLength)")
+                        .foregroundStyle(value.count > CutlingStore.maxTextLength - 500 ? .orange : .secondary)
+                        .font(.caption)
                 }
                 if hasClipboardText {
                     Section {

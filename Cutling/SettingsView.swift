@@ -65,18 +65,15 @@ struct SettingsView: View {
                 Section {
                     LabeledContent("Text Cutlings", value: "\(store.textCutlingsCount) / \(CutlingStore.maxTextCutlings)")
                     LabeledContent("Image Cutlings", value: "\(store.imageCutlingsCount) / \(CutlingStore.maxImageCutlings)")
+                    LabeledContent("Max Text Length", value: "\(CutlingStore.maxTextLength) chars")
                 } header: {
                     Text("Storage")
                 } footer: {
-                    #if os(iOS)
-                    Text("Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to \(CutlingStore.maxImageCutlings) while allowing up to \(CutlingStore.maxTextCutlings) text cutlings. This ensures your keyboard stays fast and reliable.")
-                    #else
-                    Text("Images use more storage than text. You can have up to \(CutlingStore.maxImageCutlings) image cutlings and \(CutlingStore.maxTextCutlings) text cutlings.")
-                    #endif
+                    Text("Each text cutling can hold up to \(CutlingStore.maxTextLength) characters.")
                 }
 
                 Section("About") {
-                    LabeledContent("Version", value: "1.0.0")
+                    LabeledContent("Version", value: "1.1.0")
                 }
             }
             .formStyle(.grouped)

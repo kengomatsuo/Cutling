@@ -318,6 +318,7 @@ struct MainContentView: View {
             } label: {
                 Label("Sort", systemImage: "arrow.up.arrow.down.circle")
             }
+            .menuIndicator(.hidden)
         case .browsing:
             EmptyView()
         }
@@ -581,6 +582,7 @@ struct MainContentView: View {
         } label: {
             Image(systemName: "plus")
         }
+        .menuIndicator(.hidden)
         
         Menu {
             Button {
@@ -614,6 +616,7 @@ struct MainContentView: View {
         } label: {
             Image(systemName: "ellipsis")
         }
+        .menuIndicator(.hidden)
     }
 
     @ViewBuilder

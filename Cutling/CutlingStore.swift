@@ -34,10 +34,18 @@ extension CutlingStore {
     static let maxImageCutlings = 25
     
     /// Maximum number of text cutlings allowed
-    static let maxTextCutlings = 200
+    static let maxTextCutlings = 100
+    
+    /// Maximum character length for a single text cutling's value
+    static let maxTextLength = 2000
     
     /// Total limit across both types (safety net)
-    static let maxTotalCutlings = 225
+    static let maxTotalCutlings = 125
+    
+    /// Check if a text value exceeds the character limit.
+    func isTextTooLong(_ text: String) -> Bool {
+        text.count > Self.maxTextLength
+    }
 }
 
 class CutlingStore: ObservableObject {
