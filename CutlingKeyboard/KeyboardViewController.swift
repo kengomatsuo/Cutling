@@ -904,7 +904,7 @@ struct CutlingKeyView: View {
             HStack(spacing: 4) {
                 Image(systemName: cutling.icon)
                     .font(.system(size: KeyStyle.iconSize(for: horizontalSizeClass)))
-                    .foregroundStyle(.tint)
+                    .foregroundStyle(cutling.tintColor)
                 Text(cutling.name)
                     .font(.system(size: KeyStyle.titleSize(for: horizontalSizeClass), weight: .semibold))
                     .lineLimit(1)

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum CutlingKind: String, Codable, Sendable {
     case text
@@ -22,12 +23,40 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
     var sortOrder: Int
     var lastModifiedDate: Date
     var expiresAt: Date?
+    var color: String?
     
     /// Whether this cutling has expired and should be purged.
     var isExpired: Bool {
         guard let expiresAt else { return false }
         return expiresAt <= Date()
     }
+
+    /// Resolves the stored color key to a SwiftUI Color, falling back to the app tint.
+    var tintColor: Color {
+        guard let color else { return .accentColor }
+        return Self.palette[color] ?? .accentColor
+    }
+
+    static let palette: [String: Color] = [
+        "red": .red,
+        "orange": .orange,
+        "yellow": .yellow,
+        "green": .green,
+        "mint": .mint,
+        "teal": .teal,
+        "cyan": .cyan,
+        "blue": .blue,
+        "indigo": .indigo,
+        "purple": .purple,
+        "pink": .pink,
+        "brown": .brown,
+    ]
+
+    /// Ordered keys for display in the color picker.
+    static let paletteKeys: [String] = [
+        "red", "orange", "yellow", "green", "mint", "teal",
+        "cyan", "blue", "indigo", "purple", "pink", "brown",
+    ]
     
     nonisolated init(
         id: UUID = UUID(),
@@ -38,7 +67,8 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
         imageFilename: String? = nil,
         sortOrder: Int = 0,
         lastModifiedDate: Date = Date(),
-        expiresAt: Date? = nil
+        expiresAt: Date? = nil,
+        color: String? = nil
     ) {
         self.id = id
         self.name = name
@@ -49,9 +79,10 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
         self.sortOrder = sortOrder
         self.lastModifiedDate = lastModifiedDate
         self.expiresAt = expiresAt
+        self.color = color
     }
     
-    /// Decodes gracefully from older data that may lack sortOrder/lastModifiedDate/expiresAt.
+    /// Decodes gracefully from older data that may lack sortOrder/lastModifiedDate/expiresAt/color.
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         id = try container.decode(UUID.self, forKey: .id)
@@ -63,5 +94,6 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
         sortOrder = try container.decodeIfPresent(Int.self, forKey: .sortOrder) ?? 0
         lastModifiedDate = try container.decodeIfPresent(Date.self, forKey: .lastModifiedDate) ?? Date()
         expiresAt = try container.decodeIfPresent(Date.self, forKey: .expiresAt)
+        color = try container.decodeIfPresent(String.self, forKey: .color)
     }
 }

@@ -384,7 +384,7 @@ struct MainContentView: View {
                 HStack(spacing: 12) {
                     Image(systemName: item.icon)
                         .font(.title3)
-                        .foregroundStyle(.tint)
+                        .foregroundStyle(item.tintColor)
                         .frame(width: 28)
 
                     if item.kind == .image,
@@ -1078,7 +1078,7 @@ struct CardView: View {
             HStack(alignment: .center) {
                 Image(systemName: item.icon)
                     .font(.title2)
-                    .foregroundStyle(.tint)
+                    .foregroundStyle(item.tintColor)
                 Spacer()
                 topRightButton
             }
@@ -1174,7 +1174,7 @@ struct CardView: View {
                 HStack {
                     Image(systemName: item.icon)
                         .font(.title2)
-                        .foregroundStyle(.tint)
+                        .foregroundStyle(item.tintColor)
                     Text(item.name)
                         .font(.headline)
                     Spacer()
@@ -1193,7 +1193,7 @@ struct CardView: View {
             VStack(spacing: 0) {
                 HStack {
                     Image(systemName: item.icon)
-                        .foregroundStyle(.tint)
+                        .foregroundStyle(item.tintColor)
                     Text(item.name)
                         .font(.headline)
                     Spacer()

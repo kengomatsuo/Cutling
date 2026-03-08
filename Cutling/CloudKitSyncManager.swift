@@ -295,6 +295,11 @@ final actor CloudKitSyncManager {
         } else {
             record["expiresAt"] = nil
         }
+        if let color = cutling.color {
+            record["color"] = color as CKRecordValue
+        } else {
+            record["color"] = nil
+        }
 
         // Image asset
         if cutling.kind == .image, let filename = cutling.imageFilename {
@@ -327,6 +332,7 @@ final actor CloudKitSyncManager {
         let sortOrder = record["sortOrder"] as? Int ?? 0
         let lastModified = record["lastModifiedDate"] as? Date ?? (record.modificationDate ?? Date())
         let expiresAt = record["expiresAt"] as? Date
+        let color = record["color"] as? String
 
         var imageFilename: String? = nil
         if kind == .image, let asset = record["imageAsset"] as? CKAsset, let fileURL = asset.fileURL {
@@ -353,7 +359,8 @@ final actor CloudKitSyncManager {
             imageFilename: imageFilename,
             sortOrder: sortOrder,
             lastModifiedDate: lastModified,
-            expiresAt: expiresAt
+            expiresAt: expiresAt,
+            color: color
         )
     }
 

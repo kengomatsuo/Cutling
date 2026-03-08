@@ -120,6 +120,7 @@ struct TextDetailView: View {
     @State private var hasClipboardText = false
     @State private var autoDeleteEnabled: Bool
     @State private var deleteAt: Date
+    @State private var color: String?
 
     init(item: Cutling?, autoPasteFromClipboard: Bool = false) {
         self.existingItem = item
@@ -129,6 +130,7 @@ struct TextDetailView: View {
         _icon = State(initialValue: item?.icon ?? "document")
         _autoDeleteEnabled = State(initialValue: item?.expiresAt != nil)
         _deleteAt = State(initialValue: item?.expiresAt ?? Date().addingTimeInterval(86400))
+        _color = State(initialValue: item?.color)
     }
 
     var isEditing: Bool { existingItem != nil }
@@ -185,6 +187,7 @@ struct TextDetailView: View {
                         .foregroundStyle(value.count > CutlingStore.maxTextLength - 500 ? .orange : .secondary)
                         .font(.caption)
                 }
+                ColorPaletteSection(selectedColor: $color)
                 ExpirationPickerSection(autoDeleteEnabled: $autoDeleteEnabled, deleteAt: $deleteAt)
                 if hasClipboardText {
                     Section {
@@ -245,6 +248,7 @@ struct TextDetailView: View {
                             updated.value = value
                             updated.icon = icon
                             updated.expiresAt = autoDeleteEnabled ? deleteAt : nil
+                            updated.color = color
                             store.update(updated)
                             dismiss()
                         } else {
@@ -256,7 +260,8 @@ struct TextDetailView: View {
                                         name: name,
                                         value: value,
                                         icon: icon,
-                                        expiresAt: autoDeleteEnabled ? deleteAt : nil
+                                        expiresAt: autoDeleteEnabled ? deleteAt : nil,
+                                        color: color
                                     )
                                 )
                                 dismiss()
