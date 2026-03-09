@@ -69,15 +69,11 @@ struct IconPickerView: View {
                     Button {
                         dismiss()
                     } label: {
-                        #if os(macOS)
-                        Text("Cancel")
-                        #elseif os(iOS)
-                        if #available(iOS 26, *) {
+                        if #available(iOS 26, macOS 26, *) {
                             Image(systemName: "xmark")
                         } else {
                             Text("Cancel")
                         }
-                        #endif
                     }
                 }
             }
@@ -225,21 +221,19 @@ struct TextDetailView: View {
             }
             .navigationTitle(isEditing ? "Edit Cutling" : "New Cutling")
             .toolbar {
+                #if os(iOS)
                 ToolbarItem(placement: .cancellationAction) {
                     Button {
                         dismiss()
                     } label: {
-                        #if os(macOS)
-                        Text("Cancel")
-                        #elseif os(iOS)
                         if #available(iOS 26, *) {
                             Image(systemName: "xmark")
                         } else {
                             Text("Cancel")
                         }
-                        #endif
                     }
                 }
+                #endif
                 ToolbarItem(placement: .confirmationAction) {
                     Button {
                         if let existing = existingItem {
@@ -271,15 +265,11 @@ struct TextDetailView: View {
                             }
                         }
                     } label: {
-                        #if os(macOS)
-                        Text("Save")
-                        #elseif os(iOS)
-                        if #available(iOS 26, *) {
+                        if #available(iOS 26, macOS 26, *) {
                             Image(systemName: "checkmark")
                         } else {
                             Text("Save")
                         }
-                        #endif
                     }
                     .buttonStyle(.borderedProminent)
                     .disabled(name.isEmpty || value.isEmpty)

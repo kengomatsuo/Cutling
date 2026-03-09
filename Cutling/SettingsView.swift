@@ -92,23 +92,21 @@ struct SettingsView: View {
             #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
             #endif
+            #if os(iOS)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button {
                         dismiss()
                     } label: {
-                        #if os(macOS)
-                        Text("Done")
-                        #elseif os(iOS)
                         if #available(iOS 26, *) {
                             Image(systemName: "xmark")
                         } else {
                             Text("Done")
                         }
-                        #endif
                     }
                 }
             }
+            #endif
             #if os(iOS)
             .onAppear {
                 isKeyboardAdded = isKeyboardEnabled
@@ -120,7 +118,7 @@ struct SettingsView: View {
             #endif
         }
         #if os(macOS)
-        .frame(minWidth: 360, idealWidth: 400, minHeight: 250, idealHeight: 300)
+        .frame(minWidth: 360, idealWidth: 400, maxWidth: 400, minHeight: 250, idealHeight: 300)
         #endif
     }
 }

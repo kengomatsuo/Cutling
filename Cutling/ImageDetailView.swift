@@ -107,34 +107,28 @@ struct ImageDetailView: View {
             .navigationBarTitleDisplayMode(.inline)
             #endif
             .toolbar {
+                #if os(iOS)
                 ToolbarItem(placement: .cancellationAction) {
                     Button {
                         dismiss()
                     } label: {
-                        #if os(macOS)
-                        Text("Cancel")
-                        #elseif os(iOS)
                         if #available(iOS 26, *) {
                             Image(systemName: "xmark")
                         } else {
                             Text("Cancel")
                         }
-                        #endif
                     }
                 }
+                #endif
                 ToolbarItem(placement: .confirmationAction) {
                     Button {
                         saveCutling()
                     } label: {
-                        #if os(macOS)
-                        Text("Save")
-                        #elseif os(iOS)
-                        if #available(iOS 26, *) {
+                        if #available(iOS 26, macOS 26, *) {
                             Image(systemName: "checkmark")
                         } else {
                             Text("Save")
                         }
-                        #endif
                     }
                     .buttonStyle(.borderedProminent)
                     .disabled(name.isEmpty || (imageData == nil && existingItem?.imageFilename == nil))

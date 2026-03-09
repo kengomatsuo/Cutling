@@ -568,13 +568,7 @@ class CutlingStore: ObservableObject {
     // MARK: - Seed
 
     func seedIfEmpty() {
-        guard cutlings.isEmpty else { return }
-        cutlings = [
-            Cutling(name: "Email", value: "email@example.com", icon: "envelope"),
-            Cutling(name: "Phone", value: "+1 234 567 8900", icon: "phone"),
-            Cutling(name: "Address", value: "123 Main St, Apartment 4A, City, Postal Code, Country", icon: "house"),
-        ]
-        save()
+        // No default cutlings — start with an empty list
     }
 }
 

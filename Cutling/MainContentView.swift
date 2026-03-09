@@ -13,6 +13,19 @@ import UIKit
 import AppKit
 #endif
 
+// MARK: - Menu Commands (macOS)
+
+#if os(macOS)
+@Observable
+final class MainContentCommands {
+    var enterSelectMode: (() -> Void)?
+    var enterReorderMode: (() -> Void)?
+    var deleteSelected: (() -> Void)?
+    var selectedCount: Int = 0
+    var cutlingsCount: Int = 0
+}
+#endif
+
 // MARK: - Cross-Platform Image Helpers
 
 #if os(iOS)
@@ -73,6 +86,7 @@ struct MainContentView: View {
     #else
     // macOS doesn't use pan gesture selection, so just keep a simple set
     @State private var selectedCutlingIDs: Set<UUID> = []
+    @State private var menuCommands = MainContentCommands()
     #endif
 
     @State private var cutlingLocations: [UUID: CGRect] = [:]
@@ -207,6 +221,13 @@ struct MainContentView: View {
                     onPanChange: onGestureChange,
                     onPanEnd: onGestureEnded
                 ))
+                #endif
+                #if os(macOS)
+                .focusedSceneValue(\.mainContentMode, mode)
+                .focusedSceneValue(\.mainContentCommands, menuCommands)
+                .onAppear { updateMenuCommands() }
+                .onChange(of: mode) { _, _ in updateMenuCommands() }
+                .onChange(of: selectedCutlingIDs) { _, _ in updateMenuCommands() }
                 #endif
         }
     }
@@ -569,9 +590,6 @@ struct MainContentView: View {
             } label: {
                 Label("Text Cutling", systemImage: "doc.text")
             }
-            #if os(macOS)
-            .keyboardShortcut("n", modifiers: [.command])
-            #endif
             Button {
                 let canAddImage = store.canAdd(.image)
                 if canAddImage.allowed {
@@ -583,9 +601,6 @@ struct MainContentView: View {
             } label: {
                 Label("Image Cutling", systemImage: "photo")
             }
-            #if os(macOS)
-            .keyboardShortcut("n", modifiers: [.command, .shift])
-            #endif
         } label: {
             Image(systemName: "plus")
         }
@@ -615,11 +630,17 @@ struct MainContentView: View {
             }
             #endif
 
+            #if os(macOS)
+            SettingsLink {
+                Label("Settings", systemImage: "gearshape")
+            }
+            #else
             Button {
                 showSettings = true
             } label: {
                 Label("Settings", systemImage: "gearshape")
             }
+            #endif
         } label: {
             Image(systemName: "ellipsis")
         }
@@ -631,15 +652,11 @@ struct MainContentView: View {
         Button {
             withAnimation { mode = .browsing }
         } label: {
-            #if os(macOS)
-            Text("Cancel")
-            #elseif os(iOS)
-            if #available(iOS 26, *) {
+            if #available(iOS 26, macOS 26, *) {
                 Image(systemName: "xmark")
             } else {
                 Text("Cancel")
             }
-            #endif
         }
     }
 
@@ -648,15 +665,11 @@ struct MainContentView: View {
         Button {
             withAnimation { mode = .browsing }
         } label: {
-            #if os(macOS)
-            Text("Done")
-            #elseif os(iOS)
-            if #available(iOS 26, *) {
+            if #available(iOS 26, macOS 26, *) {
                 Image(systemName: "checkmark")
             } else {
                 Text("Done")
             }
-            #endif
         }
     }
 
@@ -897,6 +910,22 @@ struct MainContentView: View {
         // For now, the list is typically smaller and visible
         #endif
     }
+
+    // MARK: - Menu Commands (macOS)
+
+    #if os(macOS)
+    private func updateMenuCommands() {
+        menuCommands.enterSelectMode = { withAnimation { mode = .selecting } }
+        menuCommands.enterReorderMode = { withAnimation { mode = .ordering } }
+        menuCommands.deleteSelected = {
+            if !selectedIDs.isEmpty {
+                showDeleteConfirmation = true
+            }
+        }
+        menuCommands.selectedCount = selectedIDs.count
+        menuCommands.cutlingsCount = store.cutlings.count
+    }
+    #endif
 }
 
 // MARK: - Pan Gesture Recognizer
@@ -1325,9 +1354,11 @@ struct SheetsModifier: ViewModifier {
                 ImageDetailView(item: nil)
             }
             #endif
+            #if os(iOS)
             .sheet(isPresented: $showSettings) {
                 SettingsView()
             }
+            #endif
             #if os(iOS)
             .sheet(isPresented: $showKeyboardSetup) {
                 KeyboardSetupView(isOnboarding: false)

@@ -21,6 +21,53 @@ struct DetailWindowView: View {
         }
     }
 }
+
+// MARK: - Menu Bar Commands
+
+extension FocusedValues {
+    @Entry var mainContentMode: MainContentMode?
+    @Entry var mainContentCommands: MainContentCommands?
+}
+
+struct CutlingCommands: Commands {
+    @Environment(\.openWindow) private var openWindow
+    @FocusedValue(\.mainContentMode) var mode
+    @FocusedValue(\.mainContentCommands) var commands
+
+    var body: some Commands {
+        CommandGroup(replacing: .newItem) {
+            Button("New Text Cutling") {
+                openWindow(id: "addText")
+            }
+            .keyboardShortcut("n", modifiers: [.command])
+
+            Button("New Image Cutling") {
+                openWindow(id: "addImage")
+            }
+            .keyboardShortcut("n", modifiers: [.command, .shift])
+        }
+
+        CommandMenu("Cutlings") {
+            Button("Select Cutlings") {
+                commands?.enterSelectMode?()
+            }
+            .disabled(mode != .browsing)
+
+            Button("Reorder Cutlings") {
+                commands?.enterReorderMode?()
+            }
+            .disabled(mode != .browsing || (commands?.cutlingsCount ?? 0) < 2)
+
+            Divider()
+
+            Button("Delete Selected") {
+                commands?.deleteSelected?()
+            }
+            .keyboardShortcut(.delete, modifiers: [.command])
+            .disabled(mode != .selecting || (commands?.selectedCount ?? 0) == 0)
+        }
+    }
+}
 #endif
 
 @main
@@ -59,7 +106,11 @@ struct CutlingApp: App {
                 }
                 .onOpenURL { url in
                     if url.scheme == "cutling", url.host == "settings" {
+                        #if os(macOS)
+                        NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
+                        #else
                         showSettings = true
+                        #endif
                     }
                 }
                 .onChange(of: scenePhase) { _, newPhase in
@@ -82,6 +133,9 @@ struct CutlingApp: App {
         }
         #if os(macOS)
         .defaultSize(width: 700, height: 550)
+        .commands {
+            CutlingCommands()
+        }
         #endif
 
         #if os(macOS)
@@ -107,6 +161,11 @@ struct CutlingApp: App {
                 .environmentObject(store)
         }
         .defaultSize(width: 480, height: 500)
+
+        Settings {
+            SettingsView()
+                .environmentObject(store)
+        }
         #endif
     }
 

@@ -230,15 +230,11 @@ struct KeyboardSetupView: View {
                         Button {
                             finish()
                         } label: {
-                            #if os(macOS)
-                            Text("Done")
-                            #elseif os(iOS)
-                            if #available(iOS 26, *) {
+                            if #available(iOS 26, macOS 26, *) {
                                 Image(systemName: "checkmark")
                             } else {
                                 Text("Done")
                             }
-                            #endif
                         }
                         .buttonStyle(.borderedProminent)
                     }
@@ -247,15 +243,11 @@ struct KeyboardSetupView: View {
                         Button {
                             finish()
                         } label: {
-                            #if os(macOS)
-                            Text("Cancel")
-                            #elseif os(iOS)
-                            if #available(iOS 26, *) {
+                            if #available(iOS 26, macOS 26, *) {
                                 Image(systemName: "xmark")
                             } else {
                                 Text("Cancel")
                             }
-                            #endif
                         }
                     }
                 }
