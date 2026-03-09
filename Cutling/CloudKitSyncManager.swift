@@ -126,6 +126,9 @@ final actor CloudKitSyncManager {
         _ = syncEngine // Triggers lazy init
         startKVSObserver()
         Self.log.log("CloudKitSyncManager started")
+
+        // Upload any local cutlings the keyboard extension added while we weren't running
+        Task { await uploadUnsyncedCutlings() }
     }
 
     func stop() {
@@ -138,6 +141,54 @@ final actor CloudKitSyncManager {
     func fetchChanges() async {
         guard _syncEngine != nil else { return }
         try? await syncEngine.fetchChanges()
+    }
+
+    /// Finds local cutlings never uploaded to CloudKit and enqueues them.
+    private func uploadUnsyncedCutlings() async {
+        ensureMetadataLoaded()
+        let localCutlings = await MainActor.run { store.cutlings }
+        let syncedIDs = Set(lastKnownRecordMetadata.keys)
+        let unsynced = localCutlings.filter { !syncedIDs.contains($0.id.uuidString) }
+
+        guard !unsynced.isEmpty else { return }
+        Self.log.log("Found \(unsynced.count) unsynced cutlings — enqueuing upload")
+
+        syncEngine.state.add(pendingDatabaseChanges: [
+            .saveZone(CKRecordZone(zoneName: Self.zoneName))
+        ])
+        for c in unsynced {
+            enqueueSave(c)
+        }
+    }
+
+    /// Full bidirectional sync for BGAppRefreshTask / BGProcessingTask.
+    func performBackgroundSync() async {
+        Self.log.log("Background sync: starting")
+
+        // 1. Reload store to pick up keyboard-written changes
+        await MainActor.run { store.load() }
+
+        // 2. Upload cutlings that have never been synced to CloudKit
+        await uploadUnsyncedCutlings()
+
+        // 3. Enqueue deletes for cutlings removed locally but still tracked as synced
+        let localCutlings = await MainActor.run { store.cutlings }
+        let localIDs = Set(localCutlings.map { $0.id.uuidString })
+        let syncedIDs = Set(lastKnownRecordMetadata.keys)
+        let locallyDeletedIDs = syncedIDs.subtracting(localIDs)
+        for idString in locallyDeletedIDs {
+            if let uuid = UUID(uuidString: idString) {
+                enqueueDelete(uuid)
+            }
+        }
+
+        // 4. Send pending changes (uploads) — must await so BGTask doesn't end mid-upload
+        try? await syncEngine.sendChanges()
+
+        // 5. Fetch remote changes
+        try? await syncEngine.fetchChanges()
+
+        Self.log.log("Background sync: completed")
     }
 
     // MARK: - Engine Init
@@ -215,7 +266,17 @@ final actor CloudKitSyncManager {
             remoteCutlings.sort { $0.sortOrder < $1.sortOrder }
             print("📡 directFetchFromCloudKit: got \(remoteCutlings.count) cutlings")
             
-            let updated = remoteCutlings
+            // Preserve local cutlings that haven't been synced yet (e.g. keyboard-added)
+            let remoteIDs = Set(remoteCutlings.map { $0.id.uuidString })
+            let currentLocal = await MainActor.run { self.store.cutlings }
+            let unsyncedLocal = currentLocal.filter {
+                !remoteIDs.contains($0.id.uuidString) && self.lastKnownRecordMetadata[$0.id.uuidString] == nil
+            }
+            
+            var merged = remoteCutlings
+            merged.append(contentsOf: unsyncedLocal)
+            
+            let updated = merged
             Task { @MainActor in
                 self.store.applyRemoteChanges(updated)
             }

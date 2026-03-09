@@ -67,6 +67,10 @@ struct SettingsView: View {
                     Toggle(isOn: $iCloudSyncEnabled) {
                         Label("iCloud Sync", systemImage: "icloud")
                     }
+                    .onChange(of: iCloudSyncEnabled) { _, enabled in
+                        // Mirror to app group so the keyboard extension can read it
+                        UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(enabled, forKey: "iCloudSyncEnabled")
+                    }
                 } header: {
                     Text("iCloud")
                 } footer: {

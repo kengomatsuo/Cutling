@@ -164,20 +164,14 @@ class CutlingStore: ObservableObject {
                     print("🔄 Reloaded \(self.cutlings.count) cutlings from shared storage")
                     
                     #if !KEYBOARD_EXTENSION
-                    // Sync new/changed cutlings added by keyboard extension
+                    // Detect cutlings deleted by the keyboard extension and sync deletes
                     let oldIDs = Set(oldCutlings.map { $0.id })
                     let newIDs = Set(decoded.map { $0.id })
-                    let newCutlings = decoded.filter { !oldIDs.contains($0.id) }
                     let deletedIDs = oldIDs.subtracting(newIDs)
-                    if let sm = self.syncManager {
-                        if !newCutlings.isEmpty || !deletedIDs.isEmpty {
-                            Task {
-                                for c in newCutlings {
-                                    await sm.enqueueSave(c)
-                                }
-                                for id in deletedIDs {
-                                    await sm.enqueueDelete(id)
-                                }
+                    if let sm = self.syncManager, !deletedIDs.isEmpty {
+                        Task {
+                            for id in deletedIDs {
+                                await sm.enqueueDelete(id)
                             }
                         }
                     }

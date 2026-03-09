@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+#if os(iOS)
+import BackgroundTasks
+#endif
 
 #if os(macOS)
 /// Wrapper that routes to the correct detail view based on cutling kind.
@@ -80,6 +83,30 @@ struct CutlingApp: App {
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
 
+    #if os(iOS)
+    private static let bgSyncTaskID = "com.matsuokengo.Cutling.sync"
+    private static let bgProcessingTaskID = "com.matsuokengo.Cutling.sync.processing"
+    #endif
+
+    init() {
+        #if os(iOS)
+        BGTaskScheduler.shared.register(
+            forTaskWithIdentifier: Self.bgSyncTaskID,
+            using: nil
+        ) { task in
+            guard let task = task as? BGAppRefreshTask else { return }
+            Self.handleBackgroundSync(task)
+        }
+        BGTaskScheduler.shared.register(
+            forTaskWithIdentifier: Self.bgProcessingTaskID,
+            using: nil
+        ) { task in
+            guard let task = task as? BGProcessingTask else { return }
+            Self.handleBackgroundProcessing(task)
+        }
+        #endif
+    }
+
     var body: some Scene {
         WindowGroup {
             MainContentView(showSettings: $showSettings)
@@ -121,6 +148,12 @@ struct CutlingApp: App {
                             Task { await sm.fetchChanges() }
                         }
                     }
+                    #if os(iOS)
+                    if newPhase == .background && iCloudSyncEnabled {
+                        Self.scheduleBackgroundSync()
+                        Self.scheduleBackgroundProcessing()
+                    }
+                    #endif
                 }
                 #if os(iOS)
                 .sheet(isPresented: $showOnboarding) {
@@ -181,6 +214,8 @@ struct CutlingApp: App {
         let manager = CloudKitSyncManager(store: store)
         store.syncManager = manager
         Task { await manager.start() }
+        // Mirror to app group so the keyboard extension can read it
+        UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(true, forKey: "iCloudSyncEnabled")
     }
 
     private func stopSync() {
@@ -189,5 +224,68 @@ struct CutlingApp: App {
         }
         store.syncManager = nil
         store.isSyncing = false
+        UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(false, forKey: "iCloudSyncEnabled")
     }
+
+    // MARK: - Background App Refresh (iOS)
+
+    #if os(iOS)
+    private static func scheduleBackgroundSync() {
+        let request = BGAppRefreshTaskRequest(identifier: bgSyncTaskID)
+        request.earliestBeginDate = Date(timeIntervalSinceNow: 15 * 60) // 15 min
+        do {
+            try BGTaskScheduler.shared.submit(request)
+            print("⏰ Scheduled background refresh")
+        } catch {
+            print("⏰ Failed to schedule background refresh: \(error)")
+        }
+    }
+
+    private static func scheduleBackgroundProcessing() {
+        let request = BGProcessingTaskRequest(identifier: bgProcessingTaskID)
+        request.earliestBeginDate = Date(timeIntervalSinceNow: 5 * 60) // 5 min
+        request.requiresNetworkConnectivity = true
+        request.requiresExternalPower = false
+        do {
+            try BGTaskScheduler.shared.submit(request)
+            print("⏰ Scheduled background processing")
+        } catch {
+            print("⏰ Failed to schedule background processing: \(error)")
+        }
+    }
+
+    private static func handleBackgroundSync(_ task: BGAppRefreshTask) {
+        scheduleBackgroundSync()
+        runBackgroundSync { success in task.setTaskCompleted(success: success) }
+        task.expirationHandler = { task.setTaskCompleted(success: false) }
+    }
+
+    /// BGProcessingTask — gets several minutes, ideal for image uploads.
+    private static func handleBackgroundProcessing(_ task: BGProcessingTask) {
+        scheduleBackgroundProcessing()
+        runBackgroundSync { success in task.setTaskCompleted(success: success) }
+        task.expirationHandler = { task.setTaskCompleted(success: false) }
+    }
+
+    private static func runBackgroundSync(completion: @escaping (Bool) -> Void) {
+        let iCloudEnabled = UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.bool(forKey: "iCloudSyncEnabled") ?? false
+        guard iCloudEnabled else {
+            completion(true)
+            return
+        }
+
+        let store = CutlingStore.shared
+        Task {
+            if store.syncManager == nil {
+                let manager = CloudKitSyncManager(store: store)
+                await MainActor.run { store.syncManager = manager }
+                await manager.start()
+            }
+            if let sm = store.syncManager {
+                await sm.performBackgroundSync()
+            }
+            completion(true)
+        }
+    }
+    #endif
 }

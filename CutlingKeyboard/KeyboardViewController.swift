@@ -717,6 +717,9 @@ struct KeyboardView: View {
             
             cutling.imageFilename = store.saveImageData(imageData, for: id)
             store.add(cutling)
+            if let added = store.cutlings.first(where: { $0.id == id }) {
+                KeyboardSyncHelper.upload(added, imagesDirectory: store.imagesDirectory)
+            }
             newlyAddedID = id
             
             withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
@@ -761,6 +764,9 @@ struct KeyboardView: View {
         )
 
         store.add(cutling)
+        if let added = store.cutlings.first(where: { $0.id == cutling.id }) {
+            KeyboardSyncHelper.upload(added, imagesDirectory: store.imagesDirectory)
+        }
         newlyAddedID = cutling.id
 
         withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
