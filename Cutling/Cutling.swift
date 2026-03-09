@@ -31,10 +31,19 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
         return expiresAt <= Date()
     }
 
+    /// The app's brand teal, used as the default tint when no color is stored.
+    /// Defined here so it resolves identically in the main app and the keyboard extension
+    /// (where .accentColor falls back to system blue).
+    static let defaultTint = Color(
+        red: Double(0x22) / 255,
+        green: Double(0xA9) / 255,
+        blue: Double(0x8D) / 255
+    )
+
     /// Resolves the stored color key to a SwiftUI Color, falling back to the app tint.
     var tintColor: Color {
-        guard let color else { return .accentColor }
-        return Self.palette[color] ?? .accentColor
+        guard let color else { return Self.defaultTint }
+        return Self.palette[color] ?? Self.defaultTint
     }
 
     static let palette: [String: Color] = [
