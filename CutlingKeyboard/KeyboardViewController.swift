@@ -183,6 +183,9 @@ class KeyboardViewController: UIInputViewController {
         keyboardState.returnKeyType = textDocumentProxy.returnKeyType ?? .default
         keyboardState.needsInputModeSwitchKey = needsInputModeSwitchKey
         
+        // Fetch remote changes from CloudKit (in case main app hasn't been opened)
+        KeyboardSyncHelper.fetchFromCloudKit(store: store)
+        
         // Only create the hosting controller once
         if hostingController == nil {
             let inputVC = self

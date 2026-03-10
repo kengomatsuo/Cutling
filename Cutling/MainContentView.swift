@@ -1200,7 +1200,7 @@ struct CardView: View {
                 Text(item.value)
                     .font(.body)
                     .lineLimit(18)
-                    .fixedSize(horizontal: false, vertical: true)
+                    .fixedSize(horizontal: false, vertical: false)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding()
