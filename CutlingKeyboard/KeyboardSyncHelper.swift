@@ -70,9 +70,9 @@ enum KeyboardSyncHelper {
 
             log.log("Keyboard fetched \(remoteCutlings.count) cutlings from CloudKit")
 
+            let sorted = remoteCutlings.sorted { $0.sortOrder < $1.sortOrder }
             await MainActor.run {
-                remoteCutlings.sort { $0.sortOrder < $1.sortOrder }
-                store.cutlings = remoteCutlings
+                store.cutlings = sorted
                 store.save()
             }
         } catch let error as CKError where error.code == .zoneNotFound {
