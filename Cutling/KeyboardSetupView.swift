@@ -156,10 +156,11 @@ struct KeyboardSetupView: View {
         VStack(spacing: 20) {
             Spacer()
 
-            Image("AppIcon-Default-1024x1024@1x")
+            Image("AppIcon-Default")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 120, height: 120)
+                .clipShape(RoundedRectangle(cornerRadius: 26, style: .continuous))
 
             Text("Set Up Your Keyboard")
                 .font(.title2.bold())
