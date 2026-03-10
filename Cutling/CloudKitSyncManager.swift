@@ -171,21 +171,10 @@ final actor CloudKitSyncManager {
         // 2. Upload cutlings that have never been synced to CloudKit
         await uploadUnsyncedCutlings()
 
-        // 3. Enqueue deletes for cutlings removed locally but still tracked as synced
-        let localCutlings = await MainActor.run { store.cutlings }
-        let localIDs = Set(localCutlings.map { $0.id.uuidString })
-        let syncedIDs = Set(lastKnownRecordMetadata.keys)
-        let locallyDeletedIDs = syncedIDs.subtracting(localIDs)
-        for idString in locallyDeletedIDs {
-            if let uuid = UUID(uuidString: idString) {
-                enqueueDelete(uuid)
-            }
-        }
-
-        // 4. Send pending changes (uploads) — must await so BGTask doesn't end mid-upload
+        // 3. Send pending changes (uploads + any explicitly-enqueued deletes)
         try? await syncEngine.sendChanges()
 
-        // 5. Fetch remote changes
+        // 4. Fetch remote changes
         try? await syncEngine.fetchChanges()
 
         Self.log.log("Background sync: completed")
@@ -241,7 +230,8 @@ final actor CloudKitSyncManager {
     // MARK: - State Persistence
 
     /// Direct CloudKit query, bypassing CKSyncEngine (for KVS-triggered fast sync).
-    /// Fetches ALL records in our zone and rebuilds the full cutlings list.
+    /// Merges remote records INTO local — adds missing and updates existing, but NEVER deletes.
+    /// Deletions are only handled through CKSyncEngine's proper change-tracking mechanism.
     private func directFetchFromCloudKit() async {
         print("📡 directFetchFromCloudKit: starting")
         setSyncing(true)
@@ -263,22 +253,30 @@ final actor CloudKitSyncManager {
                     }
                 }
             }
-            remoteCutlings.sort { $0.sortOrder < $1.sortOrder }
             print("📡 directFetchFromCloudKit: got \(remoteCutlings.count) cutlings")
             
-            // Preserve local cutlings that haven't been synced yet (e.g. keyboard-added)
-            let remoteIDs = Set(remoteCutlings.map { $0.id.uuidString })
-            let currentLocal = await MainActor.run { self.store.cutlings }
-            let unsyncedLocal = currentLocal.filter {
-                !remoteIDs.contains($0.id.uuidString) && self.lastKnownRecordMetadata[$0.id.uuidString] == nil
-            }
+            // Merge remote into local: add missing, update existing, never delete.
+            // This prevents data loss from partial query results or race conditions.
+            let remoteByID = Dictionary(remoteCutlings.map { ($0.id.uuidString, $0) }, uniquingKeysWith: { _, last in last })
             
-            var merged = remoteCutlings
-            merged.append(contentsOf: unsyncedLocal)
-            
-            let updated = merged
-            Task { @MainActor in
-                self.store.applyRemoteChanges(updated)
+            await MainActor.run {
+                var local = self.store.cutlings
+                let localIDs = Set(local.map { $0.id.uuidString })
+                
+                // Update existing cutlings with remote data
+                for i in local.indices {
+                    if let remote = remoteByID[local[i].id.uuidString] {
+                        local[i] = remote
+                    }
+                }
+                
+                // Add cutlings that exist remotely but not locally
+                for (id, remote) in remoteByID where !localIDs.contains(id) {
+                    local.append(remote)
+                }
+                
+                local.sort { $0.sortOrder < $1.sortOrder }
+                self.store.applyRemoteChanges(local)
             }
         } catch {
             Self.log.error("directFetchFromCloudKit failed: \(error)")
@@ -427,51 +425,56 @@ final actor CloudKitSyncManager {
 
     // MARK: - Apply Remote Changes to Local Store
 
-    private func applyRemoteModifications(_ modifications: [CKDatabase.RecordZoneChange.Modification]) async {
-        print("📡 Applying \(modifications.count) remote modifications")
-        var currentCutlings = await MainActor.run { store.cutlings }
+    private func applyRemoteChanges(
+        modifications: [CKDatabase.RecordZoneChange.Modification],
+        deletions: [CKDatabase.RecordZoneChange.Deletion]
+    ) async {
+        print("📡 Applying \(modifications.count) remote modifications, \(deletions.count) deletions")
 
+        // Process modifications: decode records and update metadata (actor-isolated work)
+        var modifiedCutlings: [(String, Cutling)] = []
         for modification in modifications {
             let record = modification.record
             let id = record.recordID.recordName
-
             setLastKnownRecord(record, for: id)
-
-            guard let remoteCutling = cutling(from: record) else { continue }
-
-            if let idx = currentCutlings.firstIndex(where: { $0.id.uuidString == id }) {
-                currentCutlings[idx] = remoteCutling
-            } else {
-                currentCutlings.append(remoteCutling)
+            if let c = cutling(from: record) {
+                modifiedCutlings.append((id, c))
             }
         }
 
-        currentCutlings.sort { $0.sortOrder < $1.sortOrder }
-
-        let updated = currentCutlings
-        Task { @MainActor in
-            self.store.applyRemoteChanges(updated)
-        }
-    }
-
-    private func applyRemoteDeletions(_ deletions: [CKDatabase.RecordZoneChange.Deletion]) async {
+        // Process deletions: clean up metadata and image files (actor-isolated work)
         let deletedIDs = Set(deletions.map { $0.recordID.recordName })
-        var currentCutlings = await MainActor.run { store.cutlings }
-
         for id in deletedIDs {
             removeLastKnownRecord(for: id)
-            if let idx = currentCutlings.firstIndex(where: { $0.id.uuidString == id }) {
-                if let filename = currentCutlings[idx].imageFilename {
-                    let fileURL = imagesDirectory.appendingPathComponent(filename)
-                    try? FileManager.default.removeItem(at: fileURL)
-                }
-                currentCutlings.remove(at: idx)
-            }
         }
 
-        let updated = currentCutlings
-        Task { @MainActor in
-            self.store.applyRemoteChanges(updated)
+        // Apply all changes atomically on MainActor to prevent races
+        let mods = modifiedCutlings
+        let dels = deletedIDs
+        await MainActor.run {
+            var current = self.store.cutlings
+
+            // Apply modifications (add or update)
+            for (id, remoteCutling) in mods {
+                if let idx = current.firstIndex(where: { $0.id.uuidString == id }) {
+                    current[idx] = remoteCutling
+                } else {
+                    current.append(remoteCutling)
+                }
+            }
+
+            // Apply deletions — move to recently deleted instead of permanent removal
+            for id in dels {
+                if let idx = current.firstIndex(where: { $0.id.uuidString == id }) {
+                    let deleted = DeletedCutling(cutling: current[idx], deletedAt: Date())
+                    self.store.recentlyDeleted.insert(deleted, at: 0)
+                    current.remove(at: idx)
+                }
+            }
+
+            current.sort { $0.sortOrder < $1.sortOrder }
+            self.store.applyRemoteChanges(current)
+            self.store.saveRecentlyDeletedFromSync()
         }
     }
 
@@ -579,21 +582,23 @@ extension CloudKitSyncManager: CKSyncEngineDelegate {
     private func handleFetchedDatabaseChanges(_ event: CKSyncEngine.Event.FetchedDatabaseChanges) {
         for deletion in event.deletions {
             if deletion.zoneID.zoneName == Self.zoneName {
+                Self.log.log("Zone deleted — clearing metadata but preserving local cutlings")
                 lastKnownRecordMetadata.removeAll()
                 saveRecordMetadata()
-                Task { @MainActor in
-                    self.store.applyRemoteChanges([])
+                // Re-upload all local cutlings to recreate the zone
+                Task {
+                    let cutlings = await MainActor.run { self.store.cutlings }
+                    if !cutlings.isEmpty {
+                        self.enqueueAllCutlings(cutlings)
+                    }
                 }
             }
         }
     }
 
     private func handleFetchedRecordZoneChanges(_ event: CKSyncEngine.Event.FetchedRecordZoneChanges) async {
-        if !event.modifications.isEmpty {
-            await applyRemoteModifications(event.modifications)
-        }
-        if !event.deletions.isEmpty {
-            await applyRemoteDeletions(event.deletions)
+        if !event.modifications.isEmpty || !event.deletions.isEmpty {
+            await applyRemoteChanges(modifications: event.modifications, deletions: event.deletions)
         }
     }
 

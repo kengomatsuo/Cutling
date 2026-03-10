@@ -71,6 +71,7 @@ struct MainContentView: View {
     @Binding var showSettings: Bool
     
     @State private var showKeyboardSetup = false
+    @State private var showRecentlyDeleted = false
     @State private var showLimitAlert = false
     @State private var limitAlertMessage = ""
 
@@ -225,6 +226,9 @@ struct MainContentView: View {
                 .onChange(of: mode) { _, _ in updateMenuCommands() }
                 .onChange(of: selectedCutlingIDs) { _, _ in updateMenuCommands() }
                 #endif
+                .navigationDestination(isPresented: $showRecentlyDeleted) {
+                    RecentlyDeletedView()
+                }
         }
     }
     
@@ -601,6 +605,14 @@ struct MainContentView: View {
                 }
             }
             #endif
+
+            Divider()
+
+            Button {
+                showRecentlyDeleted = true
+            } label: {
+                Label("Recently Deleted", systemImage: "trash")
+            }
 
             #if os(macOS)
             SettingsLink {
@@ -1188,6 +1200,7 @@ struct CardView: View {
                 Text(item.value)
                     .font(.body)
                     .lineLimit(18)
+                    .fixedSize(horizontal: false, vertical: true)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding()

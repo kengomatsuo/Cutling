@@ -19,6 +19,7 @@ import SwiftUI
 
 let appGroupID = "group.com.matsuokengo.Cutling"
 private let cutlingsKey = "savedCutlings"
+private let recentlyDeletedKey = "recentlyDeletedCutlings"
 
 // MARK: - Cutling Limits
 
@@ -51,6 +52,7 @@ class CutlingStore: ObservableObject {
     @Published var lastAddedCutlingID: UUID?
     #if !KEYBOARD_EXTENSION
     @Published var isSyncing: Bool = false
+    @Published var recentlyDeleted: [DeletedCutling] = []
 
     /// Set by CutlingApp when iCloud sync is enabled.
     var syncManager: CloudKitSyncManager?
@@ -106,6 +108,9 @@ class CutlingStore: ObservableObject {
         #endif
 
         load()
+        #if !KEYBOARD_EXTENSION
+        loadRecentlyDeleted()
+        #endif
         
         // Listen for changes from other processes (keyboard extension or main app)
         NotificationCenter.default
@@ -146,36 +151,20 @@ class CutlingStore: ObservableObject {
     
     private func loadIfChanged() {
         guard let data = defaults.data(forKey: cutlingsKey) else {
-            // Data was deleted
-            if !cutlings.isEmpty {
-                cutlings = []
-            }
+            // Key returned nil — do NOT clear in-memory cutlings.
+            // This can happen transiently if the app group container is
+            // briefly inaccessible. Wiping here would cause data loss.
             return
         }
         
         // Only reload if the data actually changed
         if data != lastLoadedData {
-            let oldCutlings = cutlings
             lastLoadedData = data
             if let decoded = try? JSONDecoder().decode([Cutling].self, from: data) {
                 DispatchQueue.main.async {
                     self.cutlings = decoded
                     self.purgeExpired()
                     print("🔄 Reloaded \(self.cutlings.count) cutlings from shared storage")
-                    
-                    #if !KEYBOARD_EXTENSION
-                    // Detect cutlings deleted by the keyboard extension and sync deletes
-                    let oldIDs = Set(oldCutlings.map { $0.id })
-                    let newIDs = Set(decoded.map { $0.id })
-                    let deletedIDs = oldIDs.subtracting(newIDs)
-                    if let sm = self.syncManager, !deletedIDs.isEmpty {
-                        Task {
-                            for id in deletedIDs {
-                                await sm.enqueueDelete(id)
-                            }
-                        }
-                    }
-                    #endif
                 }
             }
         }
@@ -195,26 +184,33 @@ class CutlingStore: ObservableObject {
         purgeExpired()
     }
 
-    /// Removes expired cutlings and enqueues CloudKit deletes for them.
+    /// Removes expired cutlings, moving them to recently deleted in the main app.
     func purgeExpired() {
         let expired = cutlings.filter { $0.isExpired }
         guard !expired.isEmpty else { return }
-        
-        for item in expired {
-            if let filename = item.imageFilename {
-                deleteImageFile(named: filename)
-            }
-        }
         
         cutlings.removeAll { $0.isExpired }
         save()
         
         #if !KEYBOARD_EXTENSION
+        // Soft-delete: move to recently deleted and enqueue CloudKit deletes
+        for item in expired {
+            let deleted = DeletedCutling(cutling: item, deletedAt: Date())
+            recentlyDeleted.insert(deleted, at: 0)
+        }
+        saveRecentlyDeleted()
         if let sm = syncManager {
             Task {
                 for item in expired {
                     await sm.enqueueDelete(item.id)
                 }
+            }
+        }
+        #else
+        // Keyboard extension: hard-delete image files (no recently-deleted UI)
+        for item in expired {
+            if let filename = item.imageFilename {
+                deleteImageFile(named: filename)
             }
         }
         #endif
@@ -368,15 +364,88 @@ class CutlingStore: ObservableObject {
     }
 
     func delete(_ cutling: Cutling) {
-        if let filename = cutling.imageFilename {
-            deleteImageFile(named: filename)
-        }
         cutlings.removeAll { $0.id == cutling.id }
         save()
         #if !KEYBOARD_EXTENSION
+        // Soft-delete: move to recently deleted instead of permanent removal
+        let deleted = DeletedCutling(cutling: cutling, deletedAt: Date())
+        recentlyDeleted.insert(deleted, at: 0)
+        saveRecentlyDeleted()
+        // Enqueue CloudKit delete so other devices remove it from their active list
         if let sm = syncManager { Task { await sm.enqueueDelete(cutling.id) } }
+        #else
+        // Keyboard extension: permanently delete (no recently deleted UI there)
+        if let filename = cutling.imageFilename {
+            deleteImageFile(named: filename)
+        }
         #endif
     }
+
+    #if !KEYBOARD_EXTENSION
+    /// Restore a soft-deleted cutling back to the active list.
+    func restore(_ deleted: DeletedCutling) {
+        var cutling = deleted.cutling
+        cutling.sortOrder = cutlings.count
+        cutling.lastModifiedDate = Date()
+        cutlings.append(cutling)
+        save()
+        recentlyDeleted.removeAll { $0.id == deleted.id }
+        saveRecentlyDeleted()
+        if let sm = syncManager { Task { await sm.enqueueSave(cutling) } }
+    }
+
+    /// Permanently delete a soft-deleted cutling (no recovery).
+    func permanentlyDelete(_ deleted: DeletedCutling) {
+        if let filename = deleted.cutling.imageFilename {
+            deleteImageFile(named: filename)
+        }
+        recentlyDeleted.removeAll { $0.id == deleted.id }
+        saveRecentlyDeleted()
+    }
+
+    /// Permanently delete all recently deleted cutlings.
+    func emptyRecentlyDeleted() {
+        for item in recentlyDeleted {
+            if let filename = item.cutling.imageFilename {
+                deleteImageFile(named: filename)
+            }
+        }
+        recentlyDeleted.removeAll()
+        saveRecentlyDeleted()
+    }
+
+    /// Remove items past their 30-day retention.
+    func purgeExpiredDeletions() {
+        let expired = recentlyDeleted.filter { $0.isPermanentlyExpired }
+        guard !expired.isEmpty else { return }
+        for item in expired {
+            if let filename = item.cutling.imageFilename {
+                deleteImageFile(named: filename)
+            }
+        }
+        recentlyDeleted.removeAll { $0.isPermanentlyExpired }
+        saveRecentlyDeleted()
+    }
+
+    private func loadRecentlyDeleted() {
+        guard let data = defaults.data(forKey: recentlyDeletedKey),
+              let decoded = try? JSONDecoder().decode([DeletedCutling].self, from: data)
+        else { return }
+        recentlyDeleted = decoded
+        purgeExpiredDeletions()
+    }
+
+    private func saveRecentlyDeleted() {
+        guard let encoded = try? JSONEncoder().encode(recentlyDeleted) else { return }
+        defaults.set(encoded, forKey: recentlyDeletedKey)
+    }
+
+    /// Called by CloudKitSyncManager after moving remote deletions to recently deleted.
+    @MainActor
+    func saveRecentlyDeletedFromSync() {
+        saveRecentlyDeleted()
+    }
+    #endif
 
     // MARK: - Image File Management
 

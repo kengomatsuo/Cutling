@@ -15,6 +15,7 @@ struct SettingsView: View {
     @State private var isKeyboardAdded = false
     @State private var hasFullAccess = false
     @State private var showSetupGuide = false
+    @State private var showICloudAlert = false
 
     private var isKeyboardEnabled: Bool {
         let bundleID = Bundle.main.bundleIdentifier ?? ""
@@ -64,15 +65,30 @@ struct SettingsView: View {
                 #endif
                 
                 Section {
-                    Toggle(isOn: $iCloudSyncEnabled) {
+                    Toggle(isOn: Binding(
+                        get: { iCloudSyncEnabled },
+                        set: { newValue in
+                            if newValue {
+                                showICloudAlert = true
+                            } else {
+                                iCloudSyncEnabled = false
+                                UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(false, forKey: "iCloudSyncEnabled")
+                            }
+                        }
+                    )) {
                         Label("iCloud Sync", systemImage: "icloud")
                     }
-                    .onChange(of: iCloudSyncEnabled) { _, enabled in
-                        // Mirror to app group so the keyboard extension can read it
-                        UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(enabled, forKey: "iCloudSyncEnabled")
+                    .alert("Enable iCloud Sync?", isPresented: $showICloudAlert) {
+                        Button("Enable", role: .destructive) {
+                            iCloudSyncEnabled = true
+                            UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(true, forKey: "iCloudSyncEnabled")
+                        }
+                        Button("Cancel", role: .cancel) { }
+                    } message: {
+                        Text("iCloud Sync is an experimental feature and may not work correctly in all situations, which may lead to data loss.")
                     }
                 } header: {
-                    Text("iCloud")
+                    Text("Experimental Feature: iCloud")
                 } footer: {
                     Text("Sync your cutlings across all your devices using iCloud.")
                 }

@@ -106,3 +106,31 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
         color = try container.decodeIfPresent(String.self, forKey: .color)
     }
 }
+
+// MARK: - Recently Deleted Wrapper
+
+/// A cutling that was soft-deleted and kept for 30 days before permanent removal.
+struct DeletedCutling: Identifiable, Codable, Hashable {
+    var cutling: Cutling
+    var deletedAt: Date
+
+    var id: UUID { cutling.id }
+
+    /// How long deleted cutlings are retained before permanent removal.
+    static let retentionInterval: TimeInterval = 30 * 24 * 60 * 60 // 30 days
+
+    /// Whether this deleted cutling has exceeded the retention period.
+    var isPermanentlyExpired: Bool {
+        Date().timeIntervalSince(deletedAt) >= Self.retentionInterval
+    }
+
+    /// The date at which this cutling will be permanently removed.
+    var permanentDeletionDate: Date {
+        deletedAt.addingTimeInterval(Self.retentionInterval)
+    }
+
+    /// Days remaining before permanent deletion.
+    var daysRemaining: Int {
+        max(0, Calendar.current.dateComponents([.day], from: Date(), to: permanentDeletionDate).day ?? 0)
+    }
+}

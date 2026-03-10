@@ -17,7 +17,8 @@ private enum SetupPage: Int, CaseIterable {
     case enable = 1
     case test = 2
     case howToUse = 3
-    case done = 4
+    case icloud = 4
+    case done = 5
 }
 
 // MARK: - Keyboard Setup View
@@ -33,6 +34,7 @@ struct KeyboardSetupView: View {
     @State private var fullAccessDetected = false
     @State private var checkTimer: Timer?
     @State private var testText = ""
+    @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
     @FocusState private var testFieldFocused: Bool
 
     private var allDone: Bool { keyboardDetected && fullAccessDetected }
@@ -109,6 +111,7 @@ struct KeyboardSetupView: View {
                 enablePage.tag(SetupPage.enable.rawValue)
                 testPage.tag(SetupPage.test.rawValue)
                 howToUsePage.tag(SetupPage.howToUse.rawValue)
+                icloudPage.tag(SetupPage.icloud.rawValue)
                 donePage.tag(SetupPage.done.rawValue)
             }
             .tabViewStyle(.page(indexDisplayMode: .always))
@@ -343,7 +346,50 @@ struct KeyboardSetupView: View {
         }
     }
 
-    // MARK: - Page 5: Done
+    // MARK: - Page 5: iCloud
+
+    private var icloudPage: some View {
+        ScrollView {
+            VStack(spacing: 20) {
+                Spacer().frame(height: 24)
+
+                Image(systemName: "icloud")
+                    .font(.system(size: 56))
+                    .foregroundStyle(Color.accentColor)
+
+                Text("iCloud Sync")
+                    .font(.title2.bold())
+
+                Text("Keep your cutlings in sync across all your devices.")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 32)
+
+                Toggle(isOn: $iCloudSyncEnabled) {
+                    Label("Enable iCloud Sync", systemImage: "arrow.triangle.2.circlepath.icloud")
+                }
+                .padding(.horizontal, 32)
+                .onChange(of: iCloudSyncEnabled) { _, enabled in
+                    UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(enabled, forKey: "iCloudSyncEnabled")
+                }
+
+                HStack(alignment: .top, spacing: 8) {
+                    Image(systemName: "exclamationmark.triangle.fill")
+                        .foregroundStyle(.yellow)
+                    Text("iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+                .padding(.horizontal, 32)
+
+                Spacer()
+            }
+        }
+        .frame(maxWidth: .infinity)
+    }
+
+    // MARK: - Page 6: Done
 
     private var donePage: some View {
         VStack(spacing: 20) {
