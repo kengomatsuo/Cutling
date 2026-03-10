@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import StoreKit
 #if os(iOS)
 import BackgroundTasks
 #endif
@@ -83,6 +84,12 @@ struct CutlingApp: App {
     @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
 
+    // Review request tracking
+    @AppStorage("lastVersionPromptedForReview") private var lastVersionPromptedForReview = ""
+    // Version flag for future use (e.g. "What's New" screen for returning users)
+    @AppStorage("lastVersionOpened") private var lastVersionOpened = ""
+    @Environment(\.requestReview) private var requestReview
+
     #if os(iOS)
     private static let bgSyncTaskID = "com.matsuokengo.Cutling.sync"
     private static let bgProcessingTaskID = "com.matsuokengo.Cutling.sync.processing"
@@ -114,6 +121,7 @@ struct CutlingApp: App {
                 .onAppear {
                     store.seedIfEmpty()
                     configureSyncIfNeeded()
+                    lastVersionOpened = currentAppVersion
                     #if os(iOS)
                     if !hasCompletedOnboarding {
                         showOnboarding = true
@@ -147,6 +155,7 @@ struct CutlingApp: App {
                         if let sm = store.syncManager {
                             Task { await sm.fetchChanges() }
                         }
+                        requestReviewIfAppropriate()
                     }
                     #if os(iOS)
                     if newPhase == .background && iCloudSyncEnabled {
@@ -225,6 +234,30 @@ struct CutlingApp: App {
         store.syncManager = nil
         store.isSyncing = false
         UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(false, forKey: "iCloudSyncEnabled")
+    }
+
+    // MARK: - App Review Request
+
+    private var currentAppVersion: String {
+        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+    }
+
+    private func requestReviewIfAppropriate() {
+        let pasteCount = UserDefaults(suiteName: appGroupID)?.integer(forKey: "keyboardPasteCount") ?? 0
+
+        // Only prompt after meaningful engagement (5+ pastes from the keyboard)
+        // and only once per app version
+        guard pasteCount >= 5,
+              currentAppVersion != lastVersionPromptedForReview else {
+            return
+        }
+
+        // Delay to avoid interrupting the user mid-task
+        Task {
+            try? await Task.sleep(for: .seconds(2))
+            requestReview()
+            lastVersionPromptedForReview = currentAppVersion
+        }
     }
 
     // MARK: - Background App Refresh (iOS)

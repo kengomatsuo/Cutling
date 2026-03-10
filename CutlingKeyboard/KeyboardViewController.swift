@@ -643,6 +643,7 @@ struct KeyboardView: View {
         case .text:
             onInsertText(cutling.value)
             showCopied(cutling.id)
+            incrementPasteCount()
         case .image:
             if !state.hasFullAccess {
                 flashNoAccess()
@@ -652,8 +653,16 @@ struct KeyboardView: View {
                let data = store.loadImageData(named: filename) {
                 onCopyImage(data)
                 showCopied(cutling.id)
+                incrementPasteCount()
             }
         }
+    }
+
+    /// Tracks how many times the user has pasted from the keyboard, stored in the shared app group.
+    private func incrementPasteCount() {
+        let defaults = UserDefaults(suiteName: "group.com.matsuokengo.Cutling")
+        let current = defaults?.integer(forKey: "keyboardPasteCount") ?? 0
+        defaults?.set(current + 1, forKey: "keyboardPasteCount")
     }
 
     private func showCopied(_ id: UUID) {
