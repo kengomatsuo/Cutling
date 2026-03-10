@@ -25,6 +25,7 @@ private enum SetupPage: Int, CaseIterable {
 
 struct KeyboardSetupView: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(\.colorScheme) var colorScheme
 
     var isOnboarding: Bool = false
     var onComplete: (() -> Void)? = nil
@@ -155,9 +156,10 @@ struct KeyboardSetupView: View {
         VStack(spacing: 20) {
             Spacer()
 
-            Image(systemName: "keyboard.badge.ellipsis")
-                .font(.system(size: 56))
-                .foregroundStyle(Color.accentColor)
+            Image("AppIcon-Default-1024x1024@1x")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 120, height: 120)
 
             Text("Set Up Your Keyboard")
                 .font(.title2.bold())
@@ -249,7 +251,7 @@ struct KeyboardSetupView: View {
                     TextField("Tap here, then switch to Cutling", text: $testText)
                         .focused($testFieldFocused)
                 }
-                .listRowBackground(Color(.systemGroupedBackground))
+                .listRowBackground(testPageSectionBackground)
             }
 
             Section {
@@ -260,7 +262,7 @@ struct KeyboardSetupView: View {
                         .foregroundStyle(keyboardDetected ? .green : .secondary)
                         .font(.title3)
                 }
-                .listRowBackground(Color(.systemGroupedBackground))
+                .listRowBackground(testPageSectionBackground)
 
                 HStack {
                     Label("Full Access", systemImage: fullAccessDetected ? "lock.open.fill" : "lock.fill")
@@ -269,14 +271,19 @@ struct KeyboardSetupView: View {
                         .foregroundStyle(fullAccessDetected ? .green : .secondary)
                         .font(.title3)
                 }
-                .listRowBackground(Color(.systemGroupedBackground))
+                .listRowBackground(testPageSectionBackground)
             } header: {
                 Text("Status")
             }
         }
         .scrollContentBackground(.hidden)
-        .background(Color(.secondarySystemGroupedBackground))
         .scrollDismissesKeyboard(.interactively)
+    }
+
+    private var testPageSectionBackground: Color {
+        colorScheme == .dark
+            ? Color(.secondarySystemGroupedBackground)
+            : Color(.systemGroupedBackground)
     }
 
     // MARK: - Page 4: How to Use
