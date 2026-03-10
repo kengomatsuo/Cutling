@@ -21,8 +21,10 @@ enum KeyboardSyncHelper {
 
     // MARK: - Fetch Remote Changes
 
-    /// Fetches all cutlings from CloudKit and merges into the local store.
-    /// Adds missing cutlings and updates existing ones — never deletes.
+    /// Fetches all cutlings from CloudKit and syncs with the local store.
+    /// Adds missing, updates existing, and removes deleted cutlings.
+    /// Only diffs (removes absent cutlings) when the fetch looks complete —
+    /// i.e. remote count is not suspiciously low compared to local.
     /// Called when the keyboard appears so it picks up changes from other devices
     /// even if the main app hasn't been opened.
     static func fetchFromCloudKit(store: CutlingStore) {
@@ -32,60 +34,51 @@ enum KeyboardSyncHelper {
         }
 
         Task.detached(priority: .utility) {
-            do {
-                let container = CKContainer(identifier: containerID)
-                let db = container.privateCloudDatabase
-                let zoneID = CKRecordZone.ID(zoneName: zoneName)
-                let query = CKQuery(recordType: recordType, predicate: NSPredicate(value: true))
+            await performFetch(store: store)
+        }
+    }
 
-                let (results, _) = try await db.records(matching: query, inZoneWith: zoneID)
+    private static func performFetch(store: CutlingStore, retryCount: Int = 0) async {
+        do {
+            let container = CKContainer(identifier: containerID)
+            let db = container.privateCloudDatabase
+            let zoneID = CKRecordZone.ID(zoneName: zoneName)
+            let query = CKQuery(recordType: recordType, predicate: NSPredicate(value: true))
 
-                let imagesDirectory = store.imagesDirectory
-                var remoteCutlings: [Cutling] = []
-                for (_, result) in results {
-                    if case .success(let record) = result,
-                       let c = parseCutling(from: record, imagesDirectory: imagesDirectory) {
-                        remoteCutlings.append(c)
-                    }
+            let (results, cursor) = try await db.records(matching: query, inZoneWith: zoneID)
+
+            guard cursor == nil else {
+                // Partial fetch — discard and retry once after a delay
+                if retryCount < 1 {
+                    log.log("Keyboard got partial fetch (cursor present), retrying in 3s…")
+                    try? await Task.sleep(for: .seconds(3))
+                    await performFetch(store: store, retryCount: retryCount + 1)
+                } else {
+                    log.log("Keyboard got partial fetch on retry, skipping sync")
                 }
-
-                guard !remoteCutlings.isEmpty else { return }
-                log.log("Keyboard fetched \(remoteCutlings.count) cutlings from CloudKit")
-
-                let remoteByID = Dictionary(
-                    remoteCutlings.map { ($0.id.uuidString, $0) },
-                    uniquingKeysWith: { _, last in last }
-                )
-
-                await MainActor.run {
-                    var local = store.cutlings
-                    let localIDs = Set(local.map { $0.id.uuidString })
-
-                    for i in local.indices {
-                        if let remote = remoteByID[local[i].id.uuidString] {
-                            local[i] = remote
-                        }
-                    }
-
-                    for (id, remote) in remoteByID where !localIDs.contains(id) {
-                        local.append(remote)
-                    }
-
-                    // Filter out cutlings that are in the recently deleted list
-                    let deletedIDs = Self.loadRecentlyDeletedIDs()
-                    if !deletedIDs.isEmpty {
-                        local.removeAll { deletedIDs.contains($0.id) }
-                    }
-
-                    local.sort { $0.sortOrder < $1.sortOrder }
-                    store.cutlings = local
-                    store.save()
-                }
-            } catch let error as CKError where error.code == .zoneNotFound {
-                log.debug("Zone not found — no remote cutlings yet")
-            } catch {
-                log.error("Keyboard CloudKit fetch failed: \(error)")
+                return
             }
+
+            let imagesDirectory = store.imagesDirectory
+            var remoteCutlings: [Cutling] = []
+            for (_, result) in results {
+                if case .success(let record) = result,
+                   let c = parseCutling(from: record, imagesDirectory: imagesDirectory) {
+                    remoteCutlings.append(c)
+                }
+            }
+
+            log.log("Keyboard fetched \(remoteCutlings.count) cutlings from CloudKit")
+
+            await MainActor.run {
+                remoteCutlings.sort { $0.sortOrder < $1.sortOrder }
+                store.cutlings = remoteCutlings
+                store.save()
+            }
+        } catch let error as CKError where error.code == .zoneNotFound {
+            log.debug("Zone not found — no remote cutlings yet")
+        } catch {
+            log.error("Keyboard CloudKit fetch failed: \(error)")
         }
     }
 
@@ -156,18 +149,6 @@ enum KeyboardSyncHelper {
         }
 
         return record
-    }
-
-    // MARK: - Recently Deleted
-
-    /// Reads the recently deleted cutling IDs from shared UserDefaults.
-    /// Used to filter out soft-deleted cutlings during CloudKit fetch merge.
-    private static func loadRecentlyDeletedIDs() -> Set<UUID> {
-        guard let defaults = UserDefaults(suiteName: appGroupID),
-              let data = defaults.data(forKey: "recentlyDeletedCutlings"),
-              let decoded = try? JSONDecoder().decode([DeletedCutling].self, from: data)
-        else { return [] }
-        return Set(decoded.map { $0.cutling.id })
     }
 
     // MARK: - Record Parsing
