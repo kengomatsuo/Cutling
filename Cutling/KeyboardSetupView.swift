@@ -10,6 +10,16 @@ import SwiftUI
 import UIKit
 #endif
 
+// MARK: - Setup Page
+
+private enum SetupPage: Int, CaseIterable {
+    case welcome = 0
+    case enable = 1
+    case test = 2
+    case howToUse = 3
+    case done = 4
+}
+
 // MARK: - Keyboard Setup View
 
 struct KeyboardSetupView: View {
@@ -18,6 +28,7 @@ struct KeyboardSetupView: View {
     var isOnboarding: Bool = false
     var onComplete: (() -> Void)? = nil
 
+    @State private var currentPage: Int = SetupPage.welcome.rawValue
     @State private var keyboardDetected = false
     @State private var fullAccessDetected = false
     @State private var checkTimer: Timer?
@@ -26,19 +37,31 @@ struct KeyboardSetupView: View {
 
     private var allDone: Bool { keyboardDetected && fullAccessDetected }
 
+    /// Whether the current step's requirement is met, enabling the Continue button.
+    private var canContinue: Bool {
+        guard isOnboarding else { return true }
+        switch SetupPage(rawValue: currentPage) {
+        case .test: return allDone
+        default: return true
+        }
+    }
+
     // MARK: - Detection
 
     private func checkKeyboardAdded() -> Bool {
+        #if os(iOS)
         let bundleID = Bundle.main.bundleIdentifier ?? ""
         let keyboards = UserDefaults.standard.stringArray(forKey: "AppleKeyboards") ?? []
         return keyboards.contains(where: { $0.hasPrefix(bundleID) })
+        #else
+        return false
+        #endif
     }
 
     private func checkFullAccess() -> Bool {
         guard let defaults = UserDefaults(suiteName: "group.com.matsuokengo.Cutling") else {
             return false
         }
-        print(defaults.bool(forKey: "hasFullAccess"))
         return defaults.bool(forKey: "hasFullAccess")
     }
 
@@ -49,221 +72,410 @@ struct KeyboardSetupView: View {
         }
     }
 
+    private func advancePage() {
+        testFieldFocused = false
+        withAnimation {
+            currentPage = min(currentPage + 1, SetupPage.done.rawValue)
+        }
+    }
+
     // MARK: - Body
 
     var body: some View {
         NavigationStack {
-            Form {
-                // Header
-                Section {
-                    VStack(spacing: 12) {
-                        ZStack {
-                            Circle()
-                                .fill(allDone ? Color.green.opacity(0.12) : Color.accentColor.opacity(0.12))
-                                .frame(width: 72, height: 72)
-                            Image(systemName: allDone ? "checkmark.seal.fill" : "keyboard.badge.ellipsis")
-                                .font(.system(size: 32))
-                                .foregroundStyle(allDone ? .green : Color.accentColor)
-                        }
-
-                        Text(allDone ? "You're All Set!" : "Set Up Your Keyboard")
-                            .font(.title3.bold())
-
-                        Text(allDone
-                             ? "Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling."
-                             : "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step."
-                        )
-                        .font(.subheadline)
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 8)
-                    .listRowBackground(Color.clear)
-                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                }
-
-                // Status
-                Section {
-                    HStack {
-                        Label("Keyboard Added", systemImage: "keyboard")
-                        Spacer()
-                        Image(systemName: keyboardDetected ? "checkmark.circle.fill" : "circle.dashed")
-                            .foregroundStyle(keyboardDetected ? .green : .secondary)
-                            .font(.title3)
-                    }
-
-                    HStack {
-                        Label("Full Access", systemImage: fullAccessDetected ? "lock.open.fill" : "lock.fill")
-                        Spacer()
-                        Image(systemName: fullAccessDetected ? "checkmark.circle.fill" : "circle.dashed")
-                            .foregroundStyle(fullAccessDetected ? .green : .secondary)
-                            .font(.title3)
-                    }
-                } header: {
-                    Text("Setup Progress")
-                } footer: {
-                    if !fullAccessDetected {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text("**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list.")
-                            Text("**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere.")
-                            Text("**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status.")
-                            Text("**Step 4:** You're good to go! The usage guide is provided below.")
-                        }
-                    }
-                }
-
-                // Actions
-                Section {
-                    Button {
-                        #if os(iOS)
-                        if let url = URL(string: UIApplication.openSettingsURLString) {
-                            UIApplication.shared.open(url)
-                        }
-                        #endif
-                    } label: {
-                        Label("Open Cutling Settings", systemImage: "arrow.up.forward.square")
-                    }
-
-                    HStack {
-                        Image(systemName: "character.cursor.ibeam")
-                            .foregroundStyle(.secondary)
-                        TextField("Tap here, then switch to Cutling", text: $testText)
-                            .focused($testFieldFocused)
-                    }
-                }
-
-                // How to use (shown when done)
-                if allDone {
-                    Section {
-                        Label {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("Switch to Cutling Keyboard")
-                                    .font(.subheadline.weight(.medium))
-                                Text("While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                            }
-                        } icon: {
-                            Image(systemName: "globe")
-                                .foregroundStyle(Color.accentColor)
-                        }
-
-                        Label {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("Insert Text Instantly")
-                                    .font(.subheadline.weight(.medium))
-                                Text("Tap any text cutling and it will be typed into your current text field immediately")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                            }
-                        } icon: {
-                            Image(systemName: "text.cursor")
-                                .foregroundStyle(Color.accentColor)
-                        }
-
-                        Label {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("Copy Images")
-                                    .font(.subheadline.weight(.medium))
-                                Text("Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app.")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                            }
-                        } icon: {
-                            Image(systemName: "photo")
-                                .foregroundStyle(Color.accentColor)
-                        }
-                        
-                        Label {
-                            VStack(alignment: .leading, spacing: 4) {
-                                Text("Add from Clipboard")
-                                    .font(.subheadline.weight(.medium))
-                                Text("Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling")
-                                    .font(.caption)
-                                    .foregroundStyle(.secondary)
-                            }
-                        } icon: {
-                            Image(systemName: "doc.on.clipboard")
-                                .foregroundStyle(Color.accentColor)
-                        }
-                    } header: {
-                        Text("How to Use Your Keyboard")
-                    } footer: {
-                        Text("You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard.")
-                    }
-                    
-                    // Limits explanation
-                    Section {
-                        VStack(alignment: .leading, spacing: 8) {
-                            HStack {
-                                Image(systemName: "doc.text")
-                                    .foregroundStyle(.secondary)
-                                    .frame(width: 24)
-                                Text("Up to **\(CutlingStore.maxTextCutlings) text** cutlings")
-                                    .font(.subheadline)
-                            }
-                            
-                            HStack {
-                                Image(systemName: "photo")
-                                    .foregroundStyle(.secondary)
-                                    .frame(width: 24)
-                                Text("Up to **\(CutlingStore.maxImageCutlings) image** cutlings")
-                                    .font(.subheadline)
-                            }
-                        }
-                    } header: {
-                        Text("Storage Limits")
-                    } footer: {
-                        Text("Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones.")
-                    }
-                }
-            }
-            .navigationTitle("Keyboard Setup")
             #if os(iOS)
-            .navigationBarTitleDisplayMode(.inline)
-            .scrollDismissesKeyboard(.interactively)
+            pagedContent
+            #else
+            macOSFormContent
             #endif
-            .toolbar {
-                if allDone {
-                    ToolbarItem(placement: .confirmationAction) {
-                        Button {
-                            finish()
-                        } label: {
-                            if #available(iOS 26, macOS 26, *) {
-                                Image(systemName: "checkmark")
-                            } else {
-                                Text("Done")
-                            }
-                        }
-                        .buttonStyle(.borderedProminent)
-                    }
-                } else {
-                    ToolbarItem(placement: .cancellationAction) {
-                        Button {
-                            finish()
-                        } label: {
-                            if #available(iOS 26, macOS 26, *) {
-                                Image(systemName: "xmark")
-                            } else {
-                                Text("Cancel")
-                            }
-                        }
-                    }
-                }
-            }
-            .onAppear {
-                refreshStatus()
-                startPolling()
-            }
-            .onDisappear {
-                stopPolling()
-            }
         }
         #if os(macOS)
         .frame(minWidth: 400, idealWidth: 440, minHeight: 400, idealHeight: 480)
         #endif
     }
+
+    // MARK: - iOS Paged Content
+
+    #if os(iOS)
+    private var pagedContent: some View {
+        VStack(spacing: 0) {
+            TabView(selection: $currentPage) {
+                welcomePage.tag(SetupPage.welcome.rawValue)
+                enablePage.tag(SetupPage.enable.rawValue)
+                testPage.tag(SetupPage.test.rawValue)
+                howToUsePage.tag(SetupPage.howToUse.rawValue)
+                donePage.tag(SetupPage.done.rawValue)
+            }
+            .tabViewStyle(.page(indexDisplayMode: .always))
+            .indexViewStyle(.page(backgroundDisplayMode: .always))
+            .animation(.easeInOut(duration: 0.3), value: currentPage)
+
+            // Continue button (hidden on done page)
+            if currentPage < SetupPage.done.rawValue {
+                continueButton
+            }
+        }
+        .navigationTitle("Keyboard Setup")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar { pagedToolbarContent }
+        .onAppear {
+            refreshStatus()
+            startPolling()
+        }
+        .onDisappear {
+            stopPolling()
+        }
+        .onChange(of: keyboardDetected) { oldValue, newValue in
+            // Auto-advance from Enable → Test when keyboard is first detected
+            if !oldValue && newValue && currentPage == SetupPage.enable.rawValue {
+                Task { @MainActor in
+                    try? await Task.sleep(for: .milliseconds(500))
+                    advancePage()
+                }
+            }
+        }
+        .onChange(of: allDone) { _, done in
+            // Auto-advance from Test → How to Use when both checks pass
+            if done && currentPage == SetupPage.test.rawValue {
+                Task { @MainActor in
+                    try? await Task.sleep(for: .milliseconds(600))
+                    advancePage()
+                }
+            }
+        }
+    }
+
+    // MARK: - Continue Button
+
+    private var continueButton: some View {
+        Button(action: advancePage) {
+            Text("Continue")
+                .font(.headline)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 14)
+        }
+        .modifier(GlassProminentButtonModifier())
+        .disabled(!canContinue)
+        .padding(.horizontal, 20)
+        .padding(.bottom, 12)
+    }
+
+    // MARK: - Page 1: Welcome
+
+    private var welcomePage: some View {
+        VStack(spacing: 20) {
+            Spacer()
+
+            Image(systemName: "keyboard.badge.ellipsis")
+                .font(.system(size: 56))
+                .foregroundStyle(Color.accentColor)
+
+            Text("Set Up Your Keyboard")
+                .font(.title2.bold())
+
+            Text("Follow a few simple steps to start using your custom Cutling keyboard.")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 32)
+
+            Spacer()
+            Spacer()
+        }
+        .frame(maxWidth: .infinity)
+    }
+
+    // MARK: - Page 2: Enable
+
+    private var enablePage: some View {
+        ScrollView {
+            VStack(spacing: 24) {
+                Spacer().frame(height: 16)
+
+                Image(systemName: "gearshape")
+                    .font(.system(size: 40))
+                    .foregroundStyle(.secondary)
+
+                Text("Enable Cutling Keyboard")
+                    .font(.title3.bold())
+
+                VStack(alignment: .leading, spacing: 12) {
+                    instructionRow(number: 1, text: "Open Cutling in your device's **Settings** app.")
+                    instructionRow(number: 2, text: "Tap **Keyboards** and enable **Cutling**.")
+                    instructionRow(number: 3, text: "Turn on **Allow Full Access** so the keyboard can copy images to your clipboard.")
+                }
+                .padding(.horizontal, 24)
+
+                Text("Your data stays private and is never sent anywhere.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 32)
+
+                Button {
+                    if let url = URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(url)
+                    }
+                } label: {
+                    Label("Open Cutling Settings", systemImage: "arrow.up.forward.square")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 14)
+                }
+                .modifier(GlassProminentButtonModifier())
+                .padding(.horizontal, 32)
+
+                Spacer()
+            }
+        }
+    }
+
+    // MARK: - Page 3: Test
+
+    private var testPage: some View {
+        Form {
+            Section {
+                Image(systemName: "keyboard")
+                    .font(.system(size: 40))
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity)
+                    .listRowBackground(Color.clear)
+
+                Text("Test Your Keyboard")
+                    .font(.title3.bold())
+                    .frame(maxWidth: .infinity)
+                    .listRowBackground(Color.clear)
+
+                Text("Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly.")
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity)
+                    .listRowBackground(Color.clear)
+            }
+
+            Section {
+                HStack {
+                    Image(systemName: "character.cursor.ibeam")
+                        .foregroundStyle(.secondary)
+                    TextField("Tap here, then switch to Cutling", text: $testText)
+                        .focused($testFieldFocused)
+                }
+            }
+
+            Section {
+                HStack {
+                    Label("Keyboard Added", systemImage: "keyboard")
+                    Spacer()
+                    Image(systemName: keyboardDetected ? "checkmark.circle.fill" : "circle.dashed")
+                        .foregroundStyle(keyboardDetected ? .green : .secondary)
+                        .font(.title3)
+                }
+
+                HStack {
+                    Label("Full Access", systemImage: fullAccessDetected ? "lock.open.fill" : "lock.fill")
+                    Spacer()
+                    Image(systemName: fullAccessDetected ? "checkmark.circle.fill" : "circle.dashed")
+                        .foregroundStyle(fullAccessDetected ? .green : .secondary)
+                        .font(.title3)
+                }
+            } header: {
+                Text("Status")
+            }
+        }
+        .scrollDismissesKeyboard(.interactively)
+    }
+
+    // MARK: - Page 4: How to Use
+
+    private var howToUsePage: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: 20) {
+                Spacer().frame(height: 8)
+
+                Text("How to Use Your Keyboard")
+                    .font(.title3.bold())
+                    .frame(maxWidth: .infinity, alignment: .center)
+
+                tipRow(
+                    icon: "globe",
+                    title: "Switch to Cutling Keyboard",
+                    detail: "While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling"
+                )
+
+                tipRow(
+                    icon: "text.cursor",
+                    title: "Insert Text Instantly",
+                    detail: "Tap any text cutling and it will be typed into your current text field immediately"
+                )
+
+                tipRow(
+                    icon: "photo",
+                    title: "Copy Images",
+                    detail: "Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app."
+                )
+
+                tipRow(
+                    icon: "doc.on.clipboard",
+                    title: "Add from Clipboard",
+                    detail: "Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling"
+                )
+
+                Divider()
+                    .padding(.horizontal)
+
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Storage Limits")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(.secondary)
+
+                    HStack(spacing: 8) {
+                        Image(systemName: "doc.text")
+                            .foregroundStyle(.secondary)
+                            .frame(width: 20)
+                        Text("Up to **\(CutlingStore.maxTextCutlings) text** cutlings")
+                            .font(.subheadline)
+                    }
+
+                    HStack(spacing: 8) {
+                        Image(systemName: "photo")
+                            .foregroundStyle(.secondary)
+                            .frame(width: 20)
+                        Text("Up to **\(CutlingStore.maxImageCutlings) image** cutlings")
+                            .font(.subheadline)
+                    }
+                }
+                .padding(.horizontal)
+
+                Spacer().frame(height: 16)
+            }
+            .padding(.horizontal)
+        }
+    }
+
+    // MARK: - Page 5: Done
+
+    private var donePage: some View {
+        VStack(spacing: 20) {
+            Spacer()
+
+            Image(systemName: "checkmark.seal.fill")
+                .font(.system(size: 56))
+                .foregroundStyle(.green)
+
+            Text("You're All Set!")
+                .font(.title2.bold())
+
+            Text("Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling.")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 32)
+
+            Button(action: finish) {
+                Text(isOnboarding ? "Get Started" : "Done")
+                    .font(.headline)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 14)
+            }
+            .modifier(GlassProminentButtonModifier())
+            .padding(.horizontal, 32)
+
+            Spacer()
+        }
+        .frame(maxWidth: .infinity)
+    }
+
+    // MARK: - Helper Views
+
+    private func instructionRow(number: Int, text: LocalizedStringKey) -> some View {
+        HStack(alignment: .top, spacing: 12) {
+            Text("\(number)")
+                .font(.caption.bold())
+                .foregroundStyle(.white)
+                .frame(width: 24, height: 24)
+                .background(Color.accentColor, in: Circle())
+            Text(text)
+                .font(.subheadline)
+        }
+    }
+
+    private func tipRow(icon: String, title: LocalizedStringKey, detail: LocalizedStringKey) -> some View {
+        HStack(alignment: .top, spacing: 12) {
+            Image(systemName: icon)
+                .foregroundStyle(Color.accentColor)
+                .font(.title3)
+                .frame(width: 28)
+            VStack(alignment: .leading, spacing: 4) {
+                Text(title)
+                    .font(.subheadline.weight(.medium))
+                Text(detail)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+        }
+        .padding(.horizontal)
+    }
+
+    // MARK: - Toolbar
+
+    @ToolbarContentBuilder
+    private var pagedToolbarContent: some ToolbarContent {
+        ToolbarItem(placement: .cancellationAction) {
+            if currentPage > SetupPage.welcome.rawValue && currentPage < SetupPage.done.rawValue {
+                // Back button
+                Button {
+                    testFieldFocused = false
+                    withAnimation {
+                        currentPage = max(currentPage - 1, 0)
+                    }
+                } label: {
+                    if #available(iOS 26, *) {
+                        Image(systemName: "chevron.left")
+                    } else {
+                        HStack(spacing: 4) {
+                            Image(systemName: "chevron.left")
+                            Text("Back")
+                        }
+                    }
+                }
+            } else if !isOnboarding {
+                // Close button (welcome or done page, non-onboarding)
+                Button {
+                    finish()
+                } label: {
+                    if #available(iOS 26, *) {
+                        Image(systemName: "xmark")
+                    } else {
+                        Text("Done")
+                    }
+                }
+            }
+        }
+    }
+    #endif
+
+    // MARK: - macOS Form Content
+
+    #if os(macOS)
+    private var macOSFormContent: some View {
+        Form {
+            Section {
+                Toggle(isOn: .constant(false)) {
+                    Label("iCloud Sync", systemImage: "icloud")
+                }
+            } header: {
+                Text("iCloud")
+            }
+
+            Section("About") {
+                LabeledContent("Version", value: "1.1.0")
+            }
+        }
+        .formStyle(.grouped)
+        .navigationTitle("Keyboard Setup")
+    }
+    #endif
 
     // MARK: - Polling
 
@@ -285,6 +497,19 @@ struct KeyboardSetupView: View {
         testFieldFocused = false
         onComplete?()
         dismiss()
+    }
+}
+
+// MARK: - Glass Button Modifier
+
+/// Applies `.glassProminent` on iOS 26+ and `.borderedProminent` on earlier versions.
+private struct GlassProminentButtonModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(iOS 26, macOS 26, *) {
+            content.buttonStyle(.glassProminent)
+        } else {
+            content.buttonStyle(.borderedProminent)
+        }
     }
 }
 
