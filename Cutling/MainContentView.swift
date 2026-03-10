@@ -75,7 +75,6 @@ struct MainContentView: View {
     @State private var limitAlertMessage = ""
 
     @State private var mode: MainContentMode = .browsing
-    @State private var displayedTitle: String = "My Cutlings"
     @State private var showDeleteConfirmation = false
     @State private var cutlingToDelete: Cutling?
 
@@ -206,11 +205,8 @@ struct MainContentView: View {
                 ))
                 .modifier(ChangeHandlersModifier(
                     mode: mode,
-                    selectedIDs: selectedIDs,
                     lastAddedCutlingID: store.lastAddedCutlingID,
                     hasScrolledToNew: $hasScrolledToNew,
-                    displayedTitle: $displayedTitle,
-                    navigationTitle: navigationTitle,
                     onModeChange: handleModeChange,
                     onScrollToNew: scrollToBottom
                 ))
@@ -247,7 +243,7 @@ struct MainContentView: View {
         #else
         .background(.background)
         #endif
-        .navigationTitle(displayedTitle)
+        .navigationTitle("Cutlings")
         #if os(iOS)
         .navigationBarTitleDisplayMode(mode == .browsing ? .large : .inline)
         #endif
@@ -350,52 +346,28 @@ struct MainContentView: View {
     // MARK: - Mode Change Handler
     
     private func handleModeChange(_ newValue: MainContentMode) {
-        #if os(iOS)
-        panGesture?.isEnabled = newValue == .selecting
-        if newValue != .selecting {
-            selectionProperties = .init()
-        }
-        #else
-        if newValue != .selecting {
-            selectedCutlingIDs.removeAll()
-        }
-        #endif
-        
-        // Clear search when leaving browsing
-        if newValue != .browsing {
-            withAnimation {
+        // onChange doesn't inherit the caller's withAnimation context,
+        // so wrap state changes that drive toolbar/UI transitions explicitly.
+        withAnimation {
+            #if os(iOS)
+            panGesture?.isEnabled = newValue == .selecting
+            if newValue != .selecting {
+                selectionProperties = .init()
+            }
+            #else
+            if newValue != .selecting {
+                selectedCutlingIDs.removeAll()
+            }
+            #endif
+            
+            if newValue != .browsing {
                 searchText = ""
                 searchIsPresented = false
             }
         }
-        
-        // Delay title only when returning to browsing (large title expands);
-        // update immediately for selecting/ordering (title shrinks to inline).
-        if newValue == .browsing {
-            Task { @MainActor in
-                if #available(iOS 26, *) {
-                    try? await Task.sleep(for: .milliseconds(750))
-                }
-                displayedTitle = navigationTitle
-            }
-        } else {
-            displayedTitle = navigationTitle
-        }
     }
 
     // MARK: - Navigation Title
-
-    private var navigationTitle: String {
-        switch mode {
-        case .browsing:
-            return String(localized: "My Cutlings")
-        case .selecting:
-            let count = selectedIDs.count
-            return count == 0 ? String(localized: "Select Items") : String(localized: "\(count) Selected")
-        case .ordering:
-            return String(localized: "Reorder")
-        }
-    }
 
     // MARK: - Ordering List View
 
@@ -1423,11 +1395,8 @@ struct AlertsModifier: ViewModifier {
 
 struct ChangeHandlersModifier: ViewModifier {
     let mode: MainContentMode
-    let selectedIDs: Set<UUID>
     let lastAddedCutlingID: UUID?
     @Binding var hasScrolledToNew: Bool
-    @Binding var displayedTitle: String
-    let navigationTitle: String
     let onModeChange: (MainContentMode) -> Void
     let onScrollToNew: () -> Void
     
@@ -1435,11 +1404,6 @@ struct ChangeHandlersModifier: ViewModifier {
         content
             .onChange(of: mode) { _, newValue in
                 onModeChange(newValue)
-            }
-            .onChange(of: selectedIDs) { _, _ in
-                if mode == .selecting {
-                    displayedTitle = navigationTitle
-                }
             }
             .onChange(of: lastAddedCutlingID) { _, newID in
                 guard newID != nil, !hasScrolledToNew else { return }

@@ -89,6 +89,14 @@ struct SettingsView: View {
 
                 Section("About") {
                     LabeledContent("Version", value: "1.1.0")
+
+                    Link(destination: URL(string: "mailto:kenneth@matsuokengo.com")!) {
+                        Label("Contact Support", systemImage: "envelope")
+                    }
+
+                    Link(destination: URL(string: "https://kengomatsuo.github.io/Cutling/")!) {
+                        Label("Privacy Policy", systemImage: "hand.raised.square")
+                    }
                 }
             }
             .formStyle(.grouped)
