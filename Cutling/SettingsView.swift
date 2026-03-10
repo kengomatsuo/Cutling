@@ -11,11 +11,11 @@ struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var store: CutlingStore
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
+    @State private var showICloudAlert = false
     #if os(iOS)
     @State private var isKeyboardAdded = false
     @State private var hasFullAccess = false
     @State private var showSetupGuide = false
-    @State private var showICloudAlert = false
 
     private var isKeyboardEnabled: Bool {
         let bundleID = Bundle.main.bundleIdentifier ?? ""
