@@ -41,6 +41,7 @@ struct KeyboardSetupView: View {
     private var canContinue: Bool {
         guard isOnboarding else { return true }
         switch SetupPage(rawValue: currentPage) {
+        case .enable: return keyboardDetected
         case .test: return allDone
         default: return true
         }
@@ -66,9 +67,13 @@ struct KeyboardSetupView: View {
     }
 
     private func refreshStatus() {
+        let wasFullAccess = fullAccessDetected
         withAnimation(.easeInOut(duration: 0.3)) {
             keyboardDetected = checkKeyboardAdded()
             fullAccessDetected = checkFullAccess()
+        }
+        if !wasFullAccess && fullAccessDetected && currentPage == SetupPage.test.rawValue {
+            testFieldFocused = false
         }
     }
 
@@ -110,11 +115,9 @@ struct KeyboardSetupView: View {
             .indexViewStyle(.page(backgroundDisplayMode: .always))
             .animation(.easeInOut(duration: 0.3), value: currentPage)
 
-            // Continue button (hidden on done page)
-            if currentPage < SetupPage.done.rawValue {
-                continueButton
-            }
+            continueButton
         }
+        .ignoresSafeArea(.keyboard)
         .navigationTitle("Keyboard Setup")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar { pagedToolbarContent }
@@ -125,34 +128,17 @@ struct KeyboardSetupView: View {
         .onDisappear {
             stopPolling()
         }
-        .onChange(of: keyboardDetected) { oldValue, newValue in
-            // Auto-advance from Enable → Test when keyboard is first detected
-            if !oldValue && newValue && currentPage == SetupPage.enable.rawValue {
-                Task { @MainActor in
-                    try? await Task.sleep(for: .milliseconds(500))
-                    advancePage()
-                }
-            }
-        }
-        .onChange(of: allDone) { _, done in
-            // Auto-advance from Test → How to Use when both checks pass
-            if done && currentPage == SetupPage.test.rawValue {
-                Task { @MainActor in
-                    try? await Task.sleep(for: .milliseconds(600))
-                    advancePage()
-                }
-            }
-        }
     }
 
     // MARK: - Continue Button
 
     private var continueButton: some View {
-        Button(action: advancePage) {
-            Text("Continue")
+        let isLastPage = currentPage == SetupPage.done.rawValue
+        return Button(action: isLastPage ? finish : advancePage) {
+            Text(isLastPage ? (isOnboarding ? "Get Started" : "Done") : "Continue")
                 .font(.headline)
                 .frame(maxWidth: .infinity)
-                .padding(.vertical, 14)
+                .padding(.vertical, 10)
         }
         .modifier(GlassProminentButtonModifier())
         .disabled(!canContinue)
@@ -220,7 +206,7 @@ struct KeyboardSetupView: View {
                     Label("Open Cutling Settings", systemImage: "arrow.up.forward.square")
                         .font(.headline)
                         .frame(maxWidth: .infinity)
-                        .padding(.vertical, 14)
+                        .padding(.vertical, 10)
                 }
                 .modifier(GlassProminentButtonModifier())
                 .padding(.horizontal, 32)
@@ -235,23 +221,22 @@ struct KeyboardSetupView: View {
     private var testPage: some View {
         Form {
             Section {
-                Image(systemName: "keyboard")
-                    .font(.system(size: 40))
-                    .foregroundStyle(.secondary)
-                    .frame(maxWidth: .infinity)
-                    .listRowBackground(Color.clear)
+                VStack(spacing: 12) {
+                    Image(systemName: "keyboard")
+                        .font(.system(size: 40))
+                        .foregroundStyle(.secondary)
 
-                Text("Test Your Keyboard")
-                    .font(.title3.bold())
-                    .frame(maxWidth: .infinity)
-                    .listRowBackground(Color.clear)
+                    Text("Test Your Keyboard")
+                        .font(.title3.bold())
 
-                Text("Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly.")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: .infinity)
-                    .listRowBackground(Color.clear)
+                    Text("Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly.")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                        .multilineTextAlignment(.center)
+                }
+                .frame(maxWidth: .infinity)
+                .listRowBackground(Color.clear)
+                .listRowSeparator(.hidden)
             }
 
             Section {
@@ -261,6 +246,7 @@ struct KeyboardSetupView: View {
                     TextField("Tap here, then switch to Cutling", text: $testText)
                         .focused($testFieldFocused)
                 }
+                .listRowBackground(Color(.systemGroupedBackground))
             }
 
             Section {
@@ -271,6 +257,7 @@ struct KeyboardSetupView: View {
                         .foregroundStyle(keyboardDetected ? .green : .secondary)
                         .font(.title3)
                 }
+                .listRowBackground(Color(.systemGroupedBackground))
 
                 HStack {
                     Label("Full Access", systemImage: fullAccessDetected ? "lock.open.fill" : "lock.fill")
@@ -279,10 +266,13 @@ struct KeyboardSetupView: View {
                         .foregroundStyle(fullAccessDetected ? .green : .secondary)
                         .font(.title3)
                 }
+                .listRowBackground(Color(.systemGroupedBackground))
             } header: {
                 Text("Status")
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(Color(.secondarySystemGroupedBackground))
         .scrollDismissesKeyboard(.interactively)
     }
 
@@ -371,15 +361,6 @@ struct KeyboardSetupView: View {
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 32)
-
-            Button(action: finish) {
-                Text(isOnboarding ? "Get Started" : "Done")
-                    .font(.headline)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 14)
-            }
-            .modifier(GlassProminentButtonModifier())
-            .padding(.horizontal, 32)
 
             Spacer()
         }
