@@ -249,7 +249,7 @@ struct MainContentView: View {
         #endif
         .navigationTitle("Cutlings")
         #if os(iOS)
-        .navigationBarTitleDisplayMode(mode == .browsing ? .large : .inline)
+        .navigationBarTitleDisplayMode(.large)
         #endif
         .searchable(text: $searchText, isPresented: $searchIsPresented, prompt: "Search cutlings")
         #if os(iOS)
