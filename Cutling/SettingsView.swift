@@ -110,7 +110,7 @@ struct SettingsView: View {
                         Label("Contact Support", systemImage: "envelope")
                     }
 
-                    Link(destination: URL(string: "https://kengomatsuo.github.io/Cutling/")!) {
+                    Link(destination: URL(string: "https://kengomatsuo.github.io/Cutling/privacy/")!) {
                         Label("Privacy Policy", systemImage: "hand.raised.square")
                     }
                 }
