@@ -119,9 +119,10 @@ struct TextDetailView: View {
     @State private var color: String?
     @State private var inputTypeTriggers: Set<String>
     @State private var autoDetectedCategories: Set<InputTypeCategory> = []
+    @State private var userOverriddenCategories: Set<InputTypeCategory> = []
     @State private var showAutoDetectBanner = false
     @State private var detectTask: Task<Void, Never>?
-    @State private var bannerDismissTask: Task<Void, Never>?
+    @State private var isAutoDetecting = false
 
     init(item: Cutling?, autoPasteFromClipboard: Bool = false) {
         self.existingItem = item
@@ -191,13 +192,10 @@ struct TextDetailView: View {
                         .font(.caption)
                 }
                 ColorPaletteSection(selectedColor: $color)
-                InputTypePickerSection(selectedTriggers: $inputTypeTriggers)
                 if showAutoDetectBanner && !autoDetectedCategories.isEmpty {
                     Section {
                         HStack {
-                            Image(systemName: "sparkles")
-                                .foregroundStyle(.tint)
-                            Text("Auto-detected: \(autoDetectedCategories.map(\.displayName).joined(separator: ", "))")
+                            Text("Detected: \(autoDetectedCategories.map(\.displayName).joined(separator: ", "))")
                                 .font(.subheadline)
                             Spacer()
                             Button("Undo") {
@@ -208,6 +206,20 @@ struct TextDetailView: View {
                     }
                     .transition(.opacity)
                 }
+                InputTypePickerSection(selectedTriggers: $inputTypeTriggers)
+                    .onChange(of: inputTypeTriggers) { oldValue, newValue in
+                        guard !isAutoDetecting else { return }
+                        // User manually toggled — figure out which categories changed
+                        let oldCategories = Set(InputTypeCategory.matchingCategories(for: oldValue))
+                        let newCategories = Set(InputTypeCategory.matchingCategories(for: newValue))
+                        let toggled = oldCategories.symmetricDifference(newCategories)
+                        userOverriddenCategories.formUnion(toggled)
+                        // If user manually removed an auto-detected category, stop claiming we detected it
+                        autoDetectedCategories.subtract(toggled)
+                        if autoDetectedCategories.isEmpty {
+                            withAnimation { showAutoDetectBanner = false }
+                        }
+                    }
                 ExpirationPickerSection(autoDeleteEnabled: $autoDeleteEnabled, deleteAt: $deleteAt)
                 if hasClipboardText {
                     Section {
@@ -231,6 +243,7 @@ struct TextDetailView: View {
                     }
                 }
             }
+            .scrollDismissesKeyboard(.interactively)
             .formStyle(.grouped)
             .alert("Delete Cutling?", isPresented: $showDeleteAlert) {
                 Button("Delete", role: .destructive) {
@@ -342,16 +355,36 @@ struct TextDetailView: View {
 
     private func runAutoDetect() {
         let detected = InputTypeCategory.detect(from: value)
-        guard !detected.isEmpty else { return }
 
-        // Only add categories that aren't already manually set
-        let currentCategories = InputTypeCategory.matchingCategories(for: inputTypeTriggers)
-        let newCategories = detected.subtracting(Set(currentCategories))
-        guard !newCategories.isEmpty else {
-            // Already covered — hide any stale banner
+        isAutoDetecting = true
+        defer { isAutoDetecting = false }
+
+        // Undo previously auto-detected categories that are no longer detected
+        // (but only if the user hasn't manually overridden them)
+        let staleCategories = autoDetectedCategories.subtracting(detected).subtracting(userOverriddenCategories)
+        if !staleCategories.isEmpty {
+            for category in staleCategories {
+                inputTypeTriggers.subtract(category.triggerKeys)
+            }
+            autoDetectedCategories.subtract(staleCategories)
+        }
+
+        guard !detected.isEmpty else {
+            // Nothing detected — hide banner and clear state
             if showAutoDetectBanner {
                 withAnimation { showAutoDetectBanner = false }
                 autoDetectedCategories = []
+            }
+            return
+        }
+
+        // Only add categories that aren't already set and haven't been manually overridden
+        let currentCategories = Set(InputTypeCategory.matchingCategories(for: inputTypeTriggers))
+        let newCategories = detected.subtracting(currentCategories).subtracting(userOverriddenCategories)
+        guard !newCategories.isEmpty else {
+            // Already covered — hide banner if nothing new to show
+            if autoDetectedCategories.isEmpty && showAutoDetectBanner {
+                withAnimation { showAutoDetectBanner = false }
             }
             return
         }
@@ -360,29 +393,22 @@ struct TextDetailView: View {
         for category in newCategories {
             inputTypeTriggers.formUnion(category.triggerKeys)
         }
-        autoDetectedCategories = newCategories
+        autoDetectedCategories.formUnion(newCategories)
 
         withAnimation(.easeInOut(duration: 0.25)) {
             showAutoDetectBanner = true
         }
-
-        // Auto-dismiss banner after 5 seconds
-        bannerDismissTask?.cancel()
-        bannerDismissTask = Task { @MainActor in
-            try? await Task.sleep(for: .seconds(5))
-            guard !Task.isCancelled else { return }
-            withAnimation(.easeOut(duration: 0.3)) {
-                showAutoDetectBanner = false
-            }
-            autoDetectedCategories = []
-        }
     }
 
     private func undoAutoDetect() {
-        bannerDismissTask?.cancel()
+        isAutoDetecting = true
+        defer { isAutoDetecting = false }
+
         for category in autoDetectedCategories {
             inputTypeTriggers.subtract(category.triggerKeys)
         }
+        // Mark undone categories as user-overridden so they don't get re-added
+        userOverriddenCategories.formUnion(autoDetectedCategories)
         withAnimation(.easeOut(duration: 0.25)) {
             showAutoDetectBanner = false
         }

@@ -42,7 +42,7 @@ struct SFSymbolCatalog {
         }
 
         var entries: [SFSymbolEntry] {
-            switch self {
+            let combined: [SFSymbolEntry] = switch self {
             case .people:
                 SFSymbolCatalog.people + SFSymbolCatalog.accessibility + SFSymbolCatalog.health
             case .communication:
@@ -61,12 +61,18 @@ struct SFSymbolCatalog {
                 SFSymbolCatalog.shapes + SFSymbolCatalog.text + SFSymbolCatalog.arrows
                     + SFSymbolCatalog.indices + SFSymbolCatalog.privacy
             }
+            var seen = Set<String>()
+            return combined.filter { seen.insert($0.id).inserted }
         }
     }
 
-    static let all: [SFSymbolEntry] = communication + people + devices + connectivity
-        + media + commerce + health + nature + travel + objects + shapes + text + arrows
-        + indices + food + science + gaming + privacy + accessibility + editing + math
+    static let all: [SFSymbolEntry] = {
+        var seen = Set<String>()
+        return (communication + people + devices + connectivity
+            + media + commerce + health + nature + travel + objects + shapes + text + arrows
+            + indices + food + science + gaming + privacy + accessibility + editing + math)
+            .filter { seen.insert($0.id).inserted }
+    }()
 
     static func search(_ query: String) -> [SFSymbolEntry] {
         guard !query.isEmpty else { return all }

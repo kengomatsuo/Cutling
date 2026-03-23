@@ -93,6 +93,7 @@ struct ImageDetailView: View {
                     }
                 }
             }
+            .scrollDismissesKeyboard(.interactively)
             .formStyle(.grouped)
             .alert("Delete Cutling?", isPresented: $showDeleteAlert) {
                 Button("Delete", role: .destructive) {

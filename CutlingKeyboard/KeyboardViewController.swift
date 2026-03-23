@@ -746,12 +746,8 @@ struct KeyboardView: View {
                     LazyVStack(spacing: 0) {
                         if !suggested.isEmpty {
                             // Suggestions section header
-                            HStack(spacing: 4) {
-                                Image(systemName: "sparkle")
-                                    .font(.system(size: 10, weight: .semibold))
-                                Text("Suggestions")
-                                    .font(.system(size: 12, weight: .semibold))
-                            }
+                            Text("Suggestions")
+                                .font(.system(size: 12, weight: .semibold))
                             .foregroundStyle(.secondary)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.horizontal, KeyStyle.horizontalPadding + 4)
