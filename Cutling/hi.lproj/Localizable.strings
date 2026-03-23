@@ -1,0 +1,147 @@
+/* MARK: - Navigation & Titles */
+"My Cutlings" = "मेरे Cutling";
+"Select Items" = "आइटम चुनें";
+"%lld Selected" = "%lld चयनित";
+"Reorder" = "क्रम बदलें";
+"Settings" = "सेटिंग्स";
+"Keyboard Setup" = "कीबोर्ड सेटअप";
+"New Cutling" = "नया Cutling";
+"Edit Cutling" = "Cutling संपादित करें";
+"New Image" = "नई छवि";
+"Edit Image" = "छवि संपादित करें";
+"Choose Icon" = "आइकन चुनें";
+
+/* MARK: - Common Actions */
+"Cancel" = "रद्द करें";
+"Done" = "पूर्ण";
+"Save" = "सहेजें";
+"Delete" = "हटाएँ";
+"Copy" = "कॉपी";
+"Edit" = "संपादित करें";
+"Sort" = "क्रमबद्ध करें";
+"OK" = "ठीक है";
+
+/* MARK: - Menu Items */
+"Text Cutling" = "टेक्स्ट Cutling";
+"Image Cutling" = "छवि Cutling";
+"Select Cutlings" = "Cutling चुनें";
+"Reorder Cutlings" = "Cutling क्रम बदलें";
+"Keyboard Setup Guide" = "कीबोर्ड सेटअप गाइड";
+"Name (A → Z)" = "नाम (A → Z)";
+"Name (Z → A)" = "नाम (Z → A)";
+"Text First" = "टेक्स्ट पहले";
+"Images First" = "छवि पहले";
+"Shortest First" = "सबसे छोटा पहले";
+"Longest First" = "सबसे लंबा पहले";
+"Reverse Order" = "उलटा क्रम";
+
+/* MARK: - Empty States */
+"No Cutlings Yet" = "अभी कोई Cutling नहीं";
+"No Results" = "कोई परिणाम नहीं";
+"Tap + to add your first cutling." = "अपना पहला cutling जोड़ने के लिए + टैप करें।";
+"Try a different search term." = "कोई अन्य खोज शब्द आज़माएँ।";
+
+/* MARK: - Search */
+"Search cutlings" = "Cutling खोजें";
+"Search icons" = "आइकन खोजें";
+
+/* MARK: - Form Labels */
+"Name" = "नाम";
+"Icon" = "आइकन";
+"Text" = "टेक्स्ट";
+"Image" = "छवि";
+"Color" = "रंग";
+"Quick Actions" = "त्वरित क्रियाएँ";
+"Auto-Delete" = "स्वतः हटाएँ";
+"Delete At" = "इस समय हटाएँ";
+"Category" = "श्रेणी";
+
+/* MARK: - Placeholders */
+"e.g. Email" = "जैसे ईमेल";
+"e.g. Signature, QR Code" = "जैसे हस्ताक्षर, QR कोड";
+
+/* MARK: - Buttons & Actions */
+"Change Icon" = "आइकन बदलें";
+"Paste from Clipboard" = "क्लिपबोर्ड से चिपकाएँ";
+"Delete Cutling" = "Cutling हटाएँ";
+"Open Settings to Enable" = "सक्रिय करने के लिए सेटिंग्स खोलें";
+"Photos Library" = "फ़ोटो लाइब्रेरी";
+"Choose File" = "फ़ाइल चुनें";
+"Choose from Photos" = "फ़ोटो से चुनें";
+"Choose from Files" = "फ़ाइल से चुनें";
+"Copy Images" = "छवियाँ कॉपी करें";
+"Add from Clipboard" = "क्लिपबोर्ड से जोड़ें";
+"Insert Text Instantly" = "टेक्स्ट तुरंत डालें";
+"Switch to Cutling Keyboard" = "Cutling कीबोर्ड पर स्विच करें";
+
+/* MARK: - Settings Sections */
+"iCloud" = "iCloud";
+"iCloud Sync" = "iCloud सिंक";
+"Sync your cutlings across all your devices using iCloud." = "iCloud का उपयोग करके अपने सभी उपकरणों में cutling सिंक करें।";
+"Storage" = "संग्रहण";
+"Text Cutlings" = "टेक्स्ट Cutling";
+"Image Cutlings" = "छवि Cutling";
+"Max Text Length" = "अधिकतम टेक्स्ट लंबाई";
+"%lld chars" = "%lld अक्षर";
+"About" = "जानकारी";
+"Version" = "संस्करण";
+"Keyboard Added" = "कीबोर्ड जोड़ा गया";
+"Full Access" = "पूर्ण पहुँच";
+
+/* MARK: - Image Picker */
+"No image selected" = "कोई छवि चयनित नहीं";
+
+/* MARK: - Footer Texts */
+"This will replace the current text with whatever is in your clipboard." = "यह वर्तमान टेक्स्ट को आपके क्लिपबोर्ड की सामग्री से बदल देगा।";
+"This will replace the current image with whatever is in your clipboard." = "यह वर्तमान छवि को आपके क्लिपबोर्ड की सामग्री से बदल देगा।";
+"This cutling will be automatically deleted at the selected date and time." = "यह cutling चयनित तिथि और समय पर स्वचालित रूप से हटा दिया जाएगा।";
+"Each text cutling can hold up to %lld characters." = "प्रत्येक टेक्स्ट cutling अधिकतम %lld अक्षर रख सकता है।";
+
+/* MARK: - Alerts */
+"Limit Reached" = "सीमा पूरी हो गई";
+"Delete Cutling?" = "Cutling हटाएँ?";
+"This action cannot be undone." = "यह क्रिया पूर्ववत नहीं की जा सकती।";
+"Cannot add text cutling" = "टेक्स्ट cutling नहीं जोड़ सकते";
+"Cannot add image cutling" = "छवि cutling नहीं जोड़ सकते";
+"Cannot add more text cutlings." = "और टेक्स्ट cutling नहीं जोड़ सकते।";
+"Cannot add more image cutlings." = "और छवि cutling नहीं जोड़ सकते।";
+
+/* MARK: - CutlingStore Errors */
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "आपने कुल %lld cutling की अधिकतम सीमा पूरी कर ली है। और जोड़ने के लिए कुछ हटाएँ।";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "आपने %lld छवि cutling की अधिकतम सीमा पूरी कर ली है। छवियाँ कीबोर्ड में अधिक मेमोरी का उपयोग करती हैं। और जोड़ने के लिए कुछ छवियाँ हटाएँ।";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "आपने %lld टेक्स्ट cutling की अधिकतम सीमा पूरी कर ली है। और जोड़ने के लिए कुछ हटाएँ।";
+
+/* MARK: - Clipboard Feedback */
+"Copied" = "कॉपी हो गया";
+"Inserted" = "डाला गया";
+
+/* MARK: - Keyboard Setup */
+"Setup Progress" = "सेटअप प्रगति";
+"Open Cutling Settings" = "Cutling सेटिंग्स खोलें";
+"Tap here, then switch to Cutling" = "यहाँ टैप करें, फिर Cutling पर स्विच करें";
+"How to Use Your Keyboard" = "अपना कीबोर्ड कैसे उपयोग करें";
+"Storage Limits" = "संग्रहण सीमाएँ";
+"You're All Set!" = "सब तैयार है!";
+"Set Up Your Keyboard" = "अपना कीबोर्ड सेट करें";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "आपका Cutling कीबोर्ड तैयार है! कहीं भी टाइप करते समय, Cutling पर स्विच करने के लिए अपने कीबोर्ड पर 🌐 ग्लोब आइकन टैप करें।";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "अपना कस्टम कीबोर्ड उपयोग शुरू करने के लिए नीचे दिए गए दो सरल चरणों का पालन करें। प्रत्येक चरण पूरा करने पर यह पृष्ठ स्वचालित रूप से अपडेट होगा।";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**चरण 1:** नीचे 'Cutling सेटिंग्स खोलें' टैप करें, **कीबोर्ड** पर जाएँ और सूची से **Cutling** चुनें।";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**चरण 2:** सुनिश्चित करें कि **पूर्ण पहुँच की अनुमति** चालू है। इससे कीबोर्ड आपके क्लिपबोर्ड पर छवियाँ कॉपी कर सकता है। आपका डेटा निजी रहता है और कहीं नहीं भेजा जाता।";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**चरण 3:** टेक्स्ट इनपुट पर टैप करें और \"पूर्ण पहुँच\" स्थिति अपडेट करने के लिए अपने कीबोर्ड पर 🌐 ग्लोब आइकन का उपयोग करके \"Cutling\" चुनें।";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**चरण 4:** आप तैयार हैं! उपयोग गाइड नीचे दी गई है।";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "किसी भी ऐप में टाइप करते समय, अपने कीबोर्ड के निचले-बाएँ कोने में 🌐 ग्लोब कुंजी टैप या दबाकर रखें, फिर Cutling चुनें";
+"Tap any text cutling and it will be typed into your current text field immediately" = "किसी भी टेक्स्ट cutling पर टैप करें और यह तुरंत आपके वर्तमान टेक्स्ट फ़ील्ड में टाइप हो जाएगा";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "छवि cutling पर टैप करके इसे अपने क्लिपबोर्ड पर कॉपी करें, फिर इसे अपने ऐप में पेस्ट करें (आमतौर पर टैप करके दबाकर रखें, फिर पेस्ट चुनें)। Apple वर्तमान में इस ऐप पर सीधे छवि पेस्ट करने का समर्थन नहीं करता।";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "कोई भी टेक्स्ट कॉपी करें, फिर इसे नए cutling के रूप में सहेजने के लिए Cutling कीबोर्ड में 'क्लिपबोर्ड से जोड़ें' बटन टैप करें";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "आप मुख्य Cutling ऐप में अपने सभी cutling प्रबंधित कर सकते हैं। आपके द्वारा किए गए परिवर्तन तुरंत आपके कीबोर्ड में दिखाई देंगे।";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "कीबोर्ड एक्सटेंशन में सिस्टम स्थिरता सुनिश्चित करने के लिए सख्त मेमोरी सीमाएँ हैं। छवियाँ टेक्स्ट से अधिक मेमोरी का उपयोग करती हैं, इसलिए हम उन्हें सीमित करते हैं ताकि आपका कीबोर्ड तेज़ और विश्वसनीय बना रहे। यदि आप सीमा तक पहुँच जाते हैं, तो नए जोड़ने के लिए बस कुछ cutling हटाएँ।";
+"Up to **%lld text** cutlings" = "अधिकतम **%lld टेक्स्ट** cutling";
+"Up to **%lld image** cutlings" = "अधिकतम **%lld छवि** cutling";
+"Back" = "वापस";
+"Next" = "अगला";
+"Get Started" = "शुरू करें";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "अपना कस्टम Cutling कीबोर्ड उपयोग शुरू करने के लिए कुछ सरल चरणों का पालन करें।";
+"Enable Cutling Keyboard" = "Cutling कीबोर्ड सक्रिय करें";
+"Test Your Keyboard" = "अपना कीबोर्ड परखें";
+"All set! Swipe to continue." = "सब तैयार! जारी रखने के लिए स्वाइप करें।";
+"Your data stays private and is never sent anywhere." = "आपका डेटा निजी रहता है और कहीं नहीं भेजा जाता।";

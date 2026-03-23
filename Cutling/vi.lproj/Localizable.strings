@@ -1,0 +1,147 @@
+/* MARK: - Navigation & Titles */
+"My Cutlings" = "Cutling Của Tôi";
+"Select Items" = "Chọn Mục";
+"%lld Selected" = "Đã Chọn %lld";
+"Reorder" = "Sắp Xếp Lại";
+"Settings" = "Cài Đặt";
+"Keyboard Setup" = "Cài Đặt Bàn Phím";
+"New Cutling" = "Cutling Mới";
+"Edit Cutling" = "Sửa Cutling";
+"New Image" = "Hình Ảnh Mới";
+"Edit Image" = "Sửa Hình Ảnh";
+"Choose Icon" = "Chọn Biểu Tượng";
+
+/* MARK: - Common Actions */
+"Cancel" = "Hủy";
+"Done" = "Xong";
+"Save" = "Lưu";
+"Delete" = "Xóa";
+"Copy" = "Sao Chép";
+"Edit" = "Sửa";
+"Sort" = "Sắp Xếp";
+"OK" = "OK";
+
+/* MARK: - Menu Items */
+"Text Cutling" = "Cutling Văn Bản";
+"Image Cutling" = "Cutling Hình Ảnh";
+"Select Cutlings" = "Chọn Cutling";
+"Reorder Cutlings" = "Sắp Xếp Lại Cutling";
+"Keyboard Setup Guide" = "Hướng Dẫn Cài Đặt Bàn Phím";
+"Name (A → Z)" = "Tên (A → Z)";
+"Name (Z → A)" = "Tên (Z → A)";
+"Text First" = "Văn Bản Trước";
+"Images First" = "Hình Ảnh Trước";
+"Shortest First" = "Ngắn Nhất Trước";
+"Longest First" = "Dài Nhất Trước";
+"Reverse Order" = "Thứ Tự Ngược";
+
+/* MARK: - Empty States */
+"No Cutlings Yet" = "Chưa Có Cutling Nào";
+"No Results" = "Không Có Kết Quả";
+"Tap + to add your first cutling." = "Nhấn + để thêm cutling đầu tiên của bạn.";
+"Try a different search term." = "Thử từ khóa tìm kiếm khác.";
+
+/* MARK: - Search */
+"Search cutlings" = "Tìm cutling";
+"Search icons" = "Tìm biểu tượng";
+
+/* MARK: - Form Labels */
+"Name" = "Tên";
+"Icon" = "Biểu Tượng";
+"Text" = "Văn Bản";
+"Image" = "Hình Ảnh";
+"Color" = "Màu Sắc";
+"Quick Actions" = "Thao Tác Nhanh";
+"Auto-Delete" = "Tự Động Xóa";
+"Delete At" = "Xóa Lúc";
+"Category" = "Danh Mục";
+
+/* MARK: - Placeholders */
+"e.g. Email" = "VD: Email";
+"e.g. Signature, QR Code" = "VD: Chữ ký, Mã QR";
+
+/* MARK: - Buttons & Actions */
+"Change Icon" = "Đổi Biểu Tượng";
+"Paste from Clipboard" = "Dán từ Bộ Nhớ Tạm";
+"Delete Cutling" = "Xóa Cutling";
+"Open Settings to Enable" = "Mở Cài Đặt để Bật";
+"Photos Library" = "Thư Viện Ảnh";
+"Choose File" = "Chọn Tệp";
+"Choose from Photos" = "Chọn từ Ảnh";
+"Choose from Files" = "Chọn từ Tệp";
+"Copy Images" = "Sao Chép Hình Ảnh";
+"Add from Clipboard" = "Thêm từ Bộ Nhớ Tạm";
+"Insert Text Instantly" = "Chèn Văn Bản Ngay";
+"Switch to Cutling Keyboard" = "Chuyển sang Bàn Phím Cutling";
+
+/* MARK: - Settings Sections */
+"iCloud" = "iCloud";
+"iCloud Sync" = "Đồng Bộ iCloud";
+"Sync your cutlings across all your devices using iCloud." = "Đồng bộ cutling của bạn trên tất cả thiết bị bằng iCloud.";
+"Storage" = "Bộ Nhớ";
+"Text Cutlings" = "Cutling Văn Bản";
+"Image Cutlings" = "Cutling Hình Ảnh";
+"Max Text Length" = "Độ Dài Tối Đa";
+"%lld chars" = "%lld ký tự";
+"About" = "Giới Thiệu";
+"Version" = "Phiên Bản";
+"Keyboard Added" = "Đã Thêm Bàn Phím";
+"Full Access" = "Quyền Truy Cập Đầy Đủ";
+
+/* MARK: - Image Picker */
+"No image selected" = "Chưa chọn hình ảnh";
+
+/* MARK: - Footer Texts */
+"This will replace the current text with whatever is in your clipboard." = "Thao tác này sẽ thay thế văn bản hiện tại bằng nội dung trong bộ nhớ tạm của bạn.";
+"This will replace the current image with whatever is in your clipboard." = "Thao tác này sẽ thay thế hình ảnh hiện tại bằng nội dung trong bộ nhớ tạm của bạn.";
+"This cutling will be automatically deleted at the selected date and time." = "Cutling này sẽ được tự động xóa vào ngày giờ đã chọn.";
+"Each text cutling can hold up to %lld characters." = "Mỗi cutling văn bản có thể chứa tối đa %lld ký tự.";
+
+/* MARK: - Alerts */
+"Limit Reached" = "Đã Đạt Giới Hạn";
+"Delete Cutling?" = "Xóa Cutling?";
+"This action cannot be undone." = "Thao tác này không thể hoàn tác.";
+"Cannot add text cutling" = "Không thể thêm cutling văn bản";
+"Cannot add image cutling" = "Không thể thêm cutling hình ảnh";
+"Cannot add more text cutlings." = "Không thể thêm cutling văn bản nữa.";
+"Cannot add more image cutlings." = "Không thể thêm cutling hình ảnh nữa.";
+
+/* MARK: - CutlingStore Errors */
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Bạn đã đạt tối đa %lld cutling. Xóa một số để thêm mới.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Bạn đã đạt tối đa %lld cutling hình ảnh. Hình ảnh sử dụng nhiều bộ nhớ trong bàn phím. Xóa một số hình ảnh để thêm mới.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Bạn đã đạt tối đa %lld cutling văn bản. Xóa một số để thêm mới.";
+
+/* MARK: - Clipboard Feedback */
+"Copied" = "Đã Sao Chép";
+"Inserted" = "Đã Chèn";
+
+/* MARK: - Keyboard Setup */
+"Setup Progress" = "Tiến Trình Cài Đặt";
+"Open Cutling Settings" = "Mở Cài Đặt Cutling";
+"Tap here, then switch to Cutling" = "Nhấn vào đây, rồi chuyển sang Cutling";
+"How to Use Your Keyboard" = "Cách Sử Dụng Bàn Phím";
+"Storage Limits" = "Giới Hạn Bộ Nhớ";
+"You're All Set!" = "Đã Sẵn Sàng!";
+"Set Up Your Keyboard" = "Cài Đặt Bàn Phím";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Bàn phím Cutling đã sẵn sàng! Khi đang gõ ở bất kỳ đâu, nhấn biểu tượng 🌐 quả địa cầu trên bàn phím để chuyển sang Cutling.";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Thực hiện hai bước đơn giản dưới đây để bắt đầu sử dụng bàn phím tùy chỉnh. Trang này sẽ tự động cập nhật khi bạn hoàn thành mỗi bước.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Bước 1:** Nhấn 'Mở Cài Đặt Cutling' bên dưới, vào **Bàn Phím** và chọn **Cutling** từ danh sách.";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Bước 2:** Đảm bảo **Cho Phép Quyền Truy Cập Đầy Đủ** đang BẬT. Điều này cho phép bàn phím sao chép hình ảnh vào bộ nhớ tạm. Dữ liệu của bạn luôn riêng tư và không bao giờ được gửi đi đâu.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Bước 3:** Nhấn vào ô nhập văn bản và chọn \"Cutling\" bằng biểu tượng 🌐 quả địa cầu trên bàn phím để cập nhật trạng thái \"Quyền Truy Cập Đầy Đủ\".";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**Bước 4:** Bạn đã sẵn sàng! Hướng dẫn sử dụng ở bên dưới.";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Khi đang gõ trong bất kỳ ứng dụng nào, nhấn hoặc giữ phím 🌐 quả địa cầu ở góc dưới bên trái bàn phím, rồi chọn Cutling";
+"Tap any text cutling and it will be typed into your current text field immediately" = "Nhấn vào bất kỳ cutling văn bản nào và nó sẽ được gõ vào ô văn bản hiện tại ngay lập tức";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Nhấn vào cutling hình ảnh để sao chép vào bộ nhớ tạm, rồi dán vào ứng dụng bạn đang dùng (thường bằng cách nhấn giữ, rồi chọn Dán). Apple hiện không hỗ trợ dán hình ảnh trực tiếp trên ứng dụng này.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Sao chép bất kỳ văn bản nào, rồi nhấn nút 'Thêm từ Bộ Nhớ Tạm' trên bàn phím Cutling để lưu thành cutling mới";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Bạn có thể quản lý tất cả cutling trong ứng dụng Cutling chính. Các thay đổi sẽ xuất hiện ngay trên bàn phím.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Tiện ích bàn phím có giới hạn bộ nhớ nghiêm ngặt để đảm bảo sự ổn định của hệ thống. Hình ảnh sử dụng nhiều bộ nhớ hơn văn bản, nên chúng tôi giới hạn chúng để bàn phím luôn nhanh và đáng tin cậy. Nếu đạt giới hạn, chỉ cần xóa một số cutling để thêm mới.";
+"Up to **%lld text** cutlings" = "Tối đa **%lld văn bản** cutling";
+"Up to **%lld image** cutlings" = "Tối đa **%lld hình ảnh** cutling";
+"Back" = "Quay Lại";
+"Next" = "Tiếp Theo";
+"Get Started" = "Bắt Đầu";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "Thực hiện vài bước đơn giản để bắt đầu sử dụng bàn phím Cutling tùy chỉnh.";
+"Enable Cutling Keyboard" = "Bật Bàn Phím Cutling";
+"Test Your Keyboard" = "Kiểm Tra Bàn Phím";
+"All set! Swipe to continue." = "Đã sẵn sàng! Vuốt để tiếp tục.";
+"Your data stays private and is never sent anywhere." = "Dữ liệu của bạn luôn riêng tư và không bao giờ được gửi đi đâu.";

@@ -1,0 +1,147 @@
+/* MARK: - Navigation & Titles */
+"My Cutlings" = "Cutling الخاصة بي";
+"Select Items" = "اختر العناصر";
+"%lld Selected" = "%lld محدد";
+"Reorder" = "إعادة الترتيب";
+"Settings" = "الإعدادات";
+"Keyboard Setup" = "إعداد لوحة المفاتيح";
+"New Cutling" = "Cutling جديد";
+"Edit Cutling" = "تعديل Cutling";
+"New Image" = "صورة جديدة";
+"Edit Image" = "تعديل الصورة";
+"Choose Icon" = "اختر أيقونة";
+
+/* MARK: - Common Actions */
+"Cancel" = "إلغاء";
+"Done" = "تم";
+"Save" = "حفظ";
+"Delete" = "حذف";
+"Copy" = "نسخ";
+"Edit" = "تعديل";
+"Sort" = "ترتيب";
+"OK" = "حسناً";
+
+/* MARK: - Menu Items */
+"Text Cutling" = "Cutling نصي";
+"Image Cutling" = "Cutling صورة";
+"Select Cutlings" = "اختر Cutling";
+"Reorder Cutlings" = "إعادة ترتيب Cutling";
+"Keyboard Setup Guide" = "دليل إعداد لوحة المفاتيح";
+"Name (A → Z)" = "الاسم (أ → ي)";
+"Name (Z → A)" = "الاسم (ي → أ)";
+"Text First" = "النص أولاً";
+"Images First" = "الصور أولاً";
+"Shortest First" = "الأقصر أولاً";
+"Longest First" = "الأطول أولاً";
+"Reverse Order" = "ترتيب عكسي";
+
+/* MARK: - Empty States */
+"No Cutlings Yet" = "لا يوجد Cutling بعد";
+"No Results" = "لا توجد نتائج";
+"Tap + to add your first cutling." = "اضغط + لإضافة أول cutling.";
+"Try a different search term." = "جرّب مصطلح بحث مختلف.";
+
+/* MARK: - Search */
+"Search cutlings" = "البحث في cutling";
+"Search icons" = "البحث عن أيقونات";
+
+/* MARK: - Form Labels */
+"Name" = "الاسم";
+"Icon" = "أيقونة";
+"Text" = "نص";
+"Image" = "صورة";
+"Color" = "لون";
+"Quick Actions" = "إجراءات سريعة";
+"Auto-Delete" = "حذف تلقائي";
+"Delete At" = "حذف عند";
+"Category" = "الفئة";
+
+/* MARK: - Placeholders */
+"e.g. Email" = "مثال: بريد إلكتروني";
+"e.g. Signature, QR Code" = "مثال: توقيع، رمز QR";
+
+/* MARK: - Buttons & Actions */
+"Change Icon" = "تغيير الأيقونة";
+"Paste from Clipboard" = "لصق من الحافظة";
+"Delete Cutling" = "حذف Cutling";
+"Open Settings to Enable" = "افتح الإعدادات للتفعيل";
+"Photos Library" = "مكتبة الصور";
+"Choose File" = "اختر ملف";
+"Choose from Photos" = "اختر من الصور";
+"Choose from Files" = "اختر من الملفات";
+"Copy Images" = "نسخ الصور";
+"Add from Clipboard" = "إضافة من الحافظة";
+"Insert Text Instantly" = "إدراج النص فوراً";
+"Switch to Cutling Keyboard" = "التبديل إلى لوحة مفاتيح Cutling";
+
+/* MARK: - Settings Sections */
+"iCloud" = "iCloud";
+"iCloud Sync" = "مزامنة iCloud";
+"Sync your cutlings across all your devices using iCloud." = "زامن cutling الخاصة بك عبر جميع أجهزتك باستخدام iCloud.";
+"Storage" = "التخزين";
+"Text Cutlings" = "Cutling نصية";
+"Image Cutlings" = "Cutling صور";
+"Max Text Length" = "الحد الأقصى لطول النص";
+"%lld chars" = "%lld حرف";
+"About" = "حول";
+"Version" = "الإصدار";
+"Keyboard Added" = "تمت إضافة لوحة المفاتيح";
+"Full Access" = "وصول كامل";
+
+/* MARK: - Image Picker */
+"No image selected" = "لم يتم اختيار صورة";
+
+/* MARK: - Footer Texts */
+"This will replace the current text with whatever is in your clipboard." = "سيتم استبدال النص الحالي بمحتوى الحافظة.";
+"This will replace the current image with whatever is in your clipboard." = "سيتم استبدال الصورة الحالية بمحتوى الحافظة.";
+"This cutling will be automatically deleted at the selected date and time." = "سيتم حذف هذا الـ cutling تلقائياً في التاريخ والوقت المحددين.";
+"Each text cutling can hold up to %lld characters." = "يمكن لكل cutling نصي أن يحتوي على %lld حرف كحد أقصى.";
+
+/* MARK: - Alerts */
+"Limit Reached" = "تم بلوغ الحد";
+"Delete Cutling?" = "حذف Cutling؟";
+"This action cannot be undone." = "لا يمكن التراجع عن هذا الإجراء.";
+"Cannot add text cutling" = "لا يمكن إضافة cutling نصي";
+"Cannot add image cutling" = "لا يمكن إضافة cutling صورة";
+"Cannot add more text cutlings." = "لا يمكن إضافة المزيد من cutling النصية.";
+"Cannot add more image cutlings." = "لا يمكن إضافة المزيد من cutling الصور.";
+
+/* MARK: - CutlingStore Errors */
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "لقد وصلت إلى الحد الأقصى وهو %lld cutling. احذف بعضها لإضافة المزيد.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "لقد وصلت إلى الحد الأقصى وهو %lld cutling صور. تستخدم الصور ذاكرة كبيرة في لوحة المفاتيح. احذف بعض الصور لإضافة المزيد.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "لقد وصلت إلى الحد الأقصى وهو %lld cutling نصي. احذف بعضها لإضافة المزيد.";
+
+/* MARK: - Clipboard Feedback */
+"Copied" = "تم النسخ";
+"Inserted" = "تم الإدراج";
+
+/* MARK: - Keyboard Setup */
+"Setup Progress" = "تقدم الإعداد";
+"Open Cutling Settings" = "فتح إعدادات Cutling";
+"Tap here, then switch to Cutling" = "اضغط هنا، ثم بدّل إلى Cutling";
+"How to Use Your Keyboard" = "كيفية استخدام لوحة المفاتيح";
+"Storage Limits" = "حدود التخزين";
+"You're All Set!" = "كل شيء جاهز!";
+"Set Up Your Keyboard" = "إعداد لوحة المفاتيح";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "لوحة مفاتيح Cutling جاهزة! أثناء الكتابة في أي مكان، اضغط على أيقونة 🌐 الكرة الأرضية على لوحة المفاتيح للتبديل إلى Cutling.";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "اتبع الخطوتين البسيطتين أدناه لبدء استخدام لوحة المفاتيح المخصصة. ستُحدّث هذه الصفحة تلقائياً عند إكمال كل خطوة.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**الخطوة 1:** اضغط على 'فتح إعدادات Cutling' أدناه، انتقل إلى **لوحات المفاتيح** واختر **Cutling** من القائمة.";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**الخطوة 2:** تأكد من تشغيل **السماح بالوصول الكامل**. يتيح هذا للوحة المفاتيح نسخ الصور إلى الحافظة. تبقى بياناتك خاصة ولا تُرسل إلى أي مكان.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**الخطوة 3:** اضغط على حقل النص واختر \"Cutling\" باستخدام أيقونة 🌐 الكرة الأرضية على لوحة المفاتيح لتحديث حالة \"الوصول الكامل\".";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**الخطوة 4:** أنت جاهز! دليل الاستخدام موضح أدناه.";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "أثناء الكتابة في أي تطبيق، اضغط أو اضغط مطولاً على مفتاح 🌐 الكرة الأرضية في أسفل يسار لوحة المفاتيح، ثم اختر Cutling";
+"Tap any text cutling and it will be typed into your current text field immediately" = "اضغط على أي cutling نصي وسيتم كتابته في حقل النص الحالي فوراً";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "اضغط على cutling صورة لنسخها إلى الحافظة، ثم الصقها في التطبيق الذي تستخدمه (عادةً بالضغط المطول ثم اختيار لصق). Apple لا تدعم حالياً لصق الصور مباشرة في هذا التطبيق.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "انسخ أي نص، ثم اضغط على زر 'إضافة من الحافظة' في لوحة مفاتيح Cutling لحفظه كـ cutling جديد";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "يمكنك إدارة جميع cutling في تطبيق Cutling الرئيسي. ستظهر التغييرات التي تجريها فوراً في لوحة المفاتيح.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "ملحقات لوحة المفاتيح لها حدود صارمة للذاكرة لضمان استقرار النظام. تستخدم الصور ذاكرة أكثر من النص، لذلك نحدّها لضمان بقاء لوحة المفاتيح سريعة وموثوقة. إذا وصلت إلى الحد، ببساطة احذف بعض cutling لإضافة جديدة.";
+"Up to **%lld text** cutlings" = "حتى **%lld نصي** cutling";
+"Up to **%lld image** cutlings" = "حتى **%lld صورة** cutling";
+"Back" = "رجوع";
+"Next" = "التالي";
+"Get Started" = "ابدأ";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "اتبع بضع خطوات بسيطة لبدء استخدام لوحة مفاتيح Cutling المخصصة.";
+"Enable Cutling Keyboard" = "تفعيل لوحة مفاتيح Cutling";
+"Test Your Keyboard" = "اختبر لوحة المفاتيح";
+"All set! Swipe to continue." = "كل شيء جاهز! اسحب للمتابعة.";
+"Your data stays private and is never sent anywhere." = "تبقى بياناتك خاصة ولا تُرسل إلى أي مكان.";

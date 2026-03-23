@@ -1,0 +1,147 @@
+/* MARK: - Navigation & Titles */
+"My Cutlings" = "Cutling Saya";
+"Select Items" = "Pilih Item";
+"%lld Selected" = "%lld Dipilih";
+"Reorder" = "Urutkan Ulang";
+"Settings" = "Pengaturan";
+"Keyboard Setup" = "Pengaturan Keyboard";
+"New Cutling" = "Cutling Baru";
+"Edit Cutling" = "Edit Cutling";
+"New Image" = "Gambar Baru";
+"Edit Image" = "Edit Gambar";
+"Choose Icon" = "Pilih Ikon";
+
+/* MARK: - Common Actions */
+"Cancel" = "Batal";
+"Done" = "Selesai";
+"Save" = "Simpan";
+"Delete" = "Hapus";
+"Copy" = "Salin";
+"Edit" = "Edit";
+"Sort" = "Urutkan";
+"OK" = "OK";
+
+/* MARK: - Menu Items */
+"Text Cutling" = "Cutling Teks";
+"Image Cutling" = "Cutling Gambar";
+"Select Cutlings" = "Pilih Cutling";
+"Reorder Cutlings" = "Urutkan Ulang Cutling";
+"Keyboard Setup Guide" = "Panduan Pengaturan Keyboard";
+"Name (A → Z)" = "Nama (A → Z)";
+"Name (Z → A)" = "Nama (Z → A)";
+"Text First" = "Teks Dulu";
+"Images First" = "Gambar Dulu";
+"Shortest First" = "Terpendek Dulu";
+"Longest First" = "Terpanjang Dulu";
+"Reverse Order" = "Urutan Terbalik";
+
+/* MARK: - Empty States */
+"No Cutlings Yet" = "Belum Ada Cutling";
+"No Results" = "Tidak Ada Hasil";
+"Tap + to add your first cutling." = "Ketuk + untuk menambahkan cutling pertama Anda.";
+"Try a different search term." = "Coba kata pencarian lain.";
+
+/* MARK: - Search */
+"Search cutlings" = "Cari cutling";
+"Search icons" = "Cari ikon";
+
+/* MARK: - Form Labels */
+"Name" = "Nama";
+"Icon" = "Ikon";
+"Text" = "Teks";
+"Image" = "Gambar";
+"Color" = "Warna";
+"Quick Actions" = "Aksi Cepat";
+"Auto-Delete" = "Hapus Otomatis";
+"Delete At" = "Hapus Pada";
+"Category" = "Kategori";
+
+/* MARK: - Placeholders */
+"e.g. Email" = "mis. Email";
+"e.g. Signature, QR Code" = "mis. Tanda Tangan, Kode QR";
+
+/* MARK: - Buttons & Actions */
+"Change Icon" = "Ubah Ikon";
+"Paste from Clipboard" = "Tempel dari Papan Klip";
+"Delete Cutling" = "Hapus Cutling";
+"Open Settings to Enable" = "Buka Pengaturan untuk Mengaktifkan";
+"Photos Library" = "Pustaka Foto";
+"Choose File" = "Pilih File";
+"Choose from Photos" = "Pilih dari Foto";
+"Choose from Files" = "Pilih dari File";
+"Copy Images" = "Salin Gambar";
+"Add from Clipboard" = "Tambah dari Papan Klip";
+"Insert Text Instantly" = "Sisipkan Teks Langsung";
+"Switch to Cutling Keyboard" = "Beralih ke Keyboard Cutling";
+
+/* MARK: - Settings Sections */
+"iCloud" = "iCloud";
+"iCloud Sync" = "Sinkronisasi iCloud";
+"Sync your cutlings across all your devices using iCloud." = "Sinkronkan cutling Anda di semua perangkat menggunakan iCloud.";
+"Storage" = "Penyimpanan";
+"Text Cutlings" = "Cutling Teks";
+"Image Cutlings" = "Cutling Gambar";
+"Max Text Length" = "Panjang Teks Maks";
+"%lld chars" = "%lld karakter";
+"About" = "Tentang";
+"Version" = "Versi";
+"Keyboard Added" = "Keyboard Ditambahkan";
+"Full Access" = "Akses Penuh";
+
+/* MARK: - Image Picker */
+"No image selected" = "Tidak ada gambar dipilih";
+
+/* MARK: - Footer Texts */
+"This will replace the current text with whatever is in your clipboard." = "Ini akan mengganti teks saat ini dengan isi papan klip Anda.";
+"This will replace the current image with whatever is in your clipboard." = "Ini akan mengganti gambar saat ini dengan isi papan klip Anda.";
+"This cutling will be automatically deleted at the selected date and time." = "Cutling ini akan dihapus otomatis pada tanggal dan waktu yang dipilih.";
+"Each text cutling can hold up to %lld characters." = "Setiap cutling teks dapat menampung hingga %lld karakter.";
+
+/* MARK: - Alerts */
+"Limit Reached" = "Batas Tercapai";
+"Delete Cutling?" = "Hapus Cutling?";
+"This action cannot be undone." = "Tindakan ini tidak dapat dibatalkan.";
+"Cannot add text cutling" = "Tidak dapat menambah cutling teks";
+"Cannot add image cutling" = "Tidak dapat menambah cutling gambar";
+"Cannot add more text cutlings." = "Tidak dapat menambah cutling teks lagi.";
+"Cannot add more image cutlings." = "Tidak dapat menambah cutling gambar lagi.";
+
+/* MARK: - CutlingStore Errors */
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Anda telah mencapai batas maksimum %lld cutling. Hapus beberapa untuk menambah lagi.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Anda telah mencapai batas maksimum %lld cutling gambar. Gambar menggunakan memori yang besar di keyboard. Hapus beberapa gambar untuk menambah lagi.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Anda telah mencapai batas maksimum %lld cutling teks. Hapus beberapa untuk menambah lagi.";
+
+/* MARK: - Clipboard Feedback */
+"Copied" = "Disalin";
+"Inserted" = "Disisipkan";
+
+/* MARK: - Keyboard Setup */
+"Setup Progress" = "Progres Pengaturan";
+"Open Cutling Settings" = "Buka Pengaturan Cutling";
+"Tap here, then switch to Cutling" = "Ketuk di sini, lalu beralih ke Cutling";
+"How to Use Your Keyboard" = "Cara Menggunakan Keyboard Anda";
+"Storage Limits" = "Batas Penyimpanan";
+"You're All Set!" = "Semua Siap!";
+"Set Up Your Keyboard" = "Atur Keyboard Anda";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Keyboard Cutling Anda siap! Saat mengetik di mana saja, ketuk ikon 🌐 bola dunia di keyboard untuk beralih ke Cutling.";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Ikuti dua langkah sederhana di bawah untuk mulai menggunakan keyboard kustom Anda. Halaman ini akan diperbarui otomatis saat Anda menyelesaikan setiap langkah.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Langkah 1:** Ketuk 'Buka Pengaturan Cutling' di bawah, buka **Keyboard** dan pilih **Cutling** dari daftar.";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Langkah 2:** Pastikan **Izinkan Akses Penuh** dalam keadaan AKTIF. Ini memungkinkan keyboard menyalin gambar ke papan klip Anda. Data Anda tetap privat dan tidak pernah dikirim ke mana pun.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Langkah 3:** Ketuk pada input teks dan pilih \"Cutling\" menggunakan ikon 🌐 bola dunia di keyboard untuk memperbarui status \"Akses Penuh\".";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**Langkah 4:** Anda siap! Panduan penggunaan tersedia di bawah.";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Saat mengetik di aplikasi apa pun, ketuk atau tahan tombol 🌐 bola dunia di kiri bawah keyboard, lalu pilih Cutling";
+"Tap any text cutling and it will be typed into your current text field immediately" = "Ketuk cutling teks mana pun dan langsung terketik di kolom teks Anda saat ini";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Ketuk cutling gambar untuk menyalinnya ke papan klip, lalu tempel di aplikasi yang Anda gunakan (biasanya dengan mengetuk dan menahan, lalu pilih Tempel). Apple saat ini tidak mendukung penempelan gambar langsung di aplikasi ini.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Salin teks apa pun, lalu ketuk tombol 'Tambah dari Papan Klip' di keyboard Cutling untuk menyimpannya sebagai cutling baru";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Anda dapat mengelola semua cutling di aplikasi Cutling utama. Perubahan yang Anda buat akan langsung muncul di keyboard.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Ekstensi keyboard memiliki batas memori ketat untuk menjaga stabilitas sistem. Gambar menggunakan lebih banyak memori daripada teks, jadi kami membatasinya agar keyboard tetap cepat dan andal. Jika mencapai batas, cukup hapus beberapa cutling untuk menambah yang baru.";
+"Up to **%lld text** cutlings" = "Hingga **%lld teks** cutling";
+"Up to **%lld image** cutlings" = "Hingga **%lld gambar** cutling";
+"Back" = "Kembali";
+"Next" = "Berikutnya";
+"Get Started" = "Mulai";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "Ikuti beberapa langkah sederhana untuk mulai menggunakan keyboard Cutling kustom Anda.";
+"Enable Cutling Keyboard" = "Aktifkan Keyboard Cutling";
+"Test Your Keyboard" = "Uji Keyboard Anda";
+"All set! Swipe to continue." = "Semua siap! Geser untuk melanjutkan.";
+"Your data stays private and is never sent anywhere." = "Data Anda tetap privat dan tidak pernah dikirim ke mana pun.";

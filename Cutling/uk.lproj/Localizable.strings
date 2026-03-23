@@ -1,0 +1,147 @@
+/* MARK: - Navigation & Titles */
+"My Cutlings" = "Мої Cutlings";
+"Select Items" = "Вибрати елементи";
+"%lld Selected" = "%lld вибрано";
+"Reorder" = "Змінити порядок";
+"Settings" = "Налаштування";
+"Keyboard Setup" = "Налаштування клавіатури";
+"New Cutling" = "Новий Cutling";
+"Edit Cutling" = "Редагувати Cutling";
+"New Image" = "Нове зображення";
+"Edit Image" = "Редагувати зображення";
+"Choose Icon" = "Обрати іконку";
+
+/* MARK: - Common Actions */
+"Cancel" = "Скасувати";
+"Done" = "Готово";
+"Save" = "Зберегти";
+"Delete" = "Видалити";
+"Copy" = "Копіювати";
+"Edit" = "Редагувати";
+"Sort" = "Сортувати";
+"OK" = "OK";
+
+/* MARK: - Menu Items */
+"Text Cutling" = "Текстовий Cutling";
+"Image Cutling" = "Cutling зображення";
+"Select Cutlings" = "Вибрати Cutlings";
+"Reorder Cutlings" = "Змінити порядок Cutlings";
+"Keyboard Setup Guide" = "Посібник налаштування клавіатури";
+"Name (A → Z)" = "Назва (А → Я)";
+"Name (Z → A)" = "Назва (Я → А)";
+"Text First" = "Спочатку текст";
+"Images First" = "Спочатку зображення";
+"Shortest First" = "Найкоротші спочатку";
+"Longest First" = "Найдовші спочатку";
+"Reverse Order" = "Зворотний порядок";
+
+/* MARK: - Empty States */
+"No Cutlings Yet" = "Cutlings ще немає";
+"No Results" = "Немає результатів";
+"Tap + to add your first cutling." = "Натисніть +, щоб додати свій перший cutling.";
+"Try a different search term." = "Спробуйте інший пошуковий запит.";
+
+/* MARK: - Search */
+"Search cutlings" = "Шукати cutlings";
+"Search icons" = "Шукати іконки";
+
+/* MARK: - Form Labels */
+"Name" = "Назва";
+"Icon" = "Іконка";
+"Text" = "Текст";
+"Image" = "Зображення";
+"Color" = "Колір";
+"Quick Actions" = "Швидкі дії";
+"Auto-Delete" = "Автовидалення";
+"Delete At" = "Видалити о";
+"Category" = "Категорія";
+
+/* MARK: - Placeholders */
+"e.g. Email" = "напр. Електронна пошта";
+"e.g. Signature, QR Code" = "напр. Підпис, QR-код";
+
+/* MARK: - Buttons & Actions */
+"Change Icon" = "Змінити іконку";
+"Paste from Clipboard" = "Вставити з буфера обміну";
+"Delete Cutling" = "Видалити Cutling";
+"Open Settings to Enable" = "Відкрити Налаштування для увімкнення";
+"Photos Library" = "Бібліотека фото";
+"Choose File" = "Вибрати файл";
+"Choose from Photos" = "Вибрати з Фото";
+"Choose from Files" = "Вибрати з Файлів";
+"Copy Images" = "Копіювати зображення";
+"Add from Clipboard" = "Додати з буфера обміну";
+"Insert Text Instantly" = "Вставити текст миттєво";
+"Switch to Cutling Keyboard" = "Перейти на клавіатуру Cutling";
+
+/* MARK: - Settings Sections */
+"iCloud" = "iCloud";
+"iCloud Sync" = "Синхронізація iCloud";
+"Sync your cutlings across all your devices using iCloud." = "Синхронізуйте cutlings на всіх пристроях через iCloud.";
+"Storage" = "Сховище";
+"Text Cutlings" = "Текстові Cutlings";
+"Image Cutlings" = "Cutlings зображень";
+"Max Text Length" = "Макс. довжина тексту";
+"%lld chars" = "%lld символів";
+"About" = "Про застосунок";
+"Version" = "Версія";
+"Keyboard Added" = "Клавіатуру додано";
+"Full Access" = "Повний доступ";
+
+/* MARK: - Image Picker */
+"No image selected" = "Зображення не вибрано";
+
+/* MARK: - Footer Texts */
+"This will replace the current text with whatever is in your clipboard." = "Поточний текст буде замінено вмістом буфера обміну.";
+"This will replace the current image with whatever is in your clipboard." = "Поточне зображення буде замінено вмістом буфера обміну.";
+"This cutling will be automatically deleted at the selected date and time." = "Цей cutling буде автоматично видалено у вибрану дату та час.";
+"Each text cutling can hold up to %lld characters." = "Кожен текстовий cutling може містити до %lld символів.";
+
+/* MARK: - Alerts */
+"Limit Reached" = "Ліміт досягнуто";
+"Delete Cutling?" = "Видалити Cutling?";
+"This action cannot be undone." = "Цю дію неможливо скасувати.";
+"Cannot add text cutling" = "Неможливо додати текстовий cutling";
+"Cannot add image cutling" = "Неможливо додати cutling зображення";
+"Cannot add more text cutlings." = "Неможливо додати більше текстових cutlings.";
+"Cannot add more image cutlings." = "Неможливо додати більше cutlings зображень.";
+
+/* MARK: - CutlingStore Errors */
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Ви досягли максимуму в %lld cutlings. Видаліть деякі, щоб додати нові.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Ви досягли максимуму в %lld cutlings зображень. Зображення займають багато пам'яті клавіатури. Видаліть деякі зображення, щоб додати нові.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Ви досягли максимуму в %lld текстових cutlings. Видаліть деякі, щоб додати нові.";
+
+/* MARK: - Clipboard Feedback */
+"Copied" = "Скопійовано";
+"Inserted" = "Вставлено";
+
+/* MARK: - Keyboard Setup */
+"Setup Progress" = "Прогрес налаштування";
+"Open Cutling Settings" = "Відкрити налаштування Cutling";
+"Tap here, then switch to Cutling" = "Натисніть тут, потім перейдіть на Cutling";
+"How to Use Your Keyboard" = "Як користуватися клавіатурою";
+"Storage Limits" = "Ліміти сховища";
+"You're All Set!" = "Все готово!";
+"Set Up Your Keyboard" = "Налаштуйте клавіатуру";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Клавіатура Cutling готова! Під час введення тексту натисніть значок 🌐 на клавіатурі, щоб перейти на Cutling.";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Виконайте два простих кроки нижче, щоб почати використовувати клавіатуру. Ця сторінка автоматично оновлюватиметься після завершення кожного кроку.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Крок 1:** Натисніть «Відкрити налаштування Cutling» нижче, перейдіть до **Клавіатури** та виберіть **Cutling** зі списку.";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Крок 2:** Переконайтеся, що **Дозволити повний доступ** УВІМКНЕНО. Це дозволяє клавіатурі копіювати зображення в буфер обміну. Ваші дані залишаються приватними і ніколи нікуди не надсилаються.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Крок 3:** Натисніть на текстове поле та виберіть «Cutling» за допомогою значка 🌐 на клавіатурі, щоб оновити статус «Повний доступ».";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**Крок 4:** Все готово! Посібник з використання наведено нижче.";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Під час введення тексту в будь-якому застосунку натисніть або утримуйте клавішу 🌐 внизу ліворуч на клавіатурі, потім виберіть Cutling";
+"Tap any text cutling and it will be typed into your current text field immediately" = "Натисніть на будь-який текстовий cutling, і він миттєво з'явиться у поточному текстовому полі";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Натисніть на cutling зображення, щоб скопіювати його в буфер обміну, потім вставте його в застосунок (зазвичай натиснувши й утримуючи, потім обравши Вставити). Apple наразі не підтримує пряме вставлення зображень у цьому застосунку.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Скопіюйте будь-який текст, потім натисніть кнопку «Додати з буфера обміну» на клавіатурі Cutling, щоб зберегти його як новий cutling";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Ви можете керувати всіма cutlings у головному застосунку Cutling. Зміни миттєво з'являться на клавіатурі.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Розширення клавіатури мають суворі обмеження пам'яті для стабільності системи. Зображення займають більше пам'яті, ніж текст, тому ми обмежуємо їх, щоб клавіатура працювала швидко та надійно. Якщо ви досягли ліміту, просто видаліть деякі cutlings, щоб додати нові.";
+"Up to **%lld text** cutlings" = "До **%lld текстових** cutlings";
+"Up to **%lld image** cutlings" = "До **%lld** cutlings зображень";
+"Back" = "Назад";
+"Next" = "Далі";
+"Get Started" = "Почати";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "Виконайте кілька простих кроків, щоб почати використовувати клавіатуру Cutling.";
+"Enable Cutling Keyboard" = "Увімкнути клавіатуру Cutling";
+"Test Your Keyboard" = "Протестуйте клавіатуру";
+"All set! Swipe to continue." = "Все готово! Проведіть, щоб продовжити.";
+"Your data stays private and is never sent anywhere." = "Ваші дані залишаються приватними і ніколи нікуди не надсилаються.";

@@ -1,0 +1,147 @@
+/* MARK: - Navigation & Titles */
+"My Cutlings" = "Cutlingjaim";
+"Select Items" = "Elemek kiválasztása";
+"%lld Selected" = "%lld kiválasztva";
+"Reorder" = "Átrendezés";
+"Settings" = "Beállítások";
+"Keyboard Setup" = "Billentyűzet beállítása";
+"New Cutling" = "Új Cutling";
+"Edit Cutling" = "Cutling szerkesztése";
+"New Image" = "Új kép";
+"Edit Image" = "Kép szerkesztése";
+"Choose Icon" = "Ikon kiválasztása";
+
+/* MARK: - Common Actions */
+"Cancel" = "Mégse";
+"Done" = "Kész";
+"Save" = "Mentés";
+"Delete" = "Törlés";
+"Copy" = "Másolás";
+"Edit" = "Szerkesztés";
+"Sort" = "Rendezés";
+"OK" = "OK";
+
+/* MARK: - Menu Items */
+"Text Cutling" = "Szöveges Cutling";
+"Image Cutling" = "Képes Cutling";
+"Select Cutlings" = "Cutlingok kiválasztása";
+"Reorder Cutlings" = "Cutlingok átrendezése";
+"Keyboard Setup Guide" = "Billentyűzet beállítási útmutató";
+"Name (A → Z)" = "Név (A → Z)";
+"Name (Z → A)" = "Név (Z → A)";
+"Text First" = "Szöveg először";
+"Images First" = "Képek először";
+"Shortest First" = "Legrövidebb először";
+"Longest First" = "Leghosszabb először";
+"Reverse Order" = "Fordított sorrend";
+
+/* MARK: - Empty States */
+"No Cutlings Yet" = "Még nincsenek Cutlingok";
+"No Results" = "Nincs találat";
+"Tap + to add your first cutling." = "Koppints a + gombra az első cutling hozzáadásához.";
+"Try a different search term." = "Próbálj más keresőkifejezést.";
+
+/* MARK: - Search */
+"Search cutlings" = "Cutlingok keresése";
+"Search icons" = "Ikonok keresése";
+
+/* MARK: - Form Labels */
+"Name" = "Név";
+"Icon" = "Ikon";
+"Text" = "Szöveg";
+"Image" = "Kép";
+"Color" = "Szín";
+"Quick Actions" = "Gyors műveletek";
+"Auto-Delete" = "Automatikus törlés";
+"Delete At" = "Törlés időpontja";
+"Category" = "Kategória";
+
+/* MARK: - Placeholders */
+"e.g. Email" = "pl. E-mail";
+"e.g. Signature, QR Code" = "pl. Aláírás, QR-kód";
+
+/* MARK: - Buttons & Actions */
+"Change Icon" = "Ikon módosítása";
+"Paste from Clipboard" = "Beillesztés vágólapról";
+"Delete Cutling" = "Cutling törlése";
+"Open Settings to Enable" = "Nyisd meg a Beállításokat az engedélyezéshez";
+"Photos Library" = "Fotókönyvtár";
+"Choose File" = "Fájl kiválasztása";
+"Choose from Photos" = "Kiválasztás a Fotókból";
+"Choose from Files" = "Kiválasztás a Fájlokból";
+"Copy Images" = "Képek másolása";
+"Add from Clipboard" = "Hozzáadás vágólapról";
+"Insert Text Instantly" = "Szöveg azonnali beillesztése";
+"Switch to Cutling Keyboard" = "Váltás Cutling billentyűzetre";
+
+/* MARK: - Settings Sections */
+"iCloud" = "iCloud";
+"iCloud Sync" = "iCloud szinkronizálás";
+"Sync your cutlings across all your devices using iCloud." = "Szinkronizáld cutlingjaidat minden eszközödön az iCloud segítségével.";
+"Storage" = "Tárhely";
+"Text Cutlings" = "Szöveges Cutlingok";
+"Image Cutlings" = "Képes Cutlingok";
+"Max Text Length" = "Max. szöveghossz";
+"%lld chars" = "%lld karakter";
+"About" = "Névjegy";
+"Version" = "Verzió";
+"Keyboard Added" = "Billentyűzet hozzáadva";
+"Full Access" = "Teljes hozzáférés";
+
+/* MARK: - Image Picker */
+"No image selected" = "Nincs kiválasztott kép";
+
+/* MARK: - Footer Texts */
+"This will replace the current text with whatever is in your clipboard." = "A jelenlegi szöveg a vágólap tartalmára cserélődik.";
+"This will replace the current image with whatever is in your clipboard." = "A jelenlegi kép a vágólap tartalmára cserélődik.";
+"This cutling will be automatically deleted at the selected date and time." = "Ez a cutling automatikusan törlődik a kiválasztott napon és időpontban.";
+"Each text cutling can hold up to %lld characters." = "Minden szöveges cutling legfeljebb %lld karaktert tartalmazhat.";
+
+/* MARK: - Alerts */
+"Limit Reached" = "Korlát elérve";
+"Delete Cutling?" = "Törlöd a Cutlinget?";
+"This action cannot be undone." = "Ez a művelet nem vonható vissza.";
+"Cannot add text cutling" = "Nem lehet szöveges cutlinget hozzáadni";
+"Cannot add image cutling" = "Nem lehet képes cutlinget hozzáadni";
+"Cannot add more text cutlings." = "Nem lehet több szöveges cutlinget hozzáadni.";
+"Cannot add more image cutlings." = "Nem lehet több képes cutlinget hozzáadni.";
+
+/* MARK: - CutlingStore Errors */
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Elérted a maximális %lld cutlinget. Törölj néhányat, hogy újakat adhass hozzá.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Elérted a maximális %lld képes cutlinget. A képek jelentős memóriát használnak a billentyűzeten. Törölj néhány képet, hogy újakat adhass hozzá.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Elérted a maximális %lld szöveges cutlinget. Törölj néhányat, hogy újakat adhass hozzá.";
+
+/* MARK: - Clipboard Feedback */
+"Copied" = "Másolva";
+"Inserted" = "Beillesztve";
+
+/* MARK: - Keyboard Setup */
+"Setup Progress" = "Beállítás előrehaladása";
+"Open Cutling Settings" = "Cutling beállítások megnyitása";
+"Tap here, then switch to Cutling" = "Koppints ide, majd válts Cutlingra";
+"How to Use Your Keyboard" = "A billentyűzet használata";
+"Storage Limits" = "Tárhelykorlátok";
+"You're All Set!" = "Minden kész!";
+"Set Up Your Keyboard" = "Billentyűzet beállítása";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "A Cutling billentyűzet készen áll! Gépelés közben koppints a 🌐 földgömb ikonra a billentyűzeten a Cutlingra váltáshoz.";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Kövesd az alábbi két egyszerű lépést az egyéni billentyűzet használatának megkezdéséhez. Az oldal automatikusan frissül minden lépés befejezése után.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**1. lépés:** Koppints a „Cutling beállítások megnyitása" gombra lent, menj a **Billentyűzetek** menübe és válaszd ki a **Cutling** elemet a listából.";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**2. lépés:** Győződj meg, hogy a **Teljes hozzáférés engedélyezése** BE van kapcsolva. Ez lehetővé teszi a billentyűzetnek, hogy képeket másoljon a vágólapra. Adataid privátok maradnak és soha nem kerülnek továbbításra.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**3. lépés:** Koppints a szövegmezőre és válaszd a „Cutling" opciót a 🌐 földgömb ikon segítségével a „Teljes hozzáférés" állapot frissítéséhez.";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**4. lépés:** Készen állsz! A használati útmutató alább található.";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Bármely alkalmazásban gépelés közben koppints vagy tartsd lenyomva a 🌐 földgömb gombot a billentyűzet bal alsó sarkában, majd válaszd a Cutlinget";
+"Tap any text cutling and it will be typed into your current text field immediately" = "Koppints bármelyik szöveges cutlingra és azonnal beírásra kerül az aktuális szövegmezőbe";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Koppints egy képes cutlingra a vágólapra másoláshoz, majd illeszd be a használt alkalmazásba (általában hosszú koppintással, majd a Beillesztés kiválasztásával). Az Apple jelenleg nem támogatja a közvetlen képbeillesztést ebben az alkalmazásban.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Másolj bármilyen szöveget, majd koppints a „Hozzáadás vágólapról" gombra a Cutling billentyűzeten új cutlingként való mentéshez";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Minden cutlingodat a fő Cutling alkalmazásban kezelheted. A módosítások azonnal megjelennek a billentyűzeten.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "A billentyűzet-bővítményeknek szigorú memóriakorlátaik vannak a rendszer stabilitásának biztosítására. A képek több memóriát használnak, mint a szöveg, ezért korlátozzuk őket a gyors és megbízható billentyűzet érdekében. Ha elérsz egy korlátot, egyszerűen törölj néhány cutlinget az újak hozzáadásához.";
+"Up to **%lld text** cutlings" = "Legfeljebb **%lld szöveges** cutling";
+"Up to **%lld image** cutlings" = "Legfeljebb **%lld képes** cutling";
+"Back" = "Vissza";
+"Next" = "Következő";
+"Get Started" = "Kezdjük";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "Kövesd a néhány egyszerű lépést az egyéni Cutling billentyűzet használatának megkezdéséhez.";
+"Enable Cutling Keyboard" = "Cutling billentyűzet engedélyezése";
+"Test Your Keyboard" = "Billentyűzet tesztelése";
+"All set! Swipe to continue." = "Minden kész! Húzd el a folytatáshoz.";
+"Your data stays private and is never sent anywhere." = "Adataid privátok maradnak és soha nem kerülnek továbbításra.";

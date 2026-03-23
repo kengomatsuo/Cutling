@@ -1,0 +1,147 @@
+/* MARK: - Navigation & Titles */
+"My Cutlings" = "Мои Cutling";
+"Select Items" = "Выбрать элементы";
+"%lld Selected" = "%lld выбрано";
+"Reorder" = "Изменить порядок";
+"Settings" = "Настройки";
+"Keyboard Setup" = "Настройка клавиатуры";
+"New Cutling" = "Новый Cutling";
+"Edit Cutling" = "Изменить Cutling";
+"New Image" = "Новое изображение";
+"Edit Image" = "Изменить изображение";
+"Choose Icon" = "Выбрать значок";
+
+/* MARK: - Common Actions */
+"Cancel" = "Отмена";
+"Done" = "Готово";
+"Save" = "Сохранить";
+"Delete" = "Удалить";
+"Copy" = "Копировать";
+"Edit" = "Изменить";
+"Sort" = "Сортировать";
+"OK" = "ОК";
+
+/* MARK: - Menu Items */
+"Text Cutling" = "Текстовый Cutling";
+"Image Cutling" = "Cutling-изображение";
+"Select Cutlings" = "Выбрать Cutling";
+"Reorder Cutlings" = "Изменить порядок Cutling";
+"Keyboard Setup Guide" = "Руководство по настройке клавиатуры";
+"Name (A → Z)" = "Имя (А → Я)";
+"Name (Z → A)" = "Имя (Я → А)";
+"Text First" = "Сначала текст";
+"Images First" = "Сначала изображения";
+"Shortest First" = "Сначала короткие";
+"Longest First" = "Сначала длинные";
+"Reverse Order" = "Обратный порядок";
+
+/* MARK: - Empty States */
+"No Cutlings Yet" = "Пока нет Cutling";
+"No Results" = "Нет результатов";
+"Tap + to add your first cutling." = "Нажмите +, чтобы добавить свой первый cutling.";
+"Try a different search term." = "Попробуйте другой поисковый запрос.";
+
+/* MARK: - Search */
+"Search cutlings" = "Поиск cutling";
+"Search icons" = "Поиск значков";
+
+/* MARK: - Form Labels */
+"Name" = "Имя";
+"Icon" = "Значок";
+"Text" = "Текст";
+"Image" = "Изображение";
+"Color" = "Цвет";
+"Quick Actions" = "Быстрые действия";
+"Auto-Delete" = "Автоудаление";
+"Delete At" = "Удалить в";
+"Category" = "Категория";
+
+/* MARK: - Placeholders */
+"e.g. Email" = "напр. Эл. почта";
+"e.g. Signature, QR Code" = "напр. Подпись, QR-код";
+
+/* MARK: - Buttons & Actions */
+"Change Icon" = "Изменить значок";
+"Paste from Clipboard" = "Вставить из буфера обмена";
+"Delete Cutling" = "Удалить Cutling";
+"Open Settings to Enable" = "Откройте Настройки для включения";
+"Photos Library" = "Медиатека";
+"Choose File" = "Выбрать файл";
+"Choose from Photos" = "Выбрать из Фото";
+"Choose from Files" = "Выбрать из Файлов";
+"Copy Images" = "Копировать изображения";
+"Add from Clipboard" = "Добавить из буфера обмена";
+"Insert Text Instantly" = "Вставить текст мгновенно";
+"Switch to Cutling Keyboard" = "Переключиться на клавиатуру Cutling";
+
+/* MARK: - Settings Sections */
+"iCloud" = "iCloud";
+"iCloud Sync" = "Синхронизация iCloud";
+"Sync your cutlings across all your devices using iCloud." = "Синхронизируйте свои cutling на всех устройствах с помощью iCloud.";
+"Storage" = "Хранилище";
+"Text Cutlings" = "Текстовые Cutling";
+"Image Cutlings" = "Cutling-изображения";
+"Max Text Length" = "Макс. длина текста";
+"%lld chars" = "%lld симв.";
+"About" = "О приложении";
+"Version" = "Версия";
+"Keyboard Added" = "Клавиатура добавлена";
+"Full Access" = "Полный доступ";
+
+/* MARK: - Image Picker */
+"No image selected" = "Изображение не выбрано";
+
+/* MARK: - Footer Texts */
+"This will replace the current text with whatever is in your clipboard." = "Текущий текст будет заменён содержимым буфера обмена.";
+"This will replace the current image with whatever is in your clipboard." = "Текущее изображение будет заменено содержимым буфера обмена.";
+"This cutling will be automatically deleted at the selected date and time." = "Этот cutling будет автоматически удалён в выбранную дату и время.";
+"Each text cutling can hold up to %lld characters." = "Каждый текстовый cutling может содержать до %lld символов.";
+
+/* MARK: - Alerts */
+"Limit Reached" = "Достигнут лимит";
+"Delete Cutling?" = "Удалить Cutling?";
+"This action cannot be undone." = "Это действие нельзя отменить.";
+"Cannot add text cutling" = "Невозможно добавить текстовый cutling";
+"Cannot add image cutling" = "Невозможно добавить cutling-изображение";
+"Cannot add more text cutlings." = "Невозможно добавить больше текстовых cutling.";
+"Cannot add more image cutlings." = "Невозможно добавить больше cutling-изображений.";
+
+/* MARK: - CutlingStore Errors */
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Вы достигли максимума в %lld cutling. Удалите некоторые, чтобы добавить новые.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Вы достигли максимума в %lld cutling-изображений. Изображения занимают значительную память клавиатуры. Удалите некоторые изображения, чтобы добавить новые.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Вы достигли максимума в %lld текстовых cutling. Удалите некоторые, чтобы добавить новые.";
+
+/* MARK: - Clipboard Feedback */
+"Copied" = "Скопировано";
+"Inserted" = "Вставлено";
+
+/* MARK: - Keyboard Setup */
+"Setup Progress" = "Прогресс настройки";
+"Open Cutling Settings" = "Открыть настройки Cutling";
+"Tap here, then switch to Cutling" = "Нажмите здесь, затем переключитесь на Cutling";
+"How to Use Your Keyboard" = "Как пользоваться клавиатурой";
+"Storage Limits" = "Ограничения хранилища";
+"You're All Set!" = "Всё готово!";
+"Set Up Your Keyboard" = "Настройте клавиатуру";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Ваша клавиатура Cutling готова! При наборе текста в любом приложении нажмите значок 🌐 глобуса на клавиатуре, чтобы переключиться на Cutling.";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Выполните два простых шага ниже, чтобы начать использовать свою клавиатуру. Эта страница автоматически обновится по мере выполнения каждого шага.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Шаг 1:** Нажмите «Открыть настройки Cutling» ниже, перейдите в **Клавиатуры** и выберите **Cutling** из списка.";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Шаг 2:** Убедитесь, что **Разрешить полный доступ** включено. Это позволяет клавиатуре копировать изображения в буфер обмена. Ваши данные остаются конфиденциальными и никуда не отправляются.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Шаг 3:** Нажмите на поле ввода текста и выберите «Cutling» с помощью значка 🌐 глобуса на клавиатуре, чтобы обновить статус «Полный доступ».";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**Шаг 4:** Всё готово! Руководство по использованию приведено ниже.";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "При наборе текста в любом приложении нажмите или удерживайте клавишу 🌐 глобуса в левом нижнем углу клавиатуры, затем выберите Cutling";
+"Tap any text cutling and it will be typed into your current text field immediately" = "Нажмите на любой текстовый cutling, и он будет мгновенно введён в текущее текстовое поле";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Нажмите на cutling-изображение, чтобы скопировать его в буфер обмена, затем вставьте в используемое приложение (обычно нажмите и удерживайте, затем выберите «Вставить»). Apple пока не поддерживает прямую вставку изображений в этом приложении.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Скопируйте любой текст, затем нажмите кнопку «Добавить из буфера обмена» на клавиатуре Cutling, чтобы сохранить его как новый cutling";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Вы можете управлять всеми cutling в главном приложении Cutling. Внесённые изменения мгновенно отобразятся на клавиатуре.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Расширения клавиатуры имеют строгие ограничения памяти для обеспечения стабильности системы. Изображения используют больше памяти, чем текст, поэтому мы ограничиваем их количество, чтобы клавиатура работала быстро и надёжно. При достижении лимита просто удалите некоторые cutling, чтобы добавить новые.";
+"Up to **%lld text** cutlings" = "До **%lld текстовых** cutling";
+"Up to **%lld image** cutlings" = "До **%lld cutling**-изображений";
+"Back" = "Назад";
+"Next" = "Далее";
+"Get Started" = "Начать";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "Выполните несколько простых шагов, чтобы начать использовать свою клавиатуру Cutling.";
+"Enable Cutling Keyboard" = "Включить клавиатуру Cutling";
+"Test Your Keyboard" = "Протестировать клавиатуру";
+"All set! Swipe to continue." = "Всё готово! Проведите, чтобы продолжить.";
+"Your data stays private and is never sent anywhere." = "Ваши данные остаются конфиденциальными и никуда не отправляются.";

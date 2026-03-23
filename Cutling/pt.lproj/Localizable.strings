@@ -1,0 +1,147 @@
+/* MARK: - Navigation & Titles */
+"My Cutlings" = "Meus Cutlings";
+"Select Items" = "Selecionar Itens";
+"%lld Selected" = "%lld Selecionado(s)";
+"Reorder" = "Reordenar";
+"Settings" = "Configurações";
+"Keyboard Setup" = "Configuração do Teclado";
+"New Cutling" = "Novo Cutling";
+"Edit Cutling" = "Editar Cutling";
+"New Image" = "Nova Imagem";
+"Edit Image" = "Editar Imagem";
+"Choose Icon" = "Escolher Ícone";
+
+/* MARK: - Common Actions */
+"Cancel" = "Cancelar";
+"Done" = "Concluído";
+"Save" = "Salvar";
+"Delete" = "Excluir";
+"Copy" = "Copiar";
+"Edit" = "Editar";
+"Sort" = "Ordenar";
+"OK" = "OK";
+
+/* MARK: - Menu Items */
+"Text Cutling" = "Cutling de Texto";
+"Image Cutling" = "Cutling de Imagem";
+"Select Cutlings" = "Selecionar Cutlings";
+"Reorder Cutlings" = "Reordenar Cutlings";
+"Keyboard Setup Guide" = "Guia de Configuração do Teclado";
+"Name (A → Z)" = "Nome (A → Z)";
+"Name (Z → A)" = "Nome (Z → A)";
+"Text First" = "Texto Primeiro";
+"Images First" = "Imagens Primeiro";
+"Shortest First" = "Mais Curto Primeiro";
+"Longest First" = "Mais Longo Primeiro";
+"Reverse Order" = "Ordem Inversa";
+
+/* MARK: - Empty States */
+"No Cutlings Yet" = "Nenhum Cutling Ainda";
+"No Results" = "Sem Resultados";
+"Tap + to add your first cutling." = "Toque em + para adicionar seu primeiro cutling.";
+"Try a different search term." = "Tente um termo de busca diferente.";
+
+/* MARK: - Search */
+"Search cutlings" = "Buscar cutlings";
+"Search icons" = "Buscar ícones";
+
+/* MARK: - Form Labels */
+"Name" = "Nome";
+"Icon" = "Ícone";
+"Text" = "Texto";
+"Image" = "Imagem";
+"Color" = "Cor";
+"Quick Actions" = "Ações Rápidas";
+"Auto-Delete" = "Exclusão Automática";
+"Delete At" = "Excluir Em";
+"Category" = "Categoria";
+
+/* MARK: - Placeholders */
+"e.g. Email" = "ex. Email";
+"e.g. Signature, QR Code" = "ex. Assinatura, Código QR";
+
+/* MARK: - Buttons & Actions */
+"Change Icon" = "Alterar Ícone";
+"Paste from Clipboard" = "Colar da Área de Transferência";
+"Delete Cutling" = "Excluir Cutling";
+"Open Settings to Enable" = "Abrir Configurações para Ativar";
+"Photos Library" = "Biblioteca de Fotos";
+"Choose File" = "Escolher Arquivo";
+"Choose from Photos" = "Escolher de Fotos";
+"Choose from Files" = "Escolher de Arquivos";
+"Copy Images" = "Copiar Imagens";
+"Add from Clipboard" = "Adicionar da Área de Transferência";
+"Insert Text Instantly" = "Inserir Texto Instantaneamente";
+"Switch to Cutling Keyboard" = "Mudar para Teclado Cutling";
+
+/* MARK: - Settings Sections */
+"iCloud" = "iCloud";
+"iCloud Sync" = "Sincronização iCloud";
+"Sync your cutlings across all your devices using iCloud." = "Sincronize seus cutlings em todos os seus dispositivos usando o iCloud.";
+"Storage" = "Armazenamento";
+"Text Cutlings" = "Cutlings de Texto";
+"Image Cutlings" = "Cutlings de Imagem";
+"Max Text Length" = "Comprimento Máx. do Texto";
+"%lld chars" = "%lld caracteres";
+"About" = "Sobre";
+"Version" = "Versão";
+"Keyboard Added" = "Teclado Adicionado";
+"Full Access" = "Acesso Total";
+
+/* MARK: - Image Picker */
+"No image selected" = "Nenhuma imagem selecionada";
+
+/* MARK: - Footer Texts */
+"This will replace the current text with whatever is in your clipboard." = "Isso substituirá o texto atual pelo conteúdo da sua área de transferência.";
+"This will replace the current image with whatever is in your clipboard." = "Isso substituirá a imagem atual pelo conteúdo da sua área de transferência.";
+"This cutling will be automatically deleted at the selected date and time." = "Este cutling será excluído automaticamente na data e hora selecionadas.";
+"Each text cutling can hold up to %lld characters." = "Cada cutling de texto pode conter até %lld caracteres.";
+
+/* MARK: - Alerts */
+"Limit Reached" = "Limite Atingido";
+"Delete Cutling?" = "Excluir Cutling?";
+"This action cannot be undone." = "Esta ação não pode ser desfeita.";
+"Cannot add text cutling" = "Não é possível adicionar cutling de texto";
+"Cannot add image cutling" = "Não é possível adicionar cutling de imagem";
+"Cannot add more text cutlings." = "Não é possível adicionar mais cutlings de texto.";
+"Cannot add more image cutlings." = "Não é possível adicionar mais cutlings de imagem.";
+
+/* MARK: - CutlingStore Errors */
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Você atingiu o máximo de %lld cutlings. Exclua alguns para adicionar mais.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Você atingiu o máximo de %lld cutlings de imagem. Imagens usam memória significativa no teclado. Exclua algumas imagens para adicionar mais.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Você atingiu o máximo de %lld cutlings de texto. Exclua alguns para adicionar mais.";
+
+/* MARK: - Clipboard Feedback */
+"Copied" = "Copiado";
+"Inserted" = "Inserido";
+
+/* MARK: - Keyboard Setup */
+"Setup Progress" = "Progresso da Configuração";
+"Open Cutling Settings" = "Abrir Configurações do Cutling";
+"Tap here, then switch to Cutling" = "Toque aqui e mude para Cutling";
+"How to Use Your Keyboard" = "Como Usar Seu Teclado";
+"Storage Limits" = "Limites de Armazenamento";
+"You're All Set!" = "Tudo Pronto!";
+"Set Up Your Keyboard" = "Configure Seu Teclado";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Seu teclado Cutling está pronto! Ao digitar em qualquer lugar, toque no ícone 🌐 do globo no teclado para mudar para Cutling.";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Siga os dois passos simples abaixo para começar a usar seu teclado personalizado. Esta página será atualizada automaticamente conforme você completar cada etapa.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Passo 1:** Toque em 'Abrir Configurações do Cutling' abaixo, vá em **Teclados** e selecione **Cutling** da lista.";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Passo 2:** Certifique-se de que **Permitir Acesso Total** esteja ATIVADO. Isso permite que o teclado copie imagens para sua área de transferência. Seus dados permanecem privados e nunca são enviados a lugar nenhum.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Passo 3:** Toque na entrada de texto e escolha \"Cutling\" usando o ícone 🌐 do globo no teclado para atualizar o status de \"Acesso Total\".";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**Passo 4:** Tudo pronto! O guia de uso está abaixo.";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Ao digitar em qualquer app, toque ou segure a tecla 🌐 do globo no canto inferior esquerdo do teclado e selecione Cutling";
+"Tap any text cutling and it will be typed into your current text field immediately" = "Toque em qualquer cutling de texto e ele será digitado no campo de texto atual imediatamente";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Toque em um cutling de imagem para copiá-lo para a área de transferência e cole-o no app que está usando (geralmente tocando e segurando, depois selecionando Colar). A Apple atualmente não suporta colar uma imagem diretamente neste app.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Copie qualquer texto e toque no botão 'Adicionar da Área de Transferência' no teclado Cutling para salvá-lo como um novo cutling";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Você pode gerenciar todos os seus cutlings no app principal do Cutling. As alterações feitas aparecerão instantaneamente no seu teclado.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Extensões de teclado possuem limites rígidos de memória para garantir a estabilidade do sistema. Imagens usam mais memória que texto, então as limitamos para manter seu teclado rápido e confiável. Se atingir um limite, simplesmente exclua alguns cutlings para adicionar novos.";
+"Up to **%lld text** cutlings" = "Até **%lld texto(s)** cutlings";
+"Up to **%lld image** cutlings" = "Até **%lld imagem(ns)** cutlings";
+"Back" = "Voltar";
+"Next" = "Próximo";
+"Get Started" = "Começar";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "Siga alguns passos simples para começar a usar seu teclado Cutling personalizado.";
+"Enable Cutling Keyboard" = "Ativar Teclado Cutling";
+"Test Your Keyboard" = "Testar Seu Teclado";
+"All set! Swipe to continue." = "Tudo pronto! Deslize para continuar.";
+"Your data stays private and is never sent anywhere." = "Seus dados permanecem privados e nunca são enviados a lugar nenhum.";

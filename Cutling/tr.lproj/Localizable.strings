@@ -1,0 +1,147 @@
+/* MARK: - Navigation & Titles */
+"My Cutlings" = "Cutling'lerim";
+"Select Items" = "Öğe Seç";
+"%lld Selected" = "%lld Seçildi";
+"Reorder" = "Yeniden Sırala";
+"Settings" = "Ayarlar";
+"Keyboard Setup" = "Klavye Kurulumu";
+"New Cutling" = "Yeni Cutling";
+"Edit Cutling" = "Cutling Düzenle";
+"New Image" = "Yeni Görsel";
+"Edit Image" = "Görsel Düzenle";
+"Choose Icon" = "Simge Seç";
+
+/* MARK: - Common Actions */
+"Cancel" = "İptal";
+"Done" = "Bitti";
+"Save" = "Kaydet";
+"Delete" = "Sil";
+"Copy" = "Kopyala";
+"Edit" = "Düzenle";
+"Sort" = "Sırala";
+"OK" = "Tamam";
+
+/* MARK: - Menu Items */
+"Text Cutling" = "Metin Cutling";
+"Image Cutling" = "Görsel Cutling";
+"Select Cutlings" = "Cutling Seç";
+"Reorder Cutlings" = "Cutling'leri Yeniden Sırala";
+"Keyboard Setup Guide" = "Klavye Kurulum Kılavuzu";
+"Name (A → Z)" = "Ad (A → Z)";
+"Name (Z → A)" = "Ad (Z → A)";
+"Text First" = "Önce Metin";
+"Images First" = "Önce Görseller";
+"Shortest First" = "Önce En Kısa";
+"Longest First" = "Önce En Uzun";
+"Reverse Order" = "Ters Sıra";
+
+/* MARK: - Empty States */
+"No Cutlings Yet" = "Henüz Cutling Yok";
+"No Results" = "Sonuç Yok";
+"Tap + to add your first cutling." = "İlk cutling'inizi eklemek için + simgesine dokunun.";
+"Try a different search term." = "Farklı bir arama terimi deneyin.";
+
+/* MARK: - Search */
+"Search cutlings" = "Cutling ara";
+"Search icons" = "Simge ara";
+
+/* MARK: - Form Labels */
+"Name" = "Ad";
+"Icon" = "Simge";
+"Text" = "Metin";
+"Image" = "Görsel";
+"Color" = "Renk";
+"Quick Actions" = "Hızlı İşlemler";
+"Auto-Delete" = "Otomatik Sil";
+"Delete At" = "Silinme Zamanı";
+"Category" = "Kategori";
+
+/* MARK: - Placeholders */
+"e.g. Email" = "ör. E-posta";
+"e.g. Signature, QR Code" = "ör. İmza, QR Kodu";
+
+/* MARK: - Buttons & Actions */
+"Change Icon" = "Simge Değiştir";
+"Paste from Clipboard" = "Panodan Yapıştır";
+"Delete Cutling" = "Cutling Sil";
+"Open Settings to Enable" = "Etkinleştirmek için Ayarları Aç";
+"Photos Library" = "Fotoğraf Kitaplığı";
+"Choose File" = "Dosya Seç";
+"Choose from Photos" = "Fotoğraflardan Seç";
+"Choose from Files" = "Dosyalardan Seç";
+"Copy Images" = "Görselleri Kopyala";
+"Add from Clipboard" = "Panodan Ekle";
+"Insert Text Instantly" = "Metni Anında Ekle";
+"Switch to Cutling Keyboard" = "Cutling Klavyesine Geç";
+
+/* MARK: - Settings Sections */
+"iCloud" = "iCloud";
+"iCloud Sync" = "iCloud Senkronizasyonu";
+"Sync your cutlings across all your devices using iCloud." = "iCloud kullanarak cutling'lerinizi tüm cihazlarınızda senkronize edin.";
+"Storage" = "Depolama";
+"Text Cutlings" = "Metin Cutling'ler";
+"Image Cutlings" = "Görsel Cutling'ler";
+"Max Text Length" = "Maks. Metin Uzunluğu";
+"%lld chars" = "%lld karakter";
+"About" = "Hakkında";
+"Version" = "Sürüm";
+"Keyboard Added" = "Klavye Eklendi";
+"Full Access" = "Tam Erişim";
+
+/* MARK: - Image Picker */
+"No image selected" = "Görsel seçilmedi";
+
+/* MARK: - Footer Texts */
+"This will replace the current text with whatever is in your clipboard." = "Mevcut metin, panodaki içerikle değiştirilecektir.";
+"This will replace the current image with whatever is in your clipboard." = "Mevcut görsel, panodaki içerikle değiştirilecektir.";
+"This cutling will be automatically deleted at the selected date and time." = "Bu cutling seçilen tarih ve saatte otomatik olarak silinecektir.";
+"Each text cutling can hold up to %lld characters." = "Her metin cutling en fazla %lld karakter içerebilir.";
+
+/* MARK: - Alerts */
+"Limit Reached" = "Sınıra Ulaşıldı";
+"Delete Cutling?" = "Cutling Silinsin mi?";
+"This action cannot be undone." = "Bu işlem geri alınamaz.";
+"Cannot add text cutling" = "Metin cutling eklenemiyor";
+"Cannot add image cutling" = "Görsel cutling eklenemiyor";
+"Cannot add more text cutlings." = "Daha fazla metin cutling eklenemiyor.";
+"Cannot add more image cutlings." = "Daha fazla görsel cutling eklenemiyor.";
+
+/* MARK: - CutlingStore Errors */
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Toplam %lld cutling sınırına ulaştınız. Daha fazla eklemek için bazılarını silin.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "%lld görsel cutling sınırına ulaştınız. Görseller klavyede önemli miktarda bellek kullanır. Daha fazla eklemek için bazı görselleri silin.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "%lld metin cutling sınırına ulaştınız. Daha fazla eklemek için bazılarını silin.";
+
+/* MARK: - Clipboard Feedback */
+"Copied" = "Kopyalandı";
+"Inserted" = "Eklendi";
+
+/* MARK: - Keyboard Setup */
+"Setup Progress" = "Kurulum İlerlemesi";
+"Open Cutling Settings" = "Cutling Ayarlarını Aç";
+"Tap here, then switch to Cutling" = "Buraya dokunun, sonra Cutling'e geçin";
+"How to Use Your Keyboard" = "Klavyenizi Nasıl Kullanırsınız";
+"Storage Limits" = "Depolama Sınırları";
+"You're All Set!" = "Her Şey Hazır!";
+"Set Up Your Keyboard" = "Klavyenizi Kurun";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Cutling klavyeniz hazır! Herhangi bir yerde yazarken, Cutling'e geçmek için klavyenizdeki 🌐 küre simgesine dokunun.";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Özel klavyenizi kullanmaya başlamak için aşağıdaki iki basit adımı izleyin. Her adımı tamamladığınızda bu sayfa otomatik olarak güncellenecektir.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Adım 1:** Aşağıdaki 'Cutling Ayarlarını Aç'a dokunun, **Klavyeler**'e gidin ve listeden **Cutling**'i seçin.";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Adım 2:** **Tam Erişime İzin Ver** seçeneğinin açık olduğundan emin olun. Bu, klavyenin görselleri panonuza kopyalamasını sağlar. Verileriniz gizli kalır ve hiçbir yere gönderilmez.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Adım 3:** Metin giriş alanına dokunun ve \"Tam Erişim\" durumunu güncellemek için klavyenizdeki 🌐 küre simgesini kullanarak \"Cutling\"i seçin.";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**Adım 4:** Hazırsınız! Kullanım kılavuzu aşağıda verilmiştir.";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Herhangi bir uygulamada yazarken, klavyenizin sol altındaki 🌐 küre tuşuna dokunun veya basılı tutun, ardından Cutling'i seçin";
+"Tap any text cutling and it will be typed into your current text field immediately" = "Herhangi bir metin cutling'e dokunun ve mevcut metin alanınıza anında yazılacaktır";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Görsel cutling'e dokunarak panonuza kopyalayın, ardından kullandığınız uygulamaya yapıştırın (genellikle dokunup basılı tutarak, sonra Yapıştır'ı seçerek). Apple şu anda bu uygulamada doğrudan görsel yapıştırmayı desteklememektedir.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Herhangi bir metni kopyalayın, ardından yeni bir cutling olarak kaydetmek için Cutling klavyesindeki 'Panodan Ekle' düğmesine dokunun";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Tüm cutling'lerinizi ana Cutling uygulamasından yönetebilirsiniz. Yaptığınız değişiklikler klavyenizde anında görünecektir.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Klavye uzantıları, sistem kararlılığını sağlamak için sıkı bellek sınırlarına sahiptir. Görseller metinden daha fazla bellek kullanır, bu nedenle klavyenizin hızlı ve güvenilir kalması için bunları sınırlandırıyoruz. Sınıra ulaşırsanız, yenilerini eklemek için bazı cutling'leri silin.";
+"Up to **%lld text** cutlings" = "En fazla **%lld metin** cutling";
+"Up to **%lld image** cutlings" = "En fazla **%lld görsel** cutling";
+"Back" = "Geri";
+"Next" = "İleri";
+"Get Started" = "Başla";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "Özel Cutling klavyenizi kullanmaya başlamak için birkaç basit adımı izleyin.";
+"Enable Cutling Keyboard" = "Cutling Klavyesini Etkinleştir";
+"Test Your Keyboard" = "Klavyenizi Test Edin";
+"All set! Swipe to continue." = "Her şey hazır! Devam etmek için kaydırın.";
+"Your data stays private and is never sent anywhere." = "Verileriniz gizli kalır ve hiçbir yere gönderilmez.";

@@ -1,0 +1,147 @@
+/* MARK: - Navigation & Titles */
+"My Cutlings" = "Τα Cutlings μου";
+"Select Items" = "Επιλογή στοιχείων";
+"%lld Selected" = "%lld επιλεγμένα";
+"Reorder" = "Αναδιάταξη";
+"Settings" = "Ρυθμίσεις";
+"Keyboard Setup" = "Ρύθμιση πληκτρολογίου";
+"New Cutling" = "Νέο Cutling";
+"Edit Cutling" = "Επεξεργασία Cutling";
+"New Image" = "Νέα εικόνα";
+"Edit Image" = "Επεξεργασία εικόνας";
+"Choose Icon" = "Επιλογή εικονιδίου";
+
+/* MARK: - Common Actions */
+"Cancel" = "Ακύρωση";
+"Done" = "Τέλος";
+"Save" = "Αποθήκευση";
+"Delete" = "Διαγραφή";
+"Copy" = "Αντιγραφή";
+"Edit" = "Επεξεργασία";
+"Sort" = "Ταξινόμηση";
+"OK" = "OK";
+
+/* MARK: - Menu Items */
+"Text Cutling" = "Cutling κειμένου";
+"Image Cutling" = "Cutling εικόνας";
+"Select Cutlings" = "Επιλογή Cutlings";
+"Reorder Cutlings" = "Αναδιάταξη Cutlings";
+"Keyboard Setup Guide" = "Οδηγός ρύθμισης πληκτρολογίου";
+"Name (A → Z)" = "Όνομα (Α → Ω)";
+"Name (Z → A)" = "Όνομα (Ω → Α)";
+"Text First" = "Κείμενο πρώτα";
+"Images First" = "Εικόνες πρώτα";
+"Shortest First" = "Μικρότερα πρώτα";
+"Longest First" = "Μεγαλύτερα πρώτα";
+"Reverse Order" = "Αντίστροφη σειρά";
+
+/* MARK: - Empty States */
+"No Cutlings Yet" = "Δεν υπάρχουν Cutlings ακόμα";
+"No Results" = "Κανένα αποτέλεσμα";
+"Tap + to add your first cutling." = "Πατήστε + για να προσθέσετε το πρώτο σας cutling.";
+"Try a different search term." = "Δοκιμάστε διαφορετικό όρο αναζήτησης.";
+
+/* MARK: - Search */
+"Search cutlings" = "Αναζήτηση cutlings";
+"Search icons" = "Αναζήτηση εικονιδίων";
+
+/* MARK: - Form Labels */
+"Name" = "Όνομα";
+"Icon" = "Εικονίδιο";
+"Text" = "Κείμενο";
+"Image" = "Εικόνα";
+"Color" = "Χρώμα";
+"Quick Actions" = "Γρήγορες ενέργειες";
+"Auto-Delete" = "Αυτόματη διαγραφή";
+"Delete At" = "Διαγραφή στις";
+"Category" = "Κατηγορία";
+
+/* MARK: - Placeholders */
+"e.g. Email" = "π.χ. Email";
+"e.g. Signature, QR Code" = "π.χ. Υπογραφή, Κωδικός QR";
+
+/* MARK: - Buttons & Actions */
+"Change Icon" = "Αλλαγή εικονιδίου";
+"Paste from Clipboard" = "Επικόλληση από πρόχειρο";
+"Delete Cutling" = "Διαγραφή Cutling";
+"Open Settings to Enable" = "Ανοίξτε τις Ρυθμίσεις για ενεργοποίηση";
+"Photos Library" = "Βιβλιοθήκη φωτογραφιών";
+"Choose File" = "Επιλογή αρχείου";
+"Choose from Photos" = "Επιλογή από Φωτογραφίες";
+"Choose from Files" = "Επιλογή από Αρχεία";
+"Copy Images" = "Αντιγραφή εικόνων";
+"Add from Clipboard" = "Προσθήκη από πρόχειρο";
+"Insert Text Instantly" = "Εισαγωγή κειμένου αμέσως";
+"Switch to Cutling Keyboard" = "Εναλλαγή σε πληκτρολόγιο Cutling";
+
+/* MARK: - Settings Sections */
+"iCloud" = "iCloud";
+"iCloud Sync" = "Συγχρονισμός iCloud";
+"Sync your cutlings across all your devices using iCloud." = "Συγχρονίστε τα cutlings σας σε όλες τις συσκευές μέσω iCloud.";
+"Storage" = "Αποθηκευτικός χώρος";
+"Text Cutlings" = "Cutlings κειμένου";
+"Image Cutlings" = "Cutlings εικόνας";
+"Max Text Length" = "Μέγ. μήκος κειμένου";
+"%lld chars" = "%lld χαρακτήρες";
+"About" = "Σχετικά";
+"Version" = "Έκδοση";
+"Keyboard Added" = "Πληκτρολόγιο προστέθηκε";
+"Full Access" = "Πλήρης πρόσβαση";
+
+/* MARK: - Image Picker */
+"No image selected" = "Δεν επιλέχθηκε εικόνα";
+
+/* MARK: - Footer Texts */
+"This will replace the current text with whatever is in your clipboard." = "Το τρέχον κείμενο θα αντικατασταθεί με τα περιεχόμενα του πρόχειρου.";
+"This will replace the current image with whatever is in your clipboard." = "Η τρέχουσα εικόνα θα αντικατασταθεί με τα περιεχόμενα του πρόχειρου.";
+"This cutling will be automatically deleted at the selected date and time." = "Αυτό το cutling θα διαγραφεί αυτόματα στην επιλεγμένη ημερομηνία και ώρα.";
+"Each text cutling can hold up to %lld characters." = "Κάθε cutling κειμένου μπορεί να περιέχει έως %lld χαρακτήρες.";
+
+/* MARK: - Alerts */
+"Limit Reached" = "Όριο επιτεύχθηκε";
+"Delete Cutling?" = "Διαγραφή Cutling;";
+"This action cannot be undone." = "Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.";
+"Cannot add text cutling" = "Δεν είναι δυνατή η προσθήκη cutling κειμένου";
+"Cannot add image cutling" = "Δεν είναι δυνατή η προσθήκη cutling εικόνας";
+"Cannot add more text cutlings." = "Δεν είναι δυνατή η προσθήκη περισσότερων cutlings κειμένου.";
+"Cannot add more image cutlings." = "Δεν είναι δυνατή η προσθήκη περισσότερων cutlings εικόνας.";
+
+/* MARK: - CutlingStore Errors */
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Φτάσατε το μέγιστο των %lld cutlings. Διαγράψτε κάποια για να προσθέσετε περισσότερα.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Φτάσατε το μέγιστο των %lld cutlings εικόνας. Οι εικόνες χρησιμοποιούν σημαντική μνήμη στο πληκτρολόγιο. Διαγράψτε κάποιες εικόνες για να προσθέσετε περισσότερες.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Φτάσατε το μέγιστο των %lld cutlings κειμένου. Διαγράψτε κάποια για να προσθέσετε περισσότερα.";
+
+/* MARK: - Clipboard Feedback */
+"Copied" = "Αντιγράφηκε";
+"Inserted" = "Εισήχθη";
+
+/* MARK: - Keyboard Setup */
+"Setup Progress" = "Πρόοδος ρύθμισης";
+"Open Cutling Settings" = "Άνοιγμα ρυθμίσεων Cutling";
+"Tap here, then switch to Cutling" = "Πατήστε εδώ, μετά αλλάξτε σε Cutling";
+"How to Use Your Keyboard" = "Πώς να χρησιμοποιήσετε το πληκτρολόγιο";
+"Storage Limits" = "Όρια αποθήκευσης";
+"You're All Set!" = "Είστε έτοιμοι!";
+"Set Up Your Keyboard" = "Ρυθμίστε το πληκτρολόγιό σας";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Το πληκτρολόγιο Cutling είναι έτοιμο! Ενώ πληκτρολογείτε οπουδήποτε, πατήστε το εικονίδιο 🌐 στο πληκτρολόγιο για εναλλαγή σε Cutling.";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Ακολουθήστε τα δύο απλά βήματα παρακάτω για να αρχίσετε να χρησιμοποιείτε το πληκτρολόγιο. Η σελίδα θα ενημερωθεί αυτόματα καθώς ολοκληρώνετε κάθε βήμα.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Βήμα 1:** Πατήστε «Άνοιγμα ρυθμίσεων Cutling» παρακάτω, μεταβείτε στα **Πληκτρολόγια** και επιλέξτε **Cutling** από τη λίστα.";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Βήμα 2:** Βεβαιωθείτε ότι η **Πλήρης πρόσβαση** είναι ΕΝΕΡΓΟΠΟΙΗΜΕΝΗ. Αυτό επιτρέπει στο πληκτρολόγιο να αντιγράφει εικόνες στο πρόχειρο. Τα δεδομένα σας παραμένουν ιδιωτικά και δεν αποστέλλονται πουθενά.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Βήμα 3:** Πατήστε στο πεδίο κειμένου και επιλέξτε «Cutling» χρησιμοποιώντας το εικονίδιο 🌐 στο πληκτρολόγιο για ενημέρωση της κατάστασης «Πλήρης πρόσβαση».";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**Βήμα 4:** Είστε έτοιμοι! Ο οδηγός χρήσης παρέχεται παρακάτω.";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Ενώ πληκτρολογείτε σε οποιαδήποτε εφαρμογή, πατήστε ή κρατήστε πατημένο το πλήκτρο 🌐 κάτω αριστερά στο πληκτρολόγιο και επιλέξτε Cutling";
+"Tap any text cutling and it will be typed into your current text field immediately" = "Πατήστε οποιοδήποτε cutling κειμένου και θα πληκτρολογηθεί αμέσως στο τρέχον πεδίο κειμένου";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Πατήστε ένα cutling εικόνας για αντιγραφή στο πρόχειρο και μετά επικολλήστε το στην εφαρμογή σας (συνήθως πατώντας παρατεταμένα και επιλέγοντας Επικόλληση). Η Apple δεν υποστηρίζει αυτή τη στιγμή την απευθείας επικόλληση εικόνας σε αυτή την εφαρμογή.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Αντιγράψτε οποιοδήποτε κείμενο και πατήστε το κουμπί «Προσθήκη από πρόχειρο» στο πληκτρολόγιο Cutling για αποθήκευση ως νέο cutling";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Μπορείτε να διαχειριστείτε όλα τα cutlings στην κύρια εφαρμογή Cutling. Οι αλλαγές εμφανίζονται αμέσως στο πληκτρολόγιο.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Οι επεκτάσεις πληκτρολογίου έχουν αυστηρά όρια μνήμης για σταθερότητα συστήματος. Οι εικόνες χρησιμοποιούν περισσότερη μνήμη από το κείμενο, γι' αυτό τις περιορίζουμε ώστε το πληκτρολόγιο να παραμένει γρήγορο και αξιόπιστο. Αν φτάσετε ένα όριο, απλά διαγράψτε κάποια cutlings για να προσθέσετε νέα.";
+"Up to **%lld text** cutlings" = "Έως **%lld κειμένου** cutlings";
+"Up to **%lld image** cutlings" = "Έως **%lld εικόνας** cutlings";
+"Back" = "Πίσω";
+"Next" = "Επόμενο";
+"Get Started" = "Ξεκινήστε";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "Ακολουθήστε μερικά απλά βήματα για να αρχίσετε να χρησιμοποιείτε το πληκτρολόγιο Cutling.";
+"Enable Cutling Keyboard" = "Ενεργοποίηση πληκτρολογίου Cutling";
+"Test Your Keyboard" = "Δοκιμάστε το πληκτρολόγιο";
+"All set! Swipe to continue." = "Έτοιμο! Σαρώστε για συνέχεια.";
+"Your data stays private and is never sent anywhere." = "Τα δεδομένα σας παραμένουν ιδιωτικά και δεν αποστέλλονται πουθενά.";

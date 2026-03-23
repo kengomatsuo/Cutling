@@ -1,0 +1,147 @@
+/* MARK: - Navigation & Titles */
+"My Cutlings" = "Mina Cutlings";
+"Select Items" = "Välj objekt";
+"%lld Selected" = "%lld valda";
+"Reorder" = "Ändra ordning";
+"Settings" = "Inställningar";
+"Keyboard Setup" = "Tangentbordsinställning";
+"New Cutling" = "Ny Cutling";
+"Edit Cutling" = "Redigera Cutling";
+"New Image" = "Ny bild";
+"Edit Image" = "Redigera bild";
+"Choose Icon" = "Välj ikon";
+
+/* MARK: - Common Actions */
+"Cancel" = "Avbryt";
+"Done" = "Klar";
+"Save" = "Spara";
+"Delete" = "Radera";
+"Copy" = "Kopiera";
+"Edit" = "Redigera";
+"Sort" = "Sortera";
+"OK" = "OK";
+
+/* MARK: - Menu Items */
+"Text Cutling" = "Text-Cutling";
+"Image Cutling" = "Bild-Cutling";
+"Select Cutlings" = "Välj Cutlings";
+"Reorder Cutlings" = "Ändra ordning på Cutlings";
+"Keyboard Setup Guide" = "Guide för tangentbordsinställning";
+"Name (A → Z)" = "Namn (A → Ö)";
+"Name (Z → A)" = "Namn (Ö → A)";
+"Text First" = "Text först";
+"Images First" = "Bilder först";
+"Shortest First" = "Kortast först";
+"Longest First" = "Längst först";
+"Reverse Order" = "Omvänd ordning";
+
+/* MARK: - Empty States */
+"No Cutlings Yet" = "Inga Cutlings ännu";
+"No Results" = "Inga resultat";
+"Tap + to add your first cutling." = "Tryck på + för att lägga till din första cutling.";
+"Try a different search term." = "Prova ett annat sökord.";
+
+/* MARK: - Search */
+"Search cutlings" = "Sök cutlings";
+"Search icons" = "Sök ikoner";
+
+/* MARK: - Form Labels */
+"Name" = "Namn";
+"Icon" = "Ikon";
+"Text" = "Text";
+"Image" = "Bild";
+"Color" = "Färg";
+"Quick Actions" = "Snabbåtgärder";
+"Auto-Delete" = "Autoradera";
+"Delete At" = "Radera vid";
+"Category" = "Kategori";
+
+/* MARK: - Placeholders */
+"e.g. Email" = "t.ex. E-post";
+"e.g. Signature, QR Code" = "t.ex. Signatur, QR-kod";
+
+/* MARK: - Buttons & Actions */
+"Change Icon" = "Ändra ikon";
+"Paste from Clipboard" = "Klistra in från urklipp";
+"Delete Cutling" = "Radera Cutling";
+"Open Settings to Enable" = "Öppna Inställningar för att aktivera";
+"Photos Library" = "Fotobibliotek";
+"Choose File" = "Välj fil";
+"Choose from Photos" = "Välj från Foton";
+"Choose from Files" = "Välj från Filer";
+"Copy Images" = "Kopiera bilder";
+"Add from Clipboard" = "Lägg till från urklipp";
+"Insert Text Instantly" = "Infoga text direkt";
+"Switch to Cutling Keyboard" = "Byt till Cutling-tangentbord";
+
+/* MARK: - Settings Sections */
+"iCloud" = "iCloud";
+"iCloud Sync" = "iCloud-synkronisering";
+"Sync your cutlings across all your devices using iCloud." = "Synkronisera dina cutlings på alla dina enheter via iCloud.";
+"Storage" = "Lagring";
+"Text Cutlings" = "Text-Cutlings";
+"Image Cutlings" = "Bild-Cutlings";
+"Max Text Length" = "Max textlängd";
+"%lld chars" = "%lld tecken";
+"About" = "Om";
+"Version" = "Version";
+"Keyboard Added" = "Tangentbord tillagt";
+"Full Access" = "Full åtkomst";
+
+/* MARK: - Image Picker */
+"No image selected" = "Ingen bild vald";
+
+/* MARK: - Footer Texts */
+"This will replace the current text with whatever is in your clipboard." = "Detta ersätter den aktuella texten med innehållet i urklipp.";
+"This will replace the current image with whatever is in your clipboard." = "Detta ersätter den aktuella bilden med innehållet i urklipp.";
+"This cutling will be automatically deleted at the selected date and time." = "Denna cutling raderas automatiskt vid valt datum och tid.";
+"Each text cutling can hold up to %lld characters." = "Varje text-cutling kan innehålla upp till %lld tecken.";
+
+/* MARK: - Alerts */
+"Limit Reached" = "Gräns nådd";
+"Delete Cutling?" = "Radera Cutling?";
+"This action cannot be undone." = "Denna åtgärd kan inte ångras.";
+"Cannot add text cutling" = "Kan inte lägga till text-cutling";
+"Cannot add image cutling" = "Kan inte lägga till bild-cutling";
+"Cannot add more text cutlings." = "Kan inte lägga till fler text-cutlings.";
+"Cannot add more image cutlings." = "Kan inte lägga till fler bild-cutlings.";
+
+/* MARK: - CutlingStore Errors */
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Du har nått gränsen på %lld cutlings totalt. Radera några för att lägga till fler.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Du har nått gränsen på %lld bild-cutlings. Bilder använder mycket minne i tangentbordet. Radera några bilder för att lägga till fler.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Du har nått gränsen på %lld text-cutlings. Radera några för att lägga till fler.";
+
+/* MARK: - Clipboard Feedback */
+"Copied" = "Kopierad";
+"Inserted" = "Infogad";
+
+/* MARK: - Keyboard Setup */
+"Setup Progress" = "Installationsförlopp";
+"Open Cutling Settings" = "Öppna Cutling-inställningar";
+"Tap here, then switch to Cutling" = "Tryck här och byt sedan till Cutling";
+"How to Use Your Keyboard" = "Hur du använder tangentbordet";
+"Storage Limits" = "Lagringsgränser";
+"You're All Set!" = "Allt är klart!";
+"Set Up Your Keyboard" = "Ställ in tangentbordet";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Ditt Cutling-tangentbord är klart! Tryck på 🌐 globikonen på tangentbordet medan du skriver för att byta till Cutling.";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Följ de två enkla stegen nedan för att börja använda ditt anpassade tangentbord. Sidan uppdateras automatiskt när du slutför varje steg.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Steg 1:** Tryck på \"Öppna Cutling-inställningar\" nedan, gå till **Tangentbord** och välj **Cutling** från listan.";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Steg 2:** Se till att **Tillåt full åtkomst** är PÅ. Detta låter tangentbordet kopiera bilder till urklipp. Dina data förblir privata och skickas aldrig någonstans.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Steg 3:** Tryck på textfältet och välj \"Cutling\" med 🌐 globikonen på tangentbordet för att uppdatera statusen \"Full åtkomst\".";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**Steg 4:** Du är redo! Användarguiden finns nedan.";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Tryck eller håll in 🌐 globknappen längst ned till vänster på tangentbordet medan du skriver i valfri app och välj sedan Cutling";
+"Tap any text cutling and it will be typed into your current text field immediately" = "Tryck på valfri text-cutling så skrivs den in i ditt aktuella textfält omedelbart";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Tryck på en bild-cutling för att kopiera den till urklipp och klistra sedan in den i appen du använder (vanligtvis genom att trycka och hålla, sedan välja Klistra in). Apple stöder för närvarande inte direkt inklistring av bilder i denna app.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Kopiera valfri text och tryck sedan på knappen \"Lägg till från urklipp\" på Cutling-tangentbordet för att spara den som en ny cutling";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Du kan hantera alla dina cutlings i Cutling-appen. Ändringar du gör visas direkt på tangentbordet.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Tangentbordstillägg har strikta minnesgränser för systemstabilitet. Bilder använder mer minne än text, så vi begränsar dem för att tangentbordet ska förbli snabbt och pålitligt. Om du når en gräns, radera några cutlings för att lägga till nya.";
+"Up to **%lld text** cutlings" = "Upp till **%lld text**-cutlings";
+"Up to **%lld image** cutlings" = "Upp till **%lld bild**-cutlings";
+"Back" = "Tillbaka";
+"Next" = "Nästa";
+"Get Started" = "Kom igång";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "Följ några enkla steg för att börja använda ditt anpassade Cutling-tangentbord.";
+"Enable Cutling Keyboard" = "Aktivera Cutling-tangentbord";
+"Test Your Keyboard" = "Testa tangentbordet";
+"All set! Swipe to continue." = "Allt klart! Svep för att fortsätta.";
+"Your data stays private and is never sent anywhere." = "Dina data förblir privata och skickas aldrig någonstans.";
