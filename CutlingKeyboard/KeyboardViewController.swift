@@ -101,6 +101,7 @@ struct InstantPress: ViewModifier {
                         let inside = isInsideBounds(value)
                         if inside && !isPressed {
                             Self.haptic.impactOccurred()
+                            UIDevice.current.playInputClick()
                         }
                         isPressed = inside
                     }
@@ -157,9 +158,19 @@ struct KeyboardButtonStyle: ButtonStyle {
             .onChange(of: configuration.isPressed) {
                 if configuration.isPressed {
                     haptic.impactOccurred()
+                    UIDevice.current.playInputClick()
                 }
             }
     }
+}
+
+// MARK: - Audio-Feedback-Enabled Input View
+
+/// A UIInputView subclass that adopts UIInputViewAudioFeedback
+/// so `UIDevice.current.playInputClick()` produces the standard
+/// keyboard click sound (when the user has enabled it in Settings).
+final class AudioFeedbackInputView: UIInputView, UIInputViewAudioFeedback {
+    var enableInputClicksWhenVisible: Bool { true }
 }
 
 // MARK: - Keyboard View Controller
@@ -171,6 +182,16 @@ class KeyboardViewController: UIInputViewController {
     
     // CRITICAL: Reuse the shared store instance to avoid duplicate loading
     private let store = CutlingStore.shared
+
+    override func loadView() {
+        // Replace the default inputView with our audio-feedback-enabled subclass
+        let audioView = AudioFeedbackInputView(
+            frame: .zero,
+            inputViewStyle: .keyboard
+        )
+        audioView.allowsSelfSizing = true
+        inputView = audioView
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -197,6 +218,36 @@ class KeyboardViewController: UIInputViewController {
                 onInsertText: { inputVC.textDocumentProxy.insertText($0) },
                 onCopyImage: { if let image = UIImage(data: $0) { UIPasteboard.general.image = image } },
                 onBackspace: { inputVC.textDocumentProxy.deleteBackward() },
+                onDeleteWord: {
+                    // Delete backward until the start of the current word
+                    // (matches native keyboard word-deletion behavior)
+                    let proxy = inputVC.textDocumentProxy
+                    guard let before = proxy.documentContextBeforeInput, !before.isEmpty else { return }
+                    
+                    // Find trailing whitespace, then the word before it
+                    var count = 0
+                    let reversed = before.reversed()
+                    var iter = reversed.makeIterator()
+                    
+                    // Skip trailing whitespace
+                    var hitNonSpace = false
+                    while let ch = iter.next() {
+                        if ch.isWhitespace && !hitNonSpace {
+                            count += 1
+                        } else {
+                            hitNonSpace = true
+                            if ch.isWhitespace {
+                                break
+                            }
+                            count += 1
+                        }
+                    }
+                    
+                    if count == 0 { count = 1 }
+                    for _ in 0..<count {
+                        proxy.deleteBackward()
+                    }
+                },
                 onSwitchKeyboard: { inputVC.advanceToNextInputMode() }
             )
 
@@ -388,6 +439,117 @@ struct ReturnKeyInfo {
     }
 }
 
+// MARK: - Backspace Repeat Modifier
+
+/// Replicates native iOS keyboard backspace behavior:
+/// 1. Delete one character immediately on press
+/// 2. After initial delay (~0.5s), delete character-by-character
+/// 3. After acceleration threshold (~1.8s of holding), delete word-by-word
+struct BackspaceRepeat: ViewModifier {
+    let cornerRadius: CGFloat
+    let onDelete: () -> Void
+    let onDeleteWord: () -> Void
+
+    @Environment(\.colorScheme) private var colorScheme
+    @State private var isPressed = false
+    @State private var repeatTask: Task<Void, Never>?
+
+    private static let haptic = UIImpactFeedbackGenerator(style: .light)
+
+    // Timing constants matching native keyboard feel
+    private static let initialDelay: Duration = .milliseconds(500)
+    private static let charRepeatInterval: Duration = .milliseconds(130)
+    private static let wordPhaseThreshold: Duration = .milliseconds(1800)
+    private static let wordRepeatInterval: Duration = .milliseconds(300)
+
+    private static let cancelThreshold: CGFloat = 40
+    private static let scrollDetectionThreshold: CGFloat = 8
+
+    private var highlightColor: Color {
+        colorScheme == .dark
+            ? Color.white.opacity(0.3)
+            : Color.black.opacity(0.25)
+    }
+
+    func body(content: Content) -> some View {
+        content
+            .background(Color.white.opacity(0.001))
+            .overlay(
+                isPressed
+                    ? RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                        .fill(highlightColor)
+                    : nil
+            )
+            .contentShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
+            .simultaneousGesture(
+                DragGesture(minimumDistance: 0, coordinateSpace: .local)
+                    .onChanged { value in
+                        let shouldCancel =
+                            abs(value.translation.height) > Self.scrollDetectionThreshold &&
+                            abs(value.translation.height) > abs(value.translation.width)
+                        let inside = max(abs(value.translation.width), abs(value.translation.height)) < Self.cancelThreshold
+
+                        if shouldCancel || !inside {
+                            cancelRepeat()
+                            return
+                        }
+
+                        if !isPressed {
+                            isPressed = true
+                            Self.haptic.impactOccurred()
+                            UIDevice.current.playInputClick()
+                            onDelete()
+                            startRepeat()
+                        }
+                    }
+                    .onEnded { _ in
+                        cancelRepeat()
+                    }
+            )
+    }
+
+    private func startRepeat() {
+        repeatTask?.cancel()
+        repeatTask = Task { @MainActor in
+            // Phase 1: initial delay before repeating
+            try? await Task.sleep(for: Self.initialDelay)
+            guard !Task.isCancelled else { return }
+
+            let startTime = ContinuousClock.now
+
+            // Phase 2+3: character-by-character, then word-by-word
+            while !Task.isCancelled {
+                let elapsed = ContinuousClock.now - startTime
+                if elapsed >= Self.wordPhaseThreshold {
+                    // Word-by-word deletion
+                    onDeleteWord()
+                    try? await Task.sleep(for: Self.wordRepeatInterval)
+                } else {
+                    // Character-by-character deletion
+                    onDelete()
+                    try? await Task.sleep(for: Self.charRepeatInterval)
+                }
+            }
+        }
+    }
+
+    private func cancelRepeat() {
+        repeatTask?.cancel()
+        repeatTask = nil
+        isPressed = false
+    }
+}
+
+extension View {
+    func backspaceRepeat(
+        cornerRadius: CGFloat = KeyStyle.cornerRadius,
+        onDelete: @escaping () -> Void,
+        onDeleteWord: @escaping () -> Void
+    ) -> some View {
+        modifier(BackspaceRepeat(cornerRadius: cornerRadius, onDelete: onDelete, onDeleteWord: onDeleteWord))
+    }
+}
+
 // MARK: - Keyboard Root View
 
 struct KeyboardView: View {
@@ -396,6 +558,7 @@ struct KeyboardView: View {
     let onInsertText: (String) -> Void
     let onCopyImage: (Data) -> Void
     let onBackspace: () -> Void
+    let onDeleteWord: () -> Void
     let onSwitchKeyboard: () -> Void
 
     @State private var copiedID: UUID? = nil
@@ -611,7 +774,7 @@ struct KeyboardView: View {
                 .font(.system(size: 20, weight: .light))
                 .frame(width: smallKeyWidth, height: keyHeight)
                 .background(KeyStyle.keyColor, in: RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous))
-                .instantPress { onBackspace() }
+                .backspaceRepeat(onDelete: onBackspace, onDeleteWord: onDeleteWord)
 
             // Space
             Text("")
