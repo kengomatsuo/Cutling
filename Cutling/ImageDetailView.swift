@@ -46,6 +46,7 @@ struct ImageDetailView: View {
     @State private var hasClipboardImage = false
     @State private var autoDeleteEnabled: Bool
     @State private var deleteAt: Date
+    @State private var inputTypeTriggers: Set<String>
     
     init(item: Cutling?, autoPasteFromClipboard: Bool = false) {
         self.existingItem = item
@@ -53,6 +54,7 @@ struct ImageDetailView: View {
         _name = State(initialValue: item?.name ?? "")
         _autoDeleteEnabled = State(initialValue: item?.expiresAt != nil)
         _deleteAt = State(initialValue: item?.expiresAt ?? Date().addingTimeInterval(86400))
+        _inputTypeTriggers = State(initialValue: Set(item?.inputTypeTriggers ?? []))
     }
 
     var isEditing: Bool { existingItem != nil }
@@ -67,6 +69,7 @@ struct ImageDetailView: View {
                     imagePreview
                     pickerButtons
                 }
+                InputTypePickerSection(selectedTriggers: $inputTypeTriggers)
                 ExpirationPickerSection(autoDeleteEnabled: $autoDeleteEnabled, deleteAt: $deleteAt)
                 if hasClipboardImage {
                     Section {
@@ -246,6 +249,7 @@ struct ImageDetailView: View {
             var updated = existing
             updated.name = name
             updated.expiresAt = autoDeleteEnabled ? deleteAt : nil
+            updated.inputTypeTriggers = inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
 
             if let newImageData = imageData {
                 if let oldFilename = existing.imageFilename {
@@ -273,7 +277,8 @@ struct ImageDetailView: View {
                 icon: "photo",
                 kind: .image,
                 imageFilename: nil,
-                expiresAt: autoDeleteEnabled ? deleteAt : nil
+                expiresAt: autoDeleteEnabled ? deleteAt : nil,
+                inputTypeTriggers: inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
             )
 
             if let imageData {

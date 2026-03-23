@@ -111,6 +111,22 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Вы достигли максимума в %lld cutling-изображений. Изображения занимают значительную память клавиатуры. Удалите некоторые изображения, чтобы добавить новые.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Вы достигли максимума в %lld текстовых cutling. Удалите некоторые, чтобы добавить новые.";
 
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "Предложения по типу ввода";
+"Suggest for Input Types" = "Предлагать для типов ввода";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Когда вы выберете текстовое поле подходящего типа, этот cutling появится в верхней части клавиатуры.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Назначьте cutling типам ввода, чтобы они появлялись в верхней части клавиатуры при выборе подходящего текстового поля.";
+"No cutlings yet. Add some first." = "Пока нет cutling. Сначала добавьте несколько.";
+"Suggested" = "Предложено";
+"Email" = "Эл. почта";
+"URL" = "URL";
+"Phone Number" = "Номер телефона";
+"Address" = "Адрес";
+
+/* MARK: - Auto-Detection */
+"Auto-detected: %@" = "Auto-detected: %@";
+"Undo" = "Undo";
 /* MARK: - Clipboard Feedback */
 "Copied" = "Скопировано";
 "Inserted" = "Вставлено";

@@ -111,6 +111,22 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "คุณมี cutling รูปภาพครบ %lld รายการแล้ว รูปภาพใช้หน่วยความจำมากในคีย์บอร์ด ลบรูปภาพบางรายการเพื่อเพิ่มใหม่";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "คุณมี cutling ข้อความครบ %lld รายการแล้ว ลบบางรายการเพื่อเพิ่มใหม่";
 
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "คำแนะนำประเภทการป้อน";
+"Suggest for Input Types" = "แนะนำสำหรับประเภทการป้อน";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "เมื่อคุณโฟกัสที่ช่องข้อความประเภทที่ตรงกัน cutling นี้จะปรากฏที่ด้านบนของคีย์บอร์ด";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "กำหนด cutling ให้กับประเภทการป้อนเพื่อให้ปรากฏที่ด้านบนของคีย์บอร์ดเมื่อคุณโฟกัสที่ช่องข้อความที่ตรงกัน";
+"No cutlings yet. Add some first." = "ยังไม่มี cutling เพิ่มบางรายการก่อน";
+"Suggested" = "แนะนำ";
+"Email" = "อีเมล";
+"URL" = "URL";
+"Phone Number" = "หมายเลขโทรศัพท์";
+"Address" = "ที่อยู่";
+
+/* MARK: - Auto-Detection */
+"Auto-detected: %@" = "Auto-detected: %@";
+"Undo" = "Undo";
 /* MARK: - Clipboard Feedback */
 "Copied" = "คัดลอกแล้ว";
 "Inserted" = "แทรกแล้ว";

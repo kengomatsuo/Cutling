@@ -111,6 +111,22 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Elérted a maximális %lld képes cutlinget. A képek jelentős memóriát használnak a billentyűzeten. Törölj néhány képet, hogy újakat adhass hozzá.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Elérted a maximális %lld szöveges cutlinget. Törölj néhányat, hogy újakat adhass hozzá.";
 
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "Beviteli típus javaslatok";
+"Suggest for Input Types" = "Javaslat beviteli típusokhoz";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Amikor egy megfelelő típusú szövegmezőre fókuszálsz, ez a cutling megjelenik a billentyűzet tetején.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Rendelj cutlingeket beviteli típusokhoz, hogy megjelenjenek a billentyűzet tetején, amikor egy megfelelő szövegmezőre fókuszálsz.";
+"No cutlings yet. Add some first." = "Még nincsenek cutlingek. Adj hozzá néhányat először.";
+"Suggested" = "Javasolt";
+"Email" = "E-mail";
+"URL" = "URL";
+"Phone Number" = "Telefonszám";
+"Address" = "Cím";
+
+/* MARK: - Auto-Detection */
+"Auto-detected: %@" = "Auto-detected: %@";
+"Undo" = "Undo";
 /* MARK: - Clipboard Feedback */
 "Copied" = "Másolva";
 "Inserted" = "Beillesztve";

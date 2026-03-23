@@ -111,6 +111,22 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Naabot mo na ang maximum na %lld image cutling. Ang mga larawan ay gumagamit ng malaking memory sa keyboard. Mag-delete ng ilang larawan para makapagdagdag pa.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Naabot mo na ang maximum na %lld text cutling. Mag-delete ng ilan para makapagdagdag pa.";
 
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "Mga Mungkahi sa Uri ng Input";
+"Suggest for Input Types" = "Imungkahi para sa Mga Uri ng Input";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Kapag nag-focus ka sa text field na may tumutugmang uri, ang cutling na ito ay lalabas sa itaas ng keyboard.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Mag-assign ng mga cutling sa mga uri ng input para lumabas ang mga ito sa itaas ng keyboard kapag nag-focus ka sa tumutugmang text field.";
+"No cutlings yet. Add some first." = "Wala pang cutling. Magdagdag muna ng ilan.";
+"Suggested" = "Iminungkahi";
+"Email" = "Email";
+"URL" = "URL";
+"Phone Number" = "Numero ng Telepono";
+"Address" = "Address";
+
+/* MARK: - Auto-Detection */
+"Auto-detected: %@" = "Auto-detected: %@";
+"Undo" = "Undo";
 /* MARK: - Clipboard Feedback */
 "Copied" = "Nakopya";
 "Inserted" = "Naipasok";

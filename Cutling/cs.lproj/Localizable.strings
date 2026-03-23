@@ -111,6 +111,22 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Dosáhli jste maxima %lld obrázkových cutlingů. Obrázky zabírají hodně paměti klávesnice. Smažte některé obrázky pro přidání dalších.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Dosáhli jste maxima %lld textových cutlingů. Smažte některé pro přidání dalších.";
 
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "Návrhy typu vstupu";
+"Suggest for Input Types" = "Navrhovat pro typy vstupu";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Když zaměříte textové pole odpovídajícího typu, tento cutling se zobrazí v horní části klávesnice.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Přiřaďte cutlingy typům vstupu, aby se zobrazovaly v horní části klávesnice, když zaměříte odpovídající textové pole.";
+"No cutlings yet. Add some first." = "Zatím žádné cutlingy. Nejprve nějaké přidejte.";
+"Suggested" = "Navrženo";
+"Email" = "E-mail";
+"URL" = "URL";
+"Phone Number" = "Telefonní číslo";
+"Address" = "Adresa";
+
+/* MARK: - Auto-Detection */
+"Auto-detected: %@" = "Auto-detected: %@";
+"Undo" = "Undo";
 /* MARK: - Clipboard Feedback */
 "Copied" = "Zkopírováno";
 "Inserted" = "Vloženo";

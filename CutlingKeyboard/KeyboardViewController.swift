@@ -41,6 +41,8 @@ final class KeyboardState: ObservableObject {
     @Published var returnKeyType: UIReturnKeyType = .default
     @Published var hasFullAccess: Bool = false
     @Published var needsInputModeSwitchKey: Bool = false
+    @Published var keyboardType: UIKeyboardType = .default
+    @Published var textContentType: UITextContentType?
 }
 
 // MARK: - Instant Press Modifier
@@ -203,6 +205,9 @@ class KeyboardViewController: UIInputViewController {
         keyboardState.hasFullAccess = fullAccess
         keyboardState.returnKeyType = textDocumentProxy.returnKeyType ?? .default
         keyboardState.needsInputModeSwitchKey = needsInputModeSwitchKey
+        keyboardState.keyboardType = textDocumentProxy.keyboardType ?? .default
+        let contentType: UITextContentType? = textDocumentProxy.textContentType
+        keyboardState.textContentType = contentType
         
         // Fetch remote changes from CloudKit (in case main app hasn't been opened)
         KeyboardSyncHelper.fetchFromCloudKit(store: store)
@@ -290,9 +295,17 @@ class KeyboardViewController: UIInputViewController {
     // keyboard type change, return key type change, etc.
     override func textDidChange(_ textInput: UITextInput?) {
         super.textDidChange(textInput)
-        let newType = textDocumentProxy.returnKeyType ?? .default
-        if keyboardState.returnKeyType != newType {
-            keyboardState.returnKeyType = newType
+        let newReturnType = textDocumentProxy.returnKeyType ?? .default
+        if keyboardState.returnKeyType != newReturnType {
+            keyboardState.returnKeyType = newReturnType
+        }
+        let newKeyboardType = textDocumentProxy.keyboardType ?? .default
+        if keyboardState.keyboardType != newKeyboardType {
+            keyboardState.keyboardType = newKeyboardType
+        }
+        let newContentType: UITextContentType? = textDocumentProxy.textContentType
+        if keyboardState.textContentType != newContentType {
+            keyboardState.textContentType = newContentType
         }
     }
 }
@@ -699,39 +712,102 @@ struct KeyboardView: View {
         .allowsHitTesting(false)
     }
 
+    // MARK: - Input Type Suggestion
+
+    /// Cutlings whose inputTypeTriggers match the current text field context.
+    private var suggestedCutlings: [Cutling] {
+        let activeKeys = InputTypeCategory.activeTriggerKeys(
+            keyboardType: state.keyboardType,
+            textContentType: state.textContentType
+        )
+        guard !activeKeys.isEmpty else { return [] }
+
+        let liveCutlings = store.cutlings.filter { !$0.isExpired }
+        return liveCutlings.filter { cutling in
+            guard let triggers = cutling.inputTypeTriggers, !triggers.isEmpty else { return false }
+            return !Set(triggers).isDisjoint(with: activeKeys)
+        }
+    }
+
     // MARK: - Cutling Grid
 
     private var cutlingGrid: some View {
         let liveCutlings = store.cutlings.filter { !$0.isExpired }
+        let suggested = suggestedCutlings
+        let suggestedIDs = Set(suggested.map(\.id))
+        let remaining = liveCutlings.filter { !suggestedIDs.contains($0.id) }
+        let gridColumns = [GridItem(.adaptive(minimum: KeyStyle.cardMinWidth(for: horizontalSizeClass)), spacing: keySpacing)]
+
         return ScrollViewReader { proxy in
             ScrollView(.vertical, showsIndicators: false) {
                 if liveCutlings.isEmpty {
                     // ... (your empty state view)
                 } else {
-                    LazyVGrid(
-                        columns: [GridItem(.adaptive(minimum: KeyStyle.cardMinWidth(for: horizontalSizeClass)), spacing: keySpacing)],
-                        spacing: keySpacing
-                    ) {
-                        ForEach(liveCutlings) { cutling in
-                            CutlingKeyView(
-                                cutling: cutling,
-                                store: store,
-                                isCopied: copiedID == cutling.id,
-                                isExisted: existedID == cutling.id,
-                                onTap: { handleTap(cutling) }
-                            )
-                            .id(cutling.id)
-                            .transition(.asymmetric(
-                                insertion: .scale(scale: 0.8).combined(with: .opacity),
-                                removal: .scale(scale: 0.8).combined(with: .opacity)
-                            ))
+                    LazyVStack(spacing: 0) {
+                        if !suggested.isEmpty {
+                            // Suggestions section header
+                            HStack(spacing: 4) {
+                                Image(systemName: "sparkle")
+                                    .font(.system(size: 10, weight: .semibold))
+                                Text("Suggestions")
+                                    .font(.system(size: 12, weight: .semibold))
+                            }
+                            .foregroundStyle(.secondary)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal, KeyStyle.horizontalPadding + 4)
+                            .padding(.top, keySpacing)
+                            .padding(.bottom, 4)
+
+                            LazyVGrid(columns: gridColumns, spacing: keySpacing) {
+                                ForEach(suggested) { cutling in
+                                    CutlingKeyView(
+                                        cutling: cutling,
+                                        store: store,
+                                        isCopied: copiedID == cutling.id,
+                                        isExisted: existedID == cutling.id,
+                                        onTap: { handleTap(cutling) }
+                                    )
+                                    .id(cutling.id)
+                                    .transition(.asymmetric(
+                                        insertion: .scale(scale: 0.8).combined(with: .opacity),
+                                        removal: .scale(scale: 0.8).combined(with: .opacity)
+                                    ))
+                                }
+                            }
+                            .padding(.horizontal, KeyStyle.horizontalPadding)
+
+                            // Divider between sections
+                            Rectangle()
+                                .fill(.secondary.opacity(0.2))
+                                .frame(height: 0.5)
+                                .padding(.horizontal, KeyStyle.horizontalPadding + 8)
+                                .padding(.vertical, keySpacing)
                         }
+
+                        LazyVGrid(columns: gridColumns, spacing: keySpacing) {
+                            ForEach(remaining) { cutling in
+                                CutlingKeyView(
+                                    cutling: cutling,
+                                    store: store,
+                                    isCopied: copiedID == cutling.id,
+                                    isExisted: existedID == cutling.id,
+                                    onTap: { handleTap(cutling) }
+                                )
+                                .id(cutling.id)
+                                .transition(.asymmetric(
+                                    insertion: .scale(scale: 0.8).combined(with: .opacity),
+                                    removal: .scale(scale: 0.8).combined(with: .opacity)
+                                ))
+                            }
+                        }
+                        .padding(.horizontal, KeyStyle.horizontalPadding)
+                        .padding(.top, suggested.isEmpty ? keySpacing : 0)
+                        .padding(.bottom, keySpacing)
                     }
-                    .padding(.horizontal, KeyStyle.horizontalPadding)
-                    .padding(.vertical, keySpacing)
                 }
             }
             .animation(.spring(duration: 0.4, bounce: 0.2), value: liveCutlings.map(\.id))
+            .animation(.spring(duration: 0.4, bounce: 0.2), value: suggested.map(\.id))
             .onChange(of: existedID) { oldValue, newValue in
                 if let id = newValue {
                     withAnimation(.easeInOut) {

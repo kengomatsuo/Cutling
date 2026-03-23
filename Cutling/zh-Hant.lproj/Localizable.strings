@@ -111,6 +111,22 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "圖片剪切片段已達上限（%lld）。圖片在鍵盤中佔用較多記憶體。請刪除一些後再新增。";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "文字剪切片段已達上限（%lld）。請刪除一些後再新增。";
 
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "輸入類型建議";
+"Suggest for Input Types" = "為輸入類型建議";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "當你聚焦到匹配類型的文字欄位時，此Cutling將出現在鍵盤頂部。";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "將Cutling分配給輸入類型，當你聚焦到匹配的文字欄位時，它們將出現在鍵盤頂部。";
+"No cutlings yet. Add some first." = "還沒有Cutling。請先新增一些。";
+"Suggested" = "已建議";
+"Email" = "電子郵件";
+"URL" = "URL";
+"Phone Number" = "電話號碼";
+"Address" = "地址";
+
+/* MARK: - Auto-Detection */
+"Auto-detected: %@" = "Auto-detected: %@";
+"Undo" = "Undo";
 /* MARK: - Clipboard Feedback */
 "Copied" = "已複製";
 "Inserted" = "已插入";

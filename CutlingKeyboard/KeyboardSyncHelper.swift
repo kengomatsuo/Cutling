@@ -139,6 +139,9 @@ enum KeyboardSyncHelper {
         if let color = cutling.color {
             record["color"] = color as CKRecordValue
         }
+        if let triggers = cutling.inputTypeTriggers, !triggers.isEmpty {
+            record["inputTypeTriggers"] = triggers as CKRecordValue
+        }
 
         // Image asset
         if cutling.kind == .image, let filename = cutling.imageFilename {
@@ -167,6 +170,7 @@ enum KeyboardSyncHelper {
         let lastModified = record["lastModifiedDate"] as? Date ?? (record.modificationDate ?? Date())
         let expiresAt = record["expiresAt"] as? Date
         let color = record["color"] as? String
+        let inputTypeTriggers = record["inputTypeTriggers"] as? [String]
 
         var imageFilename: String? = nil
         if kind == .image, let asset = record["imageAsset"] as? CKAsset, let fileURL = asset.fileURL {
@@ -193,7 +197,8 @@ enum KeyboardSyncHelper {
             sortOrder: sortOrder,
             lastModifiedDate: lastModified,
             expiresAt: expiresAt,
-            color: color
+            color: color,
+            inputTypeTriggers: inputTypeTriggers
         )
     }
 }

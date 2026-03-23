@@ -111,6 +111,22 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "لقد وصلت إلى الحد الأقصى وهو %lld cutling صور. تستخدم الصور ذاكرة كبيرة في لوحة المفاتيح. احذف بعض الصور لإضافة المزيد.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "لقد وصلت إلى الحد الأقصى وهو %lld cutling نصي. احذف بعضها لإضافة المزيد.";
 
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "اقتراحات نوع الإدخال";
+"Suggest for Input Types" = "اقتراح لأنواع الإدخال";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "عند التركيز على حقل نص من النوع المطابق، سيظهر هذا الـ cutling في أعلى لوحة المفاتيح.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "قم بتعيين cutling لأنواع الإدخال حتى تظهر في أعلى لوحة المفاتيح عند التركيز على حقل نص مطابق.";
+"No cutlings yet. Add some first." = "لا يوجد cutling بعد. أضف بعضاً أولاً.";
+"Suggested" = "مقترح";
+"Email" = "البريد الإلكتروني";
+"URL" = "URL";
+"Phone Number" = "رقم الهاتف";
+"Address" = "العنوان";
+
+/* MARK: - Auto-Detection */
+"Auto-detected: %@" = "Auto-detected: %@";
+"Undo" = "Undo";
 /* MARK: - Clipboard Feedback */
 "Copied" = "تم النسخ";
 "Inserted" = "تم الإدراج";

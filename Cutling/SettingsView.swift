@@ -40,7 +40,7 @@ struct SettingsView: View {
                             .foregroundStyle(isKeyboardAdded ? .green : .secondary)
                     }
                     HStack {
-                        Label("Full Access", systemImage: "hand.raised")
+                        Label("Full Access", systemImage: "lock.open")
                         Spacer()
                         Image(systemName: hasFullAccess ? "checkmark.circle.fill" : "xmark.circle.fill")
                             .foregroundStyle(hasFullAccess ? .green : .secondary)
@@ -94,6 +94,32 @@ struct SettingsView: View {
                 }
                 
                 Section {
+                    ForEach(InputTypeCategory.allCases) { category in
+                        NavigationLink {
+                            InputTypeCutlingPicker(category: category)
+                                .environmentObject(store)
+                        } label: {
+                            HStack {
+                                Label(category.displayName, systemImage: category.icon)
+                                Spacer()
+                                let count = store.cutlings.filter { cutling in
+                                    guard let triggers = cutling.inputTypeTriggers else { return false }
+                                    return !Set(triggers).isDisjoint(with: category.triggerKeys)
+                                }.count
+                                if count > 0 {
+                                    Text("\(count)")
+                                        .foregroundStyle(.secondary)
+                                }
+                            }
+                        }
+                    }
+                } header: {
+                    Text("Input Type Suggestions")
+                } footer: {
+                    Text("Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field.")
+                }
+
+                Section {
                     LabeledContent("Text Cutlings", value: "\(store.textCutlingsCount) / \(CutlingStore.maxTextCutlings)")
                     LabeledContent("Image Cutlings", value: "\(store.imageCutlingsCount) / \(CutlingStore.maxImageCutlings)")
                     LabeledContent("Max Text Length", value: String(localized: "\(CutlingStore.maxTextLength) chars"))
@@ -111,7 +137,7 @@ struct SettingsView: View {
                     }
 
                     Link(destination: URL(string: "https://kengomatsuo.github.io/Cutling/privacy/")!) {
-                        Label("Privacy Policy", systemImage: "hand.raised.square")
+                        Label("Privacy Policy", systemImage: "hand.raised")
                     }
                 }
             }

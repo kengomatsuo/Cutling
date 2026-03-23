@@ -111,6 +111,22 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Bạn đã đạt tối đa %lld cutling hình ảnh. Hình ảnh sử dụng nhiều bộ nhớ trong bàn phím. Xóa một số hình ảnh để thêm mới.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Bạn đã đạt tối đa %lld cutling văn bản. Xóa một số để thêm mới.";
 
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "Gợi ý loại nhập liệu";
+"Suggest for Input Types" = "Gợi ý cho loại nhập liệu";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Khi bạn chọn trường văn bản có loại phù hợp, cutling này sẽ xuất hiện ở đầu bàn phím.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Gán cutling cho loại nhập liệu để chúng xuất hiện ở đầu bàn phím khi bạn chọn trường văn bản phù hợp.";
+"No cutlings yet. Add some first." = "Chưa có cutling nào. Hãy thêm trước.";
+"Suggested" = "Được gợi ý";
+"Email" = "Email";
+"URL" = "URL";
+"Phone Number" = "Số điện thoại";
+"Address" = "Địa chỉ";
+
+/* MARK: - Auto-Detection */
+"Auto-detected: %@" = "Auto-detected: %@";
+"Undo" = "Undo";
 /* MARK: - Clipboard Feedback */
 "Copied" = "Đã Sao Chép";
 "Inserted" = "Đã Chèn";

@@ -111,6 +111,22 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "画像カットリングの上限（%lld）に達しました。キーボードのメモリを節約するため制限しています。いくつか削除してから追加してください。";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "テキストカットリングの上限（%lld）に達しました。いくつか削除してから追加してください。";
 
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "入力タイプの候補";
+"Suggest for Input Types" = "入力タイプに候補を設定";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "一致するタイプのテキストフィールドにフォーカスすると、このCutlingがキーボードの上部に表示されます。";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Cutlingを入力タイプに割り当てると、一致するテキストフィールドにフォーカスした時にキーボードの上部に表示されます。";
+"No cutlings yet. Add some first." = "まだCutlingがありません。まず追加してください。";
+"Suggested" = "候補";
+"Email" = "メール";
+"URL" = "URL";
+"Phone Number" = "電話番号";
+"Address" = "住所";
+
+/* MARK: - Auto-Detection */
+"Auto-detected: %@" = "Auto-detected: %@";
+"Undo" = "Undo";
 /* MARK: - Clipboard Feedback */
 "Copied" = "コピー済み";
 "Inserted" = "挿入済み";

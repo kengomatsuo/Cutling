@@ -111,6 +111,22 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Du har nått gränsen på %lld bild-cutlings. Bilder använder mycket minne i tangentbordet. Radera några bilder för att lägga till fler.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Du har nått gränsen på %lld text-cutlings. Radera några för att lägga till fler.";
 
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "Förslag för inmatningstyp";
+"Suggest for Input Types" = "Föreslå för inmatningstyper";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "När du fokuserar ett textfält av matchande typ visas denna cutling längst upp på tangentbordet.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Tilldela cutlings till inmatningstyper så att de visas längst upp på tangentbordet när du fokuserar ett matchande textfält.";
+"No cutlings yet. Add some first." = "Inga cutlings ännu. Lägg till några först.";
+"Suggested" = "Föreslagen";
+"Email" = "E-post";
+"URL" = "URL";
+"Phone Number" = "Telefonnummer";
+"Address" = "Adress";
+
+/* MARK: - Auto-Detection */
+"Auto-detected: %@" = "Auto-detected: %@";
+"Undo" = "Undo";
 /* MARK: - Clipboard Feedback */
 "Copied" = "Kopierad";
 "Inserted" = "Infogad";

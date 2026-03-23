@@ -359,6 +359,11 @@ final actor CloudKitSyncManager {
         } else {
             record["color"] = nil
         }
+        if let triggers = cutling.inputTypeTriggers, !triggers.isEmpty {
+            record["inputTypeTriggers"] = triggers as CKRecordValue
+        } else {
+            record["inputTypeTriggers"] = nil
+        }
 
         // Image asset
         if cutling.kind == .image, let filename = cutling.imageFilename {
@@ -392,6 +397,7 @@ final actor CloudKitSyncManager {
         let lastModified = record["lastModifiedDate"] as? Date ?? (record.modificationDate ?? Date())
         let expiresAt = record["expiresAt"] as? Date
         let color = record["color"] as? String
+        let inputTypeTriggers = record["inputTypeTriggers"] as? [String]
 
         var imageFilename: String? = nil
         if kind == .image, let asset = record["imageAsset"] as? CKAsset, let fileURL = asset.fileURL {
@@ -419,7 +425,8 @@ final actor CloudKitSyncManager {
             sortOrder: sortOrder,
             lastModifiedDate: lastModified,
             expiresAt: expiresAt,
-            color: color
+            color: color,
+            inputTypeTriggers: inputTypeTriggers
         )
     }
 

@@ -117,6 +117,11 @@ struct TextDetailView: View {
     @State private var autoDeleteEnabled: Bool
     @State private var deleteAt: Date
     @State private var color: String?
+    @State private var inputTypeTriggers: Set<String>
+    @State private var autoDetectedCategories: Set<InputTypeCategory> = []
+    @State private var showAutoDetectBanner = false
+    @State private var detectTask: Task<Void, Never>?
+    @State private var bannerDismissTask: Task<Void, Never>?
 
     init(item: Cutling?, autoPasteFromClipboard: Bool = false) {
         self.existingItem = item
@@ -127,6 +132,7 @@ struct TextDetailView: View {
         _autoDeleteEnabled = State(initialValue: item?.expiresAt != nil)
         _deleteAt = State(initialValue: item?.expiresAt ?? Date().addingTimeInterval(86400))
         _color = State(initialValue: item?.color)
+        _inputTypeTriggers = State(initialValue: Set(item?.inputTypeTriggers ?? []))
     }
 
     var isEditing: Bool { existingItem != nil }
@@ -175,6 +181,7 @@ struct TextDetailView: View {
                             if value.count > CutlingStore.maxTextLength {
                                 value = String(value.prefix(CutlingStore.maxTextLength))
                             }
+                            scheduleAutoDetect()
                         }
                 } header: {
                     Text("Text")
@@ -184,6 +191,23 @@ struct TextDetailView: View {
                         .font(.caption)
                 }
                 ColorPaletteSection(selectedColor: $color)
+                InputTypePickerSection(selectedTriggers: $inputTypeTriggers)
+                if showAutoDetectBanner && !autoDetectedCategories.isEmpty {
+                    Section {
+                        HStack {
+                            Image(systemName: "sparkles")
+                                .foregroundStyle(.tint)
+                            Text("Auto-detected: \(autoDetectedCategories.map(\.displayName).joined(separator: ", "))")
+                                .font(.subheadline)
+                            Spacer()
+                            Button("Undo") {
+                                undoAutoDetect()
+                            }
+                            .font(.subheadline.weight(.medium))
+                        }
+                    }
+                    .transition(.opacity)
+                }
                 ExpirationPickerSection(autoDeleteEnabled: $autoDeleteEnabled, deleteAt: $deleteAt)
                 if hasClipboardText {
                     Section {
@@ -243,6 +267,7 @@ struct TextDetailView: View {
                             updated.icon = icon
                             updated.expiresAt = autoDeleteEnabled ? deleteAt : nil
                             updated.color = color
+                            updated.inputTypeTriggers = inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
                             store.update(updated)
                             dismiss()
                         } else {
@@ -255,7 +280,8 @@ struct TextDetailView: View {
                                         value: value,
                                         icon: icon,
                                         expiresAt: autoDeleteEnabled ? deleteAt : nil,
-                                        color: color
+                                        color: color,
+                                        inputTypeTriggers: inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
                                     )
                                 )
                                 dismiss()
@@ -303,6 +329,66 @@ struct TextDetailView: View {
         #endif
     }
     
+    // MARK: - Auto-Detection
+
+    private func scheduleAutoDetect() {
+        detectTask?.cancel()
+        detectTask = Task { @MainActor in
+            try? await Task.sleep(for: .milliseconds(800))
+            guard !Task.isCancelled else { return }
+            runAutoDetect()
+        }
+    }
+
+    private func runAutoDetect() {
+        let detected = InputTypeCategory.detect(from: value)
+        guard !detected.isEmpty else { return }
+
+        // Only add categories that aren't already manually set
+        let currentCategories = InputTypeCategory.matchingCategories(for: inputTypeTriggers)
+        let newCategories = detected.subtracting(Set(currentCategories))
+        guard !newCategories.isEmpty else {
+            // Already covered — hide any stale banner
+            if showAutoDetectBanner {
+                withAnimation { showAutoDetectBanner = false }
+                autoDetectedCategories = []
+            }
+            return
+        }
+
+        // Auto-toggle the new categories on
+        for category in newCategories {
+            inputTypeTriggers.formUnion(category.triggerKeys)
+        }
+        autoDetectedCategories = newCategories
+
+        withAnimation(.easeInOut(duration: 0.25)) {
+            showAutoDetectBanner = true
+        }
+
+        // Auto-dismiss banner after 5 seconds
+        bannerDismissTask?.cancel()
+        bannerDismissTask = Task { @MainActor in
+            try? await Task.sleep(for: .seconds(5))
+            guard !Task.isCancelled else { return }
+            withAnimation(.easeOut(duration: 0.3)) {
+                showAutoDetectBanner = false
+            }
+            autoDetectedCategories = []
+        }
+    }
+
+    private func undoAutoDetect() {
+        bannerDismissTask?.cancel()
+        for category in autoDetectedCategories {
+            inputTypeTriggers.subtract(category.triggerKeys)
+        }
+        withAnimation(.easeOut(duration: 0.25)) {
+            showAutoDetectBanner = false
+        }
+        autoDetectedCategories = []
+    }
+
     // MARK: - Actions
     
     private func checkClipboard() {

@@ -111,6 +111,22 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Hai raggiunto il massimo di %lld cutling immagine. Le immagini usano molta memoria nella tastiera. Elimina alcune immagini per aggiungerne altre.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Hai raggiunto il massimo di %lld cutling testo. Eliminane alcuni per aggiungerne altri.";
 
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "Suggerimenti per tipo di input";
+"Suggest for Input Types" = "Suggerisci per tipi di input";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Quando selezioni un campo di testo del tipo corrispondente, questo cutling apparirà in cima alla tastiera.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Assegna i cutling ai tipi di input in modo che appaiano in cima alla tastiera quando selezioni un campo di testo corrispondente.";
+"No cutlings yet. Add some first." = "Ancora nessun cutling. Aggiungine prima qualcuno.";
+"Suggested" = "Suggerito";
+"Email" = "E-mail";
+"URL" = "URL";
+"Phone Number" = "Numero di telefono";
+"Address" = "Indirizzo";
+
+/* MARK: - Auto-Detection */
+"Auto-detected: %@" = "Auto-detected: %@";
+"Undo" = "Undo";
 /* MARK: - Clipboard Feedback */
 "Copied" = "Copiato";
 "Inserted" = "Inserito";

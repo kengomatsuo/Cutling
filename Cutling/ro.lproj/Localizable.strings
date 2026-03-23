@@ -111,6 +111,22 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Ai atins maximul de %lld cutlinguri imagine. Imaginile folosesc multă memorie în tastatură. Șterge câteva imagini pentru a adăuga altele.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Ai atins maximul de %lld cutlinguri text. Șterge câteva pentru a adăuga altele.";
 
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "Sugestii pentru tipul de introducere";
+"Suggest for Input Types" = "Sugerează pentru tipuri de introducere";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Când focalizezi un câmp de text de tipul corespunzător, acest cutling va apărea în partea de sus a tastaturii.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Atribuie cutling-uri tipurilor de introducere pentru ca acestea să apară în partea de sus a tastaturii când focalizezi un câmp de text corespunzător.";
+"No cutlings yet. Add some first." = "Niciun cutling încă. Adaugă câteva mai întâi.";
+"Suggested" = "Sugerat";
+"Email" = "E-mail";
+"URL" = "URL";
+"Phone Number" = "Număr de telefon";
+"Address" = "Adresă";
+
+/* MARK: - Auto-Detection */
+"Auto-detected: %@" = "Auto-detected: %@";
+"Undo" = "Undo";
 /* MARK: - Clipboard Feedback */
 "Copied" = "Copiat";
 "Inserted" = "Inserat";

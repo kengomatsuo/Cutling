@@ -111,6 +111,22 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Olet saavuttanut enimmäismäärän %lld kuva-cutlingia. Kuvat käyttävät paljon muistia näppäimistössä. Poista joitakin kuvia lisätäksesi lisää.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Olet saavuttanut enimmäismäärän %lld teksti-cutlingia. Poista joitakin lisätäksesi lisää.";
 
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "Syöttötyypin ehdotukset";
+"Suggest for Input Types" = "Ehdota syöttötyypeille";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Kun kohdistut vastaavan tyypin tekstikenttään, tämä cutling näkyy näppäimistön yläosassa.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Määritä cutlingit syöttötyypeille, jotta ne näkyvät näppäimistön yläosassa, kun kohdistut vastaavaan tekstikenttään.";
+"No cutlings yet. Add some first." = "Ei vielä cutlingeja. Lisää ensin muutama.";
+"Suggested" = "Ehdotettu";
+"Email" = "Sähköposti";
+"URL" = "URL";
+"Phone Number" = "Puhelinnumero";
+"Address" = "Osoite";
+
+/* MARK: - Auto-Detection */
+"Auto-detected: %@" = "Auto-detected: %@";
+"Undo" = "Undo";
 /* MARK: - Clipboard Feedback */
 "Copied" = "Kopioitu";
 "Inserted" = "Lisätty";

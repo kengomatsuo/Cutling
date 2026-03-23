@@ -111,6 +111,22 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Φτάσατε το μέγιστο των %lld cutlings εικόνας. Οι εικόνες χρησιμοποιούν σημαντική μνήμη στο πληκτρολόγιο. Διαγράψτε κάποιες εικόνες για να προσθέσετε περισσότερες.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Φτάσατε το μέγιστο των %lld cutlings κειμένου. Διαγράψτε κάποια για να προσθέσετε περισσότερα.";
 
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "Προτάσεις τύπου εισόδου";
+"Suggest for Input Types" = "Πρόταση για τύπους εισόδου";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Όταν εστιάσετε σε ένα πεδίο κειμένου αντίστοιχου τύπου, αυτό το cutling θα εμφανιστεί στο επάνω μέρος του πληκτρολογίου.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Αντιστοιχίστε cutlings σε τύπους εισόδου ώστε να εμφανίζονται στο επάνω μέρος του πληκτρολογίου όταν εστιάσετε σε ένα αντίστοιχο πεδίο κειμένου.";
+"No cutlings yet. Add some first." = "Δεν υπάρχουν cutlings ακόμα. Προσθέστε πρώτα μερικά.";
+"Suggested" = "Προτεινόμενο";
+"Email" = "Email";
+"URL" = "URL";
+"Phone Number" = "Αριθμός τηλεφώνου";
+"Address" = "Διεύθυνση";
+
+/* MARK: - Auto-Detection */
+"Auto-detected: %@" = "Auto-detected: %@";
+"Undo" = "Undo";
 /* MARK: - Clipboard Feedback */
 "Copied" = "Αντιγράφηκε";
 "Inserted" = "Εισήχθη";

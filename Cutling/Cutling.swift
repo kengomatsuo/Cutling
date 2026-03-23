@@ -7,10 +7,157 @@
 
 import Foundation
 import SwiftUI
+#if os(iOS)
+import UIKit
+#endif
 
 enum CutlingKind: String, Codable, Sendable {
     case text
     case image
+}
+
+// MARK: - Input Type Triggers
+
+/// User-facing input type categories that group related UIKeyboardType / UITextContentType values.
+/// Each category maps to one or more raw trigger keys stored on the cutling.
+enum InputTypeCategory: String, CaseIterable, Identifiable, Codable, Sendable {
+    case email
+    case url
+    case phoneNumber
+    case name
+    case address
+
+    var id: String { rawValue }
+
+    var displayName: String {
+        switch self {
+        case .email:       return String(localized: "Email")
+        case .url:         return String(localized: "URL")
+        case .phoneNumber: return String(localized: "Phone Number")
+        case .name:        return String(localized: "Name")
+        case .address:     return String(localized: "Address")
+        }
+    }
+
+    var icon: String {
+        switch self {
+        case .email:       return "envelope"
+        case .url:         return "link"
+        case .phoneNumber: return "phone"
+        case .name:        return "person"
+        case .address:     return "mappin.and.ellipse"
+        }
+    }
+
+    /// The raw trigger keys that belong to this category.
+    var triggerKeys: Set<String> {
+        switch self {
+        case .email:
+            return ["content:emailAddress", "keyboard:emailAddress"]
+        case .url:
+            return ["content:URL", "keyboard:URL", "keyboard:webSearch"]
+        case .phoneNumber:
+            return ["content:telephoneNumber", "keyboard:phonePad", "keyboard:namePhonePad", "keyboard:numberPad", "keyboard:decimalPad", "keyboard:numbersAndPunctuation"]
+        case .name:
+            return ["content:name", "content:givenName", "content:familyName", "content:nickname"]
+        case .address:
+            return ["content:streetAddressLine1", "content:streetAddressLine2", "content:addressCity", "content:addressState", "content:postalCode", "content:location"]
+        }
+    }
+
+    /// Returns the category that contains the given trigger key, if any.
+    static func category(for triggerKey: String) -> InputTypeCategory? {
+        allCases.first { $0.triggerKeys.contains(triggerKey) }
+    }
+
+    /// Returns all categories whose trigger keys overlap with the given set.
+    static func matchingCategories(for triggerKeys: Set<String>) -> [InputTypeCategory] {
+        allCases.filter { !$0.triggerKeys.isDisjoint(with: triggerKeys) }
+    }
+
+    /// Detects which input type categories the given text likely represents.
+    /// Uses NSDataDetector for robust detection of emails, URLs, phone numbers, and addresses.
+    static func detect(from text: String) -> Set<InputTypeCategory> {
+        let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return [] }
+
+        var result = Set<InputTypeCategory>()
+
+        // Email: simple heuristic — contains @ with a dot after it
+        if let atIndex = trimmed.firstIndex(of: "@"),
+           trimmed[atIndex...].contains(".") {
+            result.insert(.email)
+        }
+
+        // URL, Phone, Address via NSDataDetector
+        let detectorTypes: NSTextCheckingResult.CheckingType = [.link, .phoneNumber, .address]
+        guard let detector = try? NSDataDetector(types: detectorTypes.rawValue) else { return result }
+        let range = NSRange(trimmed.startIndex..., in: trimmed)
+        let matches = detector.matches(in: trimmed, range: range)
+
+        for match in matches {
+            if match.resultType == .link {
+                if let url = match.url, url.scheme == "mailto" {
+                    result.insert(.email)
+                } else {
+                    result.insert(.url)
+                }
+            } else if match.resultType == .phoneNumber {
+                result.insert(.phoneNumber)
+            } else if match.resultType == .address {
+                result.insert(.address)
+            }
+        }
+
+        return result
+    }
+
+    #if os(iOS)
+    /// Builds the set of active trigger keys from the current text document proxy state.
+    static func activeTriggerKeys(keyboardType: UIKeyboardType, textContentType: UITextContentType?) -> Set<String> {
+        // Exclude password fields entirely
+        if let ct = textContentType, ct == .password || ct == .newPassword {
+            return []
+        }
+
+        var keys = Set<String>()
+
+        // Map UIKeyboardType to trigger keys
+        switch keyboardType {
+        case .emailAddress:             keys.insert("keyboard:emailAddress")
+        case .URL:                      keys.insert("keyboard:URL")
+        case .phonePad:                 keys.insert("keyboard:phonePad")
+        case .namePhonePad:             keys.insert("keyboard:namePhonePad")
+        case .numberPad:                keys.insert("keyboard:numberPad")
+        case .decimalPad:               keys.insert("keyboard:decimalPad")
+        case .numbersAndPunctuation:    keys.insert("keyboard:numbersAndPunctuation")
+        case .webSearch:                keys.insert("keyboard:webSearch")
+        default: break
+        }
+
+        // Map UITextContentType to trigger keys
+        if let ct = textContentType {
+            switch ct {
+            case .emailAddress:         keys.insert("content:emailAddress")
+            case .URL:                  keys.insert("content:URL")
+            case .telephoneNumber:      keys.insert("content:telephoneNumber")
+            case .name:                 keys.insert("content:name")
+            case .givenName:            keys.insert("content:givenName")
+            case .familyName:           keys.insert("content:familyName")
+            case .nickname:             keys.insert("content:nickname")
+            case .streetAddressLine1:   keys.insert("content:streetAddressLine1")
+            case .streetAddressLine2:   keys.insert("content:streetAddressLine2")
+            case .addressCity:          keys.insert("content:addressCity")
+            case .addressState:         keys.insert("content:addressState")
+            case .postalCode:           keys.insert("content:postalCode")
+            case .location:             keys.insert("content:location")
+            default: break
+            }
+        }
+
+        return keys
+    }
+    #endif
 }
 
 struct Cutling: Identifiable, Codable, Hashable, Sendable {
@@ -24,7 +171,14 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
     var lastModifiedDate: Date
     var expiresAt: Date?
     var color: String?
+    var inputTypeTriggers: [String]?
     
+    /// The input type categories this cutling is assigned to.
+    var assignedCategories: Set<InputTypeCategory> {
+        guard let triggers = inputTypeTriggers, !triggers.isEmpty else { return [] }
+        return Set(triggers.compactMap { InputTypeCategory.category(for: $0) })
+    }
+
     /// Whether this cutling has expired and should be purged.
     var isExpired: Bool {
         guard let expiresAt else { return false }
@@ -77,7 +231,8 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
         sortOrder: Int = 0,
         lastModifiedDate: Date = Date(),
         expiresAt: Date? = nil,
-        color: String? = nil
+        color: String? = nil,
+        inputTypeTriggers: [String]? = nil
     ) {
         self.id = id
         self.name = name
@@ -89,6 +244,7 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
         self.lastModifiedDate = lastModifiedDate
         self.expiresAt = expiresAt
         self.color = color
+        self.inputTypeTriggers = inputTypeTriggers
     }
     
     /// Decodes gracefully from older data that may lack sortOrder/lastModifiedDate/expiresAt/color.
@@ -104,6 +260,7 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
         lastModifiedDate = try container.decodeIfPresent(Date.self, forKey: .lastModifiedDate) ?? Date()
         expiresAt = try container.decodeIfPresent(Date.self, forKey: .expiresAt)
         color = try container.decodeIfPresent(String.self, forKey: .color)
+        inputTypeTriggers = try container.decodeIfPresent([String].self, forKey: .inputTypeTriggers)
     }
 }
 

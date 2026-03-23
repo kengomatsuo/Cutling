@@ -111,6 +111,22 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Je hebt het maximum van %lld afbeelding-cutlings bereikt. Afbeeldingen gebruiken veel geheugen in het toetsenbord. Verwijder enkele afbeeldingen om meer toe te voegen.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Je hebt het maximum van %lld tekst-cutlings bereikt. Verwijder er enkele om meer toe te voegen.";
 
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "Suggesties voor invoertype";
+"Suggest for Input Types" = "Voorstellen voor invoertypes";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Wanneer je een tekstveld van het overeenkomende type selecteert, verschijnt deze cutling bovenaan het toetsenbord.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Wijs cutlings toe aan invoertypes zodat ze bovenaan het toetsenbord verschijnen wanneer je een overeenkomend tekstveld selecteert.";
+"No cutlings yet. Add some first." = "Nog geen cutlings. Voeg er eerst een paar toe.";
+"Suggested" = "Voorgesteld";
+"Email" = "E-mail";
+"URL" = "URL";
+"Phone Number" = "Telefoonnummer";
+"Address" = "Adres";
+
+/* MARK: - Auto-Detection */
+"Auto-detected: %@" = "Auto-detected: %@";
+"Undo" = "Undo";
 /* MARK: - Clipboard Feedback */
 "Copied" = "Gekopieerd";
 "Inserted" = "Ingevoegd";

@@ -111,6 +111,22 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Has assolit el màxim de %lld cutlings d'imatge. Les imatges utilitzen molta memòria al teclat. Elimina algunes imatges per afegir-ne més.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Has assolit el màxim de %lld cutlings de text. Elimina'n alguns per afegir-ne més.";
 
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "Suggeriments per tipus d'entrada";
+"Suggest for Input Types" = "Suggerir per a tipus d'entrada";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Quan seleccionis un camp de text del tipus corresponent, aquest cutling apareixerà a la part superior del teclat.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Assigna cutlings a tipus d'entrada perquè apareguin a la part superior del teclat quan seleccionis un camp de text corresponent.";
+"No cutlings yet. Add some first." = "Encara no hi ha cutlings. Afegeix-ne uns quants primer.";
+"Suggested" = "Suggerit";
+"Email" = "Correu electrònic";
+"URL" = "URL";
+"Phone Number" = "Número de telèfon";
+"Address" = "Adreça";
+
+/* MARK: - Auto-Detection */
+"Auto-detected: %@" = "Auto-detected: %@";
+"Undo" = "Undo";
 /* MARK: - Clipboard Feedback */
 "Copied" = "Copiat";
 "Inserted" = "Inserit";

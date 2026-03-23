@@ -111,6 +111,22 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Anda telah mencapai had maksimum %lld cutling imej. Imej menggunakan memori yang besar di papan kekunci. Padam beberapa imej untuk menambah lagi.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Anda telah mencapai had maksimum %lld cutling teks. Padam beberapa untuk menambah lagi.";
 
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "Cadangan jenis input";
+"Suggest for Input Types" = "Cadangkan untuk jenis input";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Apabila anda memfokuskan medan teks jenis yang sepadan, cutling ini akan muncul di bahagian atas papan kekunci.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Tetapkan cutling kepada jenis input supaya ia muncul di bahagian atas papan kekunci apabila anda memfokuskan medan teks yang sepadan.";
+"No cutlings yet. Add some first." = "Belum ada cutling. Tambah beberapa dahulu.";
+"Suggested" = "Dicadangkan";
+"Email" = "E-mel";
+"URL" = "URL";
+"Phone Number" = "Nombor Telefon";
+"Address" = "Alamat";
+
+/* MARK: - Auto-Detection */
+"Auto-detected: %@" = "Auto-detected: %@";
+"Undo" = "Undo";
 /* MARK: - Clipboard Feedback */
 "Copied" = "Disalin";
 "Inserted" = "Disisipkan";
