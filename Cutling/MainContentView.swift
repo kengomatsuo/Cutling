@@ -92,6 +92,10 @@ struct MainContentView: View {
     @State private var cutlingLocations: [UUID: CGRect] = [:]
     @State private var hasScrolledToNew = false
 
+    #if os(iOS)
+    @Namespace private var zoomNamespace
+    #endif
+
     init(showSettings: Binding<Bool> = .constant(false)) {
         _showSettings = showSettings
     }
@@ -229,6 +233,19 @@ struct MainContentView: View {
                 .navigationDestination(isPresented: $showRecentlyDeleted) {
                     RecentlyDeletedView()
                 }
+                #if os(iOS)
+                .navigationDestination(item: $selectedItem) { item in
+                    Group {
+                        switch item.kind {
+                        case .text:
+                            TextDetailView(item: item, presentedAsSheet: false)
+                        case .image:
+                            ImageDetailView(item: item, presentedAsSheet: false)
+                        }
+                    }
+                    .navigationTransition(.zoom(sourceID: item.id, in: zoomNamespace))
+                }
+                #endif
         }
     }
     
@@ -504,6 +521,9 @@ struct MainContentView: View {
                             removal: .scale(scale: 0.85).combined(with: .opacity)
                         ))
                         .id(item.id)
+                        #if os(iOS)
+                        .matchedTransitionSource(id: item.id, in: zoomNamespace)
+                        #endif
                         .onGeometryChange(for: CGRect.self) {
                             $0.frame(in: .global)
                         } action: { newValue in
@@ -1324,14 +1344,6 @@ struct SheetsModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             #if os(iOS)
-            .sheet(item: $selectedItem) { item in
-                switch item.kind {
-                case .text:
-                    TextDetailView(item: item)
-                case .image:
-                    ImageDetailView(item: item)
-                }
-            }
             .sheet(isPresented: $showAddText) {
                 TextDetailView(item: nil)
             }

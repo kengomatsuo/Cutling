@@ -105,6 +105,7 @@ struct TextDetailView: View {
 
     let existingItem: Cutling?
     let autoPasteFromClipboard: Bool
+    let presentedAsSheet: Bool
 
     @State private var name: String
     @State private var value: String
@@ -124,9 +125,10 @@ struct TextDetailView: View {
     @State private var detectTask: Task<Void, Never>?
     @State private var isAutoDetecting = false
 
-    init(item: Cutling?, autoPasteFromClipboard: Bool = false) {
+    init(item: Cutling?, autoPasteFromClipboard: Bool = false, presentedAsSheet: Bool = true) {
         self.existingItem = item
         self.autoPasteFromClipboard = autoPasteFromClipboard
+        self.presentedAsSheet = presentedAsSheet
         _name = State(initialValue: item?.name ?? "")
         _value = State(initialValue: item?.value ?? "")
         _icon = State(initialValue: item?.icon ?? "document")
@@ -139,207 +141,234 @@ struct TextDetailView: View {
     var isEditing: Bool { existingItem != nil }
 
     var body: some View {
-        NavigationStack {
-            Form {
-                Section("Name") {
-                    TextField("e.g. Email", text: $name)
+        if presentedAsSheet {
+            NavigationStack {
+                formContent
+                    .toolbar {
+                        #if os(iOS)
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button {
+                                dismiss()
+                            } label: {
+                                if #available(iOS 26, *) {
+                                    Image(systemName: "xmark")
+                                } else {
+                                    Text("Cancel")
+                                }
+                            }
+                        }
+                        #endif
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button {
+                                saveAndDismiss()
+                            } label: {
+                                if #available(iOS 26, macOS 26, *) {
+                                    Image(systemName: "checkmark")
+                                } else {
+                                    Text("Save")
+                                }
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .disabled(name.isEmpty || value.isEmpty)
+                        }
+                    }
+            }
+            #if os(macOS)
+            .frame(minWidth: 420, idealWidth: 480, minHeight: 400, idealHeight: 500)
+            #endif
+        } else {
+            formContent
+                .onDisappear {
+                    autoSaveIfEditing()
                 }
-                Section("Icon") {
-                    #if os(macOS)
+        }
+    }
+
+    // MARK: - Form Content
+
+    private var formContent: some View {
+        Form {
+            Section("Name") {
+                TextField("e.g. Email", text: $name)
+            }
+            Section("Icon") {
+                #if os(macOS)
+                HStack {
+                    Image(systemName: icon)
+                        .font(.title2)
+                        .foregroundStyle(.tint)
+                    Spacer()
+                    Button("Change Icon") {
+                        showIconPicker = true
+                    }
+                }
+                #else
+                Button {
+                    showIconPicker = true
+                } label: {
                     HStack {
                         Image(systemName: icon)
                             .font(.title2)
                             .foregroundStyle(.tint)
+                            .frame(width: 36, height: 36)
+                        Text("Change Icon")
                         Spacer()
-                        Button("Change Icon") {
-                            showIconPicker = true
-                        }
+                        Image(systemName: "chevron.right")
+                            .font(.caption)
+                            .foregroundStyle(.tertiary)
                     }
-                    #else
-                    Button {
-                        showIconPicker = true
-                    } label: {
-                        HStack {
-                            Image(systemName: icon)
-                                .font(.title2)
-                                .foregroundStyle(.tint)
-                                .frame(width: 36, height: 36)
-                            Text("Change Icon")
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .font(.caption)
-                                .foregroundStyle(.tertiary)
+                }
+                .foregroundStyle(.primary)
+                #endif
+            }
+            Section {
+                TextEditor(text: $value)
+                    .frame(minHeight: 120, maxHeight: 650)
+                    .scrollContentBackground(.hidden)
+                    .onChange(of: value) {
+                        if value.count > CutlingStore.maxTextLength {
+                            value = String(value.prefix(CutlingStore.maxTextLength))
                         }
+                        scheduleAutoDetect()
+                    }
+            } header: {
+                Text("Text")
+            } footer: {
+                Text("\(value.count) / \(CutlingStore.maxTextLength)")
+                    .foregroundStyle(value.count > CutlingStore.maxTextLength - 500 ? .orange : .secondary)
+                    .font(.caption)
+            }
+            ColorPaletteSection(selectedColor: $color)
+            if showAutoDetectBanner && !autoDetectedCategories.isEmpty {
+                Section {
+                    HStack {
+                        Text("Detected: \(autoDetectedCategories.map(\.displayName).joined(separator: ", "))")
+                            .font(.subheadline)
+                        Spacer()
+                        Button("Undo") {
+                            undoAutoDetect()
+                        }
+                        .font(.subheadline.weight(.medium))
+                    }
+                }
+                .transition(.opacity)
+            }
+            InputTypePickerSection(selectedTriggers: $inputTypeTriggers)
+                .onChange(of: inputTypeTriggers) { oldValue, newValue in
+                    guard !isAutoDetecting else { return }
+                    let oldCategories = Set(InputTypeCategory.matchingCategories(for: oldValue))
+                    let newCategories = Set(InputTypeCategory.matchingCategories(for: newValue))
+                    let toggled = oldCategories.symmetricDifference(newCategories)
+                    userOverriddenCategories.formUnion(toggled)
+                    autoDetectedCategories.subtract(toggled)
+                    if autoDetectedCategories.isEmpty {
+                        withAnimation { showAutoDetectBanner = false }
+                    }
+                }
+            ExpirationPickerSection(autoDeleteEnabled: $autoDeleteEnabled, deleteAt: $deleteAt)
+            if hasClipboardText {
+                Section {
+                    Button {
+                        pasteFromClipboard()
+                    } label: {
+                        Label("Paste from Clipboard", systemImage: "doc.on.clipboard")
                     }
                     .foregroundStyle(.primary)
-                    #endif
-                }
-                Section {
-                    TextEditor(text: $value)
-                        .frame(minHeight: 120, maxHeight: 650)
-                        .scrollContentBackground(.hidden)
-                        .onChange(of: value) {
-                            if value.count > CutlingStore.maxTextLength {
-                                value = String(value.prefix(CutlingStore.maxTextLength))
-                            }
-                            scheduleAutoDetect()
-                        }
                 } header: {
-                    Text("Text")
+                    Text("Quick Actions")
                 } footer: {
-                    Text("\(value.count) / \(CutlingStore.maxTextLength)")
-                        .foregroundStyle(value.count > CutlingStore.maxTextLength - 500 ? .orange : .secondary)
-                        .font(.caption)
-                }
-                ColorPaletteSection(selectedColor: $color)
-                if showAutoDetectBanner && !autoDetectedCategories.isEmpty {
-                    Section {
-                        HStack {
-                            Text("Detected: \(autoDetectedCategories.map(\.displayName).joined(separator: ", "))")
-                                .font(.subheadline)
-                            Spacer()
-                            Button("Undo") {
-                                undoAutoDetect()
-                            }
-                            .font(.subheadline.weight(.medium))
-                        }
-                    }
-                    .transition(.opacity)
-                }
-                InputTypePickerSection(selectedTriggers: $inputTypeTriggers)
-                    .onChange(of: inputTypeTriggers) { oldValue, newValue in
-                        guard !isAutoDetecting else { return }
-                        // User manually toggled — figure out which categories changed
-                        let oldCategories = Set(InputTypeCategory.matchingCategories(for: oldValue))
-                        let newCategories = Set(InputTypeCategory.matchingCategories(for: newValue))
-                        let toggled = oldCategories.symmetricDifference(newCategories)
-                        userOverriddenCategories.formUnion(toggled)
-                        // If user manually removed an auto-detected category, stop claiming we detected it
-                        autoDetectedCategories.subtract(toggled)
-                        if autoDetectedCategories.isEmpty {
-                            withAnimation { showAutoDetectBanner = false }
-                        }
-                    }
-                ExpirationPickerSection(autoDeleteEnabled: $autoDeleteEnabled, deleteAt: $deleteAt)
-                if hasClipboardText {
-                    Section {
-                        Button {
-                            pasteFromClipboard()
-                        } label: {
-                            Label("Paste from Clipboard", systemImage: "doc.on.clipboard")
-                        }
-                        .foregroundStyle(.primary)
-                    } header: {
-                        Text("Quick Actions")
-                    } footer: {
-                        Text("This will replace the current text with whatever is in your clipboard.")
-                    }
-                }
-                if isEditing {
-                    Section {
-                        Button("Delete Cutling", role: .destructive) {
-                            showDeleteAlert = true
-                        }
-                    }
+                    Text("This will replace the current text with whatever is in your clipboard.")
                 }
             }
-            .scrollDismissesKeyboard(.interactively)
-            .formStyle(.grouped)
-            .alert("Delete Cutling?", isPresented: $showDeleteAlert) {
-                Button("Delete", role: .destructive) {
-                    if let item = existingItem {
-                        store.delete(item)
-                    }
-                    dismiss()
-                }
-                Button("Cancel", role: .cancel) {}
-            } message: {
-                Text("This action cannot be undone.")
-            }
-            .navigationTitle(isEditing ? "Edit Cutling" : "New Cutling")
-            .toolbar {
-                #if os(iOS)
-                ToolbarItem(placement: .cancellationAction) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        if #available(iOS 26, *) {
-                            Image(systemName: "xmark")
-                        } else {
-                            Text("Cancel")
-                        }
-                    }
-                }
-                #endif
-                ToolbarItem(placement: .confirmationAction) {
-                    Button {
-                        if let existing = existingItem {
-                            var updated = existing
-                            updated.name = name
-                            updated.value = value
-                            updated.icon = icon
-                            updated.expiresAt = autoDeleteEnabled ? deleteAt : nil
-                            updated.color = color
-                            updated.inputTypeTriggers = inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
-                            store.update(updated)
-                            dismiss()
-                        } else {
-                            // Check limit for new cutlings
-                            let canAdd = store.canAdd(.text)
-                            if canAdd.allowed {
-                                store.add(
-                                    Cutling(
-                                        name: name,
-                                        value: value,
-                                        icon: icon,
-                                        expiresAt: autoDeleteEnabled ? deleteAt : nil,
-                                        color: color,
-                                        inputTypeTriggers: inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
-                                    )
-                                )
-                                dismiss()
-                            } else {
-                                limitAlertMessage = canAdd.reason ?? String(localized: "Cannot add more text cutlings.")
-                                showLimitAlert = true
-                            }
-                        }
-                    } label: {
-                        if #available(iOS 26, macOS 26, *) {
-                            Image(systemName: "checkmark")
-                        } else {
-                            Text("Save")
-                        }
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .disabled(name.isEmpty || value.isEmpty)
-                }
-            }
-            .sheet(isPresented: $showIconPicker) {
-                IconPickerView(selectedIcon: $icon)
-            }
-            .alert("Limit Reached", isPresented: $showLimitAlert) {
-                Button("OK", role: .cancel) {}
-            } message: {
-                Text(limitAlertMessage)
-            }
-            .onAppear {
-                checkClipboard()
-                
-                if autoPasteFromClipboard {
-                    // Delay paste so the sheet is fully presented before iOS
-                    // shows the paste-permission prompt. Without this delay the
-                    // prompt is suppressed during the sheet transition animation
-                    // and the paste silently fails on the first attempt.
-                    Task { @MainActor in
-                        try? await Task.sleep(for: .milliseconds(500))
-                        pasteFromClipboard()
+            if isEditing {
+                Section {
+                    Button("Delete Cutling", role: .destructive) {
+                        showDeleteAlert = true
                     }
                 }
             }
         }
-        #if os(macOS)
-        .frame(minWidth: 420, idealWidth: 480, minHeight: 400, idealHeight: 500)
+        .scrollDismissesKeyboard(.interactively)
+        .formStyle(.grouped)
+        .alert("Delete Cutling?", isPresented: $showDeleteAlert) {
+            Button("Delete", role: .destructive) {
+                if let item = existingItem {
+                    store.delete(item)
+                }
+                dismiss()
+            }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("This action cannot be undone.")
+        }
+        .navigationTitle(isEditing ? "Edit Cutling" : "New Cutling")
+        #if os(iOS)
+        .navigationBarTitleDisplayMode(.inline)
         #endif
+        .sheet(isPresented: $showIconPicker) {
+            IconPickerView(selectedIcon: $icon)
+        }
+        .alert("Limit Reached", isPresented: $showLimitAlert) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(limitAlertMessage)
+        }
+        .onAppear {
+            checkClipboard()
+            
+            if autoPasteFromClipboard {
+                Task { @MainActor in
+                    try? await Task.sleep(for: .milliseconds(500))
+                    pasteFromClipboard()
+                }
+            }
+        }
+    }
+
+    // MARK: - Save Helpers
+
+    private func saveAndDismiss() {
+        if let existing = existingItem {
+            var updated = existing
+            updated.name = name
+            updated.value = value
+            updated.icon = icon
+            updated.expiresAt = autoDeleteEnabled ? deleteAt : nil
+            updated.color = color
+            updated.inputTypeTriggers = inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
+            store.update(updated)
+            dismiss()
+        } else {
+            let canAdd = store.canAdd(.text)
+            if canAdd.allowed {
+                store.add(
+                    Cutling(
+                        name: name,
+                        value: value,
+                        icon: icon,
+                        expiresAt: autoDeleteEnabled ? deleteAt : nil,
+                        color: color,
+                        inputTypeTriggers: inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
+                    )
+                )
+                dismiss()
+            } else {
+                limitAlertMessage = canAdd.reason ?? String(localized: "Cannot add more text cutlings.")
+                showLimitAlert = true
+            }
+        }
+    }
+
+    private func autoSaveIfEditing() {
+        guard let existing = existingItem else { return }
+        var updated = existing
+        updated.name = name
+        updated.value = value
+        updated.icon = icon
+        updated.expiresAt = autoDeleteEnabled ? deleteAt : nil
+        updated.color = color
+        updated.inputTypeTriggers = inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
+        store.update(updated)
     }
     
     // MARK: - Auto-Detection

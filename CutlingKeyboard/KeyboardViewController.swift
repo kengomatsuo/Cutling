@@ -9,6 +9,7 @@ import UIKit
 import SwiftUI
 import Combine
 import UniformTypeIdentifiers
+import AudioToolbox
 
 // MARK: - Hex Color Extension
 
@@ -45,6 +46,27 @@ final class KeyboardState: ObservableObject {
     @Published var textContentType: UITextContentType?
 }
 
+// MARK: - Keyboard Sound
+
+/// Plays the correct system sound for each key type, matching the native iOS keyboard.
+enum KeyboardSound {
+    case standard   // regular character keys (1123)
+    case delete     // backspace / delete (1155)
+    case modifier   // space, return, shift, etc. (1156)
+
+    var soundID: SystemSoundID {
+        switch self {
+        case .standard: 1123
+        case .delete:   1155
+        case .modifier: 1156
+        }
+    }
+
+    func play() {
+        AudioServicesPlaySystemSound(soundID)
+    }
+}
+
 // MARK: - Instant Press Modifier
 
 /// Zero-latency touch via DragGesture(minimumDistance: 0).
@@ -52,6 +74,7 @@ final class KeyboardState: ObservableObject {
 struct InstantPress: ViewModifier {
     let cornerRadius: CGFloat
     let fill: Color?
+    let sound: KeyboardSound
     let onPress: () -> Void
 
     @Environment(\.colorScheme) private var colorScheme
@@ -103,7 +126,7 @@ struct InstantPress: ViewModifier {
                         let inside = isInsideBounds(value)
                         if inside && !isPressed {
                             Self.haptic.impactOccurred()
-                            UIDevice.current.playInputClick()
+                            sound.play()
                         }
                         isPressed = inside
                     }
@@ -124,9 +147,10 @@ extension View {
     func instantPress(
         cornerRadius: CGFloat = KeyStyle.cornerRadius,
         fill: Color? = nil,
+        sound: KeyboardSound = .standard,
         action: @escaping () -> Void
     ) -> some View {
-        modifier(InstantPress(cornerRadius: cornerRadius, fill: fill, onPress: action))
+        modifier(InstantPress(cornerRadius: cornerRadius, fill: fill, sound: sound, onPress: action))
     }
 }
 
@@ -160,7 +184,7 @@ struct KeyboardButtonStyle: ButtonStyle {
             .onChange(of: configuration.isPressed) {
                 if configuration.isPressed {
                     haptic.impactOccurred()
-                    UIDevice.current.playInputClick()
+                    KeyboardSound.standard.play()
                 }
             }
     }
@@ -223,34 +247,39 @@ class KeyboardViewController: UIInputViewController {
                 onInsertText: { inputVC.textDocumentProxy.insertText($0) },
                 onCopyImage: { if let image = UIImage(data: $0) { UIPasteboard.general.image = image } },
                 onBackspace: { inputVC.textDocumentProxy.deleteBackward() },
-                onDeleteWord: {
-                    // Delete backward until the start of the current word
-                    // (matches native keyboard word-deletion behavior)
+                onDeleteWord: { wordCount in
                     let proxy = inputVC.textDocumentProxy
-                    guard let before = proxy.documentContextBeforeInput, !before.isEmpty else { return }
                     
-                    // Find trailing whitespace, then the word before it
-                    var count = 0
-                    let reversed = before.reversed()
-                    var iter = reversed.makeIterator()
-                    
-                    // Skip trailing whitespace
-                    var hitNonSpace = false
-                    while let ch = iter.next() {
-                        if ch.isWhitespace && !hitNonSpace {
-                            count += 1
-                        } else {
-                            hitNonSpace = true
-                            if ch.isWhitespace {
-                                break
-                            }
-                            count += 1
-                        }
+                    /// A letter, digit, or connector like _ counts as a "word"
+                    /// character. Everything else (whitespace, punctuation,
+                    /// symbols, slashes, dots, etc.) is a boundary.
+                    func isWordChar(_ ch: Character) -> Bool {
+                        ch.isLetter || ch.isNumber || ch == "_"
                     }
                     
-                    if count == 0 { count = 1 }
-                    for _ in 0..<count {
-                        proxy.deleteBackward()
+                    for _ in 0..<wordCount {
+                        guard let before = proxy.documentContextBeforeInput, !before.isEmpty else { return }
+                        
+                        var count = 0
+                        let chars = Array(before)
+                        var i = chars.count - 1
+                        
+                        // Phase 1: skip trailing whitespace / boundaries
+                        while i >= 0 && !isWordChar(chars[i]) {
+                            count += 1
+                            i -= 1
+                        }
+                        
+                        // Phase 2: delete through the word
+                        while i >= 0 && isWordChar(chars[i]) {
+                            count += 1
+                            i -= 1
+                        }
+                        
+                        if count == 0 { count = 1 }
+                        for _ in 0..<count {
+                            proxy.deleteBackward()
+                        }
                     }
                 },
                 onSwitchKeyboard: { inputVC.advanceToNextInputMode() }
@@ -461,7 +490,7 @@ struct ReturnKeyInfo {
 struct BackspaceRepeat: ViewModifier {
     let cornerRadius: CGFloat
     let onDelete: () -> Void
-    let onDeleteWord: () -> Void
+    let onDeleteWord: (Int) -> Void
 
     @Environment(\.colorScheme) private var colorScheme
     @State private var isPressed = false
@@ -471,7 +500,7 @@ struct BackspaceRepeat: ViewModifier {
 
     // Timing constants matching native keyboard feel
     private static let initialDelay: Duration = .milliseconds(500)
-    private static let charRepeatInterval: Duration = .milliseconds(130)
+    private static let charRepeatInterval: Duration = .milliseconds(100)
     private static let wordPhaseThreshold: Duration = .milliseconds(1800)
     private static let wordRepeatInterval: Duration = .milliseconds(300)
 
@@ -510,7 +539,7 @@ struct BackspaceRepeat: ViewModifier {
                         if !isPressed {
                             isPressed = true
                             Self.haptic.impactOccurred()
-                            UIDevice.current.playInputClick()
+                            KeyboardSound.delete.play()
                             onDelete()
                             startRepeat()
                         }
@@ -535,11 +564,13 @@ struct BackspaceRepeat: ViewModifier {
                 let elapsed = ContinuousClock.now - startTime
                 if elapsed >= Self.wordPhaseThreshold {
                     // Word-by-word deletion
-                    onDeleteWord()
+                    onDeleteWord(2)
+                    KeyboardSound.delete.play()
                     try? await Task.sleep(for: Self.wordRepeatInterval)
                 } else {
                     // Character-by-character deletion
                     onDelete()
+                    KeyboardSound.delete.play()
                     try? await Task.sleep(for: Self.charRepeatInterval)
                 }
             }
@@ -557,7 +588,7 @@ extension View {
     func backspaceRepeat(
         cornerRadius: CGFloat = KeyStyle.cornerRadius,
         onDelete: @escaping () -> Void,
-        onDeleteWord: @escaping () -> Void
+        onDeleteWord: @escaping (Int) -> Void
     ) -> some View {
         modifier(BackspaceRepeat(cornerRadius: cornerRadius, onDelete: onDelete, onDeleteWord: onDeleteWord))
     }
@@ -571,7 +602,7 @@ struct KeyboardView: View {
     let onInsertText: (String) -> Void
     let onCopyImage: (Data) -> Void
     let onBackspace: () -> Void
-    let onDeleteWord: () -> Void
+    let onDeleteWord: (Int) -> Void
     let onSwitchKeyboard: () -> Void
 
     @State private var copiedID: UUID? = nil
@@ -853,7 +884,7 @@ struct KeyboardView: View {
                 .font(.system(size: 17))
                 .frame(maxWidth: .infinity, minHeight: keyHeight)
                 .background(KeyStyle.keyColor, in: RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous))
-                .instantPress { onInsertText(" ") }
+                .instantPress(sound: .modifier) { onInsertText(" ") }
 
             // Return — icon + action tint
             Image(systemName: info.icon)
@@ -866,7 +897,7 @@ struct KeyboardView: View {
                         : AnyShapeStyle(KeyStyle.keyColor),
                     in: RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous)
                 )
-                .instantPress { onInsertText("\n") }
+                .instantPress(sound: .modifier) { onInsertText("\n") }
                 .animation(.easeInOut(duration: 0.15), value: state.returnKeyType)
         }
     }

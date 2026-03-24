@@ -35,6 +35,7 @@ struct ImageDetailView: View {
 
     let existingItem: Cutling?
     let autoPasteFromClipboard: Bool
+    let presentedAsSheet: Bool
 
     @State private var name: String
     @State private var imageData: Data?
@@ -48,9 +49,10 @@ struct ImageDetailView: View {
     @State private var deleteAt: Date
     @State private var inputTypeTriggers: Set<String>
     
-    init(item: Cutling?, autoPasteFromClipboard: Bool = false) {
+    init(item: Cutling?, autoPasteFromClipboard: Bool = false, presentedAsSheet: Bool = true) {
         self.existingItem = item
         self.autoPasteFromClipboard = autoPasteFromClipboard
+        self.presentedAsSheet = presentedAsSheet
         _name = State(initialValue: item?.name ?? "")
         _autoDeleteEnabled = State(initialValue: item?.expiresAt != nil)
         _deleteAt = State(initialValue: item?.expiresAt ?? Date().addingTimeInterval(86400))
@@ -60,130 +62,158 @@ struct ImageDetailView: View {
     var isEditing: Bool { existingItem != nil }
 
     var body: some View {
-        NavigationStack {
-            Form {
-                Section("Name") {
-                    TextField("e.g. Signature, QR Code", text: $name)
-                }
-                Section("Image") {
-                    imagePreview
-                    pickerButtons
-                }
-                InputTypePickerSection(selectedTriggers: $inputTypeTriggers)
-                ExpirationPickerSection(autoDeleteEnabled: $autoDeleteEnabled, deleteAt: $deleteAt)
-                if hasClipboardImage {
-                    Section {
-                        Button {
-                            pasteFromClipboard()
-                        } label: {
-                            Label("Paste from Clipboard", systemImage: "doc.on.clipboard")
+        if presentedAsSheet {
+            NavigationStack {
+                formContent
+                    .toolbar {
+                        #if os(iOS)
+                        ToolbarItem(placement: .cancellationAction) {
+                            Button {
+                                dismiss()
+                            } label: {
+                                if #available(iOS 26, *) {
+                                    Image(systemName: "xmark")
+                                } else {
+                                    Text("Cancel")
+                                }
+                            }
                         }
-                        .foregroundStyle(.primary)
-                    } header: {
-                        Text("Quick Actions")
-                    } footer: {
-                        Text("This will replace the current image with whatever is in your clipboard.")
-                    }
-                }
-                if isEditing {
-                    Section {
-                        Button("Delete Cutling", role: .destructive) {
-                            showDeleteAlert = true
+                        #endif
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button {
+                                saveCutling()
+                            } label: {
+                                if #available(iOS 26, macOS 26, *) {
+                                    Image(systemName: "checkmark")
+                                } else {
+                                    Text("Save")
+                                }
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .disabled(name.isEmpty || (imageData == nil && existingItem?.imageFilename == nil))
                         }
                     }
-                }
             }
-            .scrollDismissesKeyboard(.interactively)
-            .formStyle(.grouped)
-            .alert("Delete Cutling?", isPresented: $showDeleteAlert) {
-                Button("Delete", role: .destructive) {
-                    if let item = existingItem {
-                        store.delete(item)
-                    }
-                    dismiss()
-                }
-                Button("Cancel", role: .cancel) {}
-            } message: {
-                Text("This action cannot be undone.")
-            }
-            .navigationTitle(isEditing ? "Edit Image" : "New Image")
-            #if os(iOS)
-            .navigationBarTitleDisplayMode(.inline)
+            #if os(macOS)
+            .frame(minWidth: 420, idealWidth: 480, minHeight: 400, idealHeight: 500)
             #endif
-            .toolbar {
-                #if os(iOS)
-                ToolbarItem(placement: .cancellationAction) {
+        } else {
+            formContent
+                .onDisappear {
+                    autoSaveIfEditing()
+                }
+        }
+    }
+
+    // MARK: - Form Content
+
+    private var formContent: some View {
+        Form {
+            Section("Name") {
+                TextField("e.g. Signature, QR Code", text: $name)
+            }
+            Section("Image") {
+                imagePreview
+                pickerButtons
+            }
+            InputTypePickerSection(selectedTriggers: $inputTypeTriggers)
+            ExpirationPickerSection(autoDeleteEnabled: $autoDeleteEnabled, deleteAt: $deleteAt)
+            if hasClipboardImage {
+                Section {
                     Button {
-                        dismiss()
-                    } label: {
-                        if #available(iOS 26, *) {
-                            Image(systemName: "xmark")
-                        } else {
-                            Text("Cancel")
-                        }
-                    }
-                }
-                #endif
-                ToolbarItem(placement: .confirmationAction) {
-                    Button {
-                        saveCutling()
-                    } label: {
-                        if #available(iOS 26, macOS 26, *) {
-                            Image(systemName: "checkmark")
-                        } else {
-                            Text("Save")
-                        }
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .disabled(name.isEmpty || (imageData == nil && existingItem?.imageFilename == nil))
-                }
-            }
-            .onChange(of: selectedPhoto) {
-                Task {
-                    if let picked = try? await selectedPhoto?.loadTransferable(type: PickedImage.self) {
-                        imageData = picked.data
-                    }
-                }
-            }
-            .fileImporter(
-                isPresented: $showFilePicker,
-                allowedContentTypes: [.image],
-                allowsMultipleSelection: false
-            ) { result in
-                if case .success(let urls) = result, let url = urls.first {
-                    if url.startAccessingSecurityScopedResource() {
-                        defer { url.stopAccessingSecurityScopedResource() }
-                        imageData = try? Data(contentsOf: url)
-                    }
-                }
-            }
-            .onAppear {
-                if let filename = existingItem?.imageFilename {
-                    imageData = store.loadImageData(named: filename)
-                }
-                checkClipboard()
-                
-                if autoPasteFromClipboard {
-                    // Delay paste so the sheet is fully presented before iOS
-                    // shows the paste-permission prompt. Without this delay the
-                    // prompt is suppressed during the sheet transition animation
-                    // and the paste silently fails on the first attempt.
-                    Task { @MainActor in
-                        try? await Task.sleep(for: .milliseconds(500))
-                        print("Auto Paste Called!")
                         pasteFromClipboard()
+                    } label: {
+                        Label("Paste from Clipboard", systemImage: "doc.on.clipboard")
                     }
+                    .foregroundStyle(.primary)
+                } header: {
+                    Text("Quick Actions")
+                } footer: {
+                    Text("This will replace the current image with whatever is in your clipboard.")
                 }
             }
-            .alert("Limit Reached", isPresented: $showLimitAlert) {
-                Button("OK", role: .cancel) {}
-            } message: {
-                Text(limitAlertMessage)
+            if isEditing {
+                Section {
+                    Button("Delete Cutling", role: .destructive) {
+                        showDeleteAlert = true
+                    }
+                }
             }
         }
-        #if os(macOS)
-        .frame(minWidth: 420, idealWidth: 480, minHeight: 400, idealHeight: 500)
+        .scrollDismissesKeyboard(.interactively)
+        .formStyle(.grouped)
+        .alert("Delete Cutling?", isPresented: $showDeleteAlert) {
+            Button("Delete", role: .destructive) {
+                if let item = existingItem {
+                    store.delete(item)
+                }
+                dismiss()
+            }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("This action cannot be undone.")
+        }
+        .navigationTitle(isEditing ? "Edit Image" : "New Image")
+        #if os(iOS)
+        .navigationBarTitleDisplayMode(.inline)
         #endif
+        .onChange(of: selectedPhoto) {
+            Task {
+                if let picked = try? await selectedPhoto?.loadTransferable(type: PickedImage.self) {
+                    imageData = picked.data
+                }
+            }
+        }
+        .fileImporter(
+            isPresented: $showFilePicker,
+            allowedContentTypes: [.image],
+            allowsMultipleSelection: false
+        ) { result in
+            if case .success(let urls) = result, let url = urls.first {
+                if url.startAccessingSecurityScopedResource() {
+                    defer { url.stopAccessingSecurityScopedResource() }
+                    imageData = try? Data(contentsOf: url)
+                }
+            }
+        }
+        .onAppear {
+            if let filename = existingItem?.imageFilename {
+                imageData = store.loadImageData(named: filename)
+            }
+            checkClipboard()
+            
+            if autoPasteFromClipboard {
+                Task { @MainActor in
+                    try? await Task.sleep(for: .milliseconds(500))
+                    pasteFromClipboard()
+                }
+            }
+        }
+        .alert("Limit Reached", isPresented: $showLimitAlert) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text(limitAlertMessage)
+        }
+    }
+
+    // MARK: - Auto-Save
+
+    private func autoSaveIfEditing() {
+        guard let existing = existingItem else { return }
+        var updated = existing
+        updated.name = name
+        updated.expiresAt = autoDeleteEnabled ? deleteAt : nil
+        updated.inputTypeTriggers = inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
+
+        if let newImageData = imageData,
+           newImageData != store.loadImageData(named: existing.imageFilename ?? "") {
+            if let oldFilename = existing.imageFilename {
+                store.deleteImageFile(named: oldFilename)
+            }
+            updated.imageFilename = store.saveImageData(newImageData, for: updated.id)
+        }
+
+        store.update(updated)
     }
 
     // MARK: - Image Preview
