@@ -73,6 +73,7 @@ class UndoHandler: NSObject {
 struct ImageDetailView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.undoManager) var undoManager
+    @Environment(\.scenePhase) var scenePhase
     @EnvironmentObject var store: CutlingStore
 
     let existingItem: Cutling?
@@ -146,8 +147,13 @@ struct ImageDetailView: View {
                 .toolbar {
                     undoRedoToolbarContent
                 }
-                .onDisappear {
+                .onWillDisappear {
                     autoSaveIfEditing()
+                }
+                .onChange(of: scenePhase) { _, newPhase in
+                    if newPhase != .active {
+                        autoSaveIfEditing()
+                    }
                 }
         }
     }
