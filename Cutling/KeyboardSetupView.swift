@@ -504,7 +504,7 @@ struct KeyboardSetupView: View {
             }
 
             Section("About") {
-                LabeledContent("Version", value: "1.1.1")
+                LabeledContent("Version", value: "1.2")
             }
         }
         .formStyle(.grouped)

@@ -628,6 +628,24 @@ class CutlingStore: ObservableObject {
         }
     }
 
+    // MARK: - Migrations
+
+    /// One-time migration: detect input type categories for existing text cutlings
+    /// that were created before the auto-detection feature existed.
+    func migrateInputTypeTriggers() {
+        var changed = false
+        for i in cutlings.indices where cutlings[i].kind == .text && cutlings[i].inputTypeTriggers == nil {
+            let detected = InputTypeCategory.detect(from: cutlings[i].value)
+            guard !detected.isEmpty else { continue }
+            let triggers = detected.flatMap { $0.triggerKeys }
+            cutlings[i].inputTypeTriggers = Array(Set(triggers))
+            changed = true
+        }
+        if changed {
+            save()
+        }
+    }
+
     // MARK: - Seed
 
     func seedIfEmpty() {

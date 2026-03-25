@@ -84,7 +84,6 @@ struct ImageDetailView: View {
     @State private var imageData: Data?
     @State private var selectedPhoto: PhotosPickerItem? = nil
     @State private var showFilePicker = false
-    @State private var showDeleteAlert = false
     @State private var showLimitAlert = false
     @State private var limitAlertMessage = ""
     @State private var hasClipboardImage = false
@@ -160,16 +159,20 @@ struct ImageDetailView: View {
                         }
                         compactUndoToolbarContent
                         ToolbarItem(placement: .confirmationAction) {
-                            Button {
-                                saveCutling()
-                            } label: {
-                                if #available(iOS 26, *) {
+                            if #available(iOS 26, *) {
+                                Button {
+                                    saveCutling()
+                                } label: {
                                     Image(systemName: "checkmark")
-                                } else {
-                                    Text("Save")
                                 }
+                                .buttonStyle(.borderedProminent)
+                                .disabled(name.isEmpty || (imageData == nil && existingItem?.imageFilename == nil))
+                            } else {
+                                Button("Done") {
+                                    saveCutling()
+                                }
+                                .disabled(name.isEmpty || (imageData == nil && existingItem?.imageFilename == nil))
                             }
-                            .disabled(name.isEmpty || (imageData == nil && existingItem?.imageFilename == nil))
                         }
                     }
             }
@@ -276,24 +279,16 @@ struct ImageDetailView: View {
             if isEditing {
                 Section {
                     Button("Delete Cutling", role: .destructive) {
-                        showDeleteAlert = true
+                        if let item = existingItem {
+                            store.delete(item)
+                        }
+                        dismiss()
                     }
                 }
             }
         }
         .scrollDismissesKeyboard(.interactively)
         .formStyle(.grouped)
-        .alert("Delete Cutling?", isPresented: $showDeleteAlert) {
-            Button("Delete", role: .destructive) {
-                if let item = existingItem {
-                    store.delete(item)
-                }
-                dismiss()
-            }
-            Button("Cancel", role: .cancel) {}
-        } message: {
-            Text("This action cannot be undone.")
-        }
         .navigationTitle(isEditing ? "Edit" : "New")
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)

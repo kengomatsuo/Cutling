@@ -74,6 +74,26 @@ struct CutlingCommands: Commands {
 }
 #endif
 
+/// Numeric version comparison that handles multi-digit components correctly
+/// (e.g. "1.10" > "1.9"). Missing components are treated as 0.
+private struct AppVersion: Comparable {
+    let components: [Int]
+
+    init(_ string: String) {
+        components = string.split(separator: ".").compactMap { Int($0) }
+    }
+
+    static func < (lhs: AppVersion, rhs: AppVersion) -> Bool {
+        let count = max(lhs.components.count, rhs.components.count)
+        for i in 0..<count {
+            let l = i < lhs.components.count ? lhs.components[i] : 0
+            let r = i < rhs.components.count ? rhs.components[i] : 0
+            if l != r { return l < r }
+        }
+        return false
+    }
+}
+
 @main
 struct CutlingApp: App {
     @StateObject private var store = CutlingStore.shared
@@ -120,6 +140,7 @@ struct CutlingApp: App {
                 .environmentObject(store)
                 .onAppear {
                     store.seedIfEmpty()
+                    runMigrationsIfNeeded()
                     configureSyncIfNeeded()
                     lastVersionOpened = currentAppVersion
                     #if os(iOS)
@@ -234,6 +255,17 @@ struct CutlingApp: App {
         store.syncManager = nil
         store.isSyncing = false
         UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(false, forKey: "iCloudSyncEnabled")
+    }
+
+    // MARK: - Migrations
+
+    private func runMigrationsIfNeeded() {
+        let previous = AppVersion(lastVersionOpened)
+
+        // v1.2: auto-detect input type triggers for existing text cutlings
+        if previous < AppVersion("1.2") {
+            store.migrateInputTypeTriggers()
+        }
     }
 
     // MARK: - App Review Request

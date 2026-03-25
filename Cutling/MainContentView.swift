@@ -78,7 +78,6 @@ struct MainContentView: View {
 
     @State private var mode: MainContentMode = .browsing
     @State private var showDeleteConfirmation = false
-    @State private var cutlingToDelete: Cutling?
 
     #if os(iOS)
     @State private var panGesture: UIPanGestureRecognizer?
@@ -195,20 +194,7 @@ struct MainContentView: View {
                 ))
                 .modifier(AlertsModifier(
                     showLimitAlert: $showLimitAlert,
-                    limitAlertMessage: limitAlertMessage,
-                    showDeleteConfirmation: $showDeleteConfirmation,
-                    cutlingToDelete: $cutlingToDelete,
-                    onDelete: { cutling in
-                        withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
-                            store.delete(cutling)
-                        }
-                        cutlingToDelete = nil
-                        showDeleteConfirmation = false
-                    },
-                    onCancel: {
-                        cutlingToDelete = nil
-                        showDeleteConfirmation = false
-                    }
+                    limitAlertMessage: limitAlertMessage
                 ))
                 .modifier(ChangeHandlersModifier(
                     mode: mode,
@@ -300,6 +286,21 @@ struct MainContentView: View {
                 }
             }
             #endif
+            if mode == .browsing {
+                ToolbarItem(placement: .primaryAction) {
+                    #if os(macOS)
+                    SettingsLink {
+                        Image(systemName: "gearshape")
+                    }
+                    #else
+                    Button {
+                        showSettings = true
+                    } label: {
+                        Image(systemName: "gearshape")
+                    }
+                    #endif
+                }
+            }
             ToolbarItemGroup(placement: .primaryAction) {
                 primaryToolbarContent
             }
@@ -358,10 +359,7 @@ struct MainContentView: View {
             .disabled(selectedIDs.isEmpty)
             .confirmationDialog(
                 "Delete \(selectedIDs.count) item\(selectedIDs.count == 1 ? "" : "s")?",
-                isPresented: Binding(
-                    get: { showDeleteConfirmation && cutlingToDelete == nil },
-                    set: { if !$0 { showDeleteConfirmation = false } }
-                ),
+                isPresented: $showDeleteConfirmation,
                 titleVisibility: .visible
             ) {
                 Button("Delete", role: .destructive) {
@@ -538,8 +536,9 @@ struct MainContentView: View {
                                 toggleSelection(for: item)
                             },
                             onDelete: {
-                                cutlingToDelete = item
-                                showDeleteConfirmation = true
+                                withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
+                                    store.delete(item)
+                                }
                             }
                         )
                         .frame(height: cardHeight)
@@ -695,18 +694,6 @@ struct MainContentView: View {
             } label: {
                 Label("Recently Deleted", systemImage: "trash")
             }
-
-            #if os(macOS)
-            SettingsLink {
-                Label("Settings", systemImage: "gearshape")
-            }
-            #else
-            Button {
-                showSettings = true
-            } label: {
-                Label("Settings", systemImage: "gearshape")
-            }
-            #endif
         } label: {
             Image(systemName: "ellipsis")
         }
@@ -753,10 +740,7 @@ struct MainContentView: View {
         .disabled(selectedIDs.isEmpty)
         .confirmationDialog(
             "Delete \(selectedIDs.count) item\(selectedIDs.count == 1 ? "" : "s")?",
-            isPresented: Binding(
-                get: { showDeleteConfirmation && cutlingToDelete == nil },
-                set: { if !$0 { showDeleteConfirmation = false } }
-            ),
+            isPresented: $showDeleteConfirmation,
             titleVisibility: .visible
         ) {
             Button("Delete", role: .destructive) {
@@ -1437,13 +1421,8 @@ struct SheetsModifier: ViewModifier {
 }
 
 struct AlertsModifier: ViewModifier {
-    @EnvironmentObject var store: CutlingStore
     @Binding var showLimitAlert: Bool
     let limitAlertMessage: String
-    @Binding var showDeleteConfirmation: Bool
-    @Binding var cutlingToDelete: Cutling?
-    let onDelete: (Cutling) -> Void
-    let onCancel: () -> Void
     
     func body(content: Content) -> some View {
         content
@@ -1451,21 +1430,6 @@ struct AlertsModifier: ViewModifier {
                 Button("OK", role: .cancel) {}
             } message: {
                 Text(limitAlertMessage)
-            }
-            .alert(
-                "Delete \"\(cutlingToDelete?.name ?? "")\"?",
-                isPresented: Binding(
-                    get: { showDeleteConfirmation && cutlingToDelete != nil },
-                    set: { if !$0 { showDeleteConfirmation = false; cutlingToDelete = nil } }
-                ),
-                presenting: cutlingToDelete
-            ) { cutling in
-                Button("Delete", role: .destructive) {
-                    onDelete(cutling)
-                }
-                Button("Cancel", role: .cancel) {
-                    onCancel()
-                }
             }
     }
 }
