@@ -35,8 +35,12 @@ struct InputTypePickerSection: View {
                                 .foregroundStyle(.tint)
                         }
                     }
+                    .contentShape(Rectangle())
                 }
                 .foregroundStyle(.primary)
+                #if os(macOS)
+                .buttonStyle(.plain)
+                #endif
             }
         } header: {
             Text("Suggest for Input Types")

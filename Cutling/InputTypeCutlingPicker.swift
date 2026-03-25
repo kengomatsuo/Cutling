@@ -47,8 +47,12 @@ struct InputTypeCutlingPicker: View {
                                     .foregroundStyle(.tint)
                             }
                         }
+                        .contentShape(Rectangle())
                     }
                     .foregroundStyle(.primary)
+                    #if os(macOS)
+                    .buttonStyle(.plain)
+                    #endif
                 }
             }
         }
