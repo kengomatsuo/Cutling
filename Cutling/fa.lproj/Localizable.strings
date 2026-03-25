@@ -1,0 +1,160 @@
+/* MARK: - Navigation & Titles */
+"My Cutlings" = "کاتلینگ‌های من";
+"Select Items" = "انتخاب موارد";
+"%lld Selected" = "%lld انتخاب شده";
+"Reorder" = "تغییر ترتیب";
+"Settings" = "تنظیمات";
+"Keyboard Setup" = "راه‌اندازی صفحه‌کلید";
+"New" = "جدید";
+"Choose Icon" = "انتخاب آیکون";
+
+/* MARK: - Common Actions */
+"Cancel" = "لغو";
+"Done" = "انجام شد";
+"Save" = "ذخیره";
+"Delete" = "حذف";
+"Copy" = "کپی";
+"Edit" = "ویرایش";
+"Sort" = "مرتب‌سازی";
+"OK" = "تأیید";
+
+/* MARK: - Menu Items */
+"Text Cutling" = "کاتلینگ متنی";
+"Image Cutling" = "کاتلینگ تصویری";
+"Select Cutlings" = "انتخاب کاتلینگ‌ها";
+"Reorder Cutlings" = "تغییر ترتیب کاتلینگ‌ها";
+"Keyboard Setup Guide" = "راهنمای راه‌اندازی صفحه‌کلید";
+"Name (A → Z)" = "نام (الف → ی)";
+"Name (Z → A)" = "نام (ی → الف)";
+"Text First" = "متن اول";
+"Images First" = "تصاویر اول";
+"Shortest First" = "کوتاه‌ترین اول";
+"Longest First" = "بلندترین اول";
+"Reverse Order" = "ترتیب معکوس";
+
+/* MARK: - Empty States */
+"No Cutlings Yet" = "هنوز کاتلینگی نیست";
+"No Results" = "نتیجه‌ای یافت نشد";
+"Tap + to add your first cutling." = "برای افزودن اولین کاتلینگ خود + را بزنید.";
+"Try a different search term." = "عبارت جستجوی دیگری را امتحان کنید.";
+
+/* MARK: - Search */
+"Search cutlings" = "جستجوی کاتلینگ‌ها";
+"Search icons" = "جستجوی آیکون‌ها";
+
+/* MARK: - Form Labels */
+"Name" = "نام";
+"Icon" = "آیکون";
+"Text" = "متن";
+"Image" = "تصویر";
+"Color" = "رنگ";
+"Quick Actions" = "اقدامات سریع";
+"Auto-Delete" = "حذف خودکار";
+"Delete At" = "حذف در";
+"Category" = "دسته‌بندی";
+
+/* MARK: - Placeholders */
+"e.g. Email" = "مثلاً ایمیل";
+"e.g. Signature, QR Code" = "مثلاً امضا، QR Code";
+
+/* MARK: - Buttons & Actions */
+"Change Icon" = "تغییر آیکون";
+"Paste from Clipboard" = "چسباندن از کلیپ‌بورد";
+"Delete Cutling" = "حذف کاتلینگ";
+"Open Settings to Enable" = "باز کردن تنظیمات برای فعال‌سازی";
+"Photos Library" = "کتابخانه عکس‌ها";
+"Choose File" = "انتخاب فایل";
+"Choose from Photos" = "انتخاب از عکس‌ها";
+"Choose from Files" = "انتخاب از فایل‌ها";
+"Copy Images" = "کپی تصاویر";
+"Add from Clipboard" = "افزودن از کلیپ‌بورد";
+"Insert Text Instantly" = "درج فوری متن";
+"Switch to Cutling Keyboard" = "تغییر به صفحه‌کلید Cutling";
+
+/* MARK: - Settings Sections */
+"iCloud" = "iCloud";
+"iCloud Sync" = "همگام‌سازی iCloud";
+"Sync your cutlings across all your devices using iCloud." = "کاتلینگ‌های خود را در تمام دستگاه‌ها با iCloud همگام‌سازی کنید.";
+"Storage" = "فضای ذخیره‌سازی";
+"Text Cutlings" = "کاتلینگ‌های متنی";
+"Image Cutlings" = "کاتلینگ‌های تصویری";
+"Max Text Length" = "حداکثر طول متن";
+"%lld chars" = "%lld نویسه";
+"About" = "درباره";
+"Version" = "نسخه";
+"Keyboard Added" = "صفحه‌کلید اضافه شد";
+"Full Access" = "دسترسی کامل";
+
+/* MARK: - Image Picker */
+"No image selected" = "تصویری انتخاب نشده";
+
+/* MARK: - Footer Texts */
+"This will replace the current text with whatever is in your clipboard." = "این متن فعلی را با محتوای کلیپ‌بورد شما جایگزین خواهد کرد.";
+"This will replace the current image with whatever is in your clipboard." = "این تصویر فعلی را با محتوای کلیپ‌بورد شما جایگزین خواهد کرد.";
+"This cutling will be automatically deleted at the selected date and time." = "این کاتلینگ در تاریخ و زمان انتخاب شده به‌طور خودکار حذف خواهد شد.";
+"Each text cutling can hold up to %lld characters." = "هر کاتلینگ متنی می‌تواند تا %lld نویسه نگه دارد.";
+
+/* MARK: - Alerts */
+"Limit Reached" = "به حد مجاز رسیدید";
+"Delete Cutling?" = "کاتلینگ حذف شود؟";
+"This action cannot be undone." = "این عمل قابل بازگشت نیست.";
+"Cannot add text cutling" = "امکان افزودن کاتلینگ متنی نیست";
+"Cannot add image cutling" = "امکان افزودن کاتلینگ تصویری نیست";
+"Cannot add more text cutlings." = "امکان افزودن کاتلینگ متنی بیشتر نیست.";
+"Cannot add more image cutlings." = "امکان افزودن کاتلینگ تصویری بیشتر نیست.";
+
+/* MARK: - CutlingStore Errors */
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "به حداکثر %lld کاتلینگ رسیده‌اید. برای افزودن بیشتر، تعدادی را حذف کنید.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "به حداکثر %lld کاتلینگ تصویری رسیده‌اید. تصاویر حافظه قابل توجهی در صفحه‌کلید مصرف می‌کنند. برای افزودن بیشتر، تعدادی تصویر را حذف کنید.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "به حداکثر %lld کاتلینگ متنی رسیده‌اید. برای افزودن بیشتر، تعدادی را حذف کنید.";
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "پیشنهادات نوع ورودی";
+"Suggest for Input Types" = "پیشنهاد برای انواع ورودی";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "وقتی روی فیلد متنی از نوع مطابق تمرکز کنید، این کاتلینگ در بالای صفحه‌کلید نمایش داده می‌شود.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "کاتلینگ‌ها را به انواع ورودی اختصاص دهید تا هنگام تمرکز روی فیلد متنی مطابق، در بالای صفحه‌کلید نمایش داده شوند.";
+"No cutlings yet. Add some first." = "هنوز کاتلینگی نیست. ابتدا تعدادی اضافه کنید.";
+"Suggested" = "پیشنهادی";
+"Email" = "ایمیل";
+"URL" = "URL";
+"Phone Number" = "شماره تلفن";
+"Address" = "آدرس";
+
+/* MARK: - Detection */
+"Detected: %@" = "شناسایی شده: %@";
+"Undo" = "بازگردانی";
+
+/* MARK: - Clipboard Feedback */
+"Copied" = "کپی شد";
+"Inserted" = "درج شد";
+
+/* MARK: - Keyboard Setup */
+"Setup Progress" = "پیشرفت راه‌اندازی";
+"Open Cutling Settings" = "باز کردن تنظیمات Cutling";
+"Tap here, then switch to Cutling" = "اینجا بزنید، سپس به Cutling تغییر دهید";
+"How to Use Your Keyboard" = "نحوه استفاده از صفحه‌کلید";
+"Storage Limits" = "محدودیت‌های فضای ذخیره‌سازی";
+"You're All Set!" = "همه چیز آماده است!";
+"Set Up Your Keyboard" = "صفحه‌کلید خود را راه‌اندازی کنید";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "صفحه‌کلید Cutling شما آماده است! هنگام تایپ در هر جایی، آیکون 🌐 کره زمین روی صفحه‌کلید را بزنید تا به Cutling تغییر دهید.";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "دو مرحله ساده زیر را دنبال کنید تا استفاده از صفحه‌کلید سفارشی خود را شروع کنید. این صفحه با تکمیل هر مرحله به‌طور خودکار به‌روز می‌شود.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**مرحله ۱:** در پایین 'باز کردن تنظیمات Cutling' را بزنید، به **صفحه‌کلیدها** بروید و **Cutling** را از لیست انتخاب کنید.";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**مرحله ۲:** مطمئن شوید **اجازه دسترسی کامل** روشن است. این به صفحه‌کلید اجازه می‌دهد تصاویر را در کلیپ‌بورد کپی کند. داده‌های شما خصوصی می‌مانند و هرگز به جایی ارسال نمی‌شوند.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**مرحله ۳:** روی ورودی متن بزنید و با استفاده از آیکون 🌐 کره زمین روی صفحه‌کلید \"Cutling\" را انتخاب کنید تا وضعیت \"دسترسی کامل\" به‌روز شود.";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**مرحله ۴:** آماده‌اید! راهنمای استفاده در زیر آمده است.";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "هنگام تایپ در هر برنامه‌ای، کلید 🌐 کره زمین در پایین سمت چپ صفحه‌کلید را بزنید یا نگه دارید، سپس Cutling را انتخاب کنید";
+"Tap any text cutling and it will be typed into your current text field immediately" = "هر کاتلینگ متنی را بزنید و فوراً در فیلد متنی فعلی شما تایپ خواهد شد";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "کاتلینگ تصویری را بزنید تا در کلیپ‌بورد کپی شود، سپس آن را در برنامه‌ای که استفاده می‌کنید بچسبانید (معمولاً با زدن و نگه داشتن، سپس انتخاب چسباندن). Apple در حال حاضر از چسباندن مستقیم تصویر در این برنامه پشتیبانی نمی‌کند.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "هر متنی را کپی کنید، سپس دکمه 'افزودن از کلیپ‌بورد' در صفحه‌کلید Cutling را بزنید تا به عنوان کاتلینگ جدید ذخیره شود";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "می‌توانید همه کاتلینگ‌های خود را در برنامه اصلی Cutling مدیریت کنید. تغییراتی که انجام می‌دهید فوراً در صفحه‌کلید نمایش داده می‌شوند.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "افزونه‌های صفحه‌کلید محدودیت‌های حافظه سختگیرانه‌ای برای اطمینان از پایداری سیستم دارند. تصاویر حافظه بیشتری نسبت به متن مصرف می‌کنند، بنابراین آن‌ها را محدود می‌کنیم تا صفحه‌کلید شما سریع و قابل اعتماد بماند. اگر به حد مجاز رسیدید، کافی است تعدادی کاتلینگ را حذف کنید تا موارد جدید اضافه کنید.";
+"Up to **%lld text** cutlings" = "تا **%lld کاتلینگ متنی**";
+"Up to **%lld image** cutlings" = "تا **%lld کاتلینگ تصویری**";
+"Back" = "بازگشت";
+"Next" = "بعدی";
+"Get Started" = "شروع کنید";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "چند مرحله ساده را دنبال کنید تا استفاده از صفحه‌کلید سفارشی Cutling خود را شروع کنید.";
+"Enable Cutling Keyboard" = "فعال‌سازی صفحه‌کلید Cutling";
+"Test Your Keyboard" = "صفحه‌کلید خود را آزمایش کنید";
+"All set! Swipe to continue." = "همه چیز آماده! برای ادامه بکشید.";
+"Your data stays private and is never sent anywhere." = "داده‌های شما خصوصی می‌مانند و هرگز به جایی ارسال نمی‌شوند.";

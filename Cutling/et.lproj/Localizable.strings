@@ -1,0 +1,160 @@
+/* MARK: - Navigation & Titles */
+"My Cutlings" = "Minu Cutlings";
+"Select Items" = "Vali üksused";
+"%lld Selected" = "%lld valitud";
+"Reorder" = "Järjesta ümber";
+"Settings" = "Seaded";
+"Keyboard Setup" = "Klaviatuuri seadistamine";
+"New" = "Uus";
+"Choose Icon" = "Vali ikoon";
+
+/* MARK: - Common Actions */
+"Cancel" = "Tühista";
+"Done" = "Valmis";
+"Save" = "Salvesta";
+"Delete" = "Kustuta";
+"Copy" = "Kopeeri";
+"Edit" = "Muuda";
+"Sort" = "Sordi";
+"OK" = "OK";
+
+/* MARK: - Menu Items */
+"Text Cutling" = "Teksti Cutling";
+"Image Cutling" = "Pildi Cutling";
+"Select Cutlings" = "Vali Cutlings";
+"Reorder Cutlings" = "Järjesta Cutlings ümber";
+"Keyboard Setup Guide" = "Klaviatuuri seadistamise juhend";
+"Name (A → Z)" = "Nimi (A → Z)";
+"Name (Z → A)" = "Nimi (Z → A)";
+"Text First" = "Tekst esmalt";
+"Images First" = "Pildid esmalt";
+"Shortest First" = "Lühim esmalt";
+"Longest First" = "Pikim esmalt";
+"Reverse Order" = "Vastupidine järjekord";
+
+/* MARK: - Empty States */
+"No Cutlings Yet" = "Cutlings veel pole";
+"No Results" = "Tulemusi pole";
+"Tap + to add your first cutling." = "Puuduta +, et lisada oma esimene cutling.";
+"Try a different search term." = "Proovi teist otsingusõna.";
+
+/* MARK: - Search */
+"Search cutlings" = "Otsi cutlings";
+"Search icons" = "Otsi ikoone";
+
+/* MARK: - Form Labels */
+"Name" = "Nimi";
+"Icon" = "Ikoon";
+"Text" = "Tekst";
+"Image" = "Pilt";
+"Color" = "Värv";
+"Quick Actions" = "Kiirtoimingud";
+"Auto-Delete" = "Automaatne kustutamine";
+"Delete At" = "Kustuta kell";
+"Category" = "Kategooria";
+
+/* MARK: - Placeholders */
+"e.g. Email" = "nt E-post";
+"e.g. Signature, QR Code" = "nt Allkiri, QR Code";
+
+/* MARK: - Buttons & Actions */
+"Change Icon" = "Muuda ikooni";
+"Paste from Clipboard" = "Kleebi lõikelaualt";
+"Delete Cutling" = "Kustuta Cutling";
+"Open Settings to Enable" = "Ava seaded lubamiseks";
+"Photos Library" = "Fototeek";
+"Choose File" = "Vali fail";
+"Choose from Photos" = "Vali fotodest";
+"Choose from Files" = "Vali failidest";
+"Copy Images" = "Kopeeri pildid";
+"Add from Clipboard" = "Lisa lõikelaualt";
+"Insert Text Instantly" = "Sisesta tekst kohe";
+"Switch to Cutling Keyboard" = "Lülitu Cutling klaviatuurile";
+
+/* MARK: - Settings Sections */
+"iCloud" = "iCloud";
+"iCloud Sync" = "iCloud sünkroonimine";
+"Sync your cutlings across all your devices using iCloud." = "Sünkroonige oma cutlings kõigis seadmetes iCloud abil.";
+"Storage" = "Salvestusruum";
+"Text Cutlings" = "Teksti Cutlings";
+"Image Cutlings" = "Pildi Cutlings";
+"Max Text Length" = "Maks teksti pikkus";
+"%lld chars" = "%lld tähemärki";
+"About" = "Teave";
+"Version" = "Versioon";
+"Keyboard Added" = "Klaviatuur lisatud";
+"Full Access" = "Täielik juurdepääs";
+
+/* MARK: - Image Picker */
+"No image selected" = "Pilti pole valitud";
+
+/* MARK: - Footer Texts */
+"This will replace the current text with whatever is in your clipboard." = "See asendab praeguse teksti lõikelaual oleva sisuga.";
+"This will replace the current image with whatever is in your clipboard." = "See asendab praeguse pildi lõikelaual oleva sisuga.";
+"This cutling will be automatically deleted at the selected date and time." = "See cutling kustutatakse automaatselt valitud kuupäeval ja kellaajal.";
+"Each text cutling can hold up to %lld characters." = "Iga teksti cutling mahutab kuni %lld tähemärki.";
+
+/* MARK: - Alerts */
+"Limit Reached" = "Limiit saavutatud";
+"Delete Cutling?" = "Kustutada Cutling?";
+"This action cannot be undone." = "Seda toimingut ei saa tagasi võtta.";
+"Cannot add text cutling" = "Teksti cutling-ut ei saa lisada";
+"Cannot add image cutling" = "Pildi cutling-ut ei saa lisada";
+"Cannot add more text cutlings." = "Rohkem teksti cutlings ei saa lisada.";
+"Cannot add more image cutlings." = "Rohkem pildi cutlings ei saa lisada.";
+
+/* MARK: - CutlingStore Errors */
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Olete saavutanud maksimaalse %lld cutlings arvu. Kustutage mõned, et lisada uusi.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Olete saavutanud maksimaalse %lld pildi cutlings arvu. Pildid kasutavad klaviatuuris märkimisväärselt mälu. Kustutage mõned pildid, et lisada uusi.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Olete saavutanud maksimaalse %lld teksti cutlings arvu. Kustutage mõned, et lisada uusi.";
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "Sisestustüübi soovitused";
+"Suggest for Input Types" = "Soovita sisestustüüpidele";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Kui fokuseerite vastava tüübi tekstiväljale, ilmub see cutling klaviatuuri ülaossa.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Määrake cutlings sisestustüüpidele, et need ilmuks klaviatuuri ülaossa, kui fokuseerite vastavale tekstiväljale.";
+"No cutlings yet. Add some first." = "Cutlings veel pole. Lisage kõigepealt mõned.";
+"Suggested" = "Soovitatud";
+"Email" = "E-post";
+"URL" = "URL";
+"Phone Number" = "Telefoninumber";
+"Address" = "Aadress";
+
+/* MARK: - Detection */
+"Detected: %@" = "Tuvastatud: %@";
+"Undo" = "Võta tagasi";
+
+/* MARK: - Clipboard Feedback */
+"Copied" = "Kopeeritud";
+"Inserted" = "Sisestatud";
+
+/* MARK: - Keyboard Setup */
+"Setup Progress" = "Seadistamise edenemine";
+"Open Cutling Settings" = "Ava Cutling seaded";
+"Tap here, then switch to Cutling" = "Puuduta siin, seejärel lülitu Cutling-ile";
+"How to Use Your Keyboard" = "Kuidas kasutada klaviatuuri";
+"Storage Limits" = "Salvestusruumi limiidid";
+"You're All Set!" = "Kõik on valmis!";
+"Set Up Your Keyboard" = "Seadistage oma klaviatuur";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Teie Cutling klaviatuur on valmis! Kõikjal tippides puudutage klaviatuuril 🌐 gloobuse ikooni, et lülituda Cutling-ile.";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Järgige allpool olevaid kahte lihtsat sammu, et hakata kasutama oma kohandatud klaviatuuri. See leht uueneb automaatselt iga sammu lõpetamisel.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**1. samm:** Puudutage allpool 'Ava Cutling seaded', minge jaotisse **Klaviatuurid** ja valige loendist **Cutling**.";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**2. samm:** Veenduge, et **Luba täielik juurdepääs** on sisse lülitatud. See võimaldab klaviatuuril pilte lõikelauale kopeerida. Teie andmed jäävad privaatseks ega saadeta kunagi kuhugi.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**3. samm:** Puudutage tekstisisestusvälja ja valige \"Cutling\" klaviatuuril oleva 🌐 gloobuse ikooni abil, et uuendada \"Täielik juurdepääs\" olekut.";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**4. samm:** Olete valmis! Kasutusjuhend on toodud allpool.";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Mis tahes rakenduses tippides puudutage või hoidke all 🌐 gloobuse klahvi klaviatuuri vasakus alumises nurgas, seejärel valige Cutling";
+"Tap any text cutling and it will be typed into your current text field immediately" = "Puudutage mis tahes teksti cutling-ut ja see trükitakse kohe teie praegusele tekstiväljale";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Puudutage pildi cutling-ut, et see lõikelauale kopeerida, seejärel kleepige see kasutatavasse rakendusse (tavaliselt puudutades ja all hoides, seejärel valides Kleebi). Apple ei toeta praegu selles rakenduses pildi otse kleepimist.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Kopeerige mis tahes tekst, seejärel puudutage Cutling klaviatuuril nuppu 'Lisa lõikelaualt', et salvestada see uue cutling-una";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Kõiki oma cutlings saate hallata Cutling põhirakenduses. Tehtud muudatused ilmuvad kohe teie klaviatuuris.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Klaviatuurilaiendustel on süsteemi stabiilsuse tagamiseks ranged mälulimiidid. Pildid kasutavad rohkem mälu kui tekst, seega piirame neid, et teie klaviatuur jääks kiireks ja usaldusväärseks. Limiidi saavutamisel kustutage lihtsalt mõned cutlings, et lisada uusi.";
+"Up to **%lld text** cutlings" = "Kuni **%lld teksti** cutlings";
+"Up to **%lld image** cutlings" = "Kuni **%lld pildi** cutlings";
+"Back" = "Tagasi";
+"Next" = "Edasi";
+"Get Started" = "Alusta";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "Järgige mõnda lihtsat sammu, et hakata kasutama oma kohandatud Cutling klaviatuuri.";
+"Enable Cutling Keyboard" = "Luba Cutling klaviatuur";
+"Test Your Keyboard" = "Testige oma klaviatuuri";
+"All set! Swipe to continue." = "Kõik valmis! Pühkige jätkamiseks.";
+"Your data stays private and is never sent anywhere." = "Teie andmed jäävad privaatseks ega saadeta kunagi kuhugi.";

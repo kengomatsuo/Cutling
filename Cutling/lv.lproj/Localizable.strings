@@ -1,0 +1,160 @@
+/* MARK: - Navigation & Titles */
+"My Cutlings" = "Mani Cutlings";
+"Select Items" = "Atlasīt vienumus";
+"%lld Selected" = "%lld atlasīti";
+"Reorder" = "Pārkārtot";
+"Settings" = "Iestatījumi";
+"Keyboard Setup" = "Tastatūras iestatīšana";
+"New" = "Jauns";
+"Choose Icon" = "Izvēlēties ikonu";
+
+/* MARK: - Common Actions */
+"Cancel" = "Atcelt";
+"Done" = "Gatavs";
+"Save" = "Saglabāt";
+"Delete" = "Dzēst";
+"Copy" = "Kopēt";
+"Edit" = "Rediģēt";
+"Sort" = "Kārtot";
+"OK" = "Labi";
+
+/* MARK: - Menu Items */
+"Text Cutling" = "Teksta Cutling";
+"Image Cutling" = "Attēla Cutling";
+"Select Cutlings" = "Atlasīt Cutlings";
+"Reorder Cutlings" = "Pārkārtot Cutlings";
+"Keyboard Setup Guide" = "Tastatūras iestatīšanas ceļvedis";
+"Name (A → Z)" = "Nosaukums (A → Z)";
+"Name (Z → A)" = "Nosaukums (Z → A)";
+"Text First" = "Teksts vispirms";
+"Images First" = "Attēli vispirms";
+"Shortest First" = "Īsākais vispirms";
+"Longest First" = "Garākais vispirms";
+"Reverse Order" = "Apgrieztā secībā";
+
+/* MARK: - Empty States */
+"No Cutlings Yet" = "Pagaidām nav Cutlings";
+"No Results" = "Nav rezultātu";
+"Tap + to add your first cutling." = "Pieskarieties +, lai pievienotu savu pirmo cutling.";
+"Try a different search term." = "Mēģiniet citu meklēšanas vārdu.";
+
+/* MARK: - Search */
+"Search cutlings" = "Meklēt cutlings";
+"Search icons" = "Meklēt ikonas";
+
+/* MARK: - Form Labels */
+"Name" = "Nosaukums";
+"Icon" = "Ikona";
+"Text" = "Teksts";
+"Image" = "Attēls";
+"Color" = "Krāsa";
+"Quick Actions" = "Ātrās darbības";
+"Auto-Delete" = "Automātiskā dzēšana";
+"Delete At" = "Dzēst plkst.";
+"Category" = "Kategorija";
+
+/* MARK: - Placeholders */
+"e.g. Email" = "piem. E-pasts";
+"e.g. Signature, QR Code" = "piem. Paraksts, QR Code";
+
+/* MARK: - Buttons & Actions */
+"Change Icon" = "Mainīt ikonu";
+"Paste from Clipboard" = "Ielīmēt no starpliktuves";
+"Delete Cutling" = "Dzēst Cutling";
+"Open Settings to Enable" = "Atvērt iestatījumus, lai iespējotu";
+"Photos Library" = "Fotoattēlu bibliotēka";
+"Choose File" = "Izvēlēties failu";
+"Choose from Photos" = "Izvēlēties no fotoattēliem";
+"Choose from Files" = "Izvēlēties no failiem";
+"Copy Images" = "Kopēt attēlus";
+"Add from Clipboard" = "Pievienot no starpliktuves";
+"Insert Text Instantly" = "Ievietot tekstu uzreiz";
+"Switch to Cutling Keyboard" = "Pārslēgties uz Cutling tastatūru";
+
+/* MARK: - Settings Sections */
+"iCloud" = "iCloud";
+"iCloud Sync" = "iCloud sinhronizācija";
+"Sync your cutlings across all your devices using iCloud." = "Sinhronizējiet savus cutlings visās ierīcēs, izmantojot iCloud.";
+"Storage" = "Krātuve";
+"Text Cutlings" = "Teksta Cutlings";
+"Image Cutlings" = "Attēlu Cutlings";
+"Max Text Length" = "Maks. teksta garums";
+"%lld chars" = "%lld rakstz.";
+"About" = "Par";
+"Version" = "Versija";
+"Keyboard Added" = "Tastatūra pievienota";
+"Full Access" = "Pilna piekļuve";
+
+/* MARK: - Image Picker */
+"No image selected" = "Nav atlasīts neviens attēls";
+
+/* MARK: - Footer Texts */
+"This will replace the current text with whatever is in your clipboard." = "Tas aizstās pašreizējo tekstu ar to, kas ir jūsu starpliktuvē.";
+"This will replace the current image with whatever is in your clipboard." = "Tas aizstās pašreizējo attēlu ar to, kas ir jūsu starpliktuvē.";
+"This cutling will be automatically deleted at the selected date and time." = "Šis cutling tiks automātiski dzēsts izvēlētajā datumā un laikā.";
+"Each text cutling can hold up to %lld characters." = "Katrs teksta cutling var saturēt līdz %lld rakstzīmēm.";
+
+/* MARK: - Alerts */
+"Limit Reached" = "Ierobežojums sasniegts";
+"Delete Cutling?" = "Dzēst Cutling?";
+"This action cannot be undone." = "Šo darbību nevar atsaukt.";
+"Cannot add text cutling" = "Nevar pievienot teksta cutling";
+"Cannot add image cutling" = "Nevar pievienot attēla cutling";
+"Cannot add more text cutlings." = "Nevar pievienot vairāk teksta cutlings.";
+"Cannot add more image cutlings." = "Nevar pievienot vairāk attēlu cutlings.";
+
+/* MARK: - CutlingStore Errors */
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Esat sasniedzis maksimālo %lld cutlings skaitu. Dzēsiet dažus, lai pievienotu jaunus.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Esat sasniedzis maksimālo %lld attēlu cutlings skaitu. Attēli izmanto ievērojamu atmiņu tastatūrā. Dzēsiet dažus attēlus, lai pievienotu jaunus.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Esat sasniedzis maksimālo %lld teksta cutlings skaitu. Dzēsiet dažus, lai pievienotu jaunus.";
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "Ievades veida ieteikumi";
+"Suggest for Input Types" = "Ieteikt ievades veidiem";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Kad fokusēsiet atbilstošā veida teksta lauku, šis cutling parādīsies tastatūras augšdaļā.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Piešķiriet cutlings ievades veidiem, lai tie parādītos tastatūras augšdaļā, kad fokusējat atbilstošu teksta lauku.";
+"No cutlings yet. Add some first." = "Pagaidām nav cutlings. Vispirms pievienojiet dažus.";
+"Suggested" = "Ieteiktie";
+"Email" = "E-pasts";
+"URL" = "URL";
+"Phone Number" = "Tālruņa numurs";
+"Address" = "Adrese";
+
+/* MARK: - Detection */
+"Detected: %@" = "Noteikts: %@";
+"Undo" = "Atsaukt";
+
+/* MARK: - Clipboard Feedback */
+"Copied" = "Nokopēts";
+"Inserted" = "Ievietots";
+
+/* MARK: - Keyboard Setup */
+"Setup Progress" = "Iestatīšanas progress";
+"Open Cutling Settings" = "Atvērt Cutling iestatījumus";
+"Tap here, then switch to Cutling" = "Pieskarieties šeit, pēc tam pārslēdzieties uz Cutling";
+"How to Use Your Keyboard" = "Kā lietot tastatūru";
+"Storage Limits" = "Krātuves ierobežojumi";
+"You're All Set!" = "Viss ir gatavs!";
+"Set Up Your Keyboard" = "Iestatiet savu tastatūru";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Jūsu Cutling tastatūra ir gatava! Rakstot jebkur, pieskarieties 🌐 globusa ikonai uz tastatūras, lai pārslēgtos uz Cutling.";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Izpildiet divus vienkāršus soļus zemāk, lai sāktu lietot savu pielāgoto tastatūru. Šī lapa automātiski atjaunināsies, kad pabeigsiet katru soli.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**1. solis:** Pieskarieties 'Atvērt Cutling iestatījumus' zemāk, dodieties uz **Tastatūras** un atlasiet **Cutling** no saraksta.";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**2. solis:** Pārliecinieties, ka **Atļaut pilnu piekļuvi** ir ieslēgts. Tas ļauj tastatūrai kopēt attēlus jūsu starpliktuvē. Jūsu dati paliek privāti un nekad netiek nosūtīti nekur.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**3. solis:** Pieskarieties teksta ievades laukam un izvēlieties \"Cutling\", izmantojot 🌐 globusa ikonu uz tastatūras, lai atjauninātu \"Pilna piekļuve\" statusu.";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**4. solis:** Viss ir gatavs! Lietošanas ceļvedis ir sniegts zemāk.";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Rakstot jebkurā lietotnē, pieskarieties vai turiet 🌐 globusa taustiņu tastatūras apakšējā kreisajā stūrī, pēc tam atlasiet Cutling";
+"Tap any text cutling and it will be typed into your current text field immediately" = "Pieskarieties jebkuram teksta cutling un tas uzreiz tiks ierakstīts jūsu pašreizējā teksta laukā";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Pieskarieties attēla cutling, lai to nokopētu starpliktuvē, pēc tam ielīmējiet to lietotnē, kuru izmantojat (parasti pieskaroties un turot, pēc tam atlasot Ielīmēt). Apple pašlaik neatbalsta tiešu attēla ielīmēšanu šajā lietotnē.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Nokopējiet jebkuru tekstu, pēc tam pieskarieties pogai 'Pievienot no starpliktuves' Cutling tastatūrā, lai saglabātu to kā jaunu cutling";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Visus savus cutlings varat pārvaldīt galvenajā Cutling lietotnē. Izmaiņas, ko veicat, uzreiz parādīsies jūsu tastatūrā.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Tastatūras paplašinājumiem ir stingri atmiņas ierobežojumi, lai nodrošinātu sistēmas stabilitāti. Attēli izmanto vairāk atmiņas nekā teksts, tāpēc mēs tos ierobežojam, lai jūsu tastatūra paliktu ātra un uzticama. Ja sasniedzat ierobežojumu, vienkārši dzēsiet dažus cutlings, lai pievienotu jaunus.";
+"Up to **%lld text** cutlings" = "Līdz **%lld teksta** cutlings";
+"Up to **%lld image** cutlings" = "Līdz **%lld attēlu** cutlings";
+"Back" = "Atpakaļ";
+"Next" = "Tālāk";
+"Get Started" = "Sākt";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "Izpildiet dažus vienkāršus soļus, lai sāktu lietot savu pielāgoto Cutling tastatūru.";
+"Enable Cutling Keyboard" = "Iespējot Cutling tastatūru";
+"Test Your Keyboard" = "Pārbaudiet savu tastatūru";
+"All set! Swipe to continue." = "Viss gatavs! Velciet, lai turpinātu.";
+"Your data stays private and is never sent anywhere." = "Jūsu dati paliek privāti un nekad netiek nosūtīti nekur.";
