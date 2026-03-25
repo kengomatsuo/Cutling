@@ -267,6 +267,7 @@ struct MainContentView: View {
         #if os(iOS)
         .navigationBarTitleDisplayMode(.large)
         #endif
+        .modifier(SubtitleModifier(text: store.textCutlingsCount, textMax: CutlingStore.maxTextCutlings, images: store.imageCutlingsCount, imageMax: CutlingStore.maxImageCutlings))
         .searchable(text: $searchText, isPresented: $searchIsPresented, prompt: "Search cutlings")
         #if os(iOS)
         .toolbar(mode != .browsing ? .visible : .hidden, for: .bottomBar)
@@ -466,39 +467,43 @@ struct MainContentView: View {
 
     private var gridScrollView: some View {
         ScrollView {
-            // Storage usage indicator
-            VStack(spacing: 6) {
-                HStack(spacing: 12) {
-                    HStack(spacing: 4) {
-                        Image(systemName: "doc.text")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                        Text("\(store.textCutlingsCount)/\(CutlingStore.maxTextCutlings)")
-                            .font(.caption.weight(.medium))
-                            .foregroundStyle(.secondary)
+            #if os(iOS)
+            if #unavailable(iOS 26) {
+                // Fallback for pre-iOS 26 which lacks navigationSubtitle
+                VStack(spacing: 6) {
+                    HStack(spacing: 12) {
+                        HStack(spacing: 4) {
+                            Image(systemName: "doc.text")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                            Text("\(store.textCutlingsCount)/\(CutlingStore.maxTextCutlings)")
+                                .font(.caption.weight(.medium))
+                                .foregroundStyle(.secondary)
+                        }
+
+                        HStack(spacing: 4) {
+                            Image(systemName: "photo")
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                            Text("\(store.imageCutlingsCount)/\(CutlingStore.maxImageCutlings)")
+                                .font(.caption.weight(.medium))
+                                .foregroundStyle(.secondary)
+                        }
+
+                        if store.isSyncing {
+                            ProgressView()
+                                .scaleEffect(0.6)
+                                .frame(width: 10, height: 10)
+                        }
+
+                        Spacer()
                     }
-                    
-                    HStack(spacing: 4) {
-                        Image(systemName: "photo")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                        Text("\(store.imageCutlingsCount)/\(CutlingStore.maxImageCutlings)")
-                            .font(.caption.weight(.medium))
-                            .foregroundStyle(.secondary)
-                    }
-                    
-                    if store.isSyncing {
-                        ProgressView()
-                            .scaleEffect(0.6)
-                            .frame(width: 10, height: 10)
-                    }
-                    
-                    Spacer()
+                    .padding(.horizontal)
+                    .padding(.top, 8)
                 }
-                .padding(.horizontal)
-                .padding(.top, 8)
             }
-            
+            #endif
+
             if filtered.isEmpty {
                 VStack(spacing: 12) {
                     Image(systemName: searchText.isEmpty ? "tray" : "magnifyingglass")
@@ -1374,6 +1379,27 @@ struct CardView: View {
 }
 
 // MARK: - Helper View Modifiers
+
+private struct SubtitleModifier: ViewModifier {
+    let text: Int
+    let textMax: Int
+    let images: Int
+    let imageMax: Int
+
+    func body(content: Content) -> some View {
+        #if os(macOS)
+        content
+            .navigationSubtitle("\(text)/\(textMax) Text, \(images)/\(imageMax) Images")
+        #else
+        if #available(iOS 26, *) {
+            content
+                .navigationSubtitle("\(text)/\(textMax) Text, \(images)/\(imageMax) Images")
+        } else {
+            content
+        }
+        #endif
+    }
+}
 
 struct SheetsModifier: ViewModifier {
     @EnvironmentObject var store: CutlingStore
