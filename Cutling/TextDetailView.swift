@@ -101,6 +101,7 @@ struct IconPickerView: View {
 
 struct TextDetailView: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(\.undoManager) var undoManager
     @EnvironmentObject var store: CutlingStore
 
     let existingItem: Cutling?
@@ -124,6 +125,7 @@ struct TextDetailView: View {
     @State private var showAutoDetectBanner = false
     @State private var detectTask: Task<Void, Never>?
     @State private var isAutoDetecting = false
+    @State private var undoHandler = UndoHandler()
 
     init(item: Cutling?, autoPasteFromClipboard: Bool = false, presentedAsSheet: Bool = true) {
         self.existingItem = item
@@ -158,6 +160,7 @@ struct TextDetailView: View {
                             }
                         }
                         #endif
+                        compactUndoToolbarContent
                         ToolbarItem(placement: .confirmationAction) {
                             Button {
                                 saveAndDismiss()
@@ -178,9 +181,68 @@ struct TextDetailView: View {
             #endif
         } else {
             formContent
+                .toolbar {
+                    undoRedoToolbarContent
+                }
                 .onDisappear {
                     autoSaveIfEditing()
                 }
+        }
+    }
+
+    // MARK: - Undo/Redo Toolbar
+
+    @ToolbarContentBuilder
+    private var compactUndoToolbarContent: some ToolbarContent {
+        #if os(iOS)
+        ToolbarItem {
+            if undoManager?.canRedo == true {
+                Menu {
+                    Button {
+                        undoManager?.undo()
+                    } label: {
+                        Label("Undo", systemImage: "arrow.uturn.backward")
+                    }
+                    .disabled(undoManager?.canUndo != true)
+
+                    Button {
+                        undoManager?.redo()
+                    } label: {
+                        Label("Redo", systemImage: "arrow.uturn.forward")
+                    }
+                } label: {
+                    Image(systemName: "arrow.uturn.backward")
+                }
+            } else {
+                Button {
+                    undoManager?.undo()
+                } label: {
+                    Image(systemName: "arrow.uturn.backward")
+                }
+                .disabled(undoManager?.canUndo != true)
+            }
+        }
+        #else
+        undoRedoToolbarContent
+        #endif
+    }
+
+    @ToolbarContentBuilder
+    private var undoRedoToolbarContent: some ToolbarContent {
+        ToolbarItemGroup {
+            Button {
+                undoManager?.undo()
+            } label: {
+                Image(systemName: "arrow.uturn.backward")
+            }
+            .disabled(undoManager?.canUndo != true)
+
+            Button {
+                undoManager?.redo()
+            } label: {
+                Image(systemName: "arrow.uturn.forward")
+            }
+            .disabled(undoManager?.canRedo != true)
         }
     }
 
@@ -189,7 +251,7 @@ struct TextDetailView: View {
     private var formContent: some View {
         Form {
             Section("Name") {
-                TextField("e.g. Email", text: $name)
+                TextField("e.g. Email", text: undoHandler.binding($name, actionName: String(localized: "Change Name")))
             }
             Section("Icon") {
                 #if os(macOS)
@@ -222,7 +284,7 @@ struct TextDetailView: View {
                 #endif
             }
             Section {
-                TextEditor(text: $value)
+                TextEditor(text: undoHandler.binding($value, actionName: String(localized: "Change Text")))
                     .frame(minHeight: 120, maxHeight: 650)
                     .scrollContentBackground(.hidden)
                     .onChange(of: value) {
@@ -238,7 +300,7 @@ struct TextDetailView: View {
                     .foregroundStyle(value.count > CutlingStore.maxTextLength - 500 ? .orange : .secondary)
                     .font(.caption)
             }
-            ColorPaletteSection(selectedColor: $color)
+            ColorPaletteSection(selectedColor: undoHandler.binding($color, actionName: String(localized: "Change Color")))
             if showAutoDetectBanner && !autoDetectedCategories.isEmpty {
                 Section {
                     HStack {
@@ -253,7 +315,7 @@ struct TextDetailView: View {
                 }
                 .transition(.opacity)
             }
-            InputTypePickerSection(selectedTriggers: $inputTypeTriggers)
+            InputTypePickerSection(selectedTriggers: undoHandler.binding($inputTypeTriggers, actionName: String(localized: "Change Input Types")))
                 .onChange(of: inputTypeTriggers) { oldValue, newValue in
                     guard !isAutoDetecting else { return }
                     let oldCategories = Set(InputTypeCategory.matchingCategories(for: oldValue))
@@ -265,7 +327,7 @@ struct TextDetailView: View {
                         withAnimation { showAutoDetectBanner = false }
                     }
                 }
-            ExpirationPickerSection(autoDeleteEnabled: $autoDeleteEnabled, deleteAt: $deleteAt)
+            ExpirationPickerSection(autoDeleteEnabled: undoHandler.binding($autoDeleteEnabled, actionName: String(localized: "Change Expiration")), deleteAt: undoHandler.binding($deleteAt, actionName: String(localized: "Change Expiration")))
             if hasClipboardText {
                 Section {
                     Button {
@@ -301,12 +363,12 @@ struct TextDetailView: View {
         } message: {
             Text("This action cannot be undone.")
         }
-        .navigationTitle(isEditing ? "Edit Cutling" : "New Cutling")
+        .navigationTitle(isEditing ? "Edit" : "New")
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
         #endif
         .sheet(isPresented: $showIconPicker) {
-            IconPickerView(selectedIcon: $icon)
+            IconPickerView(selectedIcon: undoHandler.binding($icon, actionName: String(localized: "Change Icon")))
         }
         .alert("Limit Reached", isPresented: $showLimitAlert) {
             Button("OK", role: .cancel) {}
@@ -323,6 +385,10 @@ struct TextDetailView: View {
                 }
             }
         }
+        .onChange(of: undoManager, initial: true) { _, newValue in
+            undoHandler.undoManager = newValue
+        }
+
     }
 
     // MARK: - Save Helpers
@@ -463,15 +529,21 @@ struct TextDetailView: View {
     }
     
     private func pasteFromClipboard() {
+        var newText: String?
         #if os(iOS)
         if let text = UIPasteboard.general.string, !text.isEmpty {
-            value = text
+            newText = text
         }
         #else
         if let text = NSPasteboard.general.string(forType: .string), !text.isEmpty {
-            value = text
+            newText = text
         }
         #endif
+        if let newText {
+            let oldValue = value
+            value = newText
+            undoHandler.registerUndo(from: oldValue, to: newText, actionName: String(localized: "Paste")) { value = $0 }
+        }
     }
 }
 

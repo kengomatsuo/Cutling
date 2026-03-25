@@ -27,10 +27,52 @@ struct PickedImage: Transferable {
     }
 }
 
+// MARK: - Undo Handler
+
+/// A class-based undo handler that intercepts bindings to register undo/redo.
+/// Only user-driven changes (through the intercepted binding setter) register undos.
+/// Undo/redo-driven changes go through the `apply` closure directly, bypassing the
+/// intercepted binding, so they don't re-register and clobber the redo stack.
+/// See: https://nilcoalescing.com/blog/HandlingUndoAndRedoInSwiftUI/
+class UndoHandler: NSObject {
+    weak var undoManager: UndoManager?
+
+    /// Returns an intercepted binding that registers undo on every set.
+    func binding<T: Equatable>(
+        _ source: Binding<T>,
+        actionName: String
+    ) -> Binding<T> {
+        Binding {
+            source.wrappedValue
+        } set: { [weak self] newValue in
+            let oldValue = source.wrappedValue
+            source.wrappedValue = newValue
+            self?.registerUndo(from: oldValue, to: newValue, actionName: actionName) {
+                source.wrappedValue = $0
+            }
+        }
+    }
+
+    func registerUndo<T: Equatable>(
+        from oldValue: T,
+        to newValue: T,
+        actionName: String,
+        apply: @escaping (T) -> Void
+    ) {
+        guard oldValue != newValue, let undoManager else { return }
+        undoManager.registerUndo(withTarget: self) { handler in
+            apply(oldValue)
+            handler.registerUndo(from: newValue, to: oldValue, actionName: actionName, apply: apply)
+        }
+        undoManager.setActionName(actionName)
+    }
+}
+
 // MARK: - Image Detail View
 
 struct ImageDetailView: View {
     @Environment(\.dismiss) var dismiss
+    @Environment(\.undoManager) var undoManager
     @EnvironmentObject var store: CutlingStore
 
     let existingItem: Cutling?
@@ -48,6 +90,7 @@ struct ImageDetailView: View {
     @State private var autoDeleteEnabled: Bool
     @State private var deleteAt: Date
     @State private var inputTypeTriggers: Set<String>
+    @State private var undoHandler = UndoHandler()
     
     init(item: Cutling?, autoPasteFromClipboard: Bool = false, presentedAsSheet: Bool = true) {
         self.existingItem = item
@@ -79,6 +122,7 @@ struct ImageDetailView: View {
                             }
                         }
                         #endif
+                        compactUndoToolbarContent
                         ToolbarItem(placement: .confirmationAction) {
                             Button {
                                 saveCutling()
@@ -99,9 +143,68 @@ struct ImageDetailView: View {
             #endif
         } else {
             formContent
+                .toolbar {
+                    undoRedoToolbarContent
+                }
                 .onDisappear {
                     autoSaveIfEditing()
                 }
+        }
+    }
+
+    // MARK: - Undo/Redo Toolbar
+
+    @ToolbarContentBuilder
+    private var compactUndoToolbarContent: some ToolbarContent {
+        #if os(iOS)
+        ToolbarItem {
+            if undoManager?.canRedo == true {
+                Menu {
+                    Button {
+                        undoManager?.undo()
+                    } label: {
+                        Label("Undo", systemImage: "arrow.uturn.backward")
+                    }
+                    .disabled(undoManager?.canUndo != true)
+
+                    Button {
+                        undoManager?.redo()
+                    } label: {
+                        Label("Redo", systemImage: "arrow.uturn.forward")
+                    }
+                } label: {
+                    Image(systemName: "arrow.uturn.backward")
+                }
+            } else {
+                Button {
+                    undoManager?.undo()
+                } label: {
+                    Image(systemName: "arrow.uturn.backward")
+                }
+                .disabled(undoManager?.canUndo != true)
+            }
+        }
+        #else
+        undoRedoToolbarContent
+        #endif
+    }
+
+    @ToolbarContentBuilder
+    private var undoRedoToolbarContent: some ToolbarContent {
+        ToolbarItemGroup {
+            Button {
+                undoManager?.undo()
+            } label: {
+                Image(systemName: "arrow.uturn.backward")
+            }
+            .disabled(undoManager?.canUndo != true)
+
+            Button {
+                undoManager?.redo()
+            } label: {
+                Image(systemName: "arrow.uturn.forward")
+            }
+            .disabled(undoManager?.canRedo != true)
         }
     }
 
@@ -110,14 +213,14 @@ struct ImageDetailView: View {
     private var formContent: some View {
         Form {
             Section("Name") {
-                TextField("e.g. Signature, QR Code", text: $name)
+                TextField("e.g. Signature, QR Code", text: undoHandler.binding($name, actionName: String(localized: "Change Name")))
             }
             Section("Image") {
                 imagePreview
                 pickerButtons
             }
-            InputTypePickerSection(selectedTriggers: $inputTypeTriggers)
-            ExpirationPickerSection(autoDeleteEnabled: $autoDeleteEnabled, deleteAt: $deleteAt)
+            InputTypePickerSection(selectedTriggers: undoHandler.binding($inputTypeTriggers, actionName: String(localized: "Change Input Types")))
+            ExpirationPickerSection(autoDeleteEnabled: undoHandler.binding($autoDeleteEnabled, actionName: String(localized: "Change Expiration")), deleteAt: undoHandler.binding($deleteAt, actionName: String(localized: "Change Expiration")))
             if hasClipboardImage {
                 Section {
                     Button {
@@ -153,14 +256,16 @@ struct ImageDetailView: View {
         } message: {
             Text("This action cannot be undone.")
         }
-        .navigationTitle(isEditing ? "Edit Image" : "New Image")
+        .navigationTitle(isEditing ? "Edit" : "New")
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
         #endif
         .onChange(of: selectedPhoto) {
             Task {
                 if let picked = try? await selectedPhoto?.loadTransferable(type: PickedImage.self) {
+                    let oldData = imageData
                     imageData = picked.data
+                    undoHandler.registerUndo(from: oldData, to: imageData, actionName: String(localized: "Change Image")) { imageData = $0 }
                 }
             }
         }
@@ -172,7 +277,11 @@ struct ImageDetailView: View {
             if case .success(let urls) = result, let url = urls.first {
                 if url.startAccessingSecurityScopedResource() {
                     defer { url.stopAccessingSecurityScopedResource() }
-                    imageData = try? Data(contentsOf: url)
+                    let oldData = imageData
+                    if let newData = try? Data(contentsOf: url) {
+                        imageData = newData
+                        undoHandler.registerUndo(from: oldData, to: newData, actionName: String(localized: "Change Image")) { imageData = $0 }
+                    }
                 }
             }
         }
@@ -194,6 +303,10 @@ struct ImageDetailView: View {
         } message: {
             Text(limitAlertMessage)
         }
+        .onChange(of: undoManager, initial: true) { _, newValue in
+            undoHandler.undoManager = newValue
+        }
+
     }
 
     // MARK: - Auto-Save
@@ -332,36 +445,38 @@ struct ImageDetailView: View {
     }
     
     private func pasteFromClipboard() {
+        let oldData = imageData
+        var newData: Data?
         #if os(iOS)
         // First try to get raw image data (preserves GIFs, etc.)
         if let data = UIPasteboard.general.data(forPasteboardType: UTType.gif.identifier) {
-            imageData = data
+            newData = data
         } else if let data = UIPasteboard.general.data(forPasteboardType: UTType.png.identifier) {
-            imageData = data
+            newData = data
         } else if let data = UIPasteboard.general.data(forPasteboardType: UTType.jpeg.identifier) {
-            imageData = data
+            newData = data
         } else if let image = UIPasteboard.general.image {
             // Fallback: convert UIImage to PNG or JPEG
-            if let data = image.pngData() {
-                imageData = data
-            } else if let data = image.jpegData(compressionQuality: 1.0) {
-                imageData = data
-            }
+            newData = image.pngData() ?? image.jpegData(compressionQuality: 1.0)
         }
         #else
         // macOS: try to get raw data first
         if let data = NSPasteboard.general.data(forType: NSPasteboard.PasteboardType(UTType.gif.identifier)) {
-            imageData = data
+            newData = data
         } else if let data = NSPasteboard.general.data(forType: .png) {
-            imageData = data
+            newData = data
         } else if let data = NSPasteboard.general.data(forType: NSPasteboard.PasteboardType(UTType.jpeg.identifier)) {
-            imageData = data
+            newData = data
         } else if let image = NSPasteboard.general.readObjects(forClasses: [NSImage.self])?.first as? NSImage,
            let tiffData = image.tiffRepresentation,
            let bitmapImage = NSBitmapImageRep(data: tiffData),
            let data = bitmapImage.representation(using: .png, properties: [:]) {
-            imageData = data
+            newData = data
         }
         #endif
+        if let newData {
+            imageData = newData
+            undoHandler.registerUndo(from: oldData, to: newData, actionName: String(localized: "Change Image")) { imageData = $0 }
+        }
     }
 }
