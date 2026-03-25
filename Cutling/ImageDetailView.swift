@@ -169,7 +169,7 @@ struct ImageDetailView: View {
                 .toolbar {
                     undoRedoToolbarContent
                 }
-                .onWillDisappear {
+                .onDisappear {
                     undoHandler.closeAllGroups()
                     autoSave()
                 }

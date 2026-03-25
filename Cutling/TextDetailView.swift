@@ -171,7 +171,7 @@ struct TextDetailView: View {
                 .toolbar {
                     undoRedoToolbarContent
                 }
-                .onWillDisappear {
+                .onDisappear {
                     undoHandler.closeAllGroups()
                     autoSave()
                 }
