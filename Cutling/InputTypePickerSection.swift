@@ -9,6 +9,7 @@ import SwiftUI
 /// a cutling should be suggested for in the keyboard.
 struct InputTypePickerSection: View {
     @Binding var selectedTriggers: Set<String>
+    @Binding var autoDetectedCategories: Set<InputTypeCategory>
 
     var body: some View {
         Section {
@@ -16,6 +17,8 @@ struct InputTypePickerSection: View {
                 let isOn = !category.triggerKeys.isDisjoint(with: selectedTriggers)
                 Button {
                     withAnimation(.easeInOut(duration: 0.15)) {
+                        // Any manual toggle removes this category from auto-detected tracking.
+                        autoDetectedCategories.remove(category)
                         if isOn {
                             selectedTriggers.subtract(category.triggerKeys)
                         } else {

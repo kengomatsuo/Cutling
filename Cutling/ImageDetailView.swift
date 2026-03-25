@@ -89,7 +89,6 @@ struct ImageDetailView: View {
     @State private var hasClipboardImage = false
     @State private var autoDeleteEnabled: Bool
     @State private var deleteAt: Date
-    @State private var inputTypeTriggers: Set<String>
     @State private var undoHandler = UndoHandler()
     
     init(item: Cutling?, autoPasteFromClipboard: Bool = false, presentedAsSheet: Bool = true) {
@@ -99,7 +98,6 @@ struct ImageDetailView: View {
         _name = State(initialValue: item?.name ?? "")
         _autoDeleteEnabled = State(initialValue: item?.expiresAt != nil)
         _deleteAt = State(initialValue: item?.expiresAt ?? Date().addingTimeInterval(86400))
-        _inputTypeTriggers = State(initialValue: Set(item?.inputTypeTriggers ?? []))
     }
 
     var isEditing: Bool { existingItem != nil }
@@ -260,7 +258,6 @@ struct ImageDetailView: View {
                 imagePreview
                 pickerButtons
             }
-            InputTypePickerSection(selectedTriggers: undoHandler.binding($inputTypeTriggers, actionName: String(localized: "Change Input Types")))
             ExpirationPickerSection(autoDeleteEnabled: undoHandler.binding($autoDeleteEnabled, actionName: String(localized: "Change Expiration")), deleteAt: undoHandler.binding($deleteAt, actionName: String(localized: "Change Expiration")))
             if hasClipboardImage {
                 Section {
@@ -349,7 +346,6 @@ struct ImageDetailView: View {
             var updated = existing
             if !name.isEmpty { updated.name = name }
             updated.expiresAt = autoDeleteEnabled ? deleteAt : nil
-            updated.inputTypeTriggers = inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
 
             if let newImageData = imageData,
                newImageData != store.loadImageData(named: existing.imageFilename ?? "") {
@@ -373,8 +369,7 @@ struct ImageDetailView: View {
                 icon: "photo",
                 kind: .image,
                 imageFilename: nil,
-                expiresAt: autoDeleteEnabled ? deleteAt : nil,
-                inputTypeTriggers: inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
+                expiresAt: autoDeleteEnabled ? deleteAt : nil
             )
 
             if let imageData {
@@ -449,7 +444,6 @@ struct ImageDetailView: View {
             var updated = existing
             updated.name = name
             updated.expiresAt = autoDeleteEnabled ? deleteAt : nil
-            updated.inputTypeTriggers = inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
 
             if let newImageData = imageData {
                 if let oldFilename = existing.imageFilename {
@@ -477,8 +471,7 @@ struct ImageDetailView: View {
                 icon: "photo",
                 kind: .image,
                 imageFilename: nil,
-                expiresAt: autoDeleteEnabled ? deleteAt : nil,
-                inputTypeTriggers: inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
+                expiresAt: autoDeleteEnabled ? deleteAt : nil
             )
 
             if let imageData {

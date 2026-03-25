@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import NaturalLanguage
 import SwiftUI
 #if os(iOS)
 import UIKit
@@ -108,6 +109,20 @@ enum InputTypeCategory: String, CaseIterable, Identifiable, Codable, Sendable {
                 result.insert(.phoneNumber)
             } else if match.resultType == .address {
                 result.insert(.address)
+            }
+        }
+
+        // Name detection via NLTagger
+        if result.isEmpty {
+            let tagger = NLTagger(tagSchemes: [.nameType])
+            tagger.string = trimmed
+            let tagRange = trimmed.startIndex..<trimmed.endIndex
+            let tags = tagger.tags(in: tagRange, unit: .word, scheme: .nameType, options: [.omitPunctuation, .omitWhitespace, .joinNames])
+            for (tag, _) in tags {
+                if tag == .personalName {
+                    result.insert(.name)
+                    break
+                }
             }
         }
 

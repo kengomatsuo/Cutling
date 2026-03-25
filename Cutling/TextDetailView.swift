@@ -122,6 +122,8 @@ struct TextDetailView: View {
     @State private var inputTypeTriggers: Set<String>
     @State private var detectTask: Task<Void, Never>?
     @State private var isAutoDetecting = false
+    @State private var autoDetectedCategories: Set<InputTypeCategory> = []
+    @State private var userDidPickIcon = false
     @State private var undoHandler = UndoHandler()
 
     init(item: Cutling?, autoPasteFromClipboard: Bool = false, presentedAsSheet: Bool = true) {
@@ -135,6 +137,8 @@ struct TextDetailView: View {
         _deleteAt = State(initialValue: item?.expiresAt ?? Date().addingTimeInterval(86400))
         _color = State(initialValue: item?.color)
         _inputTypeTriggers = State(initialValue: Set(item?.inputTypeTriggers ?? []))
+        // When editing an existing cutling, treat the saved icon as user-chosen.
+        _userDidPickIcon = State(initialValue: item != nil)
     }
 
     var isEditing: Bool { existingItem != nil }
@@ -340,7 +344,7 @@ struct TextDetailView: View {
                     .font(.caption)
             }
             ColorPaletteSection(selectedColor: undoHandler.binding($color, actionName: String(localized: "Change Color")))
-            InputTypePickerSection(selectedTriggers: undoHandler.binding($inputTypeTriggers, actionName: String(localized: "Change Input Types")))
+            InputTypePickerSection(selectedTriggers: undoHandler.binding($inputTypeTriggers, actionName: String(localized: "Change Input Types")), autoDetectedCategories: $autoDetectedCategories)
             ExpirationPickerSection(autoDeleteEnabled: undoHandler.binding($autoDeleteEnabled, actionName: String(localized: "Change Expiration")), deleteAt: undoHandler.binding($deleteAt, actionName: String(localized: "Change Expiration")))
             if hasClipboardText {
                 Section {
@@ -373,7 +377,7 @@ struct TextDetailView: View {
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
         #endif
-        .sheet(isPresented: $showIconPicker) {
+        .sheet(isPresented: $showIconPicker, onDismiss: { userDidPickIcon = true }) {
             IconPickerView(selectedIcon: undoHandler.binding($icon, actionName: String(localized: "Change Icon")))
         }
         .alert("Limit Reached", isPresented: $showLimitAlert) {
@@ -471,17 +475,80 @@ struct TextDetailView: View {
 
     private func runAutoDetect() {
         let detected = InputTypeCategory.detect(from: value)
-        guard !detected.isEmpty else { return }
 
         isAutoDetecting = true
         defer { isAutoDetecting = false }
 
-        // Only add categories that aren't already set
+        // Remove categories that were auto-detected before but are no longer detected.
+        // Categories the user toggled manually are not in autoDetectedCategories, so
+        // they stay untouched.
+        let stale = autoDetectedCategories.subtracting(detected)
+        for category in stale {
+            inputTypeTriggers.subtract(category.triggerKeys)
+        }
+        autoDetectedCategories.subtract(stale)
+
+        // Add newly detected categories that aren't already set
         let currentCategories = Set(InputTypeCategory.matchingCategories(for: inputTypeTriggers))
         let newCategories = detected.subtracting(currentCategories)
         for category in newCategories {
             inputTypeTriggers.formUnion(category.triggerKeys)
+            autoDetectedCategories.insert(category)
         }
+
+        // Auto-suggest icon as long as the user hasn't manually picked one.
+        // If the current icon already matches one of the detected categories, keep it.
+        if !userDidPickIcon {
+            let currentIconMatchesDetected = detected.contains { $0.icon == icon }
+            if !currentIconMatchesDetected, let first = detected.first {
+                icon = first.icon
+            }
+            // If nothing is detected at all, revert to default
+            if detected.isEmpty {
+                icon = "document"
+            }
+        }
+
+        // Auto-suggest name when empty or when it matches a previous auto-suggestion
+        // (including numbered variants like "Email 2").
+        if name.isEmpty || isAutoSuggestedName(name) {
+            if let first = detected.first {
+                name = deduplicatedName(for: first.displayName)
+            } else {
+                name = ""
+            }
+        }
+    }
+
+    /// Returns true if the given name is an auto-suggested category name or a numbered variant (e.g. "Email 2").
+    private func isAutoSuggestedName(_ name: String) -> Bool {
+        let baseNames = Set(InputTypeCategory.allCases.map(\.displayName))
+        if baseNames.contains(name) { return true }
+        // Check for numbered variants like "Email 2"
+        for base in baseNames {
+            if name.hasPrefix(base + " "),
+               let suffix = Int(name.dropFirst(base.count + 1)),
+               suffix >= 2 {
+                return true
+            }
+        }
+        return false
+    }
+
+    /// Returns a unique name based on the category display name, appending a number if needed.
+    private func deduplicatedName(for baseName: String) -> String {
+        let existingNames = store.cutlings
+            .filter { $0.id != existingItem?.id }
+            .map(\.name)
+        let nameSet = Set(existingNames)
+
+        if !nameSet.contains(baseName) { return baseName }
+
+        var counter = 2
+        while nameSet.contains("\(baseName) \(counter)") {
+            counter += 1
+        }
+        return "\(baseName) \(counter)"
     }
 
     // MARK: - Actions

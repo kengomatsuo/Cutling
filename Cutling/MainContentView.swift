@@ -95,6 +95,7 @@ struct MainContentView: View {
     #if os(iOS)
     @Namespace private var zoomNamespace
     private let addButtonZoomID = "addButton"
+    private let settingsButtonZoomID = "settingsButton"
     #endif
 
     init(showSettings: Binding<Bool> = .constant(false)) {
@@ -189,7 +190,6 @@ struct MainContentView: View {
                     selectedItem: $selectedItem,
                     showAddText: $showAddText,
                     showAddImage: $showAddImage,
-                    showSettings: $showSettings,
                     showKeyboardSetup: $showKeyboardSetup
                 ))
                 .modifier(AlertsModifier(
@@ -244,6 +244,10 @@ struct MainContentView: View {
                     }
                     .navigationTransition(.zoom(sourceID: addButtonZoomID, in: zoomNamespace))
                 }
+                .sheet(isPresented: $showSettings) {
+                    SettingsView()
+                        .navigationTransition(.zoom(sourceID: settingsButtonZoomID, in: zoomNamespace))
+                }
                 #endif
         }
     }
@@ -288,19 +292,32 @@ struct MainContentView: View {
             }
             #endif
             if mode == .browsing {
+                #if os(iOS)
+                if #available(iOS 26, *) {
+                    ToolbarItem(placement: .primaryAction) {
+                        Button {
+                            showSettings = true
+                        } label: {
+                            Image(systemName: "gearshape")
+                        }
+                    }
+                    .matchedTransitionSource(id: settingsButtonZoomID, in: zoomNamespace)
+                } else {
+                    ToolbarItem(placement: .primaryAction) {
+                        Button {
+                            showSettings = true
+                        } label: {
+                            Image(systemName: "gearshape")
+                        }
+                    }
+                }
+                #else
                 ToolbarItem(placement: .primaryAction) {
-                    #if os(macOS)
                     SettingsLink {
                         Image(systemName: "gearshape")
                     }
-                    #else
-                    Button {
-                        showSettings = true
-                    } label: {
-                        Image(systemName: "gearshape")
-                    }
-                    #endif
                 }
+                #endif
             }
             ToolbarItemGroup(placement: .primaryAction) {
                 primaryToolbarContent
@@ -1406,7 +1423,6 @@ struct SheetsModifier: ViewModifier {
     @Binding var selectedItem: Cutling?
     @Binding var showAddText: Bool
     @Binding var showAddImage: Bool
-    @Binding var showSettings: Bool
     @Binding var showKeyboardSetup: Bool
 
     #if os(macOS)
@@ -1416,9 +1432,6 @@ struct SheetsModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             #if os(iOS)
-            .sheet(isPresented: $showSettings) {
-                SettingsView()
-            }
             .sheet(isPresented: $showKeyboardSetup) {
                 KeyboardSetupView(isOnboarding: false)
             }
