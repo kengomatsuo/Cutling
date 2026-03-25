@@ -172,6 +172,7 @@ struct TextDetailView: View {
                     undoRedoToolbarContent
                 }
                 .onWillDisappear {
+                    undoHandler.closeAllGroups()
                     autoSave()
                 }
                 .onChange(of: scenePhase) { _, newPhase in
@@ -221,6 +222,7 @@ struct TextDetailView: View {
                     undoRedoToolbarContent
                 }
                 .onWillDisappear {
+                    undoHandler.closeAllGroups()
                     autoSave()
                 }
                 .onChange(of: scenePhase) { _, newPhase in

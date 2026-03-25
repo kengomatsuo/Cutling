@@ -37,6 +37,11 @@ struct PickedImage: Transferable {
 class UndoHandler: NSObject {
     weak var undoManager: UndoManager?
 
+    /// Tracks open undo groups per action name so rapid changes coalesce into one undo.
+    private var openGroups: Set<String> = []
+    private var groupTimers: [String: Timer] = [:]
+    private static let coalesceInterval: TimeInterval = 0.5
+
     /// Returns an intercepted binding that registers undo on every set.
     func binding<T: Equatable>(
         _ source: Binding<T>,
@@ -60,11 +65,45 @@ class UndoHandler: NSObject {
         apply: @escaping (T) -> Void
     ) {
         guard oldValue != newValue, let undoManager else { return }
+
+        let isUndoingOrRedoing = undoManager.isUndoing || undoManager.isRedoing
+
+        // Only open coalescing groups for user-driven changes, not undo/redo.
+        if !isUndoingOrRedoing, !openGroups.contains(actionName) {
+            undoManager.beginUndoGrouping()
+            openGroups.insert(actionName)
+        }
+
         undoManager.registerUndo(withTarget: self) { handler in
             apply(oldValue)
             handler.registerUndo(from: newValue, to: oldValue, actionName: actionName, apply: apply)
         }
         undoManager.setActionName(actionName)
+
+        // Only manage the debounce timer for user-driven changes.
+        if !isUndoingOrRedoing {
+            groupTimers[actionName]?.invalidate()
+            groupTimers[actionName] = Timer.scheduledTimer(withTimeInterval: Self.coalesceInterval, repeats: false) { [weak self] _ in
+                self?.closeGroup(actionName: actionName)
+            }
+        }
+    }
+
+    private func closeGroup(actionName: String) {
+        guard openGroups.contains(actionName), let undoManager else { return }
+        undoManager.endUndoGrouping()
+        openGroups.remove(actionName)
+        groupTimers.removeValue(forKey: actionName)
+    }
+
+    /// Close all open groups immediately (e.g. when the view disappears).
+    func closeAllGroups() {
+        for actionName in openGroups {
+            groupTimers[actionName]?.invalidate()
+            undoManager?.endUndoGrouping()
+        }
+        openGroups.removeAll()
+        groupTimers.removeAll()
     }
 }
 
@@ -131,6 +170,7 @@ struct ImageDetailView: View {
                     undoRedoToolbarContent
                 }
                 .onWillDisappear {
+                    undoHandler.closeAllGroups()
                     autoSave()
                 }
                 .onChange(of: scenePhase) { _, newPhase in
@@ -180,6 +220,7 @@ struct ImageDetailView: View {
                     undoRedoToolbarContent
                 }
                 .onWillDisappear {
+                    undoHandler.closeAllGroups()
                     autoSave()
                 }
                 .onChange(of: scenePhase) { _, newPhase in
