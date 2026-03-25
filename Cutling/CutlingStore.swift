@@ -45,6 +45,7 @@ extension CutlingStore {
     }
 }
 
+@MainActor
 class CutlingStore: ObservableObject {
     static let shared = CutlingStore()
 

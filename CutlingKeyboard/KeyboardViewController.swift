@@ -310,7 +310,9 @@ class KeyboardViewController: UIInputViewController {
                 queue: .main
             ) { [weak self] _ in
                 print("⚠️ Memory warning received - clearing thumbnail cache")
-                self?.store.clearThumbnailCache()
+                Task { @MainActor in
+                    self?.store.clearThumbnailCache()
+                }
             }
         }
     }

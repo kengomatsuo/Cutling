@@ -229,6 +229,17 @@
 				ca,
 				he,
 				fil,
+				bn,
+				hr,
+				sw,
+				bg,
+				sl,
+				sr,
+				lt,
+				ta,
+				lv,
+				fa,
+				et,
 			);
 			mainGroup = CF1F45EE2F457B3C00582E62;
 			minimizedProjectReferenceProxies = 1;
@@ -348,6 +359,7 @@
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -404,6 +416,7 @@
 				MTL_FAST_MATH = YES;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
@@ -542,7 +555,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = CutlingKeyboard/CutlingKeyboard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = PM3K35YS39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CutlingKeyboard/Info.plist;
@@ -568,7 +581,7 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -578,7 +591,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = CutlingKeyboard/CutlingKeyboard.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = PM3K35YS39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CutlingKeyboard/Info.plist;
@@ -604,7 +617,7 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
