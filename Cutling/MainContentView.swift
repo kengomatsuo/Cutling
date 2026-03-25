@@ -68,6 +68,7 @@ struct MainContentView: View {
     @State private var selectedItem: Cutling? = nil
     @State private var showAddText = false
     @State private var showAddImage = false
+    @State private var newCutlingKind: CutlingKind? = nil
     @Binding var showSettings: Bool
     
     @State private var showKeyboardSetup = false
@@ -94,6 +95,7 @@ struct MainContentView: View {
 
     #if os(iOS)
     @Namespace private var zoomNamespace
+    private let addButtonZoomID = "addButton"
     #endif
 
     init(showSettings: Binding<Bool> = .constant(false)) {
@@ -245,6 +247,17 @@ struct MainContentView: View {
                     }
                     .navigationTransition(.zoom(sourceID: item.id, in: zoomNamespace))
                 }
+                .sheet(item: $newCutlingKind) { kind in
+                    Group {
+                        switch kind {
+                        case .text:
+                            TextDetailView(item: nil, presentedAsSheet: true)
+                        case .image:
+                            ImageDetailView(item: nil, presentedAsSheet: true)
+                        }
+                    }
+                    .navigationTransition(.zoom(sourceID: addButtonZoomID, in: zoomNamespace))
+                }
                 #endif
         }
     }
@@ -273,6 +286,20 @@ struct MainContentView: View {
         .toolbar(mode != .browsing ? .visible : .hidden, for: .bottomBar)
         #endif
         .toolbar {
+            #if os(iOS)
+            if mode == .browsing {
+                if #available(iOS 26, *) {
+                    ToolbarItem(placement: .primaryAction) {
+                        addMenu
+                    }
+                    .matchedTransitionSource(id: addButtonZoomID, in: zoomNamespace)
+                } else {
+                    ToolbarItem(placement: .primaryAction) {
+                        addMenu
+                    }
+                }
+            }
+            #endif
             ToolbarItemGroup(placement: .primaryAction) {
                 primaryToolbarContent
             }
@@ -572,8 +599,42 @@ struct MainContentView: View {
 
     // MARK: - Toolbar Content
 
+    #if os(iOS)
+    @ViewBuilder
+    private var addMenu: some View {
+        Menu {
+            Button {
+                let canAddText = store.canAdd(.text)
+                if canAddText.allowed {
+                    newCutlingKind = .text
+                } else {
+                    limitAlertMessage = canAddText.reason ?? String(localized: "Cannot add text cutling")
+                    showLimitAlert = true
+                }
+            } label: {
+                Label("Text Cutling", systemImage: "doc.text")
+            }
+            Button {
+                let canAddImage = store.canAdd(.image)
+                if canAddImage.allowed {
+                    newCutlingKind = .image
+                } else {
+                    limitAlertMessage = canAddImage.reason ?? String(localized: "Cannot add image cutling")
+                    showLimitAlert = true
+                }
+            } label: {
+                Label("Image Cutling", systemImage: "photo")
+            }
+        } label: {
+            Image(systemName: "plus")
+        }
+        .menuIndicator(.hidden)
+    }
+    #endif
+
     @ViewBuilder
     private var browsingToolbarItems: some View {
+        #if os(macOS)
         Menu {
             Button {
                 let canAddText = store.canAdd(.text)
@@ -601,6 +662,7 @@ struct MainContentView: View {
             Image(systemName: "plus")
         }
         .menuIndicator(.hidden)
+        #endif
         
         Menu {
             Button {
@@ -1344,19 +1406,9 @@ struct SheetsModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             #if os(iOS)
-            .sheet(isPresented: $showAddText) {
-                TextDetailView(item: nil)
-            }
-            .sheet(isPresented: $showAddImage) {
-                ImageDetailView(item: nil)
-            }
-            #endif
-            #if os(iOS)
             .sheet(isPresented: $showSettings) {
                 SettingsView()
             }
-            #endif
-            #if os(iOS)
             .sheet(isPresented: $showKeyboardSetup) {
                 KeyboardSetupView(isOnboarding: false)
             }

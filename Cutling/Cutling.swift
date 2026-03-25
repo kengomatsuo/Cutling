@@ -11,9 +11,11 @@ import SwiftUI
 import UIKit
 #endif
 
-enum CutlingKind: String, Codable, Sendable {
+enum CutlingKind: String, Codable, Sendable, Identifiable {
     case text
     case image
+    
+    var id: String { rawValue }
 }
 
 // MARK: - Input Type Triggers

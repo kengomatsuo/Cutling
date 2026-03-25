@@ -144,11 +144,47 @@ struct TextDetailView: View {
     var isEditing: Bool { existingItem != nil }
 
     var body: some View {
+        #if os(macOS)
         if presentedAsSheet {
             NavigationStack {
                 formContent
                     .toolbar {
-                        #if os(iOS)
+                        compactUndoToolbarContent
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button {
+                                saveAndDismiss()
+                            } label: {
+                                if #available(macOS 26, *) {
+                                    Image(systemName: "checkmark")
+                                } else {
+                                    Text("Save")
+                                }
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .disabled(name.isEmpty || value.isEmpty)
+                        }
+                    }
+            }
+            .frame(minWidth: 420, idealWidth: 480, minHeight: 400, idealHeight: 500)
+        } else {
+            formContent
+                .toolbar {
+                    undoRedoToolbarContent
+                }
+                .onWillDisappear {
+                    autoSave()
+                }
+                .onChange(of: scenePhase) { _, newPhase in
+                    if newPhase != .active {
+                        autoSave()
+                    }
+                }
+        }
+        #else
+        if presentedAsSheet {
+            NavigationStack {
+                formContent
+                    .toolbar {
                         ToolbarItem(placement: .cancellationAction) {
                             Button {
                                 dismiss()
@@ -160,40 +196,36 @@ struct TextDetailView: View {
                                 }
                             }
                         }
-                        #endif
                         compactUndoToolbarContent
                         ToolbarItem(placement: .confirmationAction) {
                             Button {
                                 saveAndDismiss()
                             } label: {
-                                if #available(iOS 26, macOS 26, *) {
+                                if #available(iOS 26, *) {
                                     Image(systemName: "checkmark")
                                 } else {
                                     Text("Save")
                                 }
                             }
-                            .buttonStyle(.borderedProminent)
                             .disabled(name.isEmpty || value.isEmpty)
                         }
                     }
             }
-            #if os(macOS)
-            .frame(minWidth: 420, idealWidth: 480, minHeight: 400, idealHeight: 500)
-            #endif
         } else {
             formContent
                 .toolbar {
                     undoRedoToolbarContent
                 }
                 .onWillDisappear {
-                    autoSaveIfEditing()
+                    autoSave()
                 }
                 .onChange(of: scenePhase) { _, newPhase in
                     if newPhase != .active {
-                        autoSaveIfEditing()
+                        autoSave()
                     }
                 }
         }
+        #endif
     }
 
     // MARK: - Undo/Redo Toolbar
@@ -431,16 +463,31 @@ struct TextDetailView: View {
         }
     }
 
-    private func autoSaveIfEditing() {
-        guard let existing = existingItem else { return }
-        var updated = existing
-        updated.name = name
-        updated.value = value
-        updated.icon = icon
-        updated.expiresAt = autoDeleteEnabled ? deleteAt : nil
-        updated.color = color
-        updated.inputTypeTriggers = inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
-        store.update(updated)
+    private func autoSave() {
+        if let existing = existingItem {
+            var updated = existing
+            if !name.isEmpty { updated.name = name }
+            if !value.isEmpty { updated.value = value }
+            updated.icon = icon
+            updated.expiresAt = autoDeleteEnabled ? deleteAt : nil
+            updated.color = color
+            updated.inputTypeTriggers = inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
+            store.update(updated)
+        } else {
+            guard !name.isEmpty, !value.isEmpty else { return }
+            let canAdd = store.canAdd(.text)
+            guard canAdd.allowed else { return }
+            store.add(
+                Cutling(
+                    name: name,
+                    value: value,
+                    icon: icon,
+                    expiresAt: autoDeleteEnabled ? deleteAt : nil,
+                    color: color,
+                    inputTypeTriggers: inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
+                )
+            )
+        }
     }
     
     // MARK: - Auto-Detection

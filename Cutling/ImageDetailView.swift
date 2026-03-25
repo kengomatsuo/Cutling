@@ -106,11 +106,47 @@ struct ImageDetailView: View {
     var isEditing: Bool { existingItem != nil }
 
     var body: some View {
+        #if os(macOS)
         if presentedAsSheet {
             NavigationStack {
                 formContent
                     .toolbar {
-                        #if os(iOS)
+                        compactUndoToolbarContent
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button {
+                                saveCutling()
+                            } label: {
+                                if #available(macOS 26, *) {
+                                    Image(systemName: "checkmark")
+                                } else {
+                                    Text("Save")
+                                }
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .disabled(name.isEmpty || (imageData == nil && existingItem?.imageFilename == nil))
+                        }
+                    }
+            }
+            .frame(minWidth: 420, idealWidth: 480, minHeight: 400, idealHeight: 500)
+        } else {
+            formContent
+                .toolbar {
+                    undoRedoToolbarContent
+                }
+                .onWillDisappear {
+                    autoSave()
+                }
+                .onChange(of: scenePhase) { _, newPhase in
+                    if newPhase != .active {
+                        autoSave()
+                    }
+                }
+        }
+        #else
+        if presentedAsSheet {
+            NavigationStack {
+                formContent
+                    .toolbar {
                         ToolbarItem(placement: .cancellationAction) {
                             Button {
                                 dismiss()
@@ -122,40 +158,36 @@ struct ImageDetailView: View {
                                 }
                             }
                         }
-                        #endif
                         compactUndoToolbarContent
                         ToolbarItem(placement: .confirmationAction) {
                             Button {
                                 saveCutling()
                             } label: {
-                                if #available(iOS 26, macOS 26, *) {
+                                if #available(iOS 26, *) {
                                     Image(systemName: "checkmark")
                                 } else {
                                     Text("Save")
                                 }
                             }
-                            .buttonStyle(.borderedProminent)
                             .disabled(name.isEmpty || (imageData == nil && existingItem?.imageFilename == nil))
                         }
                     }
             }
-            #if os(macOS)
-            .frame(minWidth: 420, idealWidth: 480, minHeight: 400, idealHeight: 500)
-            #endif
         } else {
             formContent
                 .toolbar {
                     undoRedoToolbarContent
                 }
                 .onWillDisappear {
-                    autoSaveIfEditing()
+                    autoSave()
                 }
                 .onChange(of: scenePhase) { _, newPhase in
                     if newPhase != .active {
-                        autoSaveIfEditing()
+                        autoSave()
                     }
                 }
         }
+        #endif
     }
 
     // MARK: - Undo/Redo Toolbar
@@ -317,22 +349,45 @@ struct ImageDetailView: View {
 
     // MARK: - Auto-Save
 
-    private func autoSaveIfEditing() {
-        guard let existing = existingItem else { return }
-        var updated = existing
-        updated.name = name
-        updated.expiresAt = autoDeleteEnabled ? deleteAt : nil
-        updated.inputTypeTriggers = inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
+    private func autoSave() {
+        if let existing = existingItem {
+            var updated = existing
+            if !name.isEmpty { updated.name = name }
+            updated.expiresAt = autoDeleteEnabled ? deleteAt : nil
+            updated.inputTypeTriggers = inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
 
-        if let newImageData = imageData,
-           newImageData != store.loadImageData(named: existing.imageFilename ?? "") {
-            if let oldFilename = existing.imageFilename {
-                store.deleteImageFile(named: oldFilename)
+            if let newImageData = imageData,
+               newImageData != store.loadImageData(named: existing.imageFilename ?? "") {
+                if let oldFilename = existing.imageFilename {
+                    store.deleteImageFile(named: oldFilename)
+                }
+                updated.imageFilename = store.saveImageData(newImageData, for: updated.id)
             }
-            updated.imageFilename = store.saveImageData(newImageData, for: updated.id)
-        }
 
-        store.update(updated)
+            store.update(updated)
+        } else {
+            guard !name.isEmpty, imageData != nil else { return }
+            let canAdd = store.canAdd(.image)
+            guard canAdd.allowed else { return }
+
+            let id = UUID()
+            var cutling = Cutling(
+                id: id,
+                name: name,
+                value: "",
+                icon: "photo",
+                kind: .image,
+                imageFilename: nil,
+                expiresAt: autoDeleteEnabled ? deleteAt : nil,
+                inputTypeTriggers: inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
+            )
+
+            if let imageData {
+                cutling.imageFilename = store.saveImageData(imageData, for: id)
+            }
+
+            store.add(cutling)
+        }
     }
 
     // MARK: - Image Preview
