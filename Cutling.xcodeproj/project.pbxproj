@@ -7,19 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF15F61D2F74CE7A00D54FFE /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF15F61C2F74CE7A00D54FFE /* Messages.framework */; };
-		CF15F6292F74CE7C00D54FFE /* CutlingMessagesExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CF15F61A2F74CE7A00D54FFE /* CutlingMessagesExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CFA06CAB2F45AD10005CD274 /* CutlingKeyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFA06CA42F45AD10005CD274 /* CutlingKeyboard.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		CF15F6272F74CE7C00D54FFE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CF1F45EF2F457B3C00582E62 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CF15F6192F74CE7A00D54FFE;
-			remoteInfo = CutlingMessagesExtension;
-		};
 		CFA06CA92F45AD10005CD274 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CF1F45EF2F457B3C00582E62 /* Project object */;
@@ -36,27 +27,17 @@
 			dstSubfolder = PlugIns;
 			files = (
 				CFA06CAB2F45AD10005CD274 /* CutlingKeyboard.appex in Embed Foundation Extensions */,
-				CF15F6292F74CE7C00D54FFE /* CutlingMessagesExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CF15F61A2F74CE7A00D54FFE /* CutlingMessagesExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CutlingMessagesExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF15F61C2F74CE7A00D54FFE /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = Library/Frameworks/Messages.framework; sourceTree = DEVELOPER_DIR; };
 		CF1F45F72F457B3C00582E62 /* Cutling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cutling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFA06CA42F45AD10005CD274 /* CutlingKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CutlingKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		CF15F62D2F74CE7C00D54FFE /* Exceptions for "CutlingMessages" folder in "CutlingMessagesExtension" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = CF15F6192F74CE7A00D54FFE /* CutlingMessagesExtension */;
-		};
 		CF1817532F49590000709DC0 /* Exceptions for "Cutling" folder in "Cutling" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -82,14 +63,6 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		CF15F61E2F74CE7A00D54FFE /* CutlingMessages */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				CF15F62D2F74CE7C00D54FFE /* Exceptions for "CutlingMessages" folder in "CutlingMessagesExtension" target */,
-			);
-			path = CutlingMessages;
-			sourceTree = "<group>";
-		};
 		CF1F45F92F457B3C00582E62 /* Cutling */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -110,12 +83,6 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CF15F6172F74CE7A00D54FFE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			files = (
-				CF15F61D2F74CE7A00D54FFE /* Messages.framework in Frameworks */,
-			);
-		};
 		CF1F45F42F457B3C00582E62 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
@@ -129,21 +96,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CF15F61B2F74CE7A00D54FFE /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CF15F61C2F74CE7A00D54FFE /* Messages.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		CF1F45EE2F457B3C00582E62 = {
 			isa = PBXGroup;
 			children = (
 				CF1F45F92F457B3C00582E62 /* Cutling */,
 				CFA06CA52F45AD10005CD274 /* CutlingKeyboard */,
-				CF15F61E2F74CE7A00D54FFE /* CutlingMessages */,
-				CF15F61B2F74CE7A00D54FFE /* Frameworks */,
 				CF1F45F82F457B3C00582E62 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -153,7 +110,6 @@
 			children = (
 				CF1F45F72F457B3C00582E62 /* Cutling.app */,
 				CFA06CA42F45AD10005CD274 /* CutlingKeyboard.appex */,
-				CF15F61A2F74CE7A00D54FFE /* CutlingMessagesExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -161,24 +117,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CF15F6192F74CE7A00D54FFE /* CutlingMessagesExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CF15F62A2F74CE7C00D54FFE /* Build configuration list for PBXNativeTarget "CutlingMessagesExtension" */;
-			buildPhases = (
-				CF15F6162F74CE7A00D54FFE /* Sources */,
-				CF15F6172F74CE7A00D54FFE /* Frameworks */,
-				CF15F6182F74CE7A00D54FFE /* Resources */,
-			);
-			buildRules = (
-			);
-			fileSystemSynchronizedGroups = (
-				CF15F61E2F74CE7A00D54FFE /* CutlingMessages */,
-			);
-			name = CutlingMessagesExtension;
-			productName = CutlingMessagesExtension;
-			productReference = CF15F61A2F74CE7A00D54FFE /* CutlingMessagesExtension.appex */;
-			productType = "com.apple.product-type.app-extension.messages";
-		};
 		CF1F45F62F457B3C00582E62 /* Cutling */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CF1F46022F457B3D00582E62 /* Build configuration list for PBXNativeTarget "Cutling" */;
@@ -192,7 +130,6 @@
 			);
 			dependencies = (
 				CFA06CAA2F45AD10005CD274 /* PBXTargetDependency */,
-				CF15F6282F74CE7C00D54FFE /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				CF1F45F92F457B3C00582E62 /* Cutling */,
@@ -231,9 +168,6 @@
 				LastUpgradeCheck = 2630;
 				ORGANIZATIONNAME = com.matsuokengo;
 				TargetAttributes = {
-					CF15F6192F74CE7A00D54FFE = {
-						CreatedOnToolsVersion = 26.3;
-					};
 					CF1F45F62F457B3C00582E62 = {
 						CreatedOnToolsVersion = 26.2;
 					};
@@ -305,17 +239,11 @@
 			targets = (
 				CF1F45F62F457B3C00582E62 /* Cutling */,
 				CFA06CA32F45AD10005CD274 /* CutlingKeyboard */,
-				CF15F6192F74CE7A00D54FFE /* CutlingMessagesExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CF15F6182F74CE7A00D54FFE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			files = (
-			);
-		};
 		CF1F45F52F457B3C00582E62 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
@@ -329,11 +257,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CF15F6162F74CE7A00D54FFE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			files = (
-			);
-		};
 		CF1F45F32F457B3C00582E62 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
@@ -347,11 +270,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		CF15F6282F74CE7C00D54FFE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CF15F6192F74CE7A00D54FFE /* CutlingMessagesExtension */;
-			targetProxy = CF15F6272F74CE7C00D54FFE /* PBXContainerItemProxy */;
-		};
 		CFA06CAA2F45AD10005CD274 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			platformFilter = ios;
@@ -361,77 +279,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		CF15F62B2F74CE7C00D54FFE /* Debug configuration for PBXNativeTarget "CutlingMessagesExtension" */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_TEAM = PM3K35YS39;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CutlingMessagesExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CutlingMessagesExtension;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 com.matsuokengo. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.matsuokengo.Cutling.CutlingMessagesExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		CF15F62C2F74CE7C00D54FFE /* Release configuration for PBXNativeTarget "CutlingMessagesExtension" */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
-				DEVELOPMENT_TEAM = PM3K35YS39;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CutlingMessagesExtension/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CutlingMessagesExtension;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 com.matsuokengo. All rights reserved.";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.2;
-				PRODUCT_BUNDLE_IDENTIFIER = com.matsuokengo.Cutling.CutlingMessagesExtension;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		CF1F46002F457B3D00582E62 /* Debug configuration for PBXProject "Cutling" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -766,14 +613,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CF15F62A2F74CE7C00D54FFE /* Build configuration list for PBXNativeTarget "CutlingMessagesExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CF15F62B2F74CE7C00D54FFE /* Debug configuration for PBXNativeTarget "CutlingMessagesExtension" */,
-				CF15F62C2F74CE7C00D54FFE /* Release configuration for PBXNativeTarget "CutlingMessagesExtension" */,
-			);
-			defaultConfigurationName = Release;
-		};
 		CF1F45F22F457B3C00582E62 /* Build configuration list for PBXProject "Cutling" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
