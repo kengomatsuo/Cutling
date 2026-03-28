@@ -97,7 +97,7 @@ private struct AppVersion: Comparable {
 @main
 struct CutlingApp: App {
     @StateObject private var store = CutlingStore.shared
-    @State private var showSettings = false
+    @State private var showKeyboard = false
     @State private var showOnboarding = false
     @Environment(\.scenePhase) private var scenePhase
 
@@ -116,6 +116,7 @@ struct CutlingApp: App {
     #endif
 
     init() {
+        UserDefaults.standard.register(defaults: ["autoDetectInputTypes": true])
         #if os(iOS)
         BGTaskScheduler.shared.register(
             forTaskWithIdentifier: Self.bgSyncTaskID,
@@ -136,12 +137,13 @@ struct CutlingApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainContentView(showSettings: $showSettings)
+            MainContentView(showKeyboard: $showKeyboard)
                 .environmentObject(store)
                 .onAppear {
                     store.seedIfEmpty()
                     runMigrationsIfNeeded()
                     configureSyncIfNeeded()
+                    syncPreferencesToAppGroup()
                     lastVersionOpened = currentAppVersion
                     #if os(iOS)
                     if !hasCompletedOnboarding {
@@ -161,16 +163,25 @@ struct CutlingApp: App {
                     }
                 }
                 .onOpenURL { url in
-                    if url.scheme == "cutling", url.host == "settings" {
+                    guard url.scheme == "cutling" else { return }
+                    switch url.host {
+                    case "settings":
                         #if os(macOS)
                         NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
                         #else
-                        showSettings = true
+                        if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+                            UIApplication.shared.open(settingsURL)
+                        }
                         #endif
+                    case "keyboard":
+                        showKeyboard = true
+                    default:
+                        break
                     }
                 }
                 .onChange(of: scenePhase) { _, newPhase in
                     if newPhase == .active {
+                        syncPreferencesToAppGroup()
                         store.load()
                         // Trigger immediate CloudKit fetch on foreground
                         if let sm = store.syncManager {
@@ -226,10 +237,23 @@ struct CutlingApp: App {
         .defaultSize(width: 480, height: 500)
 
         Settings {
-            SettingsView()
-                .environmentObject(store)
+            PreferencesView()
         }
         #endif
+    }
+
+    // MARK: - Preferences Sync
+
+    /// Copies preferences from standard UserDefaults (where Settings.bundle writes)
+    /// to the app group so the keyboard extension can read them.
+    private func syncPreferencesToAppGroup() {
+        guard let groupDefaults = UserDefaults(suiteName: "group.com.matsuokengo.Cutling") else { return }
+        groupDefaults.set(
+            UserDefaults.standard.bool(forKey: "iCloudSyncEnabled"),
+            forKey: "iCloudSyncEnabled"
+        )
+        let autoDetect = UserDefaults.standard.object(forKey: "autoDetectInputTypes") as? Bool ?? true
+        groupDefaults.set(autoDetect, forKey: "autoDetectInputTypes")
     }
 
     // MARK: - iCloud Sync

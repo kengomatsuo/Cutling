@@ -69,7 +69,7 @@ struct MainContentView: View {
     @State private var showAddText = false
     @State private var showAddImage = false
     @State private var newCutlingKind: CutlingKind? = nil
-    @Binding var showSettings: Bool
+    @Binding var showKeyboard: Bool
     
     @State private var showKeyboardSetup = false
     @State private var showRecentlyDeleted = false
@@ -95,11 +95,11 @@ struct MainContentView: View {
     #if os(iOS)
     @Namespace private var zoomNamespace
     private let addButtonZoomID = "addButton"
-    private let settingsButtonZoomID = "settingsButton"
+    private let keyboardButtonZoomID = "keyboardButton"
     #endif
 
-    init(showSettings: Binding<Bool> = .constant(false)) {
-        _showSettings = showSettings
+    init(showKeyboard: Binding<Bool> = .constant(false)) {
+        _showKeyboard = showKeyboard
     }
     
     // MARK: - Keyboard Status
@@ -244,9 +244,15 @@ struct MainContentView: View {
                     }
                     .navigationTransition(.zoom(sourceID: addButtonZoomID, in: zoomNamespace))
                 }
-                .sheet(isPresented: $showSettings) {
-                    SettingsView()
-                        .navigationTransition(.zoom(sourceID: settingsButtonZoomID, in: zoomNamespace))
+                .sheet(isPresented: $showKeyboard) {
+                    KeyboardView()
+                        .navigationTransition(.zoom(sourceID: keyboardButtonZoomID, in: zoomNamespace))
+                }
+                #endif
+                #if os(macOS)
+                .sheet(isPresented: $showKeyboard) {
+                    KeyboardView()
+                        .environmentObject(store)
                 }
                 #endif
         }
@@ -296,25 +302,27 @@ struct MainContentView: View {
                 if #available(iOS 26, *) {
                     ToolbarItem(placement: .primaryAction) {
                         Button {
-                            showSettings = true
+                            showKeyboard = true
                         } label: {
-                            Image(systemName: "gearshape")
+                            Image(systemName: "keyboard")
                         }
                     }
-                    .matchedTransitionSource(id: settingsButtonZoomID, in: zoomNamespace)
+                    .matchedTransitionSource(id: keyboardButtonZoomID, in: zoomNamespace)
                 } else {
                     ToolbarItem(placement: .primaryAction) {
                         Button {
-                            showSettings = true
+                            showKeyboard = true
                         } label: {
-                            Image(systemName: "gearshape")
+                            Image(systemName: "keyboard")
                         }
                     }
                 }
                 #else
                 ToolbarItem(placement: .primaryAction) {
-                    SettingsLink {
-                        Image(systemName: "gearshape")
+                    Button {
+                        showKeyboard = true
+                    } label: {
+                        Image(systemName: "keyboard")
                     }
                 }
                 #endif

@@ -124,6 +124,7 @@ struct TextDetailView: View {
     @State private var isAutoDetecting = false
     @State private var autoDetectedCategories: Set<InputTypeCategory> = []
     @State private var userDidPickIcon = false
+    @AppStorage("autoDetectInputTypes") private var autoDetectInputTypes = true
     @State private var undoHandler = UndoHandler()
 
     init(item: Cutling?, autoPasteFromClipboard: Bool = false, presentedAsSheet: Bool = true) {
@@ -467,6 +468,7 @@ struct TextDetailView: View {
     // MARK: - Auto-Detection
 
     private func scheduleAutoDetect() {
+        guard autoDetectInputTypes else { return }
         detectTask?.cancel()
         detectTask = Task { @MainActor in
             try? await Task.sleep(for: .milliseconds(800))

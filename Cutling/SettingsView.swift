@@ -7,11 +7,9 @@
 
 import SwiftUI
 
-struct SettingsView: View {
+struct KeyboardView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var store: CutlingStore
-    @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
-    @State private var showICloudAlert = false
     #if os(iOS)
     @State private var isKeyboardAdded = false
     @State private var hasFullAccess = false
@@ -63,36 +61,7 @@ struct SettingsView: View {
                     }
                 }
                 #endif
-                
-                Section {
-                    Toggle(isOn: Binding(
-                        get: { iCloudSyncEnabled },
-                        set: { newValue in
-                            if newValue {
-                                showICloudAlert = true
-                            } else {
-                                iCloudSyncEnabled = false
-                                UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(false, forKey: "iCloudSyncEnabled")
-                            }
-                        }
-                    )) {
-                        Label("iCloud Sync", systemImage: "icloud")
-                    }
-                    .alert("Enable iCloud Sync?", isPresented: $showICloudAlert) {
-                        Button("Enable", role: .destructive) {
-                            iCloudSyncEnabled = true
-                            UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(true, forKey: "iCloudSyncEnabled")
-                        }
-                        Button("Cancel", role: .cancel) { }
-                    } message: {
-                        Text("iCloud Sync is an experimental feature and may not work correctly in all situations, which may lead to data loss.")
-                    }
-                } header: {
-                    Text("Experimental Feature: iCloud")
-                } footer: {
-                    Text("Sync your cutlings across all your devices using iCloud.")
-                }
-                
+
                 Section {
                     ForEach(InputTypeCategory.allCases) { category in
                         NavigationLink {
@@ -142,7 +111,7 @@ struct SettingsView: View {
                 }
             }
             .formStyle(.grouped)
-            .navigationTitle("Settings")
+            .navigationTitle("Keyboard")
             #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
             #endif
@@ -178,7 +147,7 @@ struct SettingsView: View {
 }
 
 #Preview {
-    SettingsView()
+    KeyboardView()
     #if os(macOS)
     .frame(width: 400, height: 500)
     #endif
