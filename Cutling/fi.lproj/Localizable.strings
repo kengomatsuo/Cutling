@@ -158,3 +158,32 @@
 "Test Your Keyboard" = "Testaa näppäimistö";
 "All set! Swipe to continue." = "Kaikki valmista! Pyyhkäise jatkaaksesi.";
 "Your data stays private and is never sent anywhere." = "Tietosi pysyvät yksityisinä eikä niitä lähetetä mihinkään.";
+
+/* MARK: - Recently Deleted */
+"Recently Deleted" = "Äskettäin poistetut";
+"Delete All" = "Poista kaikki";
+"Delete All Permanently?" = "Poista kaikki pysyvästi?";
+"Delete Permanently?" = "Poista pysyvästi?";
+"Delete Permanently" = "Poista pysyvästi";
+"Recover" = "Palauta";
+"Items will be permanently deleted after 30 days." = "Kohteet poistetaan pysyvästi 30 päivän kuluttua.";
+"No Recently Deleted Items" = "Ei äskettäin poistettuja kohteita";
+"Deleted cutlings will appear here for 30 days." = "Poistetut cutlingit näkyvät täällä 30 päivän ajan.";
+"This will permanently delete all %lld items. This action cannot be undone." = "Kaikki %lld kohdetta poistetaan pysyvästi. Tätä toimintoa ei voi kumota.";
+"\"%@\" will be deleted permanently." = "\"%@\" poistetaan pysyvästi.";
+"1 day left" = "1 päivä jäljellä";
+"%lld days left" = "%lld päivää jäljellä";
+
+/* MARK: - Navigation Subtitle */
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Teksti, %lld/%lld Kuvat";
+
+/* MARK: - Settings (Additional) */
+"Experimental Feature: iCloud" = "Kokeellinen ominaisuus: iCloud";
+"Contact Support" = "Ota yhteyttä tukeen";
+"Privacy Policy" = "Tietosuojakäytäntö";
+
+/* MARK: - Additional Actions */
+"Redo" = "Tee uudelleen";
+
+/* MARK: - Navigation Title */
+"Cutlings" = "Cutlingit";

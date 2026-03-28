@@ -99,7 +99,7 @@ struct KeyboardView: View {
                 }
 
                 Section("About") {
-                    LabeledContent("Version", value: "1.2")
+                    LabeledContent("Version", value: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown")
 
                     Link(destination: URL(string: "mailto:kenneth@matsuokengo.com")!) {
                         Label("Contact Support", systemImage: "envelope")

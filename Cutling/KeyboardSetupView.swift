@@ -504,7 +504,7 @@ struct KeyboardSetupView: View {
             }
 
             Section("About") {
-                LabeledContent("Version", value: "1.2")
+                LabeledContent("Version", value: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown")
             }
         }
         .formStyle(.grouped)
