@@ -59,6 +59,7 @@ struct KeyboardView: View {
                     } label: {
                         Label("Keyboard Setup Guide", systemImage: "book.pages")
                     }
+                    .accessibilityIdentifier("keyboardSetupGuide")
                 }
                 #endif
 

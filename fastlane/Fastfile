@@ -1,0 +1,113 @@
+# Ensure Homebrew binaries (ImageMagick, etc.) are in PATH.
+ENV["PATH"] = "/opt/homebrew/bin:#{ENV['PATH']}"
+
+# Force UTF-8 locale — xcodebuild on iOS 26 emits UTF-16/non-ASCII output
+# that crashes Ruby when the locale defaults to US-ASCII.
+ENV["LANG"]   = "en_US.UTF-8"
+ENV["LC_ALL"] = "en_US.UTF-8"
+
+# Monkey-patch: xcodebuild on iOS 26 emits UTF-16 bytes that crash Ruby's
+# string operations inside fastlane's CommandExecutor PTY loop. Wrap the PTY
+# stdout so every line is forced to valid UTF-8 before any processing.
+require 'fastlane_core/fastlane_pty'
+
+class UTF8SafeIO
+  def initialize(io)
+    @io = io
+    # Read as raw bytes — let us handle encoding, not Ruby's IO layer
+    @io.set_encoding('BINARY') if @io.respond_to?(:set_encoding)
+  end
+
+  def each
+    @io.each do |raw_line|
+      yield raw_line.force_encoding('BINARY')
+                     .encode('UTF-8', invalid: :replace, undef: :replace, replace: '')
+    end
+  rescue Encoding::InvalidByteSequenceError
+    # Gracefully stop if IO-level encoding error slips through
+  end
+
+  def close
+    @io.close unless @io.closed?
+  end
+
+  def method_missing(m, *args, &block)
+    @io.send(m, *args, &block)
+  end
+
+  def respond_to_missing?(m, priv = false)
+    @io.respond_to?(m, priv) || super
+  end
+end
+
+::FastlaneCore::FastlanePty.class_eval do
+  class << self
+    alias_method :__orig_spawn_pty,   :spawn_with_pty
+    alias_method :__orig_spawn_popen, :spawn_with_popen
+
+    def spawn_with_pty(command, &block)
+      __orig_spawn_pty(command) do |stdout, stdin, pid|
+        yield(UTF8SafeIO.new(stdout), stdin, pid)
+      end
+    end
+
+    def spawn_with_popen(command, &block)
+      __orig_spawn_popen(command) do |stdout, stdin, pid|
+        yield(UTF8SafeIO.new(stdout), stdin, pid)
+      end
+    end
+  end
+end
+
+# Monkey-patch: fastlane 2.232.2 calls device.devicetype.name but simctl gem
+# may return a raw String when the devicetype lookup fails, crashing snapshot.
+require "simctl"
+::SimCtl::Device.class_eval do
+  alias_method :original_devicetype, :devicetype
+  define_method(:devicetype) do
+    dt = original_devicetype
+    return dt if dt.respond_to?(:name)
+    Struct.new(:name).new(dt.to_s.split(".").last.gsub("-", " "))
+  end
+end
+
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Take localized screenshots"
+  lane :screenshots do
+    snapshot
+  end
+
+  desc "Take screenshots and add device frames with marketing text"
+  lane :framed_screenshots do
+    snapshot
+    # Restore frameit assets that clear_previous_screenshots may have removed
+    FileUtils.cp("./Framefile.json", "./screenshots/Framefile.json")
+    FileUtils.cp("./background.png", "./screenshots/background.png")
+    frameit(
+      white: false,
+      path: "./fastlane/screenshots"
+    )
+  end
+
+  desc "Upload metadata and screenshots to App Store Connect"
+  lane :upload do
+    # Remove framed screenshots — they have non-standard dimensions from device bezels/marketing text
+    Dir.glob(File.join(__dir__, "screenshots/**/*_framed.png")).each { |f| File.delete(f) }
+    deliver(
+      skip_binary_upload: true,
+      force: true
+    )
+  end
+
+  desc "Upload metadata only (no screenshots)"
+  lane :upload_metadata do
+    deliver(
+      skip_binary_upload: true,
+      skip_screenshots: true,
+      force: true
+    )
+  end
+end

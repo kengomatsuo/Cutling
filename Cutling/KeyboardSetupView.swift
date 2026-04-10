@@ -76,7 +76,13 @@ struct KeyboardSetupView: View {
             fullAccessDetected = checkFullAccess()
         }
         if !wasFullAccess && fullAccessDetected && currentPage == SetupPage.test.rawValue {
+            #if DEBUG
+            if !ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") {
+                testFieldFocused = false
+            }
+            #else
             testFieldFocused = false
+            #endif
         }
     }
 
@@ -132,6 +138,9 @@ struct KeyboardSetupView: View {
         .onDisappear {
             stopPolling()
         }
+        .onChange(of: currentPage) { _, _ in
+            testFieldFocused = false
+        }
     }
 
     // MARK: - Continue Button
@@ -146,6 +155,7 @@ struct KeyboardSetupView: View {
         }
         .modifier(GlassProminentButtonModifier())
         .disabled(!canContinue)
+        .accessibilityIdentifier("continueButton")
         .padding(.horizontal, 20)
         .padding(.bottom, 12)
     }
@@ -241,6 +251,8 @@ struct KeyboardSetupView: View {
                         .multilineTextAlignment(.center)
                 }
                 .frame(maxWidth: .infinity)
+                .contentShape(Rectangle())
+                .onTapGesture { testFieldFocused = false }
                 .listRowBackground(Color.clear)
                 .listRowSeparator(.hidden)
             }

@@ -1,0 +1,7 @@
+#!/bin/bash
+# Strip invalid UTF-8 bytes and force UTF-8 locale for xcpretty
+# Fixes iOS 26 xcodebuild UTF-16 output crashing xcpretty
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export PATH="/Users/hafang/.rbenv/shims:/Users/hafang/.rbenv/versions/3.3.6/bin:$PATH"
+iconv -c -f UTF-8 -t UTF-8 | xcpretty

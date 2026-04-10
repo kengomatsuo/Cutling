@@ -306,6 +306,7 @@ struct MainContentView: View {
                         } label: {
                             Image(systemName: "keyboard")
                         }
+                        .accessibilityIdentifier("keyboardToolbarButton")
                     }
                     .matchedTransitionSource(id: keyboardButtonZoomID, in: zoomNamespace)
                 } else {
@@ -315,6 +316,7 @@ struct MainContentView: View {
                         } label: {
                             Image(systemName: "keyboard")
                         }
+                        .accessibilityIdentifier("keyboardToolbarButton")
                     }
                 }
                 #else
@@ -324,6 +326,7 @@ struct MainContentView: View {
                     } label: {
                         Image(systemName: "keyboard")
                     }
+                    .accessibilityIdentifier("keyboardToolbarButton")
                 }
                 #endif
             }
@@ -1116,6 +1119,7 @@ struct CardView: View {
                 cardContextMenu
             }
             #endif
+            .accessibilityIdentifier("cutlingCard")
             .onTapGesture {
                 handleTap()
             }
@@ -1160,6 +1164,7 @@ struct CardView: View {
             } label: {
                 Label("Edit", systemImage: "pencil")
             }
+            .accessibilityIdentifier("editButton")
 
             Divider()
 

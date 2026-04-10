@@ -1,0 +1,56 @@
+devices([
+  "iPhone 14 Pro Max",
+  "iPad Air 13-inch (M4)"
+])
+
+languages([
+  "ar-SA",
+  "ca",
+  "cs",
+  "da",
+  "de-DE",
+  "el",
+  "en-AU",
+  "en-CA",
+  "en-GB",
+  "en-US",
+  "es-ES",
+  "es-MX",
+  "fi",
+  "fr-CA",
+  "fr-FR",
+  "he",
+  "hi",
+  "hr",
+  "hu",
+  "id",
+  "it",
+  "ja",
+  "ko",
+  "ms",
+  "nl-NL",
+  "no",
+  "pl",
+  "pt-BR",
+  "pt-PT",
+  "ro",
+  "ru",
+  "sk",
+  "sv",
+  "th",
+  "tr",
+  "uk",
+  "vi",
+  "zh-Hans",
+  "zh-Hant"
+])
+
+scheme("Cutling")
+output_directory("./fastlane/screenshots")
+clear_previous_screenshots(true)
+launch_arguments(["-SNAPSHOT_MODE"])
+reinstall_app(false)
+erase_simulator(false)
+concurrent_simulators(true)
+number_of_retries(0)
+xcodebuild_formatter('./fastlane/utf8_xcpretty')

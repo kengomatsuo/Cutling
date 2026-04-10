@@ -653,6 +653,7 @@ struct KeyboardView: View {
                 .padding(.horizontal, KeyStyle.horizontalPadding)
                 .frame(height: keyHeight)
         }
+        .accessibilityIdentifier("CutlingKeyboardView")
         .padding(.bottom, 2)
         .tint(Color(hex: 0x22a98d))
         .background(Color.clear)
@@ -868,6 +869,8 @@ struct KeyboardView: View {
                     .font(.system(size: 20, weight: .light))
                     .frame(width: smallKeyWidth, height: keyHeight)
                     .background(KeyStyle.keyColor, in: RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous))
+                    .accessibilityLabel("Next keyboard")
+                    .accessibilityAddTraits(.isButton)
                     .onTapGesture {
                         // Tap: switch to next keyboard
                         onSwitchKeyboard()

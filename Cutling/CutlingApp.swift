@@ -140,7 +140,16 @@ struct CutlingApp: App {
             MainContentView(showKeyboard: $showKeyboard)
                 .environmentObject(store)
                 .onAppear {
+                    #if DEBUG
+                    if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") {
+                        store.seedForSnapshots()
+                        hasCompletedOnboarding = true
+                    } else {
+                        store.seedIfEmpty()
+                    }
+                    #else
                     store.seedIfEmpty()
+                    #endif
                     runMigrationsIfNeeded()
                     configureSyncIfNeeded()
                     syncPreferencesToAppGroup()
