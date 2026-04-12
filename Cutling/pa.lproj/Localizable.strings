@@ -1,0 +1,215 @@
+/* MARK: - Navigation & Titles */
+"My Cutlings" = "ਮੇਰੇ Cutlings";
+"Select Items" = "ਆਈਟਮ ਚੁਣੋ";
+"%lld Selected" = "%lld ਚੁਣੇ";
+"Reorder" = "ਮੁੜ ਕ੍ਰਮ ਦਿਓ";
+"Settings" = "ਸੈਟਿੰਗਾਂ";
+"Keyboard Setup" = "ਕੀਬੋਰਡ ਸੈੱਟਅੱਪ";
+"New" = "ਨਵਾਂ";
+"Choose Icon" = "ਆਈਕਨ ਚੁਣੋ";
+
+/* MARK: - Common Actions */
+"Cancel" = "ਰੱਦ ਕਰੋ";
+"Done" = "ਹੋ ਗਿਆ";
+"Save" = "ਸੰਭਾਲੋ";
+"Delete" = "ਮਿਟਾਓ";
+"Copy" = "ਕਾਪੀ";
+"Edit" = "ਸੋਧੋ";
+"Sort" = "ਕ੍ਰਮ ਲਗਾਓ";
+"OK" = "ਠੀਕ ਹੈ";
+
+/* MARK: - Menu Items */
+"Text Cutling" = "ਟੈਕਸਟ Cutling";
+"Image Cutling" = "ਚਿੱਤਰ Cutling";
+"Select Cutlings" = "Cutlings ਚੁਣੋ";
+"Reorder Cutlings" = "Cutlings ਮੁੜ ਕ੍ਰਮ ਦਿਓ";
+"Keyboard Setup Guide" = "ਕੀਬੋਰਡ ਸੈੱਟਅੱਪ ਗਾਈਡ";
+"Name (A → Z)" = "ਨਾਮ (A → Z)";
+"Name (Z → A)" = "ਨਾਮ (Z → A)";
+"Text First" = "ਟੈਕਸਟ ਪਹਿਲਾਂ";
+"Images First" = "ਚਿੱਤਰ ਪਹਿਲਾਂ";
+"Shortest First" = "ਸਭ ਤੋਂ ਛੋਟਾ ਪਹਿਲਾਂ";
+"Longest First" = "ਸਭ ਤੋਂ ਲੰਬਾ ਪਹਿਲਾਂ";
+"Reverse Order" = "ਉਲਟਾ ਕ੍ਰਮ";
+
+/* MARK: - Empty States */
+"No Cutlings Yet" = "ਅਜੇ ਕੋਈ Cutlings ਨਹੀਂ";
+"No Results" = "ਕੋਈ ਨਤੀਜੇ ਨਹੀਂ";
+"Tap + to add your first cutling." = "ਆਪਣਾ ਪਹਿਲਾ cutling ਜੋੜਨ ਲਈ + ਟੈਪ ਕਰੋ.";
+"Try a different search term." = "ਕੋਈ ਹੋਰ ਖੋਜ ਸ਼ਬਦ ਅਜ਼ਮਾਓ.";
+
+/* MARK: - Search */
+"Search cutlings" = "Cutlings ਖੋਜੋ";
+"Search icons" = "ਆਈਕਨ ਖੋਜੋ";
+
+/* MARK: - Form Labels */
+"Name" = "ਨਾਮ";
+"Icon" = "ਆਈਕਨ";
+"Text" = "ਟੈਕਸਟ";
+"Image" = "ਚਿੱਤਰ";
+"Color" = "ਰੰਗ";
+"Quick Actions" = "ਤੇਜ਼ ਕਾਰਵਾਈਆਂ";
+"Auto-Delete" = "ਆਟੋ-ਮਿਟਾਓ";
+"Delete At" = "ਮਿਟਾਉਣ ਦਾ ਸਮਾਂ";
+"Category" = "ਸ਼੍ਰੇਣੀ";
+
+/* MARK: - Placeholders */
+"e.g. Email" = "ਜਿਵੇਂ ਈਮੇਲ";
+"e.g. Signature, QR Code" = "ਜਿਵੇਂ ਦਸਤਖ਼ਤ, QR ਕੋਡ";
+
+/* MARK: - Buttons & Actions */
+"Change Icon" = "ਆਈਕਨ ਬਦਲੋ";
+"Paste from Clipboard" = "ਕਲਿੱਪਬੋਰਡ ਤੋਂ ਪੇਸਟ ਕਰੋ";
+"Delete Cutling" = "Cutling ਮਿਟਾਓ";
+"Open Settings to Enable" = "ਸਰਗਰਮ ਕਰਨ ਲਈ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ";
+"Photos Library" = "ਫੋਟੋ ਲਾਇਬ੍ਰੇਰੀ";
+"Choose File" = "ਫਾਈਲ ਚੁਣੋ";
+"Choose from Photos" = "ਫੋਟੋਆਂ ਤੋਂ ਚੁਣੋ";
+"Choose from Files" = "ਫਾਈਲਾਂ ਤੋਂ ਚੁਣੋ";
+"Copy Images" = "ਚਿੱਤਰ ਕਾਪੀ ਕਰੋ";
+"Add from Clipboard" = "ਕਲਿੱਪਬੋਰਡ ਤੋਂ ਜੋੜੋ";
+"Insert Text Instantly" = "ਟੈਕਸਟ ਤੁਰੰਤ ਪਾਓ";
+"Switch to Cutling Keyboard" = "Cutling ਕੀਬੋਰਡ ਤੇ ਸਵਿੱਚ ਕਰੋ";
+
+/* MARK: - Settings Sections */
+"iCloud" = "iCloud";
+"iCloud Sync" = "iCloud ਸਿੰਕ";
+"Sync your cutlings across all your devices using iCloud." = "iCloud ਵਰਤ ਕੇ ਆਪਣੇ ਸਾਰੇ ਡਿਵਾਈਸਾਂ ਤੇ cutlings ਸਿੰਕ ਕਰੋ.";
+"Storage" = "ਸਟੋਰੇਜ";
+"Text Cutlings" = "ਟੈਕਸਟ Cutlings";
+"Image Cutlings" = "ਚਿੱਤਰ Cutlings";
+"Max Text Length" = "ਵੱਧ ਤੋਂ ਵੱਧ ਟੈਕਸਟ ਲੰਬਾਈ";
+"%lld chars" = "%lld ਅੱਖਰ";
+"About" = "ਬਾਰੇ";
+"Version" = "ਸੰਸਕਰਣ";
+"Keyboard Added" = "ਕੀਬੋਰਡ ਜੋੜਿਆ ਗਿਆ";
+"Full Access" = "ਪੂਰੀ ਪਹੁੰਚ";
+
+/* MARK: - Image Picker */
+"No image selected" = "ਕੋਈ ਚਿੱਤਰ ਚੁਣਿਆ ਨਹੀਂ";
+
+/* MARK: - Footer Texts */
+"This will replace the current text with whatever is in your clipboard." = "ਇਹ ਤੁਹਾਡੇ ਕਲਿੱਪਬੋਰਡ ਦੀ ਸਮੱਗਰੀ ਨਾਲ ਮੌਜੂਦਾ ਟੈਕਸਟ ਬਦਲ ਦੇਵੇਗਾ.";
+"This will replace the current image with whatever is in your clipboard." = "ਇਹ ਤੁਹਾਡੇ ਕਲਿੱਪਬੋਰਡ ਦੀ ਸਮੱਗਰੀ ਨਾਲ ਮੌਜੂਦਾ ਚਿੱਤਰ ਬਦਲ ਦੇਵੇਗਾ.";
+"This cutling will be automatically deleted at the selected date and time." = "ਇਹ cutling ਚੁਣੀ ਗਈ ਤਾਰੀਖ਼ ਅਤੇ ਸਮੇਂ ਤੇ ਆਪਣੇ ਆਪ ਮਿਟ ਜਾਵੇਗਾ.";
+"Each text cutling can hold up to %lld characters." = "ਹਰੇਕ ਟੈਕਸਟ cutling ਵੱਧ ਤੋਂ ਵੱਧ %lld ਅੱਖਰ ਰੱਖ ਸਕਦਾ ਹੈ.";
+
+/* MARK: - Alerts */
+"Limit Reached" = "ਸੀਮਾ ਪੂਰੀ";
+"Delete Cutling?" = "Cutling ਮਿਟਾਉਣਾ ਹੈ?";
+"This action cannot be undone." = "ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ.";
+"Cannot add text cutling" = "ਟੈਕਸਟ cutling ਜੋੜ ਨਹੀਂ ਸਕਦੇ";
+"Cannot add image cutling" = "ਚਿੱਤਰ cutling ਜੋੜ ਨਹੀਂ ਸਕਦੇ";
+"Cannot add more text cutlings." = "ਹੋਰ ਟੈਕਸਟ cutlings ਜੋੜ ਨਹੀਂ ਸਕਦੇ.";
+"Cannot add more image cutlings." = "ਹੋਰ ਚਿੱਤਰ cutlings ਜੋੜ ਨਹੀਂ ਸਕਦੇ.";
+
+/* MARK: - CutlingStore Errors */
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "ਤੁਸੀਂ ਕੁੱਲ %lld cutlings ਦੀ ਵੱਧ ਤੋਂ ਵੱਧ ਸੀਮਾ ਤੇ ਪਹੁੰਚ ਗਏ ਹੋ. ਹੋਰ ਜੋੜਨ ਲਈ ਕੁਝ ਮਿਟਾਓ.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "ਤੁਸੀਂ %lld ਚਿੱਤਰ cutlings ਦੀ ਵੱਧ ਤੋਂ ਵੱਧ ਸੀਮਾ ਤੇ ਪਹੁੰਚ ਗਏ ਹੋ. ਚਿੱਤਰ ਕੀਬੋਰਡ ਵਿੱਚ ਕਾਫ਼ੀ ਮੈਮੋਰੀ ਵਰਤਦੇ ਹਨ. ਹੋਰ ਜੋੜਨ ਲਈ ਕੁਝ ਚਿੱਤਰ ਮਿਟਾਓ.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "ਤੁਸੀਂ %lld ਟੈਕਸਟ cutlings ਦੀ ਵੱਧ ਤੋਂ ਵੱਧ ਸੀਮਾ ਤੇ ਪਹੁੰਚ ਗਏ ਹੋ. ਹੋਰ ਜੋੜਨ ਲਈ ਕੁਝ ਮਿਟਾਓ.";
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "ਇਨਪੁੱਟ ਕਿਸਮ ਸੁਝਾਅ";
+"Suggest for Input Types" = "ਇਨਪੁੱਟ ਕਿਸਮਾਂ ਲਈ ਸੁਝਾਅ";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "ਜਦੋਂ ਤੁਸੀਂ ਮੇਲ ਖਾਂਦੀ ਕਿਸਮ ਦੇ ਟੈਕਸਟ ਫੀਲਡ ਤੇ ਫੋਕਸ ਕਰੋਗੇ, ਇਹ cutling ਕੀਬੋਰਡ ਦੇ ਸਿਖਰ ਤੇ ਦਿਖਾਈ ਦੇਵੇਗਾ.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "ਇਨਪੁੱਟ ਕਿਸਮਾਂ ਨੂੰ cutlings ਨਿਰਧਾਰਤ ਕਰੋ ਤਾਂ ਜੋ ਮੇਲ ਖਾਂਦੇ ਟੈਕਸਟ ਫੀਲਡ ਤੇ ਫੋਕਸ ਕਰਨ ਤੇ ਉਹ ਕੀਬੋਰਡ ਦੇ ਸਿਖਰ ਤੇ ਦਿਖਾਈ ਦੇਣ.";
+"No cutlings yet. Add some first." = "ਅਜੇ cutlings ਨਹੀਂ. ਪਹਿਲਾਂ ਕੁਝ ਜੋੜੋ.";
+"Suggested" = "ਸੁਝਾਇਆ ਗਿਆ";
+"Email" = "ਈਮੇਲ";
+"URL" = "URL";
+"Phone Number" = "ਫੋਨ ਨੰਬਰ";
+"Address" = "ਪਤਾ";
+
+/* MARK: - Detection */
+"Detected: %@" = "ਲੱਭਿਆ: %@";
+"Undo" = "ਵਾਪਸ ਕਰੋ";
+
+/* MARK: - Clipboard Feedback */
+"Copied" = "ਕਾਪੀ ਹੋ ਗਿਆ";
+"Inserted" = "ਪਾਇਆ ਗਿਆ";
+
+/* MARK: - Keyboard Setup */
+"Setup Progress" = "ਸੈੱਟਅੱਪ ਪ੍ਰਗਤੀ";
+"Open Cutling Settings" = "Cutling ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ";
+"Tap here, then switch to Cutling" = "ਇੱਥੇ ਟੈਪ ਕਰੋ, ਫਿਰ Cutling ਤੇ ਸਵਿੱਚ ਕਰੋ";
+"How to Use Your Keyboard" = "ਆਪਣਾ ਕੀਬੋਰਡ ਕਿਵੇਂ ਵਰਤਣਾ ਹੈ";
+"Storage Limits" = "ਸਟੋਰੇਜ ਸੀਮਾਵਾਂ";
+"You're All Set!" = "ਸਭ ਤਿਆਰ!";
+"Set Up Your Keyboard" = "ਆਪਣਾ ਕੀਬੋਰਡ ਸੈੱਟ ਕਰੋ";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "ਤੁਹਾਡਾ Cutling ਕੀਬੋਰਡ ਤਿਆਰ ਹੈ! ਕਿਤੇ ਵੀ ਟਾਈਪ ਕਰਦੇ ਸਮੇਂ, Cutling ਤੇ ਸਵਿੱਚ ਕਰਨ ਲਈ ਆਪਣੇ ਕੀਬੋਰਡ ਤੇ 🌐 ਗਲੋਬ ਆਈਕਨ ਟੈਪ ਕਰੋ.";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "ਆਪਣਾ ਕਸਟਮ ਕੀਬੋਰਡ ਵਰਤਣਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਹੇਠਾਂ ਦਿੱਤੇ ਦੋ ਸਧਾਰਨ ਕਦਮ ਫਾਲੋ ਕਰੋ. ਹਰੇਕ ਕਦਮ ਪੂਰਾ ਕਰਨ ਤੇ ਇਹ ਪੰਨਾ ਆਪਣੇ ਆਪ ਅੱਪਡੇਟ ਹੋ ਜਾਵੇਗਾ.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**ਕਦਮ 1:** ਹੇਠਾਂ 'Cutling ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ' ਟੈਪ ਕਰੋ, **ਕੀਬੋਰਡ** ਤੇ ਜਾਓ ਅਤੇ ਸੂਚੀ ਵਿੱਚੋਂ **Cutling** ਚੁਣੋ.";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**ਕਦਮ 2:** ਯਕੀਨੀ ਬਣਾਓ ਕਿ **ਪੂਰੀ ਪਹੁੰਚ ਦੀ ਇਜਾਜ਼ਤ** ਚਾਲੂ ਹੈ. ਇਹ ਕੀਬੋਰਡ ਨੂੰ ਤੁਹਾਡੇ ਕਲਿੱਪਬੋਰਡ ਤੇ ਚਿੱਤਰ ਕਾਪੀ ਕਰਨ ਦਿੰਦਾ ਹੈ. ਤੁਹਾਡਾ ਡੈਟਾ ਨਿੱਜੀ ਰਹਿੰਦਾ ਹੈ ਅਤੇ ਕਿਤੇ ਨਹੀਂ ਭੇਜਿਆ ਜਾਂਦਾ.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status.";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**ਕਦਮ 4:** ਤੁਸੀਂ ਤਿਆਰ ਹੋ! ਵਰਤੋਂ ਗਾਈਡ ਹੇਠਾਂ ਦਿੱਤੀ ਗਈ ਹੈ.";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "ਕਿਸੇ ਵੀ ਐਪ ਵਿੱਚ ਟਾਈਪ ਕਰਦੇ ਸਮੇਂ, ਆਪਣੇ ਕੀਬੋਰਡ ਦੇ ਹੇਠਾਂ-ਖੱਬੇ 🌐 ਗਲੋਬ ਕੀ ਟੈਪ ਕਰੋ ਜਾਂ ਦਬਾ ਕੇ ਰੱਖੋ, ਫਿਰ Cutling ਚੁਣੋ";
+"Tap any text cutling and it will be typed into your current text field immediately" = "ਕੋਈ ਵੀ ਟੈਕਸਟ cutling ਟੈਪ ਕਰੋ ਅਤੇ ਇਹ ਤੁਹਾਡੇ ਮੌਜੂਦਾ ਟੈਕਸਟ ਫੀਲਡ ਵਿੱਚ ਤੁਰੰਤ ਟਾਈਪ ਹੋ ਜਾਵੇਗਾ";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "ਚਿੱਤਰ cutling ਟੈਪ ਕਰਕੇ ਆਪਣੇ ਕਲਿੱਪਬੋਰਡ ਤੇ ਕਾਪੀ ਕਰੋ, ਫਿਰ ਤੁਸੀਂ ਜੋ ਐਪ ਵਰਤ ਰਹੇ ਹੋ ਉਸ ਵਿੱਚ ਪੇਸਟ ਕਰੋ (ਆਮ ਤੌਰ ਤੇ ਟੈਪ ਕਰਕੇ ਦਬਾ ਕੇ ਰੱਖੋ, ਫਿਰ ਪੇਸਟ ਚੁਣੋ). Apple ਇਸ ਸਮੇਂ ਇਸ ਐਪ ਤੇ ਸਿੱਧੇ ਚਿੱਤਰ ਪੇਸਟ ਕਰਨ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦਾ.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "ਕੋਈ ਵੀ ਟੈਕਸਟ ਕਾਪੀ ਕਰੋ, ਫਿਰ ਨਵੇਂ cutling ਵਜੋਂ ਸੰਭਾਲਣ ਲਈ Cutling ਕੀਬੋਰਡ ਵਿੱਚ 'ਕਲਿੱਪਬੋਰਡ ਤੋਂ ਜੋੜੋ' ਬਟਨ ਟੈਪ ਕਰੋ";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "ਤੁਸੀਂ ਮੁੱਖ Cutling ਐਪ ਵਿੱਚ ਆਪਣੇ ਸਾਰੇ cutlings ਪ੍ਰਬੰਧਿਤ ਕਰ ਸਕਦੇ ਹੋ. ਤੁਹਾਡੇ ਕੀਤੇ ਬਦਲਾਅ ਤੁਹਾਡੇ ਕੀਬੋਰਡ ਵਿੱਚ ਤੁਰੰਤ ਦਿਖਾਈ ਦੇਣਗੇ.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "ਸਿਸਟਮ ਸਥਿਰਤਾ ਯਕੀਨੀ ਬਣਾਉਣ ਲਈ ਕੀਬੋਰਡ ਐਕਸਟੈਂਸ਼ਨਾਂ ਵਿੱਚ ਸਖ਼ਤ ਮੈਮੋਰੀ ਸੀਮਾਵਾਂ ਹਨ. ਚਿੱਤਰ ਟੈਕਸਟ ਨਾਲੋਂ ਵੱਧ ਮੈਮੋਰੀ ਵਰਤਦੇ ਹਨ, ਇਸ ਲਈ ਅਸੀਂ ਤੁਹਾਡਾ ਕੀਬੋਰਡ ਤੇਜ਼ ਅਤੇ ਭਰੋਸੇਯੋਗ ਰੱਖਣ ਲਈ ਉਨ੍ਹਾਂ ਨੂੰ ਸੀਮਤ ਕਰਦੇ ਹਾਂ. ਸੀਮਾ ਤੇ ਪਹੁੰਚਣ ਤੇ, ਨਵੇਂ ਜੋੜਨ ਲਈ ਕੁਝ cutlings ਮਿਟਾਓ.";
+"Up to **%lld text** cutlings" = "**%lld ਟੈਕਸਟ** cutlings ਤੱਕ";
+"Up to **%lld image** cutlings" = "**%lld ਚਿੱਤਰ** cutlings ਤੱਕ";
+"Back" = "ਪਿੱਛੇ";
+"Next" = "ਅੱਗੇ";
+"Get Started" = "ਸ਼ੁਰੂ ਕਰੋ";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "ਆਪਣਾ ਕਸਟਮ Cutling ਕੀਬੋਰਡ ਵਰਤਣਾ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਕੁਝ ਸਧਾਰਨ ਕਦਮ ਫਾਲੋ ਕਰੋ.";
+"Enable Cutling Keyboard" = "Cutling ਕੀਬੋਰਡ ਸਰਗਰਮ ਕਰੋ";
+"Test Your Keyboard" = "ਆਪਣਾ ਕੀਬੋਰਡ ਟੈਸਟ ਕਰੋ";
+"All set! Swipe to continue." = "ਸਭ ਤਿਆਰ! ਜਾਰੀ ਰੱਖਣ ਲਈ ਸਵਾਈਪ ਕਰੋ.";
+"Your data stays private and is never sent anywhere." = "ਤੁਹਾਡਾ ਡੈਟਾ ਨਿੱਜੀ ਰਹਿੰਦਾ ਹੈ ਅਤੇ ਕਿਤੇ ਨਹੀਂ ਭੇਜਿਆ ਜਾਂਦਾ.";
+
+/* MARK: - Recently Deleted */
+"Recently Deleted" = "ਹਾਲ ਹੀ ਵਿੱਚ ਮਿਟਾਏ";
+"Delete All" = "ਸਭ ਮਿਟਾਓ";
+"Delete All Permanently?" = "ਸਭ ਪੱਕੇ ਤੌਰ ਤੇ ਮਿਟਾਉਣਾ ਹੈ?";
+"Delete Permanently?" = "ਪੱਕੇ ਤੌਰ ਤੇ ਮਿਟਾਉਣਾ ਹੈ?";
+"Delete Permanently" = "ਪੱਕੇ ਤੌਰ ਤੇ ਮਿਟਾਓ";
+"Recover" = "ਮੁੜ ਪ੍ਰਾਪਤ ਕਰੋ";
+"Items will be permanently deleted after 30 days." = "ਆਈਟਮ 30 ਦਿਨਾਂ ਬਾਅਦ ਪੱਕੇ ਤੌਰ ਤੇ ਮਿਟ ਜਾਣਗੇ.";
+"No Recently Deleted Items" = "ਹਾਲ ਹੀ ਵਿੱਚ ਮਿਟਾਏ ਕੋਈ ਆਈਟਮ ਨਹੀਂ";
+"Deleted cutlings will appear here for 30 days." = "ਮਿਟਾਏ cutlings 30 ਦਿਨਾਂ ਲਈ ਇੱਥੇ ਦਿਖਾਈ ਦੇਣਗੇ.";
+"This will permanently delete all %lld items. This action cannot be undone." = "ਸਾਰੇ %lld ਆਈਟਮ ਪੱਕੇ ਤੌਰ ਤੇ ਮਿਟ ਜਾਣਗੇ. ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ.";
+"\"%@\" will be deleted permanently." = "\"%@\" will be deleted permanently.";
+"1 day left" = "1 ਦਿਨ ਬਾਕੀ";
+"%lld days left" = "%lld ਦਿਨ ਬਾਕੀ";
+
+/* MARK: - Navigation Subtitle */
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld ਟੈਕਸਟ, %lld/%lld ਚਿੱਤਰ";
+
+/* MARK: - Settings (Additional) */
+"Experimental Feature: iCloud" = "ਪ੍ਰਯੋਗਾਤਮਕ ਫੀਚਰ: iCloud";
+"Contact Support" = "ਸਪੋਰਟ ਨਾਲ ਸੰਪਰਕ ਕਰੋ";
+"Privacy Policy" = "ਗੋਪਨੀਯਤਾ ਨੀਤੀ";
+
+/* MARK: - Additional Actions */
+"Redo" = "ਦੁਬਾਰਾ ਕਰੋ";
+
+/* MARK: - Navigation Title */
+"Cutlings" = "ਕਟਲਿੰਗ";
+
+/* MARK: - Missing Strings */
+"Continue" = "ਜਾਰੀ ਰੱਖੋ";
+"Enable" = "ਸਰਗਰਮ ਕਰੋ";
+"Status" = "ਸਥਿਤੀ";
+"New Text Cutling" = "ਨਵਾਂ ਟੈਕਸਟ ਕਟਲਿੰਗ";
+"New Image Cutling" = "ਨਵਾਂ ਚਿੱਤਰ ਕਟਲਿੰਗ";
+"Delete Selected" = "ਚੁਣੇ ਮਿਟਾਓ";
+"Auto-detect Input Types" = "ਇਨਪੁੱਟ ਕਿਸਮ ਆਟੋ-ਖੋਜ";
+"Input Types" = "ਇਨਪੁੱਟ ਕਿਸਮਾਂ";
+"Enable iCloud Sync" = "iCloud ਸਿੰਕ ਸਰਗਰਮ ਕਰੋ";
+"Keep your cutlings in sync across all your devices." = "ਆਪਣੇ ਸਾਰੇ ਡਿਵਾਈਸਾਂ ਤੇ cutlings ਸਿੰਕ ਵਿੱਚ ਰੱਖੋ.";
+"Automatically detect and suggest input type categories when editing text." = "ਟੈਕਸਟ ਸੋਧਦੇ ਸਮੇਂ ਇਨਪੁੱਟ ਕਿਸਮ ਸ਼੍ਰੇਣੀਆਂ ਆਪਣੇ ਆਪ ਖੋਜੋ ਅਤੇ ਸੁਝਾਅ ਦਿਓ.";
+
+/* MARK: - Snapshot Seed Data */
+"Home Address" = "ਘਰ ਦਾ ਪਤਾ";
+"123 Main Street, Apt 4B\nNew York, NY 10001" = "123 ਐਮ.ਜੀ. ਰੋਡ, ਫਲੈਟ 4B\nਚੰਡੀਗੜ੍ਹ 160001";
+"Email Signature" = "ਈਮੇਲ ਦਸਤਖ਼ਤ";
+"Best regards,\nAlex Chen\nalex@example.com" = "ਸ਼ੁਭਕਾਮਨਾਵਾਂ,\nਅਲੈਕਸ ਸਿੰਘ\nalex@example.com";
+"Bank Account" = "ਬੈਂਕ ਖਾਤਾ";
+"IBAN: DE89 3704 0044 0532 0130 00" = "IBAN: DE89 3704 0044 0532 0130 00";
+"Wi-Fi Password" = "Wi-Fi ਪਾਸਵਰਡ";
+"Social Bio" = "ਸੋਸ਼ਲ ਬਾਇਓ";
+"Designer & developer. Building things that make life simpler." = "ਡਿਜ਼ਾਈਨਰ ਅਤੇ ਡਿਵੈਲਪਰ. ਜ਼ਿੰਦਗੀ ਨੂੰ ਸੌਖੀ ਬਣਾਉਣ ਵਾਲੀਆਂ ਚੀਜ਼ਾਂ ਬਣਾਉਂਦਾ ਹਾਂ.";
+"Booking Ref" = "ਬੁਕਿੰਗ ਰੈਫ";
+"Meeting Link" = "ਮੀਟਿੰਗ ਲਿੰਕ";

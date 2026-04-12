@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="{{LANG_CODE}}"{{DIR_ATTR}}>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{page_title_privacy}}</title>
+    <link rel="stylesheet" href="{{ROOT}}/style.css">
+</head>
+<body>
+    <nav class="site-nav">
+        <a href="{{LANG_PREFIX}}/" class="nav-brand">
+            <img src="{{ROOT}}/icon.png" alt="Cutling" width="28" height="28">
+            Cutling
+        </a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span><span></span><span></span>
+        </label>
+        <ul class="nav-links">
+            <li><a href="{{LANG_PREFIX}}/">{{nav_home}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/faq/">{{nav_faq}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/support/">{{nav_support}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/privacy/" class="active">{{nav_privacy}}</a></li>
+            {{LANGUAGE_PICKER}}
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>{{privacy_page_title}}</h1>
+            <div class="effective">{{privacy_effective}}</div>
+        </div>
+
+        <div class="summary-box">
+            <p>{{privacy_summary}}</p>
+        </div>
+
+        <div class="section">
+            <h2>{{privacy_overview_title}}</h2>
+            <p>{{privacy_overview_text}}</p>
+        </div>
+
+        <div class="section">
+            <h2>{{privacy_collection_title}}</h2>
+            <p>{{privacy_collection_text}}</p>
+        </div>
+
+        <div class="section">
+            <h2>{{privacy_cutlings_title}}</h2>
+            <p>{{privacy_cutlings_text}}</p>
+        </div>
+
+        <div class="section">
+            <h2>{{privacy_icloud_title}}</h2>
+            <p>{{privacy_icloud_intro}}</p>
+            <ul>
+                <li>{{privacy_icloud_li1}}</li>
+                <li>{{privacy_icloud_li2}}</li>
+                <li>{{privacy_icloud_li3}}</li>
+                <li>{{privacy_icloud_li4}}</li>
+            </ul>
+            <p>{{privacy_icloud_outro}}</p>
+        </div>
+
+        <div class="section">
+            <h2>{{privacy_keyboard_title}}</h2>
+            <p>{{privacy_keyboard_text}}</p>
+        </div>
+
+        <div class="section">
+            <h2>{{privacy_thirdparty_title}}</h2>
+            <p>{{privacy_thirdparty_text}}</p>
+        </div>
+
+        <div class="section">
+            <h2>{{privacy_children_title}}</h2>
+            <p>{{privacy_children_text}}</p>
+        </div>
+
+        <div class="section">
+            <h2>{{privacy_changes_title}}</h2>
+            <p>{{privacy_changes_text}}</p>
+            <p class="changelog">{{privacy_changes_log}}</p>
+        </div>
+
+        <div class="section">
+            <h2>{{privacy_contact_title}}</h2>
+            <p>{{privacy_contact_text}}</p>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <ul class="footer-links">
+            <li><a href="{{LANG_PREFIX}}/">{{nav_home}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/faq/">{{nav_faq}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/support/">{{nav_support}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/privacy/">{{nav_privacy}}</a></li>
+        </ul>
+        <p class="copyright">{{footer_copyright}}</p>
+    </footer>
+</body>
+</html>

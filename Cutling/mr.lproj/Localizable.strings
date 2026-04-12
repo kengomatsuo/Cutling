@@ -1,0 +1,215 @@
+/* MARK: - Navigation & Titles */
+"My Cutlings" = "माझे Cutlings";
+"Select Items" = "आयटम निवडा";
+"%lld Selected" = "%lld निवडले";
+"Reorder" = "पुन्हा क्रम लावा";
+"Settings" = "सेटिंग्ज";
+"Keyboard Setup" = "कीबोर्ड सेटअप";
+"New" = "नवीन";
+"Choose Icon" = "आयकॉन निवडा";
+
+/* MARK: - Common Actions */
+"Cancel" = "रद्द करा";
+"Done" = "झाले";
+"Save" = "जतन करा";
+"Delete" = "हटवा";
+"Copy" = "कॉपी";
+"Edit" = "संपादित करा";
+"Sort" = "क्रमवारी लावा";
+"OK" = "ठीक आहे";
+
+/* MARK: - Menu Items */
+"Text Cutling" = "मजकूर Cutling";
+"Image Cutling" = "चित्र Cutling";
+"Select Cutlings" = "Cutlings निवडा";
+"Reorder Cutlings" = "Cutlings पुन्हा क्रम लावा";
+"Keyboard Setup Guide" = "कीबोर्ड सेटअप मार्गदर्शक";
+"Name (A → Z)" = "नाव (A → Z)";
+"Name (Z → A)" = "नाव (Z → A)";
+"Text First" = "मजकूर प्रथम";
+"Images First" = "चित्र प्रथम";
+"Shortest First" = "सर्वात लहान प्रथम";
+"Longest First" = "सर्वात मोठा प्रथम";
+"Reverse Order" = "उलट क्रम";
+
+/* MARK: - Empty States */
+"No Cutlings Yet" = "अजून Cutlings नाहीत";
+"No Results" = "कोणतेही निकाल नाहीत";
+"Tap + to add your first cutling." = "तुमचे पहिले cutling जोडण्यासाठी + टॅप करा.";
+"Try a different search term." = "वेगळा शोध शब्द वापरून पहा.";
+
+/* MARK: - Search */
+"Search cutlings" = "Cutlings शोधा";
+"Search icons" = "आयकॉन शोधा";
+
+/* MARK: - Form Labels */
+"Name" = "नाव";
+"Icon" = "आयकॉन";
+"Text" = "मजकूर";
+"Image" = "चित्र";
+"Color" = "रंग";
+"Quick Actions" = "जलद कृती";
+"Auto-Delete" = "ऑटो-हटवा";
+"Delete At" = "या वेळी हटवा";
+"Category" = "श्रेणी";
+
+/* MARK: - Placeholders */
+"e.g. Email" = "उदा. ईमेल";
+"e.g. Signature, QR Code" = "उदा. स्वाक्षरी, QR कोड";
+
+/* MARK: - Buttons & Actions */
+"Change Icon" = "आयकॉन बदला";
+"Paste from Clipboard" = "क्लिपबोर्डवरून पेस्ट करा";
+"Delete Cutling" = "Cutling हटवा";
+"Open Settings to Enable" = "सक्रिय करण्यासाठी सेटिंग्ज उघडा";
+"Photos Library" = "फोटो लायब्ररी";
+"Choose File" = "फाइल निवडा";
+"Choose from Photos" = "फोटोंमधून निवडा";
+"Choose from Files" = "फाइलमधून निवडा";
+"Copy Images" = "चित्रे कॉपी करा";
+"Add from Clipboard" = "क्लिपबोर्डवरून जोडा";
+"Insert Text Instantly" = "मजकूर लगेच घाला";
+"Switch to Cutling Keyboard" = "Cutling कीबोर्डवर स्विच करा";
+
+/* MARK: - Settings Sections */
+"iCloud" = "iCloud";
+"iCloud Sync" = "iCloud सिंक";
+"Sync your cutlings across all your devices using iCloud." = "iCloud वापरून तुमच्या सर्व उपकरणांवर cutlings सिंक करा.";
+"Storage" = "स्टोरेज";
+"Text Cutlings" = "मजकूर Cutlings";
+"Image Cutlings" = "चित्र Cutlings";
+"Max Text Length" = "कमाल मजकूर लांबी";
+"%lld chars" = "%lld अक्षरे";
+"About" = "माहिती";
+"Version" = "आवृत्ती";
+"Keyboard Added" = "कीबोर्ड जोडले";
+"Full Access" = "पूर्ण प्रवेश";
+
+/* MARK: - Image Picker */
+"No image selected" = "कोणतेही चित्र निवडले नाही";
+
+/* MARK: - Footer Texts */
+"This will replace the current text with whatever is in your clipboard." = "हे तुमच्या क्लिपबोर्डवरील सामग्रीसह सध्याचा मजकूर बदलेल.";
+"This will replace the current image with whatever is in your clipboard." = "हे तुमच्या क्लिपबोर्डवरील सामग्रीसह सध्याचे चित्र बदलेल.";
+"This cutling will be automatically deleted at the selected date and time." = "हे cutling निवडलेल्या तारीख आणि वेळेवर आपोआप हटवले जाईल.";
+"Each text cutling can hold up to %lld characters." = "प्रत्येक मजकूर cutling कमाल %lld अक्षरे ठेवू शकते.";
+
+/* MARK: - Alerts */
+"Limit Reached" = "मर्यादा गाठली";
+"Delete Cutling?" = "Cutling हटवायचे?";
+"This action cannot be undone." = "ही कृती पूर्ववत केली जाऊ शकत नाही.";
+"Cannot add text cutling" = "मजकूर cutling जोडता येत नाही";
+"Cannot add image cutling" = "चित्र cutling जोडता येत नाही";
+"Cannot add more text cutlings." = "अधिक मजकूर cutlings जोडता येत नाहीत.";
+"Cannot add more image cutlings." = "अधिक चित्र cutlings जोडता येत नाहीत.";
+
+/* MARK: - CutlingStore Errors */
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "तुम्ही एकूण %lld cutlings ची कमाल मर्यादा गाठली आहे. अधिक जोडण्यासाठी काही हटवा.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "तुम्ही %lld चित्र cutlings ची कमाल मर्यादा गाठली आहे. चित्रे कीबोर्डमध्ये लक्षणीय मेमरी वापरतात. अधिक जोडण्यासाठी काही चित्रे हटवा.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "तुम्ही %lld मजकूर cutlings ची कमाल मर्यादा गाठली आहे. अधिक जोडण्यासाठी काही हटवा.";
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "इनपुट प्रकार सूचना";
+"Suggest for Input Types" = "इनपुट प्रकारांसाठी सूचना";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "जेव्हा तुम्ही जुळणाऱ्या प्रकारच्या मजकूर फील्डवर फोकस कराल, तेव्हा हे cutling कीबोर्डच्या शीर्षस्थानी दिसेल.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "इनपुट प्रकारांना cutlings नियुक्त करा जेणेकरून जुळणाऱ्या मजकूर फील्डवर फोकस केल्यावर ते कीबोर्डच्या शीर्षस्थानी दिसतील.";
+"No cutlings yet. Add some first." = "अजून cutlings नाहीत. प्रथम काही जोडा.";
+"Suggested" = "सुचवलेले";
+"Email" = "ईमेल";
+"URL" = "URL";
+"Phone Number" = "फोन नंबर";
+"Address" = "पत्ता";
+
+/* MARK: - Detection */
+"Detected: %@" = "शोधले: %@";
+"Undo" = "पूर्ववत करा";
+
+/* MARK: - Clipboard Feedback */
+"Copied" = "कॉपी झाले";
+"Inserted" = "घातले गेले";
+
+/* MARK: - Keyboard Setup */
+"Setup Progress" = "सेटअप प्रगती";
+"Open Cutling Settings" = "Cutling सेटिंग्ज उघडा";
+"Tap here, then switch to Cutling" = "येथे टॅप करा, नंतर Cutling वर स्विच करा";
+"How to Use Your Keyboard" = "तुमचा कीबोर्ड कसा वापरायचा";
+"Storage Limits" = "स्टोरेज मर्यादा";
+"You're All Set!" = "सर्व तयार!";
+"Set Up Your Keyboard" = "तुमचा कीबोर्ड सेट करा";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "तुमचा Cutling कीबोर्ड तयार आहे! कुठेही टाइप करताना, Cutling वर स्विच करण्यासाठी तुमच्या कीबोर्डवरील 🌐 ग्लोब आयकॉन टॅप करा.";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "तुमचा कस्टम कीबोर्ड वापरण्यास सुरुवात करण्यासाठी खालील दोन सोप्या पायऱ्या अनुसरा. प्रत्येक पायरी पूर्ण केल्यावर हे पृष्ठ आपोआप अपडेट होईल.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**पायरी 1:** खाली 'Cutling सेटिंग्ज उघडा' टॅप करा, **कीबोर्ड्स** वर जा आणि सूचीतून **Cutling** निवडा.";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**पायरी 2:** **पूर्ण प्रवेशास अनुमती** चालू असल्याची खात्री करा. हे कीबोर्डला तुमच्या क्लिपबोर्डवर चित्रे कॉपी करू देते. तुमचा डेटा खाजगी राहतो आणि कुठेही पाठवला जात नाही.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status.";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**पायरी 4:** तुम्ही तयार आहात! वापर मार्गदर्शक खाली दिले आहे.";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "कोणत्याही अ‍ॅपमध्ये टाइप करताना, तुमच्या कीबोर्डच्या खाली-डावीकडील 🌐 ग्लोब की टॅप करा किंवा दाबून ठेवा, नंतर Cutling निवडा";
+"Tap any text cutling and it will be typed into your current text field immediately" = "कोणतेही मजकूर cutling टॅप करा आणि ते तुमच्या सध्याच्या मजकूर फील्डमध्ये लगेच टाइप होईल";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "चित्र cutling टॅप करून तुमच्या क्लिपबोर्डवर कॉपी करा, नंतर तुम्ही वापरत असलेल्या अ‍ॅपमध्ये पेस्ट करा (सामान्यतः टॅप करून धरून ठेवा, नंतर पेस्ट निवडा). Apple सध्या या अ‍ॅपवर थेट चित्र पेस्ट करण्यास समर्थन देत नाही.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "कोणताही मजकूर कॉपी करा, नंतर नवीन cutling म्हणून जतन करण्यासाठी Cutling कीबोर्डमधील 'क्लिपबोर्डवरून जोडा' बटण टॅप करा";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "तुम्ही मुख्य Cutling अ‍ॅपमध्ये तुमचे सर्व cutlings व्यवस्थापित करू शकता. तुम्ही केलेले बदल तुमच्या कीबोर्डमध्ये लगेच दिसतील.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "सिस्टम स्थिरता सुनिश्चित करण्यासाठी कीबोर्ड विस्तारांमध्ये कडक मेमरी मर्यादा आहेत. चित्रे मजकुरापेक्षा अधिक मेमरी वापरतात, म्हणून तुमचा कीबोर्ड जलद आणि विश्वसनीय राहण्यासाठी आम्ही त्यांना मर्यादित करतो. मर्यादा गाठल्यास, नवीन जोडण्यासाठी काही cutlings हटवा.";
+"Up to **%lld text** cutlings" = "**%lld मजकूर** cutlings पर्यंत";
+"Up to **%lld image** cutlings" = "**%lld चित्र** cutlings पर्यंत";
+"Back" = "मागे";
+"Next" = "पुढे";
+"Get Started" = "सुरू करा";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "तुमचा कस्टम Cutling कीबोर्ड वापरण्यास सुरुवात करण्यासाठी काही सोप्या पायऱ्या अनुसरा.";
+"Enable Cutling Keyboard" = "Cutling कीबोर्ड सक्रिय करा";
+"Test Your Keyboard" = "तुमचा कीबोर्ड तपासा";
+"All set! Swipe to continue." = "सर्व तयार! पुढे जाण्यासाठी स्वाइप करा.";
+"Your data stays private and is never sent anywhere." = "तुमचा डेटा खाजगी राहतो आणि कुठेही पाठवला जात नाही.";
+
+/* MARK: - Recently Deleted */
+"Recently Deleted" = "अलीकडे हटवलेले";
+"Delete All" = "सर्व हटवा";
+"Delete All Permanently?" = "सर्व कायमचे हटवायचे?";
+"Delete Permanently?" = "कायमचे हटवायचे?";
+"Delete Permanently" = "कायमचे हटवा";
+"Recover" = "पुनर्प्राप्त करा";
+"Items will be permanently deleted after 30 days." = "आयटम 30 दिवसांनंतर कायमचे हटवले जातील.";
+"No Recently Deleted Items" = "अलीकडे हटवलेले कोणतेही आयटम नाहीत";
+"Deleted cutlings will appear here for 30 days." = "हटवलेले cutlings 30 दिवसांसाठी येथे दिसतील.";
+"This will permanently delete all %lld items. This action cannot be undone." = "सर्व %lld आयटम कायमचे हटवले जातील. ही कृती पूर्ववत केली जाऊ शकत नाही.";
+"\"%@\" will be deleted permanently." = "\"%@\" will be deleted permanently.";
+"1 day left" = "1 दिवस शिल्लक";
+"%lld days left" = "%lld दिवस शिल्लक";
+
+/* MARK: - Navigation Subtitle */
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld मजकूर, %lld/%lld चित्रे";
+
+/* MARK: - Settings (Additional) */
+"Experimental Feature: iCloud" = "प्रायोगिक वैशिष्ट्य: iCloud";
+"Contact Support" = "सपोर्टशी संपर्क साधा";
+"Privacy Policy" = "गोपनीयता धोरण";
+
+/* MARK: - Additional Actions */
+"Redo" = "पुन्हा करा";
+
+/* MARK: - Navigation Title */
+"Cutlings" = "कटलिंग्ज";
+
+/* MARK: - Missing Strings */
+"Continue" = "पुढे चला";
+"Enable" = "सक्रिय करा";
+"Status" = "स्थिती";
+"New Text Cutling" = "नवीन मजकूर कटलिंग";
+"New Image Cutling" = "नवीन चित्र कटलिंग";
+"Delete Selected" = "निवडलेले हटवा";
+"Auto-detect Input Types" = "इनपुट प्रकार ऑटो-शोध";
+"Input Types" = "इनपुट प्रकार";
+"Enable iCloud Sync" = "iCloud सिंक सक्रिय करा";
+"Keep your cutlings in sync across all your devices." = "तुमच्या सर्व उपकरणांवर cutlings सिंकमध्ये ठेवा.";
+"Automatically detect and suggest input type categories when editing text." = "मजकूर संपादित करताना इनपुट प्रकार श्रेण्या आपोआप शोधा आणि सुचवा.";
+
+/* MARK: - Snapshot Seed Data */
+"Home Address" = "घरचा पत्ता";
+"123 Main Street, Apt 4B\nNew York, NY 10001" = "123 महात्मा गांधी मार्ग, फ्लॅट 4B\nमुंबई 400001";
+"Email Signature" = "ईमेल स्वाक्षरी";
+"Best regards,\nAlex Chen\nalex@example.com" = "सादर,\nअलेक्स देशमुख\nalex@example.com";
+"Bank Account" = "बँक खाते";
+"IBAN: DE89 3704 0044 0532 0130 00" = "IBAN: DE89 3704 0044 0532 0130 00";
+"Wi-Fi Password" = "Wi-Fi पासवर्ड";
+"Social Bio" = "सोशल बायो";
+"Designer & developer. Building things that make life simpler." = "डिझायनर आणि डेव्हलपर. जीवन सोपे बनवणाऱ्या गोष्टी बनवतो.";
+"Booking Ref" = "बुकिंग रेफ";
+"Meeting Link" = "मीटिंग लिंक";

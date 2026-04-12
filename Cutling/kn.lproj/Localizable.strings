@@ -1,0 +1,215 @@
+/* MARK: - Navigation & Titles */
+"My Cutlings" = "ನನ್ನ Cutlings";
+"Select Items" = "ಐಟಂಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿ";
+"%lld Selected" = "%lld ಆಯ್ಕೆಮಾಡಲಾಗಿದೆ";
+"Reorder" = "ಮರುಕ್ರಮಗೊಳಿಸಿ";
+"Settings" = "ಸೆಟ್ಟಿಂಗ್‌ಗಳು";
+"Keyboard Setup" = "ಕೀಬೋರ್ಡ್ ಸೆಟಪ್";
+"New" = "ಹೊಸ";
+"Choose Icon" = "ಐಕಾನ್ ಆಯ್ಕೆಮಾಡಿ";
+
+/* MARK: - Common Actions */
+"Cancel" = "ರದ್ದುಮಾಡಿ";
+"Done" = "ಮುಗಿಯಿತು";
+"Save" = "ಉಳಿಸಿ";
+"Delete" = "ಅಳಿಸಿ";
+"Copy" = "ನಕಲಿಸಿ";
+"Edit" = "ಸಂಪಾದಿಸಿ";
+"Sort" = "ವಿಂಗಡಿಸಿ";
+"OK" = "ಸರಿ";
+
+/* MARK: - Menu Items */
+"Text Cutling" = "ಪಠ್ಯ Cutling";
+"Image Cutling" = "ಚಿತ್ರ Cutling";
+"Select Cutlings" = "Cutlings ಆಯ್ಕೆಮಾಡಿ";
+"Reorder Cutlings" = "Cutlings ಮರುಕ್ರಮಗೊಳಿಸಿ";
+"Keyboard Setup Guide" = "ಕೀಬೋರ್ಡ್ ಸೆಟಪ್ ಮಾರ್ಗದರ್ಶಿ";
+"Name (A → Z)" = "ಹೆಸರು (A → Z)";
+"Name (Z → A)" = "ಹೆಸರು (Z → A)";
+"Text First" = "ಪಠ್ಯ ಮೊದಲು";
+"Images First" = "ಚಿತ್ರ ಮೊದಲು";
+"Shortest First" = "ಕಡಿಮೆ ಮೊದಲು";
+"Longest First" = "ಉದ್ದ ಮೊದಲು";
+"Reverse Order" = "ಹಿಮ್ಮುಖ ಕ್ರಮ";
+
+/* MARK: - Empty States */
+"No Cutlings Yet" = "ಇನ್ನೂ Cutlings ಇಲ್ಲ";
+"No Results" = "ಫಲಿತಾಂಶಗಳಿಲ್ಲ";
+"Tap + to add your first cutling." = "ನಿಮ್ಮ ಮೊದಲ cutling ಸೇರಿಸಲು + ಟ್ಯಾಪ್ ಮಾಡಿ.";
+"Try a different search term." = "ಬೇರೆ ಹುಡುಕಾಟ ಪದ ಪ್ರಯತ್ನಿಸಿ.";
+
+/* MARK: - Search */
+"Search cutlings" = "Cutlings ಹುಡುಕಿ";
+"Search icons" = "ಐಕಾನ್ ಹುಡುಕಿ";
+
+/* MARK: - Form Labels */
+"Name" = "ಹೆಸರು";
+"Icon" = "ಐಕಾನ್";
+"Text" = "ಪಠ್ಯ";
+"Image" = "ಚಿತ್ರ";
+"Color" = "ಬಣ್ಣ";
+"Quick Actions" = "ತ್ವರಿತ ಕ್ರಿಯೆಗಳು";
+"Auto-Delete" = "ಸ್ವಯಂ-ಅಳಿಸು";
+"Delete At" = "ಅಳಿಸುವ ಸಮಯ";
+"Category" = "ವರ್ಗ";
+
+/* MARK: - Placeholders */
+"e.g. Email" = "ಉದಾ. ಇಮೇಲ್";
+"e.g. Signature, QR Code" = "ಉದಾ. ಸಹಿ, QR ಕೋಡ್";
+
+/* MARK: - Buttons & Actions */
+"Change Icon" = "ಐಕಾನ್ ಬದಲಿಸಿ";
+"Paste from Clipboard" = "ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ನಿಂದ ಅಂಟಿಸಿ";
+"Delete Cutling" = "Cutling ಅಳಿಸಿ";
+"Open Settings to Enable" = "ಸಕ್ರಿಯಗೊಳಿಸಲು ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ";
+"Photos Library" = "ಫೋಟೋ ಲೈಬ್ರರಿ";
+"Choose File" = "ಫೈಲ್ ಆಯ್ಕೆಮಾಡಿ";
+"Choose from Photos" = "ಫೋಟೋಗಳಿಂದ ಆಯ್ಕೆಮಾಡಿ";
+"Choose from Files" = "ಫೈಲ್‌ಗಳಿಂದ ಆಯ್ಕೆಮಾಡಿ";
+"Copy Images" = "ಚಿತ್ರಗಳನ್ನು ನಕಲಿಸಿ";
+"Add from Clipboard" = "ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ನಿಂದ ಸೇರಿಸಿ";
+"Insert Text Instantly" = "ಪಠ್ಯ ತಕ್ಷಣ ಸೇರಿಸಿ";
+"Switch to Cutling Keyboard" = "Cutling ಕೀಬೋರ್ಡ್‌ಗೆ ಬದಲಿಸಿ";
+
+/* MARK: - Settings Sections */
+"iCloud" = "iCloud";
+"iCloud Sync" = "iCloud ಸಿಂಕ್";
+"Sync your cutlings across all your devices using iCloud." = "iCloud ಬಳಸಿ ನಿಮ್ಮ ಎಲ್ಲ ಸಾಧನಗಳಲ್ಲಿ cutlings ಸಿಂಕ್ ಮಾಡಿ.";
+"Storage" = "ಸಂಗ್ರಹಣೆ";
+"Text Cutlings" = "ಪಠ್ಯ Cutlings";
+"Image Cutlings" = "ಚಿತ್ರ Cutlings";
+"Max Text Length" = "ಗರಿಷ್ಠ ಪಠ್ಯ ಉದ್ದ";
+"%lld chars" = "%lld ಅಕ್ಷರಗಳು";
+"About" = "ಕುರಿತು";
+"Version" = "ಆವೃತ್ತಿ";
+"Keyboard Added" = "ಕೀಬೋರ್ಡ್ ಸೇರಿಸಲಾಗಿದೆ";
+"Full Access" = "ಪೂರ್ಣ ಪ್ರವೇಶ";
+
+/* MARK: - Image Picker */
+"No image selected" = "ಯಾವುದೇ ಚಿತ್ರ ಆಯ್ಕೆಯಾಗಿಲ್ಲ";
+
+/* MARK: - Footer Texts */
+"This will replace the current text with whatever is in your clipboard." = "ಇದು ನಿಮ್ಮ ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ನಲ್ಲಿರುವುದರೊಂದಿಗೆ ಪ್ರಸ್ತುತ ಪಠ್ಯವನ್ನು ಬದಲಾಯಿಸುತ್ತದೆ.";
+"This will replace the current image with whatever is in your clipboard." = "ಇದು ನಿಮ್ಮ ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ನಲ್ಲಿರುವುದರೊಂದಿಗೆ ಪ್ರಸ್ತುತ ಚಿತ್ರವನ್ನು ಬದಲಾಯಿಸುತ್ತದೆ.";
+"This cutling will be automatically deleted at the selected date and time." = "ಈ cutling ಆಯ್ಕೆ ಮಾಡಿದ ದಿನಾಂಕ ಮತ್ತು ಸಮಯದಲ್ಲಿ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಅಳಿಸಲಾಗುತ್ತದೆ.";
+"Each text cutling can hold up to %lld characters." = "ಪ್ರತಿ ಪಠ್ಯ cutling ಗರಿಷ್ಠ %lld ಅಕ್ಷರಗಳನ್ನು ಹಿಡಿಯಬಹುದು.";
+
+/* MARK: - Alerts */
+"Limit Reached" = "ಮಿತಿ ತಲುಪಿದೆ";
+"Delete Cutling?" = "Cutling ಅಳಿಸಬೇಕೇ?";
+"This action cannot be undone." = "ಈ ಕ್ರಿಯೆಯನ್ನು ರದ್ದುಮಾಡಲು ಸಾಧ್ಯವಿಲ್ಲ.";
+"Cannot add text cutling" = "ಪಠ್ಯ cutling ಸೇರಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ";
+"Cannot add image cutling" = "ಚಿತ್ರ cutling ಸೇರಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ";
+"Cannot add more text cutlings." = "ಹೆಚ್ಚಿನ ಪಠ್ಯ cutlings ಸೇರಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ.";
+"Cannot add more image cutlings." = "ಹೆಚ್ಚಿನ ಚಿತ್ರ cutlings ಸೇರಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ.";
+
+/* MARK: - CutlingStore Errors */
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "ನೀವು ಒಟ್ಟು %lld cutlings ಗರಿಷ್ಠ ಮಿತಿ ತಲುಪಿದ್ದೀರಿ. ಹೆಚ್ಚಿನವುಗಳನ್ನು ಸೇರಿಸಲು ಕೆಲವನ್ನು ಅಳಿಸಿ.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "ನೀವು %lld ಚಿತ್ರ cutlings ಗರಿಷ್ಠ ಮಿತಿ ತಲುಪಿದ್ದೀರಿ. ಚಿತ್ರಗಳು ಕೀಬೋರ್ಡ್‌ನಲ್ಲಿ ಗಮನಾರ್ಹ ಮೆಮೊರಿ ಬಳಸುತ್ತವೆ. ಹೆಚ್ಚಿನವುಗಳನ್ನು ಸೇರಿಸಲು ಕೆಲವು ಚಿತ್ರಗಳನ್ನು ಅಳಿಸಿ.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "ನೀವು %lld ಪಠ್ಯ cutlings ಗರಿಷ್ಠ ಮಿತಿ ತಲುಪಿದ್ದೀರಿ. ಹೆಚ್ಚಿನವುಗಳನ್ನು ಸೇರಿಸಲು ಕೆಲವನ್ನು ಅಳಿಸಿ.";
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "ಇನ್‌ಪುಟ್ ಪ್ರಕಾರ ಸಲಹೆಗಳು";
+"Suggest for Input Types" = "ಇನ್‌ಪುಟ್ ಪ್ರಕಾರಗಳಿಗೆ ಸಲಹೆ";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "ನೀವು ಹೊಂದಾಣಿಕೆಯ ಪ್ರಕಾರದ ಪಠ್ಯ ಕ್ಷೇತ್ರದಲ್ಲಿ ಗಮನ ಹರಿಸಿದಾಗ, ಈ cutling ಕೀಬೋರ್ಡ್ ಮೇಲ್ಭಾಗದಲ್ಲಿ ಕಾಣಿಸುತ್ತದೆ.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "ಹೊಂದಾಣಿಕೆಯ ಪಠ್ಯ ಕ್ಷೇತ್ರದಲ್ಲಿ ಗಮನ ಹರಿಸಿದಾಗ ಕೀಬೋರ್ಡ್ ಮೇಲ್ಭಾಗದಲ್ಲಿ ಕಾಣಿಸಲು ಇನ್‌ಪುಟ್ ಪ್ರಕಾರಗಳಿಗೆ cutlings ನಿಯೋಜಿಸಿ.";
+"No cutlings yet. Add some first." = "ಇನ್ನೂ cutlings ಇಲ್ಲ. ಮೊದಲು ಕೆಲವನ್ನು ಸೇರಿಸಿ.";
+"Suggested" = "ಸೂಚಿಸಲಾಗಿದೆ";
+"Email" = "ಇಮೇಲ್";
+"URL" = "URL";
+"Phone Number" = "ಫೋನ್ ಸಂಖ್ಯೆ";
+"Address" = "ವಿಳಾಸ";
+
+/* MARK: - Detection */
+"Detected: %@" = "ಪತ್ತೆಯಾಗಿದೆ: %@";
+"Undo" = "ರದ್ದುಮಾಡಿ";
+
+/* MARK: - Clipboard Feedback */
+"Copied" = "ನಕಲಿಸಲಾಗಿದೆ";
+"Inserted" = "ಸೇರಿಸಲಾಗಿದೆ";
+
+/* MARK: - Keyboard Setup */
+"Setup Progress" = "ಸೆಟಪ್ ಪ್ರಗತಿ";
+"Open Cutling Settings" = "Cutling ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ";
+"Tap here, then switch to Cutling" = "ಇಲ್ಲಿ ಟ್ಯಾಪ್ ಮಾಡಿ, ನಂತರ Cutling ಗೆ ಬದಲಿಸಿ";
+"How to Use Your Keyboard" = "ನಿಮ್ಮ ಕೀಬೋರ್ಡ್ ಹೇಗೆ ಬಳಸುವುದು";
+"Storage Limits" = "ಸಂಗ್ರಹಣೆ ಮಿತಿಗಳು";
+"You're All Set!" = "ಎಲ್ಲಾ ಸಿದ್ಧ!";
+"Set Up Your Keyboard" = "ನಿಮ್ಮ ಕೀಬೋರ್ಡ್ ಸೆಟ್ ಮಾಡಿ";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "ನಿಮ್ಮ Cutling ಕೀಬೋರ್ಡ್ ಸಿದ್ಧವಾಗಿದೆ! ಎಲ್ಲಿಯಾದರೂ ಟೈಪ್ ಮಾಡುವಾಗ, Cutling ಗೆ ಬದಲಿಸಲು ನಿಮ್ಮ ಕೀಬೋರ್ಡ್‌ನಲ್ಲಿ 🌐 ಗ್ಲೋಬ್ ಐಕಾನ್ ಟ್ಯಾಪ್ ಮಾಡಿ.";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "ನಿಮ್ಮ ಕಸ್ಟಮ್ ಕೀಬೋರ್ಡ್ ಬಳಸಲು ಕೆಳಗಿನ ಎರಡು ಸರಳ ಹಂತಗಳನ್ನು ಅನುಸರಿಸಿ. ಪ್ರತಿ ಹಂತ ಪೂರ್ಣಗೊಳಿಸಿದಂತೆ ಈ ಪುಟ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ನವೀಕರಿಸುತ್ತದೆ.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**ಹಂತ 1:** ಕೆಳಗಿನ 'Cutling ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ' ಟ್ಯಾಪ್ ಮಾಡಿ, **ಕೀಬೋರ್ಡ್‌ಗಳು** ಗೆ ಹೋಗಿ ಮತ್ತು ಪಟ್ಟಿಯಿಂದ **Cutling** ಆಯ್ಕೆಮಾಡಿ.";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**ಹಂತ 2:** **ಪೂರ್ಣ ಪ್ರವೇಶ ಅನುಮತಿಸಿ** ಆನ್ ಆಗಿದೆ ಎಂದು ಖಚಿತಪಡಿಸಿ. ಇದು ಕೀಬೋರ್ಡ್‌ಗೆ ನಿಮ್ಮ ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ಚಿತ್ರಗಳನ್ನು ನಕಲಿಸಲು ಅನುಮತಿಸುತ್ತದೆ. ನಿಮ್ಮ ಡೇಟಾ ಖಾಸಗಿಯಾಗಿರುತ್ತದೆ ಮತ್ತು ಎಲ್ಲಿಯೂ ಕಳುಹಿಸಲಾಗುವುದಿಲ್ಲ.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status.";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**ಹಂತ 4:** ನೀವು ಸಿದ್ಧ! ಬಳಕೆ ಮಾರ್ಗದರ್ಶಿ ಕೆಳಗೆ ನೀಡಲಾಗಿದೆ.";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "ಯಾವುದೇ ಅಪ್ಲಿಕೇಶನ್‌ನಲ್ಲಿ ಟೈಪ್ ಮಾಡುವಾಗ, ನಿಮ್ಮ ಕೀಬೋರ್ಡ್‌ನ ಕೆಳಗೆ-ಎಡಭಾಗದಲ್ಲಿ 🌐 ಗ್ಲೋಬ್ ಕೀ ಟ್ಯಾಪ್ ಮಾಡಿ ಅಥವಾ ಒತ್ತಿ ಹಿಡಿಯಿರಿ, ನಂತರ Cutling ಆಯ್ಕೆಮಾಡಿ";
+"Tap any text cutling and it will be typed into your current text field immediately" = "ಯಾವುದೇ ಪಠ್ಯ cutling ಟ್ಯಾಪ್ ಮಾಡಿ ಮತ್ತು ಅದು ನಿಮ್ಮ ಪ್ರಸ್ತುತ ಪಠ್ಯ ಕ್ಷೇತ್ರದಲ್ಲಿ ತಕ್ಷಣ ಟೈಪ್ ಆಗುತ್ತದೆ";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "ಚಿತ್ರ cutling ಟ್ಯಾಪ್ ಮಾಡಿ ನಿಮ್ಮ ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಿ, ನಂತರ ನೀವು ಬಳಸುತ್ತಿರುವ ಅಪ್ಲಿಕೇಶನ್‌ನಲ್ಲಿ ಅಂಟಿಸಿ (ಸಾಮಾನ್ಯವಾಗಿ ಟ್ಯಾಪ್ ಮಾಡಿ ಹಿಡಿಯಿರಿ, ನಂತರ ಅಂಟಿಸಿ ಆಯ್ಕೆಮಾಡಿ). Apple ಪ್ರಸ್ತುತ ಈ ಅಪ್ಲಿಕೇಶನ್‌ನಲ್ಲಿ ನೇರವಾಗಿ ಚಿತ್ರ ಅಂಟಿಸುವುದನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "ಯಾವುದೇ ಪಠ್ಯ ನಕಲಿಸಿ, ನಂತರ ಹೊಸ cutling ಆಗಿ ಉಳಿಸಲು Cutling ಕೀಬೋರ್ಡ್‌ನಲ್ಲಿ 'ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ನಿಂದ ಸೇರಿಸಿ' ಬಟನ್ ಟ್ಯಾಪ್ ಮಾಡಿ";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "ಮುಖ್ಯ Cutling ಅಪ್ಲಿಕೇಶನ್‌ನಲ್ಲಿ ನಿಮ್ಮ ಎಲ್ಲ cutlings ನಿರ್ವಹಿಸಬಹುದು. ನೀವು ಮಾಡುವ ಬದಲಾವಣೆಗಳು ನಿಮ್ಮ ಕೀಬೋರ್ಡ್‌ನಲ್ಲಿ ತಕ್ಷಣ ಕಾಣಿಸುತ್ತವೆ.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "ಸಿಸ್ಟಮ್ ಸ್ಥಿರತೆ ಖಚಿತಪಡಿಸಲು ಕೀಬೋರ್ಡ್ ವಿಸ್ತರಣೆಗಳು ಕಟ್ಟುನಿಟ್ಟಿನ ಮೆಮೊರಿ ಮಿತಿಗಳನ್ನು ಹೊಂದಿವೆ. ಚಿತ್ರಗಳು ಪಠ್ಯಕ್ಕಿಂತ ಹೆಚ್ಚು ಮೆಮೊರಿ ಬಳಸುತ್ತವೆ, ಆದ್ದರಿಂದ ನಿಮ್ಮ ಕೀಬೋರ್ಡ್ ವೇಗವಾಗಿ ಮತ್ತು ವಿಶ್ವಾಸಾರ್ಹವಾಗಿರಲು ನಾವು ಅವುಗಳನ್ನು ಮಿತಿಗೊಳಿಸುತ್ತೇವೆ. ಮಿತಿ ತಲುಪಿದರೆ, ಹೊಸವುಗಳನ್ನು ಸೇರಿಸಲು ಕೆಲವು cutlings ಅಳಿಸಿ.";
+"Up to **%lld text** cutlings" = "**%lld ಪಠ್ಯ** cutlings ವರೆಗೆ";
+"Up to **%lld image** cutlings" = "**%lld ಚಿತ್ರ** cutlings ವರೆಗೆ";
+"Back" = "ಹಿಂದೆ";
+"Next" = "ಮುಂದೆ";
+"Get Started" = "ಪ್ರಾರಂಭಿಸಿ";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "ನಿಮ್ಮ ಕಸ್ಟಮ್ Cutling ಕೀಬೋರ್ಡ್ ಬಳಸಲು ಕೆಲವು ಸರಳ ಹಂತಗಳನ್ನು ಅನುಸರಿಸಿ.";
+"Enable Cutling Keyboard" = "Cutling ಕೀಬೋರ್ಡ್ ಸಕ್ರಿಯಗೊಳಿಸಿ";
+"Test Your Keyboard" = "ನಿಮ್ಮ ಕೀಬೋರ್ಡ್ ಪರೀಕ್ಷಿಸಿ";
+"All set! Swipe to continue." = "ಎಲ್ಲಾ ಸಿದ್ಧ! ಮುಂದುವರಿಸಲು ಸ್ವೈಪ್ ಮಾಡಿ.";
+"Your data stays private and is never sent anywhere." = "ನಿಮ್ಮ ಡೇಟಾ ಖಾಸಗಿಯಾಗಿರುತ್ತದೆ ಮತ್ತು ಎಲ್ಲಿಯೂ ಕಳುಹಿಸಲಾಗುವುದಿಲ್ಲ.";
+
+/* MARK: - Recently Deleted */
+"Recently Deleted" = "ಇತ್ತೀಚೆಗೆ ಅಳಿಸಲಾದ";
+"Delete All" = "ಎಲ್ಲಾ ಅಳಿಸಿ";
+"Delete All Permanently?" = "ಎಲ್ಲಾ ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಬೇಕೇ?";
+"Delete Permanently?" = "ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಬೇಕೇ?";
+"Delete Permanently" = "ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಿ";
+"Recover" = "ಮರುಪಡೆಯಿರಿ";
+"Items will be permanently deleted after 30 days." = "ಐಟಂಗಳು 30 ದಿನಗಳ ನಂತರ ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಲಾಗುತ್ತದೆ.";
+"No Recently Deleted Items" = "ಇತ್ತೀಚೆಗೆ ಅಳಿಸಲಾದ ಐಟಂಗಳಿಲ್ಲ";
+"Deleted cutlings will appear here for 30 days." = "ಅಳಿಸಲಾದ cutlings 30 ದಿನಗಳವರೆಗೆ ಇಲ್ಲಿ ಕಾಣಿಸುತ್ತವೆ.";
+"This will permanently delete all %lld items. This action cannot be undone." = "ಎಲ್ಲಾ %lld ಐಟಂಗಳು ಶಾಶ್ವತವಾಗಿ ಅಳಿಸಲಾಗುತ್ತದೆ. ಈ ಕ್ರಿಯೆಯನ್ನು ರದ್ದುಮಾಡಲು ಸಾಧ್ಯವಿಲ್ಲ.";
+"\"%@\" will be deleted permanently." = "\"%@\" will be deleted permanently.";
+"1 day left" = "1 ದಿನ ಉಳಿದಿದೆ";
+"%lld days left" = "%lld ದಿನಗಳು ಉಳಿದಿವೆ";
+
+/* MARK: - Navigation Subtitle */
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld ಪಠ್ಯ, %lld/%lld ಚಿತ್ರಗಳು";
+
+/* MARK: - Settings (Additional) */
+"Experimental Feature: iCloud" = "ಪ್ರಾಯೋಗಿಕ ವೈಶಿಷ್ಟ್ಯ: iCloud";
+"Contact Support" = "ಬೆಂಬಲ ಸಂಪರ್ಕಿಸಿ";
+"Privacy Policy" = "ಗೌಪ್ಯತಾ ನೀತಿ";
+
+/* MARK: - Additional Actions */
+"Redo" = "ಮತ್ತೆ ಮಾಡಿ";
+
+/* MARK: - Navigation Title */
+"Cutlings" = "ಕಟ್ಲಿಂಗ್‌ಗಳು";
+
+/* MARK: - Missing Strings */
+"Continue" = "ಮುಂದುವರಿಸಿ";
+"Enable" = "ಸಕ್ರಿಯಗೊಳಿಸಿ";
+"Status" = "ಸ್ಥಿತಿ";
+"New Text Cutling" = "ಹೊಸ ಪಠ್ಯ ಕಟ್ಲಿಂಗ್";
+"New Image Cutling" = "ಹೊಸ ಚಿತ್ರ ಕಟ್ಲಿಂಗ್";
+"Delete Selected" = "ಆಯ್ಕೆಮಾಡಿದ್ದನ್ನು ಅಳಿಸಿ";
+"Auto-detect Input Types" = "ಇನ್‌ಪುಟ್ ಪ್ರಕಾರ ಸ್ವಯಂ-ಪತ್ತೆ";
+"Input Types" = "ಇನ್‌ಪುಟ್ ಪ್ರಕಾರಗಳು";
+"Enable iCloud Sync" = "iCloud ಸಿಂಕ್ ಸಕ್ರಿಯಗೊಳಿಸಿ";
+"Keep your cutlings in sync across all your devices." = "ನಿಮ್ಮ ಎಲ್ಲ ಸಾಧನಗಳಲ್ಲಿ cutlings ಸಿಂಕ್‌ನಲ್ಲಿಡಿ.";
+"Automatically detect and suggest input type categories when editing text." = "ಪಠ್ಯ ಸಂಪಾದಿಸುವಾಗ ಇನ್‌ಪುಟ್ ಪ್ರಕಾರ ವರ್ಗಗಳನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಪತ್ತೆಹಚ್ಚಿ ಮತ್ತು ಸಲಹೆ ನೀಡಿ.";
+
+/* MARK: - Snapshot Seed Data */
+"Home Address" = "ಮನೆ ವಿಳಾಸ";
+"123 Main Street, Apt 4B\nNew York, NY 10001" = "123 ಎಂ.ಜಿ. ರಸ್ತೆ, ಫ್ಲಾಟ್ 4B\nಬೆಂಗಳೂರು 560001";
+"Email Signature" = "ಇಮೇಲ್ ಸಹಿ";
+"Best regards,\nAlex Chen\nalex@example.com" = "ಶುಭಾಶಯಗಳು,\nಅಲೆಕ್ಸ್ ಕುಮಾರ್\nalex@example.com";
+"Bank Account" = "ಬ್ಯಾಂಕ್ ಖಾತೆ";
+"IBAN: DE89 3704 0044 0532 0130 00" = "IBAN: DE89 3704 0044 0532 0130 00";
+"Wi-Fi Password" = "Wi-Fi ಪಾಸ್‌ವರ್ಡ್";
+"Social Bio" = "ಸೋಶಿಯಲ್ ಬಯೋ";
+"Designer & developer. Building things that make life simpler." = "ವಿನ್ಯಾಸಕ ಮತ್ತು ಡೆವಲಪರ್. ಜೀವನವನ್ನು ಸರಳಗೊಳಿಸುವ ವಸ್ತುಗಳನ್ನು ನಿರ್ಮಿಸುತ್ತಿದ್ದೇನೆ.";
+"Booking Ref" = "ಬುಕಿಂಗ್ ರೆಫ್";
+"Meeting Link" = "ಮೀಟಿಂಗ್ ಲಿಂಕ್";
