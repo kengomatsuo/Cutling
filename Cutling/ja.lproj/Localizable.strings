@@ -69,7 +69,7 @@
 "Copy Images" = "画像をコピー";
 "Add from Clipboard" = "クリップボードから追加";
 "Insert Text Instantly" = "テキストを即座に入力";
-"Switch to Cutling Keyboard" = "Cutlingキーボードに切り替える";
+"Switch to Cutling Keyboard" = "カットリングキーボードに切り替える";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -112,9 +112,9 @@
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "入力タイプの候補";
 "Suggest for Input Types" = "入力タイプに候補を設定";
-"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "一致するタイプのテキストフィールドにフォーカスすると、このCutlingがキーボードの上部に表示されます。";
-"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Cutlingを入力タイプに割り当てると、一致するテキストフィールドにフォーカスした時にキーボードの上部に表示されます。";
-"No cutlings yet. Add some first." = "まだCutlingがありません。まず追加してください。";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "一致するタイプのテキストフィールドにフォーカスすると、このカットリングがキーボードの上部に表示されます。";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "カットリングを入力タイプに割り当てると、一致するテキストフィールドにフォーカスした時にキーボードの上部に表示されます。";
+"No cutlings yet. Add some first." = "まだカットリングがありません。まず追加してください。";
 "Suggested" = "候補";
 "Email" = "メール";
 "URL" = "URL";
@@ -130,34 +130,41 @@
 
 /* MARK: - Keyboard Setup */
 "Setup Progress" = "設定の進捗";
-"Open Cutling Settings" = "Cutling設定を開く";
-"Tap here, then switch to Cutling" = "ここをタップして、Cutlingに切り替えてください";
+"Open Cutling Settings" = "カットリング設定を開く";
+"Tap here, then switch to Cutling" = "ここをタップして、カットリングに切り替えてください";
 "How to Use Your Keyboard" = "キーボードの使い方";
 "Storage Limits" = "ストレージの上限";
 "You're All Set!" = "設定完了！";
 "Set Up Your Keyboard" = "キーボードを設定する";
-"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Cutlingキーボードの準備ができました！どこかで文字を入力するとき、キーボードの🌐地球儀アイコンをタップしてCutlingに切り替えてください。";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "カットリングキーボードの準備ができました！どこかで文字を入力するとき、キーボードの🌐地球儀アイコンをタップしてカットリングに切り替えてください。";
 "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "以下の2つの簡単な手順に従って、カスタムキーボードの使用を開始してください。各手順を完了するとこのページが自動的に更新されます。";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**ステップ1:** 下の「Cutling設定を開く」をタップし、**キーボード**に進んでリストから**Cutling**を選択してください。";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**ステップ1:** 下の「カットリング設定を開く」をタップし、**キーボード**に進んでリストから**カットリング**を選択してください。";
 "**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**ステップ2:** **フルアクセスを許可**がオンになっていることを確認してください。これにより、キーボードが画像をクリップボードにコピーできます。データはプライベートに保たれ、外部に送信されることはありません。";
-"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**ステップ3:** テキスト入力をタップし、キーボードの🌐地球儀アイコンを使って「Cutling」を選択し、「フルアクセス」ステータスを更新してください。";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**ステップ3:** テキスト入力をタップし、キーボードの🌐地球儀アイコンを使って「カットリング」を選択し、「フルアクセス」ステータスを更新してください。";
 "**Step 4:** You're good to go! The usage guide is provided below." = "**ステップ4:** 準備完了です！使い方ガイドは以下に記載されています。";
-"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "任意のアプリで入力中に、キーボード左下の🌐地球儀キーをタップまたは長押しして、Cutlingを選択してください";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "任意のアプリで入力中に、キーボード左下の🌐地球儀キーをタップまたは長押しして、カットリングを選択してください";
 "Tap any text cutling and it will be typed into your current text field immediately" = "テキストカットリングをタップすると、現在のテキストフィールドに即座に入力されます";
 "Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "画像カットリングをタップするとクリップボードにコピーされます。その後、使用中のアプリに貼り付けてください（通常は長押しして「ペースト」を選択）。Appleは現在、このアプリへの直接の画像貼り付けをサポートしていません。";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "任意のテキストをコピーして、Cutlingキーボードの「クリップボードから追加」ボタンをタップすると、新しいカットリングとして保存されます";
-"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "すべてのカットリングはメインのCutlingアプリで管理できます。変更はキーボードに即座に反映されます。";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "任意のテキストをコピーして、カットリングキーボードの「クリップボードから追加」ボタンをタップすると、新しいカットリングとして保存されます";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "すべてのカットリングはメインのカットリングアプリで管理できます。変更はキーボードに即座に反映されます。";
 "Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "システムの安定性を確保するため、キーボード拡張機能には厳しいメモリ制限があります。画像はテキストよりも多くのメモリを使用するため、キーボードを高速かつ信頼性の高い状態に保つために制限しています。制限に達した場合は、いくつかのカットリングを削除して新しいものを追加してください。";
 "Up to **%lld text** cutlings" = "最大**%lld件のテキスト**カットリング";
 "Up to **%lld image** cutlings" = "最大**%lld件の画像**カットリング";
 "Back" = "戻る";
 "Next" = "次へ";
 "Get Started" = "はじめる";
-"Follow a few simple steps to start using your custom Cutling keyboard." = "いくつかの簡単な手順に従って、Cutlingキーボードの使用を開始しましょう。";
-"Enable Cutling Keyboard" = "Cutlingキーボードを有効にする";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "いくつかの簡単な手順に従って、カットリングキーボードの使用を開始しましょう。";
+"Enable Cutling Keyboard" = "カットリングキーボードを有効にする";
 "Test Your Keyboard" = "キーボードをテスト";
 "All set! Swipe to continue." = "準備完了！スワイプして続けてください。";
 "Your data stays private and is never sent anywhere." = "データはプライベートに保たれ、外部に送信されることはありません。";
+
+/* MARK: - Setup Guide Instructions */
+"Open Cutling in your device's **Settings** app." = "デバイスの**設定**アプリでカットリングを開いてください。";
+"Tap **Keyboards** and enable **Cutling**." = "**キーボード**をタップして、**カットリング**を有効にしてください。";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "**フルアクセスを許可**をオンにして、キーボードがクリップボードに画像をコピーできるようにしてください。";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "下のテキストフィールドをタップし、🌐地球儀キーを使って**カットリング**に切り替えてください。これにより、すべてが正しく設定されていることを確認できます。";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud同期は**実験的な機能**です。すべての状況で正しく動作しない可能性があり、データが失われる場合があります。この設定は後からいつでも設定で変更できます。";
 
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "最近削除した項目";

@@ -112,9 +112,9 @@
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "输入类型建议";
 "Suggest for Input Types" = "为输入类型建议";
-"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "当你聚焦到匹配类型的文本字段时，此Cutling将出现在键盘顶部。";
-"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "将Cutling分配给输入类型，当你聚焦到匹配的文本字段时，它们将出现在键盘顶部。";
-"No cutlings yet. Add some first." = "还没有Cutling。请先添加一些。";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "当你聚焦到匹配类型的文本字段时，此剪切片段将出现在键盘顶部。";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "将剪切片段分配给输入类型，当你聚焦到匹配的文本字段时，它们将出现在键盘顶部。";
+"No cutlings yet. Add some first." = "还没有剪切片段。请先添加一些。";
 "Suggested" = "已建议";
 "Email" = "电子邮件";
 "URL" = "URL";
@@ -159,6 +159,13 @@
 "All set! Swipe to continue." = "全部完成！滑动继续。";
 "Your data stays private and is never sent anywhere." = "您的数据始终保持私密，不会发送到任何地方。";
 
+/* MARK: - Setup Guide Instructions */
+"Open Cutling in your device's **Settings** app." = "在设备的**设置**应用中打开 Cutling。";
+"Tap **Keyboards** and enable **Cutling**." = "轻点**键盘**并启用 **Cutling**。";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "打开**允许完全访问**，以便键盘可以将图片复制到剪贴板。";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "轻点下方的文本框，然后使用 🌐 地球仪键切换到 **Cutling**。这将验证一切设置是否正确。";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud 同步是一项**实验性功能**。它可能无法在所有情况下正常工作，这可能导致数据丢失。你可以随时在设置中更改此选项。";
+
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "最近删除";
 "Delete All" = "全部删除";
@@ -168,7 +175,7 @@
 "Recover" = "恢复";
 "Items will be permanently deleted after 30 days." = "项目将在30天后被永久删除。";
 "No Recently Deleted Items" = "没有最近删除的项目";
-"Deleted cutlings will appear here for 30 days." = "已删除的Cutling将在此处保留30天。";
+"Deleted cutlings will appear here for 30 days." = "已删除的剪切片段将在此处保留30天。";
 "This will permanently delete all %lld items. This action cannot be undone." = "将永久删除全部%lld个项目。此操作无法撤销。";
 "\"%@\" will be deleted permanently." = "「%@」将被永久删除。";
 "1 day left" = "剩余1天";
@@ -186,7 +193,7 @@
 "Redo" = "重做";
 
 /* MARK: - Navigation Title */
-"Cutlings" = "Cutling";
+"Cutlings" = "剪切片段";
 
 /* MARK: - Missing Strings */
 "Continue" = "继续";

@@ -159,6 +159,13 @@
 "All set! Swipe to continue." = "Semua siap! Geser untuk melanjutkan.";
 "Your data stays private and is never sent anywhere." = "Data Anda tetap privat dan tidak pernah dikirim ke mana pun.";
 
+/* MARK: - Setup Guide Instructions */
+"Open Cutling in your device's **Settings** app." = "Buka Cutling di aplikasi **Pengaturan** perangkat Anda.";
+"Tap **Keyboards** and enable **Cutling**." = "Ketuk **Papan Ketik** dan aktifkan **Cutling**.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Nyalakan **Izinkan Akses Penuh** agar keyboard dapat menyalin gambar ke clipboard.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Ketuk kolom teks di bawah, lalu gunakan tombol 🌐 globe untuk beralih ke **Cutling**. Ini memverifikasi bahwa semuanya telah diatur dengan benar.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Sinkronisasi iCloud adalah **fitur eksperimental**. Mungkin tidak berfungsi dengan benar di semua situasi, yang dapat menyebabkan kehilangan data. Anda selalu dapat mengubahnya nanti di Pengaturan.";
+
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "Baru Dihapus";
 "Delete All" = "Hapus Semua";
@@ -186,7 +193,7 @@
 "Redo" = "Ulangi";
 
 /* MARK: - Navigation Title */
-"Cutlings" = "Cutlings";
+"Cutlings" = "Cutling";
 
 /* MARK: - Missing Strings */
 "Continue" = "Lanjutkan";

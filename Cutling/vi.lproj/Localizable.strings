@@ -159,6 +159,13 @@
 "All set! Swipe to continue." = "Đã sẵn sàng! Vuốt để tiếp tục.";
 "Your data stays private and is never sent anywhere." = "Dữ liệu của bạn luôn riêng tư và không bao giờ được gửi đi đâu.";
 
+/* MARK: - Setup Guide Instructions */
+"Open Cutling in your device's **Settings** app." = "Mở Cutling trong ứng dụng **Cài đặt** trên thiết bị của bạn.";
+"Tap **Keyboards** and enable **Cutling**." = "Chạm vào **Bàn phím** và bật **Cutling**.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Bật **Cho phép truy cập đầy đủ** để bàn phím có thể sao chép hình ảnh vào bảng nhớ tạm.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Chạm vào trường văn bản bên dưới, sau đó sử dụng phím 🌐 quả cầu để chuyển sang **Cutling**. Điều này xác nhận mọi thứ đã được thiết lập đúng cách.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Đồng bộ iCloud là một **tính năng thử nghiệm**. Tính năng này có thể không hoạt động chính xác trong mọi trường hợp, có thể dẫn đến mất dữ liệu. Bạn luôn có thể thay đổi điều này sau trong Cài đặt.";
+
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "Đã xóa gần đây";
 "Delete All" = "Xóa tất cả";
@@ -186,7 +193,7 @@
 "Redo" = "Làm lại";
 
 /* MARK: - Navigation Title */
-"Cutlings" = "Cutlings";
+"Cutlings" = "Cutling";
 
 /* MARK: - Missing Strings */
 "Continue" = "Tiếp tục";

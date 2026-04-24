@@ -47,6 +47,14 @@ Upload metadata and screenshots to App Store Connect
 
 Upload metadata only (no screenshots)
 
+### ios add_new_locales
+
+```sh
+[bundle exec] fastlane ios add_new_locales
+```
+
+Add new App Store Connect localizations and upload their metadata
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.

@@ -1,5 +1,5 @@
 /* MARK: - Navigation & Titles */
-"My Cutlings" = "मेरे Cutling";
+"My Cutlings" = "मेरे कटलिंग";
 "Select Items" = "आइटम चुनें";
 "%lld Selected" = "%lld चयनित";
 "Reorder" = "क्रम बदलें";
@@ -19,10 +19,10 @@
 "OK" = "ठीक है";
 
 /* MARK: - Menu Items */
-"Text Cutling" = "टेक्स्ट Cutling";
-"Image Cutling" = "छवि Cutling";
-"Select Cutlings" = "Cutling चुनें";
-"Reorder Cutlings" = "Cutling क्रम बदलें";
+"Text Cutling" = "टेक्स्ट कटलिंग";
+"Image Cutling" = "छवि कटलिंग";
+"Select Cutlings" = "कटलिंग चुनें";
+"Reorder Cutlings" = "कटलिंग क्रम बदलें";
 "Keyboard Setup Guide" = "कीबोर्ड सेटअप गाइड";
 "Name (A → Z)" = "नाम (A → Z)";
 "Name (Z → A)" = "नाम (Z → A)";
@@ -33,13 +33,13 @@
 "Reverse Order" = "उलटा क्रम";
 
 /* MARK: - Empty States */
-"No Cutlings Yet" = "अभी कोई Cutling नहीं";
+"No Cutlings Yet" = "अभी कोई कटलिंग नहीं";
 "No Results" = "कोई परिणाम नहीं";
-"Tap + to add your first cutling." = "अपना पहला cutling जोड़ने के लिए + टैप करें।";
+"Tap + to add your first cutling." = "अपना पहला कटलिंग जोड़ने के लिए + टैप करें।";
 "Try a different search term." = "कोई अन्य खोज शब्द आज़माएँ।";
 
 /* MARK: - Search */
-"Search cutlings" = "Cutling खोजें";
+"Search cutlings" = "कटलिंग खोजें";
 "Search icons" = "आइकन खोजें";
 
 /* MARK: - Form Labels */
@@ -60,7 +60,7 @@
 /* MARK: - Buttons & Actions */
 "Change Icon" = "आइकन बदलें";
 "Paste from Clipboard" = "क्लिपबोर्ड से चिपकाएँ";
-"Delete Cutling" = "Cutling हटाएँ";
+"Delete Cutling" = "कटलिंग हटाएँ";
 "Open Settings to Enable" = "सक्रिय करने के लिए सेटिंग्स खोलें";
 "Photos Library" = "फ़ोटो लाइब्रेरी";
 "Choose File" = "फ़ाइल चुनें";
@@ -69,15 +69,15 @@
 "Copy Images" = "छवियाँ कॉपी करें";
 "Add from Clipboard" = "क्लिपबोर्ड से जोड़ें";
 "Insert Text Instantly" = "टेक्स्ट तुरंत डालें";
-"Switch to Cutling Keyboard" = "Cutling कीबोर्ड पर स्विच करें";
+"Switch to Cutling Keyboard" = "कटलिंग कीबोर्ड पर स्विच करें";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
 "iCloud Sync" = "iCloud सिंक";
-"Sync your cutlings across all your devices using iCloud." = "iCloud का उपयोग करके अपने सभी उपकरणों में cutling सिंक करें।";
+"Sync your cutlings across all your devices using iCloud." = "iCloud का उपयोग करके अपने सभी उपकरणों में कटलिंग सिंक करें।";
 "Storage" = "संग्रहण";
-"Text Cutlings" = "टेक्स्ट Cutling";
-"Image Cutlings" = "छवि Cutling";
+"Text Cutlings" = "टेक्स्ट कटलिंग";
+"Image Cutlings" = "छवि कटलिंग";
 "Max Text Length" = "अधिकतम टेक्स्ट लंबाई";
 "%lld chars" = "%lld अक्षर";
 "About" = "जानकारी";
@@ -91,30 +91,30 @@
 /* MARK: - Footer Texts */
 "This will replace the current text with whatever is in your clipboard." = "यह वर्तमान टेक्स्ट को आपके क्लिपबोर्ड की सामग्री से बदल देगा।";
 "This will replace the current image with whatever is in your clipboard." = "यह वर्तमान छवि को आपके क्लिपबोर्ड की सामग्री से बदल देगा।";
-"This cutling will be automatically deleted at the selected date and time." = "यह cutling चयनित तिथि और समय पर स्वचालित रूप से हटा दिया जाएगा।";
-"Each text cutling can hold up to %lld characters." = "प्रत्येक टेक्स्ट cutling अधिकतम %lld अक्षर रख सकता है।";
+"This cutling will be automatically deleted at the selected date and time." = "यह कटलिंग चयनित तिथि और समय पर स्वचालित रूप से हटा दिया जाएगा।";
+"Each text cutling can hold up to %lld characters." = "प्रत्येक टेक्स्ट कटलिंग अधिकतम %lld अक्षर रख सकता है।";
 
 /* MARK: - Alerts */
 "Limit Reached" = "सीमा पूरी हो गई";
-"Delete Cutling?" = "Cutling हटाएँ?";
+"Delete Cutling?" = "कटलिंग हटाएँ?";
 "This action cannot be undone." = "यह क्रिया पूर्ववत नहीं की जा सकती।";
-"Cannot add text cutling" = "टेक्स्ट cutling नहीं जोड़ सकते";
-"Cannot add image cutling" = "छवि cutling नहीं जोड़ सकते";
-"Cannot add more text cutlings." = "और टेक्स्ट cutling नहीं जोड़ सकते।";
-"Cannot add more image cutlings." = "और छवि cutling नहीं जोड़ सकते।";
+"Cannot add text cutling" = "टेक्स्ट कटलिंग नहीं जोड़ सकते";
+"Cannot add image cutling" = "छवि कटलिंग नहीं जोड़ सकते";
+"Cannot add more text cutlings." = "और टेक्स्ट कटलिंग नहीं जोड़ सकते।";
+"Cannot add more image cutlings." = "और छवि कटलिंग नहीं जोड़ सकते।";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "आपने कुल %lld cutling की अधिकतम सीमा पूरी कर ली है। और जोड़ने के लिए कुछ हटाएँ।";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "आपने %lld छवि cutling की अधिकतम सीमा पूरी कर ली है। छवियाँ कीबोर्ड में अधिक मेमोरी का उपयोग करती हैं। और जोड़ने के लिए कुछ छवियाँ हटाएँ।";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "आपने %lld टेक्स्ट cutling की अधिकतम सीमा पूरी कर ली है। और जोड़ने के लिए कुछ हटाएँ।";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "आपने कुल %lld कटलिंग की अधिकतम सीमा पूरी कर ली है। और जोड़ने के लिए कुछ हटाएँ।";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "आपने %lld छवि कटलिंग की अधिकतम सीमा पूरी कर ली है। छवियाँ कीबोर्ड में अधिक मेमोरी का उपयोग करती हैं। और जोड़ने के लिए कुछ छवियाँ हटाएँ।";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "आपने %lld टेक्स्ट कटलिंग की अधिकतम सीमा पूरी कर ली है। और जोड़ने के लिए कुछ हटाएँ।";
 
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "इनपुट प्रकार सुझाव";
 "Suggest for Input Types" = "इनपुट प्रकारों के लिए सुझाव दें";
-"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "जब आप मिलते-जुलते प्रकार के टेक्स्ट फ़ील्ड पर फ़ोकस करते हैं, तो यह cutling कीबोर्ड के शीर्ष पर दिखाई देगा।";
-"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Cutling को इनपुट प्रकारों में असाइन करें ताकि मिलते-जुलते टेक्स्ट फ़ील्ड पर फ़ोकस करने पर वे कीबोर्ड के शीर्ष पर दिखाई दें।";
-"No cutlings yet. Add some first." = "अभी तक कोई cutling नहीं। पहले कुछ जोड़ें।";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "जब आप मिलते-जुलते प्रकार के टेक्स्ट फ़ील्ड पर फ़ोकस करते हैं, तो यह कटलिंग कीबोर्ड के शीर्ष पर दिखाई देगा।";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "कटलिंग को इनपुट प्रकारों में असाइन करें ताकि मिलते-जुलते टेक्स्ट फ़ील्ड पर फ़ोकस करने पर वे कीबोर्ड के शीर्ष पर दिखाई दें।";
+"No cutlings yet. Add some first." = "अभी तक कोई कटलिंग नहीं। पहले कुछ जोड़ें।";
 "Suggested" = "सुझाया गया";
 "Email" = "ईमेल";
 "URL" = "URL";
@@ -130,34 +130,41 @@
 
 /* MARK: - Keyboard Setup */
 "Setup Progress" = "सेटअप प्रगति";
-"Open Cutling Settings" = "Cutling सेटिंग्स खोलें";
-"Tap here, then switch to Cutling" = "यहाँ टैप करें, फिर Cutling पर स्विच करें";
+"Open Cutling Settings" = "कटलिंग सेटिंग्स खोलें";
+"Tap here, then switch to Cutling" = "यहाँ टैप करें, फिर कटलिंग पर स्विच करें";
 "How to Use Your Keyboard" = "अपना कीबोर्ड कैसे उपयोग करें";
 "Storage Limits" = "संग्रहण सीमाएँ";
 "You're All Set!" = "सब तैयार है!";
 "Set Up Your Keyboard" = "अपना कीबोर्ड सेट करें";
-"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "आपका Cutling कीबोर्ड तैयार है! कहीं भी टाइप करते समय, Cutling पर स्विच करने के लिए अपने कीबोर्ड पर 🌐 ग्लोब आइकन टैप करें।";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "आपका कटलिंग कीबोर्ड तैयार है! कहीं भी टाइप करते समय, कटलिंग पर स्विच करने के लिए अपने कीबोर्ड पर 🌐 ग्लोब आइकन टैप करें।";
 "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "अपना कस्टम कीबोर्ड उपयोग शुरू करने के लिए नीचे दिए गए दो सरल चरणों का पालन करें। प्रत्येक चरण पूरा करने पर यह पृष्ठ स्वचालित रूप से अपडेट होगा।";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**चरण 1:** नीचे 'Cutling सेटिंग्स खोलें' टैप करें, **कीबोर्ड** पर जाएँ और सूची से **Cutling** चुनें।";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**चरण 1:** नीचे 'कटलिंग सेटिंग्स खोलें' टैप करें, **कीबोर्ड** पर जाएँ और सूची से **कटलिंग** चुनें।";
 "**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**चरण 2:** सुनिश्चित करें कि **पूर्ण पहुँच की अनुमति** चालू है। इससे कीबोर्ड आपके क्लिपबोर्ड पर छवियाँ कॉपी कर सकता है। आपका डेटा निजी रहता है और कहीं नहीं भेजा जाता।";
-"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**चरण 3:** टेक्स्ट इनपुट पर टैप करें और \"पूर्ण पहुँच\" स्थिति अपडेट करने के लिए अपने कीबोर्ड पर 🌐 ग्लोब आइकन का उपयोग करके \"Cutling\" चुनें।";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**चरण 3:** टेक्स्ट इनपुट पर टैप करें और \"पूर्ण पहुँच\" स्थिति अपडेट करने के लिए अपने कीबोर्ड पर 🌐 ग्लोब आइकन का उपयोग करके \"कटलिंग\" चुनें।";
 "**Step 4:** You're good to go! The usage guide is provided below." = "**चरण 4:** आप तैयार हैं! उपयोग गाइड नीचे दी गई है।";
-"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "किसी भी ऐप में टाइप करते समय, अपने कीबोर्ड के निचले-बाएँ कोने में 🌐 ग्लोब कुंजी टैप या दबाकर रखें, फिर Cutling चुनें";
-"Tap any text cutling and it will be typed into your current text field immediately" = "किसी भी टेक्स्ट cutling पर टैप करें और यह तुरंत आपके वर्तमान टेक्स्ट फ़ील्ड में टाइप हो जाएगा";
-"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "छवि cutling पर टैप करके इसे अपने क्लिपबोर्ड पर कॉपी करें, फिर इसे अपने ऐप में पेस्ट करें (आमतौर पर टैप करके दबाकर रखें, फिर पेस्ट चुनें)। Apple वर्तमान में इस ऐप पर सीधे छवि पेस्ट करने का समर्थन नहीं करता।";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "कोई भी टेक्स्ट कॉपी करें, फिर इसे नए cutling के रूप में सहेजने के लिए Cutling कीबोर्ड में 'क्लिपबोर्ड से जोड़ें' बटन टैप करें";
-"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "आप मुख्य Cutling ऐप में अपने सभी cutling प्रबंधित कर सकते हैं। आपके द्वारा किए गए परिवर्तन तुरंत आपके कीबोर्ड में दिखाई देंगे।";
-"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "कीबोर्ड एक्सटेंशन में सिस्टम स्थिरता सुनिश्चित करने के लिए सख्त मेमोरी सीमाएँ हैं। छवियाँ टेक्स्ट से अधिक मेमोरी का उपयोग करती हैं, इसलिए हम उन्हें सीमित करते हैं ताकि आपका कीबोर्ड तेज़ और विश्वसनीय बना रहे। यदि आप सीमा तक पहुँच जाते हैं, तो नए जोड़ने के लिए बस कुछ cutling हटाएँ।";
-"Up to **%lld text** cutlings" = "अधिकतम **%lld टेक्स्ट** cutling";
-"Up to **%lld image** cutlings" = "अधिकतम **%lld छवि** cutling";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "किसी भी ऐप में टाइप करते समय, अपने कीबोर्ड के निचले-बाएँ कोने में 🌐 ग्लोब कुंजी टैप या दबाकर रखें, फिर कटलिंग चुनें";
+"Tap any text cutling and it will be typed into your current text field immediately" = "किसी भी टेक्स्ट कटलिंग पर टैप करें और यह तुरंत आपके वर्तमान टेक्स्ट फ़ील्ड में टाइप हो जाएगा";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "छवि कटलिंग पर टैप करके इसे अपने क्लिपबोर्ड पर कॉपी करें, फिर इसे अपने ऐप में पेस्ट करें (आमतौर पर टैप करके दबाकर रखें, फिर पेस्ट चुनें)। Apple वर्तमान में इस ऐप पर सीधे छवि पेस्ट करने का समर्थन नहीं करता।";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "कोई भी टेक्स्ट कॉपी करें, फिर इसे नए कटलिंग के रूप में सहेजने के लिए कटलिंग कीबोर्ड में 'क्लिपबोर्ड से जोड़ें' बटन टैप करें";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "आप मुख्य कटलिंग ऐप में अपने सभी कटलिंग प्रबंधित कर सकते हैं। आपके द्वारा किए गए परिवर्तन तुरंत आपके कीबोर्ड में दिखाई देंगे।";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "कीबोर्ड एक्सटेंशन में सिस्टम स्थिरता सुनिश्चित करने के लिए सख्त मेमोरी सीमाएँ हैं। छवियाँ टेक्स्ट से अधिक मेमोरी का उपयोग करती हैं, इसलिए हम उन्हें सीमित करते हैं ताकि आपका कीबोर्ड तेज़ और विश्वसनीय बना रहे। यदि आप सीमा तक पहुँच जाते हैं, तो नए जोड़ने के लिए बस कुछ कटलिंग हटाएँ।";
+"Up to **%lld text** cutlings" = "अधिकतम **%lld टेक्स्ट** कटलिंग";
+"Up to **%lld image** cutlings" = "अधिकतम **%lld छवि** कटलिंग";
 "Back" = "वापस";
 "Next" = "अगला";
 "Get Started" = "शुरू करें";
-"Follow a few simple steps to start using your custom Cutling keyboard." = "अपना कस्टम Cutling कीबोर्ड उपयोग शुरू करने के लिए कुछ सरल चरणों का पालन करें।";
-"Enable Cutling Keyboard" = "Cutling कीबोर्ड सक्रिय करें";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "अपना कस्टम कटलिंग कीबोर्ड उपयोग शुरू करने के लिए कुछ सरल चरणों का पालन करें।";
+"Enable Cutling Keyboard" = "कटलिंग कीबोर्ड सक्रिय करें";
 "Test Your Keyboard" = "अपना कीबोर्ड परखें";
 "All set! Swipe to continue." = "सब तैयार! जारी रखने के लिए स्वाइप करें।";
 "Your data stays private and is never sent anywhere." = "आपका डेटा निजी रहता है और कहीं नहीं भेजा जाता।";
+
+/* MARK: - Setup Guide Instructions */
+"Open Cutling in your device's **Settings** app." = "अपने डिवाइस की **सेटिंग्स** ऐप में कटलिंग खोलें।";
+"Tap **Keyboards** and enable **Cutling**." = "**कीबोर्ड** पर टैप करें और **कटलिंग** सक्षम करें।";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "कीबोर्ड आपके क्लिपबोर्ड में इमेज कॉपी कर सके, इसके लिए **पूर्ण एक्सेस की अनुमति दें** चालू करें।";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "नीचे दिए गए टेक्स्ट फ़ील्ड पर टैप करें, फिर **कटलिंग** पर स्विच करने के लिए 🌐 ग्लोब की का उपयोग करें। यह सत्यापित करता है कि सब कुछ सही ढंग से सेट किया गया है।";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud सिंक एक **प्रयोगात्मक सुविधा** है। यह सभी स्थितियों में सही ढंग से काम नहीं कर सकती, जिससे डेटा हानि हो सकती है। आप इसे बाद में सेटिंग्स में कभी भी बदल सकते हैं।";
 
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "हाल ही में हटाए गए";

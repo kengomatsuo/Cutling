@@ -1,0 +1,222 @@
+/* MARK: - Navigation & Titles */
+"My Cutlings" = "Mes Cutlings";
+"Select Items" = "Sélectionner des éléments";
+"%lld Selected" = "%lld sélectionné(s)";
+"Reorder" = "Réorganiser";
+"Settings" = "Réglages";
+"Keyboard Setup" = "Configuration du clavier";
+"New" = "Nouveau";
+"Choose Icon" = "Choisir une icône";
+
+/* MARK: - Common Actions */
+"Cancel" = "Annuler";
+"Done" = "Terminé";
+"Save" = "Enregistrer";
+"Delete" = "Supprimer";
+"Copy" = "Copier";
+"Edit" = "Modifier";
+"Sort" = "Trier";
+"OK" = "OK";
+
+/* MARK: - Menu Items */
+"Text Cutling" = "Cutling texte";
+"Image Cutling" = "Cutling image";
+"Select Cutlings" = "Sélectionner des cutlings";
+"Reorder Cutlings" = "Réorganiser les cutlings";
+"Keyboard Setup Guide" = "Guide de configuration du clavier";
+"Name (A → Z)" = "Nom (A → Z)";
+"Name (Z → A)" = "Nom (Z → A)";
+"Text First" = "Texte en premier";
+"Images First" = "Images en premier";
+"Shortest First" = "Plus court en premier";
+"Longest First" = "Plus long en premier";
+"Reverse Order" = "Ordre inverse";
+
+/* MARK: - Empty States */
+"No Cutlings Yet" = "Aucun cutling";
+"No Results" = "Aucun résultat";
+"Tap + to add your first cutling." = "Touchez + pour ajouter votre premier cutling.";
+"Try a different search term." = "Essayez un autre terme de recherche.";
+
+/* MARK: - Search */
+"Search cutlings" = "Rechercher des cutlings";
+"Search icons" = "Rechercher des icônes";
+
+/* MARK: - Form Labels */
+"Name" = "Nom";
+"Icon" = "Icône";
+"Text" = "Texte";
+"Image" = "Image";
+"Color" = "Couleur";
+"Quick Actions" = "Actions rapides";
+"Auto-Delete" = "Suppression auto";
+"Delete At" = "Supprimer le";
+"Category" = "Catégorie";
+
+/* MARK: - Placeholders */
+"e.g. Email" = "ex. Courriel";
+"e.g. Signature, QR Code" = "ex. Signature, code QR";
+
+/* MARK: - Buttons & Actions */
+"Change Icon" = "Changer l'icône";
+"Paste from Clipboard" = "Coller depuis le presse-papiers";
+"Delete Cutling" = "Supprimer le cutling";
+"Open Settings to Enable" = "Ouvrir les réglages pour activer";
+"Photos Library" = "Bibliothèque photos";
+"Choose File" = "Choisir un fichier";
+"Choose from Photos" = "Choisir dans les photos";
+"Choose from Files" = "Choisir dans les fichiers";
+"Copy Images" = "Copier des images";
+"Add from Clipboard" = "Ajouter depuis le presse-papiers";
+"Insert Text Instantly" = "Insérer du texte instantanément";
+"Switch to Cutling Keyboard" = "Passer au clavier Cutling";
+
+/* MARK: - Settings Sections */
+"iCloud" = "iCloud";
+"iCloud Sync" = "Synchronisation iCloud";
+"Sync your cutlings across all your devices using iCloud." = "Synchronisez vos cutlings sur tous vos appareils avec iCloud.";
+"Storage" = "Stockage";
+"Text Cutlings" = "Cutlings texte";
+"Image Cutlings" = "Cutlings image";
+"Max Text Length" = "Longueur max. du texte";
+"%lld chars" = "%lld car.";
+"About" = "À propos";
+"Version" = "Version";
+"Keyboard Added" = "Clavier ajouté";
+"Full Access" = "Accès complet";
+
+/* MARK: - Image Picker */
+"No image selected" = "Aucune image sélectionnée";
+
+/* MARK: - Footer Texts */
+"This will replace the current text with whatever is in your clipboard." = "Ceci remplacera le texte actuel par le contenu de votre presse-papiers.";
+"This will replace the current image with whatever is in your clipboard." = "Ceci remplacera l'image actuelle par le contenu de votre presse-papiers.";
+"This cutling will be automatically deleted at the selected date and time." = "Ce cutling sera automatiquement supprimé à la date et l'heure sélectionnées.";
+"Each text cutling can hold up to %lld characters." = "Chaque cutling texte peut contenir jusqu'à %lld caractères.";
+
+/* MARK: - Alerts */
+"Limit Reached" = "Limite atteinte";
+"Delete Cutling?" = "Supprimer le cutling?";
+"This action cannot be undone." = "Cette action est irréversible.";
+"Cannot add text cutling" = "Impossible d'ajouter un cutling texte";
+"Cannot add image cutling" = "Impossible d'ajouter un cutling image";
+"Cannot add more text cutlings." = "Impossible d'ajouter d'autres cutlings texte.";
+"Cannot add more image cutlings." = "Impossible d'ajouter d'autres cutlings image.";
+
+/* MARK: - CutlingStore Errors */
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Vous avez atteint le maximum de %lld cutlings. Supprimez-en pour en ajouter.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Vous avez atteint le maximum de %lld cutlings image. Les images utilisent beaucoup de mémoire. Supprimez-en pour en ajouter.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Vous avez atteint le maximum de %lld cutlings texte. Supprimez-en pour en ajouter.";
+
+/* MARK: - Input Type Suggestions */
+"Input Type Suggestions" = "Suggestions par type de saisie";
+"Suggest for Input Types" = "Suggérer pour les types de saisie";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Lorsque vous sélectionnez un champ de texte du type correspondant, ce cutling apparaîtra en haut du clavier.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Attribuez des cutlings à des types de saisie pour qu'ils apparaissent en haut du clavier lorsque vous sélectionnez un champ correspondant.";
+"No cutlings yet. Add some first." = "Pas encore de cutlings. Ajoutez-en d'abord.";
+"Suggested" = "Suggéré";
+"Email" = "Courriel";
+"URL" = "URL";
+"Phone Number" = "Numéro de téléphone";
+"Address" = "Adresse";
+
+/* MARK: - Detection */
+"Detected: %@" = "Détecté : %@";
+"Undo" = "Annuler";
+
+/* MARK: - Clipboard Feedback */
+"Copied" = "Copié";
+"Inserted" = "Inséré";
+
+/* MARK: - Keyboard Setup */
+"Setup Progress" = "Progression de la configuration";
+"Open Cutling Settings" = "Ouvrir les réglages Cutling";
+"Tap here, then switch to Cutling" = "Touchez ici, puis passez à Cutling";
+"How to Use Your Keyboard" = "Comment utiliser votre clavier";
+"Storage Limits" = "Limites de stockage";
+"You're All Set!" = "Tout est prêt!";
+"Set Up Your Keyboard" = "Configurer votre clavier";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Votre clavier Cutling est prêt! Lors de la saisie, touchez l'icône 🌐 du globe pour passer à Cutling.";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Suivez les deux étapes simples ci-dessous pour commencer à utiliser votre clavier personnalisé. Cette page se mettra automatiquement à jour.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Étape 1 :** Touchez « Ouvrir les réglages Cutling » ci-dessous, allez dans **Claviers** et sélectionnez **Cutling** dans la liste.";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Étape 2 :** Assurez-vous que **Autoriser l'accès complet** est activé. Cela permet au clavier de copier des images. Vos données restent privées.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Étape 3 :** Touchez le champ de texte et choisissez « Cutling » via l'icône 🌐 pour mettre à jour le statut « Accès complet ».";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**Étape 4 :** C'est parti! Le guide d'utilisation est ci-dessous.";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Lors de la saisie dans n'importe quelle application, touchez ou maintenez la touche 🌐 du globe en bas à gauche, puis sélectionnez Cutling";
+"Tap any text cutling and it will be typed into your current text field immediately" = "Touchez un cutling texte et il sera immédiatement saisi dans votre champ de texte";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Touchez un cutling image pour le copier dans le presse-papiers, puis collez-le dans l'application utilisée (généralement en maintenant appuyé puis en sélectionnant Coller). Apple ne permet pas encore le collage direct d'images dans cette application.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Copiez du texte, puis touchez le bouton « Ajouter depuis le presse-papiers » dans le clavier Cutling pour l'enregistrer";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Gérez tous vos cutlings dans l'application Cutling. Les modifications apparaissent instantanément dans votre clavier.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Les extensions de clavier ont des limites de mémoire strictes. Les images utilisent plus de mémoire que le texte, nous les limitons donc pour garder votre clavier rapide. Si vous atteignez une limite, supprimez des cutlings pour en ajouter.";
+"Up to **%lld text** cutlings" = "Jusqu'à **%lld cutlings texte**";
+"Up to **%lld image** cutlings" = "Jusqu'à **%lld cutlings image**";
+"Back" = "Retour";
+"Next" = "Suivant";
+"Get Started" = "Commencer";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "Suivez quelques étapes simples pour commencer à utiliser votre clavier Cutling.";
+"Enable Cutling Keyboard" = "Activer le clavier Cutling";
+"Test Your Keyboard" = "Tester votre clavier";
+"All set! Swipe to continue." = "Tout est prêt! Glissez pour continuer.";
+"Your data stays private and is never sent anywhere." = "Vos données restent privées et ne sont jamais envoyées.";
+
+/* MARK: - Setup Guide Instructions */
+"Open Cutling in your device's **Settings** app." = "Ouvrez Cutling dans l'application **Réglages** de votre appareil.";
+"Tap **Keyboards** and enable **Cutling**." = "Touchez **Claviers** et activez **Cutling**.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Activez **Autoriser l'accès complet** pour que le clavier puisse copier des images dans le presse-papiers.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Touchez le champ de texte ci-dessous, puis utilisez la touche 🌐 du globe pour passer à **Cutling**. Cela vérifie que tout est configuré correctement.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "La synchronisation iCloud est une **fonctionnalité expérimentale**. Elle peut ne pas fonctionner correctement dans toutes les situations, ce qui peut entraîner une perte de données. Vous pouvez toujours modifier ceci plus tard dans les Réglages.";
+
+/* MARK: - Recently Deleted */
+"Recently Deleted" = "Supprimés récemment";
+"Delete All" = "Tout supprimer";
+"Delete All Permanently?" = "Tout supprimer définitivement?";
+"Delete Permanently?" = "Supprimer définitivement?";
+"Delete Permanently" = "Supprimer définitivement";
+"Recover" = "Récupérer";
+"Items will be permanently deleted after 30 days." = "Les éléments seront définitivement supprimés après 30 jours.";
+"No Recently Deleted Items" = "Aucun élément supprimé récemment";
+"Deleted cutlings will appear here for 30 days." = "Les cutlings supprimés apparaîtront ici pendant 30 jours.";
+"This will permanently delete all %lld items. This action cannot be undone." = "Tous les %lld éléments seront définitivement supprimés. Cette action est irréversible.";
+"\"%@\" will be deleted permanently." = "\"%@\" sera définitivement supprimé.";
+"1 day left" = "1 jour restant";
+"%lld days left" = "%lld jours restants";
+
+/* MARK: - Navigation Subtitle */
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Texte, %lld/%lld Images";
+
+/* MARK: - Settings (Additional) */
+"Experimental Feature: iCloud" = "Fonctionnalité expérimentale : iCloud";
+"Contact Support" = "Contacter le soutien";
+"Privacy Policy" = "Politique de confidentialité";
+
+/* MARK: - Additional Actions */
+"Redo" = "Rétablir";
+
+/* MARK: - Navigation Title */
+"Cutlings" = "Cutlings";
+
+/* MARK: - Missing Strings */
+"Continue" = "Continuer";
+"Enable" = "Activer";
+"Status" = "État";
+"New Text Cutling" = "Nouveau Cutling texte";
+"New Image Cutling" = "Nouveau Cutling image";
+"Delete Selected" = "Supprimer la sélection";
+"Auto-detect Input Types" = "Détection automatique des types de saisie";
+"Input Types" = "Types de saisie";
+"Enable iCloud Sync" = "Activer la synchronisation iCloud";
+"Keep your cutlings in sync across all your devices." = "Gardez vos cutlings synchronisés sur tous vos appareils.";
+"Automatically detect and suggest input type categories when editing text." = "Détecter et suggérer automatiquement les catégories de types de saisie lors de la modification du texte.";
+
+/* MARK: - Snapshot Seed Data */
+"Home Address" = "Adresse personnelle";
+"123 Main Street, Apt 4B\nNew York, NY 10001" = "456 Rue Sainte-Catherine, App. 3B\nMontréal, QC H2L 2K7";
+"Email Signature" = "Signature de courriel";
+"Best regards,\nAlex Chen\nalex@example.com" = "Cordialement,\nAlex Tremblay\nalex@example.com";
+"Bank Account" = "Compte bancaire";
+"IBAN: DE89 3704 0044 0532 0130 00" = "Transit: 12345-003\nCompte: 1234567";
+"Wi-Fi Password" = "Mot de passe Wi-Fi";
+"Social Bio" = "Bio sociale";
+"Designer & developer. Building things that make life simpler." = "Designer et développeur. Je crée des choses qui simplifient la vie.";
+"Booking Ref" = "Réf. de réservation";
+"Meeting Link" = "Lien de réunion";

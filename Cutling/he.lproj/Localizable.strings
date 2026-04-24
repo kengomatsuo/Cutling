@@ -69,7 +69,7 @@
 "Copy Images" = "העתק תמונות";
 "Add from Clipboard" = "הוסף מלוח הגזירים";
 "Insert Text Instantly" = "הכנס טקסט מיידית";
-"Switch to Cutling Keyboard" = "עבור למקלדת Cutling";
+"Switch to Cutling Keyboard" = "עבור למקלדת קאטלינג";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -112,9 +112,9 @@
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "הצעות לסוג קלט";
 "Suggest for Input Types" = "הצע לסוגי קלט";
-"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "כאשר תתמקד בשדה טקסט מסוג תואם, cutling זה יופיע בראש המקלדת.";
-"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "הקצה cutlings לסוגי קלט כדי שיופיעו בראש המקלדת כשתתמקד בשדה טקסט תואם.";
-"No cutlings yet. Add some first." = "אין עדיין cutlings. הוסף כמה קודם.";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "כאשר תתמקד בשדה טקסט מסוג תואם, קאטלינג זה יופיע בראש המקלדת.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "הקצה קאטלינגים לסוגי קלט כדי שיופיעו בראש המקלדת כשתתמקד בשדה טקסט תואם.";
+"No cutlings yet. Add some first." = "אין עדיין קאטלינגים. הוסף כמה קודם.";
 "Suggested" = "מוצע";
 "Email" = "אימייל";
 "URL" = "URL";
@@ -130,34 +130,41 @@
 
 /* MARK: - Keyboard Setup */
 "Setup Progress" = "התקדמות ההגדרה";
-"Open Cutling Settings" = "פתח הגדרות Cutling";
-"Tap here, then switch to Cutling" = "הקש כאן, ואז עבור ל-Cutling";
+"Open Cutling Settings" = "פתח הגדרות קאטלינג";
+"Tap here, then switch to Cutling" = "הקש כאן, ואז עבור ל-קאטלינג";
 "How to Use Your Keyboard" = "כיצד להשתמש במקלדת";
 "Storage Limits" = "מגבלות אחסון";
 "You're All Set!" = "הכל מוכן!";
 "Set Up Your Keyboard" = "הגדר את המקלדת שלך";
-"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "מקלדת Cutling מוכנה! בזמן הקלדה בכל מקום, הקש על סמל 🌐 הגלובוס במקלדת כדי לעבור ל-Cutling.";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "מקלדת קאטלינג מוכנה! בזמן הקלדה בכל מקום, הקש על סמל 🌐 הגלובוס במקלדת כדי לעבור ל-קאטלינג.";
 "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "עקוב אחר שני הצעדים הפשוטים למטה כדי להתחיל להשתמש במקלדת המותאמת. העמוד יתעדכן אוטומטית עם השלמת כל שלב.";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**שלב 1:** הקש על \"פתח הגדרות Cutling\" למטה, עבור אל **מקלדות** ובחר **Cutling** מהרשימה.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**שלב 1:** הקש על \"פתח הגדרות קאטלינג\" למטה, עבור אל **מקלדות** ובחר **קאטלינג** מהרשימה.";
 "**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**שלב 2:** ודא ש-**אפשר גישה מלאה** מופעל. זה מאפשר למקלדת להעתיק תמונות ללוח הגזירים. הנתונים שלך נשארים פרטיים ואינם נשלחים לשום מקום.";
-"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**שלב 3:** הקש על שדה הטקסט ובחר \"Cutling\" באמצעות סמל 🌐 הגלובוס במקלדת כדי לעדכן את סטטוס \"גישה מלאה\".";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**שלב 3:** הקש על שדה הטקסט ובחר \"קאטלינג\" באמצעות סמל 🌐 הגלובוס במקלדת כדי לעדכן את סטטוס \"גישה מלאה\".";
 "**Step 4:** You're good to go! The usage guide is provided below." = "**שלב 4:** הכל מוכן! מדריך השימוש מופיע למטה.";
-"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "בזמן הקלדה בכל אפליקציה, הקש או החזק את מקש 🌐 הגלובוס בפינה השמאלית התחתונה של המקלדת, ואז בחר Cutling";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "בזמן הקלדה בכל אפליקציה, הקש או החזק את מקש 🌐 הגלובוס בפינה השמאלית התחתונה של המקלדת, ואז בחר קאטלינג";
 "Tap any text cutling and it will be typed into your current text field immediately" = "הקש על כל קאטלינג טקסט והוא יוקלד מיידית בשדה הטקסט הנוכחי";
 "Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "הקש על קאטלינג תמונה כדי להעתיק אותו ללוח הגזירים, ואז הדבק אותו באפליקציה שבה אתה משתמש (בדרך כלל על ידי הקשה ארוכה ובחירת הדבק). Apple כרגע אינה תומכת בהדבקה ישירה של תמונה באפליקציה זו.";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "העתק כל טקסט, ואז הקש על כפתור \"הוסף מלוח הגזירים\" במקלדת Cutling כדי לשמור אותו כקאטלינג חדש";
-"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "אפשר לנהל את כל הקאטלינגים באפליקציית Cutling הראשית. שינויים שתבצע יופיעו מיידית במקלדת.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "העתק כל טקסט, ואז הקש על כפתור \"הוסף מלוח הגזירים\" במקלדת קאטלינג כדי לשמור אותו כקאטלינג חדש";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "אפשר לנהל את כל הקאטלינגים באפליקציית קאטלינג הראשית. שינויים שתבצע יופיעו מיידית במקלדת.";
 "Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "להרחבות מקלדת יש מגבלות זיכרון קפדניות ליציבות המערכת. תמונות משתמשות ביותר זיכרון מטקסט, לכן אנו מגבילים אותן כדי שהמקלדת תישאר מהירה ואמינה. אם הגעת למגבלה, פשוט מחק כמה קאטלינגים כדי להוסיף חדשים.";
 "Up to **%lld text** cutlings" = "עד **%lld** קאטלינגים של טקסט";
 "Up to **%lld image** cutlings" = "עד **%lld** קאטלינגים של תמונה";
 "Back" = "חזרה";
 "Next" = "הבא";
 "Get Started" = "התחל";
-"Follow a few simple steps to start using your custom Cutling keyboard." = "עקוב אחר כמה צעדים פשוטים כדי להתחיל להשתמש במקלדת Cutling המותאמת.";
-"Enable Cutling Keyboard" = "הפעל מקלדת Cutling";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "עקוב אחר כמה צעדים פשוטים כדי להתחיל להשתמש במקלדת קאטלינג המותאמת.";
+"Enable Cutling Keyboard" = "הפעל מקלדת קאטלינג";
 "Test Your Keyboard" = "בדוק את המקלדת";
 "All set! Swipe to continue." = "הכל מוכן! החלק כדי להמשיך.";
 "Your data stays private and is never sent anywhere." = "הנתונים שלך נשארים פרטיים ואינם נשלחים לשום מקום.";
+
+/* MARK: - Setup Guide Instructions */
+"Open Cutling in your device's **Settings** app." = "פתחו את קאטלינג באפליקציית **הגדרות** של המכשיר.";
+"Tap **Keyboards** and enable **Cutling**." = "הקישו על **מקלדות** והפעילו את **קאטלינג**.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "הפעילו **אפשר גישה מלאה** כדי שהמקלדת תוכל להעתיק תמונות ללוח.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "הקישו על שדה הטקסט למטה, ואז השתמשו במקש 🌐 גלובוס כדי לעבור ל-**קאטלינג**. זה מאמת שהכל מוגדר כראוי.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "סנכרון iCloud הוא **תכונה ניסיונית**. ייתכן שלא תפעל כראוי בכל המצבים, מה שעלול לגרום לאובדן נתונים. תמיד ניתן לשנות זאת מאוחר יותר בהגדרות.";
 
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "נמחקו לאחרונה";

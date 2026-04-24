@@ -69,7 +69,7 @@
 "Copy Images" = "کپی تصاویر";
 "Add from Clipboard" = "افزودن از کلیپ‌بورد";
 "Insert Text Instantly" = "درج فوری متن";
-"Switch to Cutling Keyboard" = "تغییر به صفحه‌کلید Cutling";
+"Switch to Cutling Keyboard" = "تغییر به صفحه‌کلید کاتلینگ";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -130,34 +130,41 @@
 
 /* MARK: - Keyboard Setup */
 "Setup Progress" = "پیشرفت راه‌اندازی";
-"Open Cutling Settings" = "باز کردن تنظیمات Cutling";
-"Tap here, then switch to Cutling" = "اینجا بزنید، سپس به Cutling تغییر دهید";
+"Open Cutling Settings" = "باز کردن تنظیمات کاتلینگ";
+"Tap here, then switch to Cutling" = "اینجا بزنید، سپس به کاتلینگ تغییر دهید";
 "How to Use Your Keyboard" = "نحوه استفاده از صفحه‌کلید";
 "Storage Limits" = "محدودیت‌های فضای ذخیره‌سازی";
 "You're All Set!" = "همه چیز آماده است!";
 "Set Up Your Keyboard" = "صفحه‌کلید خود را راه‌اندازی کنید";
-"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "صفحه‌کلید Cutling شما آماده است! هنگام تایپ در هر جایی، آیکون 🌐 کره زمین روی صفحه‌کلید را بزنید تا به Cutling تغییر دهید.";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "صفحه‌کلید کاتلینگ شما آماده است! هنگام تایپ در هر جایی، آیکون 🌐 کره زمین روی صفحه‌کلید را بزنید تا به کاتلینگ تغییر دهید.";
 "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "دو مرحله ساده زیر را دنبال کنید تا استفاده از صفحه‌کلید سفارشی خود را شروع کنید. این صفحه با تکمیل هر مرحله به‌طور خودکار به‌روز می‌شود.";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**مرحله ۱:** در پایین 'باز کردن تنظیمات Cutling' را بزنید، به **صفحه‌کلیدها** بروید و **Cutling** را از لیست انتخاب کنید.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**مرحله ۱:** در پایین 'باز کردن تنظیمات کاتلینگ' را بزنید، به **صفحه‌کلیدها** بروید و **کاتلینگ** را از لیست انتخاب کنید.";
 "**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**مرحله ۲:** مطمئن شوید **اجازه دسترسی کامل** روشن است. این به صفحه‌کلید اجازه می‌دهد تصاویر را در کلیپ‌بورد کپی کند. داده‌های شما خصوصی می‌مانند و هرگز به جایی ارسال نمی‌شوند.";
-"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**مرحله ۳:** روی ورودی متن بزنید و با استفاده از آیکون 🌐 کره زمین روی صفحه‌کلید \"Cutling\" را انتخاب کنید تا وضعیت \"دسترسی کامل\" به‌روز شود.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**مرحله ۳:** روی ورودی متن بزنید و با استفاده از آیکون 🌐 کره زمین روی صفحه‌کلید \"کاتلینگ\" را انتخاب کنید تا وضعیت \"دسترسی کامل\" به‌روز شود.";
 "**Step 4:** You're good to go! The usage guide is provided below." = "**مرحله ۴:** آماده‌اید! راهنمای استفاده در زیر آمده است.";
-"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "هنگام تایپ در هر برنامه‌ای، کلید 🌐 کره زمین در پایین سمت چپ صفحه‌کلید را بزنید یا نگه دارید، سپس Cutling را انتخاب کنید";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "هنگام تایپ در هر برنامه‌ای، کلید 🌐 کره زمین در پایین سمت چپ صفحه‌کلید را بزنید یا نگه دارید، سپس کاتلینگ را انتخاب کنید";
 "Tap any text cutling and it will be typed into your current text field immediately" = "هر کاتلینگ متنی را بزنید و فوراً در فیلد متنی فعلی شما تایپ خواهد شد";
 "Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "کاتلینگ تصویری را بزنید تا در کلیپ‌بورد کپی شود، سپس آن را در برنامه‌ای که استفاده می‌کنید بچسبانید (معمولاً با زدن و نگه داشتن، سپس انتخاب چسباندن). Apple در حال حاضر از چسباندن مستقیم تصویر در این برنامه پشتیبانی نمی‌کند.";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "هر متنی را کپی کنید، سپس دکمه 'افزودن از کلیپ‌بورد' در صفحه‌کلید Cutling را بزنید تا به عنوان کاتلینگ جدید ذخیره شود";
-"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "می‌توانید همه کاتلینگ‌های خود را در برنامه اصلی Cutling مدیریت کنید. تغییراتی که انجام می‌دهید فوراً در صفحه‌کلید نمایش داده می‌شوند.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "هر متنی را کپی کنید، سپس دکمه 'افزودن از کلیپ‌بورد' در صفحه‌کلید کاتلینگ را بزنید تا به عنوان کاتلینگ جدید ذخیره شود";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "می‌توانید همه کاتلینگ‌های خود را در برنامه اصلی کاتلینگ مدیریت کنید. تغییراتی که انجام می‌دهید فوراً در صفحه‌کلید نمایش داده می‌شوند.";
 "Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "افزونه‌های صفحه‌کلید محدودیت‌های حافظه سختگیرانه‌ای برای اطمینان از پایداری سیستم دارند. تصاویر حافظه بیشتری نسبت به متن مصرف می‌کنند، بنابراین آن‌ها را محدود می‌کنیم تا صفحه‌کلید شما سریع و قابل اعتماد بماند. اگر به حد مجاز رسیدید، کافی است تعدادی کاتلینگ را حذف کنید تا موارد جدید اضافه کنید.";
 "Up to **%lld text** cutlings" = "تا **%lld کاتلینگ متنی**";
 "Up to **%lld image** cutlings" = "تا **%lld کاتلینگ تصویری**";
 "Back" = "بازگشت";
 "Next" = "بعدی";
 "Get Started" = "شروع کنید";
-"Follow a few simple steps to start using your custom Cutling keyboard." = "چند مرحله ساده را دنبال کنید تا استفاده از صفحه‌کلید سفارشی Cutling خود را شروع کنید.";
-"Enable Cutling Keyboard" = "فعال‌سازی صفحه‌کلید Cutling";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "چند مرحله ساده را دنبال کنید تا استفاده از صفحه‌کلید سفارشی کاتلینگ خود را شروع کنید.";
+"Enable Cutling Keyboard" = "فعال‌سازی صفحه‌کلید کاتلینگ";
 "Test Your Keyboard" = "صفحه‌کلید خود را آزمایش کنید";
 "All set! Swipe to continue." = "همه چیز آماده! برای ادامه بکشید.";
 "Your data stays private and is never sent anywhere." = "داده‌های شما خصوصی می‌مانند و هرگز به جایی ارسال نمی‌شوند.";
+
+/* MARK: - Setup Guide Instructions */
+"Open Cutling in your device's **Settings** app." = "کاتلینگ را در برنامه **تنظیمات** دستگاه خود باز کنید.";
+"Tap **Keyboards** and enable **Cutling**." = "روی **صفحه‌کلیدها** ضربه بزنید و **کاتلینگ** را فعال کنید.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "**اجازه دسترسی کامل** را روشن کنید تا صفحه‌کلید بتواند تصاویر را به کلیپ‌بورد کپی کند.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "روی فیلد متن زیر ضربه بزنید، سپس از کلید 🌐 کره زمین برای تغییر به **کاتلینگ** استفاده کنید. این تأیید می‌کند که همه چیز به درستی تنظیم شده است.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "همگام‌سازی iCloud یک **ویژگی آزمایشی** است. ممکن است در همه شرایط به درستی کار نکند که می‌تواند منجر به از دست رفتن داده‌ها شود. همیشه می‌توانید این را بعداً در تنظیمات تغییر دهید.";
 
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "اخیراً حذف شده";

@@ -1,6 +1,11 @@
 # Ensure Homebrew binaries (ImageMagick, etc.) are in PATH.
 ENV["PATH"] = "/opt/homebrew/bin:#{ENV['PATH']}"
 
+# Extend fastlane's language list with Apple's newly added ASC locales (March 2026).
+require 'fastlane_core/languages'
+new_locales = %w[bn-BD gu-IN kn-IN ml-IN mr-IN or-IN pa-IN sl-SI ta-IN te-IN ur-PK]
+new_locales.each { |l| FastlaneCore::Languages::ALL_LANGUAGES << l unless FastlaneCore::Languages::ALL_LANGUAGES.include?(l) }
+
 # Force UTF-8 locale — xcodebuild on iOS 26 emits UTF-16/non-ASCII output
 # that crashes Ruby when the locale defaults to US-ASCII.
 ENV["LANG"]   = "en_US.UTF-8"
@@ -98,6 +103,7 @@ platform :ios do
     Dir.glob(File.join(__dir__, "screenshots/**/*_framed.png")).each { |f| File.delete(f) }
     deliver(
       skip_binary_upload: true,
+      ignore_language_directory_validation: true,
       force: true
     )
   end
@@ -106,8 +112,112 @@ platform :ios do
   lane :upload_metadata do
     deliver(
       skip_binary_upload: true,
+      ignore_language_directory_validation: true,
       skip_screenshots: true,
       force: true
     )
+  end
+
+  desc "Add new App Store Connect localizations and upload their metadata"
+  lane :add_new_locales do
+    require 'spaceship'
+
+    new_locales = %w[bn-BD gu-IN kn-IN ml-IN mr-IN or-IN pa-IN sl-SI ta-IN te-IN ur-PK]
+    metadata_path = File.join(__dir__, "metadata")
+
+    Spaceship::ConnectAPI.login(
+      CredentialsManager::AppfileConfig.try_fetch_value(:apple_id),
+      use_portal: false,
+      use_tunes: true
+    )
+
+    app = Spaceship::ConnectAPI::App.find("com.matsuokengo.Cutling")
+    UI.user_error!("App not found") unless app
+
+    version = app.get_edit_app_store_version(platform: Spaceship::ConnectAPI::Platform::IOS)
+    UI.user_error!("No editable version found") unless version
+
+    existing = version.get_app_store_version_localizations.map(&:locale)
+    UI.message("Existing locales: #{existing.join(', ')}")
+
+    new_locales.each do |locale|
+      locale_dir = File.join(metadata_path, locale)
+      next unless File.directory?(locale_dir)
+
+      if existing.include?(locale)
+        UI.message("Locale #{locale} already exists, updating...")
+        loc = version.get_app_store_version_localizations.find { |l| l.locale == locale }
+      else
+        UI.message("Creating locale #{locale}...")
+        begin
+          loc = Spaceship::ConnectAPI.post_app_store_version_localization(
+            app_store_version_id: version.id,
+            attributes: { locale: locale }
+          )
+        rescue => e
+          UI.error("Failed to create locale #{locale}: #{e.message}")
+          next
+        end
+      end
+
+      attrs = {}
+      field_map = { "description" => "description", "keywords" => "keywords", "release_notes" => "whatsNew", "promotional_text" => "promotionalText" }
+      field_map.each do |file_key, api_key|
+        file = File.join(locale_dir, "#{file_key}.txt")
+        attrs[api_key.to_sym] = File.read(file, encoding: 'UTF-8').strip if File.exist?(file)
+      end
+
+      begin
+        loc_obj = loc.is_a?(Spaceship::ConnectAPI::Response) ? loc.to_models.first : loc
+        Spaceship::ConnectAPI.patch_app_store_version_localization(
+          app_store_version_localization_id: loc_obj.id,
+          attributes: attrs
+        )
+        UI.success("Updated metadata for #{locale}")
+      rescue => e
+        UI.error("Failed to update #{locale}: #{e.message}")
+      end
+    end
+
+    app_info = app.fetch_edit_app_info
+    if app_info
+      existing_info = app_info.get_app_info_localizations.map(&:locale)
+
+      new_locales.each do |locale|
+        locale_dir = File.join(metadata_path, locale)
+        next unless File.directory?(locale_dir)
+
+        unless existing_info.include?(locale)
+          begin
+            Spaceship::ConnectAPI.post_app_info_localization(
+              app_info_id: app_info.id,
+              attributes: { locale: locale }
+            )
+          rescue => e
+            UI.error("Failed to create app info locale #{locale}: #{e.message}")
+            next
+          end
+        end
+
+        info_loc = app_info.get_app_info_localizations.find { |l| l.locale == locale }
+        next unless info_loc
+
+        attrs = {}
+        name_file = File.join(locale_dir, "name.txt")
+        subtitle_file = File.join(locale_dir, "subtitle.txt")
+        attrs[:name] = File.read(name_file, encoding: 'UTF-8').strip if File.exist?(name_file)
+        attrs[:subtitle] = File.read(subtitle_file, encoding: 'UTF-8').strip if File.exist?(subtitle_file)
+
+        begin
+          Spaceship::ConnectAPI.patch_app_info_localization(
+            app_info_localization_id: info_loc.id,
+            attributes: attrs
+          )
+          UI.success("Updated app info for #{locale}")
+        rescue => e
+          UI.error("Failed to update app info #{locale}: #{e.message}")
+        end
+      end
+    end
   end
 end

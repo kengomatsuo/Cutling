@@ -159,6 +159,13 @@
 "All set! Swipe to continue." = "Tayari! Telezesha ili kuendelea.";
 "Your data stays private and is never sent anywhere." = "Data yako inabaki ya faragha na haitumwi popote.";
 
+/* MARK: - Setup Guide Instructions */
+"Open Cutling in your device's **Settings** app." = "Fungua Cutling katika programu ya **Mipangilio** ya kifaa chako.";
+"Tap **Keyboards** and enable **Cutling**." = "Gusa **Kibodi** na uwashe **Cutling**.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Washa **Ruhusu Ufikiaji Kamili** ili kibodi iweze kunakili picha kwenye ubao wa kunakili.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Gusa sehemu ya maandishi hapa chini, kisha tumia kitufe cha 🌐 globu kubadilisha hadi **Cutling**. Hii inathibitisha kuwa kila kitu kimesanidiwa vizuri.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Usawazishaji wa iCloud ni **kipengele cha majaribio**. Huenda kisifanye kazi vizuri katika hali zote, ambayo inaweza kusababisha upotevu wa data. Unaweza kubadilisha hii baadaye wakati wowote katika Mipangilio.";
+
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "Zilizofutwa Hivi Karibuni";
 "Delete All" = "Futa Zote";
@@ -186,7 +193,7 @@
 "Redo" = "Rudia";
 
 /* MARK: - Navigation Title */
-"Cutlings" = "Cutlings";
+"Cutlings" = "Cutling";
 
 /* MARK: - Missing Strings */
 "Continue" = "Endelea";

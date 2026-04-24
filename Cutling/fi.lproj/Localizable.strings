@@ -159,6 +159,13 @@
 "All set! Swipe to continue." = "Kaikki valmista! Pyyhkäise jatkaaksesi.";
 "Your data stays private and is never sent anywhere." = "Tietosi pysyvät yksityisinä eikä niitä lähetetä mihinkään.";
 
+/* MARK: - Setup Guide Instructions */
+"Open Cutling in your device's **Settings** app." = "Avaa Cutling laitteesi **Asetukset**-sovelluksessa.";
+"Tap **Keyboards** and enable **Cutling**." = "Napauta **Näppäimistöt** ja ota **Cutling** käyttöön.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Ota **Salli täysi käyttöoikeus** käyttöön, jotta näppäimistö voi kopioida kuvia leikepöydälle.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Napauta alla olevaa tekstikenttää ja vaihda sitten **Cutling**-näppäimistöön 🌐 maapallonäppäimellä. Tämä varmistaa, että kaikki on asetettu oikein.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud-synkronointi on **kokeellinen ominaisuus**. Se ei välttämättä toimi oikein kaikissa tilanteissa, mikä voi johtaa tietojen menetykseen. Voit aina muuttaa tätä myöhemmin Asetuksista.";
+
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "Äskettäin poistetut";
 "Delete All" = "Poista kaikki";

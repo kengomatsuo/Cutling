@@ -1,5 +1,5 @@
 /* MARK: - Navigation & Titles */
-"My Cutlings" = "నా Cutlings";
+"My Cutlings" = "నా కట్లింగ్‌లు";
 "Select Items" = "అంశాలను ఎంచుకోండి";
 "%lld Selected" = "%lld ఎంచుకున్నారు";
 "Reorder" = "మళ్ళీ క్రమంలో పెట్టు";
@@ -19,10 +19,10 @@
 "OK" = "సరే";
 
 /* MARK: - Menu Items */
-"Text Cutling" = "టెక్స్ట్ Cutling";
-"Image Cutling" = "చిత్రం Cutling";
-"Select Cutlings" = "Cutlings ఎంచుకోండి";
-"Reorder Cutlings" = "Cutlings మళ్ళీ క్రమంలో పెట్టు";
+"Text Cutling" = "టెక్స్ట్ కట్లింగ్";
+"Image Cutling" = "చిత్రం కట్లింగ్";
+"Select Cutlings" = "కట్లింగ్‌లు ఎంచుకోండి";
+"Reorder Cutlings" = "కట్లింగ్‌లు మళ్ళీ క్రమంలో పెట్టు";
 "Keyboard Setup Guide" = "కీబోర్డ్ సెటప్ గైడ్";
 "Name (A → Z)" = "పేరు (A → Z)";
 "Name (Z → A)" = "పేరు (Z → A)";
@@ -33,13 +33,13 @@
 "Reverse Order" = "తిరగేసిన క్రమం";
 
 /* MARK: - Empty States */
-"No Cutlings Yet" = "ఇంకా Cutlings లేవు";
+"No Cutlings Yet" = "ఇంకా కట్లింగ్‌లు లేవు";
 "No Results" = "ఫలితాలు లేవు";
-"Tap + to add your first cutling." = "మీ మొదటి cutling జోడించడానికి + నొక్కండి.";
+"Tap + to add your first cutling." = "మీ మొదటి కట్లింగ్ జోడించడానికి + నొక్కండి.";
 "Try a different search term." = "వేరే శోధన పదాన్ని ప్రయత్నించండి.";
 
 /* MARK: - Search */
-"Search cutlings" = "Cutlings శోధించు";
+"Search cutlings" = "కట్లింగ్‌లు శోధించు";
 "Search icons" = "ఐకాన్‌లు శోధించు";
 
 /* MARK: - Form Labels */
@@ -60,7 +60,7 @@
 /* MARK: - Buttons & Actions */
 "Change Icon" = "ఐకాన్ మార్చు";
 "Paste from Clipboard" = "క్లిప్‌బోర్డ్ నుండి అతికించు";
-"Delete Cutling" = "Cutling తొలగించు";
+"Delete Cutling" = "కట్లింగ్ తొలగించు";
 "Open Settings to Enable" = "ప్రారంభించడానికి సెట్టింగ్‌లు తెరవండి";
 "Photos Library" = "ఫోటో లైబ్రరీ";
 "Choose File" = "ఫైల్ ఎంచుకోండి";
@@ -69,15 +69,15 @@
 "Copy Images" = "చిత్రాలను కాపీ చేయి";
 "Add from Clipboard" = "క్లిప్‌బోర్డ్ నుండి జోడించు";
 "Insert Text Instantly" = "టెక్స్ట్ వెంటనే చేర్చు";
-"Switch to Cutling Keyboard" = "Cutling కీబోర్డ్‌కు మారు";
+"Switch to Cutling Keyboard" = "కట్లింగ్ కీబోర్డ్‌కు మారు";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
 "iCloud Sync" = "iCloud సింక్";
-"Sync your cutlings across all your devices using iCloud." = "iCloud ఉపయోగించి మీ అన్ని పరికరాల్లో cutlings సింక్ చేయండి.";
+"Sync your cutlings across all your devices using iCloud." = "iCloud ఉపయోగించి మీ అన్ని పరికరాల్లో కట్లింగ్‌లు సింక్ చేయండి.";
 "Storage" = "నిల్వ";
-"Text Cutlings" = "టెక్స్ట్ Cutlings";
-"Image Cutlings" = "చిత్రం Cutlings";
+"Text Cutlings" = "టెక్స్ట్ కట్లింగ్‌లు";
+"Image Cutlings" = "చిత్రం కట్లింగ్‌లు";
 "Max Text Length" = "గరిష్ట టెక్స్ట్ పొడవు";
 "%lld chars" = "%lld అక్షరాలు";
 "About" = "గురించి";
@@ -91,29 +91,29 @@
 /* MARK: - Footer Texts */
 "This will replace the current text with whatever is in your clipboard." = "ఇది మీ క్లిప్‌బోర్డ్‌లో ఉన్నదానితో ప్రస్తుత టెక్స్ట్‌ను భర్తీ చేస్తుంది.";
 "This will replace the current image with whatever is in your clipboard." = "ఇది మీ క్లిప్‌బోర్డ్‌లో ఉన్నదానితో ప్రస్తుత చిత్రాన్ని భర్తీ చేస్తుంది.";
-"This cutling will be automatically deleted at the selected date and time." = "ఈ cutling ఎంచుకున్న తేదీ మరియు సమయంలో స్వయంచాలకంగా తొలగించబడుతుంది.";
-"Each text cutling can hold up to %lld characters." = "ప్రతి టెక్స్ట్ cutling గరిష్టంగా %lld అక్షరాలు కలిగి ఉండగలదు.";
+"This cutling will be automatically deleted at the selected date and time." = "ఈ కట్లింగ్ ఎంచుకున్న తేదీ మరియు సమయంలో స్వయంచాలకంగా తొలగించబడుతుంది.";
+"Each text cutling can hold up to %lld characters." = "ప్రతి టెక్స్ట్ కట్లింగ్ గరిష్టంగా %lld అక్షరాలు కలిగి ఉండగలదు.";
 
 /* MARK: - Alerts */
 "Limit Reached" = "పరిమితి చేరుకుంది";
-"Delete Cutling?" = "Cutling తొలగించాలా?";
+"Delete Cutling?" = "కట్లింగ్ తొలగించాలా?";
 "This action cannot be undone." = "ఈ చర్యను రద్దు చేయలేరు.";
-"Cannot add text cutling" = "టెక్స్ట్ cutling జోడించలేము";
-"Cannot add image cutling" = "చిత్రం cutling జోడించలేము";
-"Cannot add more text cutlings." = "మరిన్ని టెక్స్ట్ cutlings జోడించలేము.";
-"Cannot add more image cutlings." = "మరిన్ని చిత్రం cutlings జోడించలేము.";
+"Cannot add text cutling" = "టెక్స్ట్ కట్లింగ్ జోడించలేము";
+"Cannot add image cutling" = "చిత్రం కట్లింగ్ జోడించలేము";
+"Cannot add more text cutlings." = "మరిన్ని టెక్స్ట్ కట్లింగ్‌లు జోడించలేము.";
+"Cannot add more image cutlings." = "మరిన్ని చిత్రం కట్లింగ్‌లు జోడించలేము.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "మీరు మొత్తం %lld cutlings గరిష్ట పరిమితికి చేరుకున్నారు. మరిన్ని జోడించడానికి కొన్నింటిని తొలగించండి.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "మీరు %lld చిత్రం cutlings గరిష్ట పరిమితికి చేరుకున్నారు. చిత్రాలు కీబోర్డ్‌లో గణనీయమైన మెమరీని ఉపయోగిస్తాయి. మరిన్ని జోడించడానికి కొన్ని చిత్రాలను తొలగించండి.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "మీరు %lld టెక్స్ట్ cutlings గరిష్ట పరిమితికి చేరుకున్నారు. మరిన్ని జోడించడానికి కొన్నింటిని తొలగించండి.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "మీరు మొత్తం %lld కట్లింగ్‌లు గరిష్ట పరిమితికి చేరుకున్నారు. మరిన్ని జోడించడానికి కొన్నింటిని తొలగించండి.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "మీరు %lld చిత్రం కట్లింగ్‌లు గరిష్ట పరిమితికి చేరుకున్నారు. చిత్రాలు కీబోర్డ్‌లో గణనీయమైన మెమరీని ఉపయోగిస్తాయి. మరిన్ని జోడించడానికి కొన్ని చిత్రాలను తొలగించండి.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "మీరు %lld టెక్స్ట్ కట్లింగ్‌లు గరిష్ట పరిమితికి చేరుకున్నారు. మరిన్ని జోడించడానికి కొన్నింటిని తొలగించండి.";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "ఇన్‌పుట్ రకం సూచనలు";
 "Suggest for Input Types" = "ఇన్‌పుట్ రకాలకు సూచన";
-"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "మీరు సరిపోయే రకం యొక్క టెక్స్ట్ ఫీల్డ్‌పై దృష్టి పెట్టినప్పుడు, ఈ cutling కీబోర్డ్ పైభాగంలో కనిపిస్తుంది.";
-"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "సరిపోయే టెక్స్ట్ ఫీల్డ్‌పై దృష్టి పెట్టినప్పుడు కీబోర్డ్ పైభాగంలో కనిపించేలా ఇన్‌పుట్ రకాలకు cutlings కేటాయించండి.";
-"No cutlings yet. Add some first." = "ఇంకా cutlings లేవు. ముందుగా కొన్ని జోడించండి.";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "మీరు సరిపోయే రకం యొక్క టెక్స్ట్ ఫీల్డ్‌పై దృష్టి పెట్టినప్పుడు, ఈ కట్లింగ్ కీబోర్డ్ పైభాగంలో కనిపిస్తుంది.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "సరిపోయే టెక్స్ట్ ఫీల్డ్‌పై దృష్టి పెట్టినప్పుడు కీబోర్డ్ పైభాగంలో కనిపించేలా ఇన్‌పుట్ రకాలకు కట్లింగ్‌లు కేటాయించండి.";
+"No cutlings yet. Add some first." = "ఇంకా కట్లింగ్‌లు లేవు. ముందుగా కొన్ని జోడించండి.";
 "Suggested" = "సూచించబడింది";
 "Email" = "ఈమెయిల్";
 "URL" = "URL";
@@ -130,34 +130,41 @@
 
 /* MARK: - Keyboard Setup */
 "Setup Progress" = "సెటప్ పురోగతి";
-"Open Cutling Settings" = "Cutling సెట్టింగ్‌లు తెరవండి";
-"Tap here, then switch to Cutling" = "ఇక్కడ నొక్కండి, తర్వాత Cutling కు మారండి";
+"Open Cutling Settings" = "కట్లింగ్ సెట్టింగ్‌లు తెరవండి";
+"Tap here, then switch to Cutling" = "ఇక్కడ నొక్కండి, తర్వాత కట్లింగ్ కు మారండి";
 "How to Use Your Keyboard" = "మీ కీబోర్డ్ ఎలా ఉపయోగించాలి";
 "Storage Limits" = "నిల్వ పరిమితులు";
 "You're All Set!" = "అంతా సిద్ధం!";
 "Set Up Your Keyboard" = "మీ కీబోర్డ్ సెట్ చేయండి";
-"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "మీ Cutling కీబోర్డ్ సిద్ధంగా ఉంది! ఎక్కడైనా టైప్ చేస్తున్నప్పుడు, Cutling కు మారడానికి మీ కీబోర్డ్‌లో 🌐 గ్లోబ్ ఐకాన్ నొక్కండి.";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "మీ కట్లింగ్ కీబోర్డ్ సిద్ధంగా ఉంది! ఎక్కడైనా టైప్ చేస్తున్నప్పుడు, కట్లింగ్ కు మారడానికి మీ కీబోర్డ్‌లో 🌐 గ్లోబ్ ఐకాన్ నొక్కండి.";
 "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "మీ కస్టమ్ కీబోర్డ్ ఉపయోగించడం ప్రారంభించడానికి దిగువన ఉన్న రెండు సులభమైన దశలను అనుసరించండి. ప్రతి దశ పూర్తి చేసినప్పుడు ఈ పేజీ స్వయంచాలకంగా అప్‌డేట్ అవుతుంది.";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**దశ 1:** దిగువన 'Cutling సెట్టింగ్‌లు తెరవండి' నొక్కండి, **కీబోర్డ్‌లు** కు వెళ్ళి జాబితా నుండి **Cutling** ఎంచుకోండి.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**దశ 1:** దిగువన 'కట్లింగ్ సెట్టింగ్‌లు తెరవండి' నొక్కండి, **కీబోర్డ్‌లు** కు వెళ్ళి జాబితా నుండి **కట్లింగ్** ఎంచుకోండి.";
 "**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**దశ 2:** **పూర్తి యాక్సెస్ అనుమతించు** ఆన్ అయి ఉందని నిర్ధారించుకోండి. ఇది కీబోర్డ్ మీ క్లిప్‌బోర్డ్‌కు చిత్రాలను కాపీ చేయడానికి అనుమతిస్తుంది. మీ డేటా ప్రైవేట్‌గా ఉంటుంది మరియు ఎక్కడికీ పంపబడదు.";
-"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**దశ 3:** టెక్స్ట్ ఇన్‌పుట్‌పై నొక్కి, \"పూర్తి యాక్సెస్\" స్థితిని అప్‌డేట్ చేయడానికి మీ కీబోర్డ్‌లో 🌐 గ్లోబ్ ఐకాన్ ఉపయోగించి \"Cutling\" ఎంచుకోండి.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**దశ 3:** టెక్స్ట్ ఇన్‌పుట్‌పై నొక్కి, \"పూర్తి యాక్సెస్\" స్థితిని అప్‌డేట్ చేయడానికి మీ కీబోర్డ్‌లో 🌐 గ్లోబ్ ఐకాన్ ఉపయోగించి \"కట్లింగ్\" ఎంచుకోండి.";
 "**Step 4:** You're good to go! The usage guide is provided below." = "**దశ 4:** మీరు సిద్ధంగా ఉన్నారు! ఉపయోగ గైడ్ దిగువన అందించబడింది.";
-"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "ఏదైనా యాప్‌లో టైప్ చేస్తున్నప్పుడు, మీ కీబోర్డ్ దిగువ-ఎడమవైపున ఉన్న 🌐 గ్లోబ్ కీ నొక్కండి లేదా నొక్కి పట్టుకోండి, తర్వాత Cutling ఎంచుకోండి";
-"Tap any text cutling and it will be typed into your current text field immediately" = "ఏదైనా టెక్స్ట్ cutling నొక్కండి, అది మీ ప్రస్తుత టెక్స్ట్ ఫీల్డ్‌లో వెంటనే టైప్ అవుతుంది";
-"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "చిత్రం cutling నొక్కి మీ క్లిప్‌బోర్డ్‌కు కాపీ చేయండి, తర్వాత మీరు ఉపయోగిస్తున్న యాప్‌లో అతికించండి (సాధారణంగా నొక్కి పట్టుకుని, తర్వాత అతికించు ఎంచుకోండి). Apple ప్రస్తుతం ఈ యాప్‌లో నేరుగా చిత్రాన్ని అతికించడానికి మద్దతు ఇవ్వదు.";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "ఏదైనా టెక్స్ట్ కాపీ చేసి, కొత్త cutling గా సేవ్ చేయడానికి Cutling కీబోర్డ్‌లో 'క్లిప్‌బోర్డ్ నుండి జోడించు' బటన్ నొక్కండి";
-"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "ప్రధాన Cutling యాప్‌లో మీ అన్ని cutlings నిర్వహించవచ్చు. మీరు చేసే మార్పులు మీ కీబోర్డ్‌లో వెంటనే కనిపిస్తాయి.";
-"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "సిస్టమ్ స్థిరత్వం నిర్ధారించడానికి కీబోర్డ్ ఎక్స్‌టెన్షన్‌లకు కఠినమైన మెమరీ పరిమితులు ఉన్నాయి. చిత్రాలు టెక్స్ట్ కంటే ఎక్కువ మెమరీ ఉపయోగిస్తాయి, కాబట్టి మీ కీబోర్డ్ వేగంగా మరియు విశ్వసనీయంగా ఉండేలా వాటిని పరిమితం చేస్తాము. పరిమితి చేరుకుంటే, కొత్తవి జోడించడానికి కొన్ని cutlings తొలగించండి.";
-"Up to **%lld text** cutlings" = "**%lld టెక్స్ట్** cutlings వరకు";
-"Up to **%lld image** cutlings" = "**%lld చిత్రం** cutlings వరకు";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "ఏదైనా యాప్‌లో టైప్ చేస్తున్నప్పుడు, మీ కీబోర్డ్ దిగువ-ఎడమవైపున ఉన్న 🌐 గ్లోబ్ కీ నొక్కండి లేదా నొక్కి పట్టుకోండి, తర్వాత కట్లింగ్ ఎంచుకోండి";
+"Tap any text cutling and it will be typed into your current text field immediately" = "ఏదైనా టెక్స్ట్ కట్లింగ్ నొక్కండి, అది మీ ప్రస్తుత టెక్స్ట్ ఫీల్డ్‌లో వెంటనే టైప్ అవుతుంది";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "చిత్రం కట్లింగ్ నొక్కి మీ క్లిప్‌బోర్డ్‌కు కాపీ చేయండి, తర్వాత మీరు ఉపయోగిస్తున్న యాప్‌లో అతికించండి (సాధారణంగా నొక్కి పట్టుకుని, తర్వాత అతికించు ఎంచుకోండి). Apple ప్రస్తుతం ఈ యాప్‌లో నేరుగా చిత్రాన్ని అతికించడానికి మద్దతు ఇవ్వదు.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "ఏదైనా టెక్స్ట్ కాపీ చేసి, కొత్త కట్లింగ్ గా సేవ్ చేయడానికి కట్లింగ్ కీబోర్డ్‌లో 'క్లిప్‌బోర్డ్ నుండి జోడించు' బటన్ నొక్కండి";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "ప్రధాన కట్లింగ్ యాప్‌లో మీ అన్ని కట్లింగ్‌లు నిర్వహించవచ్చు. మీరు చేసే మార్పులు మీ కీబోర్డ్‌లో వెంటనే కనిపిస్తాయి.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "సిస్టమ్ స్థిరత్వం నిర్ధారించడానికి కీబోర్డ్ ఎక్స్‌టెన్షన్‌లకు కఠినమైన మెమరీ పరిమితులు ఉన్నాయి. చిత్రాలు టెక్స్ట్ కంటే ఎక్కువ మెమరీ ఉపయోగిస్తాయి, కాబట్టి మీ కీబోర్డ్ వేగంగా మరియు విశ్వసనీయంగా ఉండేలా వాటిని పరిమితం చేస్తాము. పరిమితి చేరుకుంటే, కొత్తవి జోడించడానికి కొన్ని కట్లింగ్‌లు తొలగించండి.";
+"Up to **%lld text** cutlings" = "**%lld టెక్స్ట్** కట్లింగ్‌లు వరకు";
+"Up to **%lld image** cutlings" = "**%lld చిత్రం** కట్లింగ్‌లు వరకు";
 "Back" = "వెనుకకు";
 "Next" = "తదుపరి";
 "Get Started" = "ప్రారంభించండి";
-"Follow a few simple steps to start using your custom Cutling keyboard." = "మీ కస్టమ్ Cutling కీబోర్డ్ ఉపయోగించడం ప్రారంభించడానికి కొన్ని సులభమైన దశలు అనుసరించండి.";
-"Enable Cutling Keyboard" = "Cutling కీబోర్డ్ ప్రారంభించు";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "మీ కస్టమ్ కట్లింగ్ కీబోర్డ్ ఉపయోగించడం ప్రారంభించడానికి కొన్ని సులభమైన దశలు అనుసరించండి.";
+"Enable Cutling Keyboard" = "కట్లింగ్ కీబోర్డ్ ప్రారంభించు";
 "Test Your Keyboard" = "మీ కీబోర్డ్ పరీక్షించండి";
 "All set! Swipe to continue." = "అంతా సిద్ధం! కొనసాగించడానికి స్వైప్ చేయండి.";
 "Your data stays private and is never sent anywhere." = "మీ డేటా ప్రైవేట్‌గా ఉంటుంది మరియు ఎక్కడికీ పంపబడదు.";
+
+/* MARK: - Setup Guide Instructions */
+"Open Cutling in your device's **Settings** app." = "మీ పరికరం యొక్క **సెట్టింగ్స్** యాప్‌లో కట్లింగ్ తెరవండి.";
+"Tap **Keyboards** and enable **Cutling**." = "**కీబోర్డ్‌లు** ట్యాప్ చేసి **కట్లింగ్** ను ఎనేబుల్ చేయండి.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "కీబోర్డ్ మీ క్లిప్‌బోర్డ్‌కు చిత్రాలను కాపీ చేయడానికి **పూర్తి యాక్సెస్ అనుమతించు** ఆన్ చేయండి.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "క్రింద ఉన్న టెక్స్ట్ ఫీల్డ్ ట్యాప్ చేయండి, ఆ తర్వాత **కట్లింగ్** కు మారడానికి 🌐 గ్లోబ్ కీ ఉపయోగించండి. ఇది అన్నీ సరిగ్గా సెటప్ చేయబడిందని నిర్ధారిస్తుంది.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud సింక్ ఒక **ప్రయోగాత్మక ఫీచర్**. ఇది అన్ని పరిస్థితులలో సరిగ్గా పని చేయకపోవచ్చు, ఇది డేటా నష్టానికి దారితీయవచ్చు. మీరు దీన్ని తర్వాత ఎప్పుడైనా సెట్టింగ్స్‌లో మార్చవచ్చు.";
 
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "ఇటీవల తొలగించినవి";
@@ -168,7 +175,7 @@
 "Recover" = "పునరుద్ధరించు";
 "Items will be permanently deleted after 30 days." = "అంశాలు 30 రోజుల తర్వాత శాశ్వతంగా తొలగించబడతాయి.";
 "No Recently Deleted Items" = "ఇటీవల తొలగించిన అంశాలు లేవు";
-"Deleted cutlings will appear here for 30 days." = "తొలగించిన cutlings 30 రోజులు ఇక్కడ కనిపిస్తాయి.";
+"Deleted cutlings will appear here for 30 days." = "తొలగించిన కట్లింగ్‌లు 30 రోజులు ఇక్కడ కనిపిస్తాయి.";
 "This will permanently delete all %lld items. This action cannot be undone." = "అన్ని %lld అంశాలు శాశ్వతంగా తొలగించబడతాయి. ఈ చర్యను రద్దు చేయలేరు.";
 "\"%@\" will be deleted permanently." = "\"%@\" శాశ్వతంగా తొలగించబడుతుంది.";
 "1 day left" = "1 రోజు మిగిలి ఉంది";
@@ -198,7 +205,7 @@
 "Auto-detect Input Types" = "ఇన్‌పుట్ రకాలను ఆటో-గుర్తించు";
 "Input Types" = "ఇన్‌పుట్ రకాలు";
 "Enable iCloud Sync" = "iCloud సింక్ ప్రారంభించు";
-"Keep your cutlings in sync across all your devices." = "మీ అన్ని పరికరాల్లో cutlings సింక్‌లో ఉంచండి.";
+"Keep your cutlings in sync across all your devices." = "మీ అన్ని పరికరాల్లో కట్లింగ్‌లు సింక్‌లో ఉంచండి.";
 "Automatically detect and suggest input type categories when editing text." = "టెక్స్ట్ సవరించేటప్పుడు ఇన్‌పుట్ రకం వర్గాలను స్వయంచాలకంగా గుర్తించి సూచించండి.";
 
 /* MARK: - Snapshot Seed Data */

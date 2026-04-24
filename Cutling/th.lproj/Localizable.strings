@@ -1,5 +1,5 @@
 /* MARK: - Navigation & Titles */
-"My Cutlings" = "Cutling ของฉัน";
+"My Cutlings" = "คัตลิง ของฉัน";
 "Select Items" = "เลือกรายการ";
 "%lld Selected" = "เลือกแล้ว %lld";
 "Reorder" = "จัดเรียงใหม่";
@@ -19,10 +19,10 @@
 "OK" = "ตกลง";
 
 /* MARK: - Menu Items */
-"Text Cutling" = "Cutling ข้อความ";
-"Image Cutling" = "Cutling รูปภาพ";
-"Select Cutlings" = "เลือก Cutling";
-"Reorder Cutlings" = "จัดเรียง Cutling ใหม่";
+"Text Cutling" = "คัตลิง ข้อความ";
+"Image Cutling" = "คัตลิง รูปภาพ";
+"Select Cutlings" = "เลือก คัตลิง";
+"Reorder Cutlings" = "จัดเรียง คัตลิง ใหม่";
 "Keyboard Setup Guide" = "คู่มือตั้งค่าคีย์บอร์ด";
 "Name (A → Z)" = "ชื่อ (A → Z)";
 "Name (Z → A)" = "ชื่อ (Z → A)";
@@ -33,13 +33,13 @@
 "Reverse Order" = "ลำดับย้อนกลับ";
 
 /* MARK: - Empty States */
-"No Cutlings Yet" = "ยังไม่มี Cutling";
+"No Cutlings Yet" = "ยังไม่มี คัตลิง";
 "No Results" = "ไม่พบผลลัพธ์";
-"Tap + to add your first cutling." = "แตะ + เพื่อเพิ่ม cutling แรกของคุณ";
+"Tap + to add your first cutling." = "แตะ + เพื่อเพิ่ม คัตลิง แรกของคุณ";
 "Try a different search term." = "ลองใช้คำค้นหาอื่น";
 
 /* MARK: - Search */
-"Search cutlings" = "ค้นหา cutling";
+"Search cutlings" = "ค้นหา คัตลิง";
 "Search icons" = "ค้นหาไอคอน";
 
 /* MARK: - Form Labels */
@@ -60,7 +60,7 @@
 /* MARK: - Buttons & Actions */
 "Change Icon" = "เปลี่ยนไอคอน";
 "Paste from Clipboard" = "วางจากคลิปบอร์ด";
-"Delete Cutling" = "ลบ Cutling";
+"Delete Cutling" = "ลบ คัตลิง";
 "Open Settings to Enable" = "เปิดการตั้งค่าเพื่อเปิดใช้งาน";
 "Photos Library" = "คลังรูปภาพ";
 "Choose File" = "เลือกไฟล์";
@@ -69,15 +69,15 @@
 "Copy Images" = "คัดลอกรูปภาพ";
 "Add from Clipboard" = "เพิ่มจากคลิปบอร์ด";
 "Insert Text Instantly" = "แทรกข้อความทันที";
-"Switch to Cutling Keyboard" = "เปลี่ยนเป็นคีย์บอร์ด Cutling";
+"Switch to Cutling Keyboard" = "เปลี่ยนเป็นคีย์บอร์ด คัตลิง";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
 "iCloud Sync" = "ซิงค์ iCloud";
-"Sync your cutlings across all your devices using iCloud." = "ซิงค์ cutling ของคุณในทุกอุปกรณ์ด้วย iCloud";
+"Sync your cutlings across all your devices using iCloud." = "ซิงค์ คัตลิง ของคุณในทุกอุปกรณ์ด้วย iCloud";
 "Storage" = "พื้นที่จัดเก็บ";
-"Text Cutlings" = "Cutling ข้อความ";
-"Image Cutlings" = "Cutling รูปภาพ";
+"Text Cutlings" = "คัตลิง ข้อความ";
+"Image Cutlings" = "คัตลิง รูปภาพ";
 "Max Text Length" = "ความยาวข้อความสูงสุด";
 "%lld chars" = "%lld ตัวอักษร";
 "About" = "เกี่ยวกับ";
@@ -91,30 +91,30 @@
 /* MARK: - Footer Texts */
 "This will replace the current text with whatever is in your clipboard." = "การดำเนินการนี้จะแทนที่ข้อความปัจจุบันด้วยเนื้อหาในคลิปบอร์ดของคุณ";
 "This will replace the current image with whatever is in your clipboard." = "การดำเนินการนี้จะแทนที่รูปภาพปัจจุบันด้วยเนื้อหาในคลิปบอร์ดของคุณ";
-"This cutling will be automatically deleted at the selected date and time." = "Cutling นี้จะถูกลบอัตโนมัติตามวันและเวลาที่เลือก";
-"Each text cutling can hold up to %lld characters." = "Cutling ข้อความแต่ละรายการสามารถเก็บได้สูงสุด %lld ตัวอักษร";
+"This cutling will be automatically deleted at the selected date and time." = "คัตลิง นี้จะถูกลบอัตโนมัติตามวันและเวลาที่เลือก";
+"Each text cutling can hold up to %lld characters." = "คัตลิง ข้อความแต่ละรายการสามารถเก็บได้สูงสุด %lld ตัวอักษร";
 
 /* MARK: - Alerts */
 "Limit Reached" = "ถึงขีดจำกัดแล้ว";
-"Delete Cutling?" = "ลบ Cutling?";
+"Delete Cutling?" = "ลบ คัตลิง?";
 "This action cannot be undone." = "การดำเนินการนี้ไม่สามารถยกเลิกได้";
-"Cannot add text cutling" = "ไม่สามารถเพิ่ม cutling ข้อความ";
-"Cannot add image cutling" = "ไม่สามารถเพิ่ม cutling รูปภาพ";
-"Cannot add more text cutlings." = "ไม่สามารถเพิ่ม cutling ข้อความได้อีก";
-"Cannot add more image cutlings." = "ไม่สามารถเพิ่ม cutling รูปภาพได้อีก";
+"Cannot add text cutling" = "ไม่สามารถเพิ่ม คัตลิง ข้อความ";
+"Cannot add image cutling" = "ไม่สามารถเพิ่ม คัตลิง รูปภาพ";
+"Cannot add more text cutlings." = "ไม่สามารถเพิ่ม คัตลิง ข้อความได้อีก";
+"Cannot add more image cutlings." = "ไม่สามารถเพิ่ม คัตลิง รูปภาพได้อีก";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "คุณมี cutling ครบ %lld รายการแล้ว ลบบางรายการเพื่อเพิ่มใหม่";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "คุณมี cutling รูปภาพครบ %lld รายการแล้ว รูปภาพใช้หน่วยความจำมากในคีย์บอร์ด ลบรูปภาพบางรายการเพื่อเพิ่มใหม่";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "คุณมี cutling ข้อความครบ %lld รายการแล้ว ลบบางรายการเพื่อเพิ่มใหม่";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "คุณมี คัตลิง ครบ %lld รายการแล้ว ลบบางรายการเพื่อเพิ่มใหม่";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "คุณมี คัตลิง รูปภาพครบ %lld รายการแล้ว รูปภาพใช้หน่วยความจำมากในคีย์บอร์ด ลบรูปภาพบางรายการเพื่อเพิ่มใหม่";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "คุณมี คัตลิง ข้อความครบ %lld รายการแล้ว ลบบางรายการเพื่อเพิ่มใหม่";
 
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "คำแนะนำประเภทการป้อน";
 "Suggest for Input Types" = "แนะนำสำหรับประเภทการป้อน";
-"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "เมื่อคุณโฟกัสที่ช่องข้อความประเภทที่ตรงกัน cutling นี้จะปรากฏที่ด้านบนของคีย์บอร์ด";
-"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "กำหนด cutling ให้กับประเภทการป้อนเพื่อให้ปรากฏที่ด้านบนของคีย์บอร์ดเมื่อคุณโฟกัสที่ช่องข้อความที่ตรงกัน";
-"No cutlings yet. Add some first." = "ยังไม่มี cutling เพิ่มบางรายการก่อน";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "เมื่อคุณโฟกัสที่ช่องข้อความประเภทที่ตรงกัน คัตลิง นี้จะปรากฏที่ด้านบนของคีย์บอร์ด";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "กำหนด คัตลิง ให้กับประเภทการป้อนเพื่อให้ปรากฏที่ด้านบนของคีย์บอร์ดเมื่อคุณโฟกัสที่ช่องข้อความที่ตรงกัน";
+"No cutlings yet. Add some first." = "ยังไม่มี คัตลิง เพิ่มบางรายการก่อน";
 "Suggested" = "แนะนำ";
 "Email" = "อีเมล";
 "URL" = "URL";
@@ -130,34 +130,41 @@
 
 /* MARK: - Keyboard Setup */
 "Setup Progress" = "ความคืบหน้าการตั้งค่า";
-"Open Cutling Settings" = "เปิดการตั้งค่า Cutling";
-"Tap here, then switch to Cutling" = "แตะที่นี่ แล้วเปลี่ยนเป็น Cutling";
+"Open Cutling Settings" = "เปิดการตั้งค่า คัตลิง";
+"Tap here, then switch to Cutling" = "แตะที่นี่ แล้วเปลี่ยนเป็น คัตลิง";
 "How to Use Your Keyboard" = "วิธีใช้คีย์บอร์ดของคุณ";
 "Storage Limits" = "ขีดจำกัดพื้นที่จัดเก็บ";
 "You're All Set!" = "พร้อมแล้ว!";
 "Set Up Your Keyboard" = "ตั้งค่าคีย์บอร์ดของคุณ";
-"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "คีย์บอร์ด Cutling ของคุณพร้อมแล้ว! ขณะพิมพ์ในที่ใดก็ได้ แตะไอคอน 🌐 ลูกโลกบนคีย์บอร์ดเพื่อเปลี่ยนเป็น Cutling";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "คีย์บอร์ด คัตลิง ของคุณพร้อมแล้ว! ขณะพิมพ์ในที่ใดก็ได้ แตะไอคอน 🌐 ลูกโลกบนคีย์บอร์ดเพื่อเปลี่ยนเป็น คัตลิง";
 "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "ทำตามสองขั้นตอนง่ายๆ ด้านล่างเพื่อเริ่มใช้คีย์บอร์ดที่กำหนดเองของคุณ หน้านี้จะอัปเดตอัตโนมัติเมื่อคุณทำแต่ละขั้นตอนเสร็จ";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**ขั้นตอนที่ 1:** แตะ 'เปิดการตั้งค่า Cutling' ด้านล่าง ไปที่ **คีย์บอร์ด** และเลือก **Cutling** จากรายการ";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**ขั้นตอนที่ 1:** แตะ 'เปิดการตั้งค่า คัตลิง' ด้านล่าง ไปที่ **คีย์บอร์ด** และเลือก **คัตลิง** จากรายการ";
 "**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**ขั้นตอนที่ 2:** ตรวจสอบให้แน่ใจว่า **อนุญาตการเข้าถึงเต็มรูปแบบ** เปิดอยู่ สิ่งนี้ช่วยให้คีย์บอร์ดคัดลอกรูปภาพไปยังคลิปบอร์ดของคุณ ข้อมูลของคุณยังคงเป็นส่วนตัวและไม่ถูกส่งไปที่ใด";
-"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**ขั้นตอนที่ 3:** แตะที่ช่องป้อนข้อความและเลือก \"Cutling\" โดยใช้ไอคอน 🌐 ลูกโลกบนคีย์บอร์ดเพื่ออัปเดตสถานะ \"สิทธิ์เข้าถึงเต็มรูปแบบ\"";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**ขั้นตอนที่ 3:** แตะที่ช่องป้อนข้อความและเลือก \"คัตลิง\" โดยใช้ไอคอน 🌐 ลูกโลกบนคีย์บอร์ดเพื่ออัปเดตสถานะ \"สิทธิ์เข้าถึงเต็มรูปแบบ\"";
 "**Step 4:** You're good to go! The usage guide is provided below." = "**ขั้นตอนที่ 4:** พร้อมใช้งานแล้ว! คู่มือการใช้งานอยู่ด้านล่าง";
-"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "ขณะพิมพ์ในแอปใดก็ได้ แตะหรือกดค้างปุ่ม 🌐 ลูกโลกที่ด้านล่างซ้ายของคีย์บอร์ด จากนั้นเลือก Cutling";
-"Tap any text cutling and it will be typed into your current text field immediately" = "แตะ cutling ข้อความใดก็ได้ แล้วจะถูกพิมพ์ลงในช่องข้อความปัจจุบันทันที";
-"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "แตะ cutling รูปภาพเพื่อคัดลอกไปยังคลิปบอร์ด จากนั้นวางในแอปที่คุณใช้ (โดยปกติแตะค้างแล้วเลือกวาง) Apple ยังไม่รองรับการวางรูปภาพโดยตรงในแอปนี้";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "คัดลอกข้อความใดก็ได้ แล้วแตะปุ่ม 'เพิ่มจากคลิปบอร์ด' ในคีย์บอร์ด Cutling เพื่อบันทึกเป็น cutling ใหม่";
-"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "คุณสามารถจัดการ cutling ทั้งหมดในแอป Cutling หลัก การเปลี่ยนแปลงที่คุณทำจะปรากฏในคีย์บอร์ดทันที";
-"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "ส่วนขยายคีย์บอร์ดมีข้อจำกัดหน่วยความจำที่เข้มงวดเพื่อรักษาความเสถียรของระบบ รูปภาพใช้หน่วยความจำมากกว่าข้อความ จึงมีการจำกัดเพื่อให้คีย์บอร์ดทำงานได้เร็วและเชื่อถือได้ หากถึงขีดจำกัด เพียงลบ cutling บางรายการเพื่อเพิ่มใหม่";
-"Up to **%lld text** cutlings" = "สูงสุด **%lld ข้อความ** cutling";
-"Up to **%lld image** cutlings" = "สูงสุด **%lld รูปภาพ** cutling";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "ขณะพิมพ์ในแอปใดก็ได้ แตะหรือกดค้างปุ่ม 🌐 ลูกโลกที่ด้านล่างซ้ายของคีย์บอร์ด จากนั้นเลือก คัตลิง";
+"Tap any text cutling and it will be typed into your current text field immediately" = "แตะ คัตลิง ข้อความใดก็ได้ แล้วจะถูกพิมพ์ลงในช่องข้อความปัจจุบันทันที";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "แตะ คัตลิง รูปภาพเพื่อคัดลอกไปยังคลิปบอร์ด จากนั้นวางในแอปที่คุณใช้ (โดยปกติแตะค้างแล้วเลือกวาง) Apple ยังไม่รองรับการวางรูปภาพโดยตรงในแอปนี้";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "คัดลอกข้อความใดก็ได้ แล้วแตะปุ่ม 'เพิ่มจากคลิปบอร์ด' ในคีย์บอร์ด คัตลิง เพื่อบันทึกเป็น คัตลิง ใหม่";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "คุณสามารถจัดการ คัตลิง ทั้งหมดในแอป คัตลิง หลัก การเปลี่ยนแปลงที่คุณทำจะปรากฏในคีย์บอร์ดทันที";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "ส่วนขยายคีย์บอร์ดมีข้อจำกัดหน่วยความจำที่เข้มงวดเพื่อรักษาความเสถียรของระบบ รูปภาพใช้หน่วยความจำมากกว่าข้อความ จึงมีการจำกัดเพื่อให้คีย์บอร์ดทำงานได้เร็วและเชื่อถือได้ หากถึงขีดจำกัด เพียงลบ คัตลิง บางรายการเพื่อเพิ่มใหม่";
+"Up to **%lld text** cutlings" = "สูงสุด **%lld ข้อความ** คัตลิง";
+"Up to **%lld image** cutlings" = "สูงสุด **%lld รูปภาพ** คัตลิง";
 "Back" = "ย้อนกลับ";
 "Next" = "ถัดไป";
 "Get Started" = "เริ่มต้น";
-"Follow a few simple steps to start using your custom Cutling keyboard." = "ทำตามขั้นตอนง่ายๆ เพื่อเริ่มใช้คีย์บอร์ด Cutling ที่กำหนดเองของคุณ";
-"Enable Cutling Keyboard" = "เปิดใช้งานคีย์บอร์ด Cutling";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "ทำตามขั้นตอนง่ายๆ เพื่อเริ่มใช้คีย์บอร์ด คัตลิง ที่กำหนดเองของคุณ";
+"Enable Cutling Keyboard" = "เปิดใช้งานคีย์บอร์ด คัตลิง";
 "Test Your Keyboard" = "ทดสอบคีย์บอร์ดของคุณ";
 "All set! Swipe to continue." = "พร้อมแล้ว! ปัดเพื่อดำเนินการต่อ";
 "Your data stays private and is never sent anywhere." = "ข้อมูลของคุณยังคงเป็นส่วนตัวและไม่ถูกส่งไปที่ใด";
+
+/* MARK: - Setup Guide Instructions */
+"Open Cutling in your device's **Settings** app." = "เปิด คัตลิง ในแอป**การตั้งค่า**ของอุปกรณ์";
+"Tap **Keyboards** and enable **Cutling**." = "แตะ**แป้นพิมพ์**แล้วเปิดใช้งาน **คัตลิง**";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "เปิด**อนุญาตการเข้าถึงแบบเต็ม**เพื่อให้แป้นพิมพ์สามารถคัดลอกรูปภาพไปยังคลิปบอร์ดได้";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "แตะช่องข้อความด้านล่าง จากนั้นใช้ปุ่ม 🌐 ลูกโลกเพื่อสลับไปยัง **คัตลิง** เพื่อยืนยันว่าทุกอย่างตั้งค่าถูกต้อง";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "การซิงค์ iCloud เป็น**ฟีเจอร์ทดลอง** อาจทำงานไม่ถูกต้องในทุกสถานการณ์ ซึ่งอาจนำไปสู่การสูญเสียข้อมูล คุณสามารถเปลี่ยนแปลงได้ในภายหลังในการตั้งค่า";
 
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "ลบล่าสุด";
@@ -192,13 +199,13 @@
 "Continue" = "ถัดไป";
 "Enable" = "เปิดใช้งาน";
 "Status" = "สถานะ";
-"New Text Cutling" = "Cutling ข้อความใหม่";
-"New Image Cutling" = "Cutling รูปภาพใหม่";
+"New Text Cutling" = "คัตลิง ข้อความใหม่";
+"New Image Cutling" = "คัตลิง รูปภาพใหม่";
 "Delete Selected" = "ลบรายการที่เลือก";
 "Auto-detect Input Types" = "ตรวจจับประเภทการป้อนข้อมูลอัตโนมัติ";
 "Input Types" = "ประเภทการป้อนข้อมูล";
 "Enable iCloud Sync" = "เปิดใช้การซิงค์ iCloud";
-"Keep your cutlings in sync across all your devices." = "ซิงค์ cutling ของคุณในทุกอุปกรณ์";
+"Keep your cutlings in sync across all your devices." = "ซิงค์ คัตลิง ของคุณในทุกอุปกรณ์";
 "Automatically detect and suggest input type categories when editing text." = "ตรวจจับและแนะนำหมวดหมู่ประเภทการป้อนข้อมูลโดยอัตโนมัติเมื่อแก้ไขข้อความ";
 
 /* MARK: - Snapshot Seed Data */

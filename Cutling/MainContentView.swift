@@ -704,7 +704,7 @@ struct MainContentView: View {
             }
             
             Button {
-                withAnimation { mode = .ordering }
+                mode = .ordering
             } label: {
                 Label("Reorder Cutlings", systemImage: "arrow.up.arrow.down")
             }
@@ -749,7 +749,7 @@ struct MainContentView: View {
     @ViewBuilder
     private var orderingPrimaryToolbarItems: some View {
         Button {
-            withAnimation { mode = .browsing }
+            mode = .browsing
         } label: {
             if #available(iOS 26, macOS 26, *) {
                 Image(systemName: "checkmark")
@@ -999,7 +999,7 @@ struct MainContentView: View {
     #if os(macOS)
     private func updateMenuCommands() {
         menuCommands.enterSelectMode = { withAnimation { mode = .selecting } }
-        menuCommands.enterReorderMode = { withAnimation { mode = .ordering } }
+        menuCommands.enterReorderMode = { mode = .ordering }
         menuCommands.deleteSelected = {
             if !selectedIDs.isEmpty {
                 showDeleteConfirmation = true

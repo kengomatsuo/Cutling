@@ -159,6 +159,13 @@
 "All set! Swipe to continue." = "Kõik valmis! Pühkige jätkamiseks.";
 "Your data stays private and is never sent anywhere." = "Teie andmed jäävad privaatseks ega saadeta kunagi kuhugi.";
 
+/* MARK: - Setup Guide Instructions */
+"Open Cutling in your device's **Settings** app." = "Ava Cutling oma seadme **Seaded** rakenduses.";
+"Tap **Keyboards** and enable **Cutling**." = "Puuduta **Klaviatuurid** ja luba **Cutling**.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Lülita sisse **Luba täielik juurdepääs**, et klaviatuur saaks pilte lõikelauale kopeerida.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Puuduta allolevat tekstivälja ja kasuta 🌐 gloobusnuppu, et lülituda **Cutling**-ile. See kinnitab, et kõik on õigesti seadistatud.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloudi sünkroonimine on **eksperimentaalne funktsioon**. See ei pruugi kõigis olukordades korrektselt töötada, mis võib põhjustada andmekadu. Saad seda alati hiljem Seadetes muuta.";
+
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "Hiljuti kustutatud";
 "Delete All" = "Kustuta kõik";

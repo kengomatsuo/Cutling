@@ -1,5 +1,5 @@
 /* MARK: - Navigation & Titles */
-"My Cutlings" = "Moji Cutlings";
+"My Cutlings" = "Moji Катлинзи";
 "Select Items" = "Izaberi stavke";
 "%lld Selected" = "%lld izabrano";
 "Reorder" = "Promeni redosled";
@@ -19,10 +19,10 @@
 "OK" = "U redu";
 
 /* MARK: - Menu Items */
-"Text Cutling" = "Tekstualni Cutling";
-"Image Cutling" = "Slikovni Cutling";
-"Select Cutlings" = "Izaberi Cutlings";
-"Reorder Cutlings" = "Promeni redosled Cutlings";
+"Text Cutling" = "Tekstualni Катлинг";
+"Image Cutling" = "Slikovni Катлинг";
+"Select Cutlings" = "Izaberi Катлинзи";
+"Reorder Cutlings" = "Promeni redosled Катлинзи";
 "Keyboard Setup Guide" = "Vodič za podešavanje tastature";
 "Name (A → Z)" = "Naziv (A → Z)";
 "Name (Z → A)" = "Naziv (Z → A)";
@@ -33,13 +33,13 @@
 "Reverse Order" = "Obrnuti redosled";
 
 /* MARK: - Empty States */
-"No Cutlings Yet" = "Još nema Cutlings";
+"No Cutlings Yet" = "Još nema Катлинзи";
 "No Results" = "Nema rezultata";
-"Tap + to add your first cutling." = "Dodirnite + da dodate svoj prvi cutling.";
+"Tap + to add your first cutling." = "Dodirnite + da dodate svoj prvi Катлинг.";
 "Try a different search term." = "Pokušajte sa drugim pojmom za pretragu.";
 
 /* MARK: - Search */
-"Search cutlings" = "Pretraži cutlings";
+"Search cutlings" = "Pretraži Катлинзи";
 "Search icons" = "Pretraži ikone";
 
 /* MARK: - Form Labels */
@@ -60,7 +60,7 @@
 /* MARK: - Buttons & Actions */
 "Change Icon" = "Promeni ikonu";
 "Paste from Clipboard" = "Nalepi iz privremene memorije";
-"Delete Cutling" = "Obriši Cutling";
+"Delete Cutling" = "Obriši Катлинг";
 "Open Settings to Enable" = "Otvori podešavanja za omogućavanje";
 "Photos Library" = "Biblioteka fotografija";
 "Choose File" = "Izaberi datoteku";
@@ -69,15 +69,15 @@
 "Copy Images" = "Kopiraj slike";
 "Add from Clipboard" = "Dodaj iz privremene memorije";
 "Insert Text Instantly" = "Umetni tekst odmah";
-"Switch to Cutling Keyboard" = "Prebaci se na Cutling tastaturu";
+"Switch to Cutling Keyboard" = "Prebaci se na Катлинг tastaturu";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
 "iCloud Sync" = "iCloud sinhronizacija";
-"Sync your cutlings across all your devices using iCloud." = "Sinhronizujte svoje cutlings na svim uređajima koristeći iCloud.";
+"Sync your cutlings across all your devices using iCloud." = "Sinhronizujte svoje Катлинзи na svim uređajima koristeći iCloud.";
 "Storage" = "Skladište";
-"Text Cutlings" = "Tekstualni Cutlings";
-"Image Cutlings" = "Slikovni Cutlings";
+"Text Cutlings" = "Tekstualni Катлинзи";
+"Image Cutlings" = "Slikovni Катлинзи";
 "Max Text Length" = "Maksimalna dužina teksta";
 "%lld chars" = "%lld znakova";
 "About" = "O aplikaciji";
@@ -91,29 +91,29 @@
 /* MARK: - Footer Texts */
 "This will replace the current text with whatever is in your clipboard." = "Ovo će zameniti trenutni tekst onim što je u vašoj privremenoj memoriji.";
 "This will replace the current image with whatever is in your clipboard." = "Ovo će zameniti trenutnu sliku onim što je u vašoj privremenoj memoriji.";
-"This cutling will be automatically deleted at the selected date and time." = "Ovaj cutling će biti automatski obrisan na izabrani datum i vreme.";
-"Each text cutling can hold up to %lld characters." = "Svaki tekstualni cutling može da sadrži do %lld znakova.";
+"This cutling will be automatically deleted at the selected date and time." = "Ovaj Катлинг će biti automatski obrisan na izabrani datum i vreme.";
+"Each text cutling can hold up to %lld characters." = "Svaki tekstualni Катлинг može da sadrži do %lld znakova.";
 
 /* MARK: - Alerts */
 "Limit Reached" = "Dostignut limit";
-"Delete Cutling?" = "Obrisati Cutling?";
+"Delete Cutling?" = "Obrisati Катлинг?";
 "This action cannot be undone." = "Ova radnja ne može da se poništi.";
-"Cannot add text cutling" = "Nije moguće dodati tekstualni cutling";
-"Cannot add image cutling" = "Nije moguće dodati slikovni cutling";
-"Cannot add more text cutlings." = "Nije moguće dodati više tekstualnih cutlinga.";
-"Cannot add more image cutlings." = "Nije moguće dodati više slikovnih cutlinga.";
+"Cannot add text cutling" = "Nije moguće dodati tekstualni Катлинг";
+"Cannot add image cutling" = "Nije moguće dodati slikovni Катлинг";
+"Cannot add more text cutlings." = "Nije moguće dodati više tekstualnih Катлингa.";
+"Cannot add more image cutlings." = "Nije moguće dodati više slikovnih Катлингa.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Dostigli ste maksimum od %lld ukupnih cutlinga. Obrišite neke da biste dodali nove.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Dostigli ste maksimum od %lld slikovnih cutlinga. Slike koriste značajnu memoriju u tastaturi. Obrišite neke slike da biste dodali nove.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Dostigli ste maksimum od %lld tekstualnih cutlinga. Obrišite neke da biste dodali nove.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Dostigli ste maksimum od %lld ukupnih Катлингa. Obrišite neke da biste dodali nove.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Dostigli ste maksimum od %lld slikovnih Катлингa. Slike koriste značajnu memoriju u tastaturi. Obrišite neke slike da biste dodali nove.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Dostigli ste maksimum od %lld tekstualnih Катлингa. Obrišite neke da biste dodali nove.";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Predlozi vrsta unosa";
 "Suggest for Input Types" = "Predloži za vrste unosa";
-"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Kada se fokusirate na tekstualno polje odgovarajuće vrste, ovaj cutling će se pojaviti na vrhu tastature.";
-"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Dodelite cutlings vrstama unosa tako da se pojave na vrhu tastature kada se fokusirate na odgovarajuće tekstualno polje.";
-"No cutlings yet. Add some first." = "Još nema cutlinga. Prvo dodajte neke.";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Kada se fokusirate na tekstualno polje odgovarajuće vrste, ovaj Катлинг će se pojaviti na vrhu tastature.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Dodelite Катлинзи vrstama unosa tako da se pojave na vrhu tastature kada se fokusirate na odgovarajuće tekstualno polje.";
+"No cutlings yet. Add some first." = "Još nema Катлингa. Prvo dodajte neke.";
 "Suggested" = "Predloženo";
 "Email" = "E-pošta";
 "URL" = "URL";
@@ -130,34 +130,41 @@
 
 /* MARK: - Keyboard Setup */
 "Setup Progress" = "Napredak podešavanja";
-"Open Cutling Settings" = "Otvori Cutling podešavanja";
-"Tap here, then switch to Cutling" = "Dodirnite ovde, zatim prebacite na Cutling";
+"Open Cutling Settings" = "Otvori Катлинг podešavanja";
+"Tap here, then switch to Cutling" = "Dodirnite ovde, zatim prebacite na Катлинг";
 "How to Use Your Keyboard" = "Kako koristiti tastaturu";
 "Storage Limits" = "Ograničenja skladišta";
 "You're All Set!" = "Sve je spremno!";
 "Set Up Your Keyboard" = "Podesite svoju tastaturu";
-"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Vaša Cutling tastatura je spremna! Dok kucate bilo gde, dodirnite ikonu 🌐 globusa na tastaturi da biste prešli na Cutling.";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Vaša Катлинг tastatura je spremna! Dok kucate bilo gde, dodirnite ikonu 🌐 globusa na tastaturi da biste prešli na Катлинг.";
 "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Pratite dva jednostavna koraka ispod da biste počeli da koristite svoju prilagođenu tastaturu. Ova stranica će se automatski ažurirati kako završite svaki korak.";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Korak 1:** Dodirnite 'Otvori Cutling podešavanja' ispod, idite na **Tastature** i izaberite **Cutling** sa liste.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Korak 1:** Dodirnite 'Otvori Катлинг podešavanja' ispod, idite na **Tastature** i izaberite **Катлинг** sa liste.";
 "**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Korak 2:** Proverite da li je **Dozvoli potpuni pristup** uključeno. Ovo omogućava tastaturi da kopira slike u vašu privremenu memoriju. Vaši podaci ostaju privatni i nikada se ne šalju nigde.";
-"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Korak 3:** Dodirnite tekstualni unos i izaberite \"Cutling\" koristeći ikonu 🌐 globusa na tastaturi da biste ažurirali status \"Potpuni pristup\".";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Korak 3:** Dodirnite tekstualni unos i izaberite \"Катлинг\" koristeći ikonu 🌐 globusa na tastaturi da biste ažurirali status \"Potpuni pristup\".";
 "**Step 4:** You're good to go! The usage guide is provided below." = "**Korak 4:** Sve je spremno! Vodič za korišćenje je dat ispod.";
-"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Dok kucate u bilo kojoj aplikaciji, dodirnite ili držite taster 🌐 globusa u donjem levom uglu tastature, zatim izaberite Cutling";
-"Tap any text cutling and it will be typed into your current text field immediately" = "Dodirnite bilo koji tekstualni cutling i on će odmah biti ukucan u vaše trenutno tekstualno polje";
-"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Dodirnite slikovni cutling da biste ga kopirali u privremenu memoriju, zatim ga nalepite u aplikaciju koju koristite (obično dodirom i držanjem, a zatim izborom Nalepi). Apple trenutno ne podržava direktno lepljenje slike u ovoj aplikaciji.";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Kopirajte bilo koji tekst, zatim dodirnite dugme 'Dodaj iz privremene memorije' na Cutling tastaturi da biste ga sačuvali kao novi cutling";
-"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Možete upravljati svim svojim cutlings u glavnoj Cutling aplikaciji. Promene koje napravite odmah će se pojaviti na vašoj tastaturi.";
-"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Proširenja tastature imaju stroga ograničenja memorije kako bi se obezbedila stabilnost sistema. Slike koriste više memorije od teksta, pa ih ograničavamo kako bi vaša tastatura ostala brza i pouzdana. Ako dostignete ograničenje, jednostavno obrišite neke cutlings da biste dodali nove.";
-"Up to **%lld text** cutlings" = "Do **%lld tekstualnih** cutlinga";
-"Up to **%lld image** cutlings" = "Do **%lld slikovnih** cutlinga";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Dok kucate u bilo kojoj aplikaciji, dodirnite ili držite taster 🌐 globusa u donjem levom uglu tastature, zatim izaberite Катлинг";
+"Tap any text cutling and it will be typed into your current text field immediately" = "Dodirnite bilo koji tekstualni Катлинг i on će odmah biti ukucan u vaše trenutno tekstualno polje";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Dodirnite slikovni Катлинг da biste ga kopirali u privremenu memoriju, zatim ga nalepite u aplikaciju koju koristite (obično dodirom i držanjem, a zatim izborom Nalepi). Apple trenutno ne podržava direktno lepljenje slike u ovoj aplikaciji.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Kopirajte bilo koji tekst, zatim dodirnite dugme 'Dodaj iz privremene memorije' na Катлинг tastaturi da biste ga sačuvali kao novi Катлинг";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Možete upravljati svim svojim Катлинзи u glavnoj Катлинг aplikaciji. Promene koje napravite odmah će se pojaviti na vašoj tastaturi.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Proširenja tastature imaju stroga ograničenja memorije kako bi se obezbedila stabilnost sistema. Slike koriste više memorije od teksta, pa ih ograničavamo kako bi vaša tastatura ostala brza i pouzdana. Ako dostignete ograničenje, jednostavno obrišite neke Катлинзи da biste dodali nove.";
+"Up to **%lld text** cutlings" = "Do **%lld tekstualnih** Катлингa";
+"Up to **%lld image** cutlings" = "Do **%lld slikovnih** Катлингa";
 "Back" = "Nazad";
 "Next" = "Dalje";
 "Get Started" = "Počnite";
-"Follow a few simple steps to start using your custom Cutling keyboard." = "Pratite nekoliko jednostavnih koraka da biste počeli da koristite svoju prilagođenu Cutling tastaturu.";
-"Enable Cutling Keyboard" = "Omogući Cutling tastaturu";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "Pratite nekoliko jednostavnih koraka da biste počeli da koristite svoju prilagođenu Катлинг tastaturu.";
+"Enable Cutling Keyboard" = "Omogući Катлинг tastaturu";
 "Test Your Keyboard" = "Testirajte svoju tastaturu";
 "All set! Swipe to continue." = "Sve je spremno! Prevucite za nastavak.";
 "Your data stays private and is never sent anywhere." = "Vaši podaci ostaju privatni i nikada se ne šalju nigde.";
+
+/* MARK: - Setup Guide Instructions */
+"Open Cutling in your device's **Settings** app." = "Отворите Катлинг у апликацији **Подешавања** на вашем уређају.";
+"Tap **Keyboards** and enable **Cutling**." = "Додирните **Тастатуре** и омогућите **Катлинг**.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Укључите **Дозволи пун приступ** да би тастатура могла да копира слике у привремену меморију.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Додирните поље за текст испод, а затим користите тастер 🌐 глобуса да пређете на **Катлинг**. Ово потврђује да је све исправно подешено.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud синхронизација је **експериментална функција**. Можда неће правилно радити у свим ситуацијама, што може довести до губитка података. Ово увек можете променити касније у Подешавањима.";
 
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "Недавно обрисано";
@@ -192,13 +199,13 @@
 "Continue" = "Настави";
 "Enable" = "Омогући";
 "Status" = "Статус";
-"New Text Cutling" = "Нови текстуални Cutling";
-"New Image Cutling" = "Нови Cutling са сликом";
+"New Text Cutling" = "Нови текстуални Катлинг";
+"New Image Cutling" = "Нови Катлинг са сликом";
 "Delete Selected" = "Обриши изабрано";
 "Auto-detect Input Types" = "Аутоматско препознавање врста уноса";
 "Input Types" = "Врсте уноса";
 "Enable iCloud Sync" = "Омогући iCloud синхронизацију";
-"Keep your cutlings in sync across all your devices." = "Одржавајте своје cutlings синхронизоване на свим уређајима.";
+"Keep your cutlings in sync across all your devices." = "Одржавајте своје Катлинзи синхронизоване на свим уређајима.";
 "Automatically detect and suggest input type categories when editing text." = "Аутоматски препознај и предложи категорије врста уноса при уређивању текста.";
 
 /* MARK: - Snapshot Seed Data */
