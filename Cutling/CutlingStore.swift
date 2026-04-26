@@ -130,7 +130,7 @@ class CutlingStore: ObservableObject {
     
     private func setupDarwinNotification() {
         let notificationName = "com.matsuokengo.Cutling.cutlingsChanged" as CFString
-        
+
         let observer = UnsafeRawPointer(Unmanaged.passUnretained(self).toOpaque())
         CFNotificationCenterAddObserver(
             CFNotificationCenterGetDarwinNotifyCenter(),
@@ -138,18 +138,20 @@ class CutlingStore: ObservableObject {
             { _, observer, _, _, _ in
                 guard let observer = observer else { return }
                 let store = Unmanaged<CutlingStore>.fromOpaque(observer).takeUnretainedValue()
-                store.loadIfChanged()
+                DispatchQueue.main.async {
+                    store.loadIfChanged()
+                }
             },
             notificationName,
             nil,
             .deliverImmediately
         )
     }
-    
+
     // MARK: - Real-Time Sync
-    
+
     private var lastLoadedData: Data?
-    
+
     private func loadIfChanged() {
         guard let data = defaults.data(forKey: cutlingsKey) else {
             // Key returned nil — do NOT clear in-memory cutlings.
@@ -157,16 +159,13 @@ class CutlingStore: ObservableObject {
             // briefly inaccessible. Wiping here would cause data loss.
             return
         }
-        
-        // Only reload if the data actually changed
+
         if data != lastLoadedData {
             lastLoadedData = data
             if let decoded = try? JSONDecoder().decode([Cutling].self, from: data) {
-                DispatchQueue.main.async {
-                    self.cutlings = decoded
-                    self.purgeExpired()
-                    print("🔄 Reloaded \(self.cutlings.count) cutlings from shared storage")
-                }
+                self.cutlings = decoded
+                self.purgeExpired()
+                print("🔄 Reloaded \(self.cutlings.count) cutlings from shared storage")
             }
         }
     }

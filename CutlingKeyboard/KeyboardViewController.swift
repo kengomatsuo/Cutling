@@ -221,7 +221,7 @@ class KeyboardViewController: UIInputViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         // Sync full-access state to shared UserDefaults AND observable state
         let fullAccess = hasFullAccess
         print(fullAccess)
@@ -232,9 +232,6 @@ class KeyboardViewController: UIInputViewController {
         keyboardState.keyboardType = textDocumentProxy.keyboardType ?? .default
         let contentType: UITextContentType? = textDocumentProxy.textContentType
         keyboardState.textContentType = contentType
-        
-        // Fetch remote changes from CloudKit (in case main app hasn't been opened)
-        KeyboardSyncHelper.fetchFromCloudKit(store: store)
         
         // Only create the hosting controller once
         if hostingController == nil {
@@ -317,9 +314,14 @@ class KeyboardViewController: UIInputViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        KeyboardSyncHelper.fetchFromCloudKit(store: store)
+    }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+
     }
 
     // Called every time the text input context changes — new text field,
