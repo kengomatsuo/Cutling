@@ -1,10 +1,53 @@
 # Ensure Homebrew binaries (ImageMagick, etc.) are in PATH.
 ENV["PATH"] = "/opt/homebrew/bin:#{ENV['PATH']}"
 
-# Extend fastlane's language list with Apple's newly added ASC locales (March 2026).
+# Use locales.json as the single source of truth for ASC locale codes.
+require 'json'
 require 'fastlane_core/languages'
-new_locales = %w[bn-BD gu-IN kn-IN ml-IN mr-IN or-IN pa-IN sl-SI ta-IN te-IN ur-PK]
-new_locales.each { |l| FastlaneCore::Languages::ALL_LANGUAGES << l unless FastlaneCore::Languages::ALL_LANGUAGES.include?(l) }
+
+def locale_codes_from_json
+  @locale_codes_from_json ||= JSON.parse(
+    File.read(File.join(__dir__, '..', 'locales.json'), encoding: 'UTF-8')
+  ).map { |locale| locale.fetch('code') }
+end
+
+def localized_support_url(locale)
+  "https://kengomatsuo.github.io/Cutling/#{locale.downcase}/support"
+end
+
+def localized_marketing_url(locale)
+  "https://kengomatsuo.github.io/Cutling/#{locale.downcase}"
+end
+
+def read_metadata_text(file)
+  return nil unless File.exist?(file)
+
+  value = File.read(file, encoding: 'UTF-8').strip
+  value.empty? ? nil : value
+end
+
+def ensure_locale_url_files
+  metadata_path = File.join(__dir__, "metadata")
+
+  locale_codes_from_json.each do |locale|
+    locale_dir = File.join(metadata_path, locale)
+    next unless File.directory?(locale_dir)
+
+    support_url_file = File.join(locale_dir, "support_url.txt")
+    marketing_url_file = File.join(locale_dir, "marketing_url.txt")
+
+    support_url = read_metadata_text(support_url_file) || localized_support_url(locale)
+    marketing_url = read_metadata_text(marketing_url_file) || localized_marketing_url(locale)
+
+    File.write(support_url_file, "#{support_url}\n", mode: "w") unless File.exist?(support_url_file) && read_metadata_text(support_url_file)
+    File.write(marketing_url_file, "#{marketing_url}\n", mode: "w") unless File.exist?(marketing_url_file) && read_metadata_text(marketing_url_file)
+  end
+end
+
+BASE_FASTLANE_LOCALES = FastlaneCore::Languages::ALL_LANGUAGES.dup.freeze
+locale_codes_from_json.each do |locale|
+  FastlaneCore::Languages::ALL_LANGUAGES << locale unless FastlaneCore::Languages::ALL_LANGUAGES.include?(locale)
+end
 
 # Force UTF-8 locale — xcodebuild on iOS 26 emits UTF-16/non-ASCII output
 # that crashes Ruby when the locale defaults to US-ASCII.
@@ -120,8 +163,7 @@ platform :ios do
 
   desc "Take screenshots for new ASC languages only (keeps existing screenshots)"
   lane :new_screenshots do
-    require 'json'
-    locales = JSON.parse(File.read(File.join(__dir__, "..", "locales.json"))).map { |l| l["code"] }
+    locales = locale_codes_from_json
     screenshots_dir = File.join(__dir__, "screenshots")
 
     # Find ASC locales that don't have screenshots yet
@@ -149,12 +191,15 @@ platform :ios do
 
   desc "Upload metadata only (no screenshots)"
   lane :upload_metadata do
+    ensure_locale_url_files
+    add_new_locales
+
     deliver(
       skip_binary_upload: true,
       skip_screenshots: true,
-      force: true
+      force: true,
+      ignore_language_directory_validation: true
     )
-    add_new_locales
   end
 
   desc "Upload screenshots only to App Store Connect"
@@ -171,18 +216,20 @@ platform :ios do
   desc "Upload metadata and screenshots to App Store Connect"
   lane :upload do
     Dir.glob(File.join(__dir__, "screenshots/**/*_framed.png")).each { |f| File.delete(f) }
+    ensure_locale_url_files
+    add_new_locales
+
     deliver(
       skip_binary_upload: true,
       force: true
     )
-    add_new_locales
   end
 
   desc "Create/update ASC localizations for new languages via Spaceship API"
   lane :add_new_locales do
     require 'spaceship'
 
-    new_locales = %w[bn-BD gu-IN kn-IN ml-IN mr-IN or-IN pa-IN sl-SI ta-IN te-IN ur-PK]
+    new_locales = locale_codes_from_json.reject { |locale| BASE_FASTLANE_LOCALES.include?(locale) }
     metadata_path = File.join(__dir__, "metadata")
 
     Spaceship::ConnectAPI.login(
@@ -221,11 +268,20 @@ platform :ios do
       end
 
       attrs = {}
-      field_map = { "description" => "description", "keywords" => "keywords", "release_notes" => "whatsNew", "promotional_text" => "promotionalText" }
+      field_map = {
+        "description" => "description",
+        "keywords" => "keywords",
+        "release_notes" => "whatsNew",
+        "promotional_text" => "promotionalText"
+      }
       field_map.each do |file_key, api_key|
         file = File.join(locale_dir, "#{file_key}.txt")
-        attrs[api_key.to_sym] = File.read(file, encoding: 'UTF-8').strip if File.exist?(file)
+        value = read_metadata_text(file)
+        attrs[api_key.to_sym] = value if value
       end
+
+      attrs[:supportUrl] = read_metadata_text(File.join(locale_dir, "support_url.txt")) || localized_support_url(locale)
+      attrs[:marketingUrl] = read_metadata_text(File.join(locale_dir, "marketing_url.txt")) || localized_marketing_url(locale)
 
       begin
         loc_obj = loc.is_a?(Spaceship::ConnectAPI::Response) ? loc.to_models.first : loc
@@ -265,8 +321,9 @@ platform :ios do
         attrs = {}
         name_file = File.join(locale_dir, "name.txt")
         subtitle_file = File.join(locale_dir, "subtitle.txt")
-        attrs[:name] = File.read(name_file, encoding: 'UTF-8').strip if File.exist?(name_file)
-        attrs[:subtitle] = File.read(subtitle_file, encoding: 'UTF-8').strip if File.exist?(subtitle_file)
+
+        attrs[:name] = read_metadata_text(name_file) if File.exist?(name_file)
+        attrs[:subtitle] = read_metadata_text(subtitle_file) if File.exist?(subtitle_file)
 
         begin
           Spaceship::ConnectAPI.patch_app_info_localization(
