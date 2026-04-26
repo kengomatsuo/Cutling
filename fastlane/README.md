@@ -31,13 +31,21 @@ Take localized screenshots
 
 Take screenshots and add device frames with marketing text
 
-### ios upload
+### ios new_screenshots
 
 ```sh
-[bundle exec] fastlane ios upload
+[bundle exec] fastlane ios new_screenshots
 ```
 
-Upload metadata and screenshots to App Store Connect
+Take screenshots for new ASC languages only (keeps existing screenshots)
+
+### ios frame
+
+```sh
+[bundle exec] fastlane ios frame
+```
+
+Frame screenshots with device bezels and marketing text
 
 ### ios upload_metadata
 
@@ -47,13 +55,45 @@ Upload metadata and screenshots to App Store Connect
 
 Upload metadata only (no screenshots)
 
+### ios upload_screenshots
+
+```sh
+[bundle exec] fastlane ios upload_screenshots
+```
+
+Upload screenshots only to App Store Connect
+
+### ios upload
+
+```sh
+[bundle exec] fastlane ios upload
+```
+
+Upload metadata and screenshots to App Store Connect
+
 ### ios add_new_locales
 
 ```sh
 [bundle exec] fastlane ios add_new_locales
 ```
 
-Add new App Store Connect localizations and upload their metadata
+Create/update ASC localizations for new languages via Spaceship API
+
+### ios build
+
+```sh
+[bundle exec] fastlane ios build
+```
+
+Build IPA for App Store submission
+
+### ios deploy
+
+```sh
+[bundle exec] fastlane ios deploy
+```
+
+Full deploy: metadata → missing screenshots → frame → upload all → build & submit
 
 ----
 

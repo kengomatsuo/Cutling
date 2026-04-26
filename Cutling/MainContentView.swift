@@ -698,7 +698,7 @@ struct MainContentView: View {
         
         Menu {
             Button {
-                withAnimation { mode = .selecting }
+                mode = .selecting
             } label: {
                 Label("Select Cutlings", systemImage: "checkmark.circle")
             }
@@ -736,7 +736,7 @@ struct MainContentView: View {
     @ViewBuilder
     private var selectingPrimaryToolbarItems: some View {
         Button {
-            withAnimation { mode = .browsing }
+            mode = .browsing
         } label: {
             if #available(iOS 26, macOS 26, *) {
                 Image(systemName: "xmark")
@@ -977,7 +977,7 @@ struct MainContentView: View {
             #else
             selectedCutlingIDs.removeAll()
             #endif
-            withAnimation { mode = .browsing }
+            mode = .browsing
         }
     }
     
@@ -998,7 +998,7 @@ struct MainContentView: View {
 
     #if os(macOS)
     private func updateMenuCommands() {
-        menuCommands.enterSelectMode = { withAnimation { mode = .selecting } }
+        menuCommands.enterSelectMode = { mode = .selecting }
         menuCommands.enterReorderMode = { mode = .ordering }
         menuCommands.deleteSelected = {
             if !selectedIDs.isEmpty {

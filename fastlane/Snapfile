@@ -5,6 +5,7 @@ devices([
 
 languages([
   "ar-SA",
+  "bn-BD",
   "ca",
   "cs",
   "da",
@@ -19,6 +20,7 @@ languages([
   "fi",
   "fr-CA",
   "fr-FR",
+  "gu-IN",
   "he",
   "hi",
   "hr",
@@ -26,25 +28,35 @@ languages([
   "id",
   "it",
   "ja",
+  "kn-IN",
   "ko",
+  "ml-IN",
+  "mr-IN",
   "ms",
   "nl-NL",
   "no",
+  "or-IN",
+  "pa-IN",
   "pl",
   "pt-BR",
   "pt-PT",
   "ro",
   "ru",
   "sk",
+  "sl-SI",
   "sv",
+  "ta-IN",
+  "te-IN",
   "th",
   "tr",
   "uk",
+  "ur-PK",
   "vi",
   "zh-Hans",
   "zh-Hant"
 ])
 
+ios_version("26.4.1")
 scheme("Cutling")
 output_directory("./fastlane/screenshots")
 clear_previous_screenshots(false)

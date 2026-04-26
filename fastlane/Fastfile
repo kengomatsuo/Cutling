@@ -64,6 +64,27 @@ end
   end
 end
 
+# Monkey-patch: simctl list devices reports truncated runtime versions
+# (e.g. "26.4") but xcodebuild uses the full version ("26.4.1"), causing
+# destination mismatches. Correct using fastlane's own runtime version data.
+require 'fastlane_core/device_manager'
+::FastlaneCore::DeviceManager.class_eval do
+  class << self
+    alias_method :__orig_simulators, :simulators
+    def simulators(requested_os_type = "")
+      devices = __orig_simulators(requested_os_type)
+      actual = runtime_build_os_versions.values
+      devices.each do |d|
+        full = actual.find { |v| v != d.os_version && v.start_with?("#{d.os_version}.") }
+        next unless full
+        d.os_version = full
+        d.ios_version = full
+      end
+      devices
+    end
+  end
+end
+
 # Monkey-patch: fastlane 2.232.2 calls device.devicetype.name but simctl gem
 # may return a raw String when the devicetype lookup fails, crashing snapshot.
 require "simctl"
@@ -97,14 +118,32 @@ platform :ios do
     )
   end
 
-  desc "Upload metadata and screenshots to App Store Connect"
-  lane :upload do
-    # Remove framed screenshots — they have non-standard dimensions from device bezels/marketing text
-    Dir.glob(File.join(__dir__, "screenshots/**/*_framed.png")).each { |f| File.delete(f) }
-    deliver(
-      skip_binary_upload: true,
-      ignore_language_directory_validation: true,
-      force: true
+  desc "Take screenshots for new ASC languages only (keeps existing screenshots)"
+  lane :new_screenshots do
+    require 'json'
+    locales = JSON.parse(File.read(File.join(__dir__, "..", "locales.json")))
+    screenshots_dir = File.join(__dir__, "screenshots")
+
+    # Find ASC locales that don't have screenshots yet
+    missing = locales
+      .reject { |asc| Dir.glob(File.join(screenshots_dir, asc, "*.png")).any? }
+
+    UI.message("Missing screenshots for: #{missing.join(', ')}")
+
+    snapshot(
+      languages: missing,
+      clear_previous_screenshots: false,
+      output_directory: "./fastlane/screenshots"
+    )
+  end
+
+  desc "Frame screenshots with device bezels and marketing text"
+  lane :frame do
+    FileUtils.cp("./Framefile.json", "./screenshots/Framefile.json")
+    FileUtils.cp("./background.png", "./screenshots/background.png")
+    frameit(
+      white: false,
+      path: "./fastlane/screenshots"
     )
   end
 
@@ -112,13 +151,34 @@ platform :ios do
   lane :upload_metadata do
     deliver(
       skip_binary_upload: true,
-      ignore_language_directory_validation: true,
       skip_screenshots: true,
+      force: true
+    )
+    add_new_locales
+  end
+
+  desc "Upload screenshots only to App Store Connect"
+  lane :upload_screenshots do
+    Dir.glob(File.join(__dir__, "screenshots/**/*_framed.png")).each { |f| File.delete(f) }
+    deliver(
+      skip_binary_upload: true,
+      skip_metadata: true,
+      overwrite_screenshots: true,
       force: true
     )
   end
 
-  desc "Add new App Store Connect localizations and upload their metadata"
+  desc "Upload metadata and screenshots to App Store Connect"
+  lane :upload do
+    Dir.glob(File.join(__dir__, "screenshots/**/*_framed.png")).each { |f| File.delete(f) }
+    deliver(
+      skip_binary_upload: true,
+      force: true
+    )
+    add_new_locales
+  end
+
+  desc "Create/update ASC localizations for new languages via Spaceship API"
   lane :add_new_locales do
     require 'spaceship'
 
@@ -219,5 +279,46 @@ platform :ios do
         end
       end
     end
+  end
+
+  desc "Build IPA for App Store submission"
+  lane :build do
+    gym(
+      scheme: "Cutling",
+      export_method: "app-store",
+      output_directory: "./build",
+      clean: true
+    )
+  end
+
+  desc "Full deploy: metadata → missing screenshots → frame → upload all → build & submit"
+  lane :deploy do
+    # 1. Upload metadata (standard + new locales)
+    UI.header("Step 1/5: Uploading metadata")
+    upload_metadata
+
+    # 2. Capture missing screenshots
+    UI.header("Step 2/5: Capturing missing screenshots")
+    new_screenshots
+
+    # 3. Frame screenshots
+    UI.header("Step 3/5: Framing screenshots")
+    frame
+
+    # 4. Upload screenshots
+    UI.header("Step 4/5: Uploading screenshots")
+    upload_screenshots
+
+    # 5. Build and upload binary
+    UI.header("Step 5/5: Building and uploading binary")
+    build
+    deliver(
+      skip_metadata: true,
+      skip_screenshots: true,
+      force: true,
+      ipa: "./build/Cutling.ipa"
+    )
+
+    UI.success("Deploy complete!")
   end
 end
