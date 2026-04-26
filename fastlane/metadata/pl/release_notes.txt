@@ -1,3 +1,5 @@
 • Poprawiona spójność tłumaczeń we wszystkich obsługiwanych językach
-• Naprawiono problemy z nazwami w lokalizacjach
-• Drobne ulepszenia i poprawki błędów
+• Naprawiono problemy z nazewnictwem lokalizacji
+• Naprawiono awarię, która mogła wystąpić podczas pierwszego otwarcia klawiatury po ponownym uruchomieniu urządzenia
+• Poprawiono wydajność uruchamiania klawiatury poprzez odroczenie synchronizacji w tle
+• Większa niezawodność synchronizacji danych między procesami

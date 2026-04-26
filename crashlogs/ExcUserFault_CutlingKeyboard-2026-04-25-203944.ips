@@ -1,0 +1,91 @@
+{"is_simulated":1,"app_name":"CutlingKeyboard","timestamp":"2026-04-25 20:39:44.00 +0900","app_version":"1.2.1","slice_uuid":"2a6de362-9cb1-3546-94bd-c7311108bd91","adam_id":"6759476314","build_version":"5","platform":2,"bundleID":"com.matsuokengo.Cutling.CutlingKeyboard","share_with_app_devs":0,"is_first_party":0,"bug_type":"308","os_version":"iPhone OS 26.4.1 (23E254)","incident_id":"A3FC03B7-51A3-4479-80B4-BC664DEF17CD","name":"CutlingKeyboard","roots_installed":0}
+{
+  "uptime" : 760000,
+  "procRole" : "Unspecified",
+  "version" : 2,
+  "userID" : 501,
+  "deployVersion" : 210,
+  "modelCode" : "iPhone15,4",
+  "coalitionID" : 10775,
+  "osVersion" : {
+    "isEmbedded" : true,
+    "train" : "iPhone OS 26.4.1",
+    "releaseType" : "User",
+    "build" : "23E254"
+  },
+  "captureTime" : "2026-04-25 20:39:44.2175 +0900",
+  "codeSigningMonitor" : 2,
+  "incident" : "A3FC03B7-51A3-4479-80B4-BC664DEF17CD",
+  "pid" : 85960,
+  "translated" : false,
+  "cpuType" : "ARM-64",
+  "procStartAbsTime" : 18309970499871,
+  "procName" : "CutlingKeyboard",
+  "procPath" : "\/private\/var\/containers\/Bundle\/Application\/EE7DA62C-599C-4FC6-97CC-808B34BC13B0\/Cutling.app\/PlugIns\/CutlingKeyboard.appex\/CutlingKeyboard",
+  "bundleInfo" : {"CFBundleShortVersionString":"1.2.1","CFBundleVersion":"5","CFBundleIdentifier":"com.matsuokengo.Cutling.CutlingKeyboard"},
+  "storeInfo" : {"itemID":"6759476314","storeCohortMetadata":"10|date=1774479600000&sf=143476&cmp=navitime_link_ios&cid=686373726&app=com.apple.AppStore&pgtp=Search&pgid=SearchTopResults&prpg=SearchLanding_SearchLanding&ctxt=Search&issrch=1&imptyp=card&kind=iosSoftware&lngid=2","distributorID":"com.apple.AppStore","deviceIdentifierForVendor":"F1A60A95-C5F3-44DA-87EE-2BC6CB522720","softwareVersionExternalIdentifier":"883869546","applicationVariant":"1:iPhone15,4:18","thirdParty":true},
+  "parentPid" : 1,
+  "coalitionName" : "com.matsuokengo.Cutling.CutlingKeyboard",
+  "crashReporterKey" : "322e44e7f9c3def9166e4dbac5190ced5c9f77a7",
+  "developerMode" : 1,
+  "bootProgressRegister" : "0x20800004",
+  "wasUnlockedSinceBoot" : 1,
+  "isLocked" : 0,
+  "codeSigningValidationCategory" : 0,
+  "codeSigningTrustLevel" : 0,
+  "bootSessionUUID" : "3834A901-F184-4D1D-B998-E1872A0AC65B",
+  "basebandVersion" : "3.50.07",
+  "isLightWeightCorpse" : 1,
+  "exception" : {"codes":"0x6000000000000007, 0x0000000000000009","reason":9,"message":"namespc 7 reason_code 0x0000000000000009","subtype":"GUARD_TYPE_USER","type":"EXC_GUARD","rawCodes":[6917529027641081863,9],"namespc":7},
+  "termination" : {"flags":518,"code":9,"namespace":"LIBXPC","indicator":"XPC_EXIT_REASON_FAULT"},
+  "faultingThread" : 0,
+  "threads" : [{"id":12431920,"frames":[{"imageOffset":2986088828,"imageIndex":0},{"imageOffset":401316020,"imageIndex":0},{"imageOffset":401362436,"imageIndex":0},{"imageOffset":401366688,"imageIndex":0},{"imageOffset":275168696,"imageIndex":0},{"imageOffset":275167592,"imageIndex":0},{"imageOffset":459020708,"imageIndex":0},{"imageOffset":459078188,"imageIndex":0},{"imageOffset":459077688,"imageIndex":0},{"imageOffset":401374324,"imageIndex":0},{"imageOffset":401381660,"imageIndex":0},{"imageOffset":1031021100,"imageIndex":0},{"imageOffset":1031031716,"imageIndex":0},{"imageOffset":1030950424,"imageIndex":0},{"imageOffset":1031035128,"imageIndex":0},{"imageOffset":1030950424,"imageIndex":0},{"imageOffset":1030953700,"imageIndex":0},{"imageOffset":1030995372,"imageIndex":0},{"imageOffset":1030993580,"imageIndex":0},{"imageOffset":1647477680,"imageIndex":0},{"imageOffset":1647474880,"imageIndex":0}],"threadState":{"x":[{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0},{"value":0}],"flavor":"ARM_THREAD_STATE64","lr":{"value":0},"cpsr":{"value":0},"fp":{"value":0},"sp":{"value":0},"esr":{"value":0},"pc":{"value":0,"matchesCrashFrame":0},"far":{"value":0}}}],
+  "usedImages" : [
+  {
+    "size" : 5032425024,
+    "source" : "S",
+    "base" : 6442450944,
+    "uuid" : "b02ee3b3-f270-3010-baa5-37d18a8f902c"
+  }
+],
+  "legacyInfo" : {
+  "threadTriggered" : {
+
+  }
+},
+  "roots_installed" : 0,
+  "bug_type" : "308",
+  "trialInfo" : {
+  "rollouts" : [
+    {
+      "rolloutId" : "6246d6a916a70b047e454124",
+      "factorPackIds" : [
+        "64496ae8128ed17664c618d9"
+      ],
+      "deploymentId" : 240000010
+    },
+    {
+      "rolloutId" : "601074e4af9bef000c169ea8",
+      "factorPackIds" : [
+        "69e7a862c05e85022b9f02d2"
+      ],
+      "deploymentId" : 240004935
+    }
+  ],
+  "experiments" : [
+    {
+      "treatmentId" : "d6b2a8f8-0d5d-413e-a3fd-b7486e31f537",
+      "experimentId" : "69b42b8f805ff76412633e13",
+      "deploymentId" : 4
+    },
+    {
+      "treatmentId" : "c2e2c4d1-bc93-47ec-b433-5a21317aad4b",
+      "experimentId" : "67e32776f470dc0e83d9e147",
+      "deploymentId" : 400000009
+    }
+  ]
+},
+  "reportNotes" : [
+  "PC register does not match crashing frame (0x0 vs 0x231FC197C)"
+]
+}

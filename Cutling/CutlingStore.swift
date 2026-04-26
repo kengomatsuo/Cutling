@@ -116,6 +116,7 @@ class CutlingStore: ObservableObject {
         // Listen for changes from other processes (keyboard extension or main app)
         NotificationCenter.default
             .publisher(for: UserDefaults.didChangeNotification)
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] _ in
                 self?.loadIfChanged()
             }
