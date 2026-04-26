@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+private let websiteBaseURL = "https://kengomatsuo.github.io/Cutling"
+
 struct KeyboardView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var store: CutlingStore
@@ -25,6 +27,13 @@ struct KeyboardView: View {
         UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.bool(forKey: "hasFullAccess") ?? false
     }
     #endif
+
+    private static func localizedWebURL(path: String) -> URL {
+        var code = Locale.preferredLanguages.first?.lowercased() ?? "en-us"
+        if code.hasPrefix("nb") { code = "no" }
+        let prefix = (code == "en-us" || code == "en") ? "" : "/\(code)"
+        return URL(string: "\(websiteBaseURL)\(prefix)/\(path)/")!
+    }
 
     var body: some View {
         NavigationStack {
@@ -106,7 +115,7 @@ struct KeyboardView: View {
                         Label("Contact Support", systemImage: "envelope")
                     }
 
-                    Link(destination: URL(string: "https://kengomatsuo.github.io/Cutling/privacy/")!) {
+                    Link(destination: Self.localizedWebURL(path: "privacy")) {
                         Label("Privacy Policy", systemImage: "hand.raised")
                     }
                 }

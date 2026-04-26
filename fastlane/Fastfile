@@ -121,7 +121,7 @@ platform :ios do
   desc "Take screenshots for new ASC languages only (keeps existing screenshots)"
   lane :new_screenshots do
     require 'json'
-    locales = JSON.parse(File.read(File.join(__dir__, "..", "locales.json")))
+    locales = JSON.parse(File.read(File.join(__dir__, "..", "locales.json"))).map { |l| l["code"] }
     screenshots_dir = File.join(__dir__, "screenshots")
 
     # Find ASC locales that don't have screenshots yet

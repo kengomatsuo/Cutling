@@ -46,6 +46,7 @@ struct KeyboardSetupView: View {
         switch SetupPage(rawValue: currentPage) {
         case .enable: return keyboardDetected
         case .test: return allDone
+        case .done: return allDone
         default: return true
         }
     }
@@ -486,8 +487,17 @@ struct KeyboardSetupView: View {
                         }
                     }
                 }
+            } else if isOnboarding && allDone {
+                Button {
+                    finish()
+                } label: {
+                    if #available(iOS 26, *) {
+                        Image(systemName: "xmark")
+                    } else {
+                        Text("Done")
+                    }
+                }
             } else if !isOnboarding {
-                // Close button (welcome or done page, non-onboarding)
                 Button {
                     finish()
                 } label: {
