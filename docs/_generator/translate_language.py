@@ -22,6 +22,29 @@ SCRIPT_DIR = Path(__file__).parent
 REPO_ROOT = SCRIPT_DIR.parent.parent
 TRANSLATIONS_DIR = SCRIPT_DIR / "translations"
 LOCALES_FILE = REPO_ROOT / "locales.json"
+METADATA_DIR = REPO_ROOT / "fastlane" / "metadata"
+
+def get_app_name(lang_code):
+    name_file = METADATA_DIR / lang_code / "name.txt"
+    if name_file.exists():
+        return name_file.read_text(encoding="utf-8").strip()
+    return "Cutling"
+
+# Plural forms for borrowed nouns vary by language.
+# Languages with no grammatical plural (ja, ko, th, hi, zh, etc.) use singular.
+# Languages that pluralize borrowed words get their morphological plural here.
+APP_NAME_PLURALS = {
+    "Cutling":   "Cutlings",     # Latin-script languages
+    "Катлинг":   "Катлинги",    # ru — masc. consonant stem, plural -и
+    "Катлінг":   "Катлінги",    # uk — same pattern
+    "קאטלינג":  "קאטלינגים",   # he — masc. plural suffix -ים
+    "كاتلينج":   "كاتلينجات",   # ar-SA — borrowed noun regular plural -ات
+    "कटलिंग":   "कटलिंग्स",    # hi — borrowed noun, English -s via ्स
+    # Japanese, Korean, Thai, Chinese: no plural morphology → same as singular
+}
+
+def get_app_name_plural(app_name):
+    return APP_NAME_PLURALS.get(app_name, app_name)
 
 # Map locale codes to Google Translate language codes
 # Note: Google Translate uses different codes than standard ISO codes
@@ -258,11 +281,22 @@ if __name__ == "__main__":
 
     def translate_one(code, lang_name, rtl):
         google_code = get_google_code(code)
+        app_name = get_app_name(code)
+        app_name_plural = get_app_name_plural(app_name)
         local_cache = {}
         translation_dict = {}
         for key, en_value in all_keys:
-            translation_dict[key] = translate_text(en_value, google_code, local_cache)
-            time.sleep(0.1)
+            if key == "app_name":
+                translation_dict[key] = app_name
+            else:
+                translated = translate_text(en_value, google_code, local_cache)
+                def brand_repl(m: re.Match) -> str:
+                    matched: str = m.group(0)
+                    result = app_name_plural if matched.lower().endswith('s') else app_name
+                    return str(result)
+                translated = re.sub(r'(?i)cutlings?', brand_repl, translated)
+                translation_dict[key] = translated
+                time.sleep(0.1)
         save_translation(code, lang_name, translation_dict, rtl)
 
     with tqdm(total=len(to_translate), desc="Translating", unit="lang") as bar:
