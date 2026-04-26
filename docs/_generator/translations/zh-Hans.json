@@ -1,23 +1,19 @@
 {
     "_language_code": "zh-Hans",
     "_language_name": "简体中文",
-
     "nav_home": "首页",
     "nav_faq": "常见问题",
     "nav_support": "支持",
     "nav_privacy": "隐私政策",
     "footer_copyright": "&copy; 2026 Kenneth Johannes Fang. 版权所有。",
     "language_picker_label": "语言",
-
     "page_title_home": "Cutling &mdash; 你的剪贴板，已整理。",
     "page_title_faq": "常见问题 &mdash; Cutling",
     "page_title_support": "支持 &mdash; Cutling",
     "page_title_privacy": "隐私政策 &mdash; Cutling",
-
     "hero_title": "你的剪贴板，已整理。",
     "hero_subtitle": "保存文本片段和图像。通过自定义键盘从任何应用即时访问。无账户、无跟踪 &mdash; 只有你的。",
     "cta_button": "在 App Store 下载",
-
     "how_it_works_title": "工作原理",
     "step1_title": "保存",
     "step1_text": "将文本片段或图像添加到你的收藏 &mdash; 地址、签名、二维码、你想随时重用的任何东西。",
@@ -31,13 +27,11 @@
     "step4_title": "跨设备同步",
     "step4_text": "可选地启用 iCloud 在 iPhone、iPad 和 Mac 之间同步片段。",
     "img_alt_settings": "带有 iCloud 同步的设置",
-
     "why_paid_title": "为什么 Cutling 是付费应用",
     "why_paid_emphasis": "无广告。无跟踪。无订阅。无应用内购买。",
     "why_paid_p1": "一次付费，永久拥有。就这么简单。",
     "why_paid_p2": "Cutling 没有要维护的服务器，也没有关于你数据的数据库。这意味着低开销和可持续的应用 &mdash; 我们无需将你的兴趣或信息货币化。",
     "why_paid_p3": "无额外销售，无&ldquo;高级&ldquo;层级，无升级请求。从第一天起就获得完整应用。",
-
     "features_title": "功能",
     "feature_text_snippets_title": "文本片段",
     "feature_text_snippets_desc": "保存最多 100 个文本片段，每个最多 2,000 个字符。",
@@ -55,11 +49,9 @@
     "feature_recently_deleted_desc": "意外删除了什么？在 30 天内恢复。",
     "feature_devices_title": "iPhone、iPad 和 Mac",
     "feature_devices_desc": "所有 Apple 设备上的一个应用，每个上面的本地体验。",
-
     "privacy_teaser_title": "隐私优先",
     "privacy_teaser_text": "Cutling 从不收集数据。无分析。无崩溃报告。无第三方 SDK。你的片段保留在你的设备 &mdash; 或如果你选择启用同步则在你的私密 iCloud 账户上。开发者无法访问你的数据，句号。",
     "privacy_teaser_link": "阅读完整隐私政策",
-
     "faq_title": "常见问题",
     "faq_q1": "什么是&ldquo;片段&ldquo;？",
     "faq_a1": "片段是保存的片段 &mdash; 你想随时重用的文本或图像，就像你的剪贴板中的剪切一样，随时可用。",
@@ -79,7 +71,6 @@
     "faq_a8": "没有。Cutling 是一次性购买。无订阅、无应用内购买、无广告。一次付费，永久拥有。",
     "faq_q9": "已删除的片段会发生什么？",
     "faq_a9": "已删除的片段移到&ldquo;最近删除&ldquo;文件夹中保存 30 天。在此期间你可以恢复，或让它们自动过期。",
-
     "support_title": "支持",
     "support_subtitle": "需要帮助？我们来帮你。",
     "support_contact_title": "联系",
@@ -96,7 +87,6 @@
     "support_ts_images_text": "图像片段需要完全访问。如果图像仍未显示，尝试在设置中删除 Cutling 键盘并重新添加。",
     "support_more_help_title": "更多帮助",
     "support_more_help_text": "有关功能、隐私和应用工作原理的常见问题答案，请检查<a href=\"../faq/\">常见问题</a>。",
-
     "privacy_page_title": "隐私政策",
     "privacy_effective": "生效日期：2026 年 3 月 8 日",
     "privacy_summary": "Cutling 不收集、存储或向我们发送你的数据。你的数据保留在你的设备上，或如果你选择启用同步则通过私密 iCloud 账户保留（可选）。",
@@ -123,5 +113,6 @@
     "privacy_changes_text": "如果此政策被更新，更改将在此页面上以修订的生效日期发布。",
     "privacy_changes_log": "<strong>2026 年 3 月 8 日：</strong>已更新以反映图像片段的添加和可选 iCloud 同步功能。澄清了 iCloud 同步是可选的且可禁用的，并且同步的数据存储在私密 iCloud 账户中。",
     "privacy_contact_title": "联系",
-    "privacy_contact_text": "如果你对此政策有疑问，你可以在 <a href=\"mailto:kenneth@matsuokengo.com\">kenneth@matsuokengo.com</a> 与开发者联系。"
+    "privacy_contact_text": "如果你对此政策有疑问，你可以在 <a href=\"mailto:kenneth@matsuokengo.com\">kenneth@matsuokengo.com</a> 与开发者联系。",
+    "_rtl": false
 }

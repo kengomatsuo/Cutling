@@ -1,23 +1,19 @@
 {
-    "_language_code": "nb",
+    "_language_code": "no",
     "_language_name": "Norsk bokmål",
-
     "nav_home": "Hjem",
     "nav_faq": "Vanlige spørsmål",
     "nav_support": "Støtte",
     "nav_privacy": "Personvern",
     "footer_copyright": "&copy; 2026 Kenneth Johannes Fang. Alle rettigheter forbeholdt.",
     "language_picker_label": "Språk",
-
     "page_title_home": "Cutling &mdash; Ditt utklippstavle, organisert.",
     "page_title_faq": "Vanlige spørsmål &mdash; Cutling",
     "page_title_support": "Støtte &mdash; Cutling",
     "page_title_privacy": "Personvernpolicy &mdash; Cutling",
-
     "hero_title": "Ditt utklippstavle, organisert.",
     "hero_subtitle": "Lagre tekst fragmenter og bilder. Få øyeblikkelig tilgang fra hvilken som helst app med et tilpasset tastatur. Ingen kontoer, ingen sporing &mdash; bare dine ting.",
     "cta_button": "Last ned fra App Store",
-
     "how_it_works_title": "Slik fungerer det",
     "step1_title": "Lagre det",
     "step1_text": "Legg til tekst fragmenter eller bilder i samlingen din &mdash; adresser, signaturer, QR-koder, hva som helst du gjenbruker ofte.",
@@ -31,13 +27,11 @@
     "step4_title": "Synkroniser på tvers av enheter",
     "step4_text": "Aktiver eventuelt iCloud for å holde fragmentene dine synkronisert på iPhone, iPad og Mac.",
     "img_alt_settings": "Innstillinger med iCloud-synkronisering",
-
     "why_paid_title": "Hvorfor Cutling er en betalt app",
     "why_paid_emphasis": "Ingen annonser. Ingen sporing. Ingen abonnementer. Ingen kjøp i appen.",
     "why_paid_p1": "Betale en gang, eie for alltid. Det er alt.",
     "why_paid_p2": "Cutling har ingen servere å vedlikeholde og ingen database med dine data. Det betyr lave overhead-kostnader og en bærekraftig app bygget for å høre hjemme &mdash; uten behov for å tjene penger på oppmerksomheten eller informasjonen din.",
     "why_paid_p3": "Ingen mersalg, ingen &ldquo;premium&rdquo; nivåer, ingen oppfordringer om oppgradering. Du får den fullstendige appen fra dag en.",
-
     "features_title": "Funksjoner",
     "feature_text_snippets_title": "Tekst fragmenter",
     "feature_text_snippets_desc": "Lagre opptil 100 tekst fragmenter, hver opptil 2 000 tegn.",
@@ -55,11 +49,9 @@
     "feature_recently_deleted_desc": "Slettet du noe ved en ulykke? Gjenopprett det innen 30 dager.",
     "feature_devices_title": "iPhone, iPad og Mac",
     "feature_devices_desc": "Én app på alle Apple-enhetene dine, med en innebygd opplevelse på hver.",
-
     "privacy_teaser_title": "Personvern først",
     "privacy_teaser_text": "Cutling samler absolutt ingen data. Ingen analyse. Ingen krasj rapporter. Ingen SDK-er fra tredjepart. Fragmentene dine forblir på enheten din &mdash; eller på din personlige iCloud-konto hvis du velger å aktivere synkronisering. Utvikleren kan ikke få tilgang til dataene dine, punkt.",
     "privacy_teaser_link": "Les den fullstendige personvernpolicyen",
-
     "faq_title": "Vanlige spørsmål",
     "faq_q1": "Hva er et &ldquo;fragment&rdquo;?",
     "faq_a1": "Et fragment er et lagret utdrag &mdash; et stykke tekst eller et bilde som du ønsker å ha for hånden for rask tilgang. Tenk på det som et utklipp fra utklippstavlen din som du kan gjenbruke når som helst.",
@@ -79,7 +71,6 @@
     "faq_a8": "Nei. Cutling er et enganskjøp. Ingen abonnementer, ingen kjøp i appen, ingen annonser. Betale en gang, eie for alltid.",
     "faq_q9": "Hva skjer med slettede fragmenter?",
     "faq_a9": "Slettede fragmenter går til en &ldquo;Nylig slettet&rdquo;-mappe der de holdes i 30 dager. Du kan gjenopprette dem i denne perioden eller la dem utløpe automatisk.",
-
     "support_title": "Støtte",
     "support_subtitle": "Trenger du hjelp? Vi er her for deg.",
     "support_contact_title": "Kontakt",
@@ -96,7 +87,6 @@
     "support_ts_images_text": "Bilde fragmenter krever full tilgang. Hvis bildene fortsatt ikke vises, prøv å fjerne og legge til Cutling-tastaturet på nytt i Innstillinger.",
     "support_more_help_title": "Mer hjelp",
     "support_more_help_text": "Sjekk <a href=\"../faq/\">Vanlige spørsmål</a> for svar på vanlige spørsmål om funksjoner, personvern og hvordan appen fungerer.",
-
     "privacy_page_title": "Personvernpolicy",
     "privacy_effective": "Gjelder fra: 8. mars 2026",
     "privacy_summary": "Cutling samler, lagrer eller overfører ingen av dataene dine til oss. Dataene dine forblir på enheten din eller synkroniseres privat via din personlige iCloud-konto (valgfritt).",
@@ -123,5 +113,6 @@
     "privacy_changes_text": "Hvis denne policyen oppdateres, vil endringene bli publisert på denne siden med en revidert gjeldende dato.",
     "privacy_changes_log": "<strong>8. mars 2026:</strong> Oppdatert for å reflektere tillegget av bilde fragmenter og valgfri iCloud-synkroniseringsfunksjon. Klargjort at iCloud-synkronisering er valgfritt og kan deaktiveres, og at synkroniserte data lagres på din personlige iCloud-konto.",
     "privacy_contact_title": "Kontakt",
-    "privacy_contact_text": "Hvis du har spørsmål om denne policyen, kan du kontakte utvikleren på <a href=\"mailto:kenneth@matsuokengo.com\">kenneth@matsuokengo.com</a>."
+    "privacy_contact_text": "Hvis du har spørsmål om denne policyen, kan du kontakte utvikleren på <a href=\"mailto:kenneth@matsuokengo.com\">kenneth@matsuokengo.com</a>.",
+    "_rtl": false
 }

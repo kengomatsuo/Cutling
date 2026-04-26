@@ -1,23 +1,19 @@
 {
-    "_language_code": "es",
+    "_language_code": "es-ES",
     "_language_name": "Español",
-
     "nav_home": "Inicio",
     "nav_faq": "Preguntas frecuentes",
     "nav_support": "Soporte",
     "nav_privacy": "Privacidad",
     "footer_copyright": "&copy; 2026 Kenneth Johannes Fang. Todos los derechos reservados.",
     "language_picker_label": "Idioma",
-
     "page_title_home": "Cutling &mdash; Tu portapapeles, organizado.",
     "page_title_faq": "Preguntas frecuentes &mdash; Cutling",
     "page_title_support": "Soporte &mdash; Cutling",
     "page_title_privacy": "Política de privacidad &mdash; Cutling",
-
     "hero_title": "Tu portapapeles, organizado.",
     "hero_subtitle": "Guarda fragmentos de texto e imágenes. Accede a ellos al instante desde cualquier aplicación con un teclado personalizado. Sin cuentas, sin seguimiento &mdash; solo tu contenido.",
     "cta_button": "Descargar en la App Store",
-
     "how_it_works_title": "Cómo funciona",
     "step1_title": "Guárdalo",
     "step1_text": "Añade fragmentos de texto o imágenes a tu colección &mdash; direcciones, firmas, códigos QR, cualquier cosa que reutilices a menudo.",
@@ -31,13 +27,11 @@
     "step4_title": "Sincroniza entre dispositivos",
     "step4_text": "Habilita opcionalmente iCloud para mantener tus fragmentos sincronizados entre iPhone, iPad y Mac.",
     "img_alt_settings": "Configuración con sincronización de iCloud",
-
     "why_paid_title": "Por qué Cutling es una aplicación de pago",
     "why_paid_emphasis": "Sin anuncios. Sin seguimiento. Sin suscripciones. Sin compras integradas.",
     "why_paid_p1": "Paga una vez, posee para siempre. Eso es todo.",
     "why_paid_p2": "Cutling no tiene servidores que mantener ni una base de datos de tus datos. Eso significa gastos generales bajos y una aplicación sostenible construida para durar &mdash; sin necesidad de monetizar tu atención o tu información.",
     "why_paid_p3": "Sin ventas cruzadas, sin &ldquo;premium&rdquo; o niveles, sin avisos pidiéndote que actualices. Obtienes la aplicación completa desde el primer día.",
-
     "features_title": "Características",
     "feature_text_snippets_title": "Fragmentos de texto",
     "feature_text_snippets_desc": "Guarda hasta 100 fragmentos de texto, cada uno con hasta 2.000 caracteres.",
@@ -55,11 +49,9 @@
     "feature_recently_deleted_desc": "¿Eliminaste algo por accidente? Recupéralo dentro de 30 días.",
     "feature_devices_title": "iPhone, iPad y Mac",
     "feature_devices_desc": "Una aplicación en todos tus dispositivos Apple, con una experiencia nativa en cada uno.",
-
     "privacy_teaser_title": "Privacidad en primer lugar",
     "privacy_teaser_text": "Cutling no recopila absolutamente ningún dato. Sin análisis. Sin informes de fallos. Sin SDK de terceros. Tus fragmentos permanecen en tu dispositivo &mdash; o en tu cuenta iCloud personal si eliges habilitar la sincronización. El desarrollador no puede acceder a tus datos, punto.",
     "privacy_teaser_link": "Lee la política de privacidad completa",
-
     "faq_title": "Preguntas frecuentes",
     "faq_q1": "¿Qué es un &ldquo;fragmento&rdquo;?",
     "faq_a1": "Un fragmento es un fragmento guardado &mdash; un trozo de texto o una imagen que quieres tener a mano para acceso rápido. Piénsalo como un recorte de tu portapapeles que puedes reutilizar en cualquier momento.",
@@ -79,7 +71,6 @@
     "faq_a8": "No. Cutling es una compra única. Sin suscripciones, sin compras integradas, sin anuncios. Paga una vez y posee para siempre.",
     "faq_q9": "¿Qué sucede con los fragmentos eliminados?",
     "faq_a9": "Los fragmentos eliminados se mueven a una carpeta &ldquo;Eliminado recientemente&rdquo; donde se guardan durante 30 días. Puedes restaurarlos durante ese período o dejar que expire automáticamente.",
-
     "support_title": "Soporte",
     "support_subtitle": "¿Necesitas ayuda? Estamos aquí para ti.",
     "support_contact_title": "Contacto",
@@ -96,7 +87,6 @@
     "support_ts_images_text": "Los fragmentos de imagen requieren acceso completo. Si las imágenes aún no aparecen, intenta eliminar and re-añadir el teclado Cutling en Configuración.",
     "support_more_help_title": "Más ayuda",
     "support_more_help_text": "Consulta las <a href=\"../faq/\">preguntas frecuentes</a> para obtener respuestas a preguntas comunes sobre características, privacidad y cómo funciona la aplicación.",
-
     "privacy_page_title": "Política de privacidad",
     "privacy_effective": "Efectiva: 8 de marzo de 2026",
     "privacy_summary": "Cutling no recopila, almacena ni transmite ninguno de tus datos. Tus datos permanecen en tu dispositivo o se sincronizan de forma privada a través de tu cuenta iCloud personal (opcional).",
@@ -123,5 +113,6 @@
     "privacy_changes_text": "Si esta política se actualiza, los cambios se publicarán en esta página con una fecha efectiva revisada.",
     "privacy_changes_log": "<strong>8 de marzo de 2026:</strong> Actualizado para reflejar la adición de fragmentos de imagen y la característica opcional de sincronización de iCloud. Se aclaró que la sincronización de iCloud es opcional y puede deshabilitarse, y que los datos sincronizados se almacenan en tu cuenta iCloud personal.",
     "privacy_contact_title": "Contacto",
-    "privacy_contact_text": "Si tienes preguntas sobre esta política, puedes ponerse en contacto con el desarrollador en <a href=\"mailto:kenneth@matsuokengo.com\">kenneth@matsuokengo.com</a>."
+    "privacy_contact_text": "Si tienes preguntas sobre esta política, puedes ponerse en contacto con el desarrollador en <a href=\"mailto:kenneth@matsuokengo.com\">kenneth@matsuokengo.com</a>.",
+    "_rtl": false
 }

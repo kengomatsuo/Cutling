@@ -55,19 +55,19 @@ def web_code(locale_code):
     return locale_code.lower()
 
 
-def load_translation(locale_code):
-    """Load a translation file, with fallback to base language and aliases."""
+def resolve_translation(locale_code):
+    """Load a translation file and report whether it came from a fallback."""
     # Exact match (e.g. en-AU.json, zh-Hans.json)
     path = TRANSLATIONS_DIR / f"{locale_code}.json"
     if path.exists():
-        return load_json(path)
+        return load_json(path), "exact"
 
     # Base language fallback (e.g. ar-SA -> ar, de-DE -> de)
     base = locale_code.split("-")[0]
     fallback = TRANSLATIONS_DIR / f"{base}.json"
     if fallback.exists():
         print(f"  Fallback: {locale_code} -> {base}")
-        return load_json(fallback)
+        return load_json(fallback), f"fallback:{base}"
 
     # Alias fallback (e.g. no -> nb)
     alias = TRANSLATION_ALIASES.get(locale_code) or TRANSLATION_ALIASES.get(base)
@@ -75,9 +75,15 @@ def load_translation(locale_code):
         alias_path = TRANSLATIONS_DIR / f"{alias}.json"
         if alias_path.exists():
             print(f"  Alias: {locale_code} -> {alias}")
-            return load_json(alias_path)
+            return load_json(alias_path), f"alias:{alias}"
 
-    return None
+    return None, None
+
+
+def load_translation(locale_code):
+    """Load a translation file, with fallback to base language and aliases."""
+    translation, _ = resolve_translation(locale_code)
+    return translation
 
 
 def compute_root(template_depth, is_default):
@@ -132,7 +138,7 @@ def build_language_picker(locales, available_codes, current_code, root, template
 
 
 def validate_translation(locale_code, translation, reference_keys):
-    """Warn about missing or extra keys compared to en.json."""
+    """Print missing and extra keys compared to en.json."""
     trans_keys = {k for k in translation if not k.startswith("_")}
     ref_keys = {k for k in reference_keys if not k.startswith("_")}
 
@@ -140,13 +146,24 @@ def validate_translation(locale_code, translation, reference_keys):
     extra = trans_keys - ref_keys
 
     if missing:
-        sample = ", ".join(sorted(missing)[:5])
-        suffix = "..." if len(missing) > 5 else ""
-        print(f"  WARNING: {locale_code} missing {len(missing)} keys: {sample}{suffix}")
+        print(f"  Missing keys for {locale_code} ({len(missing)}):")
+        for key in sorted(missing):
+            print(f"    - {key}")
     if extra:
         sample = ", ".join(sorted(extra)[:5])
         suffix = "..." if len(extra) > 5 else ""
         print(f"  WARNING: {locale_code} has {len(extra)} extra keys: {sample}{suffix}")
+
+
+def report_translation_status(locale_code, translation, source):
+    """Print whether a locale is missing an exact translation file."""
+    exact_path = TRANSLATIONS_DIR / f"{locale_code}.json"
+    if source != "exact":
+        if exact_path.exists():
+            return
+        print(f"  MISSING TRANSLATION FILE: {locale_code}.json -> using {source}")
+    elif not exact_path.exists():
+        print(f"  MISSING TRANSLATION FILE: {locale_code}.json")
 
 
 def generate_page(template_content, translation, en_translation, locale_code, is_rtl, root, lang_prefix, picker_html):
@@ -213,7 +230,8 @@ def main():
 
     available_codes = set()
     for loc in locales:
-        if load_translation(loc["code"]) is not None:
+        translation, _ = resolve_translation(loc["code"])
+        if translation is not None:
             available_codes.add(loc["code"])
 
     if not specific_locales:
@@ -229,11 +247,12 @@ def main():
         if specific_locales and code not in specific_locales:
             continue
 
-        translation = load_translation(code)
+        translation, source = resolve_translation(code)
         if not translation:
             continue
 
         print(f"Generating: {code} ({loc['name']}) -> {web_code(code)}/")
+        report_translation_status(code, translation, source)
         validate_translation(code, translation, en_keys)
 
         for template_rel in TEMPLATES:
