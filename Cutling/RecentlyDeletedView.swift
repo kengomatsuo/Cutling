@@ -62,25 +62,24 @@ struct RecentlyDeletedView: View {
         #endif
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
-                if !store.recentlyDeleted.isEmpty {
+                Button("Delete All", role: .destructive) {
+                    showEmptyAllConfirmation = true
+                }
+                .foregroundStyle(store.recentlyDeleted.isEmpty ? Color.secondary : Color.red)
+                .disabled(store.recentlyDeleted.isEmpty)
+                .confirmationDialog(
+                    "Delete All Permanently?",
+                    isPresented: $showEmptyAllConfirmation,
+                    titleVisibility: .visible
+                ) {
                     Button("Delete All", role: .destructive) {
-                        showEmptyAllConfirmation = true
-                    }
-                    .foregroundStyle(.red)
-                    .confirmationDialog(
-                        "Delete All Permanently?",
-                        isPresented: $showEmptyAllConfirmation,
-                        titleVisibility: .visible
-                    ) {
-                        Button("Delete All", role: .destructive) {
-                            withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
-                                store.emptyRecentlyDeleted()
-                            }
+                        withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
+                            store.emptyRecentlyDeleted()
                         }
-                        Button("Cancel", role: .cancel) {}
-                    } message: {
-                        Text("This will permanently delete all \(store.recentlyDeleted.count) items. This action cannot be undone.")
                     }
+                    Button("Cancel", role: .cancel) {}
+                } message: {
+                    Text("This will permanently delete all \(store.recentlyDeleted.count) items. This action cannot be undone.")
                 }
             }
         }
