@@ -77,6 +77,7 @@ struct MainContentView: View {
     @State private var limitAlertMessage = ""
 
     @State private var mode: MainContentMode = .browsing
+    @State private var showBottomBar = false
     @State private var showDeleteConfirmation = false
 
     #if os(iOS)
@@ -277,10 +278,10 @@ struct MainContentView: View {
         #if os(iOS)
         .navigationBarTitleDisplayMode(.large)
         #endif
-        .modifier(SubtitleModifier(text: store.textCutlingsCount, textMax: CutlingStore.maxTextCutlings, images: store.imageCutlingsCount, imageMax: CutlingStore.maxImageCutlings))
+        .modifier(SubtitleModifier(count: store.cutlings.count))
         .searchable(text: $searchText, isPresented: $searchIsPresented, prompt: "Search cutlings")
         #if os(iOS)
-        .toolbar(mode != .browsing ? .visible : .hidden, for: .bottomBar)
+        .toolbar(showBottomBar ? .visible : .hidden, for: .bottomBar)
         #endif
         .toolbar {
             #if os(iOS)
@@ -421,20 +422,19 @@ struct MainContentView: View {
     // MARK: - Mode Change Handler
     
     private func handleModeChange(_ newValue: MainContentMode) {
-        // onChange doesn't inherit the caller's withAnimation context,
-        // so wrap state changes that drive toolbar/UI transitions explicitly.
+        #if os(iOS)
+        panGesture?.isEnabled = newValue == .selecting
+        if newValue != .selecting {
+            selectionProperties = .init()
+        }
+        #else
+        if newValue != .selecting {
+            selectedCutlingIDs.removeAll()
+        }
+        #endif
+
         withAnimation {
-            #if os(iOS)
-            panGesture?.isEnabled = newValue == .selecting
-            if newValue != .selecting {
-                selectionProperties = .init()
-            }
-            #else
-            if newValue != .selecting {
-                selectedCutlingIDs.removeAll()
-            }
-            #endif
-            
+            showBottomBar = newValue != .browsing
             if newValue != .browsing {
                 searchText = ""
                 searchIsPresented = false
@@ -495,43 +495,6 @@ struct MainContentView: View {
 
     private var gridScrollView: some View {
         ScrollView {
-            #if os(iOS)
-            if #unavailable(iOS 26) {
-                // Fallback for pre-iOS 26 which lacks navigationSubtitle
-                VStack(spacing: 6) {
-                    HStack(spacing: 12) {
-                        HStack(spacing: 4) {
-                            Image(systemName: "doc.text")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                            Text("\(store.textCutlingsCount)/\(CutlingStore.maxTextCutlings)")
-                                .font(.caption.weight(.medium))
-                                .foregroundStyle(.secondary)
-                        }
-
-                        HStack(spacing: 4) {
-                            Image(systemName: "photo")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
-                            Text("\(store.imageCutlingsCount)/\(CutlingStore.maxImageCutlings)")
-                                .font(.caption.weight(.medium))
-                                .foregroundStyle(.secondary)
-                        }
-
-                        if store.isSyncing {
-                            ProgressView()
-                                .scaleEffect(0.6)
-                                .frame(width: 10, height: 10)
-                        }
-
-                        Spacer()
-                    }
-                    .padding(.horizontal)
-                    .padding(.top, 8)
-                }
-            }
-            #endif
-
             if filtered.isEmpty {
                 VStack(spacing: 12) {
                     Image(systemName: searchText.isEmpty ? "tray" : "magnifyingglass")
@@ -702,7 +665,7 @@ struct MainContentView: View {
             } label: {
                 Label("Select Cutlings", systemImage: "checkmark.circle")
             }
-            
+
             Button {
                 mode = .ordering
             } label: {
@@ -1414,19 +1377,16 @@ struct CardView: View {
 // MARK: - Helper View Modifiers
 
 private struct SubtitleModifier: ViewModifier {
-    let text: Int
-    let textMax: Int
-    let images: Int
-    let imageMax: Int
+    let count: Int
 
     func body(content: Content) -> some View {
         #if os(macOS)
         content
-            .navigationSubtitle("\(text)/\(textMax) Text, \(images)/\(imageMax) Images")
+            .navigationSubtitle("\(count) Cutlings")
         #else
         if #available(iOS 26, *) {
             content
-                .navigationSubtitle("\(text)/\(textMax) Text, \(images)/\(imageMax) Images")
+                .navigationSubtitle("\(count) Cutlings")
         } else {
             content
         }
