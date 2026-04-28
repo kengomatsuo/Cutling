@@ -44,6 +44,7 @@ struct ColorPaletteSection: View {
             }
         }
         .buttonStyle(.plain)
-        .accessibilityLabel(key?.capitalized ?? "Default")
+        .accessibilityLabel(Cutling.localizedColorName(for: key))
+        .accessibilityValue(selectedColor == key ? String(localized: "Selected") : "")
     }
 }

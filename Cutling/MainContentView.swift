@@ -1084,6 +1084,11 @@ struct CardView: View {
             }
             #endif
             .accessibilityIdentifier("cutlingCard")
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel(item.name)
+            .accessibilityValue(item.kind == .text ? item.value : String(localized: "Image"))
+            .accessibilityHint(isSelecting ? String(localized: "Double tap to toggle selection") : String(localized: "Double tap to copy, long press for options"))
+            .accessibilityAddTraits(isSelecting && isSelected ? .isSelected : [])
             .onTapGesture {
                 handleTap()
             }
@@ -1460,10 +1465,10 @@ struct CutlingInfoView: View {
                 Section("General") {
                     LabeledContent("Name", value: item.name)
                     LabeledContent("Kind", value: item.kind == .text ? String(localized: "Text") : String(localized: "Image"))
-                    if let colorName = item.color {
+                    if item.color != nil {
                         LabeledContent("Color") {
                             HStack {
-                                Text(colorName.capitalized)
+                                Text(Cutling.localizedColorName(for: item.color))
                                 Circle()
                                     .fill(item.tintColor)
                                     .frame(width: 14, height: 14)

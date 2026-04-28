@@ -238,6 +238,26 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
         "red", "orange", "yellow", "green", "mint", "teal",
         "cyan", "blue", "indigo", "purple", "pink", "brown",
     ]
+
+    /// Returns a localized display name for a color key (e.g. "red" → "Red" in English, "Rot" in German).
+    static func localizedColorName(for key: String?) -> String {
+        guard let key else { return String(localized: "Default") }
+        switch key {
+        case "red":    return String(localized: "Red")
+        case "orange": return String(localized: "Orange")
+        case "yellow": return String(localized: "Yellow")
+        case "green":  return String(localized: "Green")
+        case "mint":   return String(localized: "Mint")
+        case "teal":   return String(localized: "Teal")
+        case "cyan":   return String(localized: "Cyan")
+        case "blue":   return String(localized: "Blue")
+        case "indigo": return String(localized: "Indigo")
+        case "purple": return String(localized: "Purple")
+        case "pink":   return String(localized: "Pink")
+        case "brown":  return String(localized: "Brown")
+        default:       return key.capitalized
+        }
+    }
     
     nonisolated init(
         id: UUID = UUID(),
