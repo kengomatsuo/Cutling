@@ -39,21 +39,21 @@ struct KeyboardView: View {
         NavigationStack {
             Form {
                 #if os(iOS)
-                Section("Keyboard Setup") {
-                    HStack {
-                        Label("Keyboard Added", systemImage: "keyboard")
-                        Spacer()
-                        Image(systemName: isKeyboardAdded ? "checkmark.circle.fill" : "xmark.circle.fill")
-                            .foregroundStyle(isKeyboardAdded ? .green : .secondary)
-                    }
-                    HStack {
-                        Label("Full Access", systemImage: "lock.open")
-                        Spacer()
-                        Image(systemName: hasFullAccess ? "checkmark.circle.fill" : "xmark.circle.fill")
-                            .foregroundStyle(hasFullAccess ? .green : .secondary)
-                    }
+                if !isKeyboardAdded || !hasFullAccess {
+                    Section("Keyboard Setup") {
+                        HStack {
+                            Label("Keyboard Added", systemImage: "keyboard")
+                            Spacer()
+                            Image(systemName: isKeyboardAdded ? "checkmark.circle.fill" : "xmark.circle.fill")
+                                .foregroundStyle(isKeyboardAdded ? .green : .secondary)
+                        }
+                        HStack {
+                            Label("Full Access", systemImage: "lock.open")
+                            Spacer()
+                            Image(systemName: hasFullAccess ? "checkmark.circle.fill" : "xmark.circle.fill")
+                                .foregroundStyle(hasFullAccess ? .green : .secondary)
+                        }
 
-                    if !isKeyboardAdded || !hasFullAccess {
                         Button {
                             if let url = URL(string: UIApplication.openSettingsURLString) {
                                 UIApplication.shared.open(url)
@@ -61,14 +61,14 @@ struct KeyboardView: View {
                         } label: {
                             Label("Open Settings to Enable", systemImage: "arrow.up.forward.square")
                         }
-                    }
 
-                    Button {
-                        showSetupGuide = true
-                    } label: {
-                        Label("Keyboard Setup Guide", systemImage: "book.pages")
+                        Button {
+                            showSetupGuide = true
+                        } label: {
+                            Label("Keyboard Setup Guide", systemImage: "book.pages")
+                        }
+                        .accessibilityIdentifier("keyboardSetupGuide")
                     }
-                    .accessibilityIdentifier("keyboardSetupGuide")
                 }
                 #endif
 

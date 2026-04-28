@@ -185,6 +185,7 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
     var kind: CutlingKind
     var imageFilename: String?
     var sortOrder: Int
+    var createdDate: Date
     var lastModifiedDate: Date
     var expiresAt: Date?
     var color: String?
@@ -246,6 +247,7 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
         kind: CutlingKind = .text,
         imageFilename: String? = nil,
         sortOrder: Int = 0,
+        createdDate: Date = Date(),
         lastModifiedDate: Date = Date(),
         expiresAt: Date? = nil,
         color: String? = nil,
@@ -258,6 +260,7 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
         self.kind = kind
         self.imageFilename = imageFilename
         self.sortOrder = sortOrder
+        self.createdDate = createdDate
         self.lastModifiedDate = lastModifiedDate
         self.expiresAt = expiresAt
         self.color = color
@@ -274,7 +277,9 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
         kind = try container.decode(CutlingKind.self, forKey: .kind)
         imageFilename = try container.decodeIfPresent(String.self, forKey: .imageFilename)
         sortOrder = try container.decodeIfPresent(Int.self, forKey: .sortOrder) ?? 0
-        lastModifiedDate = try container.decodeIfPresent(Date.self, forKey: .lastModifiedDate) ?? Date()
+        let decodedLastModified = try container.decodeIfPresent(Date.self, forKey: .lastModifiedDate) ?? Date()
+        lastModifiedDate = decodedLastModified
+        createdDate = try container.decodeIfPresent(Date.self, forKey: .createdDate) ?? decodedLastModified
         expiresAt = try container.decodeIfPresent(Date.self, forKey: .expiresAt)
         color = try container.decodeIfPresent(String.self, forKey: .color)
         inputTypeTriggers = try container.decodeIfPresent([String].self, forKey: .inputTypeTriggers)

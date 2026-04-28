@@ -273,6 +273,53 @@ class CutlingStore: ObservableObject {
         #endif
     }
     
+    func duplicate(_ cutling: Cutling) {
+        let canAdd = canAdd(cutling.kind)
+        guard canAdd.allowed else { return }
+
+        let newID = UUID()
+        var copy = Cutling(
+            id: newID,
+            name: uniqueDuplicateName(for: cutling.name),
+            value: cutling.value,
+            icon: cutling.icon,
+            kind: cutling.kind,
+            imageFilename: nil,
+            expiresAt: cutling.expiresAt
+        )
+        copy.color = cutling.color
+        copy.inputTypeTriggers = cutling.inputTypeTriggers
+
+        if let filename = cutling.imageFilename,
+           let data = loadImageData(named: filename) {
+            copy.imageFilename = saveImageData(data, for: newID)
+        }
+
+        add(copy)
+    }
+
+    private func uniqueDuplicateName(for name: String) -> String {
+        let existingNames = Set(cutlings.map(\.name))
+        let copyLabel = String(localized: "copy")
+
+        let baseName: String
+        let regex = try? NSRegularExpression(pattern: " \(NSRegularExpression.escapedPattern(for: copyLabel))( \\d+)?$")
+        if let regex, let match = regex.firstMatch(in: name, range: NSRange(name.startIndex..., in: name)) {
+            baseName = String(name[name.startIndex..<name.index(name.startIndex, offsetBy: match.range.location)])
+        } else {
+            baseName = name
+        }
+
+        let candidate = "\(baseName) \(copyLabel)"
+        if !existingNames.contains(candidate) { return candidate }
+
+        var counter = 2
+        while existingNames.contains("\(baseName) \(copyLabel) \(counter)") {
+            counter += 1
+        }
+        return "\(baseName) \(copyLabel) \(counter)"
+    }
+
     func sortCutlings(by areInIncreasingOrder: (Cutling, Cutling) -> Bool) {
         cutlings.sort(by: areInIncreasingOrder)
         updateSortOrders()

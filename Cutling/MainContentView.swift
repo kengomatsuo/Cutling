@@ -1048,6 +1048,7 @@ struct CardView: View {
     let onDelete: () -> Void
 
     @State private var copied = false
+    @State private var showInfo = false
     
     #if os(iOS)
     // Reusable haptic generator for better performance
@@ -1086,6 +1087,10 @@ struct CardView: View {
             .onTapGesture {
                 handleTap()
             }
+            .sheet(isPresented: $showInfo) {
+                CutlingInfoView(item: item)
+                    .environmentObject(store)
+            }
     }
     
     // MARK: - Card Content
@@ -1116,10 +1121,18 @@ struct CardView: View {
     @ViewBuilder
     private var cardContextMenu: some View {
         if !isSelecting {
-            Button {
-                copyToClipboard()
-            } label: {
-                Label("Copy", systemImage: "doc.on.doc")
+            ControlGroup {
+                Button {
+                    copyToClipboard()
+                } label: {
+                    Label("Copy", systemImage: "doc.on.doc")
+                }
+
+                Button {
+                    shareItem()
+                } label: {
+                    Label("Share", systemImage: "square.and.arrow.up")
+                }
             }
 
             Button {
@@ -1128,6 +1141,18 @@ struct CardView: View {
                 Label("Edit", systemImage: "pencil")
             }
             .accessibilityIdentifier("editButton")
+
+            Button {
+                store.duplicate(item)
+            } label: {
+                Label("Duplicate", systemImage: "plus.square.on.square")
+            }
+
+            Button {
+                showInfo = true
+            } label: {
+                Label("Get Info", systemImage: "info.circle")
+            }
 
             Divider()
 
@@ -1371,6 +1396,146 @@ struct CardView: View {
             try? await Task.sleep(for: .seconds(1.5))
             copied = false
         }
+    }
+
+    private func shareItem() {
+        switch item.kind {
+        case .text:
+            presentShareSheet(items: [item.value])
+        case .image:
+            guard let filename = item.imageFilename,
+                  let data = store.loadImageData(named: filename) else { return }
+            #if os(iOS)
+            guard let image = UIImage(data: data) else { return }
+            presentShareSheet(items: [image])
+            #else
+            guard let image = NSImage(data: data) else { return }
+            presentShareSheet(items: [image])
+            #endif
+        }
+    }
+
+    private func presentShareSheet(items: [Any]) {
+        #if os(iOS)
+        let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = windowScene.windows.first,
+              var topController = window.rootViewController else { return }
+        while let presented = topController.presentedViewController {
+            topController = presented
+        }
+        activityVC.popoverPresentationController?.sourceView = topController.view
+        activityVC.popoverPresentationController?.sourceRect = CGRect(
+            x: topController.view.bounds.midX,
+            y: topController.view.bounds.midY,
+            width: 0, height: 0
+        )
+        topController.present(activityVC, animated: true)
+        #else
+        let picker = NSSharingServicePicker(items: items)
+        guard let window = NSApp.keyWindow,
+              let contentView = window.contentView else { return }
+        picker.show(relativeTo: .zero, of: contentView, preferredEdge: .minY)
+        #endif
+    }
+}
+
+// MARK: - Get Info View
+
+struct CutlingInfoView: View {
+    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var store: CutlingStore
+
+    let item: Cutling
+
+    private var imageFileSize: Int? {
+        guard let filename = item.imageFilename,
+              let data = store.loadImageData(named: filename) else { return nil }
+        return data.count
+    }
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Section("General") {
+                    LabeledContent("Name", value: item.name)
+                    LabeledContent("Kind", value: item.kind == .text ? String(localized: "Text") : String(localized: "Image"))
+                    if let colorName = item.color {
+                        LabeledContent("Color") {
+                            HStack {
+                                Text(colorName.capitalized)
+                                Circle()
+                                    .fill(item.tintColor)
+                                    .frame(width: 14, height: 14)
+                            }
+                        }
+                    }
+                }
+
+                Section("Size") {
+                    if item.kind == .text {
+                        LabeledContent("Characters", value: "\(item.value.count)")
+                        LabeledContent("Words", value: "\(wordCount)")
+                        LabeledContent("Lines", value: "\(lineCount)")
+                    } else if let size = imageFileSize {
+                        LabeledContent("File Size", value: ByteCountFormatter.string(fromByteCount: Int64(size), countStyle: .file))
+                    }
+                }
+
+                Section("Dates") {
+                    LabeledContent("Created", value: item.createdDate.formatted(date: .abbreviated, time: .shortened))
+                    LabeledContent("Modified", value: item.lastModifiedDate.formatted(date: .abbreviated, time: .shortened))
+                    if let expiresAt = item.expiresAt {
+                        LabeledContent("Expires", value: expiresAt.formatted(date: .abbreviated, time: .shortened))
+                    }
+                }
+
+                if !item.assignedCategories.isEmpty {
+                    Section("Input Types") {
+                        ForEach(Array(item.assignedCategories).sorted(by: { $0.displayName < $1.displayName })) { category in
+                            Label(category.displayName, systemImage: category.icon)
+                        }
+                    }
+                }
+            }
+            .formStyle(.grouped)
+            .navigationTitle("Info")
+            #if os(iOS)
+            .navigationBarTitleDisplayMode(.inline)
+            #endif
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        #if os(iOS)
+                        if #available(iOS 26, *) {
+                            Image(systemName: "xmark")
+                        } else {
+                            Text("Done")
+                        }
+                        #else
+                        Text("Done")
+                        #endif
+                    }
+                }
+            }
+        }
+        #if os(macOS)
+        .frame(minWidth: 360, idealWidth: 400, minHeight: 300, idealHeight: 400)
+        #endif
+    }
+
+    private var wordCount: Int {
+        var count = 0
+        item.value.enumerateSubstrings(in: item.value.startIndex..., options: [.byWords, .substringNotRequired]) { _, _, _, _ in
+            count += 1
+        }
+        return count
+    }
+
+    private var lineCount: Int {
+        item.value.isEmpty ? 0 : item.value.components(separatedBy: .newlines).count
     }
 }
 
