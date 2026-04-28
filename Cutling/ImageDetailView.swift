@@ -430,7 +430,7 @@ struct ImageDetailView: View {
                 .resizable()
                 .scaledToFit()
                 .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity, minHeight: 100, maxHeight: 500)
         } else {
             RoundedRectangle(cornerRadius: 12, style: .continuous)
                 .fill(.quinary)
