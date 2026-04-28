@@ -200,10 +200,10 @@ See the [LICENSE](LICENSE) file for full terms.
 
 ## Contact
 
-- **Website**: [cutling.app](https://cutling.app)
-- **Support**: [cutling.app/support](https://cutling.app/support)
-- **FAQ**: [cutling.app/faq](https://cutling.app/faq)
-- **Privacy Policy**: [cutling.app/privacy](https://cutling.app/privacy)
+- **Website**: [kengomatsuo.github.io/Cutling](https://kengomatsuo.github.io/Cutling/)
+- **Support**: [kengomatsuo.github.io/Cutling/support](https://kengomatsuo.github.io/Cutling/support/)
+- **FAQ**: [kengomatsuo.github.io/Cutling/faq](https://kengomatsuo.github.io/Cutling/faq/)
+- **Privacy Policy**: [kengomatsuo.github.io/Cutling/privacy](https://kengomatsuo.github.io/Cutling/privacy/)
 
 ---
 
