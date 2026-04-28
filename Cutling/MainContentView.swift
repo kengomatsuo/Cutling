@@ -4,6 +4,10 @@
 //
 //  Created by Kenneth Johannes Fang on 18/02/26.
 //
+//
+//  Copyright (c) 2026 Kenneth Johannes Fang. All rights reserved.
+//
+
 
 import SwiftUI
 

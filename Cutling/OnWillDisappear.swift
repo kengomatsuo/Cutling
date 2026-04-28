@@ -2,6 +2,10 @@
 //  OnWillDisappear.swift
 //  Cutling
 //
+//
+//  Copyright (c) 2026 Kenneth Johannes Fang. All rights reserved.
+//
+
 
 #if os(iOS)
 import SwiftUI

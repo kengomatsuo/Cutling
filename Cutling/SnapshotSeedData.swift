@@ -5,6 +5,10 @@
 //  Provides visually appealing sample data for App Store screenshots.
 //  Only loaded when the app is launched with -SNAPSHOT_MODE.
 //
+//
+//  Copyright (c) 2026 Kenneth Johannes Fang. All rights reserved.
+//
+
 
 import Foundation
 

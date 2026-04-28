@@ -4,6 +4,10 @@
 //
 //  macOS-only preferences view shown in the Settings scene (Cmd+,).
 //
+//
+//  Copyright (c) 2026 Kenneth Johannes Fang. All rights reserved.
+//
+
 
 import SwiftUI
 
