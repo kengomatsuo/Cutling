@@ -212,7 +212,7 @@ def clean_generated(locales):
 
 
 def main():
-    specific_locales = set(sys.argv[1:]) if len(sys.argv) > 1 else None
+    specific_web_locales = {web_code(arg) for arg in sys.argv[1:]} if len(sys.argv) > 1 else None
 
     locales = load_locales()
     en_translation = load_translation(DEFAULT_LOCALE)
@@ -234,7 +234,7 @@ def main():
         if translation is not None:
             available_codes.add(loc["code"])
 
-    if not specific_locales:
+    if not specific_web_locales:
         print("Cleaning generated directories...")
         clean_generated(locales)
 
@@ -244,7 +244,7 @@ def main():
         is_rtl = loc["rtl"]
         is_default = code == DEFAULT_LOCALE
 
-        if specific_locales and code not in specific_locales:
+        if specific_web_locales and web_code(code) not in specific_web_locales:
             continue
 
         translation, source = resolve_translation(code)
