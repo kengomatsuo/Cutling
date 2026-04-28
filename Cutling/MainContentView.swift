@@ -1297,15 +1297,17 @@ struct CardView: View {
                         .font(.headline)
                     Spacer()
                 }
-                
+
                 Text(item.value)
                     .font(.body)
                     .lineLimit(18)
-                    .fixedSize(horizontal: false, vertical: false)
-                    .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding()
-            .frame(width: 300)
+            .frame(
+                width: min(UIScreen.main.bounds.width - 40, 350),
+                alignment: .leading
+            )
+            .fixedSize(horizontal: false, vertical: true)
             .background(.background)
             
         case .image:
@@ -1326,10 +1328,11 @@ struct CardView: View {
                     Image(platformImage: img)
                         .resizable()
                         .scaledToFit()
-                        .frame(maxHeight: 500)
+                        .frame(minHeight: 100, maxHeight: 500)
                 }
             }
-            .frame(width: 300)
+            .frame(width: min(UIScreen.main.bounds.width - 40, 350))
+            .background(.background)
         }
     }
     #endif
