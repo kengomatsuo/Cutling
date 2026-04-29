@@ -30,6 +30,7 @@ private enum SetupPage: Int, CaseIterable {
 struct KeyboardSetupView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var isOnboarding: Bool = false
     var onComplete: (() -> Void)? = nil
@@ -128,7 +129,7 @@ struct KeyboardSetupView: View {
             }
             .tabViewStyle(.page(indexDisplayMode: .always))
             .indexViewStyle(.page(backgroundDisplayMode: .always))
-            .transaction { $0.animation = $0.environment.accessibilityReduceMotion ? .easeOut(duration: 0.15) : .easeInOut(duration: 0.3) }
+            .animation(reduceMotion ? .easeOut(duration: 0.15) : .easeInOut(duration: 0.3), value: currentPage)
 
             continueButton
         }
