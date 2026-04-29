@@ -76,7 +76,7 @@ struct KeyboardSetupView: View {
 
     private func refreshStatus() {
         let wasFullAccess = fullAccessDetected
-        withAnimation(.easeInOut(duration: 0.3)) {
+        withAccessibleAnimation(.easeInOut(duration: 0.3)) {
             keyboardDetected = checkKeyboardAdded()
             fullAccessDetected = checkFullAccess()
         }
@@ -93,7 +93,7 @@ struct KeyboardSetupView: View {
 
     private func advancePage() {
         testFieldFocused = false
-        withAnimation {
+        withAccessibleAnimation {
             currentPage = min(currentPage + 1, SetupPage.done.rawValue)
         }
     }
@@ -128,7 +128,7 @@ struct KeyboardSetupView: View {
             }
             .tabViewStyle(.page(indexDisplayMode: .always))
             .indexViewStyle(.page(backgroundDisplayMode: .always))
-            .animation(.easeInOut(duration: 0.3), value: currentPage)
+            .transaction { $0.animation = $0.environment.accessibilityReduceMotion ? .easeOut(duration: 0.15) : .easeInOut(duration: 0.3) }
 
             continueButton
         }
@@ -478,7 +478,7 @@ struct KeyboardSetupView: View {
                 // Back button
                 Button {
                     testFieldFocused = false
-                    withAnimation {
+                    withAccessibleAnimation {
                         currentPage = max(currentPage - 1, 0)
                     }
                 } label: {

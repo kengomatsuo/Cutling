@@ -14,7 +14,25 @@ import NaturalLanguage
 import SwiftUI
 #if os(iOS)
 import UIKit
+#else
+import AppKit
 #endif
+
+// MARK: - Accessible Animation
+
+/// Wraps `withAnimation`, substituting a simple cross-dissolve when Reduce Motion is enabled.
+func withAccessibleAnimation<Result>(_ animation: Animation = .default, _ body: () throws -> Result) rethrows -> Result {
+    #if os(iOS)
+    if UIAccessibility.isReduceMotionEnabled {
+        return try withAnimation(.easeOut(duration: 0.15), body)
+    }
+    #else
+    if NSWorkspace.shared.accessibilityDisplayShouldReduceMotion {
+        return try withAnimation(.easeOut(duration: 0.15), body)
+    }
+    #endif
+    return try withAnimation(animation, body)
+}
 
 enum CutlingKind: String, Codable, Sendable, Identifiable {
     case text

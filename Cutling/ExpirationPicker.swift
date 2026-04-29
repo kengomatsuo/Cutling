@@ -13,12 +13,13 @@ import SwiftUI
 
 /// Calendar-style auto-delete UI: a toggle that reveals a date picker when enabled.
 struct ExpirationPickerSection: View {
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Binding var autoDeleteEnabled: Bool
     @Binding var deleteAt: Date
-    
+
     var body: some View {
         Section {
-            Toggle("Auto-Delete", isOn: $autoDeleteEnabled.animation())
+            Toggle("Auto-Delete", isOn: reduceMotion ? $autoDeleteEnabled : $autoDeleteEnabled.animation())
             if autoDeleteEnabled {
                 DatePicker(
                     "Delete At",

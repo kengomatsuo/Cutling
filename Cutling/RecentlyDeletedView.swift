@@ -13,6 +13,7 @@ import SwiftUI
 
 struct RecentlyDeletedView: View {
     @EnvironmentObject var store: CutlingStore
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     @State private var showEmptyAllConfirmation = false
     @State private var itemToDelete: DeletedCutling?
@@ -51,7 +52,7 @@ struct RecentlyDeletedView: View {
                         }
                     }
                     .padding()
-                    .animation(.spring(duration: 0.35, bounce: 0.2), value: store.recentlyDeleted.map(\.id))
+                    .animation(reduceMotion ? .easeOut(duration: 0.15) : .spring(duration: 0.35, bounce: 0.2), value: store.recentlyDeleted.map(\.id))
                 }
             }
         }
@@ -77,7 +78,7 @@ struct RecentlyDeletedView: View {
                     titleVisibility: .visible
                 ) {
                     Button("Delete All", role: .destructive) {
-                        withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
+                        withAccessibleAnimation(.spring(duration: 0.35, bounce: 0.2)) {
                             store.emptyRecentlyDeleted()
                         }
                     }
@@ -93,7 +94,7 @@ struct RecentlyDeletedView: View {
             presenting: itemToDelete
             ) { item in
                 Button("Delete", role: .destructive) {
-                    withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
+                    withAccessibleAnimation(.spring(duration: 0.35, bounce: 0.2)) {
                         store.permanentlyDelete(item)
                     }
                     itemToDelete = nil
@@ -153,7 +154,7 @@ struct RecentlyDeletedView: View {
         #if os(iOS)
         .contextMenu {
             Button {
-                withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
+                withAccessibleAnimation(.spring(duration: 0.35, bounce: 0.2)) {
                     store.restore(item)
                 }
             } label: {
@@ -172,7 +173,7 @@ struct RecentlyDeletedView: View {
         #else
         .contextMenu {
             Button {
-                withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
+                withAccessibleAnimation(.spring(duration: 0.35, bounce: 0.2)) {
                     store.restore(item)
                 }
             } label: {
@@ -187,8 +188,11 @@ struct RecentlyDeletedView: View {
             }
         }
         #endif
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(cutling.name), \(item.daysRemaining == 1 ? String(localized: "1 day left") : String(localized: "\(item.daysRemaining) days left"))")
+        .accessibilityHint(String(localized: "Double tap to recover"))
         .onTapGesture {
-            withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
+            withAccessibleAnimation(.spring(duration: 0.35, bounce: 0.2)) {
                 store.restore(item)
             }
         }

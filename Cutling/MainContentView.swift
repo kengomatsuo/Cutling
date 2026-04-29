@@ -66,6 +66,7 @@ enum MainContentMode: Equatable {
 
 struct MainContentView: View {
     @EnvironmentObject var store: CutlingStore
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     @State private var searchText = ""
     @State private var searchIsPresented = false
@@ -437,7 +438,7 @@ struct MainContentView: View {
         }
         #endif
 
-        withAnimation {
+        withAccessibleAnimation {
             showBottomBar = newValue != .browsing
             if newValue != .browsing {
                 searchText = ""
@@ -504,6 +505,7 @@ struct MainContentView: View {
                     Image(systemName: searchText.isEmpty ? "tray" : "magnifyingglass")
                         .font(.system(size: 48, weight: .thin))
                         .foregroundStyle(.tertiary)
+                        .accessibilityHidden(true)
                     Text(searchText.isEmpty ? "No Cutlings Yet" : "No Results")
                         .font(.title3.weight(.semibold))
                         .foregroundStyle(.secondary)
@@ -511,6 +513,7 @@ struct MainContentView: View {
                         .font(.subheadline)
                         .foregroundStyle(.tertiary)
                 }
+                .accessibilityElement(children: .combine)
                 .frame(maxWidth: .infinity)
                 .padding(.top, 80)
             } else {
@@ -536,7 +539,7 @@ struct MainContentView: View {
                                 toggleSelection(for: item)
                             },
                             onDelete: {
-                                withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
+                                withAccessibleAnimation(.spring(duration: 0.35, bounce: 0.2)) {
                                     store.delete(item)
                                 }
                             }
@@ -563,7 +566,7 @@ struct MainContentView: View {
 //                #else
 //                .padding(.bottom, 40)
 //                #endif
-                .animation(.spring(duration: 0.35, bounce: 0.2), value: filtered.map(\.id))
+                .animation(reduceMotion ? .easeOut(duration: 0.15) : .spring(duration: 0.35, bounce: 0.2), value: filtered.map(\.id))
             }
         }
         #if os(iOS)
@@ -628,6 +631,7 @@ struct MainContentView: View {
             Image(systemName: "plus")
         }
         .menuIndicator(.hidden)
+        .accessibilityLabel(String(localized: "Add cutling"))
     }
     #endif
 
@@ -698,6 +702,7 @@ struct MainContentView: View {
             Image(systemName: "ellipsis")
         }
         .menuIndicator(.hidden)
+        .accessibilityLabel(String(localized: "More options"))
     }
 
     @ViewBuilder
@@ -807,7 +812,7 @@ struct MainContentView: View {
     }
 
     private func sortCutlings(by order: SortOrder) {
-        withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
+        withAccessibleAnimation(.spring(duration: 0.35, bounce: 0.2)) {
             switch order {
             case .nameAscending:
                 store.sortCutlings { $0.name.localizedCaseInsensitiveCompare($1.name) == .orderedAscending }
@@ -933,7 +938,7 @@ struct MainContentView: View {
         let idsToDelete = selectedIDs
         let cutlingsToDelete = store.cutlings.filter { idsToDelete.contains($0.id) }
         showDeleteConfirmation = false
-        withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
+        withAccessibleAnimation(.spring(duration: 0.35, bounce: 0.2)) {
             for cutling in cutlingsToDelete {
                 store.delete(cutling)
             }
@@ -952,7 +957,7 @@ struct MainContentView: View {
     
     private func scrollToBottom() {
         #if os(iOS)
-        withAnimation(.spring(duration: 0.5, bounce: 0.3)) {
+        withAccessibleAnimation(.spring(duration: 0.5, bounce: 0.3)) {
             scrollProperties.position.scrollTo(edge: .bottom)
         }
         #else
@@ -1043,6 +1048,7 @@ private let cardShape = RoundedRectangle(
 
 struct CardView: View {
     @EnvironmentObject var store: CutlingStore
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     let item: Cutling
     let isSelecting: Bool
@@ -1075,7 +1081,7 @@ struct CardView: View {
             .overlay(alignment: .center) {
                 copiedOverlay
             }
-            .animation(.spring(), value: copied)
+            .animation(reduceMotion ? .easeOut(duration: 0.15) : .spring(), value: copied)
             #if os(iOS)
             .contextMenu {
                 cardContextMenu
@@ -1214,6 +1220,7 @@ struct CardView: View {
                 }
                 .font(.caption2)
                 .foregroundStyle(.orange)
+                .accessibilityLabel(String(localized: "Expires \(expiresAt.formatted(date: .abbreviated, time: .shortened))"))
             }
         }
         .padding()
@@ -1262,6 +1269,7 @@ struct CardView: View {
                             .font(.caption2)
                             .foregroundStyle(.white.opacity(0.85))
                             .shadow(color: .black.opacity(0.5), radius: 4, y: 2)
+                            .accessibilityLabel(String(localized: "Expires \(expiresAt.formatted(date: .abbreviated, time: .shortened))"))
                         }
                     }
                 }
@@ -1360,7 +1368,7 @@ struct CardView: View {
                         )
                         .scaleEffect(isSelected ? 1.3 : 1.2)
                         .rotationEffect(.degrees(isSelected ? 0 : -15))
-                        .animation(.spring(duration: 0.15), value: isSelected)
+                        .animation(reduceMotion ? .easeOut(duration: 0.15) : .spring(duration: 0.15), value: isSelected)
                 } else {
                     // Browse mode: no animation
                     Image(systemName: "ellipsis")
@@ -1401,6 +1409,11 @@ struct CardView: View {
         }
 
         copied = true
+        #if os(iOS)
+        UIAccessibility.post(notification: .announcement, argument: String(localized: "Copied"))
+        #else
+        NSAccessibility.post(element: NSApp as Any, notification: .valueChanged)
+        #endif
         Task {
             try? await Task.sleep(for: .seconds(1.5))
             copied = false

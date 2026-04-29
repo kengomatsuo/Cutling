@@ -20,7 +20,7 @@ struct InputTypePickerSection: View {
             ForEach(InputTypeCategory.allCases) { category in
                 let isOn = !category.triggerKeys.isDisjoint(with: selectedTriggers)
                 Button {
-                    withAnimation(.easeInOut(duration: 0.15)) {
+                    withAccessibleAnimation(.easeInOut(duration: 0.15)) {
                         // Any manual toggle removes this category from auto-detected tracking.
                         autoDetectedCategories.remove(category)
                         if isOn {
