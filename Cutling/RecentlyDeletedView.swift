@@ -57,7 +57,11 @@ struct RecentlyDeletedView: View {
             }
         }
         #if os(iOS)
-        .background(Color(uiColor: .systemGroupedBackground))
+        .background {
+            Color(uiColor: .systemGroupedBackground)
+                .padding(-50)
+                .ignoresSafeArea()
+        }
         #else
         .background(.background)
         #endif
