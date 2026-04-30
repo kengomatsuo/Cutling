@@ -7,6 +7,9 @@
 "Keyboard Setup" = "键盘设置";
 "New" = "新建";
 "Choose Icon" = "选择图标";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld 文本、%lld/%lld 图片";
+"%lld Cutlings" = "%lld 个 剪切片段";
+"Cutlings" = "剪切片段";
 
 /* MARK: - Common Actions */
 "Cancel" = "取消";
@@ -17,6 +20,8 @@
 "Edit" = "编辑";
 "Sort" = "排序";
 "OK" = "好";
+"Redo" = "重做";
+"Delete Selected" = "删除所选";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "文本剪切片段";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "自动删除";
 "Delete At" = "删除时间";
 "Category" = "分类";
+"Status" = "状态";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "例如：邮箱";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "从剪贴板添加";
 "Insert Text Instantly" = "即时插入文本";
 "Switch to Cutling Keyboard" = "切换到 Cutling 键盘";
+"Continue" = "继续";
+"Enable" = "启用";
+"New Text Cutling" = "新建文本剪贴";
+"New Image Cutling" = "新建图片剪贴";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "版本";
 "Keyboard Added" = "键盘已添加";
 "Full Access" = "完全访问";
+"Experimental Feature: iCloud" = "实验性功能：iCloud";
+"Contact Support" = "联系支持";
+"Privacy Policy" = "隐私政策";
+"Auto-detect Input Types" = "自动检测输入类型";
+"Enable iCloud Sync" = "启用 iCloud 同步";
+"Keep your cutlings in sync across all your devices." = "在所有设备上同步您的剪贴内容。";
+"Automatically detect and suggest input type categories when editing text." = "编辑文本时自动检测并建议输入类型分类。";
 
 /* MARK: - Image Picker */
 "No image selected" = "未选择图片";
@@ -108,7 +125,6 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "图片剪切片段已达上限（%lld）。图片在键盘中占用较多内存。请删除一些后再添加。";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "文本剪切片段已达上限（%lld）。请删除一些后再添加。";
 
-
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "输入类型建议";
 "Suggest for Input Types" = "为输入类型建议";
@@ -120,10 +136,12 @@
 "URL" = "URL";
 "Phone Number" = "电话号码";
 "Address" = "地址";
+"Input Types" = "输入类型";
 
 /* MARK: - Detection */
 "Detected: %@" = "已识别：%@";
 "Undo" = "撤销";
+
 /* MARK: - Clipboard Feedback */
 "Copied" = "已复制";
 "Inserted" = "已插入";
@@ -181,36 +199,6 @@
 "1 day left" = "剩余1天";
 "%lld days left" = "剩余%lld天";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld 文本、%lld/%lld 图片";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "实验性功能：iCloud";
-"Contact Support" = "联系支持";
-"Privacy Policy" = "隐私政策";
-
-/* MARK: - Additional Actions */
-"Redo" = "重做";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "剪切片段";
-
-/* MARK: - Missing Strings */
-"Continue" = "继续";
-"Enable" = "启用";
-"Status" = "状态";
-"New Text Cutling" = "新建文本剪贴";
-"New Image Cutling" = "新建图片剪贴";
-"Delete Selected" = "删除所选";
-"Auto-detect Input Types" = "自动检测输入类型";
-"Input Types" = "输入类型";
-"Enable iCloud Sync" = "启用 iCloud 同步";
-"Keep your cutlings in sync across all your devices." = "在所有设备上同步您的剪贴内容。";
-"Automatically detect and suggest input type categories when editing text." = "编辑文本时自动检测并建议输入类型分类。";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld 个 剪切片段";
-
 /* MARK: - Context Menu */
 "Share" = "共享";
 "Duplicate" = "复制";
@@ -230,7 +218,6 @@
 "Created" = "创建时间";
 "Modified" = "修改时间";
 "Expires" = "过期时间";
-
 
 /* MARK: - Color Names */
 "Default" = "默认";

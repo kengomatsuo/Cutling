@@ -7,6 +7,9 @@
 "Keyboard Setup" = "కీబోర్డ్ సెటప్";
 "New" = "కొత్త";
 "Choose Icon" = "ఐకాన్ ఎంచుకోండి";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld టెక్స్ట్, %lld/%lld చిత్రాలు";
+"%lld Cutlings" = "%lld కట్లింగ్‌లు";
+"Cutlings" = "కట్లింగ్‌లు";
 
 /* MARK: - Common Actions */
 "Cancel" = "రద్దు";
@@ -17,6 +20,8 @@
 "Edit" = "సవరించు";
 "Sort" = "క్రమంలో పెట్టు";
 "OK" = "సరే";
+"Redo" = "మళ్ళీ చేయి";
+"Delete Selected" = "ఎంచుకున్నవి తొలగించు";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "టెక్స్ట్ కట్లింగ్";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "ఆటో-తొలగింపు";
 "Delete At" = "తొలగించే సమయం";
 "Category" = "వర్గం";
+"Status" = "స్థితి";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "ఉదా. ఈమెయిల్";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "క్లిప్‌బోర్డ్ నుండి జోడించు";
 "Insert Text Instantly" = "టెక్స్ట్ వెంటనే చేర్చు";
 "Switch to Cutling Keyboard" = "కట్లింగ్ కీబోర్డ్‌కు మారు";
+"Continue" = "కొనసాగించు";
+"Enable" = "ప్రారంభించు";
+"New Text Cutling" = "కొత్త టెక్స్ట్ కట్లింగ్";
+"New Image Cutling" = "కొత్త చిత్రం కట్లింగ్";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "వెర్షన్";
 "Keyboard Added" = "కీబోర్డ్ జోడించబడింది";
 "Full Access" = "పూర్తి యాక్సెస్";
+"Experimental Feature: iCloud" = "ప్రయోగాత్మక ఫీచర్: iCloud";
+"Contact Support" = "మద్దతును సంప్రదించండి";
+"Privacy Policy" = "గోప్యతా విధానం";
+"Auto-detect Input Types" = "ఇన్‌పుట్ రకాలను ఆటో-గుర్తించు";
+"Enable iCloud Sync" = "iCloud సింక్ ప్రారంభించు";
+"Keep your cutlings in sync across all your devices." = "మీ అన్ని పరికరాల్లో కట్లింగ్‌లు సింక్‌లో ఉంచండి.";
+"Automatically detect and suggest input type categories when editing text." = "టెక్స్ట్ సవరించేటప్పుడు ఇన్‌పుట్ రకం వర్గాలను స్వయంచాలకంగా గుర్తించి సూచించండి.";
 
 /* MARK: - Image Picker */
 "No image selected" = "చిత్రం ఎంచుకోలేదు";
@@ -119,6 +136,7 @@
 "URL" = "URL";
 "Phone Number" = "ఫోన్ నంబర్";
 "Address" = "చిరునామా";
+"Input Types" = "ఇన్‌పుట్ రకాలు";
 
 /* MARK: - Detection */
 "Detected: %@" = "గుర్తించబడింది: %@";
@@ -181,36 +199,6 @@
 "1 day left" = "1 రోజు మిగిలి ఉంది";
 "%lld days left" = "%lld రోజులు మిగిలి ఉన్నాయి";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld టెక్స్ట్, %lld/%lld చిత్రాలు";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "ప్రయోగాత్మక ఫీచర్: iCloud";
-"Contact Support" = "మద్దతును సంప్రదించండి";
-"Privacy Policy" = "గోప్యతా విధానం";
-
-/* MARK: - Additional Actions */
-"Redo" = "మళ్ళీ చేయి";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "కట్లింగ్‌లు";
-
-/* MARK: - Missing Strings */
-"Continue" = "కొనసాగించు";
-"Enable" = "ప్రారంభించు";
-"Status" = "స్థితి";
-"New Text Cutling" = "కొత్త టెక్స్ట్ కట్లింగ్";
-"New Image Cutling" = "కొత్త చిత్రం కట్లింగ్";
-"Delete Selected" = "ఎంచుకున్నవి తొలగించు";
-"Auto-detect Input Types" = "ఇన్‌పుట్ రకాలను ఆటో-గుర్తించు";
-"Input Types" = "ఇన్‌పుట్ రకాలు";
-"Enable iCloud Sync" = "iCloud సింక్ ప్రారంభించు";
-"Keep your cutlings in sync across all your devices." = "మీ అన్ని పరికరాల్లో కట్లింగ్‌లు సింక్‌లో ఉంచండి.";
-"Automatically detect and suggest input type categories when editing text." = "టెక్స్ట్ సవరించేటప్పుడు ఇన్‌పుట్ రకం వర్గాలను స్వయంచాలకంగా గుర్తించి సూచించండి.";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld కట్లింగ్‌లు";
-
 /* MARK: - Context Menu */
 "Share" = "భాగస్వామ్యం";
 "Duplicate" = "నకలు చేయి";
@@ -230,7 +218,6 @@
 "Created" = "సృష్టించబడింది";
 "Modified" = "సవరించబడింది";
 "Expires" = "గడువు ముగుస్తుంది";
-
 
 /* MARK: - Color Names */
 "Default" = "డిఫాల్ట్";

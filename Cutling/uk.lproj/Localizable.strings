@@ -7,6 +7,9 @@
 "Keyboard Setup" = "Налаштування клавіатури";
 "New" = "Новий";
 "Choose Icon" = "Обрати іконку";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Текст, %lld/%lld Зображення";
+"%lld Cutlings" = "%lld Катлінги";
+"Cutlings" = "Катлінги";
 
 /* MARK: - Common Actions */
 "Cancel" = "Скасувати";
@@ -17,6 +20,8 @@
 "Edit" = "Редагувати";
 "Sort" = "Сортувати";
 "OK" = "OK";
+"Redo" = "Повторити";
+"Delete Selected" = "Видалити вибране";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "Текстовий Катлінг";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "Автовидалення";
 "Delete At" = "Видалити о";
 "Category" = "Категорія";
+"Status" = "Стан";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "напр. Електронна пошта";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "Додати з буфера обміну";
 "Insert Text Instantly" = "Вставити текст миттєво";
 "Switch to Cutling Keyboard" = "Перейти на клавіатуру Катлінг";
+"Continue" = "Продовжити";
+"Enable" = "Увімкнути";
+"New Text Cutling" = "Новий текстовий Катлінг";
+"New Image Cutling" = "Новий Катлінг із зображенням";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "Версія";
 "Keyboard Added" = "Клавіатуру додано";
 "Full Access" = "Повний доступ";
+"Experimental Feature: iCloud" = "Експериментальна функція: iCloud";
+"Contact Support" = "Звʼязатися з підтримкою";
+"Privacy Policy" = "Політика конфіденційності";
+"Auto-detect Input Types" = "Автоматичне визначення типів введення";
+"Enable iCloud Sync" = "Увімкнути синхронізацію iCloud";
+"Keep your cutlings in sync across all your devices." = "Синхронізуйте свої Катлінги на всіх пристроях.";
+"Automatically detect and suggest input type categories when editing text." = "Автоматично визначати та пропонувати категорії типів введення під час редагування тексту.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Зображення не вибрано";
@@ -108,7 +125,6 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Ви досягли максимуму в %lld Катлінги зображень. Зображення займають багато пам'яті клавіатури. Видаліть деякі зображення, щоб додати нові.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Ви досягли максимуму в %lld текстових Катлінги. Видаліть деякі, щоб додати нові.";
 
-
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Пропозиції типу введення";
 "Suggest for Input Types" = "Пропонувати для типів введення";
@@ -120,10 +136,12 @@
 "URL" = "URL";
 "Phone Number" = "Номер телефону";
 "Address" = "Адреса";
+"Input Types" = "Типи введення";
 
 /* MARK: - Detection */
 "Detected: %@" = "Виявлено: %@";
 "Undo" = "Скасувати";
+
 /* MARK: - Clipboard Feedback */
 "Copied" = "Скопійовано";
 "Inserted" = "Вставлено";
@@ -181,36 +199,6 @@
 "1 day left" = "Залишився 1 день";
 "%lld days left" = "Залишилось %lld дн.";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Текст, %lld/%lld Зображення";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "Експериментальна функція: iCloud";
-"Contact Support" = "Звʼязатися з підтримкою";
-"Privacy Policy" = "Політика конфіденційності";
-
-/* MARK: - Additional Actions */
-"Redo" = "Повторити";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "Катлінги";
-
-/* MARK: - Missing Strings */
-"Continue" = "Продовжити";
-"Enable" = "Увімкнути";
-"Status" = "Стан";
-"New Text Cutling" = "Новий текстовий Катлінг";
-"New Image Cutling" = "Новий Катлінг із зображенням";
-"Delete Selected" = "Видалити вибране";
-"Auto-detect Input Types" = "Автоматичне визначення типів введення";
-"Input Types" = "Типи введення";
-"Enable iCloud Sync" = "Увімкнути синхронізацію iCloud";
-"Keep your cutlings in sync across all your devices." = "Синхронізуйте свої Катлінги на всіх пристроях.";
-"Automatically detect and suggest input type categories when editing text." = "Автоматично визначати та пропонувати категорії типів введення під час редагування тексту.";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld Катлінги";
-
 /* MARK: - Context Menu */
 "Share" = "Поділитися";
 "Duplicate" = "Дублювати";
@@ -230,7 +218,6 @@
 "Created" = "Створено";
 "Modified" = "Змінено";
 "Expires" = "Спливає";
-
 
 /* MARK: - Color Names */
 "Default" = "За замовчуванням";

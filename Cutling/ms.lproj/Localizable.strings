@@ -7,6 +7,9 @@
 "Keyboard Setup" = "Persediaan Papan Kekunci";
 "New" = "Baharu";
 "Choose Icon" = "Pilih Ikon";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Teks, %lld/%lld Imej";
+"%lld Cutlings" = "%lld Cutling";
+"Cutlings" = "Cutling";
 
 /* MARK: - Common Actions */
 "Cancel" = "Batal";
@@ -17,6 +20,8 @@
 "Edit" = "Edit";
 "Sort" = "Isih";
 "OK" = "OK";
+"Redo" = "Buat Semula";
+"Delete Selected" = "Padam yang Dipilih";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "Cutling Teks";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "Padam Auto";
 "Delete At" = "Padam Pada";
 "Category" = "Kategori";
+"Status" = "Status";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "cth. Emel";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "Tambah dari Papan Keratan";
 "Insert Text Instantly" = "Sisipkan Teks Serta-merta";
 "Switch to Cutling Keyboard" = "Tukar ke Papan Kekunci Cutling";
+"Continue" = "Teruskan";
+"Enable" = "Dayakan";
+"New Text Cutling" = "Cutling Teks Baharu";
+"New Image Cutling" = "Cutling Imej Baharu";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "Versi";
 "Keyboard Added" = "Papan Kekunci Ditambah";
 "Full Access" = "Akses Penuh";
+"Experimental Feature: iCloud" = "Ciri Eksperimental: iCloud";
+"Contact Support" = "Hubungi Sokongan";
+"Privacy Policy" = "Dasar Privasi";
+"Auto-detect Input Types" = "Kesan Auto Jenis Input";
+"Enable iCloud Sync" = "Dayakan Penyegerakan iCloud";
+"Keep your cutlings in sync across all your devices." = "Pastikan cutling anda sentiasa disegerakkan di semua peranti.";
+"Automatically detect and suggest input type categories when editing text." = "Kesan dan cadangkan kategori jenis input secara automatik semasa mengedit teks.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Tiada imej dipilih";
@@ -108,7 +125,6 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Anda telah mencapai had maksimum %lld cutling imej. Imej menggunakan memori yang besar di papan kekunci. Padam beberapa imej untuk menambah lagi.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Anda telah mencapai had maksimum %lld cutling teks. Padam beberapa untuk menambah lagi.";
 
-
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Cadangan jenis input";
 "Suggest for Input Types" = "Cadangkan untuk jenis input";
@@ -120,10 +136,12 @@
 "URL" = "URL";
 "Phone Number" = "Nombor Telefon";
 "Address" = "Alamat";
+"Input Types" = "Jenis Input";
 
 /* MARK: - Detection */
 "Detected: %@" = "Dikesan: %@";
 "Undo" = "Buat asal";
+
 /* MARK: - Clipboard Feedback */
 "Copied" = "Disalin";
 "Inserted" = "Disisipkan";
@@ -181,36 +199,6 @@
 "1 day left" = "1 hari lagi";
 "%lld days left" = "%lld hari lagi";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Teks, %lld/%lld Imej";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "Ciri Eksperimental: iCloud";
-"Contact Support" = "Hubungi Sokongan";
-"Privacy Policy" = "Dasar Privasi";
-
-/* MARK: - Additional Actions */
-"Redo" = "Buat Semula";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "Cutling";
-
-/* MARK: - Missing Strings */
-"Continue" = "Teruskan";
-"Enable" = "Dayakan";
-"Status" = "Status";
-"New Text Cutling" = "Cutling Teks Baharu";
-"New Image Cutling" = "Cutling Imej Baharu";
-"Delete Selected" = "Padam yang Dipilih";
-"Auto-detect Input Types" = "Kesan Auto Jenis Input";
-"Input Types" = "Jenis Input";
-"Enable iCloud Sync" = "Dayakan Penyegerakan iCloud";
-"Keep your cutlings in sync across all your devices." = "Pastikan cutling anda sentiasa disegerakkan di semua peranti.";
-"Automatically detect and suggest input type categories when editing text." = "Kesan dan cadangkan kategori jenis input secara automatik semasa mengedit teks.";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld Cutling";
-
 /* MARK: - Context Menu */
 "Share" = "Kongsi";
 "Duplicate" = "Salin";
@@ -230,7 +218,6 @@
 "Created" = "Dicipta";
 "Modified" = "Diubah suai";
 "Expires" = "Tamat tempoh";
-
 
 /* MARK: - Color Names */
 "Default" = "Lalai";

@@ -7,6 +7,9 @@
 "Keyboard Setup" = "Klaviatuuri seadistamine";
 "New" = "Uus";
 "Choose Icon" = "Vali ikoon";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Tekst, %lld/%lld Pildid";
+"%lld Cutlings" = "%lld Cutlingid";
+"Cutlings" = "Cutlingid";
 
 /* MARK: - Common Actions */
 "Cancel" = "Tühista";
@@ -17,6 +20,8 @@
 "Edit" = "Muuda";
 "Sort" = "Sordi";
 "OK" = "OK";
+"Redo" = "Tee uuesti";
+"Delete Selected" = "Kustuta valitud";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "Teksti Cutling";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "Automaatne kustutamine";
 "Delete At" = "Kustuta kell";
 "Category" = "Kategooria";
+"Status" = "Olek";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "nt E-post";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "Lisa lõikelaualt";
 "Insert Text Instantly" = "Sisesta tekst kohe";
 "Switch to Cutling Keyboard" = "Lülitu Cutling klaviatuurile";
+"Continue" = "Jätka";
+"Enable" = "Luba";
+"New Text Cutling" = "Uus teksti-Cutling";
+"New Image Cutling" = "Uus pildi-Cutling";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "Versioon";
 "Keyboard Added" = "Klaviatuur lisatud";
 "Full Access" = "Täielik juurdepääs";
+"Experimental Feature: iCloud" = "Eksperimentaalne funktsioon: iCloud";
+"Contact Support" = "Võta ühendust toega";
+"Privacy Policy" = "Privaatsuspoliitika";
+"Auto-detect Input Types" = "Sisestustüüpide automaatne tuvastamine";
+"Enable iCloud Sync" = "Luba iCloudi sünkroonimine";
+"Keep your cutlings in sync across all your devices." = "Hoidke oma cutlingud kõigis seadmetes sünkroonis.";
+"Automatically detect and suggest input type categories when editing text." = "Tuvasta ja soovita teksti redigeerimisel automaatselt sisestustüübi kategooriaid.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Pilti pole valitud";
@@ -119,6 +136,7 @@
 "URL" = "URL";
 "Phone Number" = "Telefoninumber";
 "Address" = "Aadress";
+"Input Types" = "Sisestustüübid";
 
 /* MARK: - Detection */
 "Detected: %@" = "Tuvastatud: %@";
@@ -181,36 +199,6 @@
 "1 day left" = "1 päev jäänud";
 "%lld days left" = "%lld päeva jäänud";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Tekst, %lld/%lld Pildid";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "Eksperimentaalne funktsioon: iCloud";
-"Contact Support" = "Võta ühendust toega";
-"Privacy Policy" = "Privaatsuspoliitika";
-
-/* MARK: - Additional Actions */
-"Redo" = "Tee uuesti";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "Cutlingid";
-
-/* MARK: - Missing Strings */
-"Continue" = "Jätka";
-"Enable" = "Luba";
-"Status" = "Olek";
-"New Text Cutling" = "Uus teksti-Cutling";
-"New Image Cutling" = "Uus pildi-Cutling";
-"Delete Selected" = "Kustuta valitud";
-"Auto-detect Input Types" = "Sisestustüüpide automaatne tuvastamine";
-"Input Types" = "Sisestustüübid";
-"Enable iCloud Sync" = "Luba iCloudi sünkroonimine";
-"Keep your cutlings in sync across all your devices." = "Hoidke oma cutlingud kõigis seadmetes sünkroonis.";
-"Automatically detect and suggest input type categories when editing text." = "Tuvasta ja soovita teksti redigeerimisel automaatselt sisestustüübi kategooriaid.";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld Cutlingid";
-
 /* MARK: - Context Menu */
 "Share" = "Jaga";
 "Duplicate" = "Dubleeri";
@@ -230,7 +218,6 @@
 "Created" = "Loodud";
 "Modified" = "Muudetud";
 "Expires" = "Aegub";
-
 
 /* MARK: - Color Names */
 "Default" = "Vaikimisi";

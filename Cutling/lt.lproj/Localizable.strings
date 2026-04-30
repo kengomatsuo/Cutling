@@ -7,6 +7,9 @@
 "Keyboard Setup" = "Klaviatūros nustatymas";
 "New" = "Naujas";
 "Choose Icon" = "Pasirinkti piktogramą";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Tekstas, %lld/%lld Vaizdai";
+"%lld Cutlings" = "%lld Cutlingai";
+"Cutlings" = "Cutlingai";
 
 /* MARK: - Common Actions */
 "Cancel" = "Atšaukti";
@@ -17,6 +20,8 @@
 "Edit" = "Redaguoti";
 "Sort" = "Rikiuoti";
 "OK" = "Gerai";
+"Redo" = "Pakartoti";
+"Delete Selected" = "Ištrinti pasirinktus";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "Tekstinis Cutling";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "Automatinis trynimas";
 "Delete At" = "Ištrinti";
 "Category" = "Kategorija";
+"Status" = "Būsena";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "pvz. El. paštas";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "Pridėti iš iškarpinės";
 "Insert Text Instantly" = "Įterpti tekstą akimirksniu";
 "Switch to Cutling Keyboard" = "Perjungti į Cutling klaviatūrą";
+"Continue" = "Tęsti";
+"Enable" = "Įjungti";
+"New Text Cutling" = "Naujas teksto Cutling";
+"New Image Cutling" = "Naujas vaizdo Cutling";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "Versija";
 "Keyboard Added" = "Klaviatūra pridėta";
 "Full Access" = "Pilna prieiga";
+"Experimental Feature: iCloud" = "Eksperimentinė funkcija: iCloud";
+"Contact Support" = "Susisiekti su palaikymu";
+"Privacy Policy" = "Privatumo politika";
+"Auto-detect Input Types" = "Automatiškai aptikti įvesties tipus";
+"Enable iCloud Sync" = "Įjungti iCloud sinchronizavimą";
+"Keep your cutlings in sync across all your devices." = "Sinchronizuokite savo cutlingus visuose įrenginiuose.";
+"Automatically detect and suggest input type categories when editing text." = "Automatiškai aptikti ir siūlyti įvesties tipų kategorijas redaguojant tekstą.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Nepasirinktas joks vaizdas";
@@ -119,6 +136,7 @@
 "URL" = "URL";
 "Phone Number" = "Telefono numeris";
 "Address" = "Adresas";
+"Input Types" = "Įvesties tipai";
 
 /* MARK: - Detection */
 "Detected: %@" = "Aptikta: %@";
@@ -181,36 +199,6 @@
 "1 day left" = "Liko 1 diena";
 "%lld days left" = "Liko %lld dienų";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Tekstas, %lld/%lld Vaizdai";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "Eksperimentinė funkcija: iCloud";
-"Contact Support" = "Susisiekti su palaikymu";
-"Privacy Policy" = "Privatumo politika";
-
-/* MARK: - Additional Actions */
-"Redo" = "Pakartoti";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "Cutlingai";
-
-/* MARK: - Missing Strings */
-"Continue" = "Tęsti";
-"Enable" = "Įjungti";
-"Status" = "Būsena";
-"New Text Cutling" = "Naujas teksto Cutling";
-"New Image Cutling" = "Naujas vaizdo Cutling";
-"Delete Selected" = "Ištrinti pasirinktus";
-"Auto-detect Input Types" = "Automatiškai aptikti įvesties tipus";
-"Input Types" = "Įvesties tipai";
-"Enable iCloud Sync" = "Įjungti iCloud sinchronizavimą";
-"Keep your cutlings in sync across all your devices." = "Sinchronizuokite savo cutlingus visuose įrenginiuose.";
-"Automatically detect and suggest input type categories when editing text." = "Automatiškai aptikti ir siūlyti įvesties tipų kategorijas redaguojant tekstą.";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld Cutlingai";
-
 /* MARK: - Context Menu */
 "Share" = "Dalintis";
 "Duplicate" = "Dubliuoti";
@@ -230,7 +218,6 @@
 "Created" = "Sukurta";
 "Modified" = "Pakeista";
 "Expires" = "Baigiasi";
-
 
 /* MARK: - Color Names */
 "Default" = "Numatytasis";

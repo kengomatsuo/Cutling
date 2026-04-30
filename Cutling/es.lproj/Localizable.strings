@@ -7,6 +7,9 @@
 "Keyboard Setup" = "Configurar teclado";
 "New" = "Nuevo";
 "Choose Icon" = "Elegir icono";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Texto, %lld/%lld Imágenes";
+"%lld Cutlings" = "%lld Cutlings";
+"Cutlings" = "Cutlings";
 
 /* MARK: - Common Actions */
 "Cancel" = "Cancelar";
@@ -17,6 +20,8 @@
 "Edit" = "Editar";
 "Sort" = "Ordenar";
 "OK" = "Aceptar";
+"Redo" = "Rehacer";
+"Delete Selected" = "Eliminar seleccionados";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "Cutling de texto";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "Eliminar automáticamente";
 "Delete At" = "Eliminar el";
 "Category" = "Categoría";
+"Status" = "Estado";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "p. ej. Correo";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "Agregar del portapapeles";
 "Insert Text Instantly" = "Insertar texto al instante";
 "Switch to Cutling Keyboard" = "Cambiar al teclado Cutling";
+"Continue" = "Continuar";
+"Enable" = "Activar";
+"New Text Cutling" = "Nuevo Cutling de texto";
+"New Image Cutling" = "Nuevo Cutling de imagen";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "Versión";
 "Keyboard Added" = "Teclado agregado";
 "Full Access" = "Acceso completo";
+"Experimental Feature: iCloud" = "Función experimental: iCloud";
+"Contact Support" = "Contactar soporte";
+"Privacy Policy" = "Política de privacidad";
+"Auto-detect Input Types" = "Detectar tipos de entrada automáticamente";
+"Enable iCloud Sync" = "Activar sincronización de iCloud";
+"Keep your cutlings in sync across all your devices." = "Mantén tus cutlings sincronizados en todos tus dispositivos.";
+"Automatically detect and suggest input type categories when editing text." = "Detectar y sugerir automáticamente categorías de tipos de entrada al editar texto.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Sin imagen seleccionada";
@@ -108,7 +125,6 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Has alcanzado el máximo de %lld cutlings de imagen. Las imágenes usan mucha memoria. Elimina algunos para agregar más.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Has alcanzado el máximo de %lld cutlings de texto. Elimina algunos para agregar más.";
 
-
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Sugerencias por tipo de entrada";
 "Suggest for Input Types" = "Sugerir para tipos de entrada";
@@ -120,10 +136,12 @@
 "URL" = "URL";
 "Phone Number" = "Número de teléfono";
 "Address" = "Dirección";
+"Input Types" = "Tipos de entrada";
 
 /* MARK: - Detection */
 "Detected: %@" = "Detectado: %@";
 "Undo" = "Deshacer";
+
 /* MARK: - Clipboard Feedback */
 "Copied" = "Copiado";
 "Inserted" = "Insertado";
@@ -181,36 +199,6 @@
 "1 day left" = "1 día restante";
 "%lld days left" = "%lld días restantes";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Texto, %lld/%lld Imágenes";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "Función experimental: iCloud";
-"Contact Support" = "Contactar soporte";
-"Privacy Policy" = "Política de privacidad";
-
-/* MARK: - Additional Actions */
-"Redo" = "Rehacer";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "Cutlings";
-
-/* MARK: - Missing Strings */
-"Continue" = "Continuar";
-"Enable" = "Activar";
-"Status" = "Estado";
-"New Text Cutling" = "Nuevo Cutling de texto";
-"New Image Cutling" = "Nuevo Cutling de imagen";
-"Delete Selected" = "Eliminar seleccionados";
-"Auto-detect Input Types" = "Detectar tipos de entrada automáticamente";
-"Input Types" = "Tipos de entrada";
-"Enable iCloud Sync" = "Activar sincronización de iCloud";
-"Keep your cutlings in sync across all your devices." = "Mantén tus cutlings sincronizados en todos tus dispositivos.";
-"Automatically detect and suggest input type categories when editing text." = "Detectar y sugerir automáticamente categorías de tipos de entrada al editar texto.";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld Cutlings";
-
 /* MARK: - Context Menu */
 "Share" = "Compartir";
 "Duplicate" = "Duplicar";
@@ -230,7 +218,6 @@
 "Created" = "Creado";
 "Modified" = "Modificado";
 "Expires" = "Caduca";
-
 
 /* MARK: - Color Names */
 "Default" = "Predeterminado";

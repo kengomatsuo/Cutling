@@ -7,6 +7,9 @@
 "Keyboard Setup" = "Cài Đặt Bàn Phím";
 "New" = "Mới";
 "Choose Icon" = "Chọn Biểu Tượng";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Văn bản, %lld/%lld Hình ảnh";
+"%lld Cutlings" = "%lld Cutling";
+"Cutlings" = "Cutling";
 
 /* MARK: - Common Actions */
 "Cancel" = "Hủy";
@@ -17,6 +20,8 @@
 "Edit" = "Sửa";
 "Sort" = "Sắp Xếp";
 "OK" = "OK";
+"Redo" = "Làm lại";
+"Delete Selected" = "Xóa mục đã chọn";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "Cutling Văn Bản";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "Tự Động Xóa";
 "Delete At" = "Xóa Lúc";
 "Category" = "Danh Mục";
+"Status" = "Trạng thái";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "VD: Email";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "Thêm từ Bộ Nhớ Tạm";
 "Insert Text Instantly" = "Chèn Văn Bản Ngay";
 "Switch to Cutling Keyboard" = "Chuyển sang Bàn Phím Cutling";
+"Continue" = "Tiếp tục";
+"Enable" = "Bật";
+"New Text Cutling" = "Cutling Văn bản Mới";
+"New Image Cutling" = "Cutling Hình ảnh Mới";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "Phiên Bản";
 "Keyboard Added" = "Đã Thêm Bàn Phím";
 "Full Access" = "Quyền Truy Cập Đầy Đủ";
+"Experimental Feature: iCloud" = "Tính năng thử nghiệm: iCloud";
+"Contact Support" = "Liên hệ hỗ trợ";
+"Privacy Policy" = "Chính sách bảo mật";
+"Auto-detect Input Types" = "Tự động nhận diện loại nhập liệu";
+"Enable iCloud Sync" = "Bật đồng bộ iCloud";
+"Keep your cutlings in sync across all your devices." = "Giữ các cutling của bạn được đồng bộ trên tất cả thiết bị.";
+"Automatically detect and suggest input type categories when editing text." = "Tự động nhận diện và đề xuất danh mục loại nhập liệu khi chỉnh sửa văn bản.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Chưa chọn hình ảnh";
@@ -108,7 +125,6 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Bạn đã đạt tối đa %lld cutling hình ảnh. Hình ảnh sử dụng nhiều bộ nhớ trong bàn phím. Xóa một số hình ảnh để thêm mới.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Bạn đã đạt tối đa %lld cutling văn bản. Xóa một số để thêm mới.";
 
-
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Gợi ý loại nhập liệu";
 "Suggest for Input Types" = "Gợi ý cho loại nhập liệu";
@@ -120,10 +136,12 @@
 "URL" = "URL";
 "Phone Number" = "Số điện thoại";
 "Address" = "Địa chỉ";
+"Input Types" = "Loại nhập liệu";
 
 /* MARK: - Detection */
 "Detected: %@" = "Đã phát hiện: %@";
 "Undo" = "Hoàn tác";
+
 /* MARK: - Clipboard Feedback */
 "Copied" = "Đã Sao Chép";
 "Inserted" = "Đã Chèn";
@@ -181,36 +199,6 @@
 "1 day left" = "Còn 1 ngày";
 "%lld days left" = "Còn %lld ngày";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Văn bản, %lld/%lld Hình ảnh";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "Tính năng thử nghiệm: iCloud";
-"Contact Support" = "Liên hệ hỗ trợ";
-"Privacy Policy" = "Chính sách bảo mật";
-
-/* MARK: - Additional Actions */
-"Redo" = "Làm lại";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "Cutling";
-
-/* MARK: - Missing Strings */
-"Continue" = "Tiếp tục";
-"Enable" = "Bật";
-"Status" = "Trạng thái";
-"New Text Cutling" = "Cutling Văn bản Mới";
-"New Image Cutling" = "Cutling Hình ảnh Mới";
-"Delete Selected" = "Xóa mục đã chọn";
-"Auto-detect Input Types" = "Tự động nhận diện loại nhập liệu";
-"Input Types" = "Loại nhập liệu";
-"Enable iCloud Sync" = "Bật đồng bộ iCloud";
-"Keep your cutlings in sync across all your devices." = "Giữ các cutling của bạn được đồng bộ trên tất cả thiết bị.";
-"Automatically detect and suggest input type categories when editing text." = "Tự động nhận diện và đề xuất danh mục loại nhập liệu khi chỉnh sửa văn bản.";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld Cutling";
-
 /* MARK: - Context Menu */
 "Share" = "Chia sẻ";
 "Duplicate" = "Nhân bản";
@@ -230,7 +218,6 @@
 "Created" = "Đã tạo";
 "Modified" = "Đã sửa";
 "Expires" = "Hết hạn";
-
 
 /* MARK: - Color Names */
 "Default" = "Mặc định";

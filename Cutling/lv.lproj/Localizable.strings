@@ -7,6 +7,9 @@
 "Keyboard Setup" = "Tastatūras iestatīšana";
 "New" = "Jauns";
 "Choose Icon" = "Izvēlēties ikonu";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Teksts, %lld/%lld Attēli";
+"%lld Cutlings" = "%lld Cutlingi";
+"Cutlings" = "Cutlingi";
 
 /* MARK: - Common Actions */
 "Cancel" = "Atcelt";
@@ -17,6 +20,8 @@
 "Edit" = "Rediģēt";
 "Sort" = "Kārtot";
 "OK" = "Labi";
+"Redo" = "Atkārtot";
+"Delete Selected" = "Dzēst atlasītos";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "Teksta Cutling";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "Automātiskā dzēšana";
 "Delete At" = "Dzēst plkst.";
 "Category" = "Kategorija";
+"Status" = "Statuss";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "piem. E-pasts";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "Pievienot no starpliktuves";
 "Insert Text Instantly" = "Ievietot tekstu uzreiz";
 "Switch to Cutling Keyboard" = "Pārslēgties uz Cutling tastatūru";
+"Continue" = "Turpināt";
+"Enable" = "Iespējot";
+"New Text Cutling" = "Jauns teksta Cutling";
+"New Image Cutling" = "Jauns attēla Cutling";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "Versija";
 "Keyboard Added" = "Tastatūra pievienota";
 "Full Access" = "Pilna piekļuve";
+"Experimental Feature: iCloud" = "Eksperimentāla funkcija: iCloud";
+"Contact Support" = "Sazināties ar atbalstu";
+"Privacy Policy" = "Privātuma politika";
+"Auto-detect Input Types" = "Automātiski noteikt ievades veidus";
+"Enable iCloud Sync" = "Iespējot iCloud sinhronizāciju";
+"Keep your cutlings in sync across all your devices." = "Uzturiet savus cutlingus sinhronizētus visās ierīcēs.";
+"Automatically detect and suggest input type categories when editing text." = "Automātiski noteikt un ieteikt ievades veidu kategorijas, rediģējot tekstu.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Nav atlasīts neviens attēls";
@@ -119,6 +136,7 @@
 "URL" = "URL";
 "Phone Number" = "Tālruņa numurs";
 "Address" = "Adrese";
+"Input Types" = "Ievades veidi";
 
 /* MARK: - Detection */
 "Detected: %@" = "Noteikts: %@";
@@ -181,36 +199,6 @@
 "1 day left" = "Atlicis 1 diena";
 "%lld days left" = "Atlikušas %lld dienas";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Teksts, %lld/%lld Attēli";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "Eksperimentāla funkcija: iCloud";
-"Contact Support" = "Sazināties ar atbalstu";
-"Privacy Policy" = "Privātuma politika";
-
-/* MARK: - Additional Actions */
-"Redo" = "Atkārtot";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "Cutlingi";
-
-/* MARK: - Missing Strings */
-"Continue" = "Turpināt";
-"Enable" = "Iespējot";
-"Status" = "Statuss";
-"New Text Cutling" = "Jauns teksta Cutling";
-"New Image Cutling" = "Jauns attēla Cutling";
-"Delete Selected" = "Dzēst atlasītos";
-"Auto-detect Input Types" = "Automātiski noteikt ievades veidus";
-"Input Types" = "Ievades veidi";
-"Enable iCloud Sync" = "Iespējot iCloud sinhronizāciju";
-"Keep your cutlings in sync across all your devices." = "Uzturiet savus cutlingus sinhronizētus visās ierīcēs.";
-"Automatically detect and suggest input type categories when editing text." = "Automātiski noteikt un ieteikt ievades veidu kategorijas, rediģējot tekstu.";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld Cutlingi";
-
 /* MARK: - Context Menu */
 "Share" = "Kopīgot";
 "Duplicate" = "Dublēt";
@@ -230,7 +218,6 @@
 "Created" = "Izveidots";
 "Modified" = "Mainīts";
 "Expires" = "Beidzas";
-
 
 /* MARK: - Color Names */
 "Default" = "Noklusējums";

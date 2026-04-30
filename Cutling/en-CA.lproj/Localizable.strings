@@ -7,6 +7,9 @@
 "Keyboard Setup" = "Keyboard Setup";
 "New" = "New";
 "Choose Icon" = "Choose Icon";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Text, %lld/%lld Images";
+"%lld Cutlings" = "%lld Cutlings";
+"Cutlings" = "Cutlings";
 
 /* MARK: - Common Actions */
 "Cancel" = "Cancel";
@@ -17,6 +20,8 @@
 "Edit" = "Edit";
 "Sort" = "Sort";
 "OK" = "OK";
+"Redo" = "Redo";
+"Delete Selected" = "Delete Selected";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "Text Cutling";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "Auto-Delete";
 "Delete At" = "Delete At";
 "Category" = "Category";
+"Status" = "Status";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "e.g. Email";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "Add from Clipboard";
 "Insert Text Instantly" = "Insert Text Instantly";
 "Switch to Cutling Keyboard" = "Switch to Cutling Keyboard";
+"Continue" = "Continue";
+"Enable" = "Enable";
+"New Text Cutling" = "New Text Cutling";
+"New Image Cutling" = "New Image Cutling";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "Version";
 "Keyboard Added" = "Keyboard Added";
 "Full Access" = "Full Access";
+"Experimental Feature: iCloud" = "Experimental Feature: iCloud";
+"Contact Support" = "Contact Support";
+"Privacy Policy" = "Privacy Policy";
+"Auto-detect Input Types" = "Auto-detect Input Types";
+"Enable iCloud Sync" = "Enable iCloud Sync";
+"Keep your cutlings in sync across all your devices." = "Keep your cutlings in sync across all your devices.";
+"Automatically detect and suggest input type categories when editing text." = "Automatically detect and suggest input type categories when editing text.";
 
 /* MARK: - Image Picker */
 "No image selected" = "No image selected";
@@ -119,6 +136,7 @@
 "URL" = "URL";
 "Phone Number" = "Phone Number";
 "Address" = "Address";
+"Input Types" = "Input Types";
 
 /* MARK: - Detection */
 "Detected: %@" = "Detected: %@";
@@ -181,36 +199,6 @@
 "1 day left" = "1 day left";
 "%lld days left" = "%lld days left";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Text, %lld/%lld Images";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "Experimental Feature: iCloud";
-"Contact Support" = "Contact Support";
-"Privacy Policy" = "Privacy Policy";
-
-/* MARK: - Additional Actions */
-"Redo" = "Redo";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "Cutlings";
-
-/* MARK: - Missing Strings */
-"Continue" = "Continue";
-"Enable" = "Enable";
-"Status" = "Status";
-"New Text Cutling" = "New Text Cutling";
-"New Image Cutling" = "New Image Cutling";
-"Delete Selected" = "Delete Selected";
-"Auto-detect Input Types" = "Auto-detect Input Types";
-"Input Types" = "Input Types";
-"Enable iCloud Sync" = "Enable iCloud Sync";
-"Keep your cutlings in sync across all your devices." = "Keep your cutlings in sync across all your devices.";
-"Automatically detect and suggest input type categories when editing text." = "Automatically detect and suggest input type categories when editing text.";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld Cutlings";
-
 /* MARK: - Context Menu */
 "Share" = "Share";
 "Duplicate" = "Duplicate";
@@ -230,7 +218,6 @@
 "Created" = "Created";
 "Modified" = "Modified";
 "Expires" = "Expires";
-
 
 /* MARK: - Color Names */
 "Default" = "Default";

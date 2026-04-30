@@ -7,6 +7,9 @@
 "Keyboard Setup" = "कीबोर्ड सेटअप";
 "New" = "नया";
 "Choose Icon" = "आइकन चुनें";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld टेक्स्ट, %lld/%lld छवियाँ";
+"%lld Cutlings" = "%lld कटलिंग";
+"Cutlings" = "कटलिंग";
 
 /* MARK: - Common Actions */
 "Cancel" = "रद्द करें";
@@ -17,6 +20,8 @@
 "Edit" = "संपादित करें";
 "Sort" = "क्रमबद्ध करें";
 "OK" = "ठीक है";
+"Redo" = "फिर से करें";
+"Delete Selected" = "चयनित हटाएं";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "टेक्स्ट कटलिंग";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "स्वतः हटाएँ";
 "Delete At" = "इस समय हटाएँ";
 "Category" = "श्रेणी";
+"Status" = "स्थिति";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "जैसे ईमेल";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "क्लिपबोर्ड से जोड़ें";
 "Insert Text Instantly" = "टेक्स्ट तुरंत डालें";
 "Switch to Cutling Keyboard" = "कटलिंग कीबोर्ड पर स्विच करें";
+"Continue" = "जारी रखें";
+"Enable" = "सक्षम करें";
+"New Text Cutling" = "नया टेक्स्ट कटलिंग";
+"New Image Cutling" = "नया इमेज कटलिंग";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "संस्करण";
 "Keyboard Added" = "कीबोर्ड जोड़ा गया";
 "Full Access" = "पूर्ण पहुँच";
+"Experimental Feature: iCloud" = "प्रयोगात्मक सुविधा: iCloud";
+"Contact Support" = "सहायता से संपर्क करें";
+"Privacy Policy" = "गोपनीयता नीति";
+"Auto-detect Input Types" = "इनपुट प्रकार स्वतः पहचानें";
+"Enable iCloud Sync" = "iCloud सिंक सक्षम करें";
+"Keep your cutlings in sync across all your devices." = "अपने सभी उपकरणों पर अपने कटलिंग्स को सिंक में रखें।";
+"Automatically detect and suggest input type categories when editing text." = "टेक्स्ट संपादन करते समय इनपुट प्रकार श्रेणियों को स्वचालित रूप से पहचानें और सुझाव दें।";
 
 /* MARK: - Image Picker */
 "No image selected" = "कोई छवि चयनित नहीं";
@@ -108,7 +125,6 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "आपने %lld छवि कटलिंग की अधिकतम सीमा पूरी कर ली है। छवियाँ कीबोर्ड में अधिक मेमोरी का उपयोग करती हैं। और जोड़ने के लिए कुछ छवियाँ हटाएँ।";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "आपने %lld टेक्स्ट कटलिंग की अधिकतम सीमा पूरी कर ली है। और जोड़ने के लिए कुछ हटाएँ।";
 
-
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "इनपुट प्रकार सुझाव";
 "Suggest for Input Types" = "इनपुट प्रकारों के लिए सुझाव दें";
@@ -120,10 +136,12 @@
 "URL" = "URL";
 "Phone Number" = "फ़ोन नंबर";
 "Address" = "पता";
+"Input Types" = "इनपुट प्रकार";
 
 /* MARK: - Detection */
 "Detected: %@" = "पहचाना गया: %@";
 "Undo" = "पूर्ववत करें";
+
 /* MARK: - Clipboard Feedback */
 "Copied" = "कॉपी हो गया";
 "Inserted" = "डाला गया";
@@ -181,36 +199,6 @@
 "1 day left" = "1 दिन शेष";
 "%lld days left" = "%lld दिन शेष";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld टेक्स्ट, %lld/%lld छवियाँ";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "प्रयोगात्मक सुविधा: iCloud";
-"Contact Support" = "सहायता से संपर्क करें";
-"Privacy Policy" = "गोपनीयता नीति";
-
-/* MARK: - Additional Actions */
-"Redo" = "फिर से करें";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "कटलिंग";
-
-/* MARK: - Missing Strings */
-"Continue" = "जारी रखें";
-"Enable" = "सक्षम करें";
-"Status" = "स्थिति";
-"New Text Cutling" = "नया टेक्स्ट कटलिंग";
-"New Image Cutling" = "नया इमेज कटलिंग";
-"Delete Selected" = "चयनित हटाएं";
-"Auto-detect Input Types" = "इनपुट प्रकार स्वतः पहचानें";
-"Input Types" = "इनपुट प्रकार";
-"Enable iCloud Sync" = "iCloud सिंक सक्षम करें";
-"Keep your cutlings in sync across all your devices." = "अपने सभी उपकरणों पर अपने कटलिंग्स को सिंक में रखें।";
-"Automatically detect and suggest input type categories when editing text." = "टेक्स्ट संपादन करते समय इनपुट प्रकार श्रेणियों को स्वचालित रूप से पहचानें और सुझाव दें।";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld कटलिंग";
-
 /* MARK: - Context Menu */
 "Share" = "शेयर करें";
 "Duplicate" = "डुप्लिकेट";
@@ -230,7 +218,6 @@
 "Created" = "बनाया गया";
 "Modified" = "संशोधित";
 "Expires" = "समाप्त होता है";
-
 
 /* MARK: - Color Names */
 "Default" = "डिफ़ॉल्ट";

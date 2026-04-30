@@ -7,6 +7,9 @@
 "Keyboard Setup" = "Настройка клавиатуры";
 "New" = "Новый";
 "Choose Icon" = "Выбрать значок";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Текст, %lld/%lld Изображения";
+"%lld Cutlings" = "%lld Катлинги";
+"Cutlings" = "Катлинги";
 
 /* MARK: - Common Actions */
 "Cancel" = "Отмена";
@@ -17,6 +20,8 @@
 "Edit" = "Изменить";
 "Sort" = "Сортировать";
 "OK" = "ОК";
+"Redo" = "Повторить";
+"Delete Selected" = "Удалить выбранное";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "Текстовый Катлинг";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "Автоудаление";
 "Delete At" = "Удалить в";
 "Category" = "Категория";
+"Status" = "Статус";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "напр. Эл. почта";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "Добавить из буфера обмена";
 "Insert Text Instantly" = "Вставить текст мгновенно";
 "Switch to Cutling Keyboard" = "Переключиться на клавиатуру Катлинг";
+"Continue" = "Продолжить";
+"Enable" = "Включить";
+"New Text Cutling" = "Новый текстовый Катлинг";
+"New Image Cutling" = "Новый Катлинг с изображением";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "Версия";
 "Keyboard Added" = "Клавиатура добавлена";
 "Full Access" = "Полный доступ";
+"Experimental Feature: iCloud" = "Экспериментальная функция: iCloud";
+"Contact Support" = "Связаться с поддержкой";
+"Privacy Policy" = "Политика конфиденциальности";
+"Auto-detect Input Types" = "Автоматическое определение типов ввода";
+"Enable iCloud Sync" = "Включить синхронизацию iCloud";
+"Keep your cutlings in sync across all your devices." = "Синхронизируйте свои Катлинги на всех устройствах.";
+"Automatically detect and suggest input type categories when editing text." = "Автоматически определять и предлагать категории типов ввода при редактировании текста.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Изображение не выбрано";
@@ -108,7 +125,6 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Вы достигли максимума в %lld Катлинг-изображений. Изображения занимают значительную память клавиатуры. Удалите некоторые изображения, чтобы добавить новые.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Вы достигли максимума в %lld текстовых Катлинг. Удалите некоторые, чтобы добавить новые.";
 
-
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Предложения по типу ввода";
 "Suggest for Input Types" = "Предлагать для типов ввода";
@@ -120,10 +136,12 @@
 "URL" = "URL";
 "Phone Number" = "Номер телефона";
 "Address" = "Адрес";
+"Input Types" = "Типы ввода";
 
 /* MARK: - Detection */
 "Detected: %@" = "Обнаружено: %@";
 "Undo" = "Отменить";
+
 /* MARK: - Clipboard Feedback */
 "Copied" = "Скопировано";
 "Inserted" = "Вставлено";
@@ -181,36 +199,6 @@
 "1 day left" = "Остался 1 день";
 "%lld days left" = "Осталось %lld дн.";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Текст, %lld/%lld Изображения";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "Экспериментальная функция: iCloud";
-"Contact Support" = "Связаться с поддержкой";
-"Privacy Policy" = "Политика конфиденциальности";
-
-/* MARK: - Additional Actions */
-"Redo" = "Повторить";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "Катлинги";
-
-/* MARK: - Missing Strings */
-"Continue" = "Продолжить";
-"Enable" = "Включить";
-"Status" = "Статус";
-"New Text Cutling" = "Новый текстовый Катлинг";
-"New Image Cutling" = "Новый Катлинг с изображением";
-"Delete Selected" = "Удалить выбранное";
-"Auto-detect Input Types" = "Автоматическое определение типов ввода";
-"Input Types" = "Типы ввода";
-"Enable iCloud Sync" = "Включить синхронизацию iCloud";
-"Keep your cutlings in sync across all your devices." = "Синхронизируйте свои Катлинги на всех устройствах.";
-"Automatically detect and suggest input type categories when editing text." = "Автоматически определять и предлагать категории типов ввода при редактировании текста.";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld Катлинги";
-
 /* MARK: - Context Menu */
 "Share" = "Поделиться";
 "Duplicate" = "Дублировать";
@@ -230,7 +218,6 @@
 "Created" = "Создано";
 "Modified" = "Изменено";
 "Expires" = "Истекает";
-
 
 /* MARK: - Color Names */
 "Default" = "По умолчанию";

@@ -7,6 +7,9 @@
 "Keyboard Setup" = "کی بورڈ سیٹ اپ";
 "New" = "نیا";
 "Choose Icon" = "آئیکن منتخب کریں";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld ٹیکسٹ، %lld/%lld تصاویر";
+"%lld Cutlings" = "%lld کٹلنگز";
+"Cutlings" = "کٹلنگز";
 
 /* MARK: - Common Actions */
 "Cancel" = "منسوخ";
@@ -17,6 +20,8 @@
 "Edit" = "ترمیم";
 "Sort" = "ترتیب";
 "OK" = "ٹھیک ہے";
+"Redo" = "دوبارہ کریں";
+"Delete Selected" = "منتخب حذف کریں";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "ٹیکسٹ کٹلنگ";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "خود کار حذف";
 "Delete At" = "حذف کا وقت";
 "Category" = "زمرہ";
+"Status" = "حیثیت";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "مثلاً ای میل";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "کلپ بورڈ سے شامل کریں";
 "Insert Text Instantly" = "ٹیکسٹ فوری طور پر داخل کریں";
 "Switch to Cutling Keyboard" = "کٹلنگ کی بورڈ پر سوئچ کریں";
+"Continue" = "جاری رکھیں";
+"Enable" = "فعال کریں";
+"New Text Cutling" = "نیا ٹیکسٹ کٹلنگ";
+"New Image Cutling" = "نئی تصویر کٹلنگ";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "ورژن";
 "Keyboard Added" = "کی بورڈ شامل ہو گیا";
 "Full Access" = "مکمل رسائی";
+"Experimental Feature: iCloud" = "تجرباتی فیچر: iCloud";
+"Contact Support" = "سپورٹ سے رابطہ کریں";
+"Privacy Policy" = "رازداری کی پالیسی";
+"Auto-detect Input Types" = "ان پٹ اقسام خود کار شناخت";
+"Enable iCloud Sync" = "iCloud مطابقت فعال کریں";
+"Keep your cutlings in sync across all your devices." = "اپنے تمام آلات پر کٹلنگز مطابقت میں رکھیں۔";
+"Automatically detect and suggest input type categories when editing text." = "ٹیکسٹ میں ترمیم کرتے وقت ان پٹ قسم کے زمرے خود بخود شناخت اور تجویز کریں۔";
 
 /* MARK: - Image Picker */
 "No image selected" = "کوئی تصویر منتخب نہیں";
@@ -119,6 +136,7 @@
 "URL" = "URL";
 "Phone Number" = "فون نمبر";
 "Address" = "پتہ";
+"Input Types" = "ان پٹ اقسام";
 
 /* MARK: - Detection */
 "Detected: %@" = "شناخت: %@";
@@ -181,36 +199,6 @@
 "1 day left" = "1 دن باقی";
 "%lld days left" = "%lld دن باقی";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld ٹیکسٹ، %lld/%lld تصاویر";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "تجرباتی فیچر: iCloud";
-"Contact Support" = "سپورٹ سے رابطہ کریں";
-"Privacy Policy" = "رازداری کی پالیسی";
-
-/* MARK: - Additional Actions */
-"Redo" = "دوبارہ کریں";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "کٹلنگز";
-
-/* MARK: - Missing Strings */
-"Continue" = "جاری رکھیں";
-"Enable" = "فعال کریں";
-"Status" = "حیثیت";
-"New Text Cutling" = "نیا ٹیکسٹ کٹلنگ";
-"New Image Cutling" = "نئی تصویر کٹلنگ";
-"Delete Selected" = "منتخب حذف کریں";
-"Auto-detect Input Types" = "ان پٹ اقسام خود کار شناخت";
-"Input Types" = "ان پٹ اقسام";
-"Enable iCloud Sync" = "iCloud مطابقت فعال کریں";
-"Keep your cutlings in sync across all your devices." = "اپنے تمام آلات پر کٹلنگز مطابقت میں رکھیں۔";
-"Automatically detect and suggest input type categories when editing text." = "ٹیکسٹ میں ترمیم کرتے وقت ان پٹ قسم کے زمرے خود بخود شناخت اور تجویز کریں۔";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld کٹلنگز";
-
 /* MARK: - Context Menu */
 "Share" = "شیئر کریں";
 "Duplicate" = "نقل بنائیں";
@@ -230,7 +218,6 @@
 "Created" = "بنایا گیا";
 "Modified" = "ترمیم شدہ";
 "Expires" = "ختم ہوتا ہے";
-
 
 /* MARK: - Color Names */
 "Default" = "پہلے سے طے شدہ";

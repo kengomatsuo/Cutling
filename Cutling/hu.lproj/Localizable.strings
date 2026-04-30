@@ -7,6 +7,9 @@
 "Keyboard Setup" = "Billentyűzet beállítása";
 "New" = "Új";
 "Choose Icon" = "Ikon kiválasztása";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Szöveg, %lld/%lld Kép";
+"%lld Cutlings" = "%lld Cutlingok";
+"Cutlings" = "Cutlingok";
 
 /* MARK: - Common Actions */
 "Cancel" = "Mégse";
@@ -17,6 +20,8 @@
 "Edit" = "Szerkesztés";
 "Sort" = "Rendezés";
 "OK" = "OK";
+"Redo" = "Újra";
+"Delete Selected" = "Kijelöltek törlése";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "Szöveges Cutling";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "Automatikus törlés";
 "Delete At" = "Törlés időpontja";
 "Category" = "Kategória";
+"Status" = "Állapot";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "pl. E-mail";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "Hozzáadás vágólapról";
 "Insert Text Instantly" = "Szöveg azonnali beillesztése";
 "Switch to Cutling Keyboard" = "Váltás Cutling billentyűzetre";
+"Continue" = "Tovább";
+"Enable" = "Engedélyezés";
+"New Text Cutling" = "Új szöveges Cutling";
+"New Image Cutling" = "Új képes Cutling";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "Verzió";
 "Keyboard Added" = "Billentyűzet hozzáadva";
 "Full Access" = "Teljes hozzáférés";
+"Experimental Feature: iCloud" = "Kísérleti funkció: iCloud";
+"Contact Support" = "Kapcsolatfelvétel a támogatással";
+"Privacy Policy" = "Adatvédelmi irányelvek";
+"Auto-detect Input Types" = "Beviteli típusok automatikus felismerése";
+"Enable iCloud Sync" = "iCloud szinkronizálás engedélyezése";
+"Keep your cutlings in sync across all your devices." = "Tartsa cutlingjeit szinkronban minden eszközén.";
+"Automatically detect and suggest input type categories when editing text." = "Beviteli típus kategóriák automatikus felismerése és javaslata szöveg szerkesztésekor.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Nincs kiválasztott kép";
@@ -108,7 +125,6 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Elérted a maximális %lld képes cutlinget. A képek jelentős memóriát használnak a billentyűzeten. Törölj néhány képet, hogy újakat adhass hozzá.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Elérted a maximális %lld szöveges cutlinget. Törölj néhányat, hogy újakat adhass hozzá.";
 
-
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Beviteli típus javaslatok";
 "Suggest for Input Types" = "Javaslat beviteli típusokhoz";
@@ -120,10 +136,12 @@
 "URL" = "URL";
 "Phone Number" = "Telefonszám";
 "Address" = "Cím";
+"Input Types" = "Beviteli típusok";
 
 /* MARK: - Detection */
 "Detected: %@" = "Felismert: %@";
 "Undo" = "Visszavonás";
+
 /* MARK: - Clipboard Feedback */
 "Copied" = "Másolva";
 "Inserted" = "Beillesztve";
@@ -181,36 +199,6 @@
 "1 day left" = "1 nap van hátra";
 "%lld days left" = "%lld nap van hátra";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Szöveg, %lld/%lld Kép";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "Kísérleti funkció: iCloud";
-"Contact Support" = "Kapcsolatfelvétel a támogatással";
-"Privacy Policy" = "Adatvédelmi irányelvek";
-
-/* MARK: - Additional Actions */
-"Redo" = "Újra";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "Cutlingok";
-
-/* MARK: - Missing Strings */
-"Continue" = "Tovább";
-"Enable" = "Engedélyezés";
-"Status" = "Állapot";
-"New Text Cutling" = "Új szöveges Cutling";
-"New Image Cutling" = "Új képes Cutling";
-"Delete Selected" = "Kijelöltek törlése";
-"Auto-detect Input Types" = "Beviteli típusok automatikus felismerése";
-"Input Types" = "Beviteli típusok";
-"Enable iCloud Sync" = "iCloud szinkronizálás engedélyezése";
-"Keep your cutlings in sync across all your devices." = "Tartsa cutlingjeit szinkronban minden eszközén.";
-"Automatically detect and suggest input type categories when editing text." = "Beviteli típus kategóriák automatikus felismerése és javaslata szöveg szerkesztésekor.";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld Cutlingok";
-
 /* MARK: - Context Menu */
 "Share" = "Megosztás";
 "Duplicate" = "Másolat készítése";
@@ -230,7 +218,6 @@
 "Created" = "Létrehozva";
 "Modified" = "Módosítva";
 "Expires" = "Lejár";
-
 
 /* MARK: - Color Names */
 "Default" = "Alapértelmezett";

@@ -7,6 +7,9 @@
 "Keyboard Setup" = "Ρύθμιση πληκτρολογίου";
 "New" = "Νέο";
 "Choose Icon" = "Επιλογή εικονιδίου";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Κείμενο, %lld/%lld Εικόνες";
+"%lld Cutlings" = "%lld Cutlings";
+"Cutlings" = "Cutlings";
 
 /* MARK: - Common Actions */
 "Cancel" = "Ακύρωση";
@@ -17,6 +20,8 @@
 "Edit" = "Επεξεργασία";
 "Sort" = "Ταξινόμηση";
 "OK" = "OK";
+"Redo" = "Επανάληψη";
+"Delete Selected" = "Διαγραφή επιλεγμένων";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "Cutling κειμένου";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "Αυτόματη διαγραφή";
 "Delete At" = "Διαγραφή στις";
 "Category" = "Κατηγορία";
+"Status" = "Κατάσταση";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "π.χ. Email";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "Προσθήκη από πρόχειρο";
 "Insert Text Instantly" = "Εισαγωγή κειμένου αμέσως";
 "Switch to Cutling Keyboard" = "Εναλλαγή σε πληκτρολόγιο Cutling";
+"Continue" = "Συνέχεια";
+"Enable" = "Ενεργοποίηση";
+"New Text Cutling" = "Νέο Cutling κειμένου";
+"New Image Cutling" = "Νέο Cutling εικόνας";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "Έκδοση";
 "Keyboard Added" = "Πληκτρολόγιο προστέθηκε";
 "Full Access" = "Πλήρης πρόσβαση";
+"Experimental Feature: iCloud" = "Πειραματική λειτουργία: iCloud";
+"Contact Support" = "Επικοινωνία με υποστήριξη";
+"Privacy Policy" = "Πολιτική απορρήτου";
+"Auto-detect Input Types" = "Αυτόματος εντοπισμός τύπων εισόδου";
+"Enable iCloud Sync" = "Ενεργοποίηση συγχρονισμού iCloud";
+"Keep your cutlings in sync across all your devices." = "Διατηρήστε τα cutlings σας συγχρονισμένα σε όλες τις συσκευές σας.";
+"Automatically detect and suggest input type categories when editing text." = "Αυτόματος εντοπισμός και πρόταση κατηγοριών τύπου εισόδου κατά την επεξεργασία κειμένου.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Δεν επιλέχθηκε εικόνα";
@@ -108,7 +125,6 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Φτάσατε το μέγιστο των %lld cutlings εικόνας. Οι εικόνες χρησιμοποιούν σημαντική μνήμη στο πληκτρολόγιο. Διαγράψτε κάποιες εικόνες για να προσθέσετε περισσότερες.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Φτάσατε το μέγιστο των %lld cutlings κειμένου. Διαγράψτε κάποια για να προσθέσετε περισσότερα.";
 
-
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Προτάσεις τύπου εισόδου";
 "Suggest for Input Types" = "Πρόταση για τύπους εισόδου";
@@ -120,10 +136,12 @@
 "URL" = "URL";
 "Phone Number" = "Αριθμός τηλεφώνου";
 "Address" = "Διεύθυνση";
+"Input Types" = "Τύποι εισόδου";
 
 /* MARK: - Detection */
 "Detected: %@" = "Εντοπίστηκε: %@";
 "Undo" = "Αναίρεση";
+
 /* MARK: - Clipboard Feedback */
 "Copied" = "Αντιγράφηκε";
 "Inserted" = "Εισήχθη";
@@ -181,36 +199,6 @@
 "1 day left" = "1 ημέρα απομένει";
 "%lld days left" = "%lld ημέρες απομένουν";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Κείμενο, %lld/%lld Εικόνες";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "Πειραματική λειτουργία: iCloud";
-"Contact Support" = "Επικοινωνία με υποστήριξη";
-"Privacy Policy" = "Πολιτική απορρήτου";
-
-/* MARK: - Additional Actions */
-"Redo" = "Επανάληψη";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "Cutlings";
-
-/* MARK: - Missing Strings */
-"Continue" = "Συνέχεια";
-"Enable" = "Ενεργοποίηση";
-"Status" = "Κατάσταση";
-"New Text Cutling" = "Νέο Cutling κειμένου";
-"New Image Cutling" = "Νέο Cutling εικόνας";
-"Delete Selected" = "Διαγραφή επιλεγμένων";
-"Auto-detect Input Types" = "Αυτόματος εντοπισμός τύπων εισόδου";
-"Input Types" = "Τύποι εισόδου";
-"Enable iCloud Sync" = "Ενεργοποίηση συγχρονισμού iCloud";
-"Keep your cutlings in sync across all your devices." = "Διατηρήστε τα cutlings σας συγχρονισμένα σε όλες τις συσκευές σας.";
-"Automatically detect and suggest input type categories when editing text." = "Αυτόματος εντοπισμός και πρόταση κατηγοριών τύπου εισόδου κατά την επεξεργασία κειμένου.";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld Cutlings";
-
 /* MARK: - Context Menu */
 "Share" = "Κοινοποίηση";
 "Duplicate" = "Διπλότυπο";
@@ -230,7 +218,6 @@
 "Created" = "Δημιουργήθηκε";
 "Modified" = "Τροποποιήθηκε";
 "Expires" = "Λήγει";
-
 
 /* MARK: - Color Names */
 "Default" = "Προεπιλογή";

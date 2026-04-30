@@ -7,6 +7,9 @@
 "Keyboard Setup" = "Konfiguracja klawiatury";
 "New" = "Nowy";
 "Choose Icon" = "Wybierz ikonę";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Tekst, %lld/%lld Obrazy";
+"%lld Cutlings" = "%lld Cutlingi";
+"Cutlings" = "Cutlingi";
 
 /* MARK: - Common Actions */
 "Cancel" = "Anuluj";
@@ -17,6 +20,8 @@
 "Edit" = "Edytuj";
 "Sort" = "Sortuj";
 "OK" = "OK";
+"Redo" = "Przywróć";
+"Delete Selected" = "Usuń zaznaczone";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "Cutling tekstowy";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "Automatyczne usuwanie";
 "Delete At" = "Usuń o";
 "Category" = "Kategoria";
+"Status" = "Status";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "np. E-mail";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "Dodaj ze schowka";
 "Insert Text Instantly" = "Wstaw tekst natychmiast";
 "Switch to Cutling Keyboard" = "Przełącz na klawiaturę Cutling";
+"Continue" = "Kontynuuj";
+"Enable" = "Włącz";
+"New Text Cutling" = "Nowy tekstowy Cutling";
+"New Image Cutling" = "Nowy obrazkowy Cutling";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "Wersja";
 "Keyboard Added" = "Klawiatura dodana";
 "Full Access" = "Pełny dostęp";
+"Experimental Feature: iCloud" = "Funkcja eksperymentalna: iCloud";
+"Contact Support" = "Skontaktuj się z pomocą";
+"Privacy Policy" = "Polityka prywatności";
+"Auto-detect Input Types" = "Automatyczne wykrywanie typów wprowadzania";
+"Enable iCloud Sync" = "Włącz synchronizację iCloud";
+"Keep your cutlings in sync across all your devices." = "Utrzymuj swoje cutlingi zsynchronizowane na wszystkich urządzeniach.";
+"Automatically detect and suggest input type categories when editing text." = "Automatycznie wykrywaj i sugeruj kategorie typów wprowadzania podczas edycji tekstu.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Nie wybrano obrazu";
@@ -108,7 +125,6 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Osiągnięto maksymalną liczbę %lld cutlingów obrazkowych. Obrazy zajmują dużo pamięci klawiatury. Usuń kilka obrazów, aby dodać nowe.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Osiągnięto maksymalną liczbę %lld cutlingów tekstowych. Usuń kilka, aby dodać nowe.";
 
-
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Sugestie typu danych wejściowych";
 "Suggest for Input Types" = "Sugeruj dla typów danych wejściowych";
@@ -120,10 +136,12 @@
 "URL" = "URL";
 "Phone Number" = "Numer telefonu";
 "Address" = "Adres";
+"Input Types" = "Typy wprowadzania";
 
 /* MARK: - Detection */
 "Detected: %@" = "Wykryto: %@";
 "Undo" = "Cofnij";
+
 /* MARK: - Clipboard Feedback */
 "Copied" = "Skopiowano";
 "Inserted" = "Wstawiono";
@@ -181,36 +199,6 @@
 "1 day left" = "Pozostał 1 dzień";
 "%lld days left" = "Pozostało %lld dni";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Tekst, %lld/%lld Obrazy";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "Funkcja eksperymentalna: iCloud";
-"Contact Support" = "Skontaktuj się z pomocą";
-"Privacy Policy" = "Polityka prywatności";
-
-/* MARK: - Additional Actions */
-"Redo" = "Przywróć";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "Cutlingi";
-
-/* MARK: - Missing Strings */
-"Continue" = "Kontynuuj";
-"Enable" = "Włącz";
-"Status" = "Status";
-"New Text Cutling" = "Nowy tekstowy Cutling";
-"New Image Cutling" = "Nowy obrazkowy Cutling";
-"Delete Selected" = "Usuń zaznaczone";
-"Auto-detect Input Types" = "Automatyczne wykrywanie typów wprowadzania";
-"Input Types" = "Typy wprowadzania";
-"Enable iCloud Sync" = "Włącz synchronizację iCloud";
-"Keep your cutlings in sync across all your devices." = "Utrzymuj swoje cutlingi zsynchronizowane na wszystkich urządzeniach.";
-"Automatically detect and suggest input type categories when editing text." = "Automatycznie wykrywaj i sugeruj kategorie typów wprowadzania podczas edycji tekstu.";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld Cutlingi";
-
 /* MARK: - Context Menu */
 "Share" = "Udostępnij";
 "Duplicate" = "Duplikuj";
@@ -230,7 +218,6 @@
 "Created" = "Utworzono";
 "Modified" = "Zmodyfikowano";
 "Expires" = "Wygasa";
-
 
 /* MARK: - Color Names */
 "Default" = "Domyślny";

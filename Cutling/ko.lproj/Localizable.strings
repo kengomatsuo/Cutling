@@ -7,6 +7,9 @@
 "Keyboard Setup" = "키보드 설정";
 "New" = "새로 만들기";
 "Choose Icon" = "아이콘 선택";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld 텍스트, %lld/%lld 이미지";
+"%lld Cutlings" = "%lld개의 컷링";
+"Cutlings" = "컷링";
 
 /* MARK: - Common Actions */
 "Cancel" = "취소";
@@ -17,6 +20,8 @@
 "Edit" = "편집";
 "Sort" = "정렬";
 "OK" = "확인";
+"Redo" = "다시 실행";
+"Delete Selected" = "선택 항목 삭제";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "텍스트 컷링";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "자동 삭제";
 "Delete At" = "삭제 시간";
 "Category" = "카테고리";
+"Status" = "상태";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "예: 이메일";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "클립보드에서 추가";
 "Insert Text Instantly" = "텍스트 즉시 삽입";
 "Switch to Cutling Keyboard" = "컷링 키보드로 전환";
+"Continue" = "다음";
+"Enable" = "활성화";
+"New Text Cutling" = "새 텍스트 컷링";
+"New Image Cutling" = "새 이미지 컷링";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "버전";
 "Keyboard Added" = "키보드 추가됨";
 "Full Access" = "전체 접근";
+"Experimental Feature: iCloud" = "실험적 기능: iCloud";
+"Contact Support" = "지원 문의";
+"Privacy Policy" = "개인정보 처리방침";
+"Auto-detect Input Types" = "입력 유형 자동 감지";
+"Enable iCloud Sync" = "iCloud 동기화 활성화";
+"Keep your cutlings in sync across all your devices." = "모든 기기에서 컷링을 동기화하세요.";
+"Automatically detect and suggest input type categories when editing text." = "텍스트 편집 시 입력 유형 카테고리를 자동으로 감지하고 제안합니다.";
 
 /* MARK: - Image Picker */
 "No image selected" = "이미지 없음";
@@ -108,7 +125,6 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "이미지 컷링 한도(%lld개)에 도달했습니다. 이미지는 키보드 메모리를 많이 사용합니다. 일부를 삭제하고 추가하세요.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "텍스트 컷링 한도(%lld개)에 도달했습니다. 일부를 삭제하고 추가하세요.";
 
-
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "입력 유형 제안";
 "Suggest for Input Types" = "입력 유형에 제안";
@@ -120,10 +136,12 @@
 "URL" = "URL";
 "Phone Number" = "전화번호";
 "Address" = "주소";
+"Input Types" = "입력 유형";
 
 /* MARK: - Detection */
 "Detected: %@" = "감지됨: %@";
 "Undo" = "실행 취소";
+
 /* MARK: - Clipboard Feedback */
 "Copied" = "복사됨";
 "Inserted" = "삽입됨";
@@ -181,36 +199,6 @@
 "1 day left" = "1일 남음";
 "%lld days left" = "%lld일 남음";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld 텍스트, %lld/%lld 이미지";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "실험적 기능: iCloud";
-"Contact Support" = "지원 문의";
-"Privacy Policy" = "개인정보 처리방침";
-
-/* MARK: - Additional Actions */
-"Redo" = "다시 실행";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "컷링";
-
-/* MARK: - Missing Strings */
-"Continue" = "다음";
-"Enable" = "활성화";
-"Status" = "상태";
-"New Text Cutling" = "새 텍스트 컷링";
-"New Image Cutling" = "새 이미지 컷링";
-"Delete Selected" = "선택 항목 삭제";
-"Auto-detect Input Types" = "입력 유형 자동 감지";
-"Input Types" = "입력 유형";
-"Enable iCloud Sync" = "iCloud 동기화 활성화";
-"Keep your cutlings in sync across all your devices." = "모든 기기에서 컷링을 동기화하세요.";
-"Automatically detect and suggest input type categories when editing text." = "텍스트 편집 시 입력 유형 카테고리를 자동으로 감지하고 제안합니다.";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld개의 컷링";
-
 /* MARK: - Context Menu */
 "Share" = "공유";
 "Duplicate" = "복제";
@@ -230,7 +218,6 @@
 "Created" = "생성일";
 "Modified" = "수정일";
 "Expires" = "만료일";
-
 
 /* MARK: - Color Names */
 "Default" = "기본";

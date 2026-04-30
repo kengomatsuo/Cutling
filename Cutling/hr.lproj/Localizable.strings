@@ -7,6 +7,9 @@
 "Keyboard Setup" = "Postavljanje tipkovnice";
 "New" = "Novo";
 "Choose Icon" = "Odaberi ikonu";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Tekst, %lld/%lld Slike";
+"%lld Cutlings" = "%lld Cutlingovi";
+"Cutlings" = "Cutlingovi";
 
 /* MARK: - Common Actions */
 "Cancel" = "Odustani";
@@ -17,6 +20,8 @@
 "Edit" = "Uredi";
 "Sort" = "Sortiraj";
 "OK" = "U redu";
+"Redo" = "Ponovi";
+"Delete Selected" = "Obriši odabrano";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "Tekstualni Cutling";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "Automatsko brisanje";
 "Delete At" = "Obriši u";
 "Category" = "Kategorija";
+"Status" = "Status";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "npr. E-pošta";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "Dodaj iz međuspremnika";
 "Insert Text Instantly" = "Umetni tekst odmah";
 "Switch to Cutling Keyboard" = "Prebaci se na Cutling tipkovnicu";
+"Continue" = "Nastavi";
+"Enable" = "Omogući";
+"New Text Cutling" = "Novi tekstualni Cutling";
+"New Image Cutling" = "Novi slikovni Cutling";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "Verzija";
 "Keyboard Added" = "Tipkovnica dodana";
 "Full Access" = "Potpuni pristup";
+"Experimental Feature: iCloud" = "Eksperimentalna značajka: iCloud";
+"Contact Support" = "Kontaktirajte podršku";
+"Privacy Policy" = "Pravila privatnosti";
+"Auto-detect Input Types" = "Automatsko prepoznavanje vrsta unosa";
+"Enable iCloud Sync" = "Omogući iCloud sinkronizaciju";
+"Keep your cutlings in sync across all your devices." = "Održavajte svoje cutlinge sinkroniziranima na svim uređajima.";
+"Automatically detect and suggest input type categories when editing text." = "Automatski prepoznaj i predloži kategorije vrsta unosa pri uređivanju teksta.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Nijedna slika nije odabrana";
@@ -119,6 +136,7 @@
 "URL" = "URL";
 "Phone Number" = "Telefonski broj";
 "Address" = "Adresa";
+"Input Types" = "Vrste unosa";
 
 /* MARK: - Detection */
 "Detected: %@" = "Otkriveno: %@";
@@ -181,36 +199,6 @@
 "1 day left" = "Preostao 1 dan";
 "%lld days left" = "Preostalo %lld dana";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Tekst, %lld/%lld Slike";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "Eksperimentalna značajka: iCloud";
-"Contact Support" = "Kontaktirajte podršku";
-"Privacy Policy" = "Pravila privatnosti";
-
-/* MARK: - Additional Actions */
-"Redo" = "Ponovi";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "Cutlingovi";
-
-/* MARK: - Missing Strings */
-"Continue" = "Nastavi";
-"Enable" = "Omogući";
-"Status" = "Status";
-"New Text Cutling" = "Novi tekstualni Cutling";
-"New Image Cutling" = "Novi slikovni Cutling";
-"Delete Selected" = "Obriši odabrano";
-"Auto-detect Input Types" = "Automatsko prepoznavanje vrsta unosa";
-"Input Types" = "Vrste unosa";
-"Enable iCloud Sync" = "Omogući iCloud sinkronizaciju";
-"Keep your cutlings in sync across all your devices." = "Održavajte svoje cutlinge sinkroniziranima na svim uređajima.";
-"Automatically detect and suggest input type categories when editing text." = "Automatski prepoznaj i predloži kategorije vrsta unosa pri uređivanju teksta.";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld Cutlingovi";
-
 /* MARK: - Context Menu */
 "Share" = "Podijeli";
 "Duplicate" = "Dupliciraj";
@@ -230,7 +218,6 @@
 "Created" = "Kreirano";
 "Modified" = "Izmijenjeno";
 "Expires" = "Istječe";
-
 
 /* MARK: - Color Names */
 "Default" = "Zadano";

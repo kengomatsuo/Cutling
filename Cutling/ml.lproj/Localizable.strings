@@ -7,6 +7,9 @@
 "Keyboard Setup" = "കീബോർഡ് സെറ്റപ്പ്";
 "New" = "പുതിയ";
 "Choose Icon" = "ഐക്കൺ തിരഞ്ഞെടുക്കുക";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld ടെക്സ്റ്റ്, %lld/%lld ചിത്രങ്ങൾ";
+"%lld Cutlings" = "%lld കട്ട്‌ലിംഗുകൾ";
+"Cutlings" = "കട്ട്‌ലിംഗുകൾ";
 
 /* MARK: - Common Actions */
 "Cancel" = "റദ്ദാക്കുക";
@@ -17,6 +20,8 @@
 "Edit" = "എഡിറ്റ് ചെയ്യുക";
 "Sort" = "ക്രമത്തിലാക്കുക";
 "OK" = "ശരി";
+"Redo" = "വീണ്ടും ചെയ്യുക";
+"Delete Selected" = "തിരഞ്ഞെടുത്തവ ഇല്ലാതാക്കുക";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "ടെക്സ്റ്റ് കട്ട്‌ലിംഗ്";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "ഓട്ടോ-ഇല്ലാതാക്കൽ";
 "Delete At" = "ഇല്ലാതാക്കുന്ന സമയം";
 "Category" = "വിഭാഗം";
+"Status" = "സ്ഥിതി";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "ഉദാ. ഇമെയിൽ";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "ക്ലിപ്ബോർഡിൽ നിന്ന് ചേർക്കുക";
 "Insert Text Instantly" = "ടെക്സ്റ്റ് ഉടൻ ചേർക്കുക";
 "Switch to Cutling Keyboard" = "കട്ട്‌ലിംഗ് കീബോർഡിലേക്ക് മാറുക";
+"Continue" = "തുടരുക";
+"Enable" = "സജീവമാക്കുക";
+"New Text Cutling" = "പുതിയ ടെക്സ്റ്റ് കട്ട്‌ലിംഗ്";
+"New Image Cutling" = "പുതിയ ചിത്രം കട്ട്‌ലിംഗ്";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "പതിപ്പ്";
 "Keyboard Added" = "കീബോർഡ് ചേർത്തു";
 "Full Access" = "പൂർണ ആക്സസ്";
+"Experimental Feature: iCloud" = "പരീക്ഷണാത്മക ഫീച്ചർ: iCloud";
+"Contact Support" = "സപ്പോർട്ടുമായി ബന്ധപ്പെടുക";
+"Privacy Policy" = "സ്വകാര്യതാ നയം";
+"Auto-detect Input Types" = "ഇൻപുട്ട് തരം ഓട്ടോ-കണ്ടെത്തൽ";
+"Enable iCloud Sync" = "iCloud സമന്വയം സജീവമാക്കുക";
+"Keep your cutlings in sync across all your devices." = "നിങ്ങളുടെ എല്ലാ ഉപകരണങ്ങളിലും കട്ട്‌ലിംഗുകൾ സമന്വയത്തിൽ നിലനിർത്തുക.";
+"Automatically detect and suggest input type categories when editing text." = "ടെക്സ്റ്റ് എഡിറ്റ് ചെയ്യുമ്പോൾ ഇൻപുട്ട് തരം വിഭാഗങ്ങൾ സ്വയമേവ കണ്ടെത്തുകയും നിർദ്ദേശിക്കുകയും ചെയ്യുക.";
 
 /* MARK: - Image Picker */
 "No image selected" = "ചിത്രം തിരഞ്ഞെടുത്തിട്ടില്ല";
@@ -119,6 +136,7 @@
 "URL" = "URL";
 "Phone Number" = "ഫോൺ നമ്പർ";
 "Address" = "വിലാസം";
+"Input Types" = "ഇൻപുട്ട് തരങ്ങൾ";
 
 /* MARK: - Detection */
 "Detected: %@" = "കണ്ടെത്തി: %@";
@@ -181,36 +199,6 @@
 "1 day left" = "1 ദിവസം ബാക്കി";
 "%lld days left" = "%lld ദിവസം ബാക്കി";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld ടെക്സ്റ്റ്, %lld/%lld ചിത്രങ്ങൾ";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "പരീക്ഷണാത്മക ഫീച്ചർ: iCloud";
-"Contact Support" = "സപ്പോർട്ടുമായി ബന്ധപ്പെടുക";
-"Privacy Policy" = "സ്വകാര്യതാ നയം";
-
-/* MARK: - Additional Actions */
-"Redo" = "വീണ്ടും ചെയ്യുക";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "കട്ട്‌ലിംഗുകൾ";
-
-/* MARK: - Missing Strings */
-"Continue" = "തുടരുക";
-"Enable" = "സജീവമാക്കുക";
-"Status" = "സ്ഥിതി";
-"New Text Cutling" = "പുതിയ ടെക്സ്റ്റ് കട്ട്‌ലിംഗ്";
-"New Image Cutling" = "പുതിയ ചിത്രം കട്ട്‌ലിംഗ്";
-"Delete Selected" = "തിരഞ്ഞെടുത്തവ ഇല്ലാതാക്കുക";
-"Auto-detect Input Types" = "ഇൻപുട്ട് തരം ഓട്ടോ-കണ്ടെത്തൽ";
-"Input Types" = "ഇൻപുട്ട് തരങ്ങൾ";
-"Enable iCloud Sync" = "iCloud സമന്വയം സജീവമാക്കുക";
-"Keep your cutlings in sync across all your devices." = "നിങ്ങളുടെ എല്ലാ ഉപകരണങ്ങളിലും കട്ട്‌ലിംഗുകൾ സമന്വയത്തിൽ നിലനിർത്തുക.";
-"Automatically detect and suggest input type categories when editing text." = "ടെക്സ്റ്റ് എഡിറ്റ് ചെയ്യുമ്പോൾ ഇൻപുട്ട് തരം വിഭാഗങ്ങൾ സ്വയമേവ കണ്ടെത്തുകയും നിർദ്ദേശിക്കുകയും ചെയ്യുക.";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld കട്ട്‌ലിംഗുകൾ";
-
 /* MARK: - Context Menu */
 "Share" = "പങ്കിടുക";
 "Duplicate" = "പകർത്തുക";
@@ -230,7 +218,6 @@
 "Created" = "സൃഷ്ടിച്ചു";
 "Modified" = "പരിഷ്കരിച്ചു";
 "Expires" = "കാലഹരണപ്പെടുന്നു";
-
 
 /* MARK: - Color Names */
 "Default" = "ഡിഫോൾട്ട്";

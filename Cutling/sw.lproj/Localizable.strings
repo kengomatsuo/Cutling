@@ -7,6 +7,9 @@
 "Keyboard Setup" = "Usanidi wa Kibodi";
 "New" = "Mpya";
 "Choose Icon" = "Chagua Ikoni";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Maandishi, %lld/%lld Picha";
+"%lld Cutlings" = "%lld Cutling";
+"Cutlings" = "Cutling";
 
 /* MARK: - Common Actions */
 "Cancel" = "Ghairi";
@@ -17,6 +20,8 @@
 "Edit" = "Hariri";
 "Sort" = "Panga";
 "OK" = "Sawa";
+"Redo" = "Rudia";
+"Delete Selected" = "Futa Zilizochaguliwa";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "Cutling ya Maandishi";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "Futa Kiotomatiki";
 "Delete At" = "Futa Saa";
 "Category" = "Kategoria";
+"Status" = "Hali";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "mf. Barua pepe";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "Ongeza kutoka Ubao wa Kunakili";
 "Insert Text Instantly" = "Ingiza Maandishi Mara Moja";
 "Switch to Cutling Keyboard" = "Badili hadi Kibodi ya Cutling";
+"Continue" = "Endelea";
+"Enable" = "Wezesha";
+"New Text Cutling" = "Cutling Mpya ya Maandishi";
+"New Image Cutling" = "Cutling Mpya ya Picha";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "Toleo";
 "Keyboard Added" = "Kibodi Imeongezwa";
 "Full Access" = "Ufikiaji Kamili";
+"Experimental Feature: iCloud" = "Kipengele cha Majaribio: iCloud";
+"Contact Support" = "Wasiliana na Msaada";
+"Privacy Policy" = "Sera ya Faragha";
+"Auto-detect Input Types" = "Tambua Aina za Ingizo Kiotomatiki";
+"Enable iCloud Sync" = "Wezesha Usawazishaji wa iCloud";
+"Keep your cutlings in sync across all your devices." = "Weka cutlings zako zikiwa zimesawazishwa katika vifaa vyako vyote.";
+"Automatically detect and suggest input type categories when editing text." = "Tambua na pendekeza kategoria za aina za ingizo kiotomatiki unapohariri maandishi.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Hakuna picha iliyochaguliwa";
@@ -119,6 +136,7 @@
 "URL" = "URL";
 "Phone Number" = "Nambari ya Simu";
 "Address" = "Anwani";
+"Input Types" = "Aina za Ingizo";
 
 /* MARK: - Detection */
 "Detected: %@" = "Imegunduliwa: %@";
@@ -181,36 +199,6 @@
 "1 day left" = "Siku 1 imebaki";
 "%lld days left" = "Siku %lld zimebaki";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Maandishi, %lld/%lld Picha";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "Kipengele cha Majaribio: iCloud";
-"Contact Support" = "Wasiliana na Msaada";
-"Privacy Policy" = "Sera ya Faragha";
-
-/* MARK: - Additional Actions */
-"Redo" = "Rudia";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "Cutling";
-
-/* MARK: - Missing Strings */
-"Continue" = "Endelea";
-"Enable" = "Wezesha";
-"Status" = "Hali";
-"New Text Cutling" = "Cutling Mpya ya Maandishi";
-"New Image Cutling" = "Cutling Mpya ya Picha";
-"Delete Selected" = "Futa Zilizochaguliwa";
-"Auto-detect Input Types" = "Tambua Aina za Ingizo Kiotomatiki";
-"Input Types" = "Aina za Ingizo";
-"Enable iCloud Sync" = "Wezesha Usawazishaji wa iCloud";
-"Keep your cutlings in sync across all your devices." = "Weka cutlings zako zikiwa zimesawazishwa katika vifaa vyako vyote.";
-"Automatically detect and suggest input type categories when editing text." = "Tambua na pendekeza kategoria za aina za ingizo kiotomatiki unapohariri maandishi.";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld Cutling";
-
 /* MARK: - Context Menu */
 "Share" = "Shiriki";
 "Duplicate" = "Nakili";
@@ -230,7 +218,6 @@
 "Created" = "Imeundwa";
 "Modified" = "Imebadilishwa";
 "Expires" = "Inaisha";
-
 
 /* MARK: - Color Names */
 "Default" = "Chaguomsingi";

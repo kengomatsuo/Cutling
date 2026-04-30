@@ -7,6 +7,9 @@
 "Keyboard Setup" = "キーボード設定";
 "New" = "新規";
 "Choose Icon" = "アイコンを選択";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld テキスト、%lld/%lld 画像";
+"%lld Cutlings" = "%lld 個の カットリング";
+"Cutlings" = "カットリング";
 
 /* MARK: - Common Actions */
 "Cancel" = "キャンセル";
@@ -17,6 +20,8 @@
 "Edit" = "編集";
 "Sort" = "並べ替え";
 "OK" = "OK";
+"Redo" = "やり直す";
+"Delete Selected" = "選択項目を削除";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "テキストカットリング";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "自動削除";
 "Delete At" = "削除日時";
 "Category" = "カテゴリ";
+"Status" = "ステータス";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "例：メール";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "クリップボードから追加";
 "Insert Text Instantly" = "テキストを即座に入力";
 "Switch to Cutling Keyboard" = "カットリングキーボードに切り替える";
+"Continue" = "次へ";
+"Enable" = "有効にする";
+"New Text Cutling" = "新しいテキストカットリング";
+"New Image Cutling" = "新しい画像カットリング";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "バージョン";
 "Keyboard Added" = "キーボード追加済み";
 "Full Access" = "フルアクセス";
+"Experimental Feature: iCloud" = "試験的機能: iCloud";
+"Contact Support" = "サポートに連絡";
+"Privacy Policy" = "プライバシーポリシー";
+"Auto-detect Input Types" = "入力タイプを自動検出";
+"Enable iCloud Sync" = "iCloud同期を有効にする";
+"Keep your cutlings in sync across all your devices." = "すべてのデバイスでカットリングを同期します。";
+"Automatically detect and suggest input type categories when editing text." = "テキスト編集時に入力タイプのカテゴリを自動検出して提案します。";
 
 /* MARK: - Image Picker */
 "No image selected" = "画像未選択";
@@ -108,7 +125,6 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "画像カットリングの上限（%lld）に達しました。キーボードのメモリを節約するため制限しています。いくつか削除してから追加してください。";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "テキストカットリングの上限（%lld）に達しました。いくつか削除してから追加してください。";
 
-
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "入力タイプの候補";
 "Suggest for Input Types" = "入力タイプに候補を設定";
@@ -120,10 +136,12 @@
 "URL" = "URL";
 "Phone Number" = "電話番号";
 "Address" = "住所";
+"Input Types" = "入力タイプ";
 
 /* MARK: - Detection */
 "Detected: %@" = "検出: %@";
 "Undo" = "取り消す";
+
 /* MARK: - Clipboard Feedback */
 "Copied" = "コピー済み";
 "Inserted" = "挿入済み";
@@ -181,36 +199,6 @@
 "1 day left" = "残り1日";
 "%lld days left" = "残り%lld日";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld テキスト、%lld/%lld 画像";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "試験的機能: iCloud";
-"Contact Support" = "サポートに連絡";
-"Privacy Policy" = "プライバシーポリシー";
-
-/* MARK: - Additional Actions */
-"Redo" = "やり直す";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "カットリング";
-
-/* MARK: - Missing Strings */
-"Continue" = "次へ";
-"Enable" = "有効にする";
-"Status" = "ステータス";
-"New Text Cutling" = "新しいテキストカットリング";
-"New Image Cutling" = "新しい画像カットリング";
-"Delete Selected" = "選択項目を削除";
-"Auto-detect Input Types" = "入力タイプを自動検出";
-"Input Types" = "入力タイプ";
-"Enable iCloud Sync" = "iCloud同期を有効にする";
-"Keep your cutlings in sync across all your devices." = "すべてのデバイスでカットリングを同期します。";
-"Automatically detect and suggest input type categories when editing text." = "テキスト編集時に入力タイプのカテゴリを自動検出して提案します。";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld 個の カットリング";
-
 /* MARK: - Context Menu */
 "Share" = "共有";
 "Duplicate" = "複製";
@@ -230,7 +218,6 @@
 "Created" = "作成日";
 "Modified" = "変更日";
 "Expires" = "有効期限";
-
 
 /* MARK: - Color Names */
 "Default" = "デフォルト";

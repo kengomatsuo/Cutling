@@ -7,6 +7,9 @@
 "Keyboard Setup" = "הגדרת מקלדת";
 "New" = "חדש";
 "Choose Icon" = "בחר סמל";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld טקסט, %lld/%lld תמונות";
+"%lld Cutlings" = "%lld קאטלינגים";
+"Cutlings" = "קאטלינגים";
 
 /* MARK: - Common Actions */
 "Cancel" = "ביטול";
@@ -17,6 +20,8 @@
 "Edit" = "ערוך";
 "Sort" = "מיין";
 "OK" = "אישור";
+"Redo" = "בצע שוב";
+"Delete Selected" = "מחק נבחרים";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "קאטלינג טקסט";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "מחיקה אוטומטית";
 "Delete At" = "מחק בשעה";
 "Category" = "קטגוריה";
+"Status" = "מצב";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "למשל דוא״ל";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "הוסף מלוח הגזירים";
 "Insert Text Instantly" = "הכנס טקסט מיידית";
 "Switch to Cutling Keyboard" = "עבור למקלדת קאטלינג";
+"Continue" = "המשך";
+"Enable" = "הפעל";
+"New Text Cutling" = "קאטלינג טקסט חדש";
+"New Image Cutling" = "קאטלינג תמונה חדש";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "גרסה";
 "Keyboard Added" = "מקלדת נוספה";
 "Full Access" = "גישה מלאה";
+"Experimental Feature: iCloud" = "תכונה ניסיונית: iCloud";
+"Contact Support" = "צור קשר עם התמיכה";
+"Privacy Policy" = "מדיניות פרטיות";
+"Auto-detect Input Types" = "זיהוי אוטומטי של סוגי קלט";
+"Enable iCloud Sync" = "הפעל סנכרון iCloud";
+"Keep your cutlings in sync across all your devices." = "שמור על הקאטלינגים שלך מסונכרנים בכל המכשירים.";
+"Automatically detect and suggest input type categories when editing text." = "זהה והצע אוטומטית קטגוריות סוגי קלט בעת עריכת טקסט.";
 
 /* MARK: - Image Picker */
 "No image selected" = "לא נבחרה תמונה";
@@ -108,7 +125,6 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "הגעת למקסימום של %lld קאטלינגים של תמונה. תמונות משתמשות בזיכרון רב במקלדת. מחק כמה תמונות כדי להוסיף עוד.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "הגעת למקסימום של %lld קאטלינגים של טקסט. מחק כמה כדי להוסיף עוד.";
 
-
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "הצעות לסוג קלט";
 "Suggest for Input Types" = "הצע לסוגי קלט";
@@ -120,10 +136,12 @@
 "URL" = "URL";
 "Phone Number" = "מספר טלפון";
 "Address" = "כתובת";
+"Input Types" = "סוגי קלט";
 
 /* MARK: - Detection */
 "Detected: %@" = "זוהה: %@";
 "Undo" = "בטל";
+
 /* MARK: - Clipboard Feedback */
 "Copied" = "הועתק";
 "Inserted" = "הוכנס";
@@ -181,36 +199,6 @@
 "1 day left" = "נותר יום אחד";
 "%lld days left" = "נותרו %lld ימים";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld טקסט, %lld/%lld תמונות";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "תכונה ניסיונית: iCloud";
-"Contact Support" = "צור קשר עם התמיכה";
-"Privacy Policy" = "מדיניות פרטיות";
-
-/* MARK: - Additional Actions */
-"Redo" = "בצע שוב";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "קאטלינגים";
-
-/* MARK: - Missing Strings */
-"Continue" = "המשך";
-"Enable" = "הפעל";
-"Status" = "מצב";
-"New Text Cutling" = "קאטלינג טקסט חדש";
-"New Image Cutling" = "קאטלינג תמונה חדש";
-"Delete Selected" = "מחק נבחרים";
-"Auto-detect Input Types" = "זיהוי אוטומטי של סוגי קלט";
-"Input Types" = "סוגי קלט";
-"Enable iCloud Sync" = "הפעל סנכרון iCloud";
-"Keep your cutlings in sync across all your devices." = "שמור על הקאטלינגים שלך מסונכרנים בכל המכשירים.";
-"Automatically detect and suggest input type categories when editing text." = "זהה והצע אוטומטית קטגוריות סוגי קלט בעת עריכת טקסט.";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld קאטלינגים";
-
 /* MARK: - Context Menu */
 "Share" = "שיתוף";
 "Duplicate" = "שכפול";
@@ -230,7 +218,6 @@
 "Created" = "נוצר";
 "Modified" = "שונה";
 "Expires" = "פג תוקף";
-
 
 /* MARK: - Color Names */
 "Default" = "ברירת מחדל";

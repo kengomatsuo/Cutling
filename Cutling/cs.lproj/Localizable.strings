@@ -7,6 +7,9 @@
 "Keyboard Setup" = "Nastavení klávesnice";
 "New" = "Nový";
 "Choose Icon" = "Vybrat ikonu";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Text, %lld/%lld Obrázky";
+"%lld Cutlings" = "%lld Cutlingy";
+"Cutlings" = "Cutlingy";
 
 /* MARK: - Common Actions */
 "Cancel" = "Zrušit";
@@ -17,6 +20,8 @@
 "Edit" = "Upravit";
 "Sort" = "Seřadit";
 "OK" = "OK";
+"Redo" = "Znovu";
+"Delete Selected" = "Smazat vybrané";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "Textový Cutling";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "Automatické smazání";
 "Delete At" = "Smazat v";
 "Category" = "Kategorie";
+"Status" = "Stav";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "např. E-mail";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "Přidat ze schránky";
 "Insert Text Instantly" = "Vložit text okamžitě";
 "Switch to Cutling Keyboard" = "Přepnout na klávesnici Cutling";
+"Continue" = "Pokračovat";
+"Enable" = "Povolit";
+"New Text Cutling" = "Nový textový Cutling";
+"New Image Cutling" = "Nový obrázkový Cutling";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "Verze";
 "Keyboard Added" = "Klávesnice přidána";
 "Full Access" = "Plný přístup";
+"Experimental Feature: iCloud" = "Experimentální funkce: iCloud";
+"Contact Support" = "Kontaktovat podporu";
+"Privacy Policy" = "Zásady ochrany osobních údajů";
+"Auto-detect Input Types" = "Automatická detekce typů vstupu";
+"Enable iCloud Sync" = "Povolit synchronizaci iCloud";
+"Keep your cutlings in sync across all your devices." = "Udržujte své cutlingy synchronizované na všech zařízeních.";
+"Automatically detect and suggest input type categories when editing text." = "Automaticky detekovat a navrhovat kategorie typů vstupu při úpravě textu.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Žádný obrázek nevybrán";
@@ -108,7 +125,6 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Dosáhli jste maxima %lld obrázkových cutlingů. Obrázky zabírají hodně paměti klávesnice. Smažte některé obrázky pro přidání dalších.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Dosáhli jste maxima %lld textových cutlingů. Smažte některé pro přidání dalších.";
 
-
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Návrhy typu vstupu";
 "Suggest for Input Types" = "Navrhovat pro typy vstupu";
@@ -120,10 +136,12 @@
 "URL" = "URL";
 "Phone Number" = "Telefonní číslo";
 "Address" = "Adresa";
+"Input Types" = "Typy vstupu";
 
 /* MARK: - Detection */
 "Detected: %@" = "Rozpoznáno: %@";
 "Undo" = "Zpět";
+
 /* MARK: - Clipboard Feedback */
 "Copied" = "Zkopírováno";
 "Inserted" = "Vloženo";
@@ -181,36 +199,6 @@
 "1 day left" = "Zbývá 1 den";
 "%lld days left" = "Zbývá %lld dní";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Text, %lld/%lld Obrázky";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "Experimentální funkce: iCloud";
-"Contact Support" = "Kontaktovat podporu";
-"Privacy Policy" = "Zásady ochrany osobních údajů";
-
-/* MARK: - Additional Actions */
-"Redo" = "Znovu";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "Cutlingy";
-
-/* MARK: - Missing Strings */
-"Continue" = "Pokračovat";
-"Enable" = "Povolit";
-"Status" = "Stav";
-"New Text Cutling" = "Nový textový Cutling";
-"New Image Cutling" = "Nový obrázkový Cutling";
-"Delete Selected" = "Smazat vybrané";
-"Auto-detect Input Types" = "Automatická detekce typů vstupu";
-"Input Types" = "Typy vstupu";
-"Enable iCloud Sync" = "Povolit synchronizaci iCloud";
-"Keep your cutlings in sync across all your devices." = "Udržujte své cutlingy synchronizované na všech zařízeních.";
-"Automatically detect and suggest input type categories when editing text." = "Automaticky detekovat a navrhovat kategorie typů vstupu při úpravě textu.";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld Cutlingy";
-
 /* MARK: - Context Menu */
 "Share" = "Sdílet";
 "Duplicate" = "Duplikovat";
@@ -230,7 +218,6 @@
 "Created" = "Vytvořeno";
 "Modified" = "Upraveno";
 "Expires" = "Vyprší";
-
 
 /* MARK: - Color Names */
 "Default" = "Výchozí";

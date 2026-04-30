@@ -7,6 +7,9 @@
 "Keyboard Setup" = "કીબોર્ડ સેટઅપ";
 "New" = "નવું";
 "Choose Icon" = "આઇકન પસંદ કરો";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld ટેક્સ્ટ, %lld/%lld છબીઓ";
+"%lld Cutlings" = "%lld કટલિંગ્સ";
+"Cutlings" = "કટલિંગ્સ";
 
 /* MARK: - Common Actions */
 "Cancel" = "રદ કરો";
@@ -17,6 +20,8 @@
 "Edit" = "ફેરફાર કરો";
 "Sort" = "ક્રમ ગોઠવો";
 "OK" = "ઠીક";
+"Redo" = "ફરીથી કરો";
+"Delete Selected" = "પસંદ કરેલ કાઢી નાખો";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "ટેક્સ્ટ કટલિંગ";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "ઑટો-કાઢી નાખો";
 "Delete At" = "આ સમયે કાઢો";
 "Category" = "શ્રેણી";
+"Status" = "સ્થિતિ";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "દા.ત. ઈમેઇલ";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "ક્લિપબોર્ડમાંથી ઉમેરો";
 "Insert Text Instantly" = "ટેક્સ્ટ તરત દાખલ કરો";
 "Switch to Cutling Keyboard" = "કટલિંગ કીબોર્ડ પર સ્વિચ કરો";
+"Continue" = "ચાલુ રાખો";
+"Enable" = "સક્રિય કરો";
+"New Text Cutling" = "નવું ટેક્સ્ટ કટલિંગ";
+"New Image Cutling" = "નવું છબી કટલિંગ";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "આવૃત્તિ";
 "Keyboard Added" = "કીબોર્ડ ઉમેરાયું";
 "Full Access" = "સંપૂર્ણ ઍક્સેસ";
+"Experimental Feature: iCloud" = "પ્રાયોગિક સુવિધા: iCloud";
+"Contact Support" = "સપોર્ટનો સંપર્ક કરો";
+"Privacy Policy" = "ગોપનીયતા નીતિ";
+"Auto-detect Input Types" = "ઇનપુટ પ્રકાર ઑટો-શોધ";
+"Enable iCloud Sync" = "iCloud સિંક સક્રિય કરો";
+"Keep your cutlings in sync across all your devices." = "તમારા બધા ઉપકરણો પર કટલિંગ્સ સિંકમાં રાખો.";
+"Automatically detect and suggest input type categories when editing text." = "ટેક્સ્ટ ફેરફાર કરતી વખતે ઇનપુટ પ્રકાર શ્રેણીઓ આપોઆપ શોધો અને સૂચવો.";
 
 /* MARK: - Image Picker */
 "No image selected" = "કોઈ છબી પસંદ નથી";
@@ -119,6 +136,7 @@
 "URL" = "URL";
 "Phone Number" = "ફોન નંબર";
 "Address" = "સરનામું";
+"Input Types" = "ઇનપુટ પ્રકારો";
 
 /* MARK: - Detection */
 "Detected: %@" = "શોધાયું: %@";
@@ -181,36 +199,6 @@
 "1 day left" = "1 દિવસ બાકી";
 "%lld days left" = "%lld દિવસ બાકી";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld ટેક્સ્ટ, %lld/%lld છબીઓ";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "પ્રાયોગિક સુવિધા: iCloud";
-"Contact Support" = "સપોર્ટનો સંપર્ક કરો";
-"Privacy Policy" = "ગોપનીયતા નીતિ";
-
-/* MARK: - Additional Actions */
-"Redo" = "ફરીથી કરો";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "કટલિંગ્સ";
-
-/* MARK: - Missing Strings */
-"Continue" = "ચાલુ રાખો";
-"Enable" = "સક્રિય કરો";
-"Status" = "સ્થિતિ";
-"New Text Cutling" = "નવું ટેક્સ્ટ કટલિંગ";
-"New Image Cutling" = "નવું છબી કટલિંગ";
-"Delete Selected" = "પસંદ કરેલ કાઢી નાખો";
-"Auto-detect Input Types" = "ઇનપુટ પ્રકાર ઑટો-શોધ";
-"Input Types" = "ઇનપુટ પ્રકારો";
-"Enable iCloud Sync" = "iCloud સિંક સક્રિય કરો";
-"Keep your cutlings in sync across all your devices." = "તમારા બધા ઉપકરણો પર કટલિંગ્સ સિંકમાં રાખો.";
-"Automatically detect and suggest input type categories when editing text." = "ટેક્સ્ટ ફેરફાર કરતી વખતે ઇનપુટ પ્રકાર શ્રેણીઓ આપોઆપ શોધો અને સૂચવો.";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld કટલિંગ્સ";
-
 /* MARK: - Context Menu */
 "Share" = "શેર કરો";
 "Duplicate" = "ડુપ્લિકેટ";
@@ -230,7 +218,6 @@
 "Created" = "બનાવ્યું";
 "Modified" = "સંશોધિત";
 "Expires" = "સમાપ્ત થાય છે";
-
 
 /* MARK: - Color Names */
 "Default" = "ડિફોલ્ટ";

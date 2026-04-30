@@ -7,6 +7,9 @@
 "Keyboard Setup" = "Настройка на клавиатурата";
 "New" = "Ново";
 "Choose Icon" = "Избери икона";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Текст, %lld/%lld Изображения";
+"%lld Cutlings" = "%lld Кътлинги";
+"Cutlings" = "Кътлинги";
 
 /* MARK: - Common Actions */
 "Cancel" = "Отказ";
@@ -17,6 +20,8 @@
 "Edit" = "Редактирай";
 "Sort" = "Сортирай";
 "OK" = "ОК";
+"Redo" = "Повтори";
+"Delete Selected" = "Изтрий избраните";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "Текстов Кътлинг";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "Автоматично изтриване";
 "Delete At" = "Изтрий на";
 "Category" = "Категория";
+"Status" = "Състояние";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "напр. Имейл";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "Добави от клипборда";
 "Insert Text Instantly" = "Вмъкни текст мигновено";
 "Switch to Cutling Keyboard" = "Превключи към Кътлинг клавиатура";
+"Continue" = "Продължи";
+"Enable" = "Включи";
+"New Text Cutling" = "Нов текстов Кътлинг";
+"New Image Cutling" = "Нов Кътлинг с изображение";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "Версия";
 "Keyboard Added" = "Клавиатурата е добавена";
 "Full Access" = "Пълен достъп";
+"Experimental Feature: iCloud" = "Експериментална функция: iCloud";
+"Contact Support" = "Свържете се с поддръжката";
+"Privacy Policy" = "Политика за поверителност";
+"Auto-detect Input Types" = "Автоматично разпознаване на типове въвеждане";
+"Enable iCloud Sync" = "Включи синхронизация с iCloud";
+"Keep your cutlings in sync across all your devices." = "Поддържайте вашите Кътлинги синхронизирани на всички устройства.";
+"Automatically detect and suggest input type categories when editing text." = "Автоматично разпознаване и предлагане на категории типове въвеждане при редактиране на текст.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Няма избрано изображение";
@@ -119,6 +136,7 @@
 "URL" = "URL";
 "Phone Number" = "Телефонен номер";
 "Address" = "Адрес";
+"Input Types" = "Типове въвеждане";
 
 /* MARK: - Detection */
 "Detected: %@" = "Открито: %@";
@@ -181,36 +199,6 @@
 "1 day left" = "Остава 1 ден";
 "%lld days left" = "Остават %lld дни";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Текст, %lld/%lld Изображения";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "Експериментална функция: iCloud";
-"Contact Support" = "Свържете се с поддръжката";
-"Privacy Policy" = "Политика за поверителност";
-
-/* MARK: - Additional Actions */
-"Redo" = "Повтори";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "Кътлинги";
-
-/* MARK: - Missing Strings */
-"Continue" = "Продължи";
-"Enable" = "Включи";
-"Status" = "Състояние";
-"New Text Cutling" = "Нов текстов Кътлинг";
-"New Image Cutling" = "Нов Кътлинг с изображение";
-"Delete Selected" = "Изтрий избраните";
-"Auto-detect Input Types" = "Автоматично разпознаване на типове въвеждане";
-"Input Types" = "Типове въвеждане";
-"Enable iCloud Sync" = "Включи синхронизация с iCloud";
-"Keep your cutlings in sync across all your devices." = "Поддържайте вашите Кътлинги синхронизирани на всички устройства.";
-"Automatically detect and suggest input type categories when editing text." = "Автоматично разпознаване и предлагане на категории типове въвеждане при редактиране на текст.";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld Кътлинги";
-
 /* MARK: - Context Menu */
 "Share" = "Сподели";
 "Duplicate" = "Дублирай";
@@ -230,7 +218,6 @@
 "Created" = "Създаден";
 "Modified" = "Променен";
 "Expires" = "Изтича";
-
 
 /* MARK: - Color Names */
 "Default" = "По подразбиране";

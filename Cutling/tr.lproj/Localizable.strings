@@ -7,6 +7,9 @@
 "Keyboard Setup" = "Klavye Kurulumu";
 "New" = "Yeni";
 "Choose Icon" = "Simge Seç";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Metin, %lld/%lld Görsel";
+"%lld Cutlings" = "%lld Cutling'ler";
+"Cutlings" = "Cutling'ler";
 
 /* MARK: - Common Actions */
 "Cancel" = "İptal";
@@ -17,6 +20,8 @@
 "Edit" = "Düzenle";
 "Sort" = "Sırala";
 "OK" = "Tamam";
+"Redo" = "Yinele";
+"Delete Selected" = "Seçilenleri Sil";
 
 /* MARK: - Menu Items */
 "Text Cutling" = "Metin Cutling";
@@ -52,6 +57,7 @@
 "Auto-Delete" = "Otomatik Sil";
 "Delete At" = "Silinme Zamanı";
 "Category" = "Kategori";
+"Status" = "Durum";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "ör. E-posta";
@@ -70,6 +76,10 @@
 "Add from Clipboard" = "Panodan Ekle";
 "Insert Text Instantly" = "Metni Anında Ekle";
 "Switch to Cutling Keyboard" = "Cutling Klavyesine Geç";
+"Continue" = "Devam";
+"Enable" = "Etkinleştir";
+"New Text Cutling" = "Yeni Metin Cutling";
+"New Image Cutling" = "Yeni Görsel Cutling";
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
@@ -84,6 +94,13 @@
 "Version" = "Sürüm";
 "Keyboard Added" = "Klavye Eklendi";
 "Full Access" = "Tam Erişim";
+"Experimental Feature: iCloud" = "Deneysel Özellik: iCloud";
+"Contact Support" = "Destek ile İletişim";
+"Privacy Policy" = "Gizlilik Politikası";
+"Auto-detect Input Types" = "Giriş Türlerini Otomatik Algıla";
+"Enable iCloud Sync" = "iCloud Senkronizasyonunu Etkinleştir";
+"Keep your cutlings in sync across all your devices." = "Cutling'lerinizi tüm cihazlarınızda senkronize tutun.";
+"Automatically detect and suggest input type categories when editing text." = "Metin düzenlerken giriş türü kategorilerini otomatik olarak algıla ve öner.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Görsel seçilmedi";
@@ -108,7 +125,6 @@
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "%lld görsel cutling sınırına ulaştınız. Görseller klavyede önemli miktarda bellek kullanır. Daha fazla eklemek için bazı görselleri silin.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "%lld metin cutling sınırına ulaştınız. Daha fazla eklemek için bazılarını silin.";
 
-
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Giriş türü önerileri";
 "Suggest for Input Types" = "Giriş türleri için öner";
@@ -120,10 +136,12 @@
 "URL" = "URL";
 "Phone Number" = "Telefon Numarası";
 "Address" = "Adres";
+"Input Types" = "Giriş Türleri";
 
 /* MARK: - Detection */
 "Detected: %@" = "Algılandı: %@";
 "Undo" = "Geri al";
+
 /* MARK: - Clipboard Feedback */
 "Copied" = "Kopyalandı";
 "Inserted" = "Eklendi";
@@ -181,36 +199,6 @@
 "1 day left" = "1 gün kaldı";
 "%lld days left" = "%lld gün kaldı";
 
-/* MARK: - Navigation Subtitle */
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Metin, %lld/%lld Görsel";
-
-/* MARK: - Settings (Additional) */
-"Experimental Feature: iCloud" = "Deneysel Özellik: iCloud";
-"Contact Support" = "Destek ile İletişim";
-"Privacy Policy" = "Gizlilik Politikası";
-
-/* MARK: - Additional Actions */
-"Redo" = "Yinele";
-
-/* MARK: - Navigation Title */
-"Cutlings" = "Cutling'ler";
-
-/* MARK: - Missing Strings */
-"Continue" = "Devam";
-"Enable" = "Etkinleştir";
-"Status" = "Durum";
-"New Text Cutling" = "Yeni Metin Cutling";
-"New Image Cutling" = "Yeni Görsel Cutling";
-"Delete Selected" = "Seçilenleri Sil";
-"Auto-detect Input Types" = "Giriş Türlerini Otomatik Algıla";
-"Input Types" = "Giriş Türleri";
-"Enable iCloud Sync" = "iCloud Senkronizasyonunu Etkinleştir";
-"Keep your cutlings in sync across all your devices." = "Cutling'lerinizi tüm cihazlarınızda senkronize tutun.";
-"Automatically detect and suggest input type categories when editing text." = "Metin düzenlerken giriş türü kategorilerini otomatik olarak algıla ve öner.";
-
-/* MARK: - Navigation Subtitle */
-"%lld Cutlings" = "%lld Cutling'ler";
-
 /* MARK: - Context Menu */
 "Share" = "Paylaş";
 "Duplicate" = "Çoğalt";
@@ -230,7 +218,6 @@
 "Created" = "Oluşturulma";
 "Modified" = "Değiştirilme";
 "Expires" = "Sona Erer";
-
 
 /* MARK: - Color Names */
 "Default" = "Varsayılan";
