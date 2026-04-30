@@ -21,7 +21,7 @@ import AppKit
 // MARK: - Accessible Animation
 
 /// Wraps `withAnimation`, substituting a simple cross-dissolve when Reduce Motion is enabled.
-func withAccessibleAnimation<Result>(_ animation: Animation = .default, _ body: () throws -> Result) rethrows -> Result {
+@MainActor func withAccessibleAnimation<Result>(_ animation: Animation = .default, _ body: () throws -> Result) rethrows -> Result {
     #if os(iOS)
     if UIAccessibility.isReduceMotionEnabled {
         return try withAnimation(.easeOut(duration: 0.15), body)
