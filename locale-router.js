@@ -17,13 +17,14 @@ var AVAILABLE_LANGS = [
 (function() {
   var PREF_KEY = 'cutling_lang_preference';
   var DEFAULT_LOCALE = 'en-us';
+  var SITE_BASE = '/Cutling';
 
   if (localStorage.getItem(PREF_KEY)) {
     return;
   }
 
   var currentPath = window.location.pathname;
-  var currentLang = getCurrentLanguage(currentPath);
+  var currentLang = getCurrentLanguage(currentPath, SITE_BASE);
   if (currentLang && currentLang !== DEFAULT_LOCALE) {
     localStorage.setItem(PREF_KEY, currentLang);
     return;
@@ -34,13 +35,14 @@ var AVAILABLE_LANGS = [
 
   if (preferredLang && preferredLang !== DEFAULT_LOCALE) {
     localStorage.setItem(PREF_KEY, preferredLang);
-    var redirectPath = buildRedirectPath(currentPath, preferredLang);
+    var redirectPath = buildRedirectPath(currentPath, preferredLang, SITE_BASE);
     window.location.href = redirectPath;
   }
 })();
 
-function getCurrentLanguage(pathname) {
-  var parts = pathname.replace(/\/$/, '').split('/').filter(Boolean);
+function getCurrentLanguage(pathname, siteBase) {
+  var pathWithoutBase = stripSiteBase(pathname, siteBase);
+  var parts = pathWithoutBase.replace(/\/$/, '').split('/').filter(Boolean);
   if (parts.length === 0) {
     return 'en-us';
   }
@@ -111,14 +113,27 @@ function findLocaleForBase(base) {
   return null;
 }
 
-function buildRedirectPath(currentPath, newLang) {
+function buildRedirectPath(currentPath, newLang, siteBase) {
+  var pathWithoutBase = stripSiteBase(currentPath, siteBase);
   var langPattern = new RegExp('^/(' + AVAILABLE_LANGS.join('|').replace(/-/g, '\\-') + ')(/|$)');
-  var pathWithoutLang = currentPath.replace(langPattern, '/');
+  var pathWithoutLang = pathWithoutBase.replace(langPattern, '/');
   var isRoot = (pathWithoutLang === '/' || pathWithoutLang === '');
 
   if (isRoot) {
-    return '/' + newLang + '/';
+    return siteBase + '/' + newLang + '/';
   }
 
-  return '/' + newLang + pathWithoutLang;
+  return siteBase + '/' + newLang + pathWithoutLang;
+}
+
+function stripSiteBase(pathname, siteBase) {
+  if (siteBase && pathname.indexOf(siteBase + '/') === 0) {
+    return pathname.slice(siteBase.length);
+  }
+
+  if (siteBase && pathname === siteBase) {
+    return '/';
+  }
+
+  return pathname;
 }
