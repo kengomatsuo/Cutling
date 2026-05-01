@@ -117,9 +117,9 @@ def build_language_picker(locales, available_codes, current_code, root, template
         is_default = code == DEFAULT_LOCALE
 
         if page_dir:
-            href = f"{root}/{page_dir}/" if is_default else f"{root}/{wc}/{page_dir}/"
+            href = f"{root}/{wc}/{page_dir}/"
         else:
-            href = f"{root}/" if is_default else f"{root}/{wc}/"
+            href = f"{root}/{wc}/"
 
         active = ' class="active"' if code == current_code else ""
         links.append(f'                        <li><a href="{href}"{active}>{name}</a></li>')
