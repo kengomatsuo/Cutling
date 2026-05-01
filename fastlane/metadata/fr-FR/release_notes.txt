@@ -1,5 +1,10 @@
-• Amélioration de la cohérence de la traduction dans toutes les langues prises en charge
-• Correction de problèmes de dénomination de localisation
-• Correction d'un crash pouvant survenir lors de la première ouverture du clavier après le redémarrage de l'appareil.
-• Amélioration des performances de démarrage du clavier en différant la synchronisation en arrière-plan
-• Fiabilité améliorée de la synchronisation des données entre processus
+• Ajout d'actions rapides sur l'écran d'accueil : appuyez longuement sur l'icône de l'application pour créer rapidement un nouveau texte ou une nouvelle image.
+• Ajout d'actions de menu contextuel : Partager, Dupliquer et Obtenir des informations.
+• Accessibilité améliorée : étiquettes VoiceOver pour les boutons, les aperçus d'images et les noms de couleurs ; les animations respectent désormais Réduire le mouvement
+• Correction d'une bordure blanche apparaissant sur la vue d'arrière-plan lors des transitions de zoom
+• Correction d'une incohérence dans l'animation de la barre d'outils.
+• Correction du dimensionnement de la carte Cutling
+• Animation de la barre d'outils inférieure restaurée
+• Correction d'un problème d'annulation de pile
+Ajout de deux nouvelles actions rapides : nouveau découpage de texte et nouveau découpage d'image.
+• Feuille de configuration du clavier optimisée

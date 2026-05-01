@@ -1,5 +1,10 @@
-• Improved translation consistency across all supported languages
-• Fixed localization naming issues
-• Fixed a crash that could occur when opening the keyboard for the first time after a device restart
-• Improved keyboard startup performance by deferring background sync
-• Improved reliability of cross-process data sync
+• Added Home Screen quick actions — long-press the app icon to quickly create a new Text or Image Cutling
+• Added context menu actions: Share, Duplicate, and Get Info
+• Improved accessibility: VoiceOver labels for buttons, image previews, and colour names; animations now respect Reduce Motion
+• Fixed a white border appearing on the background view during zoom transitions
+• Fixed toolbar animation inconsistency
+• Fixed Cutling card sizing
+• Restored bottom toolbar animation
+• Fixed an undo stack issues
+Added two new Quick Actions: New Text Cutling and New Image Cutling
+• Optimized Keyboard Setup sheet

@@ -1,5 +1,10 @@
-• Miglioramento della coerenza della traduzione in tutte le lingue supportate
-• Risolti i problemi di denominazione della localizzazione
-• Risolto un crash che poteva verificarsi quando si apriva la tastiera per la prima volta dopo il riavvio del dispositivo
-• Miglioramento delle prestazioni di avvio della tastiera posticipando la sincronizzazione in background
-• Maggiore affidabilità della sincronizzazione dei dati tra processi
+• Aggiunte azioni rapide nella schermata Home: premi a lungo l'icona dell'app per creare rapidamente un nuovo ritaglio di testo o immagine
+• Aggiunte azioni del menu contestuale: Condividi, Duplica e Ottieni informazioni
+• Accessibilità migliorata: etichette VoiceOver per pulsanti, anteprime di immagini e nomi di colori; le animazioni ora rispettano Riduci movimento
+• Risolto il problema con la comparsa di un bordo bianco nella vista di sfondo durante le transizioni di zoom
+• Risolta l'incoerenza dell'animazione della barra degli strumenti
+• Risolto il problema con il dimensionamento della scheda di taglio
+• Animazione della barra degli strumenti inferiore ripristinata
+• Risolti problemi relativi allo stack di annullamento
+Aggiunte due nuove azioni rapide: nuovo taglio del testo e nuovo taglio dell'immagine
+• Scheda di installazione della tastiera ottimizzata
