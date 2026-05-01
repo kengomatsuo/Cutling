@@ -22,7 +22,7 @@ from pathlib import Path
 
 SCRIPT_DIR = Path(__file__).parent
 DOCS_DIR = SCRIPT_DIR.parent
-REPO_ROOT = DOCS_DIR.parent
+REPO_ROOT = DOCS_DIR  # locales.json is at the docs root, not above
 TEMPLATES_DIR = SCRIPT_DIR / "templates"
 TRANSLATIONS_DIR = SCRIPT_DIR / "translations"
 LOCALES_FILE = REPO_ROOT / "locales.json"
@@ -198,17 +198,41 @@ def clean_generated(locales):
             shutil.rmtree(lang_dir)
             print(f"  Cleaned: {web_code(code)}/")
 
+    # Folders that should never be deleted
+    protected_names = {
+        "_generator", "img", "faq", "support", "privacy",
+        ".git", ".claude", "Cutling.xcodeproj"
+    }
+
     # Also clean old-style directories (pre-migration short codes)
     for entry in DOCS_DIR.iterdir():
         if not entry.is_dir():
             continue
         name = entry.name
-        if name.startswith("_") or name in ("img", "faq", "support", "privacy"):
+        if name in protected_names or name.startswith("."):
             continue
         current_web_codes = {web_code(loc["code"]) for loc in locales}
         if name not in current_web_codes:
             shutil.rmtree(entry)
             print(f"  Cleaned (legacy): {name}/")
+
+
+def generate_root_redirect():
+    """Generate a root index.html that's empty - locale-router.js handles routing."""
+    html = """<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <script src="./locale-router.js"></script>
+</body>
+</html>"""
+    out_path = DOCS_DIR / "index.html"
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write(html)
+    print("  Generated root loading page: index.html")
 
 
 def main():
@@ -259,7 +283,8 @@ def main():
             template_content = templates[template_rel]
             template_depth = template_rel.count("/")
 
-            root = compute_root(template_depth, is_default)
+            # All locales now go into their own folders
+            root = compute_root(template_depth, False)
             lang_prefix = compute_lang_prefix(template_depth)
 
             picker_html = build_language_picker(
@@ -271,16 +296,17 @@ def main():
                 code, is_rtl, root, lang_prefix, picker_html
             )
 
-            if is_default:
-                out_path = DOCS_DIR / template_rel
-            else:
-                out_path = DOCS_DIR / web_code(code) / template_rel
+            out_path = DOCS_DIR / web_code(code) / template_rel
 
             out_path.parent.mkdir(parents=True, exist_ok=True)
             with open(out_path, "w", encoding="utf-8") as f:
                 f.write(html)
 
             generated_count += 1
+
+    if not specific_web_locales:
+        print("Generating root loading page...")
+        generate_root_redirect()
 
     print(f"\nDone! Generated {generated_count} pages.")
 
