@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(docs/_generator/.venv/bin/pip install *)",
-      "Bash(docs/_generator/.venv/bin/python3 docs/_generator/generate.py)"
+      "Bash(docs/_generator/.venv/bin/python3 docs/_generator/generate.py)",
+      "Bash(python3 -c ' *)",
+      "Bash(./deploy.sh *)"
     ]
   }
 }

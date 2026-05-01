@@ -5,12 +5,17 @@
     
     
       
-      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000187">
+      <testcase classname="fastlane.lanes" name="0: default_platform" time="0.000319">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: Switch to ios add_new_locales lane" time="0.000108">
+      <testcase classname="fastlane.lanes" name="1: Switch to ios add_new_locales lane" time="0.000249">
+        
+      </testcase>
+    
+      
+      <testcase classname="fastlane.lanes" name="2: deliver" time="185.096527">
         
       </testcase>
     
