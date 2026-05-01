@@ -781,7 +781,19 @@ struct KeyboardView: View {
         return ScrollViewReader { proxy in
             ScrollView(.vertical, showsIndicators: false) {
                 if liveCutlings.isEmpty {
-                    // ... (your empty state view)
+                    VStack(spacing: 8) {
+                        Image(systemName: "rectangle.on.rectangle.slash")
+                            .font(.system(size: 28))
+                            .foregroundStyle(.secondary)
+                        Text("No Cutlings Yet")
+                            .font(.system(size: 15, weight: .semibold))
+                            .foregroundStyle(.secondary)
+                        Text("Open Cutling to add snippets")
+                            .font(.system(size: 12))
+                            .foregroundStyle(.tertiary)
+                    }
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .padding(.vertical, 16)
                 } else {
                     LazyVStack(spacing: 0) {
                         if !suggested.isEmpty {
