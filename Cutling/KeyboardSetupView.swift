@@ -384,6 +384,14 @@ struct KeyboardSetupView: View {
                 }
                 .padding(.horizontal)
 
+                HStack(spacing: 8) {
+                    Image(systemName: "lock.slash")
+                        .foregroundStyle(.secondary)
+                        .frame(width: 20)
+                    Text("**Not recommended for passwords** — use a dedicated password manager")
+                        .font(.subheadline)
+                }
+
                 Spacer().frame(height: 16)
             }
             .padding(.horizontal)
