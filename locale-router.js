@@ -2,20 +2,21 @@
  * Auto-route user to their preferred language if they haven't manually selected one.
  * Locale codes match locales.json (lowercased for web paths).
  */
+var AVAILABLE_LANGS = [
+  'ar-sa', 'bg', 'bn-bd', 'bn-in', 'ca', 'cs', 'da', 'de-de', 'el',
+  'en-au', 'en-ca', 'en-gb', 'en-in', 'en-us',
+  'es-es', 'es-mx', 'et', 'fa', 'fi', 'fil',
+  'fr-ca', 'fr-fr', 'gu-in', 'he', 'hi', 'hr', 'hu', 'id', 'it', 'ja',
+  'kn-in', 'ko', 'lt', 'lv', 'ml-in', 'mr-in', 'ms',
+  'nl-nl', 'no', 'or-in', 'pa-in', 'pl', 'pt-br', 'pt-pt',
+  'ro', 'ru', 'sk', 'sl-si', 'sr', 'sv', 'sw',
+  'ta-in', 'te-in', 'th', 'tr', 'uk', 'ur-pk', 'vi',
+  'zh-hans', 'zh-hant'
+];
+
 (function() {
   var PREF_KEY = 'cutling_lang_preference';
   var DEFAULT_LOCALE = 'en-us';
-  var AVAILABLE_LANGS = [
-    'ar-sa', 'bg', 'bn-bd', 'bn-in', 'ca', 'cs', 'da', 'de-de', 'el',
-    'en-au', 'en-ca', 'en-gb', 'en-in', 'en-us',
-    'es-es', 'es-mx', 'et', 'fa', 'fi', 'fil',
-    'fr-ca', 'fr-fr', 'gu-in', 'he', 'hi', 'hr', 'hu', 'id', 'it', 'ja',
-    'kn-in', 'ko', 'lt', 'lv', 'ml-in', 'mr-in', 'ms',
-    'nl-nl', 'no', 'or-in', 'pa-in', 'pl', 'pt-br', 'pt-pt',
-    'ro', 'ru', 'sk', 'sl-si', 'sr', 'sv', 'sw',
-    'ta-in', 'te-in', 'th', 'tr', 'uk', 'ur-pk', 'vi',
-    'zh-hans', 'zh-hant'
-  ];
 
   if (localStorage.getItem(PREF_KEY)) {
     return;
