@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="{{LANG_CODE}}"{{DIR_ATTR}}>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{page_title_support}}</title>
+    <link rel="stylesheet" href="{{ROOT}}/style.css">
+    <script src="{{ROOT}}/locale-router.js"></script>
+</head>
+<body>
+    <nav class="site-nav">
+        <a href="{{LANG_PREFIX}}/" class="nav-brand">
+            <img src="{{ROOT}}/icon.png" alt="{{app_name}}" width="28" height="28">
+            {{app_name}}
+        </a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span><span></span><span></span>
+        </label>
+        <ul class="nav-links">
+            <li><a href="{{LANG_PREFIX}}/">{{nav_home}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/faq/">{{nav_faq}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/support/" class="active">{{nav_support}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/privacy/">{{nav_privacy}}</a></li>
+            {{LANGUAGE_PICKER}}
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>{{support_title}}</h1>
+            <p class="page-subtitle">{{support_subtitle}}</p>
+        </div>
+
+        <div class="support-section">
+            <h2>{{support_contact_title}}</h2>
+            <p>{{support_contact_text}}</p>
+            <p>{{support_contact_response}}</p>
+        </div>
+
+        <div class="support-section">
+            <h2>{{support_troubleshooting_title}}</h2>
+
+            <h3>{{support_ts_keyboard_title}}</h3>
+            <p>{{support_ts_keyboard_text}}</p>
+
+            <h3>{{support_ts_cutlings_title}}</h3>
+            <p>{{support_ts_cutlings_text}}</p>
+
+            <h3>{{support_ts_icloud_title}}</h3>
+            <p>{{support_ts_icloud_text}}</p>
+
+            <h3>{{support_ts_images_title}}</h3>
+            <p>{{support_ts_images_text}}</p>
+        </div>
+
+        <div class="support-section">
+            <h2>{{support_more_help_title}}</h2>
+            <p>{{support_more_help_text}}</p>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <ul class="footer-links">
+            <li><a href="{{LANG_PREFIX}}/">{{nav_home}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/faq/">{{nav_faq}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/support/">{{nav_support}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/privacy/">{{nav_privacy}}</a></li>
+        </ul>
+        <p class="copyright">{{footer_copyright}}</p>
+    </footer>
+</body>
+</html>

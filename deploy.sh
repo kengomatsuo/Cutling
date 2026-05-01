@@ -9,11 +9,14 @@ FASTLANE="/Users/hafang/.rbenv/shims/fastlane"
 
 VENV="docs/_generator/.venv/bin/activate"
 
+REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
+
 usage() {
   cat <<EOF
 Usage: ./deploy.sh [command]
 
 Commands:
+  web               Build website and deploy to gh-pages
   all               Full pipeline: metadata + screenshots + build + upload
   release_notes     Translate release notes from en-US to all languages
   metadata          Upload metadata to App Store Connect (all languages)
@@ -34,7 +37,41 @@ Individual steps (run in order for a full deploy):
 EOF
 }
 
+deploy_web() {
+  DIST="$REPO_ROOT/dist"
+  WEB="$REPO_ROOT/web"
+
+  echo "==> Building website into dist/..."
+  python3 "$WEB/_generator/generate.py" --output-dir "$DIST"
+
+  echo "==> Copying static assets..."
+  cp "$WEB/style.css" "$DIST/"
+  cp "$WEB/locale-router.js" "$DIST/"
+  cp "$WEB/icon.png" "$DIST/"
+  cp -r "$WEB/img/" "$DIST/img/"
+  cp "$REPO_ROOT/locales.json" "$DIST/"
+
+  echo "==> Deploying to gh-pages via git worktree..."
+  WORKTREE="$(mktemp -d)"
+  git worktree add "$WORKTREE" gh-pages
+  rsync -a --delete --exclude='.git' "$DIST/" "$WORKTREE/"
+  (
+    cd "$WORKTREE"
+    git add -A
+    if git diff --cached --quiet; then
+      echo "Nothing to deploy — gh-pages is already up to date."
+    else
+      git commit -m "Deploy website $(date +%Y-%m-%d)"
+      git push origin gh-pages
+      echo "==> Deployed!"
+    fi
+  )
+  git worktree remove --force "$WORKTREE"
+  rm -rf "$WORKTREE"
+}
+
 case "${1:-help}" in
+  web)              deploy_web ;;
   all)              $FASTLANE ios deploy ;;
   release_notes)    source "$VENV" && python3 translate_release_notes.py ;;
   metadata)         $FASTLANE ios upload_metadata ;;
