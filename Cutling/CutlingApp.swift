@@ -110,15 +110,22 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             pendingShortcutType = shortcutItem.type
         }
         let config = UISceneConfiguration(name: nil, sessionRole: connectingSceneSession.role)
+        config.delegateClass = SceneDelegate.self
         return config
     }
+}
 
-    func application(
-        _ application: UIApplication,
+class SceneDelegate: NSObject, UIWindowSceneDelegate {
+    func windowScene(
+        _ windowScene: UIWindowScene,
         performActionFor shortcutItem: UIApplicationShortcutItem,
         completionHandler: @escaping (Bool) -> Void
     ) {
-        pendingShortcutType = shortcutItem.type
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            completionHandler(false)
+            return
+        }
+        appDelegate.pendingShortcutType = shortcutItem.type
         completionHandler(true)
     }
 }
@@ -294,6 +301,7 @@ struct CutlingApp: App {
     private func handlePendingShortcut() {
         guard let type = appDelegate.pendingShortcutType else { return }
         appDelegate.pendingShortcutType = nil
+        guard hasCompletedSetup else { return }
         switch type {
         case "com.matsuokengo.Cutling.addText":
             pendingNewCutlingKind = .text
