@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <style>
+        html {
+            background: #fafafa;
+            color-scheme: light dark;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            html { background: #1c1c1e; }
+        }
+    </style>
+    <script src="./locale-router.js"></script>
 </head>
 <body>
-    <script src="./locale-router.js"></script>
 </body>
 </html>
