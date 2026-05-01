@@ -408,6 +408,10 @@ struct TextDetailView: View {
         .onChange(of: undoManager, initial: true) { _, newValue in
             undoHandler.undoManager = newValue
         }
+        .onDisappear {
+            undoHandler.closeAllGroups()
+            undoManager?.removeAllActions()
+        }
 
     }
 

@@ -10,7 +10,6 @@
 
 
 import SwiftUI
-import StoreKit
 #if os(iOS)
 import BackgroundTasks
 #endif
@@ -98,21 +97,49 @@ private struct AppVersion: Comparable {
     }
 }
 
+#if os(iOS)
+class AppDelegate: NSObject, UIApplicationDelegate {
+    var pendingShortcutType: String?
+
+    func application(
+        _ application: UIApplication,
+        configurationForConnecting connectingSceneSession: UISceneSession,
+        options: UIScene.ConnectionOptions
+    ) -> UISceneConfiguration {
+        if let shortcutItem = options.shortcutItem {
+            pendingShortcutType = shortcutItem.type
+        }
+        let config = UISceneConfiguration(name: nil, sessionRole: connectingSceneSession.role)
+        return config
+    }
+
+    func application(
+        _ application: UIApplication,
+        performActionFor shortcutItem: UIApplicationShortcutItem,
+        completionHandler: @escaping (Bool) -> Void
+    ) {
+        pendingShortcutType = shortcutItem.type
+        completionHandler(true)
+    }
+}
+#endif
+
 @main
 struct CutlingApp: App {
+    #if os(iOS)
+    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
+    #endif
     @StateObject private var store = CutlingStore.shared
     @State private var showKeyboard = false
+    @State private var pendingNewCutlingKind: CutlingKind?
     @State private var showOnboarding = false
     @Environment(\.scenePhase) private var scenePhase
 
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
     @AppStorage("hasCompletedSetup") private var hasCompletedSetup = false
 
-    // Review request tracking
-    @AppStorage("lastVersionPromptedForReview") private var lastVersionPromptedForReview = ""
     // Version flag for future use (e.g. "What's New" screen for returning users)
     @AppStorage("lastVersionOpened") private var lastVersionOpened = ""
-    @Environment(\.requestReview) private var requestReview
 
     #if os(iOS)
     private static let bgSyncTaskID = "com.matsuokengo.Cutling.sync"
@@ -149,7 +176,7 @@ struct CutlingApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainContentView(showKeyboard: $showKeyboard)
+            MainContentView(showKeyboard: $showKeyboard, pendingNewCutlingKind: $pendingNewCutlingKind)
                 .environmentObject(store)
                 .onAppear {
                     #if DEBUG
@@ -191,6 +218,10 @@ struct CutlingApp: App {
                         #endif
                     case "keyboard":
                         showKeyboard = true
+                    case "addText":
+                        pendingNewCutlingKind = .text
+                    case "addImage":
+                        pendingNewCutlingKind = .image
                     default:
                         break
                     }
@@ -203,7 +234,9 @@ struct CutlingApp: App {
                         if let sm = store.syncManager {
                             Task { await sm.fetchChanges() }
                         }
-                        requestReviewIfAppropriate()
+                        #if os(iOS)
+                        handlePendingShortcut()
+                        #endif
                     }
                     #if os(iOS)
                     if newPhase == .background && iCloudSyncEnabled {
@@ -255,6 +288,23 @@ struct CutlingApp: App {
         #endif
     }
 
+    // MARK: - Quick Actions
+
+    #if os(iOS)
+    private func handlePendingShortcut() {
+        guard let type = appDelegate.pendingShortcutType else { return }
+        appDelegate.pendingShortcutType = nil
+        switch type {
+        case "com.matsuokengo.Cutling.addText":
+            pendingNewCutlingKind = .text
+        case "com.matsuokengo.Cutling.addImage":
+            pendingNewCutlingKind = .image
+        default:
+            break
+        }
+    }
+    #endif
+
     // MARK: - Preferences Sync
 
     /// Copies preferences from standard UserDefaults (where Settings.bundle writes)
@@ -294,6 +344,10 @@ struct CutlingApp: App {
         UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(false, forKey: "iCloudSyncEnabled")
     }
 
+    private var currentAppVersion: String {
+        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+    }
+
     // MARK: - Migrations
 
     private func runMigrationsIfNeeded() {
@@ -302,30 +356,6 @@ struct CutlingApp: App {
         // v1.2: auto-detect input type triggers for existing text cutlings
         if previous < AppVersion("1.2") {
             store.migrateInputTypeTriggers()
-        }
-    }
-
-    // MARK: - App Review Request
-
-    private var currentAppVersion: String {
-        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
-    }
-
-    private func requestReviewIfAppropriate() {
-        let pasteCount = UserDefaults(suiteName: appGroupID)?.integer(forKey: "keyboardPasteCount") ?? 0
-
-        // Only prompt after meaningful engagement (5+ pastes from the keyboard)
-        // and only once per app version
-        guard pasteCount >= 5,
-              currentAppVersion != lastVersionPromptedForReview else {
-            return
-        }
-
-        // Delay to avoid interrupting the user mid-task
-        Task {
-            try? await Task.sleep(for: .seconds(2))
-            requestReview()
-            lastVersionPromptedForReview = currentAppVersion
         }
     }
 

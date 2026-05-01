@@ -140,8 +140,6 @@ struct KeyboardView: View {
                     LabeledContent("Max Text Length", value: String(localized: "\(CutlingStore.maxTextLength) chars"))
                 } header: {
                     Text("Storage")
-                } footer: {
-                    Text("Each text cutling can hold up to \(CutlingStore.maxTextLength) characters.")
                 }
 
                 Section("About") {

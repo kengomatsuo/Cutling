@@ -22,6 +22,25 @@
 	</array>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.matsuokengo.Cutling.addText</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>New Text Cutling</string>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>doc.text</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.matsuokengo.Cutling.addImage</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>New Image Cutling</string>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>photo</string>
+		</dict>
+	</array>
 	<key>UILaunchScreen</key>
 	<dict>
 		<key>UIColorName</key>

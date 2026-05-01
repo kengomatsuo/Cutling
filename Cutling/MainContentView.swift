@@ -10,6 +10,7 @@
 
 
 import SwiftUI
+import StoreKit
 
 #if os(iOS)
 import UIKit
@@ -75,6 +76,7 @@ struct MainContentView: View {
     @State private var showAddImage = false
     @State private var newCutlingKind: CutlingKind? = nil
     @Binding var showKeyboard: Bool
+    @Binding var pendingNewCutlingKind: CutlingKind?
     
     @State private var showKeyboardSetup = false
     @State private var showRecentlyDeleted = false
@@ -104,8 +106,9 @@ struct MainContentView: View {
     private let keyboardButtonZoomID = "keyboardButton"
     #endif
 
-    init(showKeyboard: Binding<Bool> = .constant(false)) {
+    init(showKeyboard: Binding<Bool> = .constant(false), pendingNewCutlingKind: Binding<CutlingKind?> = .constant(nil)) {
         _showKeyboard = showKeyboard
+        _pendingNewCutlingKind = pendingNewCutlingKind
     }
     
     // MARK: - Keyboard Status
@@ -205,6 +208,8 @@ struct MainContentView: View {
                 .modifier(ChangeHandlersModifier(
                     mode: mode,
                     lastAddedCutlingID: store.lastAddedCutlingID,
+                    selectedItem: $selectedItem,
+                    newCutlingKind: $newCutlingKind,
                     hasScrolledToNew: $hasScrolledToNew,
                     onModeChange: handleModeChange,
                     onScrollToNew: scrollToBottom
@@ -261,6 +266,24 @@ struct MainContentView: View {
                         .environmentObject(store)
                 }
                 #endif
+                .onChange(of: pendingNewCutlingKind) { _, kind in
+                    guard let kind else { return }
+                    pendingNewCutlingKind = nil
+                    let canAdd = store.canAdd(kind)
+                    if canAdd.allowed {
+                        #if os(iOS)
+                        newCutlingKind = kind
+                        #else
+                        switch kind {
+                        case .text: showAddText = true
+                        case .image: showAddImage = true
+                        }
+                        #endif
+                    } else {
+                        limitAlertMessage = canAdd.reason ?? String(localized: "Cannot add more cutlings.")
+                        showLimitAlert = true
+                    }
+                }
         }
     }
     
@@ -1651,10 +1674,19 @@ struct AlertsModifier: ViewModifier {
 struct ChangeHandlersModifier: ViewModifier {
     let mode: MainContentMode
     let lastAddedCutlingID: UUID?
+    @Binding var selectedItem: Cutling?
+    @Binding var newCutlingKind: CutlingKind?
     @Binding var hasScrolledToNew: Bool
     let onModeChange: (MainContentMode) -> Void
     let onScrollToNew: () -> Void
-    
+
+    @Environment(\.requestReview) private var requestReview
+    @AppStorage("lastVersionPromptedForReview") private var lastVersionPromptedForReview = ""
+
+    private var currentAppVersion: String {
+        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+    }
+
     func body(content: Content) -> some View {
         content
             .onChange(of: mode) { _, newValue in
@@ -1663,33 +1695,49 @@ struct ChangeHandlersModifier: ViewModifier {
             .onChange(of: lastAddedCutlingID) { _, newID in
                 guard newID != nil, !hasScrolledToNew else { return }
                 hasScrolledToNew = true
-                
-                // Wait a moment for the view to appear in the list
+
                 Task { @MainActor in
                     try? await Task.sleep(for: .milliseconds(100))
                     onScrollToNew()
-                    
-                    // Reset the flag after a delay
+
                     try? await Task.sleep(for: .seconds(1))
                     hasScrolledToNew = false
                 }
+
+                requestReviewIfAppropriate()
             }
-            #if os(iOS)
-            .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
-                // App became active
+            .onChange(of: selectedItem) { old, new in
+                if old != nil, new == nil {
+                    requestReviewIfAppropriate()
+                }
             }
-            #else
-            .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
-                // App became active
+            .onChange(of: newCutlingKind) { old, new in
+                if old != nil, new == nil {
+                    requestReviewIfAppropriate()
+                }
             }
-            #endif
+    }
+
+    private func requestReviewIfAppropriate() {
+        let pasteCount = UserDefaults(suiteName: appGroupID)?.integer(forKey: "keyboardPasteCount") ?? 0
+
+        guard pasteCount >= 5,
+              currentAppVersion != lastVersionPromptedForReview else {
+            return
+        }
+
+        Task { @MainActor in
+            try? await Task.sleep(for: .seconds(2))
+            requestReview()
+            lastVersionPromptedForReview = currentAppVersion
+        }
     }
 }
 
 // MARK: - Preview
 
 #Preview {
-    MainContentView()
+    MainContentView(showKeyboard: .constant(false), pendingNewCutlingKind: .constant(nil))
         .environmentObject(CutlingStore.shared)
     #if os(macOS)
         .frame(width: 400, height: 500)
