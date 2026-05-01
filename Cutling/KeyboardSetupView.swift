@@ -32,22 +32,21 @@ struct KeyboardSetupView: View {
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
-    var isOnboarding: Bool = false
     var onComplete: (() -> Void)? = nil
 
-    @State private var currentPage: Int = SetupPage.welcome.rawValue
+    @SceneStorage("keyboardSetupPage") private var currentPage: Int = SetupPage.welcome.rawValue
     @State private var keyboardDetected = false
     @State private var fullAccessDetected = false
     @State private var checkTimer: Timer?
     @State private var testText = ""
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
+    @AppStorage("hasCompletedSetup") private var hasCompletedSetup = false
     @FocusState private var testFieldFocused: Bool
 
     private var allDone: Bool { keyboardDetected && fullAccessDetected }
 
     /// Whether the current step's requirement is met, enabling the Continue button.
     private var canContinue: Bool {
-        guard isOnboarding else { return true }
         switch SetupPage(rawValue: currentPage) {
         case .enable: return keyboardDetected
         case .test: return allDone
@@ -92,6 +91,12 @@ struct KeyboardSetupView: View {
         }
     }
 
+    private var lastAllowedPage: Int {
+        if !keyboardDetected { return SetupPage.enable.rawValue }
+        if !allDone { return SetupPage.test.rawValue }
+        return SetupPage.done.rawValue
+    }
+
     private func advancePage() {
         testFieldFocused = false
         withAccessibleAnimation {
@@ -109,6 +114,9 @@ struct KeyboardSetupView: View {
             macOSFormContent
             #endif
         }
+        #if os(iOS)
+        .interactiveDismissDisabled(!allDone)
+        #endif
         #if os(macOS)
         .frame(minWidth: 400, idealWidth: 440, minHeight: 400, idealHeight: 480)
         #endif
@@ -122,13 +130,20 @@ struct KeyboardSetupView: View {
             TabView(selection: $currentPage) {
                 welcomePage.tag(SetupPage.welcome.rawValue)
                 enablePage.tag(SetupPage.enable.rawValue)
-                testPage.tag(SetupPage.test.rawValue)
-                howToUsePage.tag(SetupPage.howToUse.rawValue)
-                icloudPage.tag(SetupPage.icloud.rawValue)
-                donePage.tag(SetupPage.done.rawValue)
+                if lastAllowedPage >= SetupPage.test.rawValue {
+                    testPage.tag(SetupPage.test.rawValue)
+                }
+                if lastAllowedPage >= SetupPage.howToUse.rawValue {
+                    howToUsePage.tag(SetupPage.howToUse.rawValue)
+                }
+                if lastAllowedPage >= SetupPage.icloud.rawValue {
+                    icloudPage.tag(SetupPage.icloud.rawValue)
+                }
+                if lastAllowedPage >= SetupPage.done.rawValue {
+                    donePage.tag(SetupPage.done.rawValue)
+                }
             }
-            .tabViewStyle(.page(indexDisplayMode: .always))
-            .indexViewStyle(.page(backgroundDisplayMode: .always))
+            .tabViewStyle(.page(indexDisplayMode: .never))
             .animation(reduceMotion ? .easeOut(duration: 0.15) : .easeInOut(duration: 0.3), value: currentPage)
 
             continueButton
@@ -139,6 +154,9 @@ struct KeyboardSetupView: View {
         .toolbar { pagedToolbarContent }
         .onAppear {
             refreshStatus()
+            if currentPage > lastAllowedPage {
+                currentPage = lastAllowedPage
+            }
             startPolling()
         }
         .onDisappear {
@@ -154,7 +172,7 @@ struct KeyboardSetupView: View {
     private var continueButton: some View {
         let isLastPage = currentPage == SetupPage.done.rawValue
         return Button(action: isLastPage ? finish : advancePage) {
-            Text(isLastPage ? (isOnboarding ? "Get Started" : "Done") : "Continue")
+            Text(isLastPage ? "Get Started" : "Continue")
                 .font(.headline)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 10)
@@ -284,7 +302,7 @@ struct KeyboardSetupView: View {
                 .listRowBackground(testPageSectionBackground)
 
                 HStack {
-                    Label("Full Access", systemImage: fullAccessDetected ? "lock.open.fill" : "lock.fill")
+                    Label("Full Access", systemImage: "lock.open.fill")
                     Spacer()
                     Image(systemName: fullAccessDetected ? "checkmark.circle.fill" : "circle.dashed")
                         .foregroundStyle(fullAccessDetected ? .green : .secondary)
@@ -476,7 +494,6 @@ struct KeyboardSetupView: View {
     private var pagedToolbarContent: some ToolbarContent {
         ToolbarItem(placement: .cancellationAction) {
             if currentPage > SetupPage.welcome.rawValue && currentPage < SetupPage.done.rawValue {
-                // Back button
                 Button {
                     testFieldFocused = false
                     withAccessibleAnimation {
@@ -492,17 +509,7 @@ struct KeyboardSetupView: View {
                         }
                     }
                 }
-            } else if isOnboarding && allDone {
-                Button {
-                    finish()
-                } label: {
-                    if #available(iOS 26, *) {
-                        Image(systemName: "xmark")
-                    } else {
-                        Text("Done")
-                    }
-                }
-            } else if !isOnboarding {
+            } else if allDone {
                 Button {
                     finish()
                 } label: {
@@ -557,6 +564,8 @@ struct KeyboardSetupView: View {
     private func finish() {
         stopPolling()
         testFieldFocused = false
+        hasCompletedSetup = true
+        currentPage = SetupPage.welcome.rawValue
         onComplete?()
         dismiss()
     }
@@ -577,10 +586,6 @@ private struct GlassProminentButtonModifier: ViewModifier {
 
 // MARK: - Preview
 
-#Preview("Onboarding") {
-    KeyboardSetupView(isOnboarding: true)
-}
-
-#Preview("Re-open") {
-    KeyboardSetupView(isOnboarding: false)
+#Preview {
+    KeyboardSetupView()
 }

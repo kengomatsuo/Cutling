@@ -130,6 +130,8 @@ struct ImageDetailView: View {
     @State private var showLimitAlert = false
     @State private var limitAlertMessage = ""
     @State private var hasClipboardImage = false
+    @State private var canPaste = false
+    @State private var isPasting = false
     @State private var autoDeleteEnabled: Bool
     @State private var deleteAt: Date
     @State private var undoHandler = UndoHandler()
@@ -302,22 +304,15 @@ struct ImageDetailView: View {
             Section("Image") {
                 imagePreview
                 pickerButtons
+                Button {
+                    pasteFromClipboard()
+                } label: {
+                    Label("Paste from Clipboard", systemImage: "doc.on.clipboard")
+                }
+                .foregroundStyle(.primary)
+                .disabled(!canPaste)
             }
             ExpirationPickerSection(autoDeleteEnabled: undoHandler.binding($autoDeleteEnabled, actionName: String(localized: "Change Expiration")), deleteAt: undoHandler.binding($deleteAt, actionName: String(localized: "Change Expiration")))
-            if hasClipboardImage {
-                Section {
-                    Button {
-                        pasteFromClipboard()
-                    } label: {
-                        Label("Paste from Clipboard", systemImage: "doc.on.clipboard")
-                    }
-                    .foregroundStyle(.primary)
-                } header: {
-                    Text("Quick Actions")
-                } footer: {
-                    Text("This will replace the current image with whatever is in your clipboard.")
-                }
-            }
             if isEditing {
                 Section {
                     Button("Delete Cutling", role: .destructive) {
@@ -360,12 +355,20 @@ struct ImageDetailView: View {
                 }
             }
         }
+        .onChange(of: imageData) {
+            if isPasting {
+                isPasting = false
+            } else if hasClipboardImage {
+                canPaste = true
+            }
+        }
         .onAppear {
             if let filename = existingItem?.imageFilename {
                 imageData = store.loadImageData(named: filename)
             }
             checkClipboard()
-            
+            canPaste = hasClipboardImage
+
             if autoPasteFromClipboard {
                 Task { @MainActor in
                     try? await Task.sleep(for: .milliseconds(500))
@@ -571,6 +574,8 @@ struct ImageDetailView: View {
         }
         #endif
         if let newData {
+            isPasting = true
+            canPaste = false
             imageData = newData
             undoHandler.registerUndo(from: oldData, to: newData, actionName: String(localized: "Change Image")) { imageData = $0 }
         }

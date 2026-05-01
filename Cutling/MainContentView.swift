@@ -686,6 +686,13 @@ struct MainContentView: View {
             .disabled(store.cutlings.count < 2)
 
             #if os(iOS)
+            #if DEBUG
+            Button {
+                showKeyboardSetup = true
+            } label: {
+                Label("Keyboard Setup", systemImage: keyboardNeedsAttention ? "exclamationmark.triangle" : "keyboard.badge.ellipsis")
+            }
+            #else
             if keyboardNeedsAttention {
                 Button {
                     showKeyboardSetup = true
@@ -693,6 +700,7 @@ struct MainContentView: View {
                     Label("Keyboard Setup", systemImage: "exclamationmark.triangle")
                 }
             }
+            #endif
             #endif
 
             Divider()
@@ -1600,7 +1608,7 @@ struct SheetsModifier: ViewModifier {
         content
             #if os(iOS)
             .sheet(isPresented: $showKeyboardSetup) {
-                KeyboardSetupView(isOnboarding: false)
+                KeyboardSetupView()
             }
             #endif
             #if os(macOS)

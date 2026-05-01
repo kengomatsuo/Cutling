@@ -43,6 +43,37 @@ struct KeyboardView: View {
         NavigationStack {
             Form {
                 #if os(iOS)
+                #if DEBUG
+                Section("Keyboard Setup") {
+                    HStack {
+                        Label("Keyboard Added", systemImage: "keyboard")
+                        Spacer()
+                        Image(systemName: isKeyboardAdded ? "checkmark.circle.fill" : "xmark.circle.fill")
+                            .foregroundStyle(isKeyboardAdded ? .green : .secondary)
+                    }
+                    HStack {
+                        Label("Full Access", systemImage: "lock.open")
+                        Spacer()
+                        Image(systemName: hasFullAccess ? "checkmark.circle.fill" : "xmark.circle.fill")
+                            .foregroundStyle(hasFullAccess ? .green : .secondary)
+                    }
+
+                    Button {
+                        if let url = URL(string: UIApplication.openSettingsURLString) {
+                            UIApplication.shared.open(url)
+                        }
+                    } label: {
+                        Label("Open Settings to Enable", systemImage: "arrow.up.forward.square")
+                    }
+
+                    Button {
+                        showSetupGuide = true
+                    } label: {
+                        Label("Keyboard Setup Guide", systemImage: "book.pages")
+                    }
+                    .accessibilityIdentifier("keyboardSetupGuide")
+                }
+                #else
                 if !isKeyboardAdded || !hasFullAccess {
                     Section("Keyboard Setup") {
                         HStack {
@@ -74,6 +105,7 @@ struct KeyboardView: View {
                         .accessibilityIdentifier("keyboardSetupGuide")
                     }
                 }
+                #endif
                 #endif
 
                 Section {
@@ -150,7 +182,7 @@ struct KeyboardView: View {
                 hasFullAccess = fullAccessEnabled
             }
             .sheet(isPresented: $showSetupGuide) {
-                KeyboardSetupView(isOnboarding: false)
+                KeyboardSetupView()
             }
             #endif
         }

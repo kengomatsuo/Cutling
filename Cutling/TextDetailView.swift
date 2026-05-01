@@ -120,6 +120,8 @@ struct TextDetailView: View {
     @State private var showLimitAlert = false
     @State private var limitAlertMessage = ""
     @State private var hasClipboardText = false
+    @State private var canPaste = false
+    @State private var isPasting = false
     @State private var autoDeleteEnabled: Bool
     @State private var deleteAt: Date
     @State private var color: String?
@@ -341,8 +343,20 @@ struct TextDetailView: View {
                             value = String(value.prefix(CutlingStore.maxTextLength))
                         }
                         scheduleAutoDetect()
+                        if isPasting {
+                            isPasting = false
+                        } else if hasClipboardText {
+                            canPaste = true
+                        }
                     }
 
+                Button {
+                    pasteFromClipboard()
+                } label: {
+                    Label("Paste from Clipboard", systemImage: "doc.on.clipboard")
+                }
+                .foregroundStyle(.primary)
+                .disabled(!canPaste)
             } header: {
                 Text("Text")
             } footer: {
@@ -353,20 +367,8 @@ struct TextDetailView: View {
             ColorPaletteSection(selectedColor: undoHandler.binding($color, actionName: String(localized: "Change Color")))
             InputTypePickerSection(selectedTriggers: undoHandler.binding($inputTypeTriggers, actionName: String(localized: "Change Input Types")), autoDetectedCategories: $autoDetectedCategories)
             ExpirationPickerSection(autoDeleteEnabled: undoHandler.binding($autoDeleteEnabled, actionName: String(localized: "Change Expiration")), deleteAt: undoHandler.binding($deleteAt, actionName: String(localized: "Change Expiration")))
-            if hasClipboardText {
-                Section {
-                    Button {
-                        pasteFromClipboard()
-                    } label: {
-                        Label("Paste from Clipboard", systemImage: "doc.on.clipboard")
-                    }
-                    .foregroundStyle(.primary)
-                } header: {
-                    Text("Quick Actions")
-                } footer: {
-                    Text("This will replace the current text with whatever is in your clipboard.")
-                }
-            }
+
+
             if isEditing {
                 Section {
                     Button("Delete Cutling", role: .destructive) {
@@ -394,7 +396,8 @@ struct TextDetailView: View {
         }
         .onAppear {
             checkClipboard()
-            
+            canPaste = hasClipboardText
+
             if autoPasteFromClipboard {
                 Task { @MainActor in
                     try? await Task.sleep(for: .milliseconds(500))
@@ -589,6 +592,8 @@ struct TextDetailView: View {
         }
         #endif
         if let newText {
+            isPasting = true
+            canPaste = false
             let oldValue = value
             value = newText
             undoHandler.registerUndo(from: oldValue, to: newText, actionName: String(localized: "Paste")) { value = $0 }

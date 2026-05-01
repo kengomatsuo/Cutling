@@ -105,8 +105,8 @@ struct CutlingApp: App {
     @State private var showOnboarding = false
     @Environment(\.scenePhase) private var scenePhase
 
-    @AppStorage("hasCompletedOnboarding") private var hasCompletedOnboarding = false
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
+    @AppStorage("hasCompletedSetup") private var hasCompletedSetup = false
 
     // Review request tracking
     @AppStorage("lastVersionPromptedForReview") private var lastVersionPromptedForReview = ""
@@ -117,6 +117,14 @@ struct CutlingApp: App {
     #if os(iOS)
     private static let bgSyncTaskID = "com.matsuokengo.Cutling.sync"
     private static let bgProcessingTaskID = "com.matsuokengo.Cutling.sync.processing"
+
+    private var keyboardNeedsSetup: Bool {
+        let bundleID = Bundle.main.bundleIdentifier ?? ""
+        let keyboards = UserDefaults.standard.stringArray(forKey: "AppleKeyboards") ?? []
+        let keyboardAdded = keyboards.contains(where: { $0.hasPrefix(bundleID) })
+        let fullAccess = UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.bool(forKey: "hasFullAccess") ?? false
+        return !keyboardAdded || !fullAccess
+    }
     #endif
 
     init() {
@@ -147,7 +155,6 @@ struct CutlingApp: App {
                     #if DEBUG
                     if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") {
                         store.seedForSnapshots()
-                        hasCompletedOnboarding = true
                     } else {
                         store.seedIfEmpty()
                     }
@@ -159,12 +166,8 @@ struct CutlingApp: App {
                     syncPreferencesToAppGroup()
                     lastVersionOpened = currentAppVersion
                     #if os(iOS)
-                    if !hasCompletedOnboarding {
+                    if !hasCompletedSetup || keyboardNeedsSetup {
                         showOnboarding = true
-                    }
-                    #else
-                    if !hasCompletedOnboarding {
-                        hasCompletedOnboarding = true
                     }
                     #endif
                 }
@@ -211,10 +214,7 @@ struct CutlingApp: App {
                 }
                 #if os(iOS)
                 .sheet(isPresented: $showOnboarding) {
-                    KeyboardSetupView(isOnboarding: true) {
-                        hasCompletedOnboarding = true
-                    }
-                    .interactiveDismissDisabled()
+                    KeyboardSetupView()
                 }
                 #endif
         }
