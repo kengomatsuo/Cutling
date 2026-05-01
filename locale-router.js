@@ -19,10 +19,6 @@ var AVAILABLE_LANGS = [
   var DEFAULT_LOCALE = 'en-us';
   var SITE_BASE = '/Cutling';
 
-  if (localStorage.getItem(PREF_KEY)) {
-    return;
-  }
-
   var currentPath = window.location.pathname;
   var currentLang = getCurrentLanguage(currentPath, SITE_BASE);
   if (currentLang && currentLang !== DEFAULT_LOCALE) {
@@ -30,11 +26,14 @@ var AVAILABLE_LANGS = [
     return;
   }
 
+  var storedLang = localStorage.getItem(PREF_KEY);
   var browserLangs = navigator.languages || [navigator.language];
-  var preferredLang = findMatchingLanguage(browserLangs);
+  var preferredLang = storedLang || findMatchingLanguage(browserLangs);
 
   if (preferredLang && preferredLang !== DEFAULT_LOCALE) {
-    localStorage.setItem(PREF_KEY, preferredLang);
+    if (!storedLang) {
+      localStorage.setItem(PREF_KEY, preferredLang);
+    }
     var redirectPath = buildRedirectPath(currentPath, preferredLang, SITE_BASE);
     window.location.href = redirectPath;
   }
