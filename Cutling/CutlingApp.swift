@@ -121,11 +121,19 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
         performActionFor shortcutItem: UIApplicationShortcutItem,
         completionHandler: @escaping (Bool) -> Void
     ) {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+        let host: String
+        switch shortcutItem.type {
+        case "com.matsuokengo.Cutling.addText":
+            host = "addText"
+        case "com.matsuokengo.Cutling.addImage":
+            host = "addImage"
+        default:
             completionHandler(false)
             return
         }
-        appDelegate.pendingShortcutType = shortcutItem.type
+        if let url = URL(string: "cutling://\(host)") {
+            UIApplication.shared.open(url)
+        }
         completionHandler(true)
     }
 }
