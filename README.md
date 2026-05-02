@@ -6,6 +6,8 @@ Cutling is a native iOS and macOS clipboard manager that puts your most-used tex
 
 [![Download on the App Store](https://img.shields.io/badge/Download-App%20Store-blue?style=for-the-badge&logo=apple)](https://apps.apple.com/app/cutling/id6759476314)
 
+![Cutling demo](assets/demo.gif)
+
 ---
 
 ## Features
