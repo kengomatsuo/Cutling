@@ -381,16 +381,18 @@ struct KeyboardSetupView: View {
                         Text("Up to **\(CutlingStore.maxImageCutlings) image** cutlings")
                             .font(.subheadline)
                     }
+
                 }
                 .padding(.horizontal)
 
                 HStack(spacing: 8) {
-                    Image(systemName: "lock.slash")
+                    Image(systemName: "lock.slash.fill")
                         .foregroundStyle(.secondary)
                         .frame(width: 20)
                     Text("**Not recommended for passwords** — use a dedicated password manager")
                         .font(.subheadline)
                 }
+                .padding(.horizontal)
 
                 Spacer().frame(height: 16)
             }
