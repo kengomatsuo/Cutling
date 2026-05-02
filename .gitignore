@@ -1,10 +1,17 @@
-Cutling.xcodeproj/project.xcworkspace/xcuserdata/hafang.xcuserdatad/UserInterfaceState.xcuserstate
+xcuserdata/
 .DS_Store
 ApiKey.p8
 docs/_generator/.venv/
 docs/
 dist/
 web/_generator/__pycache__/
+
+# Generated test artifacts
+*.log
+test_output.xcresult/
+test_result.json
+snapshot_docs.txt
+fastlane/report.xml
 
 # Local crashlogs
 crashlogs/
