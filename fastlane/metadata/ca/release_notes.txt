@@ -1,10 +1,3 @@
-• Accions ràpides afegides a la pantalla d'inici: premeu llargament la icona de l'aplicació per crear ràpidament un nou retall de text o imatge
-• S'han afegit accions del menú contextual: Compartir, Duplicar i Obtenir informació
-• Accessibilitat millorada: etiquetes de VoiceOver per als botons, visualitzacions prèvies d'imatges i noms de colors; les animacions ara respecten Reduce Motion
-• S'ha corregit una vora blanca que apareixia a la vista de fons durant les transicions de zoom
-• S'ha corregit l'incoherència de l'animació de la barra d'eines
-• S'ha corregit la mida de la targeta de tall
-• S'ha restaurat l'animació de la barra d'eines inferior
-• S'han solucionat problemes de pila de desfer
-S'han afegit dues accions ràpides noves: nou tall de text i nou tall d'imatges
-• Full de configuració del teclat optimitzat
+• S'ha solucionat que les accions ràpides de la pantalla d'inici no funcionaven quan l'aplicació ja estava oberta en segon pla
+• S'ha afegit un estat buit a l'extensió del teclat quan encara no s'ha creat cap retall
+• S'ha afegit un avís de seguretat a Configuració del teclat — No es recomana tallar per emmagatzemar contrasenyes

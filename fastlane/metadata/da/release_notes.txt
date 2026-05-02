@@ -1,10 +1,3 @@
-• Tilføjede hurtige handlinger på startskærmen — tryk længe på appikonet for hurtigt at oprette en ny tekst- eller billedudskæring
-• Tilføjede kontekstmenuhandlinger: Del, Dupliker og Få info
-• Forbedret tilgængelighed: VoiceOver-etiketter til knapper, billedforhåndsvisninger og farvenavne; animationer respekterer nu Reducer Motion
-• Rettede en hvid ramme, der vises på baggrundsvisningen under zoomovergange
-• Rettet inkonsistens i værktøjslinjens animation
-• Fast dimensionering af skærekort
-• Gendannet nederste værktøjslinjeanimation
-• Rettede problemer med at fortryde stak
-Tilføjet to nye hurtige handlinger: Ny tekstudskæring og ny billedudskæring
-• Ark med optimeret tastaturopsætning
+• Rettede hurtige handlinger på startskærmen, der ikke virkede, når appen allerede var åben i baggrunden
+• Tilføjet en tom tilstand til tastaturudvidelsen, når der endnu ikke er oprettet Cutlings
+• Tilføjet en sikkerhedsmeddelelse i Tastaturopsætning — Cutling anbefales ikke til lagring af adgangskoder

@@ -1,10 +1,3 @@
-• Tillagda snabbåtgärder på startskärmen — tryck länge på appikonen för att snabbt skapa en ny text- eller bildutskärning
-• Tillagda snabbmenyåtgärder: Dela, Duplicera och Få info
-• Förbättrad tillgänglighet: VoiceOver-etiketter för knappar, förhandsvisningar av bilder och färgnamn; animationer nu respekterar Reduce Motion
-• Fixade en vit ram som visades på bakgrundsvyn under zoomövergångar
-• Fixat inkonsekvens i verktygsfältsanimering
-• Fast storlek på skärkort
-• Återställd animering i nedre verktygsfältet
-• Fixat problem med ångra stack
-Lade till två nya snabba åtgärder: ny textutskärning och ny bildutskärning
-• Optimerad tangentbordsinställning
+• Fixade snabbåtgärder på startskärmen som inte fungerade när appen redan var öppen i bakgrunden
+• Lade till ett tomt tillstånd till tangentbordstillägget när inga Cutlings ännu har skapats
+• Lade till ett säkerhetsmeddelande i tangentbordsinställning — Cutling rekommenderas inte för lagring av lösenord

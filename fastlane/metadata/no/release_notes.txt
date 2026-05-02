@@ -1,10 +1,3 @@
-• Lagt til hurtighandlinger på startskjermen — trykk lenge på appikonet for raskt å lage en ny tekst- eller bildeutskjæring
-• Lagt til kontekstmenyhandlinger: Del, Dupliser og Få informasjon
-• Forbedret tilgjengelighet: VoiceOver-etiketter for knapper, bildeforhåndsvisninger og fargenavn; animasjoner respekterer nå Reduce Motion
-• Rettet en hvit kant som vises på bakgrunnsvisningen under zoomoverganger
-• Fikset inkonsistens i verktøylinjens animasjon
-• Fast dimensjonering av klippekort
-• Gjenopprettet nederste verktøylinjeanimasjon
-• Fikset problemer med å angre stabelen
-Lagt til to nye hurtighandlinger: New Text Cutling og New Image Cutling
-• Optimalisert tastaturoppsettark
+• Faste hurtighandlinger på startskjermen som ikke fungerte når appen allerede var åpen i bakgrunnen
+• Lagt til en tom tilstand til tastaturutvidelsen når ingen Cutlings ennå er opprettet
+• Lagt til en sikkerhetsmelding i Tastaturoppsett — Cutling anbefales ikke for lagring av passord

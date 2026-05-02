@@ -1,10 +1,3 @@
-• Ajout d'actions rapides sur l'écran d'accueil : appuyez longuement sur l'icône de l'application pour créer rapidement un nouveau texte ou une nouvelle image.
-• Ajout d'actions de menu contextuel : Partager, Dupliquer et Obtenir des informations.
-• Accessibilité améliorée : étiquettes VoiceOver pour les boutons, les aperçus d'images et les noms de couleurs ; les animations respectent désormais Réduire le mouvement
-• Correction d'une bordure blanche apparaissant sur la vue d'arrière-plan lors des transitions de zoom
-• Correction d'une incohérence dans l'animation de la barre d'outils.
-• Correction du dimensionnement de la carte Cutling
-• Animation de la barre d'outils inférieure restaurée
-• Correction d'un problème d'annulation de pile
-Ajout de deux nouvelles actions rapides : nouveau découpage de texte et nouveau découpage d'image.
-• Feuille de configuration du clavier optimisée
+• Correction des actions rapides sur l'écran d'accueil ne fonctionnant pas lorsque l'application était déjà ouverte en arrière-plan
+• Ajout d'un état vide à l'extension du clavier lorsqu'aucun Cutlings n'a encore été créé
+• Ajout d'un avis de sécurité dans la configuration du clavier : Cutling n'est pas recommandé pour stocker les mots de passe.

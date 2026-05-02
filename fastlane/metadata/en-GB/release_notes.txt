@@ -1,10 +1,3 @@
-• Added Home Screen quick actions — long-press the app icon to quickly create a new Text or Image Cutling
-• Added context menu actions: Share, Duplicate, and Get Info
-• Improved accessibility: VoiceOver labels for buttons, image previews, and colour names; animations now respect Reduce Motion
-• Fixed a white border appearing on the background view during zoom transitions
-• Fixed toolbar animation inconsistency
-• Fixed Cutling card sizing
-• Restored bottom toolbar animation
-• Fixed an undo stack issues
-Added two new Quick Actions: New Text Cutling and New Image Cutling
-• Optimized Keyboard Setup sheet
+• Fixed Home Screen quick actions not working when the app was already open in the background
+• Added an empty state to the keyboard extension when no Cutlings have been created yet
+• Added a security notice in Keyboard Setup — Cutling is not recommended for storing passwords

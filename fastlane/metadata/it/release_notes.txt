@@ -1,10 +1,3 @@
-• Aggiunte azioni rapide nella schermata Home: premi a lungo l'icona dell'app per creare rapidamente un nuovo ritaglio di testo o immagine
-• Aggiunte azioni del menu contestuale: Condividi, Duplica e Ottieni informazioni
-• Accessibilità migliorata: etichette VoiceOver per pulsanti, anteprime di immagini e nomi di colori; le animazioni ora rispettano Riduci movimento
-• Risolto il problema con la comparsa di un bordo bianco nella vista di sfondo durante le transizioni di zoom
-• Risolta l'incoerenza dell'animazione della barra degli strumenti
-• Risolto il problema con il dimensionamento della scheda di taglio
-• Animazione della barra degli strumenti inferiore ripristinata
-• Risolti problemi relativi allo stack di annullamento
-Aggiunte due nuove azioni rapide: nuovo taglio del testo e nuovo taglio dell'immagine
-• Scheda di installazione della tastiera ottimizzata
+• Risolto il problema con le azioni rapide della schermata Home che non funzionavano quando l'app era già aperta in background
+• Aggiunto uno stato vuoto all'estensione della tastiera quando non è stato ancora creato alcun Cutling
+• Aggiunto un avviso di sicurezza in Configurazione tastiera: il cutling non è consigliato per memorizzare le password

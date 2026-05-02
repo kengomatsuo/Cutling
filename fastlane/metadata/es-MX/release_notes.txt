@@ -1,10 +1,3 @@
-• Se agregaron acciones rápidas en la pantalla de inicio: mantenga presionado el ícono de la aplicación para crear rápidamente un nuevo corte de texto o imagen.
-• Acciones de menú contextual agregadas: Compartir, Duplicar y Obtener información
-• Accesibilidad mejorada: etiquetas de VoiceOver para botones, vistas previas de imágenes y nombres de colores; Las animaciones ahora respetan Reducir movimiento.
-• Se corrigió un borde blanco que aparecía en la vista de fondo durante las transiciones de zoom.
-• Se corrigió la inconsistencia en la animación de la barra de herramientas.
-• Tamaño de tarjeta de corte fijo
-• Animación de la barra de herramientas inferior restaurada
-• Se corrigieron problemas de pila de deshacer
-Se agregaron dos nuevas acciones rápidas: nuevo corte de texto y nuevo corte de imagen.
-• Hoja de configuración del teclado optimizada
+• Se corrigieron las acciones rápidas de la pantalla de inicio que no funcionaban cuando la aplicación ya estaba abierta en segundo plano.
+• Se agregó un estado vacío a la extensión del teclado cuando aún no se han creado Cutlings.
+• Se agregó un aviso de seguridad en Configuración del teclado: no se recomienda Cutling para almacenar contraseñas.

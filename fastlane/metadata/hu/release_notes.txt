@@ -1,10 +1,3 @@
-• Gyors műveletek hozzáadva a kezdőképernyőn – tartsa lenyomva az alkalmazás ikonját egy új szöveg- vagy képkivágás gyors létrehozásához
-• Hozzáadott helyi menü műveletek: Megosztás, Másolás és Információk lekérése
-• Továbbfejlesztett hozzáférhetőség: VoiceOver-címkék a gombokhoz, kép-előnézetekhez és színnevekhez; az animációk immár tiszteletben tartják a Mozgás csökkentése funkciót
-• A nagyítási átmenetek során a háttérnézeten megjelenő fehér szegély javítása
-• Javítva az eszköztár-animáció inkonzisztenciája
-• Fix Cutling kártya méretezés
-• Visszaállította az alsó eszköztár animációját
-• Javítva a verem visszavonásával kapcsolatos problémák
-Két új gyorsművelet hozzáadva: Új szövegkivágás és új képkivágás
-• Optimalizált billentyűzetbeállítási lap
+• Javítva a Kezdőképernyő gyors műveletei, amelyek nem működnek, amikor az alkalmazás már meg volt nyitva a háttérben
+• Üres állapot hozzáadása a billentyűzetkiterjesztéshez, ha még nem hoztak létre Cutling-ot
+• Biztonsági figyelmeztetés hozzáadva a Billentyűzet beállításaihoz – A vágás nem ajánlott jelszavak tárolására
