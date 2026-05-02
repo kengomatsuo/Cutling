@@ -229,9 +229,9 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
     /// Defined here so it resolves identically in the main app and the keyboard extension
     /// (where .accentColor falls back to system blue).
     static let defaultTint = Color(
-        red: Double(0x22) / 255,
-        green: Double(0xA9) / 255,
-        blue: Double(0x8D) / 255
+        red: Double(0x00) / 255,
+        green: Double(0xBE) / 255,
+        blue: Double(0x86) / 255
     )
 
     /// Resolves the stored color key to a SwiftUI Color, falling back to the app tint.

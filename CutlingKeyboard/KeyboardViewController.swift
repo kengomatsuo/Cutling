@@ -661,7 +661,7 @@ struct KeyboardView: View {
         }
         .accessibilityIdentifier("CutlingKeyboardView")
         .padding(.bottom, 2)
-        .tint(Color(hex: 0x22a98d))
+        .tint(Color(hex: 0x00be86))
         .background(Color.clear)
     }
 
@@ -916,7 +916,7 @@ struct KeyboardView: View {
                 .frame(width: 92, height: keyHeight)
                 .background(
                     info.isAction
-                        ? AnyShapeStyle(Color(hex: 0x22a98d))
+                        ? AnyShapeStyle(Color(hex: 0x01be86))
                         : AnyShapeStyle(KeyStyle.keyColor),
                     in: RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous)
                 )
@@ -1177,12 +1177,12 @@ struct CutlingKeyView: View {
             .overlay {
                 if isExisted {
                     RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous)
-                        .stroke(Color(hex: 0x22a98d), lineWidth: 2)
-                        .shadow(color: Color(hex: 0x22a98d).opacity(0.6), radius: 2)
+                        .stroke(Color(hex: 0x01be86), lineWidth: 2)
+                        .shadow(color: Color(hex: 0x01be86).opacity(0.6), radius: 2)
                         // The "Shine/Pulse" effect
                         .overlay(
                             RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous)
-                                .fill(Color(hex: 0x22a98d).opacity(0.15))
+                                .fill(Color(hex: 0x01be86).opacity(0.15))
                         )
                 }
                 if isCopied {
