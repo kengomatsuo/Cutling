@@ -37,12 +37,14 @@ var AVAILABLE_LANGS = [
   var browserLangs = navigator.languages || [navigator.language];
   var preferredLang = storedLang || findMatchingLanguage(browserLangs);
 
-  if (preferredLang && preferredLang !== DEFAULT_LOCALE) {
+  if (preferredLang) {
     if (!storedLang) {
       localStorage.setItem(PREF_KEY, preferredLang);
     }
     var redirectPath = buildRedirectPath(currentPath, preferredLang, SITE_BASE);
     window.location.href = redirectPath;
+  } else {
+    window.location.href = SITE_BASE + '/' + DEFAULT_LOCALE + '/';
   }
 })();
 
