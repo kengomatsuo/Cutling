@@ -14,13 +14,15 @@ struct AddFromClipboardIntent: AppIntent {
     static var title: LocalizedStringResource = "Add from Clipboard"
     static var description = IntentDescription("Save clipboard contents as a new cutling.")
 
-    func perform() async throws -> some IntentResult {
+    func perform() async throws -> some IntentResult & ReturnsValue<Never> {
         #if os(iOS)
         let store = await CutlingStore.shared
 
         if let string = UIPasteboard.general.string, !string.isEmpty {
             let check = await store.canAdd(.text)
-            guard check.allowed else { return .result() }
+            guard check.allowed else {
+                return .result(dialog: IntentDialog(stringLiteral: check.reason ?? String(localized: "Cannot add more text cutlings.")))
+            }
 
             let cutling = Cutling(
                 name: String(string.prefix(50)),
@@ -29,10 +31,13 @@ struct AddFromClipboardIntent: AppIntent {
                 kind: .text
             )
             await store.add(cutling)
+            return .result(dialog: IntentDialog(stringLiteral: String(localized: "Saved!")))
         } else if let image = UIPasteboard.general.image,
                   let data = image.pngData() {
             let check = await store.canAdd(.image)
-            guard check.allowed else { return .result() }
+            guard check.allowed else {
+                return .result(dialog: IntentDialog(stringLiteral: check.reason ?? String(localized: "Cannot add more image cutlings.")))
+            }
 
             let id = UUID()
             let cutling = Cutling(
@@ -47,10 +52,11 @@ struct AddFromClipboardIntent: AppIntent {
                 var c = cutling
                 c.imageFilename = filename
                 await store.add(c)
+                return .result(dialog: IntentDialog(stringLiteral: String(localized: "Saved!")))
             }
         }
         #endif
 
-        return .result()
+        return .result(dialog: IntentDialog(stringLiteral: String(localized: "Clipboard is empty.")))
     }
 }
