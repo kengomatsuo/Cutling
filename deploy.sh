@@ -47,6 +47,7 @@ deploy_web() {
   echo "==> Copying static assets..."
   cp "$WEB/style.css" "$DIST/"
   cp "$WEB/locale-router.js" "$DIST/"
+  cp "$WEB/fuzzy-redirect.js" "$DIST/"
   cp "$WEB/icon.png" "$DIST/"
   cp -r "$WEB/img/" "$DIST/img/"
   cp "$REPO_ROOT/locales.json" "$DIST/"

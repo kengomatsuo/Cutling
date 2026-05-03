@@ -255,8 +255,10 @@ def generate_root_redirect_pages():
         print(f"  Generated root loading page: {rel_path}")
 
     # 404.html: GitHub Pages serves this for any unmatched URL.
-    # locale-router.js will redirect to the user's preferred locale.
-    html_404 = ROOT_REDIRECT_TEMPLATE.format(router_path="./")
+    # fuzzy-redirect.js handles typos and aliases before falling back to locale preference.
+    html_404 = ROOT_REDIRECT_TEMPLATE.format(router_path="./").replace(
+        "locale-router.js", "fuzzy-redirect.js"
+    )
     out_path = DOCS_DIR / "404.html"
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(html_404)
