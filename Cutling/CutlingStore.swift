@@ -32,16 +32,16 @@ private let recentlyDeletedKey = "recentlyDeletedCutlings"
 /// - Image cutlings are heavier (~50-500 KB each, even with thumbnails)
 extension CutlingStore {
     /// Maximum number of image cutlings allowed (prevents memory crashes)
-    static let maxImageCutlings = 25
-    
+    nonisolated static let maxImageCutlings = 25
+
     /// Maximum number of text cutlings allowed
-    static let maxTextCutlings = 100
-    
+    nonisolated static let maxTextCutlings = 100
+
     /// Maximum character length for a single text cutling's value
-    static let maxTextLength = 2000
-    
+    nonisolated static let maxTextLength = 2000
+
     /// Total limit across both types (safety net)
-    static let maxTotalCutlings = 125
+    nonisolated static let maxTotalCutlings = 125
     
     /// Check if a text value exceeds the character limit.
     func isTextTooLong(_ text: String) -> Bool {
@@ -55,7 +55,7 @@ class CutlingStore: ObservableObject {
 
     @Published var cutlings: [Cutling] = []
     @Published var lastAddedCutlingID: UUID?
-    #if !KEYBOARD_EXTENSION && !SHARE_EXTENSION && !ACTION_EXTENSION
+    #if MAIN_APP
     @Published var isSyncing: Bool = false
     @Published var recentlyDeleted: [DeletedCutling] = []
 
@@ -113,7 +113,7 @@ class CutlingStore: ObservableObject {
         #endif
 
         load()
-        #if !KEYBOARD_EXTENSION && !SHARE_EXTENSION && !ACTION_EXTENSION
+        #if MAIN_APP
         loadRecentlyDeleted()
         #endif
         
@@ -197,7 +197,7 @@ class CutlingStore: ObservableObject {
         cutlings.removeAll { $0.isExpired }
         save()
         
-        #if !KEYBOARD_EXTENSION && !SHARE_EXTENSION && !ACTION_EXTENSION
+        #if MAIN_APP
         // Soft-delete: move to recently deleted and enqueue CloudKit deletes
         for item in expired {
             let deleted = DeletedCutling(cutling: item, deletedAt: Date())
@@ -272,7 +272,7 @@ class CutlingStore: ObservableObject {
         lastAddedCutlingID = c.id
         save()
         schedulePurgeTimer()
-        #if !KEYBOARD_EXTENSION && !SHARE_EXTENSION && !ACTION_EXTENSION
+        #if MAIN_APP
         if let sm = syncManager { Task { await sm.enqueueSave(c) } }
         #endif
     }
@@ -409,7 +409,7 @@ class CutlingStore: ObservableObject {
             cutlings[i] = c
             save()
             schedulePurgeTimer()
-            #if !KEYBOARD_EXTENSION && !SHARE_EXTENSION && !ACTION_EXTENSION
+            #if MAIN_APP
             if let sm = syncManager { Task { await sm.enqueueSave(c) } }
             #endif
         }
@@ -418,7 +418,7 @@ class CutlingStore: ObservableObject {
     func delete(_ cutling: Cutling) {
         cutlings.removeAll { $0.id == cutling.id }
         save()
-        #if !KEYBOARD_EXTENSION && !SHARE_EXTENSION && !ACTION_EXTENSION
+        #if MAIN_APP
         // Soft-delete: move to recently deleted instead of permanent removal
         let deleted = DeletedCutling(cutling: cutling, deletedAt: Date())
         recentlyDeleted.insert(deleted, at: 0)
@@ -433,7 +433,7 @@ class CutlingStore: ObservableObject {
         #endif
     }
 
-    #if !KEYBOARD_EXTENSION && !SHARE_EXTENSION && !ACTION_EXTENSION
+    #if MAIN_APP
     /// Restore a soft-deleted cutling back to the active list.
     func restore(_ deleted: DeletedCutling) {
         var cutling = deleted.cutling
@@ -656,7 +656,7 @@ class CutlingStore: ObservableObject {
 
     // MARK: - Sync Helpers
 
-    #if !KEYBOARD_EXTENSION && !SHARE_EXTENSION && !ACTION_EXTENSION
+    #if MAIN_APP
     /// Called by CloudKitSyncManager when remote changes arrive.
     @MainActor
     func applyRemoteChanges(_ updated: [Cutling]) {

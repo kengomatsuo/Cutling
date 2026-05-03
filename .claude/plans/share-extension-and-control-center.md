@@ -137,21 +137,19 @@ Reuse `CutlingStore.findDuplicateImage(data:)` to warn if an identical image alr
 
 Create AppIntent files with target membership in **both** the main app and the widget extension (required for `OpenIntent` conformance to open the app):
 
-- `Shared/AddFromClipboardIntent.swift`
-- `Shared/NewTextCutlingIntent.swift`
-- `Shared/NewImageCutlingIntent.swift`
+- `Cutling/AddFromClipboardIntent.swift`
+- `Cutling/OpenCutlingIntent.swift` (includes `CutlingScreen` enum + `OpenCutlingIntent`)
 
 **AddFromClipboardIntent:**
 - Conforms to `AppIntent`
 - Reads `UIPasteboard.general` for text or image
 - Writes directly to `CutlingStore` via shared App Group
-- Posts Darwin notification
 - Returns result without opening the app (fire-and-forget)
 
-**NewTextCutlingIntent & NewImageCutlingIntent:**
-- Conform to `AppIntent` & `OpenIntent`
-- Open the app via URL scheme: `cutling://addText` / `cutling://addImage`
-- The main app already handles these URLs in `CutlingApp.onOpenURL`
+**OpenCutlingIntent:**
+- Conforms to `OpenIntent` with `CutlingScreen` target enum (`.newText`, `.newImage`)
+- Sets `pendingControlAction` in App Group UserDefaults
+- App reads this flag on activation via `handlePendingControlAction()` in `CutlingApp`
 
 ### B3. Control Widget Definitions
 

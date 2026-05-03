@@ -251,6 +251,7 @@ struct CutlingApp: App {
                         }
                         #if os(iOS)
                         handlePendingShortcut()
+                        handlePendingControlAction()
                         #endif
                     }
                     #if os(iOS)
@@ -314,6 +315,21 @@ struct CutlingApp: App {
         case "com.matsuokengo.Cutling.addText":
             pendingNewCutlingKind = .text
         case "com.matsuokengo.Cutling.addImage":
+            pendingNewCutlingKind = .image
+        default:
+            break
+        }
+    }
+
+    private func handlePendingControlAction() {
+        let groupDefaults = UserDefaults(suiteName: "group.com.matsuokengo.Cutling")
+        guard let action = groupDefaults?.string(forKey: "pendingControlAction") else { return }
+        groupDefaults?.removeObject(forKey: "pendingControlAction")
+        guard hasCompletedSetup else { return }
+        switch action {
+        case "newText":
+            pendingNewCutlingKind = .text
+        case "newImage":
             pendingNewCutlingKind = .image
         default:
             break
