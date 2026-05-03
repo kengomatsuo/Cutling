@@ -21,7 +21,14 @@ var AVAILABLE_LANGS = [
 
   var currentPath = window.location.pathname;
   var currentLang = getCurrentLanguage(currentPath, SITE_BASE);
-  if (currentLang && currentLang !== DEFAULT_LOCALE) {
+
+  // If the URL explicitly contains a locale segment, the user chose this language —
+  // save it and stay. This covers en-us too, which previously fell through and
+  // got redirected back to a stored non-English preference.
+  var pathWithoutBase = stripSiteBase(currentPath, SITE_BASE);
+  var firstSegment = pathWithoutBase.replace(/\/$/, '').split('/').filter(Boolean)[0];
+  var isOnLocalePath = firstSegment && AVAILABLE_LANGS.indexOf(firstSegment.toLowerCase()) !== -1;
+  if (isOnLocalePath) {
     localStorage.setItem(PREF_KEY, currentLang);
     return;
   }
@@ -30,12 +37,14 @@ var AVAILABLE_LANGS = [
   var browserLangs = navigator.languages || [navigator.language];
   var preferredLang = storedLang || findMatchingLanguage(browserLangs);
 
-  if (preferredLang && preferredLang !== DEFAULT_LOCALE) {
+  if (preferredLang) {
     if (!storedLang) {
       localStorage.setItem(PREF_KEY, preferredLang);
     }
     var redirectPath = buildRedirectPath(currentPath, preferredLang, SITE_BASE);
     window.location.href = redirectPath;
+  } else {
+    window.location.href = SITE_BASE + '/' + DEFAULT_LOCALE + '/';
   }
 })();
 

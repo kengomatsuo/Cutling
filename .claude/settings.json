@@ -4,7 +4,8 @@
       "Bash(docs/_generator/.venv/bin/pip install *)",
       "Bash(docs/_generator/.venv/bin/python3 docs/_generator/generate.py)",
       "Bash(python3 -c ' *)",
-      "Bash(./deploy.sh *)"
+      "Bash(./deploy.sh *)",
+      "WebFetch(domain:kengomatsuo.github.io)"
     ]
   }
 }
