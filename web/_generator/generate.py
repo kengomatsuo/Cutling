@@ -3,8 +3,9 @@
 Static site generator for Cutling docs.
 
 Generates localized HTML pages from templates + JSON translation files.
-Default locale (en-US) pages go at the docs root; other languages go in
-subdirectories named by their lowercased locale code.
+All locales (including en-US) go into subdirectories named by their
+lowercased locale code. The docs root contains only blank redirect pages
+that invoke locale-router.js to send users to their preferred language.
 
 Uses the repo-root locales.json as the single source of truth for all
 supported locales.
@@ -221,22 +222,37 @@ def clean_generated(locales):
             print(f"  Cleaned (legacy): {name}/")
 
 
-def generate_root_redirect():
-    """Generate a root index.html that's empty - locale-router.js handles routing."""
-    html = """<!DOCTYPE html>
+ROOT_REDIRECT_TEMPLATE = """<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark light">
+    <style>
+        html, body {{ margin: 0; padding: 0; min-height: 100vh; }}
+        body {{ background: #fafafa; }}
+        @media (prefers-color-scheme: dark) {{ body {{ background: #1c1c1e; }} }}
+    </style>
 </head>
 <body>
-    <script src="./locale-router.js"></script>
+    <script src="{router_path}locale-router.js"></script>
 </body>
 </html>"""
-    out_path = DOCS_DIR / "index.html"
-    with open(out_path, "w", encoding="utf-8") as f:
-        f.write(html)
-    print("  Generated root loading page: index.html")
+
+
+def generate_root_redirect_pages():
+    """Generate blank dark-mode-compatible redirect pages at the docs root for all page paths."""
+    pages = [("index.html", "./")] + [
+        (f"{name}/index.html", "../")
+        for name in [t.split("/")[0] for t in TEMPLATES if "/" in t]
+    ]
+    for rel_path, router_prefix in pages:
+        html = ROOT_REDIRECT_TEMPLATE.format(router_path=router_prefix)
+        out_path = DOCS_DIR / rel_path
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(out_path, "w", encoding="utf-8") as f:
+            f.write(html)
+        print(f"  Generated root loading page: {rel_path}")
 
 
 def main():
@@ -319,8 +335,8 @@ def main():
             generated_count += 1
 
     if not specific_web_locales:
-        print("Generating root loading page...")
-        generate_root_redirect()
+        print("Generating root loading pages...")
+        generate_root_redirect_pages()
 
     print(f"\nDone! Generated {generated_count} pages.")
 
