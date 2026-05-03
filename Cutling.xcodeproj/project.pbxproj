@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		CFA06CAB2F45AD10005CD274 /* CutlingKeyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFA06CA42F45AD10005CD274 /* CutlingKeyboard.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CFA931332FA65E7700A4ABB6 /* CutlingShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFA931292FA65E7600A4ABB6 /* CutlingShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CFA931632FA66CA200A4ABB6 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA931622FA66CA200A4ABB6 /* UniformTypeIdentifiers.framework */; };
+		CFA9316F2FA66CA200A4ABB6 /* CutlingAction.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFA931602FA66CA200A4ABB6 /* CutlingAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +35,13 @@
 			remoteGlobalIDString = CFA931282FA65E7600A4ABB6;
 			remoteInfo = CutlingShare;
 		};
+		CFA9316D2FA66CA200A4ABB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF1F45EF2F457B3C00582E62 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFA9315F2FA66CA200A4ABB6;
+			remoteInfo = CutlingAction;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +50,7 @@
 			dstPath = "";
 			dstSubfolder = PlugIns;
 			files = (
+				CFA9316F2FA66CA200A4ABB6 /* CutlingAction.appex in Embed Foundation Extensions */,
 				CFA06CAB2F45AD10005CD274 /* CutlingKeyboard.appex in Embed Foundation Extensions */,
 				CFA931332FA65E7700A4ABB6 /* CutlingShare.appex in Embed Foundation Extensions */,
 			);
@@ -53,6 +63,8 @@
 		CF7BB11F2F78BA9700CBE010 /* CutlingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CutlingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFA06CA42F45AD10005CD274 /* CutlingKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CutlingKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFA931292FA65E7600A4ABB6 /* CutlingShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CutlingShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFA931602FA66CA200A4ABB6 /* CutlingAction.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CutlingAction.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFA931622FA66CA200A4ABB6 /* UniformTypeIdentifiers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UniformTypeIdentifiers.framework; path = System/Library/Frameworks/UniformTypeIdentifiers.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -98,6 +110,33 @@
 			);
 			target = CFA931282FA65E7600A4ABB6 /* CutlingShare */;
 		};
+		CFA931732FA66CA200A4ABB6 /* Exceptions for "CutlingAction" folder in "CutlingAction" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = CFA9315F2FA66CA200A4ABB6 /* CutlingAction */;
+		};
+		CFA931762FA66D1500A4ABB6 /* Exceptions for "Cutling" folder in "CutlingAction" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ColorPaletteSection.swift,
+				Cutling.swift,
+				CutlingStore.swift,
+				ExpirationPicker.swift,
+				IconPickerView.swift,
+				InputTypePickerSection.swift,
+				SfSymbolCatalog.swift,
+			);
+			target = CFA9315F2FA66CA200A4ABB6 /* CutlingAction */;
+		};
+		CFA931792FA66E9100A4ABB6 /* Exceptions for "CutlingShare" folder in "CutlingAction" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ShareView.swift,
+			);
+			target = CFA9315F2FA66CA200A4ABB6 /* CutlingAction */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -107,6 +146,7 @@
 				CF1817532F49590000709DC0 /* Exceptions for "Cutling" folder in "Cutling" target */,
 				CF1817552F49595300709DC0 /* Exceptions for "Cutling" folder in "CutlingKeyboard" target */,
 				CFA9313C2FA65F9500A4ABB6 /* Exceptions for "Cutling" folder in "CutlingShare" target */,
+				CFA931762FA66D1500A4ABB6 /* Exceptions for "Cutling" folder in "CutlingAction" target */,
 			);
 			path = Cutling;
 			sourceTree = "<group>";
@@ -128,8 +168,17 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				CFA931372FA65E7700A4ABB6 /* Exceptions for "CutlingShare" folder in "CutlingShare" target */,
+				CFA931792FA66E9100A4ABB6 /* Exceptions for "CutlingShare" folder in "CutlingAction" target */,
 			);
 			path = CutlingShare;
+			sourceTree = "<group>";
+		};
+		CFA931642FA66CA200A4ABB6 /* CutlingAction */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				CFA931732FA66CA200A4ABB6 /* Exceptions for "CutlingAction" folder in "CutlingAction" target */,
+			);
+			path = CutlingAction;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -155,6 +204,12 @@
 			files = (
 			);
 		};
+		CFA9315D2FA66CA200A4ABB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+				CFA931632FA66CA200A4ABB6 /* UniformTypeIdentifiers.framework in Frameworks */,
+			);
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -165,6 +220,8 @@
 				CFA06CA52F45AD10005CD274 /* CutlingKeyboard */,
 				CF7BB1202F78BA9700CBE010 /* CutlingUITests */,
 				CFA9312A2FA65E7600A4ABB6 /* CutlingShare */,
+				CFA931642FA66CA200A4ABB6 /* CutlingAction */,
+				CFA931612FA66CA200A4ABB6 /* Frameworks */,
 				CF1F45F82F457B3C00582E62 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -176,8 +233,17 @@
 				CFA06CA42F45AD10005CD274 /* CutlingKeyboard.appex */,
 				CF7BB11F2F78BA9700CBE010 /* CutlingUITests.xctest */,
 				CFA931292FA65E7600A4ABB6 /* CutlingShare.appex */,
+				CFA931602FA66CA200A4ABB6 /* CutlingAction.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		CFA931612FA66CA200A4ABB6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CFA931622FA66CA200A4ABB6 /* UniformTypeIdentifiers.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +263,7 @@
 			dependencies = (
 				CFA06CAA2F45AD10005CD274 /* PBXTargetDependency */,
 				CFA931322FA65E7700A4ABB6 /* PBXTargetDependency */,
+				CFA9316E2FA66CA200A4ABB6 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				CF1F45F92F457B3C00582E62 /* Cutling */,
@@ -263,6 +330,24 @@
 			productReference = CFA931292FA65E7600A4ABB6 /* CutlingShare.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		CFA9315F2FA66CA200A4ABB6 /* CutlingAction */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFA931702FA66CA200A4ABB6 /* Build configuration list for PBXNativeTarget "CutlingAction" */;
+			buildPhases = (
+				CFA9315C2FA66CA200A4ABB6 /* Sources */,
+				CFA9315D2FA66CA200A4ABB6 /* Frameworks */,
+				CFA9315E2FA66CA200A4ABB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				CFA931642FA66CA200A4ABB6 /* CutlingAction */,
+			);
+			name = CutlingAction;
+			productName = CutlingAction;
+			productReference = CFA931602FA66CA200A4ABB6 /* CutlingAction.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -285,6 +370,9 @@
 						CreatedOnToolsVersion = 26.2;
 					};
 					CFA931282FA65E7600A4ABB6 = {
+						CreatedOnToolsVersion = 26.4.1;
+					};
+					CFA9315F2FA66CA200A4ABB6 = {
 						CreatedOnToolsVersion = 26.4.1;
 					};
 				};
@@ -365,6 +453,7 @@
 				CFA06CA32F45AD10005CD274 /* CutlingKeyboard */,
 				CF7BB11E2F78BA9700CBE010 /* CutlingUITests */,
 				CFA931282FA65E7600A4ABB6 /* CutlingShare */,
+				CFA9315F2FA66CA200A4ABB6 /* CutlingAction */,
 			);
 		};
 /* End PBXProject section */
@@ -386,6 +475,11 @@
 			);
 		};
 		CFA931272FA65E7600A4ABB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		CFA9315E2FA66CA200A4ABB6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
 			);
@@ -413,6 +507,11 @@
 			files = (
 			);
 		};
+		CFA9315C2FA66CA200A4ABB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -431,6 +530,11 @@
 			isa = PBXTargetDependency;
 			target = CFA931282FA65E7600A4ABB6 /* CutlingShare */;
 			targetProxy = CFA931312FA65E7700A4ABB6 /* PBXContainerItemProxy */;
+		};
+		CFA9316E2FA66CA200A4ABB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CFA9315F2FA66CA200A4ABB6 /* CutlingAction */;
+			targetProxy = CFA9316D2FA66CA200A4ABB6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -884,6 +988,73 @@
 			};
 			name = Release;
 		};
+		CFA931712FA66CA200A4ABB6 /* Debug configuration for PBXNativeTarget "CutlingAction" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CutlingAction/CutlingAction.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PM3K35YS39;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CutlingAction/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CutlingAction;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 com.matsuokengo. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matsuokengo.Cutling.CutlingAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ACTION_EXTENSION";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CFA931722FA66CA200A4ABB6 /* Release configuration for PBXNativeTarget "CutlingAction" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = CutlingAction/CutlingAction.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PM3K35YS39;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CutlingAction/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CutlingAction;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 com.matsuokengo. All rights reserved.";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matsuokengo.Cutling.CutlingAction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = ACTION_EXTENSION;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -924,6 +1095,14 @@
 			buildConfigurations = (
 				CFA931352FA65E7700A4ABB6 /* Debug configuration for PBXNativeTarget "CutlingShare" */,
 				CFA931362FA65E7700A4ABB6 /* Release configuration for PBXNativeTarget "CutlingShare" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		CFA931702FA66CA200A4ABB6 /* Build configuration list for PBXNativeTarget "CutlingAction" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFA931712FA66CA200A4ABB6 /* Debug configuration for PBXNativeTarget "CutlingAction" */,
+				CFA931722FA66CA200A4ABB6 /* Release configuration for PBXNativeTarget "CutlingAction" */,
 			);
 			defaultConfigurationName = Release;
 		};

@@ -13,7 +13,7 @@ struct ShareView: View {
     let dismiss: () -> Void
 
     @State private var name = ""
-    @State private var icon = "doc.on.clipboard"
+    @State private var icon = "document"
     @State private var color: String?
     @State private var autoDeleteEnabled = false
     @State private var deleteAt = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
