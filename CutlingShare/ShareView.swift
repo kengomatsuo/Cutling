@@ -126,22 +126,11 @@ struct ShareView: View {
 
             if case .text = content {
                 Section("Icon") {
-                    Button {
-                        showIconPicker = true
-                    } label: {
-                        HStack {
-                            Image(systemName: icon)
-                                .font(.title2)
-                                .foregroundStyle(.tint)
-                                .frame(width: 36, height: 36)
-                            Text("Change Icon")
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .font(.caption)
-                                .foregroundStyle(.tertiary)
-                        }
-                    }
-                    .foregroundStyle(.primary)
+                    iconPickerButton
+                }
+            } else if case .url = content {
+                Section("Icon") {
+                    iconPickerButton
                 }
             }
 
@@ -179,9 +168,12 @@ struct ShareView: View {
                 EmptyView()
             }
 
-            if case .text = content {
+            switch content {
+            case .text, .url:
                 ColorPaletteSection(selectedColor: $color)
                 InputTypePickerSection(selectedTriggers: $inputTypeTriggers, autoDetectedCategories: $autoDetectedCategories)
+            default:
+                EmptyView()
             }
 
             ExpirationPickerSection(autoDeleteEnabled: $autoDeleteEnabled, deleteAt: $deleteAt)
@@ -191,6 +183,25 @@ struct ShareView: View {
         .sheet(isPresented: $showIconPicker) {
             IconPickerView(selectedIcon: $icon)
         }
+    }
+
+    private var iconPickerButton: some View {
+        Button {
+            showIconPicker = true
+        } label: {
+            HStack {
+                Image(systemName: icon)
+                    .font(.title2)
+                    .foregroundStyle(.tint)
+                    .frame(width: 36, height: 36)
+                Text("Change Icon")
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.caption)
+                    .foregroundStyle(.tertiary)
+            }
+        }
+        .foregroundStyle(.primary)
     }
 
     // MARK: - Content Extraction
@@ -223,6 +234,11 @@ struct ShareView: View {
                         content = .url(url)
                         icon = "link"
                         if name.isEmpty { name = String(localized: "Shared URL") }
+                        let detected = InputTypeCategory.detect(from: url.absoluteString)
+                        if !detected.isEmpty {
+                            inputTypeTriggers = Set(detected.flatMap { $0.triggerKeys })
+                            autoDetectedCategories = detected
+                        }
                         isLoading = false
                         return
                     }
