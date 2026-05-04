@@ -15,4 +15,8 @@ originSessionId: ebe753d6-b48d-4160-952d-6a3d002d01fd
 
 **How to apply:** Edit templates/translations/CSS under `web/` on `main`, then run `./deploy.sh web`. The `dist/` output dir is gitignored — never commit it.
 
+**CRITICAL: Before running `release_notes`, always generate the English source first.** See `project_release_notes.md` for the full workflow (check version, diff commits, write en-US release_notes.txt, then translate).
+
 iOS deploy subcommands: `release_notes`, `metadata`, `screenshots`, `frame`, `upload_screenshots`, `build`, `all`.
+
+**Python venv:** `docs/_generator/.venv` — required for `release_notes` step (`deep-translator` package). If missing, create with: `python3 -m venv docs/_generator/.venv && source docs/_generator/.venv/bin/activate && pip install deep-translator`
