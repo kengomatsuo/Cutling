@@ -247,41 +247,45 @@ class KeyboardViewController: UIInputViewController {
                 state: keyboardState,
                 onInsertText: { inputVC.textDocumentProxy.insertText($0) },
                 onCopyImage: { if let image = UIImage(data: $0) { UIPasteboard.general.image = image } },
-                onBackspace: { inputVC.textDocumentProxy.deleteBackward() },
+                onBackspace: {
+                    let proxy = inputVC.textDocumentProxy
+                    guard proxy.hasText else { return false }
+                    proxy.deleteBackward()
+                    return true
+                },
                 onDeleteWord: { wordCount in
                     let proxy = inputVC.textDocumentProxy
-                    
-                    /// A letter, digit, or connector like _ counts as a "word"
-                    /// character. Everything else (whitespace, punctuation,
-                    /// symbols, slashes, dots, etc.) is a boundary.
+                    guard proxy.hasText else { return false }
+
                     func isWordChar(_ ch: Character) -> Bool {
                         ch.isLetter || ch.isNumber || ch == "_"
                     }
-                    
+
+                    var didDelete = false
                     for _ in 0..<wordCount {
-                        guard let before = proxy.documentContextBeforeInput, !before.isEmpty else { return }
-                        
+                        guard let before = proxy.documentContextBeforeInput, !before.isEmpty else { break }
+
                         var count = 0
                         let chars = Array(before)
                         var i = chars.count - 1
-                        
-                        // Phase 1: skip trailing whitespace / boundaries
+
                         while i >= 0 && !isWordChar(chars[i]) {
                             count += 1
                             i -= 1
                         }
-                        
-                        // Phase 2: delete through the word
+
                         while i >= 0 && isWordChar(chars[i]) {
                             count += 1
                             i -= 1
                         }
-                        
+
                         if count == 0 { count = 1 }
                         for _ in 0..<count {
                             proxy.deleteBackward()
                         }
+                        didDelete = true
                     }
+                    return didDelete
                 },
                 onSwitchKeyboard: { inputVC.advanceToNextInputMode() }
             )
@@ -502,20 +506,21 @@ struct ReturnKeyInfo {
 /// 3. After acceleration threshold (~1.8s of holding), delete word-by-word
 struct BackspaceRepeat: ViewModifier {
     let cornerRadius: CGFloat
-    let onDelete: () -> Void
-    let onDeleteWord: (Int) -> Void
+    let onDelete: () -> Bool
+    let onDeleteWord: (Int) -> Bool
 
     @Environment(\.colorScheme) private var colorScheme
     @State private var isPressed = false
+    @State private var isHighlighted = false
     @State private var repeatTask: Task<Void, Never>?
 
     private static let haptic = UIImpactFeedbackGenerator(style: .light)
 
     // Timing constants matching native keyboard feel
     private static let initialDelay: Duration = .milliseconds(500)
-    private static let charRepeatInterval: Duration = .milliseconds(100)
+    private static let charRepeatInterval: Duration = .milliseconds(120)
     private static let wordPhaseThreshold: Duration = .milliseconds(1800)
-    private static let wordRepeatInterval: Duration = .milliseconds(300)
+    private static let wordRepeatInterval: Duration = .milliseconds(400)
 
     private static let cancelThreshold: CGFloat = 40
     private static let scrollDetectionThreshold: CGFloat = 8
@@ -530,7 +535,7 @@ struct BackspaceRepeat: ViewModifier {
         content
             .background(Color.white.opacity(0.001))
             .overlay(
-                isPressed
+                isHighlighted
                     ? RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
                         .fill(highlightColor)
                     : nil
@@ -545,20 +550,22 @@ struct BackspaceRepeat: ViewModifier {
                         let inside = max(abs(value.translation.width), abs(value.translation.height)) < Self.cancelThreshold
 
                         if shouldCancel || !inside {
-                            cancelRepeat()
+                            releaseBackspace()
                             return
                         }
 
                         if !isPressed {
                             isPressed = true
+                            isHighlighted = true
                             Self.haptic.impactOccurred()
                             KeyboardSound.delete.play()
-                            onDelete()
-                            startRepeat()
+                            if onDelete() {
+                                startRepeat()
+                            }
                         }
                     }
                     .onEnded { _ in
-                        cancelRepeat()
+                        releaseBackspace()
                     }
             )
     }
@@ -575,33 +582,43 @@ struct BackspaceRepeat: ViewModifier {
             // Phase 2+3: character-by-character, then word-by-word
             while !Task.isCancelled {
                 let elapsed = ContinuousClock.now - startTime
+                let deleted: Bool
                 if elapsed >= Self.wordPhaseThreshold {
-                    // Word-by-word deletion
-                    onDeleteWord(2)
-                    KeyboardSound.delete.play()
+                    deleted = onDeleteWord(2)
+                    if deleted {
+                        Self.haptic.impactOccurred(intensity: 0.75)
+                        KeyboardSound.delete.play()
+                    }
                     try? await Task.sleep(for: Self.wordRepeatInterval)
                 } else {
-                    // Character-by-character deletion
-                    onDelete()
-                    KeyboardSound.delete.play()
+                    deleted = onDelete()
+                    if deleted {
+                        Self.haptic.impactOccurred(intensity: 0.75)
+                        KeyboardSound.delete.play()
+                    }
                     try? await Task.sleep(for: Self.charRepeatInterval)
+                }
+                if !deleted {
+                    isHighlighted = false
+                    break
                 }
             }
         }
     }
 
-    private func cancelRepeat() {
+    private func releaseBackspace() {
         repeatTask?.cancel()
         repeatTask = nil
         isPressed = false
+        isHighlighted = false
     }
 }
 
 extension View {
     func backspaceRepeat(
         cornerRadius: CGFloat = KeyStyle.cornerRadius,
-        onDelete: @escaping () -> Void,
-        onDeleteWord: @escaping (Int) -> Void
+        onDelete: @escaping () -> Bool,
+        onDeleteWord: @escaping (Int) -> Bool
     ) -> some View {
         modifier(BackspaceRepeat(cornerRadius: cornerRadius, onDelete: onDelete, onDeleteWord: onDeleteWord))
     }
@@ -614,8 +631,8 @@ struct KeyboardView: View {
     @ObservedObject var state: KeyboardState
     let onInsertText: (String) -> Void
     let onCopyImage: (Data) -> Void
-    let onBackspace: () -> Void
-    let onDeleteWord: (Int) -> Void
+    let onBackspace: () -> Bool
+    let onDeleteWord: (Int) -> Bool
     let onSwitchKeyboard: () -> Void
 
     @State private var copiedID: UUID? = nil
