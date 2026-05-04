@@ -320,7 +320,12 @@ class KeyboardViewController: UIInputViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        KeyboardSyncHelper.fetchFromCloudKit(store: store)
+        // CKContainer init dispatches setup work to the main queue internally.
+        // Delay so it doesn't interrupt the keyboard transition animation.
+        Task {
+            try? await Task.sleep(for: .milliseconds(500))
+            KeyboardSyncHelper.fetchFromCloudKit(store: store)
+        }
     }
 
     override func viewDidLayoutSubviews() {

@@ -31,18 +31,35 @@ enum KeyboardSyncHelper {
     /// i.e. remote count is not suspiciously low compared to local.
     /// Called when the keyboard appears so it picks up changes from other devices
     /// even if the main app hasn't been opened.
-    static func fetchFromCloudKit(store: CutlingStore) {
+    @MainActor static func fetchFromCloudKit(store: CutlingStore) {
         guard let defaults = UserDefaults(suiteName: appGroupID),
               defaults.bool(forKey: "iCloudSyncEnabled") else {
             return
         }
 
+        // Snapshot local state on the main actor before going to background,
+        // so performFetch never hops back to the main actor mid-network-call.
+        let localIDs = store.cutlings.map(\.id)
+        let localModDates = store.cutlings.map(\.lastModifiedDate)
+        let imagesDir = store.imagesDirectory
+
         Task.detached(priority: .utility) {
-            await performFetch(store: store)
+            await performFetch(
+                store: store,
+                localIDs: localIDs,
+                localModDates: localModDates,
+                imagesDirectory: imagesDir
+            )
         }
     }
 
-    private static func performFetch(store: CutlingStore, retryCount: Int = 0) async {
+    private static func performFetch(
+        store: CutlingStore,
+        localIDs: [UUID],
+        localModDates: [Date],
+        imagesDirectory: URL,
+        retryCount: Int = 0
+    ) async {
         do {
             let container = CKContainer(identifier: containerID)
             let db = container.privateCloudDatabase
@@ -52,18 +69,22 @@ enum KeyboardSyncHelper {
             let (results, cursor) = try await db.records(matching: query, inZoneWith: zoneID)
 
             guard cursor == nil else {
-                // Partial fetch — discard and retry once after a delay
                 if retryCount < 1 {
                     log.log("Keyboard got partial fetch (cursor present), retrying in 3s…")
                     try? await Task.sleep(for: .seconds(3))
-                    await performFetch(store: store, retryCount: retryCount + 1)
+                    await performFetch(
+                        store: store,
+                        localIDs: localIDs,
+                        localModDates: localModDates,
+                        imagesDirectory: imagesDirectory,
+                        retryCount: retryCount + 1
+                    )
                 } else {
                     log.log("Keyboard got partial fetch on retry, skipping sync")
                 }
                 return
             }
 
-            let imagesDirectory = store.imagesDirectory
             var remoteCutlings: [Cutling] = []
             for (_, result) in results {
                 if case .success(let record) = result,
@@ -75,6 +96,12 @@ enum KeyboardSyncHelper {
             log.log("Keyboard fetched \(remoteCutlings.count) cutlings from CloudKit")
 
             let sorted = remoteCutlings.sorted { $0.sortOrder < $1.sortOrder }
+            let remoteIDs = sorted.map(\.id)
+            let remoteModDates = sorted.map(\.lastModifiedDate)
+            guard localIDs != remoteIDs || localModDates != remoteModDates else {
+                log.log("Keyboard sync: no changes detected, skipping UI update")
+                return
+            }
             await MainActor.run {
                 store.cutlings = sorted
                 store.save()
@@ -180,14 +207,15 @@ enum KeyboardSyncHelper {
         if kind == .image, let asset = record["imageAsset"] as? CKAsset, let fileURL = asset.fileURL {
             let filename = id.uuidString + ".png"
             let destURL = imagesDirectory.appendingPathComponent(filename)
-            do {
-                if FileManager.default.fileExists(atPath: destURL.path) {
-                    try FileManager.default.removeItem(at: destURL)
-                }
-                try FileManager.default.copyItem(at: fileURL, to: destURL)
+            if FileManager.default.fileExists(atPath: destURL.path) {
                 imageFilename = filename
-            } catch {
-                log.error("Failed to copy image asset: \(error)")
+            } else {
+                do {
+                    try FileManager.default.copyItem(at: fileURL, to: destURL)
+                    imageFilename = filename
+                } catch {
+                    log.error("Failed to copy image asset: \(error)")
+                }
             }
         }
 
