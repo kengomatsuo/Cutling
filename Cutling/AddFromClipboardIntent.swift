@@ -14,7 +14,7 @@ struct AddFromClipboardIntent: AppIntent {
     static var title: LocalizedStringResource = "Add from Clipboard"
     static var description = IntentDescription("Save clipboard contents as a new cutling.")
 
-    func perform() async throws -> some IntentResult & ReturnsValue<Never> {
+    func perform() async throws -> some IntentResult {
         #if os(iOS)
         let store = await CutlingStore.shared
 
