@@ -15,7 +15,9 @@ import Combine
 import UniformTypeIdentifiers
 import AudioToolbox
 
+#if DEBUG
 nonisolated(unsafe) private var snapshotBundle: Bundle?
+#endif
 
 // MARK: - Hex Color Extension
 
@@ -709,8 +711,13 @@ struct KeyboardView: View {
                     HStack(spacing: 6) {
                         Image(systemName: "doc.on.clipboard")
                             .font(.system(size: KeyStyle.iconSize(for: horizontalSizeClass) + 2, weight: .medium))
+                        #if DEBUG
                         Text("Add from Clipboard", bundle: snapshotBundle)
                             .font(.system(size: KeyStyle.buttonTextSize(for: horizontalSizeClass)))
+                        #else
+                        Text("Add from Clipboard")
+                            .font(.system(size: KeyStyle.buttonTextSize(for: horizontalSizeClass)))
+                        #endif
                     }
                     .frame(maxWidth: .infinity)
                     .frame(height: keyHeight)
@@ -724,9 +731,15 @@ struct KeyboardView: View {
                             Image(systemName: "lock.fill")
                                 .font(.system(size: KeyStyle.iconSize(for: horizontalSizeClass), weight: .medium))
                                 .foregroundStyle(.secondary)
+                            #if DEBUG
                             Text("Enable Full Access for Clipboard", bundle: snapshotBundle)
                                 .font(.system(size: KeyStyle.buttonTextSize(for: horizontalSizeClass) - 2))
                                 .foregroundStyle(.secondary)
+                            #else
+                            Text("Enable Full Access for Clipboard")
+                                .font(.system(size: KeyStyle.buttonTextSize(for: horizontalSizeClass) - 2))
+                                .foregroundStyle(.secondary)
+                            #endif
                         }
                         .frame(maxWidth: .infinity)
                         .frame(height: keyHeight)
@@ -736,13 +749,25 @@ struct KeyboardView: View {
             }
             .overlay {
                 if showAddedToast {
+                    #if DEBUG
                     toastOverlay(icon: "checkmark", text: String(localized: "Added!", bundle: snapshotBundle))
+                    #else
+                    toastOverlay(icon: "checkmark", text: String(localized: "Added!"))
+                    #endif
                 }
                 if showNoAccessToast {
+                    #if DEBUG
                     toastOverlay(icon: "lock.fill", text: String(localized: "Full Access Required", bundle: snapshotBundle))
+                    #else
+                    toastOverlay(icon: "lock.fill", text: String(localized: "Full Access Required"))
+                    #endif
                 }
                 if showEmptyClipboardToast {
+                    #if DEBUG
                     toastOverlay(icon: "doc.on.clipboard", text: String(localized: "Clipboard Empty", bundle: snapshotBundle))
+                    #else
+                    toastOverlay(icon: "doc.on.clipboard", text: String(localized: "Clipboard Empty"))
+                    #endif
                 }
                 if showLimitToast {
                     toastOverlay(icon: "exclamationmark.triangle", text: limitToastMessage)
@@ -819,12 +844,21 @@ struct KeyboardView: View {
                         Image(systemName: "rectangle.on.rectangle.slash")
                             .font(.system(size: 28))
                             .foregroundStyle(.secondary)
+                        #if DEBUG
                         Text("No Cutlings Yet", bundle: snapshotBundle)
                             .font(.system(size: 15, weight: .semibold))
                             .foregroundStyle(.secondary)
                         Text("Open Cutling to add snippets", bundle: snapshotBundle)
                             .font(.system(size: 12))
                             .foregroundStyle(.tertiary)
+                        #else
+                        Text("No Cutlings Yet")
+                            .font(.system(size: 15, weight: .semibold))
+                            .foregroundStyle(.secondary)
+                        Text("Open Cutling to add snippets")
+                            .font(.system(size: 12))
+                            .foregroundStyle(.tertiary)
+                        #endif
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .padding(.vertical, 16)
@@ -832,13 +866,23 @@ struct KeyboardView: View {
                     LazyVStack(spacing: 0) {
                         if !suggested.isEmpty {
                             // Suggestions section header
+                            #if DEBUG
                             Text("Suggestions", bundle: snapshotBundle)
                                 .font(.system(size: 12, weight: .semibold))
-                            .foregroundStyle(.secondary)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.horizontal, KeyStyle.horizontalPadding + 4)
-                            .padding(.top, keySpacing)
-                            .padding(.bottom, 4)
+                                .foregroundStyle(.secondary)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.horizontal, KeyStyle.horizontalPadding + 4)
+                                .padding(.top, keySpacing)
+                                .padding(.bottom, 4)
+                            #else
+                            Text("Suggestions")
+                                .font(.system(size: 12, weight: .semibold))
+                                .foregroundStyle(.secondary)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .padding(.horizontal, KeyStyle.horizontalPadding + 4)
+                                .padding(.top, keySpacing)
+                                .padding(.bottom, 4)
+                            #endif
 
                             LazyVGrid(columns: gridColumns, spacing: keySpacing) {
                                 ForEach(suggested) { cutling in
@@ -1041,9 +1085,14 @@ struct KeyboardView: View {
             }
             
             let id = UUID()
+            #if DEBUG
+            let imageName = String(localized: "Image: \(timestamp)", bundle: snapshotBundle)
+            #else
+            let imageName = String(localized: "Image: \(timestamp)")
+            #endif
             var cutling = Cutling(
                 id: id,
-                name: String(localized: "Image: \(timestamp)", bundle: snapshotBundle),
+                name: imageName,
                 value: "",
                 icon: "photo",
                 kind: .image,
@@ -1092,8 +1141,13 @@ struct KeyboardView: View {
             return
         }
 
+        #if DEBUG
+        let clipName = String(localized: "Clip: \(timestamp)", bundle: snapshotBundle)
+        #else
+        let clipName = String(localized: "Clip: \(timestamp)")
+        #endif
         let cutling = Cutling(
-            name: String(localized: "Clip: \(timestamp)", bundle: snapshotBundle),
+            name: clipName,
             value: text,
             icon: "doc.on.clipboard"
         )
@@ -1145,11 +1199,23 @@ struct KeyboardView: View {
         UINotificationFeedbackGenerator().notificationOccurred(.error)
         // Shorten the message for keyboard display
         if message.contains("image") {
+            #if DEBUG
             limitToastMessage = String(localized: "Image Limit: \(CutlingStore.maxImageCutlings)", bundle: snapshotBundle)
+            #else
+            limitToastMessage = String(localized: "Image Limit: \(CutlingStore.maxImageCutlings)")
+            #endif
         } else if message.contains("text") {
+            #if DEBUG
             limitToastMessage = String(localized: "Text Limit: \(CutlingStore.maxTextCutlings)", bundle: snapshotBundle)
+            #else
+            limitToastMessage = String(localized: "Text Limit: \(CutlingStore.maxTextCutlings)")
+            #endif
         } else {
+            #if DEBUG
             limitToastMessage = String(localized: "Limit Reached", bundle: snapshotBundle)
+            #else
+            limitToastMessage = String(localized: "Limit Reached")
+            #endif
         }
         
         withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
@@ -1223,7 +1289,11 @@ struct CutlingKeyView: View {
                     RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous)
                         .fill(.ultraThinMaterial)
                     Label {
+                        #if DEBUG
                         Text(cutling.kind == .text ? "Inserted" : "Copied", bundle: snapshotBundle)
+                        #else
+                        Text(cutling.kind == .text ? "Inserted" : "Copied")
+                        #endif
                     } icon: {
                         Image(systemName: "checkmark")
                     }
