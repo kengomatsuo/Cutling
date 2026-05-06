@@ -144,16 +144,22 @@ end
 default_platform(:ios)
 
 platform :ios do
-  def use_framed_screenshots
+  def prepare_framed_screenshots_dir
     screenshots_dir = File.join(__dir__, "screenshots")
     framed = Dir.glob(File.join(screenshots_dir, "**/*_framed.png"))
     UI.user_error!("No framed screenshots found. Run `frame` first.") if framed.empty?
-    framed.each do |framed_path|
+
+    tmp = Dir.mktmpdir("cutling_screenshots")
+    FileUtils.cp_r("#{screenshots_dir}/.", tmp)
+
+    Dir.glob(File.join(tmp, "**/*_framed.png")).each do |framed_path|
       raw_path = framed_path.sub("_framed.png", ".png")
-      File.delete(raw_path) if File.exist?(raw_path)
+      FileUtils.rm_f(raw_path)
       File.rename(framed_path, raw_path)
     end
-    UI.message("Prepared #{framed.size} framed screenshots for upload")
+
+    UI.message("Prepared #{framed.size} framed screenshots in #{tmp}")
+    tmp
   end
 
   desc "Clear all screenshots and recapture from scratch"
@@ -222,26 +228,32 @@ platform :ios do
 
   desc "Upload framed screenshots only to App Store Connect"
   lane :upload_screenshots do
-    use_framed_screenshots
+    tmp = prepare_framed_screenshots_dir
     deliver(
+      screenshots_path: tmp,
       skip_binary_upload: true,
       skip_metadata: true,
       overwrite_screenshots: true,
-      force: true
+      force: true,
+      ignore_language_directory_validation: true
     )
+    FileUtils.rm_rf(tmp)
   end
 
   desc "Upload metadata and framed screenshots to App Store Connect"
   lane :upload do
-    use_framed_screenshots
+    tmp = prepare_framed_screenshots_dir
     ensure_locale_url_files
     add_new_locales
 
     deliver(
+      screenshots_path: tmp,
       ignore_language_directory_validation: true,
+      overwrite_screenshots: true,
       skip_binary_upload: true,
       force: true
     )
+    FileUtils.rm_rf(tmp)
   end
 
   desc "Create/update ASC localizations for new languages via Spaceship API"

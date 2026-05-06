@@ -61,7 +61,7 @@ Upload metadata only (no screenshots)
 [bundle exec] fastlane ios upload_screenshots
 ```
 
-Upload screenshots only to App Store Connect
+Upload framed screenshots only to App Store Connect
 
 ### ios upload
 
@@ -69,7 +69,7 @@ Upload screenshots only to App Store Connect
 [bundle exec] fastlane ios upload
 ```
 
-Upload metadata and screenshots to App Store Connect
+Upload metadata and framed screenshots to App Store Connect
 
 ### ios add_new_locales
 
