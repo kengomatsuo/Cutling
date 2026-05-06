@@ -215,6 +215,8 @@ struct ShareView: View {
 
         for item in items {
             guard let attachments = item.attachments else { continue }
+            let itemTitle = item.attributedTitle?.string
+                ?? item.attributedContentText?.string
 
             for provider in attachments {
                 if provider.hasItemConformingToTypeIdentifier(UTType.image.identifier) {
@@ -222,7 +224,7 @@ struct ShareView: View {
                        let imageData = imageData(from: result) {
                         content = .image(imageData)
                         icon = "photo"
-                        if name.isEmpty { name = String(localized: "Shared Image") }
+                        if name.isEmpty { name = itemTitle ?? String(localized: "Shared Image") }
                         isLoading = false
                         return
                     }
@@ -233,7 +235,7 @@ struct ShareView: View {
                        let url = result as? URL, !url.isFileURL {
                         content = .url(url)
                         icon = "link"
-                        if name.isEmpty { name = String(localized: "Shared URL") }
+                        if name.isEmpty { name = itemTitle ?? String(localized: "Shared URL") }
                         let detected = InputTypeCategory.detect(from: url.absoluteString)
                         if !detected.isEmpty {
                             inputTypeTriggers = Set(detected.flatMap { $0.triggerKeys })
@@ -249,7 +251,7 @@ struct ShareView: View {
                        let text = result as? String {
                         content = .text(text)
                         if name.isEmpty {
-                            name = String(text.prefix(40)).components(separatedBy: .newlines).first ?? String(localized: "Shared Text")
+                            name = itemTitle ?? String(text.prefix(40)).components(separatedBy: .newlines).first ?? String(localized: "Shared Text")
                         }
                         let detected = InputTypeCategory.detect(from: text)
                         if !detected.isEmpty {

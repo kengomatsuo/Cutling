@@ -13,7 +13,7 @@ struct AddFromClipboardControl: ControlWidget {
 
     var body: some ControlWidgetConfiguration {
         StaticControlConfiguration(kind: Self.kind) {
-            ControlWidgetButton(action: AddFromClipboardIntent()) {
+            ControlWidgetButton(action: OpenCutlingIntent(target: .addFromClipboard)) {
                 Label("Add from Clipboard", systemImage: "doc.on.clipboard")
             }
         }

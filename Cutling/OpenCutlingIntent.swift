@@ -10,11 +10,13 @@ import AppIntents
 enum CutlingScreen: String, AppEnum {
     case newText
     case newImage
+    case addFromClipboard
 
     static var typeDisplayRepresentation = TypeDisplayRepresentation("Screen")
     static var caseDisplayRepresentations: [CutlingScreen: DisplayRepresentation] = [
         .newText: "New Text Cutling",
-        .newImage: "New Image Cutling"
+        .newImage: "New Image Cutling",
+        .addFromClipboard: "Add from Clipboard"
     ]
 }
 

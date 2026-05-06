@@ -336,12 +336,13 @@ struct CutlingApp: App {
     private func handlePendingControlAction() {
         let groupDefaults = UserDefaults(suiteName: "group.com.matsuokengo.Cutling")
         guard let action = groupDefaults?.string(forKey: "pendingControlAction") else { return }
-        groupDefaults?.removeObject(forKey: "pendingControlAction")
         guard hasCompletedSetup else { return }
         switch action {
         case "newText":
+            groupDefaults?.removeObject(forKey: "pendingControlAction")
             pendingNewCutlingKind = .text
         case "newImage":
+            groupDefaults?.removeObject(forKey: "pendingControlAction")
             pendingNewCutlingKind = .image
         default:
             break

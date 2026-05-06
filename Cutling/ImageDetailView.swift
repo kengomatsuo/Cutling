@@ -120,7 +120,6 @@ struct ImageDetailView: View {
     @EnvironmentObject var store: CutlingStore
 
     let existingItem: Cutling?
-    let autoPasteFromClipboard: Bool
     let presentedAsSheet: Bool
 
     @State private var name: String
@@ -136,11 +135,11 @@ struct ImageDetailView: View {
     @State private var deleteAt: Date
     @State private var undoHandler = UndoHandler()
     
-    init(item: Cutling?, autoPasteFromClipboard: Bool = false, presentedAsSheet: Bool = true) {
+    init(item: Cutling?, initialName: String = "", initialImageData: Data? = nil, presentedAsSheet: Bool = true) {
         self.existingItem = item
-        self.autoPasteFromClipboard = autoPasteFromClipboard
         self.presentedAsSheet = presentedAsSheet
-        _name = State(initialValue: item?.name ?? "")
+        _name = State(initialValue: item?.name ?? initialName)
+        _imageData = State(initialValue: initialImageData)
         _autoDeleteEnabled = State(initialValue: item?.expiresAt != nil)
         _deleteAt = State(initialValue: item?.expiresAt ?? Date().addingTimeInterval(86400))
     }
@@ -369,12 +368,6 @@ struct ImageDetailView: View {
             checkClipboard()
             canPaste = hasClipboardImage
 
-            if autoPasteFromClipboard {
-                Task { @MainActor in
-                    try? await Task.sleep(for: .milliseconds(500))
-                    pasteFromClipboard()
-                }
-            }
         }
         .alert("Limit Reached", isPresented: $showLimitAlert) {
             Button("OK", role: .cancel) {}

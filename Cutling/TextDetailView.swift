@@ -20,7 +20,6 @@ struct TextDetailView: View {
     @EnvironmentObject var store: CutlingStore
 
     let existingItem: Cutling?
-    let autoPasteFromClipboard: Bool
     let presentedAsSheet: Bool
 
     @State private var name: String
@@ -43,12 +42,11 @@ struct TextDetailView: View {
     @AppStorage("autoDetectInputTypes") private var autoDetectInputTypes = true
     @State private var undoHandler = UndoHandler()
 
-    init(item: Cutling?, autoPasteFromClipboard: Bool = false, presentedAsSheet: Bool = true) {
+    init(item: Cutling?, initialName: String = "", initialValue: String = "", presentedAsSheet: Bool = true) {
         self.existingItem = item
-        self.autoPasteFromClipboard = autoPasteFromClipboard
         self.presentedAsSheet = presentedAsSheet
-        _name = State(initialValue: item?.name ?? "")
-        _value = State(initialValue: item?.value ?? "")
+        _name = State(initialValue: item?.name ?? initialName)
+        _value = State(initialValue: item?.value ?? initialValue)
         _icon = State(initialValue: item?.icon ?? "document")
         _autoDeleteEnabled = State(initialValue: item?.expiresAt != nil)
         _deleteAt = State(initialValue: item?.expiresAt ?? Date().addingTimeInterval(86400))
@@ -308,12 +306,8 @@ struct TextDetailView: View {
         .onAppear {
             checkClipboard()
             canPaste = hasClipboardText
-
-            if autoPasteFromClipboard {
-                Task { @MainActor in
-                    try? await Task.sleep(for: .milliseconds(500))
-                    pasteFromClipboard()
-                }
+            if !value.isEmpty && !isEditing {
+                scheduleAutoDetect()
             }
         }
         .onChange(of: undoManager, initial: true) { _, newValue in

@@ -75,6 +75,9 @@ struct MainContentView: View {
     @State private var showAddText = false
     @State private var showAddImage = false
     @State private var newCutlingKind: CutlingKind? = nil
+    @State private var prefillName: String = ""
+    @State private var prefillText: String = ""
+    @State private var prefillImageData: Data? = nil
     @Binding var showKeyboard: Bool
     @Binding var pendingNewCutlingKind: CutlingKind?
     
@@ -248,12 +251,17 @@ struct MainContentView: View {
                     Group {
                         switch kind {
                         case .text:
-                            TextDetailView(item: nil, presentedAsSheet: true)
+                            TextDetailView(item: nil, initialName: prefillName, initialValue: prefillText, presentedAsSheet: true)
                         case .image:
-                            ImageDetailView(item: nil, presentedAsSheet: true)
+                            ImageDetailView(item: nil, initialName: prefillName, initialImageData: prefillImageData, presentedAsSheet: true)
                         }
                     }
                     .navigationTransition(.zoom(sourceID: addButtonZoomID, in: zoomNamespace))
+                    .onDisappear {
+                        prefillName = ""
+                        prefillText = ""
+                        prefillImageData = nil
+                    }
                 }
                 .sheet(isPresented: $showKeyboard) {
                     KeyboardView()
@@ -284,6 +292,22 @@ struct MainContentView: View {
                         showLimitAlert = true
                     }
                 }
+                #if os(iOS)
+                .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+                    let groupDefaults = UserDefaults(suiteName: "group.com.matsuokengo.Cutling")
+                    guard groupDefaults?.string(forKey: "pendingControlAction") == "addFromClipboard" else { return }
+                    groupDefaults?.removeObject(forKey: "pendingControlAction")
+                    if let string = UIPasteboard.general.string, !string.isEmpty {
+                        prefillText = string
+                        newCutlingKind = .text
+                    } else if let image = UIPasteboard.general.image,
+                              let data = image.pngData() {
+                        prefillName = String(localized: "Shared Image")
+                        prefillImageData = data
+                        newCutlingKind = .image
+                    }
+                }
+                #endif
         }
     }
     
