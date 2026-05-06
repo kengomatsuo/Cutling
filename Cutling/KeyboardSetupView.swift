@@ -34,7 +34,7 @@ struct KeyboardSetupView: View {
 
     var onComplete: (() -> Void)? = nil
 
-    @SceneStorage("keyboardSetupPage") private var currentPage: Int = SetupPage.welcome.rawValue
+    @AppStorage("keyboardSetupPage") private var currentPage: Int = SetupPage.welcome.rawValue
     @State private var keyboardDetected = false
     @State private var fullAccessDetected = false
     @State private var checkTimer: Timer?
@@ -45,8 +45,15 @@ struct KeyboardSetupView: View {
 
     private var allDone: Bool { keyboardDetected && fullAccessDetected }
 
+    private var isSnapshotMode: Bool {
+        ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE")
+    }
+
     /// Whether the current step's requirement is met, enabling the Continue button.
     private var canContinue: Bool {
+        #if DEBUG
+        if isSnapshotMode { return true }
+        #endif
         switch SetupPage(rawValue: currentPage) {
         case .enable: return keyboardDetected
         case .test: return allDone
@@ -92,6 +99,9 @@ struct KeyboardSetupView: View {
     }
 
     private var lastAllowedPage: Int {
+        #if DEBUG
+        if isSnapshotMode { return SetupPage.done.rawValue }
+        #endif
         if !keyboardDetected { return SetupPage.enable.rawValue }
         if !allDone { return SetupPage.test.rawValue }
         return SetupPage.done.rawValue
@@ -153,6 +163,11 @@ struct KeyboardSetupView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar { pagedToolbarContent }
         .onAppear {
+            #if DEBUG
+            if isSnapshotMode {
+                currentPage = SetupPage.welcome.rawValue
+            }
+            #endif
             refreshStatus()
             if currentPage > lastAllowedPage {
                 currentPage = lastAllowedPage
@@ -287,6 +302,9 @@ struct KeyboardSetupView: View {
                         .foregroundStyle(.secondary)
                     TextField("Tap here, then switch to Cutling", text: $testText)
                         .focused($testFieldFocused)
+                        .accessibilityIdentifier("keyboardTestField")
+                        .submitLabel(.done)
+                        .onSubmit { testFieldFocused = false }
                 }
                 .listRowBackground(testPageSectionBackground)
             }
@@ -315,6 +333,16 @@ struct KeyboardSetupView: View {
         }
         .scrollContentBackground(.hidden)
         .scrollDismissesKeyboard(.interactively)
+        .accessibilityIdentifier("testPage")
+        #if DEBUG
+        .onAppear {
+            if isSnapshotMode {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    testFieldFocused = true
+                }
+            }
+        }
+        #endif
     }
 
     private var testPageSectionBackground: Color {
@@ -398,6 +426,7 @@ struct KeyboardSetupView: View {
             }
             .padding(.horizontal)
         }
+        .accessibilityIdentifier("howToUsePage")
     }
 
     // MARK: - Page 5: iCloud

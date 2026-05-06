@@ -21,6 +21,7 @@ Commands:
   release_notes     Translate release notes from en-US to all languages
   metadata          Upload metadata to App Store Connect (all languages)
   screenshots       Capture missing screenshots only
+  screenshots_all   Clear all screenshots and recapture from scratch
   frame             Add device bezels and marketing text to screenshots
   upload_screenshots Upload screenshots to App Store Connect
   upload            Upload metadata + screenshots together
@@ -78,6 +79,7 @@ case "${1:-help}" in
   release_notes)    source "$VENV" && python3 translate_release_notes.py ;;
   metadata)         $FASTLANE ios upload_metadata ;;
   screenshots)      $FASTLANE ios new_screenshots ;;
+  screenshots_all)  $FASTLANE ios screenshots ;;
   frame)            $FASTLANE ios frame ;;
   upload_screenshots) $FASTLANE ios upload_screenshots ;;
   upload)           $FASTLANE ios upload ;;

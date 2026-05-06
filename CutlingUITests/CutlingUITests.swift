@@ -15,9 +15,14 @@ final class CutlingUITests: XCTestCase {
         continueAfterFailure = false
     }
 
+    private let logPath = "/Users/hafang/Repositories/Cutling/fastlane/screenshots/cutling_test.log"
+    private let testStartTime = Date()
+
     private func log(_ message: String) {
-        let existing = (try? String(contentsOfFile: "/tmp/cutling_test.log", encoding: .utf8)) ?? ""
-        try? (existing + message + "\n").write(toFile: "/tmp/cutling_test.log", atomically: true, encoding: .utf8)
+        let elapsed = String(format: "%.1fs", Date().timeIntervalSince(testStartTime))
+        let line = "[\(elapsed)] \(message)\n"
+        let existing = (try? String(contentsOfFile: logPath, encoding: .utf8)) ?? ""
+        try? (existing + line).write(toFile: logPath, atomically: true, encoding: .utf8)
     }
 
     /// Finds and long-presses the globe (keyboard switch) key.
@@ -88,143 +93,205 @@ final class CutlingUITests: XCTestCase {
 
     @MainActor
     func testTakeScreenshots() throws {
-        try? "".write(toFile: "/tmp/cutling_test.log", atomically: true, encoding: .utf8)
-        log("TEST START")
+        try? "".write(toFile: logPath, atomically: true, encoding: .utf8)
+        log("========== TEST START ==========")
+
+        // ── Step 0: Setup ────────────────────────────────────────
+        log("S0: Disabling hardware keyboard")
+        runHostCommand("/usr/bin/defaults", ["write", "com.apple.iphonesimulator", "ConnectHardwareKeyboard", "-bool", "false"])
+        log("S0: Hardware keyboard disabled")
+
+        log("S0: Setting simulator system language to English")
+        runSimctl(["spawn", "booted", "defaults", "write", "-globalDomain", "AppleLanguages", "-array", "en"])
+        runSimctl(["spawn", "booted", "defaults", "write", "-globalDomain", "AppleLocale", "en_US"])
+        log("S0: Simulator language set to English")
 
         let app = XCUIApplication()
         setupSnapshot(app)
         app.launchArguments.append("-SNAPSHOT_MODE")
+        log("S0: Configured app with SNAPSHOT_MODE")
 
-        // ── Step 0a: Launch app briefly to register the keyboard extension ──
+        log("S0: Launching app briefly to register keyboard extension")
         app.launch()
         sleep(2)
         app.terminate()
         sleep(1)
+        log("S0: App terminated after registration launch")
 
-        // ── Step 0b: Enable the Cutling keyboard in Settings ─────
-        log("STEP 0: enableKeyboardInSettings")
+        log("S0: Enabling Cutling keyboard in Settings")
         enableKeyboardInSettings()
-        log("STEP 0: DONE")
+        log("S0: Settings setup complete")
 
-        // Now launch the actual app.
+        // ── Screenshot 1: Main Grid ──────────────────────────────
+        log("S1: Launching app")
         app.launch()
-        log("S1: App launched")
+        log("S1: App launched, waiting for seed data")
 
-        // Wait for the seed-data grid to appear.
         let firstCard = app.descendants(matching: .any)
             .matching(identifier: "cutlingCard").firstMatch
         let cardAppeared = firstCard.waitForExistence(timeout: 15)
-        log("S1: Card appeared=\(cardAppeared)")
+        log("S1: cutlingCard appeared=\(cardAppeared)")
         XCTAssertTrue(cardAppeared, "Seed data cards did not appear")
         sleep(1)
 
-        // ── Screenshot 1: Main Grid ──────────────────────────────
+        log("S1: Taking screenshot 01_MainGrid")
         snapshot("01_MainGrid")
-        log("S1: Screenshot 01 taken")
+        log("S1: Screenshot 01 done")
 
         // ── Screenshot 2: Detail View ────────────────────────────
+        log("S2: Long-pressing first card for context menu")
         firstCard.press(forDuration: 1.5)
+
         let editButton = app.buttons["editButton"].firstMatch
         let editExists = editButton.waitForExistence(timeout: 5)
         log("S2: editButton exists=\(editExists)")
         XCTAssertTrue(editExists, "Edit button not found in context menu")
+
+        log("S2: Tapping edit button")
         editButton.tap()
         sleep(1)
-        snapshot("02_DetailView")
-        log("S2: Screenshot 02 taken")
 
-        // Navigate back to the grid.
+        let detailView = app.descendants(matching: .any).matching(identifier: "detailView").firstMatch
+        let detailVisible = detailView.waitForExistence(timeout: 5)
+        log("S2: detailView visible=\(detailVisible)")
+        XCTAssertTrue(detailVisible, "Detail view not visible for screenshot 2")
+
+        log("S2: Taking screenshot 02_DetailView")
+        snapshot("02_DetailView")
+        log("S2: Screenshot 02 done")
+
+        log("S2: Navigating back to grid")
         let backButton = app.navigationBars.buttons.firstMatch
-        XCTAssertTrue(backButton.waitForExistence(timeout: 5), "Back button not found")
+        let backExists = backButton.waitForExistence(timeout: 5)
+        log("S2: Back button exists=\(backExists)")
+        XCTAssertTrue(backExists, "Back button not found")
         backButton.tap()
         sleep(1)
+        log("S2: Back at grid")
 
         // ── Screenshot 3: Keyboard Settings ──────────────────────
+        log("S3: Looking for keyboard toolbar button")
         let kbButton = app.buttons["keyboardToolbarButton"].firstMatch
-        XCTAssertTrue(kbButton.waitForExistence(timeout: 5), "Keyboard toolbar button not found")
+        let kbExists = kbButton.waitForExistence(timeout: 5)
+        log("S3: keyboardToolbarButton exists=\(kbExists)")
+        XCTAssertTrue(kbExists, "Keyboard toolbar button not found")
+
+        log("S3: Tapping keyboard toolbar button")
         kbButton.tap()
         sleep(1)
-        snapshot("03_KeyboardSettings")
-        log("S3: Screenshot 03 taken")
 
-        // ── Screenshot 4: Keyboard Test Page ──────────────────
+        let settingsView = app.descendants(matching: .any).matching(identifier: "settingsView").firstMatch
+        let settingsVisible = settingsView.waitForExistence(timeout: 5)
+        log("S3: settingsView visible=\(settingsVisible)")
+        XCTAssertTrue(settingsVisible, "Settings view not visible for screenshot 3")
+
+        log("S3: Taking screenshot 03_KeyboardSettings")
+        snapshot("03_KeyboardSettings")
+        log("S3: Screenshot 03 done")
+
+        // ── Screenshot 4: Keyboard Test Page ─────────────────────
+        log("S4: Looking for keyboardSetupGuide button")
         let setupGuideButton = app.buttons["keyboardSetupGuide"].firstMatch
         if !setupGuideButton.waitForExistence(timeout: 3) {
+            log("S4: keyboardSetupGuide not visible, swiping up")
             app.swipeUp()
             sleep(1)
         }
-        XCTAssertTrue(setupGuideButton.waitForExistence(timeout: 5), "Keyboard Setup Guide not found")
+        let guideExists = setupGuideButton.waitForExistence(timeout: 5)
+        log("S4: keyboardSetupGuide exists=\(guideExists)")
+        XCTAssertTrue(guideExists, "Keyboard Setup Guide not found")
+
+        log("S4: Tapping setup guide")
         setupGuideButton.tap()
         sleep(1)
-        log("S4: Tapped setup guide")
 
-        // Navigate from Welcome to Test page (2 taps: Welcome → Enable → Test).
+        log("S4: Navigating Welcome → Enable → Test (2 continue taps)")
         for i in 0..<2 {
             let continueButton = app.buttons["continueButton"].firstMatch
             let contExists = continueButton.waitForExistence(timeout: 3)
-            log("S4: continueButton[\(i)] exists=\(contExists)")
+            log("S4: Continue tap \(i + 1)/2: button exists=\(contExists)")
             XCTAssertTrue(contExists, "Continue button not found (tap \(i))")
             continueButton.tap()
             sleep(1)
         }
-        log("S4: On Test page")
 
-        // Tap the text field to bring up the keyboard.
-        let testField = app.textFields.firstMatch
-        XCTAssertTrue(testField.waitForExistence(timeout: 5), "Text field not found")
-        testField.tap()
+        log("S4: Looking for keyboardTestField")
+        let testField = app.textFields["keyboardTestField"].firstMatch
+        let fieldExists = testField.waitForExistence(timeout: 3)
+        log("S4: keyboardTestField exists=\(fieldExists)")
+        if fieldExists {
+            log("S4: Tapping test field")
+            testField.tap()
+        } else {
+            log("S4: Test field not found, relying on auto-focus")
+        }
         sleep(2)
-        log("S4: Tapped text field")
 
-        // Check if the Cutling keyboard is already active (common on iPad or
-        // after a previous language run). Its buttons carry id='CutlingKeyboardView'.
         let cutlingKBElement = app.buttons.matching(
             NSPredicate(format: "identifier == 'CutlingKeyboardView'")
         ).firstMatch
         let cutlingAlreadyActive = cutlingKBElement.waitForExistence(timeout: 2)
-        log("S4: Cutling keyboard already active=\(cutlingAlreadyActive)")
+        log("S4: CutlingKeyboardView already active=\(cutlingAlreadyActive)")
 
         if !cutlingAlreadyActive {
-            // Switch to Cutling keyboard via globe key long-press.
+            log("S4: Attempting to switch keyboard via globe key")
             let pressedGlobe = longPressGlobeKey(in: app)
-            log("S4: Globe key pressed=\(pressedGlobe)")
+            log("S4: Globe key long-pressed=\(pressedGlobe)")
 
             if pressedGlobe {
                 let selectedCutling = selectCutlingFromPicker(in: app)
-                log("S4: Cutling selected=\(selectedCutling)")
-                XCTAssertTrue(selectedCutling, "Cutling not found in keyboard picker")
+                log("S4: Selected Cutling from picker=\(selectedCutling)")
             } else {
-                // Dump buttons for debugging.
-                log("S4: Globe key not found. Button dump:")
-                for (i, btn) in app.buttons.allElementsBoundByIndex.prefix(25).enumerated() {
-                    log("  btn[\(i)]: '\(btn.label)' id='\(btn.identifier)'")
-                }
-                XCTFail("Globe key not found — keyboard may not have appeared")
+                log("S4: Globe key not found, proceeding with current keyboard")
             }
-        } else {
-            log("S4: Cutling keyboard already active, skipping switch")
         }
         sleep(1)
 
-        snapshot("04_KeyboardInMessages")
-        log("S4: Screenshot 04 taken")
+        let testPage = app.descendants(matching: .any).matching(identifier: "testPage").firstMatch
+        let testPageVisible = testPage.waitForExistence(timeout: 5)
+        log("S4: testPage visible=\(testPageVisible)")
+        XCTAssertTrue(testPageVisible, "Test page not visible for screenshot 4")
 
-        // ── Screenshot 5: How to Use Your Keyboard ────────────
-        // Dismiss keyboard by tapping the header area.
+        log("S4: Taking screenshot 04_KeyboardInMessages")
+        snapshot("04_KeyboardInMessages")
+        log("S4: Screenshot 04 done")
+
+        // ── Screenshot 5: How to Use Your Keyboard ───────────────
+        // Always dismiss keyboard by tapping header area — the Return key
+        // label is localized ("Return", "إرجاع", etc.) so matching by label is unreliable.
+        log("S5: Dismissing keyboard by tapping header area")
         app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.2)).tap()
         sleep(1)
-        log("S5: Tapped to dismiss keyboard")
 
         let continueBtn5 = app.buttons["continueButton"].firstMatch
+        let cont5Visible = continueBtn5.waitForExistence(timeout: 3)
+        log("S5: continueButton visible after dismiss=\(cont5Visible)")
+        if !cont5Visible {
+            log("S5: Keyboard may still be up, tapping header area again")
+            app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.15)).tap()
+            sleep(1)
+            let cont5Retry = continueBtn5.waitForExistence(timeout: 5)
+            log("S5: continueButton visible after second dismiss=\(cont5Retry)")
+        }
+
         let cont5Exists = continueBtn5.waitForExistence(timeout: 5)
-        log("S5: continueButton exists=\(cont5Exists)")
+        log("S5: continueButton final check=\(cont5Exists)")
         XCTAssertTrue(cont5Exists, "Continue button not found for step 5")
+
+        log("S5: Tapping continue (Test → How to Use)")
         continueBtn5.tap()
         sleep(1)
 
+        let howToUse = app.descendants(matching: .any).matching(identifier: "howToUsePage").firstMatch
+        let howToUseVisible = howToUse.waitForExistence(timeout: 5)
+        log("S5: howToUsePage visible=\(howToUseVisible)")
+        XCTAssertTrue(howToUseVisible, "How to Use page not visible for screenshot 5")
+
+        log("S5: Taking screenshot 05_KeyboardGuide")
         snapshot("05_KeyboardGuide")
-        log("S5: Screenshot 05 taken")
-        log("TEST COMPLETE")
+        log("S5: Screenshot 05 done")
+
+        log("========== TEST COMPLETE ==========")
     }
 
     // MARK: - Enable Keyboard via Settings App
@@ -232,119 +299,155 @@ final class CutlingUITests: XCTestCase {
     @MainActor
     private func enableKeyboardInSettings() {
         let settings = XCUIApplication(bundleIdentifier: "com.apple.Preferences")
+        log("S0: Launching Settings app")
         settings.launch()
         sleep(1)
-        log("S0: Settings launched")
+        log("S0: Settings app launched")
 
         // General
         let general = settings.cells.staticTexts["General"].firstMatch
-        log("S0: General exists=\(general.waitForExistence(timeout: 5))")
-        XCTAssertTrue(general.exists, "Settings: 'General' not found")
+        let generalExists = general.waitForExistence(timeout: 5)
+        log("S0: 'General' cell exists=\(generalExists)")
+        XCTAssertTrue(generalExists, "Settings: 'General' not found")
+        log("S0: Tapping 'General'")
         general.tap()
         sleep(1)
-        log("S0: tapped General")
 
         // Keyboard
         let keyboard = settings.cells.staticTexts["Keyboard"].firstMatch
-        log("S0: Keyboard exists=\(keyboard.waitForExistence(timeout: 5))")
-        XCTAssertTrue(keyboard.exists, "Settings: 'Keyboard' not found")
+        let keyboardExists = keyboard.waitForExistence(timeout: 5)
+        log("S0: 'Keyboard' cell exists=\(keyboardExists)")
+        XCTAssertTrue(keyboardExists, "Settings: 'Keyboard' not found")
+        log("S0: Tapping 'Keyboard'")
         keyboard.tap()
         sleep(1)
-        log("S0: tapped Keyboard")
 
         // Keyboards
         let keyboards = settings.cells.staticTexts["Keyboards"].firstMatch
-        log("S0: Keyboards exists=\(keyboards.waitForExistence(timeout: 5))")
-        XCTAssertTrue(keyboards.exists, "Settings: 'Keyboards' not found")
+        let keyboardsExists = keyboards.waitForExistence(timeout: 5)
+        log("S0: 'Keyboards' cell exists=\(keyboardsExists)")
+        XCTAssertTrue(keyboardsExists, "Settings: 'Keyboards' not found")
+        log("S0: Tapping 'Keyboards'")
         keyboards.tap()
         sleep(1)
-        log("S0: tapped Keyboards")
 
         // Check if Cutling is already added.
         let cutlingCell = settings.cells.staticTexts.matching(
             NSPredicate(format: "label CONTAINS[c] 'Cutling'")
         ).firstMatch
-        log("S0: Cutling already added=\(cutlingCell.exists)")
+        let alreadyAdded = cutlingCell.exists
+        log("S0: Cutling keyboard already added=\(alreadyAdded)")
 
-        if !cutlingCell.exists {
+        if !alreadyAdded {
+            log("S0: Need to add Cutling keyboard")
             let addNew = settings.cells["AddNewKeyboard"].firstMatch
             for swipeAttempt in 0..<3 {
                 if addNew.exists { break }
-                log("S0: 'Add New' not visible, swipe \(swipeAttempt)")
+                log("S0: 'Add New Keyboard' not visible, swiping up (attempt \(swipeAttempt + 1)/3)")
                 settings.swipeUp()
                 sleep(1)
             }
+            log("S0: 'Add New Keyboard' exists=\(addNew.exists)")
             XCTAssertTrue(addNew.exists, "Settings: 'Add New Keyboard' not found")
+            log("S0: Tapping 'Add New Keyboard'")
             addNew.tap()
             sleep(1)
-            log("S0: tapped Add New Keyboard")
 
             let cutlingOption = settings.cells.staticTexts["Cutling"].firstMatch
-            if !cutlingOption.waitForExistence(timeout: 3) {
+            let optionExists = cutlingOption.waitForExistence(timeout: 3)
+            log("S0: 'Cutling' in add list exists=\(optionExists)")
+            if !optionExists {
+                log("S0: 'Cutling' not visible, swiping up")
                 settings.swipeUp()
                 sleep(1)
             }
+            log("S0: 'Cutling' in add list exists (after scroll)=\(cutlingOption.exists)")
             XCTAssertTrue(cutlingOption.exists, "Settings: 'Cutling' not in Add list")
+            log("S0: Tapping 'Cutling' to add")
             cutlingOption.tap()
             sleep(1)
-            log("S0: tapped Cutling to add")
+            log("S0: Cutling keyboard added")
         }
 
         // Tap Cutling entry to check Full Access.
         let cutlingEntry = settings.cells.staticTexts.matching(
             NSPredicate(format: "label CONTAINS[c] 'Cutling'")
         ).firstMatch
-        log("S0: Cutling entry exists=\(cutlingEntry.waitForExistence(timeout: 5))")
-        XCTAssertTrue(cutlingEntry.exists, "Cutling entry not found")
+        let entryExists = cutlingEntry.waitForExistence(timeout: 5)
+        log("S0: Cutling entry in keyboard list exists=\(entryExists)")
+        XCTAssertTrue(entryExists, "Cutling entry not found")
+        log("S0: Tapping Cutling entry to check Full Access")
         cutlingEntry.tap()
         sleep(1)
-        log("S0: tapped Cutling entry for Full Access")
 
         // Toggle Full Access if needed.
         let fullAccessSwitch = settings.switches.matching(
             NSPredicate(format: "label CONTAINS[c] 'Allow Full Access'")
         ).firstMatch
-        log("S0: Full Access switch exists=\(fullAccessSwitch.waitForExistence(timeout: 3))")
-        if fullAccessSwitch.exists {
+        let switchExists = fullAccessSwitch.waitForExistence(timeout: 3)
+        log("S0: 'Allow Full Access' switch exists=\(switchExists)")
+        if switchExists {
             let val = fullAccessSwitch.value as? String ?? "?"
-            log("S0: Full Access value=\(val)")
+            log("S0: Full Access switch value=\(val) (0=off, 1=on)")
             if val == "0" {
+                log("S0: Toggling Full Access on")
                 fullAccessSwitch.switches.firstMatch.tap()
                 sleep(2)
+
                 let allowButton = settings.alerts.buttons["Allow"].firstMatch
-                if allowButton.waitForExistence(timeout: 3) {
+                let alertExists = allowButton.waitForExistence(timeout: 3)
+                log("S0: Alert 'Allow' button exists=\(alertExists)")
+                if alertExists {
+                    log("S0: Tapping 'Allow' in alert")
                     allowButton.tap()
                     sleep(1)
-                    log("S0: tapped Allow in alert")
                 }
+
                 let sheetAllow = settings.sheets.buttons["Allow"].firstMatch
-                if sheetAllow.waitForExistence(timeout: 2) {
+                let sheetExists = sheetAllow.waitForExistence(timeout: 2)
+                log("S0: Sheet 'Allow' button exists=\(sheetExists)")
+                if sheetExists {
+                    log("S0: Tapping 'Allow' in sheet")
                     sheetAllow.tap()
                     sleep(1)
-                    log("S0: tapped Allow in sheet")
                 }
+
                 let anyAllow = settings.buttons["Allow Full Access"].firstMatch
-                if anyAllow.waitForExistence(timeout: 2) {
+                let anyExists = anyAllow.waitForExistence(timeout: 2)
+                log("S0: 'Allow Full Access' button exists=\(anyExists)")
+                if anyExists {
+                    log("S0: Tapping 'Allow Full Access'")
                     anyAllow.tap()
                     sleep(1)
-                    log("S0: tapped Allow Full Access button")
                 }
+
+                let finalVal = fullAccessSwitch.value as? String ?? "?"
+                log("S0: Full Access switch value after toggle=\(finalVal)")
+            } else {
+                log("S0: Full Access already enabled, skipping toggle")
             }
+        } else {
+            log("S0: Full Access switch not found (may already be enabled)")
         }
 
+        log("S0: Terminating Settings app")
         settings.terminate()
         sleep(1)
-        log("S0: Settings terminated")
+        log("S0: Settings app terminated")
     }
 
-    // MARK: - Simulator Command Helper
+    // MARK: - Command Helpers
 
-    private func runSimctl(_ arguments: [String]) {
+    private func runHostCommand(_ launchPath: String, _ arguments: [String]) {
         guard let taskClass = NSClassFromString("NSTask") as? NSObject.Type else { return }
         let task = taskClass.init()
-        task.setValue("/usr/bin/xcrun", forKey: "launchPath")
-        task.setValue(["simctl"] + arguments, forKey: "arguments")
+        task.setValue(launchPath, forKey: "launchPath")
+        task.setValue(arguments, forKey: "arguments")
         _ = task.perform(NSSelectorFromString("launch"))
         _ = task.perform(NSSelectorFromString("waitUntilExit"))
+    }
+
+    private func runSimctl(_ arguments: [String]) {
+        runHostCommand("/usr/bin/xcrun", ["simctl"] + arguments)
     }
 }

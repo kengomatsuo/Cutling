@@ -21,7 +21,7 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 [bundle exec] fastlane ios screenshots
 ```
 
-Take localized screenshots
+Clear all screenshots and recapture from scratch
 
 ### ios framed_screenshots
 
@@ -29,7 +29,7 @@ Take localized screenshots
 [bundle exec] fastlane ios framed_screenshots
 ```
 
-Take screenshots and add device frames with marketing text
+Clear all screenshots, recapture, and add device frames with marketing text
 
 ### ios new_screenshots
 

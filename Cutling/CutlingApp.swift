@@ -197,8 +197,13 @@ struct CutlingApp: App {
                     #if DEBUG
                     if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") {
                         store.seedForSnapshots()
+                        UserDefaults.standard.removeObject(forKey: "keyboardSetupPage")
+                        if let lang = Locale.preferredLanguages.first {
+                            UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(lang, forKey: "snapshotLanguage")
+                        }
                     } else {
                         store.seedIfEmpty()
+                        UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.removeObject(forKey: "snapshotLanguage")
                     }
                     #else
                     store.seedIfEmpty()
@@ -208,9 +213,16 @@ struct CutlingApp: App {
                     syncPreferencesToAppGroup()
                     lastVersionOpened = currentAppVersion
                     #if os(iOS)
+                    #if DEBUG
+                    if !ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE"),
+                       !hasCompletedSetup || keyboardNeedsSetup {
+                        showOnboarding = true
+                    }
+                    #else
                     if !hasCompletedSetup || keyboardNeedsSetup {
                         showOnboarding = true
                     }
+                    #endif
                     #endif
                 }
                 .onChange(of: iCloudSyncEnabled) { _, enabled in

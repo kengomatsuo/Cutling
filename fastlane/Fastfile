@@ -144,14 +144,20 @@ end
 default_platform(:ios)
 
 platform :ios do
-  desc "Take localized screenshots"
+  desc "Clear all screenshots and recapture from scratch"
   lane :screenshots do
-    snapshot
+    snapshot(
+      clear_previous_screenshots: true,
+      skip_open_summary: true,
+      disable_slide_to_type: true
+    )
   end
 
-  desc "Take screenshots and add device frames with marketing text"
+  desc "Clear all screenshots, recapture, and add device frames with marketing text"
   lane :framed_screenshots do
-    snapshot
+    snapshot(
+      clear_previous_screenshots: true
+    )
     # Restore frameit assets that clear_previous_screenshots may have removed
     FileUtils.cp("./Framefile.json", "./screenshots/Framefile.json")
     FileUtils.cp("./background.png", "./screenshots/background.png")

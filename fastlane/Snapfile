@@ -4,6 +4,7 @@ devices([
 ])
 
 languages([
+  "en-US",
   "ar-SA",
   "bn-BD",
   "ca",
@@ -14,7 +15,6 @@ languages([
   "en-AU",
   "en-CA",
   "en-GB",
-  "en-US",
   "es-ES",
   "es-MX",
   "fi",
@@ -63,6 +63,8 @@ clear_previous_screenshots(false)
 launch_arguments(["-SNAPSHOT_MODE"])
 reinstall_app(false)
 erase_simulator(false)
+disable_slide_to_type(true)
 concurrent_simulators(true)
 number_of_retries(0)
+stop_after_first_error(true)
 xcodebuild_formatter('./fastlane/utf8_xcpretty')

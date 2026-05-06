@@ -156,6 +156,7 @@ struct KeyboardView: View {
             }
             .formStyle(.grouped)
             .navigationTitle("Keyboard")
+            .accessibilityIdentifier("settingsView")
             #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
             #endif

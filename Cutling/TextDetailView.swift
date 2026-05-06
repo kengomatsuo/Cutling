@@ -293,6 +293,7 @@ struct TextDetailView: View {
         .scrollDismissesKeyboard(.interactively)
         .formStyle(.grouped)
         .navigationTitle(isEditing ? "Edit" : "New")
+        .accessibilityIdentifier("detailView")
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
         #endif
