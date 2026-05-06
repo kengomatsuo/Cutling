@@ -145,11 +145,9 @@ struct CutlingApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     #endif
     @StateObject private var store = CutlingStore.shared
-    @State private var showKeyboard = false
-    @State private var newCutlingDraft: NewCutlingDraft?
+    @State private var activeSheet: ActiveSheet?
     @State private var showOnboarding = false
-    @State private var showLimitAlert = false
-    @State private var limitAlertMessage = ""
+    @State private var limitAlertMessage: String?
     @Environment(\.scenePhase) private var scenePhase
 
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
@@ -193,7 +191,7 @@ struct CutlingApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainContentView(newCutlingDraft: $newCutlingDraft, showKeyboard: $showKeyboard)
+            MainContentView(activeSheet: $activeSheet)
                 .environmentObject(store)
                 .onAppear {
                     #if DEBUG
@@ -247,7 +245,7 @@ struct CutlingApp: App {
                         }
                         #endif
                     case "keyboard":
-                        showKeyboard = true
+                        if activeSheet == nil { activeSheet = .keyboardManager }
                     case "addText":
                         requestNewCutling(NewCutlingDraft(kind: .text))
                     case "addImage":
@@ -281,10 +279,16 @@ struct CutlingApp: App {
                     KeyboardSetupView()
                 }
                 #endif
-                .alert("Limit Reached", isPresented: $showLimitAlert) {
+                .alert(
+                    "Limit Reached",
+                    isPresented: Binding(
+                        get: { limitAlertMessage != nil },
+                        set: { if !$0 { limitAlertMessage = nil } }
+                    )
+                ) {
                     Button("OK", role: .cancel) {}
                 } message: {
-                    Text(limitAlertMessage)
+                    Text(limitAlertMessage ?? "")
                 }
         }
         #if os(macOS)
@@ -358,15 +362,15 @@ struct CutlingApp: App {
     }
     #endif
 
-    // MARK: - Add Cutling
+    // MARK: - Sheet Management
 
     private func requestNewCutling(_ draft: NewCutlingDraft) {
+        guard activeSheet == nil else { return }
         let canAdd = store.canAdd(draft.kind)
         if canAdd.allowed {
-            newCutlingDraft = draft
+            activeSheet = .newCutling(draft)
         } else {
             limitAlertMessage = canAdd.reason ?? String(localized: "Cannot add more cutlings.")
-            showLimitAlert = true
         }
     }
 

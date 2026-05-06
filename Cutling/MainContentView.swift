@@ -74,16 +74,11 @@ struct MainContentView: View {
     @State private var searchText = ""
     @State private var searchIsPresented = false
     @State private var selectedItem: Cutling? = nil
-    @Binding var newCutlingDraft: NewCutlingDraft?
-    @Binding var showKeyboard: Bool
-    
-    @State private var showKeyboardSetup = false
+    @Binding var activeSheet: ActiveSheet?
     @State private var showRecentlyDeleted = false
-    @State private var showLimitAlert = false
-    @State private var limitAlertMessage = ""
+    @State private var limitAlertMessage: String?
 
     @State private var mode: MainContentMode = .browsing
-    @State private var showBottomBar = false
     @State private var showDeleteConfirmation = false
 
     #if os(iOS)
@@ -107,9 +102,8 @@ struct MainContentView: View {
     private let keyboardButtonZoomID = "keyboardButton"
     #endif
 
-    init(newCutlingDraft: Binding<NewCutlingDraft?> = .constant(nil), showKeyboard: Binding<Bool> = .constant(false)) {
-        _newCutlingDraft = newCutlingDraft
-        _showKeyboard = showKeyboard
+    init(activeSheet: Binding<ActiveSheet?> = .constant(nil)) {
+        _activeSheet = activeSheet
     }
     
     // MARK: - Keyboard Status
@@ -208,18 +202,16 @@ struct MainContentView: View {
         NavigationStack {
             mainContent
                 .modifier(SheetsModifier(
-                    selectedItem: $selectedItem,
-                    showKeyboardSetup: $showKeyboardSetup
+                    selectedItem: $selectedItem
                 ))
                 .modifier(AlertsModifier(
-                    showLimitAlert: $showLimitAlert,
-                    limitAlertMessage: limitAlertMessage
+                    limitAlertMessage: $limitAlertMessage
                 ))
                 .modifier(ChangeHandlersModifier(
                     mode: mode,
                     lastAddedCutlingID: store.lastAddedCutlingID,
                     selectedItem: $selectedItem,
-                    newCutlingDraft: $newCutlingDraft,
+                    activeSheet: $activeSheet,
                     hasScrolledToNew: $hasScrolledToNew,
                     onModeChange: handleModeChange,
                     onScrollToNew: scrollToBottom
@@ -254,32 +246,44 @@ struct MainContentView: View {
                     }
                     .navigationTransition(.zoom(sourceID: item.id, in: zoomNamespace))
                 }
-                .sheet(item: $newCutlingDraft) { draft in
-                    Group {
-                        switch draft.kind {
-                        case .text:
-                            TextDetailView(item: nil, initialName: draft.name, initialValue: draft.text, presentedAsSheet: true)
-                        case .image:
-                            ImageDetailView(item: nil, initialName: draft.name, initialImageData: draft.imageData, presentedAsSheet: true)
+                .sheet(item: $activeSheet) { sheet in
+                    switch sheet {
+                    case .newCutling(let draft):
+                        Group {
+                            switch draft.kind {
+                            case .text:
+                                TextDetailView(item: nil, initialName: draft.name, initialValue: draft.text, presentedAsSheet: true)
+                            case .image:
+                                ImageDetailView(item: nil, initialName: draft.name, initialImageData: draft.imageData, presentedAsSheet: true)
+                            }
                         }
+                        .navigationTransition(.zoom(sourceID: addButtonZoomID, in: zoomNamespace))
+                    case .keyboardManager:
+                        KeyboardView()
+                            .navigationTransition(.zoom(sourceID: keyboardButtonZoomID, in: zoomNamespace))
+                    case .keyboardSetup:
+                        KeyboardSetupView()
                     }
-                    .navigationTransition(.zoom(sourceID: addButtonZoomID, in: zoomNamespace))
-                }
-                .sheet(isPresented: $showKeyboard) {
-                    KeyboardView()
-                        .navigationTransition(.zoom(sourceID: keyboardButtonZoomID, in: zoomNamespace))
                 }
                 #endif
                 #if os(macOS)
-                .sheet(isPresented: $showKeyboard) {
-                    KeyboardView()
-                        .environmentObject(store)
+                .sheet(item: $activeSheet) { sheet in
+                    switch sheet {
+                    case .keyboardManager:
+                        KeyboardView()
+                            .environmentObject(store)
+                    case .keyboardSetup:
+                        KeyboardSetupView()
+                            .environmentObject(store)
+                    default:
+                        EmptyView()
+                    }
                 }
                 #endif
                 #if os(macOS)
-                .onChange(of: newCutlingDraft) { _, draft in
-                    guard let draft else { return }
-                    newCutlingDraft = nil
+                .onChange(of: activeSheet) { _, sheet in
+                    guard case .newCutling(let draft) = sheet else { return }
+                    activeSheet = nil
                     openAddWindow(for: draft.kind)
                 }
                 #endif
@@ -289,10 +293,10 @@ struct MainContentView: View {
                     guard groupDefaults?.string(forKey: "pendingControlAction") == "addFromClipboard" else { return }
                     groupDefaults?.removeObject(forKey: "pendingControlAction")
                     if let string = UIPasteboard.general.string, !string.isEmpty {
-                        newCutlingDraft = NewCutlingDraft(kind: .text, text: string)
+                        activeSheet = .newCutling(NewCutlingDraft(kind: .text, text: string))
                     } else if let image = UIPasteboard.general.image,
                               let data = image.pngData() {
-                        newCutlingDraft = NewCutlingDraft(kind: .image, name: String(localized: "Shared Image"), imageData: data)
+                        activeSheet = .newCutling(NewCutlingDraft(kind: .image, name: String(localized: "Shared Image"), imageData: data))
                     }
                 }
                 #endif
@@ -326,7 +330,7 @@ struct MainContentView: View {
         .modifier(SubtitleModifier(count: store.cutlings.count))
         .searchable(text: $searchText, isPresented: $searchIsPresented, prompt: "Search cutlings")
         #if os(iOS)
-        .toolbar(showBottomBar ? .visible : .hidden, for: .bottomBar)
+        .toolbar(mode != .browsing ? .visible : .hidden, for: .bottomBar)
         #endif
         .toolbar {
             #if os(iOS)
@@ -348,7 +352,7 @@ struct MainContentView: View {
                 if #available(iOS 26, *) {
                     ToolbarItem(placement: .primaryAction) {
                         Button {
-                            showKeyboard = true
+                            activeSheet = .keyboardManager
                         } label: {
                             Image(systemName: "keyboard")
                         }
@@ -358,7 +362,7 @@ struct MainContentView: View {
                 } else {
                     ToolbarItem(placement: .primaryAction) {
                         Button {
-                            showKeyboard = true
+                            activeSheet = .keyboardManager
                         } label: {
                             Image(systemName: "keyboard")
                         }
@@ -369,7 +373,7 @@ struct MainContentView: View {
                 #if os(macOS)
                 ToolbarItem(placement: .primaryAction) {
                     Button {
-                        showKeyboard = true
+                        activeSheet = .keyboardManager
                     } label: {
                         Image(systemName: "keyboard")
                     }
@@ -425,6 +429,12 @@ struct MainContentView: View {
     private var macOSToolbarContent: some View {
         switch mode {
         case .selecting:
+            Button {
+                shareSelectedCutlings()
+            } label: {
+                Label("Share", systemImage: "square.and.arrow.up")
+            }
+            .disabled(selectedIDs.isEmpty)
             Button(role: .destructive) {
                 if !selectedIDs.isEmpty {
                     showDeleteConfirmation = true
@@ -482,7 +492,6 @@ struct MainContentView: View {
         #endif
 
         withAccessibleAnimation {
-            showBottomBar = newValue != .browsing
             if newValue != .browsing {
                 searchText = ""
                 searchIsPresented = false
@@ -653,10 +662,10 @@ struct MainContentView: View {
             Button {
                 let canAddText = store.canAdd(.text)
                 if canAddText.allowed {
-                    newCutlingDraft = NewCutlingDraft(kind: .text)
+                    activeSheet = .newCutling(NewCutlingDraft(kind: .text))
                 } else {
                     limitAlertMessage = canAddText.reason ?? String(localized: "Cannot add text cutling")
-                    showLimitAlert = true
+
                 }
             } label: {
                 Label("Text Cutling", systemImage: "doc.text")
@@ -664,10 +673,10 @@ struct MainContentView: View {
             Button {
                 let canAddImage = store.canAdd(.image)
                 if canAddImage.allowed {
-                    newCutlingDraft = NewCutlingDraft(kind: .image)
+                    activeSheet = .newCutling(NewCutlingDraft(kind: .image))
                 } else {
                     limitAlertMessage = canAddImage.reason ?? String(localized: "Cannot add image cutling")
-                    showLimitAlert = true
+
                 }
             } label: {
                 Label("Image Cutling", systemImage: "photo")
@@ -690,7 +699,7 @@ struct MainContentView: View {
                     openAddWindow(for: .text)
                 } else {
                     limitAlertMessage = canAddText.reason ?? String(localized: "Cannot add text cutling")
-                    showLimitAlert = true
+
                 }
             } label: {
                 Label("Text Cutling", systemImage: "doc.text")
@@ -701,7 +710,7 @@ struct MainContentView: View {
                     openAddWindow(for: .image)
                 } else {
                     limitAlertMessage = canAddImage.reason ?? String(localized: "Cannot add image cutling")
-                    showLimitAlert = true
+
                 }
             } label: {
                 Label("Image Cutling", systemImage: "photo")
@@ -729,14 +738,14 @@ struct MainContentView: View {
             #if os(iOS)
             #if DEBUG
             Button {
-                showKeyboardSetup = true
+                activeSheet = .keyboardSetup
             } label: {
                 Label("Keyboard Setup", systemImage: keyboardNeedsAttention ? "exclamationmark.triangle" : "keyboard.badge.ellipsis")
             }
             #else
             if keyboardNeedsAttention {
                 Button {
-                    showKeyboardSetup = true
+                    activeSheet = .keyboardSetup
                 } label: {
                     Label("Keyboard Setup", systemImage: "exclamationmark.triangle")
                 }
@@ -786,6 +795,12 @@ struct MainContentView: View {
 
     @ViewBuilder
     private var selectingBottomToolbarItems: some View {
+        Button {
+            shareSelectedCutlings()
+        } label: {
+            Image(systemName: "square.and.arrow.up")
+        }
+        .disabled(selectedIDs.isEmpty)
         Spacer()
         Button(role: .destructive) {
             if !selectedIDs.isEmpty {
@@ -1008,6 +1023,56 @@ struct MainContentView: View {
         }
     }
     
+    // MARK: - Share
+
+    private func shareSelectedCutlings() {
+        let selected = store.cutlings.filter { selectedIDs.contains($0.id) }
+        guard !selected.isEmpty else { return }
+
+        var items: [Any] = []
+        for cutling in selected {
+            switch cutling.kind {
+            case .text:
+                items.append(cutling.value)
+            case .image:
+                if let filename = cutling.imageFilename,
+                   let data = store.loadImageData(named: filename) {
+                    #if os(iOS)
+                    if let image = UIImage(data: data) { items.append(image) }
+                    #endif
+                    #if os(macOS)
+                    if let image = NSImage(data: data) { items.append(image) }
+                    #endif
+                }
+            }
+        }
+
+        guard !items.isEmpty else { return }
+
+        #if os(iOS)
+        let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = windowScene.windows.first,
+              var topController = window.rootViewController else { return }
+        while let presented = topController.presentedViewController {
+            topController = presented
+        }
+        activityVC.popoverPresentationController?.sourceView = topController.view
+        activityVC.popoverPresentationController?.sourceRect = CGRect(
+            x: topController.view.bounds.midX,
+            y: topController.view.bounds.midY,
+            width: 0, height: 0
+        )
+        topController.present(activityVC, animated: true)
+        #endif
+        #if os(macOS)
+        let picker = NSSharingServicePicker(items: items)
+        guard let window = NSApp.keyWindow,
+              let contentView = window.contentView else { return }
+        picker.show(relativeTo: .zero, of: contentView, preferredEdge: .minY)
+        #endif
+    }
+
     // MARK: - Scroll to New Item
     
     private func scrollToBottom() {
@@ -1649,7 +1714,6 @@ private struct SubtitleModifier: ViewModifier {
 struct SheetsModifier: ViewModifier {
     @EnvironmentObject var store: CutlingStore
     @Binding var selectedItem: Cutling?
-    @Binding var showKeyboardSetup: Bool
 
     #if os(macOS)
     @Environment(\.openWindow) private var openWindow
@@ -1657,11 +1721,6 @@ struct SheetsModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            #if os(iOS)
-            .sheet(isPresented: $showKeyboardSetup) {
-                KeyboardSetupView()
-            }
-            #endif
             #if os(macOS)
             .onChange(of: selectedItem) { _, newItem in
                 if let item = newItem {
@@ -1674,15 +1733,20 @@ struct SheetsModifier: ViewModifier {
 }
 
 struct AlertsModifier: ViewModifier {
-    @Binding var showLimitAlert: Bool
-    let limitAlertMessage: String
-    
+    @Binding var limitAlertMessage: String?
+
     func body(content: Content) -> some View {
         content
-            .alert("Limit Reached", isPresented: $showLimitAlert) {
+            .alert(
+                "Limit Reached",
+                isPresented: Binding(
+                    get: { limitAlertMessage != nil },
+                    set: { if !$0 { limitAlertMessage = nil } }
+                )
+            ) {
                 Button("OK", role: .cancel) {}
             } message: {
-                Text(limitAlertMessage)
+                Text(limitAlertMessage ?? "")
             }
     }
 }
@@ -1691,7 +1755,7 @@ struct ChangeHandlersModifier: ViewModifier {
     let mode: MainContentMode
     let lastAddedCutlingID: UUID?
     @Binding var selectedItem: Cutling?
-    @Binding var newCutlingDraft: NewCutlingDraft?
+    @Binding var activeSheet: ActiveSheet?
     @Binding var hasScrolledToNew: Bool
     let onModeChange: (MainContentMode) -> Void
     let onScrollToNew: () -> Void
@@ -1728,7 +1792,7 @@ struct ChangeHandlersModifier: ViewModifier {
                 }
             }
             #if os(iOS)
-            .onChange(of: newCutlingDraft) { old, new in
+            .onChange(of: activeSheet) { old, new in
                 if old != nil, new == nil {
                     requestReviewIfAppropriate()
                 }
@@ -1755,7 +1819,7 @@ struct ChangeHandlersModifier: ViewModifier {
 // MARK: - Preview
 
 #Preview {
-    MainContentView(newCutlingDraft: .constant(nil), showKeyboard: .constant(false))
+    MainContentView(activeSheet: .constant(nil))
         .environmentObject(CutlingStore.shared)
     #if os(macOS)
         .frame(width: 400, height: 500)

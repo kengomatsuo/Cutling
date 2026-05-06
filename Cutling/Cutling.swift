@@ -51,6 +51,20 @@ struct NewCutlingDraft: Identifiable, Equatable {
     var imageData: Data? = nil
 }
 
+enum ActiveSheet: Identifiable, Equatable {
+    case newCutling(NewCutlingDraft)
+    case keyboardManager
+    case keyboardSetup
+
+    var id: Int {
+        switch self {
+        case .newCutling: 0
+        case .keyboardManager: 1
+        case .keyboardSetup: 2
+        }
+    }
+}
+
 // MARK: - Input Type Triggers
 
 /// User-facing input type categories that group related UIKeyboardType / UITextContentType values.
