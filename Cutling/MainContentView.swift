@@ -74,12 +74,8 @@ struct MainContentView: View {
     @State private var searchText = ""
     @State private var searchIsPresented = false
     @State private var selectedItem: Cutling? = nil
-    @State private var newCutlingKind: CutlingKind? = nil
-    @State private var prefillName: String = ""
-    @State private var prefillText: String = ""
-    @State private var prefillImageData: Data? = nil
+    @Binding var newCutlingDraft: NewCutlingDraft?
     @Binding var showKeyboard: Bool
-    @Binding var pendingNewCutlingKind: CutlingKind?
     
     @State private var showKeyboardSetup = false
     @State private var showRecentlyDeleted = false
@@ -111,9 +107,9 @@ struct MainContentView: View {
     private let keyboardButtonZoomID = "keyboardButton"
     #endif
 
-    init(showKeyboard: Binding<Bool> = .constant(false), pendingNewCutlingKind: Binding<CutlingKind?> = .constant(nil)) {
+    init(newCutlingDraft: Binding<NewCutlingDraft?> = .constant(nil), showKeyboard: Binding<Bool> = .constant(false)) {
+        _newCutlingDraft = newCutlingDraft
         _showKeyboard = showKeyboard
-        _pendingNewCutlingKind = pendingNewCutlingKind
     }
     
     // MARK: - Keyboard Status
@@ -223,7 +219,7 @@ struct MainContentView: View {
                     mode: mode,
                     lastAddedCutlingID: store.lastAddedCutlingID,
                     selectedItem: $selectedItem,
-                    newCutlingKind: $newCutlingKind,
+                    newCutlingDraft: $newCutlingDraft,
                     hasScrolledToNew: $hasScrolledToNew,
                     onModeChange: handleModeChange,
                     onScrollToNew: scrollToBottom
@@ -258,21 +254,16 @@ struct MainContentView: View {
                     }
                     .navigationTransition(.zoom(sourceID: item.id, in: zoomNamespace))
                 }
-                .sheet(item: $newCutlingKind) { kind in
+                .sheet(item: $newCutlingDraft) { draft in
                     Group {
-                        switch kind {
+                        switch draft.kind {
                         case .text:
-                            TextDetailView(item: nil, initialName: prefillName, initialValue: prefillText, presentedAsSheet: true)
+                            TextDetailView(item: nil, initialName: draft.name, initialValue: draft.text, presentedAsSheet: true)
                         case .image:
-                            ImageDetailView(item: nil, initialName: prefillName, initialImageData: prefillImageData, presentedAsSheet: true)
+                            ImageDetailView(item: nil, initialName: draft.name, initialImageData: draft.imageData, presentedAsSheet: true)
                         }
                     }
                     .navigationTransition(.zoom(sourceID: addButtonZoomID, in: zoomNamespace))
-                    .onDisappear {
-                        prefillName = ""
-                        prefillText = ""
-                        prefillImageData = nil
-                    }
                 }
                 .sheet(isPresented: $showKeyboard) {
                     KeyboardView()
@@ -285,35 +276,23 @@ struct MainContentView: View {
                         .environmentObject(store)
                 }
                 #endif
-                .onChange(of: pendingNewCutlingKind) { _, kind in
-                    guard let kind else { return }
-                    pendingNewCutlingKind = nil
-                    let canAdd = store.canAdd(kind)
-                    if canAdd.allowed {
-                        #if os(iOS)
-                        newCutlingKind = kind
-                        #endif
-                        #if os(macOS)
-                        openAddWindow(for: kind)
-                        #endif
-                    } else {
-                        limitAlertMessage = canAdd.reason ?? String(localized: "Cannot add more cutlings.")
-                        showLimitAlert = true
-                    }
+                #if os(macOS)
+                .onChange(of: newCutlingDraft) { _, draft in
+                    guard let draft else { return }
+                    newCutlingDraft = nil
+                    openAddWindow(for: draft.kind)
                 }
+                #endif
                 #if os(iOS)
                 .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
                     let groupDefaults = UserDefaults(suiteName: "group.com.matsuokengo.Cutling")
                     guard groupDefaults?.string(forKey: "pendingControlAction") == "addFromClipboard" else { return }
                     groupDefaults?.removeObject(forKey: "pendingControlAction")
                     if let string = UIPasteboard.general.string, !string.isEmpty {
-                        prefillText = string
-                        newCutlingKind = .text
+                        newCutlingDraft = NewCutlingDraft(kind: .text, text: string)
                     } else if let image = UIPasteboard.general.image,
                               let data = image.pngData() {
-                        prefillName = String(localized: "Shared Image")
-                        prefillImageData = data
-                        newCutlingKind = .image
+                        newCutlingDraft = NewCutlingDraft(kind: .image, name: String(localized: "Shared Image"), imageData: data)
                     }
                 }
                 #endif
@@ -674,7 +653,7 @@ struct MainContentView: View {
             Button {
                 let canAddText = store.canAdd(.text)
                 if canAddText.allowed {
-                    newCutlingKind = .text
+                    newCutlingDraft = NewCutlingDraft(kind: .text)
                 } else {
                     limitAlertMessage = canAddText.reason ?? String(localized: "Cannot add text cutling")
                     showLimitAlert = true
@@ -685,7 +664,7 @@ struct MainContentView: View {
             Button {
                 let canAddImage = store.canAdd(.image)
                 if canAddImage.allowed {
-                    newCutlingKind = .image
+                    newCutlingDraft = NewCutlingDraft(kind: .image)
                 } else {
                     limitAlertMessage = canAddImage.reason ?? String(localized: "Cannot add image cutling")
                     showLimitAlert = true
@@ -1712,7 +1691,7 @@ struct ChangeHandlersModifier: ViewModifier {
     let mode: MainContentMode
     let lastAddedCutlingID: UUID?
     @Binding var selectedItem: Cutling?
-    @Binding var newCutlingKind: CutlingKind?
+    @Binding var newCutlingDraft: NewCutlingDraft?
     @Binding var hasScrolledToNew: Bool
     let onModeChange: (MainContentMode) -> Void
     let onScrollToNew: () -> Void
@@ -1748,11 +1727,13 @@ struct ChangeHandlersModifier: ViewModifier {
                     requestReviewIfAppropriate()
                 }
             }
-            .onChange(of: newCutlingKind) { old, new in
+            #if os(iOS)
+            .onChange(of: newCutlingDraft) { old, new in
                 if old != nil, new == nil {
                     requestReviewIfAppropriate()
                 }
             }
+            #endif
     }
 
     private func requestReviewIfAppropriate() {
@@ -1774,7 +1755,7 @@ struct ChangeHandlersModifier: ViewModifier {
 // MARK: - Preview
 
 #Preview {
-    MainContentView(showKeyboard: .constant(false), pendingNewCutlingKind: .constant(nil))
+    MainContentView(newCutlingDraft: .constant(nil), showKeyboard: .constant(false))
         .environmentObject(CutlingStore.shared)
     #if os(macOS)
         .frame(width: 400, height: 500)

@@ -39,8 +39,16 @@ import AppKit
 enum CutlingKind: String, Codable, Sendable, Identifiable {
     case text
     case image
-    
+
     var id: String { rawValue }
+}
+
+struct NewCutlingDraft: Identifiable, Equatable {
+    let id = UUID()
+    let kind: CutlingKind
+    var name: String = ""
+    var text: String = ""
+    var imageData: Data? = nil
 }
 
 // MARK: - Input Type Triggers

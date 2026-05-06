@@ -146,8 +146,10 @@ struct CutlingApp: App {
     #endif
     @StateObject private var store = CutlingStore.shared
     @State private var showKeyboard = false
-    @State private var pendingNewCutlingKind: CutlingKind?
+    @State private var newCutlingDraft: NewCutlingDraft?
     @State private var showOnboarding = false
+    @State private var showLimitAlert = false
+    @State private var limitAlertMessage = ""
     @Environment(\.scenePhase) private var scenePhase
 
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
@@ -191,7 +193,7 @@ struct CutlingApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainContentView(showKeyboard: $showKeyboard, pendingNewCutlingKind: $pendingNewCutlingKind)
+            MainContentView(newCutlingDraft: $newCutlingDraft, showKeyboard: $showKeyboard)
                 .environmentObject(store)
                 .onAppear {
                     #if DEBUG
@@ -247,9 +249,9 @@ struct CutlingApp: App {
                     case "keyboard":
                         showKeyboard = true
                     case "addText":
-                        pendingNewCutlingKind = .text
+                        requestNewCutling(NewCutlingDraft(kind: .text))
                     case "addImage":
-                        pendingNewCutlingKind = .image
+                        requestNewCutling(NewCutlingDraft(kind: .image))
                     default:
                         break
                     }
@@ -279,6 +281,11 @@ struct CutlingApp: App {
                     KeyboardSetupView()
                 }
                 #endif
+                .alert("Limit Reached", isPresented: $showLimitAlert) {
+                    Button("OK", role: .cancel) {}
+                } message: {
+                    Text(limitAlertMessage)
+                }
         }
         #if os(macOS)
         .defaultSize(width: 700, height: 550)
@@ -326,9 +333,9 @@ struct CutlingApp: App {
         guard hasCompletedSetup else { return }
         switch type {
         case "com.matsuokengo.Cutling.addText":
-            pendingNewCutlingKind = .text
+            requestNewCutling(NewCutlingDraft(kind: .text))
         case "com.matsuokengo.Cutling.addImage":
-            pendingNewCutlingKind = .image
+            requestNewCutling(NewCutlingDraft(kind: .image))
         default:
             break
         }
@@ -341,15 +348,27 @@ struct CutlingApp: App {
         switch action {
         case "newText":
             groupDefaults?.removeObject(forKey: "pendingControlAction")
-            pendingNewCutlingKind = .text
+            requestNewCutling(NewCutlingDraft(kind: .text))
         case "newImage":
             groupDefaults?.removeObject(forKey: "pendingControlAction")
-            pendingNewCutlingKind = .image
+            requestNewCutling(NewCutlingDraft(kind: .image))
         default:
             break
         }
     }
     #endif
+
+    // MARK: - Add Cutling
+
+    private func requestNewCutling(_ draft: NewCutlingDraft) {
+        let canAdd = store.canAdd(draft.kind)
+        if canAdd.allowed {
+            newCutlingDraft = draft
+        } else {
+            limitAlertMessage = canAdd.reason ?? String(localized: "Cannot add more cutlings.")
+            showLimitAlert = true
+        }
+    }
 
     // MARK: - Preferences Sync
 
