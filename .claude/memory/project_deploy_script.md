@@ -17,6 +17,10 @@ originSessionId: ebe753d6-b48d-4160-952d-6a3d002d01fd
 
 **CRITICAL: Before running `release_notes`, always generate the English source first.** See `project_release_notes.md` for the full workflow (check version, diff commits, write en-US release_notes.txt, then translate).
 
-iOS deploy subcommands: `release_notes`, `metadata`, `screenshots`, `frame`, `upload_screenshots`, `build`, `all`.
+iOS deploy subcommands: `release_notes`, `metadata`, `snap`, `snap_all`, `frame`, `screenshots`, `upload`, `build`, `all`.
+- `snap` / `snap_all` — capture screenshots (missing only / all from scratch)
+- `frame` — add device bezels and marketing text via frameit
+- `screenshots` — upload framed screenshots to App Store Connect (replaces raw with framed, then uploads)
+- `upload` — upload metadata + framed screenshots together
 
 **Python venv:** `docs/_generator/.venv` — required for `release_notes` step (`deep-translator` package). If missing, create with: `python3 -m venv docs/_generator/.venv && source docs/_generator/.venv/bin/activate && pip install deep-translator`

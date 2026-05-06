@@ -134,9 +134,9 @@ final class CutlingUITests: XCTestCase {
         XCTAssertTrue(cardAppeared, "Seed data cards did not appear")
         sleep(1)
 
-        log("S1: Taking screenshot 01_MainGrid")
-        snapshot("01_MainGrid")
-        log("S1: Screenshot 01 done")
+        log("S1: Taking screenshot 02_MainGrid")
+        snapshot("02_MainGrid")
+        log("S1: Screenshot 02 done")
 
         // ── Screenshot 2: Detail View ────────────────────────────
         log("S2: Long-pressing first card for context menu")
@@ -156,9 +156,9 @@ final class CutlingUITests: XCTestCase {
         log("S2: detailView visible=\(detailVisible)")
         XCTAssertTrue(detailVisible, "Detail view not visible for screenshot 2")
 
-        log("S2: Taking screenshot 02_DetailView")
-        snapshot("02_DetailView")
-        log("S2: Screenshot 02 done")
+        log("S2: Taking screenshot 03_DetailView")
+        snapshot("03_DetailView")
+        log("S2: Screenshot 03 done")
 
         log("S2: Navigating back to grid")
         let backButton = app.navigationBars.buttons.firstMatch
@@ -185,9 +185,9 @@ final class CutlingUITests: XCTestCase {
         log("S3: settingsView visible=\(settingsVisible)")
         XCTAssertTrue(settingsVisible, "Settings view not visible for screenshot 3")
 
-        log("S3: Taking screenshot 03_KeyboardSettings")
-        snapshot("03_KeyboardSettings")
-        log("S3: Screenshot 03 done")
+        log("S3: Taking screenshot 05_KeyboardSettings")
+        snapshot("05_KeyboardSettings")
+        log("S3: Screenshot 05 done")
 
         // ── Screenshot 4: Keyboard Test Page ─────────────────────
         log("S4: Looking for keyboardSetupGuide button")
@@ -252,9 +252,9 @@ final class CutlingUITests: XCTestCase {
         log("S4: testPage visible=\(testPageVisible)")
         XCTAssertTrue(testPageVisible, "Test page not visible for screenshot 4")
 
-        log("S4: Taking screenshot 04_KeyboardInMessages")
-        snapshot("04_KeyboardInMessages")
-        log("S4: Screenshot 04 done")
+        log("S4: Taking screenshot 01_KeyboardInMessages")
+        snapshot("01_KeyboardInMessages")
+        log("S4: Screenshot 01 done")
 
         // ── Screenshot 5: How to Use Your Keyboard ───────────────
         // Always dismiss keyboard by tapping header area — the Return key
@@ -287,9 +287,9 @@ final class CutlingUITests: XCTestCase {
         log("S5: howToUsePage visible=\(howToUseVisible)")
         XCTAssertTrue(howToUseVisible, "How to Use page not visible for screenshot 5")
 
-        log("S5: Taking screenshot 05_KeyboardGuide")
-        snapshot("05_KeyboardGuide")
-        log("S5: Screenshot 05 done")
+        log("S5: Taking screenshot 04_KeyboardGuide")
+        snapshot("04_KeyboardGuide")
+        log("S5: Screenshot 04 done")
 
         log("========== TEST COMPLETE ==========")
     }

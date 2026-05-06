@@ -144,6 +144,18 @@ end
 default_platform(:ios)
 
 platform :ios do
+  def use_framed_screenshots
+    screenshots_dir = File.join(__dir__, "screenshots")
+    framed = Dir.glob(File.join(screenshots_dir, "**/*_framed.png"))
+    UI.user_error!("No framed screenshots found. Run `frame` first.") if framed.empty?
+    framed.each do |framed_path|
+      raw_path = framed_path.sub("_framed.png", ".png")
+      File.delete(raw_path) if File.exist?(raw_path)
+      File.rename(framed_path, raw_path)
+    end
+    UI.message("Prepared #{framed.size} framed screenshots for upload")
+  end
+
   desc "Clear all screenshots and recapture from scratch"
   lane :screenshots do
     snapshot(
@@ -208,9 +220,9 @@ platform :ios do
     )
   end
 
-  desc "Upload screenshots only to App Store Connect"
+  desc "Upload framed screenshots only to App Store Connect"
   lane :upload_screenshots do
-    Dir.glob(File.join(__dir__, "screenshots/**/*_framed.png")).each { |f| File.delete(f) }
+    use_framed_screenshots
     deliver(
       skip_binary_upload: true,
       skip_metadata: true,
@@ -219,13 +231,14 @@ platform :ios do
     )
   end
 
-  desc "Upload metadata and screenshots to App Store Connect"
+  desc "Upload metadata and framed screenshots to App Store Connect"
   lane :upload do
-    Dir.glob(File.join(__dir__, "screenshots/**/*_framed.png")).each { |f| File.delete(f) }
+    use_framed_screenshots
     ensure_locale_url_files
     add_new_locales
 
     deliver(
+      ignore_language_directory_validation: true,
       skip_binary_upload: true,
       force: true
     )

@@ -20,20 +20,19 @@ Commands:
   all               Full pipeline: metadata + screenshots + build + upload
   release_notes     Translate release notes from en-US to all languages
   metadata          Upload metadata to App Store Connect (all languages)
-  screenshots       Capture missing screenshots only
-  screenshots_all   Clear all screenshots and recapture from scratch
+  snap [--all]      Capture screenshots (missing only, or --all from scratch)
   frame             Add device bezels and marketing text to screenshots
-  upload_screenshots Upload screenshots to App Store Connect
-  upload            Upload metadata + screenshots together
+  screenshots       Upload framed screenshots to App Store Connect
+  upload            Upload metadata + framed screenshots together
   build             Build IPA for App Store
   help              Show this help
 
 Individual steps (run in order for a full deploy):
   1. ./deploy.sh release_notes
   2. ./deploy.sh metadata
-  3. ./deploy.sh screenshots
+  3. ./deploy.sh snap [--all]
   4. ./deploy.sh frame
-  5. ./deploy.sh upload_screenshots
+  5. ./deploy.sh screenshots
   6. ./deploy.sh build
 EOF
 }
@@ -78,10 +77,15 @@ case "${1:-help}" in
   all)              $FASTLANE ios deploy ;;
   release_notes)    source "$VENV" && python3 translate_release_notes.py ;;
   metadata)         $FASTLANE ios upload_metadata ;;
-  screenshots)      $FASTLANE ios new_screenshots ;;
-  screenshots_all)  $FASTLANE ios screenshots ;;
+  snap)
+    if [ "${2:-}" = "--all" ]; then
+      $FASTLANE ios screenshots
+    else
+      $FASTLANE ios new_screenshots
+    fi
+    ;;
   frame)            $FASTLANE ios frame ;;
-  upload_screenshots) $FASTLANE ios upload_screenshots ;;
+  screenshots)      $FASTLANE ios upload_screenshots ;;
   upload)           $FASTLANE ios upload ;;
   build)            $FASTLANE ios build ;;
   help|*)           usage ;;
