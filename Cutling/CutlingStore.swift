@@ -16,7 +16,8 @@ import CryptoKit
 #if os(iOS)
 import UIKit
 import SwiftUI
-#else
+#endif
+#if os(macOS)
 import AppKit
 import SwiftUI
 #endif
@@ -70,7 +71,8 @@ class CutlingStore: ObservableObject {
     // CRITICAL: Memory-efficient image cache with automatic eviction
     #if os(iOS)
     private var thumbnailCache = NSCache<NSString, UIImage>()
-    #else
+    #endif
+    #if os(macOS)
     private var thumbnailCache = NSCache<NSString, NSImage>()
     #endif
     
@@ -584,7 +586,8 @@ class CutlingStore: ObservableObject {
         
         return thumbnail
     }
-    #else
+    #endif
+    #if os(macOS)
     func loadThumbnail(named filename: String) -> NSImage? {
         // Check cache first
         if let cached = thumbnailCache.object(forKey: filename as NSString) {

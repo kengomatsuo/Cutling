@@ -14,7 +14,8 @@ import StoreKit
 
 #if os(iOS)
 import UIKit
-#else
+#endif
+#if os(macOS)
 import AppKit
 #endif
 
@@ -43,7 +44,8 @@ extension Image {
         self.init(uiImage: platformImage)
     }
 }
-#else
+#endif
+#if os(macOS)
 func loadPlatformImage(from data: Data) -> NSImage? {
     NSImage(data: data)
 }
@@ -72,8 +74,6 @@ struct MainContentView: View {
     @State private var searchText = ""
     @State private var searchIsPresented = false
     @State private var selectedItem: Cutling? = nil
-    @State private var showAddText = false
-    @State private var showAddImage = false
     @State private var newCutlingKind: CutlingKind? = nil
     @State private var prefillName: String = ""
     @State private var prefillText: String = ""
@@ -94,8 +94,10 @@ struct MainContentView: View {
     @State private var panGesture: UIPanGestureRecognizer?
     @State private var selectionProperties: SelectionProperties = .init()
     @State private var scrollProperties: ScrollProperties = .init()
-    #else
-    // macOS doesn't use pan gesture selection, so just keep a simple set
+    #endif
+
+    #if os(macOS)
+    @Environment(\.openWindow) private var openWindow
     @State private var selectedCutlingIDs: Set<UUID> = []
     @State private var menuCommands = MainContentCommands()
     #endif
@@ -135,7 +137,8 @@ struct MainContentView: View {
     #if os(iOS)
     let columns = [GridItem(.adaptive(minimum: 160, maximum: 240), spacing: 12)]
     private let cardHeight: CGFloat = 140
-    #else
+    #endif
+    #if os(macOS)
     let columns = [GridItem(.adaptive(minimum: 180, maximum: 280), spacing: 14)]
     private let cardHeight: CGFloat = 160
     #endif
@@ -188,10 +191,20 @@ struct MainContentView: View {
     private var selectedIDs: Set<UUID> {
         #if os(iOS)
         selectionProperties.selectedIDs
-        #else
+        #endif
+        #if os(macOS)
         selectedCutlingIDs
         #endif
     }
+
+    #if os(macOS)
+    private func openAddWindow(for kind: CutlingKind) {
+        switch kind {
+        case .text: openWindow(id: "addText")
+        case .image: openWindow(id: "addImage")
+        }
+    }
+    #endif
 
     // MARK: - Body
 
@@ -200,8 +213,6 @@ struct MainContentView: View {
             mainContent
                 .modifier(SheetsModifier(
                     selectedItem: $selectedItem,
-                    showAddText: $showAddText,
-                    showAddImage: $showAddImage,
                     showKeyboardSetup: $showKeyboardSetup
                 ))
                 .modifier(AlertsModifier(
@@ -281,11 +292,9 @@ struct MainContentView: View {
                     if canAdd.allowed {
                         #if os(iOS)
                         newCutlingKind = kind
-                        #else
-                        switch kind {
-                        case .text: showAddText = true
-                        case .image: showAddImage = true
-                        }
+                        #endif
+                        #if os(macOS)
+                        openAddWindow(for: kind)
                         #endif
                     } else {
                         limitAlertMessage = canAdd.reason ?? String(localized: "Cannot add more cutlings.")
@@ -327,7 +336,8 @@ struct MainContentView: View {
                 .padding(-50)
                 .ignoresSafeArea()
         }
-        #else
+        #endif
+        #if os(macOS)
         .background(.background)
         #endif
         .navigationTitle("Cutlings")
@@ -376,7 +386,8 @@ struct MainContentView: View {
                         .accessibilityIdentifier("keyboardToolbarButton")
                     }
                 }
-                #else
+                #endif
+                #if os(macOS)
                 ToolbarItem(placement: .primaryAction) {
                     Button {
                         showKeyboard = true
@@ -395,7 +406,8 @@ struct MainContentView: View {
             ToolbarItemGroup(placement: .bottomBar) {
                 bottomToolbarContent
             }
-            #else
+            #endif
+            #if os(macOS)
             ToolbarItemGroup(placement: .automatic) {
                 macOSToolbarContent
             }
@@ -483,7 +495,8 @@ struct MainContentView: View {
         if newValue != .selecting {
             selectionProperties = .init()
         }
-        #else
+        #endif
+        #if os(macOS)
         if newValue != .selecting {
             selectedCutlingIDs.removeAll()
         }
@@ -542,7 +555,8 @@ struct MainContentView: View {
         #if os(iOS)
         .environment(\.editMode, .constant(.active))
         .listStyle(.insetGrouped)
-        #else
+        #endif
+        #if os(macOS)
         .listStyle(.inset)
         #endif
     }
@@ -574,7 +588,8 @@ struct MainContentView: View {
                         let isMarkedForDeletion: Bool = {
                             #if os(iOS)
                             selectionProperties.toBeDeletedIDs.contains(item.id)
-                            #else
+                            #endif
+                            #if os(macOS)
                             false
                             #endif
                         }()
@@ -693,7 +708,7 @@ struct MainContentView: View {
             Button {
                 let canAddText = store.canAdd(.text)
                 if canAddText.allowed {
-                    showAddText = true
+                    openAddWindow(for: .text)
                 } else {
                     limitAlertMessage = canAddText.reason ?? String(localized: "Cannot add text cutling")
                     showLimitAlert = true
@@ -704,7 +719,7 @@ struct MainContentView: View {
             Button {
                 let canAddImage = store.canAdd(.image)
                 if canAddImage.allowed {
-                    showAddImage = true
+                    openAddWindow(for: .image)
                 } else {
                     limitAlertMessage = canAddImage.reason ?? String(localized: "Cannot add image cutling")
                     showLimitAlert = true
@@ -982,7 +997,8 @@ struct MainContentView: View {
         }
         // Commit after tap, just like the reference
         selectionProperties.previousIDs = selectionProperties.selectedIDs
-        #else
+        #endif
+        #if os(macOS)
         if selectedCutlingIDs.contains(cutling.id) {
             selectedCutlingIDs.remove(cutling.id)
         } else {
@@ -1005,7 +1021,8 @@ struct MainContentView: View {
         Task { @MainActor in
             #if os(iOS)
             selectionProperties = .init()
-            #else
+            #endif
+            #if os(macOS)
             selectedCutlingIDs.removeAll()
             #endif
             mode = .browsing
@@ -1019,7 +1036,8 @@ struct MainContentView: View {
         withAccessibleAnimation(.spring(duration: 0.5, bounce: 0.3)) {
             scrollProperties.position.scrollTo(edge: .bottom)
         }
-        #else
+        #endif
+        #if os(macOS)
         // On macOS, we can use the same approach if needed
         // For now, the list is typically smaller and visible
         #endif
@@ -1129,7 +1147,8 @@ struct CardView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
             #if os(iOS)
             .background(Color(uiColor: .secondarySystemGroupedBackground))
-            #else
+            #endif
+            #if os(macOS)
             .background(.background.secondary)
             #endif
             .contentShape(cardShape)
@@ -1147,7 +1166,8 @@ struct CardView: View {
             } preview: {
                 previewContent
             }
-            #else
+            #endif
+            #if os(macOS)
             .contextMenu {
                 cardContextMenu
             }
@@ -1446,7 +1466,8 @@ struct CardView: View {
         case .text:
             #if os(iOS)
             UIPasteboard.general.string = item.value
-            #else
+            #endif
+            #if os(macOS)
             NSPasteboard.general.clearContents()
             NSPasteboard.general.setString(item.value, forType: .string)
             #endif
@@ -1458,7 +1479,8 @@ struct CardView: View {
                 if let uiImage = UIImage(data: data) {
                     UIPasteboard.general.image = uiImage
                 }
-                #else
+                #endif
+                #if os(macOS)
                 if let nsImage = NSImage(data: data) {
                     NSPasteboard.general.clearContents()
                     NSPasteboard.general.writeObjects([nsImage])
@@ -1470,7 +1492,8 @@ struct CardView: View {
         copied = true
         #if os(iOS)
         UIAccessibility.post(notification: .announcement, argument: String(localized: "Copied"))
-        #else
+        #endif
+        #if os(macOS)
         NSAccessibility.post(element: NSApp as Any, notification: .valueChanged)
         #endif
         Task {
@@ -1489,7 +1512,8 @@ struct CardView: View {
             #if os(iOS)
             guard let image = UIImage(data: data) else { return }
             presentShareSheet(items: [image])
-            #else
+            #endif
+            #if os(macOS)
             guard let image = NSImage(data: data) else { return }
             presentShareSheet(items: [image])
             #endif
@@ -1512,7 +1536,8 @@ struct CardView: View {
             width: 0, height: 0
         )
         topController.present(activityVC, animated: true)
-        #else
+        #endif
+        #if os(macOS)
         let picker = NSSharingServicePicker(items: items)
         guard let window = NSApp.keyWindow,
               let contentView = window.contentView else { return }
@@ -1595,7 +1620,8 @@ struct CutlingInfoView: View {
                         } else {
                             Text("Done")
                         }
-                        #else
+                        #endif
+                        #if os(macOS)
                         Text("Done")
                         #endif
                     }
@@ -1629,7 +1655,8 @@ private struct SubtitleModifier: ViewModifier {
         #if os(macOS)
         content
             .navigationSubtitle("\(count) Cutlings")
-        #else
+        #endif
+        #if os(iOS)
         if #available(iOS 26, *) {
             content
                 .navigationSubtitle("\(count) Cutlings")
@@ -1643,8 +1670,6 @@ private struct SubtitleModifier: ViewModifier {
 struct SheetsModifier: ViewModifier {
     @EnvironmentObject var store: CutlingStore
     @Binding var selectedItem: Cutling?
-    @Binding var showAddText: Bool
-    @Binding var showAddImage: Bool
     @Binding var showKeyboardSetup: Bool
 
     #if os(macOS)
@@ -1663,18 +1688,6 @@ struct SheetsModifier: ViewModifier {
                 if let item = newItem {
                     openWindow(id: "editCutling", value: item.id)
                     selectedItem = nil
-                }
-            }
-            .onChange(of: showAddText) { _, show in
-                if show {
-                    openWindow(id: "addText")
-                    showAddText = false
-                }
-            }
-            .onChange(of: showAddImage) { _, show in
-                if show {
-                    openWindow(id: "addImage")
-                    showAddImage = false
                 }
             }
             #endif

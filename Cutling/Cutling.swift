@@ -14,7 +14,8 @@ import NaturalLanguage
 import SwiftUI
 #if os(iOS)
 import UIKit
-#else
+#endif
+#if os(macOS)
 import AppKit
 #endif
 
@@ -26,7 +27,8 @@ import AppKit
     if UIAccessibility.isReduceMotionEnabled {
         return try withAnimation(.easeOut(duration: 0.15), body)
     }
-    #else
+    #endif
+    #if os(macOS)
     if NSWorkspace.shared.accessibilityDisplayShouldReduceMotion {
         return try withAnimation(.easeOut(duration: 0.15), body)
     }

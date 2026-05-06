@@ -15,7 +15,8 @@ import UniformTypeIdentifiers
 
 #if os(iOS)
 import UIKit
-#else
+#endif
+#if os(macOS)
 import AppKit
 #endif
 
@@ -184,7 +185,8 @@ struct ImageDetailView: View {
                     }
                 }
         }
-        #else
+        #endif
+        #if os(iOS)
         if presentedAsSheet {
             NavigationStack {
                 formContent
@@ -269,7 +271,8 @@ struct ImageDetailView: View {
                 .disabled(undoManager?.canUndo != true)
             }
         }
-        #else
+        #endif
+        #if os(macOS)
         undoRedoToolbarContent
         #endif
     }
@@ -469,7 +472,8 @@ struct ImageDetailView: View {
                 Label("Choose File", systemImage: "folder")
             }
         }
-        #else
+        #endif
+        #if os(iOS)
         PhotosPicker(selection: $selectedPhoto, matching: .images) {
             Label("Choose from Photos", systemImage: "photo.on.rectangle")
         }
@@ -535,7 +539,8 @@ struct ImageDetailView: View {
     private func checkClipboard() {
         #if os(iOS)
         hasClipboardImage = UIPasteboard.general.hasImages
-        #else
+        #endif
+        #if os(macOS)
         hasClipboardImage = NSPasteboard.general.canReadObject(forClasses: [NSImage.self], options: nil)
         #endif
     }
@@ -555,7 +560,8 @@ struct ImageDetailView: View {
             // Fallback: convert UIImage to PNG or JPEG
             newData = image.pngData() ?? image.jpegData(compressionQuality: 1.0)
         }
-        #else
+        #endif
+        #if os(macOS)
         // macOS: try to get raw data first
         if let data = NSPasteboard.general.data(forType: NSPasteboard.PasteboardType(UTType.gif.identifier)) {
             newData = data

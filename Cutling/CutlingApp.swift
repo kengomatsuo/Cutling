@@ -238,7 +238,8 @@ struct CutlingApp: App {
                     case "settings":
                         #if os(macOS)
                         NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
-                        #else
+                        #endif
+                        #if os(iOS)
                         if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
                             UIApplication.shared.open(settingsURL)
                         }

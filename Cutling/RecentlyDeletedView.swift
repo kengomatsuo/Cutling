@@ -24,7 +24,8 @@ struct RecentlyDeletedView: View {
     #if os(iOS)
     let columns = [GridItem(.adaptive(minimum: 160, maximum: 240), spacing: 12)]
     private let cardHeight: CGFloat = 140
-    #else
+    #endif
+    #if os(macOS)
     let columns = [GridItem(.adaptive(minimum: 180, maximum: 280), spacing: 14)]
     private let cardHeight: CGFloat = 160
     #endif
@@ -62,7 +63,8 @@ struct RecentlyDeletedView: View {
                 .padding(-50)
                 .ignoresSafeArea()
         }
-        #else
+        #endif
+        #if os(macOS)
         .background(.background)
         #endif
         .navigationTitle("Recently Deleted")
@@ -146,7 +148,8 @@ struct RecentlyDeletedView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         #if os(iOS)
         .background(Color(uiColor: .secondarySystemGroupedBackground))
-        #else
+        #endif
+        #if os(macOS)
         .background(.background.secondary)
         #endif
         .contentShape(cardShape)
@@ -174,7 +177,8 @@ struct RecentlyDeletedView: View {
         } preview: {
             deletedPreviewContent(item)
         }
-        #else
+        #endif
+        #if os(macOS)
         .contextMenu {
             Button {
                 withAccessibleAnimation(.spring(duration: 0.35, bounce: 0.2)) {
@@ -339,7 +343,8 @@ struct RecentlyDeletedView: View {
                 .frame(width: size.width, height: size.height)
                 .clipped()
         }
-        #else
+        #endif
+        #if os(macOS)
         if let thumbnail = store.loadThumbnail(named: filename) {
             Image(nsImage: thumbnail)
                 .resizable()

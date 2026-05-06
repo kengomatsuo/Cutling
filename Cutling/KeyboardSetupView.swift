@@ -69,7 +69,8 @@ struct KeyboardSetupView: View {
         let bundleID = Bundle.main.bundleIdentifier ?? ""
         let keyboards = UserDefaults.standard.stringArray(forKey: "AppleKeyboards") ?? []
         return keyboards.contains(where: { $0.hasPrefix(bundleID) })
-        #else
+        #endif
+        #if os(macOS)
         return false
         #endif
     }
@@ -120,7 +121,8 @@ struct KeyboardSetupView: View {
         NavigationStack {
             #if os(iOS)
             pagedContent
-            #else
+            #endif
+            #if os(macOS)
             macOSFormContent
             #endif
         }

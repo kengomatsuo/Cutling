@@ -96,7 +96,8 @@ struct TextDetailView: View {
                     }
                 }
         }
-        #else
+        #endif
+        #if os(iOS)
         if presentedAsSheet {
             NavigationStack {
                 formContent
@@ -181,7 +182,8 @@ struct TextDetailView: View {
                 .disabled(undoManager?.canUndo != true)
             }
         }
-        #else
+        #endif
+        #if os(macOS)
         undoRedoToolbarContent
         #endif
     }
@@ -223,7 +225,8 @@ struct TextDetailView: View {
                         showIconPicker = true
                     }
                 }
-                #else
+                #endif
+                #if os(iOS)
                 Button {
                     showIconPicker = true
                 } label: {
@@ -480,7 +483,8 @@ struct TextDetailView: View {
         // called either by the user tapping "Paste from Clipboard" or after
         // the delayed auto-paste.
         hasClipboardText = UIPasteboard.general.hasStrings
-        #else
+        #endif
+        #if os(macOS)
         if let text = NSPasteboard.general.string(forType: .string) {
             hasClipboardText = !text.isEmpty
         } else {
@@ -495,7 +499,8 @@ struct TextDetailView: View {
         if let text = UIPasteboard.general.string, !text.isEmpty {
             newText = text
         }
-        #else
+        #endif
+        #if os(macOS)
         if let text = NSPasteboard.general.string(forType: .string), !text.isEmpty {
             newText = text
         }
