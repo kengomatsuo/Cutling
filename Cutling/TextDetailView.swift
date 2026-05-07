@@ -308,6 +308,7 @@ struct TextDetailView: View {
                         }
                         dismiss()
                     }
+                    .frame(maxWidth: .infinity, alignment: .center)
                 }
             }
         }
