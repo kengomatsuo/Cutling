@@ -52,7 +52,7 @@ struct NewCutlingDraft: Identifiable, Equatable {
 }
 
 enum ActiveSheet: Identifiable, Equatable {
-    case newCutling(NewCutlingDraft)
+    case newCutling
     case keyboardManager
     case keyboardSetup
 
