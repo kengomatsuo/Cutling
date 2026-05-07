@@ -393,6 +393,15 @@ struct CutlingApp: App {
     // MARK: - iCloud Sync
 
     private func configureSyncIfNeeded() {
+        // Restore from iCloud KVS if local UserDefaults was reset (e.g. after reinstall)
+        if !iCloudSyncEnabled {
+            let kvs = NSUbiquitousKeyValueStore.default
+            kvs.synchronize()
+            if kvs.bool(forKey: "iCloudSyncEnabled") {
+                iCloudSyncEnabled = true
+                return
+            }
+        }
         if iCloudSyncEnabled {
             startSync()
         }
@@ -404,6 +413,7 @@ struct CutlingApp: App {
         Task { await manager.start() }
         // Mirror to app group so the keyboard extension can read it
         UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(true, forKey: "iCloudSyncEnabled")
+        NSUbiquitousKeyValueStore.default.set(true, forKey: "iCloudSyncEnabled")
     }
 
     private func stopSync() {
@@ -413,6 +423,7 @@ struct CutlingApp: App {
         store.syncManager = nil
         store.isSyncing = false
         UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(false, forKey: "iCloudSyncEnabled")
+        NSUbiquitousKeyValueStore.default.set(false, forKey: "iCloudSyncEnabled")
     }
 
     private var currentAppVersion: String {
