@@ -261,7 +261,36 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
     /// Resolves the stored color key to a SwiftUI Color, falling back to the app tint.
     var tintColor: Color {
         guard let color else { return Self.defaultTint }
-        return Self.palette[color] ?? Self.defaultTint
+        if let paletteColor = Self.palette[color] { return paletteColor }
+        if let hexColor = Self.color(fromHex: color) { return hexColor }
+        return Self.defaultTint
+    }
+
+    static func color(fromHex hex: String) -> Color? {
+        let cleaned = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+        guard cleaned.count == 6 else { return nil }
+        var rgbValue: UInt64 = 0
+        Scanner(string: cleaned).scanHexInt64(&rgbValue)
+        return Color(
+            red: Double((rgbValue >> 16) & 0xFF) / 255,
+            green: Double((rgbValue >> 8) & 0xFF) / 255,
+            blue: Double(rgbValue & 0xFF) / 255
+        )
+    }
+
+    static func hexString(from color: Color) -> String {
+        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
+        #if os(iOS)
+        UIColor(color).getRed(&r, green: &g, blue: &b, alpha: &a)
+        #endif
+        #if os(macOS)
+        (NSColor(color).usingColorSpace(.sRGB) ?? NSColor(color))
+            .getRed(&r, green: &g, blue: &b, alpha: &a)
+        #endif
+        return String(format: "%02X%02X%02X",
+                       Int(round(r * 255)),
+                       Int(round(g * 255)),
+                       Int(round(b * 255)))
     }
 
     static let palette: [String: Color] = [

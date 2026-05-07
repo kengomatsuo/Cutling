@@ -33,7 +33,7 @@ struct TextDetailView: View {
     @State private var isPasting = false
     @State private var autoDeleteEnabled: Bool
     @State private var deleteAt: Date
-    @State private var color: String?
+    @State private var pickedColor: Color
     @State private var inputTypeTriggers: Set<String>
     @State private var detectTask: Task<Void, Never>?
     @State private var isAutoDetecting = false
@@ -50,7 +50,7 @@ struct TextDetailView: View {
         _icon = State(initialValue: item?.icon ?? "document")
         _autoDeleteEnabled = State(initialValue: item?.expiresAt != nil)
         _deleteAt = State(initialValue: item?.expiresAt ?? Date().addingTimeInterval(86400))
-        _color = State(initialValue: item?.color)
+        _pickedColor = State(initialValue: item?.tintColor ?? Cutling.defaultTint)
         _inputTypeTriggers = State(initialValue: Set(item?.inputTypeTriggers ?? []))
         // When editing an existing cutling, treat the saved icon as user-chosen.
         _userDidPickIcon = State(initialValue: item != nil)
@@ -219,7 +219,7 @@ struct TextDetailView: View {
                 HStack {
                     Image(systemName: icon)
                         .font(.title2)
-                        .foregroundStyle(.tint)
+                        .foregroundStyle(pickedColor)
                     Spacer()
                     Button("Change Icon") {
                         showIconPicker = true
@@ -233,7 +233,7 @@ struct TextDetailView: View {
                     HStack {
                         Image(systemName: icon)
                             .font(.title2)
-                            .foregroundStyle(.tint)
+                            .foregroundStyle(pickedColor)
                             .frame(width: 36, height: 36)
                         Text("Change Icon")
                         Spacer()
@@ -244,6 +244,27 @@ struct TextDetailView: View {
                 }
                 .foregroundStyle(.primary)
                 #endif
+                // ColorPicker's built-in label is hidden so we can place the reset
+                // button between the label and the color well. If layout breaks
+                // here in the future, revert to a normal ColorPicker("Color", ...)
+                // and move the reset button after it.
+                HStack {
+                    Text("Color")
+                    Spacer()
+                    if pickedColor != Cutling.defaultTint {
+                        Button {
+                            withAccessibleAnimation(.easeInOut(duration: 0.2)) {
+                                pickedColor = Cutling.defaultTint
+                            }
+                        } label: {
+                            Image(systemName: "arrow.counterclockwise")
+                                .font(.subheadline)
+                        }
+                        .buttonStyle(.borderless)
+                    }
+                    ColorPicker("", selection: undoHandler.binding($pickedColor, actionName: String(localized: "Change Color")), supportsOpacity: false)
+                        .labelsHidden()
+                }
             }
             Section {
                 TextEditor(text: undoHandler.binding($value, actionName: String(localized: "Change Text")))
@@ -275,7 +296,6 @@ struct TextDetailView: View {
                     .foregroundStyle(value.count > CutlingStore.maxTextLength - 500 ? .orange : .secondary)
                     .font(.caption)
             }
-            ColorPaletteSection(selectedColor: undoHandler.binding($color, actionName: String(localized: "Change Color")))
             InputTypePickerSection(selectedTriggers: undoHandler.binding($inputTypeTriggers, actionName: String(localized: "Change Input Types")), autoDetectedCategories: $autoDetectedCategories)
             ExpirationPickerSection(autoDeleteEnabled: undoHandler.binding($autoDeleteEnabled, actionName: String(localized: "Change Expiration")), deleteAt: undoHandler.binding($deleteAt, actionName: String(localized: "Change Expiration")))
 
@@ -332,7 +352,7 @@ struct TextDetailView: View {
             updated.value = value
             updated.icon = icon
             updated.expiresAt = autoDeleteEnabled ? deleteAt : nil
-            updated.color = color
+            updated.color = Cutling.hexString(from: pickedColor)
             updated.inputTypeTriggers = inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
             store.update(updated)
             dismiss()
@@ -345,7 +365,7 @@ struct TextDetailView: View {
                         value: value,
                         icon: icon,
                         expiresAt: autoDeleteEnabled ? deleteAt : nil,
-                        color: color,
+                        color: Cutling.hexString(from: pickedColor),
                         inputTypeTriggers: inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
                     )
                 )
@@ -364,7 +384,7 @@ struct TextDetailView: View {
             if !value.isEmpty { updated.value = value }
             updated.icon = icon
             updated.expiresAt = autoDeleteEnabled ? deleteAt : nil
-            updated.color = color
+            updated.color = Cutling.hexString(from: pickedColor)
             updated.inputTypeTriggers = inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
             store.update(updated)
         } else {
@@ -377,7 +397,7 @@ struct TextDetailView: View {
                     value: value,
                     icon: icon,
                     expiresAt: autoDeleteEnabled ? deleteAt : nil,
-                    color: color,
+                    color: Cutling.hexString(from: pickedColor),
                     inputTypeTriggers: inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
                 )
             )
