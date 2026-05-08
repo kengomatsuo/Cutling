@@ -39,7 +39,7 @@ extension CutlingStore {
     nonisolated static let maxTextCutlings = 100
 
     /// Maximum character length for a single text cutling's value
-    nonisolated static let maxTextLength = 2000
+    nonisolated static let maxTextLength = 1000
 
     /// Total limit across both types (safety net)
     nonisolated static let maxTotalCutlings = 125

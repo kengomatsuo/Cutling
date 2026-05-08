@@ -271,7 +271,7 @@ struct TextDetailView: View {
             SensitiveContentWarning(types: sensitiveContentTypes)
             Section {
                 TextEditor(text: undoHandler.binding($value, actionName: String(localized: "Change Text")))
-                    .frame(minHeight: 120, maxHeight: 650)
+                    .frame(minHeight: 120, maxHeight: 450)
                     .scrollContentBackground(.hidden)
                     .onChange(of: value) {
                         if value.count > CutlingStore.maxTextLength {
@@ -301,7 +301,6 @@ struct TextDetailView: View {
             }
             InputTypePickerSection(selectedTriggers: undoHandler.binding($inputTypeTriggers, actionName: String(localized: "Change Input Types")), autoDetectedCategories: $autoDetectedCategories)
             ExpirationPickerSection(autoDeleteEnabled: undoHandler.binding($autoDeleteEnabled, actionName: String(localized: "Change Expiration")), deleteAt: undoHandler.binding($deleteAt, actionName: String(localized: "Change Expiration")))
-
 
             if isEditing {
                 Section {
