@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Testige oma klaviatuuri";
 "All set! Swipe to continue." = "Kõik valmis! Pühkige jätkamiseks.";
 "Your data stays private and is never sent anywhere." = "Teie andmed jäävad privaatseks ega saadeta kunagi kuhugi.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Paroolide jaoks ei soovitata** — kasutage spetsiaalset paroolihalduri";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Mitte tundlike andmete jaoks** — vältige paroolide, kaardinumbrite, privaatvõtmete või tokenite salvestamist";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Ava Cutling oma seadme **Seaded** rakenduses.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Salvestatud!";
 "Clipboard is empty." = "Lõikelaud on tühi.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "See näeb välja nagu maksekaardi number. Cutling ei ole mõeldud finantsandmete turvaliseks hoidmiseks.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "See näeb välja nagu privaatvõti või sertifikaat. Hoidke privaatvõtmeid turvalises võtmehoidlas.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "See näeb välja nagu API-võti või salajane token. Vältige mandaatide hoidmist väljaspool turvalist hoidlat.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "See näeb välja nagu autentimistoken. Tokeneid tuleks hoida turvaliselt, mitte lõikelaua halduris.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "See näeb välja nagu taastefraas. Hoidke taastefraase turvalises võrguühenduseta asukohas.";
+"Don't Warn About This Again" = "Ära hoiata selle eest uuesti";

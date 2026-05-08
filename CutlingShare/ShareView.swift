@@ -19,6 +19,7 @@ struct SharedItem: Identifiable {
     var autoDeleteEnabled = false
     var deleteAt = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
     var needsTitleFetch = false
+    var sensitiveContentTypes: Set<SensitiveContentType> = []
 }
 
 struct ShareView: View {
@@ -174,6 +175,8 @@ struct ShareView: View {
                 }
             }
 
+            SensitiveContentWarning(types: item.sensitiveContentTypes)
+
             switch item.content {
             case .text, .url:
                 InputTypePickerSection(selectedTriggers: $items[0].inputTypeTriggers, autoDetectedCategories: $items[0].autoDetectedCategories)
@@ -300,7 +303,8 @@ struct ShareView: View {
                             content: .url(url),
                             inputTypeTriggers: suggestion.triggers,
                             autoDetectedCategories: suggestion.categories,
-                            needsTitleFetch: title == nil
+                            needsTitleFetch: title == nil,
+                            sensitiveContentTypes: SensitiveContentType.detect(in: url.absoluteString)
                         ))
                         continue
                     }
@@ -316,7 +320,8 @@ struct ShareView: View {
                             icon: suggestion.icon,
                             content: .text(text),
                             inputTypeTriggers: suggestion.triggers,
-                            autoDetectedCategories: suggestion.categories
+                            autoDetectedCategories: suggestion.categories,
+                            sensitiveContentTypes: SensitiveContentType.detect(in: text)
                         ))
                         continue
                     }
@@ -514,6 +519,8 @@ private struct SharedItemDetailView: View {
             case .image:
                 EmptyView()
             }
+            
+            SensitiveContentWarning(types: item.sensitiveContentTypes)
 
             switch item.content {
             case .text(let text):

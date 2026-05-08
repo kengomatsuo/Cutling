@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "तुमचा कीबोर्ड तपासा";
 "All set! Swipe to continue." = "सर्व तयार! पुढे जाण्यासाठी स्वाइप करा.";
 "Your data stays private and is never sent anywhere." = "तुमचा डेटा खाजगी राहतो आणि कुठेही पाठवला जात नाही.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**पासवर्डसाठी शिफारस केलेले नाही** — समर्पित पासवर्ड व्यवस्थापक वापरा";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**संवेदनशील डेटासाठी नाही** — पासवर्ड, कार्ड नंबर, खाजगी की किंवा टोकन संचयन टाळा";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "तुमच्या डिव्हाइसच्या **सेटिंग्ज** अ‍ॅपमध्ये कटलिंग उघडा.";
@@ -262,3 +262,9 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "जतन केले!";
 "Clipboard is empty." = "क्लिपबोर्ड रिकामा आहे.";
+"Don't Warn About This Again" = "मला पुन्हा चेतावणी देऊ नका";
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "हे पेमेंट कार्ड नंबर सारखे दिसते. कटलिंग आर्थिक डेटा सुरक्षित स्टोरेजसाठी डिजाइन केलेले नाही.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "हे खाजगी की किंवा प्रमाणपत्र सारखे दिसते. खाजगी किकी सुरक्षित कीचेन किंवा व्यूहामध्ये संग्रहीत करा.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "हे पुनरुद्धार वाक्य सारखे दिसते. बीज वाक्यांशांना सुरक्षित, ऑफलाइन स्थानात संग्रहीत करा।";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "हे API की किंवा गोपनीय टोकन सारखे दिसते. सुरक्षित व्यूह बाहेरचे क्रेडेंशियल संचयन टाळा।";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "हे प्रामाणीकरण टोकन सारखे दिसते. टोकन सुरक्षितपणे संचयन केल्या पाहिजेत, क्लिपबोर्ड व्यवस्थापकात नाही।";

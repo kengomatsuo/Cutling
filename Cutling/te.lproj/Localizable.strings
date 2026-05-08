@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "మీ కీబోర్డ్ పరీక్షించండి";
 "All set! Swipe to continue." = "అంతా సిద్ధం! కొనసాగించడానికి స్వైప్ చేయండి.";
 "Your data stays private and is never sent anywhere." = "మీ డేటా ప్రైవేట్‌గా ఉంటుంది మరియు ఎక్కడికీ పంపబడదు.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**పాస్‌వర్డ్‌లకు సిఫార్సు చేయబడలేదు** — అంకితమైన పాస్‌వర్డ్ మేనేజర్‌ని ఉపయోగించండి";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**సున్నితమైన డేటా కోసం కాదు** — పాస్‌వర్డ్‌లు, కార్డ్ నంబర్‌లు, ప్రైవేట్ కీలు లేదా టోకన్‌లను నిల్వ చేయడం మానుకోండి";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "మీ పరికరం యొక్క **సెట్టింగ్స్** యాప్‌లో కట్లింగ్ తెరవండి.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "సేవ్ చేయబడింది!";
 "Clipboard is empty." = "క్లిప్‌బోర్డ్ ఖాళీగా ఉంది.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "ఇది పేమెంట్ కార్డ్ నంబర్ లాగా కనిపిస్తోంది. ఆర్థిక డేటా యొక్క సురక్షిత నిల్వ కోసం కట్లింగ్ రూపొందించబడలేదు.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "ఇది ప్రైవేట్ కీ లేదా సర్టిఫికేట్ లాగా కనిపిస్తోంది. ప్రైవేట్ కీలను సురక్షిత కీచైన్ లేదా వాల్ట్‌లో నిల్వ చేయండి.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "ఇది API కీ లేదా సీక్రెట్ టోకన్ లాగా కనిపిస్తోంది. సురక్షిత వాల్ట్ బయట క్రెడెన్షియల్స్ నిల్వ చేయడం మానుకోండి.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "ఇది ఆథెంటికేషన్ టోకన్ లాగా కనిపిస్తోంది. టోకన్‌లను సురక్షితంగా నిల్వ చేయాలి, క్లిప్‌బోర్డ్ మేనేజర్‌లో కాదు.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "ఇది రికవరీ ఫ్రేజ్ లాగా కనిపిస్తోంది. సీడ్ ఫ్రేజ్‌లను సురక్షిత, ఆఫ్‌లైన్ ప్రదేశంలో నిల్వ చేయండి.";
+"Don't Warn About This Again" = "దీని గురించి మళ్ళీ హెచ్చరించవద్దు";

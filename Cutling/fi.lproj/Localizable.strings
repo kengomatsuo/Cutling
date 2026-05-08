@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Testaa näppäimistö";
 "All set! Swipe to continue." = "Kaikki valmista! Pyyhkäise jatkaaksesi.";
 "Your data stays private and is never sent anywhere." = "Tietosi pysyvät yksityisinä eikä niitä lähetetä mihinkään.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Ei suositella salasanoille** — käytä erillistä salasananhallintaa";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Ei arkaluonteisille tiedoille** — vältä salasanojen, korttinumeroiden, yksityisten avainten tai tunnisteiden tallentamista";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Avaa Cutling laitteesi **Asetukset**-sovelluksessa.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Tallennettu!";
 "Clipboard is empty." = "Leikepöytä on tyhjä.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "Tämä näyttää maksukortin numerolta. Cutling ei ole suunniteltu taloudellisten tietojen turvalliseen tallentamiseen.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "Tämä näyttää yksityiseltä avaimelta tai varmenteelta. Tallenna yksityiset avaimet turvalliseen avainnippuun tai holviin.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "Tämä näyttää API-avaimelta tai salaiselta tunnukselta. Vältä tunnistetietojen tallentamista turvallisen holvin ulkopuolelle.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "Tämä näyttää todennustunnukselta. Tunnukset tulisi tallentaa turvallisesti, ei leikepöydän hallintaohjelmaan.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "Tämä näyttää palautuslauseelta. Tallenna siemenlauseet turvalliseen, offline-sijaintiin.";
+"Don't Warn About This Again" = "Älä varoita tästä uudelleen";

@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Протестуйте клавіатуру";
 "All set! Swipe to continue." = "Все готово! Проведіть, щоб продовжити.";
 "Your data stays private and is never sent anywhere." = "Ваші дані залишаються приватними і ніколи нікуди не надсилаються.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Не рекомендовано для паролів** — використовуйте спеціальний менеджер паролів";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Не для конфіденційних даних** — не зберігайте паролі, номери карток, приватні ключі або токени";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Відкрийте Катлінг у додатку **Налаштування** на вашому пристрої.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Збережено!";
 "Clipboard is empty." = "Буфер обміну порожній.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "Це схоже на номер платіжної картки. Катлінг не призначений для безпечного зберігання фінансових даних.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "Це схоже на приватний ключ або сертифікат. Зберігайте приватні ключі в безпечному сховищі або зв'язці ключів.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "Це схоже на API-ключ або секретний токен. Уникайте зберігання облікових даних поза безпечним сховищем.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "Це схоже на токен автентифікації. Токени слід зберігати в безпечному місці, а не в менеджері буфера обміну.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "Це схоже на фразу відновлення. Зберігайте сід-фрази в безпечному автономному місці.";
+"Don't Warn About This Again" = "Більше не попереджувати про це";

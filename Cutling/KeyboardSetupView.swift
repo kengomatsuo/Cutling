@@ -416,10 +416,10 @@ struct KeyboardSetupView: View {
                 .padding(.horizontal)
 
                 HStack(spacing: 8) {
-                    Image(systemName: "lock.slash.fill")
-                        .foregroundStyle(.secondary)
+                    Image(systemName: "exclamationmark.triangle.fill")
+                        .foregroundStyle(.orange)
                         .frame(width: 20)
-                    Text("**Not recommended for passwords** — use a dedicated password manager")
+                    Text("**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens")
                         .font(.subheadline)
                 }
                 .padding(.horizontal)

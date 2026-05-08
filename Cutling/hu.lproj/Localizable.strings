@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Billentyűzet tesztelése";
 "All set! Swipe to continue." = "Minden kész! Húzd el a folytatáshoz.";
 "Your data stays private and is never sent anywhere." = "Adataid privátok maradnak és soha nem kerülnek továbbításra.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Jelszavakhoz nem ajánlott** — használj dedikált jelszókezelőt";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Nem érzékeny adatokhoz** — ne tárolj jelszavakat, kártyaszámokat, privát kulcsokat vagy tokeneket";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Nyisd meg a Cutling alkalmazást a készülék **Beállítások** appjában.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Mentve!";
 "Clipboard is empty." = "A vágólap üres.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "Ez egy bankkártya-számnak tűnik. A Cutling nem pénzügyi adatok biztonságos tárolására készült.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "Ez egy privát kulcsnak vagy tanúsítványnak tűnik. Tárolja a privát kulcsokat biztonságos kulcstartóban vagy széfben.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "Ez egy API-kulcsnak vagy titkos tokennek tűnik. Ne tároljon hitelesítő adatokat biztonságos széfen kívül.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "Ez egy hitelesítési tokennek tűnik. A tokeneket biztonságosan kell tárolni, nem vágólapkezelőben.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "Ez egy helyreállítási kifejezésnek tűnik. Tárolja a seed kifejezéseket biztonságos, offline helyen.";
+"Don't Warn About This Again" = "Ne figyelmeztess erre újra";

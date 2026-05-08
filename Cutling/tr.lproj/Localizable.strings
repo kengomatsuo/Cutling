@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Klavyenizi Test Edin";
 "All set! Swipe to continue." = "Her şey hazır! Devam etmek için kaydırın.";
 "Your data stays private and is never sent anywhere." = "Verileriniz gizli kalır ve hiçbir yere gönderilmez.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Şifreler için önerilmez** — özel bir şifre yöneticisi kullanın";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Hassas veriler için değil** — şifre, kart numarası, özel anahtar veya token saklamaktan kaçının";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Cihazınızın **Ayarlar** uygulamasında Cutling'i açın.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Kaydedildi!";
 "Clipboard is empty." = "Pano boş.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "Bu bir ödeme kartı numarasına benziyor. Cutling, finansal verilerin güvenli saklanması için tasarlanmamıştır.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "Bu bir özel anahtar veya sertifikaya benziyor. Özel anahtarları güvenli bir anahtar zinciri veya kasada saklayın.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "Bu bir API anahtarı veya gizli token'a benziyor. Kimlik bilgilerini güvenli bir kasa dışında saklamaktan kaçının.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "Bu bir kimlik doğrulama token'ına benziyor. Token'lar güvenli bir yerde saklanmalı, pano yöneticisinde değil.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "Bu bir kurtarma ifadesine benziyor. Seed ifadelerini güvenli, çevrimdışı bir yerde saklayın.";
+"Don't Warn About This Again" = "Bu Konuda Tekrar Uyarma";

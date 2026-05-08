@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Otestujte klávesnici";
 "All set! Swipe to continue." = "Vše připraveno! Přejeďte pro pokračování.";
 "Your data stays private and is never sent anywhere." = "Vaše data zůstávají soukromá a nikdy nejsou nikam odesílána.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Nedoporučuje se pro hesla** — použijte specializovaný správce hesel";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Ne pro citlivá data** — neukládejte hesla, čísla karet, soukromé klíče ani tokeny";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Otevřete Cutling v aplikaci **Nastavení** na vašem zařízení.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Uloženo!";
 "Clipboard is empty." = "Schránka je prázdná.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "Vypadá to jako číslo platební karty. Cutling není navržen pro bezpečné ukládání finančních údajů.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "Vypadá to jako soukromý klíč nebo certifikát. Ukládejte soukromé klíče do bezpečné klíčenky nebo trezoru.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "Vypadá to jako API klíč nebo tajný token. Neukládejte přihlašovací údaje mimo bezpečný trezor.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "Vypadá to jako autentizační token. Tokeny by měly být uloženy bezpečně, ne ve správci schránky.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "Vypadá to jako obnovovací fráze. Ukládejte seed fráze na bezpečném offline místě.";
+"Don't Warn About This Again" = "Na toto znovu neupozorňovat";

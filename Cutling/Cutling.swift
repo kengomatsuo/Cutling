@@ -9,6 +9,7 @@
 //
 
 
+import Darwin
 import Foundation
 import LinkPresentation
 import NaturalLanguage
@@ -35,6 +36,129 @@ import AppKit
     }
     #endif
     return try withAnimation(animation, body)
+}
+
+// MARK: - Developer Mode Detection
+
+/// Detects if iOS Developer Mode is enabled on the device (iOS 16+).
+/// This is an undocumented but working API used to detect if a user has enabled
+/// Developer Mode in Settings > Privacy & Security > Developer Mode.
+/// Source: https://github.com/apple/security-pcc/blob/main/CloudAttestation/CloudAttestation/DeviceMode.swift
+var isDeveloperModeEnabled: Bool {
+    var value = Int32(0)
+    var size = MemoryLayout<Int32>.size
+    return sysctlbyname("security.mac.amfi.developer_mode_status", &value, &size, nil, 0) == 0 && value == 1
+}
+
+// MARK: - Sensitive Content Detection
+
+enum SensitiveContentType: String, CaseIterable, Sendable, Hashable {
+    case creditCard
+    case privateKey
+    case apiKey
+    case jwtToken
+    case seedPhrase
+
+    var warningMessage: String {
+        switch self {
+        case .creditCard:  return String(localized: "This looks like a payment card number. Cutling is not designed for secure storage of financial data.")
+        case .privateKey:  return String(localized: "This looks like a private key or certificate. Store private keys in a secure keychain or vault.")
+        case .apiKey:      return String(localized: "This looks like an API key or secret token. Avoid storing credentials outside a secure vault.")
+        case .jwtToken:    return String(localized: "This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager.")
+        case .seedPhrase:  return String(localized: "This looks like a recovery phrase. Store seed phrases in a secure, offline location.")
+        }
+    }
+
+    var dismissalKey: String { "warningsDisabled_\(rawValue)" }
+
+    static func detect(in text: String) -> Set<SensitiveContentType> {
+        let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return [] }
+
+        var result = Set<SensitiveContentType>()
+
+        let stripped = trimmed.replacingOccurrences(of: "[ \\-.]", with: "", options: .regularExpression)
+        if stripped.allSatisfy(\.isNumber) && (13...19).contains(stripped.count) && isLuhnValid(stripped) {
+            result.insert(.creditCard)
+        }
+
+        if trimmed.contains("-----BEGIN") && trimmed.lowercased().contains("private key") {
+            result.insert(.privateKey)
+        }
+
+        let apiPrefixes = [
+            "sk-", "sk_live_", "sk_test_", "rk_live_", "rk_test_",
+            "ghp_", "gho_", "ghs_", "github_pat_",
+            "AKIA", "xoxb-", "xoxp-", "xoxs-",
+            "AIza", "glpat-", "GOCSPX-",
+        ]
+        if apiPrefixes.contains(where: { trimmed.hasPrefix($0) }) && trimmed.count >= 20 {
+            result.insert(.apiKey)
+        }
+
+        let jwtParts = trimmed.split(separator: ".")
+        if jwtParts.count == 3 &&
+            jwtParts[0].hasPrefix("eyJ") &&
+            jwtParts[1].hasPrefix("eyJ") &&
+            jwtParts.allSatisfy({ $0.count >= 4 }) {
+            result.insert(.jwtToken)
+        }
+
+        let words = trimmed.split(separator: " ").map(String.init)
+        if (words.count == 12 || words.count == 24) &&
+            trimmed.allSatisfy({ $0.isLetter || $0 == " " }) &&
+            words.allSatisfy({ (3...8).contains($0.count) && $0 == $0.lowercased() }) {
+            result.insert(.seedPhrase)
+        }
+
+        return result
+    }
+
+    private static func isLuhnValid(_ digits: String) -> Bool {
+        var sum = 0
+        for (i, ch) in digits.reversed().enumerated() {
+            guard let digit = ch.wholeNumberValue else { return false }
+            if i % 2 == 1 {
+                let doubled = digit * 2
+                sum += doubled > 9 ? doubled - 9 : doubled
+            } else {
+                sum += digit
+            }
+        }
+        return sum > 0 && sum % 10 == 0
+    }
+}
+
+struct SensitiveContentWarning: View {
+    let types: Set<SensitiveContentType>
+    @State private var didHaptic = false
+
+    private var visibleType: SensitiveContentType? {
+        let allDisabled = UserDefaults.standard.bool(forKey: "warningsDisabled_all")
+        return types.first { !allDisabled && !UserDefaults.standard.bool(forKey: $0.dismissalKey) }
+    }
+
+    var body: some View {
+        if let type = visibleType {
+            Section {
+                Label {
+                    Text(type.warningMessage)
+                } icon: {
+                    Image(systemName: "exclamationmark.triangle.fill")
+                        .foregroundStyle(.orange)
+                }
+                .font(.subheadline)
+            }
+            .transition(.asymmetric(insertion: .scale(scale: 0.95).combined(with: .opacity), removal: .opacity))
+            .task(id: type) {
+                guard !didHaptic else { return }
+                didHaptic = true
+                #if os(iOS)
+                UINotificationFeedbackGenerator().notificationOccurred(.warning)
+                #endif
+            }
+        }
+    }
 }
 
 enum CutlingKind: String, Codable, Sendable, Identifiable {

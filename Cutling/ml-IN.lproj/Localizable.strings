@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "നിങ്ങളുടെ കീബോർഡ് പരിശോധിക്കുക";
 "All set! Swipe to continue." = "എല്ലാം തയ്യാർ! തുടരാൻ സ്വൈപ്പ് ചെയ്യുക.";
 "Your data stays private and is never sent anywhere." = "നിങ്ങളുടെ ഡാറ്റ സ്വകാര്യമായി തുടരുന്നു, ഒരിടത്തും അയയ്ക്കുന്നില്ല.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**പാസ്‌വേഡുകൾക്ക് ശുപാർശ ചെയ്യുന്നില്ല** — സമർപ്പിത പാസ്‌വേഡ് മാനേജർ ഉപയോഗിക്കുക";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**സംവേദനക്ഷമമായ ডেറ്റാക്കായി അല്ല** — പാസ്‌വേഡ്, കാർഡ് നമ്പർ, നിജ കീ അല്ലെങ്കിൽ ടോകൺ സംരക്ഷണം ഉണ്ടാകുന്നത് ഒഴിവാക്കുക";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "നിങ്ങളുടെ ഉപകരണത്തിന്റെ **സെറ്റിംഗ്സ്** ആപ്പിൽ കട്ട്‌ലിംഗ് തുറക്കുക.";
@@ -262,3 +262,9 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "സേവ് ചെയ്തു!";
 "Clipboard is empty." = "ക്ലിപ്പ്ബോർഡ് ശൂന്യമാണ്.";
+"Don't Warn About This Again" = "ഈ കാര്യത്തെ കുറിച്ച് വീണ്ടും എന്നെ മുന്നറിയിപ്പ് ചെയ്യരുത്";
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "ഇത് പെയ്‌മെന്റ് കാർഡ് നമ്പറിനെപ്പോലെയാണ്. കാറ്റലിംഗ് സാമ്പത്തിക ഡേറ്റയുടെ സുരക്ഷിത സംരക്ഷണത്തിനായി രൂപകൽപ്പന ചെയ്യപ്പെട്ടിട്ടില്ല.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "ഇത് ഒരു സ്വകാര്യ കീ അല്ലെങ്കിൽ സർട്ടിഫിക്കേറ്റ് പോലെയാണ്. സ്വകാര്യ കീകൾ ഒരു സുരക്ഷിത കീചെയിനിലോ വോൾട്ടിലോ സംരക്ഷിക്കുക.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "ഇത് പുനരുദ്ധാര വാക്യം പോലെയാണ്. ബീജ വാക്യങ്ങൾ ഒരു സുരക്ഷിത, ഓഫലൈൻ സ്ഥാനത്ത് സംരക്ഷിക്കുക.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "ഇത് API കീയോ സ്വകാര്യ ടോകനോ പോലെയാണ്. സുരക്ഷിത വാൾട്ടിന് പുറത്ത് വിശ്വാസാധികാരങ്ങൾ സംരക്ഷിക്കുന്നത് ഒഴിവാക്കുക.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "ഇത് ഒരു പ്രാമാണികതാ ടോകൻ പോലെയാണ്. ടോകൻ സുരക്ഷിതമായി സംരക്ഷിക്കണം, ക്ലിപ്പബോർഡ് പരിഷ്കാരകിൽ അല്ല.";

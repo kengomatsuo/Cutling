@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "测试键盘";
 "All set! Swipe to continue." = "全部完成！滑动继续。";
 "Your data stays private and is never sent anywhere." = "您的数据始终保持私密，不会发送到任何地方。";
-"**Not recommended for passwords** — use a dedicated password manager" = "**不建议用于密码** — 请使用专门的密码管理器";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**不适合存储敏感数据** — 请勿存储密码、卡号、私钥或令牌";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "在设备的**设置**应用中打开 Cutling。";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "已保存！";
 "Clipboard is empty." = "剪贴板为空。";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "这看起来像支付卡号。剪切片段不是为安全存储金融数据而设计的。";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "这看起来像私钥或证书。请将私钥存储在安全的钥匙串或保险库中。";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "这看起来像 API 密钥或密令。请勿在安全保险库之外存储凭证。";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "这看起来像认证令牌。令牌应安全存储，而非存放在剪贴板管理器中。";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "这看起来像恢复短语。请将助记词存储在安全的离线位置。";
+"Don't Warn About This Again" = "不再提醒此内容";

@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Testar Seu Teclado";
 "All set! Swipe to continue." = "Tudo pronto! Deslize para continuar.";
 "Your data stays private and is never sent anywhere." = "Seus dados permanecem privados e nunca são enviados a lugar nenhum.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Não recomendado para senhas** — use um gerenciador de senhas dedicado";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Não para dados sensíveis** — evite armazenar senhas, números de cartão, chaves privadas ou tokens";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Abra o Cutling no app **Ajustes** do seu dispositivo.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Salvo!";
 "Clipboard is empty." = "A área de transferência está vazia.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "Isto parece um número de cartão de pagamento. O Cutling não foi projetado para armazenamento seguro de dados financeiros.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "Isto parece uma chave privada ou certificado. Armazene chaves privadas em um chaveiro seguro ou cofre.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "Isto parece uma chave de API ou token secreto. Evite armazenar credenciais fora de um cofre seguro.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "Isto parece um token de autenticação. Tokens devem ser armazenados com segurança, não em um gerenciador de área de transferência.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "Isto parece uma frase de recuperação. Armazene frases-semente em um local seguro e offline.";
+"Don't Warn About This Again" = "Não avisar sobre isto novamente";

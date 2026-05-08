@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Tastatur testen";
 "All set! Swipe to continue." = "Alles bereit! Wische, um fortzufahren.";
 "Your data stays private and is never sent anywhere." = "Deine Daten bleiben privat und werden nirgendwohin gesendet.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Nicht für Passwörter empfohlen** — verwende einen dedizierten Passwort-Manager";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Nicht für sensible Daten** — vermeide das Speichern von Passwörtern, Kartennummern, privaten Schlüsseln oder Tokens";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Öffne Cutling in der **Einstellungen**-App deines Geräts.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Gespeichert!";
 "Clipboard is empty." = "Zwischenablage ist leer.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "Dies sieht wie eine Zahlungskartennummer aus. Cutling ist nicht für die sichere Speicherung von Finanzdaten vorgesehen.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "Dies sieht wie ein privater Schlüssel oder ein Zertifikat aus. Bewahre private Schlüssel in einem sicheren Schlüsselbund oder Tresor auf.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "Dies sieht wie ein API-Schlüssel oder geheimes Token aus. Vermeide das Speichern von Anmeldedaten außerhalb eines sicheren Tresors.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "Dies sieht wie ein Authentifizierungstoken aus. Tokens sollten sicher gespeichert werden, nicht in einem Zwischenablage-Manager.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "Dies sieht wie eine Wiederherstellungsphrase aus. Bewahre Seed-Phrasen an einem sicheren, offline Ort auf.";
+"Don't Warn About This Again" = "Nicht mehr davor warnen";

@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Uji Keyboard Anda";
 "All set! Swipe to continue." = "Semua siap! Geser untuk melanjutkan.";
 "Your data stays private and is never sent anywhere." = "Data Anda tetap privat dan tidak pernah dikirim ke mana pun.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Tidak disarankan untuk kata sandi** — gunakan pengelola kata sandi khusus";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Bukan untuk data sensitif** — hindari menyimpan kata sandi, nomor kartu, kunci privat, atau token";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Buka Cutling di aplikasi **Pengaturan** perangkat Anda.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Disimpan!";
 "Clipboard is empty." = "Papan klip kosong.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "Ini terlihat seperti nomor kartu pembayaran. Cutling tidak dirancang untuk penyimpanan aman data keuangan.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "Ini terlihat seperti kunci privat atau sertifikat. Simpan kunci privat di keychain atau brankas yang aman.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "Ini terlihat seperti kunci API atau token rahasia. Hindari menyimpan kredensial di luar brankas yang aman.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "Ini terlihat seperti token autentikasi. Token harus disimpan dengan aman, bukan di pengelola papan klip.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "Ini terlihat seperti frasa pemulihan. Simpan seed phrase di lokasi yang aman dan offline.";
+"Don't Warn About This Again" = "Jangan Peringatkan Lagi Tentang Ini";

@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Тествайте клавиатурата си";
 "All set! Swipe to continue." = "Всичко е готово! Плъзнете, за да продължите.";
 "Your data stays private and is never sent anywhere." = "Данните ви остават поверителни и никога не се изпращат никъде.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Не се препоръчва за пароли** — използвайте специализиран мениджър на пароли";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Не е за чувствителни данни** — избягвайте съхраняването на пароли, номера на карти, частни ключове или токени";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Отворете Кътлинг в приложението **Настройки** на устройството.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Запазено!";
 "Clipboard is empty." = "Клипбордът е празен.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "Това прилича на номер на платежна карта. Кътлинг не е предназначен за сигурно съхранение на финансови данни.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "Това прилича на частен ключ или сертификат. Съхранявайте частни ключове в сигурен ключодържател или трезор.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "Това прилича на API ключ или таен токен. Избягвайте съхраняването на идентификационни данни извън сигурен трезор.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "Това прилича на токен за удостоверяване. Токените трябва да се съхраняват сигурно, а не в мениджър на клипборда.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "Това прилича на фраза за възстановяване. Съхранявайте seed фрази на сигурно офлайн място.";
+"Don't Warn About This Again" = "Не предупреждавай отново за това";

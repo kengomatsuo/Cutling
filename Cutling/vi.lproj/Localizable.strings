@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Kiểm Tra Bàn Phím";
 "All set! Swipe to continue." = "Đã sẵn sàng! Vuốt để tiếp tục.";
 "Your data stays private and is never sent anywhere." = "Dữ liệu của bạn luôn riêng tư và không bao giờ được gửi đi đâu.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Không khuyến nghị cho mật khẩu** — hãy sử dụng trình quản lý mật khẩu chuyên dụng";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Không dành cho dữ liệu nhạy cảm** — tránh lưu trữ mật khẩu, số thẻ, khóa riêng tư hoặc token";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Mở Cutling trong ứng dụng **Cài đặt** trên thiết bị của bạn.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Đã lưu!";
 "Clipboard is empty." = "Bảng nhớ tạm trống.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "Đây có vẻ là số thẻ thanh toán. Cutling không được thiết kế để lưu trữ an toàn dữ liệu tài chính.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "Đây có vẻ là khóa riêng tư hoặc chứng chỉ. Hãy lưu trữ khóa riêng tư trong keychain hoặc kho bảo mật an toàn.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "Đây có vẻ là khóa API hoặc token bí mật. Tránh lưu trữ thông tin xác thực bên ngoài kho bảo mật an toàn.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "Đây có vẻ là token xác thực. Token nên được lưu trữ an toàn, không phải trong trình quản lý bộ nhớ tạm.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "Đây có vẻ là cụm từ khôi phục. Hãy lưu trữ cụm từ seed ở nơi an toàn, ngoại tuyến.";
+"Don't Warn About This Again" = "Không cảnh báo về điều này nữa";

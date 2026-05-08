@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Tester votre clavier";
 "All set! Swipe to continue." = "Tout est prêt ! Glissez pour continuer.";
 "Your data stays private and is never sent anywhere." = "Vos données restent privées et ne sont jamais envoyées.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Non recommandé pour les mots de passe** — utilisez un gestionnaire de mots de passe dédié";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Pas pour les données sensibles** — évitez de stocker mots de passe, numéros de carte, clés privées ou jetons";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Ouvrez Cutling dans l'application **Réglages** de votre appareil.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Enregistré !";
 "Clipboard is empty." = "Le presse-papiers est vide.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "Ceci ressemble à un numéro de carte de paiement. Cutling n'est pas conçu pour le stockage sécurisé de données financières.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "Ceci ressemble à une clé privée ou un certificat. Conservez les clés privées dans un trousseau sécurisé ou un coffre-fort.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "Ceci ressemble à une clé API ou un jeton secret. Évitez de stocker des identifiants en dehors d'un coffre-fort sécurisé.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "Ceci ressemble à un jeton d'authentification. Les jetons doivent être stockés en sécurité, pas dans un gestionnaire de presse-papiers.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "Ceci ressemble à une phrase de récupération. Conservez les phrases de récupération dans un endroit sécurisé et hors ligne.";
+"Don't Warn About This Again" = "Ne plus avertir à ce sujet";

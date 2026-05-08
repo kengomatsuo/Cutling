@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "اختبر لوحة المفاتيح";
 "All set! Swipe to continue." = "كل شيء جاهز! اسحب للمتابعة.";
 "Your data stays private and is never sent anywhere." = "تبقى بياناتك خاصة ولا تُرسل إلى أي مكان.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**غير موصى به لكلمات المرور** — استخدم مدير كلمات مرور مخصص";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**ليس للبيانات الحساسة** — تجنب تخزين كلمات المرور أو أرقام البطاقات أو المفاتيح الخاصة أو الرموز المميزة";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "افتح كاتلينج في تطبيق **الإعدادات** على جهازك.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "تم الحفظ!";
 "Clipboard is empty." = "الحافظة فارغة.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "يبدو هذا كرقم بطاقة دفع. كاتلينج غير مصمم للتخزين الآمن للبيانات المالية.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "يبدو هذا كمفتاح خاص أو شهادة. قم بتخزين المفاتيح الخاصة في سلسلة مفاتيح آمنة أو خزنة.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "يبدو هذا كمفتاح API أو رمز سري. تجنب تخزين بيانات الاعتماد خارج خزنة آمنة.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "يبدو هذا كرمز مصادقة. يجب تخزين الرموز بشكل آمن، وليس في مدير حافظة.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "يبدو هذا كعبارة استرداد. قم بتخزين عبارات البذور في مكان آمن غير متصل بالإنترنت.";
+"Don't Warn About This Again" = "لا تحذرني بشأن هذا مجدداً";

@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Δοκιμάστε το πληκτρολόγιο";
 "All set! Swipe to continue." = "Έτοιμο! Σαρώστε για συνέχεια.";
 "Your data stays private and is never sent anywhere." = "Τα δεδομένα σας παραμένουν ιδιωτικά και δεν αποστέλλονται πουθενά.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Δεν συνιστάται για κωδικούς πρόσβασης** — χρησιμοποιήστε έναν αποκλειστικό διαχειριστή κωδικών";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Όχι για ευαίσθητα δεδομένα** — αποφύγετε την αποθήκευση κωδικών, αριθμών καρτών, ιδιωτικών κλειδιών ή tokens";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Ανοίξτε το Cutling στην εφαρμογή **Ρυθμίσεις** της συσκευής σας.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Αποθηκεύτηκε!";
 "Clipboard is empty." = "Το πρόχειρο είναι κενό.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "Αυτό μοιάζει με αριθμό κάρτας πληρωμής. Το Cutling δεν είναι σχεδιασμένο για ασφαλή αποθήκευση οικονομικών δεδομένων.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "Αυτό μοιάζει με ιδιωτικό κλειδί ή πιστοποιητικό. Αποθηκεύστε τα ιδιωτικά κλειδιά σε ασφαλές keychain ή θησαυροφυλάκιο.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "Αυτό μοιάζει με κλειδί API ή μυστικό token. Αποφύγετε την αποθήκευση διαπιστευτηρίων εκτός ασφαλούς θησαυροφυλακίου.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "Αυτό μοιάζει με token ελέγχου ταυτότητας. Τα tokens πρέπει να αποθηκεύονται με ασφάλεια, όχι σε διαχειριστή πρόχειρου.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "Αυτό μοιάζει με φράση ανάκτησης. Αποθηκεύστε τις φράσεις seed σε ασφαλή, εκτός σύνδεσης τοποθεσία.";
+"Don't Warn About This Again" = "Να μην εμφανιστεί ξανά αυτή η προειδοποίηση";

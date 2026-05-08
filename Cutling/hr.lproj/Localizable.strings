@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Testirajte svoju tipkovnicu";
 "All set! Swipe to continue." = "Sve je spremno! Povucite za nastavak.";
 "Your data stays private and is never sent anywhere." = "Vaši podaci ostaju privatni i nikada se ne šalju nigdje.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Nije preporučeno za lozinke** — koristite namjenski upravitelj lozinki";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Nije za osjetljive podatke** — izbjegavajte pohranu lozinki, brojeva kartica, privatnih ključeva ili tokena";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Otvorite Cutling u aplikaciji **Postavke** na vašem uređaju.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Spremljeno!";
 "Clipboard is empty." = "Međuspremnik je prazan.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "Ovo izgleda kao broj platne kartice. Cutling nije dizajniran za sigurnu pohranu financijskih podataka.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "Ovo izgleda kao privatni ključ ili certifikat. Pohranite privatne ključeve u sigurni privjesak za ključeve ili trezor.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "Ovo izgleda kao API ključ ili tajni token. Izbjegavajte pohranu vjerodajnica izvan sigurnog trezora.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "Ovo izgleda kao autentifikacijski token. Tokeni bi se trebali pohranjivati sigurno, ne u upravitelju međuspremnika.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "Ovo izgleda kao fraza za oporavak. Pohranite seed fraze na sigurnom, izvanmrežnom mjestu.";
+"Don't Warn About This Again" = "Ne upozoravaj me više o ovome";

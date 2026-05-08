@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Jaribu Kibodi Yako";
 "All set! Swipe to continue." = "Tayari! Telezesha ili kuendelea.";
 "Your data stays private and is never sent anywhere." = "Data yako inabaki ya faragha na haitumwi popote.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Haipendekezi kwa nywila** — tumia kidhibiti cha nywila maalum";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Si kwa data nyeti** — epuka kuhifadhi nywila, nambari za kadi, funguo za faragha au tokeni";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Fungua Cutling katika programu ya **Mipangilio** ya kifaa chako.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Imehifadhiwa!";
 "Clipboard is empty." = "Ubao wa kunakili ni tupu.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "Hii inaonekana kama nambari ya kadi ya malipo. Cutling haijatengenezwa kwa uhifadhi salama wa data ya kifedha.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "Hii inaonekana kama ufunguo wa faragha au cheti. Hifadhi funguo za faragha katika keychain au vault salama.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "Hii inaonekana kama ufunguo wa API au tokeni ya siri. Epuka kuhifadhi stakabadhi nje ya vault salama.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "Hii inaonekana kama tokeni ya uthibitishaji. Tokeni zinapaswa kuhifadhiwa kwa usalama, si katika kidhibiti cha ubao wa kunakili.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "Hii inaonekana kama msemo wa urejeshaji. Hifadhi misemo ya seed mahali salama, bila mtandao.";
+"Don't Warn About This Again" = "Usionyeshe Onyo Hili Tena";

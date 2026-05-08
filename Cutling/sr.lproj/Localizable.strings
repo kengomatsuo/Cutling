@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Testirajte svoju tastaturu";
 "All set! Swipe to continue." = "Sve je spremno! Prevucite za nastavak.";
 "Your data stays private and is never sent anywhere." = "Vaši podaci ostaju privatni i nikada se ne šalju nigde.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Није препоручено за лозинке** — користите наменски менаџер лозинки";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Није за осетљиве податке** — избегавајте чување лозинки, бројева картица, приватних кључева или токена";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Отворите Катлинг у апликацији **Подешавања** на вашем уређају.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Сачувано!";
 "Clipboard is empty." = "Клипборд је празан.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "Ово изгледа као број платне картице. Катлинг није дизајниран за безбедно складиштење финансијских података.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "Ово изгледа као приватни кључ или сертификат. Чувајте приватне кључеве у безбедном привеску за кључеве или трезору.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "Ово изгледа као API кључ или тајни токен. Избегавајте чување акредитива ван безбедног трезора.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "Ово изгледа као токен за аутентификацију. Токени би требало да се чувају безбедно, не у менаџеру привремене меморије.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "Ово изгледа као фраза за опоравак. Чувајте seed фразе на безбедном месту без мрежне везе.";
+"Don't Warn About This Again" = "Не упозоравај ме поново о овоме";

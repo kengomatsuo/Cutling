@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "صفحه‌کلید خود را آزمایش کنید";
 "All set! Swipe to continue." = "همه چیز آماده! برای ادامه بکشید.";
 "Your data stays private and is never sent anywhere." = "داده‌های شما خصوصی می‌مانند و هرگز به جایی ارسال نمی‌شوند.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**برای رمزهای عبور توصیه نمی‌شود** — از یک مدیر رمز عبور اختصاصی استفاده کنید";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**برای داده‌های حساس نیست** — از ذخیره رمزهای عبور، شماره کارت‌ها، کلیدهای خصوصی یا توکن‌ها خودداری کنید";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "کاتلینگ را در برنامه **تنظیمات** دستگاه خود باز کنید.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "ذخیره شد!";
 "Clipboard is empty." = "کلیپ‌بورد خالی است.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "به نظر می‌رسد این شماره کارت پرداخت است. کاتلینگ برای ذخیره‌سازی امن داده‌های مالی طراحی نشده است.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "به نظر می‌رسد این یک کلید خصوصی یا گواهی است. کلیدهای خصوصی را در یک جاکلیدی یا گاوصندوق امن ذخیره کنید.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "به نظر می‌رسد این یک کلید API یا توکن محرمانه است. از ذخیره اعتبارنامه‌ها خارج از گاوصندوق امن خودداری کنید.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "به نظر می‌رسد این یک توکن احراز هویت است. توکن‌ها باید به صورت امن ذخیره شوند، نه در یک مدیر کلیپ‌بورد.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "به نظر می‌رسد این یک عبارت بازیابی است. عبارات بذر را در مکانی امن و آفلاین ذخیره کنید.";
+"Don't Warn About This Again" = "دیگر درباره این هشدار نده";

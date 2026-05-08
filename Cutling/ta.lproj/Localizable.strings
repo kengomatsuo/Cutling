@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "உங்கள் விசைப்பலகையைச் சோதிக்கவும்";
 "All set! Swipe to continue." = "எல்லாம் தயார்! தொடர ஸ்வைப் செய்யவும்.";
 "Your data stays private and is never sent anywhere." = "உங்கள் தரவு தனிப்பட்டதாகவே இருக்கும், எங்கும் அனுப்பப்படாது.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**கடவுச்சொற்களுக்கு பரிந்துரைக்கப்படவில்லை** — ஒரு பிரத்யேக கடவுச்சொல் நிர்வாகியைப் பயன்படுத்தவும்";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**முக்கியமான தரவுக்கு அல்ல** — கடவுச்சொற்கள், கார்டு எண்கள், தனிப்பட்ட சாவிகள் அல்லது டோக்கன்களைச் சேமிப்பதைத் தவிர்க்கவும்";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "உங்கள் சாதனத்தின் **அமைப்புகள்** ஆப்பில் கட்லிங் ஐ திறக்கவும்.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "சேமிக்கப்பட்டது!";
 "Clipboard is empty." = "கிளிப்போர்டு காலியாக உள்ளது.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "இது ஒரு பணம் செலுத்தும் கார்டு எண் போல் தெரிகிறது. நிதித் தரவின் பாதுகாப்பான சேமிப்புக்காக கட்லிங் வடிவமைக்கப்படவில்லை.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "இது ஒரு தனிப்பட்ட சாவி அல்லது சான்றிதழ் போல் தெரிகிறது. தனிப்பட்ட சாவிகளை பாதுகாப்பான கீசெயின் அல்லது வால்ட்டில் சேமிக்கவும்.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "இது ஒரு API சாவி அல்லது ரகசிய டோக்கன் போல் தெரிகிறது. பாதுகாப்பான வால்ட்டுக்கு வெளியே சான்றுகளைச் சேமிப்பதைத் தவிர்க்கவும்.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "இது ஒரு அங்கீகார டோக்கன் போல் தெரிகிறது. டோக்கன்கள் பாதுகாப்பாகச் சேமிக்கப்பட வேண்டும், கிளிப்போர்டு நிர்வாகியில் அல்ல.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "இது ஒரு மீட்பு சொற்றொடர் போல் தெரிகிறது. சீட் சொற்றொடர்களை பாதுகாப்பான, ஆஃப்லைன் இடத்தில் சேமிக்கவும்.";
+"Don't Warn About This Again" = "இதைப் பற்றி மீண்டும் எச்சரிக்க வேண்டாம்";

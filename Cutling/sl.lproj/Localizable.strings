@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Preizkusite svojo tipkovnico";
 "All set! Swipe to continue." = "Vse je pripravljeno! Povlecite za nadaljevanje.";
 "Your data stays private and is never sent anywhere." = "Vaši podatki ostanejo zasebni in se nikoli ne pošljejo nikamor.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Ni priporočljivo za gesla** — uporabite namenski upravitelj gesel";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Ni za občutljive podatke** — izogibajte se shranjevanju gesel, številk kartic, zasebnih ključev ali žetonov";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Odprite Cutling v aplikaciji **Nastavitve** na vaši napravi.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Shranjeno!";
 "Clipboard is empty." = "Odložišče je prazno.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "To je videti kot številka plačilne kartice. Cutling ni zasnovan za varno shranjevanje finančnih podatkov.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "To je videti kot zasebni ključ ali certifikat. Zasebne ključe shranjujte v varnem obesku za ključe ali trezorju.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "To je videti kot API-ključ ali tajni žeton. Izogibajte se shranjevanju poverilnic zunaj varnega trezorja.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "To je videti kot žeton za preverjanje pristnosti. Žetone je treba shranjevati varno, ne v upravitelju odložišča.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "To je videti kot obnovitvena fraza. Shranjujte začetne fraze na varnem mestu brez povezave.";
+"Don't Warn About This Again" = "O tem ne opozarjaj več";

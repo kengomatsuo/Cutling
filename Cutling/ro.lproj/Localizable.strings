@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Testează tastatura";
 "All set! Swipe to continue." = "Totul e gata! Glisează pentru a continua.";
 "Your data stays private and is never sent anywhere." = "Datele tale rămân private și nu sunt trimise niciodată nicăieri.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Nu este recomandat pentru parole** — folosește un manager de parole dedicat";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Nu pentru date sensibile** — evită stocarea parolelor, numerelor de card, cheilor private sau tokenurilor";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Deschide Cutling în aplicația **Setări** a dispozitivului.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Salvat!";
 "Clipboard is empty." = "Clipboard-ul este gol.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "Aceasta pare a fi un număr de card de plată. Cutling nu este conceput pentru stocarea securizată a datelor financiare.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "Aceasta pare a fi o cheie privată sau un certificat. Stocați cheile private într-un breloc de chei sau seif securizat.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "Aceasta pare a fi o cheie API sau un token secret. Evitați stocarea acreditărilor în afara unui seif securizat.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "Aceasta pare a fi un token de autentificare. Tokenurile ar trebui stocate în siguranță, nu într-un manager de clipboard.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "Aceasta pare a fi o frază de recuperare. Stocați frazele seed într-o locație sigură, offline.";
+"Don't Warn About This Again" = "Nu mă mai avertiza despre asta";

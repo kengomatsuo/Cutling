@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Test je toetsenbord";
 "All set! Swipe to continue." = "Alles klaar! Veeg om verder te gaan.";
 "Your data stays private and is never sent anywhere." = "Je gegevens blijven privé en worden nooit ergens naartoe verzonden.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Niet aanbevolen voor wachtwoorden** — gebruik een speciale wachtwoordbeheerder";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Niet voor gevoelige gegevens** — vermijd het opslaan van wachtwoorden, kaartnummers, privésleutels of tokens";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Open Cutling in de **Instellingen**-app van je apparaat.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Opgeslagen!";
 "Clipboard is empty." = "Klembord is leeg.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "Dit lijkt op een betaalkaartnummer. Cutling is niet ontworpen voor veilige opslag van financiële gegevens.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "Dit lijkt op een privésleutel of certificaat. Bewaar privésleutels in een veilige sleutelhanger of kluis.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "Dit lijkt op een API-sleutel of geheim token. Vermijd het opslaan van inloggegevens buiten een veilige kluis.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "Dit lijkt op een authenticatietoken. Tokens moeten veilig worden opgeslagen, niet in een klembordbeheerder.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "Dit lijkt op een herstelzin. Bewaar seed-zinnen op een veilige, offline locatie.";
+"Don't Warn About This Again" = "Hier niet meer voor waarschuwen";

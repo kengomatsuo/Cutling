@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "اپنا کی بورڈ آزمائیں";
 "All set! Swipe to continue." = "سب تیار! جاری رکھنے کے لیے سوائپ کریں۔";
 "Your data stays private and is never sent anywhere." = "آپ کا ڈیٹا نجی رہتا ہے اور کبھی کہیں نہیں بھیجا جاتا۔";
-"**Not recommended for passwords** — use a dedicated password manager" = "**پاسورڈز کے لیے تجویز نہیں کیا جاتا** — ایک مخصوص پاسورڈ مینیجر استعمال کریں";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**حساس ڈیٹا کے لیے نہیں** — پاسورڈز، کارڈ نمبرز، نجی کلیدوں، یا ٹوکنز کو محفوظ کرنے سے گریز کریں";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "اپنے آلے کی **سیٹنگز** ایپ میں کٹلنگ کھولیں۔";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "محفوظ ہو گیا!";
 "Clipboard is empty." = "کلپ بورڈ خالی ہے۔";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "یہ ادائیگی کارڈ نمبر لگتا ہے۔ کٹلنگ مالی ڈیٹا کے محفوظ ذخیرے کے لیے نہیں بنایا گیا۔";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "یہ نجی کلید یا سرٹیفکیٹ لگتا ہے۔ نجی کلیدوں کو محفوظ کی چین یا والٹ میں رکھیں۔";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "یہ API کلید یا خفیہ ٹوکن لگتا ہے۔ اسناد کو محفوظ والٹ سے باہر رکھنے سے گریز کریں۔";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "یہ تصدیقی ٹوکن لگتا ہے۔ ٹوکنز محفوظ طریقے سے رکھے جائیں، کلپ بورڈ مینیجر میں نہیں۔";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "یہ ریکوری فریز لگتا ہے۔ سیڈ فریزز کو محفوظ، آف لائن جگہ پر رکھیں۔";
+"Don't Warn About This Again" = "اس بارے میں دوبارہ خبردار نہ کریں";

@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "ทดสอบคีย์บอร์ดของคุณ";
 "All set! Swipe to continue." = "พร้อมแล้ว! ปัดเพื่อดำเนินการต่อ";
 "Your data stays private and is never sent anywhere." = "ข้อมูลของคุณยังคงเป็นส่วนตัวและไม่ถูกส่งไปที่ใด";
-"**Not recommended for passwords** — use a dedicated password manager" = "**ไม่แนะนำสำหรับรหัสผ่าน** — ใช้ตัวจัดการรหัสผ่านโดยเฉพาะ";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**ไม่เหมาะสำหรับข้อมูลที่ละเอียดอ่อน** — หลีกเลี่ยงการเก็บรหัสผ่าน หมายเลขบัตร คีย์ส่วนตัว หรือโทเค็น";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "เปิด คัตลิง ในแอป**การตั้งค่า**ของอุปกรณ์";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "บันทึกแล้ว!";
 "Clipboard is empty." = "คลิปบอร์ดว่างเปล่า";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "ดูเหมือนหมายเลขบัตรชำระเงิน คัตลิง ไม่ได้ออกแบบมาเพื่อจัดเก็บข้อมูลทางการเงินอย่างปลอดภัย";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "ดูเหมือนคีย์ส่วนตัวหรือใบรับรอง ควรเก็บคีย์ส่วนตัวในพวงกุญแจหรือห้องนิรภัยที่ปลอดภัย";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "ดูเหมือนคีย์ API หรือโทเค็นลับ หลีกเลี่ยงการเก็บข้อมูลรับรองนอกห้องนิรภัยที่ปลอดภัย";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "ดูเหมือนโทเค็นการยืนยันตัวตน โทเค็นควรถูกเก็บอย่างปลอดภัย ไม่ใช่ในตัวจัดการคลิปบอร์ด";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "ดูเหมือนวลีกู้คืน ควรเก็บ seed phrase ในที่ปลอดภัยแบบออฟไลน์";
+"Don't Warn About This Again" = "ไม่ต้องเตือนเรื่องนี้อีก";

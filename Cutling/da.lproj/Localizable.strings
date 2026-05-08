@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Test dit tastatur";
 "All set! Swipe to continue." = "Alt klar! Stryg for at fortsætte.";
 "Your data stays private and is never sent anywhere." = "Dine data forbliver private og sendes aldrig nogen steder.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Anbefales ikke til adgangskoder** — brug en dedikeret adgangskodeadministrator";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Ikke til følsomme data** — undgå at gemme adgangskoder, kortnumre, private nøgler eller tokens";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Åbn Cutling i din enheds **Indstillinger**-app.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Gemt!";
 "Clipboard is empty." = "Udklipsholderen er tom.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "Dette ligner et betalingskortnummer. Cutling er ikke designet til sikker opbevaring af finansielle data.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "Dette ligner en privat nøgle eller et certifikat. Opbevar private nøgler i en sikker nøglering eller boks.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "Dette ligner en API-nøgle eller hemmelig token. Undgå at gemme legitimationsoplysninger uden for en sikker boks.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "Dette ligner et godkendelsestoken. Tokens bør opbevares sikkert, ikke i en udklipsholder-administrator.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "Dette ligner en gendannelsesfrase. Opbevar seed-fraser et sikkert, offline sted.";
+"Don't Warn About This Again" = "Advar ikke om dette igen";

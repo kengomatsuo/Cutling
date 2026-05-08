@@ -40,6 +40,7 @@ struct TextDetailView: View {
     @State private var isAutoDetecting = false
     @State private var autoDetectedCategories: Set<InputTypeCategory> = []
     @State private var userDidPickIcon = false
+    @State private var sensitiveContentTypes: Set<SensitiveContentType> = []
     @AppStorage("autoDetectInputTypes") private var autoDetectInputTypes = true
     @State private var undoHandler = UndoHandler()
 
@@ -267,6 +268,7 @@ struct TextDetailView: View {
                         .labelsHidden()
                 }
             }
+            SensitiveContentWarning(types: sensitiveContentTypes)
             Section {
                 TextEditor(text: undoHandler.binding($value, actionName: String(localized: "Change Text")))
                     .frame(minHeight: 120, maxHeight: 650)
@@ -333,6 +335,9 @@ struct TextDetailView: View {
             canPaste = hasClipboardText
             if !value.isEmpty && !isEditing {
                 scheduleAutoDetect()
+            }
+            if !value.isEmpty {
+                sensitiveContentTypes = SensitiveContentType.detect(in: value)
             }
         }
         .onChange(of: undoManager, initial: true) { _, newValue in
@@ -409,12 +414,14 @@ struct TextDetailView: View {
     // MARK: - Auto-Detection
 
     private func scheduleAutoDetect() {
-        guard autoDetectInputTypes else { return }
         detectTask?.cancel()
         detectTask = Task { @MainActor in
             try? await Task.sleep(for: .milliseconds(800))
             guard !Task.isCancelled else { return }
-            runAutoDetect()
+            if autoDetectInputTypes {
+                runAutoDetect()
+            }
+            sensitiveContentTypes = SensitiveContentType.detect(in: value)
         }
     }
 

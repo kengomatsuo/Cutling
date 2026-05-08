@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Prova la Tua Tastiera";
 "All set! Swipe to continue." = "Tutto pronto! Scorri per continuare.";
 "Your data stays private and is never sent anywhere." = "I tuoi dati restano privati e non vengono mai inviati da nessuna parte.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Non consigliato per le password** — usa un gestore di password dedicato";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Non per dati sensibili** — evita di archiviare password, numeri di carta, chiavi private o token";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Apri Cutling nell'app **Impostazioni** del tuo dispositivo.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Salvato!";
 "Clipboard is empty." = "Gli appunti sono vuoti.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "Questo sembra un numero di carta di pagamento. Cutling non è progettato per l'archiviazione sicura di dati finanziari.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "Questo sembra una chiave privata o un certificato. Conserva le chiavi private in un portachiavi sicuro o in una cassaforte.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "Questo sembra una chiave API o un token segreto. Evita di archiviare credenziali al di fuori di una cassaforte sicura.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "Questo sembra un token di autenticazione. I token devono essere archiviati in modo sicuro, non in un gestore di appunti.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "Questo sembra una frase di recupero. Conserva le frasi seed in un luogo sicuro e offline.";
+"Don't Warn About This Again" = "Non avvisare più per questo";

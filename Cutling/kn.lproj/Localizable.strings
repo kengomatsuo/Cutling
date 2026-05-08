@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "ನಿಮ್ಮ ಕೀಬೋರ್ಡ್ ಪರೀಕ್ಷಿಸಿ";
 "All set! Swipe to continue." = "ಎಲ್ಲಾ ಸಿದ್ಧ! ಮುಂದುವರಿಸಲು ಸ್ವೈಪ್ ಮಾಡಿ.";
 "Your data stays private and is never sent anywhere." = "ನಿಮ್ಮ ಡೇಟಾ ಖಾಸಗಿಯಾಗಿರುತ್ತದೆ ಮತ್ತು ಎಲ್ಲಿಯೂ ಕಳುಹಿಸಲಾಗುವುದಿಲ್ಲ.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**ಪಾಸ್‌ವರ್ಡ್‌ಗಳಿಗೆ ಶಿಫಾರಸು ಮಾಡಲಾಗಿಲ್ಲ** — ಮೀಸಲಾದ ಪಾಸ್‌ವರ್ಡ್ ಮ್ಯಾನೇಜರ್ ಬಳಸಿ";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**ಸೂಕ್ಷ್ಮ ಡೇಟಾಗಾಗಿ ಅಲ್ಲ** — ಪಾಸ್‌ವರ್ಡ್‌ಗಳು, ಕಾರ್ಡ್ ಸಂಖ್ಯೆಗಳು, ಖಾಸಗಿ ಕೀಗಳು ಅಥವಾ ಟೋಕನ್‌ಗಳನ್ನು ಸಂಗ್ರಹಿಸುವುದನ್ನು ತಪ್ಪಿಸಿ";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "ನಿಮ್ಮ ಸಾಧನದ **ಸೆಟ್ಟಿಂಗ್ಸ್** ಅಪ್ಲಿಕೇಶನ್‌ನಲ್ಲಿ ಕಟ್ಲಿಂಗ್ ತೆರೆಯಿರಿ.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "ಉಳಿಸಲಾಗಿದೆ!";
 "Clipboard is empty." = "ಕ್ಲಿಪ್‌ಬೋರ್ಡ್ ಖಾಲಿಯಾಗಿದೆ.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "ಇದು ಪಾವತಿ ಕಾರ್ಡ್ ಸಂಖ್ಯೆಯಂತೆ ಕಾಣುತ್ತಿದೆ. ಕಟ್ಲಿಂಗ್ ಹಣಕಾಸು ಡೇಟಾದ ಸುರಕ್ಷಿತ ಸಂಗ್ರಹಣೆಗಾಗಿ ವಿನ್ಯಾಸಗೊಳಿಸಲಾಗಿಲ್ಲ.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "ಇದು ಖಾಸಗಿ ಕೀ ಅಥವಾ ಪ್ರಮಾಣಪತ್ರದಂತೆ ಕಾಣುತ್ತಿದೆ. ಖಾಸಗಿ ಕೀಗಳನ್ನು ಸುರಕ್ಷಿತ ಕೀಚೈನ್ ಅಥವಾ ವಾಲ್ಟ್‌ನಲ್ಲಿ ಸಂಗ್ರಹಿಸಿ.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "ಇದು API ಕೀ ಅಥವಾ ರಹಸ್ಯ ಟೋಕನ್‌ನಂತೆ ಕಾಣುತ್ತಿದೆ. ಸುರಕ್ಷಿತ ವಾಲ್ಟ್ ಹೊರಗೆ ರುಜುವಾತುಗಳನ್ನು ಸಂಗ್ರಹಿಸುವುದನ್ನು ತಪ್ಪಿಸಿ.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "ಇದು ದೃಢೀಕರಣ ಟೋಕನ್‌ನಂತೆ ಕಾಣುತ್ತಿದೆ. ಟೋಕನ್‌ಗಳನ್ನು ಸುರಕ್ಷಿತವಾಗಿ ಸಂಗ್ರಹಿಸಬೇಕು, ಕ್ಲಿಪ್‌ಬೋರ್ಡ್ ಮ್ಯಾನೇಜರ್‌ನಲ್ಲಿ ಅಲ್ಲ.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "ಇದು ರಿಕವರಿ ಫ್ರೇಸ್‌ನಂತೆ ಕಾಣುತ್ತಿದೆ. ಸೀಡ್ ಫ್ರೇಸ್‌ಗಳನ್ನು ಸುರಕ್ಷಿತ, ಆಫ್‌ಲೈನ್ ಸ್ಥಳದಲ್ಲಿ ಸಂಗ್ರಹಿಸಿ.";
+"Don't Warn About This Again" = "ಇದರ ಬಗ್ಗೆ ಮತ್ತೆ ಎಚ್ಚರಿಸಬೇಡಿ";

@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "നിങ്ങളുടെ കീബോർഡ് പരിശോധിക്കുക";
 "All set! Swipe to continue." = "എല്ലാം തയ്യാർ! തുടരാൻ സ്വൈപ്പ് ചെയ്യുക.";
 "Your data stays private and is never sent anywhere." = "നിങ്ങളുടെ ഡാറ്റ സ്വകാര്യമായി തുടരുന്നു, ഒരിടത്തും അയയ്ക്കുന്നില്ല.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**പാസ്‌വേഡുകൾക്ക് ശുപാർശ ചെയ്യുന്നില്ല** — സമർപ്പിത പാസ്‌വേഡ് മാനേജർ ഉപയോഗിക്കുക";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**സെൻസിറ്റീവ് ഡാറ്റയ്ക്കല്ല** — പാസ്‌വേഡുകൾ, കാർഡ് നമ്പറുകൾ, പ്രൈവറ്റ് കീകൾ അല്ലെങ്കിൽ ടോക്കണുകൾ സംഭരിക്കുന്നത് ഒഴിവാക്കുക";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "നിങ്ങളുടെ ഉപകരണത്തിന്റെ **സെറ്റിംഗ്സ്** ആപ്പിൽ കട്ട്‌ലിംഗ് തുറക്കുക.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "സേവ് ചെയ്തു!";
 "Clipboard is empty." = "ക്ലിപ്പ്ബോർഡ് ശൂന്യമാണ്.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "ഇത് ഒരു പേയ്‌മെന്റ് കാർഡ് നമ്പർ പോലെ തോന്നുന്നു. സാമ്പത്തിക ഡാറ്റയുടെ സുരക്ഷിത സംഭരണത്തിനായി കട്ട്‌ലിംഗ് രൂപകൽപ്പന ചെയ്തിട്ടില്ല.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "ഇത് ഒരു പ്രൈവറ്റ് കീ അല്ലെങ്കിൽ സർട്ടിഫിക്കറ്റ് പോലെ തോന്നുന്നു. പ്രൈവറ്റ് കീകൾ സുരക്ഷിത കീചെയിനിലോ വോൾട്ടിലോ സൂക്ഷിക്കുക.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "ഇത് ഒരു API കീ അല്ലെങ്കിൽ സീക്രട്ട് ടോക്കൺ പോലെ തോന്നുന്നു. സുരക്ഷിത വോൾട്ടിന് പുറത്ത് ക്രെഡൻഷ്യലുകൾ സംഭരിക്കുന്നത് ഒഴിവാക്കുക.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "ഇത് ഒരു ഓതന്റിക്കേഷൻ ടോക്കൺ പോലെ തോന്നുന്നു. ടോക്കണുകൾ സുരക്ഷിതമായി സംഭരിക്കണം, ക്ലിപ്ബോർഡ് മാനേജറിലല്ല.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "ഇത് ഒരു റിക്കവറി ഫ്രേസ് പോലെ തോന്നുന്നു. സീഡ് ഫ്രേസുകൾ സുരക്ഷിത, ഓഫ്‌ലൈൻ സ്ഥലത്ത് സൂക്ഷിക്കുക.";
+"Don't Warn About This Again" = "ഇതിനെക്കുറിച്ച് വീണ്ടും മുന്നറിയിപ്പ് നൽകരുത്";

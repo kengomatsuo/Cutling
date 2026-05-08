@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "キーボードをテスト";
 "All set! Swipe to continue." = "準備完了！スワイプして続けてください。";
 "Your data stays private and is never sent anywhere." = "データはプライベートに保たれ、外部に送信されることはありません。";
-"**Not recommended for passwords** — use a dedicated password manager" = "**パスワードには非推奨** — 専用のパスワードマネージャーをご利用ください";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**機密データには不向き** — パスワード、カード番号、秘密鍵、トークンの保存は避けてください";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "デバイスの**設定**アプリでカットリングを開いてください。";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "保存しました！";
 "Clipboard is empty." = "クリップボードは空です。";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "これは決済カード番号のようです。カットリングは金融データの安全な保管用には設計されていません。";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "これは秘密鍵または証明書のようです。秘密鍵は安全なキーチェーンまたはボールトに保管してください。";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "これはAPIキーまたはシークレットトークンのようです。認証情報は安全なボールト以外に保管しないでください。";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "これは認証トークンのようです。トークンはクリップボードマネージャーではなく、安全な場所に保管してください。";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "これはリカバリーフレーズのようです。シードフレーズは安全なオフラインの場所に保管してください。";
+"Don't Warn About This Again" = "今後この警告を表示しない";

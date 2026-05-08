@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "ଆପଣଙ୍କ କୀବୋର୍ଡ ପରୀକ୍ଷା କରନ୍ତୁ";
 "All set! Swipe to continue." = "ସବୁ ପ୍ରସ୍ତୁତ! ଜାରି ରଖିବାକୁ ସ୍ୱାଇପ୍ କରନ୍ତୁ.";
 "Your data stays private and is never sent anywhere." = "ଆପଣଙ୍କ ଡାଟା ବ୍ୟକ୍ତିଗତ ରହେ ଏବଂ କେବେ ବି ପଠାଯାଏ ନାହିଁ.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**ପାସୱାର୍ଡ ପାଇଁ ସୁପାରିଶ କରାଯାଏ ନାହିଁ** — ଏକ ସମର୍ପିତ ପାସୱାର୍ଡ ମ୍ୟାନେଜର ବ୍ୟବହାର କରନ୍ତୁ";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**ସୂକ୍ଷ୍ମ ତଥ୍ୟ ପାଇଁ ନୁହେଁ** — ପାସୱାର୍ଡ, କାର୍ଡ ନମ୍ବର, ଗୋପନୀୟ ଚାବି, କିମ୍ବା ଟୋକେନ ସଂରକ୍ଷଣ ଏଡ଼ାନ୍ତୁ";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "ଆପଣଙ୍କ ଡିଭାଇସର **ସେଟିଂସ** ଆପରେ କଟ୍‌ଲିଂ ଖୋଲନ୍ତୁ।";
@@ -262,3 +262,9 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "ସେଭ ହୋଇଛି!";
 "Clipboard is empty." = "କ୍ଲିପବୋର୍ଡ ଖାଲି ଅଛି।";
+"Don't Warn About This Again" = "ମୁଁକୁ ଆଉ ଚେତାବନୀ ଦିଅନ୍ତୁ ନାହିଁ";
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "ଏଟି ଏକ ପେମେଣ୍ଟ କାର୍ଡ ନମ୍ବର ଦେଖାଯାଉଛି। Cutling ଆର୍ଥିକ ତଥ୍ୟର ସୁରକ୍ଷିତ ସଂରକ୍ଷଣ ପାଇଁ ଡିଜାଇନ୍ ହୋଇ ନାହିଁ।";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "ଏଟି ଏକ ଘନିଷ୍ଠ ଚାବି ବା ସର୍ଟିଫିକେଟ ଦେଖାଯାଉଛି। ବ୍ୟକ୍ତିଗତ ଚାବିଗୁଡିକ ଏକ ସୁରକ୍ଷିତ କୀଚେଇନ୍ ବା ଭଲ୍ଟରେ ସଂଗ୍ରହ କରନ୍ତୁ।";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "ଏଟି ପୁନରୁଦ୍ଧାର ବାକ୍ୟଟିକି ଦେଖାଯାଉଛି। ବୀଜ ବାକ୍ୟାଂଶଗୁଡିକୁ ଏକ ସୁରକ୍ଷିତ, ଅଫଲାଇନ୍ ସ୍ଥାନରେ ସଂଗ୍ରହ କରନ୍ତୁ।";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "ଏଟି ଏକ API ଚାବି ବା ଗୁପ୍ତ ଟୋକେନ ଦେଖାଯାଉଛି। ଏକ ସୁରକ୍ଷିତ ଭୋଲ୍ଟ ବାହାରେ ଜମା ସଂଗ୍ରହ ଏଡ଼ାନ୍ତୁ।";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "ଏଟି ଏକ ପ୍ରମାଣୀକରଣ ଟୋକେନ ଦେଖାଯାଉଛି। ଟୋକେନଗୁଡିକୁ ସୁରକ୍ଷିତଭାବେ ସଂଗ୍ରହ କରିବା ଉଚିତ, ଏକ ଲିଭ୍ ବୋର୍ଡ ପରିଚାଳନାକାରୀରେ ନୁହେଁ।";

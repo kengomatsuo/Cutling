@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Przetestuj klawiaturę";
 "All set! Swipe to continue." = "Gotowe! Przesuń, aby kontynuować.";
 "Your data stays private and is never sent anywhere." = "Twoje dane pozostają prywatne i nigdy nie są nigdzie wysyłane.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Nie zalecane dla haseł** — użyj dedykowanego menedżera haseł";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Nie do wrażliwych danych** — unikaj przechowywania haseł, numerów kart, kluczy prywatnych lub tokenów";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Otwórz Cutling w aplikacji **Ustawienia** na swoim urządzeniu.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Zapisano!";
 "Clipboard is empty." = "Schowek jest pusty.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "To wygląda na numer karty płatniczej. Cutling nie jest przeznaczony do bezpiecznego przechowywania danych finansowych.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "To wygląda na klucz prywatny lub certyfikat. Przechowuj klucze prywatne w bezpiecznym pęku kluczy lub sejfie.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "To wygląda na klucz API lub tajny token. Unikaj przechowywania poświadczeń poza bezpiecznym sejfem.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "To wygląda na token uwierzytelniający. Tokeny powinny być przechowywane bezpiecznie, nie w menedżerze schowka.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "To wygląda na frazę odzyskiwania. Przechowuj frazy seed w bezpiecznym, offline miejscu.";
+"Don't Warn About This Again" = "Nie ostrzegaj o tym ponownie";

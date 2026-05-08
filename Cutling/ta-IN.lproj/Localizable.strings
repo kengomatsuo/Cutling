@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "உங்கள் விசைப்பலகையைச் சோதிக்கவும்";
 "All set! Swipe to continue." = "எல்லாம் தயார்! தொடர ஸ்வைப் செய்யவும்.";
 "Your data stays private and is never sent anywhere." = "உங்கள் தரவு தனிப்பட்டதாகவே இருக்கும், எங்கும் அனுப்பப்படாது.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**கடவுச்சொற்களுக்கு பரிந்துரைக்கப்படவில்லை** — ஒரு பிரத்யேக கடவுச்சொல் நிர்வாகியைப் பயன்படுத்தவும்";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**முக்கியமான தகவல்களுக்கு இல்லை** — கடவுச்சொல், கட்டளை எண்கள், தனிப்பட்ட விசைகள் அல்லது டோக்கன்களை சேமிக்க வேண்டாம்";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "உங்கள் சாதனத்தின் **அமைப்புகள்** ஆப்பில் கட்லிங் ஐ திறக்கவும்.";
@@ -262,3 +262,9 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "சேமிக்கப்பட்டது!";
 "Clipboard is empty." = "கிளிப்போர்டு காலியாக உள்ளது.";
+"Don't Warn About This Again" = "மீண்டும் எனக்கு எச்சரிக்க வேண்டாம்";
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "இது பணி அட்டை எண்ணைப் போல் தெரிகிறது. Cutling நிதி தரவுக்கான பாதுகாப்பான சேமிப்புக்கு வடிவமைக்கப்படவில்லை.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "இது தனிப்பட்ட விசை அல்லது சான்றிதழ் போல் தெரிகிறது. தனிப்பட்ட விசைகளை பாதுகாப்பான விசை சங்கிலி அல்லது கதவை சேமிக்கவும்.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "இது மீட்டெடுக்கும் வாக்கு போல் தெரிகிறது. விதை வாக்கை பாதுகாப்பான, ஆஃப்லைன் இடத்தில் சேமிக்கவும்.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "இது API விசை அல்லது গோபனीय டோக்கனைப் போல் தெரிகிறது. பாதுகாப்பான கதவுக்கு வெளியே சான்றிதழ்கள் சேமிக்க வேண்டாம்।";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "இது ஒரு பாதுகாப்பு டோக்கனைப் போல் தெரிகிறது. டோக்கன்கள் பாதுகாப்பாக சேமிக்கப்பட வேண்டும், க்லிப்பிபோர்ட் மேனேஜரில் அல்ல।";

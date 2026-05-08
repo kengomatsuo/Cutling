@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "Prova el teclat";
 "All set! Swipe to continue." = "Tot a punt! Llisca per continuar.";
 "Your data stays private and is never sent anywhere." = "Les teves dades es mantenen privades i mai s'envien enlloc.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**No recomanat per a contrasenyes** — utilitzeu un gestor de contrasenyes dedicat";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**No per a dades sensibles** — eviteu emmagatzemar contrasenyes, números de targeta, claus privades o tokens";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Obriu Cutling a l'aplicació **Ajustos** del vostre dispositiu.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Desat!";
 "Clipboard is empty." = "El porta-retalls és buit.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "Això sembla un número de targeta de pagament. Cutling no està dissenyat per a l'emmagatzematge segur de dades financeres.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "Això sembla una clau privada o un certificat. Guardeu les claus privades en un clauer segur o una caixa forta.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "Això sembla una clau d'API o un token secret. Eviteu emmagatzemar credencials fora d'una caixa forta segura.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "Això sembla un token d'autenticació. Els tokens s'han d'emmagatzemar de forma segura, no en un gestor de porta-retalls.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "Això sembla una frase de recuperació. Guardeu les frases llavor en un lloc segur i fora de línia.";
+"Don't Warn About This Again" = "No tornis a avisar sobre això";

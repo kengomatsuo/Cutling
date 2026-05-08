@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "I-test ang Keyboard Mo";
 "All set! Swipe to continue." = "Handa na! Mag-swipe para magpatuloy.";
 "Your data stays private and is never sent anywhere." = "Nananatiling pribado ang iyong data at hindi kailanman ipinapadala kahit saan.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**Hindi inirerekomenda para sa mga password** — gumamit ng dedikadong password manager";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Hindi para sa sensitibong data** — iwasan ang pag-iimbak ng mga password, numero ng card, private key, o token";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Buksan ang Cutling sa **Settings** app ng iyong device.";
@@ -262,3 +262,11 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "Na-save!";
 "Clipboard is empty." = "Walang laman ang clipboard.";
+
+/* MARK: - Sensitive Content Warnings */
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "Mukhang numero ito ng payment card. Ang Cutling ay hindi idinisenyo para sa ligtas na pag-iimbak ng datos pinansyal.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "Mukhang private key o certificate ito. Itabi ang mga private key sa isang ligtas na keychain o vault.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "Mukhang API key o secret token ito. Iwasan ang pag-iimbak ng mga kredensyal sa labas ng ligtas na vault.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "Mukhang authentication token ito. Ang mga token ay dapat na naka-imbak nang ligtas, hindi sa isang clipboard manager.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "Mukhang recovery phrase ito. Itabi ang mga seed phrase sa isang ligtas at offline na lokasyon.";
+"Don't Warn About This Again" = "Huwag Nang Balaan Tungkol Dito";

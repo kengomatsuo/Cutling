@@ -176,7 +176,7 @@
 "Test Your Keyboard" = "మీ కీబోర్డ్ పరీక్షించండి";
 "All set! Swipe to continue." = "అంతా సిద్ధం! కొనసాగించడానికి స్వైప్ చేయండి.";
 "Your data stays private and is never sent anywhere." = "మీ డేటా ప్రైవేట్‌గా ఉంటుంది మరియు ఎక్కడికీ పంపబడదు.";
-"**Not recommended for passwords** — use a dedicated password manager" = "**పాస్‌వర్డ్‌లకు సిఫార్సు చేయబడలేదు** — అంకితమైన పాస్‌వర్డ్ మేనేజర్‌ని ఉపయోగించండి";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**సున్నితమైన డేటా కోసం కాదు** — పాస్‌వర్డ్‌లు, కార్డ్ సంఖ్యలు, ప్రైవేట్ కీలు లేదా టోకెన్‌ల నిల్వను నివారించండి";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "మీ పరికరం యొక్క **సెట్టింగ్స్** యాప్‌లో కట్లింగ్ తెరవండి.";
@@ -262,3 +262,9 @@
 /* MARK: - Intent Feedback */
 "Saved!" = "సేవ్ చేయబడింది!";
 "Clipboard is empty." = "క్లిప్‌బోర్డ్ ఖాళీగా ఉంది.";
+"Don't Warn About This Again" = "నన్ను మళ్లీ హెచ్చరించవద్దు";
+"This looks like a payment card number. Cutling is not designed for secure storage of financial data." = "ఇది చెల్లింపు కార్డ్ సంఖ్య వలె కనిపిస్తుంది. Cutling ఆర్థిక డేటా యొక్క సురక్షితమైన నిల్వ కోసం రూపొందించబడలేదు.";
+"This looks like a private key or certificate. Store private keys in a secure keychain or vault." = "ఇది ప్రైవేట్ కీ లేదా సర్టిఫికేట్ వలె కనిపిస్తుంది. ప్రైవేట్ కీలను సురక్షిత కీచైన్ లేదా వాల్ట్‌లో నిల్వ చేయండి.";
+"This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "ఇది పునరుద్ధారణ పదబంధం వలె కనిపిస్తుంది. విత్తన పదబంధాలను సురక్షిత, ఆఫ్‌లైన్ ప్రదేశంలో నిల్వ చేయండి.";
+"This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "ఇది API కీ లేదా సీక్రెట్ టోకన్ వలె కనిపిస్తుంది. సురక్షిత వాల్ట్‌కు వెలుపల references నిల్వ చేయకండి.";
+"This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "ఇది ఆథెంటికేషన్ టోకన్ వలె కనిపిస్తుంది. టోకన్‌లను సురక్షితమైనవిగా నిల్వ చేయాలి, క్లిప్‌బోర్డ్ మేనేజర్‌లో కాదు.";
