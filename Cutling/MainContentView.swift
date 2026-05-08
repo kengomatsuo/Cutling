@@ -654,8 +654,7 @@ struct MainContentView: View {
             Button {
                 let canAddText = store.canAdd(.text)
                 if canAddText.allowed {
-                    newCutlingDraft = NewCutlingDraft(kind: .text)
-                    activeSheet = .newCutling
+                    presentNewCutlingSheet(NewCutlingDraft(kind: .text))
                 } else {
                     limitAlertMessage = canAddText.reason ?? String(localized: "Cannot add text cutling")
                 }
@@ -665,8 +664,7 @@ struct MainContentView: View {
             Button {
                 let canAddImage = store.canAdd(.image)
                 if canAddImage.allowed {
-                    newCutlingDraft = NewCutlingDraft(kind: .image)
-                    activeSheet = .newCutling
+                    presentNewCutlingSheet(NewCutlingDraft(kind: .image))
                 } else {
                     limitAlertMessage = canAddImage.reason ?? String(localized: "Cannot add image cutling")
                 }
@@ -678,6 +676,13 @@ struct MainContentView: View {
         }
         .menuIndicator(.hidden)
         .accessibilityLabel(String(localized: "Add cutling"))
+    }
+
+    private func presentNewCutlingSheet(_ draft: NewCutlingDraft) {
+        newCutlingDraft = draft
+        DispatchQueue.main.async {
+            activeSheet = .newCutling
+        }
     }
     #endif
 
