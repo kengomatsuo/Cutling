@@ -680,6 +680,7 @@ struct MainContentView: View {
 
     private func presentNewCutlingSheet(_ draft: NewCutlingDraft) {
         newCutlingDraft = draft
+        // Delay sheet activation until the menu-dismiss update cycle completes, avoiding an initial blank sheet.
         DispatchQueue.main.async {
             activeSheet = .newCutling
         }
