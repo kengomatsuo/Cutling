@@ -177,15 +177,18 @@ struct NewCutlingDraft: Identifiable, Equatable {
 }
 
 enum ActiveSheet: Identifiable, Equatable {
-    case newCutling
+    case newCutling(NewCutlingDraft)
     case keyboardManager
     case keyboardSetup
 
-    var id: Int {
+    var id: String {
         switch self {
-        case .newCutling: 0
-        case .keyboardManager: 1
-        case .keyboardSetup: 2
+        case .newCutling(let draft):
+            return "newCutling-\(draft.id)"
+        case .keyboardManager:
+            return "keyboardManager"
+        case .keyboardSetup:
+            return "keyboardSetup"
         }
     }
 }

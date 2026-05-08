@@ -146,7 +146,6 @@ struct CutlingApp: App {
     #endif
     @StateObject private var store = CutlingStore.shared
     @State private var activeSheet: ActiveSheet?
-    @State private var newCutlingDraft: NewCutlingDraft?
     @State private var showOnboarding = false
     @State private var limitAlertMessage: String?
     @Environment(\.scenePhase) private var scenePhase
@@ -192,7 +191,7 @@ struct CutlingApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainContentView(activeSheet: $activeSheet, newCutlingDraft: $newCutlingDraft)
+            MainContentView(activeSheet: $activeSheet)
                 .environmentObject(store)
                 .onAppear {
                     #if DEBUG
@@ -369,8 +368,7 @@ struct CutlingApp: App {
         guard activeSheet == nil else { return }
         let canAdd = store.canAdd(draft.kind)
         if canAdd.allowed {
-            newCutlingDraft = draft
-            activeSheet = .newCutling
+            activeSheet = .newCutling(draft)
         } else {
             limitAlertMessage = canAdd.reason ?? String(localized: "Cannot add more cutlings.")
         }

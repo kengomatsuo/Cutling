@@ -53,7 +53,6 @@ struct MainContentView: View {
 
     // MARK: Parent Bindings
     @Binding var activeSheet: ActiveSheet?
-    @Binding var newCutlingDraft: NewCutlingDraft?
 
     // MARK: Navigation
     @State private var selectedItem: Cutling? = nil
@@ -88,9 +87,8 @@ struct MainContentView: View {
     private let keyboardButtonZoomID = "keyboardButton"
     #endif
 
-    init(activeSheet: Binding<ActiveSheet?> = .constant(nil), newCutlingDraft: Binding<NewCutlingDraft?> = .constant(nil)) {
+    init(activeSheet: Binding<ActiveSheet?> = .constant(nil)) {
         _activeSheet = activeSheet
-        _newCutlingDraft = newCutlingDraft
     }
     
     // MARK: - Keyboard Status
@@ -235,18 +233,16 @@ struct MainContentView: View {
                 }
                 .sheet(item: $activeSheet) { sheet in
                     switch sheet {
-                    case .newCutling:
-                        if let draft = newCutlingDraft {
-                            Group {
-                                switch draft.kind {
-                                case .text:
-                                    TextDetailView(item: nil, initialName: draft.name, initialValue: draft.text, presentedAsSheet: true)
-                                case .image:
-                                    ImageDetailView(item: nil, initialName: draft.name, initialImageData: draft.imageData, presentedAsSheet: true)
-                                }
+                    case .newCutling(let draft):
+                        Group {
+                            switch draft.kind {
+                            case .text:
+                                TextDetailView(item: nil, initialName: draft.name, initialValue: draft.text, presentedAsSheet: true)
+                            case .image:
+                                ImageDetailView(item: nil, initialName: draft.name, initialImageData: draft.imageData, presentedAsSheet: true)
                             }
-                            .navigationTransition(.zoom(sourceID: addButtonZoomID, in: zoomNamespace))
                         }
+                        .navigationTransition(.zoom(sourceID: addButtonZoomID, in: zoomNamespace))
                     case .keyboardManager:
                         KeyboardView()
                             .navigationTransition(.zoom(sourceID: keyboardButtonZoomID, in: zoomNamespace))
@@ -271,9 +267,8 @@ struct MainContentView: View {
                 #endif
                 #if os(macOS)
                 .onChange(of: activeSheet) { _, sheet in
-                    guard sheet == .newCutling, let draft = newCutlingDraft else { return }
+                    guard case .newCutling(let draft) = sheet else { return }
                     activeSheet = nil
-                    newCutlingDraft = nil
                     openAddWindow(for: draft.kind)
                 }
                 #endif
@@ -283,12 +278,10 @@ struct MainContentView: View {
                     guard groupDefaults?.string(forKey: "pendingControlAction") == "addFromClipboard" else { return }
                     groupDefaults?.removeObject(forKey: "pendingControlAction")
                     if let string = UIPasteboard.general.string, !string.isEmpty {
-                        newCutlingDraft = NewCutlingDraft(kind: .text, text: string)
-                        activeSheet = .newCutling
+                        activeSheet = .newCutling(NewCutlingDraft(kind: .text, text: string))
                     } else if let image = UIPasteboard.general.image,
                               let data = image.pngData() {
-                        newCutlingDraft = NewCutlingDraft(kind: .image, name: String(localized: "Shared Image"), imageData: data)
-                        activeSheet = .newCutling
+                        activeSheet = .newCutling(NewCutlingDraft(kind: .image, name: String(localized: "Shared Image"), imageData: data))
                     }
                 }
                 #endif
@@ -654,8 +647,7 @@ struct MainContentView: View {
             Button {
                 let canAddText = store.canAdd(.text)
                 if canAddText.allowed {
-                    newCutlingDraft = NewCutlingDraft(kind: .text)
-                    activeSheet = .newCutling
+                    activeSheet = .newCutling(NewCutlingDraft(kind: .text))
                 } else {
                     limitAlertMessage = canAddText.reason ?? String(localized: "Cannot add text cutling")
                 }
@@ -665,8 +657,7 @@ struct MainContentView: View {
             Button {
                 let canAddImage = store.canAdd(.image)
                 if canAddImage.allowed {
-                    newCutlingDraft = NewCutlingDraft(kind: .image)
-                    activeSheet = .newCutling
+                    activeSheet = .newCutling(NewCutlingDraft(kind: .image))
                 } else {
                     limitAlertMessage = canAddImage.reason ?? String(localized: "Cannot add image cutling")
                 }
