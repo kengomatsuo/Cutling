@@ -8,20 +8,26 @@ enum SharedContentType {
     case image(Data)
 }
 
+struct SharedItem: Identifiable {
+    let id = UUID()
+    var name: String
+    var icon: String
+    var color: Color = Cutling.defaultTint
+    var content: SharedContentType
+    var inputTypeTriggers: Set<String> = []
+    var autoDetectedCategories: Set<InputTypeCategory> = []
+    var autoDeleteEnabled = false
+    var deleteAt = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
+    var needsTitleFetch = false
+}
+
 struct ShareView: View {
     let extensionContext: NSExtensionContext
     let dismiss: () -> Void
 
-    @State private var name = ""
-    @State private var icon = "document"
-    @State private var color: String?
-    @State private var autoDeleteEnabled = false
-    @State private var deleteAt = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
-    @State private var inputTypeTriggers: Set<String> = []
-    @State private var autoDetectedCategories: Set<InputTypeCategory> = []
+    @State private var items: [SharedItem] = []
     @State private var showIconPicker = false
 
-    @State private var content: SharedContentType?
     @State private var isLoading = true
     @State private var isSaving = false
     @State private var errorMessage: String?
@@ -31,16 +37,19 @@ struct ShareView: View {
     private let store = CutlingStore.shared
 
     private var saveDisabled: Bool {
-        switch content {
-        case .text(let text):
-            return name.isEmpty || text.isEmpty || isSaving
-        case .url:
-            return name.isEmpty || isSaving
-        case .image(let data):
-            return name.isEmpty || data.isEmpty || isSaving
-        case .none:
-            return true
+        if items.isEmpty || isSaving { return true }
+        if items.count == 1 {
+            let item = items[0]
+            switch item.content {
+            case .text(let text):
+                return item.name.isEmpty || text.isEmpty
+            case .url:
+                return item.name.isEmpty
+            case .image(let data):
+                return item.name.isEmpty || data.isEmpty
+            }
         }
+        return items.contains { $0.name.isEmpty }
     }
 
     var body: some View {
@@ -49,7 +58,7 @@ struct ShareView: View {
                 if isLoading {
                     Form {}
                         .formStyle(.grouped)
-                        .overlay { ProgressView() }
+                        .overlay { ProgressView().tint(.secondary) }
                 } else if let errorMessage {
                     Form {}
                         .formStyle(.grouped)
@@ -59,8 +68,10 @@ struct ShareView: View {
                                 systemImage: "exclamationmark.triangle"
                             )
                         }
+                } else if items.count == 1 {
+                    singleItemFormContent
                 } else {
-                    formContent
+                    multiItemFormContent
                 }
             }
             .tint(Cutling.defaultTint)
@@ -110,31 +121,29 @@ struct ShareView: View {
         }
     }
 
-    // MARK: - Form Content
+    // MARK: - Single Item Form
 
     @ViewBuilder
-    private var formContent: some View {
+    private var singleItemFormContent: some View {
+        let item = items[0]
         Form {
             Section("Name") {
-                switch content {
-                case .text, .url, .none:
-                    TextField(String(localized: "e.g. Email"), text: $name)
+                switch item.content {
+                case .text, .url:
+                    TextField(String(localized: "e.g. Email"), text: $items[0].name)
                 case .image:
-                    TextField(String(localized: "e.g. Signature, QR Code"), text: $name)
+                    TextField(String(localized: "e.g. Signature, QR Code"), text: $items[0].name)
                 }
             }
 
-            if case .text = content {
-                Section("Icon") {
-                    iconPickerButton
-                }
-            } else if case .url = content {
-                Section("Icon") {
-                    iconPickerButton
-                }
+            switch item.content {
+            case .text, .url:
+                iconAndColorSection(for: 0)
+            case .image:
+                EmptyView()
             }
 
-            switch content {
+            switch item.content {
             case .text(let text):
                 Section {
                     Text(text)
@@ -163,110 +172,188 @@ struct ShareView: View {
                             .frame(maxWidth: .infinity, minHeight: 100, maxHeight: 500)
                     }
                 }
-
-            case .none:
-                EmptyView()
             }
 
-            switch content {
+            switch item.content {
             case .text, .url:
-                ColorPaletteSection(selectedColor: $color)
-                InputTypePickerSection(selectedTriggers: $inputTypeTriggers, autoDetectedCategories: $autoDetectedCategories)
+                InputTypePickerSection(selectedTriggers: $items[0].inputTypeTriggers, autoDetectedCategories: $items[0].autoDetectedCategories)
             default:
                 EmptyView()
             }
 
-            ExpirationPickerSection(autoDeleteEnabled: $autoDeleteEnabled, deleteAt: $deleteAt)
+            ExpirationPickerSection(autoDeleteEnabled: $items[0].autoDeleteEnabled, deleteAt: $items[0].deleteAt)
         }
         .scrollDismissesKeyboard(.interactively)
         .formStyle(.grouped)
         .sheet(isPresented: $showIconPicker) {
-            IconPickerView(selectedIcon: $icon)
+            IconPickerView(selectedIcon: $items[0].icon)
         }
     }
 
-    private var iconPickerButton: some View {
-        Button {
-            showIconPicker = true
-        } label: {
+    private func iconAndColorSection(for index: Int) -> some View {
+        Section("Icon") {
+            Button {
+                showIconPicker = true
+            } label: {
+                HStack {
+                    Image(systemName: items[index].icon)
+                        .font(.title2)
+                        .foregroundStyle(items[index].color)
+                        .frame(width: 36, height: 36)
+                    Text("Change Icon")
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                        .font(.caption)
+                        .foregroundStyle(.tertiary)
+                }
+            }
+            .foregroundStyle(.primary)
+
             HStack {
-                Image(systemName: icon)
-                    .font(.title2)
-                    .foregroundStyle(.tint)
-                    .frame(width: 36, height: 36)
-                Text("Change Icon")
+                Text("Color")
                 Spacer()
-                Image(systemName: "chevron.right")
-                    .font(.caption)
-                    .foregroundStyle(.tertiary)
+                if items[index].color != Cutling.defaultTint {
+                    Button {
+                        withAccessibleAnimation(.easeInOut(duration: 0.2)) {
+                            items[index].color = Cutling.defaultTint
+                        }
+                    } label: {
+                        Image(systemName: "arrow.counterclockwise")
+                            .font(.subheadline)
+                    }
+                    .buttonStyle(.borderless)
+                }
+                ColorPicker("", selection: $items[index].color, supportsOpacity: false)
+                    .labelsHidden()
             }
         }
-        .foregroundStyle(.primary)
+    }
+
+    // MARK: - Multi Item Form
+
+    @ViewBuilder
+    private var multiItemFormContent: some View {
+        Form {
+            Section {
+                ForEach($items) { $item in
+                    NavigationLink {
+                        SharedItemDetailView(item: $item)
+                    } label: {
+                        SharedItemRow(item: item)
+                    }
+                }
+                .onDelete { indexSet in
+                    guard items.count > 1 else { return }
+                    items.remove(atOffsets: indexSet)
+                }
+            } header: {
+                Text("\(items.count) items")
+            }
+        }
+        .scrollDismissesKeyboard(.interactively)
+        .formStyle(.grouped)
     }
 
     // MARK: - Content Extraction
 
     private func extractSharedContent() async {
-        guard let items = extensionContext.inputItems as? [NSExtensionItem] else {
+        guard let extensionItems = extensionContext.inputItems as? [NSExtensionItem] else {
             errorMessage = String(localized: "No content to save.")
             isLoading = false
             return
         }
 
-        for item in items {
+        var extracted: [SharedItem] = []
+
+        for item in extensionItems {
             guard let attachments = item.attachments else { continue }
-            let itemTitle = item.attributedTitle?.string
-                ?? item.attributedContentText?.string
+            // Only use the parent item's title when there's a single attachment.
+            // Share extensions bundle multiple attachments under one NSExtensionItem,
+            // so using the shared title would give every item the same name.
+            let itemTitle = attachments.count == 1
+                ? (item.attributedTitle?.string ?? item.attributedContentText?.string)
+                : nil
 
             for provider in attachments {
+                let providerName = provider.suggestedName
+                let title = providerName ?? itemTitle
+
                 if provider.hasItemConformingToTypeIdentifier(UTType.image.identifier) {
                     if let result = try? await provider.loadItem(forTypeIdentifier: UTType.image.identifier),
-                       let imageData = imageData(from: result) {
-                        content = .image(imageData)
-                        icon = "photo"
-                        if name.isEmpty { name = itemTitle ?? String(localized: "Shared Image") }
-                        isLoading = false
-                        return
+                       let data = imageData(from: result) {
+                        extracted.append(SharedItem(
+                            name: title ?? String(localized: "Shared Image"),
+                            icon: "photo",
+                            content: .image(data)
+                        ))
+                        continue
                     }
                 }
 
                 if provider.hasItemConformingToTypeIdentifier(UTType.url.identifier) {
                     if let result = try? await provider.loadItem(forTypeIdentifier: UTType.url.identifier),
                        let url = result as? URL, !url.isFileURL {
-                        content = .url(url)
-                        icon = "link"
-                        if name.isEmpty { name = itemTitle ?? String(localized: "Shared URL") }
-                        let detected = InputTypeCategory.detect(from: url.absoluteString)
-                        if !detected.isEmpty {
-                            inputTypeTriggers = Set(detected.flatMap { $0.triggerKeys })
-                            autoDetectedCategories = detected
-                        }
-                        isLoading = false
-                        return
+                        let suggestion = InputTypeCategory.suggest(from: url.absoluteString, defaultIcon: "link", defaultName: String(localized: "Shared URL"))
+                        extracted.append(SharedItem(
+                            name: title ?? suggestion.name,
+                            icon: suggestion.icon,
+                            content: .url(url),
+                            inputTypeTriggers: suggestion.triggers,
+                            autoDetectedCategories: suggestion.categories,
+                            needsTitleFetch: title == nil
+                        ))
+                        continue
                     }
                 }
 
                 if provider.hasItemConformingToTypeIdentifier(UTType.plainText.identifier) {
                     if let result = try? await provider.loadItem(forTypeIdentifier: UTType.plainText.identifier),
                        let text = result as? String {
-                        content = .text(text)
-                        if name.isEmpty {
-                            name = itemTitle ?? String(text.prefix(40)).components(separatedBy: .newlines).first ?? String(localized: "Shared Text")
-                        }
-                        let detected = InputTypeCategory.detect(from: text)
-                        if !detected.isEmpty {
-                            inputTypeTriggers = Set(detected.flatMap { $0.triggerKeys })
-                            autoDetectedCategories = detected
-                        }
-                        isLoading = false
-                        return
+                        let contentFallback = String(text.prefix(40)).components(separatedBy: .newlines).first ?? String(localized: "Shared Text")
+                        let suggestion = InputTypeCategory.suggest(from: text, defaultIcon: "document", defaultName: contentFallback)
+                        extracted.append(SharedItem(
+                            name: title ?? suggestion.name,
+                            icon: suggestion.icon,
+                            content: .text(text),
+                            inputTypeTriggers: suggestion.triggers,
+                            autoDetectedCategories: suggestion.categories
+                        ))
+                        continue
                     }
                 }
             }
         }
 
-        errorMessage = String(localized: "No content to save.")
+        let nameGroups = Dictionary(grouping: extracted.indices, by: { extracted[$0].name })
+        for (_, indices) in nameGroups where indices.count > 1 {
+            for (offset, index) in indices.enumerated() {
+                extracted[index].name = "\(extracted[index].name) \(offset + 1)"
+            }
+        }
+
+        if extracted.isEmpty {
+            errorMessage = String(localized: "No content to save.")
+        } else {
+            items = extracted
+        }
         isLoading = false
+
+        for i in items.indices {
+            if items[i].needsTitleFetch, case .url(let url) = items[i].content {
+                let itemID = items[i].id
+                Task {
+                    await fetchURLTitle(for: itemID, url: url)
+                }
+            }
+        }
+    }
+
+    private func fetchURLTitle(for itemID: UUID, url: URL) async {
+        guard let title = await InputTypeCategory.fetchURLTitle(from: url.absoluteString) else { return }
+        guard let index = items.firstIndex(where: { $0.id == itemID }),
+              items[index].needsTitleFetch else { return }
+        items[index].name = title
+        items[index].needsTitleFetch = false
     }
 
     private func imageData(from item: NSSecureCoding) -> Data? {
@@ -285,83 +372,253 @@ struct ShareView: View {
     // MARK: - Save
 
     private func save() {
-        guard let content else { return }
+        guard !items.isEmpty else { return }
         isSaving = true
 
-        switch content {
-        case .text(let text):
-            let canAdd = store.canAdd(.text)
-            guard canAdd.allowed else {
-                limitAlertMessage = canAdd.reason ?? String(localized: "Cannot add more text cutlings.")
-                showLimitAlert = true
-                isSaving = false
-                return
-            }
-            if store.isTextTooLong(text) {
-                limitAlertMessage = String(localized: "Text exceeds the maximum length of \(CutlingStore.maxTextLength) characters.")
-                showLimitAlert = true
-                isSaving = false
-                return
-            }
-            store.add(Cutling(
-                name: name,
-                value: text,
-                icon: icon,
-                kind: .text,
-                expiresAt: autoDeleteEnabled ? deleteAt : nil,
-                color: color,
-                inputTypeTriggers: inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
-            ))
+        let textItemCount = items.filter {
+            if case .text = $0.content { return true }
+            if case .url = $0.content { return true }
+            return false
+        }.count
+        let imageItemCount = items.filter {
+            if case .image = $0.content { return true }
+            return false
+        }.count
 
-        case .url(let url):
-            let canAdd = store.canAdd(.text)
-            guard canAdd.allowed else {
-                limitAlertMessage = canAdd.reason ?? String(localized: "Cannot add more text cutlings.")
-                showLimitAlert = true
-                isSaving = false
-                return
-            }
-            store.add(Cutling(
-                name: name,
-                value: url.absoluteString,
-                icon: icon,
-                kind: .text,
-                expiresAt: autoDeleteEnabled ? deleteAt : nil,
-                color: color
-            ))
+        let currentTextCount = store.cutlings.filter { $0.kind == .text }.count
+        let currentImageCount = store.cutlings.filter { $0.kind == .image }.count
+        let currentTotal = store.cutlings.count
 
-        case .image(let data):
-            let canAdd = store.canAdd(.image)
-            guard canAdd.allowed else {
-                limitAlertMessage = canAdd.reason ?? String(localized: "Cannot add more image cutlings.")
-                showLimitAlert = true
-                isSaving = false
-                return
+        if currentTotal + items.count > CutlingStore.maxTotalCutlings {
+            limitAlertMessage = String(localized: "Adding \(items.count) items would exceed the maximum of \(CutlingStore.maxTotalCutlings) total cutlings.")
+            showLimitAlert = true
+            isSaving = false
+            return
+        }
+
+        if textItemCount > 0 && currentTextCount + textItemCount > CutlingStore.maxTextCutlings {
+            limitAlertMessage = String(localized: "Adding \(textItemCount) text items would exceed the maximum of \(CutlingStore.maxTextCutlings) text cutlings.")
+            showLimitAlert = true
+            isSaving = false
+            return
+        }
+
+        if imageItemCount > 0 && currentImageCount + imageItemCount > CutlingStore.maxImageCutlings {
+            limitAlertMessage = String(localized: "Adding \(imageItemCount) images would exceed the maximum of \(CutlingStore.maxImageCutlings) image cutlings.")
+            showLimitAlert = true
+            isSaving = false
+            return
+        }
+
+        for item in items {
+            let expiresAt = item.autoDeleteEnabled ? item.deleteAt : nil
+
+            switch item.content {
+            case .text(let text):
+                if store.isTextTooLong(text) { continue }
+                store.add(Cutling(
+                    name: item.name,
+                    value: text,
+                    icon: item.icon,
+                    kind: .text,
+                    expiresAt: expiresAt,
+                    color: Cutling.hexString(from: item.color),
+                    inputTypeTriggers: item.inputTypeTriggers.isEmpty ? nil : Array(item.inputTypeTriggers)
+                ))
+
+            case .url(let url):
+                store.add(Cutling(
+                    name: item.name,
+                    value: url.absoluteString,
+                    icon: item.icon,
+                    kind: .text,
+                    expiresAt: expiresAt,
+                    color: Cutling.hexString(from: item.color)
+                ))
+
+            case .image(let data):
+                if store.findDuplicateImage(data: data) != nil { continue }
+                let id = UUID()
+                guard let filename = store.saveImageData(data, for: id) else { continue }
+                store.add(Cutling(
+                    id: id,
+                    name: item.name,
+                    value: "",
+                    icon: "photo",
+                    kind: .image,
+                    imageFilename: filename,
+                    expiresAt: expiresAt
+                ))
             }
-            if let existing = store.findDuplicateImage(data: data) {
-                limitAlertMessage = String(localized: "This image already exists as \"\(existing.name)\".")
-                showLimitAlert = true
-                isSaving = false
-                return
-            }
-            let id = UUID()
-            guard let filename = store.saveImageData(data, for: id) else {
-                limitAlertMessage = String(localized: "Failed to save image.")
-                showLimitAlert = true
-                isSaving = false
-                return
-            }
-            store.add(Cutling(
-                id: id,
-                name: name,
-                value: "",
-                icon: "photo",
-                kind: .image,
-                imageFilename: filename,
-                expiresAt: autoDeleteEnabled ? deleteAt : nil
-            ))
         }
 
         dismiss()
+    }
+}
+
+// MARK: - SharedItemDetailView
+
+private struct SharedItemDetailView: View {
+    @Binding var item: SharedItem
+    @State private var showIconPicker = false
+
+    var body: some View {
+        Form {
+            Section("Name") {
+                switch item.content {
+                case .text, .url:
+                    TextField(String(localized: "e.g. Email"), text: $item.name)
+                case .image:
+                    TextField(String(localized: "e.g. Signature, QR Code"), text: $item.name)
+                }
+            }
+
+            switch item.content {
+            case .text, .url:
+                Section("Icon") {
+                    Button {
+                        showIconPicker = true
+                    } label: {
+                        HStack {
+                            Image(systemName: item.icon)
+                                .font(.title2)
+                                .foregroundStyle(item.color)
+                                .frame(width: 36, height: 36)
+                            Text("Change Icon")
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                                .font(.caption)
+                                .foregroundStyle(.tertiary)
+                        }
+                    }
+                    .foregroundStyle(.primary)
+
+                    HStack {
+                        Text("Color")
+                        Spacer()
+                        if item.color != Cutling.defaultTint {
+                            Button {
+                                withAccessibleAnimation(.easeInOut(duration: 0.2)) {
+                                    item.color = Cutling.defaultTint
+                                }
+                            } label: {
+                                Image(systemName: "arrow.counterclockwise")
+                                    .font(.subheadline)
+                            }
+                            .buttonStyle(.borderless)
+                        }
+                        ColorPicker("", selection: $item.color, supportsOpacity: false)
+                            .labelsHidden()
+                    }
+                }
+            case .image:
+                EmptyView()
+            }
+
+            switch item.content {
+            case .text(let text):
+                Section {
+                    Text(text)
+                        .frame(minHeight: 120, maxHeight: 650, alignment: .topLeading)
+                } header: {
+                    Text("Text")
+                } footer: {
+                    Text("\(text.count) / \(CutlingStore.maxTextLength)")
+                        .foregroundStyle(text.count > CutlingStore.maxTextLength - 500 ? .orange : .secondary)
+                        .font(.caption)
+                }
+
+            case .url(let url):
+                Section("Text") {
+                    Text(url.absoluteString)
+                        .frame(minHeight: 60, alignment: .topLeading)
+                }
+
+            case .image(let data):
+                Section("Image") {
+                    if let uiImage = UIImage(data: data) {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .scaledToFit()
+                            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                            .frame(maxWidth: .infinity, minHeight: 100, maxHeight: 500)
+                    }
+                }
+            }
+
+            switch item.content {
+            case .text, .url:
+                InputTypePickerSection(selectedTriggers: $item.inputTypeTriggers, autoDetectedCategories: $item.autoDetectedCategories)
+            default:
+                EmptyView()
+            }
+
+            ExpirationPickerSection(autoDeleteEnabled: $item.autoDeleteEnabled, deleteAt: $item.deleteAt)
+        }
+        .scrollDismissesKeyboard(.interactively)
+        .formStyle(.grouped)
+        .navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: $showIconPicker) {
+            IconPickerView(selectedIcon: $item.icon)
+        }
+    }
+}
+
+// MARK: - SharedItemRow
+
+private struct SharedItemRow: View {
+    let item: SharedItem
+
+    var body: some View {
+        HStack(spacing: 12) {
+            thumbnail
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text(item.name.isEmpty ? String(localized: "Untitled") : item.name)
+                    .foregroundStyle(item.name.isEmpty ? .secondary : .primary)
+
+                switch item.content {
+                case .text(let text):
+                    Text(text.prefix(60))
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                case .url(let url):
+                    Text(url.host ?? url.absoluteString)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                case .image:
+                    EmptyView()
+                }
+            }
+        }
+    }
+
+    @ViewBuilder
+    private var thumbnail: some View {
+        switch item.content {
+        case .image(let data):
+            if let uiImage = UIImage(data: data) {
+                Image(uiImage: uiImage)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 44, height: 44)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+            } else {
+                iconPlaceholder(systemName: "photo", color: .secondary)
+            }
+        case .text:
+            iconPlaceholder(systemName: item.icon, color: item.color)
+        case .url:
+            iconPlaceholder(systemName: "link", color: item.color)
+        }
+    }
+
+    private func iconPlaceholder(systemName: String, color: Color) -> some View {
+        Image(systemName: systemName)
+            .font(.title2)
+            .foregroundStyle(color)
+            .frame(width: 44, height: 44)
     }
 }

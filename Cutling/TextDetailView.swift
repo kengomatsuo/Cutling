@@ -36,6 +36,7 @@ struct TextDetailView: View {
     @State private var pickedColor: Color
     @State private var inputTypeTriggers: Set<String>
     @State private var detectTask: Task<Void, Never>?
+    @State private var titleFetchTask: Task<Void, Never>?
     @State private var isAutoDetecting = false
     @State private var autoDetectedCategories: Set<InputTypeCategory> = []
     @State private var userDidPickIcon = false
@@ -418,7 +419,7 @@ struct TextDetailView: View {
     }
 
     private func runAutoDetect() {
-        let detected = InputTypeCategory.detect(from: value)
+        let suggestion = InputTypeCategory.suggest(from: value)
 
         isAutoDetecting = true
         defer { isAutoDetecting = false }
@@ -426,7 +427,7 @@ struct TextDetailView: View {
         // Remove categories that were auto-detected before but are no longer detected.
         // Categories the user toggled manually are not in autoDetectedCategories, so
         // they stay untouched.
-        let stale = autoDetectedCategories.subtracting(detected)
+        let stale = autoDetectedCategories.subtracting(suggestion.categories)
         for category in stale {
             inputTypeTriggers.subtract(category.triggerKeys)
         }
@@ -434,32 +435,38 @@ struct TextDetailView: View {
 
         // Add newly detected categories that aren't already set
         let currentCategories = Set(InputTypeCategory.matchingCategories(for: inputTypeTriggers))
-        let newCategories = detected.subtracting(currentCategories)
+        let newCategories = suggestion.categories.subtracting(currentCategories)
         for category in newCategories {
             inputTypeTriggers.formUnion(category.triggerKeys)
             autoDetectedCategories.insert(category)
         }
 
         // Auto-suggest icon as long as the user hasn't manually picked one.
-        // If the current icon already matches one of the detected categories, keep it.
         if !userDidPickIcon {
-            let currentIconMatchesDetected = detected.contains { $0.icon == icon }
-            if !currentIconMatchesDetected, let first = detected.first {
-                icon = first.icon
-            }
-            // If nothing is detected at all, revert to default
-            if detected.isEmpty {
-                icon = "document"
+            let currentIconMatchesDetected = suggestion.categories.contains { $0.icon == icon }
+            if !currentIconMatchesDetected {
+                icon = suggestion.icon
             }
         }
 
         // Auto-suggest name when empty or when it matches a previous auto-suggestion
         // (including numbered variants like "Email 2").
         if name.isEmpty || isAutoSuggestedName(name) {
-            if let first = detected.first {
-                name = deduplicatedName(for: first.displayName)
+            if !suggestion.categories.isEmpty {
+                name = deduplicatedName(for: suggestion.name)
             } else {
                 name = ""
+            }
+        }
+
+        titleFetchTask?.cancel()
+        if suggestion.categories.contains(.url) {
+            titleFetchTask = Task { @MainActor in
+                guard let title = await InputTypeCategory.fetchURLTitle(from: value),
+                      !Task.isCancelled else { return }
+                if name.isEmpty || isAutoSuggestedName(name) {
+                    name = deduplicatedName(for: title)
+                }
             }
         }
     }

@@ -18,6 +18,7 @@ import UIKit
 #if os(macOS)
 import AppKit
 #endif
+import UniformTypeIdentifiers
 
 // MARK: - Menu Commands (macOS)
 
@@ -1020,24 +1021,41 @@ struct MainContentView: View {
         let selected = store.cutlings.filter { selectedIDs.contains($0.id) }
         guard !selected.isEmpty else { return }
 
-        var items: [Any] = []
+        var items: [NSItemProvider] = []
         for cutling in selected {
             switch cutling.kind {
             case .text:
-                items.append(cutling.value)
+                let provider = NSItemProvider(item: cutling.value as NSString, typeIdentifier: UTType.plainText.identifier)
+                provider.suggestedName = cutling.name
+                if let url = URL(string: cutling.value.trimmingCharacters(in: .whitespacesAndNewlines)),
+                   let scheme = url.scheme, ["http", "https", "ftp"].contains(scheme.lowercased()) {
+                    provider.registerDataRepresentation(for: .url, visibility: .all) { handler in
+                        handler(url.absoluteString.data(using: .utf8), nil)
+                        return nil
+                    }
+                } else if cutling.value.trimmingCharacters(in: .whitespacesAndNewlines).contains("@"),
+                          let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue),
+                          let match = detector.firstMatch(in: cutling.value, range: NSRange(cutling.value.startIndex..., in: cutling.value)),
+                          let matchURL = match.url, matchURL.scheme == "mailto" {
+                    provider.registerDataRepresentation(for: .url, visibility: .all) { handler in
+                        handler(matchURL.absoluteString.data(using: .utf8), nil)
+                        return nil
+                    }
+                }
+                items.append(provider)
             case .image:
                 if let filename = cutling.imageFilename,
                    let data = store.loadImageData(named: filename) {
-                    #if os(iOS)
-                    if let image = UIImage(data: data) { items.append(image) }
-                    #endif
-                    #if os(macOS)
-                    if let image = NSImage(data: data) { items.append(image) }
-                    #endif
+                    let provider = NSItemProvider(item: data as NSData, typeIdentifier: UTType.image.identifier)
+                    provider.suggestedName = cutling.name
+                    let previewData = data
+                    provider.previewImageHandler = { completionHandler, _, _ in
+                        completionHandler?(previewData as NSData, nil)
+                    }
+                    items.append(provider)
                 }
             }
         }
-
         guard !items.isEmpty else { return }
 
         #if os(iOS)
