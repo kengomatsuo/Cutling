@@ -648,14 +648,23 @@ struct MainContentView: View {
     // MARK: - Toolbar Content
 
     #if os(iOS)
+    private func presentNewCutlingSheet(_ draft: NewCutlingDraft) {
+        newCutlingDraft = draft
+        // Delay presentation one run loop so Menu dismissal/toolbar transition source
+        // are resolved before opening the detail sheet.
+        DispatchQueue.main.async {
+            guard newCutlingDraft?.id == draft.id else { return }
+            activeSheet = .newCutling
+        }
+    }
+
     @ViewBuilder
     private var addMenu: some View {
         Menu {
             Button {
                 let canAddText = store.canAdd(.text)
                 if canAddText.allowed {
-                    newCutlingDraft = NewCutlingDraft(kind: .text)
-                    activeSheet = .newCutling
+                    presentNewCutlingSheet(NewCutlingDraft(kind: .text))
                 } else {
                     limitAlertMessage = canAddText.reason ?? String(localized: "Cannot add text cutling")
                 }
@@ -665,8 +674,7 @@ struct MainContentView: View {
             Button {
                 let canAddImage = store.canAdd(.image)
                 if canAddImage.allowed {
-                    newCutlingDraft = NewCutlingDraft(kind: .image)
-                    activeSheet = .newCutling
+                    presentNewCutlingSheet(NewCutlingDraft(kind: .image))
                 } else {
                     limitAlertMessage = canAddImage.reason ?? String(localized: "Cannot add image cutling")
                 }
