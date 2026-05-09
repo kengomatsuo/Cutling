@@ -1,5 +1,7 @@
-• Ny: Del utvidelse — lagre tekst, URL-er og bilder til Cutling direkte fra delingsarket
-• Nytt: Handlingsutvidelse — legg raskt til innhold i Cutling fra handlingsraden for delingsark
-• Nytt: Kontrollsenter-widgeter — legg til fra utklippstavlen, lag en ny tekst eller et nytt bilde Utskjæring rett fra kontrollsenteret
-• Forbedret backspace-håndtering i tastaturutvidelsen
-• Forbedret tastatursynkroniseringstid for å unngå å avbryte tastaturovergangen
+• Støtte for flere delte elementer i ShareView
+• iCloud-synkronisering av/på-verdien er nå bevart på tvers av installasjoner
+• Advarsler om sensitiv informasjon for å forhindre utilsiktet datadeling
+• Kontrollsenter-widgetforbedringer og forhåndsutfylling av automatisk delingslenkenavn
+• Justert maks tekstlengde til 1000 (midlertidig feilretting av iOS-skjemalayout)
+• Forbedret bilde- og tekstredigeringsstørrelse
+• Rettet problem der det å lage nye stiklinger noen ganger resulterte i tomme ark

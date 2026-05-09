@@ -1,5 +1,7 @@
-• Novità: estensione Condividi: salva testo, URL e immagini su Cutling direttamente dal foglio di condivisione
-• Novità: estensione delle azioni: aggiungi rapidamente contenuti a Cutling dalla riga delle azioni del foglio di condivisione
-• Novità: widget del Centro di controllo: aggiungi dagli appunti, crea un nuovo testo o immagine tagliando direttamente dal Centro di controllo
-• Migliorata la gestione del backspace nell'estensione della tastiera
-• Tempi di sincronizzazione della tastiera migliorati per evitare di interrompere la transizione della tastiera
+• Supporto di più elementi condivisi in ShareView
+• Il valore di attivazione/disattivazione della sincronizzazione di iCloud è ora persistente tra le installazioni
+• Avvisi di informazioni sensibili per impedire la condivisione accidentale dei dati
+• Miglioramenti del widget del Centro di controllo e precompilazione automatica del nome del collegamento di condivisione
+• Lunghezza massima del testo modificata a 1000 (correzione temporanea del bug del layout del modulo iOS)
+• Ridimensionamento migliorato dell'editor di immagini e testo
+• Risolto il problema per cui la creazione di nuovi ritagli a volte produceva fogli vuoti

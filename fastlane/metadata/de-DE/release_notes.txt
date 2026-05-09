@@ -1,5 +1,7 @@
-• Neu: Share-Erweiterung – Speichern Sie Text, URLs und Bilder direkt aus dem Share-Sheet in Cutling
-• Neu: Aktionserweiterung – Fügen Sie über die Aktionszeile des Freigabeblatts schnell Inhalte zu Cutling hinzu
-• Neu: Control Center-Widgets – aus der Zwischenablage hinzufügen, einen neuen Text oder ein neues Bild erstellen, direkt im Control Center
-• Verbesserte Handhabung der Rücktaste in der Tastaturerweiterung
-• Verbessertes Timing der Tastatursynchronisierung, um eine Unterbrechung des Tastaturübergangs zu vermeiden
+• Unterstützung mehrerer freigegebener Elemente in ShareView
+• Der Ein-/Aus-Wert für die iCloud-Synchronisierung wird jetzt bei allen Installationen beibehalten
+• Warnungen vor vertraulichen Informationen, um eine versehentliche Datenweitergabe zu verhindern
+• Verbesserungen des Kontrollzentrum-Widgets und automatisches Vorfüllen des Linknamens für die Freigabe
+• Maximale Textlänge auf 1000 angepasst (vorübergehende Korrektur des Fehlers im iOS-Formularlayout)
+• Verbesserte Größenanpassung von Bild- und Texteditoren
+• Problem behoben, bei dem das Erstellen neuer Stecklinge manchmal zu leeren Blättern führte

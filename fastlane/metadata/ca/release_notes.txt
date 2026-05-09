@@ -1,5 +1,7 @@
-• Nou: Extensió compartida: deseu text, URL i imatges a Cutling directament des del full de compartició
-• Nou: extensió d'acció: afegeix contingut ràpidament a Cutling des de la fila d'accions del full de compartició
-• Nou: ginys del Centre de control: afegiu des del porta-retalls, creeu un nou text o imatge Retallant directament des del Centre de control
-• Millora de la gestió del retrocés a l'extensió del teclat
-• S'ha millorat el temps de sincronització del teclat per evitar interrompre la transició del teclat
+• Compatibilitat amb diversos elements compartits a ShareView
+• El valor d'activació/desactivació de la sincronització d'iCloud ara es manté a totes les instal·lacions
+• Avisos d'informació sensible per evitar l'intercanvi accidental de dades
+• Millores del giny del centre de control i emplenat prèviament automàtic del nom de l'enllaç
+• S'ha ajustat la longitud màxima del text a 1.000 (correcció temporal d'error de disseny de formularis d'iOS)
+• Millora de la mida de l'editor d'imatge i text
+• S'ha solucionat un problema en què la creació d'esqueixos nous de vegades donava lloc a llençols buits

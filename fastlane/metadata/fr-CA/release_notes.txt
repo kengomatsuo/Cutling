@@ -1,5 +1,7 @@
-• Nouveau : extension de partage : enregistrez le texte, les URL et les images dans Cutling directement à partir de la feuille de partage.
-• Nouveau : extension d'action – ajoutez rapidement du contenu à Cutling à partir de la ligne d'actions de la feuille de partage.
-• Nouveau : widgets du Centre de contrôle : ajoutez-les à partir du presse-papiers, créez un nouveau texte ou une nouvelle image directement depuis le Centre de contrôle.
-• Amélioration de la gestion du retour arrière dans l'extension du clavier
-• Synchronisation de synchronisation du clavier améliorée pour éviter d'interrompre la transition du clavier
+• Prise en charge de plusieurs éléments partagés dans ShareView
+• La valeur d'activation/désactivation de la synchronisation iCloud est désormais conservée dans toutes les installations.
+• Avertissements concernant les informations sensibles pour éviter le partage accidentel de données
+• Améliorations du widget du centre de contrôle et pré-remplissage automatique du nom du lien de partage
+• Ajustement de la longueur maximale du texte à 1 000 (correction temporaire du bug de mise en page du formulaire iOS)
+• Dimensionnement amélioré des images et de l'éditeur de texte
+• Correction d'un problème où la création de nouveaux cutlings entraînait parfois des feuilles vides

@@ -1,5 +1,7 @@
-• Novo: extensão de compartilhamento — salve texto, URLs e imagens no Cutling diretamente da planilha de compartilhamento
-• Novo: extensão de ação: adicione rapidamente conteúdo ao Cutling a partir da linha de ações da planilha de compartilhamento
-• Novo: widgets do Control Center — adicione da área de transferência, crie um novo texto ou imagem Cutling diretamente do Control Center
-• Melhor manipulação de backspace na extensão do teclado
-• Tempo de sincronização do teclado aprimorado para evitar a interrupção da transição do teclado
+• Suporte a vários itens compartilhados no ShareView
+• O valor de ativação/desativação da sincronização do iCloud agora persiste nas instalações
+• Avisos de informações confidenciais para evitar o compartilhamento acidental de dados
+• Melhorias no widget do centro de controle e pré-preenchimento automático do nome do link de compartilhamento
+• Comprimento máximo de texto ajustado para 1000 (correção temporária de bug de layout de formulário iOS)
+• Dimensionamento aprimorado do editor de imagens e texto
+• Corrigimos o problema em que a criação de novos cortes às vezes resultava em folhas vazias

@@ -1,5 +1,7 @@
-• Nytt: Dela tillägg — spara text, URL:er och bilder till Cutling direkt från delningsarket
-• Nytt: Åtgärdstillägg — lägg snabbt till innehåll i Cutling från åtgärdsraden för delningsarket
-• Nytt: Kontrollcenter-widgetar — lägg till från urklipp, skapa en ny text eller bild.
-• Förbättrad backstegshantering i tangentbordsförlängningen
-• Förbättrad tangentbordssynkroniseringstid för att undvika att avbryta tangentbordsövergången
+• Stöd för flera delade objekt i ShareView
+• På/av-värdet för iCloud-synkronisering finns nu kvar över installationer
+• Varningar för känslig information för att förhindra oavsiktlig datadelning
+• Förbättringar av kontrollcentrets widget och automatisk förfyllning av länknamn för delning
+• Justerad max textlängd till 1 000 (tillfällig korrigering av bugg för iOS-formulärlayout)
+• Förbättrad storlek på bild- och textredigerare
+• Fixat problem där att skapa nya sticklingar ibland resulterade i tomma ark

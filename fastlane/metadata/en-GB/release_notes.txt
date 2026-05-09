@@ -1,5 +1,7 @@
-• New: Share extension — save text, URLs, and images to Cutling directly from the share sheet
-• New: Action extension — quickly add content to Cutling from the share sheet actions row
-• New: Control Center widgets — add from clipboard, create a new text or image Cutling right from Control Center
-• Improved backspace handling in the keyboard extension
-• Improved keyboard sync timing to avoid interrupting the keyboard transition
+• Multiple shared items support in ShareView
+• iCloud sync on/off value is now persisted across installations
+• Sensitive information warnings to prevent accidental data sharing
+• Control center widget improvements and automatic sharing link name pre-fill
+• Adjusted max text length to 1000 (iOS form layout bug temporary fix)
+• Enhanced image and text editor sizing
+• Fixed issue where creating new cutlings sometimes resulted in empty sheets

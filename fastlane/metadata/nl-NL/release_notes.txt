@@ -1,5 +1,7 @@
-• Nieuw: Deelextensie: sla tekst, URL's en afbeeldingen rechtstreeks vanuit het deelblad op in Cutling
-• Nieuw: Actie-extensie — voeg snel inhoud toe aan Cutling vanuit de rij met acties op het deelblad
-• Nieuw: Control Center-widgets: voeg toe vanaf het klembord, maak een nieuwe tekst of afbeelding Cutling rechtstreeks vanuit het Control Center
-• Verbeterde backspace-verwerking in de toetsenbordextensie
-• Verbeterde toetsenbordsynchronisatietiming om te voorkomen dat de toetsenbordovergang wordt onderbroken
+• Ondersteuning voor meerdere gedeelde items in ShareView
+• De aan/uit-waarde van iCloud-synchronisatie blijft nu behouden in alle installaties
+• Gevoelige informatiewaarschuwingen om onbedoeld delen van gegevens te voorkomen
+• Verbeteringen aan de controlecentrumwidget en automatisch vooraf invullen van koppelingsnamen
+• Maximale tekstlengte aangepast naar 1000 (tijdelijke oplossing voor bug in iOS-formulierindeling)
+• Verbeterde afmetingen van afbeeldingen en teksteditors
+• Er is een probleem opgelost waarbij het maken van nieuwe stekken soms resulteerde in lege vellen

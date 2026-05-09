@@ -1,5 +1,7 @@
-• Új: Megosztási bővítmény – szöveg, URL-címek és képek mentése a Cutlingbe közvetlenül a megosztási lapról
-• Új: Műveletbővítmény – gyorsan adjon hozzá tartalmat a Cutlinghez a megosztási lap műveletsorából
-• Új: Vezérlőközpont widgetek – hozzáadhat a vágólapról, új szöveget vagy képet hozhat létre Vágás közvetlenül a Vezérlőközpontból
-• Továbbfejlesztett backspace kezelés a billentyűzetkiterjesztésben
-• Továbbfejlesztett billentyűzet-szinkronizálási időzítés a billentyűzetváltás megszakításának elkerülése érdekében
+• Több megosztott elem támogatása a ShareView-ban
+• Az iCloud-szinkronizálás be-/kikapcsolási értéke a telepítések között megmarad
+• Érzékeny információkkal kapcsolatos figyelmeztetések a véletlen adatmegosztás megelőzése érdekében
+• A Vezérlőközpont widget-fejlesztései és az automatikus megosztási link nevének előzetes kitöltése
+• A maximális szöveghossz 1000-re módosítva (iOS űrlapelrendezési hiba ideiglenes javítása)
+• Továbbfejlesztett kép- és szövegszerkesztő méretezés
+• Kijavítottuk azt a hibát, amely miatt az új vágások létrehozása néha üres lapokat eredményezett
