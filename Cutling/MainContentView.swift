@@ -65,6 +65,7 @@ struct MainContentView: View {
 
     // MARK: Mode & Selection
     @State private var mode: MainContentMode = .browsing
+    @State private var showBottomBar = false
     @State private var showDeleteConfirmation = false
     #if os(iOS)
     @State private var panGesture: UIPanGestureRecognizer?
@@ -315,7 +316,7 @@ struct MainContentView: View {
         .modifier(SubtitleModifier(count: store.cutlings.count))
         .searchable(text: $searchText, isPresented: $searchIsPresented, prompt: "Search cutlings")
         #if os(iOS)
-        .toolbar(mode != .browsing ? .visible : .hidden, for: .bottomBar)
+        .toolbar(showBottomBar ? .visible : .hidden, for: .bottomBar)
         #endif
         .toolbar {
             #if os(iOS)
@@ -481,6 +482,7 @@ struct MainContentView: View {
                 searchText = ""
                 searchIsPresented = false
             }
+            showBottomBar = newValue != .browsing
         }
     }
 
