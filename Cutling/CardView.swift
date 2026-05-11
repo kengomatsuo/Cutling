@@ -10,6 +10,7 @@
 
 
 import SwiftUI
+import LinkPresentation
 
 #if os(iOS)
 import UIKit
@@ -431,17 +432,30 @@ struct CardView: View {
     private func shareItem() {
         switch item.kind {
         case .text:
-            presentShareSheet(items: [item.value])
+            let trimmed = item.value.trimmingCharacters(in: .whitespacesAndNewlines)
+            if let url = URL(string: trimmed),
+               let scheme = url.scheme,
+               ["http", "https", "ftp"].contains(scheme.lowercased()) {
+                #if os(iOS)
+                presentShareSheet(items: [URLActivityItemSource(url: url, title: item.name)])
+                #endif
+                #if os(macOS)
+                presentShareSheet(items: [url])
+                #endif
+            } else {
+                presentShareSheet(items: [item.value])
+            }
         case .image:
             guard let filename = item.imageFilename,
                   let data = store.loadImageData(named: filename) else { return }
             #if os(iOS)
             guard let image = UIImage(data: data) else { return }
-            presentShareSheet(items: [image])
+            presentShareSheet(items: [ImageActivityItemSource(image: image, title: item.name)])
             #endif
             #if os(macOS)
             guard let image = NSImage(data: data) else { return }
-            presentShareSheet(items: [image])
+            let previewItem = NSPreviewRepresentingActivityItem(item: image, title: item.name, image: image, icon: nil)
+            presentShareSheet(items: [previewItem])
             #endif
         }
     }
@@ -571,3 +585,58 @@ struct CutlingInfoView: View {
         item.value.isEmpty ? 0 : item.value.components(separatedBy: .newlines).count
     }
 }
+
+// MARK: - Share Activity Item Sources
+
+#if os(iOS)
+class ImageActivityItemSource: NSObject, UIActivityItemSource {
+    let image: UIImage
+    let title: String
+
+    init(image: UIImage, title: String) {
+        self.image = image
+        self.title = title
+    }
+
+    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+        image
+    }
+
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+        image
+    }
+
+    func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
+        let metadata = LPLinkMetadata()
+        metadata.title = title
+        metadata.imageProvider = NSItemProvider(object: image)
+        return metadata
+    }
+}
+
+class URLActivityItemSource: NSObject, UIActivityItemSource {
+    let url: URL
+    let title: String
+
+    init(url: URL, title: String) {
+        self.url = url
+        self.title = title
+    }
+
+    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
+        url
+    }
+
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
+        url
+    }
+
+    func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
+        let metadata = LPLinkMetadata()
+        metadata.originalURL = url
+        metadata.url = url
+        metadata.title = title
+        return metadata
+    }
+}
+#endif

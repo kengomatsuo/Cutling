@@ -11,6 +11,7 @@
 
 import SwiftUI
 import StoreKit
+import LinkPresentation
 
 #if os(iOS)
 import UIKit
@@ -1014,44 +1015,28 @@ struct MainContentView: View {
         let selected = store.cutlings.filter { selectedIDs.contains($0.id) }
         guard !selected.isEmpty else { return }
 
-        var items: [NSItemProvider] = []
+        #if os(iOS)
+        var items: [Any] = []
         for cutling in selected {
             switch cutling.kind {
             case .text:
-                let provider = NSItemProvider(item: cutling.value as NSString, typeIdentifier: UTType.plainText.identifier)
-                provider.suggestedName = cutling.name
-                if let url = URL(string: cutling.value.trimmingCharacters(in: .whitespacesAndNewlines)),
+                let trimmed = cutling.value.trimmingCharacters(in: .whitespacesAndNewlines)
+                if let url = URL(string: trimmed),
                    let scheme = url.scheme, ["http", "https", "ftp"].contains(scheme.lowercased()) {
-                    provider.registerDataRepresentation(for: .url, visibility: .all) { handler in
-                        handler(url.absoluteString.data(using: .utf8), nil)
-                        return nil
-                    }
-                } else if cutling.value.trimmingCharacters(in: .whitespacesAndNewlines).contains("@"),
-                          let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue),
-                          let match = detector.firstMatch(in: cutling.value, range: NSRange(cutling.value.startIndex..., in: cutling.value)),
-                          let matchURL = match.url, matchURL.scheme == "mailto" {
-                    provider.registerDataRepresentation(for: .url, visibility: .all) { handler in
-                        handler(matchURL.absoluteString.data(using: .utf8), nil)
-                        return nil
-                    }
+                    items.append(URLActivityItemSource(url: url, title: cutling.name))
+                } else {
+                    items.append(cutling.value)
                 }
-                items.append(provider)
             case .image:
                 if let filename = cutling.imageFilename,
-                   let data = store.loadImageData(named: filename) {
-                    let provider = NSItemProvider(item: data as NSData, typeIdentifier: UTType.image.identifier)
-                    provider.suggestedName = cutling.name
-                    let previewData = data
-                    provider.previewImageHandler = { completionHandler, _, _ in
-                        completionHandler?(previewData as NSData, nil)
-                    }
-                    items.append(provider)
+                   let data = store.loadImageData(named: filename),
+                   let image = UIImage(data: data) {
+                    items.append(ImageActivityItemSource(image: image, title: cutling.name))
                 }
             }
         }
         guard !items.isEmpty else { return }
 
-        #if os(iOS)
         let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
               let window = windowScene.windows.first,
@@ -1068,6 +1053,27 @@ struct MainContentView: View {
         topController.present(activityVC, animated: true)
         #endif
         #if os(macOS)
+        var items: [Any] = []
+        for cutling in selected {
+            switch cutling.kind {
+            case .text:
+                let trimmed = cutling.value.trimmingCharacters(in: .whitespacesAndNewlines)
+                if let url = URL(string: trimmed),
+                   let scheme = url.scheme, ["http", "https", "ftp"].contains(scheme.lowercased()) {
+                    items.append(url)
+                } else {
+                    items.append(cutling.value)
+                }
+            case .image:
+                if let filename = cutling.imageFilename,
+                   let data = store.loadImageData(named: filename),
+                   let image = NSImage(data: data) {
+                    items.append(NSPreviewRepresentingActivityItem(item: image, title: cutling.name, image: image, icon: nil))
+                }
+            }
+        }
+        guard !items.isEmpty else { return }
+
         let picker = NSSharingServicePicker(items: items)
         guard let window = NSApp.keyWindow,
               let contentView = window.contentView else { return }
