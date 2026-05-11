@@ -16,7 +16,7 @@ import UniformTypeIdentifiers
 import AudioToolbox
 
 #if DEBUG
-nonisolated(unsafe) private var snapshotBundle: Bundle?
+@MainActor private var snapshotBundle: Bundle?
 #endif
 
 // MARK: - Hex Color Extension
@@ -804,8 +804,8 @@ struct KeyboardView: View {
             .ultraThinMaterial,
             in: RoundedRectangle(cornerRadius: 99, style: .continuous)
         )
-        .transition(.asymmetric(
-            insertion: .scale(scale: 0.85).combined(with: .opacity),
+        .transition(AsymmetricTransition(
+            insertion: .scale(0.85).combined(with: .opacity),
             removal: .opacity
         ))
         .allowsHitTesting(false)
@@ -894,9 +894,9 @@ struct KeyboardView: View {
                                         onTap: { handleTap(cutling) }
                                     )
                                     .id(cutling.id)
-                                    .transition(.asymmetric(
-                                        insertion: .scale(scale: 0.8).combined(with: .opacity),
-                                        removal: .scale(scale: 0.8).combined(with: .opacity)
+                                    .transition(AsymmetricTransition(
+                                        insertion: .scale(0.8).combined(with: .opacity),
+                                        removal: .scale(0.8).combined(with: .opacity)
                                     ))
                                 }
                             }
@@ -920,9 +920,9 @@ struct KeyboardView: View {
                                     onTap: { handleTap(cutling) }
                                 )
                                 .id(cutling.id)
-                                .transition(.asymmetric(
-                                    insertion: .scale(scale: 0.8).combined(with: .opacity),
-                                    removal: .scale(scale: 0.8).combined(with: .opacity)
+                                .transition(AsymmetricTransition(
+                                    insertion: .scale(0.8).combined(with: .opacity),
+                                    removal: .scale(0.8).combined(with: .opacity)
                                 ))
                             }
                         }
@@ -1298,8 +1298,8 @@ struct CutlingKeyView: View {
                         Image(systemName: "checkmark")
                     }
                     .font(.subheadline.weight(.semibold))
-                    .transition(.asymmetric(
-                        insertion: .scale(scale: 0.85).combined(with: .opacity),
+                    .transition(AsymmetricTransition(
+                        insertion: .scale(0.85).combined(with: .opacity),
                         removal: .opacity
                     ))
                 }

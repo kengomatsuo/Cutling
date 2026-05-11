@@ -19,7 +19,7 @@ final class CutlingUITests: XCTestCase {
     private let testStartTime = Date()
 
     private func log(_ message: String) {
-        let elapsed = String(format: "%.1fs", Date().timeIntervalSince(testStartTime))
+        let elapsed = "\(Date().timeIntervalSince(testStartTime).formatted(.number.precision(.fractionLength(1))))s"
         let line = "[\(elapsed)] \(message)\n"
         let existing = (try? String(contentsOfFile: logPath, encoding: .utf8)) ?? ""
         try? (existing + line).write(toFile: logPath, atomically: true, encoding: .utf8)
@@ -443,8 +443,8 @@ final class CutlingUITests: XCTestCase {
         let task = taskClass.init()
         task.setValue(launchPath, forKey: "launchPath")
         task.setValue(arguments, forKey: "arguments")
-        _ = task.perform(NSSelectorFromString("launch"))
-        _ = task.perform(NSSelectorFromString("waitUntilExit"))
+        _ = unsafe task.perform(NSSelectorFromString("launch"))
+        _ = unsafe task.perform(NSSelectorFromString("waitUntilExit"))
     }
 
     private func runSimctl(_ arguments: [String]) {

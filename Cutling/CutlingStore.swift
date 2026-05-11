@@ -138,13 +138,13 @@ class CutlingStore: ObservableObject {
     private func setupDarwinNotification() {
         let notificationName = "com.matsuokengo.Cutling.cutlingsChanged" as CFString
 
-        let observer = UnsafeRawPointer(Unmanaged.passUnretained(self).toOpaque())
-        CFNotificationCenterAddObserver(
+        let observer = unsafe UnsafeRawPointer(Unmanaged.passUnretained(self).toOpaque())
+        unsafe CFNotificationCenterAddObserver(
             CFNotificationCenterGetDarwinNotifyCenter(),
             observer,
             { _, observer, _, _, _ in
-                guard let observer = observer else { return }
-                let store = Unmanaged<CutlingStore>.fromOpaque(observer).takeUnretainedValue()
+                guard let observer = unsafe observer else { return }
+                let store = unsafe Unmanaged<CutlingStore>.fromOpaque(observer).takeUnretainedValue()
                 DispatchQueue.main.async {
                     store.loadIfChanged()
                 }
@@ -714,6 +714,9 @@ extension Data {
     /// Generate SHA256 hash for efficient image comparison
     func sha256Hash() -> String {
         let hashed = SHA256.hash(data: self)
-        return hashed.compactMap { String(format: "%02x", $0) }.joined()
+        return hashed.map { byte in
+            let hex = String(byte, radix: 16)
+            return byte < 16 ? "0" + hex : hex
+        }.joined()
     }
 }

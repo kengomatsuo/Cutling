@@ -26,7 +26,7 @@ import AppKit
 /// Wraps `withAnimation`, substituting a simple cross-dissolve when Reduce Motion is enabled.
 @MainActor func withAccessibleAnimation<Result>(_ animation: Animation = .default, _ body: () throws -> Result) rethrows -> Result {
     #if os(iOS)
-    if UIAccessibility.isReduceMotionEnabled {
+    if unsafe UIAccessibility.isReduceMotionEnabled {
         return try withAnimation(.easeOut(duration: 0.15), body)
     }
     #endif
@@ -47,7 +47,7 @@ import AppKit
 var isDeveloperModeEnabled: Bool {
     var value = Int32(0)
     var size = MemoryLayout<Int32>.size
-    return sysctlbyname("security.mac.amfi.developer_mode_status", &value, &size, nil, 0) == 0 && value == 1
+    return unsafe sysctlbyname("security.mac.amfi.developer_mode_status", &value, &size, nil, 0) == 0 && value == 1
 }
 
 // MARK: - Sensitive Content Detection
@@ -149,7 +149,7 @@ struct SensitiveContentWarning: View {
                 }
                 .font(.subheadline)
             }
-            .transition(.asymmetric(insertion: .scale(scale: 0.95).combined(with: .opacity), removal: .opacity))
+            .transition(AsymmetricTransition(insertion: .scale(0.95).combined(with: .opacity), removal: .opacity))
             .task(id: type) {
                 guard !didHaptic else { return }
                 didHaptic = true
@@ -426,9 +426,7 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
 
     static func color(fromHex hex: String) -> Color? {
         let cleaned = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
-        guard cleaned.count == 6 else { return nil }
-        var rgbValue: UInt64 = 0
-        Scanner(string: cleaned).scanHexInt64(&rgbValue)
+        guard cleaned.count == 6, let rgbValue = UInt64(cleaned, radix: 16) else { return nil }
         return Color(
             red: Double((rgbValue >> 16) & 0xFF) / 255,
             green: Double((rgbValue >> 8) & 0xFF) / 255,
@@ -437,18 +435,13 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
     }
 
     static func hexString(from color: Color) -> String {
-        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
-        #if os(iOS)
-        UIColor(color).getRed(&r, green: &g, blue: &b, alpha: &a)
-        #endif
-        #if os(macOS)
-        (NSColor(color).usingColorSpace(.sRGB) ?? NSColor(color))
-            .getRed(&r, green: &g, blue: &b, alpha: &a)
-        #endif
-        return String(format: "%02X%02X%02X",
-                       Int(round(r * 255)),
-                       Int(round(g * 255)),
-                       Int(round(b * 255)))
+        let resolved = color.resolve(in: EnvironmentValues())
+        func hexByte(_ value: Float) -> String {
+            let byte = max(0, min(255, Int(round(Double(value) * 255))))
+            let hex = String(byte, radix: 16, uppercase: true)
+            return byte < 16 ? "0" + hex : hex
+        }
+        return hexByte(resolved.red) + hexByte(resolved.green) + hexByte(resolved.blue)
     }
 
     static let palette: [String: Color] = [

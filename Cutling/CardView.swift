@@ -418,7 +418,7 @@ struct CardView: View {
 
         copied = true
         #if os(iOS)
-        UIAccessibility.post(notification: .announcement, argument: String(localized: "Copied"))
+        unsafe UIAccessibility.post(notification: .announcement, argument: String(localized: "Copied"))
         #endif
         #if os(macOS)
         NSAccessibility.post(element: NSApp as Any, notification: .valueChanged)
