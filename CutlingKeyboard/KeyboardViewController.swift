@@ -12,6 +12,7 @@
 import UIKit
 import SwiftUI
 import Combine
+import ImageIO
 import UniformTypeIdentifiers
 import AudioToolbox
 
@@ -260,7 +261,19 @@ class KeyboardViewController: UIInputViewController {
                 store: store,
                 state: keyboardState,
                 onInsertText: { inputVC.textDocumentProxy.insertText($0) },
-                onCopyImage: { if let image = UIImage(data: $0) { UIPasteboard.general.image = image } },
+                onCopyImage: { data in
+                    // Set the raw image bytes directly without decoding to UIImage.
+                    // UIImage(data:) decompresses to a bitmap that can be 10-30x the
+                    // file size, OOM-ing the keyboard extension on large images.
+                    let uti: String
+                    if let source = CGImageSourceCreateWithData(data as CFData, nil),
+                       let type = CGImageSourceGetType(source) {
+                        uti = type as String
+                    } else {
+                        uti = UTType.png.identifier
+                    }
+                    UIPasteboard.general.setData(data, forPasteboardType: uti)
+                },
                 onBackspace: {
                     let proxy = inputVC.textDocumentProxy
                     guard proxy.hasText else { return false }
