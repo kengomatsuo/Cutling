@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		CFA06CAB2F45AD10005CD274 /* CutlingKeyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFA06CA42F45AD10005CD274 /* CutlingKeyboard.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		CFA931332FA65E7700A4ABB6 /* CutlingShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFA931292FA65E7600A4ABB6 /* CutlingShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CFA931332FA65E7700A4ABB6 /* CutlingShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFA931292FA65E7600A4ABB6 /* CutlingShare.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CFA931632FA66CA200A4ABB6 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA931622FA66CA200A4ABB6 /* UniformTypeIdentifiers.framework */; };
-		CFA9316F2FA66CA200A4ABB6 /* CutlingAction.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFA931602FA66CA200A4ABB6 /* CutlingAction.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CFA9316F2FA66CA200A4ABB6 /* CutlingAction.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFA931602FA66CA200A4ABB6 /* CutlingAction.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CFC7CC9C2FA7AFD10046275C /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC7CC752FA7AE730046275C /* WidgetKit.framework */; };
 		CFC7CC9D2FA7AFD10046275C /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC7CC772FA7AE730046275C /* SwiftUI.framework */; };
-		CFC7CCAE2FA7AFD20046275C /* CutlingWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFC7CC9B2FA7AFD10046275C /* CutlingWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CFC7CCAE2FA7AFD20046275C /* CutlingWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFC7CC9B2FA7AFD10046275C /* CutlingWidgetsExtension.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -631,16 +631,19 @@
 		};
 		CFA931322FA65E7700A4ABB6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = CFA931282FA65E7600A4ABB6 /* CutlingShare */;
 			targetProxy = CFA931312FA65E7700A4ABB6 /* PBXContainerItemProxy */;
 		};
 		CFA9316E2FA66CA200A4ABB6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = CFA9315F2FA66CA200A4ABB6 /* CutlingAction */;
 			targetProxy = CFA9316D2FA66CA200A4ABB6 /* PBXContainerItemProxy */;
 		};
 		CFC7CCAD2FA7AFD20046275C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
+			platformFilter = ios;
 			target = CFC7CC9A2FA7AFD10046275C /* CutlingWidgetsExtension */;
 			targetProxy = CFC7CCAC2FA7AFD20046275C /* PBXContainerItemProxy */;
 		};

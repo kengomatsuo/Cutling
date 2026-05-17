@@ -293,7 +293,7 @@ struct CutlingApp: App {
                         #endif
                     }
                     #if os(iOS)
-                    if newPhase == .background && iCloudSyncEnabled {
+                    if newPhase == .background {
                         Self.scheduleBackgroundSync()
                         Self.scheduleBackgroundProcessing()
                     }
@@ -516,16 +516,20 @@ struct CutlingApp: App {
 
     private static func runBackgroundSync(completion: @escaping (Bool) -> Void) {
         let iCloudEnabled = UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.bool(forKey: "iCloudSyncEnabled") ?? false
-        guard iCloudEnabled else {
-            completion(true)
-            return
-        }
 
-        let store = CutlingStore.shared
-        Task {
+        Task { @MainActor in
+            let store = CutlingStore.shared
+            // Always run housekeeping on a BG wakeup, even with iCloud off.
+            store.purgeExpired()
+
+            guard iCloudEnabled else {
+                completion(true)
+                return
+            }
+
             if store.syncManager == nil {
                 let manager = CloudKitSyncManager(store: store)
-                await MainActor.run { store.syncManager = manager }
+                store.syncManager = manager
                 await manager.start()
             }
             if let sm = store.syncManager {
