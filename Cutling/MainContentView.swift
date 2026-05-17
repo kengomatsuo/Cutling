@@ -54,6 +54,7 @@ struct MainContentView: View {
 
     // MARK: Parent Bindings
     @Binding var activeSheet: ActiveSheet?
+    @Binding var pendingOpenCutlingID: UUID?
 
     // MARK: Navigation
     @State private var selectedItem: Cutling? = nil
@@ -89,8 +90,12 @@ struct MainContentView: View {
     private let keyboardButtonZoomID = "keyboardButton"
     #endif
 
-    init(activeSheet: Binding<ActiveSheet?> = .constant(nil)) {
+    init(
+        activeSheet: Binding<ActiveSheet?> = .constant(nil),
+        pendingOpenCutlingID: Binding<UUID?> = .constant(nil)
+    ) {
         _activeSheet = activeSheet
+        _pendingOpenCutlingID = pendingOpenCutlingID
     }
     
     // MARK: - Keyboard Status
@@ -183,6 +188,19 @@ struct MainContentView: View {
     }
     #endif
 
+    /// Routes a Spotlight or App-Intent-driven open request to the right detail view.
+    private func openPendingCutling(id: UUID?) {
+        guard let id, let cutling = store.cutlings.first(where: { $0.id == id }) else { return }
+        pendingOpenCutlingID = nil
+        #if os(iOS)
+        if activeSheet != nil { activeSheet = nil }
+        selectedItem = cutling
+        #endif
+        #if os(macOS)
+        openWindow(id: "editCutling", value: cutling.id)
+        #endif
+    }
+
     // MARK: - Body
 
     var body: some View {
@@ -221,6 +239,10 @@ struct MainContentView: View {
                 .navigationDestination(isPresented: $showRecentlyDeleted) {
                     RecentlyDeletedView()
                 }
+                .onChange(of: pendingOpenCutlingID) { _, id in
+                    openPendingCutling(id: id)
+                }
+                .onAppear { openPendingCutling(id: pendingOpenCutlingID) }
                 #if os(iOS)
                 .navigationDestination(item: $selectedItem) { item in
                     Group {

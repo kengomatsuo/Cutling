@@ -14,6 +14,7 @@ import SwiftUI
 struct PreferencesView: View {
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
     @AppStorage("autoDetectInputTypes") private var autoDetectInputTypes = true
+    @AppStorage("spotlightIndexingEnabled") private var spotlightIndexingEnabled = true
     @State private var showICloudAlert = false
 
     var body: some View {
@@ -55,6 +56,16 @@ struct PreferencesView: View {
                 Text("Input Types")
             } footer: {
                 Text("Automatically detect and suggest input type categories when editing text.")
+            }
+
+            Section {
+                Toggle(isOn: $spotlightIndexingEnabled) {
+                    Label("Include in Spotlight Search", systemImage: "magnifyingglass")
+                }
+            } header: {
+                Text("Spotlight")
+            } footer: {
+                Text("Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed.")
             }
         }
         .formStyle(.grouped)

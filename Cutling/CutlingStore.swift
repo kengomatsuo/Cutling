@@ -173,6 +173,9 @@ class CutlingStore: ObservableObject {
                 self.cutlings = decoded
                 self.purgeExpired()
                 print("🔄 Reloaded \(self.cutlings.count) cutlings from shared storage")
+                #if MAIN_APP
+                SpotlightIndexer.shared.reindexAll(from: self)
+                #endif
             }
         }
     }
@@ -200,6 +203,9 @@ class CutlingStore: ObservableObject {
         save()
         
         #if MAIN_APP
+        for item in expired {
+            SpotlightIndexer.shared.remove(id: item.id)
+        }
         // Soft-delete: move to recently deleted and enqueue CloudKit deletes
         for item in expired {
             let deleted = DeletedCutling(cutling: item, deletedAt: Date())
@@ -275,6 +281,7 @@ class CutlingStore: ObservableObject {
         save()
         schedulePurgeTimer()
         #if MAIN_APP
+        SpotlightIndexer.shared.index(c)
         if let sm = syncManager { Task { await sm.enqueueSave(c) } }
         #endif
     }
@@ -412,6 +419,7 @@ class CutlingStore: ObservableObject {
             save()
             schedulePurgeTimer()
             #if MAIN_APP
+            SpotlightIndexer.shared.index(c)
             if let sm = syncManager { Task { await sm.enqueueSave(c) } }
             #endif
         }
@@ -421,6 +429,7 @@ class CutlingStore: ObservableObject {
         cutlings.removeAll { $0.id == cutling.id }
         save()
         #if MAIN_APP
+        SpotlightIndexer.shared.remove(id: cutling.id)
         // Soft-delete: move to recently deleted instead of permanent removal
         let deleted = DeletedCutling(cutling: cutling, deletedAt: Date())
         recentlyDeleted.insert(deleted, at: 0)
@@ -445,6 +454,7 @@ class CutlingStore: ObservableObject {
         save()
         recentlyDeleted.removeAll { $0.id == deleted.id }
         saveRecentlyDeleted()
+        SpotlightIndexer.shared.index(cutling)
         if let sm = syncManager { Task { await sm.enqueueSave(cutling) } }
     }
 
@@ -666,6 +676,7 @@ class CutlingStore: ObservableObject {
         cutlings = updated
         save()
         schedulePurgeTimer()
+        SpotlightIndexer.shared.reindexAll(from: self)
     }
 
     /// Enqueue all cutlings for sync (used after reorder).

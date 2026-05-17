@@ -9,6 +9,7 @@
 //
 
 
+import CoreSpotlight
 import SwiftUI
 #if os(iOS)
 import BackgroundTasks
@@ -152,9 +153,12 @@ struct CutlingApp: App {
 
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
     @AppStorage("hasCompletedSetup") private var hasCompletedSetup = false
+    @AppStorage("spotlightIndexingEnabled") private var spotlightIndexingEnabled = true
 
     // Version flag for future use (e.g. "What's New" screen for returning users)
     @AppStorage("lastVersionOpened") private var lastVersionOpened = ""
+
+    @State private var pendingOpenCutlingID: UUID?
 
     #if os(iOS)
     private static let bgSyncTaskID = "com.matsuokengo.Cutling.sync"
@@ -170,7 +174,10 @@ struct CutlingApp: App {
     #endif
 
     init() {
-        UserDefaults.standard.register(defaults: ["autoDetectInputTypes": true])
+        UserDefaults.standard.register(defaults: [
+            "autoDetectInputTypes": true,
+            "spotlightIndexingEnabled": true,
+        ])
         #if os(iOS)
         BGTaskScheduler.shared.register(
             forTaskWithIdentifier: Self.bgSyncTaskID,
@@ -191,7 +198,7 @@ struct CutlingApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainContentView(activeSheet: $activeSheet)
+            MainContentView(activeSheet: $activeSheet, pendingOpenCutlingID: $pendingOpenCutlingID)
                 .environmentObject(store)
                 .onAppear {
                     #if DEBUG
@@ -211,6 +218,11 @@ struct CutlingApp: App {
                     runMigrationsIfNeeded()
                     configureSyncIfNeeded()
                     syncPreferencesToAppGroup()
+                    if spotlightIndexingEnabled {
+                        SpotlightIndexer.shared.reindexAll(from: store)
+                    } else {
+                        SpotlightIndexer.shared.wipeAll()
+                    }
                     lastVersionOpened = currentAppVersion
                     #if os(iOS)
                     #if DEBUG
@@ -231,6 +243,18 @@ struct CutlingApp: App {
                     } else {
                         stopSync()
                     }
+                }
+                .onChange(of: spotlightIndexingEnabled) { _, enabled in
+                    if enabled {
+                        SpotlightIndexer.shared.reindexAll(from: store)
+                    } else {
+                        SpotlightIndexer.shared.wipeAll()
+                    }
+                }
+                .onContinueUserActivity(CSSearchableItemActionType) { userActivity in
+                    guard let identifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String,
+                          let uuid = UUID(uuidString: identifier) else { return }
+                    pendingOpenCutlingID = uuid
                 }
                 .onOpenURL { url in
                     guard url.scheme == "cutling" else { return }
@@ -262,6 +286,7 @@ struct CutlingApp: App {
                         if let sm = store.syncManager {
                             Task { await sm.fetchChanges() }
                         }
+                        handlePendingOpenCutling()
                         #if os(iOS)
                         handlePendingShortcut()
                         handlePendingControlAction()
@@ -326,6 +351,16 @@ struct CutlingApp: App {
             PreferencesView()
         }
         #endif
+    }
+
+    // MARK: - Spotlight Open
+
+    private func handlePendingOpenCutling() {
+        let groupDefaults = UserDefaults(suiteName: "group.com.matsuokengo.Cutling")
+        guard let idString = groupDefaults?.string(forKey: "pendingOpenCutlingID"),
+              let uuid = UUID(uuidString: idString) else { return }
+        groupDefaults?.removeObject(forKey: "pendingOpenCutlingID")
+        pendingOpenCutlingID = uuid
     }
 
     // MARK: - Quick Actions
