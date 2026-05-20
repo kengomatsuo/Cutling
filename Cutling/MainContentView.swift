@@ -55,6 +55,7 @@ struct MainContentView: View {
     // MARK: Parent Bindings
     @Binding var activeSheet: ActiveSheet?
     @Binding var pendingOpenCutlingID: UUID?
+    @Binding var copiedCutlingName: String?
 
     // MARK: Navigation
     @State private var selectedItem: Cutling? = nil
@@ -92,10 +93,12 @@ struct MainContentView: View {
 
     init(
         activeSheet: Binding<ActiveSheet?> = .constant(nil),
-        pendingOpenCutlingID: Binding<UUID?> = .constant(nil)
+        pendingOpenCutlingID: Binding<UUID?> = .constant(nil),
+        copiedCutlingName: Binding<String?> = .constant(nil)
     ) {
         _activeSheet = activeSheet
         _pendingOpenCutlingID = pendingOpenCutlingID
+        _copiedCutlingName = copiedCutlingName
     }
     
     // MARK: - Keyboard Status
@@ -188,6 +191,29 @@ struct MainContentView: View {
     }
     #endif
 
+    @ViewBuilder
+    private func copiedBanner(name: String) -> some View {
+        let content = Label {
+            Text("Copied \"\(name)\"")
+                .font(.subheadline.weight(.medium))
+                .lineLimit(1)
+        } icon: {
+            Image(systemName: "checkmark.circle.fill")
+                .foregroundStyle(Cutling.defaultTint)
+        }
+        .padding(.horizontal, 16)
+        .padding(.vertical, 11)
+
+        if #available(iOS 26.0, macOS 26.0, *) {
+            content.glassEffect(.regular, in: Capsule())
+        } else {
+            content
+                .background(.regularMaterial, in: Capsule())
+                .overlay(Capsule().stroke(.quaternary))
+                .shadow(color: .black.opacity(0.1), radius: 8, y: 2)
+        }
+    }
+
     /// Routes a Spotlight or App-Intent-driven open request to the right detail view.
     private func openPendingCutling(id: UUID?) {
         guard let id, let cutling = store.cutlings.first(where: { $0.id == id }) else { return }
@@ -243,6 +269,27 @@ struct MainContentView: View {
                     openPendingCutling(id: id)
                 }
                 .onAppear { openPendingCutling(id: pendingOpenCutlingID) }
+                .overlay(alignment: .bottom) {
+                    if let name = copiedCutlingName {
+                        copiedBanner(name: name)
+                            .padding(.bottom, 12)
+                            .transition(.move(edge: .bottom).combined(with: .opacity))
+                            .allowsHitTesting(false)
+                    }
+                }
+                .animation(.spring(duration: 0.35, bounce: 0.2), value: copiedCutlingName)
+                .onChange(of: copiedCutlingName) { _, name in
+                    guard name != nil else { return }
+                    #if os(iOS)
+                    UINotificationFeedbackGenerator().notificationOccurred(.success)
+                    #endif
+                    Task {
+                        try? await Task.sleep(for: .seconds(1.8))
+                        withAccessibleAnimation(.easeOut(duration: 0.25)) {
+                            copiedCutlingName = nil
+                        }
+                    }
+                }
                 #if os(iOS)
                 .navigationDestination(item: $selectedItem) { item in
                     Group {

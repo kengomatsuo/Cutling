@@ -9,6 +9,17 @@
 	</array>
 	<key>CoreSpotlightContinuation</key>
 	<true/>
+	<key>CoreSpotlightActions</key>
+	<array>
+		<dict>
+			<key>CoreSpotlightActionIdentifier</key>
+			<string>com.matsuokengo.Cutling.edit</string>
+			<key>CoreSpotlightActionTitle</key>
+			<string>Edit</string>
+			<key>CoreSpotlightActionSymbolImage</key>
+			<string>pencil</string>
+		</dict>
+	</array>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

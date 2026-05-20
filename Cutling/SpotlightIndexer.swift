@@ -27,6 +27,7 @@ final class SpotlightIndexer {
 
     static let domain = "com.matsuokengo.Cutling.cutlings"
     static let enabledKey = "spotlightIndexingEnabled"
+    static let editActionID = "com.matsuokengo.Cutling.edit"
 
     private let index = CSSearchableIndex.default()
     private var reindexTask: Task<Void, Never>?
@@ -135,6 +136,8 @@ final class SpotlightIndexer {
         var keywords: [String] = [cutling.icon, cutling.kind.rawValue]
         keywords.append(contentsOf: cutling.assignedCategories.map(\.displayName))
         attributes.keywords = keywords
+
+        attributes.actionIdentifiers = [Self.editActionID]
 
         attributes.contentCreationDate = cutling.createdDate
         attributes.contentModificationDate = cutling.lastModifiedDate

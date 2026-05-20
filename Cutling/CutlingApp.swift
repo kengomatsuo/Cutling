@@ -159,6 +159,7 @@ struct CutlingApp: App {
     @AppStorage("lastVersionOpened") private var lastVersionOpened = ""
 
     @State private var pendingOpenCutlingID: UUID?
+    @State private var copiedCutlingName: String?
 
     #if os(iOS)
     private static let bgSyncTaskID = "com.matsuokengo.Cutling.sync"
@@ -198,7 +199,11 @@ struct CutlingApp: App {
 
     var body: some Scene {
         WindowGroup {
-            MainContentView(activeSheet: $activeSheet, pendingOpenCutlingID: $pendingOpenCutlingID)
+            MainContentView(
+                activeSheet: $activeSheet,
+                pendingOpenCutlingID: $pendingOpenCutlingID,
+                copiedCutlingName: $copiedCutlingName
+            )
                 .environmentObject(store)
                 .onAppear {
                     #if DEBUG
@@ -254,7 +259,12 @@ struct CutlingApp: App {
                 .onContinueUserActivity(CSSearchableItemActionType) { userActivity in
                     guard let identifier = userActivity.userInfo?[CSSearchableItemActivityIdentifier] as? String,
                           let uuid = UUID(uuidString: identifier) else { return }
-                    pendingOpenCutlingID = uuid
+                    let actionID = userActivity.userInfo?[CSActionIdentifier] as? String
+                    // Edit action (long-press menu) or fallback row tap → open detail.
+                    // Plain row tap is normally handled by the Copy OpenIntent, not this handler.
+                    if actionID == SpotlightIndexer.editActionID || actionID == nil {
+                        pendingOpenCutlingID = uuid
+                    }
                 }
                 .onOpenURL { url in
                     guard url.scheme == "cutling" else { return }
@@ -287,6 +297,7 @@ struct CutlingApp: App {
                             Task { await sm.fetchChanges() }
                         }
                         handlePendingOpenCutling()
+                        handlePendingCopyConfirmation()
                         #if os(iOS)
                         handlePendingShortcut()
                         handlePendingControlAction()
@@ -361,6 +372,17 @@ struct CutlingApp: App {
               let uuid = UUID(uuidString: idString) else { return }
         groupDefaults?.removeObject(forKey: "pendingOpenCutlingID")
         pendingOpenCutlingID = uuid
+    }
+
+    /// Reads the flag the Spotlight Copy intent leaves behind and renders a "Copied" banner.
+    private func handlePendingCopyConfirmation() {
+        let groupDefaults = UserDefaults(suiteName: "group.com.matsuokengo.Cutling")
+        guard let idString = groupDefaults?.string(forKey: "pendingCopiedCutlingID"),
+              let uuid = UUID(uuidString: idString) else { return }
+        groupDefaults?.removeObject(forKey: "pendingCopiedCutlingID")
+        if let cutling = store.cutlings.first(where: { $0.id == uuid }) {
+            copiedCutlingName = cutling.name
+        }
     }
 
     // MARK: - Quick Actions
