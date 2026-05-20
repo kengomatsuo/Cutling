@@ -1,7 +1,4 @@
-• Multiple shared items support in ShareView
-• iCloud sync on/off value is now persisted across installations
-• Sensitive information warnings to prevent accidental data sharing
-• Control center widget improvements and automatic sharing link name pre-fill
-• Adjusted max text length to 1000 (iOS form layout bug temporary fix)
-• Enhanced image and text editor sizing
-• Fixed issue where creating new cutlings sometimes resulted in empty sheets
+• Spotlight search support — find and copy your cutlings directly from Spotlight
+• Tap a Spotlight result to copy, or long press to open and edit
+• Fixed large image pasting in the keyboard extension
+• Expired cutlings are now automatically cleaned up in the background

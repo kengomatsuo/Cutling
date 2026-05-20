@@ -1,7 +1,4 @@
-• Compatibilidad con múltiples elementos compartidos en ShareView
-• El valor de activación/desactivación de sincronización de iCloud ahora persiste en todas las instalaciones.
-• Advertencias de información confidencial para evitar el intercambio accidental de datos
-• Mejoras en el widget del centro de control y precarga automática del nombre del enlace para compartir
-• Se ajustó la longitud máxima del texto a 1000 (corrección temporal del error en el diseño del formulario de iOS)
-• Tamaño mejorado del editor de imágenes y texto
-• Se solucionó el problema por el cual la creación de nuevos esquejes a veces resultaba en hojas vacías.
+• Soporte de búsqueda de Spotlight: busque y copie sus esquejes directamente desde Spotlight
+• Toque un resultado de Spotlight para copiarlo o manténgalo presionado para abrirlo y editarlo.
+• Se corrigió el pegado de imágenes grandes en la extensión del teclado.
+• Los esquejes caducados ahora se limpian automáticamente en segundo plano.
