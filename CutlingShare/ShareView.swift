@@ -100,14 +100,26 @@ struct ShareView: View {
                         Button {
                             save()
                         } label: {
-                            Image(systemName: "checkmark")
+                            if isSaving {
+                                ProgressView()
+                                    .controlSize(.small)
+                                    .tint(.white)
+                            } else {
+                                Image(systemName: "checkmark")
+                            }
                         }
                         .buttonStyle(.borderedProminent)
                         .tint(Cutling.defaultTint)
                         .disabled(saveDisabled)
                     } else {
-                        Button("Done") {
+                        Button {
                             save()
+                        } label: {
+                            if isSaving {
+                                ProgressView().controlSize(.small)
+                            } else {
+                                Text("Done")
+                            }
                         }
                         .disabled(saveDisabled)
                     }

@@ -130,14 +130,27 @@ struct CardView: View {
 
     @ViewBuilder
     private var copiedOverlay: some View {
-        if copied {
-            Label("Copied", systemImage: "checkmark")
-                .font(.subheadline.weight(.semibold))
-                .padding(.horizontal, 14)
-                .padding(.vertical, 8)
+        let content = Label("Copied", systemImage: "checkmark")
+            .font(.subheadline.weight(.semibold))
+            .padding(.horizontal, 14)
+            .padding(.vertical, 8)
+
+        if #available(iOS 26.0, macOS 26.0, *) {
+            // Per Apple's docs, .glassEffectTransition only animates when the
+            // glass effect is inside a GlassEffectContainer. Without the
+            // container, the transition falls back to a plain fade.
+            GlassEffectContainer(spacing: 0) {
+                if copied {
+                    content
+                        .glassEffect(.regular, in: Capsule())
+                        .glassEffectTransition(.materialize)
+                }
+            }
+        } else if copied {
+            content
                 .background(.thinMaterial)
                 .clipShape(Capsule())
-                .transition(.scale(scale: 0.8).combined(with: .opacity))
+                .transition(.scale(scale: 0.85).combined(with: .opacity))
         }
     }
 

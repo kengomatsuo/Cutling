@@ -1,0 +1,52 @@
+[
+  {
+    "label": "Deploy: Full Pipeline (all)",
+    "command": "./deploy.sh all",
+    "cwd": "$ZED_WORKTREE_ROOT"
+  },
+  {
+    "label": "Deploy: Build IPA",
+    "command": "./deploy.sh build",
+    "cwd": "$ZED_WORKTREE_ROOT"
+  },
+  {
+    "label": "Deploy: Translate Release Notes",
+    "command": "./deploy.sh release_notes",
+    "cwd": "$ZED_WORKTREE_ROOT"
+  },
+  {
+    "label": "Deploy: Capture Missing Screenshots",
+    "command": "./deploy.sh snap",
+    "cwd": "$ZED_WORKTREE_ROOT"
+  },
+  {
+    "label": "Deploy: Recapture All Screenshots",
+    "command": "./deploy.sh snap --all",
+    "cwd": "$ZED_WORKTREE_ROOT"
+  },
+  {
+    "label": "Deploy: Frame Screenshots",
+    "command": "./deploy.sh frame",
+    "cwd": "$ZED_WORKTREE_ROOT"
+  },
+  {
+    "label": "Deploy: Upload Metadata",
+    "command": "./deploy.sh metadata",
+    "cwd": "$ZED_WORKTREE_ROOT"
+  },
+  {
+    "label": "Deploy: Upload Screenshots",
+    "command": "./deploy.sh screenshots",
+    "cwd": "$ZED_WORKTREE_ROOT"
+  },
+  {
+    "label": "Deploy: Upload Metadata + Screenshots",
+    "command": "./deploy.sh upload",
+    "cwd": "$ZED_WORKTREE_ROOT"
+  },
+  {
+    "label": "Deploy: Deploy Website",
+    "command": "./deploy.sh web",
+    "cwd": "$ZED_WORKTREE_ROOT"
+  }
+]

@@ -6,24 +6,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Xcode:** Open `Cutling.xcodeproj`. Requires Xcode 16+ (uses `fileSystemSynchronizedGroups`). Main app target is `Cutling`, minimum deployment iOS 18.0 / macOS 14.0.
 
-**Deploy script wrapper:**
+**Deploy script wrapper** — always use `./deploy.sh` commands, never invoke `fastlane` directly:
 ```bash
 ./deploy.sh build          # Build IPA for App Store (output: ./build/Cutling.ipa)
 ./deploy.sh snap           # Capture missing locale screenshots
 ./deploy.sh snap --all     # Recapture all screenshots
 ./deploy.sh frame          # Add device frames + marketing text to screenshots
+./deploy.sh screenshots    # Upload framed screenshots to App Store Connect
+./deploy.sh metadata       # Upload metadata/release notes to App Store Connect
+./deploy.sh upload         # Upload metadata + framed screenshots together
 ./deploy.sh all            # Full pipeline: metadata → screenshots → build → upload
 ./deploy.sh release_notes  # Translate release_notes.txt to all 59 locales
 ./deploy.sh web            # Deploy website to gh-pages
-```
-
-**Underlying fastlane lanes** (invoked by deploy.sh):
-```bash
-fastlane ios build
-fastlane ios screenshots
-fastlane ios framed_screenshots
-fastlane ios upload_metadata
-fastlane ios deploy
 ```
 
 **UI Tests:** `CutlingUITests` target uses XCUITest + fastlane snapshot for screenshot automation. No unit test suite exists.

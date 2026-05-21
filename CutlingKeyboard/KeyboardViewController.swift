@@ -814,7 +814,7 @@ struct KeyboardView: View {
         .frame(maxWidth: .infinity)
         .frame(height: keyHeight)
         .background(
-            .ultraThinMaterial,
+            .thinMaterial,
             in: RoundedRectangle(cornerRadius: 99, style: .continuous)
         )
         .transition(AsymmetricTransition(
