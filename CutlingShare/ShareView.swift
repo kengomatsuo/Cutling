@@ -1,3 +1,5 @@
+import CloudKit
+import os.log
 import SwiftUI
 import UniformTypeIdentifiers
 import UIKit
@@ -415,13 +417,15 @@ struct ShareView: View {
             return
         }
 
+        var addedIDs: [UUID] = []
+
         for item in items {
             let expiresAt = item.autoDeleteEnabled ? item.deleteAt : nil
 
             switch item.content {
             case .text(let text):
                 if store.isTextTooLong(text) { continue }
-                store.add(Cutling(
+                let cutling = Cutling(
                     name: item.name,
                     value: text,
                     icon: item.icon,
@@ -429,23 +433,27 @@ struct ShareView: View {
                     expiresAt: expiresAt,
                     color: Cutling.hexString(from: item.color),
                     inputTypeTriggers: item.inputTypeTriggers.isEmpty ? nil : Array(item.inputTypeTriggers)
-                ))
+                )
+                store.add(cutling)
+                addedIDs.append(cutling.id)
 
             case .url(let url):
-                store.add(Cutling(
+                let cutling = Cutling(
                     name: item.name,
                     value: url.absoluteString,
                     icon: item.icon,
                     kind: .text,
                     expiresAt: expiresAt,
                     color: Cutling.hexString(from: item.color)
-                ))
+                )
+                store.add(cutling)
+                addedIDs.append(cutling.id)
 
             case .image(let data):
                 if store.findDuplicateImage(data: data) != nil { continue }
                 let id = UUID()
                 guard let filename = store.saveImageData(data, for: id) else { continue }
-                store.add(Cutling(
+                let cutling = Cutling(
                     id: id,
                     name: item.name,
                     value: "",
@@ -453,11 +461,135 @@ struct ShareView: View {
                     kind: .image,
                     imageFilename: filename,
                     expiresAt: expiresAt
-                ))
+                )
+                store.add(cutling)
+                addedIDs.append(cutling.id)
             }
         }
 
-        dismiss()
+        // If iCloud sync is on, block dismiss until the new cutlings reach the
+        // server. Otherwise the keyboard's next CloudKit fetch could replace
+        // local state with a remote snapshot that doesn't include them yet.
+        if ShareCloudKitUpload.isSyncEnabled, !addedIDs.isEmpty {
+            let snapshot = store.cutlings.filter { addedIDs.contains($0.id) }
+            let imagesDir = store.imagesDirectory
+            Task { @MainActor in
+                await ShareCloudKitUpload.uploadAll(snapshot, imagesDirectory: imagesDir)
+                dismiss()
+            }
+        } else {
+            dismiss()
+        }
+    }
+}
+
+// MARK: - Inline CloudKit Uploader (Share / Action Extensions)
+
+/// Awaitable CloudKit uploader used by share and action extensions so the new
+/// cutlings reach the server before the extension dismisses. Without this, a
+/// subsequent keyboard fetch can replace local state with a remote snapshot
+/// that doesn't yet include the just-added items.
+enum ShareCloudKitUpload {
+    private static let log = Logger(subsystem: "com.matsuokengo.Cutling", category: "ShareCloudKitUpload")
+    private static let containerID = "iCloud.com.matsuokengo.Cutling"
+    private static let zoneName = "CutlingZone"
+    private static let recordType = "Cutling"
+
+    static var isSyncEnabled: Bool {
+        UserDefaults(suiteName: appGroupID)?.bool(forKey: "iCloudSyncEnabled") ?? false
+    }
+
+    /// Uploads the given cutlings in parallel, capped by `timeout`. Returns the
+    /// number that succeeded.
+    @discardableResult
+    static func uploadAll(
+        _ cutlings: [Cutling],
+        imagesDirectory: URL,
+        timeout: Duration = .seconds(8)
+    ) async -> Int {
+        guard isSyncEnabled, !cutlings.isEmpty else { return cutlings.count }
+
+        return await withTaskGroup(of: Int?.self) { group in
+            group.addTask {
+                var ok = 0
+                await withTaskGroup(of: Bool.self) { inner in
+                    for cutling in cutlings {
+                        inner.addTask { await upload(cutling, imagesDirectory: imagesDirectory) }
+                    }
+                    for await success in inner where success { ok += 1 }
+                }
+                return ok
+            }
+            group.addTask {
+                try? await Task.sleep(for: timeout)
+                return nil
+            }
+            let first = await group.next()
+            group.cancelAll()
+            return first.flatMap { $0 } ?? 0
+        }
+    }
+
+    private static func upload(_ cutling: Cutling, imagesDirectory: URL) async -> Bool {
+        await performUpload(cutling, imagesDirectory: imagesDirectory, allowZoneCreate: true)
+    }
+
+    private static func performUpload(
+        _ cutling: Cutling,
+        imagesDirectory: URL,
+        allowZoneCreate: Bool
+    ) async -> Bool {
+        do {
+            let container = CKContainer(identifier: containerID)
+            let db = container.privateCloudDatabase
+            let zoneID = CKRecordZone.ID(zoneName: zoneName)
+            let record = buildRecord(for: cutling, zoneID: zoneID, imagesDirectory: imagesDirectory)
+            try await db.save(record)
+            return true
+        } catch let error as CKError where error.code == .serverRecordChanged {
+            return true
+        } catch let error as CKError where error.code == .zoneNotFound && allowZoneCreate {
+            do {
+                let container = CKContainer(identifier: containerID)
+                let db = container.privateCloudDatabase
+                let zoneID = CKRecordZone.ID(zoneName: zoneName)
+                try await db.save(CKRecordZone(zoneID: zoneID))
+                return await performUpload(cutling, imagesDirectory: imagesDirectory, allowZoneCreate: false)
+            } catch {
+                log.error("Zone create failed: \(error.localizedDescription)")
+                return false
+            }
+        } catch {
+            log.error("Upload failed for \(cutling.id.uuidString): \(error.localizedDescription)")
+            return false
+        }
+    }
+
+    private static func buildRecord(for cutling: Cutling, zoneID: CKRecordZone.ID, imagesDirectory: URL) -> CKRecord {
+        let recordID = CKRecord.ID(recordName: cutling.id.uuidString, zoneID: zoneID)
+        let record = CKRecord(recordType: recordType, recordID: recordID)
+        record["name"] = cutling.name as CKRecordValue
+        record["value"] = cutling.value as CKRecordValue
+        record["icon"] = cutling.icon as CKRecordValue
+        record["kind"] = cutling.kind.rawValue as CKRecordValue
+        record["sortOrder"] = cutling.sortOrder as CKRecordValue
+        record["lastModifiedDate"] = cutling.lastModifiedDate as CKRecordValue
+        if let expiresAt = cutling.expiresAt {
+            record["expiresAt"] = expiresAt as CKRecordValue
+        }
+        if let color = cutling.color {
+            record["color"] = color as CKRecordValue
+        }
+        if let triggers = cutling.inputTypeTriggers, !triggers.isEmpty {
+            record["inputTypeTriggers"] = triggers as CKRecordValue
+        }
+        if cutling.kind == .image, let filename = cutling.imageFilename {
+            let imageURL = imagesDirectory.appendingPathComponent(filename)
+            if FileManager.default.fileExists(atPath: imageURL.path) {
+                record["imageAsset"] = CKAsset(fileURL: imageURL)
+            }
+        }
+        return record
     }
 }
 
