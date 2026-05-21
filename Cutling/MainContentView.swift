@@ -207,10 +207,7 @@ struct MainContentView: View {
         if #available(iOS 26.0, macOS 26.0, *) {
             content.glassEffect(.regular, in: Capsule())
         } else {
-            content
-                .background(.regularMaterial, in: Capsule())
-                .overlay(Capsule().stroke(.quaternary))
-                .shadow(color: .black.opacity(0.1), radius: 8, y: 2)
+            content.background(.regularMaterial, in: Capsule())
         }
     }
 
