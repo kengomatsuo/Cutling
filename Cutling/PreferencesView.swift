@@ -15,35 +15,18 @@ struct PreferencesView: View {
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
     @AppStorage("autoDetectInputTypes") private var autoDetectInputTypes = true
     @AppStorage("spotlightIndexingEnabled") private var spotlightIndexingEnabled = true
-    @State private var showICloudAlert = false
 
     var body: some View {
         Form {
             Section {
-                Toggle(isOn: Binding(
-                    get: { iCloudSyncEnabled },
-                    set: { newValue in
-                        if newValue {
-                            showICloudAlert = true
-                        } else {
-                            iCloudSyncEnabled = false
-                            UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(false, forKey: "iCloudSyncEnabled")
-                        }
-                    }
-                )) {
+                Toggle(isOn: $iCloudSyncEnabled) {
                     Label("iCloud Sync", systemImage: "icloud")
                 }
-                .alert("Enable iCloud Sync?", isPresented: $showICloudAlert) {
-                    Button("Enable", role: .destructive) {
-                        iCloudSyncEnabled = true
-                        UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(true, forKey: "iCloudSyncEnabled")
-                    }
-                    Button("Cancel", role: .cancel) { }
-                } message: {
-                    Text("iCloud Sync is an experimental feature and may not work correctly in all situations, which may lead to data loss.")
+                .onChange(of: iCloudSyncEnabled) { _, enabled in
+                    UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(enabled, forKey: "iCloudSyncEnabled")
                 }
             } header: {
-                Text("Experimental Feature: iCloud")
+                Text("iCloud")
             } footer: {
                 Text("Sync your cutlings across all your devices using iCloud.")
             }
