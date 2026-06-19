@@ -18,6 +18,8 @@ import AudioToolbox
 
 #if DEBUG
 @MainActor private var snapshotBundle: Bundle?
+#else
+@MainActor private let snapshotBundle: Bundle? = nil
 #endif
 
 // MARK: - Hex Color Extension
@@ -30,6 +32,10 @@ extension Color {
             blue: Double(hex & 0xFF) / 255
         )
     }
+
+    /// Near-invisible fill used to guarantee hit-testing on otherwise transparent views.
+    /// `.contentShape` alone is unreliable with `DragGesture` in some SwiftUI versions.
+    static let keyHitTest = Color.white.opacity(0.001)
 }
 
 // MARK: - Adaptive Key Color
@@ -112,10 +118,7 @@ struct InstantPress: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            // Near-invisible background guarantees hit-testing on
-            // transparent views — .contentShape alone is unreliable
-            // with DragGesture in some SwiftUI versions.
-            .background(Color.white.opacity(0.001))
+            .background(Color.keyHitTest)
             .overlay(
                 isPressed
                     ? RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
@@ -243,7 +246,6 @@ class KeyboardViewController: UIInputViewController {
 
         // Sync full-access state to shared UserDefaults AND observable state
         let fullAccess = hasFullAccess
-        print(fullAccess)
         UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(fullAccess, forKey: "hasFullAccess")
         keyboardState.hasFullAccess = fullAccess
         keyboardState.returnKeyType = textDocumentProxy.returnKeyType ?? .default
@@ -359,11 +361,6 @@ class KeyboardViewController: UIInputViewController {
         }
     }
 
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-    }
-
     // Called every time the text input context changes — new text field,
     // keyboard type change, return key type change, etc.
     override func textDidChange(_ textInput: UITextInput?) {
@@ -386,7 +383,7 @@ class KeyboardViewController: UIInputViewController {
 // MARK: - Key Styling
 
 enum KeyStyle {
-    static let cornerRadius: CGFloat = 12
+    static let cornerRadius: CGFloat = 10
     static let horizontalPadding: CGFloat = 6
     static let keyColor = Color(UIColor.keyBackground)
     
@@ -560,7 +557,7 @@ struct BackspaceRepeat: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .background(Color.white.opacity(0.001))
+            .background(Color.keyHitTest)
             .overlay(
                 isHighlighted
                     ? RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
@@ -724,13 +721,8 @@ struct KeyboardView: View {
                     HStack(spacing: 6) {
                         Image(systemName: "doc.on.clipboard")
                             .font(.system(size: KeyStyle.iconSize(for: horizontalSizeClass) + 2, weight: .medium))
-                        #if DEBUG
                         Text("Add from Clipboard", bundle: snapshotBundle)
                             .font(.system(size: KeyStyle.buttonTextSize(for: horizontalSizeClass)))
-                        #else
-                        Text("Add from Clipboard")
-                            .font(.system(size: KeyStyle.buttonTextSize(for: horizontalSizeClass)))
-                        #endif
                     }
                     .frame(maxWidth: .infinity)
                     .frame(height: keyHeight)
@@ -744,15 +736,9 @@ struct KeyboardView: View {
                             Image(systemName: "lock.fill")
                                 .font(.system(size: KeyStyle.iconSize(for: horizontalSizeClass), weight: .medium))
                                 .foregroundStyle(.secondary)
-                            #if DEBUG
                             Text("Enable Full Access for Clipboard", bundle: snapshotBundle)
                                 .font(.system(size: KeyStyle.buttonTextSize(for: horizontalSizeClass) - 2))
                                 .foregroundStyle(.secondary)
-                            #else
-                            Text("Enable Full Access for Clipboard")
-                                .font(.system(size: KeyStyle.buttonTextSize(for: horizontalSizeClass) - 2))
-                                .foregroundStyle(.secondary)
-                            #endif
                         }
                         .frame(maxWidth: .infinity)
                         .frame(height: keyHeight)
@@ -762,25 +748,13 @@ struct KeyboardView: View {
             }
             .overlay {
                 if showAddedToast {
-                    #if DEBUG
                     toastOverlay(icon: "checkmark", text: String(localized: "Added!", bundle: snapshotBundle))
-                    #else
-                    toastOverlay(icon: "checkmark", text: String(localized: "Added!"))
-                    #endif
                 }
                 if showNoAccessToast {
-                    #if DEBUG
                     toastOverlay(icon: "lock.fill", text: String(localized: "Full Access Required", bundle: snapshotBundle))
-                    #else
-                    toastOverlay(icon: "lock.fill", text: String(localized: "Full Access Required"))
-                    #endif
                 }
                 if showEmptyClipboardToast {
-                    #if DEBUG
                     toastOverlay(icon: "doc.on.clipboard", text: String(localized: "Clipboard Empty", bundle: snapshotBundle))
-                    #else
-                    toastOverlay(icon: "doc.on.clipboard", text: String(localized: "Clipboard Empty"))
-                    #endif
                 }
                 if showLimitToast {
                     toastOverlay(icon: "exclamationmark.triangle", text: limitToastMessage)
@@ -796,7 +770,7 @@ struct KeyboardView: View {
                     .font(.system(size: KeyStyle.buttonIconSize(for: horizontalSizeClass), weight: .medium))
                     .foregroundStyle(.primary)
                     .frame(width: keyHeight, height: keyHeight)
-                    .background(Color.white.opacity(0.001))
+                    .background(Color.keyHitTest)
                     .contentShape(Circle())
             }
             .buttonStyle(.plain)
@@ -827,14 +801,13 @@ struct KeyboardView: View {
     // MARK: - Input Type Suggestion
 
     /// Cutlings whose inputTypeTriggers match the current text field context.
-    private var suggestedCutlings: [Cutling] {
+    private func suggestedCutlings(from liveCutlings: [Cutling]) -> [Cutling] {
         let activeKeys = InputTypeCategory.activeTriggerKeys(
             keyboardType: state.keyboardType,
             textContentType: state.textContentType
         )
         guard !activeKeys.isEmpty else { return [] }
 
-        let liveCutlings = store.cutlings.filter { !$0.isExpired }
         return liveCutlings.filter { cutling in
             guard let triggers = cutling.inputTypeTriggers, !triggers.isEmpty else { return false }
             return !Set(triggers).isDisjoint(with: activeKeys)
@@ -845,7 +818,7 @@ struct KeyboardView: View {
 
     private var cutlingGrid: some View {
         let liveCutlings = store.cutlings.filter { !$0.isExpired }
-        let suggested = suggestedCutlings
+        let suggested = suggestedCutlings(from: liveCutlings)
         let suggestedIDs = Set(suggested.map(\.id))
         let remaining = liveCutlings.filter { !suggestedIDs.contains($0.id) }
         let gridColumns = [GridItem(.adaptive(minimum: KeyStyle.cardMinWidth(for: horizontalSizeClass)), spacing: keySpacing)]
@@ -857,21 +830,12 @@ struct KeyboardView: View {
                         Image(systemName: "rectangle.on.rectangle.slash")
                             .font(.system(size: 28))
                             .foregroundStyle(.secondary)
-                        #if DEBUG
                         Text("No Cutlings Yet", bundle: snapshotBundle)
                             .font(.system(size: 15, weight: .semibold))
                             .foregroundStyle(.secondary)
                         Text("Open Cutling to add snippets", bundle: snapshotBundle)
                             .font(.system(size: 12))
                             .foregroundStyle(.tertiary)
-                        #else
-                        Text("No Cutlings Yet")
-                            .font(.system(size: 15, weight: .semibold))
-                            .foregroundStyle(.secondary)
-                        Text("Open Cutling to add snippets")
-                            .font(.system(size: 12))
-                            .foregroundStyle(.tertiary)
-                        #endif
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .padding(.vertical, 16)
@@ -879,7 +843,6 @@ struct KeyboardView: View {
                     LazyVStack(spacing: 0) {
                         if !suggested.isEmpty {
                             // Suggestions section header
-                            #if DEBUG
                             Text("Suggestions", bundle: snapshotBundle)
                                 .font(.system(size: 12, weight: .semibold))
                                 .foregroundStyle(.secondary)
@@ -887,15 +850,6 @@ struct KeyboardView: View {
                                 .padding(.horizontal, KeyStyle.horizontalPadding + 4)
                                 .padding(.top, keySpacing)
                                 .padding(.bottom, 4)
-                            #else
-                            Text("Suggestions")
-                                .font(.system(size: 12, weight: .semibold))
-                                .foregroundStyle(.secondary)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.horizontal, KeyStyle.horizontalPadding + 4)
-                                .padding(.top, keySpacing)
-                                .padding(.bottom, 4)
-                            #endif
 
                             LazyVGrid(columns: gridColumns, spacing: keySpacing) {
                                 ForEach(suggested) { cutling in
@@ -963,7 +917,7 @@ struct KeyboardView: View {
                 }
             }
         }
-        .background(Color.white.opacity(0.001))
+        .background(Color.keyHitTest)
     }
 
     // MARK: - Bottom Row
@@ -1026,7 +980,7 @@ struct KeyboardView: View {
             incrementPasteCount()
         case .image:
             if !state.hasFullAccess {
-                flashNoAccess()
+                flashToast($showNoAccessToast, warning: true)
                 return
             }
             if let filename = cutling.imageFilename,
@@ -1060,83 +1014,73 @@ struct KeyboardView: View {
     }
 
     private func addFromClipboard() {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .short
-        formatter.timeStyle = .short
-        let timestamp = formatter.string(from: Date())
-        
         // Check for image first - try to get raw data to preserve format (GIF, etc.)
-        var imageData: Data?
-        
-        if let data = UIPasteboard.general.data(forPasteboardType: UTType.gif.identifier) {
-            imageData = data
-        } else if let data = UIPasteboard.general.data(forPasteboardType: UTType.png.identifier) {
-            imageData = data
-        } else if let data = UIPasteboard.general.data(forPasteboardType: UTType.jpeg.identifier) {
-            imageData = data
-        } else if let image = UIPasteboard.general.image {
-            // Fallback: convert UIImage to PNG or JPEG
-            if let data = image.pngData() {
-                imageData = data
-            } else if let data = image.jpegData(compressionQuality: 1.0) {
-                imageData = data
-            }
-        }
-        
-        if let imageData {
-            // Check for duplicate image first
-            if let existing = store.findDuplicateImage(data: imageData) {
-                showExisted(existing.id)
-                return
-            }
-            
-            // Check image limit
-            let canAdd = store.canAdd(.image)
-            if !canAdd.allowed {
-                showLimitReached(canAdd.reason ?? "Limit reached")
-                return
-            }
-            
-            let id = UUID()
-            #if DEBUG
-            let imageName = String(localized: "Image: \(timestamp)", bundle: snapshotBundle)
-            #else
-            let imageName = String(localized: "Image: \(timestamp)")
-            #endif
-            var cutling = Cutling(
-                id: id,
-                name: imageName,
-                value: "",
-                icon: "photo",
-                kind: .image,
-                imageFilename: nil
-            )
-            
-            cutling.imageFilename = store.saveImageData(imageData, for: id)
-            store.add(cutling)
-            if let added = store.cutlings.first(where: { $0.id == id }) {
-                KeyboardSyncHelper.upload(added, imagesDirectory: store.imagesDirectory)
-            }
-            newlyAddedID = id
-            
-            withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
-                showAddedToast = true
-            }
-            Task {
-                try? await Task.sleep(for: .seconds(1.5))
-                withAnimation(.easeOut(duration: 0.25)) {
-                    showAddedToast = false
-                }
-            }
+        if let imageData = clipboardImageData() {
+            addImageFromClipboard(imageData)
             return
         }
-        
+
         // Otherwise check for text
         guard let rawText = UIPasteboard.general.string, !rawText.isEmpty else {
-            flashEmptyClipboard()
+            flashToast($showEmptyClipboardToast, warning: true)
             return
         }
-        
+
+        addTextFromClipboard(rawText)
+    }
+
+    private func clipboardImageData() -> Data? {
+        if let data = UIPasteboard.general.data(forPasteboardType: UTType.gif.identifier) {
+            return data
+        }
+        if let data = UIPasteboard.general.data(forPasteboardType: UTType.png.identifier) {
+            return data
+        }
+        if let data = UIPasteboard.general.data(forPasteboardType: UTType.jpeg.identifier) {
+            return data
+        }
+        // Fallback: convert UIImage to PNG or JPEG
+        if let image = UIPasteboard.general.image {
+            return image.pngData() ?? image.jpegData(compressionQuality: 1.0)
+        }
+        return nil
+    }
+
+    private func addImageFromClipboard(_ imageData: Data) {
+        // Check for duplicate image first
+        if let existing = store.findDuplicateImage(data: imageData) {
+            showExisted(existing.id)
+            return
+        }
+
+        // Check image limit
+        guard store.canAdd(.image).allowed else {
+            showLimitReached(for: .image)
+            return
+        }
+
+        let id = UUID()
+        let imageName = String(localized: "Image: \(timestampString())", bundle: snapshotBundle)
+        var cutling = Cutling(
+            id: id,
+            name: imageName,
+            value: "",
+            icon: "photo",
+            kind: .image,
+            imageFilename: nil
+        )
+
+        cutling.imageFilename = store.saveImageData(imageData, for: id)
+        store.add(cutling)
+        if let added = store.cutlings.first(where: { $0.id == id }) {
+            KeyboardSyncHelper.upload(added, imagesDirectory: store.imagesDirectory)
+        }
+        newlyAddedID = id
+
+        flashToast($showAddedToast)
+    }
+
+    private func addTextFromClipboard(_ rawText: String) {
         // Truncate to character limit
         let text = rawText.count > CutlingStore.maxTextLength
             ? String(rawText.prefix(CutlingStore.maxTextLength))
@@ -1146,19 +1090,14 @@ struct KeyboardView: View {
             showExisted(existing.id)
             return
         }
-        
+
         // Check text limit
-        let canAdd = store.canAdd(.text)
-        if !canAdd.allowed {
-            showLimitReached(canAdd.reason ?? "Limit reached")
+        guard store.canAdd(.text).allowed else {
+            showLimitReached(for: .text)
             return
         }
 
-        #if DEBUG
-        let clipName = String(localized: "Clip: \(timestamp)", bundle: snapshotBundle)
-        #else
-        let clipName = String(localized: "Clip: \(timestamp)")
-        #endif
+        let clipName = String(localized: "Clip: \(timestampString())", bundle: snapshotBundle)
         let cutling = Cutling(
             name: clipName,
             value: text,
@@ -1171,66 +1110,41 @@ struct KeyboardView: View {
         }
         newlyAddedID = cutling.id
 
+        flashToast($showAddedToast)
+    }
+
+    private func timestampString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter.string(from: Date())
+    }
+
+    /// Show a transient toast: animate in, hold, animate out.
+    private func flashToast(_ binding: Binding<Bool>, hold: Duration = .seconds(1.5), warning: Bool = false) {
+        if warning {
+            UINotificationFeedbackGenerator().notificationOccurred(.warning)
+        }
         withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
-            showAddedToast = true
+            binding.wrappedValue = true
         }
         Task {
-            try? await Task.sleep(for: .seconds(1.5))
+            try? await Task.sleep(for: hold)
             withAnimation(.easeOut(duration: 0.25)) {
-                showAddedToast = false
+                binding.wrappedValue = false
             }
         }
     }
 
-    private func flashNoAccess() {
-        UINotificationFeedbackGenerator().notificationOccurred(.warning)
-        withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
-            showNoAccessToast = true
-        }
-        Task {
-            try? await Task.sleep(for: .seconds(1.5))
-            withAnimation(.easeOut(duration: 0.25)) {
-                showNoAccessToast = false
-            }
-        }
-    }
-
-    private func flashEmptyClipboard() {
-        UINotificationFeedbackGenerator().notificationOccurred(.warning)
-        withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
-            showEmptyClipboardToast = true
-        }
-        Task {
-            try? await Task.sleep(for: .seconds(1.5))
-            withAnimation(.easeOut(duration: 0.25)) {
-                showEmptyClipboardToast = false
-            }
-        }
-    }
-    
-    private func showLimitReached(_ message: String) {
+    private func showLimitReached(for kind: CutlingKind) {
         UINotificationFeedbackGenerator().notificationOccurred(.error)
-        // Shorten the message for keyboard display
-        if message.contains("image") {
-            #if DEBUG
+        switch kind {
+        case .image:
             limitToastMessage = String(localized: "Image Limit: \(CutlingStore.maxImageCutlings)", bundle: snapshotBundle)
-            #else
-            limitToastMessage = String(localized: "Image Limit: \(CutlingStore.maxImageCutlings)")
-            #endif
-        } else if message.contains("text") {
-            #if DEBUG
+        case .text:
             limitToastMessage = String(localized: "Text Limit: \(CutlingStore.maxTextCutlings)", bundle: snapshotBundle)
-            #else
-            limitToastMessage = String(localized: "Text Limit: \(CutlingStore.maxTextCutlings)")
-            #endif
-        } else {
-            #if DEBUG
-            limitToastMessage = String(localized: "Limit Reached", bundle: snapshotBundle)
-            #else
-            limitToastMessage = String(localized: "Limit Reached")
-            #endif
         }
-        
+
         withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
             showLimitToast = true
         }
@@ -1302,11 +1216,7 @@ struct CutlingKeyView: View {
                     RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous)
                         .fill(.ultraThinMaterial)
                     Label {
-                        #if DEBUG
                         Text(cutling.kind == .text ? "Inserted" : "Copied", bundle: snapshotBundle)
-                        #else
-                        Text(cutling.kind == .text ? "Inserted" : "Copied")
-                        #endif
                     } icon: {
                         Image(systemName: "checkmark")
                     }
