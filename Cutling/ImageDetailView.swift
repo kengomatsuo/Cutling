@@ -330,6 +330,7 @@ struct ImageDetailView: View {
                         }
                         dismiss()
                     }
+                    .frame(maxWidth: .infinity, alignment: .center)
                 }
             }
         }

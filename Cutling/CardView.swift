@@ -449,7 +449,18 @@ struct CardView: View {
         switch item.kind {
         case .text:
             #if os(iOS)
-            presentShareSheet(items: [CutlingActivityItemSource(cutling: item)])
+            let cutling = item
+            let trimmed = cutling.value.trimmingCharacters(in: .whitespacesAndNewlines)
+            if let url = URL(string: trimmed),
+               let scheme = url.scheme,
+               ["http", "https", "ftp"].contains(scheme.lowercased()) {
+                Task { @MainActor in
+                    let metadata = await CutlingActivityItemSource.fetchLinkMetadata(for: url)
+                    presentShareSheet(items: [CutlingActivityItemSource(cutling: cutling, linkMetadata: metadata)])
+                }
+            } else {
+                presentShareSheet(items: [CutlingActivityItemSource(cutling: cutling)])
+            }
             #endif
             #if os(macOS)
             let trimmed = item.value.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -639,11 +650,11 @@ class CutlingActivityItemSource: NSObject, UIActivityItemSource {
     let imageData: Data?
     let previewImage: UIImage?
     let resolvedURL: URL?
-    // For URL cutlings we kick off LPMetadataProvider eagerly so the share
-    // sheet's hero image / favicon can resolve as soon as the network is done.
-    private let lpFetchTask: Task<LPLinkMetadata?, Never>?
+    /// Optional pre-fetched LP metadata from the caller (used for URL cutlings
+    /// so the share sheet shows hero/favicon right away).
+    let preFetchedLPMetadata: LPLinkMetadata?
 
-    init(cutling: Cutling, imageData: Data? = nil) {
+    init(cutling: Cutling, imageData: Data? = nil, linkMetadata: LPLinkMetadata? = nil) {
         self.cutling = cutling
         self.imageData = imageData
         if let imageData {
@@ -659,16 +670,16 @@ class CutlingActivityItemSource: NSObject, UIActivityItemSource {
         } else {
             self.resolvedURL = nil
         }
-        if let urlToFetch = self.resolvedURL, self.previewImage == nil {
-            self.lpFetchTask = Task.detached(priority: .userInitiated) {
-                let provider = LPMetadataProvider()
-                provider.timeout = 5
-                return try? await provider.startFetchingMetadata(for: urlToFetch)
-            }
-        } else {
-            self.lpFetchTask = nil
-        }
+        self.preFetchedLPMetadata = linkMetadata
         super.init()
+    }
+
+    /// Fetches `LPLinkMetadata` for a URL with a short timeout. Returns nil if
+    /// the URL is unfetchable or the deadline passes.
+    static func fetchLinkMetadata(for url: URL, timeout: TimeInterval = 1.5) async -> LPLinkMetadata? {
+        let provider = LPMetadataProvider()
+        provider.timeout = timeout
+        return try? await provider.startFetchingMetadata(for: url)
     }
 
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
@@ -704,6 +715,12 @@ class CutlingActivityItemSource: NSObject, UIActivityItemSource {
     }
 
     func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
+        // Prefer the pre-fetched LP metadata, but override the title with the
+        // cutling's chosen name so the share sheet shows what the user named it.
+        if let preFetched = preFetchedLPMetadata {
+            preFetched.title = cutling.name
+            return preFetched
+        }
         let metadata = LPLinkMetadata()
         metadata.title = cutling.name
         if let previewImage {
@@ -711,32 +728,8 @@ class CutlingActivityItemSource: NSObject, UIActivityItemSource {
         } else if let resolvedURL {
             metadata.originalURL = resolvedURL
             metadata.url = resolvedURL
-            metadata.imageProvider = asyncLinkImageProvider(useIcon: false)
-            metadata.iconProvider = asyncLinkImageProvider(useIcon: true)
         }
         return metadata
-    }
-
-    /// Vends an `NSItemProvider` that lazily resolves to the LP-fetched hero
-    /// image (or favicon) once `lpFetchTask` completes. The share sheet awaits
-    /// the load handler, so the preview can populate after presentation.
-    private func asyncLinkImageProvider(useIcon: Bool) -> NSItemProvider {
-        let provider = NSItemProvider()
-        provider.registerDataRepresentation(forTypeIdentifier: UTType.image.identifier, visibility: .all) { [weak self] completion in
-            Task { [weak self] in
-                guard let self,
-                      let metadata = await self.lpFetchTask?.value,
-                      let nested = useIcon ? metadata.iconProvider : metadata.imageProvider else {
-                    completion(nil, nil)
-                    return
-                }
-                nested.loadDataRepresentation(forTypeIdentifier: UTType.image.identifier) { data, error in
-                    completion(data, error)
-                }
-            }
-            return nil
-        }
-        return provider
     }
 }
 #endif

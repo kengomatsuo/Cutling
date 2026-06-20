@@ -70,6 +70,7 @@ struct MainContentView: View {
     @State private var mode: MainContentMode = .browsing
     @State private var showBottomBar = false
     @State private var showDeleteConfirmation = false
+    @State private var disappearingIDs: Set<UUID> = []
     #if os(iOS)
     @State private var panGesture: UIPanGestureRecognizer?
     @State private var selectionProperties: SelectionProperties = .init()
@@ -660,6 +661,8 @@ struct MainContentView: View {
                             #endif
                         }()
 
+                        let isDisappearing = disappearingIDs.contains(item.id)
+
                         CardView(
                             item: item,
                             isSelecting: mode == .selecting,
@@ -671,15 +674,15 @@ struct MainContentView: View {
                                 toggleSelection(for: item)
                             },
                             onDelete: {
-                                withAccessibleAnimation(.spring(duration: 0.35, bounce: 0.2)) {
-                                    store.delete(item)
-                                }
+                                beginDisappear(item)
                             }
                         )
                         .frame(height: cardHeight)
+                        .opacity(isDisappearing ? 0 : 1)
+                        .animation(reduceMotion ? .easeOut(duration: 0.15) : .spring(duration: 0.35, bounce: 0.2), value: isDisappearing)
                         .transition(.asymmetric(
                             insertion: .scale(scale: 0.85).combined(with: .opacity),
-                            removal: .scale(scale: 0.85).combined(with: .opacity)
+                            removal: .identity
                         ))
                         .id(item.id)
                         #if os(iOS)
@@ -1079,6 +1082,21 @@ struct MainContentView: View {
 
     // MARK: - Delete
 
+    /// State-driven disappearance: animate the card out via `disappearingIDs`,
+    /// then remove from the store once the animation finishes. Sidesteps the
+    /// context-menu dismissal transaction that was swallowing `withAnimation`.
+    private func beginDisappear(_ item: Cutling) {
+        guard !disappearingIDs.contains(item.id) else { return }
+        let duration: Double = reduceMotion ? 0.15 : 0.35
+        disappearingIDs.insert(item.id)
+        DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
+            withAccessibleAnimation(.spring(duration: 0.35, bounce: 0.2)) {
+                store.delete(item)
+            }
+            disappearingIDs.remove(item.id)
+        }
+    }
+
     private func deleteSelectedCutlings() {
         let idsToDelete = selectedIDs
         let cutlingsToDelete = store.cutlings.filter { idsToDelete.contains($0.id) }
@@ -1106,34 +1124,58 @@ struct MainContentView: View {
         guard !selected.isEmpty else { return }
 
         #if os(iOS)
-        var items: [Any] = []
-        for cutling in selected {
-            switch cutling.kind {
-            case .text:
-                items.append(CutlingActivityItemSource(cutling: cutling))
-            case .image:
-                if let filename = cutling.imageFilename,
-                   let data = store.loadImageData(named: filename) {
-                    items.append(CutlingActivityItemSource(cutling: cutling, imageData: data))
+        let imageStore = store
+        Task { @MainActor in
+            // Fan-out LP metadata fetches for any URL-bearing text cutlings so
+            // the share sheet shows hero/favicon previews.
+            let metadataMap: [UUID: LPLinkMetadata] = await withTaskGroup(of: (UUID, LPLinkMetadata?).self) { group in
+                for cutling in selected where cutling.kind == .text {
+                    let trimmed = cutling.value.trimmingCharacters(in: .whitespacesAndNewlines)
+                    guard let url = URL(string: trimmed),
+                          let scheme = url.scheme,
+                          ["http", "https", "ftp"].contains(scheme.lowercased()) else { continue }
+                    let id = cutling.id
+                    group.addTask {
+                        let metadata = await CutlingActivityItemSource.fetchLinkMetadata(for: url)
+                        return (id, metadata)
+                    }
+                }
+                var result: [UUID: LPLinkMetadata] = [:]
+                for await (id, metadata) in group {
+                    if let metadata { result[id] = metadata }
+                }
+                return result
+            }
+
+            var items: [Any] = []
+            for cutling in selected {
+                switch cutling.kind {
+                case .text:
+                    items.append(CutlingActivityItemSource(cutling: cutling, linkMetadata: metadataMap[cutling.id]))
+                case .image:
+                    if let filename = cutling.imageFilename,
+                       let data = imageStore.loadImageData(named: filename) {
+                        items.append(CutlingActivityItemSource(cutling: cutling, imageData: data))
+                    }
                 }
             }
-        }
-        guard !items.isEmpty else { return }
+            guard !items.isEmpty else { return }
 
-        let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let window = windowScene.windows.first,
-              var topController = window.rootViewController else { return }
-        while let presented = topController.presentedViewController {
-            topController = presented
+            let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let window = windowScene.windows.first,
+                  var topController = window.rootViewController else { return }
+            while let presented = topController.presentedViewController {
+                topController = presented
+            }
+            activityVC.popoverPresentationController?.sourceView = topController.view
+            activityVC.popoverPresentationController?.sourceRect = CGRect(
+                x: topController.view.bounds.midX,
+                y: topController.view.bounds.midY,
+                width: 0, height: 0
+            )
+            topController.present(activityVC, animated: true)
         }
-        activityVC.popoverPresentationController?.sourceView = topController.view
-        activityVC.popoverPresentationController?.sourceRect = CGRect(
-            x: topController.view.bounds.midX,
-            y: topController.view.bounds.midY,
-            width: 0, height: 0
-        )
-        topController.present(activityVC, animated: true)
         #endif
         #if os(macOS)
         var items: [Any] = []

@@ -18,6 +18,7 @@ struct RecentlyDeletedView: View {
     @State private var showEmptyAllConfirmation = false
     @State private var itemToDelete: DeletedCutling?
     @State private var showDeleteConfirmation = false
+    @State private var disappearingIDs: Set<UUID> = []
 
     private let cardShape = RoundedRectangle(cornerRadius: 24, style: .continuous)
 
@@ -44,11 +45,14 @@ struct RecentlyDeletedView: View {
 
                     LazyVGrid(columns: columns, spacing: 12) {
                         ForEach(store.recentlyDeleted) { item in
+                            let isDisappearing = disappearingIDs.contains(item.id)
                             deletedCard(item)
                                 .frame(height: cardHeight)
+                                .opacity(isDisappearing ? 0 : 1)
+                                .animation(reduceMotion ? .easeOut(duration: 0.15) : .spring(duration: 0.35, bounce: 0.2), value: isDisappearing)
                                 .transition(.asymmetric(
                                     insertion: .scale(scale: 0.85).combined(with: .opacity),
-                                    removal: .scale(scale: 0.85).combined(with: .opacity)
+                                    removal: .identity
                                 ))
                         }
                     }
@@ -100,9 +104,7 @@ struct RecentlyDeletedView: View {
             presenting: itemToDelete
             ) { item in
                 Button("Delete", role: .destructive) {
-                    withAccessibleAnimation(.spring(duration: 0.35, bounce: 0.2)) {
-                        store.permanentlyDelete(item)
-                    }
+                    beginDisappear(item) { store.permanentlyDelete($0) }
                     itemToDelete = nil
                 }
                 Button("Cancel", role: .cancel) {
@@ -161,9 +163,7 @@ struct RecentlyDeletedView: View {
         #if os(iOS)
         .contextMenu {
             Button {
-                withAccessibleAnimation(.spring(duration: 0.35, bounce: 0.2)) {
-                    store.restore(item)
-                }
+                beginDisappear(item) { store.restore($0) }
             } label: {
                 Label("Recover", systemImage: "arrow.uturn.backward")
             }
@@ -200,9 +200,24 @@ struct RecentlyDeletedView: View {
         .accessibilityLabel("\(cutling.name), \(item.daysRemaining == 1 ? String(localized: "1 day left") : String(localized: "\(item.daysRemaining) days left"))")
         .accessibilityHint(String(localized: "Double tap to recover"))
         .onTapGesture {
+            beginDisappear(item) { store.restore($0) }
+        }
+    }
+
+    // MARK: - State-driven disappearance
+
+    /// Animate the card out via `disappearingIDs`, then run `action` (which removes
+    /// the item from the store) once the animation finishes. Sidesteps the
+    /// context-menu / alert dismissal transactions that swallow `withAnimation`.
+    private func beginDisappear(_ item: DeletedCutling, perform action: @escaping (DeletedCutling) -> Void) {
+        guard !disappearingIDs.contains(item.id) else { return }
+        let duration: Double = reduceMotion ? 0.15 : 0.35
+        disappearingIDs.insert(item.id)
+        DispatchQueue.main.asyncAfter(deadline: .now() + duration) {
             withAccessibleAnimation(.spring(duration: 0.35, bounce: 0.2)) {
-                store.restore(item)
+                action(item)
             }
+            disappearingIDs.remove(item.id)
         }
     }
 
