@@ -19,6 +19,9 @@ struct AddFromClipboardIntent: AppIntent {
         let store = await CutlingStore.shared
 
         if let string = UIPasteboard.general.string, !string.isEmpty {
+            if await store.findDuplicateText(value: string) != nil {
+                return .result(dialog: IntentDialog(stringLiteral: String(localized: "Already saved.")))
+            }
             let check = await store.canAdd(.text)
             guard check.allowed else {
                 return .result(dialog: IntentDialog(stringLiteral: check.reason ?? String(localized: "Cannot add more text cutlings.")))
@@ -34,6 +37,9 @@ struct AddFromClipboardIntent: AppIntent {
             return .result(dialog: IntentDialog(stringLiteral: String(localized: "Saved!")))
         } else if let image = UIPasteboard.general.image,
                   let data = image.pngData() {
+            if await store.findDuplicateImage(data: data) != nil {
+                return .result(dialog: IntentDialog(stringLiteral: String(localized: "Already saved.")))
+            }
             let check = await store.canAdd(.image)
             guard check.allowed else {
                 return .result(dialog: IntentDialog(stringLiteral: check.reason ?? String(localized: "Cannot add more image cutlings.")))

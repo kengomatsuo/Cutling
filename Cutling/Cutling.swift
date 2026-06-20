@@ -9,11 +9,13 @@
 //
 
 
+import CoreTransferable
 import Darwin
 import Foundation
 import LinkPresentation
 import NaturalLanguage
 import SwiftUI
+import UniformTypeIdentifiers
 #if os(iOS)
 import UIKit
 #endif
@@ -174,6 +176,51 @@ struct NewCutlingDraft: Identifiable, Equatable {
     var name: String = ""
     var text: String = ""
     var imageData: Data? = nil
+    var icon: String? = nil
+    var color: String? = nil
+    var inputTypeTriggers: [String]? = nil
+    var expiresAt: Date? = nil
+}
+
+// MARK: - Cutling Drag & Drop Payload
+
+extension UTType {
+    static let cutling = UTType(exportedAs: "com.matsuokengo.Cutling.cutling")
+}
+
+/// Wire format for cutling drag-and-drop. The custom `.cutling` UTType lets us
+/// preserve full metadata (name, icon, color, triggers, etc.) on round-trip,
+/// while String/PNG proxy representations let other apps still receive the
+/// underlying value or image.
+struct CutlingPayload: Codable, Transferable {
+    let cutling: Cutling
+    let imageData: Data?
+
+    static var transferRepresentation: some TransferRepresentation {
+        CodableRepresentation(contentType: .cutling)
+        ProxyRepresentation { (payload: CutlingPayload) -> String in
+            payload.cutling.value
+        }
+        DataRepresentation(exportedContentType: .png) { payload in
+            guard let data = payload.imageData else {
+                throw CocoaError(.featureUnsupported)
+            }
+            #if os(iOS)
+            if let image = UIImage(data: data), let png = image.pngData() {
+                return png
+            }
+            #endif
+            #if os(macOS)
+            if let image = NSImage(data: data),
+               let tiff = image.tiffRepresentation,
+               let rep = NSBitmapImageRep(data: tiff),
+               let png = rep.representation(using: .png, properties: [:]) {
+                return png
+            }
+            #endif
+            return data
+        }
+    }
 }
 
 enum ActiveSheet: Identifiable, Equatable {
@@ -322,9 +369,12 @@ enum InputTypeCategory: String, CaseIterable, Identifiable, Codable, Sendable {
 
     static func fetchURLTitle(from text: String) async -> String? {
         let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard let url = URL(string: trimmed),
-              let scheme = url.scheme,
-              ["http", "https"].contains(scheme.lowercased()) else { return nil }
+        guard let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue) else { return nil }
+        let range = NSRange(trimmed.startIndex..., in: trimmed)
+        guard let match = detector.firstMatch(in: trimmed, range: range),
+              let url = match.url,
+              let scheme = url.scheme?.lowercased(),
+              ["http", "https"].contains(scheme) else { return nil }
         let provider = LPMetadataProvider()
         provider.shouldFetchSubresources = false
         provider.timeout = 5

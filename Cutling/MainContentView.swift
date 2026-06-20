@@ -305,9 +305,24 @@ struct MainContentView: View {
                         Group {
                             switch draft.kind {
                             case .text:
-                                TextDetailView(item: nil, initialName: draft.name, initialValue: draft.text, presentedAsSheet: true)
+                                TextDetailView(
+                                    item: nil,
+                                    initialName: draft.name,
+                                    initialValue: draft.text,
+                                    initialIcon: draft.icon,
+                                    initialColor: draft.color,
+                                    initialTriggers: draft.inputTypeTriggers ?? [],
+                                    initialExpiresAt: draft.expiresAt,
+                                    presentedAsSheet: true
+                                )
                             case .image:
-                                ImageDetailView(item: nil, initialName: draft.name, initialImageData: draft.imageData, presentedAsSheet: true)
+                                ImageDetailView(
+                                    item: nil,
+                                    initialName: draft.name,
+                                    initialImageData: draft.imageData,
+                                    initialExpiresAt: draft.expiresAt,
+                                    presentedAsSheet: true
+                                )
                             }
                         }
                         .navigationTransition(.zoom(sourceID: addButtonZoomID, in: zoomNamespace))
@@ -346,10 +361,14 @@ struct MainContentView: View {
                     guard groupDefaults?.string(forKey: "pendingControlAction") == "addFromClipboard" else { return }
                     groupDefaults?.removeObject(forKey: "pendingControlAction")
                     if let string = UIPasteboard.general.string, !string.isEmpty {
-                        activeSheet = .newCutling(NewCutlingDraft(kind: .text, text: string))
+                        if store.findDuplicateText(value: string) == nil {
+                            activeSheet = .newCutling(NewCutlingDraft(kind: .text, text: string))
+                        }
                     } else if let image = UIPasteboard.general.image,
                               let data = image.pngData() {
-                        activeSheet = .newCutling(NewCutlingDraft(kind: .image, name: String(localized: "Shared Image"), imageData: data))
+                        if store.findDuplicateImage(data: data) == nil {
+                            activeSheet = .newCutling(NewCutlingDraft(kind: .image, name: String(localized: "Shared Image"), imageData: data))
+                        }
                     }
                 }
                 #endif
@@ -376,6 +395,11 @@ struct MainContentView: View {
         #if os(macOS)
         .background(.background)
         #endif
+        .dropDestination(for: DroppedItem.self) { items, _ in
+            guard let first = items.first else { return false }
+            handleDroppedItem(first)
+            return true
+        }
         .navigationTitle("Cutlings")
         #if os(iOS)
         .navigationBarTitleDisplayMode(.large)
@@ -1086,18 +1110,11 @@ struct MainContentView: View {
         for cutling in selected {
             switch cutling.kind {
             case .text:
-                let trimmed = cutling.value.trimmingCharacters(in: .whitespacesAndNewlines)
-                if let url = URL(string: trimmed),
-                   let scheme = url.scheme, ["http", "https", "ftp"].contains(scheme.lowercased()) {
-                    items.append(URLActivityItemSource(url: url, title: cutling.name))
-                } else {
-                    items.append(cutling.value)
-                }
+                items.append(CutlingActivityItemSource(cutling: cutling))
             case .image:
                 if let filename = cutling.imageFilename,
-                   let data = store.loadImageData(named: filename),
-                   let image = UIImage(data: data) {
-                    items.append(ImageActivityItemSource(image: image, title: cutling.name))
+                   let data = store.loadImageData(named: filename) {
+                    items.append(CutlingActivityItemSource(cutling: cutling, imageData: data))
                 }
             }
         }
@@ -1176,6 +1193,131 @@ struct MainContentView: View {
         menuCommands.cutlingsCount = store.cutlings.count
     }
     #endif
+
+    // MARK: - Drag & Drop
+
+    @MainActor
+    private func handleDroppedItem(_ item: DroppedItem) {
+        switch item {
+        case .cutling(let cutling, let imageData):
+            handleDroppedCutling(cutling, imageData: imageData)
+        case .image(let data):
+            handleDroppedImage(data: data)
+        case .url(let url):
+            handleDroppedURL(url)
+        case .text(let text):
+            handleDroppedText(text)
+        }
+    }
+
+    @MainActor
+    private func handleDroppedCutling(_ cutling: Cutling, imageData: Data?) {
+        // Same cutling dropped back on itself: no-op
+        if store.cutlings.contains(where: { $0.id == cutling.id }) { return }
+
+        switch cutling.kind {
+        case .text:
+            if store.findDuplicateText(value: cutling.value) != nil { return }
+            let check = store.canAdd(.text)
+            guard check.allowed else {
+                limitAlertMessage = check.reason ?? String(localized: "Cannot add text cutling")
+                return
+            }
+            activeSheet = .newCutling(NewCutlingDraft(
+                kind: .text,
+                name: cutling.name,
+                text: cutling.value,
+                icon: cutling.icon,
+                color: cutling.color,
+                inputTypeTriggers: cutling.inputTypeTriggers,
+                expiresAt: cutling.expiresAt
+            ))
+        case .image:
+            guard let data = imageData else { return }
+            if store.findDuplicateImage(data: data) != nil { return }
+            let check = store.canAdd(.image)
+            guard check.allowed else {
+                limitAlertMessage = check.reason ?? String(localized: "Cannot add image cutling")
+                return
+            }
+            activeSheet = .newCutling(NewCutlingDraft(
+                kind: .image,
+                name: cutling.name,
+                imageData: data,
+                expiresAt: cutling.expiresAt
+            ))
+        }
+    }
+
+    @MainActor
+    private func handleDroppedImage(data: Data) {
+        let check = store.canAdd(.image)
+        guard check.allowed else {
+            limitAlertMessage = check.reason ?? String(localized: "Cannot add image cutling")
+            return
+        }
+        if store.findDuplicateImage(data: data) != nil { return }
+        activeSheet = .newCutling(NewCutlingDraft(
+            kind: .image,
+            name: String(localized: "Shared Image"),
+            imageData: data
+        ))
+    }
+
+    @MainActor
+    private func handleDroppedURL(_ url: URL) {
+        guard !url.isFileURL else { return }
+        if store.findDuplicateText(value: url.absoluteString) != nil { return }
+        let check = store.canAdd(.text)
+        guard check.allowed else {
+            limitAlertMessage = check.reason ?? String(localized: "Cannot add text cutling")
+            return
+        }
+        activeSheet = .newCutling(NewCutlingDraft(
+            kind: .text,
+            text: url.absoluteString
+        ))
+    }
+
+    @MainActor
+    private func handleDroppedText(_ text: String) {
+        if store.findDuplicateText(value: text) != nil { return }
+        let check = store.canAdd(.text)
+        guard check.allowed else {
+            limitAlertMessage = check.reason ?? String(localized: "Cannot add text cutling")
+            return
+        }
+        if store.isTextTooLong(text) { return }
+        activeSheet = .newCutling(NewCutlingDraft(
+            kind: .text,
+            text: text
+        ))
+    }
+}
+
+// MARK: - Dropped Item Transferable
+
+enum DroppedItem: Transferable {
+    case cutling(Cutling, imageData: Data?)
+    case image(Data)
+    case url(URL)
+    case text(String)
+
+    static var transferRepresentation: some TransferRepresentation {
+        DataRepresentation(importedContentType: .cutling) { data in
+            let payload = try JSONDecoder().decode(CutlingPayload.self, from: data)
+            return DroppedItem.cutling(payload.cutling, imageData: payload.imageData)
+        }
+        DataRepresentation(importedContentType: .image) { data in
+            DroppedItem.image(data)
+        }
+        ProxyRepresentation(importing: { (url: URL) in
+            DroppedItem.url(url)
+        })
+        ProxyRepresentation(importing: { (text: String) in
+            DroppedItem.text(text)
+        })
+    }
 }
 
 // MARK: - Pan Gesture Recognizer

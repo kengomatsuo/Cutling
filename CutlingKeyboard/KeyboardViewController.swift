@@ -1086,7 +1086,7 @@ struct KeyboardView: View {
             ? String(rawText.prefix(CutlingStore.maxTextLength))
             : rawText
 
-        if let existing = store.cutlings.first(where: { $0.value == text }) {
+        if let existing = store.findDuplicateText(value: text) {
             showExisted(existing.id)
             return
         }

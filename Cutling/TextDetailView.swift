@@ -37,6 +37,7 @@ struct TextDetailView: View {
     @State private var inputTypeTriggers: Set<String>
     @State private var detectTask: Task<Void, Never>?
     @State private var titleFetchTask: Task<Void, Never>?
+    @State private var isFetchingTitle = false
     @State private var isAutoDetecting = false
     @State private var autoDetectedCategories: Set<InputTypeCategory> = []
     @State private var userDidPickIcon = false
@@ -44,18 +45,36 @@ struct TextDetailView: View {
     @AppStorage("autoDetectInputTypes") private var autoDetectInputTypes = true
     @State private var undoHandler = UndoHandler()
 
-    init(item: Cutling?, initialName: String = "", initialValue: String = "", presentedAsSheet: Bool = true) {
+    init(
+        item: Cutling?,
+        initialName: String = "",
+        initialValue: String = "",
+        initialIcon: String? = nil,
+        initialColor: String? = nil,
+        initialTriggers: [String] = [],
+        initialExpiresAt: Date? = nil,
+        presentedAsSheet: Bool = true
+    ) {
         self.existingItem = item
         self.presentedAsSheet = presentedAsSheet
         _name = State(initialValue: item?.name ?? initialName)
         _value = State(initialValue: item?.value ?? initialValue)
-        _icon = State(initialValue: item?.icon ?? "document")
-        _autoDeleteEnabled = State(initialValue: item?.expiresAt != nil)
-        _deleteAt = State(initialValue: item?.expiresAt ?? Date().addingTimeInterval(86400))
-        _pickedColor = State(initialValue: item?.tintColor ?? Cutling.defaultTint)
-        _inputTypeTriggers = State(initialValue: Set(item?.inputTypeTriggers ?? []))
+        _icon = State(initialValue: item?.icon ?? initialIcon ?? "document")
+        let resolvedExpiresAt = item?.expiresAt ?? initialExpiresAt
+        _autoDeleteEnabled = State(initialValue: resolvedExpiresAt != nil)
+        _deleteAt = State(initialValue: resolvedExpiresAt ?? Date().addingTimeInterval(86400))
+        let resolvedColor: Color = {
+            if let item { return item.tintColor }
+            if let initialColor, let parsed = Cutling.color(fromHex: initialColor) { return parsed }
+            if let initialColor, let palette = Cutling.palette[initialColor] { return palette }
+            return Cutling.defaultTint
+        }()
+        _pickedColor = State(initialValue: resolvedColor)
+        _inputTypeTriggers = State(initialValue: Set(item?.inputTypeTriggers ?? initialTriggers))
         // When editing an existing cutling, treat the saved icon as user-chosen.
-        _userDidPickIcon = State(initialValue: item != nil)
+        // Also treat as user-chosen if an explicit initial icon was supplied
+        // (e.g. dropped from another cutling) so auto-detect doesn't override it.
+        _userDidPickIcon = State(initialValue: item != nil || initialIcon != nil)
     }
 
     var isEditing: Bool { existingItem != nil }
@@ -213,8 +232,16 @@ struct TextDetailView: View {
 
     private var formContent: some View {
         Form {
-            Section("Name") {
+            Section {
                 TextField("e.g. Email", text: undoHandler.binding($name, actionName: String(localized: "Change Name")))
+            } header: {
+                HStack(spacing: 6) {
+                    Text("Name")
+                    if isFetchingTitle {
+                        ProgressView()
+                            .controlSize(.mini)
+                    }
+                }
             }
             Section("Icon") {
                 #if os(macOS)
@@ -273,11 +300,16 @@ struct TextDetailView: View {
                 TextEditor(text: undoHandler.binding($value, actionName: String(localized: "Change Text")))
                     .frame(minHeight: 120, maxHeight: 450)
                     .scrollContentBackground(.hidden)
-                    .onChange(of: value) {
-                        if value.count > CutlingStore.maxTextLength {
-                            value = String(value.prefix(CutlingStore.maxTextLength))
+                    .onChange(of: value) { oldValue, newValue in
+                        if newValue.count > CutlingStore.maxTextLength {
+                            value = String(newValue.prefix(CutlingStore.maxTextLength))
                         }
-                        scheduleAutoDetect()
+                        let isLargeChange = abs(newValue.count - oldValue.count) > 1
+                        if isPasting || isLargeChange {
+                            runAutoDetectNow()
+                        } else {
+                            scheduleAutoDetect()
+                        }
                         if isPasting {
                             isPasting = false
                         } else if hasClipboardText {
@@ -417,11 +449,19 @@ struct TextDetailView: View {
         detectTask = Task { @MainActor in
             try? await Task.sleep(for: .milliseconds(800))
             guard !Task.isCancelled else { return }
-            if autoDetectInputTypes {
+            if autoDetectInputTypes || !isEditing {
                 runAutoDetect()
             }
             sensitiveContentTypes = SensitiveContentType.detect(in: value)
         }
+    }
+
+    private func runAutoDetectNow() {
+        detectTask?.cancel()
+        if autoDetectInputTypes || !isEditing {
+            runAutoDetect()
+        }
+        sensitiveContentTypes = SensitiveContentType.detect(in: value)
     }
 
     private func runAutoDetect() {
@@ -467,13 +507,17 @@ struct TextDetailView: View {
 
         titleFetchTask?.cancel()
         if suggestion.categories.contains(.url) {
+            isFetchingTitle = true
             titleFetchTask = Task { @MainActor in
+                defer { isFetchingTitle = false }
                 guard let title = await InputTypeCategory.fetchURLTitle(from: value),
                       !Task.isCancelled else { return }
                 if name.isEmpty || isAutoSuggestedName(name) {
                     name = deduplicatedName(for: title)
                 }
             }
+        } else {
+            isFetchingTitle = false
         }
     }
 

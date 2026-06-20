@@ -411,6 +411,16 @@ class CutlingStore: ObservableObject {
         return nil
     }
 
+    /// Find an existing text cutling with the same value, ignoring surrounding whitespace.
+    func findDuplicateText(value: String) -> Cutling? {
+        let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return nil }
+        return cutlings.first {
+            $0.kind == .text &&
+            $0.value.trimmingCharacters(in: .whitespacesAndNewlines) == trimmed
+        }
+    }
+
     func update(_ cutling: Cutling) {
         if let i = cutlings.firstIndex(where: { $0.id == cutling.id }) {
             var c = cutling

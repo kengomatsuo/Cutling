@@ -295,6 +295,43 @@ struct ShareView: View {
                 let providerName = provider.suggestedName
                 let title = providerName ?? itemTitle
 
+                if provider.hasItemConformingToTypeIdentifier(UTType.cutling.identifier) {
+                    if let result = try? await provider.loadItem(forTypeIdentifier: UTType.cutling.identifier),
+                       let data = result as? Data,
+                       let payload = try? JSONDecoder().decode(CutlingPayload.self, from: data) {
+                        let original = payload.cutling
+                        let resolvedColor = Cutling.color(fromHex: original.color ?? "") ?? Cutling.palette[original.color ?? ""] ?? Cutling.defaultTint
+                        let triggers = Set(original.inputTypeTriggers ?? [])
+                        switch original.kind {
+                        case .text:
+                            extracted.append(SharedItem(
+                                name: original.name,
+                                icon: original.icon,
+                                color: resolvedColor,
+                                content: .text(original.value),
+                                inputTypeTriggers: triggers,
+                                autoDetectedCategories: InputTypeCategory.detect(from: original.value),
+                                autoDeleteEnabled: original.expiresAt != nil,
+                                deleteAt: original.expiresAt ?? Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date(),
+                                needsTitleFetch: false,
+                                sensitiveContentTypes: SensitiveContentType.detect(in: original.value)
+                            ))
+                        case .image:
+                            if let imageData = payload.imageData {
+                                extracted.append(SharedItem(
+                                    name: original.name,
+                                    icon: "photo",
+                                    color: resolvedColor,
+                                    content: .image(imageData),
+                                    autoDeleteEnabled: original.expiresAt != nil,
+                                    deleteAt: original.expiresAt ?? Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
+                                ))
+                            }
+                        }
+                        continue
+                    }
+                }
+
                 if provider.hasItemConformingToTypeIdentifier(UTType.image.identifier) {
                     if let result = try? await provider.loadItem(forTypeIdentifier: UTType.image.identifier),
                        let data = imageData(from: result) {
@@ -437,6 +474,7 @@ struct ShareView: View {
             switch item.content {
             case .text(let text):
                 if store.isTextTooLong(text) { continue }
+                if store.findDuplicateText(value: text) != nil { continue }
                 let cutling = Cutling(
                     name: item.name,
                     value: text,
@@ -450,6 +488,7 @@ struct ShareView: View {
                 addedIDs.append(cutling.id)
 
             case .url(let url):
+                if store.findDuplicateText(value: url.absoluteString) != nil { continue }
                 let cutling = Cutling(
                     name: item.name,
                     value: url.absoluteString,

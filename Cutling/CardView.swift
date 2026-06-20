@@ -11,6 +11,7 @@
 
 import SwiftUI
 import LinkPresentation
+import UniformTypeIdentifiers
 
 #if os(iOS)
 import UIKit
@@ -85,10 +86,12 @@ struct CardView: View {
             #if os(iOS)
             .contentShape(.contextMenuPreview, cardShape)
             #endif
+            .contentShape(.dragPreview, cardShape)
             .overlay(alignment: .center) {
                 copiedOverlay
             }
             .animation(reduceMotion ? .easeOut(duration: 0.15) : .spring(), value: copied)
+            .modifier(CardDraggableModifier(item: item, isEnabled: !isSelecting))
             #if os(iOS)
             .contextMenu {
                 cardContextMenu
@@ -445,25 +448,24 @@ struct CardView: View {
     private func shareItem() {
         switch item.kind {
         case .text:
+            #if os(iOS)
+            presentShareSheet(items: [CutlingActivityItemSource(cutling: item)])
+            #endif
+            #if os(macOS)
             let trimmed = item.value.trimmingCharacters(in: .whitespacesAndNewlines)
             if let url = URL(string: trimmed),
                let scheme = url.scheme,
                ["http", "https", "ftp"].contains(scheme.lowercased()) {
-                #if os(iOS)
-                presentShareSheet(items: [URLActivityItemSource(url: url, title: item.name)])
-                #endif
-                #if os(macOS)
                 presentShareSheet(items: [url])
-                #endif
             } else {
                 presentShareSheet(items: [item.value])
             }
+            #endif
         case .image:
             guard let filename = item.imageFilename,
                   let data = store.loadImageData(named: filename) else { return }
             #if os(iOS)
-            guard let image = UIImage(data: data) else { return }
-            presentShareSheet(items: [ImageActivityItemSource(image: image, title: item.name)])
+            presentShareSheet(items: [CutlingActivityItemSource(cutling: item, imageData: data)])
             #endif
             #if os(macOS)
             guard let image = NSImage(data: data) else { return }
@@ -496,6 +498,31 @@ struct CardView: View {
               let contentView = window.contentView else { return }
         picker.show(relativeTo: .zero, of: contentView, preferredEdge: .minY)
         #endif
+    }
+}
+
+// MARK: - Drag Support
+
+private struct CardDraggableModifier: ViewModifier {
+    @EnvironmentObject var store: CutlingStore
+    let item: Cutling
+    let isEnabled: Bool
+
+    func body(content: Content) -> some View {
+        if !isEnabled {
+            content
+        } else {
+            content.draggable(payload())
+        }
+    }
+
+    private func payload() -> CutlingPayload {
+        if item.kind == .image,
+           let filename = item.imageFilename,
+           let data = store.loadImageData(named: filename) {
+            return CutlingPayload(cutling: item, imageData: data)
+        }
+        return CutlingPayload(cutling: item, imageData: nil)
     }
 }
 
@@ -602,54 +629,114 @@ struct CutlingInfoView: View {
 // MARK: - Share Activity Item Sources
 
 #if os(iOS)
-class ImageActivityItemSource: NSObject, UIActivityItemSource {
-    let image: UIImage
-    let title: String
+/// Single activity item source that publishes the full Cutling metadata via the
+/// custom `.cutling` UTType (so our own share extension can round-trip name,
+/// icon, color, triggers, etc.) while still providing standard plainText/url/png
+/// representations for foreign apps. Preserves `LPLinkMetadata` so the share
+/// sheet UI shows the cutling's name and (for images/URLs) its preview.
+class CutlingActivityItemSource: NSObject, UIActivityItemSource {
+    let cutling: Cutling
+    let imageData: Data?
+    let previewImage: UIImage?
+    let resolvedURL: URL?
+    // For URL cutlings we kick off LPMetadataProvider eagerly so the share
+    // sheet's hero image / favicon can resolve as soon as the network is done.
+    private let lpFetchTask: Task<LPLinkMetadata?, Never>?
 
-    init(image: UIImage, title: String) {
-        self.image = image
-        self.title = title
+    init(cutling: Cutling, imageData: Data? = nil) {
+        self.cutling = cutling
+        self.imageData = imageData
+        if let imageData {
+            self.previewImage = UIImage(data: imageData)
+        } else {
+            self.previewImage = nil
+        }
+        let trimmed = cutling.value.trimmingCharacters(in: .whitespacesAndNewlines)
+        if let url = URL(string: trimmed),
+           let scheme = url.scheme,
+           ["http", "https", "ftp"].contains(scheme.lowercased()) {
+            self.resolvedURL = url
+        } else {
+            self.resolvedURL = nil
+        }
+        if let urlToFetch = self.resolvedURL, self.previewImage == nil {
+            self.lpFetchTask = Task.detached(priority: .userInitiated) {
+                let provider = LPMetadataProvider()
+                provider.timeout = 5
+                return try? await provider.startFetchingMetadata(for: urlToFetch)
+            }
+        } else {
+            self.lpFetchTask = nil
+        }
+        super.init()
     }
 
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
-        image
+        if let image = previewImage { return image }
+        if let url = resolvedURL { return url }
+        return cutling.value
     }
 
     func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
-        image
+        let provider = NSItemProvider()
+        provider.suggestedName = cutling.name
+
+        let payload = CutlingPayload(cutling: cutling, imageData: imageData)
+        if let payloadData = try? JSONEncoder().encode(payload) {
+            provider.registerDataRepresentation(forTypeIdentifier: UTType.cutling.identifier, visibility: .all) { completion in
+                completion(payloadData, nil)
+                return nil
+            }
+        }
+
+        if let imageData, let image = previewImage {
+            provider.registerDataRepresentation(forTypeIdentifier: UTType.png.identifier, visibility: .all) { completion in
+                completion(image.pngData() ?? imageData, nil)
+                return nil
+            }
+        } else if let resolvedURL {
+            provider.registerObject(resolvedURL as NSURL, visibility: .all)
+        } else {
+            provider.registerObject(cutling.value as NSString, visibility: .all)
+        }
+
+        return provider
     }
 
     func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
         let metadata = LPLinkMetadata()
-        metadata.title = title
-        metadata.imageProvider = NSItemProvider(object: image)
+        metadata.title = cutling.name
+        if let previewImage {
+            metadata.imageProvider = NSItemProvider(object: previewImage)
+        } else if let resolvedURL {
+            metadata.originalURL = resolvedURL
+            metadata.url = resolvedURL
+            metadata.imageProvider = asyncLinkImageProvider(useIcon: false)
+            metadata.iconProvider = asyncLinkImageProvider(useIcon: true)
+        }
         return metadata
     }
-}
 
-class URLActivityItemSource: NSObject, UIActivityItemSource {
-    let url: URL
-    let title: String
-
-    init(url: URL, title: String) {
-        self.url = url
-        self.title = title
-    }
-
-    func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
-        url
-    }
-
-    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
-        url
-    }
-
-    func activityViewControllerLinkMetadata(_ activityViewController: UIActivityViewController) -> LPLinkMetadata? {
-        let metadata = LPLinkMetadata()
-        metadata.originalURL = url
-        metadata.url = url
-        metadata.title = title
-        return metadata
+    /// Vends an `NSItemProvider` that lazily resolves to the LP-fetched hero
+    /// image (or favicon) once `lpFetchTask` completes. The share sheet awaits
+    /// the load handler, so the preview can populate after presentation.
+    private func asyncLinkImageProvider(useIcon: Bool) -> NSItemProvider {
+        let provider = NSItemProvider()
+        provider.registerDataRepresentation(forTypeIdentifier: UTType.image.identifier, visibility: .all) { [weak self] completion in
+            Task { [weak self] in
+                guard let self,
+                      let metadata = await self.lpFetchTask?.value,
+                      let nested = useIcon ? metadata.iconProvider : metadata.imageProvider else {
+                    completion(nil, nil)
+                    return
+                }
+                nested.loadDataRepresentation(forTypeIdentifier: UTType.image.identifier) { data, error in
+                    completion(data, error)
+                }
+            }
+            return nil
+        }
+        return provider
     }
 }
 #endif

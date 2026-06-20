@@ -136,13 +136,20 @@ struct ImageDetailView: View {
     @State private var deleteAt: Date
     @State private var undoHandler = UndoHandler()
     
-    init(item: Cutling?, initialName: String = "", initialImageData: Data? = nil, presentedAsSheet: Bool = true) {
+    init(
+        item: Cutling?,
+        initialName: String = "",
+        initialImageData: Data? = nil,
+        initialExpiresAt: Date? = nil,
+        presentedAsSheet: Bool = true
+    ) {
         self.existingItem = item
         self.presentedAsSheet = presentedAsSheet
         _name = State(initialValue: item?.name ?? initialName)
         _imageData = State(initialValue: initialImageData)
-        _autoDeleteEnabled = State(initialValue: item?.expiresAt != nil)
-        _deleteAt = State(initialValue: item?.expiresAt ?? Date().addingTimeInterval(86400))
+        let resolvedExpiresAt = item?.expiresAt ?? initialExpiresAt
+        _autoDeleteEnabled = State(initialValue: resolvedExpiresAt != nil)
+        _deleteAt = State(initialValue: resolvedExpiresAt ?? Date().addingTimeInterval(86400))
     }
 
     var isEditing: Bool { existingItem != nil }
