@@ -153,7 +153,6 @@ struct CutlingApp: App {
 
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
     @AppStorage("hasCompletedSetup") private var hasCompletedSetup = false
-    @AppStorage("spotlightIndexingEnabled") private var spotlightIndexingEnabled = true
 
     // Version flag for future use (e.g. "What's New" screen for returning users)
     @AppStorage("lastVersionOpened") private var lastVersionOpened = ""
@@ -177,7 +176,6 @@ struct CutlingApp: App {
     init() {
         UserDefaults.standard.register(defaults: [
             "autoDetectInputTypes": true,
-            "spotlightIndexingEnabled": true,
         ])
         #if os(iOS)
         BGTaskScheduler.shared.register(
@@ -223,11 +221,7 @@ struct CutlingApp: App {
                     runMigrationsIfNeeded()
                     configureSyncIfNeeded()
                     syncPreferencesToAppGroup()
-                    if spotlightIndexingEnabled {
-                        SpotlightIndexer.shared.reindexAll(from: store)
-                    } else {
-                        SpotlightIndexer.shared.wipeAll()
-                    }
+                    SpotlightIndexer.shared.reindexAll(from: store)
                     lastVersionOpened = currentAppVersion
                     #if os(iOS)
                     #if DEBUG
@@ -247,13 +241,6 @@ struct CutlingApp: App {
                         startSync()
                     } else {
                         stopSync()
-                    }
-                }
-                .onChange(of: spotlightIndexingEnabled) { _, enabled in
-                    if enabled {
-                        SpotlightIndexer.shared.reindexAll(from: store)
-                    } else {
-                        SpotlightIndexer.shared.wipeAll()
                     }
                 }
                 .onContinueUserActivity(CSSearchableItemActionType) { userActivity in
@@ -360,6 +347,7 @@ struct CutlingApp: App {
 
         Settings {
             PreferencesView()
+                .environmentObject(store)
         }
         #endif
     }

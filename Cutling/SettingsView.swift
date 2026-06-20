@@ -16,6 +16,7 @@ private let websiteBaseURL = "https://kengomatsuo.github.io/Cutling"
 struct KeyboardView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var store: CutlingStore
+    @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
     #if os(iOS)
     @State private var isKeyboardAdded = false
     @State private var hasFullAccess = false
@@ -142,6 +143,50 @@ struct KeyboardView: View {
                     Text("Storage")
                 }
 
+                #if MAIN_APP
+                #if os(iOS)
+                Section {
+                    if iCloudSyncEnabled {
+                        HStack {
+                            Label("iCloud Sync", systemImage: "icloud")
+                            Spacer()
+                            if store.isSyncing {
+                                ProgressView()
+                                    .controlSize(.small)
+                                Text("Syncing…")
+                                    .foregroundStyle(.secondary)
+                            } else {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .foregroundStyle(.green)
+                                Text("Up to date")
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                        Button {
+                            Task {
+                                await store.syncManager?.fetchChanges()
+                            }
+                        } label: {
+                            Label("Sync Now", systemImage: "arrow.clockwise")
+                        }
+                        .disabled(store.isSyncing)
+                    } else {
+                        Button {
+                            if let url = URL(string: UIApplication.openSettingsURLString) {
+                                UIApplication.shared.open(url)
+                            }
+                        } label: {
+                            Label("Turn On iCloud Sync", systemImage: "icloud")
+                        }
+                    }
+                } header: {
+                    Text("iCloud")
+                } footer: {
+                    Text("Sync your cutlings across all your devices using iCloud.")
+                }
+                #endif
+                #endif
+
                 Section("About") {
                     LabeledContent("Version", value: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown")
 
@@ -188,6 +233,65 @@ struct KeyboardView: View {
         #if os(macOS)
         .frame(minWidth: 360, idealWidth: 400, maxWidth: 400, minHeight: 250, idealHeight: 300)
         #endif
+    }
+}
+
+struct StorageUsageRow: View {
+    let title: LocalizedStringKey
+    let icon: String
+    let used: Int
+    let limit: Int
+
+    private var fraction: Double {
+        guard limit > 0 else { return 0 }
+        return min(1.0, Double(used) / Double(limit))
+    }
+
+    private var tint: Color {
+        switch fraction {
+        case ..<0.75: return .accentColor
+        case ..<0.9: return .orange
+        default: return .red
+        }
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            HStack {
+                Label(title, systemImage: icon)
+                Spacer()
+                Text("\(used) / \(limit)")
+                    .foregroundStyle(.secondary)
+                    .monospacedDigit()
+            }
+            ProgressView(value: fraction)
+                .tint(tint)
+        }
+        .padding(.vertical, 2)
+    }
+
+    /// Sum sizes of regular files in the given directory. Returns 0 on error.
+    static func diskUsage(in directory: URL) async -> Int64 {
+        await Task.detached(priority: .utility) {
+            computeDirectorySize(directory)
+        }.value
+    }
+
+    nonisolated private static func computeDirectorySize(_ directory: URL) -> Int64 {
+        let fm = FileManager.default
+        guard let enumerator = fm.enumerator(
+            at: directory,
+            includingPropertiesForKeys: [.isRegularFileKey, .fileSizeKey],
+            options: [.skipsHiddenFiles]
+        ) else { return 0 }
+        var total: Int64 = 0
+        for case let url as URL in enumerator {
+            guard let values = try? url.resourceValues(forKeys: [.isRegularFileKey, .fileSizeKey]),
+                  values.isRegularFile == true,
+                  let size = values.fileSize else { continue }
+            total += Int64(size)
+        }
+        return total
     }
 }
 

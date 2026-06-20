@@ -40,24 +40,6 @@
 			<key>DefaultValue</key>
 			<true/>
 		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSGroupSpecifier</string>
-			<key>Title</key>
-			<string>Spotlight</string>
-			<key>FooterText</key>
-			<string>Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed.</string>
-		</dict>
-		<dict>
-			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
-			<key>Title</key>
-			<string>Include in Spotlight Search</string>
-			<key>Key</key>
-			<string>spotlightIndexingEnabled</string>
-			<key>DefaultValue</key>
-			<true/>
-		</dict>
 	</array>
 	<key>StringsTable</key>
 	<string>Root</string>

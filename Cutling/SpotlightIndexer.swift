@@ -26,7 +26,6 @@ final class SpotlightIndexer {
     static let shared = SpotlightIndexer()
 
     static let domain = "com.matsuokengo.Cutling.cutlings"
-    static let enabledKey = "spotlightIndexingEnabled"
     static let editActionID = "com.matsuokengo.Cutling.edit"
 
     private let index = CSSearchableIndex.default()
@@ -49,7 +48,6 @@ final class SpotlightIndexer {
 
     /// Insert-or-update a single cutling in the index. Idempotent.
     func index(_ cutling: Cutling) {
-        guard isIndexingEnabled else { return }
         guard let item = searchableItem(for: cutling) else {
             // Skipped by sensitivity/expiration rules — make sure any stale entry is gone.
             remove(id: cutling.id)
@@ -83,16 +81,7 @@ final class SpotlightIndexer {
 
     // MARK: - Internals
 
-    private var isIndexingEnabled: Bool {
-        UserDefaults.standard.bool(forKey: Self.enabledKey)
-    }
-
     private func performFullReindex(from store: CutlingStore) async {
-        guard isIndexingEnabled else {
-            wipeAll()
-            return
-        }
-
         let snapshot = store.cutlings
         let items = snapshot.compactMap { searchableItem(for: $0) }
 
@@ -107,7 +96,6 @@ final class SpotlightIndexer {
     }
 
     private func searchableItem(for cutling: Cutling) -> CSSearchableItem? {
-        guard isIndexingEnabled else { return nil }
         if cutling.isExpired { return nil }
         if cutling.kind == .text,
            !SensitiveContentType.detect(in: cutling.value).isEmpty {

@@ -14,7 +14,8 @@ import SwiftUI
 struct PreferencesView: View {
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
     @AppStorage("autoDetectInputTypes") private var autoDetectInputTypes = true
-    @AppStorage("spotlightIndexingEnabled") private var spotlightIndexingEnabled = true
+    @EnvironmentObject private var store: CutlingStore
+    @State private var diskUsageBytes: Int64 = 0
 
     var body: some View {
         Form {
@@ -25,10 +26,57 @@ struct PreferencesView: View {
                 .onChange(of: iCloudSyncEnabled) { _, enabled in
                     UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(enabled, forKey: "iCloudSyncEnabled")
                 }
+                if iCloudSyncEnabled {
+                    HStack {
+                        Label("Status", systemImage: "arrow.triangle.2.circlepath")
+                        Spacer()
+                        if store.isSyncing {
+                            ProgressView()
+                                .controlSize(.small)
+                            Text("Syncing…")
+                                .foregroundStyle(.secondary)
+                        } else {
+                            Image(systemName: "checkmark.circle.fill")
+                                .foregroundStyle(.green)
+                            Text("Up to date")
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                }
             } header: {
                 Text("iCloud")
             } footer: {
                 Text("Sync your cutlings across all your devices using iCloud.")
+            }
+
+            Section {
+                StorageUsageRow(
+                    title: "Text Cutlings",
+                    icon: "doc.text",
+                    used: store.textCutlingsCount,
+                    limit: CutlingStore.maxTextCutlings
+                )
+                StorageUsageRow(
+                    title: "Image Cutlings",
+                    icon: "photo",
+                    used: store.imageCutlingsCount,
+                    limit: CutlingStore.maxImageCutlings
+                )
+                StorageUsageRow(
+                    title: "Total Cutlings",
+                    icon: "tray.full",
+                    used: store.cutlings.count,
+                    limit: CutlingStore.maxTotalCutlings
+                )
+                LabeledContent {
+                    Text(ByteCountFormatter.string(fromByteCount: diskUsageBytes, countStyle: .file))
+                        .foregroundStyle(.secondary)
+                } label: {
+                    Label("Disk Usage", systemImage: "internaldrive")
+                }
+                LabeledContent("Max Text Length", value: String(localized: "\(CutlingStore.maxTextLength) chars"))
+            } header: {
+                Text("Storage")
             }
 
             Section {
@@ -41,22 +89,17 @@ struct PreferencesView: View {
                 Text("Automatically detect and suggest input type categories when editing text.")
             }
 
-            Section {
-                Toggle(isOn: $spotlightIndexingEnabled) {
-                    Label("Include in Spotlight Search", systemImage: "magnifyingglass")
-                }
-            } header: {
-                Text("Spotlight")
-            } footer: {
-                Text("Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed.")
-            }
         }
         .formStyle(.grouped)
-        .frame(minWidth: 360, idealWidth: 400, maxWidth: 400, minHeight: 200, idealHeight: 250)
+        .frame(minWidth: 360, idealWidth: 420, maxWidth: 460, minHeight: 320, idealHeight: 420)
+        .task {
+            diskUsageBytes = await StorageUsageRow.diskUsage(in: store.imagesDirectory)
+        }
     }
 }
 
 #Preview {
     PreferencesView()
-        .frame(width: 400, height: 300)
+        .environmentObject(CutlingStore.shared)
+        .frame(width: 420, height: 500)
 }
