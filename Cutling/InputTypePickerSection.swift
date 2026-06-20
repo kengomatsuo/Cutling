@@ -13,7 +13,7 @@ import SwiftUI
 /// a cutling should be suggested for in the keyboard.
 struct InputTypePickerSection: View {
     @Binding var selectedTriggers: Set<String>
-    @Binding var autoDetectedCategories: Set<InputTypeCategory>
+    @Binding var userSetInputType: Bool
 
     var body: some View {
         Section {
@@ -21,8 +21,9 @@ struct InputTypePickerSection: View {
                 let isOn = !category.triggerKeys.isDisjoint(with: selectedTriggers)
                 Button {
                     withAccessibleAnimation(.easeInOut(duration: 0.15)) {
-                        // Any manual toggle removes this category from auto-detected tracking.
-                        autoDetectedCategories.remove(category)
+                        // Any manual toggle locks the cutling's input type assignment
+                        // so the store-level rescan skips it from here on.
+                        userSetInputType = true
                         if isOn {
                             selectedTriggers.subtract(category.triggerKeys)
                         } else {

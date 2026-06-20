@@ -444,7 +444,11 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
     var expiresAt: Date?
     var color: String?
     var inputTypeTriggers: [String]?
-    
+    /// True once the user has explicitly chosen the input type assignment for
+    /// this cutling. While false, the store is free to (re)run auto-detection
+    /// over `value` and replace `inputTypeTriggers`.
+    var userSetInputType: Bool
+
     /// The input type categories this cutling is assigned to.
     var assignedCategories: Set<InputTypeCategory> {
         guard let triggers = inputTypeTriggers, !triggers.isEmpty else { return [] }
@@ -547,7 +551,8 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
         lastModifiedDate: Date = Date(),
         expiresAt: Date? = nil,
         color: String? = nil,
-        inputTypeTriggers: [String]? = nil
+        inputTypeTriggers: [String]? = nil,
+        userSetInputType: Bool = false
     ) {
         self.id = id
         self.name = name
@@ -561,6 +566,7 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
         self.expiresAt = expiresAt
         self.color = color
         self.inputTypeTriggers = inputTypeTriggers
+        self.userSetInputType = userSetInputType
     }
     
     /// Decodes gracefully from older data that may lack sortOrder/lastModifiedDate/expiresAt/color.
@@ -579,6 +585,7 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
         expiresAt = try container.decodeIfPresent(Date.self, forKey: .expiresAt)
         color = try container.decodeIfPresent(String.self, forKey: .color)
         inputTypeTriggers = try container.decodeIfPresent([String].self, forKey: .inputTypeTriggers)
+        userSetInputType = try container.decodeIfPresent(Bool.self, forKey: .userSetInputType) ?? false
     }
 }
 

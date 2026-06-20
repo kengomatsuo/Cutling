@@ -17,7 +17,7 @@ struct SharedItem: Identifiable {
     var color: Color = Cutling.defaultTint
     var content: SharedContentType
     var inputTypeTriggers: Set<String> = []
-    var autoDetectedCategories: Set<InputTypeCategory> = []
+    var userSetInputType: Bool = false
     var autoDeleteEnabled = false
     var deleteAt = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
     var needsTitleFetch = false
@@ -193,7 +193,7 @@ struct ShareView: View {
 
             switch item.content {
             case .text, .url:
-                InputTypePickerSection(selectedTriggers: $items[0].inputTypeTriggers, autoDetectedCategories: $items[0].autoDetectedCategories)
+                InputTypePickerSection(selectedTriggers: $items[0].inputTypeTriggers, userSetInputType: $items[0].userSetInputType)
             default:
                 EmptyView()
             }
@@ -310,7 +310,7 @@ struct ShareView: View {
                                 color: resolvedColor,
                                 content: .text(original.value),
                                 inputTypeTriggers: triggers,
-                                autoDetectedCategories: InputTypeCategory.detect(from: original.value),
+                                userSetInputType: original.userSetInputType,
                                 autoDeleteEnabled: original.expiresAt != nil,
                                 deleteAt: original.expiresAt ?? Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date(),
                                 needsTitleFetch: false,
@@ -353,7 +353,6 @@ struct ShareView: View {
                             icon: suggestion.icon,
                             content: .url(url),
                             inputTypeTriggers: suggestion.triggers,
-                            autoDetectedCategories: suggestion.categories,
                             needsTitleFetch: title == nil,
                             sensitiveContentTypes: SensitiveContentType.detect(in: url.absoluteString)
                         ))
@@ -371,7 +370,6 @@ struct ShareView: View {
                             icon: suggestion.icon,
                             content: .text(text),
                             inputTypeTriggers: suggestion.triggers,
-                            autoDetectedCategories: suggestion.categories,
                             sensitiveContentTypes: SensitiveContentType.detect(in: text)
                         ))
                         continue
@@ -482,7 +480,8 @@ struct ShareView: View {
                     kind: .text,
                     expiresAt: expiresAt,
                     color: Cutling.hexString(from: item.color),
-                    inputTypeTriggers: item.inputTypeTriggers.isEmpty ? nil : Array(item.inputTypeTriggers)
+                    inputTypeTriggers: item.inputTypeTriggers.isEmpty ? nil : Array(item.inputTypeTriggers),
+                    userSetInputType: item.userSetInputType
                 )
                 store.add(cutling)
                 addedIDs.append(cutling.id)
@@ -738,7 +737,7 @@ private struct SharedItemDetailView: View {
 
             switch item.content {
             case .text, .url:
-                InputTypePickerSection(selectedTriggers: $item.inputTypeTriggers, autoDetectedCategories: $item.autoDetectedCategories)
+                InputTypePickerSection(selectedTriggers: $item.inputTypeTriggers, userSetInputType: $item.userSetInputType)
             default:
                 EmptyView()
             }

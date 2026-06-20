@@ -80,6 +80,7 @@ struct InputTypeCutlingPicker: View {
             triggers.formUnion(category.triggerKeys)
         }
         updated.inputTypeTriggers = triggers.isEmpty ? nil : Array(triggers)
+        updated.userSetInputType = true
         store.update(updated)
     }
 }

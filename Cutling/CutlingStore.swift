@@ -276,6 +276,7 @@ class CutlingStore: ObservableObject {
         var c = cutling
         c.sortOrder = cutlings.count
         c.lastModifiedDate = Date()
+        applyInputTypeDetection(&c)
         cutlings.append(c)
         lastAddedCutlingID = c.id
         save()
@@ -425,6 +426,7 @@ class CutlingStore: ObservableObject {
         if let i = cutlings.firstIndex(where: { $0.id == cutling.id }) {
             var c = cutling
             c.lastModifiedDate = Date()
+            applyInputTypeDetection(&c)
             cutlings[i] = c
             save()
             schedulePurgeTimer()
@@ -716,6 +718,37 @@ class CutlingStore: ObservableObject {
             let triggers = detected.flatMap { $0.triggerKeys }
             cutlings[i].inputTypeTriggers = Array(Set(triggers))
             changed = true
+        }
+        if changed {
+            save()
+        }
+    }
+
+    /// Runs detection on a single cutling about to be persisted, unless the
+    /// user has pinned its input types. Backstops the entry points (clipboard
+    /// intents, keyboard add-from-clipboard, detail view dismissed before the
+    /// 800 ms debounce) where the in-page detector might never have fired.
+    private func applyInputTypeDetection(_ cutling: inout Cutling) {
+        guard cutling.kind == .text, !cutling.userSetInputType else { return }
+        let triggers = InputTypeCategory.detect(from: cutling.value).flatMap { $0.triggerKeys }
+        cutling.inputTypeTriggers = triggers.isEmpty ? nil : Array(Set(triggers))
+    }
+
+    /// Rescans every text cutling whose input types have NOT been pinned by the
+    /// user and replaces `inputTypeTriggers` with the latest detection result.
+    /// Covers cases where the in-page debounced detector did not get a chance
+    /// to run (user exited the editor immediately after typing).
+    func scanInputTypesIfNeeded() {
+        var changed = false
+        for i in cutlings.indices where cutlings[i].kind == .text && !cutlings[i].userSetInputType {
+            let detected = InputTypeCategory.detect(from: cutlings[i].value)
+            let newTriggers = detected.isEmpty ? nil : Array(Set(detected.flatMap { $0.triggerKeys }))
+            let oldSet = Set(cutlings[i].inputTypeTriggers ?? [])
+            let newSet = Set(newTriggers ?? [])
+            if oldSet != newSet {
+                cutlings[i].inputTypeTriggers = newTriggers
+                changed = true
+            }
         }
         if changed {
             save()

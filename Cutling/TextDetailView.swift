@@ -39,7 +39,7 @@ struct TextDetailView: View {
     @State private var titleFetchTask: Task<Void, Never>?
     @State private var isFetchingTitle = false
     @State private var isAutoDetecting = false
-    @State private var autoDetectedCategories: Set<InputTypeCategory> = []
+    @State private var userSetInputType: Bool
     @State private var userDidPickIcon = false
     @State private var sensitiveContentTypes: Set<SensitiveContentType> = []
     @AppStorage("autoDetectInputTypes") private var autoDetectInputTypes = true
@@ -71,6 +71,7 @@ struct TextDetailView: View {
         }()
         _pickedColor = State(initialValue: resolvedColor)
         _inputTypeTriggers = State(initialValue: Set(item?.inputTypeTriggers ?? initialTriggers))
+        _userSetInputType = State(initialValue: item?.userSetInputType ?? false)
         // When editing an existing cutling, treat the saved icon as user-chosen.
         // Also treat as user-chosen if an explicit initial icon was supplied
         // (e.g. dropped from another cutling) so auto-detect doesn't override it.
@@ -331,7 +332,7 @@ struct TextDetailView: View {
                     .foregroundStyle(value.count > CutlingStore.maxTextLength - 500 ? .orange : .secondary)
                     .font(.caption)
             }
-            InputTypePickerSection(selectedTriggers: undoHandler.binding($inputTypeTriggers, actionName: String(localized: "Change Input Types")), autoDetectedCategories: $autoDetectedCategories)
+            InputTypePickerSection(selectedTriggers: undoHandler.binding($inputTypeTriggers, actionName: String(localized: "Change Input Types")), userSetInputType: $userSetInputType)
             ExpirationPickerSection(autoDeleteEnabled: undoHandler.binding($autoDeleteEnabled, actionName: String(localized: "Change Expiration")), deleteAt: undoHandler.binding($deleteAt, actionName: String(localized: "Change Expiration")))
 
             if isEditing {
@@ -392,6 +393,7 @@ struct TextDetailView: View {
             updated.expiresAt = autoDeleteEnabled ? deleteAt : nil
             updated.color = Cutling.hexString(from: pickedColor)
             updated.inputTypeTriggers = inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
+            updated.userSetInputType = userSetInputType
             store.update(updated)
             dismiss()
         } else {
@@ -404,7 +406,8 @@ struct TextDetailView: View {
                         icon: icon,
                         expiresAt: autoDeleteEnabled ? deleteAt : nil,
                         color: Cutling.hexString(from: pickedColor),
-                        inputTypeTriggers: inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
+                        inputTypeTriggers: inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers),
+                        userSetInputType: userSetInputType
                     )
                 )
                 dismiss()
@@ -424,6 +427,7 @@ struct TextDetailView: View {
             updated.expiresAt = autoDeleteEnabled ? deleteAt : nil
             updated.color = Cutling.hexString(from: pickedColor)
             updated.inputTypeTriggers = inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
+            updated.userSetInputType = userSetInputType
             store.update(updated)
         } else {
             guard !name.isEmpty, !value.isEmpty else { return }
@@ -436,7 +440,8 @@ struct TextDetailView: View {
                     icon: icon,
                     expiresAt: autoDeleteEnabled ? deleteAt : nil,
                     color: Cutling.hexString(from: pickedColor),
-                    inputTypeTriggers: inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
+                    inputTypeTriggers: inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers),
+                    userSetInputType: userSetInputType
                 )
             )
         }
@@ -470,21 +475,11 @@ struct TextDetailView: View {
         isAutoDetecting = true
         defer { isAutoDetecting = false }
 
-        // Remove categories that were auto-detected before but are no longer detected.
-        // Categories the user toggled manually are not in autoDetectedCategories, so
-        // they stay untouched.
-        let stale = autoDetectedCategories.subtracting(suggestion.categories)
-        for category in stale {
-            inputTypeTriggers.subtract(category.triggerKeys)
-        }
-        autoDetectedCategories.subtract(stale)
-
-        // Add newly detected categories that aren't already set
-        let currentCategories = Set(InputTypeCategory.matchingCategories(for: inputTypeTriggers))
-        let newCategories = suggestion.categories.subtracting(currentCategories)
-        for category in newCategories {
-            inputTypeTriggers.formUnion(category.triggerKeys)
-            autoDetectedCategories.insert(category)
+        // Once the user has pinned an assignment, the in-page detector stops
+        // touching `inputTypeTriggers`. Icon and name suggestions below still
+        // apply because those are independent signals.
+        if !userSetInputType {
+            inputTypeTriggers = Set(suggestion.categories.flatMap { $0.triggerKeys })
         }
 
         // Auto-suggest icon as long as the user hasn't manually picked one.

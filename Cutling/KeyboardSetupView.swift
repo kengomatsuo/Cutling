@@ -43,6 +43,8 @@ struct KeyboardSetupView: View {
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
     @AppStorage("hasCompletedSetup") private var hasCompletedSetup = false
     @FocusState private var testFieldFocused: Bool
+    @State private var howToUseReadyToContinue = false
+    @State private var doneIconAppeared = false
 
     private var allDone: Bool { keyboardDetected && fullAccessDetected }
 
@@ -214,7 +216,7 @@ struct KeyboardSetupView: View {
             Spacer()
         }
         .frame(maxWidth: .infinity)
-        .safeAreaInset(edge: .bottom) {
+        .continueButtonBar {
             continueButton(next: .enable, canContinue: true)
         }
     }
@@ -262,7 +264,7 @@ struct KeyboardSetupView: View {
                 Spacer()
             }
         }
-        .safeAreaInset(edge: .bottom) {
+        .continueButtonBar {
             continueButton(next: .test, canContinue: snapshotOr(keyboardDetected))
         }
     }
@@ -339,8 +341,10 @@ struct KeyboardSetupView: View {
             }
         }
         #endif
-        .safeAreaInset(edge: .bottom) {
+        .continueButtonBar {
             continueButton(next: .howToUse, canContinue: snapshotOr(allDone))
+                .padding(.bottom, testFieldFocused ? 12 : 0)
+                .animation(.smooth(duration: 0.25), value: testFieldFocused)
         }
     }
 
@@ -358,8 +362,9 @@ struct KeyboardSetupView: View {
                 Spacer().frame(height: 8)
 
                 Text("What You Can Do")
-                    .font(.title3.bold())
-                    .frame(maxWidth: .infinity, alignment: .center)
+                    .font(.title2.bold())
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal)
 
                 tipRow(
                     icon: "globe",
@@ -450,8 +455,18 @@ struct KeyboardSetupView: View {
             .padding(.horizontal)
         }
         .accessibilityIdentifier("howToUsePage")
-        .safeAreaInset(edge: .bottom) {
-            continueButton(next: .icloud, canContinue: true)
+        .onScrollGeometryChange(for: Bool.self) { geo in
+            geo.contentOffset.y + geo.containerSize.height >= geo.contentSize.height - 1
+        } action: { _, isAtBottom in
+            guard isAtBottom, !howToUseReadyToContinue else { return }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                withAnimation(.smooth(duration: 0.25)) {
+                    howToUseReadyToContinue = true
+                }
+            }
+        }
+        .continueButtonBar {
+            continueButton(next: .icloud, canContinue: snapshotOr(howToUseReadyToContinue))
         }
     }
 
@@ -487,7 +502,7 @@ struct KeyboardSetupView: View {
             }
         }
         .frame(maxWidth: .infinity)
-        .safeAreaInset(edge: .bottom) {
+        .continueButtonBar {
             continueButton(next: .done, canContinue: true)
         }
     }
@@ -501,6 +516,8 @@ struct KeyboardSetupView: View {
             Image(systemName: "checkmark.seal.fill")
                 .font(.system(size: 56))
                 .foregroundStyle(.green)
+                .symbolEffect(.bounce, options: .nonRepeating, value: doneIconAppeared)
+                .onAppear { doneIconAppeared = true }
 
             Text("You're All Set!")
                 .font(.title2.bold())
@@ -514,7 +531,7 @@ struct KeyboardSetupView: View {
             Spacer()
         }
         .frame(maxWidth: .infinity)
-        .safeAreaInset(edge: .bottom) {
+        .continueButtonBar {
             continueButton(next: nil, canContinue: snapshotOr(allDone))
         }
     }
@@ -614,6 +631,22 @@ private struct GlassProminentButtonModifier: ViewModifier {
             content.buttonStyle(.glassProminent)
         } else {
             content.buttonStyle(.borderedProminent)
+        }
+    }
+}
+
+// MARK: - Bottom Bar Helper
+
+/// Uses `.safeAreaBar` on iOS 26+ so the system applies the scroll edge effect
+/// (variable blur) to content scrolling beneath the bar. Falls back to
+/// `.safeAreaInset` on earlier versions.
+private extension View {
+    @ViewBuilder
+    func continueButtonBar<C: View>(@ViewBuilder content: () -> C) -> some View {
+        if #available(iOS 26, macOS 26, *) {
+            self.safeAreaBar(edge: .bottom, content: content)
+        } else {
+            self.safeAreaInset(edge: .bottom, content: content)
         }
     }
 }
