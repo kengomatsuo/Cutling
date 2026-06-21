@@ -1,6 +1,6 @@
 //
 //  PasteService.swift
-//  Cutling — synthesizes ⌘V into the frontmost app.
+//  Cutling: synthesizes ⌘V into the frontmost app.
 //
 //  macOS requires Accessibility permission to post key events into other apps.
 //  CGEvent posts to the system HID tap silently fail without it. We expose a
@@ -17,7 +17,7 @@ import ApplicationServices
 final class PasteService {
     static let shared = PasteService()
 
-    /// kVK_ANSI_V — Carbon virtual key code for the V key on a US layout.
+    /// kVK_ANSI_V is the Carbon virtual key code for the V key on a US layout.
     /// Other layouts: posting at the virtual-key level still produces a paste
     /// because ⌘V is layout-independent at the system event level.
     private let vKeyCode: CGKeyCode = 0x09

@@ -1,6 +1,6 @@
 //
 //  MacApp.swift
-//  Cutling — macOS entry point
+//  Cutling: macOS entry point
 //
 //  The Mac build of Cutling is a menu-bar-resident utility. The iOS app's
 //  CutlingApp scene tree is gated out via `#if !os(macOS)`; on macOS only
@@ -9,6 +9,7 @@
 
 #if os(macOS)
 import SwiftUI
+import TipKit
 
 @main
 struct MacApp: App {
@@ -16,12 +17,16 @@ struct MacApp: App {
     @State private var pasteboardMonitor: PasteboardMonitor?
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
     @AppStorage("captureClipboardHistory") private var captureClipboardHistory = true
+    @AppStorage("hasOnboarded") private var hasOnboarded = false
 
     init() {
         UserDefaults.standard.register(defaults: [
             "autoDetectInputTypes": true,
             "captureClipboardHistory": true,
         ])
+        // Configure TipKit before any TipView attempts to render. Errors
+        // here are non-fatal (the worst case is no tips appear).
+        try? Tips.configure()
     }
 
     var body: some Scene {
@@ -53,6 +58,27 @@ struct MacApp: App {
             MacSettingsView()
                 .environmentObject(store)
         }
+
+        // First-launch welcome window. .defaultLaunchBehavior reads
+        // hasOnboarded from @AppStorage: presented on first run, suppressed
+        // thereafter. Manual reopen from Settings → General is supported
+        // via openWindow(id:).
+        Window("Welcome to Cutling", id: WelcomeWindow.id) {
+            WelcomeView()
+        }
+        .restorationBehavior(.disabled)
+        .windowResizability(.contentSize)
+        .windowStyle(.hiddenTitleBar)
+        .defaultWindowPlacement { content, context in
+            let size = content.sizeThatFits(.unspecified)
+            let visible = context.defaultDisplay.visibleRect
+            // Centre horizontally; nudge a bit toward the top so the
+            // arrow on the menu-bar step lines up closer to the real bar.
+            let x = visible.midX - size.width / 2
+            let y = visible.midY - size.height / 2 + 60
+            return WindowPlacement(CGPoint(x: x, y: y), size: size)
+        }
+        .defaultLaunchBehavior(hasOnboarded ? .suppressed : .presented)
     }
 
     private func syncPreferencesToAppGroup() {

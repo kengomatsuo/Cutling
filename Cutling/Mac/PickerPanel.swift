@@ -1,6 +1,6 @@
 //
 //  PickerPanel.swift
-//  Cutling — cursor-anchored floating panel summoned by the global hotkey.
+//  Cutling: cursor-anchored floating panel summoned by the global hotkey.
 //
 //  Distinct from the MenuBarExtra popover: this is a true HUD-style panel that
 //  appears wherever the cursor is, so the user doesn't have to fly to the
@@ -11,6 +11,7 @@
 #if os(macOS)
 import AppKit
 import SwiftUI
+import TipKit
 
 extension Notification.Name {
     /// Posted by MacPickerView after the user copies an item. The picker panel
@@ -20,14 +21,15 @@ extension Notification.Name {
 
 final class CutlingPickerPanel: NSPanel {
     init() {
+        // Borderless: no titlebar reserves space, and there is no chrome to
+        // hide. The previous `.titled + .fullSizeContentView` combination
+        // still reserved a 28pt invisible band at the top.
         super.init(
-            contentRect: NSRect(x: 0, y: 0, width: 360, height: 480),
-            styleMask: [.nonactivatingPanel, .titled, .fullSizeContentView],
+            contentRect: NSRect(x: 0, y: 0, width: 360, height: 320),
+            styleMask: [.nonactivatingPanel, .borderless, .fullSizeContentView],
             backing: .buffered,
             defer: false
         )
-        titleVisibility = .hidden
-        titlebarAppearsTransparent = true
         isMovableByWindowBackground = true
         isFloatingPanel = true
         level = .floating
@@ -36,13 +38,16 @@ final class CutlingPickerPanel: NSPanel {
         becomesKeyOnlyIfNeeded = false
         isReleasedWhenClosed = false
         animationBehavior = .utilityWindow
+        hasShadow = true
+        backgroundColor = .clear
+        isOpaque = false
     }
 
     override var canBecomeKey: Bool { true }
     override var canBecomeMain: Bool { false }
 
     override func cancelOperation(_ sender: Any?) {
-        // ⎋ — dismiss the panel.
+        // ⎋ dismisses the panel.
         orderOut(nil)
         NotificationCenter.default.post(name: .cutlingPickerWillHide, object: nil)
     }
@@ -67,7 +72,12 @@ final class CutlingPickerController {
             object: nil,
             queue: .main
         ) { [weak self] _ in
-            Task { @MainActor [weak self] in self?.toggle() }
+            Task { @MainActor [weak self] in
+                // Donate to TipKit so the HotkeyTip retires now that the
+                // user has discovered the shortcut on their own.
+                HotkeyTip.hotkeyPressed.sendDonation()
+                self?.toggle()
+            }
         }
         NotificationCenter.default.addObserver(
             forName: .cutlingDidPickFromPicker,
@@ -93,14 +103,14 @@ final class CutlingPickerController {
         hide()
         guard cameFromPanel else { return }
         guard PasteService.shared.isTrusted else {
-            print("⚠️ Cutling: auto-paste skipped — Accessibility access not granted. Open Settings → Paste.")
+            print("⚠️ Cutling: auto-paste skipped, Accessibility access not granted. Open Settings → Paste.")
             return
         }
         guard let bid = previousFrontmostBundleID,
               bid != Bundle.main.bundleIdentifier,
               let app = NSRunningApplication.runningApplications(withBundleIdentifier: bid).first
         else {
-            print("⚠️ Cutling: auto-paste skipped — could not resolve previous frontmost app (was \(previousFrontmostBundleID ?? "nil")).")
+            print("⚠️ Cutling: auto-paste skipped, could not resolve previous frontmost app (was \(previousFrontmostBundleID ?? "nil")).")
             return
         }
         // Resign key + hide the panel, then reactivate the previous app.
@@ -138,20 +148,21 @@ final class CutlingPickerController {
 
     private func makePanel() -> CutlingPickerPanel {
         let panel = CutlingPickerPanel()
-        let host = NSHostingView(rootView:
-            MacPickerView()
+        // NSHostingController auto-sizes the window to the SwiftUI view's
+        // ideal size. NSHostingView (used previously) doesn't propagate
+        // intrinsic size to the panel, which left blank space at the top
+        // and clipped content at the bottom.
+        let hosting = NSHostingController(
+            rootView: MacPickerView()
                 .environmentObject(CutlingStore.shared)
+                .background(
+                    RoundedRectangle(cornerRadius: 12, style: .continuous)
+                        .fill(.background)
+                )
+                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
         )
-        host.translatesAutoresizingMaskIntoConstraints = false
-        let container = NSView(frame: panel.contentLayoutRect)
-        container.addSubview(host)
-        NSLayoutConstraint.activate([
-            host.leadingAnchor.constraint(equalTo: container.leadingAnchor),
-            host.trailingAnchor.constraint(equalTo: container.trailingAnchor),
-            host.topAnchor.constraint(equalTo: container.topAnchor),
-            host.bottomAnchor.constraint(equalTo: container.bottomAnchor),
-        ])
-        panel.contentView = container
+        hosting.sizingOptions = [.preferredContentSize]
+        panel.contentViewController = hosting
         return panel
     }
 

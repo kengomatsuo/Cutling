@@ -1,11 +1,12 @@
 //
 //  MacPickerView.swift
-//  Cutling — menu-bar popover content
+//  Cutling: menu-bar popover content
 //
 
 #if os(macOS)
 import SwiftUI
 import AppKit
+import TipKit
 
 enum MacPickerTab: Hashable {
     case saved
@@ -21,6 +22,9 @@ struct MacPickerView: View {
     @State private var trustCheckTimer: Timer?
     @FocusState private var searchFieldFocused: Bool
     @AppStorage("captureClipboardHistory") private var captureClipboardHistory = true
+
+    private let hotkeyTip = HotkeyTip()
+    private let promoteTip = PromoteHistoryTip()
 
     private var filteredSaved: [Cutling] {
         let sorted = store.cutlings.sorted { $0.sortOrder < $1.sortOrder }
@@ -62,10 +66,18 @@ struct MacPickerView: View {
                     isAccessibilityTrusted = PasteService.shared.isTrusted
                 }
             }
+            // Donate to TipKit that the user has opened the popover. After
+            // a couple of opens without using the hotkey, HotkeyTip surfaces.
+            HotkeyTip.pickerOpened.sendDonation()
         }
         .onDisappear {
             trustCheckTimer?.invalidate()
             trustCheckTimer = nil
+        }
+        .onChange(of: tab) { _, newTab in
+            if newTab == .history {
+                PromoteHistoryTip.viewedHistory.sendDonation()
+            }
         }
     }
 
@@ -112,6 +124,9 @@ struct MacPickerView: View {
         }
         .padding(.horizontal, 12)
         .padding(.vertical, 10)
+        // Anchor the HotkeyTip popover to the search row, which is the
+        // user's natural target when summoning the picker by hotkey.
+        .popoverTip(hotkeyTip, arrowEdge: .bottom)
     }
 
     private var tabBar: some View {
@@ -124,8 +139,9 @@ struct MacPickerView: View {
         .padding(.bottom, 4)
     }
 
+    @ViewBuilder
     private func tabButton(_ value: MacPickerTab, title: LocalizedStringKey, count: Int) -> some View {
-        Button {
+        let button = Button {
             tab = value
         } label: {
             HStack(spacing: 4) {
@@ -142,6 +158,14 @@ struct MacPickerView: View {
             .contentShape(Capsule())
         }
         .buttonStyle(.plain)
+
+        // PromoteHistoryTip anchors to the History tab button so it
+        // appears next to the actual UI it's teaching about.
+        if value == .history {
+            button.popoverTip(promoteTip, arrowEdge: .top)
+        } else {
+            button
+        }
     }
 
     @ViewBuilder
@@ -161,7 +185,7 @@ struct MacPickerView: View {
                         MacPickerRow(cutling: cutling, compact: tab == .history) {
                             copy(cutling)
                         } onPromote: {
-                            store.promoteHistoryToSaved(cutling.id)
+                            _ = store.promoteHistoryToSaved(cutling.id); PromoteHistoryTip.promotedToSaved.sendDonation()
                         } onDelete: {
                             if tab == .history {
                                 store.deleteHistory(cutling.id)
@@ -173,7 +197,7 @@ struct MacPickerView: View {
                             Button("Copy") { copy(cutling) }
                             if tab == .history {
                                 Button("Save as Cutling") {
-                                    store.promoteHistoryToSaved(cutling.id)
+                                    _ = store.promoteHistoryToSaved(cutling.id); PromoteHistoryTip.promotedToSaved.sendDonation()
                                 }
                             }
                             Divider()

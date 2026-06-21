@@ -1,10 +1,10 @@
 //
 //  PasteboardMonitor.swift
-//  Cutling — auto-captures NSPasteboard changes into CutlingStore history.
+//  Cutling: auto-captures NSPasteboard changes into CutlingStore history.
 //
 //  macOS has no pasteboard-change notification API. We poll changeCount on a
 //  Timer (the same approach used by Maccy). 500ms is the Maccy / PlainPasta
-//  middle ground — snappy enough for UX, light on CPU.
+//  middle ground: snappy enough for UX, light on CPU.
 //
 
 #if os(macOS)
@@ -19,7 +19,7 @@ final class PasteboardMonitor {
     private var timer: Timer?
     private(set) var isRunning = false
 
-    /// Pasteboard types we never capture — set by password managers and other
+    /// Pasteboard types we never capture: set by password managers and other
     /// apps that flag their content as sensitive or transient. Names are
     /// well-known conventions (see nspasteboard.org and 1Password/Bitwarden).
     private let ignoredTypeNames: Set<String> = [

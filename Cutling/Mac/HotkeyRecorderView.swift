@@ -1,6 +1,6 @@
 //
 //  HotkeyRecorderView.swift
-//  Cutling — SwiftUI recorder for the global hotkey combo.
+//  Cutling: SwiftUI recorder for the global hotkey combo.
 //
 //  When recording, attaches an NSEvent local monitor to capture the next
 //  key-down chord. Saves to GlobalHotkey on success.
@@ -21,9 +21,10 @@ struct HotkeyRecorderView: View {
             Text(isRecording ? "Press a key combination…" : combo.displayString)
                 .font(.system(size: 13, design: .monospaced))
                 .foregroundStyle(isRecording ? .secondary : .primary)
-                .frame(minWidth: 120, alignment: .leading)
+                .lineLimit(1)
+                .frame(minWidth: 120, alignment: .center)
                 .padding(.horizontal, 10)
-                .padding(.vertical, 5)
+                .frame(height: 22)
                 .background(
                     RoundedRectangle(cornerRadius: 6)
                         .stroke(isRecording ? Color.accentColor : Color.gray.opacity(0.4), lineWidth: 1)
@@ -39,7 +40,6 @@ struct HotkeyRecorderView: View {
                     combo = d
                     GlobalHotkey.shared.set(d)
                 }
-                .controlSize(.small)
             }
         }
         .onDisappear { stopRecording() }

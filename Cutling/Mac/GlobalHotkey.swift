@@ -1,6 +1,6 @@
 //
 //  GlobalHotkey.swift
-//  Cutling — system-wide keyboard shortcut to summon the clipboard picker.
+//  Cutling: system-wide keyboard shortcut to summon the clipboard picker.
 //
 //  Apple has never shipped a modern replacement for Carbon's RegisterEventHotKey,
 //  so this is still the canonical way to register a global hotkey on macOS

@@ -7,19 +7,6 @@
 		<string>com.matsuokengo.Cutling.sync</string>
 		<string>com.matsuokengo.Cutling.sync.processing</string>
 	</array>
-	<key>CoreSpotlightContinuation</key>
-	<true/>
-	<key>CoreSpotlightActions</key>
-	<array>
-		<dict>
-			<key>CoreSpotlightActionIdentifier</key>
-			<string>com.matsuokengo.Cutling.edit</string>
-			<key>CoreSpotlightActionTitle</key>
-			<string>Edit</string>
-			<key>CoreSpotlightActionSymbolImage</key>
-			<string>pencil</string>
-		</dict>
-	</array>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -33,51 +20,60 @@
 			</array>
 		</dict>
 	</array>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
-	<key>LSUIElement</key>
+	<key>CoreSpotlightActions</key>
+	<array>
+		<dict>
+			<key>CoreSpotlightActionIdentifier</key>
+			<string>com.matsuokengo.Cutling.edit</string>
+			<key>CoreSpotlightActionSymbolImage</key>
+			<string>pencil</string>
+			<key>CoreSpotlightActionTitle</key>
+			<string>Edit</string>
+		</dict>
+	</array>
+	<key>CoreSpotlightContinuation</key>
 	<true/>
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
-			<key>UIApplicationShortcutItemType</key>
-			<string>com.matsuokengo.Cutling.addText</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>New Text Cutling</string>
 			<key>UIApplicationShortcutItemIconSymbolName</key>
 			<string>doc.text</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>New Text Cutling</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.matsuokengo.Cutling.addText</string>
 		</dict>
 		<dict>
-			<key>UIApplicationShortcutItemType</key>
-			<string>com.matsuokengo.Cutling.addImage</string>
-			<key>UIApplicationShortcutItemTitle</key>
-			<string>New Image Cutling</string>
 			<key>UIApplicationShortcutItemIconSymbolName</key>
 			<string>photo</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>New Image Cutling</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.matsuokengo.Cutling.addImage</string>
 		</dict>
 	</array>
-	<key>UILaunchScreen</key>
-	<dict>
-		<key>UIColorName</key>
-		<string>LaunchBackground</string>
-	</dict>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
 		<string>processing</string>
 		<string>remote-notification</string>
 	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>LaunchBackground</string>
+	</dict>
 	<key>UTExportedTypeDeclarations</key>
 	<array>
 		<dict>
-			<key>UTTypeIdentifier</key>
-			<string>com.matsuokengo.Cutling.cutling</string>
-			<key>UTTypeDescription</key>
-			<string>Cutling</string>
 			<key>UTTypeConformsTo</key>
 			<array>
 				<string>public.data</string>
 			</array>
+			<key>UTTypeDescription</key>
+			<string>Cutling</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.matsuokengo.Cutling.cutling</string>
 			<key>UTTypeTagSpecification</key>
 			<dict/>
 		</dict>

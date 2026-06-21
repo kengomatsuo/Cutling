@@ -1,11 +1,12 @@
 //
 //  MacSettingsView.swift
-//  Cutling — macOS Settings (Cmd+,) window.
+//  Cutling: macOS Settings (Cmd+,) window.
 //
 
 #if os(macOS)
 import SwiftUI
 import AppKit
+import TipKit
 
 enum MacSettingsTab: Hashable {
     case general
@@ -17,6 +18,8 @@ enum MacSettingsTab: Hashable {
 
 struct MacSettingsView: View {
     @State private var tab: MacSettingsTab = .general
+    @State private var isTrusted: Bool = PasteService.shared.isTrusted
+    @State private var trustTimer: Timer?
 
     var body: some View {
         TabView(selection: $tab) {
@@ -31,6 +34,7 @@ struct MacSettingsView: View {
             PasteSettingsTab()
                 .tabItem { Label("Paste", systemImage: "doc.on.clipboard") }
                 .tag(MacSettingsTab.paste)
+                .badge(isTrusted ? nil : Text("!"))
 
             SyncSettingsTab()
                 .tabItem { Label("iCloud", systemImage: "icloud") }
@@ -41,6 +45,16 @@ struct MacSettingsView: View {
                 .tag(MacSettingsTab.storage)
         }
         .frame(width: 480, height: 400)
+        .onAppear {
+            isTrusted = PasteService.shared.isTrusted
+            trustTimer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { _ in
+                Task { @MainActor in isTrusted = PasteService.shared.isTrusted }
+            }
+        }
+        .onDisappear {
+            trustTimer?.invalidate()
+            trustTimer = nil
+        }
     }
 }
 
@@ -107,6 +121,8 @@ private struct PasteSettingsTab: View {
 private struct GeneralSettingsTab: View {
     @AppStorage("captureClipboardHistory") private var captureClipboardHistory = true
     @AppStorage("autoDetectInputTypes") private var autoDetectInputTypes = true
+    @AppStorage("hasOnboarded") private var hasOnboarded = false
+    @Environment(\.openWindow) private var openWindow
 
     var body: some View {
         Form {
@@ -126,6 +142,23 @@ private struct GeneralSettingsTab: View {
                 }
             } footer: {
                 Text("Suggest input type categories (email, URL, phone, name, address) when editing text cutlings.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+
+            Section {
+                Button("Show Welcome Again") {
+                    AppActivationManager.shared.prepareToShowWindow()
+                    openWindow(id: WelcomeWindow.id)
+                }
+                Button("Reset Tips") {
+                    try? Tips.resetDatastore()
+                    try? Tips.configure()
+                }
+            } header: {
+                Text("Help & Tips")
+            } footer: {
+                Text("Reopen the first-launch welcome flow, or reset TipKit so contextual hints appear again as you use Cutling.")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }

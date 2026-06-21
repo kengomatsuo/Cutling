@@ -1,6 +1,6 @@
 //
 //  AppActivationManager.swift
-//  Cutling — toggles the app's activation policy between .accessory
+//  Cutling: toggles the app's activation policy between .accessory
 //  (menu-bar only, no Dock icon) and .regular (Dock icon present, windows
 //  can be brought to the front) depending on whether any real window is
 //  currently visible.
@@ -12,7 +12,7 @@
 //  (see Peter Steinberger's "5-hour journey" writeup, Aug 2025).
 //
 //  This implementation polls NSApp.windows on every window notification
-//  rather than maintaining a hand-tracked counter — that counter goes out
+//  rather than maintaining a hand-tracked counter. That counter goes out
 //  of sync the moment a window opens or closes without firing the exact
 //  notification pair we expected (which Settings windows are known to do).
 //
@@ -28,8 +28,8 @@ final class AppActivationManager {
     private var observers: [NSObjectProtocol] = []
     /// Weak reference to the NSWindow that hosts the MenuBarExtra(.window)
     /// popover. Captured via WindowAccessor in MacPickerView so we can
-    /// programmatically dismiss the popover when opening Settings (there
-    /// is no first-party SwiftUI API for this as of Xcode 26 — see
+    /// programmatically dismiss the popover when opening Settings. There
+    /// is no first-party SwiftUI API for this as of Xcode 26 (see
     /// FB11984872).
     weak var menuBarPopoverWindow: NSWindow?
 
