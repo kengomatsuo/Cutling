@@ -25,6 +25,7 @@ import SwiftUI
 let appGroupID = "group.com.matsuokengo.Cutling"
 private let cutlingsKey = "savedCutlings"
 private let recentlyDeletedKey = "recentlyDeletedCutlings"
+private let historyKey = "cutlingHistory"
 
 // MARK: - Cutling Limits
 
@@ -43,6 +44,9 @@ extension CutlingStore {
 
     /// Total limit across both types (safety net)
     nonisolated static let maxTotalCutlings = 125
+
+    /// Maximum number of clipboard history entries to retain (FIFO, device-local).
+    nonisolated static let maxHistoryCutlings = 200
     
     /// Check if a text value exceeds the character limit.
     func isTextTooLong(_ text: String) -> Bool {
@@ -56,6 +60,8 @@ class CutlingStore: ObservableObject {
 
     @Published var cutlings: [Cutling] = []
     @Published var lastAddedCutlingID: UUID?
+    /// Auto-captured clipboard history (Mac only). Device-local, not synced via CloudKit.
+    @Published var historyCutlings: [Cutling] = []
     #if MAIN_APP
     @Published var isSyncing: Bool = false
     @Published var recentlyDeleted: [DeletedCutling] = []
@@ -117,6 +123,9 @@ class CutlingStore: ObservableObject {
         load()
         #if MAIN_APP
         loadRecentlyDeleted()
+        #endif
+        #if os(macOS)
+        loadHistory()
         #endif
         
         // Listen for changes from other processes (keyboard extension or main app)
@@ -760,6 +769,106 @@ class CutlingStore: ObservableObject {
     func seedIfEmpty() {
         // No default cutlings — start with an empty list
     }
+
+    // MARK: - Clipboard History (macOS)
+
+    #if os(macOS)
+    private func loadHistory() {
+        guard let data = defaults.data(forKey: historyKey),
+              let decoded = try? JSONDecoder().decode([Cutling].self, from: data)
+        else { return }
+        historyCutlings = decoded
+    }
+
+    private func saveHistory() {
+        guard let encoded = try? JSONEncoder().encode(historyCutlings) else { return }
+        defaults.set(encoded, forKey: historyKey)
+    }
+
+    /// Append a text item captured from the system pasteboard to the history.
+    /// Dedupes against the most recent entry to avoid noise from clipboard re-copies.
+    func appendHistoryText(_ text: String) {
+        let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return }
+        if let last = historyCutlings.first, last.kind == .text, last.value == text { return }
+        let preview = String(trimmed.prefix(60))
+        let cutling = Cutling(
+            id: UUID(),
+            name: preview,
+            value: text,
+            icon: "doc.on.clipboard",
+            kind: .text
+        )
+        historyCutlings.insert(cutling, at: 0)
+        enforceHistoryCap()
+        saveHistory()
+    }
+
+    /// Append an image item captured from the system pasteboard. Dedupes against
+    /// the most recent image by exact data equality.
+    func appendHistoryImage(_ data: Data) {
+        guard !data.isEmpty else { return }
+        if let last = historyCutlings.first, last.kind == .image,
+           let filename = last.imageFilename,
+           let lastData = loadImageData(named: filename), lastData == data {
+            return
+        }
+        let id = UUID()
+        guard let filename = saveImageData(data, for: id) else { return }
+        var cutling = Cutling(
+            id: id,
+            name: String(localized: "Image"),
+            value: "",
+            icon: "photo",
+            kind: .image
+        )
+        cutling.imageFilename = filename
+        historyCutlings.insert(cutling, at: 0)
+        enforceHistoryCap()
+        saveHistory()
+    }
+
+    private func enforceHistoryCap() {
+        while historyCutlings.count > Self.maxHistoryCutlings {
+            let removed = historyCutlings.removeLast()
+            if let filename = removed.imageFilename {
+                deleteImageFile(named: filename)
+            }
+        }
+    }
+
+    /// Move a history item into the user-curated cutlings list (subject to limits).
+    @discardableResult
+    func promoteHistoryToSaved(_ id: UUID) -> Bool {
+        guard let index = historyCutlings.firstIndex(where: { $0.id == id }) else { return false }
+        let item = historyCutlings[index]
+        let canAddCheck = canAdd(item.kind)
+        guard canAddCheck.allowed else { return false }
+        historyCutlings.remove(at: index)
+        saveHistory()
+        add(item)
+        return true
+    }
+
+    func deleteHistory(_ id: UUID) {
+        guard let index = historyCutlings.firstIndex(where: { $0.id == id }) else { return }
+        let removed = historyCutlings.remove(at: index)
+        if let filename = removed.imageFilename {
+            deleteImageFile(named: filename)
+        }
+        saveHistory()
+    }
+
+    func clearHistory() {
+        for item in historyCutlings {
+            if let filename = item.imageFilename {
+                deleteImageFile(named: filename)
+            }
+        }
+        historyCutlings.removeAll()
+        saveHistory()
+    }
+    #endif
 }
 
 // MARK: - Data Hashing Extension

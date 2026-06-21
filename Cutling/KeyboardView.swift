@@ -1,5 +1,5 @@
 //
-//  SettingsView.swift
+//  KeyboardView.swift
 //  Cutling
 //
 //  Created by Kenneth Johannes Fang on 18/02/26.
@@ -9,7 +9,10 @@
 //
 
 
+import AppIntents
 import SwiftUI
+
+#if !os(macOS)
 
 private let websiteBaseURL = "https://kengomatsuo.github.io/Cutling"
 
@@ -143,6 +146,20 @@ struct KeyboardView: View {
                     Text("Storage")
                 }
 
+                #if os(iOS)
+                Section {
+                    SiriTipView(intent: AddFromClipboardIntent(), isVisible: .constant(true))
+
+                    ShortcutsLink()
+                        .shortcutsLinkStyle(.automaticOutline)
+                        .frame(maxWidth: .infinity)
+                } header: {
+                    Text("Siri & Shortcuts")
+                } footer: {
+                    Text("Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app.")
+                }
+                #endif
+
                 #if MAIN_APP
                 #if os(iOS)
                 Section {
@@ -201,7 +218,7 @@ struct KeyboardView: View {
             }
             .formStyle(.grouped)
             .navigationTitle("Keyboard")
-            .accessibilityIdentifier("settingsView")
+            .accessibilityIdentifier("keyboardView")
             #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
             #endif
@@ -301,3 +318,6 @@ struct StorageUsageRow: View {
     .frame(width: 400, height: 500)
     #endif
 }
+
+#endif
+

@@ -11,6 +11,8 @@
 
 import SwiftUI
 
+#if !os(macOS)
+
 struct PreferencesView: View {
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
     @AppStorage("autoDetectInputTypes") private var autoDetectInputTypes = true
@@ -103,3 +105,6 @@ struct PreferencesView: View {
         .environmentObject(CutlingStore.shared)
         .frame(width: 420, height: 500)
 }
+
+#endif
+

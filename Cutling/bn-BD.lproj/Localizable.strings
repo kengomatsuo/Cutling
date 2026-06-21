@@ -288,3 +288,25 @@
 "This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "এটি একটি পুনরুদ্ধার বাক্যাংশের মতো মনে হচ্ছে। বীজ বাক্যাংশগুলি একটি সুরক্ষিত অফলাইন অবস্থানে সংরক্ষণ করুন।";
 "This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "এটি একটি API কী বা গোপন টোকেনের মতো মনে হচ্ছে। নিরাপদ ভল্টের বাইরে শংসাপত্র সংরক্ষণ করা এড়িয়ে চলুন।";
 "This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "এটি একটি প্রমাণীকরণ টোকেনের মতো মনে হচ্ছে। টোকেনগুলি নিরাপদে সংরক্ষণ করা উচিত, ক্লিপবোর্ড ম্যানেজারে নয়।";
+
+/* MARK: - App Shortcuts (Siri / Shortcuts gallery) */
+"Save clipboard contents as a new cutling." = "ক্লিপবোর্ডের বিষয়বস্তু নতুন কাটলিং হিসেবে সংরক্ষণ করুন।";
+"Save Text" = "টেক্সট সংরক্ষণ";
+"Save text as a new cutling." = "টেক্সট নতুন কাটলিং হিসেবে সংরক্ষণ করুন।";
+"Get Cutling Text" = "কাটলিং টেক্সট নিন";
+"Get the text contents of a cutling as a value for use in other shortcuts." = "অন্যান্য শর্টকাটে ব্যবহারের জন্য একটি মান হিসেবে কাটলিং-এর টেক্সট বিষয়বস্তু নিন।";
+"Get Latest Cutling" = "সর্বশেষ কাটলিং নিন";
+"Latest Cutling" = "সর্বশেষ কাটলিং";
+"Get the text from your most recently saved cutling." = "আপনার সবচেয়ে সম্প্রতি সংরক্ষিত কাটলিং থেকে টেক্সট নিন।";
+"Save Image" = "ছবি সংরক্ষণ";
+"Save an image as a new cutling." = "একটি ছবি নতুন কাটলিং হিসেবে সংরক্ষণ করুন।";
+"Search Cutlings" = "কাটলিং অনুসন্ধান";
+"Find cutlings whose name or contents match a search query." = "যেসব কাটলিং-এর নাম বা বিষয়বস্তু অনুসন্ধান প্রশ্নের সাথে মেলে সেগুলো খুঁজুন।";
+"Open Cutling" = "কাটলিং খুলুন";
+"Open the Cutling app." = "কাটলিং অ্যাপ খুলুন।";
+"Open Cutling and start a new text cutling." = "কাটলিং খুলুন এবং একটি নতুন টেক্সট কাটলিং শুরু করুন।";
+"Open Cutling and start a new image cutling." = "কাটলিং খুলুন এবং একটি নতুন ছবি কাটলিং শুরু করুন।";
+"Query" = "অনুসন্ধান";
+"Nothing to save." = "সংরক্ষণ করার কিছু নেই।";
+"That doesn't look like an image." = "এটি একটি ছবির মতো মনে হচ্ছে না।";
+"Failed to save image." = "ছবি সংরক্ষণ ব্যর্থ হয়েছে।";

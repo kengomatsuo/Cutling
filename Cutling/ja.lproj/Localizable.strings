@@ -290,3 +290,25 @@
 "This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "これは認証トークンのようです。トークンはクリップボードマネージャーではなく、安全な場所に保管してください。";
 "This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "これはリカバリーフレーズのようです。シードフレーズは安全なオフラインの場所に保管してください。";
 "Don't Warn About This Again" = "今後この警告を表示しない";
+
+/* MARK: - App Shortcuts (Siri / Shortcuts gallery) */
+"Save clipboard contents as a new cutling." = "クリップボードの内容を新しいカットリングとして保存します。";
+"Save Text" = "テキストを保存";
+"Save text as a new cutling." = "テキストを新しいカットリングとして保存します。";
+"Get Cutling Text" = "カットリングのテキストを取得";
+"Get the text contents of a cutling as a value for use in other shortcuts." = "他のショートカットで使用する値として、カットリングのテキスト内容を取得します。";
+"Get Latest Cutling" = "最新のカットリングを取得";
+"Latest Cutling" = "最新のカットリング";
+"Get the text from your most recently saved cutling." = "最近保存したカットリングのテキストを取得します。";
+"Save Image" = "画像を保存";
+"Save an image as a new cutling." = "画像を新しいカットリングとして保存します。";
+"Search Cutlings" = "カットリングを検索";
+"Find cutlings whose name or contents match a search query." = "名前や内容が検索クエリに一致するカットリングを探します。";
+"Open Cutling" = "カットリングを開く";
+"Open the Cutling app." = "カットリングアプリを開きます。";
+"Open Cutling and start a new text cutling." = "カットリングを開いて新しいテキストカットリングを作成します。";
+"Open Cutling and start a new image cutling." = "カットリングを開いて新しい画像カットリングを作成します。";
+"Query" = "検索語";
+"Nothing to save." = "保存するものがありません。";
+"That doesn't look like an image." = "画像ではないようです。";
+"Failed to save image." = "画像の保存に失敗しました。";

@@ -15,69 +15,6 @@ import SwiftUI
 import BackgroundTasks
 #endif
 
-#if os(macOS)
-/// Wrapper that routes to the correct detail view based on cutling kind.
-struct DetailWindowView: View {
-    let cutling: Cutling
-
-    var body: some View {
-        switch cutling.kind {
-        case .text:
-            TextDetailView(item: cutling)
-        case .image:
-            ImageDetailView(item: cutling)
-        }
-    }
-}
-
-// MARK: - Menu Bar Commands
-
-extension FocusedValues {
-    @Entry var mainContentMode: MainContentMode?
-    @Entry var mainContentCommands: MainContentCommands?
-}
-
-struct CutlingCommands: Commands {
-    @Environment(\.openWindow) private var openWindow
-    @FocusedValue(\.mainContentMode) var mode
-    @FocusedValue(\.mainContentCommands) var commands
-
-    var body: some Commands {
-        CommandGroup(replacing: .newItem) {
-            Button("New Text Cutling") {
-                openWindow(id: "addText")
-            }
-            .keyboardShortcut("n", modifiers: [.command])
-
-            Button("New Image Cutling") {
-                openWindow(id: "addImage")
-            }
-            .keyboardShortcut("n", modifiers: [.command, .shift])
-        }
-
-        CommandMenu("Cutlings") {
-            Button("Select Cutlings") {
-                commands?.enterSelectMode?()
-            }
-            .disabled(mode != .browsing)
-
-            Button("Reorder Cutlings") {
-                commands?.enterReorderMode?()
-            }
-            .disabled(mode != .browsing || (commands?.cutlingsCount ?? 0) < 2)
-
-            Divider()
-
-            Button("Delete Selected") {
-                commands?.deleteSelected?()
-            }
-            .keyboardShortcut(.delete, modifiers: [.command])
-            .disabled(mode != .selecting || (commands?.selectedCount ?? 0) == 0)
-        }
-    }
-}
-#endif
-
 /// Numeric version comparison that handles multi-digit components correctly
 /// (e.g. "1.10" > "1.9"). Missing components are treated as 0.
 private struct AppVersion: Comparable {
@@ -140,6 +77,7 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
 }
 #endif
 
+#if !os(macOS)
 @main
 struct CutlingApp: App {
     #if os(iOS)
@@ -550,3 +488,4 @@ struct CutlingApp: App {
     }
     #endif
 }
+#endif

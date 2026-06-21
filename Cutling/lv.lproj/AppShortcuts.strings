@@ -1,0 +1,52 @@
+/* App Shortcut phrases. Keys MUST match the exact English phrases in
+   CutlingAppShortcutsProvider.swift. The ${applicationName} placeholder
+   is required in every phrase. ${target} maps to the AppEntity parameter. */
+
+/* 1. Save Clipboard */
+"Save clipboard to ${applicationName}" = "Saglabāt starpliktuvi lietotnē ${applicationName}";
+"Save to ${applicationName}" = "Saglabāt lietotnē ${applicationName}";
+"Add clipboard to ${applicationName}" = "Pievienot starpliktuvi lietotnei ${applicationName}";
+"Clip with ${applicationName}" = "Izgriezt ar ${applicationName}";
+
+/* 2. Copy Cutling */
+"Copy ${target} from ${applicationName}" = "Kopēt ${target} no ${applicationName}";
+"Paste ${target} with ${applicationName}" = "Ielīmēt ${target} ar ${applicationName}";
+"Get ${target} from ${applicationName}" = "Iegūt ${target} no ${applicationName}";
+
+/* 3. Save Text */
+"Save text to ${applicationName}" = "Saglabāt tekstu lietotnē ${applicationName}";
+"Save text with ${applicationName}" = "Saglabāt tekstu ar ${applicationName}";
+"Add text to ${applicationName}" = "Pievienot tekstu lietotnei ${applicationName}";
+
+/* 4. Get Cutling Text */
+"Get text of ${target} from ${applicationName}" = "Iegūt ${target} tekstu no ${applicationName}";
+"Read ${target} from ${applicationName}" = "Lasīt ${target} no ${applicationName}";
+
+/* 5. Latest Cutling */
+"Get latest from ${applicationName}" = "Iegūt jaunāko no ${applicationName}";
+"Latest ${applicationName}" = "Jaunākais ${applicationName}";
+"Most recent ${applicationName}" = "Visnesenākais ${applicationName}";
+
+/* 6. New Text Cutling */
+"New text in ${applicationName}" = "Jauns teksts lietotnē ${applicationName}";
+"Create text in ${applicationName}" = "Izveidot tekstu lietotnē ${applicationName}";
+"New text cutling with ${applicationName}" = "Jauns teksta cutling ar ${applicationName}";
+
+/* 7. New Image Cutling */
+"New image in ${applicationName}" = "Jauns attēls lietotnē ${applicationName}";
+"Create image in ${applicationName}" = "Izveidot attēlu lietotnē ${applicationName}";
+"New image cutling with ${applicationName}" = "Jauns attēla cutling ar ${applicationName}";
+
+/* 8. Save Image */
+"Save image to ${applicationName}" = "Saglabāt attēlu lietotnē ${applicationName}";
+"Save image with ${applicationName}" = "Saglabāt attēlu ar ${applicationName}";
+"Add image to ${applicationName}" = "Pievienot attēlu lietotnei ${applicationName}";
+
+/* 9. Search Cutlings */
+"Search ${applicationName}" = "Meklēt ${applicationName}";
+"Find in ${applicationName}" = "Atrast lietotnē ${applicationName}";
+"Search in ${applicationName}" = "Meklēt lietotnē ${applicationName}";
+
+/* 10. Open Cutling */
+"Open ${applicationName}" = "Atvērt ${applicationName}";
+"Launch ${applicationName}" = "Palaist ${applicationName}";

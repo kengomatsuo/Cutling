@@ -288,3 +288,25 @@
 "This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "ఇది పునరుద్ధారణ పదబంధం వలె కనిపిస్తుంది. విత్తన పదబంధాలను సురక్షిత, ఆఫ్‌లైన్ ప్రదేశంలో నిల్వ చేయండి.";
 "This looks like an API key or secret token. Avoid storing credentials outside a secure vault." = "ఇది API కీ లేదా సీక్రెట్ టోకన్ వలె కనిపిస్తుంది. సురక్షిత వాల్ట్‌కు వెలుపల references నిల్వ చేయకండి.";
 "This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "ఇది ఆథెంటికేషన్ టోకన్ వలె కనిపిస్తుంది. టోకన్‌లను సురక్షితమైనవిగా నిల్వ చేయాలి, క్లిప్‌బోర్డ్ మేనేజర్‌లో కాదు.";
+
+/* MARK: - App Shortcuts (Siri / Shortcuts gallery) */
+"Save clipboard contents as a new cutling." = "క్లిప్‌బోర్డ్ విషయాలను కొత్త కట్లింగ్‌గా సేవ్ చేయండి.";
+"Save Text" = "టెక్స్ట్ సేవ్";
+"Save text as a new cutling." = "టెక్స్ట్‌ను కొత్త కట్లింగ్‌గా సేవ్ చేయండి.";
+"Get Cutling Text" = "కట్లింగ్ టెక్స్ట్ పొందండి";
+"Get the text contents of a cutling as a value for use in other shortcuts." = "ఇతర షార్ట్‌కట్‌లలో ఉపయోగించడానికి విలువగా కట్లింగ్ యొక్క టెక్స్ట్ విషయాలను పొందండి.";
+"Get Latest Cutling" = "తాజా కట్లింగ్ పొందండి";
+"Latest Cutling" = "తాజా కట్లింగ్";
+"Get the text from your most recently saved cutling." = "మీరు ఇటీవల సేవ్ చేసిన కట్లింగ్ నుండి టెక్స్ట్ పొందండి.";
+"Save Image" = "చిత్రం సేవ్";
+"Save an image as a new cutling." = "చిత్రాన్ని కొత్త కట్లింగ్‌గా సేవ్ చేయండి.";
+"Search Cutlings" = "కట్లింగ్‌లు శోధించండి";
+"Find cutlings whose name or contents match a search query." = "శోధన ప్రశ్నతో పేరు లేదా విషయాలు సరిపోలే కట్లింగ్‌లను కనుగొనండి.";
+"Open Cutling" = "కట్లింగ్ తెరవండి";
+"Open the Cutling app." = "కట్లింగ్ యాప్‌ను తెరవండి.";
+"Open Cutling and start a new text cutling." = "కట్లింగ్ తెరిచి కొత్త టెక్స్ట్ కట్లింగ్ ప్రారంభించండి.";
+"Open Cutling and start a new image cutling." = "కట్లింగ్ తెరిచి కొత్త చిత్రం కట్లింగ్ ప్రారంభించండి.";
+"Query" = "ప్రశ్న";
+"Nothing to save." = "సేవ్ చేయడానికి ఏమీ లేదు.";
+"That doesn't look like an image." = "అది చిత్రం వలె కనిపించడం లేదు.";
+"Failed to save image." = "చిత్రాన్ని సేవ్ చేయడంలో విఫలమైంది.";

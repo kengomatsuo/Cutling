@@ -14,6 +14,11 @@ struct AddFromClipboardIntent: AppIntent {
     static var title: LocalizedStringResource = "Add from Clipboard"
     static var description = IntentDescription("Save clipboard contents as a new cutling.")
 
+    // UIPasteboard.general.string returns nil when the intent runs in the
+    // lightweight extension environment (Siri / Shortcuts with no UI). Forcing
+    // the app foreground is the only reliable way to read the system clipboard.
+    static var openAppWhenRun: Bool = true
+
     func perform() async throws -> some IntentResult {
         #if os(iOS)
         let store = await CutlingStore.shared

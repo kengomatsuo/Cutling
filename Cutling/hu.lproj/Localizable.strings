@@ -290,3 +290,25 @@
 "This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "Ez egy hitelesítési tokennek tűnik. A tokeneket biztonságosan kell tárolni, nem vágólapkezelőben.";
 "This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "Ez egy helyreállítási kifejezésnek tűnik. Tárolja a seed kifejezéseket biztonságos, offline helyen.";
 "Don't Warn About This Again" = "Ne figyelmeztess erre újra";
+
+/* MARK: - App Shortcuts (Siri / Shortcuts gallery) */
+"Save clipboard contents as a new cutling." = "A vágólap tartalmának mentése új Cutlingként.";
+"Save Text" = "Szöveg mentése";
+"Save text as a new cutling." = "Szöveg mentése új Cutlingként.";
+"Get Cutling Text" = "Cutling szövegének lekérése";
+"Get the text contents of a cutling as a value for use in other shortcuts." = "Kérd le egy Cutling szöveges tartalmát értékként más parancsikonokhoz.";
+"Get Latest Cutling" = "Legutóbbi Cutling lekérése";
+"Latest Cutling" = "Legutóbbi Cutling";
+"Get the text from your most recently saved cutling." = "Kérd le a szöveget a legutóbb mentett Cutlingodból.";
+"Save Image" = "Kép mentése";
+"Save an image as a new cutling." = "Kép mentése új Cutlingként.";
+"Search Cutlings" = "Cutlingok keresése";
+"Find cutlings whose name or contents match a search query." = "Találj olyan Cutlingokat, amelyek neve vagy tartalma megfelel a keresési kifejezésnek.";
+"Open Cutling" = "Cutling megnyitása";
+"Open the Cutling app." = "A Cutling alkalmazás megnyitása.";
+"Open Cutling and start a new text cutling." = "Cutling megnyitása és új szöveges Cutling indítása.";
+"Open Cutling and start a new image cutling." = "Cutling megnyitása és új képes Cutling indítása.";
+"Query" = "Lekérdezés";
+"Nothing to save." = "Nincs mit menteni.";
+"That doesn't look like an image." = "Ez nem tűnik képnek.";
+"Failed to save image." = "A kép mentése nem sikerült.";

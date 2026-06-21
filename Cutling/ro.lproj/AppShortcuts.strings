@@ -1,0 +1,52 @@
+/* App Shortcut phrases. Keys MUST match the exact English phrases in
+   CutlingAppShortcutsProvider.swift. The ${applicationName} placeholder
+   is required in every phrase. ${target} maps to the AppEntity parameter. */
+
+/* 1. Save Clipboard */
+"Save clipboard to ${applicationName}" = "Salvează clipboardul în ${applicationName}";
+"Save to ${applicationName}" = "Salvează în ${applicationName}";
+"Add clipboard to ${applicationName}" = "Adaugă clipboardul în ${applicationName}";
+"Clip with ${applicationName}" = "Decupează cu ${applicationName}";
+
+/* 2. Copy Cutling */
+"Copy ${target} from ${applicationName}" = "Copiază ${target} din ${applicationName}";
+"Paste ${target} with ${applicationName}" = "Lipește ${target} cu ${applicationName}";
+"Get ${target} from ${applicationName}" = "Obține ${target} din ${applicationName}";
+
+/* 3. Save Text */
+"Save text to ${applicationName}" = "Salvează text în ${applicationName}";
+"Save text with ${applicationName}" = "Salvează text cu ${applicationName}";
+"Add text to ${applicationName}" = "Adaugă text în ${applicationName}";
+
+/* 4. Get Cutling Text */
+"Get text of ${target} from ${applicationName}" = "Obține textul ${target} din ${applicationName}";
+"Read ${target} from ${applicationName}" = "Citește ${target} din ${applicationName}";
+
+/* 5. Latest Cutling */
+"Get latest from ${applicationName}" = "Obține ultimul din ${applicationName}";
+"Latest ${applicationName}" = "Ultimul ${applicationName}";
+"Most recent ${applicationName}" = "Cel mai recent ${applicationName}";
+
+/* 6. New Text Cutling */
+"New text in ${applicationName}" = "Text nou în ${applicationName}";
+"Create text in ${applicationName}" = "Creează text în ${applicationName}";
+"New text cutling with ${applicationName}" = "Cutling text nou cu ${applicationName}";
+
+/* 7. New Image Cutling */
+"New image in ${applicationName}" = "Imagine nouă în ${applicationName}";
+"Create image in ${applicationName}" = "Creează imagine în ${applicationName}";
+"New image cutling with ${applicationName}" = "Cutling imagine nou cu ${applicationName}";
+
+/* 8. Save Image */
+"Save image to ${applicationName}" = "Salvează imaginea în ${applicationName}";
+"Save image with ${applicationName}" = "Salvează imaginea cu ${applicationName}";
+"Add image to ${applicationName}" = "Adaugă imagine în ${applicationName}";
+
+/* 9. Search Cutlings */
+"Search ${applicationName}" = "Caută ${applicationName}";
+"Find in ${applicationName}" = "Găsește în ${applicationName}";
+"Search in ${applicationName}" = "Caută în ${applicationName}";
+
+/* 10. Open Cutling */
+"Open ${applicationName}" = "Deschide ${applicationName}";
+"Launch ${applicationName}" = "Lansează ${applicationName}";

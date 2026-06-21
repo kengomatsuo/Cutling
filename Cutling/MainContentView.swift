@@ -21,6 +21,8 @@ import AppKit
 #endif
 import UniformTypeIdentifiers
 
+#if !os(macOS)
+
 // MARK: - Menu Commands (macOS)
 
 #if os(macOS)
@@ -1551,3 +1553,6 @@ struct ChangeHandlersModifier: ViewModifier {
         .frame(width: 400, height: 500)
     #endif
 }
+
+#endif
+

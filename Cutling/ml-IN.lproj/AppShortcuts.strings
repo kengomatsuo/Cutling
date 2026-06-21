@@ -1,0 +1,52 @@
+/* App Shortcut phrases. Keys MUST match the exact English phrases in
+   CutlingAppShortcutsProvider.swift. The ${applicationName} placeholder
+   is required in every phrase. ${target} maps to the AppEntity parameter. */
+
+/* 1. Save Clipboard */
+"Save clipboard to ${applicationName}" = "ക്ലിപ്ബോർഡ് ${applicationName}-ലേക്ക് സേവ് ചെയ്യുക";
+"Save to ${applicationName}" = "${applicationName}-ലേക്ക് സേവ് ചെയ്യുക";
+"Add clipboard to ${applicationName}" = "ക്ലിപ്ബോർഡ് ${applicationName}-ലേക്ക് ചേർക്കുക";
+"Clip with ${applicationName}" = "${applicationName} ഉപയോഗിച്ച് ക്ലിപ്പ് ചെയ്യുക";
+
+/* 2. Copy Cutling */
+"Copy ${target} from ${applicationName}" = "${applicationName}-ൽ നിന്ന് ${target} പകർത്തുക";
+"Paste ${target} with ${applicationName}" = "${applicationName} ഉപയോഗിച്ച് ${target} ഒട്ടിക്കുക";
+"Get ${target} from ${applicationName}" = "${applicationName}-ൽ നിന്ന് ${target} നേടുക";
+
+/* 3. Save Text */
+"Save text to ${applicationName}" = "ടെക്സ്റ്റ് ${applicationName}-ലേക്ക് സേവ് ചെയ്യുക";
+"Save text with ${applicationName}" = "${applicationName} ഉപയോഗിച്ച് ടെക്സ്റ്റ് സേവ് ചെയ്യുക";
+"Add text to ${applicationName}" = "ടെക്സ്റ്റ് ${applicationName}-ലേക്ക് ചേർക്കുക";
+
+/* 4. Get Cutling Text */
+"Get text of ${target} from ${applicationName}" = "${applicationName}-ൽ നിന്ന് ${target}-ന്റെ ടെക്സ്റ്റ് നേടുക";
+"Read ${target} from ${applicationName}" = "${applicationName}-ൽ നിന്ന് ${target} വായിക്കുക";
+
+/* 5. Latest Cutling */
+"Get latest from ${applicationName}" = "${applicationName}-ൽ നിന്ന് ഏറ്റവും പുതിയത് നേടുക";
+"Latest ${applicationName}" = "ഏറ്റവും പുതിയ ${applicationName}";
+"Most recent ${applicationName}" = "ഏറ്റവും സമീപകാല ${applicationName}";
+
+/* 6. New Text Cutling */
+"New text in ${applicationName}" = "${applicationName}-ൽ പുതിയ ടെക്സ്റ്റ്";
+"Create text in ${applicationName}" = "${applicationName}-ൽ ടെക്സ്റ്റ് സൃഷ്ടിക്കുക";
+"New text cutling with ${applicationName}" = "${applicationName} ഉപയോഗിച്ച് പുതിയ ടെക്സ്റ്റ് കട്ട്‌ലിംഗ്";
+
+/* 7. New Image Cutling */
+"New image in ${applicationName}" = "${applicationName}-ൽ പുതിയ ചിത്രം";
+"Create image in ${applicationName}" = "${applicationName}-ൽ ചിത്രം സൃഷ്ടിക്കുക";
+"New image cutling with ${applicationName}" = "${applicationName} ഉപയോഗിച്ച് പുതിയ ചിത്രം കട്ട്‌ലിംഗ്";
+
+/* 8. Save Image */
+"Save image to ${applicationName}" = "ചിത്രം ${applicationName}-ലേക്ക് സേവ് ചെയ്യുക";
+"Save image with ${applicationName}" = "${applicationName} ഉപയോഗിച്ച് ചിത്രം സേവ് ചെയ്യുക";
+"Add image to ${applicationName}" = "ചിത്രം ${applicationName}-ലേക്ക് ചേർക്കുക";
+
+/* 9. Search Cutlings */
+"Search ${applicationName}" = "${applicationName} തിരയുക";
+"Find in ${applicationName}" = "${applicationName}-ൽ കണ്ടെത്തുക";
+"Search in ${applicationName}" = "${applicationName}-ൽ തിരയുക";
+
+/* 10. Open Cutling */
+"Open ${applicationName}" = "${applicationName} തുറക്കുക";
+"Launch ${applicationName}" = "${applicationName} സമാരംഭിക്കുക";

@@ -290,3 +290,25 @@
 "This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "인증 토큰으로 보입니다. 토큰은 클립보드 관리자가 아닌 안전한 곳에 저장해야 합니다.";
 "This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "복구 문구로 보입니다. 시드 문구는 안전한 오프라인 장소에 보관하세요.";
 "Don't Warn About This Again" = "이 항목에 대해 다시 경고하지 않기";
+
+/* MARK: - App Shortcuts (Siri / Shortcuts gallery) */
+"Save clipboard contents as a new cutling." = "클립보드 내용을 새 컷링으로 저장합니다.";
+"Save Text" = "텍스트 저장";
+"Save text as a new cutling." = "텍스트를 새 컷링으로 저장합니다.";
+"Get Cutling Text" = "컷링 텍스트 가져오기";
+"Get the text contents of a cutling as a value for use in other shortcuts." = "다른 단축어에서 사용할 값으로 컷링의 텍스트 내용을 가져옵니다.";
+"Get Latest Cutling" = "최근 컷링 가져오기";
+"Latest Cutling" = "최근 컷링";
+"Get the text from your most recently saved cutling." = "가장 최근에 저장한 컷링의 텍스트를 가져옵니다.";
+"Save Image" = "이미지 저장";
+"Save an image as a new cutling." = "이미지를 새 컷링으로 저장합니다.";
+"Search Cutlings" = "컷링 검색";
+"Find cutlings whose name or contents match a search query." = "이름이나 내용이 검색어와 일치하는 컷링을 찾습니다.";
+"Open Cutling" = "컷링 열기";
+"Open the Cutling app." = "컷링 앱을 엽니다.";
+"Open Cutling and start a new text cutling." = "컷링을 열고 새 텍스트 컷링을 시작합니다.";
+"Open Cutling and start a new image cutling." = "컷링을 열고 새 이미지 컷링을 시작합니다.";
+"Query" = "검색어";
+"Nothing to save." = "저장할 항목이 없습니다.";
+"That doesn't look like an image." = "이미지가 아닌 것 같습니다.";
+"Failed to save image." = "이미지를 저장하지 못했습니다.";

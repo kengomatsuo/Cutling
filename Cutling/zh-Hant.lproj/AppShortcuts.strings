@@ -1,0 +1,52 @@
+/* App Shortcut phrases. Keys MUST match the exact English phrases in
+   CutlingAppShortcutsProvider.swift. The ${applicationName} placeholder
+   is required in every phrase. ${target} maps to the AppEntity parameter. */
+
+/* 1. Save Clipboard */
+"Save clipboard to ${applicationName}" = "將剪貼板儲存到${applicationName}";
+"Save to ${applicationName}" = "儲存到${applicationName}";
+"Add clipboard to ${applicationName}" = "將剪貼板加入${applicationName}";
+"Clip with ${applicationName}" = "用${applicationName}剪存";
+
+/* 2. Copy Cutling */
+"Copy ${target} from ${applicationName}" = "從${applicationName}複製${target}";
+"Paste ${target} with ${applicationName}" = "用${applicationName}貼上${target}";
+"Get ${target} from ${applicationName}" = "從${applicationName}取得${target}";
+
+/* 3. Save Text */
+"Save text to ${applicationName}" = "將文字儲存到${applicationName}";
+"Save text with ${applicationName}" = "用${applicationName}儲存文字";
+"Add text to ${applicationName}" = "將文字加入${applicationName}";
+
+/* 4. Get Cutling Text */
+"Get text of ${target} from ${applicationName}" = "從${applicationName}取得${target}的文字";
+"Read ${target} from ${applicationName}" = "從${applicationName}讀取${target}";
+
+/* 5. Latest Cutling */
+"Get latest from ${applicationName}" = "從${applicationName}取得最新";
+"Latest ${applicationName}" = "最新${applicationName}";
+"Most recent ${applicationName}" = "最近的${applicationName}";
+
+/* 6. New Text Cutling */
+"New text in ${applicationName}" = "在${applicationName}中新增文字";
+"Create text in ${applicationName}" = "在${applicationName}中建立文字";
+"New text cutling with ${applicationName}" = "用${applicationName}新增文字剪切片段";
+
+/* 7. New Image Cutling */
+"New image in ${applicationName}" = "在${applicationName}中新增圖片";
+"Create image in ${applicationName}" = "在${applicationName}中建立圖片";
+"New image cutling with ${applicationName}" = "用${applicationName}新增圖片剪切片段";
+
+/* 8. Save Image */
+"Save image to ${applicationName}" = "將圖片儲存到${applicationName}";
+"Save image with ${applicationName}" = "用${applicationName}儲存圖片";
+"Add image to ${applicationName}" = "將圖片加入${applicationName}";
+
+/* 9. Search Cutlings */
+"Search ${applicationName}" = "搜尋${applicationName}";
+"Find in ${applicationName}" = "在${applicationName}中尋找";
+"Search in ${applicationName}" = "在${applicationName}中搜尋";
+
+/* 10. Open Cutling */
+"Open ${applicationName}" = "開啟${applicationName}";
+"Launch ${applicationName}" = "啟動${applicationName}";

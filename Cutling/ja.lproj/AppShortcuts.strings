@@ -1,0 +1,52 @@
+/* App Shortcut phrases. Keys MUST match the exact English phrases in
+   CutlingAppShortcutsProvider.swift. The ${applicationName} placeholder
+   is required in every phrase. ${target} maps to the AppEntity parameter. */
+
+/* 1. Save Clipboard */
+"Save clipboard to ${applicationName}" = "クリップボードを${applicationName}に保存";
+"Save to ${applicationName}" = "${applicationName}に保存";
+"Add clipboard to ${applicationName}" = "クリップボードを${applicationName}に追加";
+"Clip with ${applicationName}" = "${applicationName}でクリップ";
+
+/* 2. Copy Cutling */
+"Copy ${target} from ${applicationName}" = "${applicationName}から${target}をコピー";
+"Paste ${target} with ${applicationName}" = "${applicationName}で${target}をペースト";
+"Get ${target} from ${applicationName}" = "${applicationName}から${target}を取得";
+
+/* 3. Save Text */
+"Save text to ${applicationName}" = "テキストを${applicationName}に保存";
+"Save text with ${applicationName}" = "${applicationName}でテキストを保存";
+"Add text to ${applicationName}" = "テキストを${applicationName}に追加";
+
+/* 4. Get Cutling Text */
+"Get text of ${target} from ${applicationName}" = "${applicationName}から${target}のテキストを取得";
+"Read ${target} from ${applicationName}" = "${applicationName}から${target}を読み取り";
+
+/* 5. Latest Cutling */
+"Get latest from ${applicationName}" = "${applicationName}から最新を取得";
+"Latest ${applicationName}" = "最新の${applicationName}";
+"Most recent ${applicationName}" = "最近の${applicationName}";
+
+/* 6. New Text Cutling */
+"New text in ${applicationName}" = "${applicationName}で新しいテキスト";
+"Create text in ${applicationName}" = "${applicationName}でテキストを作成";
+"New text cutling with ${applicationName}" = "${applicationName}で新しいテキストカットリング";
+
+/* 7. New Image Cutling */
+"New image in ${applicationName}" = "${applicationName}で新しい画像";
+"Create image in ${applicationName}" = "${applicationName}で画像を作成";
+"New image cutling with ${applicationName}" = "${applicationName}で新しい画像カットリング";
+
+/* 8. Save Image */
+"Save image to ${applicationName}" = "画像を${applicationName}に保存";
+"Save image with ${applicationName}" = "${applicationName}で画像を保存";
+"Add image to ${applicationName}" = "画像を${applicationName}に追加";
+
+/* 9. Search Cutlings */
+"Search ${applicationName}" = "${applicationName}を検索";
+"Find in ${applicationName}" = "${applicationName}内で探す";
+"Search in ${applicationName}" = "${applicationName}内を検索";
+
+/* 10. Open Cutling */
+"Open ${applicationName}" = "${applicationName}を開く";
+"Launch ${applicationName}" = "${applicationName}を起動";

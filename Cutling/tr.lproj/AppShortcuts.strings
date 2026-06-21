@@ -1,0 +1,52 @@
+/* App Shortcut phrases. Keys MUST match the exact English phrases in
+   CutlingAppShortcutsProvider.swift. The ${applicationName} placeholder
+   is required in every phrase. ${target} maps to the AppEntity parameter. */
+
+/* 1. Save Clipboard */
+"Save clipboard to ${applicationName}" = "Panoyu ${applicationName} uygulamasına kaydet";
+"Save to ${applicationName}" = "${applicationName} uygulamasına kaydet";
+"Add clipboard to ${applicationName}" = "Panoyu ${applicationName} uygulamasına ekle";
+"Clip with ${applicationName}" = "${applicationName} ile klipsle";
+
+/* 2. Copy Cutling */
+"Copy ${target} from ${applicationName}" = "${target} öğesini ${applicationName} uygulamasından kopyala";
+"Paste ${target} with ${applicationName}" = "${target} öğesini ${applicationName} ile yapıştır";
+"Get ${target} from ${applicationName}" = "${target} öğesini ${applicationName} uygulamasından al";
+
+/* 3. Save Text */
+"Save text to ${applicationName}" = "Metni ${applicationName} uygulamasına kaydet";
+"Save text with ${applicationName}" = "${applicationName} ile metin kaydet";
+"Add text to ${applicationName}" = "Metni ${applicationName} uygulamasına ekle";
+
+/* 4. Get Cutling Text */
+"Get text of ${target} from ${applicationName}" = "${target} metnini ${applicationName} uygulamasından al";
+"Read ${target} from ${applicationName}" = "${target} öğesini ${applicationName} uygulamasından oku";
+
+/* 5. Latest Cutling */
+"Get latest from ${applicationName}" = "${applicationName} uygulamasından en sonuncuyu al";
+"Latest ${applicationName}" = "En son ${applicationName}";
+"Most recent ${applicationName}" = "En güncel ${applicationName}";
+
+/* 6. New Text Cutling */
+"New text in ${applicationName}" = "${applicationName} uygulamasında yeni metin";
+"Create text in ${applicationName}" = "${applicationName} uygulamasında metin oluştur";
+"New text cutling with ${applicationName}" = "${applicationName} ile yeni metin cutling'i";
+
+/* 7. New Image Cutling */
+"New image in ${applicationName}" = "${applicationName} uygulamasında yeni görsel";
+"Create image in ${applicationName}" = "${applicationName} uygulamasında görsel oluştur";
+"New image cutling with ${applicationName}" = "${applicationName} ile yeni görsel cutling'i";
+
+/* 8. Save Image */
+"Save image to ${applicationName}" = "Görseli ${applicationName} uygulamasına kaydet";
+"Save image with ${applicationName}" = "${applicationName} ile görsel kaydet";
+"Add image to ${applicationName}" = "Görseli ${applicationName} uygulamasına ekle";
+
+/* 9. Search Cutlings */
+"Search ${applicationName}" = "${applicationName} içinde ara";
+"Find in ${applicationName}" = "${applicationName} içinde bul";
+"Search in ${applicationName}" = "${applicationName} uygulamasında ara";
+
+/* 10. Open Cutling */
+"Open ${applicationName}" = "${applicationName} uygulamasını aç";
+"Launch ${applicationName}" = "${applicationName} uygulamasını başlat";

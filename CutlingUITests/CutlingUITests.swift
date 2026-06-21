@@ -180,10 +180,10 @@ final class CutlingUITests: XCTestCase {
         kbButton.tap()
         sleep(1)
 
-        let settingsView = app.descendants(matching: .any).matching(identifier: "settingsView").firstMatch
-        let settingsVisible = settingsView.waitForExistence(timeout: 5)
-        log("S3: settingsView visible=\(settingsVisible)")
-        XCTAssertTrue(settingsVisible, "Settings view not visible for screenshot 3")
+        let keyboardView = app.descendants(matching: .any).matching(identifier: "keyboardView").firstMatch
+        let keyboardViewVisible = keyboardView.waitForExistence(timeout: 5)
+        log("S3: keyboardView visible=\(keyboardViewVisible)")
+        XCTAssertTrue(keyboardViewVisible, "Keyboard view not visible for screenshot 3")
 
         log("S3: Taking screenshot 05_KeyboardSettings")
         snapshot("05_KeyboardSettings")

@@ -1,0 +1,52 @@
+/* App Shortcut phrases. Keys MUST match the exact English phrases in
+   CutlingAppShortcutsProvider.swift. The ${applicationName} placeholder
+   is required in every phrase. ${target} maps to the AppEntity parameter. */
+
+/* 1. Save Clipboard */
+"Save clipboard to ${applicationName}" = "I-save ang clipboard sa ${applicationName}";
+"Save to ${applicationName}" = "I-save sa ${applicationName}";
+"Add clipboard to ${applicationName}" = "Idagdag ang clipboard sa ${applicationName}";
+"Clip with ${applicationName}" = "Mag-clip gamit ang ${applicationName}";
+
+/* 2. Copy Cutling */
+"Copy ${target} from ${applicationName}" = "Kopyahin ang ${target} mula sa ${applicationName}";
+"Paste ${target} with ${applicationName}" = "I-paste ang ${target} gamit ang ${applicationName}";
+"Get ${target} from ${applicationName}" = "Kunin ang ${target} mula sa ${applicationName}";
+
+/* 3. Save Text */
+"Save text to ${applicationName}" = "I-save ang text sa ${applicationName}";
+"Save text with ${applicationName}" = "I-save ang text gamit ang ${applicationName}";
+"Add text to ${applicationName}" = "Idagdag ang text sa ${applicationName}";
+
+/* 4. Get Cutling Text */
+"Get text of ${target} from ${applicationName}" = "Kunin ang text ng ${target} mula sa ${applicationName}";
+"Read ${target} from ${applicationName}" = "Basahin ang ${target} mula sa ${applicationName}";
+
+/* 5. Latest Cutling */
+"Get latest from ${applicationName}" = "Kunin ang pinakabago mula sa ${applicationName}";
+"Latest ${applicationName}" = "Pinakabagong ${applicationName}";
+"Most recent ${applicationName}" = "Pinakahuling ${applicationName}";
+
+/* 6. New Text Cutling */
+"New text in ${applicationName}" = "Bagong text sa ${applicationName}";
+"Create text in ${applicationName}" = "Gumawa ng text sa ${applicationName}";
+"New text cutling with ${applicationName}" = "Bagong text cutling gamit ang ${applicationName}";
+
+/* 7. New Image Cutling */
+"New image in ${applicationName}" = "Bagong larawan sa ${applicationName}";
+"Create image in ${applicationName}" = "Gumawa ng larawan sa ${applicationName}";
+"New image cutling with ${applicationName}" = "Bagong image cutling gamit ang ${applicationName}";
+
+/* 8. Save Image */
+"Save image to ${applicationName}" = "I-save ang larawan sa ${applicationName}";
+"Save image with ${applicationName}" = "I-save ang larawan gamit ang ${applicationName}";
+"Add image to ${applicationName}" = "Idagdag ang larawan sa ${applicationName}";
+
+/* 9. Search Cutlings */
+"Search ${applicationName}" = "Maghanap sa ${applicationName}";
+"Find in ${applicationName}" = "Hanapin sa ${applicationName}";
+"Search in ${applicationName}" = "Maghanap sa loob ng ${applicationName}";
+
+/* 10. Open Cutling */
+"Open ${applicationName}" = "Buksan ang ${applicationName}";
+"Launch ${applicationName}" = "Ilunsad ang ${applicationName}";

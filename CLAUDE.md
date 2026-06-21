@@ -73,9 +73,13 @@ Soft-delete: `DeletedCutling` with 30-day retention, recoverable from `RecentlyD
 - `KeyboardSetupView.swift` — 6-page onboarding wizard
 - `CardView.swift` — cutling card display component
 
+### App Intents & Siri Shortcuts
+
+`CutlingAppShortcutsProvider.swift` registers 10 App Shortcuts that surface in the Shortcuts app gallery, Spotlight, and Siri without user setup. Backing intents live in `*Intent.swift` files at the project root and share `CutlingStore.shared`. Constraints baked into the provider: max 10 shortcuts per app, every phrase must contain `\(.applicationName)`, parameter placeholders in phrases must be `AppEntity` or `AppEnum` (String/IntentFile params can't be inlined). Settings exposes a `SiriTipView` + `ShortcutsLink` to teach phrases and open the gallery.
+
 ## Localization
 
-59 locales. Each target has `.lproj/Localizable.strings` and `.lproj/InfoPlist.strings`. Release notes are translated via `./deploy.sh release_notes` from `fastlane/metadata/en-US/release_notes.txt`.
+59 locales. Each target has `.lproj/Localizable.strings` and `.lproj/InfoPlist.strings`. App Shortcut phrases live in **`.lproj/AppShortcuts.strings`** (separate file required by AppIntents) — placeholder syntax is `${applicationName}` / `${target}` (not the Swift `\(.applicationName)` / `\(\.$target)` form). Release notes are translated via `./deploy.sh release_notes` from `fastlane/metadata/en-US/release_notes.txt`.
 
 ## Release Workflow
 

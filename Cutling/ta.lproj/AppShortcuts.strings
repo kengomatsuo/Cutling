@@ -1,0 +1,52 @@
+/* App Shortcut phrases. Keys MUST match the exact English phrases in
+   CutlingAppShortcutsProvider.swift. The ${applicationName} placeholder
+   is required in every phrase. ${target} maps to the AppEntity parameter. */
+
+/* 1. Save Clipboard */
+"Save clipboard to ${applicationName}" = "${applicationName}-இல் கிளிப்போர்டை சேமி";
+"Save to ${applicationName}" = "${applicationName}-இல் சேமி";
+"Add clipboard to ${applicationName}" = "${applicationName}-இல் கிளிப்போர்டைச் சேர்";
+"Clip with ${applicationName}" = "${applicationName} மூலம் கிளிப் செய்";
+
+/* 2. Copy Cutling */
+"Copy ${target} from ${applicationName}" = "${applicationName}-இலிருந்து ${target} நகலெடு";
+"Paste ${target} with ${applicationName}" = "${applicationName} மூலம் ${target} ஒட்டு";
+"Get ${target} from ${applicationName}" = "${applicationName}-இலிருந்து ${target} பெறு";
+
+/* 3. Save Text */
+"Save text to ${applicationName}" = "${applicationName}-இல் உரையைச் சேமி";
+"Save text with ${applicationName}" = "${applicationName} மூலம் உரையைச் சேமி";
+"Add text to ${applicationName}" = "${applicationName}-இல் உரையைச் சேர்";
+
+/* 4. Get Cutling Text */
+"Get text of ${target} from ${applicationName}" = "${applicationName}-இலிருந்து ${target}-இன் உரையைப் பெறு";
+"Read ${target} from ${applicationName}" = "${applicationName}-இலிருந்து ${target} படி";
+
+/* 5. Latest Cutling */
+"Get latest from ${applicationName}" = "${applicationName}-இலிருந்து சமீபத்தியதைப் பெறு";
+"Latest ${applicationName}" = "சமீபத்திய ${applicationName}";
+"Most recent ${applicationName}" = "மிகச் சமீபத்திய ${applicationName}";
+
+/* 6. New Text Cutling */
+"New text in ${applicationName}" = "${applicationName}-இல் புதிய உரை";
+"Create text in ${applicationName}" = "${applicationName}-இல் உரையை உருவாக்கு";
+"New text cutling with ${applicationName}" = "${applicationName} மூலம் புதிய உரை கட்லிங்";
+
+/* 7. New Image Cutling */
+"New image in ${applicationName}" = "${applicationName}-இல் புதிய படம்";
+"Create image in ${applicationName}" = "${applicationName}-இல் படத்தை உருவாக்கு";
+"New image cutling with ${applicationName}" = "${applicationName} மூலம் புதிய படக் கட்லிங்";
+
+/* 8. Save Image */
+"Save image to ${applicationName}" = "${applicationName}-இல் படத்தைச் சேமி";
+"Save image with ${applicationName}" = "${applicationName} மூலம் படத்தைச் சேமி";
+"Add image to ${applicationName}" = "${applicationName}-இல் படத்தைச் சேர்";
+
+/* 9. Search Cutlings */
+"Search ${applicationName}" = "${applicationName} தேடு";
+"Find in ${applicationName}" = "${applicationName}-இல் கண்டறி";
+"Search in ${applicationName}" = "${applicationName}-இல் தேடு";
+
+/* 10. Open Cutling */
+"Open ${applicationName}" = "${applicationName} திற";
+"Launch ${applicationName}" = "${applicationName} துவக்கு";

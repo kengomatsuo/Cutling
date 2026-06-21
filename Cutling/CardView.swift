@@ -437,7 +437,7 @@ struct CardView: View {
         unsafe UIAccessibility.post(notification: .announcement, argument: String(localized: "Copied"))
         #endif
         #if os(macOS)
-        NSAccessibility.post(element: NSApp as Any, notification: .valueChanged)
+        unsafe NSAccessibility.post(element: NSApp as Any, notification: .valueChanged)
         #endif
         Task {
             try? await Task.sleep(for: .seconds(1.5))

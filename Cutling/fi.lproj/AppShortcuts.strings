@@ -1,0 +1,52 @@
+/* App Shortcut phrases. Keys MUST match the exact English phrases in
+   CutlingAppShortcutsProvider.swift. The ${applicationName} placeholder
+   is required in every phrase. ${target} maps to the AppEntity parameter. */
+
+/* 1. Save Clipboard */
+"Save clipboard to ${applicationName}" = "Tallenna leikepöytä sovellukseen ${applicationName}";
+"Save to ${applicationName}" = "Tallenna sovellukseen ${applicationName}";
+"Add clipboard to ${applicationName}" = "Lisää leikepöytä sovellukseen ${applicationName}";
+"Clip with ${applicationName}" = "Leikkaa sovelluksella ${applicationName}";
+
+/* 2. Copy Cutling */
+"Copy ${target} from ${applicationName}" = "Kopioi ${target} sovelluksesta ${applicationName}";
+"Paste ${target} with ${applicationName}" = "Liitä ${target} sovelluksella ${applicationName}";
+"Get ${target} from ${applicationName}" = "Hae ${target} sovelluksesta ${applicationName}";
+
+/* 3. Save Text */
+"Save text to ${applicationName}" = "Tallenna teksti sovellukseen ${applicationName}";
+"Save text with ${applicationName}" = "Tallenna teksti sovelluksella ${applicationName}";
+"Add text to ${applicationName}" = "Lisää teksti sovellukseen ${applicationName}";
+
+/* 4. Get Cutling Text */
+"Get text of ${target} from ${applicationName}" = "Hae ${target} teksti sovelluksesta ${applicationName}";
+"Read ${target} from ${applicationName}" = "Lue ${target} sovelluksesta ${applicationName}";
+
+/* 5. Latest Cutling */
+"Get latest from ${applicationName}" = "Hae uusin sovelluksesta ${applicationName}";
+"Latest ${applicationName}" = "Uusin ${applicationName}";
+"Most recent ${applicationName}" = "Viimeisin ${applicationName}";
+
+/* 6. New Text Cutling */
+"New text in ${applicationName}" = "Uusi teksti sovelluksessa ${applicationName}";
+"Create text in ${applicationName}" = "Luo teksti sovelluksessa ${applicationName}";
+"New text cutling with ${applicationName}" = "Uusi teksti-cutling sovelluksella ${applicationName}";
+
+/* 7. New Image Cutling */
+"New image in ${applicationName}" = "Uusi kuva sovelluksessa ${applicationName}";
+"Create image in ${applicationName}" = "Luo kuva sovelluksessa ${applicationName}";
+"New image cutling with ${applicationName}" = "Uusi kuva-cutling sovelluksella ${applicationName}";
+
+/* 8. Save Image */
+"Save image to ${applicationName}" = "Tallenna kuva sovellukseen ${applicationName}";
+"Save image with ${applicationName}" = "Tallenna kuva sovelluksella ${applicationName}";
+"Add image to ${applicationName}" = "Lisää kuva sovellukseen ${applicationName}";
+
+/* 9. Search Cutlings */
+"Search ${applicationName}" = "Hae sovelluksesta ${applicationName}";
+"Find in ${applicationName}" = "Etsi sovelluksesta ${applicationName}";
+"Search in ${applicationName}" = "Hae sovelluksessa ${applicationName}";
+
+/* 10. Open Cutling */
+"Open ${applicationName}" = "Avaa ${applicationName}";
+"Launch ${applicationName}" = "Käynnistä ${applicationName}";

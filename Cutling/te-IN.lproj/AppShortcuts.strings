@@ -1,0 +1,52 @@
+/* App Shortcut phrases. Keys MUST match the exact English phrases in
+   CutlingAppShortcutsProvider.swift. The ${applicationName} placeholder
+   is required in every phrase. ${target} maps to the AppEntity parameter. */
+
+/* 1. Save Clipboard */
+"Save clipboard to ${applicationName}" = "క్లిప్‌బోర్డ్‌ను ${applicationName}కు సేవ్ చేయండి";
+"Save to ${applicationName}" = "${applicationName}కు సేవ్ చేయండి";
+"Add clipboard to ${applicationName}" = "క్లిప్‌బోర్డ్‌ను ${applicationName}కు జోడించండి";
+"Clip with ${applicationName}" = "${applicationName}తో క్లిప్ చేయండి";
+
+/* 2. Copy Cutling */
+"Copy ${target} from ${applicationName}" = "${applicationName} నుండి ${target} కాపీ చేయండి";
+"Paste ${target} with ${applicationName}" = "${applicationName}తో ${target} అతికించండి";
+"Get ${target} from ${applicationName}" = "${applicationName} నుండి ${target} పొందండి";
+
+/* 3. Save Text */
+"Save text to ${applicationName}" = "టెక్స్ట్‌ను ${applicationName}కు సేవ్ చేయండి";
+"Save text with ${applicationName}" = "${applicationName}తో టెక్స్ట్ సేవ్ చేయండి";
+"Add text to ${applicationName}" = "టెక్స్ట్‌ను ${applicationName}కు జోడించండి";
+
+/* 4. Get Cutling Text */
+"Get text of ${target} from ${applicationName}" = "${applicationName} నుండి ${target} యొక్క టెక్స్ట్ పొందండి";
+"Read ${target} from ${applicationName}" = "${applicationName} నుండి ${target} చదవండి";
+
+/* 5. Latest Cutling */
+"Get latest from ${applicationName}" = "${applicationName} నుండి తాజాది పొందండి";
+"Latest ${applicationName}" = "తాజా ${applicationName}";
+"Most recent ${applicationName}" = "అత్యంత ఇటీవలి ${applicationName}";
+
+/* 6. New Text Cutling */
+"New text in ${applicationName}" = "${applicationName}లో కొత్త టెక్స్ట్";
+"Create text in ${applicationName}" = "${applicationName}లో టెక్స్ట్ సృష్టించండి";
+"New text cutling with ${applicationName}" = "${applicationName}తో కొత్త టెక్స్ట్ కట్లింగ్";
+
+/* 7. New Image Cutling */
+"New image in ${applicationName}" = "${applicationName}లో కొత్త చిత్రం";
+"Create image in ${applicationName}" = "${applicationName}లో చిత్రం సృష్టించండి";
+"New image cutling with ${applicationName}" = "${applicationName}తో కొత్త చిత్రం కట్లింగ్";
+
+/* 8. Save Image */
+"Save image to ${applicationName}" = "చిత్రాన్ని ${applicationName}కు సేవ్ చేయండి";
+"Save image with ${applicationName}" = "${applicationName}తో చిత్రం సేవ్ చేయండి";
+"Add image to ${applicationName}" = "చిత్రాన్ని ${applicationName}కు జోడించండి";
+
+/* 9. Search Cutlings */
+"Search ${applicationName}" = "${applicationName} శోధించండి";
+"Find in ${applicationName}" = "${applicationName}లో కనుగొనండి";
+"Search in ${applicationName}" = "${applicationName}లో శోధించండి";
+
+/* 10. Open Cutling */
+"Open ${applicationName}" = "${applicationName} తెరవండి";
+"Launch ${applicationName}" = "${applicationName} ప్రారంభించండి";

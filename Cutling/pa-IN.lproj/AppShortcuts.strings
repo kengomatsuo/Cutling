@@ -1,0 +1,52 @@
+/* App Shortcut phrases. Keys MUST match the exact English phrases in
+   CutlingAppShortcutsProvider.swift. The ${applicationName} placeholder
+   is required in every phrase. ${target} maps to the AppEntity parameter. */
+
+/* 1. Save Clipboard */
+"Save clipboard to ${applicationName}" = "ਕਲਿੱਪਬੋਰਡ ਨੂੰ ${applicationName} ਵਿੱਚ ਸੰਭਾਲੋ";
+"Save to ${applicationName}" = "${applicationName} ਵਿੱਚ ਸੰਭਾਲੋ";
+"Add clipboard to ${applicationName}" = "ਕਲਿੱਪਬੋਰਡ ਨੂੰ ${applicationName} ਵਿੱਚ ਜੋੜੋ";
+"Clip with ${applicationName}" = "${applicationName} ਨਾਲ ਕਲਿੱਪ ਕਰੋ";
+
+/* 2. Copy Cutling */
+"Copy ${target} from ${applicationName}" = "${applicationName} ਤੋਂ ${target} ਕਾਪੀ ਕਰੋ";
+"Paste ${target} with ${applicationName}" = "${applicationName} ਨਾਲ ${target} ਪੇਸਟ ਕਰੋ";
+"Get ${target} from ${applicationName}" = "${applicationName} ਤੋਂ ${target} ਪ੍ਰਾਪਤ ਕਰੋ";
+
+/* 3. Save Text */
+"Save text to ${applicationName}" = "ਟੈਕਸਟ ਨੂੰ ${applicationName} ਵਿੱਚ ਸੰਭਾਲੋ";
+"Save text with ${applicationName}" = "${applicationName} ਨਾਲ ਟੈਕਸਟ ਸੰਭਾਲੋ";
+"Add text to ${applicationName}" = "ਟੈਕਸਟ ਨੂੰ ${applicationName} ਵਿੱਚ ਜੋੜੋ";
+
+/* 4. Get Cutling Text */
+"Get text of ${target} from ${applicationName}" = "${applicationName} ਤੋਂ ${target} ਦਾ ਟੈਕਸਟ ਪ੍ਰਾਪਤ ਕਰੋ";
+"Read ${target} from ${applicationName}" = "${applicationName} ਤੋਂ ${target} ਪੜ੍ਹੋ";
+
+/* 5. Latest Cutling */
+"Get latest from ${applicationName}" = "${applicationName} ਤੋਂ ਨਵੀਨਤਮ ਪ੍ਰਾਪਤ ਕਰੋ";
+"Latest ${applicationName}" = "ਨਵੀਨਤਮ ${applicationName}";
+"Most recent ${applicationName}" = "ਸਭ ਤੋਂ ਹਾਲੀਆ ${applicationName}";
+
+/* 6. New Text Cutling */
+"New text in ${applicationName}" = "${applicationName} ਵਿੱਚ ਨਵਾਂ ਟੈਕਸਟ";
+"Create text in ${applicationName}" = "${applicationName} ਵਿੱਚ ਟੈਕਸਟ ਬਣਾਓ";
+"New text cutling with ${applicationName}" = "${applicationName} ਨਾਲ ਨਵਾਂ ਟੈਕਸਟ ਕਟਲਿੰਗ";
+
+/* 7. New Image Cutling */
+"New image in ${applicationName}" = "${applicationName} ਵਿੱਚ ਨਵਾਂ ਚਿੱਤਰ";
+"Create image in ${applicationName}" = "${applicationName} ਵਿੱਚ ਚਿੱਤਰ ਬਣਾਓ";
+"New image cutling with ${applicationName}" = "${applicationName} ਨਾਲ ਨਵਾਂ ਚਿੱਤਰ ਕਟਲਿੰਗ";
+
+/* 8. Save Image */
+"Save image to ${applicationName}" = "ਚਿੱਤਰ ਨੂੰ ${applicationName} ਵਿੱਚ ਸੰਭਾਲੋ";
+"Save image with ${applicationName}" = "${applicationName} ਨਾਲ ਚਿੱਤਰ ਸੰਭਾਲੋ";
+"Add image to ${applicationName}" = "ਚਿੱਤਰ ਨੂੰ ${applicationName} ਵਿੱਚ ਜੋੜੋ";
+
+/* 9. Search Cutlings */
+"Search ${applicationName}" = "${applicationName} ਖੋਜੋ";
+"Find in ${applicationName}" = "${applicationName} ਵਿੱਚ ਲੱਭੋ";
+"Search in ${applicationName}" = "${applicationName} ਵਿੱਚ ਖੋਜੋ";
+
+/* 10. Open Cutling */
+"Open ${applicationName}" = "${applicationName} ਖੋਲ੍ਹੋ";
+"Launch ${applicationName}" = "${applicationName} ਲਾਂਚ ਕਰੋ";

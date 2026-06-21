@@ -1,0 +1,52 @@
+/* App Shortcut phrases. Keys MUST match the exact English phrases in
+   CutlingAppShortcutsProvider.swift. The ${applicationName} placeholder
+   is required in every phrase. ${target} maps to the AppEntity parameter. */
+
+/* 1. Save Clipboard */
+"Save clipboard to ${applicationName}" = "Gem udklipsholder i ${applicationName}";
+"Save to ${applicationName}" = "Gem i ${applicationName}";
+"Add clipboard to ${applicationName}" = "Føj udklipsholder til ${applicationName}";
+"Clip with ${applicationName}" = "Klip med ${applicationName}";
+
+/* 2. Copy Cutling */
+"Copy ${target} from ${applicationName}" = "Kopier ${target} fra ${applicationName}";
+"Paste ${target} with ${applicationName}" = "Indsæt ${target} med ${applicationName}";
+"Get ${target} from ${applicationName}" = "Hent ${target} fra ${applicationName}";
+
+/* 3. Save Text */
+"Save text to ${applicationName}" = "Gem tekst i ${applicationName}";
+"Save text with ${applicationName}" = "Gem tekst med ${applicationName}";
+"Add text to ${applicationName}" = "Føj tekst til ${applicationName}";
+
+/* 4. Get Cutling Text */
+"Get text of ${target} from ${applicationName}" = "Hent tekst af ${target} fra ${applicationName}";
+"Read ${target} from ${applicationName}" = "Læs ${target} fra ${applicationName}";
+
+/* 5. Latest Cutling */
+"Get latest from ${applicationName}" = "Hent seneste fra ${applicationName}";
+"Latest ${applicationName}" = "Seneste ${applicationName}";
+"Most recent ${applicationName}" = "Senest brugte ${applicationName}";
+
+/* 6. New Text Cutling */
+"New text in ${applicationName}" = "Ny tekst i ${applicationName}";
+"Create text in ${applicationName}" = "Opret tekst i ${applicationName}";
+"New text cutling with ${applicationName}" = "Ny tekst-cutling med ${applicationName}";
+
+/* 7. New Image Cutling */
+"New image in ${applicationName}" = "Nyt billede i ${applicationName}";
+"Create image in ${applicationName}" = "Opret billede i ${applicationName}";
+"New image cutling with ${applicationName}" = "Ny billede-cutling med ${applicationName}";
+
+/* 8. Save Image */
+"Save image to ${applicationName}" = "Gem billede i ${applicationName}";
+"Save image with ${applicationName}" = "Gem billede med ${applicationName}";
+"Add image to ${applicationName}" = "Føj billede til ${applicationName}";
+
+/* 9. Search Cutlings */
+"Search ${applicationName}" = "Søg i ${applicationName}";
+"Find in ${applicationName}" = "Find i ${applicationName}";
+"Search in ${applicationName}" = "Søg i ${applicationName}";
+
+/* 10. Open Cutling */
+"Open ${applicationName}" = "Åbn ${applicationName}";
+"Launch ${applicationName}" = "Start ${applicationName}";

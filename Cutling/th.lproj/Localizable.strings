@@ -290,3 +290,25 @@
 "This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "ดูเหมือนโทเค็นการยืนยันตัวตน โทเค็นควรถูกเก็บอย่างปลอดภัย ไม่ใช่ในตัวจัดการคลิปบอร์ด";
 "This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "ดูเหมือนวลีกู้คืน ควรเก็บ seed phrase ในที่ปลอดภัยแบบออฟไลน์";
 "Don't Warn About This Again" = "ไม่ต้องเตือนเรื่องนี้อีก";
+
+/* MARK: - App Shortcuts (Siri / Shortcuts gallery) */
+"Save clipboard contents as a new cutling." = "บันทึกเนื้อหาในคลิปบอร์ดเป็น คัตลิง ใหม่";
+"Save Text" = "บันทึกข้อความ";
+"Save text as a new cutling." = "บันทึกข้อความเป็น คัตลิง ใหม่";
+"Get Cutling Text" = "รับข้อความของ คัตลิง";
+"Get the text contents of a cutling as a value for use in other shortcuts." = "รับเนื้อหาข้อความของ คัตลิง เป็นค่าเพื่อใช้ในคำสั่งลัดอื่น";
+"Get Latest Cutling" = "รับ คัตลิง ล่าสุด";
+"Latest Cutling" = "คัตลิง ล่าสุด";
+"Get the text from your most recently saved cutling." = "รับข้อความจาก คัตลิง ที่คุณบันทึกล่าสุด";
+"Save Image" = "บันทึกรูปภาพ";
+"Save an image as a new cutling." = "บันทึกรูปภาพเป็น คัตลิง ใหม่";
+"Search Cutlings" = "ค้นหา คัตลิง";
+"Find cutlings whose name or contents match a search query." = "ค้นหา คัตลิง ที่ชื่อหรือเนื้อหาตรงกับคำค้น";
+"Open Cutling" = "เปิด คัตลิง";
+"Open the Cutling app." = "เปิดแอป คัตลิง";
+"Open Cutling and start a new text cutling." = "เปิด คัตลิง และเริ่ม คัตลิง ข้อความใหม่";
+"Open Cutling and start a new image cutling." = "เปิด คัตลิง และเริ่ม คัตลิง รูปภาพใหม่";
+"Query" = "คำค้น";
+"Nothing to save." = "ไม่มีอะไรให้บันทึก";
+"That doesn't look like an image." = "สิ่งนั้นดูเหมือนจะไม่ใช่รูปภาพ";
+"Failed to save image." = "บันทึกรูปภาพไม่สำเร็จ";

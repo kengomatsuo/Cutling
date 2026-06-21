@@ -1,0 +1,52 @@
+/* App Shortcut phrases. Keys MUST match the exact English phrases in
+   CutlingAppShortcutsProvider.swift. The ${applicationName} placeholder
+   is required in every phrase. ${target} maps to the AppEntity parameter. */
+
+/* 1. Save Clipboard */
+"Save clipboard to ${applicationName}" = "Запази клипборда в ${applicationName}";
+"Save to ${applicationName}" = "Запази в ${applicationName}";
+"Add clipboard to ${applicationName}" = "Добави клипборда в ${applicationName}";
+"Clip with ${applicationName}" = "Изрежи с ${applicationName}";
+
+/* 2. Copy Cutling */
+"Copy ${target} from ${applicationName}" = "Копирай ${target} от ${applicationName}";
+"Paste ${target} with ${applicationName}" = "Постави ${target} с ${applicationName}";
+"Get ${target} from ${applicationName}" = "Вземи ${target} от ${applicationName}";
+
+/* 3. Save Text */
+"Save text to ${applicationName}" = "Запази текст в ${applicationName}";
+"Save text with ${applicationName}" = "Запази текст с ${applicationName}";
+"Add text to ${applicationName}" = "Добави текст в ${applicationName}";
+
+/* 4. Get Cutling Text */
+"Get text of ${target} from ${applicationName}" = "Вземи текста на ${target} от ${applicationName}";
+"Read ${target} from ${applicationName}" = "Прочети ${target} от ${applicationName}";
+
+/* 5. Latest Cutling */
+"Get latest from ${applicationName}" = "Вземи последния от ${applicationName}";
+"Latest ${applicationName}" = "Последен ${applicationName}";
+"Most recent ${applicationName}" = "Най-нов ${applicationName}";
+
+/* 6. New Text Cutling */
+"New text in ${applicationName}" = "Нов текст в ${applicationName}";
+"Create text in ${applicationName}" = "Създай текст в ${applicationName}";
+"New text cutling with ${applicationName}" = "Нов текстов Кътлинг с ${applicationName}";
+
+/* 7. New Image Cutling */
+"New image in ${applicationName}" = "Ново изображение в ${applicationName}";
+"Create image in ${applicationName}" = "Създай изображение в ${applicationName}";
+"New image cutling with ${applicationName}" = "Нов Кътлинг с изображение с ${applicationName}";
+
+/* 8. Save Image */
+"Save image to ${applicationName}" = "Запази изображение в ${applicationName}";
+"Save image with ${applicationName}" = "Запази изображение с ${applicationName}";
+"Add image to ${applicationName}" = "Добави изображение в ${applicationName}";
+
+/* 9. Search Cutlings */
+"Search ${applicationName}" = "Търси в ${applicationName}";
+"Find in ${applicationName}" = "Намери в ${applicationName}";
+"Search in ${applicationName}" = "Търсене в ${applicationName}";
+
+/* 10. Open Cutling */
+"Open ${applicationName}" = "Отвори ${applicationName}";
+"Launch ${applicationName}" = "Стартирай ${applicationName}";

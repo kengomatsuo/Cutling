@@ -1,0 +1,52 @@
+/* App Shortcut phrases. Keys MUST match the exact English phrases in
+   CutlingAppShortcutsProvider.swift. The ${applicationName} placeholder
+   is required in every phrase. ${target} maps to the AppEntity parameter. */
+
+/* 1. Save Clipboard */
+"Save clipboard to ${applicationName}" = "Spara urklipp i ${applicationName}";
+"Save to ${applicationName}" = "Spara i ${applicationName}";
+"Add clipboard to ${applicationName}" = "Lägg till urklipp i ${applicationName}";
+"Clip with ${applicationName}" = "Klipp med ${applicationName}";
+
+/* 2. Copy Cutling */
+"Copy ${target} from ${applicationName}" = "Kopiera ${target} från ${applicationName}";
+"Paste ${target} with ${applicationName}" = "Klistra in ${target} med ${applicationName}";
+"Get ${target} from ${applicationName}" = "Hämta ${target} från ${applicationName}";
+
+/* 3. Save Text */
+"Save text to ${applicationName}" = "Spara text i ${applicationName}";
+"Save text with ${applicationName}" = "Spara text med ${applicationName}";
+"Add text to ${applicationName}" = "Lägg till text i ${applicationName}";
+
+/* 4. Get Cutling Text */
+"Get text of ${target} from ${applicationName}" = "Hämta text av ${target} från ${applicationName}";
+"Read ${target} from ${applicationName}" = "Läs ${target} från ${applicationName}";
+
+/* 5. Latest Cutling */
+"Get latest from ${applicationName}" = "Hämta senaste från ${applicationName}";
+"Latest ${applicationName}" = "Senaste ${applicationName}";
+"Most recent ${applicationName}" = "Nyaste ${applicationName}";
+
+/* 6. New Text Cutling */
+"New text in ${applicationName}" = "Ny text i ${applicationName}";
+"Create text in ${applicationName}" = "Skapa text i ${applicationName}";
+"New text cutling with ${applicationName}" = "Ny text-cutling med ${applicationName}";
+
+/* 7. New Image Cutling */
+"New image in ${applicationName}" = "Ny bild i ${applicationName}";
+"Create image in ${applicationName}" = "Skapa bild i ${applicationName}";
+"New image cutling with ${applicationName}" = "Ny bild-cutling med ${applicationName}";
+
+/* 8. Save Image */
+"Save image to ${applicationName}" = "Spara bild i ${applicationName}";
+"Save image with ${applicationName}" = "Spara bild med ${applicationName}";
+"Add image to ${applicationName}" = "Lägg till bild i ${applicationName}";
+
+/* 9. Search Cutlings */
+"Search ${applicationName}" = "Sök ${applicationName}";
+"Find in ${applicationName}" = "Hitta i ${applicationName}";
+"Search in ${applicationName}" = "Sök i ${applicationName}";
+
+/* 10. Open Cutling */
+"Open ${applicationName}" = "Öppna ${applicationName}";
+"Launch ${applicationName}" = "Starta ${applicationName}";

@@ -1,0 +1,52 @@
+/* App Shortcut phrases. Keys MUST match the exact English phrases in
+   CutlingAppShortcutsProvider.swift. The ${applicationName} placeholder
+   is required in every phrase. ${target} maps to the AppEntity parameter. */
+
+/* 1. Save Clipboard */
+"Save clipboard to ${applicationName}" = "บันทึกคลิปบอร์ดไปยัง ${applicationName}";
+"Save to ${applicationName}" = "บันทึกไปยัง ${applicationName}";
+"Add clipboard to ${applicationName}" = "เพิ่มคลิปบอร์ดไปยัง ${applicationName}";
+"Clip with ${applicationName}" = "คลิปด้วย ${applicationName}";
+
+/* 2. Copy Cutling */
+"Copy ${target} from ${applicationName}" = "คัดลอก ${target} จาก ${applicationName}";
+"Paste ${target} with ${applicationName}" = "วาง ${target} ด้วย ${applicationName}";
+"Get ${target} from ${applicationName}" = "รับ ${target} จาก ${applicationName}";
+
+/* 3. Save Text */
+"Save text to ${applicationName}" = "บันทึกข้อความไปยัง ${applicationName}";
+"Save text with ${applicationName}" = "บันทึกข้อความด้วย ${applicationName}";
+"Add text to ${applicationName}" = "เพิ่มข้อความไปยัง ${applicationName}";
+
+/* 4. Get Cutling Text */
+"Get text of ${target} from ${applicationName}" = "รับข้อความของ ${target} จาก ${applicationName}";
+"Read ${target} from ${applicationName}" = "อ่าน ${target} จาก ${applicationName}";
+
+/* 5. Latest Cutling */
+"Get latest from ${applicationName}" = "รับรายการล่าสุดจาก ${applicationName}";
+"Latest ${applicationName}" = "${applicationName} ล่าสุด";
+"Most recent ${applicationName}" = "${applicationName} ล่าสุดที่สุด";
+
+/* 6. New Text Cutling */
+"New text in ${applicationName}" = "ข้อความใหม่ใน ${applicationName}";
+"Create text in ${applicationName}" = "สร้างข้อความใน ${applicationName}";
+"New text cutling with ${applicationName}" = "คัตลิง ข้อความใหม่ด้วย ${applicationName}";
+
+/* 7. New Image Cutling */
+"New image in ${applicationName}" = "รูปภาพใหม่ใน ${applicationName}";
+"Create image in ${applicationName}" = "สร้างรูปภาพใน ${applicationName}";
+"New image cutling with ${applicationName}" = "คัตลิง รูปภาพใหม่ด้วย ${applicationName}";
+
+/* 8. Save Image */
+"Save image to ${applicationName}" = "บันทึกรูปภาพไปยัง ${applicationName}";
+"Save image with ${applicationName}" = "บันทึกรูปภาพด้วย ${applicationName}";
+"Add image to ${applicationName}" = "เพิ่มรูปภาพไปยัง ${applicationName}";
+
+/* 9. Search Cutlings */
+"Search ${applicationName}" = "ค้นหา ${applicationName}";
+"Find in ${applicationName}" = "ค้นใน ${applicationName}";
+"Search in ${applicationName}" = "ค้นหาใน ${applicationName}";
+
+/* 10. Open Cutling */
+"Open ${applicationName}" = "เปิด ${applicationName}";
+"Launch ${applicationName}" = "เปิดใช้ ${applicationName}";

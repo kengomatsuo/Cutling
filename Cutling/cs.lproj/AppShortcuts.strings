@@ -1,0 +1,52 @@
+/* App Shortcut phrases. Keys MUST match the exact English phrases in
+   CutlingAppShortcutsProvider.swift. The ${applicationName} placeholder
+   is required in every phrase. ${target} maps to the AppEntity parameter. */
+
+/* 1. Save Clipboard */
+"Save clipboard to ${applicationName}" = "Uložit schránku do ${applicationName}";
+"Save to ${applicationName}" = "Uložit do ${applicationName}";
+"Add clipboard to ${applicationName}" = "Přidat schránku do ${applicationName}";
+"Clip with ${applicationName}" = "Vystřihnout s ${applicationName}";
+
+/* 2. Copy Cutling */
+"Copy ${target} from ${applicationName}" = "Kopírovat ${target} z ${applicationName}";
+"Paste ${target} with ${applicationName}" = "Vložit ${target} pomocí ${applicationName}";
+"Get ${target} from ${applicationName}" = "Získat ${target} z ${applicationName}";
+
+/* 3. Save Text */
+"Save text to ${applicationName}" = "Uložit text do ${applicationName}";
+"Save text with ${applicationName}" = "Uložit text s ${applicationName}";
+"Add text to ${applicationName}" = "Přidat text do ${applicationName}";
+
+/* 4. Get Cutling Text */
+"Get text of ${target} from ${applicationName}" = "Získat text ${target} z ${applicationName}";
+"Read ${target} from ${applicationName}" = "Přečíst ${target} z ${applicationName}";
+
+/* 5. Latest Cutling */
+"Get latest from ${applicationName}" = "Získat poslední z ${applicationName}";
+"Latest ${applicationName}" = "Poslední ${applicationName}";
+"Most recent ${applicationName}" = "Nejnovější ${applicationName}";
+
+/* 6. New Text Cutling */
+"New text in ${applicationName}" = "Nový text v ${applicationName}";
+"Create text in ${applicationName}" = "Vytvořit text v ${applicationName}";
+"New text cutling with ${applicationName}" = "Nový textový Cutling pomocí ${applicationName}";
+
+/* 7. New Image Cutling */
+"New image in ${applicationName}" = "Nový obrázek v ${applicationName}";
+"Create image in ${applicationName}" = "Vytvořit obrázek v ${applicationName}";
+"New image cutling with ${applicationName}" = "Nový obrázkový Cutling pomocí ${applicationName}";
+
+/* 8. Save Image */
+"Save image to ${applicationName}" = "Uložit obrázek do ${applicationName}";
+"Save image with ${applicationName}" = "Uložit obrázek pomocí ${applicationName}";
+"Add image to ${applicationName}" = "Přidat obrázek do ${applicationName}";
+
+/* 9. Search Cutlings */
+"Search ${applicationName}" = "Hledat v ${applicationName}";
+"Find in ${applicationName}" = "Najít v ${applicationName}";
+"Search in ${applicationName}" = "Vyhledat v ${applicationName}";
+
+/* 10. Open Cutling */
+"Open ${applicationName}" = "Otevřít ${applicationName}";
+"Launch ${applicationName}" = "Spustit ${applicationName}";

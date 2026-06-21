@@ -125,7 +125,9 @@ final class SpotlightIndexer {
         keywords.append(contentsOf: cutling.assignedCategories.map(\.displayName))
         attributes.keywords = keywords
 
+        #if os(iOS)
         attributes.actionIdentifiers = [Self.editActionID]
+        #endif
 
         attributes.contentCreationDate = cutling.createdDate
         attributes.contentModificationDate = cutling.lastModifiedDate

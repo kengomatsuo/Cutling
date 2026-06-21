@@ -1,0 +1,52 @@
+/* App Shortcut phrases. Keys MUST match the exact English phrases in
+   CutlingAppShortcutsProvider.swift. The ${applicationName} placeholder
+   is required in every phrase. ${target} maps to the AppEntity parameter. */
+
+/* 1. Save Clipboard */
+"Save clipboard to ${applicationName}" = "Enregistrer le presse-papiers dans ${applicationName}";
+"Save to ${applicationName}" = "Enregistrer dans ${applicationName}";
+"Add clipboard to ${applicationName}" = "Ajouter le presse-papiers à ${applicationName}";
+"Clip with ${applicationName}" = "Capturer avec ${applicationName}";
+
+/* 2. Copy Cutling */
+"Copy ${target} from ${applicationName}" = "Copier ${target} depuis ${applicationName}";
+"Paste ${target} with ${applicationName}" = "Coller ${target} avec ${applicationName}";
+"Get ${target} from ${applicationName}" = "Obtenir ${target} depuis ${applicationName}";
+
+/* 3. Save Text */
+"Save text to ${applicationName}" = "Enregistrer le texte dans ${applicationName}";
+"Save text with ${applicationName}" = "Enregistrer le texte avec ${applicationName}";
+"Add text to ${applicationName}" = "Ajouter du texte à ${applicationName}";
+
+/* 4. Get Cutling Text */
+"Get text of ${target} from ${applicationName}" = "Obtenir le texte de ${target} depuis ${applicationName}";
+"Read ${target} from ${applicationName}" = "Lire ${target} depuis ${applicationName}";
+
+/* 5. Latest Cutling */
+"Get latest from ${applicationName}" = "Obtenir le dernier depuis ${applicationName}";
+"Latest ${applicationName}" = "Dernier ${applicationName}";
+"Most recent ${applicationName}" = "${applicationName} le plus récent";
+
+/* 6. New Text Cutling */
+"New text in ${applicationName}" = "Nouveau texte dans ${applicationName}";
+"Create text in ${applicationName}" = "Créer un texte dans ${applicationName}";
+"New text cutling with ${applicationName}" = "Nouveau cutling texte avec ${applicationName}";
+
+/* 7. New Image Cutling */
+"New image in ${applicationName}" = "Nouvelle image dans ${applicationName}";
+"Create image in ${applicationName}" = "Créer une image dans ${applicationName}";
+"New image cutling with ${applicationName}" = "Nouveau cutling image avec ${applicationName}";
+
+/* 8. Save Image */
+"Save image to ${applicationName}" = "Enregistrer l'image dans ${applicationName}";
+"Save image with ${applicationName}" = "Enregistrer l'image avec ${applicationName}";
+"Add image to ${applicationName}" = "Ajouter une image à ${applicationName}";
+
+/* 9. Search Cutlings */
+"Search ${applicationName}" = "Rechercher ${applicationName}";
+"Find in ${applicationName}" = "Trouver dans ${applicationName}";
+"Search in ${applicationName}" = "Rechercher dans ${applicationName}";
+
+/* 10. Open Cutling */
+"Open ${applicationName}" = "Ouvrir ${applicationName}";
+"Launch ${applicationName}" = "Lancer ${applicationName}";

@@ -1,0 +1,52 @@
+/* App Shortcut phrases. Keys MUST match the exact English phrases in
+   CutlingAppShortcutsProvider.swift. The ${applicationName} placeholder
+   is required in every phrase. ${target} maps to the AppEntity parameter. */
+
+/* 1. Save Clipboard */
+"Save clipboard to ${applicationName}" = "Desa el porta-retalls a ${applicationName}";
+"Save to ${applicationName}" = "Desa a ${applicationName}";
+"Add clipboard to ${applicationName}" = "Afegeix el porta-retalls a ${applicationName}";
+"Clip with ${applicationName}" = "Retalla amb ${applicationName}";
+
+/* 2. Copy Cutling */
+"Copy ${target} from ${applicationName}" = "Copia ${target} de ${applicationName}";
+"Paste ${target} with ${applicationName}" = "Enganxa ${target} amb ${applicationName}";
+"Get ${target} from ${applicationName}" = "Obtén ${target} de ${applicationName}";
+
+/* 3. Save Text */
+"Save text to ${applicationName}" = "Desa el text a ${applicationName}";
+"Save text with ${applicationName}" = "Desa el text amb ${applicationName}";
+"Add text to ${applicationName}" = "Afegeix text a ${applicationName}";
+
+/* 4. Get Cutling Text */
+"Get text of ${target} from ${applicationName}" = "Obtén el text de ${target} de ${applicationName}";
+"Read ${target} from ${applicationName}" = "Llegeix ${target} de ${applicationName}";
+
+/* 5. Latest Cutling */
+"Get latest from ${applicationName}" = "Obtén l'últim de ${applicationName}";
+"Latest ${applicationName}" = "Últim ${applicationName}";
+"Most recent ${applicationName}" = "${applicationName} més recent";
+
+/* 6. New Text Cutling */
+"New text in ${applicationName}" = "Nou text a ${applicationName}";
+"Create text in ${applicationName}" = "Crea text a ${applicationName}";
+"New text cutling with ${applicationName}" = "Nou cutling de text amb ${applicationName}";
+
+/* 7. New Image Cutling */
+"New image in ${applicationName}" = "Nova imatge a ${applicationName}";
+"Create image in ${applicationName}" = "Crea imatge a ${applicationName}";
+"New image cutling with ${applicationName}" = "Nou cutling d'imatge amb ${applicationName}";
+
+/* 8. Save Image */
+"Save image to ${applicationName}" = "Desa la imatge a ${applicationName}";
+"Save image with ${applicationName}" = "Desa la imatge amb ${applicationName}";
+"Add image to ${applicationName}" = "Afegeix imatge a ${applicationName}";
+
+/* 9. Search Cutlings */
+"Search ${applicationName}" = "Cerca ${applicationName}";
+"Find in ${applicationName}" = "Troba a ${applicationName}";
+"Search in ${applicationName}" = "Cerca a ${applicationName}";
+
+/* 10. Open Cutling */
+"Open ${applicationName}" = "Obre ${applicationName}";
+"Launch ${applicationName}" = "Inicia ${applicationName}";

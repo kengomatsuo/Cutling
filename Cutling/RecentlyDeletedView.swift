@@ -11,6 +11,8 @@
 
 import SwiftUI
 
+#if !os(macOS)
+
 struct RecentlyDeletedView: View {
     @EnvironmentObject var store: CutlingStore
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
@@ -375,3 +377,6 @@ struct RecentlyDeletedView: View {
     RecentlyDeletedView()
         .environmentObject(CutlingStore.shared)
 }
+
+#endif
+

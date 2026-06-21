@@ -14,6 +14,8 @@ import SwiftUI
 import UIKit
 #endif
 
+#if !os(macOS)
+
 // MARK: - Setup Page
 
 private enum SetupPage: Int, CaseIterable, Hashable {
@@ -656,3 +658,6 @@ private extension View {
 #Preview {
     KeyboardSetupView()
 }
+
+#endif
+

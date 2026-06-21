@@ -1,0 +1,52 @@
+/* App Shortcut phrases. Keys MUST match the exact English phrases in
+   CutlingAppShortcutsProvider.swift. The ${applicationName} placeholder
+   is required in every phrase. ${target} maps to the AppEntity parameter. */
+
+/* 1. Save Clipboard */
+"Save clipboard to ${applicationName}" = "Αποθήκευση προχείρου στο ${applicationName}";
+"Save to ${applicationName}" = "Αποθήκευση στο ${applicationName}";
+"Add clipboard to ${applicationName}" = "Προσθήκη προχείρου στο ${applicationName}";
+"Clip with ${applicationName}" = "Αποκοπή με ${applicationName}";
+
+/* 2. Copy Cutling */
+"Copy ${target} from ${applicationName}" = "Αντιγραφή ${target} από ${applicationName}";
+"Paste ${target} with ${applicationName}" = "Επικόλληση ${target} με ${applicationName}";
+"Get ${target} from ${applicationName}" = "Λήψη ${target} από ${applicationName}";
+
+/* 3. Save Text */
+"Save text to ${applicationName}" = "Αποθήκευση κειμένου στο ${applicationName}";
+"Save text with ${applicationName}" = "Αποθήκευση κειμένου με ${applicationName}";
+"Add text to ${applicationName}" = "Προσθήκη κειμένου στο ${applicationName}";
+
+/* 4. Get Cutling Text */
+"Get text of ${target} from ${applicationName}" = "Λήψη κειμένου του ${target} από ${applicationName}";
+"Read ${target} from ${applicationName}" = "Ανάγνωση ${target} από ${applicationName}";
+
+/* 5. Latest Cutling */
+"Get latest from ${applicationName}" = "Λήψη τελευταίου από ${applicationName}";
+"Latest ${applicationName}" = "Τελευταίο ${applicationName}";
+"Most recent ${applicationName}" = "Πιο πρόσφατο ${applicationName}";
+
+/* 6. New Text Cutling */
+"New text in ${applicationName}" = "Νέο κείμενο στο ${applicationName}";
+"Create text in ${applicationName}" = "Δημιουργία κειμένου στο ${applicationName}";
+"New text cutling with ${applicationName}" = "Νέο Cutling κειμένου με ${applicationName}";
+
+/* 7. New Image Cutling */
+"New image in ${applicationName}" = "Νέα εικόνα στο ${applicationName}";
+"Create image in ${applicationName}" = "Δημιουργία εικόνας στο ${applicationName}";
+"New image cutling with ${applicationName}" = "Νέο Cutling εικόνας με ${applicationName}";
+
+/* 8. Save Image */
+"Save image to ${applicationName}" = "Αποθήκευση εικόνας στο ${applicationName}";
+"Save image with ${applicationName}" = "Αποθήκευση εικόνας με ${applicationName}";
+"Add image to ${applicationName}" = "Προσθήκη εικόνας στο ${applicationName}";
+
+/* 9. Search Cutlings */
+"Search ${applicationName}" = "Αναζήτηση στο ${applicationName}";
+"Find in ${applicationName}" = "Εύρεση στο ${applicationName}";
+"Search in ${applicationName}" = "Αναζήτηση μέσα στο ${applicationName}";
+
+/* 10. Open Cutling */
+"Open ${applicationName}" = "Άνοιγμα ${applicationName}";
+"Launch ${applicationName}" = "Εκκίνηση ${applicationName}";

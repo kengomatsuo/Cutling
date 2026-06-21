@@ -1,0 +1,52 @@
+/* App Shortcut phrases. Keys MUST match the exact English phrases in
+   CutlingAppShortcutsProvider.swift. The ${applicationName} placeholder
+   is required in every phrase. ${target} maps to the AppEntity parameter. */
+
+/* 1. Save Clipboard */
+"Save clipboard to ${applicationName}" = "Hifadhi ubao wa kunakili kwenye ${applicationName}";
+"Save to ${applicationName}" = "Hifadhi kwenye ${applicationName}";
+"Add clipboard to ${applicationName}" = "Ongeza ubao wa kunakili kwenye ${applicationName}";
+"Clip with ${applicationName}" = "Klipu na ${applicationName}";
+
+/* 2. Copy Cutling */
+"Copy ${target} from ${applicationName}" = "Nakili ${target} kutoka ${applicationName}";
+"Paste ${target} with ${applicationName}" = "Bandika ${target} na ${applicationName}";
+"Get ${target} from ${applicationName}" = "Pata ${target} kutoka ${applicationName}";
+
+/* 3. Save Text */
+"Save text to ${applicationName}" = "Hifadhi maandishi kwenye ${applicationName}";
+"Save text with ${applicationName}" = "Hifadhi maandishi na ${applicationName}";
+"Add text to ${applicationName}" = "Ongeza maandishi kwenye ${applicationName}";
+
+/* 4. Get Cutling Text */
+"Get text of ${target} from ${applicationName}" = "Pata maandishi ya ${target} kutoka ${applicationName}";
+"Read ${target} from ${applicationName}" = "Soma ${target} kutoka ${applicationName}";
+
+/* 5. Latest Cutling */
+"Get latest from ${applicationName}" = "Pata ya hivi karibuni kutoka ${applicationName}";
+"Latest ${applicationName}" = "${applicationName} ya hivi karibuni";
+"Most recent ${applicationName}" = "${applicationName} ya hivi punde zaidi";
+
+/* 6. New Text Cutling */
+"New text in ${applicationName}" = "Maandishi mapya katika ${applicationName}";
+"Create text in ${applicationName}" = "Unda maandishi katika ${applicationName}";
+"New text cutling with ${applicationName}" = "Cutling mpya ya maandishi na ${applicationName}";
+
+/* 7. New Image Cutling */
+"New image in ${applicationName}" = "Picha mpya katika ${applicationName}";
+"Create image in ${applicationName}" = "Unda picha katika ${applicationName}";
+"New image cutling with ${applicationName}" = "Cutling mpya ya picha na ${applicationName}";
+
+/* 8. Save Image */
+"Save image to ${applicationName}" = "Hifadhi picha kwenye ${applicationName}";
+"Save image with ${applicationName}" = "Hifadhi picha na ${applicationName}";
+"Add image to ${applicationName}" = "Ongeza picha kwenye ${applicationName}";
+
+/* 9. Search Cutlings */
+"Search ${applicationName}" = "Tafuta ${applicationName}";
+"Find in ${applicationName}" = "Tafuta katika ${applicationName}";
+"Search in ${applicationName}" = "Tafuta ndani ya ${applicationName}";
+
+/* 10. Open Cutling */
+"Open ${applicationName}" = "Fungua ${applicationName}";
+"Launch ${applicationName}" = "Zindua ${applicationName}";
