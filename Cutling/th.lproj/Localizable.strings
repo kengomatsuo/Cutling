@@ -339,3 +339,23 @@
 "Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "คัตลิง จะตรวจจับช่องอีเมล URL หมายเลขโทรศัพท์ และที่อยู่ จากนั้นแสดงข้อความที่ตรงกันไว้ด้านบนของคีย์บอร์ด";
 "Create a new cutling" = "สร้าง คัตลิง ใหม่";
 "Save text or image snippets you'll reuse from any app." = "บันทึกข้อความหรือรูปภาพที่คุณจะนำมาใช้ซ้ำจากแอปใดก็ได้";
+
+/* MARK: - Welcome Window (macOS first launch) */
+"Welcome to Cutling" = "ยินดีต้อนรับสู่ คัตลิง";
+"Your clipboard, organised." = "คลิปบอร์ดของคุณ จัดระเบียบเรียบร้อย";
+"Save the snippets, images, and links you reuse. Capture everything you copy. Paste anywhere with one shortcut." = "บันทึกข้อความ รูปภาพ และลิงก์ที่คุณใช้บ่อย ทุกอย่างที่คุณคัดลอกจะถูกเก็บไว้ และวางได้ทุกที่ด้วยทางลัดเพียงปุ่มเดียว";
+"Look up. Cutling lives in your menu bar" = "มองขึ้นไป คัตลิง อยู่บนแถบเมนู";
+"The clipboard icon at the top of your screen opens Cutling any time. Click it to see your saved cutlings and recent clipboard history." = "ไอคอนคลิปบอร์ดที่ด้านบนของหน้าจอจะเปิด คัตลิง ได้ทุกเมื่อ คลิกเพื่อดู คัตลิง ที่บันทึกไว้และประวัติคลิปบอร์ดล่าสุด";
+"Summon Cutling from anywhere" = "เรียกใช้ คัตลิง จากที่ใดก็ได้";
+"Press ⌘⇧V from any app to open a floating picker at your cursor. Pick a cutling and it's ready to paste, no menu bar trip required." = "กด ⌘⇧V จากแอปใดก็ได้เพื่อเปิดตัวเลือกแบบลอยตรงตำแหน่งเคอร์เซอร์ เลือก คัตลิง แล้ววางได้ทันที โดยไม่ต้องไปที่แถบเมนู";
+"Rebind it later in Settings → Hotkey." = "เปลี่ยนปุ่มลัดได้ภายหลังที่ การตั้งค่า → ปุ่มลัด";
+"Almost there" = "ใกล้เสร็จแล้ว";
+"You're all set" = "พร้อมใช้งานแล้ว";
+"Two quick permissions so Cutling can work the way you'd expect. You can change either later in Settings." = "ตั้งค่าสิทธิ์อย่างรวดเร็ว 2 ข้อ เพื่อให้ คัตลิง ทำงานได้อย่างที่คุณคาดหวัง คุณสามารถเปลี่ยนทั้งสองข้อได้ภายหลังในการตั้งค่า";
+"Launch at login" = "เปิดเมื่อเข้าสู่ระบบ";
+"Open Cutling automatically when you sign in." = "เปิด คัตลิง โดยอัตโนมัติเมื่อคุณลงชื่อเข้าใช้";
+"Accessibility access" = "สิทธิ์การช่วยการเข้าถึง";
+"Granted. Cutling can paste directly into other apps." = "ได้รับอนุญาตแล้ว คัตลิง สามารถวางลงในแอปอื่นได้โดยตรง";
+"Lets Cutling paste a cutling straight into the app you were using." = "ให้ คัตลิง วาง คัตลิง ลงในแอปที่คุณกำลังใช้อยู่ได้โดยตรง";
+"Grant" = "อนุญาต";
+"You can skip Accessibility and grant it later from Settings → Paste." = "คุณสามารถข้ามการช่วยการเข้าถึงและอนุญาตภายหลังได้ที่ การตั้งค่า → วาง";

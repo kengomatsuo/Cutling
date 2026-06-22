@@ -19,6 +19,7 @@ import SwiftUI
 /// the user opens the menu (any first donation invalidates it).
 struct MoreMenuTip: Tip {
     @Parameter static var cutlingCount: Int = 0
+    @Parameter static var setupComplete: Bool = false
     static let opened = Event(id: "moreMenuOpened")
 
     var title: Text { Text("More options") }
@@ -28,8 +29,9 @@ struct MoreMenuTip: Tip {
     var image: Image? { Image(systemName: "ellipsis.circle") }
 
     var rules: [Rule] {
+        #Rule(Self.$setupComplete) { $0 == true }
         #Rule(Self.$cutlingCount) { $0 >= 5 }
-        #Rule(Self.opened) { $0.donations.isEmpty }
+        #Rule(Self.opened) { $0.donations.count == 0 }
     }
     var options: [Option] { MaxDisplayCount(1) }
 }
@@ -41,6 +43,7 @@ struct MoreMenuTip: Tip {
 struct LongPressCardTip: Tip {
     @Parameter static var cutlingCount: Int = 0
     @Parameter static var hasOpenedContextMenu: Bool = false
+    @Parameter static var setupComplete: Bool = false
 
     var title: Text { Text("Long-press a cutling") }
     var message: Text? {
@@ -49,6 +52,7 @@ struct LongPressCardTip: Tip {
     var image: Image? { Image(systemName: "hand.tap") }
 
     var rules: [Rule] {
+        #Rule(Self.$setupComplete) { $0 == true }
         #Rule(Self.$cutlingCount) { $0 >= 3 }
         #Rule(Self.$hasOpenedContextMenu) { $0 == false }
     }
@@ -60,6 +64,7 @@ struct LongPressCardTip: Tip {
 /// time and disappears the moment they leave the mode or perform a drag.
 struct DragToSelectTip: Tip {
     @Parameter static var isSelecting: Bool = false
+    @Parameter static var setupComplete: Bool = false
 
     var title: Text { Text("Drag to select") }
     var message: Text? {
@@ -68,6 +73,7 @@ struct DragToSelectTip: Tip {
     var image: Image? { Image(systemName: "hand.draw") }
 
     var rules: [Rule] {
+        #Rule(Self.$setupComplete) { $0 == true }
         #Rule(Self.$isSelecting) { $0 == true }
     }
     var options: [Option] { MaxDisplayCount(1) }
@@ -80,6 +86,7 @@ struct DragToSelectTip: Tip {
 /// owns at least one snippet that the detector has tagged.
 struct InputTypeMatchTip: Tip {
     @Parameter static var hasTaggedCutling: Bool = false
+    @Parameter static var setupComplete: Bool = false
 
     var title: Text { Text("Smart field matching") }
     var message: Text? {
@@ -88,6 +95,7 @@ struct InputTypeMatchTip: Tip {
     var image: Image? { Image(systemName: "wand.and.stars") }
 
     var rules: [Rule] {
+        #Rule(Self.$setupComplete) { $0 == true }
         #Rule(Self.$hasTaggedCutling) { $0 == true }
     }
     var options: [Option] { MaxDisplayCount(1) }

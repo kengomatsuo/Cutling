@@ -339,3 +339,23 @@
 "Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "剪切片段会识别电子邮件、URL、电话号码和地址输入框，并将匹配的片段显示在键盘顶部。";
 "Create a new cutling" = "新建剪切片段";
 "Save text or image snippets you'll reuse from any app." = "保存可在任何应用中重复使用的文本或图片片段。";
+
+/* MARK: - Welcome Window (macOS first launch) */
+"Welcome to Cutling" = "欢迎使用剪切片段";
+"Your clipboard, organised." = "井井有条的剪贴板。";
+"Save the snippets, images, and links you reuse. Capture everything you copy. Paste anywhere with one shortcut." = "保存你常用的片段、图片和链接。每次复制都会被记录下来，只需一个快捷键即可粘贴到任何位置。";
+"Look up. Cutling lives in your menu bar" = "请看屏幕顶部，剪切片段就在菜单栏中";
+"The clipboard icon at the top of your screen opens Cutling any time. Click it to see your saved cutlings and recent clipboard history." = "屏幕顶部的剪贴板图标可随时打开剪切片段。点击即可查看已保存的剪切片段和最近的剪贴板历史。";
+"Summon Cutling from anywhere" = "随时随地呼出剪切片段";
+"Press ⌘⇧V from any app to open a floating picker at your cursor. Pick a cutling and it's ready to paste, no menu bar trip required." = "在任意 App 中按下 ⌘⇧V，即可在光标处打开浮动选择器。选中一个剪切片段后即可立即粘贴，无需前往菜单栏。";
+"Rebind it later in Settings → Hotkey." = "你可以稍后在「设置 → 快捷键」中重新绑定。";
+"Almost there" = "马上就好";
+"You're all set" = "全部就绪";
+"Two quick permissions so Cutling can work the way you'd expect. You can change either later in Settings." = "只需两个简单的权限，剪切片段就能如你所愿地工作。两者都可以稍后在设置中更改。";
+"Launch at login" = "登录时启动";
+"Open Cutling automatically when you sign in." = "登录时自动打开剪切片段。";
+"Accessibility access" = "辅助功能权限";
+"Granted. Cutling can paste directly into other apps." = "已授予。剪切片段可以直接粘贴到其他 App 中。";
+"Lets Cutling paste a cutling straight into the app you were using." = "让剪切片段可以直接将内容粘贴到你正在使用的 App 中。";
+"Grant" = "授予权限";
+"You can skip Accessibility and grant it later from Settings → Paste." = "你可以跳过辅助功能，稍后在「设置 → 粘贴」中授予。";

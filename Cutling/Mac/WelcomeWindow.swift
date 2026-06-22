@@ -289,68 +289,159 @@ private struct KeyCap: View {
     }
 }
 
-// MARK: - Step 3: Accessibility
+// MARK: - Step 3: Permissions (launch at login + accessibility)
 
 private struct StepAccessibility: View {
     @State private var isTrusted: Bool = PasteService.shared.isTrusted
     @State private var pollTimer: Timer?
+    @State private var launchAtLogin: Bool = LaunchAtLoginService.shared.isEnabled
+    @State private var didAutoPromptAX = false
+    @State private var didAutoEnableLogin = false
 
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 18) {
             Image(systemName: isTrusted ? "checkmark.shield.fill" : "lock.shield")
-                .font(.system(size: 56, weight: .light))
+                .font(.system(size: 48, weight: .light))
                 .foregroundStyle(isTrusted ? AnyShapeStyle(.green) : AnyShapeStyle(.tint))
                 .contentTransition(.symbolEffect(.replace))
-                .padding(.top, 24)
+                .padding(.top, 16)
 
-            VStack(spacing: 6) {
-                Text(isTrusted ? "You're all set" : "One more thing: Accessibility")
+            VStack(spacing: 4) {
+                Text(isTrusted ? "You're all set" : "Almost there")
                     .font(.title2.bold())
                     .contentTransition(.opacity)
-
-                Group {
-                    if isTrusted {
-                        Text("Cutling has the access it needs. Picking a cutling will paste it straight into whatever app you were using.")
-                            .font(.callout)
-                            .foregroundStyle(.secondary)
-                            .multilineTextAlignment(.center)
-                            .padding(.horizontal, 32)
-                    } else {
-                        VStack(spacing: 6) {
-                            Text("Grant Accessibility so Cutling can paste a cutling directly into the app you were using. Without it, you'll have to press ⌘V yourself after picking.")
-                                .font(.callout)
-                                .foregroundStyle(.secondary)
-                                .multilineTextAlignment(.center)
-                                .padding(.horizontal, 32)
-                            Button("Grant Accessibility Access") {
-                                PasteService.shared.requestTrustIfNeeded()
-                                PasteService.shared.openAccessibilitySettings()
-                            }
-                            .controlSize(.large)
-                            .buttonStyle(.borderedProminent)
-                            .padding(.top, 4)
-                            Text("You can skip this and grant it later from Settings → Paste.")
-                                .font(.caption)
-                                .foregroundStyle(.tertiary)
-                        }
-                    }
-                }
-                .transition(.blurReplace)
+                Text("Two quick permissions so Cutling can work the way you'd expect. You can change either later in Settings.")
+                    .font(.callout)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 32)
             }
+
+            VStack(spacing: 10) {
+                PermissionRow(
+                    icon: "power",
+                    title: "Launch at login",
+                    subtitle: "Open Cutling automatically when you sign in.",
+                    trailing: AnyView(
+                        Toggle("", isOn: $launchAtLogin)
+                            .labelsHidden()
+                            .toggleStyle(.switch)
+                    )
+                )
+                .onChange(of: launchAtLogin) { _, newValue in
+                    _ = LaunchAtLoginService.shared.setEnabled(newValue)
+                    // Read the live status back: SMAppService can refuse
+                    // (unsigned binary, user-denied in Login Items), and
+                    // the toggle should reflect reality.
+                    launchAtLogin = LaunchAtLoginService.shared.isEnabled
+                }
+
+                PermissionRow(
+                    icon: isTrusted ? "checkmark.circle.fill" : "hand.raised.fill",
+                    iconTint: isTrusted ? .green : .accentColor,
+                    title: "Accessibility access",
+                    subtitle: isTrusted
+                        ? "Granted. Cutling can paste directly into other apps."
+                        : "Lets Cutling paste a cutling straight into the app you were using.",
+                    trailing: AnyView(
+                        Group {
+                            if isTrusted {
+                                Image(systemName: "checkmark")
+                                    .font(.system(size: 13, weight: .semibold))
+                                    .foregroundStyle(.green)
+                            } else {
+                                Button("Grant") {
+                                    PasteService.shared.requestTrustIfNeeded()
+                                    PasteService.shared.openAccessibilitySettings()
+                                }
+                                .controlSize(.small)
+                                .buttonStyle(.borderedProminent)
+                            }
+                        }
+                    )
+                )
+            }
+            .padding(.horizontal, 24)
+
+            Text("You can skip Accessibility and grant it later from Settings → Paste.")
+                .font(.caption)
+                .foregroundStyle(.tertiary)
+
             Spacer(minLength: 0)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .animation(.snappy, value: isTrusted)
         .onAppear {
             isTrusted = PasteService.shared.isTrusted
+            // Auto-enable launch at login on first arrival at this step
+            // for fresh installs. SMAppService.register() is silent for
+            // app-scope login items (a system notification appears; no
+            // modal). If registration fails (unsigned, denied), the
+            // toggle reflects the real state.
+            if !didAutoEnableLogin {
+                didAutoEnableLogin = true
+                if !launchAtLogin {
+                    _ = LaunchAtLoginService.shared.setEnabled(true)
+                    launchAtLogin = LaunchAtLoginService.shared.isEnabled
+                }
+            }
+            // Auto-surface the system Accessibility prompt the first
+            // time the user lands here. The OS only shows this dialog
+            // once per launch; the Grant button below covers reruns.
+            if !didAutoPromptAX && !isTrusted {
+                didAutoPromptAX = true
+                _ = PasteService.shared.requestTrustIfNeeded()
+            }
             pollTimer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { _ in
-                Task { @MainActor in isTrusted = PasteService.shared.isTrusted }
+                Task { @MainActor in
+                    isTrusted = PasteService.shared.isTrusted
+                    launchAtLogin = LaunchAtLoginService.shared.isEnabled
+                }
             }
         }
         .onDisappear {
             pollTimer?.invalidate()
             pollTimer = nil
         }
+    }
+}
+
+private struct PermissionRow: View {
+    let icon: String
+    var iconTint: Color = .accentColor
+    let title: String
+    let subtitle: String
+    let trailing: AnyView
+
+    var body: some View {
+        HStack(spacing: 12) {
+            Image(systemName: icon)
+                .font(.system(size: 18, weight: .semibold))
+                .foregroundStyle(iconTint)
+                .frame(width: 28, height: 28)
+                .contentTransition(.symbolEffect(.replace))
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title)
+                    .font(.system(size: 13, weight: .semibold))
+                Text(subtitle)
+                    .font(.system(size: 12))
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            Spacer(minLength: 8)
+            trailing
+        }
+        .padding(.horizontal, 12)
+        .padding(.vertical, 10)
+        .background(
+            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                .fill(.background.tertiary)
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 10, style: .continuous)
+                .stroke(.secondary.opacity(0.2), lineWidth: 0.5)
+        )
     }
 }
 #endif

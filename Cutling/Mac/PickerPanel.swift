@@ -128,6 +128,11 @@ final class CutlingPickerController {
     }
 
     func show() {
+        // If the menu-bar popover is open, dismiss it first so the user
+        // never sees two pickers at the same time. SwiftUI MenuBarExtra
+        // exposes no dismiss API; AppActivationManager does it via the
+        // NSWindow captured in MacPickerView.
+        AppActivationManager.shared.dismissMenuBarPopover()
         previousFrontmostBundleID = NSWorkspace.shared.frontmostApplication?.bundleIdentifier
         let panel = panel ?? makePanel()
         self.panel = panel

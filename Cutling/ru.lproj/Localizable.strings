@@ -339,3 +339,23 @@
 "Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Катлинг распознаёт поля для эл. почты, URL, телефона и адреса и поднимает подходящие фрагменты в верхнюю часть клавиатуры.";
 "Create a new cutling" = "Создать новый Катлинг";
 "Save text or image snippets you'll reuse from any app." = "Сохраняйте фрагменты текста или изображений, которые будете использовать повторно из любого приложения.";
+
+/* MARK: - Welcome Window (macOS first launch) */
+"Welcome to Cutling" = "Добро пожаловать в Катлинг";
+"Your clipboard, organised." = "Ваш буфер обмена в порядке.";
+"Save the snippets, images, and links you reuse. Capture everything you copy. Paste anywhere with one shortcut." = "Сохраняйте фрагменты, изображения и ссылки, которые используете повторно. Захватывайте всё, что копируете. Вставляйте куда угодно одним сочетанием клавиш.";
+"Look up. Cutling lives in your menu bar" = "Посмотрите вверх. Катлинг живёт в строке меню";
+"The clipboard icon at the top of your screen opens Cutling any time. Click it to see your saved cutlings and recent clipboard history." = "Значок буфера обмена в верхней части экрана открывает Катлинг в любой момент. Нажмите на него, чтобы увидеть сохранённые катлинги и недавнюю историю буфера обмена.";
+"Summon Cutling from anywhere" = "Вызывайте Катлинг откуда угодно";
+"Press ⌘⇧V from any app to open a floating picker at your cursor. Pick a cutling and it's ready to paste, no menu bar trip required." = "Нажмите ⌘⇧V в любом приложении, чтобы открыть плавающий селектор рядом с курсором. Выберите катлинг и он готов к вставке, без похода в строку меню.";
+"Rebind it later in Settings → Hotkey." = "Сочетание можно изменить позже в Настройки → Сочетание клавиш.";
+"Almost there" = "Почти готово";
+"You're all set" = "Всё готово";
+"Two quick permissions so Cutling can work the way you'd expect. You can change either later in Settings." = "Два быстрых разрешения, чтобы Катлинг работал так, как вы ожидаете. Оба можно изменить позже в Настройках.";
+"Launch at login" = "Запускать при входе";
+"Open Cutling automatically when you sign in." = "Автоматически открывать Катлинг при входе.";
+"Accessibility access" = "Доступ к универсальному доступу";
+"Granted. Cutling can paste directly into other apps." = "Предоставлено. Катлинг может вставлять напрямую в другие приложения.";
+"Lets Cutling paste a cutling straight into the app you were using." = "Позволяет Катлингу вставить катлинг прямо в приложение, которое вы использовали.";
+"Grant" = "Предоставить";
+"You can skip Accessibility and grant it later from Settings → Paste." = "Универсальный доступ можно пропустить и предоставить позже в Настройки → Вставка.";

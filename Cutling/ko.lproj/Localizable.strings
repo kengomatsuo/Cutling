@@ -339,3 +339,23 @@
 "Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "컷링이 이메일, URL, 전화번호, 주소 입력란을 감지하여 일치하는 스니펫을 키보드 상단에 표시합니다.";
 "Create a new cutling" = "새 컷링 만들기";
 "Save text or image snippets you'll reuse from any app." = "어떤 앱에서도 재사용할 수 있는 텍스트 또는 이미지 스니펫을 저장합니다.";
+
+/* MARK: - Welcome Window (macOS first launch) */
+"Welcome to Cutling" = "컷링에 오신 것을 환영합니다";
+"Your clipboard, organised." = "정돈된 클립보드.";
+"Save the snippets, images, and links you reuse. Capture everything you copy. Paste anywhere with one shortcut." = "자주 쓰는 스니펫, 이미지, 링크를 저장하세요. 복사한 모든 항목이 기록되며, 단축키 하나로 어디에나 붙여넣을 수 있습니다.";
+"Look up. Cutling lives in your menu bar" = "위를 보세요. 컷링은 메뉴 막대에 있습니다";
+"The clipboard icon at the top of your screen opens Cutling any time. Click it to see your saved cutlings and recent clipboard history." = "화면 상단의 클립보드 아이콘으로 언제든 컷링을 열 수 있습니다. 클릭하면 저장된 컷링과 최근 클립보드 기록을 볼 수 있습니다.";
+"Summon Cutling from anywhere" = "어디서나 컷링 불러오기";
+"Press ⌘⇧V from any app to open a floating picker at your cursor. Pick a cutling and it's ready to paste, no menu bar trip required." = "어떤 앱에서든 ⌘⇧V를 누르면 커서 위치에 플로팅 피커가 열립니다. 컷링을 선택하면 바로 붙여넣을 수 있어 메뉴 막대로 갈 필요가 없습니다.";
+"Rebind it later in Settings → Hotkey." = "설정 → 단축키에서 나중에 변경할 수 있습니다.";
+"Almost there" = "거의 다 됐어요";
+"You're all set" = "모든 준비가 끝났습니다";
+"Two quick permissions so Cutling can work the way you'd expect. You can change either later in Settings." = "컷링이 기대대로 작동하도록 두 가지 권한만 빠르게 설정하세요. 둘 다 나중에 설정에서 변경할 수 있습니다.";
+"Launch at login" = "로그인 시 실행";
+"Open Cutling automatically when you sign in." = "로그인할 때 컷링을 자동으로 엽니다.";
+"Accessibility access" = "손쉬운 사용 접근 권한";
+"Granted. Cutling can paste directly into other apps." = "허용됨. 컷링이 다른 앱에 직접 붙여넣을 수 있습니다.";
+"Lets Cutling paste a cutling straight into the app you were using." = "컷링이 사용 중이던 앱에 컷링을 바로 붙여넣을 수 있게 합니다.";
+"Grant" = "허용";
+"You can skip Accessibility and grant it later from Settings → Paste." = "손쉬운 사용은 건너뛰고 나중에 설정 → 붙여넣기에서 허용할 수 있습니다.";

@@ -172,19 +172,21 @@ struct CutlingApp: App {
                     syncPreferencesToAppGroup()
                     SpotlightIndexer.shared.reindexAll(from: store)
                     let previousVersion = lastVersionOpened
+                    #if os(macOS)
                     lastVersionOpened = currentAppVersion
-                    #if os(iOS)
-                    #if DEBUG
-                    if !ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE"),
-                       !hasCompletedSetup || keyboardNeedsSetup {
-                        showOnboarding = true
-                    }
-                    #else
-                    if !hasCompletedSetup || keyboardNeedsSetup {
-                        showOnboarding = true
-                    }
                     #endif
-                    evaluateWhatsNew(previousVersion: previousVersion)
+                    #if os(iOS)
+                    let willShowOnboarding: Bool = {
+                        #if DEBUG
+                        if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") { return false }
+                        #endif
+                        return !hasCompletedSetup || keyboardNeedsSetup
+                    }()
+                    if willShowOnboarding {
+                        showOnboarding = true
+                    }
+                    evaluateWhatsNew(previousVersion: previousVersion, willShowOnboarding: willShowOnboarding)
+                    syncTipSetupParameters()
                     #endif
                 }
                 .onChange(of: iCloudSyncEnabled) { _, enabled in
@@ -239,6 +241,7 @@ struct CutlingApp: App {
                         #if os(iOS)
                         handlePendingShortcut()
                         handlePendingControlAction()
+                        syncTipSetupParameters()
                         #endif
                     }
                     #if os(iOS)
@@ -249,6 +252,9 @@ struct CutlingApp: App {
                     #endif
                 }
                 #if os(iOS)
+                .onChange(of: hasCompletedSetup) { _, _ in
+                    syncTipSetupParameters()
+                }
                 .sheet(isPresented: $showOnboarding) {
                     KeyboardSetupView()
                 }
@@ -449,9 +455,16 @@ struct CutlingApp: App {
     /// `whatsNewVersion` threshold. Brand-new installers see the full
     /// onboarding instead and have `lastWhatsNewVersionSeen` advanced silently
     /// so they never get retroactively flagged.
-    private func evaluateWhatsNew(previousVersion: String) {
+    ///
+    /// `lastVersionOpened` is advanced *here* (not on `.onAppear`) so a
+    /// deferral leaves it untouched: the next launch retries with the same
+    /// `previousVersion` instead of silently consuming the upgrade window.
+    private func evaluateWhatsNew(previousVersion: String, willShowOnboarding: Bool) {
         #if DEBUG
-        if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") { return }
+        if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") {
+            lastVersionOpened = currentAppVersion
+            return
+        }
         #endif
 
         let target = AppVersion(whatsNewVersion)
@@ -462,24 +475,38 @@ struct CutlingApp: App {
             if AppVersion(lastWhatsNewVersionSeen) < target {
                 lastWhatsNewVersionSeen = whatsNewVersion
             }
+            lastVersionOpened = currentAppVersion
             return
         }
 
         // Already seen this release's news (or a later one).
-        guard AppVersion(lastWhatsNewVersionSeen) < target else { return }
+        guard AppVersion(lastWhatsNewVersionSeen) < target else {
+            lastVersionOpened = currentAppVersion
+            return
+        }
 
         // User was already on or past this release before this launch
         // (e.g. reinstall after deleting). Treat as caught up.
         guard AppVersion(previousVersion) < target else {
             lastWhatsNewVersionSeen = whatsNewVersion
+            lastVersionOpened = currentAppVersion
             return
         }
 
-        // Defer to onboarding if it will appear — the user is mid-setup,
-        // not a returning power user.
-        guard hasCompletedSetup, !keyboardNeedsSetup else { return }
+        // Onboarding wins the single sheet slot. Leave `lastVersionOpened`
+        // unchanged so the next launch retries What's New.
+        if willShowOnboarding { return }
 
         showWhatsNew = true
+        lastVersionOpened = currentAppVersion
+    }
+
+    private func syncTipSetupParameters() {
+        let complete = hasCompletedSetup && !keyboardNeedsSetup
+        MoreMenuTip.setupComplete = complete
+        LongPressCardTip.setupComplete = complete
+        DragToSelectTip.setupComplete = complete
+        InputTypeMatchTip.setupComplete = complete
     }
     #endif
 

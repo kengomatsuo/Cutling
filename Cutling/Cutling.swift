@@ -180,6 +180,7 @@ struct NewCutlingDraft: Identifiable, Equatable {
     var color: String? = nil
     var inputTypeTriggers: [String]? = nil
     var expiresAt: Date? = nil
+    var wasTruncated: Bool = false
 }
 
 // MARK: - Cutling Drag & Drop Payload

@@ -337,3 +337,23 @@
 "Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "കട്ട്‌ലിംഗ് ഇമെയിൽ, URL, ഫോൺ, വിലാസ ഫീൽഡുകൾ തിരിച്ചറിയുന്നു, പിന്നീട് പൊരുത്തപ്പെടുന്ന സ്‌നിപ്പെറ്റുകൾ കീബോർഡിന്റെ മുകളിലേക്ക് കൊണ്ടുവരുന്നു.";
 "Create a new cutling" = "പുതിയ കട്ട്‌ലിംഗ് സൃഷ്ടിക്കുക";
 "Save text or image snippets you'll reuse from any app." = "ഏതെങ്കിലും ആപ്പിൽ വീണ്ടും ഉപയോഗിക്കാവുന്ന ടെക്സ്റ്റ് അല്ലെങ്കിൽ ഇമേജ് ഭാഗങ്ങൾ സംരക്ഷിക്കുക.";
+
+/* MARK: - Welcome Window (macOS first launch) */
+"Welcome to Cutling" = "കട്ട്‌ലിംഗിലേക്ക് സ്വാഗതം";
+"Your clipboard, organised." = "നിങ്ങളുടെ ക്ലിപ്പ്ബോർഡ്, ചിട്ടയിൽ.";
+"Save the snippets, images, and links you reuse. Capture everything you copy. Paste anywhere with one shortcut." = "നിങ്ങൾ വീണ്ടും ഉപയോഗിക്കുന്ന സ്നിപ്പറ്റുകൾ, ചിത്രങ്ങൾ, ലിങ്കുകൾ എന്നിവ സേവ് ചെയ്യുക. നിങ്ങൾ പകർത്തുന്നതെല്ലാം പിടിച്ചെടുക്കുക. ഒരു ഷോർട്ട്കട്ടിലൂടെ എവിടെയും പേസ്റ്റ് ചെയ്യുക.";
+"Look up. Cutling lives in your menu bar" = "മുകളിലേക്ക് നോക്കൂ. കട്ട്‌ലിംഗ് നിങ്ങളുടെ മെനു ബാറിലുണ്ട്";
+"The clipboard icon at the top of your screen opens Cutling any time. Click it to see your saved cutlings and recent clipboard history." = "നിങ്ങളുടെ സ്ക്രീനിന്റെ മുകളിലുള്ള ക്ലിപ്പ്ബോർഡ് ഐക്കൺ എപ്പോൾ വേണമെങ്കിലും കട്ട്‌ലിംഗ് തുറക്കും. നിങ്ങൾ സേവ് ചെയ്ത കട്ട്‌ലിംഗുകളും അടുത്ത ക്ലിപ്പ്ബോർഡ് ചരിത്രവും കാണാൻ അതിൽ ക്ലിക്ക് ചെയ്യുക.";
+"Summon Cutling from anywhere" = "എവിടെ നിന്നും കട്ട്‌ലിംഗിനെ വിളിക്കൂ";
+"Press ⌘⇧V from any app to open a floating picker at your cursor. Pick a cutling and it's ready to paste, no menu bar trip required." = "ഏതെങ്കിലും ആപ്പിൽ നിന്ന് ⌘⇧V അമർത്തുക, നിങ്ങളുടെ കഴ്സറിൽ ഒരു ഫ്ലോട്ടിംഗ് പിക്കർ തുറക്കും. ഒരു കട്ട്‌ലിംഗ് തിരഞ്ഞെടുക്കുക, അത് പേസ്റ്റ് ചെയ്യാൻ തയ്യാർ, മെനു ബാറിലേക്ക് പോകേണ്ട ആവശ്യമില്ല.";
+"Rebind it later in Settings → Hotkey." = "പിന്നീട് ക്രമീകരണങ്ങൾ → ഹോട്ട്കീയിൽ ഇത് മാറ്റുക.";
+"Almost there" = "ഏതാണ്ട് പൂർത്തിയായി";
+"You're all set" = "എല്ലാം തയ്യാർ";
+"Two quick permissions so Cutling can work the way you'd expect. You can change either later in Settings." = "നിങ്ങൾ പ്രതീക്ഷിക്കുന്ന രീതിയിൽ കട്ട്‌ലിംഗ് പ്രവർത്തിക്കാൻ രണ്ട് വേഗത്തിലുള്ള അനുമതികൾ. പിന്നീട് ക്രമീകരണങ്ങളിൽ രണ്ടും മാറ്റാം.";
+"Launch at login" = "ലോഗിൻ സമയത്ത് തുടങ്ങുക";
+"Open Cutling automatically when you sign in." = "നിങ്ങൾ സൈൻ ഇൻ ചെയ്യുമ്പോൾ കട്ട്‌ലിംഗ് സ്വയം തുറക്കും.";
+"Accessibility access" = "ആക്സസിബിലിറ്റി ആക്സസ്";
+"Granted. Cutling can paste directly into other apps." = "അനുവദിച്ചു. കട്ട്‌ലിംഗിന് നേരിട്ട് മറ്റ് ആപ്പുകളിലേക്ക് പേസ്റ്റ് ചെയ്യാം.";
+"Lets Cutling paste a cutling straight into the app you were using." = "നിങ്ങൾ ഉപയോഗിച്ചുകൊണ്ടിരുന്ന ആപ്പിലേക്ക് നേരിട്ട് ഒരു കട്ട്‌ലിംഗ് പേസ്റ്റ് ചെയ്യാൻ കട്ട്‌ലിംഗിനെ അനുവദിക്കുന്നു.";
+"Grant" = "അനുവദിക്കുക";
+"You can skip Accessibility and grant it later from Settings → Paste." = "നിങ്ങൾക്ക് ആക്സസിബിലിറ്റി ഒഴിവാക്കാം, പിന്നീട് ക്രമീകരണങ്ങൾ → പേസ്റ്റ് എന്നതിൽ നിന്ന് അനുവദിക്കാം.";

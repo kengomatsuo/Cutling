@@ -42,6 +42,7 @@ struct TextDetailView: View {
     @State private var userSetInputType: Bool
     @State private var userDidPickIcon = false
     @State private var sensitiveContentTypes: Set<SensitiveContentType> = []
+    @State private var wasTruncated: Bool
     @AppStorage("autoDetectInputTypes") private var autoDetectInputTypes = true
     @State private var undoHandler = UndoHandler()
 
@@ -53,6 +54,7 @@ struct TextDetailView: View {
         initialColor: String? = nil,
         initialTriggers: [String] = [],
         initialExpiresAt: Date? = nil,
+        initialWasTruncated: Bool = false,
         presentedAsSheet: Bool = true
     ) {
         self.existingItem = item
@@ -76,6 +78,7 @@ struct TextDetailView: View {
         // Also treat as user-chosen if an explicit initial icon was supplied
         // (e.g. dropped from another cutling) so auto-detect doesn't override it.
         _userDidPickIcon = State(initialValue: item != nil || initialIcon != nil)
+        _wasTruncated = State(initialValue: initialWasTruncated)
     }
 
     var isEditing: Bool { existingItem != nil }
@@ -305,6 +308,9 @@ struct TextDetailView: View {
                         if newValue.count > CutlingStore.maxTextLength {
                             value = String(newValue.prefix(CutlingStore.maxTextLength))
                         }
+                        if wasTruncated && newValue != oldValue {
+                            wasTruncated = false
+                        }
                         let isLargeChange = abs(newValue.count - oldValue.count) > 1
                         if isPasting || isLargeChange {
                             runAutoDetectNow()
@@ -328,9 +334,18 @@ struct TextDetailView: View {
             } header: {
                 Text("Text")
             } footer: {
-                Text("\(value.count) / \(CutlingStore.maxTextLength)")
-                    .foregroundStyle(value.count > CutlingStore.maxTextLength - 500 ? .orange : .secondary)
-                    .font(.caption)
+                VStack(alignment: .leading, spacing: 4) {
+                    if wasTruncated {
+                        HStack(spacing: 4) {
+                            Image(systemName: "scissors")
+                            Text("Trimmed to fit \(CutlingStore.maxTextLength) characters")
+                        }
+                        .foregroundStyle(.orange)
+                    }
+                    Text("\(value.count) / \(CutlingStore.maxTextLength)")
+                        .foregroundStyle(value.count > CutlingStore.maxTextLength - 500 ? .orange : .secondary)
+                }
+                .font(.caption)
             }
             InputTypePickerSection(selectedTriggers: undoHandler.binding($inputTypeTriggers, actionName: String(localized: "Change Input Types")), userSetInputType: $userSetInputType)
             ExpirationPickerSection(autoDeleteEnabled: undoHandler.binding($autoDeleteEnabled, actionName: String(localized: "Change Expiration")), deleteAt: undoHandler.binding($deleteAt, actionName: String(localized: "Change Expiration")))

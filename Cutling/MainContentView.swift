@@ -343,6 +343,7 @@ struct MainContentView: View {
                                     initialColor: draft.color,
                                     initialTriggers: draft.inputTypeTriggers ?? [],
                                     initialExpiresAt: draft.expiresAt,
+                                    initialWasTruncated: draft.wasTruncated,
                                     presentedAsSheet: true
                                 )
                             case .image:
@@ -1344,9 +1345,9 @@ struct MainContentView: View {
                 icon: cutling.icon,
                 color: cutling.color,
                 inputTypeTriggers: cutling.inputTypeTriggers,
-                expiresAt: cutling.expiresAt
+                expiresAt: cutling.expiresAt,
+                wasTruncated: wasTruncated
             ))
-            if wasTruncated { showTruncatedNotice() }
         case .image:
             guard let data = imageData else {
                 dropNotice = DropNotice(
@@ -1423,9 +1424,9 @@ struct MainContentView: View {
         }
         activeSheet = .newCutling(NewCutlingDraft(
             kind: .text,
-            text: finalText
+            text: finalText,
+            wasTruncated: wasTruncated
         ))
-        if wasTruncated { showTruncatedNotice() }
     }
 
     private func truncatedForCutling(_ text: String) -> (String, Bool) {
@@ -1433,14 +1434,6 @@ struct MainContentView: View {
             return (String(text.prefix(CutlingStore.maxTextLength)), true)
         }
         return (text, false)
-    }
-
-    @MainActor
-    private func showTruncatedNotice() {
-        dropNotice = DropNotice(
-            title: "Text Truncated",
-            message: String(localized: "Cutlings hold up to \(CutlingStore.maxTextLength) characters. The extra text was trimmed.")
-        )
     }
 
     @MainActor
