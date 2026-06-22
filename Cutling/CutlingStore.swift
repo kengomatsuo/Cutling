@@ -46,7 +46,7 @@ extension CutlingStore {
     nonisolated static let maxTotalCutlings = 125
 
     /// Maximum number of clipboard history entries to retain (FIFO, device-local).
-    nonisolated static let maxHistoryCutlings = 200
+    nonisolated static let maxHistoryCutlings = 50
     
     /// Check if a text value exceeds the character limit.
     func isTextTooLong(_ text: String) -> Bool {
@@ -179,14 +179,32 @@ class CutlingStore: ObservableObject {
         if data != lastLoadedData {
             lastLoadedData = data
             if let decoded = try? JSONDecoder().decode([Cutling].self, from: data) {
-                self.cutlings = decoded
+                let deduped = Self.deduplicatedByID(decoded)
+                self.cutlings = deduped
                 self.purgeExpired()
+                if deduped.count != decoded.count {
+                    save()
+                }
                 print("🔄 Reloaded \(self.cutlings.count) cutlings from shared storage")
                 #if MAIN_APP
                 SpotlightIndexer.shared.reindexAll(from: self)
                 #endif
             }
         }
+    }
+
+    /// Drops entries that share an `id` with an earlier entry, keeping the
+    /// first occurrence. Persisted duplicates can sneak in via races between
+    /// CloudKit merges and local writes; once present they cause SwiftUI
+    /// `LazyVStack` to reserve a slot for the duplicate that renders empty.
+    private static func deduplicatedByID(_ list: [Cutling]) -> [Cutling] {
+        var seen = Set<UUID>()
+        var result: [Cutling] = []
+        result.reserveCapacity(list.count)
+        for c in list where seen.insert(c.id).inserted {
+            result.append(c)
+        }
+        return result
     }
 
     // MARK: - CRUD
@@ -199,8 +217,12 @@ class CutlingStore: ObservableObject {
             return 
         }
         lastLoadedData = data
-        cutlings = decoded
+        let deduped = Self.deduplicatedByID(decoded)
+        cutlings = deduped
         purgeExpired()
+        if deduped.count != decoded.count {
+            save()
+        }
     }
 
     /// Removes expired cutlings, moving them to recently deleted in the main app.
@@ -806,7 +828,10 @@ class CutlingStore: ObservableObject {
 
     /// Append an image item captured from the system pasteboard. Dedupes against
     /// the most recent image by exact data equality.
-    func appendHistoryImage(_ data: Data) {
+    /// `sourceFilename` carries the original file name when the user copied an
+    /// image file from Finder; nil for raw clipboard captures (screenshots),
+    /// in which case a macOS-style date name is synthesised.
+    func appendHistoryImage(_ data: Data, sourceFilename: String? = nil) {
         guard !data.isEmpty else { return }
         if let last = historyCutlings.first, last.kind == .image,
            let filename = last.imageFilename,
@@ -815,9 +840,10 @@ class CutlingStore: ObservableObject {
         }
         let id = UUID()
         guard let filename = saveImageData(data, for: id) else { return }
+        let displayName = sourceFilename ?? Self.synthesizedScreenshotName(for: Date())
         var cutling = Cutling(
             id: id,
-            name: String(localized: "Image"),
+            name: displayName,
             value: "",
             icon: "photo",
             kind: .image
@@ -826,6 +852,16 @@ class CutlingStore: ObservableObject {
         historyCutlings.insert(cutling, at: 0)
         enforceHistoryCap()
         saveHistory()
+    }
+
+    /// Mirrors the macOS desktop screenshot naming convention
+    /// (`Screenshot 2026-06-16 at 00.34.16`). POSIX locale keeps the date
+    /// portion stable across system languages.
+    private static func synthesizedScreenshotName(for date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "yyyy-MM-dd 'at' HH.mm.ss"
+        return "\(String(localized: "Screenshot")) \(formatter.string(from: date))"
     }
 
     private func enforceHistoryCap() {

@@ -395,6 +395,7 @@ struct TextDetailView: View {
             updated.inputTypeTriggers = inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
             updated.userSetInputType = userSetInputType
             store.update(updated)
+            postMacSaveNotification()
             dismiss()
         } else {
             let canAdd = store.canAdd(.text)
@@ -410,12 +411,19 @@ struct TextDetailView: View {
                         userSetInputType: userSetInputType
                     )
                 )
+                postMacSaveNotification()
                 dismiss()
             } else {
                 limitAlertMessage = canAdd.reason ?? String(localized: "Cannot add more text cutlings.")
                 showLimitAlert = true
             }
         }
+    }
+
+    private func postMacSaveNotification() {
+        #if os(macOS)
+        NotificationCenter.default.post(name: .cutlingDidSaveFromMacWindow, object: nil)
+        #endif
     }
 
     private func autoSave() {

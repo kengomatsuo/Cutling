@@ -211,6 +211,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Aktifkan Sinkronisasi iCloud untuk menjaga cutling Anda tetap terbaru di setiap perangkat yang masuk ke Apple Account Anda.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Ketuk kolom teks di atas, lalu gunakan tombol 🌐 globe untuk beralih ke **Cutling**. Ini memverifikasi bahwa semuanya telah diatur dengan benar.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "Yang Baru di Cutling";
+"Cutling for Mac" = "Cutling untuk Mac";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "Cutling kini berjalan di Mac Anda dengan pintasan tombol global dan pemilih di bilah menu.";
+"Siri & Shortcuts" = "Siri & Pintasan";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "Minta Siri untuk menambah, menyalin, atau mencari cutling Anda tanpa menggunakan tangan.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Buka Cutling di aplikasi **Pengaturan** perangkat Anda.";
 "Tap **Keyboards** and enable **Cutling**." = "Ketuk **Papan Ketik** dan aktifkan **Cutling**.";
@@ -325,3 +332,23 @@
 "Nothing to save." = "Tidak ada yang disimpan.";
 "That doesn't look like an image." = "Itu tampaknya bukan gambar.";
 "Failed to save image." = "Gagal menyimpan gambar.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "Cutling tersimpan";
+"Your pinned snippets live here, ready to copy with one click." = "Snippet yang kamu pin ada di sini, siap disalin dengan sekali klik.";
+"Recent clipboard" = "Papan klip terbaru";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Semua yang kamu salin akan muncul di sini. Klik kanan baris mana pun untuk menyimpannya sebagai cutling.";
+"Wipe the list" = "Bersihkan daftar";
+"Empties your recent clipboard. Saved cutlings stay put." = "Mengosongkan papan klip terbaru. Cutling tersimpan tetap aman.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Ubah pintasan tombol, atur penangkapan papan klip, dan kelola sinkronisasi iCloud.";
+"Undo deletes" = "Batalkan penghapusan";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Cutling yang dihapus tinggal di sini selama 30 hari. Pulihkan atau kosongkan selamanya.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Ketuk di sini untuk memilih beberapa cutling, mengurutkannya, atau memulihkan yang baru dihapus.";
+"Long-press a cutling" = "Tekan lama sebuah cutling";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Tahan kartu mana pun untuk aksi cepat: salin, edit, bagikan, atau hapus.";
+"Drag to select" = "Seret untuk memilih";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Geser melintasi kartu untuk memilih rentang. Geser balik untuk membatalkan pilihan.";
+"Smart field matching" = "Pencocokan bidang pintar";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling mengenali bidang email, URL, telepon, dan alamat, lalu menampilkan snippet yang cocok di bagian atas keyboard.";
+"Create a new cutling" = "Buat Cutling baru";
+"Save text or image snippets you'll reuse from any app." = "Simpan potongan teks atau gambar yang mau kamu pakai lagi di aplikasi mana pun.";

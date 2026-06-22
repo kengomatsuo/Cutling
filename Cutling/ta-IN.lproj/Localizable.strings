@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "உங்கள் Apple Account-இல் உள்நுழைந்த ஒவ்வொரு சாதனத்திலும் கட்லிங்களைப் புதுப்பித்த நிலையில் வைக்க iCloud ஒத்திசைவை இயக்கவும்.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "மேலே உள்ள உரை புலத்தை தட்டவும், பின்னர் **கட்லிங்** க்கு மாற 🌐 குளோப் விசையைப் பயன்படுத்தவும். இது எல்லாம் சரியாக அமைக்கப்பட்டுள்ளதை உறுதிப்படுத்துகிறது.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "கட்லிங்கில் என்ன புதிது";
+"Cutling for Mac" = "Mac-க்கான கட்லிங்கு";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "கட்லிங்கு இப்போது உங்கள் Mac-இல் குளோபல் ஹாட்கீ மற்றும் மெனு பார் பிக்கருடன் இயங்குகிறது.";
+"Siri & Shortcuts" = "Siri மற்றும் ஷார்ட்கட்கள்";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "கையை பயன்படுத்தாமல் உங்கள் கட்லிங்குகளை சேர்க்க, நகலெடுக்க அல்லது தேட Siri-யிடம் கேளுங்கள்.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "உங்கள் சாதனத்தின் **அமைப்புகள்** ஆப்பில் கட்லிங் ஐ திறக்கவும்.";
 "Tap **Keyboards** and enable **Cutling**." = "**விசைப்பலகைகள்** தட்டி **கட்லிங்** ஐ இயக்கவும்.";
@@ -310,3 +317,23 @@
 "Nothing to save." = "சேமிக்க எதுவும் இல்லை.";
 "That doesn't look like an image." = "அது படமாகத் தெரியவில்லை.";
 "Failed to save image." = "படத்தைச் சேமிக்க முடியவில்லை.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "சேமிக்கப்பட்ட கட்லிங்குகள்";
+"Your pinned snippets live here, ready to copy with one click." = "உங்கள் பின் செய்யப்பட்ட துணுக்குகள் இங்கே இருக்கின்றன, ஒரே கிளிக்கில் நகலெடுக்கத் தயார்.";
+"Recent clipboard" = "சமீபத்திய கிளிப்போர்டு";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "நீங்கள் நகலெடுக்கும் அனைத்தும் இங்கே வருகின்றன. எந்த வரிசையிலும் வலது-கிளிக் செய்து அதைக் கட்லிங்காகச் சேமிக்கவும்.";
+"Wipe the list" = "பட்டியலை அழி";
+"Empties your recent clipboard. Saved cutlings stay put." = "உங்கள் சமீபத்திய கிளிப்போர்டை காலியாக்கும். சேமிக்கப்பட்ட கட்லிங்குகள் இருக்கும்.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "ஹாட்கீயை மீண்டும் அமைக்கவும், கிளிப்போர்டு கைப்பற்றலை மாற்றவும், மற்றும் iCloud ஒத்திசைவை நிர்வகிக்கவும்.";
+"Undo deletes" = "நீக்கல்களை செயல்தவிர்";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "நீக்கப்பட்ட கட்லிங்குகள் 30 நாட்கள் இங்கே இருக்கும். அவற்றை மீட்டெடுக்கவும் அல்லது நிரந்தரமாக காலியாக்கவும்.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "பல கட்லிங்குகளைத் தேர்ந்தெடுக்க, மறுவரிசைப்படுத்த, அல்லது சமீபத்தில் நீக்கப்பட்டவற்றை மீட்டெடுக்க இங்கே தட்டவும்.";
+"Long-press a cutling" = "ஒரு கட்லிங்கை நீண்ட நேரம் அழுத்தவும்";
+"Hold any card for quick actions: copy, edit, share, or delete." = "விரைவு செயல்களுக்கு எந்த அட்டையையும் பிடித்துக் கொள்ளவும்: நகலெடு, திருத்து, பகிர், அல்லது நீக்கு.";
+"Drag to select" = "தேர்ந்தெடுக்க இழுக்கவும்";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "வரம்பைத் தேர்ந்தெடுக்க அட்டைகள் முழுவதும் ஸ்வைப் செய்யவும். தேர்வை நீக்க அவற்றின் மீது மீண்டும் ஸ்வைப் செய்யவும்.";
+"Smart field matching" = "ஸ்மார்ட் புல பொருத்தம்";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "கட்லிங்கு மின்னஞ்சல், URL, தொலைபேசி மற்றும் முகவரி புலங்களை அடையாளம் காண்கிறது, பின்னர் பொருந்தும் துணுக்குகளை விசைப்பலகையின் மேல் கொண்டு வருகிறது.";
+"Create a new cutling" = "புதிய கட்லிங்கை உருவாக்கு";
+"Save text or image snippets you'll reuse from any app." = "எந்த ஆப்பிலிருந்தும் மீண்டும் பயன்படுத்தக்கூடிய உரை அல்லது படத் துணுக்குகளைச் சேமிக்கவும்.";

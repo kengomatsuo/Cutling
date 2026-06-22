@@ -50,8 +50,15 @@ struct SearchCutlingsIntent: AppIntent {
             .prefix(25)
 
         let entities = matches.map { CutlingAppEntity(id: $0.id, name: $0.name) }
-        let previewItems = matches.map {
-            SearchResultsSnippetView.Item(id: $0.id, name: $0.name, icon: $0.icon, kind: $0.kind)
+        let snippetItems = matches.map { cutling in
+            CutlingSnippetItem(
+                id: cutling.id,
+                name: cutling.name,
+                icon: cutling.icon,
+                kind: cutling.kind,
+                preview: cutling.kind == .image ? "" : cutling.value,
+                entity: CutlingAppEntity(id: cutling.id, name: cutling.name)
+            )
         }
 
         let dialogText = entities.isEmpty
@@ -61,20 +68,15 @@ struct SearchCutlingsIntent: AppIntent {
         return .result(
             value: entities,
             dialog: IntentDialog(stringLiteral: dialogText),
-            view: SearchResultsSnippetView(items: previewItems)
+            view: SearchResultsSnippetView(items: snippetItems)
         )
     }
 }
 
 struct SearchResultsSnippetView: View {
-    struct Item: Identifiable {
-        let id: UUID
-        let name: String
-        let icon: String
-        let kind: CutlingKind
-    }
+    let items: [CutlingSnippetItem]
 
-    let items: [Item]
+    private var visibleItems: ArraySlice<CutlingSnippetItem> { items.prefix(8) }
 
     var body: some View {
         if items.isEmpty {
@@ -92,17 +94,9 @@ struct SearchResultsSnippetView: View {
             .padding()
         } else {
             VStack(alignment: .leading, spacing: 0) {
-                ForEach(items.prefix(8)) { item in
-                    HStack(spacing: 12) {
-                        Image(systemName: item.kind == .image ? "photo" : item.icon)
-                            .frame(width: 22)
-                            .foregroundStyle(.tint)
-                        Text(item.name)
-                            .lineLimit(1)
-                        Spacer(minLength: 0)
-                    }
-                    .padding(.vertical, 8)
-                    if item.id != items.prefix(8).last?.id {
+                ForEach(Array(visibleItems)) { item in
+                    SearchResultRow(item: item)
+                    if item.id != visibleItems.last?.id {
                         Divider()
                     }
                 }
@@ -113,8 +107,45 @@ struct SearchResultsSnippetView: View {
                         .padding(.top, 6)
                 }
             }
-            .padding(.horizontal, 12)
-            .padding(.vertical, 8)
+            .padding()
         }
+    }
+}
+
+private struct SearchResultRow: View {
+    let item: CutlingSnippetItem
+
+    var body: some View {
+        HStack(spacing: 12) {
+            Button(intent: ViewCutlingIntent(target: item.entity)) {
+                HStack(spacing: 12) {
+                    Image(systemName: item.kind == .image ? "photo" : item.icon)
+                        .frame(width: 24)
+                        .foregroundStyle(.tint)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(item.name)
+                            .font(.subheadline.weight(.medium))
+                            .lineLimit(1)
+                            .foregroundStyle(.primary)
+                        if !item.preview.isEmpty {
+                            Text(item.preview)
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                                .lineLimit(1)
+                        }
+                    }
+                    Spacer(minLength: 0)
+                }
+                .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+
+            Button(intent: CopyCutlingIntent(target: item.entity)) {
+                Image(systemName: "doc.on.doc")
+            }
+            .buttonStyle(.bordered)
+            .controlSize(.small)
+        }
+        .padding(.vertical, 8)
     }
 }

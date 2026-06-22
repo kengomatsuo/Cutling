@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "เปิดการซิงค์ iCloud เพื่อให้ คัตลิง ของคุณอัปเดตอยู่เสมอบนทุกอุปกรณ์ที่ลงชื่อเข้าใช้บัญชี Apple ของคุณ";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "แตะช่องข้อความด้านบน จากนั้นใช้ปุ่ม 🌐 ลูกโลกเพื่อสลับไปยัง **คัตลิง** เพื่อยืนยันว่าทุกอย่างตั้งค่าถูกต้อง";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "มีอะไรใหม่ใน คัตลิง";
+"Cutling for Mac" = "คัตลิง สำหรับ Mac";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "คัตลิง ใช้งานได้บน Mac แล้ว พร้อมแป้นพิมพ์ลัดทั่วระบบและตัวเลือกในแถบเมนู";
+"Siri & Shortcuts" = "Siri และคำสั่งลัด";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "ขอให้ Siri เพิ่ม คัดลอก หรือค้นหา คัตลิง ของคุณได้แบบไม่ต้องใช้มือ";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "เปิด คัตลิง ในแอป**การตั้งค่า**ของอุปกรณ์";
 "Tap **Keyboards** and enable **Cutling**." = "แตะ**แป้นพิมพ์**แล้วเปิดใช้งาน **คัตลิง**";
@@ -312,3 +319,23 @@
 "Nothing to save." = "ไม่มีอะไรให้บันทึก";
 "That doesn't look like an image." = "สิ่งนั้นดูเหมือนจะไม่ใช่รูปภาพ";
 "Failed to save image." = "บันทึกรูปภาพไม่สำเร็จ";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "คัตลิง ที่บันทึกไว้";
+"Your pinned snippets live here, ready to copy with one click." = "ข้อความที่คุณปักหมุดอยู่ที่นี่ พร้อมคัดลอกได้ด้วยคลิกเดียว";
+"Recent clipboard" = "คลิปบอร์ดล่าสุด";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "ทุกอย่างที่คุณคัดลอกจะปรากฏที่นี่ คลิกขวาที่แถวใดก็ได้เพื่อบันทึกเป็น คัตลิง";
+"Wipe the list" = "ล้างรายการ";
+"Empties your recent clipboard. Saved cutlings stay put." = "ล้างคลิปบอร์ดล่าสุดของคุณ คัตลิง ที่บันทึกไว้ยังคงอยู่";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "ตั้งค่าปุ่มลัดใหม่ เปิดปิดการจับคลิปบอร์ด และจัดการการซิงค์ iCloud";
+"Undo deletes" = "เลิกทำการลบ";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "คัตลิง ที่ลบจะอยู่ที่นี่เป็นเวลา 30 วัน กู้คืนหรือลบถาวรได้";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "แตะที่นี่เพื่อเลือก คัตลิง หลายรายการ จัดเรียงใหม่ หรือกู้คืนรายการที่เพิ่งลบ";
+"Long-press a cutling" = "กดค้างที่ คัตลิง";
+"Hold any card for quick actions: copy, edit, share, or delete." = "กดค้างที่การ์ดใดก็ได้เพื่อดูการดำเนินการด่วน: คัดลอก แก้ไข แชร์ หรือลบ";
+"Drag to select" = "ลากเพื่อเลือก";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "ปัดข้ามการ์ดเพื่อเลือกช่วง ปัดกลับเพื่อยกเลิกการเลือก";
+"Smart field matching" = "การจับคู่ช่องอัจฉริยะ";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "คัตลิง จะตรวจจับช่องอีเมล URL หมายเลขโทรศัพท์ และที่อยู่ จากนั้นแสดงข้อความที่ตรงกันไว้ด้านบนของคีย์บอร์ด";
+"Create a new cutling" = "สร้าง คัตลิง ใหม่";
+"Save text or image snippets you'll reuse from any app." = "บันทึกข้อความหรือรูปภาพที่คุณจะนำมาใช้ซ้ำจากแอปใดก็ได้";

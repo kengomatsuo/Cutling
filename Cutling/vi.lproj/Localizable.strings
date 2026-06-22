@@ -211,6 +211,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Bật Đồng Bộ iCloud để giữ cho các cutling của bạn luôn được cập nhật trên mọi thiết bị đã đăng nhập Apple Account của bạn.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Chạm vào trường văn bản phía trên, sau đó sử dụng phím 🌐 quả cầu để chuyển sang **Cutling**. Điều này xác nhận mọi thứ đã được thiết lập đúng cách.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "Có Gì Mới Trong Cutling";
+"Cutling for Mac" = "Cutling Dành Cho Mac";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "Cutling giờ đã chạy trên Mac của bạn với phím tắt toàn cục và bộ chọn trên thanh menu.";
+"Siri & Shortcuts" = "Siri & Phím tắt";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "Yêu cầu Siri thêm, sao chép hoặc tìm kiếm các cutling của bạn rảnh tay.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Mở Cutling trong ứng dụng **Cài đặt** trên thiết bị của bạn.";
 "Tap **Keyboards** and enable **Cutling**." = "Chạm vào **Bàn phím** và bật **Cutling**.";
@@ -325,3 +332,23 @@
 "Nothing to save." = "Không có gì để lưu.";
 "That doesn't look like an image." = "Đó dường như không phải là hình ảnh.";
 "Failed to save image." = "Không thể lưu hình ảnh.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "Cutling đã lưu";
+"Your pinned snippets live here, ready to copy with one click." = "Các đoạn đã ghim của bạn nằm ở đây, sẵn sàng sao chép chỉ với một cú nhấp.";
+"Recent clipboard" = "Bộ nhớ tạm gần đây";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Mọi thứ bạn sao chép sẽ xuất hiện ở đây. Nhấp chuột phải vào bất kỳ hàng nào để lưu thành một cutling.";
+"Wipe the list" = "Xóa danh sách";
+"Empties your recent clipboard. Saved cutlings stay put." = "Làm trống bộ nhớ tạm gần đây của bạn. Các cutling đã lưu vẫn còn nguyên.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Đặt lại phím tắt, bật tắt thu nhận bộ nhớ tạm và quản lý đồng bộ iCloud.";
+"Undo deletes" = "Hoàn tác xóa";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Các cutling đã xóa lưu lại đây trong 30 ngày. Khôi phục hoặc xóa hẳn.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Nhấn vào đây để chọn nhiều cutling, sắp xếp lại, hoặc khôi phục các mục vừa xóa.";
+"Long-press a cutling" = "Nhấn giữ một cutling";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Nhấn giữ bất kỳ thẻ nào để truy cập thao tác nhanh: sao chép, sửa, chia sẻ hoặc xóa.";
+"Drag to select" = "Kéo để chọn";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Vuốt qua các thẻ để chọn một dải. Vuốt ngược lại để bỏ chọn.";
+"Smart field matching" = "Khớp trường thông minh";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling phát hiện các trường email, URL, số điện thoại và địa chỉ, rồi đưa các đoạn phù hợp lên đầu bàn phím.";
+"Create a new cutling" = "Tạo Cutling mới";
+"Save text or image snippets you'll reuse from any app." = "Lưu các đoạn văn bản hoặc hình ảnh để dùng lại từ bất kỳ ứng dụng nào.";

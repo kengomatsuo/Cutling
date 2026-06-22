@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "همگام‌سازی iCloud را روشن کنید تا کاتلینگ‌هایتان روی هر دستگاهی که با حساب Apple شما وارد شده، به‌روز بمانند.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "روی فیلد متن بالا ضربه بزنید، سپس از کلید 🌐 کره زمین برای تغییر به **کاتلینگ** استفاده کنید. این تأیید می‌کند که همه چیز به درستی تنظیم شده است.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "تازه‌های کاتلینگ";
+"Cutling for Mac" = "کاتلینگ برای Mac";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "کاتلینگ اکنون روی Mac شما با یک کلید میان‌بر سراسری و انتخابگر در نوار منو اجرا می‌شود.";
+"Siri & Shortcuts" = "Siri و میان‌برها";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "از Siri بخواهید کاتلینگ‌ها را بدون استفاده از دست اضافه کند، کپی کند یا جستجو کند.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "کاتلینگ را در برنامه **تنظیمات** دستگاه خود باز کنید.";
 "Tap **Keyboards** and enable **Cutling**." = "روی **صفحه‌کلیدها** ضربه بزنید و **کاتلینگ** را فعال کنید.";
@@ -312,3 +319,23 @@
 "Nothing to save." = "چیزی برای ذخیره نیست.";
 "That doesn't look like an image." = "این به نظر یک تصویر نمی‌رسد.";
 "Failed to save image." = "ذخیره تصویر ناموفق بود.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "کاتلینگ‌های ذخیره‌شده";
+"Your pinned snippets live here, ready to copy with one click." = "مقتطفات سنجاق‌شده شما اینجا قرار دارند، آماده برای کپی با یک کلیک.";
+"Recent clipboard" = "کلیپ‌بورد اخیر";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "هر چه کپی می‌کنید اینجا می‌آید. روی هر ردیف راست‌کلیک کنید تا به‌عنوان کاتلینگ ذخیره شود.";
+"Wipe the list" = "پاک کردن فهرست";
+"Empties your recent clipboard. Saved cutlings stay put." = "کلیپ‌بورد اخیر شما را خالی می‌کند. کاتلینگ‌های ذخیره‌شده سر جای خود می‌مانند.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "کلید میانبر را دوباره تعیین کنید، ضبط کلیپ‌بورد را تغییر دهید، و همگام‌سازی iCloud را مدیریت کنید.";
+"Undo deletes" = "بازگرداندن حذف‌ها";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "کاتلینگ‌های حذف‌شده تا 30 روز اینجا می‌مانند. آن‌ها را بازیابی کنید یا برای همیشه پاک کنید.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "اینجا را بزنید تا چند کاتلینگ را انتخاب کنید، ترتیب آن‌ها را تغییر دهید، یا موارد اخیراً حذف‌شده را بازیابی کنید.";
+"Long-press a cutling" = "روی یک کاتلینگ نگه دارید";
+"Hold any card for quick actions: copy, edit, share, or delete." = "هر کارتی را نگه دارید برای اقدامات سریع: کپی، ویرایش، اشتراک‌گذاری، یا حذف.";
+"Drag to select" = "برای انتخاب بکشید";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "روی کارت‌ها بکشید تا یک محدوده را انتخاب کنید. روی آن‌ها به عقب بکشید تا انتخاب لغو شود.";
+"Smart field matching" = "تطبیق هوشمند فیلد";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "کاتلینگ فیلدهای ایمیل، آدرس وب، تلفن و نشانی را تشخیص می‌دهد، سپس مقتطفات منطبق را به بالای صفحه‌کلید می‌برد.";
+"Create a new cutling" = "ساخت یک کاتلینگ جدید";
+"Save text or image snippets you'll reuse from any app." = "بخش‌هایی از متن یا تصویر را که از هر اپلیکیشنی دوباره استفاده می‌کنید، ذخیره کنید.";

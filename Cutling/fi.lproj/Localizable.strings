@@ -211,6 +211,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Ota iCloud-synkronointi käyttöön, niin cutlingit pysyvät ajan tasalla kaikilla Apple-tiliisi kirjautuneilla laitteilla.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Napauta yllä olevaa tekstikenttää ja vaihda sitten **Cutling**-näppäimistöön 🌐 maapallonäppäimellä. Tämä varmistaa, että kaikki on asetettu oikein.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "Mitä uutta Cutlingissa";
+"Cutling for Mac" = "Cutling Macille";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "Cutling toimii nyt myös Macilla globaalin pikanäppäimen ja valikkorivin valitsimen avulla.";
+"Siri & Shortcuts" = "Siri ja Komennot";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "Pyydä Siriä lisäämään, kopioimaan tai hakemaan cutlingejasi käsivapaasti.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Avaa Cutling laitteesi **Asetukset**-sovelluksessa.";
 "Tap **Keyboards** and enable **Cutling**." = "Napauta **Näppäimistöt** ja ota **Cutling** käyttöön.";
@@ -325,3 +332,23 @@
 "Nothing to save." = "Ei tallennettavaa.";
 "That doesn't look like an image." = "Tämä ei näytä kuvalta.";
 "Failed to save image." = "Kuvan tallennus epäonnistui.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "Tallennetut Cutlingit";
+"Your pinned snippets live here, ready to copy with one click." = "Kiinnitetyt leikkeesi ovat täällä, valmiina kopioitaviksi yhdellä napsautuksella.";
+"Recent clipboard" = "Viimeisin leikepöytä";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Kaikki kopioimasi päätyy tänne. Napsauta hiiren oikealla painikkeella riviä tallentaaksesi sen Cutlingiksi.";
+"Wipe the list" = "Tyhjennä lista";
+"Empties your recent clipboard. Saved cutlings stay put." = "Tyhjentää viimeisimmän leikepöytäsi. Tallennetut Cutlingit säilyvät.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Vaihda pikanäppäin, kytke leikepöydän tallennus päälle tai pois ja hallinnoi iCloud-synkronointia.";
+"Undo deletes" = "Kumoa poistot";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Poistetut Cutlingit säilyvät täällä 30 päivää. Palauta ne tai tyhjennä lopullisesti.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Napauta tästä valitaksesi useita Cutlingeja, järjestääksesi niitä uudelleen tai palauttaaksesi äskettäin poistettuja.";
+"Long-press a cutling" = "Paina Cutlingia pitkään";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Pidä korttia painettuna pikatoimintoja varten: kopioi, muokkaa, jaa tai poista.";
+"Drag to select" = "Valitse vetämällä";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Pyyhkäise korttien yli valitaksesi alueen. Pyyhkäise takaisin niiden yli poistaaksesi valinnan.";
+"Smart field matching" = "Älykäs kenttätunnistus";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling tunnistaa sähköposti-, URL-, puhelin- ja osoitekentät ja nostaa sopivat leikkeet näppäimistön yläosaan.";
+"Create a new cutling" = "Luo uusi Cutling";
+"Save text or image snippets you'll reuse from any app." = "Tallenna teksti- tai kuvaleikkeitä, joita käytät uudelleen mistä tahansa sovelluksesta.";

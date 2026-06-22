@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "നിങ്ങളുടെ Apple Account-ലേക്ക് സൈൻ ഇൻ ചെയ്ത എല്ലാ ഉപകരണങ്ങളിലും കട്ട്‌ലിംഗുകൾ കാലികമാക്കി നിലനിർത്താൻ iCloud സിൻക് ഓണാക്കുക.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "മുകളിലുള്ള ടെക്സ്റ്റ് ഫീൽഡ് ടാപ്പ് ചെയ്യുക, തുടർന്ന് 🌐 ഗ്ലോബ് കീ ഉപയോഗിച്ച് **കട്ട്‌ലിംഗ്**-ലേക്ക് മാറുക. എല്ലാം ശരിയായി സജ്ജീകരിച്ചിട്ടുണ്ടെന്ന് ഇത് പരിശോധിക്കുന്നു.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "കട്ട്‌ലിംഗിലെ പുതുമകൾ";
+"Cutling for Mac" = "Mac-നുള്ള കട്ട്‌ലിംഗ്";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "കട്ട്‌ലിംഗ് ഇപ്പോൾ നിങ്ങളുടെ Mac-ൽ ഗ്ലോബൽ ഹോട്ട്കീയും മെനു ബാർ പിക്കറുമായി പ്രവർത്തിക്കുന്നു.";
+"Siri & Shortcuts" = "Siri ഉം ഷോർട്ട്കട്ടുകളും";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "കൈ ഉപയോഗിക്കാതെ കട്ട്‌ലിംഗുകൾ ചേർക്കാനോ പകർത്താനോ തിരയാനോ Siri-യോട് ആവശ്യപ്പെടുക.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "നിങ്ങളുടെ ഉപകരണത്തിന്റെ **സെറ്റിംഗ്സ്** ആപ്പിൽ കട്ട്‌ലിംഗ് തുറക്കുക.";
 "Tap **Keyboards** and enable **Cutling**." = "**കീബോർഡുകൾ** ടാപ്പ് ചെയ്ത് **കട്ട്‌ലിംഗ്** പ്രവർത്തനക്ഷമമാക്കുക.";
@@ -310,3 +317,23 @@
 "Nothing to save." = "സേവ് ചെയ്യാൻ ഒന്നുമില്ല.";
 "That doesn't look like an image." = "അത് ഒരു ചിത്രമായി തോന്നുന്നില്ല.";
 "Failed to save image." = "ചിത്രം സേവ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "സേവ് ചെയ്ത കട്ട്‌ലിംഗുകൾ";
+"Your pinned snippets live here, ready to copy with one click." = "നിങ്ങളുടെ പിൻ ചെയ്ത സ്‌നിപ്പെറ്റുകൾ ഇവിടെയുണ്ട്, ഒറ്റ ക്ലിക്കിൽ പകർത്താൻ തയ്യാർ.";
+"Recent clipboard" = "സമീപകാല ക്ലിപ്പ്ബോർഡ്";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "നിങ്ങൾ പകർത്തുന്നതെല്ലാം ഇവിടെ എത്തുന്നു. ഏതെങ്കിലും വരിയിൽ റൈറ്റ്-ക്ലിക്ക് ചെയ്ത് അത് ഒരു കട്ട്‌ലിംഗായി സേവ് ചെയ്യുക.";
+"Wipe the list" = "ലിസ്റ്റ് മായ്ക്കുക";
+"Empties your recent clipboard. Saved cutlings stay put." = "നിങ്ങളുടെ സമീപകാല ക്ലിപ്പ്ബോർഡ് ഒഴിവാക്കുന്നു. സേവ് ചെയ്ത കട്ട്‌ലിംഗുകൾ നിലനിൽക്കും.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "ഹോട്ട്കീ വീണ്ടും ബന്ധിപ്പിക്കുക, ക്ലിപ്പ്ബോർഡ് ക്യാപ്ചർ ടോഗിൾ ചെയ്യുക, iCloud സിങ്ക് നിയന്ത്രിക്കുക.";
+"Undo deletes" = "ഇല്ലാതാക്കലുകൾ പഴയപടിയാക്കുക";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "ഇല്ലാതാക്കിയ കട്ട്‌ലിംഗുകൾ 30 ദിവസം ഇവിടെ ഉണ്ടാകും. അവ പുനഃസ്ഥാപിക്കുക അല്ലെങ്കിൽ ശാശ്വതമായി ഒഴിവാക്കുക.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "ഒന്നിലധികം കട്ട്‌ലിംഗുകൾ തിരഞ്ഞെടുക്കാൻ, അവ പുനക്രമീകരിക്കാൻ, അല്ലെങ്കിൽ അടുത്തിടെ ഇല്ലാതാക്കിയവ പുനഃസ്ഥാപിക്കാൻ ഇവിടെ ടാപ്പ് ചെയ്യുക.";
+"Long-press a cutling" = "ഒരു കട്ട്‌ലിംഗിൽ ദീർഘനേരം അമർത്തുക";
+"Hold any card for quick actions: copy, edit, share, or delete." = "വേഗത്തിലുള്ള പ്രവർത്തനങ്ങൾക്ക് ഏതെങ്കിലും കാർഡ് അമർത്തിപ്പിടിക്കുക: പകർത്തുക, എഡിറ്റ് ചെയ്യുക, പങ്കിടുക, അല്ലെങ്കിൽ ഇല്ലാതാക്കുക.";
+"Drag to select" = "തിരഞ്ഞെടുക്കാൻ വലിച്ചിടുക";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "ഒരു ശ്രേണി തിരഞ്ഞെടുക്കാൻ കാർഡുകളിലൂടെ സ്വൈപ്പ് ചെയ്യുക. തിരഞ്ഞെടുപ്പ് നീക്കം ചെയ്യാൻ അവയ്ക്ക് മുകളിലൂടെ വീണ്ടും സ്വൈപ്പ് ചെയ്യുക.";
+"Smart field matching" = "സ്മാർട്ട് ഫീൽഡ് മാച്ചിംഗ്";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "കട്ട്‌ലിംഗ് ഇമെയിൽ, URL, ഫോൺ, വിലാസ ഫീൽഡുകൾ തിരിച്ചറിയുന്നു, പിന്നീട് പൊരുത്തപ്പെടുന്ന സ്‌നിപ്പെറ്റുകൾ കീബോർഡിന്റെ മുകളിലേക്ക് കൊണ്ടുവരുന്നു.";
+"Create a new cutling" = "പുതിയ കട്ട്‌ലിംഗ് സൃഷ്ടിക്കുക";
+"Save text or image snippets you'll reuse from any app." = "ഏതെങ്കിലും ആപ്പിൽ വീണ്ടും ഉപയോഗിക്കാവുന്ന ടെക്സ്റ്റ് അല്ലെങ്കിൽ ഇമേജ് ഭാഗങ്ങൾ സംരക്ഷിക്കുക.";

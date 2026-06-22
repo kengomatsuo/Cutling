@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "הפעילו את סנכרון iCloud כדי לשמור על הקאטלינגים שלכם מעודכנים בכל מכשיר שמחובר לחשבון Apple שלכם.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "הקישו על שדה הטקסט שלמעלה, ואז השתמשו במקש 🌐 גלובוס כדי לעבור ל-**קאטלינג**. זה מאמת שהכל מוגדר כראוי.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "מה חדש בקאטלינג";
+"Cutling for Mac" = "קאטלינג עבור Mac";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "קאטלינג פועלת עכשיו גם על Mac עם קיצור מקלדת גלובלי ובוחר בשורת התפריטים.";
+"Siri & Shortcuts" = "Siri וקיצורים";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "בקשו מ-Siri להוסיף, להעתיק או לחפש קאטלינגים שלכם ללא ידיים.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "פתחו את קאטלינג באפליקציית **הגדרות** של המכשיר.";
 "Tap **Keyboards** and enable **Cutling**." = "הקישו על **מקלדות** והפעילו את **קאטלינג**.";
@@ -312,3 +319,23 @@
 "Nothing to save." = "אין מה לשמור.";
 "That doesn't look like an image." = "זה לא נראה כמו תמונה.";
 "Failed to save image." = "שמירת התמונה נכשלה.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "קאטלינגים שמורים";
+"Your pinned snippets live here, ready to copy with one click." = "המקטעים המוצמדים שלך נמצאים כאן, מוכנים להעתקה בלחיצה אחת.";
+"Recent clipboard" = "לוח גזירים אחרון";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "כל מה שאתה מעתיק מגיע לכאן. לחץ לחיצה ימנית על כל שורה כדי לשמור אותה כקאטלינג.";
+"Wipe the list" = "נקה את הרשימה";
+"Empties your recent clipboard. Saved cutlings stay put." = "מרוקן את לוח הגזירים האחרון שלך. הקאטלינגים השמורים נשארים במקומם.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "הגדר מחדש את מקש הקיצור, החלף את לכידת לוח הגזירים, ונהל את סנכרון iCloud.";
+"Undo deletes" = "בטל מחיקות";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "קאטלינגים שנמחקו נשארים כאן 30 ימים. שחזר אותם או רוקן לתמיד.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "הקש כאן כדי לבחור מספר קאטלינגים, לסדר אותם מחדש, או לשחזר כאלה שנמחקו לאחרונה.";
+"Long-press a cutling" = "לחיצה ארוכה על קאטלינג";
+"Hold any card for quick actions: copy, edit, share, or delete." = "החזק כל כרטיס לפעולות מהירות: העתקה, עריכה, שיתוף, או מחיקה.";
+"Drag to select" = "גרור לבחירה";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "החלק על פני הכרטיסים כדי לבחור טווח. החלק חזרה עליהם כדי לבטל את הבחירה.";
+"Smart field matching" = "התאמת שדות חכמה";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "קאטלינג מזהה שדות של דוא\"ל, כתובת אתר, טלפון וכתובת, ואז מציף מקטעים תואמים לראש המקלדת.";
+"Create a new cutling" = "צור קאטלינג חדש";
+"Save text or image snippets you'll reuse from any app." = "שמור קטעי טקסט או תמונה שתשתמש בהם שוב מכל אפליקציה.";

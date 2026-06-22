@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Lülitage sisse iCloudi sünkroonimine, et hoida cutlingid ajakohased igas seadmes, kuhu olete oma Apple'i kontoga sisse loginud.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Puudutage ülal olevat tekstivälja ja kasutage 🌐 gloobusnuppu, et lülituda **Cutling**-ile. See kinnitab, et kõik on õigesti seadistatud.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "Mis on Cutlingis uut";
+"Cutling for Mac" = "Cutling Maci jaoks";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "Cutling töötab nüüd ka teie Macis, globaalse kiirklahvi ja menüüriba valijaga.";
+"Siri & Shortcuts" = "Siri ja Shortcuts";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "Paluge Siril cutlingeid lisada, kopeerida või neist otsida ilma käsi kasutamata.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Ava Cutling oma seadme **Seaded** rakenduses.";
 "Tap **Keyboards** and enable **Cutling**." = "Puuduta **Klaviatuurid** ja luba **Cutling**.";
@@ -312,3 +319,23 @@
 "Nothing to save." = "Pole midagi salvestada.";
 "That doesn't look like an image." = "See ei näe pildi moodi välja.";
 "Failed to save image." = "Pildi salvestamine ebaõnnestus.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "Salvestatud Cutlingid";
+"Your pinned snippets live here, ready to copy with one click." = "Sinu kinnitatud katked elavad siin, valmis ühe klõpsuga kopeerimiseks.";
+"Recent clipboard" = "Hiljutine lõikelaud";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Kõik, mida kopeerid, jõuab siia. Tee paremklõps suvalisel real, et salvestada see Cutlinguna.";
+"Wipe the list" = "Tühjenda nimekiri";
+"Empties your recent clipboard. Saved cutlings stay put." = "Tühjendab hiljutise lõikelaua. Salvestatud Cutlingid jäävad alles.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Muuda kiirklahvi, lülita lõikelaua hõivamine sisse või välja ja halda iCloudi sünkroonimist.";
+"Undo deletes" = "Võta kustutamine tagasi";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Kustutatud Cutlingid jäävad siia 30 päevaks. Taasta need või tühjenda jäädavalt.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Puuduta siin, et valida mitu Cutlingut, järjestada need ümber või taastada hiljuti kustutatud.";
+"Long-press a cutling" = "Hoia Cutlingut all";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Hoia mis tahes kaarti kiirtegevuste jaoks: kopeeri, muuda, jaga või kustuta.";
+"Drag to select" = "Lohista valimiseks";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Pühi üle kaartide, et valida vahemik. Pühi tagasi, et valikut tühistada.";
+"Smart field matching" = "Nutikas väljade sobitamine";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling tuvastab e-posti, URL-i, telefoni- ja aadressiväljad ning tõstab sobivad katked klaviatuuri ülaosa.";
+"Create a new cutling" = "Loo uus Cutling";
+"Save text or image snippets you'll reuse from any app." = "Salvesta teksti- või pildilõike, mida saad uuesti kasutada igas rakenduses.";

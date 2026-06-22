@@ -11,6 +11,7 @@
 
 import CoreSpotlight
 import SwiftUI
+import TipKit
 #if os(iOS)
 import BackgroundTasks
 #endif
@@ -92,11 +93,20 @@ struct CutlingApp: App {
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
     @AppStorage("hasCompletedSetup") private var hasCompletedSetup = false
 
-    // Version flag for future use (e.g. "What's New" screen for returning users)
+    // Version flag for migrations and "What's New" gating.
     @AppStorage("lastVersionOpened") private var lastVersionOpened = ""
+
+    // Last release whose "What's New" sheet the user has seen. Bump
+    // `whatsNewVersion` on releases where new content should fire the sheet.
+    @AppStorage("lastWhatsNewVersionSeen") private var lastWhatsNewVersionSeen = ""
 
     @State private var pendingOpenCutlingID: UUID?
     @State private var copiedCutlingName: String?
+    @State private var showWhatsNew = false
+
+    /// Releases with new content shown via the "What's New" sheet. Bump this
+    /// on every release where you update `WhatsNewView`'s feature list.
+    private let whatsNewVersion = "1.5"
 
     #if os(iOS)
     private static let bgSyncTaskID = "com.matsuokengo.Cutling.sync"
@@ -115,6 +125,7 @@ struct CutlingApp: App {
         UserDefaults.standard.register(defaults: [
             "autoDetectInputTypes": true,
         ])
+        try? Tips.configure()
         #if os(iOS)
         BGTaskScheduler.shared.register(
             forTaskWithIdentifier: Self.bgSyncTaskID,
@@ -160,6 +171,7 @@ struct CutlingApp: App {
                     configureSyncIfNeeded()
                     syncPreferencesToAppGroup()
                     SpotlightIndexer.shared.reindexAll(from: store)
+                    let previousVersion = lastVersionOpened
                     lastVersionOpened = currentAppVersion
                     #if os(iOS)
                     #if DEBUG
@@ -172,6 +184,7 @@ struct CutlingApp: App {
                         showOnboarding = true
                     }
                     #endif
+                    evaluateWhatsNew(previousVersion: previousVersion)
                     #endif
                 }
                 .onChange(of: iCloudSyncEnabled) { _, enabled in
@@ -238,6 +251,11 @@ struct CutlingApp: App {
                 #if os(iOS)
                 .sheet(isPresented: $showOnboarding) {
                     KeyboardSetupView()
+                }
+                .sheet(isPresented: $showWhatsNew) {
+                    WhatsNewView {
+                        lastWhatsNewVersionSeen = whatsNewVersion
+                    }
                 }
                 #endif
                 .alert(
@@ -421,6 +439,49 @@ struct CutlingApp: App {
             store.migrateInputTypeTriggers()
         }
     }
+
+    // MARK: - What's New
+
+    #if os(iOS)
+    /// Decides whether to present the "What's New" sheet for this launch.
+    ///
+    /// Shown only to **existing** users who upgraded across the
+    /// `whatsNewVersion` threshold. Brand-new installers see the full
+    /// onboarding instead and have `lastWhatsNewVersionSeen` advanced silently
+    /// so they never get retroactively flagged.
+    private func evaluateWhatsNew(previousVersion: String) {
+        #if DEBUG
+        if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") { return }
+        #endif
+
+        let target = AppVersion(whatsNewVersion)
+
+        // Fresh install: no previous version on disk. Advance the seen flag
+        // so a future release threshold doesn't fire retroactively for them.
+        if previousVersion.isEmpty {
+            if AppVersion(lastWhatsNewVersionSeen) < target {
+                lastWhatsNewVersionSeen = whatsNewVersion
+            }
+            return
+        }
+
+        // Already seen this release's news (or a later one).
+        guard AppVersion(lastWhatsNewVersionSeen) < target else { return }
+
+        // User was already on or past this release before this launch
+        // (e.g. reinstall after deleting). Treat as caught up.
+        guard AppVersion(previousVersion) < target else {
+            lastWhatsNewVersionSeen = whatsNewVersion
+            return
+        }
+
+        // Defer to onboarding if it will appear — the user is mid-setup,
+        // not a returning power user.
+        guard hasCompletedSetup, !keyboardNeedsSetup else { return }
+
+        showWhatsNew = true
+    }
+    #endif
 
     // MARK: - Background App Refresh (iOS)
 

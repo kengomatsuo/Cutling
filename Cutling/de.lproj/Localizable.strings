@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Aktiviere die iCloud-Synchronisation, damit deine Cutlings auf allen Geräten mit deinem Apple-Account aktuell bleiben.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Tippe auf das Textfeld oben und verwende dann die 🌐 Globus-Taste, um zu **Cutling** zu wechseln. So wird bestätigt, dass alles korrekt eingerichtet ist.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "Neu in Cutling";
+"Cutling for Mac" = "Cutling für Mac";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "Cutling läuft jetzt auch auf dem Mac mit globalem Tastenkürzel und Auswahl in der Menüleiste.";
+"Siri & Shortcuts" = "Siri und Kurzbefehle";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "Bitte Siri freihändig deine Cutlings hinzuzufügen, zu kopieren oder zu durchsuchen.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Öffne Cutling in der **Einstellungen**-App deines Geräts.";
 "Tap **Keyboards** and enable **Cutling**." = "Tippe auf **Tastaturen** und aktiviere **Cutling**.";
@@ -312,3 +319,23 @@
 "Nothing to save." = "Nichts zu speichern.";
 "That doesn't look like an image." = "Das sieht nicht wie ein Bild aus.";
 "Failed to save image." = "Bild konnte nicht gespeichert werden.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "Gespeicherte Cutlings";
+"Your pinned snippets live here, ready to copy with one click." = "Deine angepinnten Snippets findest du hier, bereit zum Kopieren mit einem Klick.";
+"Recent clipboard" = "Letzte Zwischenablage";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Alles, was du kopierst, landet hier. Rechtsklicke auf eine Zeile, um sie als Cutling zu speichern.";
+"Wipe the list" = "Liste leeren";
+"Empties your recent clipboard. Saved cutlings stay put." = "Leert deine letzte Zwischenablage. Gespeicherte Cutlings bleiben erhalten.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Tastenkürzel neu belegen, Zwischenablage-Erfassung umschalten und iCloud-Synchronisation verwalten.";
+"Undo deletes" = "Löschungen rückgängig machen";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Gelöschte Cutlings bleiben hier 30 Tage lang. Stelle sie wieder her oder lösche sie endgültig.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Tippe hier, um mehrere Cutlings auszuwählen, neu anzuordnen oder zuletzt gelöschte wiederherzustellen.";
+"Long-press a cutling" = "Cutling lange drücken";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Halte eine Karte gedrückt für Schnellaktionen: Kopieren, Bearbeiten, Teilen oder Löschen.";
+"Drag to select" = "Zum Auswählen ziehen";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Wische über Karten, um einen Bereich auszuwählen. Wische zurück darüber, um die Auswahl aufzuheben.";
+"Smart field matching" = "Intelligente Felderkennung";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling erkennt E-Mail-, URL-, Telefon- und Adressfelder und blendet passende Snippets oben auf der Tastatur ein.";
+"Create a new cutling" = "Neuen Cutling erstellen";
+"Save text or image snippets you'll reuse from any app." = "Speichere Text- oder Bildausschnitte, die du in jeder App wiederverwenden kannst.";

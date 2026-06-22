@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "iCloud Senkronizasyonunu açarak Apple Hesabınızla giriş yapılmış tüm cihazlarda cutling'lerinizin güncel kalmasını sağlayın.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Yukarıdaki metin alanına dokunun, ardından **Cutling**'e geçmek için 🌐 küre tuşunu kullanın. Bu, her şeyin doğru şekilde ayarlandığını doğrular.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "Cutling'de Yenilikler";
+"Cutling for Mac" = "Mac için Cutling";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "Cutling artık Mac'inizde global bir klavye kısayolu ve menü çubuğu seçicisiyle çalışıyor.";
+"Siri & Shortcuts" = "Siri ve Kısayollar";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "Siri'den cutling'leri eller serbest şekilde eklemesini, kopyalamasını veya aramasını isteyin.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Cihazınızın **Ayarlar** uygulamasında Cutling'i açın.";
 "Tap **Keyboards** and enable **Cutling**." = "**Klavyeler**'e dokunun ve **Cutling**'i etkinleştirin.";
@@ -312,3 +319,23 @@
 "Nothing to save." = "Kaydedilecek bir şey yok.";
 "That doesn't look like an image." = "Bu bir görsele benzemiyor.";
 "Failed to save image." = "Görsel kaydedilemedi.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "Kaydedilen cutling'ler";
+"Your pinned snippets live here, ready to copy with one click." = "Sabitlediğiniz parçalar burada, tek tıkla kopyalanmaya hazır.";
+"Recent clipboard" = "Son pano";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Kopyaladığınız her şey buraya düşer. Bir cutling olarak kaydetmek için herhangi bir satıra sağ tıklayın.";
+"Wipe the list" = "Listeyi temizle";
+"Empties your recent clipboard. Saved cutlings stay put." = "Son pano geçmişinizi boşaltır. Kaydedilen cutling'ler yerinde kalır.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Kısayol tuşunu yeniden atayın, pano yakalamayı açıp kapatın ve iCloud senkronizasyonunu yönetin.";
+"Undo deletes" = "Silmeleri geri al";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Silinen cutling'ler burada 30 gün kalır. Geri yükleyin veya temelli silin.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Birden fazla cutling seçmek, yeniden sıralamak veya son silinenleri geri yüklemek için buraya dokunun.";
+"Long-press a cutling" = "Bir cutling'e uzun basın";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Hızlı işlemler için herhangi bir karta basılı tutun: kopyala, düzenle, paylaş veya sil.";
+"Drag to select" = "Seçmek için sürükleyin";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Bir aralık seçmek için kartların üzerinde kaydırın. Seçimi kaldırmak için üzerlerinden geriye doğru kaydırın.";
+"Smart field matching" = "Akıllı alan eşleştirme";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling; e-posta, URL, telefon ve adres alanlarını algılar ve uyan parçaları klavyenin üstüne çıkarır.";
+"Create a new cutling" = "Yeni bir Cutling oluştur";
+"Save text or image snippets you'll reuse from any app." = "Herhangi bir uygulamada yeniden kullanacağın metin veya görsel parçaları kaydet.";

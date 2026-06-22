@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "What's New in Cutling";
+"Cutling for Mac" = "Cutling for Mac";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "Cutling now runs on your Mac with a global hotkey and menu bar picker.";
+"Siri & Shortcuts" = "Siri & Shortcuts";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "Ask Siri to add, copy, or search your cutlings hands-free.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Open Cutling in your device's **Settings** app.";
 "Tap **Keyboards** and enable **Cutling**." = "Tap **Keyboards** and enable **Cutling**.";
@@ -322,3 +329,25 @@
 "Failed to save image." = "Failed to save image.";
 "Siri & Shortcuts" = "Siri & Shortcuts";
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app.";
+
+/* MARK: - TipKit (macOS menu-bar popover tour) */
+"Create a new cutling" = "Create a new cutling";
+"Save text or image snippets you'll reuse from any app." = "Save text or image snippets you'll reuse from any app.";
+"Saved cutlings" = "Saved cutlings";
+"Your pinned snippets live here, ready to copy with one click." = "Your pinned snippets live here, ready to copy with one click.";
+"Recent clipboard" = "Recent clipboard";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Everything you copy lands here. Right-click any row to save it as a cutling.";
+"Wipe the list" = "Wipe the list";
+"Empties your recent clipboard. Saved cutlings stay put." = "Empties your recent clipboard. Saved cutlings stay put.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Rebind the hotkey, toggle clipboard capture, and manage iCloud sync.";
+"Undo deletes" = "Undo deletes";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Deleted cutlings stay here for 30 days. Restore them or empty for good.";
+
+/* MARK: - TipKit (iOS contextual hints) */
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Tap here to select multiple cutlings, reorder them, or restore recently deleted ones.";
+"Long-press a cutling" = "Long-press a cutling";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Hold any card for quick actions: copy, edit, share, or delete.";
+"Drag to select" = "Drag to select";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Swipe across cards to select a range. Swipe back over them to deselect.";
+"Smart field matching" = "Smart field matching";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard.";

@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Укључите iCloud синхронизацију да би ваши катлинзи били ажурни на сваком уређају пријављеном на ваш Apple налог.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Додирните поље за текст изнад, а затим користите тастер 🌐 глобуса да пређете на **Катлинг**. Ово потврђује да је све исправно подешено.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "Шта је ново у Катлингу";
+"Cutling for Mac" = "Катлинг за Mac";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "Катлинг сада ради и на Mac рачунару са глобалном пречицом на тастатури и бирачем у траци менија.";
+"Siri & Shortcuts" = "Siri и Пречице";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "Замолите Siri да дода, копира или претражи ваше катлинге без употребе руку.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Отворите Катлинг у апликацији **Подешавања** на вашем уређају.";
 "Tap **Keyboards** and enable **Cutling**." = "Додирните **Тастатуре** и омогућите **Катлинг**.";
@@ -312,3 +319,23 @@
 "Nothing to save." = "Нема шта да се сачува.";
 "That doesn't look like an image." = "Ово не изгледа као слика.";
 "Failed to save image." = "Чување слике није успело.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "Сачувани Катлинзи";
+"Your pinned snippets live here, ready to copy with one click." = "Ваши закачени исечци живе овде, спремни за копирање једним кликом.";
+"Recent clipboard" = "Недавна привремена меморија";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Све што копирате стиже овде. Десни клик на било који ред да га сачувате као Катлинг.";
+"Wipe the list" = "Обриши листу";
+"Empties your recent clipboard. Saved cutlings stay put." = "Празни недавну привремену меморију. Сачувани Катлинзи остају на свом месту.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Промените пречицу, укључите или искључите хватање привремене меморије и управљајте iCloud синхронизацијом.";
+"Undo deletes" = "Поништи брисања";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Обрисани Катлинзи остају овде 30 дана. Вратите их или трајно испразните.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Додирните овде да изаберете више Катлинга, промените им редослед или вратите недавно обрисане.";
+"Long-press a cutling" = "Дуго притисните Катлинг";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Држите било коју картицу за брзе радње: копирање, уређивање, дељење или брисање.";
+"Drag to select" = "Превуците за избор";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Превуците преко картица да изаберете опсег. Превуците назад да поништите избор.";
+"Smart field matching" = "Паметно подударање поља";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Катлинг препознаје поља за е-пошту, URL, телефон и адресу и одговарајуће исечке приказује на врху тастатуре.";
+"Create a new cutling" = "Креирај нови Катлинг";
+"Save text or image snippets you'll reuse from any app." = "Сачувајте исечке текста или слика које ћете поново користити из било које апликације.";

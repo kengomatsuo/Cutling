@@ -12,6 +12,7 @@
 import SwiftUI
 import StoreKit
 import LinkPresentation
+import TipKit
 
 #if os(iOS)
 import UIKit
@@ -63,6 +64,7 @@ struct MainContentView: View {
     @State private var selectedItem: Cutling? = nil
     @State private var showRecentlyDeleted = false
     @State private var limitAlertMessage: String?
+    @State private var dropNotice: DropNotice?
 
     // MARK: Search
     @State private var searchText = ""
@@ -92,6 +94,11 @@ struct MainContentView: View {
     @Namespace private var zoomNamespace
     private let addButtonZoomID = "addButton"
     private let keyboardButtonZoomID = "keyboardButton"
+
+    // MARK: TipKit (iOS)
+    private let moreMenuTip = MoreMenuTip()
+    private let longPressCardTip = LongPressCardTip()
+    private let dragToSelectTip = DragToSelectTip()
     #endif
 
     init(
@@ -227,6 +234,18 @@ struct MainContentView: View {
         #endif
     }
 
+    #if os(iOS)
+    /// Mirrors the cutling count into the TipKit @Parameter gates so the
+    /// More menu and long-press tips only become eligible once the user
+    /// owns enough snippets that bulk / per-card actions are meaningful.
+    private func syncTipParameters() {
+        let count = store.cutlings.count
+        MoreMenuTip.cutlingCount = count
+        LongPressCardTip.cutlingCount = count
+        DragToSelectTip.isSelecting = mode == .selecting
+    }
+    #endif
+
     // MARK: - Body
 
     var body: some View {
@@ -236,7 +255,8 @@ struct MainContentView: View {
                     selectedItem: $selectedItem
                 ))
                 .modifier(AlertsModifier(
-                    limitAlertMessage: $limitAlertMessage
+                    limitAlertMessage: $limitAlertMessage,
+                    dropNotice: $dropNotice
                 ))
                 .modifier(ChangeHandlersModifier(
                     mode: mode,
@@ -269,6 +289,13 @@ struct MainContentView: View {
                     openPendingCutling(id: id)
                 }
                 .onAppear { openPendingCutling(id: pendingOpenCutlingID) }
+                #if os(iOS)
+                .onAppear { syncTipParameters() }
+                .onChange(of: store.cutlings.count) { _, _ in syncTipParameters() }
+                .onChange(of: mode) { _, newMode in
+                    DragToSelectTip.isSelecting = newMode == .selecting
+                }
+                #endif
                 .overlay(alignment: .bottom) {
                     if let name = copiedCutlingName {
                         copiedBanner(name: name)
@@ -634,6 +661,9 @@ struct MainContentView: View {
 
     private var gridScrollView: some View {
         ScrollView {
+            #if os(iOS)
+            gridTipBanner
+            #endif
             if filtered.isEmpty {
                 VStack(spacing: 12) {
                     Image(systemName: searchText.isEmpty ? "tray" : "magnifyingglass")
@@ -736,6 +766,28 @@ struct MainContentView: View {
         #endif
     }
 
+    #if os(iOS)
+    /// Inline TipKit banner shown above the grid. Mode-driven so we never
+    /// stack two tips at once: long-press hint while browsing, drag-to-select
+    /// hint while in select mode. TipKit's own rule engine still controls
+    /// whether the banner is actually rendered or collapsed.
+    @ViewBuilder
+    private var gridTipBanner: some View {
+        switch mode {
+        case .browsing:
+            TipView(longPressCardTip)
+                .padding(.horizontal)
+                .padding(.top, 8)
+        case .selecting:
+            TipView(dragToSelectTip)
+                .padding(.horizontal)
+                .padding(.top, 8)
+        case .ordering:
+            EmptyView()
+        }
+    }
+    #endif
+
     // MARK: - Toolbar Content
 
     #if os(iOS)
@@ -804,12 +856,18 @@ struct MainContentView: View {
         
         Menu {
             Button {
+                #if os(iOS)
+                moreMenuTip.invalidate(reason: .actionPerformed)
+                #endif
                 mode = .selecting
             } label: {
                 Label("Select Cutlings", systemImage: "checkmark.circle")
             }
 
             Button {
+                #if os(iOS)
+                moreMenuTip.invalidate(reason: .actionPerformed)
+                #endif
                 mode = .ordering
             } label: {
                 Label("Reorder Cutlings", systemImage: "arrow.up.arrow.down")
@@ -819,6 +877,7 @@ struct MainContentView: View {
             #if os(iOS)
             #if DEBUG
             Button {
+                moreMenuTip.invalidate(reason: .actionPerformed)
                 activeSheet = .keyboardSetup
             } label: {
                 Label("Keyboard Setup", systemImage: keyboardNeedsAttention ? "exclamationmark.triangle" : "keyboard.badge.ellipsis")
@@ -826,6 +885,7 @@ struct MainContentView: View {
             #else
             if keyboardNeedsAttention {
                 Button {
+                    moreMenuTip.invalidate(reason: .actionPerformed)
                     activeSheet = .keyboardSetup
                 } label: {
                     Label("Keyboard Setup", systemImage: "exclamationmark.triangle")
@@ -837,6 +897,9 @@ struct MainContentView: View {
             Divider()
 
             Button {
+                #if os(iOS)
+                moreMenuTip.invalidate(reason: .actionPerformed)
+                #endif
                 showRecentlyDeleted = true
             } label: {
                 Label("Recently Deleted", systemImage: "trash")
@@ -846,6 +909,9 @@ struct MainContentView: View {
         }
         .menuIndicator(.hidden)
         .accessibilityLabel(String(localized: "More options"))
+        #if os(iOS)
+        .popoverTip(moreMenuTip, arrowEdge: .top)
+        #endif
     }
 
     @ViewBuilder
@@ -1261,24 +1327,38 @@ struct MainContentView: View {
 
         switch cutling.kind {
         case .text:
-            if store.findDuplicateText(value: cutling.value) != nil { return }
+            if store.findDuplicateText(value: cutling.value) != nil {
+                showDuplicateNotice()
+                return
+            }
             let check = store.canAdd(.text)
             guard check.allowed else {
                 limitAlertMessage = check.reason ?? String(localized: "Cannot add text cutling")
                 return
             }
+            let (finalText, wasTruncated) = truncatedForCutling(cutling.value)
             activeSheet = .newCutling(NewCutlingDraft(
                 kind: .text,
                 name: cutling.name,
-                text: cutling.value,
+                text: finalText,
                 icon: cutling.icon,
                 color: cutling.color,
                 inputTypeTriggers: cutling.inputTypeTriggers,
                 expiresAt: cutling.expiresAt
             ))
+            if wasTruncated { showTruncatedNotice() }
         case .image:
-            guard let data = imageData else { return }
-            if store.findDuplicateImage(data: data) != nil { return }
+            guard let data = imageData else {
+                dropNotice = DropNotice(
+                    title: "Couldn't Read Image",
+                    message: String(localized: "The dropped image couldn't be loaded.")
+                )
+                return
+            }
+            if store.findDuplicateImage(data: data) != nil {
+                showDuplicateNotice()
+                return
+            }
             let check = store.canAdd(.image)
             guard check.allowed else {
                 limitAlertMessage = check.reason ?? String(localized: "Cannot add image cutling")
@@ -1300,7 +1380,10 @@ struct MainContentView: View {
             limitAlertMessage = check.reason ?? String(localized: "Cannot add image cutling")
             return
         }
-        if store.findDuplicateImage(data: data) != nil { return }
+        if store.findDuplicateImage(data: data) != nil {
+            showDuplicateNotice()
+            return
+        }
         activeSheet = .newCutling(NewCutlingDraft(
             kind: .image,
             name: String(localized: "Shared Image"),
@@ -1311,7 +1394,10 @@ struct MainContentView: View {
     @MainActor
     private func handleDroppedURL(_ url: URL) {
         guard !url.isFileURL else { return }
-        if store.findDuplicateText(value: url.absoluteString) != nil { return }
+        if store.findDuplicateText(value: url.absoluteString) != nil {
+            showDuplicateNotice()
+            return
+        }
         let check = store.canAdd(.text)
         guard check.allowed else {
             limitAlertMessage = check.reason ?? String(localized: "Cannot add text cutling")
@@ -1325,17 +1411,44 @@ struct MainContentView: View {
 
     @MainActor
     private func handleDroppedText(_ text: String) {
-        if store.findDuplicateText(value: text) != nil { return }
+        let (finalText, wasTruncated) = truncatedForCutling(text)
+        if store.findDuplicateText(value: finalText) != nil {
+            showDuplicateNotice()
+            return
+        }
         let check = store.canAdd(.text)
         guard check.allowed else {
             limitAlertMessage = check.reason ?? String(localized: "Cannot add text cutling")
             return
         }
-        if store.isTextTooLong(text) { return }
         activeSheet = .newCutling(NewCutlingDraft(
             kind: .text,
-            text: text
+            text: finalText
         ))
+        if wasTruncated { showTruncatedNotice() }
+    }
+
+    private func truncatedForCutling(_ text: String) -> (String, Bool) {
+        if text.count > CutlingStore.maxTextLength {
+            return (String(text.prefix(CutlingStore.maxTextLength)), true)
+        }
+        return (text, false)
+    }
+
+    @MainActor
+    private func showTruncatedNotice() {
+        dropNotice = DropNotice(
+            title: "Text Truncated",
+            message: String(localized: "Cutlings hold up to \(CutlingStore.maxTextLength) characters. The extra text was trimmed.")
+        )
+    }
+
+    @MainActor
+    private func showDuplicateNotice() {
+        dropNotice = DropNotice(
+            title: "Already Saved",
+            message: String(localized: "A matching cutling already exists.")
+        )
     }
 }
 
@@ -1460,8 +1573,15 @@ struct SheetsModifier: ViewModifier {
     }
 }
 
+struct DropNotice: Identifiable {
+    let id = UUID()
+    let title: LocalizedStringKey
+    let message: String
+}
+
 struct AlertsModifier: ViewModifier {
     @Binding var limitAlertMessage: String?
+    @Binding var dropNotice: DropNotice?
 
     func body(content: Content) -> some View {
         content
@@ -1475,6 +1595,18 @@ struct AlertsModifier: ViewModifier {
                 Button("OK", role: .cancel) {}
             } message: {
                 Text(limitAlertMessage ?? "")
+            }
+            .alert(
+                dropNotice?.title ?? "",
+                isPresented: Binding(
+                    get: { dropNotice != nil },
+                    set: { if !$0 { dropNotice = nil } }
+                ),
+                presenting: dropNotice
+            ) { _ in
+                Button("OK", role: .cancel) {}
+            } message: { notice in
+                Text(notice.message)
             }
     }
 }

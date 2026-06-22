@@ -21,13 +21,22 @@ import AppKit
 struct WelcomeView: View {
     @AppStorage("hasOnboarded") private var hasOnboarded = false
     @State private var step: Int = 0
+    @State private var goingForward = true
+    @Namespace private var dotNamespace
     @Environment(\.dismissWindow) private var dismissWindow
 
     private let totalSteps = 4
+    
+    private var stepTransition: AnyTransition {
+        .asymmetric(
+            insertion: .move(edge: goingForward ? .trailing : .leading),
+            removal: .move(edge: goingForward ? .leading : .trailing)
+        )
+    }
 
     var body: some View {
         VStack(spacing: 0) {
-            ZStack {
+            Group {
                 switch step {
                 case 0: StepWelcome()
                 case 1: StepMenuBar()
@@ -35,28 +44,40 @@ struct WelcomeView: View {
                 default: StepAccessibility()
                 }
             }
+            .id(step)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .transition(.opacity.combined(with: .move(edge: .trailing)))
+            .transition(stepTransition)
 
             Divider()
 
             HStack(spacing: 8) {
-                // Step dots
                 HStack(spacing: 6) {
                     ForEach(0..<totalSteps, id: \.self) { i in
-                        Circle()
-                            .fill(i == step ? Color.accentColor : Color.secondary.opacity(0.3))
-                            .frame(width: 7, height: 7)
+                        ZStack {
+                            Circle()
+                                .fill(Color.secondary.opacity(0.3))
+                                .frame(width: 7, height: 7)
+                            if i == step {
+                                Circle()
+                                    .fill(Color.accentColor)
+                                    .frame(width: 7, height: 7)
+                                    .matchedGeometryEffect(id: "activeDot", in: dotNamespace)
+                            }
+                        }
+                        .frame(width: 7, height: 7)
                     }
                 }
                 Spacer()
                 if step > 0 {
-                    Button("Back") { withAnimation { step -= 1 } }
+                    Button("Back") {
+                        goingForward = false
+                        withAnimation(.snappy) { step -= 1 } }
                         .keyboardShortcut(.leftArrow, modifiers: [])
                 }
                 if step < totalSteps - 1 {
                     Button(step == 0 ? "Continue" : "Next") {
-                        withAnimation { step += 1 }
+                        goingForward = true
+                        withAnimation(.snappy) { step += 1 }
                     }
                     .keyboardShortcut(.defaultAction)
                 } else {
@@ -72,6 +93,9 @@ struct WelcomeView: View {
     private func finish() {
         hasOnboarded = true
         dismissWindow(id: WelcomeWindow.id)
+        // Hand off to the menu-bar hint so the user immediately sees a
+        // callout pointing at where Cutling actually lives.
+        MenuBarHintController.shared.showIfNeeded()
     }
 }
 
@@ -82,6 +106,8 @@ enum WelcomeWindow {
 // MARK: - Step 0: Welcome hero
 
 private struct StepWelcome: View {
+    @State private var appeared = false
+
     var body: some View {
         VStack(spacing: 20) {
             Spacer(minLength: 0)
@@ -93,6 +119,9 @@ private struct StepWelcome: View {
                     .interpolation(.high)
                     .frame(width: 128, height: 128)
                     .shadow(color: .black.opacity(0.15), radius: 10, y: 4)
+                    .scaleEffect(appeared ? 1.0 : 0.92)
+                    .blur(radius: appeared ? 0 : 10)
+                    .opacity(appeared ? 1.0 : 0)
             }
 
             VStack(spacing: 10) {
@@ -108,9 +137,17 @@ private struct StepWelcome: View {
                     .padding(.horizontal, 32)
                     .padding(.top, 4)
             }
+            .blur(radius: appeared ? 0 : 6)
+            .opacity(appeared ? 1.0 : 0)
+            .offset(y: appeared ? 0 : 6)
             Spacer(minLength: 0)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .onAppear {
+            withAnimation(.snappy) {
+                appeared = true
+            }
+        }
     }
 }
 
@@ -122,25 +159,17 @@ private struct StepWelcome: View {
 /// render a mock menu bar with the Cutling icon highlighted so the user
 /// learns what to look for, plus an animated arrow above.
 private struct StepMenuBar: View {
-    @State private var pulse = false
-
     var body: some View {
         VStack(spacing: 20) {
             // Mini illustration of a menu bar with our icon highlighted.
             menuBarMock
                 .padding(.top, 24)
 
-            // Animated arrow.
+            // Animated arrow drawing the eye up toward the real menu bar.
             Image(systemName: "arrow.up")
                 .font(.system(size: 36, weight: .semibold))
                 .foregroundStyle(.tint)
-                .offset(y: pulse ? -6 : 4)
-                .opacity(pulse ? 1.0 : 0.55)
-                .onAppear {
-                    withAnimation(.easeInOut(duration: 0.9).repeatForever()) {
-                        pulse.toggle()
-                    }
-                }
+                .symbolEffect(.bounce.up, options: .repeating)
 
             VStack(spacing: 6) {
                 Text("Look up. Cutling lives in your menu bar")
@@ -217,8 +246,8 @@ private struct StepHotkey: View {
     var body: some View {
         VStack(spacing: 20) {
             HStack(spacing: 6) {
-                KeyCap("⌘")
                 KeyCap("⇧")
+                KeyCap("⌘")
                 KeyCap("V")
             }
             .padding(.top, 36)
@@ -271,38 +300,47 @@ private struct StepAccessibility: View {
             Image(systemName: isTrusted ? "checkmark.shield.fill" : "lock.shield")
                 .font(.system(size: 56, weight: .light))
                 .foregroundStyle(isTrusted ? AnyShapeStyle(.green) : AnyShapeStyle(.tint))
+                .contentTransition(.symbolEffect(.replace))
                 .padding(.top, 24)
 
             VStack(spacing: 6) {
                 Text(isTrusted ? "You're all set" : "One more thing: Accessibility")
                     .font(.title2.bold())
-                if isTrusted {
-                    Text("Cutling has the access it needs. Picking a cutling will paste it straight into whatever app you were using.")
-                        .font(.callout)
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 32)
-                } else {
-                    Text("Grant Accessibility so Cutling can paste a cutling directly into the app you were using. Without it, you'll have to press ⌘V yourself after picking.")
-                        .font(.callout)
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 32)
-                    Button("Grant Accessibility Access") {
-                        PasteService.shared.requestTrustIfNeeded()
-                        PasteService.shared.openAccessibilitySettings()
+                    .contentTransition(.opacity)
+
+                Group {
+                    if isTrusted {
+                        Text("Cutling has the access it needs. Picking a cutling will paste it straight into whatever app you were using.")
+                            .font(.callout)
+                            .foregroundStyle(.secondary)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, 32)
+                    } else {
+                        VStack(spacing: 6) {
+                            Text("Grant Accessibility so Cutling can paste a cutling directly into the app you were using. Without it, you'll have to press ⌘V yourself after picking.")
+                                .font(.callout)
+                                .foregroundStyle(.secondary)
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, 32)
+                            Button("Grant Accessibility Access") {
+                                PasteService.shared.requestTrustIfNeeded()
+                                PasteService.shared.openAccessibilitySettings()
+                            }
+                            .controlSize(.large)
+                            .buttonStyle(.borderedProminent)
+                            .padding(.top, 4)
+                            Text("You can skip this and grant it later from Settings → Paste.")
+                                .font(.caption)
+                                .foregroundStyle(.tertiary)
+                        }
                     }
-                    .controlSize(.large)
-                    .buttonStyle(.borderedProminent)
-                    .padding(.top, 4)
-                    Text("You can skip this and grant it later from Settings → Paste.")
-                        .font(.caption)
-                        .foregroundStyle(.tertiary)
                 }
+                .transition(.blurReplace)
             }
             Spacer(minLength: 0)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .animation(.snappy, value: isTrusted)
         .onAppear {
             isTrusted = PasteService.shared.isTrusted
             pollTimer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { _ in

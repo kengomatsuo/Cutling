@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "iCloud同期をオンにすると、Appleアカウントでサインインしているすべてのデバイスでカットリングが最新の状態に保たれます。";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "上のテキストフィールドをタップし、🌐地球儀キーを使って**カットリング**に切り替えてください。これにより、すべてが正しく設定されていることを確認できます。";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "カットリングの新機能";
+"Cutling for Mac" = "Mac版カットリング";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "カットリングがMacでも使えるようになりました。グローバルホットキーとメニューバーピッカーに対応しています。";
+"Siri & Shortcuts" = "Siriとショートカット";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "Siriに頼んで、ハンズフリーでカットリングの追加・コピー・検索ができます。";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "デバイスの**設定**アプリでカットリングを開いてください。";
 "Tap **Keyboards** and enable **Cutling**." = "**キーボード**をタップして、**カットリング**を有効にしてください。";
@@ -312,3 +319,23 @@
 "Nothing to save." = "保存するものがありません。";
 "That doesn't look like an image." = "画像ではないようです。";
 "Failed to save image." = "画像の保存に失敗しました。";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "保存したカットリング";
+"Your pinned snippets live here, ready to copy with one click." = "ピン留めしたスニペットはここに表示され、ワンクリックでコピーできます。";
+"Recent clipboard" = "最近のクリップボード";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "コピーした内容はすべてここに表示されます。任意の行を右クリックすると、カットリングとして保存できます。";
+"Wipe the list" = "リストを消去";
+"Empties your recent clipboard. Saved cutlings stay put." = "最近のクリップボードを空にします。保存したカットリングはそのまま残ります。";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "ホットキーの変更、クリップボード取得の切り替え、iCloud同期の管理ができます。";
+"Undo deletes" = "削除を取り消す";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "削除されたカットリングはここに30日間保存されます。復元するか、完全に削除できます。";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "ここをタップすると、複数のカットリングを選択したり、並べ替えたり、最近削除した項目を復元したりできます。";
+"Long-press a cutling" = "カットリングを長押し";
+"Hold any card for quick actions: copy, edit, share, or delete." = "任意のカードを長押しすると、コピー、編集、共有、削除のクイックアクションを利用できます。";
+"Drag to select" = "ドラッグで選択";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "カードの上をスワイプして範囲選択します。もう一度スワイプすると選択を解除できます。";
+"Smart field matching" = "スマートフィールドマッチング";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "カットリングがメール、URL、電話番号、住所の入力欄を検知し、一致するスニペットをキーボードの上部に表示します。";
+"Create a new cutling" = "新しいカットリングを作成";
+"Save text or image snippets you'll reuse from any app." = "どのアプリからでも再利用できるテキストや画像のスニペットを保存します。";

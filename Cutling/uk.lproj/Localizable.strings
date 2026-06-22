@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Увімкніть синхронізацію iCloud, щоб тримати Катлінги в актуальному стані на всіх пристроях, де виконано вхід в обліковий запис Apple.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Натисніть на текстове поле вище, а потім використайте клавішу 🌐 глобуса, щоб переключитися на **Катлінг**. Це підтвердить, що все налаштовано правильно.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "Що нового в Катлінгу";
+"Cutling for Mac" = "Катлінг для Mac";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "Катлінг тепер працює на Mac з глобальною клавіатурною комбінацією та селектором у рядку меню.";
+"Siri & Shortcuts" = "Siri та Швидкі команди";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "Попросіть Siri додати, скопіювати або знайти ваші Катлінги без використання рук.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Відкрийте Катлінг у додатку **Налаштування** на вашому пристрої.";
 "Tap **Keyboards** and enable **Cutling**." = "Натисніть **Клавіатури** та увімкніть **Катлінг**.";
@@ -312,3 +319,23 @@
 "Nothing to save." = "Немає чого зберегти.";
 "That doesn't look like an image." = "Це не схоже на зображення.";
 "Failed to save image." = "Не вдалося зберегти зображення.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "Збережені Катлінги";
+"Your pinned snippets live here, ready to copy with one click." = "Ваші закріплені фрагменти знаходяться тут, готові до копіювання одним кліком.";
+"Recent clipboard" = "Нещодавній буфер обміну";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Усе, що ви копіюєте, потрапляє сюди. Клацніть правою кнопкою на будь-який рядок, щоб зберегти його як Катлінг.";
+"Wipe the list" = "Очистити список";
+"Empties your recent clipboard. Saved cutlings stay put." = "Очищає нещодавній буфер обміну. Збережені Катлінги залишаються на місці.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Змініть гарячу клавішу, увімкніть або вимкніть захоплення буфера обміну та керуйте синхронізацією iCloud.";
+"Undo deletes" = "Скасувати видалення";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Видалені Катлінги залишаються тут 30 днів. Відновіть їх або видаліть остаточно.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Натисніть тут, щоб вибрати кілька Катлінгів, змінити їх порядок або відновити нещодавно видалені.";
+"Long-press a cutling" = "Натисніть і утримуйте Катлінг";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Утримуйте будь-яку картку для швидких дій: копіювати, редагувати, поділитися або видалити.";
+"Drag to select" = "Перетягніть для вибору";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Проведіть по картках, щоб вибрати діапазон. Проведіть назад, щоб зняти вибір.";
+"Smart field matching" = "Розумне зіставлення полів";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Катлінг розпізнає поля ел. пошти, URL, телефону й адреси та піднімає відповідні фрагменти у верхню частину клавіатури.";
+"Create a new cutling" = "Створити новий Катлінг";
+"Save text or image snippets you'll reuse from any app." = "Зберігайте фрагменти тексту або зображень, які повторно використовуватимете з будь-якого застосунку.";

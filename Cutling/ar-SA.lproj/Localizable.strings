@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "فعّل مزامنة iCloud للحفاظ على كاتلينج محدّثة في كل جهاز تم تسجيل الدخول فيه بحساب Apple الخاص بك.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "اضغط على حقل النص أعلاه، ثم استخدم مفتاح 🌐 الكرة الأرضية للتبديل إلى **كاتلينج**. هذا يتحقق من أن كل شيء تم إعداده بشكل صحيح.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "ما الجديد في كاتلينج";
+"Cutling for Mac" = "كاتلينج لنظام Mac";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "أصبح كاتلينج يعمل الآن على Mac مع اختصار لوحة مفاتيح عام ومنتقي في شريط القوائم.";
+"Siri & Shortcuts" = "Siri والاختصارات";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "اطلب من Siri إضافة كاتلينج أو نسخها أو البحث فيها دون استخدام يديك.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "افتح كاتلينج في تطبيق **الإعدادات** على جهازك.";
 "Tap **Keyboards** and enable **Cutling**." = "اضغط على **لوحات المفاتيح** وفعّل **كاتلينج**.";
@@ -312,3 +319,23 @@
 "Nothing to save." = "لا يوجد شيء لحفظه.";
 "That doesn't look like an image." = "هذا لا يبدو صورة.";
 "Failed to save image." = "فشل حفظ الصورة.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "كاتلينج المحفوظة";
+"Your pinned snippets live here, ready to copy with one click." = "مقتطفاتك المثبتة تعيش هنا، جاهزة للنسخ بنقرة واحدة.";
+"Recent clipboard" = "الحافظة الأخيرة";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "كل ما تنسخه يصل إلى هنا. انقر بزر الفأرة الأيمن على أي صف لحفظه ككاتلينج.";
+"Wipe the list" = "مسح القائمة";
+"Empties your recent clipboard. Saved cutlings stay put." = "يفرغ حافظتك الأخيرة. تبقى كاتلينج المحفوظة في مكانها.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "أعد ربط مفتاح الاختصار، وبدّل التقاط الحافظة، وأدر مزامنة iCloud.";
+"Undo deletes" = "تراجع عن الحذف";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "تبقى كاتلينج المحذوفة هنا لمدة 30 يوماً. استعدها أو أفرغها نهائياً.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "اضغط هنا لتحديد عدة كاتلينج، أو إعادة ترتيبها، أو استعادة المحذوفة مؤخراً.";
+"Long-press a cutling" = "اضغط مطولاً على كاتلينج";
+"Hold any card for quick actions: copy, edit, share, or delete." = "اضغط مطولاً على أي بطاقة لإجراءات سريعة: نسخ، تعديل، مشاركة، أو حذف.";
+"Drag to select" = "اسحب للتحديد";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "مرر عبر البطاقات لتحديد نطاق. مرر للخلف فوقها لإلغاء التحديد.";
+"Smart field matching" = "مطابقة الحقول الذكية";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "يكتشف كاتلينج حقول البريد الإلكتروني والروابط والهاتف والعنوان، ثم يرفع المقتطفات المطابقة إلى أعلى لوحة المفاتيح.";
+"Create a new cutling" = "إنشاء كاتلينج جديد";
+"Save text or image snippets you'll reuse from any app." = "احفظ مقتطفات نصية أو صورية يمكنك إعادة استخدامها من أي تطبيق.";

@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Activa la sincronització amb iCloud per mantenir els teus cutlings al dia a cada dispositiu connectat al teu compte Apple.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Toca el camp de text de dalt i fes servir la tecla 🌐 globus per canviar a **Cutling**. Això verifica que tot estigui configurat correctament.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "Novetats de Cutling";
+"Cutling for Mac" = "Cutling per a Mac";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "Cutling ja funciona al Mac amb una drecera global i un selector a la barra de menús.";
+"Siri & Shortcuts" = "Siri i Dreceres";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "Demaneu a Siri que afegeixi, copiï o cerqui els vostres cutlings sense les mans.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Obriu Cutling a l'aplicació **Ajustos** del vostre dispositiu.";
 "Tap **Keyboards** and enable **Cutling**." = "Toqueu **Teclats** i activeu **Cutling**.";
@@ -312,3 +319,23 @@
 "Nothing to save." = "Res per desar.";
 "That doesn't look like an image." = "Això no sembla una imatge.";
 "Failed to save image." = "No s'ha pogut desar la imatge.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "Cutlings desats";
+"Your pinned snippets live here, ready to copy with one click." = "Els teus fragments fixats viuen aquí, llestos per copiar amb un clic.";
+"Recent clipboard" = "Porta-retalls recent";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Tot el que copies apareix aquí. Fes clic dret a qualsevol fila per desar-la com a cutling.";
+"Wipe the list" = "Esborra la llista";
+"Empties your recent clipboard. Saved cutlings stay put." = "Buida el teu porta-retalls recent. Els cutlings desats es queden.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Canvia la drecera de teclat, activa o desactiva la captura del porta-retalls i gestiona la sincronització d'iCloud.";
+"Undo deletes" = "Desfés eliminacions";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Els cutlings eliminats es queden aquí durant 30 dies. Recupera'ls o buida-ho definitivament.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Toca aquí per seleccionar diversos cutlings, reordenar-los o restaurar els eliminats recentment.";
+"Long-press a cutling" = "Manté premut un cutling";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Mantén premuda qualsevol targeta per a accions ràpides: copiar, editar, compartir o eliminar.";
+"Drag to select" = "Arrossega per seleccionar";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Llisca sobre les targetes per seleccionar un interval. Torna a passar-hi per desseleccionar-les.";
+"Smart field matching" = "Coincidència intel·ligent de camps";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling detecta camps de correu, URL, telèfon i adreça i mostra els fragments coincidents a la part superior del teclat.";
+"Create a new cutling" = "Crea un nou Cutling";
+"Save text or image snippets you'll reuse from any app." = "Desa fragments de text o d'imatge que reutilitzaràs des de qualsevol app.";

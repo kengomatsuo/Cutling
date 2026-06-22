@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "開啟 iCloud 同步，讓所有登入 Apple 帳號的裝置上的剪切片段都能保持最新。";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "點一下上方的文字欄位，然後使用 🌐 地球儀鍵切換到 **剪切片段**。這將驗證一切設定是否正確。";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "剪切片段新功能";
+"Cutling for Mac" = "Mac 版剪切片段";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "剪切片段現已可在 Mac 上執行，支援全域快捷鍵和選單列選擇器。";
+"Siri & Shortcuts" = "Siri 與捷徑";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "請 Siri 免動手新增、拷貝或搜尋您的剪切片段。";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "在裝置的**設定** App 中打開 Cutling。";
 "Tap **Keyboards** and enable **Cutling**." = "點一下**鍵盤**並啟用 **Cutling**。";
@@ -312,3 +319,23 @@
 "Nothing to save." = "沒有可儲存的內容。";
 "That doesn't look like an image." = "這看起來不像圖片。";
 "Failed to save image." = "儲存圖片失敗。";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "已儲存的剪切片段";
+"Your pinned snippets live here, ready to copy with one click." = "已釘選的片段會顯示在這裡，輕點一下即可複製。";
+"Recent clipboard" = "最近剪貼板";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "複製的所有內容都會出現在這裡。在任意一行上按右鍵即可將其儲存為剪切片段。";
+"Wipe the list" = "清空列表";
+"Empties your recent clipboard. Saved cutlings stay put." = "清空最近剪貼板。已儲存的剪切片段不會受到影響。";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "可重新設定快捷鍵、開關剪貼板擷取、管理 iCloud 同步。";
+"Undo deletes" = "復原刪除";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "已刪除的剪切片段會在此處保留 30 天。可以還原它們，也可以徹底清空。";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "點此可選擇多個剪切片段、重新排列，或還原最近刪除的項目。";
+"Long-press a cutling" = "長按剪切片段";
+"Hold any card for quick actions: copy, edit, share, or delete." = "長按任意卡片，可使用複製、編輯、分享、刪除等快速動作。";
+"Drag to select" = "拖曳以選擇";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "在卡片上滑動可選取一個範圍。反向滑動可取消選取。";
+"Smart field matching" = "智慧欄位比對";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "剪切片段會辨識電子郵件、URL、電話號碼和地址欄位，並將相符的片段顯示在鍵盤頂部。";
+"Create a new cutling" = "新建剪切片段";
+"Save text or image snippets you'll reuse from any app." = "儲存可在任何 App 中重複使用的文字或圖片片段。";

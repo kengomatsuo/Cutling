@@ -211,6 +211,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Slå iCloud-synkronisering til for at holde dine cutlings opdaterede på alle enheder, der er logget ind på din Apple-konto.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Tryk på tekstfeltet ovenfor, og brug derefter 🌐 globustasten til at skifte til **Cutling**. Dette bekræfter, at alt er korrekt konfigureret.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "Nyheder i Cutling";
+"Cutling for Mac" = "Cutling til Mac";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "Cutling kører nu på din Mac med en global tastaturgenvej og en vælger i menulinjen.";
+"Siri & Shortcuts" = "Siri og Genveje";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "Bed Siri om at tilføje, kopiere eller søge i dine cutlings håndfrit.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Åbn Cutling i din enheds **Indstillinger**-app.";
 "Tap **Keyboards** and enable **Cutling**." = "Tryk på **Tastaturer** og aktiver **Cutling**.";
@@ -325,3 +332,23 @@
 "Nothing to save." = "Intet at gemme.";
 "That doesn't look like an image." = "Det ligner ikke et billede.";
 "Failed to save image." = "Kunne ikke gemme billedet.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "Gemte cutlings";
+"Your pinned snippets live here, ready to copy with one click." = "Dine fastgjorte uddrag bor her, klar til at kopiere med ét klik.";
+"Recent clipboard" = "Seneste udklipsholder";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Alt, du kopierer, lander her. Højreklik på en række for at gemme den som en cutling.";
+"Wipe the list" = "Ryd listen";
+"Empties your recent clipboard. Saved cutlings stay put." = "Tømmer din seneste udklipsholder. Gemte cutlings forbliver.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Skift tastaturgenvejen, slå opsamling fra udklipsholder til eller fra, og styr iCloud-synkronisering.";
+"Undo deletes" = "Fortryd sletninger";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Slettede cutlings forbliver her i 30 dage. Gendan dem, eller tøm permanent.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Tryk her for at vælge flere cutlings, omarrangere dem eller gendanne senest slettede.";
+"Long-press a cutling" = "Hold en cutling nede";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Hold på et kort for hurtige handlinger: kopier, rediger, del eller slet.";
+"Drag to select" = "Træk for at vælge";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Stryg hen over kort for at vælge et område. Stryg tilbage over dem for at fravælge.";
+"Smart field matching" = "Smart feltgenkendelse";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling registrerer e-mail-, URL-, telefon- og adressefelter og placerer matchende uddrag øverst på tastaturet.";
+"Create a new cutling" = "Opret en ny Cutling";
+"Save text or image snippets you'll reuse from any app." = "Gem tekst- eller billedfragmenter, du genbruger fra enhver app.";

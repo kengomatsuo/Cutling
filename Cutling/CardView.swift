@@ -162,12 +162,14 @@ struct CardView: View {
         if !isSelecting {
             ControlGroup {
                 Button {
+                    markContextMenuDiscovered()
                     copyToClipboard()
                 } label: {
                     Label("Copy", systemImage: "doc.on.doc")
                 }
 
                 Button {
+                    markContextMenuDiscovered()
                     shareItem()
                 } label: {
                     Label("Share", systemImage: "square.and.arrow.up")
@@ -175,6 +177,7 @@ struct CardView: View {
             }
 
             Button {
+                markContextMenuDiscovered()
                 onEdit()
             } label: {
                 Label("Edit", systemImage: "pencil")
@@ -182,12 +185,14 @@ struct CardView: View {
             .accessibilityIdentifier("editButton")
 
             Button {
+                markContextMenuDiscovered()
                 store.duplicate(item)
             } label: {
                 Label("Duplicate", systemImage: "plus.square.on.square")
             }
 
             Button {
+                markContextMenuDiscovered()
                 showInfo = true
             } label: {
                 Label("Get Info", systemImage: "info.circle")
@@ -196,11 +201,23 @@ struct CardView: View {
             Divider()
 
             Button(role: .destructive) {
+                markContextMenuDiscovered()
                 onDelete()
             } label: {
                 Label("Delete", systemImage: "trash")
             }
         }
+    }
+
+    /// Flips the TipKit parameter that hides the long-press hint once the
+    /// user has used the menu at least once. iOS-only; no-op on macOS where
+    /// the tip doesn't exist.
+    private func markContextMenuDiscovered() {
+        #if os(iOS)
+        if !LongPressCardTip.hasOpenedContextMenu {
+            LongPressCardTip.hasOpenedContextMenu = true
+        }
+        #endif
     }
 
     private func handleTap() {

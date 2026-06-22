@@ -14,6 +14,13 @@ enum MacSettingsTab: Hashable {
     case paste
     case sync
     case storage
+    case recentlyDeleted
+}
+
+extension Notification.Name {
+    /// Posted by the picker footer to make Settings open directly to the
+    /// Recently Deleted tab.
+    static let cutlingShowRecentlyDeleted = Notification.Name("com.matsuokengo.Cutling.showRecentlyDeleted")
 }
 
 struct MacSettingsView: View {
@@ -43,8 +50,12 @@ struct MacSettingsView: View {
             StorageSettingsTab()
                 .tabItem { Label("Storage", systemImage: "internaldrive") }
                 .tag(MacSettingsTab.storage)
+
+            RecentlyDeletedTab()
+                .tabItem { Label("Recently Deleted", systemImage: "trash") }
+                .tag(MacSettingsTab.recentlyDeleted)
         }
-        .frame(width: 480, height: 400)
+        .frame(width: 520, height: 440)
         .onAppear {
             isTrusted = PasteService.shared.isTrusted
             trustTimer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { _ in
@@ -54,6 +65,9 @@ struct MacSettingsView: View {
         .onDisappear {
             trustTimer?.invalidate()
             trustTimer = nil
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .cutlingShowRecentlyDeleted)) { _ in
+            tab = .recentlyDeleted
         }
     }
 }
@@ -122,10 +136,46 @@ private struct GeneralSettingsTab: View {
     @AppStorage("captureClipboardHistory") private var captureClipboardHistory = true
     @AppStorage("autoDetectInputTypes") private var autoDetectInputTypes = true
     @AppStorage("hasOnboarded") private var hasOnboarded = false
+    @AppStorage("showMenuBarIcon") private var showMenuBarIcon = true
     @Environment(\.openWindow) private var openWindow
+    @State private var launchAtLogin = LaunchAtLoginService.shared.isEnabled
 
     var body: some View {
         Form {
+            Section {
+                Toggle(isOn: $launchAtLogin) {
+                    Label("Launch Cutling at login", systemImage: "power")
+                }
+                .onChange(of: launchAtLogin) { _, newValue in
+                    _ = LaunchAtLoginService.shared.setEnabled(newValue)
+                    // Read back the live state in case the system denied
+                    // the change (e.g. user blocked login items in System
+                    // Settings) so the toggle stays in sync with reality.
+                    launchAtLogin = LaunchAtLoginService.shared.isEnabled
+                }
+                Button("Open Login Items in System Settings\u{2026}") {
+                    LaunchAtLoginService.shared.openLoginItemsSettings()
+                }
+            } header: {
+                Text("Startup")
+            } footer: {
+                Text("Cutling starts automatically when you log in to your Mac. macOS may ask for approval on first registration.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+
+            Section {
+                Toggle(isOn: $showMenuBarIcon) {
+                    Label("Show menu bar icon", systemImage: "menubar.rectangle")
+                }
+            } header: {
+                Text("Menu Bar")
+            } footer: {
+                Text("Hide the menu bar icon if you prefer summoning Cutling only with the global hotkey. The app stays running in the background and the hotkey keeps working.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+
             Section {
                 Toggle(isOn: $captureClipboardHistory) {
                     Label("Capture clipboard history", systemImage: "doc.on.clipboard")
@@ -148,8 +198,9 @@ private struct GeneralSettingsTab: View {
 
             Section {
                 Button("Show Welcome Again") {
-                    AppActivationManager.shared.prepareToShowWindow()
-                    openWindow(id: WelcomeWindow.id)
+                    AppActivationManager.shared.showWindow {
+                        openWindow(id: WelcomeWindow.id)
+                    }
                 }
                 Button("Reset Tips") {
                     try? Tips.resetDatastore()
@@ -229,9 +280,18 @@ private struct SyncSettingsTab: View {
     }
 }
 
+private struct DiskUsageBreakdown: Sendable {
+    var saved: Int64 = 0
+    var history: Int64 = 0
+    var deleted: Int64 = 0
+    var orphaned: Int64 = 0
+    var total: Int64 { saved + history + deleted + orphaned }
+    nonisolated init() {}
+}
+
 private struct StorageSettingsTab: View {
     @EnvironmentObject private var store: CutlingStore
-    @State private var diskUsageBytes: Int64 = 0
+    @State private var usage = DiskUsageBreakdown()
 
     var body: some View {
         Form {
@@ -257,41 +317,268 @@ private struct StorageSettingsTab: View {
                 }
                 Button("Clear History", role: .destructive) {
                     store.clearHistory()
+                    Task { await refresh() }
                 }
                 .disabled(store.historyCutlings.isEmpty)
             }
 
-            Section("Disk") {
-                LabeledContent("Image Storage") {
-                    Text(ByteCountFormatter.string(fromByteCount: diskUsageBytes, countStyle: .file))
+            Section {
+                LabeledContent("Saved cutlings") {
+                    Text(format(usage.saved))
                         .foregroundStyle(.secondary)
+                }
+                LabeledContent("Clipboard history") {
+                    Text(format(usage.history))
+                        .foregroundStyle(.secondary)
+                }
+                LabeledContent("Recently deleted") {
+                    Text(format(usage.deleted))
+                        .foregroundStyle(.secondary)
+                }
+                if usage.orphaned > 0 {
+                    LabeledContent("Orphaned files") {
+                        Text(format(usage.orphaned))
+                            .foregroundStyle(.orange)
+                    }
+                    Button("Clean Up Orphaned Files") {
+                        Task {
+                            await cleanOrphans()
+                            await refresh()
+                        }
+                    }
+                }
+                LabeledContent("Total") {
+                    Text(format(usage.total))
+                        .foregroundStyle(.primary)
+                        .fontWeight(.semibold)
+                }
+            } header: {
+                Text("Image Storage on Disk")
+            } footer: {
+                Text("Image files captured from the clipboard and saved cutlings live in this app's container. Recently deleted images are kept until permanent removal or until you empty Recently Deleted.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+        }
+        .formStyle(.grouped)
+        .padding()
+        .task { await refresh() }
+    }
+
+    private func format(_ bytes: Int64) -> String {
+        ByteCountFormatter.string(fromByteCount: bytes, countStyle: .file)
+    }
+
+    private func refresh() async {
+        let savedIDs = Set(store.cutlings.compactMap { $0.kind == .image ? $0.id : nil })
+        let historyIDs = Set(store.historyCutlings.compactMap { $0.kind == .image ? $0.id : nil })
+        let deletedIDs = Set(store.recentlyDeleted.compactMap { $0.cutling.kind == .image ? $0.cutling.id : nil })
+        usage = await Self.measure(directory: store.imagesDirectory, savedIDs: savedIDs, historyIDs: historyIDs, deletedIDs: deletedIDs)
+    }
+
+    private func cleanOrphans() async {
+        let savedIDs = Set(store.cutlings.compactMap { $0.kind == .image ? $0.id : nil })
+        let historyIDs = Set(store.historyCutlings.compactMap { $0.kind == .image ? $0.id : nil })
+        let deletedIDs = Set(store.recentlyDeleted.compactMap { $0.cutling.kind == .image ? $0.cutling.id : nil })
+        let dir = store.imagesDirectory
+        await Task.detached {
+            let fm = FileManager.default
+            guard let enumerator = fm.enumerator(at: dir,
+                                                includingPropertiesForKeys: nil,
+                                                options: [.skipsHiddenFiles]) else { return }
+            while let obj = enumerator.nextObject() {
+                guard let url = obj as? URL else { continue }
+                let stem = url.deletingPathExtension().lastPathComponent
+                guard let uuid = UUID(uuidString: stem) else {
+                    try? fm.removeItem(at: url)
+                    continue
+                }
+                if !savedIDs.contains(uuid) && !historyIDs.contains(uuid) && !deletedIDs.contains(uuid) {
+                    try? fm.removeItem(at: url)
+                }
+            }
+        }.value
+    }
+
+    nonisolated private static func measure(
+        directory: URL,
+        savedIDs: Set<UUID>,
+        historyIDs: Set<UUID>,
+        deletedIDs: Set<UUID>
+    ) async -> DiskUsageBreakdown {
+        await Task.detached {
+            let fm = FileManager.default
+            guard let enumerator = fm.enumerator(at: directory,
+                                                includingPropertiesForKeys: [.fileSizeKey],
+                                                options: [.skipsHiddenFiles]) else { return DiskUsageBreakdown() }
+            var result = DiskUsageBreakdown()
+            while let obj = enumerator.nextObject() {
+                guard let url = obj as? URL else { continue }
+                let size = Int64((try? url.resourceValues(forKeys: [.fileSizeKey]))?.fileSize ?? 0)
+                let stem = url.deletingPathExtension().lastPathComponent
+                guard let uuid = UUID(uuidString: stem) else {
+                    result.orphaned += size
+                    continue
+                }
+                if savedIDs.contains(uuid) {
+                    result.saved += size
+                } else if historyIDs.contains(uuid) {
+                    result.history += size
+                } else if deletedIDs.contains(uuid) {
+                    result.deleted += size
+                } else {
+                    result.orphaned += size
+                }
+            }
+            return result
+        }.value
+    }
+}
+
+private struct RecentlyDeletedTab: View {
+    @EnvironmentObject private var store: CutlingStore
+    @State private var confirmEmptyAll = false
+    @State private var itemToHardDelete: DeletedCutling?
+
+    var body: some View {
+        Form {
+            if store.recentlyDeleted.isEmpty {
+                Section {
+                    HStack {
+                        Spacer()
+                        VStack(spacing: 8) {
+                            Image(systemName: "trash")
+                                .font(.system(size: 40, weight: .light))
+                                .foregroundStyle(.tertiary)
+                            Text("No recently deleted cutlings")
+                                .foregroundStyle(.secondary)
+                        }
+                        Spacer()
+                    }
+                    .padding(.vertical, 24)
+                }
+            } else {
+                Section {
+                    ForEach(store.recentlyDeleted) { deleted in
+                        DeletedCutlingRow(
+                            deleted: deleted,
+                            onRestore: { store.restore(deleted) },
+                            onDelete: { itemToHardDelete = deleted }
+                        )
+                    }
+                } header: {
+                    HStack {
+                        Text("Deleted cutlings")
+                        Spacer()
+                        Text("\(store.recentlyDeleted.count)")
+                            .foregroundStyle(.secondary)
+                    }
+                } footer: {
+                    Text("Cutlings stay here for 30 days before permanent removal. iCloud syncs deletions across devices.")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+
+                Section {
+                    Button(role: .destructive) {
+                        confirmEmptyAll = true
+                    } label: {
+                        Text("Empty All")
+                            .foregroundStyle(.red)
+                    }
                 }
             }
         }
         .formStyle(.grouped)
         .padding()
-        .task {
-            diskUsageBytes = await diskUsage(in: store.imagesDirectory)
+        .confirmationDialog(
+            "Permanently delete all recently deleted cutlings?",
+            isPresented: $confirmEmptyAll,
+            titleVisibility: .visible
+        ) {
+            Button(role: .destructive) {
+                store.emptyRecentlyDeleted()
+            } label: {
+                Text("Empty All")
+                    .foregroundStyle(.red)
+            }
+            Button("Cancel", role: .cancel) {}
+        } message: {
+            Text("This cannot be undone.")
+        }
+        .confirmationDialog(
+            "Delete this cutling forever?",
+            isPresented: Binding(
+                get: { itemToHardDelete != nil },
+                set: { if !$0 { itemToHardDelete = nil } }
+            ),
+            titleVisibility: .visible,
+            presenting: itemToHardDelete
+        ) { item in
+            Button(role: .destructive) {
+                store.permanentlyDelete(item)
+                itemToHardDelete = nil
+            } label: {
+                Text("Delete Forever")
+                    .foregroundStyle(.red)
+            }
+            Button("Cancel", role: .cancel) {
+                itemToHardDelete = nil
+            }
+        } message: { item in
+            Text("\(item.cutling.name) will be permanently removed.")
         }
     }
+}
 
-    private func diskUsage(in directory: URL) async -> Int64 {
-        await Task.detached {
-            let fm = FileManager.default
-            guard let enumerator = fm.enumerator(at: directory,
-                                                includingPropertiesForKeys: [.fileSizeKey],
-                                                options: [.skipsHiddenFiles]) else { return Int64(0) }
-            var total: Int64 = 0
-            // `for case let ... in enumerator` would call makeIterator(),
-            // which is unavailable in async contexts under Swift 6. Use
-            // nextObject() in a while loop instead.
-            while let obj = enumerator.nextObject() {
-                guard let url = obj as? URL else { continue }
-                let values = try? url.resourceValues(forKeys: [.fileSizeKey])
-                total += Int64(values?.fileSize ?? 0)
+private struct DeletedCutlingRow: View {
+    let deleted: DeletedCutling
+    let onRestore: () -> Void
+    let onDelete: () -> Void
+
+    var body: some View {
+        HStack(spacing: 10) {
+            Image(systemName: deleted.cutling.icon)
+                .font(.system(size: 14))
+                .foregroundStyle(deleted.cutling.tintColor)
+                .frame(width: 22, height: 22)
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text(deleted.cutling.name)
+                    .font(.system(size: 13, weight: .medium))
+                    .lineLimit(1)
+                HStack(spacing: 8) {
+                    Text(preview)
+                        .font(.system(size: 11))
+                        .foregroundStyle(.secondary)
+                        .lineLimit(1)
+                    Text("\(deleted.daysRemaining)d left")
+                        .font(.system(size: 11))
+                        .foregroundStyle(deleted.daysRemaining <= 3 ? AnyShapeStyle(.orange) : AnyShapeStyle(.tertiary))
+                }
             }
-            return total
-        }.value
+
+            Spacer(minLength: 8)
+
+            Button("Restore", action: onRestore)
+                .controlSize(.small)
+            Button(role: .destructive, action: onDelete) {
+                Text("Delete")
+                    .foregroundStyle(.red)
+            }
+            .controlSize(.small)
+        }
+        .padding(.vertical, 2)
+    }
+
+    private var preview: String {
+        switch deleted.cutling.kind {
+        case .text:
+            let trimmed = deleted.cutling.value.trimmingCharacters(in: .whitespacesAndNewlines)
+            return trimmed.isEmpty ? String(localized: "Empty") : trimmed
+        case .image:
+            return String(localized: "Image")
+        }
     }
 }
 #endif

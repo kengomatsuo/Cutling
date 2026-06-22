@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Activează sincronizarea iCloud pentru a-ți menține cutlings la zi pe fiecare dispozitiv conectat la contul tău Apple.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Atinge câmpul de text de mai sus, apoi folosește tasta 🌐 glob pentru a comuta la **Cutling**. Acest lucru verifică dacă totul este configurat corect.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "Noutăți în Cutling";
+"Cutling for Mac" = "Cutling pentru Mac";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "Cutling funcționează acum pe Mac cu o scurtătură globală de la tastatură și un selector în bara de meniu.";
+"Siri & Shortcuts" = "Siri și Scurtături";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "Roagă-o pe Siri să adauge, să copieze sau să caute cutlings fără să folosești mâinile.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Deschide Cutling în aplicația **Setări** a dispozitivului.";
 "Tap **Keyboards** and enable **Cutling**." = "Atinge **Tastaturi** și activează **Cutling**.";
@@ -312,3 +319,23 @@
 "Nothing to save." = "Nimic de salvat.";
 "That doesn't look like an image." = "Aceasta nu pare a fi o imagine.";
 "Failed to save image." = "Salvarea imaginii a eșuat.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "Cutling-uri salvate";
+"Your pinned snippets live here, ready to copy with one click." = "Fragmentele tale fixate stau aici, gata să fie copiate cu un singur clic.";
+"Recent clipboard" = "Clipboard recent";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Tot ceea ce copiezi ajunge aici. Fă clic dreapta pe orice rând pentru a-l salva ca un cutling.";
+"Wipe the list" = "Golește lista";
+"Empties your recent clipboard. Saved cutlings stay put." = "Golește clipboardul recent. Cutling-urile salvate rămân la locul lor.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Schimbă scurtătura de la tastatură, activează sau dezactivează capturarea clipboardului și gestionează sincronizarea iCloud.";
+"Undo deletes" = "Anulează ștergerile";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Cutling-urile șterse rămân aici timp de 30 de zile. Restaurează-le sau golește definitiv.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Atinge aici pentru a selecta mai multe cutling-uri, a le reordona sau a le restaura pe cele șterse recent.";
+"Long-press a cutling" = "Apasă lung pe un cutling";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Ține apăsat orice card pentru acțiuni rapide: copiere, editare, partajare sau ștergere.";
+"Drag to select" = "Glisează pentru a selecta";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Glisează peste carduri pentru a selecta un interval. Glisează din nou peste ele pentru a deselecta.";
+"Smart field matching" = "Potrivire inteligentă a câmpurilor";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling detectează câmpurile de e-mail, URL, telefon și adresă, apoi aduce fragmentele potrivite în partea de sus a tastaturii.";
+"Create a new cutling" = "Creează un nou Cutling";
+"Save text or image snippets you'll reuse from any app." = "Salvează fragmente de text sau imagini pe care le vei refolosi din orice aplicație.";

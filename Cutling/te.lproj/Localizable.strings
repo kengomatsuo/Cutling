@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "మీ Apple Account లో సైన్ ఇన్ చేసిన ప్రతి పరికరంలో మీ కట్లింగ్‌లను తాజాగా ఉంచడానికి iCloud సింక్ ఆన్ చేయండి.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "పైన ఉన్న టెక్స్ట్ ఫీల్డ్ ట్యాప్ చేయండి, ఆ తర్వాత **కట్లింగ్** కు మారడానికి 🌐 గ్లోబ్ కీ ఉపయోగించండి. ఇది అన్నీ సరిగ్గా సెటప్ చేయబడిందని నిర్ధారిస్తుంది.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "కట్లింగ్‌లో కొత్తదేమిటి";
+"Cutling for Mac" = "Mac కోసం కట్లింగ్";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "కట్లింగ్ ఇప్పుడు మీ Mac లో గ్లోబల్ హాట్‌కీ మరియు మెనూ బార్ పికర్‌తో పనిచేస్తుంది.";
+"Siri & Shortcuts" = "Siri మరియు షార్ట్‌కట్‌లు";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "చేతులు ఉపయోగించకుండా మీ కట్లింగ్‌లను జోడించమని, కాపీ చేయమని లేదా శోధించమని Siri ని అడగండి.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "మీ పరికరం యొక్క **సెట్టింగ్స్** యాప్‌లో కట్లింగ్ తెరవండి.";
 "Tap **Keyboards** and enable **Cutling**." = "**కీబోర్డ్‌లు** ట్యాప్ చేసి **కట్లింగ్** ను ఎనేబుల్ చేయండి.";
@@ -312,3 +319,23 @@
 "Nothing to save." = "సేవ్ చేయడానికి ఏమీ లేదు.";
 "That doesn't look like an image." = "అది చిత్రం వలె కనిపించడం లేదు.";
 "Failed to save image." = "చిత్రాన్ని సేవ్ చేయడంలో విఫలమైంది.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "సేవ్ చేసిన కట్లింగ్‌లు";
+"Your pinned snippets live here, ready to copy with one click." = "మీ పిన్ చేసిన స్నిప్పెట్‌లు ఇక్కడ ఉంటాయి, ఒక క్లిక్‌తో కాపీ చేయడానికి సిద్ధంగా.";
+"Recent clipboard" = "ఇటీవలి క్లిప్‌బోర్డు";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "మీరు కాపీ చేసే ప్రతిదీ ఇక్కడకు వస్తుంది. ఏదైనా వరుసపై రైట్-క్లిక్ చేసి దానిని కట్లింగ్‌గా సేవ్ చేయండి.";
+"Wipe the list" = "జాబితాను తుడిచివేయండి";
+"Empties your recent clipboard. Saved cutlings stay put." = "మీ ఇటీవలి క్లిప్‌బోర్డును ఖాళీ చేస్తుంది. సేవ్ చేసిన కట్లింగ్‌లు అలాగే ఉంటాయి.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "హాట్‌కీని తిరిగి కేటాయించండి, క్లిప్‌బోర్డు క్యాప్చర్‌ను టోగుల్ చేయండి, మరియు iCloud సింక్‌ను నిర్వహించండి.";
+"Undo deletes" = "తొలగింపులను రద్దు చేయండి";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "తొలగించిన కట్లింగ్‌లు 30 రోజులు ఇక్కడ ఉంటాయి. వాటిని పునరుద్ధరించండి లేదా శాశ్వతంగా ఖాళీ చేయండి.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "అనేక కట్లింగ్‌లను ఎంచుకోవడానికి, వాటిని పునఃక్రమం చేయడానికి, లేదా ఇటీవల తొలగించినవాటిని పునరుద్ధరించడానికి ఇక్కడ నొక్కండి.";
+"Long-press a cutling" = "ఒక కట్లింగ్‌ను ఎక్కువసేపు నొక్కండి";
+"Hold any card for quick actions: copy, edit, share, or delete." = "త్వరిత చర్యల కోసం ఏదైనా కార్డును పట్టుకోండి: కాపీ, సవరించు, షేర్, లేదా తొలగించు.";
+"Drag to select" = "ఎంచుకోవడానికి లాగండి";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "శ్రేణిని ఎంచుకోవడానికి కార్డుల మీదుగా స్వైప్ చేయండి. ఎంపికను తీసివేయడానికి వాటి మీద తిరిగి స్వైప్ చేయండి.";
+"Smart field matching" = "స్మార్ట్ ఫీల్డ్ సరిపోలిక";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "కట్లింగ్ ఇమెయిల్, URL, ఫోన్ మరియు చిరునామా ఫీల్డ్‌లను గుర్తిస్తుంది, తర్వాత సరిపోలే స్నిప్పెట్‌లను కీబోర్డు పైకి తీసుకువస్తుంది.";
+"Create a new cutling" = "కొత్త కట్లింగ్ సృష్టించండి";
+"Save text or image snippets you'll reuse from any app." = "ఏ యాప్ నుండైనా మళ్లీ ఉపయోగించగల టెక్స్ట్ లేదా ఇమేజ్ స్నిప్పెట్‌లను సేవ్ చేయండి.";

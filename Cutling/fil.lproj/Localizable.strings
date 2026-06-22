@@ -211,6 +211,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "I-on ang iCloud Sync para mapanatiling updated ang iyong mga cutling sa bawat device na naka-sign in sa iyong Apple Account.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "I-tap ang text field sa itaas, pagkatapos gamitin ang 🌐 globe key para lumipat sa **Cutling**. Bini-verify nito na maayos ang lahat ng setup.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "Ano'ng Bago sa Cutling";
+"Cutling for Mac" = "Cutling para sa Mac";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "Tumatakbo na ang Cutling sa Mac mo gamit ang global na hotkey at menu bar picker.";
+"Siri & Shortcuts" = "Siri at Shortcuts";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "Hilingin kay Siri na magdagdag, kumopya, o maghanap ng iyong mga cutling nang hindi kailangang gumamit ng kamay.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Buksan ang Cutling sa **Settings** app ng iyong device.";
 "Tap **Keyboards** and enable **Cutling**." = "I-tap ang **Keyboards** at i-enable ang **Cutling**.";
@@ -325,3 +332,23 @@
 "Nothing to save." = "Walang i-save.";
 "That doesn't look like an image." = "Mukhang hindi ito larawan.";
 "Failed to save image." = "Nabigong i-save ang larawan.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "Mga naka-save na cutling";
+"Your pinned snippets live here, ready to copy with one click." = "Nandito ang mga naka-pin mong snippet, handang kopyahin sa isang click.";
+"Recent clipboard" = "Kamakailang clipboard";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Lahat ng kinopya mo ay napupunta dito. Mag-right-click sa anumang row para i-save ito bilang cutling.";
+"Wipe the list" = "Burahin ang listahan";
+"Empties your recent clipboard. Saved cutlings stay put." = "Inaalis ang kamakailang clipboard mo. Nananatili ang mga naka-save na cutling.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Baguhin ang hotkey, i-toggle ang clipboard capture, at pamahalaan ang iCloud sync.";
+"Undo deletes" = "I-undo ang mga delete";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Nananatili rito ang na-delete na mga cutling sa loob ng 30 araw. I-restore o burahin nang tuluyan.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "I-tap dito para pumili ng maraming cutling, ayusin ang pagkakasunod, o ibalik ang mga kamakailang na-delete.";
+"Long-press a cutling" = "Pindutin nang matagal ang cutling";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Pindutin ang anumang card para sa mabilisang aksyon: kopyahin, i-edit, i-share, o i-delete.";
+"Drag to select" = "I-drag para pumili";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Mag-swipe sa mga card para pumili ng range. Mag-swipe pabalik para i-deselect.";
+"Smart field matching" = "Smart na pagtutugma ng field";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Natutukoy ng Cutling ang email, URL, phone, at address fields, pagkatapos ay ipinapakita ang mga tumutugmang snippet sa itaas ng keyboard.";
+"Create a new cutling" = "Gumawa ng bagong Cutling";
+"Save text or image snippets you'll reuse from any app." = "I-save ang mga snippet ng teksto o larawan na magagamit mong muli sa anumang app.";

@@ -211,6 +211,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Slå på iCloud-synkronisering for å holde cutlingene dine oppdatert på alle enheter som er logget på Apple-kontoen din.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Trykk på tekstfeltet over, og bruk deretter 🌐 globustasten for å bytte til **Cutling**. Dette bekrefter at alt er satt opp riktig.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "Nytt i Cutling";
+"Cutling for Mac" = "Cutling for Mac";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "Cutling kjører nå på Mac med global hurtigtast og velger i menylinjen.";
+"Siri & Shortcuts" = "Siri og Snarveier";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "Be Siri legge til, kopiere eller søke i cutlingene dine håndfritt.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Åpne Cutling i enhetens **Innstillinger**-app.";
 "Tap **Keyboards** and enable **Cutling**." = "Trykk på **Tastaturer** og aktiver **Cutling**.";
@@ -325,3 +332,23 @@
 "Nothing to save." = "Ingenting å lagre.";
 "That doesn't look like an image." = "Det ser ikke ut som et bilde.";
 "Failed to save image." = "Kunne ikke lagre bildet.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "Lagrede cutlinger";
+"Your pinned snippets live here, ready to copy with one click." = "De festede utdragene dine bor her, klare til å kopieres med ett klikk.";
+"Recent clipboard" = "Nylig utklippstavle";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Alt du kopierer havner her. Høyreklikk på en rad for å lagre den som en cutling.";
+"Wipe the list" = "Tøm listen";
+"Empties your recent clipboard. Saved cutlings stay put." = "Tømmer den nylige utklippstavlen. Lagrede cutlinger blir værende.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Endre hurtigtasten, slå utklippstavleregistrering av eller på, og administrer iCloud-synkronisering.";
+"Undo deletes" = "Angre slettinger";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Slettede cutlinger blir her i 30 dager. Gjenopprett dem, eller tøm for godt.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Trykk her for å velge flere cutlinger, endre rekkefølge eller gjenopprette nylig slettede.";
+"Long-press a cutling" = "Trykk lenge på en cutling";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Hold på et kort for hurtighandlinger: kopier, rediger, del eller slett.";
+"Drag to select" = "Dra for å velge";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Sveip over kort for å velge et område. Sveip tilbake over dem for å oppheve valget.";
+"Smart field matching" = "Smart feltgjenkjenning";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling gjenkjenner felter for e-post, URL, telefon og adresse, og løfter samsvarende utdrag øverst på tastaturet.";
+"Create a new cutling" = "Lag en ny Cutling";
+"Save text or image snippets you'll reuse from any app." = "Lagre tekst- eller bildefragmenter du gjenbruker fra enhver app.";

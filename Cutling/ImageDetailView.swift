@@ -512,6 +512,7 @@ struct ImageDetailView: View {
             }
 
             store.update(updated)
+            postMacSaveNotification()
             dismiss()
         } else {
             // Check limit for new cutlings
@@ -521,7 +522,7 @@ struct ImageDetailView: View {
                 showLimitAlert = true
                 return
             }
-            
+
             let id = UUID()
             var cutling = Cutling(
                 id: id,
@@ -538,8 +539,15 @@ struct ImageDetailView: View {
             }
 
             store.add(cutling)
+            postMacSaveNotification()
             dismiss()
         }
+    }
+
+    private func postMacSaveNotification() {
+        #if os(macOS)
+        NotificationCenter.default.post(name: .cutlingDidSaveFromMacWindow, object: nil)
+        #endif
     }
     
     // MARK: - Actions

@@ -73,9 +73,6 @@ final class CutlingPickerController {
             queue: .main
         ) { [weak self] _ in
             Task { @MainActor [weak self] in
-                // Donate to TipKit so the HotkeyTip retires now that the
-                // user has discovered the shortcut on their own.
-                HotkeyTip.hotkeyPressed.sendDonation()
                 self?.toggle()
             }
         }
@@ -148,21 +145,29 @@ final class CutlingPickerController {
 
     private func makePanel() -> CutlingPickerPanel {
         let panel = CutlingPickerPanel()
-        // NSHostingController auto-sizes the window to the SwiftUI view's
-        // ideal size. NSHostingView (used previously) doesn't propagate
-        // intrinsic size to the panel, which left blank space at the top
-        // and clipped content at the bottom.
-        let hosting = NSHostingController(
+        // One-shot sizing: build an NSHostingView, measure its fittingSize,
+        // and apply it to the panel. NSHostingController with
+        // `.preferredContentSize` was causing a layout feedback loop with
+        // the borderless panel (preferredContentSize -> window resize ->
+        // view re-measure -> preferredContentSize -> ...), which hit
+        // EXC_BAD_ACCESS / stack overflow.
+        let host = NSHostingView(
             rootView: MacPickerView()
                 .environmentObject(CutlingStore.shared)
+                .environment(\.macWindowSurface, .pickerPanel)
                 .background(
                     RoundedRectangle(cornerRadius: 12, style: .continuous)
                         .fill(.background)
                 )
                 .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
         )
-        hosting.sizingOptions = [.preferredContentSize]
-        panel.contentViewController = hosting
+        host.autoresizingMask = [.width, .height]
+        let measured = host.fittingSize
+        let width = max(measured.width, 360)
+        let height = max(measured.height, 200)
+        host.frame = NSRect(x: 0, y: 0, width: width, height: height)
+        panel.contentView = host
+        panel.setContentSize(NSSize(width: width, height: height))
         return panel
     }
 

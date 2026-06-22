@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Kapcsold be az iCloud-szinkronizálást, hogy a cutlingjaid naprakészek legyenek minden olyan eszközön, amely az Apple-fiókodba van bejelentkezve.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Koppints a fenti szövegmezőre, majd a 🌐 földgömb gombbal válts **Cutling**-ra. Ezzel ellenőrizheted, hogy minden megfelelően van beállítva.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "Újdonságok a Cutlingben";
+"Cutling for Mac" = "Cutling Macre";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "A Cutling mostantól Mac-en is fut globális gyorsbillentyűvel és menüsori választóval.";
+"Siri & Shortcuts" = "Siri és Parancsok";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "Kérd meg a Sirit, hogy adjon hozzá, másoljon vagy keressen cutlingjaid között kéz nélkül.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Nyisd meg a Cutling alkalmazást a készülék **Beállítások** appjában.";
 "Tap **Keyboards** and enable **Cutling**." = "Koppints a **Billentyűzetek** elemre, és engedélyezd a **Cutling** billentyűzetet.";
@@ -312,3 +319,23 @@
 "Nothing to save." = "Nincs mit menteni.";
 "That doesn't look like an image." = "Ez nem tűnik képnek.";
 "Failed to save image." = "A kép mentése nem sikerült.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "Mentett Cutlingok";
+"Your pinned snippets live here, ready to copy with one click." = "A rögzített kódrészleteid itt találhatók, és egy kattintással másolhatók.";
+"Recent clipboard" = "Legutóbbi vágólap";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Minden, amit másolsz, ide kerül. Kattints jobb gombbal bármelyik sorra, hogy Cutlingként mentsd.";
+"Wipe the list" = "Lista törlése";
+"Empties your recent clipboard. Saved cutlings stay put." = "Üríti a legutóbbi vágólapot. A mentett Cutlingok a helyükön maradnak.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Módosítsd a gyorsbillentyűt, kapcsold be vagy ki a vágólap rögzítését, és kezeld az iCloud-szinkronizálást.";
+"Undo deletes" = "Törlések visszavonása";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "A törölt Cutlingok 30 napig itt maradnak. Állítsd vissza őket, vagy ürítsd véglegesen.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Koppints ide több Cutling kijelöléséhez, átrendezéséhez vagy a nemrég törölt elemek visszaállításához.";
+"Long-press a cutling" = "Tartsd lenyomva a Cutlinget";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Tartsd lenyomva bármelyik kártyát a gyors műveletekhez: másolás, szerkesztés, megosztás vagy törlés.";
+"Drag to select" = "Húzd a kijelöléshez";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Húzd át a kártyákon egy tartomány kijelöléséhez. Húzz vissza a kijelölés megszüntetéséhez.";
+"Smart field matching" = "Okos mezőillesztés";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "A Cutling felismeri az e-mail, URL, telefon- és címmezőket, majd a megfelelő kódrészleteket a billentyűzet tetejére helyezi.";
+"Create a new cutling" = "Új Cutling létrehozása";
+"Save text or image snippets you'll reuse from any app." = "Mentsd el azokat a szöveg- vagy képrészleteket, amelyeket bármely alkalmazásból újra felhasználsz.";

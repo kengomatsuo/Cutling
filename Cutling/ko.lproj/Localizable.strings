@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "iCloud 동기화를 켜면 Apple 계정으로 로그인된 모든 기기에서 컷링을 최신 상태로 유지할 수 있습니다.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "위의 텍스트 필드를 탭한 다음 🌐 지구본 키를 사용하여 **컷링**으로 전환하세요. 이렇게 하면 모든 것이 올바르게 설정되었는지 확인할 수 있습니다.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "컷링의 새로운 기능";
+"Cutling for Mac" = "Mac용 컷링";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "이제 컷링이 Mac에서도 전역 단축키와 메뉴 막대 피커로 실행됩니다.";
+"Siri & Shortcuts" = "Siri 및 단축어";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "Siri에게 손을 쓰지 않고 컷링을 추가, 복사, 검색하도록 요청하세요.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "기기의 **설정** 앱에서 컷링을 여세요.";
 "Tap **Keyboards** and enable **Cutling**." = "**키보드**를 탭하고 **컷링**을 활성화하세요.";
@@ -312,3 +319,23 @@
 "Nothing to save." = "저장할 항목이 없습니다.";
 "That doesn't look like an image." = "이미지가 아닌 것 같습니다.";
 "Failed to save image." = "이미지를 저장하지 못했습니다.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "저장된 컷링";
+"Your pinned snippets live here, ready to copy with one click." = "고정한 스니펫이 여기에 표시되며, 한 번의 클릭으로 복사할 수 있습니다.";
+"Recent clipboard" = "최근 클립보드";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "복사한 모든 내용이 여기에 표시됩니다. 항목을 마우스 오른쪽 버튼으로 클릭하면 컷링으로 저장할 수 있습니다.";
+"Wipe the list" = "목록 비우기";
+"Empties your recent clipboard. Saved cutlings stay put." = "최근 클립보드를 비웁니다. 저장된 컷링은 그대로 유지됩니다.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "단축키를 변경하고, 클립보드 캡처를 켜고 끄며, iCloud 동기화를 관리할 수 있습니다.";
+"Undo deletes" = "삭제 취소";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "삭제된 컷링은 30일 동안 여기에 보관됩니다. 복원하거나 완전히 삭제할 수 있습니다.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "여기를 탭하면 여러 컷링을 선택하거나, 순서를 변경하거나, 최근 삭제된 항목을 복원할 수 있습니다.";
+"Long-press a cutling" = "컷링을 길게 누르기";
+"Hold any card for quick actions: copy, edit, share, or delete." = "카드를 길게 누르면 복사, 편집, 공유, 삭제 등의 빠른 작업을 사용할 수 있습니다.";
+"Drag to select" = "드래그하여 선택";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "카드 위로 스와이프하여 범위를 선택합니다. 다시 스와이프하면 선택이 해제됩니다.";
+"Smart field matching" = "스마트 필드 매칭";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "컷링이 이메일, URL, 전화번호, 주소 입력란을 감지하여 일치하는 스니펫을 키보드 상단에 표시합니다.";
+"Create a new cutling" = "새 컷링 만들기";
+"Save text or image snippets you'll reuse from any app." = "어떤 앱에서도 재사용할 수 있는 텍스트 또는 이미지 스니펫을 저장합니다.";

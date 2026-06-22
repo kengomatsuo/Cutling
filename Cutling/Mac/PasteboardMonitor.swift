@@ -81,10 +81,22 @@ final class PasteboardMonitor {
         }
         for type in [NSPasteboard.PasteboardType.png, .tiff] {
             if let data = pasteboard.data(forType: type), !data.isEmpty {
-                store.appendHistoryImage(data)
+                store.appendHistoryImage(data, sourceFilename: imageFilenameFromPasteboard())
                 return
             }
         }
+    }
+
+    /// When the user copies an image file from Finder, the pasteboard
+    /// carries a `fileURL`; lift the last path component as the display
+    /// name. Raw screenshot-to-clipboard captures don't expose a URL, so
+    /// nil here tells the store to synthesise a date-based name.
+    private func imageFilenameFromPasteboard() -> String? {
+        let options: [NSPasteboard.ReadingOptionKey: Any] = [.urlReadingFileURLsOnly: true]
+        guard let urls = pasteboard.readObjects(forClasses: [NSURL.self], options: options) as? [URL],
+              let url = urls.first else { return nil }
+        let name = url.lastPathComponent
+        return name.isEmpty ? nil : name
     }
 }
 #endif

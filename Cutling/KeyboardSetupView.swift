@@ -393,27 +393,9 @@ struct KeyboardSetupView: View {
                 )
 
                 tipRow(
-                    icon: "wand.and.stars",
-                    title: "Smart Field Suggestions",
-                    detail: "Cutling spots email, URL, phone, and address fields, then floats matching cutlings to the top of the keyboard."
-                )
-
-                tipRow(
                     icon: "square.and.arrow.up",
                     title: "Save from Anywhere",
                     detail: "Send text, links, or images to Cutling straight from any app's Share Sheet or the Action extension."
-                )
-
-                tipRow(
-                    icon: "rectangle.3.group",
-                    title: "Widgets & Controls",
-                    detail: "Pin favorite cutlings to your Home Screen, Lock Screen, or Control Center for one-tap copy."
-                )
-
-                tipRow(
-                    icon: "magnifyingglass",
-                    title: "Find with Spotlight",
-                    detail: "Search your saved cutlings right from Spotlight and copy them in a single tap."
                 )
 
                 Divider()

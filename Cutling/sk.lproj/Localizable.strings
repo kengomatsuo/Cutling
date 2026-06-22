@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Zapnite synchronizáciu iCloud, aby vaše cutlingy boli aktuálne na každom zariadení prihlásenom do vášho účtu Apple.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Klepnite na textové pole vyššie a potom použite kláves 🌐 glóbusu na prepnutie na **Cutling**. Tým sa overí, že je všetko správne nastavené.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "Čo je nové v Cutlingu";
+"Cutling for Mac" = "Cutling pre Mac";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "Cutling teraz funguje aj na Macu s globálnou klávesovou skratkou a výberom v lište ponuky.";
+"Siri & Shortcuts" = "Siri a Skratky";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "Požiadajte Siri, aby pridala, skopírovala alebo vyhľadala vaše cutlingy bez použitia rúk.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Otvorte Cutling v aplikácii **Nastavenia** na vašom zariadení.";
 "Tap **Keyboards** and enable **Cutling**." = "Klepnite na **Klávesnice** a zapnite **Cutling**.";
@@ -312,3 +319,23 @@
 "Nothing to save." = "Niet čo uložiť.";
 "That doesn't look like an image." = "Toto nevyzerá ako obrázok.";
 "Failed to save image." = "Uloženie obrázka zlyhalo.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "Uložené Cutlingy";
+"Your pinned snippets live here, ready to copy with one click." = "Vaše pripnuté úryvky sú tu, pripravené na skopírovanie jedným kliknutím.";
+"Recent clipboard" = "Nedávna schránka";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Všetko, čo skopírujete, sa objaví tu. Kliknite pravým tlačidlom na ľubovoľný riadok a uložte ho ako Cutling.";
+"Wipe the list" = "Vymazať zoznam";
+"Empties your recent clipboard. Saved cutlings stay put." = "Vyprázdni nedávnu schránku. Uložené Cutlingy zostanú na svojom mieste.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Zmeňte klávesovú skratku, prepnite zachytávanie schránky a spravujte synchronizáciu s iCloudom.";
+"Undo deletes" = "Vrátiť vymazania";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Vymazané Cutlingy tu zostanú 30 dní. Obnovte ich alebo trvalo vymažte.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Klepnite sem na výber viacerých Cutlingov, zmenu ich poradia alebo obnovenie nedávno vymazaných.";
+"Long-press a cutling" = "Dlho stlačte Cutling";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Podržte ľubovoľnú kartu pre rýchle akcie: kopírovať, upraviť, zdieľať alebo vymazať.";
+"Drag to select" = "Potiahnite na výber";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Prejdite cez karty na výber rozsahu. Prejdite späť na zrušenie výberu.";
+"Smart field matching" = "Inteligentné priradenie polí";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling rozpozná polia pre e-mail, URL, telefón a adresu a zodpovedajúce úryvky zobrazí v hornej časti klávesnice.";
+"Create a new cutling" = "Vytvoriť nový Cutling";
+"Save text or image snippets you'll reuse from any app." = "Uložte si textové alebo obrazové úryvky, ktoré využijete v ktorejkoľvek aplikácii.";

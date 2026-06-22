@@ -211,6 +211,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Washa Usawazishaji wa iCloud ili kuweka cutlings zako zikiwa za hivi punde kwenye kila kifaa kilichoingia kwa Apple Account yako.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Gusa sehemu ya maandishi hapo juu, kisha tumia kitufe cha 🌐 globu kubadilisha hadi **Cutling**. Hii inathibitisha kuwa kila kitu kimesanidiwa vizuri.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "Yaliyo Mapya katika Cutling";
+"Cutling for Mac" = "Cutling kwa Mac";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "Cutling sasa inafanya kazi kwenye Mac yako ikiwa na njia ya mkato ya kibodi ya kawaida na kichagua kwenye upau wa menyu.";
+"Siri & Shortcuts" = "Siri na Njia za Mkato";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "Mwombe Siri kuongeza, kunakili au kutafuta cutlings zako bila kutumia mikono.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Fungua Cutling katika programu ya **Mipangilio** ya kifaa chako.";
 "Tap **Keyboards** and enable **Cutling**." = "Gusa **Kibodi** na uwashe **Cutling**.";
@@ -325,3 +332,23 @@
 "Nothing to save." = "Hakuna cha kuhifadhi.";
 "That doesn't look like an image." = "Hiyo haionekani kama picha.";
 "Failed to save image." = "Imeshindwa kuhifadhi picha.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "Cutlings zilizohifadhiwa";
+"Your pinned snippets live here, ready to copy with one click." = "Vipande vilivyobandikwa viko hapa, tayari kunakiliwa kwa mguso mmoja.";
+"Recent clipboard" = "Ubao wa kunakili wa hivi karibuni";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Kila kitu unachonakili kinafika hapa. Bofya-kulia mstari wowote ili kuuhifadhi kama cutling.";
+"Wipe the list" = "Futa orodha";
+"Empties your recent clipboard. Saved cutlings stay put." = "Inafuta ubao wako wa kunakili wa hivi karibuni. Cutlings zilizohifadhiwa zinabaki.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Badilisha kibodi ya mkato, washa au zima unasaji wa ubao wa kunakili, na simamia usawazishaji wa iCloud.";
+"Undo deletes" = "Tendua kufuta";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Cutlings zilizofutwa hubaki hapa kwa siku 30. Zirejeshe au futa kabisa.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Gusa hapa kuchagua cutlings kadhaa, kuzipanga upya, au kurejesha zilizofutwa hivi karibuni.";
+"Long-press a cutling" = "Shikilia cutling";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Shikilia kadi yoyote kupata vitendo vya haraka: nakili, hariri, shiriki au futa.";
+"Drag to select" = "Buruta ili kuchagua";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Telezesha juu ya kadi ili kuchagua aina mbalimbali. Telezesha nyuma juu yake ili kubatilisha uchaguzi.";
+"Smart field matching" = "Ulinganishaji mahiri wa sehemu";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling hutambua sehemu za barua pepe, URL, simu na anwani, kisha huleta vipande vinavyolingana juu ya kibodi.";
+"Create a new cutling" = "Unda Cutling mpya";
+"Save text or image snippets you'll reuse from any app." = "Hifadhi vipande vya maandishi au picha utakavyotumia tena kutoka kwa programu yoyote.";

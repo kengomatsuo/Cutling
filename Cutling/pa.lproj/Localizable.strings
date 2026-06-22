@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "ਆਪਣੇ Apple Account ਵਿੱਚ ਸਾਈਨ ਇਨ ਕੀਤੇ ਹਰ ਡਿਵਾਈਸ 'ਤੇ ਕਟਲਿੰਗਾਂ ਨੂੰ ਅੱਪ ਟੂ ਡੇਟ ਰੱਖਣ ਲਈ iCloud ਸਿੰਕ ਚਾਲੂ ਕਰੋ।";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "ਉੱਪਰ ਟੈਕਸਟ ਫੀਲਡ 'ਤੇ ਟੈਪ ਕਰੋ, ਫਿਰ **ਕਟਲਿੰਗ** 'ਤੇ ਸਵਿੱਚ ਕਰਨ ਲਈ 🌐 ਗਲੋਬ ਕੁੰਜੀ ਵਰਤੋ। ਇਹ ਪੁਸ਼ਟੀ ਕਰਦਾ ਹੈ ਕਿ ਸਭ ਕੁਝ ਸਹੀ ਤਰ੍ਹਾਂ ਸੈੱਟ ਕੀਤਾ ਗਿਆ ਹੈ।";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "ਕਟਲਿੰਗ ਵਿੱਚ ਕੀ ਨਵਾਂ ਹੈ";
+"Cutling for Mac" = "Mac ਲਈ ਕਟਲਿੰਗ";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "ਕਟਲਿੰਗ ਹੁਣ ਤੁਹਾਡੇ Mac 'ਤੇ ਗਲੋਬਲ ਹੌਟਕੀ ਅਤੇ ਮੇਨੂ ਬਾਰ ਪਿਕਰ ਨਾਲ ਚੱਲਦੀ ਹੈ।";
+"Siri & Shortcuts" = "Siri ਅਤੇ ਸ਼ਾਰਟਕਟਸ";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "ਹੱਥ ਵਰਤੇ ਬਿਨਾਂ ਆਪਣੇ ਕਟਲਿੰਗਾਂ ਨੂੰ ਜੋੜਨ, ਕਾਪੀ ਕਰਨ ਜਾਂ ਖੋਜਣ ਲਈ Siri ਨੂੰ ਕਹੋ।";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "ਆਪਣੇ ਡਿਵਾਈਸ ਦੀ **ਸੈਟਿੰਗਜ਼** ਐਪ ਵਿੱਚ ਕਟਲਿੰਗ ਖੋਲ੍ਹੋ।";
 "Tap **Keyboards** and enable **Cutling**." = "**ਕੀਬੋਰਡ** 'ਤੇ ਟੈਪ ਕਰੋ ਅਤੇ **ਕਟਲਿੰਗ** ਨੂੰ ਚਾਲੂ ਕਰੋ।";
@@ -312,3 +319,23 @@
 "Nothing to save." = "ਸੰਭਾਲਣ ਲਈ ਕੁਝ ਨਹੀਂ।";
 "That doesn't look like an image." = "ਇਹ ਚਿੱਤਰ ਵਰਗਾ ਨਹੀਂ ਲੱਗਦਾ।";
 "Failed to save image." = "ਚਿੱਤਰ ਸੰਭਾਲਣ ਵਿੱਚ ਅਸਫਲ।";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "ਸੰਭਾਲੇ ਹੋਏ ਕਟਲਿੰਗs";
+"Your pinned snippets live here, ready to copy with one click." = "ਤੁਹਾਡੇ ਪਿੰਨ ਕੀਤੇ ਸਨਿੱਪਟ ਇੱਥੇ ਰਹਿੰਦੇ ਹਨ, ਇੱਕ ਕਲਿੱਕ ਨਾਲ ਕਾਪੀ ਕਰਨ ਲਈ ਤਿਆਰ।";
+"Recent clipboard" = "ਹਾਲੀਆ ਕਲਿੱਪਬੋਰਡ";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "ਤੁਸੀਂ ਜੋ ਵੀ ਕਾਪੀ ਕਰਦੇ ਹੋ ਉਹ ਇੱਥੇ ਆਉਂਦਾ ਹੈ। ਕਿਸੇ ਵੀ ਕਤਾਰ 'ਤੇ ਰਾਈਟ-ਕਲਿੱਕ ਕਰਕੇ ਇਸਨੂੰ ਕਟਲਿੰਗ ਵਜੋਂ ਸੰਭਾਲੋ।";
+"Wipe the list" = "ਸੂਚੀ ਮਿਟਾਓ";
+"Empties your recent clipboard. Saved cutlings stay put." = "ਤੁਹਾਡਾ ਹਾਲੀਆ ਕਲਿੱਪਬੋਰਡ ਖਾਲੀ ਕਰਦਾ ਹੈ। ਸੰਭਾਲੇ ਹੋਏ ਕਟਲਿੰਗs ਉਸੇ ਥਾਂ ਰਹਿੰਦੇ ਹਨ।";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "ਹੌਟਕੀ ਨੂੰ ਮੁੜ-ਬੰਨ੍ਹੋ, ਕਲਿੱਪਬੋਰਡ ਕੈਪਚਰ ਟੌਗਲ ਕਰੋ, ਅਤੇ iCloud ਸਿੰਕ ਪ੍ਰਬੰਧਿਤ ਕਰੋ।";
+"Undo deletes" = "ਮਿਟਾਉਣਾ ਅਣਡੂ ਕਰੋ";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "ਮਿਟਾਏ ਗਏ ਕਟਲਿੰਗs ੩੦ ਦਿਨਾਂ ਤੱਕ ਇੱਥੇ ਰਹਿੰਦੇ ਹਨ। ਉਹਨਾਂ ਨੂੰ ਬਹਾਲ ਕਰੋ ਜਾਂ ਹਮੇਸ਼ਾ ਲਈ ਖਾਲੀ ਕਰੋ।";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "ਕਈ ਕਟਲਿੰਗs ਚੁਣਨ, ਉਹਨਾਂ ਨੂੰ ਮੁੜ-ਕ੍ਰਮਬੱਧ ਕਰਨ, ਜਾਂ ਹਾਲ ਹੀ ਵਿੱਚ ਮਿਟਾਏ ਗਏ ਨੂੰ ਬਹਾਲ ਕਰਨ ਲਈ ਇੱਥੇ ਟੈਪ ਕਰੋ।";
+"Long-press a cutling" = "ਕਟਲਿੰਗ ਨੂੰ ਲੰਮਾ ਦਬਾਓ";
+"Hold any card for quick actions: copy, edit, share, or delete." = "ਤੁਰੰਤ ਕਾਰਵਾਈਆਂ ਲਈ ਕੋਈ ਵੀ ਕਾਰਡ ਫੜੋ: ਕਾਪੀ, ਸੋਧ, ਸਾਂਝਾ, ਜਾਂ ਮਿਟਾਓ।";
+"Drag to select" = "ਚੁਣਨ ਲਈ ਖਿੱਚੋ";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "ਇੱਕ ਰੇਂਜ ਚੁਣਨ ਲਈ ਕਾਰਡਾਂ ਉੱਤੇ ਸਵਾਈਪ ਕਰੋ। ਚੋਣ ਰੱਦ ਕਰਨ ਲਈ ਉਹਨਾਂ ਉੱਤੇ ਵਾਪਸ ਸਵਾਈਪ ਕਰੋ।";
+"Smart field matching" = "ਸਮਾਰਟ ਫੀਲਡ ਮੇਲ";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "ਕਟਲਿੰਗ ਈਮੇਲ, URL, ਫੋਨ, ਅਤੇ ਪਤੇ ਦੇ ਫੀਲਡ ਪਛਾਣਦਾ ਹੈ, ਫਿਰ ਮੇਲ ਖਾਂਦੇ ਸਨਿੱਪਟ ਕੀਬੋਰਡ ਦੇ ਉੱਪਰ ਲਿਆਉਂਦਾ ਹੈ।";
+"Create a new cutling" = "ਨਵਾਂ ਕਟਲਿੰਗ ਬਣਾਓ";
+"Save text or image snippets you'll reuse from any app." = "ਕਿਸੇ ਵੀ ਐਪ ਤੋਂ ਮੁੜ ਵਰਤੋਂ ਯੋਗ ਟੈਕਸਟ ਜਾਂ ਚਿੱਤਰ ਟੁਕੜੇ ਸੁਰੱਖਿਅਤ ਕਰੋ।";

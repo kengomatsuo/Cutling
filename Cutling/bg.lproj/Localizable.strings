@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Включете синхронизацията с iCloud, за да поддържате кътлингите си актуални на всяко устройство, влязло във вашия Apple акаунт.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Докоснете текстовото поле по-горе, след това използвайте клавиша 🌐 глобус, за да превключите на **Кътлинг**. Това потвърждава, че всичко е настроено правилно.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "Какво ново в Кътлинг";
+"Cutling for Mac" = "Кътлинг за Mac";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "Кътлинг вече работи на вашия Mac с глобален пряк път и избор от лентата с менюта.";
+"Siri & Shortcuts" = "Siri и Преки пътища";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "Помолете Siri да добави, копира или търси вашите кътлинги без ръце.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Отворете Кътлинг в приложението **Настройки** на устройството.";
 "Tap **Keyboards** and enable **Cutling**." = "Докоснете **Клавиатури** и активирайте **Кътлинг**.";
@@ -312,3 +319,23 @@
 "Nothing to save." = "Няма какво да се запази.";
 "That doesn't look like an image." = "Това не изглежда като изображение.";
 "Failed to save image." = "Запазването на изображението не бе успешно.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "Запазени Кътлинги";
+"Your pinned snippets live here, ready to copy with one click." = "Вашите закачени фрагменти са тук, готови за копиране с едно кликване.";
+"Recent clipboard" = "Скорошен клипборд";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Всичко, което копирате, попада тук. Десен клик върху ред го запазва като Кътлинг.";
+"Wipe the list" = "Изчисти списъка";
+"Empties your recent clipboard. Saved cutlings stay put." = "Изпразва скорошния клипборд. Запазените Кътлинги остават на мястото си.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Променете прекия път, включете или изключете прихващането на клипборда и управлявайте синхронизацията с iCloud.";
+"Undo deletes" = "Отмени изтриванията";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Изтритите Кътлинги остават тук 30 дни. Възстановете ги или ги изпразнете завинаги.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Докоснете тук, за да изберете няколко Кътлинга, да ги пренаредите или да възстановите наскоро изтритите.";
+"Long-press a cutling" = "Задръжте Кътлинг";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Задръжте всяка карта за бързи действия: копиране, редактиране, споделяне или изтриване.";
+"Drag to select" = "Плъзнете за избор";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Плъзнете върху картите, за да изберете диапазон. Плъзнете обратно, за да премахнете избора.";
+"Smart field matching" = "Интелигентно съпоставяне на полета";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Кътлинг разпознава полета за имейл, URL, телефон и адрес и показва съответстващите фрагменти в горната част на клавиатурата.";
+"Create a new cutling" = "Създай нов Кътлинг";
+"Save text or image snippets you'll reuse from any app." = "Запази фрагменти от текст или изображения, които ще използваш повторно от всяко приложение.";

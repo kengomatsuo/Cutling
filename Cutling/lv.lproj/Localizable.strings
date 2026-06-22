@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Ieslēdziet iCloud sinhronizāciju, lai jūsu cutlings būtu atjaunināti katrā ierīcē, kurā esat pierakstījies ar savu Apple kontu.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Pieskarieties teksta laukam augstāk, pēc tam izmantojiet 🌐 globusa taustiņu, lai pārslēgtos uz **Cutling**. Tas pārbauda, vai viss ir iestatīts pareizi.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "Kas jauns Cutling";
+"Cutling for Mac" = "Cutling priekš Mac";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "Cutling tagad darbojas arī jūsu Mac datorā ar globālu īsinājumtaustiņu un izvēles rīku izvēļņu joslā.";
+"Siri & Shortcuts" = "Siri un Saīsnes";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "Lūdziet Siri pievienot, kopēt vai meklēt jūsu cutlings, neizmantojot rokas.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Atveriet Cutling ierīces **Iestatījumu** lietotnē.";
 "Tap **Keyboards** and enable **Cutling**." = "Pieskarieties **Tastatūras** un iespējojiet **Cutling**.";
@@ -312,3 +319,23 @@
 "Nothing to save." = "Nav ko saglabāt.";
 "That doesn't look like an image." = "Tas neizskatās pēc attēla.";
 "Failed to save image." = "Neizdevās saglabāt attēlu.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "Saglabātie Cutlingi";
+"Your pinned snippets live here, ready to copy with one click." = "Jūsu piespraustie fragmenti atrodas šeit, gatavi kopēšanai ar vienu klikšķi.";
+"Recent clipboard" = "Nesenā starpliktuve";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Viss, ko kopējat, nonāk šeit. Ar peles labo pogu noklikšķiniet uz jebkuras rindas, lai to saglabātu kā Cutling.";
+"Wipe the list" = "Notīrīt sarakstu";
+"Empties your recent clipboard. Saved cutlings stay put." = "Iztukšo neseno starpliktuvi. Saglabātie Cutlingi paliek savā vietā.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Mainiet īsinājumtaustiņu, ieslēdziet vai izslēdziet starpliktuves uztveršanu un pārvaldiet iCloud sinhronizāciju.";
+"Undo deletes" = "Atsaukt dzēšanu";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Dzēstie Cutlingi paliek šeit 30 dienas. Atjaunojiet tos vai neatgriezeniski iztukšojiet.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Pieskarieties šeit, lai atlasītu vairākus Cutlings, mainītu to secību vai atjaunotu nesen dzēstos.";
+"Long-press a cutling" = "Turiet Cutling";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Turiet jebkuru karti ātrām darbībām: kopēt, rediģēt, kopīgot vai dzēst.";
+"Drag to select" = "Velciet, lai atlasītu";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Velciet pāri kartēm, lai atlasītu diapazonu. Velciet atpakaļ, lai noņemtu atlasi.";
+"Smart field matching" = "Vieda lauku saskaņošana";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling atpazīst e-pasta, URL, tālruņa un adreses laukus un pārvieto atbilstošos fragmentus tastatūras augšpusē.";
+"Create a new cutling" = "Izveidot jaunu Cutling";
+"Save text or image snippets you'll reuse from any app." = "Saglabā teksta vai attēlu fragmentus, kurus atkārtoti izmantosi jebkurā lietotnē.";

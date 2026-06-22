@@ -11,6 +11,7 @@
 
 import AppIntents
 import SwiftUI
+import TipKit
 
 #if !os(macOS)
 
@@ -33,6 +34,20 @@ struct KeyboardView: View {
 
     private var fullAccessEnabled: Bool {
         UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.bool(forKey: "hasFullAccess") ?? false
+    }
+
+    private let inputTypeMatchTip = InputTypeMatchTip()
+    #endif
+
+    #if os(iOS)
+    /// Marks the tip eligible once the user owns at least one cutling that
+    /// the input-type detector has tagged. Until then the tip would have
+    /// no concrete snippet to point at and the explanation lands flat.
+    private func syncInputTypeTipParameter() {
+        let anyTagged = store.cutlings.contains {
+            $0.inputTypeTriggers?.isEmpty == false
+        }
+        InputTypeMatchTip.hasTaggedCutling = anyTagged
     }
     #endif
 
@@ -110,6 +125,12 @@ struct KeyboardView: View {
                     }
                 }
                 #endif
+                #endif
+
+                #if os(iOS)
+                TipView(inputTypeMatchTip)
+                    .listRowBackground(Color.clear)
+                    .listRowInsets(EdgeInsets())
                 #endif
 
                 Section {
@@ -241,6 +262,10 @@ struct KeyboardView: View {
             .onAppear {
                 isKeyboardAdded = isKeyboardEnabled
                 hasFullAccess = fullAccessEnabled
+                syncInputTypeTipParameter()
+            }
+            .onChange(of: store.cutlings.count) { _, _ in
+                syncInputTypeTipParameter()
             }
             .sheet(isPresented: $showSetupGuide) {
                 KeyboardSetupView()

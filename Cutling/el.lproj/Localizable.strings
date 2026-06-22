@@ -198,6 +198,13 @@
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Ενεργοποιήστε τον συγχρονισμό iCloud για να διατηρείτε τα cutlings ενημερωμένα σε κάθε συσκευή συνδεδεμένη στον λογαριασμό Apple σας.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Πατήστε στο πεδίο κειμένου παραπάνω και χρησιμοποιήστε το πλήκτρο 🌐 υδρόγειου για εναλλαγή στο **Cutling**. Αυτό επιβεβαιώνει ότι όλα είναι σωστά ρυθμισμένα.";
 
+/* MARK: - What's New Sheet */
+"What's New in Cutling" = "Τι νέο υπάρχει στο Cutling";
+"Cutling for Mac" = "Το Cutling για Mac";
+"Cutling now runs on your Mac with a global hotkey and menu bar picker." = "Το Cutling τρέχει τώρα και στο Mac με καθολική συντόμευση πληκτρολογίου και επιλογέα στη γραμμή μενού.";
+"Siri & Shortcuts" = "Siri και Συντομεύσεις";
+"Ask Siri to add, copy, or search your cutlings hands-free." = "Ζητήστε από τη Siri να προσθέσει, να αντιγράψει ή να αναζητήσει τα cutlings σας χωρίς να χρησιμοποιήσετε τα χέρια σας.";
+
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Ανοίξτε το Cutling στην εφαρμογή **Ρυθμίσεις** της συσκευής σας.";
 "Tap **Keyboards** and enable **Cutling**." = "Πατήστε **Πληκτρολόγια** και ενεργοποιήστε το **Cutling**.";
@@ -312,3 +319,23 @@
 "Nothing to save." = "Τίποτα για αποθήκευση.";
 "That doesn't look like an image." = "Αυτό δεν φαίνεται να είναι εικόνα.";
 "Failed to save image." = "Η αποθήκευση της εικόνας απέτυχε.";
+
+/* MARK: - TipKit */
+"Saved cutlings" = "Αποθηκευμένα Cutlings";
+"Your pinned snippets live here, ready to copy with one click." = "Τα καρφιτσωμένα αποσπάσματά σας βρίσκονται εδώ, έτοιμα για αντιγραφή με ένα κλικ.";
+"Recent clipboard" = "Πρόσφατο πρόχειρο";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Ό,τι αντιγράφετε καταλήγει εδώ. Κάντε δεξί κλικ σε οποιαδήποτε γραμμή για να την αποθηκεύσετε ως Cutling.";
+"Wipe the list" = "Διαγραφή λίστας";
+"Empties your recent clipboard. Saved cutlings stay put." = "Αδειάζει το πρόσφατο πρόχειρο. Τα αποθηκευμένα Cutlings παραμένουν στη θέση τους.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Αλλάξτε τη συντόμευση πληκτρολογίου, ενεργοποιήστε ή απενεργοποιήστε τη λήψη προχείρου και διαχειριστείτε τον συγχρονισμό iCloud.";
+"Undo deletes" = "Αναίρεση διαγραφών";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Τα διαγραμμένα Cutlings παραμένουν εδώ για 30 ημέρες. Επαναφέρετέ τα ή αδειάστε οριστικά.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Πατήστε εδώ για να επιλέξετε πολλά Cutlings, να τα αναδιατάξετε ή να επαναφέρετε πρόσφατα διαγραμμένα.";
+"Long-press a cutling" = "Πατήστε παρατεταμένα ένα Cutling";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Κρατήστε πατημένη οποιαδήποτε κάρτα για γρήγορες ενέργειες: αντιγραφή, επεξεργασία, κοινοποίηση ή διαγραφή.";
+"Drag to select" = "Σύρετε για επιλογή";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Σύρετε πάνω από τις κάρτες για να επιλέξετε εύρος. Σύρετε ξανά πάνω τους για να ακυρώσετε την επιλογή.";
+"Smart field matching" = "Έξυπνη αντιστοίχιση πεδίων";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Το Cutling εντοπίζει πεδία email, URL, τηλεφώνου και διεύθυνσης και εμφανίζει τα σχετικά αποσπάσματα στην κορυφή του πληκτρολογίου.";
+"Create a new cutling" = "Δημιουργία νέου Cutling";
+"Save text or image snippets you'll reuse from any app." = "Αποθηκεύστε αποσπάσματα κειμένου ή εικόνας που θα χρησιμοποιήσετε ξανά από οποιαδήποτε εφαρμογή.";
