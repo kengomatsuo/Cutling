@@ -51,6 +51,7 @@ struct MainContentView: View {
     // MARK: Environment
     @EnvironmentObject var store: CutlingStore
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.scenePhase) private var scenePhase
     #if os(macOS)
     @Environment(\.openWindow) private var openWindow
     #endif
@@ -124,8 +125,10 @@ struct MainContentView: View {
         UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.bool(forKey: "hasFullAccess") ?? false
     }
 
-    private var keyboardNeedsAttention: Bool {
-        !isKeyboardAdded || !hasFullAccess
+    @State private var keyboardNeedsAttention: Bool = false
+
+    private func refreshKeyboardStatus() {
+        keyboardNeedsAttention = !isKeyboardAdded || !hasFullAccess
     }
     #endif
 
@@ -294,6 +297,13 @@ struct MainContentView: View {
                 .onChange(of: store.cutlings.count) { _, _ in syncTipParameters() }
                 .onChange(of: mode) { _, newMode in
                     DragToSelectTip.isSelecting = newMode == .selecting
+                }
+                .onAppear { refreshKeyboardStatus() }
+                .onChange(of: scenePhase) { _, newPhase in
+                    if newPhase == .active { refreshKeyboardStatus() }
+                }
+                .onChange(of: activeSheet) { _, newValue in
+                    if newValue == nil { refreshKeyboardStatus() }
                 }
                 #endif
                 .overlay(alignment: .bottom) {

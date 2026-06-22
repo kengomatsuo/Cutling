@@ -93,12 +93,10 @@ struct CutlingApp: App {
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
     @AppStorage("hasCompletedSetup") private var hasCompletedSetup = false
 
-    // Version flag for migrations and "What's New" gating.
+    // Last app version the user opened. Drives migrations and the
+    // "What's New" sheet — advanced only after a terminal decision so a
+    // deferred launch retries on the next run.
     @AppStorage("lastVersionOpened") private var lastVersionOpened = ""
-
-    // Last release whose "What's New" sheet the user has seen. Bump
-    // `whatsNewVersion` on releases where new content should fire the sheet.
-    @AppStorage("lastWhatsNewVersionSeen") private var lastWhatsNewVersionSeen = ""
 
     @State private var pendingOpenCutlingID: UUID?
     @State private var copiedCutlingName: String?
@@ -180,7 +178,7 @@ struct CutlingApp: App {
                         #if DEBUG
                         if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") { return false }
                         #endif
-                        return !hasCompletedSetup || keyboardNeedsSetup
+                        return !hasCompletedSetup
                     }()
                     if willShowOnboarding {
                         showOnboarding = true
@@ -255,13 +253,17 @@ struct CutlingApp: App {
                 .onChange(of: hasCompletedSetup) { _, _ in
                     syncTipSetupParameters()
                 }
+                .onChange(of: showOnboarding) { _, _ in
+                    syncTipSetupParameters()
+                }
+                .onChange(of: showWhatsNew) { _, _ in
+                    syncTipSetupParameters()
+                }
                 .sheet(isPresented: $showOnboarding) {
                     KeyboardSetupView()
                 }
                 .sheet(isPresented: $showWhatsNew) {
-                    WhatsNewView {
-                        lastWhatsNewVersionSeen = whatsNewVersion
-                    }
+                    WhatsNewView()
                 }
                 #endif
                 .alert(
@@ -451,10 +453,9 @@ struct CutlingApp: App {
     #if os(iOS)
     /// Decides whether to present the "What's New" sheet for this launch.
     ///
-    /// Shown only to **existing** users who upgraded across the
-    /// `whatsNewVersion` threshold. Brand-new installers see the full
-    /// onboarding instead and have `lastWhatsNewVersionSeen` advanced silently
-    /// so they never get retroactively flagged.
+    /// Shown only to **existing** users whose previously-opened version was
+    /// below `whatsNewVersion`. Fresh installs and already-caught-up users
+    /// silently advance `lastVersionOpened` without seeing the sheet.
     ///
     /// `lastVersionOpened` is advanced *here* (not on `.onAppear`) so a
     /// deferral leaves it untouched: the next launch retries with the same
@@ -468,27 +469,10 @@ struct CutlingApp: App {
         #endif
 
         let target = AppVersion(whatsNewVersion)
+        let crossedThreshold =
+            !previousVersion.isEmpty && AppVersion(previousVersion) < target
 
-        // Fresh install: no previous version on disk. Advance the seen flag
-        // so a future release threshold doesn't fire retroactively for them.
-        if previousVersion.isEmpty {
-            if AppVersion(lastWhatsNewVersionSeen) < target {
-                lastWhatsNewVersionSeen = whatsNewVersion
-            }
-            lastVersionOpened = currentAppVersion
-            return
-        }
-
-        // Already seen this release's news (or a later one).
-        guard AppVersion(lastWhatsNewVersionSeen) < target else {
-            lastVersionOpened = currentAppVersion
-            return
-        }
-
-        // User was already on or past this release before this launch
-        // (e.g. reinstall after deleting). Treat as caught up.
-        guard AppVersion(previousVersion) < target else {
-            lastWhatsNewVersionSeen = whatsNewVersion
+        guard crossedThreshold else {
             lastVersionOpened = currentAppVersion
             return
         }
@@ -502,7 +486,10 @@ struct CutlingApp: App {
     }
 
     private func syncTipSetupParameters() {
-        let complete = hasCompletedSetup && !keyboardNeedsSetup
+        let complete = hasCompletedSetup
+            && !keyboardNeedsSetup
+            && !showOnboarding
+            && !showWhatsNew
         MoreMenuTip.setupComplete = complete
         LongPressCardTip.setupComplete = complete
         DragToSelectTip.setupComplete = complete
