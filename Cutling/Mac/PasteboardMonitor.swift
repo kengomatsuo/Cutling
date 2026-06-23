@@ -54,6 +54,13 @@ final class PasteboardMonitor {
         isRunning = false
     }
 
+    /// Mark the current pasteboard changeCount as already-seen, so the next
+    /// tick treats it as a no-op. Called by the picker after it writes to
+    /// the pasteboard so picking an item doesn't echo back into history.
+    func acknowledgeCurrentPasteboardChange() {
+        lastChangeCount = pasteboard.changeCount
+    }
+
     private func tick() {
         let current = pasteboard.changeCount
         guard current != lastChangeCount else { return }

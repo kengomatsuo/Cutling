@@ -1,14 +1,14 @@
 /* MARK: - Navigation & Titles */
 "My Cutlings" = "Моите Кътлинги";
-"Select Items" = "Изберете елементи";
-"%lld Selected" = "%lld избрани";
-"Reorder" = "Пренареди";
+"Select Items" = "Избери елементи";
+"%lld Selected" = "Избрани: %lld";
+"Reorder" = "Преподреди";
 "Settings" = "Настройки";
 "Keyboard Setup" = "Настройка на клавиатурата";
-"New" = "Ново";
+"New" = "Нов";
 "Choose Icon" = "Избери икона";
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Текст, %lld/%lld Изображения";
-"%lld Cutlings" = "%lld Кътлинги";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld текст, %lld/%lld изображения";
+"%lld Cutlings" = "Кътлинги: %lld";
 "Cutlings" = "Кътлинги";
 
 /* MARK: - Common Actions */
@@ -25,26 +25,26 @@
 
 /* MARK: - Menu Items */
 "Text Cutling" = "Текстов Кътлинг";
-"Image Cutling" = "Графичен Кътлинг";
-"Select Cutlings" = "Изберете Кътлинги";
-"Reorder Cutlings" = "Пренареди Кътлинги";
+"Image Cutling" = "Кътлинг изображение";
+"Select Cutlings" = "Избери Кътлинги";
+"Reorder Cutlings" = "Преподреди Кътлинги";
 "Keyboard Setup Guide" = "Ръководство за настройка на клавиатурата";
 "Name (A → Z)" = "Име (А → Я)";
 "Name (Z → A)" = "Име (Я → А)";
-"Text First" = "Текст първо";
-"Images First" = "Изображения първо";
-"Shortest First" = "Най-кратък първо";
-"Longest First" = "Най-дълъг първо";
+"Text First" = "Първо текст";
+"Images First" = "Първо изображения";
+"Shortest First" = "Първо най-кратките";
+"Longest First" = "Първо най-дългите";
 "Reverse Order" = "Обратен ред";
 
 /* MARK: - Empty States */
 "No Cutlings Yet" = "Все още няма Кътлинги";
 "No Results" = "Няма резултати";
-"Tap + to add your first cutling." = "Докоснете +, за да добавите първия си Кътлинг.";
-"Try a different search term." = "Опитайте с друг термин за търсене.";
+"Tap + to add your first cutling." = "Докосни + за да добавиш първия си кътлинг.";
+"Try a different search term." = "Опитай с друг израз за търсене.";
 
 /* MARK: - Search */
-"Search cutlings" = "Търсене на Кътлинги";
+"Search cutlings" = "Търсене на кътлинги";
 "Search icons" = "Търсене на икони";
 
 /* MARK: - Form Labels */
@@ -83,54 +83,54 @@
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
-"iCloud Sync" = "iCloud синхронизация";
-"Sync your cutlings across all your devices using iCloud." = "Синхронизирайте своите Кътлинги на всички устройства чрез iCloud.";
+"iCloud Sync" = "Синхронизация с iCloud";
+"Sync your cutlings across all your devices using iCloud." = "Синхронизирай Кътлингите си на всичките си устройства през iCloud.";
 "Storage" = "Хранилище";
 "Text Cutlings" = "Текстови Кътлинги";
-"Image Cutlings" = "Графични Кътлинги";
+"Image Cutlings" = "Кътлинги с изображения";
 "Total Cutlings" = "Общо Кътлинги";
-"Disk Usage" = "Използвано място";
+"Disk Usage" = "Заетост на диска";
 "Status" = "Статус";
 "Syncing…" = "Синхронизиране…";
 "Up to date" = "Актуално";
 "Sync Now" = "Синхронизирай сега";
-"Turn On iCloud Sync" = "Включи iCloud синхронизация";
+"Turn On iCloud Sync" = "Включи синхронизация с iCloud";
 "Max Text Length" = "Макс. дължина на текста";
 "%lld chars" = "%lld знака";
-"About" = "Относно";
+"About" = "Информация";
 "Version" = "Версия";
 "Keyboard Added" = "Клавиатурата е добавена";
 "Full Access" = "Пълен достъп";
 "Experimental Feature: iCloud" = "Експериментална функция: iCloud";
-"Contact Support" = "Свържете се с поддръжката";
+"Contact Support" = "Свържи се с поддръжката";
 "Privacy Policy" = "Политика за поверителност";
-"Auto-detect Input Types" = "Автоматично разпознаване на типове въвеждане";
+"Auto-detect Input Types" = "Автоматично разпознаване на типовете въвеждане";
 "Enable iCloud Sync" = "Включи синхронизация с iCloud";
-"Keep your cutlings in sync across all your devices." = "Поддържайте вашите Кътлинги синхронизирани на всички устройства.";
-"Automatically detect and suggest input type categories when editing text." = "Автоматично разпознаване и предлагане на категории типове въвеждане при редактиране на текст.";
+"Keep your cutlings in sync across all your devices." = "Дръж Кътлингите си синхронизирани на всичките си устройства.";
+"Automatically detect and suggest input type categories when editing text." = "Автоматично разпознава и предлага категории типове въвеждане при редактиране на текст.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Няма избрано изображение";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "Това ще замени текущия текст с каквото е в клипборда ви.";
-"This will replace the current image with whatever is in your clipboard." = "Това ще замени текущото изображение с каквото е в клипборда ви.";
-"This cutling will be automatically deleted at the selected date and time." = "Този Кътлинг ще бъде автоматично изтрит на избраната дата и час.";
-"Each text cutling can hold up to %lld characters." = "Всеки текстов Кътлинг може да съдържа до %lld знака.";
+"This will replace the current text with whatever is in your clipboard." = "Това ще замени текущия текст с това, което е в клипборда ти.";
+"This will replace the current image with whatever is in your clipboard." = "Това ще замени текущото изображение с това, което е в клипборда ти.";
+"This cutling will be automatically deleted at the selected date and time." = "Този кътлинг ще бъде автоматично изтрит на избраната дата и час.";
+"Each text cutling can hold up to %lld characters." = "Всеки текстов кътлинг може да съдържа до %lld знака.";
 
 /* MARK: - Alerts */
-"Limit Reached" = "Лимитът е достигнат";
-"Delete Cutling?" = "Изтриване на Кътлинг?";
+"Limit Reached" = "Достигнат лимит";
+"Delete Cutling?" = "Изтриване на Кътлинга?";
 "This action cannot be undone." = "Това действие не може да бъде отменено.";
-"Cannot add text cutling" = "Не може да се добави текстов Кътлинг";
-"Cannot add image cutling" = "Не може да се добави графичен Кътлинг";
-"Cannot add more text cutlings." = "Не могат да се добавят повече текстови Кътлинги.";
-"Cannot add more image cutlings." = "Не могат да се добавят повече графични Кътлинги.";
+"Cannot add text cutling" = "Текстовият кътлинг не може да бъде добавен";
+"Cannot add image cutling" = "Кътлинг изображение не може да бъде добавен";
+"Cannot add more text cutlings." = "Не могат да се добавят още текстови кътлинги.";
+"Cannot add more image cutlings." = "Не могат да се добавят още кътлинги с изображения.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Достигнахте максимума от %lld общо Кътлинги. Изтрийте някои, за да добавите нови.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Достигнахте максимума от %lld графични Кътлинги. Изображенията използват значителна памет в клавиатурата. Изтрийте някои изображения, за да добавите нови.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Достигнахте максимума от %lld текстови Кътлинги. Изтрийте някои, за да добавите нови.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Достигна максимума — общо %lld кътлинга. Изтрий няколко, за да добавиш още.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Достигна максимума — %lld кътлинги с изображения. Изображенията използват много памет в клавиатурата. Изтрий няколко изображения, за да добавиш още.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Достигна максимума — %lld текстови кътлинги. Изтрий няколко, за да добавиш още.";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Предложения за тип на въвеждане";
@@ -163,14 +163,14 @@
 "Set Up Your Keyboard" = "Настройте клавиатурата си";
 "Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Вашата Кътлинг клавиатура е готова! Докато пишете навсякъде, докоснете иконата 🌐 глобус на клавиатурата, за да превключите към Кътлинг.";
 "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Следвайте двете прости стъпки по-долу, за да започнете да използвате персонализираната си клавиатура. Тази страница ще се актуализира автоматично, докато завършвате всяка стъпка.";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Стъпка 1:** Докоснете 'Отвори настройките на Кътлинг' по-долу, отидете на **Клавиатури** и изберете **Кътлинг** от списъка.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Стъпка 1:** Докоснете „Отвори настройките на Кътлинг“ по-долу, отидете на **Клавиатури** и изберете **Кътлинг** от списъка.";
 "**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Стъпка 2:** Уверете се, че **Разреши пълен достъп** е включено. Това позволява на клавиатурата да копира изображения в клипборда ви. Данните ви остават поверителни и никога не се изпращат никъде.";
-"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Стъпка 3:** Докоснете текстовото поле за въвеждане и изберете \"Кътлинг\" чрез иконата 🌐 глобус на клавиатурата, за да актуализирате статуса \"Пълен достъп\".";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Стъпка 3:** Докоснете текстовото поле за въвеждане и изберете „Кътлинг“ чрез иконата 🌐 глобус на клавиатурата, за да актуализирате статуса „Пълен достъп“.";
 "**Step 4:** You're good to go! The usage guide is provided below." = "**Стъпка 4:** Готови сте! Ръководството за употреба е предоставено по-долу.";
 "While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Докато пишете в което и да е приложение, докоснете или задръжте клавиша 🌐 глобус в долния ляв ъгъл на клавиатурата, след което изберете Кътлинг";
 "Tap any text cutling and it will be typed into your current text field immediately" = "Докоснете всеки текстов Кътлинг и той ще бъде въведен в текущото ви текстово поле незабавно";
 "Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Докоснете графичен Кътлинг, за да го копирате в клипборда, след което го поставете в приложението, което използвате (обикновено чрез докосване и задържане, след което изберете Постави). Apple в момента не поддържа директно поставяне на изображение в това приложение.";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Копирайте произволен текст, след което докоснете бутона 'Добави от клипборда' на Кътлинг клавиатурата, за да го запазите като нов Кътлинг";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Копирайте произволен текст, след което докоснете бутона „Добави от клипборда“ на Кътлинг клавиатурата, за да го запазите като нов Кътлинг";
 "You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Можете да управлявате всичките си Кътлинги в основното приложение Кътлинг. Промените, които правите, ще се появят мигновено на клавиатурата ви.";
 "Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Разширенията на клавиатурата имат строги ограничения на паметта, за да се осигури стабилност на системата. Изображенията използват повече памет от текста, затова ги ограничаваме, за да остане клавиатурата ви бърза и надеждна. Ако достигнете ограничение, просто изтрийте някои Кътлинги, за да добавите нови.";
 "Up to **%lld text** cutlings" = "До **%lld текстови** Кътлинги";
@@ -183,19 +183,19 @@
 "Test Your Keyboard" = "Тествайте клавиатурата си";
 "All set! Swipe to continue." = "Всичко е готово! Плъзнете, за да продължите.";
 "Your data stays private and is never sent anywhere." = "Данните ви остават поверителни и никога не се изпращат никъде.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Не е за чувствителни данни** — избягвайте съхраняването на пароли, номера на карти, частни ключове или токени";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Не е за чувствителни данни**: избягвайте съхраняването на пароли, номера на карти, частни ключове или токени";
 "Set Up Cutling Keyboard" = "Настройка на Кътлинг клавиатура";
 "What You Can Do" = "Какво можете да правите";
 "Smart Field Suggestions" = "Интелигентни предложения за полета";
-"Cutling spots email, URL, phone, and address fields, then floats matching cutlings to the top of the keyboard." = "Кътлинг разпознава полета за имейл, URL, телефон и адрес и показва съответстващите кътлинги в горната част на клавиатурата.";
+"Cutling spots email, URL, phone, and address fields, then floats matching cutlings to the top of the keyboard." = "Кътлинг разпознава полета за имейл, URL, телефон и адрес и показва съответстващите Кътлинги в горната част на клавиатурата.";
 "Save from Anywhere" = "Запазвайте отвсякъде";
 "Send text, links, or images to Cutling straight from any app's Share Sheet or the Action extension." = "Изпращайте текст, връзки или изображения към Кътлинг директно от менюто Споделяне на всяко приложение или от разширението Действие.";
 "Widgets & Controls" = "Уиджети и контроли";
-"Pin favorite cutlings to your Home Screen, Lock Screen, or Control Center for one-tap copy." = "Закачете любимите си кътлинги на началния екран, заключения екран или в Контролния център за копиране с едно докосване.";
+"Pin favorite cutlings to your Home Screen, Lock Screen, or Control Center for one-tap copy." = "Закачете любимите си Кътлинги на началния екран, заключения екран или в Контролния център за копиране с едно докосване.";
 "Find with Spotlight" = "Намерете със Spotlight";
-"Search your saved cutlings right from Spotlight and copy them in a single tap." = "Търсете запазените си кътлинги директно от Spotlight и ги копирайте с едно докосване.";
+"Search your saved cutlings right from Spotlight and copy them in a single tap." = "Търсете запазените си Кътлинги директно от Spotlight и ги копирайте с едно докосване.";
 "Sync Across Devices" = "Синхронизиране между устройства";
-"Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Включете синхронизацията с iCloud, за да поддържате кътлингите си актуални на всяко устройство, влязло във вашия Apple акаунт.";
+"Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Включете синхронизацията с iCloud, за да поддържате Кътлингите си актуални на всяко устройство, влязло във вашия Apple акаунт.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Докоснете текстовото поле по-горе, след това използвайте клавиша 🌐 глобус, за да превключите на **Кътлинг**. Това потвърждава, че всичко е настроено правилно.";
 
 /* MARK: - What's New Sheet */
@@ -206,26 +206,26 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "Помолете Siri да добави, копира или търси вашите кътлинги без ръце.";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "Отворете Кътлинг в приложението **Настройки** на устройството.";
-"Tap **Keyboards** and enable **Cutling**." = "Докоснете **Клавиатури** и активирайте **Кътлинг**.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Включете **Разреши пълен достъп**, за да може клавиатурата да копира изображения в клипборда.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Докоснете текстовото поле по-долу, след това използвайте клавиша 🌐 глобус, за да превключите на **Кътлинг**. Това потвърждава, че всичко е настроено правилно.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Синхронизацията с iCloud е **експериментална функция**. Може да не работи правилно във всички ситуации, което може да доведе до загуба на данни. Винаги можете да промените това по-късно в Настройки.";
+"Open Cutling in your device's **Settings** app." = "Отвори Кътлинг в апликацията **Настройки** на устройството си.";
+"Tap **Keyboards** and enable **Cutling**." = "Докосни **Клавиатури** и включи **Кътлинг**.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Включи **Разреши пълен достъп**, за да може клавиатурата да копира изображения в клипборда ти.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Докосни текстовото поле по-долу, после с клавиша глобус 🌐 превключи на **Кътлинг**. Това потвърждава, че всичко е настроено правилно.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Синхронизацията с iCloud е **експериментална функция**. В някои ситуации може да не работи правилно, което може да доведе до загуба на данни. Винаги можеш да промениш това по-късно в Настройките.";
 
 /* MARK: - Recently Deleted */
-"Recently Deleted" = "Наскоро изтрити";
-"Delete All" = "Изтрий всичко";
-"Delete All Permanently?" = "Изтриване на всичко завинаги?";
+"Recently Deleted" = "Скоро изтрити";
+"Delete All" = "Изтрий всички";
+"Delete All Permanently?" = "Изтриване на всички завинаги?";
 "Delete Permanently?" = "Изтриване завинаги?";
 "Delete Permanently" = "Изтрий завинаги";
 "Recover" = "Възстанови";
 "Items will be permanently deleted after 30 days." = "Елементите ще бъдат изтрити завинаги след 30 дни.";
-"No Recently Deleted Items" = "Няма наскоро изтрити елементи";
-"Deleted cutlings will appear here for 30 days." = "Изтритите Кътлинги ще се показват тук 30 дни.";
-"This will permanently delete all %lld items. This action cannot be undone." = "Всички %lld елемента ще бъдат изтрити завинаги. Това действие не може да бъде отменено.";
-"\"%@\" will be deleted permanently." = "\"%@\" ще бъде изтрит завинаги.";
+"No Recently Deleted Items" = "Няма скоро изтрити елементи";
+"Deleted cutlings will appear here for 30 days." = "Изтритите кътлинги ще се показват тук 30 дни.";
+"This will permanently delete all %lld items. This action cannot be undone." = "Това ще изтрие завинаги %lld елемента. Това действие не може да бъде отменено.";
+"\"%@\" will be deleted permanently." = "„%@“ ще бъде изтрит завинаги.";
 "1 day left" = "Остава 1 ден";
-"%lld days left" = "Остават %lld дни";
+"%lld days left" = "Остават дни: %lld";
 
 /* MARK: - Context Menu */
 "Share" = "Сподели";
@@ -321,24 +321,24 @@
 "Failed to save image." = "Запазването на изображението не бе успешно.";
 
 /* MARK: - TipKit */
-"Saved cutlings" = "Запазени Кътлинги";
-"Your pinned snippets live here, ready to copy with one click." = "Вашите закачени фрагменти са тук, готови за копиране с едно кликване.";
+"Saved cutlings" = "Запазени кътлинги";
+"Your pinned snippets live here, ready to copy with one click." = "Закачените ти фрагменти живеят тук, готови да се копират с едно кликване.";
 "Recent clipboard" = "Скорошен клипборд";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "Всичко, което копирате, попада тук. Десен клик върху ред го запазва като Кътлинг.";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Всичко, което копираш, идва тук. Кликни с десен бутон върху ред, за да го запазиш като кътлинг.";
 "Wipe the list" = "Изчисти списъка";
-"Empties your recent clipboard. Saved cutlings stay put." = "Изпразва скорошния клипборд. Запазените Кътлинги остават на мястото си.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Променете прекия път, включете или изключете прихващането на клипборда и управлявайте синхронизацията с iCloud.";
+"Empties your recent clipboard. Saved cutlings stay put." = "Изчиства скорошния ти клипборд. Запазените кътлинги остават.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Промени клавишната комбинация, включи/изключи прихващането на клипборда и управлявай iCloud синхронизацията.";
 "Undo deletes" = "Отмени изтриванията";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Изтритите Кътлинги остават тук 30 дни. Възстановете ги или ги изпразнете завинаги.";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Докоснете тук, за да изберете няколко Кътлинга, да ги пренаредите или да възстановите наскоро изтритите.";
-"Long-press a cutling" = "Задръжте Кътлинг";
-"Hold any card for quick actions: copy, edit, share, or delete." = "Задръжте всяка карта за бързи действия: копиране, редактиране, споделяне или изтриване.";
-"Drag to select" = "Плъзнете за избор";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "Плъзнете върху картите, за да изберете диапазон. Плъзнете обратно, за да премахнете избора.";
-"Smart field matching" = "Интелигентно съпоставяне на полета";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Кътлинг разпознава полета за имейл, URL, телефон и адрес и показва съответстващите фрагменти в горната част на клавиатурата.";
-"Create a new cutling" = "Създай нов Кътлинг";
-"Save text or image snippets you'll reuse from any app." = "Запази фрагменти от текст или изображения, които ще използваш повторно от всяко приложение.";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Изтритите кътлинги остават тук 30 дни. Възстанови ги или изпразни завинаги.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Докосни тук, за да избереш няколко кътлинга, да ги преподредиш или да възстановиш скоро изтрити.";
+"Long-press a cutling" = "Дълго натискане на кътлинг";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Задръж някоя карта за бързи действия: копиране, редактиране, споделяне или изтриване.";
+"Drag to select" = "Плъзни за избор";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Плъзни през картите, за да избереш диапазон. Плъзни обратно, за да отмениш избора.";
+"Smart field matching" = "Интелигентно разпознаване на полета";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Кътлинг разпознава полета за имейл, URL, телефон и адрес и изважда съответстващите фрагменти в горната част на клавиатурата.";
+"Create a new cutling" = "Създай нов кътлинг";
+"Save text or image snippets you'll reuse from any app." = "Запази текстови или графични фрагменти, които ще използваш отново от която и да е апликация.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "Добре дошли в Кътлинг";
@@ -359,3 +359,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "Позволява на Кътлинг да постави кътлинг директно в приложението, което сте използвали.";
 "Grant" = "Предостави";
 "You can skip Accessibility and grant it later from Settings → Paste." = "Може да пропуснете Достъпност и да я предоставите по-късно в Настройки → Поставяне.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "Запис като файл…";
+"Image Saving" = "Запис на изображения";
+"When saving images" = "При запис на изображения";
+"Ask each time" = "Питай всеки път";
+"Save to folder" = "Запис в папка";
+"Folder" = "Папка";
+"Change Folder…" = "Смяна на папка…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "Изберете как работи действието „Запис като файл“ за изображения Кътлинг. С „Запис в папка“ изображенията се записват направо в избраната папка с уникално име на файл, без питане.";
+"Choose" = "Избор";
+"Choose Image Folder" = "Избор на папка за изображения";
+"Pick a folder where Cutling will save image cutlings." = "Изберете папка, в която Кътлинг да записва изображения Кътлинг.";
+"Preview" = "Преглед";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "Запазени";
+"History" = "История";
+"No saved cutlings yet" = "Все още няма запазени Кътлинги";
+"Copy something to see it here" = "Копирай нещо, за да го видиш тук";
+"Clipboard history is off. Enable it in Settings." = "Историята на клипборда е изключена. Включи я в Настройките.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Включи в търсенето на Spotlight";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "Направи Кътлингите си търсими от Spotlight. Чувствително съдържание (кредитни карти, API ключове, JWT токени, seed фрази, частни ключове) никога не се индексира.";
+"Copy Cutling" = "Копирай Кътлинг";
+"Copy a cutling's contents to the clipboard." = "Копира съдържанието на Кътлинг в клипборда.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Използвай тези фрази със Siri или разгледай всички преки пътища на Кътлинг в апликацията Преки пътища.";
+"Copied \"%@\"" = "„%@“ копирано";

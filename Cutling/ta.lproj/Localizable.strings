@@ -1,12 +1,12 @@
 /* MARK: - Navigation & Titles */
 "My Cutlings" = "எனது கட்லிங்குகள்";
-"Select Items" = "உருப்படிகளைத் தேர்ந்தெடு";
-"%lld Selected" = "%lld தேர்ந்தெடுக்கப்பட்டன";
-"Reorder" = "மறுவரிசைப்படுத்து";
+"Select Items" = "உருப்படிகளைத் தேர்வுசெய்";
+"%lld Selected" = "%lld தேர்வுசெய்யப்பட்டது";
+"Reorder" = "மறுவரிசை";
 "Settings" = "அமைப்புகள்";
 "Keyboard Setup" = "விசைப்பலகை அமைப்பு";
-"New" = "புதிய";
-"Choose Icon" = "ஐகானைத் தேர்ந்தெடு";
+"New" = "புதியது";
+"Choose Icon" = "ஐகானைத் தேர்வுசெய்";
 "%lld/%lld Text, %lld/%lld Images" = "%lld/%lld உரை, %lld/%lld படங்கள்";
 "%lld Cutlings" = "%lld கட்லிங்குகள்";
 "Cutlings" = "கட்லிங்குகள்";
@@ -24,27 +24,27 @@
 "Delete Selected" = "தேர்ந்தெடுத்ததை நீக்கு";
 
 /* MARK: - Menu Items */
-"Text Cutling" = "உரை கட்லிங்";
-"Image Cutling" = "படம் கட்லிங்";
-"Select Cutlings" = "கட்லிங்குகள் தேர்ந்தெடு";
-"Reorder Cutlings" = "கட்லிங்குகள் மறுவரிசைப்படுத்து";
+"Text Cutling" = "உரை கட்லிங்கு";
+"Image Cutling" = "பட கட்லிங்கு";
+"Select Cutlings" = "கட்லிங்குகளைத் தேர்வுசெய்";
+"Reorder Cutlings" = "கட்லிங்குகளை மறுவரிசைப்படுத்து";
 "Keyboard Setup Guide" = "விசைப்பலகை அமைப்பு வழிகாட்டி";
 "Name (A → Z)" = "பெயர் (A → Z)";
 "Name (Z → A)" = "பெயர் (Z → A)";
-"Text First" = "உரை முதலில்";
-"Images First" = "படங்கள் முதலில்";
-"Shortest First" = "குறுகியது முதலில்";
-"Longest First" = "நீளமானது முதலில்";
+"Text First" = "முதலில் உரை";
+"Images First" = "முதலில் படங்கள்";
+"Shortest First" = "முதலில் மிகச் சிறியது";
+"Longest First" = "முதலில் மிக நீளமானது";
 "Reverse Order" = "தலைகீழ் வரிசை";
 
 /* MARK: - Empty States */
-"No Cutlings Yet" = "இதுவரை கட்லிங்குகள் இல்லை";
+"No Cutlings Yet" = "இன்னும் கட்லிங்குகள் இல்லை";
 "No Results" = "முடிவுகள் இல்லை";
-"Tap + to add your first cutling." = "உங்கள் முதல் கட்லிங்-ஐ சேர்க்க + தட்டவும்.";
-"Try a different search term." = "வேறு தேடல் சொல்லை முயற்சிக்கவும்.";
+"Tap + to add your first cutling." = "உனது முதல் கட்லிங்கைச் சேர்க்க + ஐத் தட்டு.";
+"Try a different search term." = "வேறு தேடல் வார்த்தையை முயற்சிக்கவும்.";
 
 /* MARK: - Search */
-"Search cutlings" = "கட்லிங்குகள் தேடு";
+"Search cutlings" = "கட்லிங்குகளைத் தேடு";
 "Search icons" = "ஐகான்களைத் தேடு";
 
 /* MARK: - Form Labels */
@@ -84,16 +84,16 @@
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
 "iCloud Sync" = "iCloud ஒத்திசைவு";
-"Sync your cutlings across all your devices using iCloud." = "iCloud பயன்படுத்தி உங்கள் எல்லா சாதனங்களிலும் கட்லிங்குகள்-ஐ ஒத்திசைக்கவும்.";
+"Sync your cutlings across all your devices using iCloud." = "iCloud ஐப் பயன்படுத்தி உனது எல்லா சாதனங்களிலும் கட்லிங்குகளை ஒத்திசை.";
 "Storage" = "சேமிப்பகம்";
 "Text Cutlings" = "உரை கட்லிங்குகள்";
-"Image Cutlings" = "படம் கட்லிங்குகள்";
+"Image Cutlings" = "பட கட்லிங்குகள்";
 "Total Cutlings" = "மொத்த கட்லிங்குகள்";
-"Disk Usage" = "வட்டு பயன்பாடு";
+"Disk Usage" = "வட்டுப் பயன்பாடு";
 "Status" = "நிலை";
-"Syncing…" = "ஒத்திசைக்கிறது…";
-"Up to date" = "புதுப்பித்த நிலையில்";
-"Sync Now" = "இப்போது ஒத்திசை";
+"Syncing…" = "ஒத்திசைகிறது…";
+"Up to date" = "புதுப்பிக்கப்பட்டது";
+"Sync Now" = "இப்போதே ஒத்திசை";
 "Turn On iCloud Sync" = "iCloud ஒத்திசைவை இயக்கு";
 "Max Text Length" = "அதிகபட்ச உரை நீளம்";
 "%lld chars" = "%lld எழுத்துகள்";
@@ -102,41 +102,41 @@
 "Keyboard Added" = "விசைப்பலகை சேர்க்கப்பட்டது";
 "Full Access" = "முழு அணுகல்";
 "Experimental Feature: iCloud" = "சோதனை அம்சம்: iCloud";
-"Contact Support" = "ஆதரவைத் தொடர்பு கொள்ளுங்கள்";
-"Privacy Policy" = "தனியுரிமைக் கொள்கை";
-"Auto-detect Input Types" = "உள்ளீட்டு வகைகளை தானாகக் கண்டறி";
+"Contact Support" = "ஆதரவைத் தொடர்புகொள்";
+"Privacy Policy" = "தனியுரிமை கொள்கை";
+"Auto-detect Input Types" = "உள்ளீட்டு வகைகளை தானாக கண்டறி";
 "Enable iCloud Sync" = "iCloud ஒத்திசைவை இயக்கு";
-"Keep your cutlings in sync across all your devices." = "உங்கள் அனைத்து சாதனங்களிலும் கட்லிங்களை ஒத்திசைவில் வைக்கவும்.";
-"Automatically detect and suggest input type categories when editing text." = "உரையைத் திருத்தும்போது உள்ளீட்டு வகை வகைப்பாடுகளை தானாகக் கண்டறிந்து பரிந்துரைக்கவும்.";
+"Keep your cutlings in sync across all your devices." = "உனது எல்லா சாதனங்களிலும் உனது கட்லிங்குகளை ஒத்திசைவாக வைத்திரு.";
+"Automatically detect and suggest input type categories when editing text." = "உரையைத் திருத்தும்போது உள்ளீட்டு வகை வகைகளை தானாக கண்டறிந்து பரிந்துரை செய்கிறது.";
 
 /* MARK: - Image Picker */
 "No image selected" = "படம் தேர்ந்தெடுக்கப்படவில்லை";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "இது தற்போதைய உரையை உங்கள் கிளிப்போர்டில் உள்ளதைக் கொண்டு மாற்றும்.";
-"This will replace the current image with whatever is in your clipboard." = "இது தற்போதைய படத்தை உங்கள் கிளிப்போர்டில் உள்ளதைக் கொண்டு மாற்றும்.";
-"This cutling will be automatically deleted at the selected date and time." = "இந்த கட்லிங் தேர்ந்தெடுக்கப்பட்ட தேதி மற்றும் நேரத்தில் தானாகவே நீக்கப்படும்.";
-"Each text cutling can hold up to %lld characters." = "ஒவ்வொரு உரை கட்லிங்-ம் %lld எழுத்துகள் வரை கொள்ளும்.";
+"This will replace the current text with whatever is in your clipboard." = "இது தற்போதைய உரையை உனது கிளிப்போர்டில் உள்ளவற்றால் மாற்றும்.";
+"This will replace the current image with whatever is in your clipboard." = "இது தற்போதைய படத்தை உனது கிளிப்போர்டில் உள்ளவற்றால் மாற்றும்.";
+"This cutling will be automatically deleted at the selected date and time." = "இந்த கட்லிங்கு தேர்ந்தெடுக்கப்பட்ட தேதி மற்றும் நேரத்தில் தானாகவே நீக்கப்படும்.";
+"Each text cutling can hold up to %lld characters." = "ஒவ்வொரு உரை கட்லிங்கும் அதிகபட்சம் %lld எழுத்துகளைக் கொண்டிருக்கும்.";
 
 /* MARK: - Alerts */
-"Limit Reached" = "வரம்பை அடைந்தது";
-"Delete Cutling?" = "கட்லிங்-ஐ நீக்கவா?";
-"This action cannot be undone." = "இந்த செயலை மீட்க இயலாது.";
-"Cannot add text cutling" = "உரை கட்லிங் சேர்க்க இயலாது";
-"Cannot add image cutling" = "படம் கட்லிங் சேர்க்க இயலாது";
-"Cannot add more text cutlings." = "மேலும் உரை கட்லிங்குகள் சேர்க்க இயலாது.";
-"Cannot add more image cutlings." = "மேலும் படம் கட்லிங்குகள் சேர்க்க இயலாது.";
+"Limit Reached" = "வரம்பு எட்டப்பட்டது";
+"Delete Cutling?" = "கட்லிங்கை நீக்கவா?";
+"This action cannot be undone." = "இந்தச் செயலை மாற்ற முடியாது.";
+"Cannot add text cutling" = "உரை கட்லிங்கைச் சேர்க்க முடியவில்லை";
+"Cannot add image cutling" = "பட கட்லிங்கைச் சேர்க்க முடியவில்லை";
+"Cannot add more text cutlings." = "மேலும் உரை கட்லிங்குகளைச் சேர்க்க முடியாது.";
+"Cannot add more image cutlings." = "மேலும் பட கட்லிங்குகளைச் சேர்க்க முடியாது.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "நீங்கள் மொத்தம் %lld கட்லிங்குகள் என்ற அதிகபட்ச வரம்பை அடைந்துவிட்டீர்கள். மேலும் சேர்க்க சிலவற்றை நீக்கவும்.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "நீங்கள் %lld படம் கட்லிங்குகள் என்ற அதிகபட்ச வரம்பை அடைந்துவிட்டீர்கள். படங்கள் விசைப்பலகையில் அதிக நினைவகத்தைப் பயன்படுத்துகின்றன. மேலும் சேர்க்க சில படங்களை நீக்கவும்.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "நீங்கள் %lld உரை கட்லிங்குகள் என்ற அதிகபட்ச வரம்பை அடைந்துவிட்டீர்கள். மேலும் சேர்க்க சிலவற்றை நீக்கவும்.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "மொத்தம் %lld கட்லிங்குகள் என்ற அதிகபட்ச வரம்பை எட்டிவிட்டாய். மேலும் சேர்க்க சிலவற்றை நீக்கு.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "%lld பட கட்லிங்குகள் என்ற அதிகபட்ச வரம்பை எட்டிவிட்டாய். படங்கள் விசைப்பலகையில் அதிக நினைவகத்தைப் பயன்படுத்துகின்றன. மேலும் சேர்க்க சில படங்களை நீக்கு.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "%lld உரை கட்லிங்குகள் என்ற அதிகபட்ச வரம்பை எட்டிவிட்டாய். மேலும் சேர்க்க சிலவற்றை நீக்கு.";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "உள்ளீட்டு வகை பரிந்துரைகள்";
 "Suggest for Input Types" = "உள்ளீட்டு வகைகளுக்குப் பரிந்துரை";
 "When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "பொருந்தும் வகையின் உரை புலத்தில் கவனம் செலுத்தும்போது, இந்த கட்லிங் விசைப்பலகையின் மேலே தோன்றும்.";
-"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "பொருந்தும் உரை புலத்தில் கவனம் செலுத்தும்போது விசைப்பலகையின் மேலே தோன்ற கட்லிங்குகள்-ஐ உள்ளீட்டு வகைகளுக்கு ஒதுக்கவும்.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "பொருந்தும் உரை புலத்தில் கவனம் செலுத்தும்போது விசைப்பலகையின் மேலே தோன்ற கட்லிங்குகளை உள்ளீட்டு வகைகளுக்கு ஒதுக்கவும்.";
 "No cutlings yet. Add some first." = "இதுவரை கட்லிங்குகள் இல்லை. முதலில் சிலவற்றைச் சேர்க்கவும்.";
 "Suggested" = "பரிந்துரைக்கப்பட்டவை";
 "Email" = "மின்னஞ்சல்";
@@ -156,23 +156,23 @@
 /* MARK: - Keyboard Setup */
 "Setup Progress" = "அமைப்பு முன்னேற்றம்";
 "Open Cutling Settings" = "கட்லிங் அமைப்புகளைத் திற";
-"Tap here, then switch to Cutling" = "இங்கே தட்டவும், பின்னர் கட்லிங்-க்கு மாறவும்";
+"Tap here, then switch to Cutling" = "இங்கே தட்டவும், பின்னர் கட்லிங்கிற்கு மாறவும்";
 "How to Use Your Keyboard" = "உங்கள் விசைப்பலகையை எவ்வாறு பயன்படுத்துவது";
 "Storage Limits" = "சேமிப்பக வரம்புகள்";
 "You're All Set!" = "எல்லாம் தயார்!";
 "Set Up Your Keyboard" = "உங்கள் விசைப்பலகையை அமைக்கவும்";
-"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "உங்கள் கட்லிங் விசைப்பலகை தயார்! எங்கு வேண்டுமானாலும் தட்டச்சு செய்யும்போது, கட்லிங்-க்கு மாற உங்கள் விசைப்பலகையில் 🌐 குளோப் ஐகானைத் தட்டவும்.";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "உங்கள் கட்லிங் விசைப்பலகை தயார்! எங்கு வேண்டுமானாலும் தட்டச்சு செய்யும்போது, கட்லிங்கிற்கு மாற உங்கள் விசைப்பலகையில் 🌐 குளோப் ஐகானைத் தட்டவும்.";
 "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "உங்கள் தனிப்பயன் விசைப்பலகையைப் பயன்படுத்தத் தொடங்க கீழே உள்ள இரண்டு எளிய படிகளைப் பின்பற்றவும். ஒவ்வொரு படியையும் முடிக்கும்போது இந்தப் பக்கம் தானாகவே புதுப்பிக்கப்படும்.";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**படி 1:** கீழே உள்ள 'கட்லிங் அமைப்புகளைத் திற' என்பதைத் தட்டி, **விசைப்பலகைகள்** சென்று பட்டியலிலிருந்து **கட்லிங்**-ஐ தேர்ந்தெடுக்கவும்.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**படி 1:** கீழே உள்ள 'கட்லிங் அமைப்புகளைத் திற' என்பதைத் தட்டி, **விசைப்பலகைகள்** சென்று பட்டியலிலிருந்து **கட்லிங்கு**-ஐ தேர்ந்தெடுக்கவும்.";
 "**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**படி 2:** **முழு அணுகலை அனுமதி** இயக்கத்தில் உள்ளதா என்று உறுதிசெய்யவும். இது விசைப்பலகை படங்களை உங்கள் கிளிப்போர்டுக்கு நகலெடுக்க அனுமதிக்கிறது. உங்கள் தரவு தனிப்பட்டதாகவே இருக்கும், எங்கும் அனுப்பப்படாது.";
-"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**படி 3:** உரை உள்ளீட்டில் தட்டி, \"முழு அணுகல்\" நிலையைப் புதுப்பிக்க உங்கள் விசைப்பலகையில் 🌐 குளோப் ஐகானைப் பயன்படுத்தி \"கட்லிங்\"-ஐ தேர்ந்தெடுக்கவும்.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**படி 3:** உரை உள்ளீட்டில் தட்டி, \"முழு அணுகல்\" நிலையைப் புதுப்பிக்க உங்கள் விசைப்பலகையில் 🌐 குளோப் ஐகானைப் பயன்படுத்தி \"கட்லிங்கு\"-ஐ தேர்ந்தெடுக்கவும்.";
 "**Step 4:** You're good to go! The usage guide is provided below." = "**படி 4:** நீங்கள் தயார்! பயன்பாட்டு வழிகாட்டி கீழே வழங்கப்பட்டுள்ளது.";
-"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "எந்த செயலியிலும் தட்டச்சு செய்யும்போது, உங்கள் விசைப்பலகையின் கீழ்-இடதுபுறத்தில் உள்ள 🌐 குளோப் விசையைத் தட்டவும் அல்லது அழுத்திப் பிடிக்கவும், பின்னர் கட்லிங்-ஐ தேர்ந்தெடுக்கவும்";
-"Tap any text cutling and it will be typed into your current text field immediately" = "எந்த உரை கட்லிங்-ஐயும் தட்டவும், அது உங்கள் தற்போதைய உரை புலத்தில் உடனடியாக தட்டச்சு செய்யப்படும்";
-"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "படம் கட்லிங்-ஐ தட்டி உங்கள் கிளிப்போர்டுக்கு நகலெடுக்கவும், பின்னர் நீங்கள் பயன்படுத்தும் செயலியில் ஒட்டவும் (வழக்கமாக தட்டிப் பிடித்து, ஒட்டு என்பதைத் தேர்ந்தெடுக்கவும்). Apple தற்போது இந்த செயலியில் நேரடியாக படத்தை ஒட்டுவதை ஆதரிக்கவில்லை.";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "எந்த உரையையும் நகலெடுத்து, புதிய கட்லிங் ஆக சேமிக்க கட்லிங் விசைப்பலகையில் 'கிளிப்போர்டிலிருந்து சேர்' பொத்தானைத் தட்டவும்";
-"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "முதன்மை கட்லிங் செயலியில் உங்கள் அனைத்து கட்லிங்குகள்-ஐயும் நிர்வகிக்கலாம். நீங்கள் செய்யும் மாற்றங்கள் உங்கள் விசைப்பலகையில் உடனடியாகத் தோன்றும்.";
-"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "கணினி நிலைத்தன்மையை உறுதிசெய்ய விசைப்பலகை நீட்டிப்புகளுக்கு கடுமையான நினைவக வரம்புகள் உள்ளன. படங்கள் உரையை விட அதிக நினைவகத்தைப் பயன்படுத்துகின்றன, எனவே உங்கள் விசைப்பலகை வேகமாகவும் நம்பகத்தன்மையுடனும் இருக்க அவற்றை வரம்பிடுகிறோம். வரம்பை அடைந்தால், புதியவற்றைச் சேர்க்க சில கட்லிங்குகள்-ஐ நீக்கவும்.";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "எந்த ஆப்பிலும் தட்டச்சு செய்யும்போது, உங்கள் விசைப்பலகையின் கீழ்-இடதுபுறத்தில் உள்ள 🌐 குளோப் விசையைத் தட்டவும் அல்லது அழுத்திப் பிடிக்கவும், பின்னர் கட்லிங்கைத் தேர்ந்தெடுக்கவும்";
+"Tap any text cutling and it will be typed into your current text field immediately" = "எந்த உரை கட்லிங்கையும் தட்டவும், அது உங்கள் தற்போதைய உரை புலத்தில் உடனடியாக தட்டச்சு செய்யப்படும்";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "ஒரு படக் கட்லிங்கைத் தட்டி உங்கள் கிளிப்போர்டுக்கு நகலெடுக்கவும், பின்னர் நீங்கள் பயன்படுத்தும் ஆப்பில் ஒட்டவும் (வழக்கமாக தட்டிப் பிடித்து, ஒட்டு என்பதைத் தேர்ந்தெடுக்கவும்). Apple தற்போது இந்த ஆப்பில் நேரடியாக படத்தை ஒட்டுவதை ஆதரிக்கவில்லை.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "எந்த உரையையும் நகலெடுத்து, புதிய கட்லிங்காகச் சேமிக்க கட்லிங் விசைப்பலகையில் 'கிளிப்போர்டிலிருந்து சேர்' பொத்தானைத் தட்டவும்";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "முதன்மை கட்லிங் ஆப்பில் உங்கள் அனைத்து கட்லிங்குகளையும் நிர்வகிக்கலாம். நீங்கள் செய்யும் மாற்றங்கள் உங்கள் விசைப்பலகையில் உடனடியாகத் தோன்றும்.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "கணினி நிலைத்தன்மையை உறுதிசெய்ய விசைப்பலகை நீட்டிப்புகளுக்கு கடுமையான நினைவக வரம்புகள் உள்ளன. படங்கள் உரையை விட அதிக நினைவகத்தைப் பயன்படுத்துகின்றன, எனவே உங்கள் விசைப்பலகை வேகமாகவும் நம்பகத்தன்மையுடனும் இருக்க அவற்றை வரம்பிடுகிறோம். வரம்பை அடைந்தால், புதியவற்றைச் சேர்க்க சில கட்லிங்குகளை நீக்கவும்.";
 "Up to **%lld text** cutlings" = "**%lld உரை** கட்லிங்குகள் வரை";
 "Up to **%lld image** cutlings" = "**%lld படம்** கட்லிங்குகள் வரை";
 "Back" = "பின்";
@@ -183,20 +183,20 @@
 "Test Your Keyboard" = "உங்கள் விசைப்பலகையைச் சோதிக்கவும்";
 "All set! Swipe to continue." = "எல்லாம் தயார்! தொடர ஸ்வைப் செய்யவும்.";
 "Your data stays private and is never sent anywhere." = "உங்கள் தரவு தனிப்பட்டதாகவே இருக்கும், எங்கும் அனுப்பப்படாது.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**முக்கியமான தரவுக்கு அல்ல** — கடவுச்சொற்கள், கார்டு எண்கள், தனிப்பட்ட சாவிகள் அல்லது டோக்கன்களைச் சேமிப்பதைத் தவிர்க்கவும்";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**முக்கியமான தரவுக்கு அல்ல**: கடவுச்சொற்கள், கார்டு எண்கள், தனிப்பட்ட சாவிகள் அல்லது டோக்கன்களைச் சேமிப்பதைத் தவிர்க்கவும்";
 "Set Up Cutling Keyboard" = "கட்லிங் விசைப்பலகையை அமைக்கவும்";
 "What You Can Do" = "நீங்கள் என்ன செய்யலாம்";
 "Smart Field Suggestions" = "ஸ்மார்ட் புல பரிந்துரைகள்";
-"Cutling spots email, URL, phone, and address fields, then floats matching cutlings to the top of the keyboard." = "கட்லிங் மின்னஞ்சல், URL, தொலைபேசி மற்றும் முகவரி புலங்களைக் கண்டறிந்து, பொருந்தும் கட்லிங்களை விசைப்பலகையின் மேலே கொண்டுவருகிறது.";
+"Cutling spots email, URL, phone, and address fields, then floats matching cutlings to the top of the keyboard." = "கட்லிங் மின்னஞ்சல், URL, தொலைபேசி மற்றும் முகவரி புலங்களைக் கண்டறிந்து, பொருந்தும் கட்லிங்குகளை விசைப்பலகையின் மேலே கொண்டுவருகிறது.";
 "Save from Anywhere" = "எங்கிருந்தும் சேமிக்கவும்";
-"Send text, links, or images to Cutling straight from any app's Share Sheet or the Action extension." = "எந்த செயலியின் Share Sheet அல்லது Action extension லிருந்தும் நேரடியாக உரை, இணைப்புகள் அல்லது படங்களை கட்லிங்-க்கு அனுப்பவும்.";
-"Widgets & Controls" = "விட்ஜெட்கள் & கட்டுப்பாடுகள்";
-"Pin favorite cutlings to your Home Screen, Lock Screen, or Control Center for one-tap copy." = "ஒரு-தட்டு நகலெடுப்புக்காக பிடித்த கட்லிங்களை உங்கள் ஹோம் ஸ்க்ரீன், லாக் ஸ்க்ரீன் அல்லது கண்ட்ரோல் சென்டரில் பின் செய்யவும்.";
+"Send text, links, or images to Cutling straight from any app's Share Sheet or the Action extension." = "எந்த ஆப்பின் Share Sheet அல்லது Action நீட்டிப்பிலிருந்தும் நேரடியாக உரை, இணைப்புகள் அல்லது படங்களை கட்லிங்கிற்கு அனுப்பவும்.";
+"Widgets & Controls" = "விட்ஜெட்கள் மற்றும் கட்டுப்பாடுகள்";
+"Pin favorite cutlings to your Home Screen, Lock Screen, or Control Center for one-tap copy." = "ஒரு-தட்டு நகலெடுப்புக்காக பிடித்த கட்லிங்குகளை உங்கள் ஹோம் ஸ்க்ரீன், லாக் ஸ்க்ரீன் அல்லது கண்ட்ரோல் சென்டரில் பின் செய்யவும்.";
 "Find with Spotlight" = "Spotlight மூலம் கண்டுபிடி";
-"Search your saved cutlings right from Spotlight and copy them in a single tap." = "Spotlight-லிருந்தே உங்கள் சேமித்த கட்லிங்களைத் தேடி ஒரே தட்டில் நகலெடுக்கவும்.";
+"Search your saved cutlings right from Spotlight and copy them in a single tap." = "Spotlight-லிருந்தே உங்கள் சேமித்த கட்லிங்குகளைத் தேடி ஒரே தட்டில் நகலெடுக்கவும்.";
 "Sync Across Devices" = "சாதனங்களுக்கு இடையே ஒத்திசை";
-"Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "உங்கள் Apple Account-இல் உள்நுழைந்த ஒவ்வொரு சாதனத்திலும் கட்லிங்களைப் புதுப்பித்த நிலையில் வைக்க iCloud ஒத்திசைவை இயக்கவும்.";
-"Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "மேலே உள்ள உரை புலத்தை தட்டவும், பின்னர் **கட்லிங்** க்கு மாற 🌐 குளோப் விசையைப் பயன்படுத்தவும். இது எல்லாம் சரியாக அமைக்கப்பட்டுள்ளதை உறுதிப்படுத்துகிறது.";
+"Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "உங்கள் Apple Account-இல் உள்நுழைந்த ஒவ்வொரு சாதனத்திலும் கட்லிங்குகளைப் புதுப்பித்த நிலையில் வைக்க iCloud ஒத்திசைவை இயக்கவும்.";
+"Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "மேலே உள்ள உரை புலத்தைத் தட்டவும், பின்னர் **கட்லிங்கு**-க்கு மாற 🌐 குளோப் விசையைப் பயன்படுத்தவும். இது எல்லாம் சரியாக அமைக்கப்பட்டுள்ளதை உறுதிப்படுத்துகிறது.";
 
 /* MARK: - What's New Sheet */
 "What's New in Cutling" = "கட்லிங்கில் என்ன புதிது";
@@ -206,11 +206,11 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "கையை பயன்படுத்தாமல் உங்கள் கட்லிங்குகளை சேர்க்க, நகலெடுக்க அல்லது தேட Siri-யிடம் கேளுங்கள்.";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "உங்கள் சாதனத்தின் **அமைப்புகள்** ஆப்பில் கட்லிங் ஐ திறக்கவும்.";
-"Tap **Keyboards** and enable **Cutling**." = "**விசைப்பலகைகள்** தட்டி **கட்லிங்** ஐ இயக்கவும்.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "விசைப்பலகை உங்கள் கிளிப்போர்டுக்கு படங்களை நகலெடுக்க **முழு அணுகலை அனுமதி** ஆன் செய்யவும்.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "கீழே உள்ள உரை புலத்தை தட்டவும், பின்னர் **கட்லிங்** க்கு மாற 🌐 குளோப் விசையைப் பயன்படுத்தவும். இது எல்லாம் சரியாக அமைக்கப்பட்டுள்ளதை உறுதிப்படுத்துகிறது.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud ஒத்திசைவு ஒரு **சோதனை அம்சம்**. இது எல்லா சூழ்நிலைகளிலும் சரியாக வேலை செய்யாமல் போகலாம், இது தரவு இழப்புக்கு வழிவகுக்கும். இதை நீங்கள் எப்போது வேண்டுமானாலும் அமைப்புகளில் மாற்றலாம்.";
+"Open Cutling in your device's **Settings** app." = "உனது சாதனத்தின் **அமைப்புகள்** ஆப்பில் Cutling ஐத் திற.";
+"Tap **Keyboards** and enable **Cutling**." = "**விசைப்பலகைகள்** ஐத் தட்டு மற்றும் **Cutling** ஐ இயக்கு.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "விசைப்பலகை உனது கிளிப்போர்டுக்குப் படங்களை நகலெடுக்க **முழு அணுகலை அனுமதி** ஐ இயக்கு.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "கீழே உள்ள உரை புலத்தைத் தட்டி, பின்னர் **Cutling** க்கு மாற 🌐 குளோப் விசையைப் பயன்படுத்து. இது அனைத்தும் சரியாக அமைக்கப்பட்டிருப்பதை உறுதிசெய்கிறது.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud ஒத்திசைவு என்பது ஒரு **சோதனை அம்சம்**. இது எல்லா சூழ்நிலைகளிலும் சரியாக வேலை செய்யாமல் போகலாம், இது தரவு இழப்புக்கு வழிவகுக்கலாம். அமைப்புகளில் இதை எப்போது வேண்டுமானாலும் மாற்றலாம்.";
 
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "சமீபத்தில் நீக்கப்பட்டவை";
@@ -221,11 +221,11 @@
 "Recover" = "மீட்டெடு";
 "Items will be permanently deleted after 30 days." = "உருப்படிகள் 30 நாட்களுக்குப் பிறகு நிரந்தரமாக நீக்கப்படும்.";
 "No Recently Deleted Items" = "சமீபத்தில் நீக்கப்பட்ட உருப்படிகள் இல்லை";
-"Deleted cutlings will appear here for 30 days." = "நீக்கப்பட்ட கட்லிங்குகள் 30 நாட்களுக்கு இங்கே காண்பிக்கப்படும்.";
-"This will permanently delete all %lld items. This action cannot be undone." = "அனைத்து %lld உருப்படிகளும் நிரந்தரமாக நீக்கப்படும். இந்த செயலை மீட்க முடியாது.";
-"\"%@\" will be deleted permanently." = "\"%@\" நிரந்தரமாக நீக்கப்படும்.";
-"1 day left" = "1 நாள் மீதமுள்ளது";
-"%lld days left" = "%lld நாட்கள் மீதமுள்ளன";
+"Deleted cutlings will appear here for 30 days." = "நீக்கப்பட்ட கட்லிங்குகள் இங்கே 30 நாட்களுக்குத் தோன்றும்.";
+"This will permanently delete all %lld items. This action cannot be undone." = "இது %lld உருப்படிகளை நிரந்தரமாக நீக்கும். இந்தச் செயலை மாற்ற முடியாது.";
+"\"%@\" will be deleted permanently." = "“%@” நிரந்தரமாக நீக்கப்படும்.";
+"1 day left" = "1 நாள் மீதம்";
+"%lld days left" = "%lld நாட்கள் மீதம்";
 
 /* MARK: - Context Menu */
 "Share" = "பகிர்";
@@ -305,11 +305,11 @@
 "Get Cutling Text" = "கட்லிங் உரையைப் பெறு";
 "Get the text contents of a cutling as a value for use in other shortcuts." = "மற்ற ஷார்ட்கட்களில் பயன்படுத்த ஒரு மதிப்பாகக் கட்லிங்கின் உரை உள்ளடக்கத்தைப் பெறு.";
 "Get Latest Cutling" = "சமீபத்திய கட்லிங்கைப் பெறு";
-"Latest Cutling" = "சமீபத்திய கட்லிங்";
-"Get the text from your most recently saved cutling." = "உங்கள் மிகவும் சமீபத்தில் சேமித்த கட்லிங்கிலிருந்து உரையைப் பெறு.";
+"Latest Cutling" = "சமீபத்திய கட்லிங்கு";
+"Get the text from your most recently saved cutling." = "உனது மிக சமீபத்தில் சேமித்த கட்லிங்கிலிருந்து உரையைப் பெறு.";
 "Save Image" = "படத்தைச் சேமி";
 "Save an image as a new cutling." = "ஒரு படத்தைப் புதிய கட்லிங்காகச் சேமி.";
-"Search Cutlings" = "கட்லிங்குகள் தேடு";
+"Search Cutlings" = "கட்லிங்குகளைத் தேடு";
 "Find cutlings whose name or contents match a search query." = "பெயர் அல்லது உள்ளடக்கம் தேடல் வினவலுடன் பொருந்தும் கட்லிங்குகளைக் கண்டறி.";
 "Open Cutling" = "கட்லிங்கைத் திற";
 "Open the Cutling app." = "கட்லிங் ஆப்பைத் திற.";
@@ -322,23 +322,23 @@
 
 /* MARK: - TipKit */
 "Saved cutlings" = "சேமிக்கப்பட்ட கட்லிங்குகள்";
-"Your pinned snippets live here, ready to copy with one click." = "உங்கள் பின் செய்யப்பட்ட துணுக்குகள் இங்கே இருக்கின்றன, ஒரே கிளிக்கில் நகலெடுக்கத் தயார்.";
+"Your pinned snippets live here, ready to copy with one click." = "உனது பின்செய்யப்பட்ட துணுக்குகள் இங்கே வாழ்கின்றன, ஒரே கிளிக்கில் நகலெடுக்கத் தயாராக.";
 "Recent clipboard" = "சமீபத்திய கிளிப்போர்டு";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "நீங்கள் நகலெடுக்கும் அனைத்தும் இங்கே வருகின்றன. எந்த வரிசையிலும் வலது-கிளிக் செய்து அதைக் கட்லிங்காகச் சேமிக்கவும்.";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "நீ நகலெடுப்பவை அனைத்தும் இங்கே வந்து சேரும். ஒரு வரிசையில் வலது-கிளிக் செய்து கட்லிங்காக சேமி.";
 "Wipe the list" = "பட்டியலை அழி";
-"Empties your recent clipboard. Saved cutlings stay put." = "உங்கள் சமீபத்திய கிளிப்போர்டை காலியாக்கும். சேமிக்கப்பட்ட கட்லிங்குகள் இருக்கும்.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "ஹாட்கீயை மீண்டும் அமைக்கவும், கிளிப்போர்டு கைப்பற்றலை மாற்றவும், மற்றும் iCloud ஒத்திசைவை நிர்வகிக்கவும்.";
-"Undo deletes" = "நீக்கல்களை செயல்தவிர்";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "நீக்கப்பட்ட கட்லிங்குகள் 30 நாட்கள் இங்கே இருக்கும். அவற்றை மீட்டெடுக்கவும் அல்லது நிரந்தரமாக காலியாக்கவும்.";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "பல கட்லிங்குகளைத் தேர்ந்தெடுக்க, மறுவரிசைப்படுத்த, அல்லது சமீபத்தில் நீக்கப்பட்டவற்றை மீட்டெடுக்க இங்கே தட்டவும்.";
-"Long-press a cutling" = "ஒரு கட்லிங்கை நீண்ட நேரம் அழுத்தவும்";
-"Hold any card for quick actions: copy, edit, share, or delete." = "விரைவு செயல்களுக்கு எந்த அட்டையையும் பிடித்துக் கொள்ளவும்: நகலெடு, திருத்து, பகிர், அல்லது நீக்கு.";
-"Drag to select" = "தேர்ந்தெடுக்க இழுக்கவும்";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "வரம்பைத் தேர்ந்தெடுக்க அட்டைகள் முழுவதும் ஸ்வைப் செய்யவும். தேர்வை நீக்க அவற்றின் மீது மீண்டும் ஸ்வைப் செய்யவும்.";
-"Smart field matching" = "ஸ்மார்ட் புல பொருத்தம்";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "கட்லிங்கு மின்னஞ்சல், URL, தொலைபேசி மற்றும் முகவரி புலங்களை அடையாளம் காண்கிறது, பின்னர் பொருந்தும் துணுக்குகளை விசைப்பலகையின் மேல் கொண்டு வருகிறது.";
+"Empties your recent clipboard. Saved cutlings stay put." = "உனது சமீபத்திய கிளிப்போர்டை அழிக்கிறது. சேமிக்கப்பட்ட கட்லிங்குகள் அப்படியே இருக்கும்.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "ஹாட்கீயை மறு-நியமி, கிளிப்போர்டு பிடிப்பை இயக்கு/நிறுத்து, மற்றும் iCloud ஒத்திசைவை நிர்வகி.";
+"Undo deletes" = "நீக்கல்களைச் செயல்தவிர்";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "நீக்கப்பட்ட கட்லிங்குகள் இங்கே 30 நாட்களுக்கு இருக்கும். அவற்றை மீட்டெடு அல்லது நிரந்தரமாக அழி.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "பல கட்லிங்குகளைத் தேர்வுசெய்ய, மறுவரிசைப்படுத்த, அல்லது சமீபத்தில் நீக்கப்பட்டவற்றை மீட்டெடுக்க இங்கே தட்டு.";
+"Long-press a cutling" = "கட்லிங்கை நீண்ட நேரம் அழுத்து";
+"Hold any card for quick actions: copy, edit, share, or delete." = "விரைவு செயல்களுக்காக எந்தவொரு கார்டையும் அழுத்திப் பிடி: நகலெடு, திருத்து, பகிர், அல்லது நீக்கு.";
+"Drag to select" = "தேர்வுசெய்ய இழு";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "ஒரு வரம்பைத் தேர்வுசெய்ய கார்டுகள் மீது ஸ்வைப் செய். தேர்வை நீக்க பின்னோக்கி ஸ்வைப் செய்.";
+"Smart field matching" = "புத்திசாலி புல பொருத்தம்";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "கட்லிங்கு மின்னஞ்சல், URL, தொலைபேசி மற்றும் முகவரி புலங்களைக் கண்டறிந்து, பொருந்தும் துணுக்குகளை விசைப்பலகையின் மேலே கொண்டுவருகிறது.";
 "Create a new cutling" = "புதிய கட்லிங்கை உருவாக்கு";
-"Save text or image snippets you'll reuse from any app." = "எந்த ஆப்பிலிருந்தும் மீண்டும் பயன்படுத்தக்கூடிய உரை அல்லது படத் துணுக்குகளைச் சேமிக்கவும்.";
+"Save text or image snippets you'll reuse from any app." = "எந்தவொரு ஆப்பிலிருந்தும் மீண்டும் பயன்படுத்தப்போகும் உரை அல்லது பட துணுக்குகளை சேமி.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "கட்லிங்கு-க்கு வரவேற்கிறோம்";
@@ -359,3 +359,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "நீங்கள் பயன்படுத்திக் கொண்டிருந்த ஆப்பில் ஒரு கட்லிங்கு-ஐ நேரடியாக ஒட்ட கட்லிங்கு-க்கு அனுமதிக்கிறது.";
 "Grant" = "வழங்கு";
 "You can skip Accessibility and grant it later from Settings → Paste." = "நீங்கள் அணுகல்தன்மையைத் தவிர்த்து, பிறகு அமைப்புகள் → ஒட்டு-யிலிருந்து அதை வழங்கலாம்.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "கோப்பாகச் சேமி…";
+"Image Saving" = "படச் சேமிப்பு";
+"When saving images" = "படங்களைச் சேமிக்கும்போது";
+"Ask each time" = "ஒவ்வொரு முறையும் கேள்";
+"Save to folder" = "கோப்புறையில் சேமி";
+"Folder" = "கோப்புறை";
+"Change Folder…" = "கோப்புறையை மாற்று…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "படக் கட்லிங்குகளுக்கான “கோப்பாகச் சேமி” செயல் எவ்வாறு வேலை செய்ய வேண்டுமென தேர்வுசெய்க. “கோப்புறையில் சேமி” தேர்வுடன், படங்கள் எந்தக் கேள்வியும் இன்றி நீங்கள் தேர்வுசெய்த கோப்புறையில் தனித்துவமான கோப்புப் பெயருடன் நேரடியாகச் சேமிக்கப்படும்.";
+"Choose" = "தேர்வுசெய்";
+"Choose Image Folder" = "படக் கோப்புறையைத் தேர்வுசெய்";
+"Pick a folder where Cutling will save image cutlings." = "கட்லிங்கு படக் கட்லிங்குகளைச் சேமிக்கும் கோப்புறையைத் தேர்வுசெய்க.";
+"Preview" = "முன்தோற்றம்";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "சேமிக்கப்பட்டவை";
+"History" = "வரலாறு";
+"No saved cutlings yet" = "சேமிக்கப்பட்ட கட்லிங்குகள் இன்னும் இல்லை";
+"Copy something to see it here" = "இங்கே காண ஏதாவது நகலெடுக்க";
+"Clipboard history is off. Enable it in Settings." = "கிளிப்போர்டு வரலாறு முடக்கப்பட்டுள்ளது. அமைப்புகளில் இயக்கவும்.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Spotlight தேடலில் சேர்";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "உங்கள் கட்லிங்குகளை Spotlight இலிருந்து தேடக்கூடியவையாக ஆக்குங்கள். உணர்திறன் கொண்ட உள்ளடக்கம் (கிரெடிட் கார்டுகள், API விசைகள், JWT டோக்கன்கள், விதைச் சொற்றொடர்கள், தனிப்பட்ட விசைகள்) ஒருபோதும் சுட்டிடப்படுவதில்லை.";
+"Copy Cutling" = "கட்லிங்கை நகலெடு";
+"Copy a cutling's contents to the clipboard." = "கட்லிங்கின் உள்ளடக்கத்தைக் கிளிப்போர்டில் நகலெடுக்கிறது.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "இந்தச் சொற்றொடர்களை Siri உடன் பயன்படுத்தவும் அல்லது Shortcuts ஆப்பில் அனைத்து Cutling குறுக்குவழிகளையும் உலாவவும்.";
+"Copied \"%@\"" = "“%@” நகலெடுக்கப்பட்டது";

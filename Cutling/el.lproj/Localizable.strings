@@ -1,15 +1,15 @@
 /* MARK: - Navigation & Titles */
-"My Cutlings" = "Τα Cutlings μου";
+"My Cutlings" = "Τα Cutling μου";
 "Select Items" = "Επιλογή στοιχείων";
-"%lld Selected" = "%lld επιλεγμένα";
+"%lld Selected" = "Επιλέχθηκαν %lld";
 "Reorder" = "Αναδιάταξη";
 "Settings" = "Ρυθμίσεις";
-"Keyboard Setup" = "Ρύθμιση πληκτρολογίου";
+"Keyboard Setup" = "Διαμόρφωση πληκτρολογίου";
 "New" = "Νέο";
 "Choose Icon" = "Επιλογή εικονιδίου";
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Κείμενο, %lld/%lld Εικόνες";
-"%lld Cutlings" = "%lld Cutlings";
-"Cutlings" = "Cutlings";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld κείμενο, %lld/%lld εικόνες";
+"%lld Cutlings" = "%lld Cutling";
+"Cutlings" = "Cutling";
 
 /* MARK: - Common Actions */
 "Cancel" = "Ακύρωση";
@@ -26,25 +26,25 @@
 /* MARK: - Menu Items */
 "Text Cutling" = "Cutling κειμένου";
 "Image Cutling" = "Cutling εικόνας";
-"Select Cutlings" = "Επιλογή Cutlings";
-"Reorder Cutlings" = "Αναδιάταξη Cutlings";
-"Keyboard Setup Guide" = "Οδηγός ρύθμισης πληκτρολογίου";
+"Select Cutlings" = "Επιλογή Cutling";
+"Reorder Cutlings" = "Αναδιάταξη Cutling";
+"Keyboard Setup Guide" = "Οδηγός διαμόρφωσης πληκτρολογίου";
 "Name (A → Z)" = "Όνομα (Α → Ω)";
 "Name (Z → A)" = "Όνομα (Ω → Α)";
-"Text First" = "Κείμενο πρώτα";
-"Images First" = "Εικόνες πρώτα";
-"Shortest First" = "Μικρότερα πρώτα";
-"Longest First" = "Μεγαλύτερα πρώτα";
+"Text First" = "Πρώτα το κείμενο";
+"Images First" = "Πρώτα οι εικόνες";
+"Shortest First" = "Πρώτα τα πιο σύντομα";
+"Longest First" = "Πρώτα τα πιο μεγάλα";
 "Reverse Order" = "Αντίστροφη σειρά";
 
 /* MARK: - Empty States */
-"No Cutlings Yet" = "Δεν υπάρχουν Cutlings ακόμα";
+"No Cutlings Yet" = "Δεν υπάρχουν Cutling ακόμα";
 "No Results" = "Κανένα αποτέλεσμα";
-"Tap + to add your first cutling." = "Πατήστε + για να προσθέσετε το πρώτο σας cutling.";
-"Try a different search term." = "Δοκιμάστε διαφορετικό όρο αναζήτησης.";
+"Tap + to add your first cutling." = "Πάτησε το + για να προσθέσεις το πρώτο σου cutling.";
+"Try a different search term." = "Δοκίμασε άλλον όρο αναζήτησης.";
 
 /* MARK: - Search */
-"Search cutlings" = "Αναζήτηση cutlings";
+"Search cutlings" = "Αναζήτηση cutling";
 "Search icons" = "Αναζήτηση εικονιδίων";
 
 /* MARK: - Form Labels */
@@ -84,60 +84,60 @@
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
 "iCloud Sync" = "Συγχρονισμός iCloud";
-"Sync your cutlings across all your devices using iCloud." = "Συγχρονίστε τα cutlings σας σε όλες τις συσκευές μέσω iCloud.";
-"Storage" = "Αποθηκευτικός χώρος";
-"Text Cutlings" = "Cutlings κειμένου";
-"Image Cutlings" = "Cutlings εικόνας";
-"Total Cutlings" = "Σύνολο Cutlings";
+"Sync your cutlings across all your devices using iCloud." = "Συγχρόνισε τα cutling σου σε όλες τις συσκευές σου μέσω iCloud.";
+"Storage" = "Αποθήκευση";
+"Text Cutlings" = "Cutling κειμένου";
+"Image Cutlings" = "Cutling εικόνας";
+"Total Cutlings" = "Συνολικά Cutling";
 "Disk Usage" = "Χρήση δίσκου";
 "Status" = "Κατάσταση";
 "Syncing…" = "Συγχρονισμός…";
 "Up to date" = "Ενημερωμένο";
 "Sync Now" = "Συγχρονισμός τώρα";
 "Turn On iCloud Sync" = "Ενεργοποίηση συγχρονισμού iCloud";
-"Max Text Length" = "Μέγ. μήκος κειμένου";
+"Max Text Length" = "Μέγιστο μήκος κειμένου";
 "%lld chars" = "%lld χαρακτήρες";
 "About" = "Σχετικά";
 "Version" = "Έκδοση";
-"Keyboard Added" = "Πληκτρολόγιο προστέθηκε";
+"Keyboard Added" = "Το πληκτρολόγιο προστέθηκε";
 "Full Access" = "Πλήρης πρόσβαση";
 "Experimental Feature: iCloud" = "Πειραματική λειτουργία: iCloud";
 "Contact Support" = "Επικοινωνία με υποστήριξη";
 "Privacy Policy" = "Πολιτική απορρήτου";
-"Auto-detect Input Types" = "Αυτόματος εντοπισμός τύπων εισόδου";
+"Auto-detect Input Types" = "Αυτόματος εντοπισμός τύπων εισαγωγής";
 "Enable iCloud Sync" = "Ενεργοποίηση συγχρονισμού iCloud";
-"Keep your cutlings in sync across all your devices." = "Διατηρήστε τα cutlings σας συγχρονισμένα σε όλες τις συσκευές σας.";
-"Automatically detect and suggest input type categories when editing text." = "Αυτόματος εντοπισμός και πρόταση κατηγοριών τύπου εισόδου κατά την επεξεργασία κειμένου.";
+"Keep your cutlings in sync across all your devices." = "Διατήρησε τα cutling σου συγχρονισμένα σε όλες τις συσκευές σου.";
+"Automatically detect and suggest input type categories when editing text." = "Εντοπίζει και προτείνει αυτόματα κατηγορίες τύπου εισαγωγής κατά την επεξεργασία κειμένου.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Δεν επιλέχθηκε εικόνα";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "Το τρέχον κείμενο θα αντικατασταθεί με τα περιεχόμενα του πρόχειρου.";
-"This will replace the current image with whatever is in your clipboard." = "Η τρέχουσα εικόνα θα αντικατασταθεί με τα περιεχόμενα του πρόχειρου.";
-"This cutling will be automatically deleted at the selected date and time." = "Αυτό το cutling θα διαγραφεί αυτόματα στην επιλεγμένη ημερομηνία και ώρα.";
+"This will replace the current text with whatever is in your clipboard." = "Αυτό θα αντικαταστήσει το τρέχον κείμενο με ό,τι έχεις στο πρόχειρό σου.";
+"This will replace the current image with whatever is in your clipboard." = "Αυτό θα αντικαταστήσει την τρέχουσα εικόνα με ό,τι έχεις στο πρόχειρό σου.";
+"This cutling will be automatically deleted at the selected date and time." = "Αυτό το cutling θα διαγραφεί αυτόματα την επιλεγμένη ημερομηνία και ώρα.";
 "Each text cutling can hold up to %lld characters." = "Κάθε cutling κειμένου μπορεί να περιέχει έως %lld χαρακτήρες.";
 
 /* MARK: - Alerts */
-"Limit Reached" = "Όριο επιτεύχθηκε";
+"Limit Reached" = "Όριο";
 "Delete Cutling?" = "Διαγραφή Cutling;";
-"This action cannot be undone." = "Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.";
-"Cannot add text cutling" = "Δεν είναι δυνατή η προσθήκη cutling κειμένου";
-"Cannot add image cutling" = "Δεν είναι δυνατή η προσθήκη cutling εικόνας";
-"Cannot add more text cutlings." = "Δεν είναι δυνατή η προσθήκη περισσότερων cutlings κειμένου.";
-"Cannot add more image cutlings." = "Δεν είναι δυνατή η προσθήκη περισσότερων cutlings εικόνας.";
+"This action cannot be undone." = "Αυτή η ενέργεια δεν αναιρείται.";
+"Cannot add text cutling" = "Δεν είναι δυνατή η προσθήκη του cutling κειμένου";
+"Cannot add image cutling" = "Δεν είναι δυνατή η προσθήκη του cutling εικόνας";
+"Cannot add more text cutlings." = "Δεν είναι δυνατή η προσθήκη άλλων cutling κειμένου.";
+"Cannot add more image cutlings." = "Δεν είναι δυνατή η προσθήκη άλλων cutling εικόνας.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Φτάσατε το μέγιστο των %lld cutlings. Διαγράψτε κάποια για να προσθέσετε περισσότερα.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Φτάσατε το μέγιστο των %lld cutlings εικόνας. Οι εικόνες χρησιμοποιούν σημαντική μνήμη στο πληκτρολόγιο. Διαγράψτε κάποιες εικόνες για να προσθέσετε περισσότερες.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Φτάσατε το μέγιστο των %lld cutlings κειμένου. Διαγράψτε κάποια για να προσθέσετε περισσότερα.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Έφτασες το ανώτατο όριο των %lld cutling συνολικά. Διέγραψε μερικά για να προσθέσεις κι άλλα.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Έφτασες το ανώτατο όριο των %lld cutling εικόνας. Οι εικόνες χρησιμοποιούν πολλή μνήμη στο πληκτρολόγιο. Διέγραψε μερικές εικόνες για να προσθέσεις κι άλλες.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Έφτασες το ανώτατο όριο των %lld cutling κειμένου. Διέγραψε μερικά για να προσθέσεις κι άλλα.";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Προτάσεις τύπου εισόδου";
 "Suggest for Input Types" = "Πρόταση για τύπους εισόδου";
 "When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Όταν εστιάσετε σε ένα πεδίο κειμένου αντίστοιχου τύπου, αυτό το cutling θα εμφανιστεί στο επάνω μέρος του πληκτρολογίου.";
-"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Αντιστοιχίστε cutlings σε τύπους εισόδου ώστε να εμφανίζονται στο επάνω μέρος του πληκτρολογίου όταν εστιάσετε σε ένα αντίστοιχο πεδίο κειμένου.";
-"No cutlings yet. Add some first." = "Δεν υπάρχουν cutlings ακόμα. Προσθέστε πρώτα μερικά.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Αντιστοιχίστε cutling σε τύπους εισόδου ώστε να εμφανίζονται στο επάνω μέρος του πληκτρολογίου όταν εστιάσετε σε ένα αντίστοιχο πεδίο κειμένου.";
+"No cutlings yet. Add some first." = "Δεν υπάρχουν cutling ακόμα. Προσθέστε πρώτα μερικά.";
 "Suggested" = "Προτεινόμενο";
 "Email" = "Email";
 "URL" = "URL";
@@ -171,10 +171,10 @@
 "Tap any text cutling and it will be typed into your current text field immediately" = "Πατήστε οποιοδήποτε cutling κειμένου και θα πληκτρολογηθεί αμέσως στο τρέχον πεδίο κειμένου";
 "Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Πατήστε ένα cutling εικόνας για αντιγραφή στο πρόχειρο και μετά επικολλήστε το στην εφαρμογή σας (συνήθως πατώντας παρατεταμένα και επιλέγοντας Επικόλληση). Η Apple δεν υποστηρίζει αυτή τη στιγμή την απευθείας επικόλληση εικόνας σε αυτή την εφαρμογή.";
 "Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Αντιγράψτε οποιοδήποτε κείμενο και πατήστε το κουμπί «Προσθήκη από πρόχειρο» στο πληκτρολόγιο Cutling για αποθήκευση ως νέο cutling";
-"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Μπορείτε να διαχειριστείτε όλα τα cutlings στην κύρια εφαρμογή Cutling. Οι αλλαγές εμφανίζονται αμέσως στο πληκτρολόγιο.";
-"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Οι επεκτάσεις πληκτρολογίου έχουν αυστηρά όρια μνήμης για σταθερότητα συστήματος. Οι εικόνες χρησιμοποιούν περισσότερη μνήμη από το κείμενο, γι' αυτό τις περιορίζουμε ώστε το πληκτρολόγιο να παραμένει γρήγορο και αξιόπιστο. Αν φτάσετε ένα όριο, απλά διαγράψτε κάποια cutlings για να προσθέσετε νέα.";
-"Up to **%lld text** cutlings" = "Έως **%lld κειμένου** cutlings";
-"Up to **%lld image** cutlings" = "Έως **%lld εικόνας** cutlings";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Μπορείτε να διαχειριστείτε όλα τα cutling στην κύρια εφαρμογή Cutling. Οι αλλαγές εμφανίζονται αμέσως στο πληκτρολόγιο.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Οι επεκτάσεις πληκτρολογίου έχουν αυστηρά όρια μνήμης για σταθερότητα συστήματος. Οι εικόνες χρησιμοποιούν περισσότερη μνήμη από το κείμενο, γι' αυτό τις περιορίζουμε ώστε το πληκτρολόγιο να παραμένει γρήγορο και αξιόπιστο. Αν φτάσετε ένα όριο, απλά διαγράψτε κάποια cutling για να προσθέσετε νέα.";
+"Up to **%lld text** cutlings" = "Έως **%lld κειμένου** cutling";
+"Up to **%lld image** cutlings" = "Έως **%lld εικόνας** cutling";
 "Back" = "Πίσω";
 "Next" = "Επόμενο";
 "Get Started" = "Ξεκινήστε";
@@ -183,19 +183,19 @@
 "Test Your Keyboard" = "Δοκιμάστε το πληκτρολόγιο";
 "All set! Swipe to continue." = "Έτοιμο! Σαρώστε για συνέχεια.";
 "Your data stays private and is never sent anywhere." = "Τα δεδομένα σας παραμένουν ιδιωτικά και δεν αποστέλλονται πουθενά.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Όχι για ευαίσθητα δεδομένα** — αποφύγετε την αποθήκευση κωδικών, αριθμών καρτών, ιδιωτικών κλειδιών ή tokens";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Όχι για ευαίσθητα δεδομένα**: αποφύγετε την αποθήκευση κωδικών, αριθμών καρτών, ιδιωτικών κλειδιών ή tokens";
 "Set Up Cutling Keyboard" = "Ρύθμιση πληκτρολογίου Cutling";
 "What You Can Do" = "Τι μπορείτε να κάνετε";
 "Smart Field Suggestions" = "Έξυπνες προτάσεις πεδίων";
-"Cutling spots email, URL, phone, and address fields, then floats matching cutlings to the top of the keyboard." = "Το Cutling εντοπίζει πεδία email, URL, τηλεφώνου και διεύθυνσης και εμφανίζει τα σχετικά cutlings στην κορυφή του πληκτρολογίου.";
+"Cutling spots email, URL, phone, and address fields, then floats matching cutlings to the top of the keyboard." = "Το Cutling εντοπίζει πεδία email, URL, τηλεφώνου και διεύθυνσης και εμφανίζει τα σχετικά cutling στην κορυφή του πληκτρολογίου.";
 "Save from Anywhere" = "Αποθηκεύστε από οπουδήποτε";
 "Send text, links, or images to Cutling straight from any app's Share Sheet or the Action extension." = "Στείλτε κείμενο, συνδέσμους ή εικόνες στο Cutling απευθείας από το φύλλο κοινής χρήσης οποιασδήποτε εφαρμογής ή από την επέκταση Ενέργειας.";
 "Widgets & Controls" = "Widget και χειριστήρια";
-"Pin favorite cutlings to your Home Screen, Lock Screen, or Control Center for one-tap copy." = "Καρφιτσώστε τα αγαπημένα σας cutlings στην οθόνη Αφετηρίας, την οθόνη Κλειδώματος ή στο Κέντρο Ελέγχου για αντιγραφή με ένα άγγιγμα.";
+"Pin favorite cutlings to your Home Screen, Lock Screen, or Control Center for one-tap copy." = "Καρφιτσώστε τα αγαπημένα σας cutling στην οθόνη Αφετηρίας, την οθόνη Κλειδώματος ή στο Κέντρο Ελέγχου για αντιγραφή με ένα άγγιγμα.";
 "Find with Spotlight" = "Βρείτε με το Spotlight";
-"Search your saved cutlings right from Spotlight and copy them in a single tap." = "Αναζητήστε τα αποθηκευμένα cutlings απευθείας από το Spotlight και αντιγράψτε τα με ένα μόνο άγγιγμα.";
+"Search your saved cutlings right from Spotlight and copy them in a single tap." = "Αναζητήστε τα αποθηκευμένα cutling απευθείας από το Spotlight και αντιγράψτε τα με ένα μόνο άγγιγμα.";
 "Sync Across Devices" = "Συγχρονισμός μεταξύ συσκευών";
-"Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Ενεργοποιήστε τον συγχρονισμό iCloud για να διατηρείτε τα cutlings ενημερωμένα σε κάθε συσκευή συνδεδεμένη στον λογαριασμό Apple σας.";
+"Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Ενεργοποιήστε τον συγχρονισμό iCloud για να διατηρείτε τα cutling ενημερωμένα σε κάθε συσκευή συνδεδεμένη στον λογαριασμό Apple σας.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Πατήστε στο πεδίο κειμένου παραπάνω και χρησιμοποιήστε το πλήκτρο 🌐 υδρόγειου για εναλλαγή στο **Cutling**. Αυτό επιβεβαιώνει ότι όλα είναι σωστά ρυθμισμένα.";
 
 /* MARK: - What's New Sheet */
@@ -206,26 +206,26 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "Ζητήστε από τη Siri να προσθέσει, να αντιγράψει ή να αναζητήσει τα cutlings σας χωρίς να χρησιμοποιήσετε τα χέρια σας.";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "Ανοίξτε το Cutling στην εφαρμογή **Ρυθμίσεις** της συσκευής σας.";
-"Tap **Keyboards** and enable **Cutling**." = "Πατήστε **Πληκτρολόγια** και ενεργοποιήστε το **Cutling**.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Ενεργοποιήστε την **Πλήρη Πρόσβαση** για να μπορεί το πληκτρολόγιο να αντιγράφει εικόνες στο πρόχειρο.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Πατήστε στο πεδίο κειμένου παρακάτω και χρησιμοποιήστε το πλήκτρο 🌐 υδρόγειου για εναλλαγή στο **Cutling**. Αυτό επιβεβαιώνει ότι όλα είναι σωστά ρυθμισμένα.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Ο συγχρονισμός iCloud είναι ένα **πειραματικό χαρακτηριστικό**. Μπορεί να μην λειτουργεί σωστά σε όλες τις περιπτώσεις, γεγονός που μπορεί να οδηγήσει σε απώλεια δεδομένων. Μπορείτε πάντα να το αλλάξετε αργότερα στις Ρυθμίσεις.";
+"Open Cutling in your device's **Settings** app." = "Άνοιξε το Cutling στην εφαρμογή **Ρυθμίσεις** της συσκευής σου.";
+"Tap **Keyboards** and enable **Cutling**." = "Πάτησε **Πληκτρολόγια** και ενεργοποίησε το **Cutling**.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Ενεργοποίησε **Να επιτρέπεται η πλήρης πρόσβαση** ώστε το πληκτρολόγιο να μπορεί να αντιγράφει εικόνες στο πρόχειρό σου.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Πάτησε το παρακάτω πεδίο κειμένου και μετά χρησιμοποίησε το πλήκτρο 🌐 για να μεταβείς στο **Cutling**. Αυτό επιβεβαιώνει ότι όλα είναι σωστά ρυθμισμένα.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Ο συγχρονισμός iCloud είναι μια **πειραματική λειτουργία**. Μπορεί να μη λειτουργεί σωστά σε όλες τις περιπτώσεις, κάτι που μπορεί να οδηγήσει σε απώλεια δεδομένων. Μπορείς πάντα να το αλλάξεις αργότερα στις Ρυθμίσεις.";
 
 /* MARK: - Recently Deleted */
-"Recently Deleted" = "Πρόσφατα διαγραμμένα";
+"Recently Deleted" = "Διαγραμμένα πρόσφατα";
 "Delete All" = "Διαγραφή όλων";
 "Delete All Permanently?" = "Οριστική διαγραφή όλων;";
 "Delete Permanently?" = "Οριστική διαγραφή;";
-"Delete Permanently" = "Οριστική διαγραφή";
-"Recover" = "Ανάκτηση";
+"Delete Permanently" = "Διαγραφή οριστικά";
+"Recover" = "Επαναφορά";
 "Items will be permanently deleted after 30 days." = "Τα στοιχεία θα διαγραφούν οριστικά μετά από 30 ημέρες.";
 "No Recently Deleted Items" = "Δεν υπάρχουν πρόσφατα διαγραμμένα στοιχεία";
-"Deleted cutlings will appear here for 30 days." = "Τα διαγραμμένα cutlings θα εμφανίζονται εδώ για 30 ημέρες.";
-"This will permanently delete all %lld items. This action cannot be undone." = "Θα διαγραφούν οριστικά όλα τα %lld στοιχεία. Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.";
-"\"%@\" will be deleted permanently." = "Το \"%@\" θα διαγραφεί οριστικά.";
-"1 day left" = "1 ημέρα απομένει";
-"%lld days left" = "%lld ημέρες απομένουν";
+"Deleted cutlings will appear here for 30 days." = "Τα διαγραμμένα cutling θα εμφανίζονται εδώ για 30 ημέρες.";
+"This will permanently delete all %lld items. This action cannot be undone." = "Αυτό θα διαγράψει οριστικά %lld στοιχεία. Αυτή η ενέργεια δεν αναιρείται.";
+"\"%@\" will be deleted permanently." = "Το «%@» θα διαγραφεί οριστικά.";
+"1 day left" = "Απομένει 1 ημέρα";
+"%lld days left" = "Απομένουν %lld ημέρες";
 
 /* MARK: - Context Menu */
 "Share" = "Κοινοποίηση";
@@ -309,8 +309,8 @@
 "Get the text from your most recently saved cutling." = "Λάβετε το κείμενο από το πιο πρόσφατα αποθηκευμένο Cutling.";
 "Save Image" = "Αποθήκευση εικόνας";
 "Save an image as a new cutling." = "Αποθηκεύστε μια εικόνα ως νέο Cutling.";
-"Search Cutlings" = "Αναζήτηση Cutlings";
-"Find cutlings whose name or contents match a search query." = "Βρείτε Cutlings των οποίων το όνομα ή το περιεχόμενο ταιριάζει με ένα ερώτημα αναζήτησης.";
+"Search Cutlings" = "Αναζήτηση Cutling";
+"Find cutlings whose name or contents match a search query." = "Βρείτε Cutling των οποίων το όνομα ή το περιεχόμενο ταιριάζει με ένα ερώτημα αναζήτησης.";
 "Open Cutling" = "Άνοιγμα Cutling";
 "Open the Cutling app." = "Άνοιγμα της εφαρμογής Cutling.";
 "Open Cutling and start a new text cutling." = "Άνοιγμα Cutling και έναρξη νέου Cutling κειμένου.";
@@ -321,24 +321,24 @@
 "Failed to save image." = "Η αποθήκευση της εικόνας απέτυχε.";
 
 /* MARK: - TipKit */
-"Saved cutlings" = "Αποθηκευμένα Cutlings";
-"Your pinned snippets live here, ready to copy with one click." = "Τα καρφιτσωμένα αποσπάσματά σας βρίσκονται εδώ, έτοιμα για αντιγραφή με ένα κλικ.";
+"Saved cutlings" = "Αποθηκευμένα cutling";
+"Your pinned snippets live here, ready to copy with one click." = "Τα καρφιτσωμένα σου αποσπάσματα ζουν εδώ, έτοιμα να αντιγραφούν με ένα κλικ.";
 "Recent clipboard" = "Πρόσφατο πρόχειρο";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "Ό,τι αντιγράφετε καταλήγει εδώ. Κάντε δεξί κλικ σε οποιαδήποτε γραμμή για να την αποθηκεύσετε ως Cutling.";
-"Wipe the list" = "Διαγραφή λίστας";
-"Empties your recent clipboard. Saved cutlings stay put." = "Αδειάζει το πρόσφατο πρόχειρο. Τα αποθηκευμένα Cutlings παραμένουν στη θέση τους.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Αλλάξτε τη συντόμευση πληκτρολογίου, ενεργοποιήστε ή απενεργοποιήστε τη λήψη προχείρου και διαχειριστείτε τον συγχρονισμό iCloud.";
-"Undo deletes" = "Αναίρεση διαγραφών";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Τα διαγραμμένα Cutlings παραμένουν εδώ για 30 ημέρες. Επαναφέρετέ τα ή αδειάστε οριστικά.";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Πατήστε εδώ για να επιλέξετε πολλά Cutlings, να τα αναδιατάξετε ή να επαναφέρετε πρόσφατα διαγραμμένα.";
-"Long-press a cutling" = "Πατήστε παρατεταμένα ένα Cutling";
-"Hold any card for quick actions: copy, edit, share, or delete." = "Κρατήστε πατημένη οποιαδήποτε κάρτα για γρήγορες ενέργειες: αντιγραφή, επεξεργασία, κοινοποίηση ή διαγραφή.";
-"Drag to select" = "Σύρετε για επιλογή";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "Σύρετε πάνω από τις κάρτες για να επιλέξετε εύρος. Σύρετε ξανά πάνω τους για να ακυρώσετε την επιλογή.";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Ό,τι αντιγράφεις προσγειώνεται εδώ. Κάνε δεξί κλικ σε μια σειρά για να την αποθηκεύσεις ως cutling.";
+"Wipe the list" = "Καθαρισμός λίστας";
+"Empties your recent clipboard. Saved cutlings stay put." = "Αδειάζει το πρόσφατο πρόχειρό σου. Τα αποθηκευμένα cutling παραμένουν.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Αλλαγή συντόμευσης, ενεργοποίηση/απενεργοποίηση καταγραφής προχείρου και διαχείριση συγχρονισμού iCloud.";
+"Undo deletes" = "Ακύρωση διαγραφών";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Τα διαγραμμένα cutling παραμένουν εδώ για 30 ημέρες. Επανάφερέ τα ή άδειασέ τα οριστικά.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Πάτησε εδώ για να επιλέξεις πολλαπλά cutling, να τα αναδιατάξεις ή να επαναφέρεις πρόσφατα διαγραμμένα.";
+"Long-press a cutling" = "Πάτα παρατεταμένα σε ένα cutling";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Κράτα οποιαδήποτε κάρτα για γρήγορες ενέργειες: αντιγραφή, επεξεργασία, κοινοποίηση ή διαγραφή.";
+"Drag to select" = "Σύρε για να επιλέξεις";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Σύρε πάνω από τις κάρτες για να επιλέξεις ένα εύρος. Σύρε αντίστροφα για να αποεπιλέξεις.";
 "Smart field matching" = "Έξυπνη αντιστοίχιση πεδίων";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Το Cutling εντοπίζει πεδία email, URL, τηλεφώνου και διεύθυνσης και εμφανίζει τα σχετικά αποσπάσματα στην κορυφή του πληκτρολογίου.";
-"Create a new cutling" = "Δημιουργία νέου Cutling";
-"Save text or image snippets you'll reuse from any app." = "Αποθηκεύστε αποσπάσματα κειμένου ή εικόνας που θα χρησιμοποιήσετε ξανά από οποιαδήποτε εφαρμογή.";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Το Cutling αναγνωρίζει πεδία email, URL, τηλεφώνου και διεύθυνσης και ανεβάζει τα σχετικά αποσπάσματα στην κορυφή του πληκτρολογίου.";
+"Create a new cutling" = "Δημιούργησε νέο cutling";
+"Save text or image snippets you'll reuse from any app." = "Αποθήκευσε αποσπάσματα κειμένου ή εικόνας που θα ξαναχρησιμοποιήσεις από οποιαδήποτε εφαρμογή.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "Καλώς ήρθατε στο Cutling";
@@ -359,3 +359,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "Επιτρέπει στο Cutling να επικολλά ένα Cutling απευθείας στην εφαρμογή που χρησιμοποιούσατε.";
 "Grant" = "Παραχώρηση";
 "You can skip Accessibility and grant it later from Settings → Paste." = "Μπορείτε να παραλείψετε την Προσβασιμότητα και να την παραχωρήσετε αργότερα από τις Ρυθμίσεις → Επικόλληση.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "Αποθήκευση ως αρχείο…";
+"Image Saving" = "Αποθήκευση εικόνων";
+"When saving images" = "Κατά την αποθήκευση εικόνων";
+"Ask each time" = "Ερώτηση κάθε φορά";
+"Save to folder" = "Αποθήκευση σε φάκελο";
+"Folder" = "Φάκελος";
+"Change Folder…" = "Αλλαγή φακέλου…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "Επιλέξτε πώς λειτουργεί η ενέργεια «Αποθήκευση ως αρχείο» για τα Cutling εικόνας. Με «Αποθήκευση σε φάκελο» οι εικόνες αποθηκεύονται απευθείας στον επιλεγμένο φάκελο με μοναδικό όνομα αρχείου, χωρίς ερώτηση.";
+"Choose" = "Επιλογή";
+"Choose Image Folder" = "Επιλογή φακέλου εικόνων";
+"Pick a folder where Cutling will save image cutlings." = "Επιλέξτε έναν φάκελο στον οποίο το Cutling θα αποθηκεύει τα Cutling εικόνας.";
+"Preview" = "Προεπισκόπηση";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "Αποθηκευμένα";
+"History" = "Ιστορικό";
+"No saved cutlings yet" = "Δεν υπάρχουν αποθηκευμένα Cutling ακόμα";
+"Copy something to see it here" = "Αντίγραψε κάτι για να εμφανιστεί εδώ";
+"Clipboard history is off. Enable it in Settings." = "Το ιστορικό προχείρου είναι απενεργοποιημένο. Ενεργοποίησέ το στις Ρυθμίσεις.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Συμπερίληψη στην αναζήτηση Spotlight";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "Κάνε τα Cutling σου αναζητήσιμα από το Spotlight. Ευαίσθητο περιεχόμενο (πιστωτικές κάρτες, κλειδιά API, διακριτικά JWT, φράσεις seed, ιδιωτικά κλειδιά) δεν ευρετηριάζεται ποτέ.";
+"Copy Cutling" = "Αντιγραφή Cutling";
+"Copy a cutling's contents to the clipboard." = "Αντιγράφει το περιεχόμενο ενός cutling στο πρόχειρο.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Χρησιμοποίησε αυτές τις φράσεις με τη Siri ή περιήγησε σε όλες τις συντομεύσεις του Cutling στην εφαρμογή Συντομεύσεις.";
+"Copied \"%@\"" = "Αντιγράφηκε «%@»";

@@ -1,14 +1,14 @@
 /* MARK: - Navigation & Titles */
 "My Cutlings" = "Moje Cutlingy";
 "Select Items" = "Vybrat položky";
-"%lld Selected" = "%lld vybráno";
+"%lld Selected" = "Vybráno: %lld";
 "Reorder" = "Změnit pořadí";
 "Settings" = "Nastavení";
 "Keyboard Setup" = "Nastavení klávesnice";
 "New" = "Nový";
 "Choose Icon" = "Vybrat ikonu";
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Text, %lld/%lld Obrázky";
-"%lld Cutlings" = "%lld Cutlingy";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld text, %lld/%lld obrázky";
+"%lld Cutlings" = "Cutlingů: %lld";
 "Cutlings" = "Cutlingy";
 
 /* MARK: - Common Actions */
@@ -31,17 +31,17 @@
 "Keyboard Setup Guide" = "Průvodce nastavením klávesnice";
 "Name (A → Z)" = "Název (A → Z)";
 "Name (Z → A)" = "Název (Z → A)";
-"Text First" = "Nejdříve text";
-"Images First" = "Nejdříve obrázky";
-"Shortest First" = "Nejkratší nejdříve";
-"Longest First" = "Nejdelší nejdříve";
+"Text First" = "Nejdřív text";
+"Images First" = "Nejdřív obrázky";
+"Shortest First" = "Nejdřív nejkratší";
+"Longest First" = "Nejdřív nejdelší";
 "Reverse Order" = "Obrácené pořadí";
 
 /* MARK: - Empty States */
 "No Cutlings Yet" = "Zatím žádné Cutlingy";
 "No Results" = "Žádné výsledky";
-"Tap + to add your first cutling." = "Klepněte na + pro přidání prvního cutlingu.";
-"Try a different search term." = "Zkuste jiný hledaný výraz.";
+"Tap + to add your first cutling." = "Klepnutím na + přidáš svůj první cutling.";
+"Try a different search term." = "Zkus jiný hledaný výraz.";
 
 /* MARK: - Search */
 "Search cutlings" = "Hledat cutlingy";
@@ -83,19 +83,19 @@
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
-"iCloud Sync" = "Synchronizace iCloud";
-"Sync your cutlings across all your devices using iCloud." = "Synchronizujte cutlingy na všech zařízeních přes iCloud.";
+"iCloud Sync" = "Synchronizace s iCloud";
+"Sync your cutlings across all your devices using iCloud." = "Synchronizuj své cutlingy mezi všemi svými zařízeními pomocí iCloudu.";
 "Storage" = "Úložiště";
 "Text Cutlings" = "Textové Cutlingy";
 "Image Cutlings" = "Obrázkové Cutlingy";
-"Total Cutlings" = "Cutlingy celkem";
+"Total Cutlings" = "Celkem Cutlingů";
 "Disk Usage" = "Využití disku";
 "Status" = "Stav";
-"Syncing…" = "Synchronizace…";
+"Syncing…" = "Synchronizuji…";
 "Up to date" = "Aktuální";
-"Sync Now" = "Synchronizovat nyní";
-"Turn On iCloud Sync" = "Zapnout synchronizaci iCloud";
-"Max Text Length" = "Max. délka textu";
+"Sync Now" = "Synchronizovat";
+"Turn On iCloud Sync" = "Zapnout synchronizaci s iCloud";
+"Max Text Length" = "Maximální délka textu";
 "%lld chars" = "%lld znaků";
 "About" = "O aplikaci";
 "Version" = "Verze";
@@ -103,34 +103,34 @@
 "Full Access" = "Plný přístup";
 "Experimental Feature: iCloud" = "Experimentální funkce: iCloud";
 "Contact Support" = "Kontaktovat podporu";
-"Privacy Policy" = "Zásady ochrany osobních údajů";
-"Auto-detect Input Types" = "Automatická detekce typů vstupu";
-"Enable iCloud Sync" = "Povolit synchronizaci iCloud";
-"Keep your cutlings in sync across all your devices." = "Udržujte své cutlingy synchronizované na všech zařízeních.";
-"Automatically detect and suggest input type categories when editing text." = "Automaticky detekovat a navrhovat kategorie typů vstupu při úpravě textu.";
+"Privacy Policy" = "Zásady ochrany soukromí";
+"Auto-detect Input Types" = "Automaticky rozpoznávat typy vstupu";
+"Enable iCloud Sync" = "Zapnout synchronizaci s iCloud";
+"Keep your cutlings in sync across all your devices." = "Udržuj své cutlingy synchronizované mezi všemi svými zařízeními.";
+"Automatically detect and suggest input type categories when editing text." = "Při úpravě textu automaticky rozpoznává a navrhuje kategorie typů vstupu.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Žádný obrázek nevybrán";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "Aktuální text bude nahrazen obsahem schránky.";
-"This will replace the current image with whatever is in your clipboard." = "Aktuální obrázek bude nahrazen obsahem schránky.";
-"This cutling will be automatically deleted at the selected date and time." = "Tento cutling bude automaticky smazán ve vybraný den a čas.";
+"This will replace the current text with whatever is in your clipboard." = "Nahradí aktuální text tím, co máš ve schránce.";
+"This will replace the current image with whatever is in your clipboard." = "Nahradí aktuální obrázek tím, co máš ve schránce.";
+"This cutling will be automatically deleted at the selected date and time." = "Tento cutling bude automaticky smazán ve vybraném datu a čase.";
 "Each text cutling can hold up to %lld characters." = "Každý textový cutling může obsahovat až %lld znaků.";
 
 /* MARK: - Alerts */
 "Limit Reached" = "Limit dosažen";
 "Delete Cutling?" = "Smazat Cutling?";
 "This action cannot be undone." = "Tuto akci nelze vrátit zpět.";
-"Cannot add text cutling" = "Nelze přidat textový cutling";
-"Cannot add image cutling" = "Nelze přidat obrázkový cutling";
+"Cannot add text cutling" = "Textový cutling nelze přidat";
+"Cannot add image cutling" = "Obrázkový cutling nelze přidat";
 "Cannot add more text cutlings." = "Nelze přidat další textové cutlingy.";
 "Cannot add more image cutlings." = "Nelze přidat další obrázkové cutlingy.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Dosáhli jste maxima %lld cutlingů. Smažte některé pro přidání dalších.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Dosáhli jste maxima %lld obrázkových cutlingů. Obrázky zabírají hodně paměti klávesnice. Smažte některé obrázky pro přidání dalších.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Dosáhli jste maxima %lld textových cutlingů. Smažte některé pro přidání dalších.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Dosáhl jsi maxima — celkem %lld cutlingů. Smaž některé, abys mohl přidat další.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Dosáhl jsi maxima — %lld obrázkových cutlingů. Obrázky zabírají v klávesnici hodně paměti. Smaž některé obrázky, abys mohl přidat další.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Dosáhl jsi maxima — %lld textových cutlingů. Smaž některé, abys mohl přidat další.";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Návrhy typu vstupu";
@@ -163,14 +163,14 @@
 "Set Up Your Keyboard" = "Nastavte si klávesnici";
 "Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Klávesnice Cutling je připravena! Při psaní klepněte na ikonu 🌐 na klávesnici pro přepnutí na Cutling.";
 "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Postupujte podle dvou jednoduchých kroků níže a začněte používat vlastní klávesnici. Stránka se automaticky aktualizuje po dokončení každého kroku.";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Krok 1:** Klepněte na \U201EOtevřít nastavení Cutling\U201D níže, přejděte na **Klávesnice** a vyberte **Cutling** ze seznamu.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Krok 1:** Klepněte na „Otevřít nastavení Cutling“ níže, přejděte na **Klávesnice** a vyberte **Cutling** ze seznamu.";
 "**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Krok 2:** Ujistěte se, že **Povolit plný přístup** je ZAPNUTO. To umožňuje klávesnici kopírovat obrázky do schránky. Vaše data zůstávají soukromá a nikdy nejsou nikam odesílána.";
-"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Krok 3:** Klepněte na textové pole a vyberte \U201ECutling\U201D pomocí ikony 🌐 na klávesnici pro aktualizaci stavu \U201EPlný přístup\U201D.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Krok 3:** Klepněte na textové pole a vyberte „Cutling“ pomocí ikony 🌐 na klávesnici pro aktualizaci stavu „Plný přístup“.";
 "**Step 4:** You're good to go! The usage guide is provided below." = "**Krok 4:** Vše je připraveno! Návod k použití je níže.";
 "While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Při psaní v jakékoli aplikaci klepněte nebo podržte klávesu 🌐 vlevo dole na klávesnici a vyberte Cutling";
 "Tap any text cutling and it will be typed into your current text field immediately" = "Klepněte na libovolný textový cutling a bude okamžitě napsán do aktuálního textového pole";
 "Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Klepněte na obrázkový cutling pro jeho zkopírování do schránky a poté ho vložte do aplikace (obvykle klepnutím a podržením a výběrem Vložit). Apple v současné době nepodporuje přímé vkládání obrázků v této aplikaci.";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Zkopírujte libovolný text a klepněte na tlačítko \U201EPřidat ze schránky\U201D na klávesnici Cutling pro uložení jako nový cutling";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Zkopírujte libovolný text a klepněte na tlačítko „Přidat ze schránky“ na klávesnici Cutling pro uložení jako nový cutling";
 "You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Všechny cutlingy můžete spravovat v hlavní aplikaci Cutling. Změny se okamžitě projeví na klávesnici.";
 "Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Rozšíření klávesnice mají přísné paměťové limity pro zajištění stability systému. Obrázky zabírají více paměti než text, proto je omezujeme, aby klávesnice zůstala rychlá a spolehlivá. Pokud dosáhnete limitu, jednoduše smažte některé cutlingy a přidejte nové.";
 "Up to **%lld text** cutlings" = "Až **%lld textových** cutlingů";
@@ -183,7 +183,7 @@
 "Test Your Keyboard" = "Otestujte klávesnici";
 "All set! Swipe to continue." = "Vše připraveno! Přejeďte pro pokračování.";
 "Your data stays private and is never sent anywhere." = "Vaše data zůstávají soukromá a nikdy nejsou nikam odesílána.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Ne pro citlivá data** — neukládejte hesla, čísla karet, soukromé klíče ani tokeny";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Ne pro citlivá data**: neukládejte hesla, čísla karet, soukromé klíče ani tokeny";
 "Set Up Cutling Keyboard" = "Nastavit klávesnici Cutling";
 "What You Can Do" = "Co můžete dělat";
 "Smart Field Suggestions" = "Chytré návrhy polí";
@@ -206,26 +206,26 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "Požádejte Siri, aby přidala, zkopírovala nebo vyhledala vaše cutlingy bez použití rukou.";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "Otevřete Cutling v aplikaci **Nastavení** na vašem zařízení.";
-"Tap **Keyboards** and enable **Cutling**." = "Klepněte na **Klávesnice** a zapněte **Cutling**.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Zapněte **Povolit plný přístup**, aby klávesnice mohla kopírovat obrázky do schránky.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Klepněte na textové pole níže a poté pomocí klávesy 🌐 globus přepněte na **Cutling**. Tímto ověříte, že je vše správně nastaveno.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Synchronizace s iCloud je **experimentální funkce**. Nemusí správně fungovat ve všech situacích, což může vést ke ztrátě dat. Toto můžete kdykoli změnit v Nastavení.";
+"Open Cutling in your device's **Settings** app." = "Otevři Cutling v aplikaci **Nastavení** na svém zařízení.";
+"Tap **Keyboards** and enable **Cutling**." = "Klepni na **Klávesnice** a zapni **Cutling**.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Zapni **Povolit plný přístup**, aby klávesnice mohla kopírovat obrázky do tvé schránky.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Klepni na textové pole níže a poté pomocí klávesy 🌐 přepni na **Cutling**. Tím ověříš, že je vše správně nastaveno.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Synchronizace s iCloud je **experimentální funkce**. V některých situacích nemusí fungovat správně, což může vést ke ztrátě dat. Toto můžeš kdykoli později změnit v Nastavení.";
 
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "Nedávno smazané";
 "Delete All" = "Smazat vše";
-"Delete All Permanently?" = "Trvale smazat vše?";
-"Delete Permanently?" = "Trvale smazat?";
-"Delete Permanently" = "Trvale smazat";
+"Delete All Permanently?" = "Smazat vše trvale?";
+"Delete Permanently?" = "Smazat trvale?";
+"Delete Permanently" = "Smazat trvale";
 "Recover" = "Obnovit";
-"Items will be permanently deleted after 30 days." = "Položky budou trvale smazány po 30 dnech.";
+"Items will be permanently deleted after 30 days." = "Položky budou po 30 dnech trvale smazány.";
 "No Recently Deleted Items" = "Žádné nedávno smazané položky";
-"Deleted cutlings will appear here for 30 days." = "Smazané cutlingy se zde zobrazí po dobu 30 dnů.";
-"This will permanently delete all %lld items. This action cannot be undone." = "Všech %lld položek bude trvale smazáno. Tuto akci nelze vrátit zpět.";
-"\"%@\" will be deleted permanently." = "\"%@\" bude trvale smazáno.";
+"Deleted cutlings will appear here for 30 days." = "Smazané cutlingy se zde budou zobrazovat 30 dní.";
+"This will permanently delete all %lld items. This action cannot be undone." = "Tímto trvale smažeš %lld položek. Tuto akci nelze vrátit zpět.";
+"\"%@\" will be deleted permanently." = "„%@“ bude trvale smazán.";
 "1 day left" = "Zbývá 1 den";
-"%lld days left" = "Zbývá %lld dní";
+"%lld days left" = "Zbývá dní: %lld";
 
 /* MARK: - Context Menu */
 "Share" = "Sdílet";
@@ -321,24 +321,24 @@
 "Failed to save image." = "Uložení obrázku se nezdařilo.";
 
 /* MARK: - TipKit */
-"Saved cutlings" = "Uložené Cutlingy";
-"Your pinned snippets live here, ready to copy with one click." = "Vaše připnuté úryvky jsou zde, připravené ke zkopírování jedním klepnutím.";
+"Saved cutlings" = "Uložené cutlingy";
+"Your pinned snippets live here, ready to copy with one click." = "Tvé připnuté úryvky bydlí tady, připravené ke zkopírování jedním kliknutím.";
 "Recent clipboard" = "Nedávná schránka";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "Vše, co zkopírujete, se objeví zde. Klikněte pravým tlačítkem na libovolný řádek a uložte jej jako Cutling.";
-"Wipe the list" = "Vymazat seznam";
-"Empties your recent clipboard. Saved cutlings stay put." = "Vyprázdní nedávnou schránku. Uložené Cutlingy zůstanou na svém místě.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Změňte klávesovou zkratku, přepněte zachytávání schránky a spravujte synchronizaci s iCloudem.";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Vše, co zkopíruješ, dopadne sem. Klepnutím pravým tlačítkem na řádek ho uložíš jako cutling.";
+"Wipe the list" = "Vyčistit seznam";
+"Empties your recent clipboard. Saved cutlings stay put." = "Vyčistí tvou nedávnou schránku. Uložené cutlingy zůstávají.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Změň klávesovou zkratku, zapni/vypni zachytávání schránky a spravuj synchronizaci s iCloud.";
 "Undo deletes" = "Vrátit smazání";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Smazané Cutlingy zde zůstanou 30 dní. Obnovte je, nebo trvale vymažte.";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Klepněte sem pro výběr více Cutlingů, změnu jejich pořadí nebo obnovení nedávno smazaných.";
-"Long-press a cutling" = "Dlouze stiskněte Cutling";
-"Hold any card for quick actions: copy, edit, share, or delete." = "Podržte libovolnou kartu pro rychlé akce: kopírovat, upravit, sdílet nebo smazat.";
-"Drag to select" = "Přetáhněte pro výběr";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "Přejeďte přes karty pro výběr rozsahu. Přejeďte zpět pro zrušení výběru.";
-"Smart field matching" = "Chytré přiřazení polí";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling rozpozná pole pro e-mail, URL, telefon a adresu a odpovídající úryvky přesune nahoru klávesnice.";
-"Create a new cutling" = "Vytvořit nový Cutling";
-"Save text or image snippets you'll reuse from any app." = "Uložte si textové nebo obrazové úryvky, které využijete v kterékoli aplikaci.";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Smazané cutlingy zde zůstávají 30 dní. Obnov je nebo je vyčisti natrvalo.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Klepnutím sem můžeš vybrat více cutlingů, změnit jejich pořadí nebo obnovit nedávno smazané.";
+"Long-press a cutling" = "Dlouze stiskni cutling";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Podrž libovolnou kartu pro rychlé akce: kopírovat, upravit, sdílet nebo smazat.";
+"Drag to select" = "Táhnutím vyber";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Přejeď po kartách pro výběr rozsahu. Přejeď zpět pro zrušení výběru.";
+"Smart field matching" = "Chytré rozpoznávání polí";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling rozpozná pole pro e-mail, URL, telefon a adresu a vynese odpovídající úryvky na vrch klávesnice.";
+"Create a new cutling" = "Vytvoř nový cutling";
+"Save text or image snippets you'll reuse from any app." = "Ulož si úryvky textu nebo obrázků, které budeš znovu používat z jakékoli aplikace.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "Vítejte v Cutlingu";
@@ -359,3 +359,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "Umožňuje Cutlingu vložit cutling přímo do aplikace, kterou jste používali.";
 "Grant" = "Udělit";
 "You can skip Accessibility and grant it later from Settings → Paste." = "Přístupnost můžete přeskočit a udělit ji později v Nastavení → Vkládání.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "Uložit jako soubor…";
+"Image Saving" = "Ukládání obrázků";
+"When saving images" = "Při ukládání obrázků";
+"Ask each time" = "Pokaždé se zeptat";
+"Save to folder" = "Ukládat do složky";
+"Folder" = "Složka";
+"Change Folder…" = "Změnit složku…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "Zvolte, jak funguje akce „Uložit jako soubor“ pro obrázkové Cutlingy. S volbou „Ukládat do složky“ se obrázky ukládají rovnou do vybrané složky pod jedinečným názvem souboru, bez dotazu.";
+"Choose" = "Vybrat";
+"Choose Image Folder" = "Vybrat složku s obrázky";
+"Pick a folder where Cutling will save image cutlings." = "Vyberte složku, do které bude Cutling ukládat obrázkové Cutlingy.";
+"Preview" = "Náhled";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "Uložené";
+"History" = "Historie";
+"No saved cutlings yet" = "Zatím žádné uložené Cutlingy";
+"Copy something to see it here" = "Něco zkopíruj, abys to zde viděl";
+"Clipboard history is off. Enable it in Settings." = "Historie schránky je vypnutá. Zapni ji v Nastavení.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Zahrnout do vyhledávání Spotlight";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "Umožni vyhledávání svých Cutlingů přes Spotlight. Citlivý obsah (platební karty, API klíče, JWT tokeny, seed fráze, privátní klíče) se nikdy neindexuje.";
+"Copy Cutling" = "Zkopírovat Cutling";
+"Copy a cutling's contents to the clipboard." = "Kopíruje obsah Cutlingu do schránky.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Použij tyto fráze se Siri nebo procházej všechny zkratky Cutlingu v aplikaci Zkratky.";
+"Copied \"%@\"" = "„%@“ zkopírováno";

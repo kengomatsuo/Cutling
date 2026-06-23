@@ -6,9 +6,9 @@
 "Settings" = "設定";
 "Keyboard Setup" = "鍵盤設定";
 "New" = "新增";
-"Choose Icon" = "選擇圖示";
+"Choose Icon" = "選擇圖像";
 "%lld/%lld Text, %lld/%lld Images" = "%lld/%lld 文字、%lld/%lld 圖片";
-"%lld Cutlings" = "%lld 個 剪切片段";
+"%lld Cutlings" = "%lld 個剪切片段";
 "Cutlings" = "剪切片段";
 
 /* MARK: - Common Actions */
@@ -27,7 +27,7 @@
 "Text Cutling" = "文字剪切片段";
 "Image Cutling" = "圖片剪切片段";
 "Select Cutlings" = "選擇剪切片段";
-"Reorder Cutlings" = "重新排列剪切片段";
+"Reorder Cutlings" = "重新排序剪切片段";
 "Keyboard Setup Guide" = "鍵盤設定指南";
 "Name (A → Z)" = "名稱（A → Z）";
 "Name (Z → A)" = "名稱（Z → A）";
@@ -35,17 +35,17 @@
 "Images First" = "圖片優先";
 "Shortest First" = "最短優先";
 "Longest First" = "最長優先";
-"Reverse Order" = "反向排列";
+"Reverse Order" = "反向排序";
 
 /* MARK: - Empty States */
 "No Cutlings Yet" = "尚無剪切片段";
 "No Results" = "無結果";
-"Tap + to add your first cutling." = "點選 + 以新增您的第一個剪切片段。";
-"Try a different search term." = "請嘗試其他搜尋詞彙。";
+"Tap + to add your first cutling." = "點一下 + 來新增你的第一個剪切片段。";
+"Try a different search term." = "試試其他搜尋字詞。";
 
 /* MARK: - Search */
 "Search cutlings" = "搜尋剪切片段";
-"Search icons" = "搜尋圖示";
+"Search icons" = "搜尋圖像";
 
 /* MARK: - Form Labels */
 "Name" = "名稱";
@@ -84,7 +84,7 @@
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
 "iCloud Sync" = "iCloud 同步";
-"Sync your cutlings across all your devices using iCloud." = "使用 iCloud 在所有裝置間同步您的剪切片段。";
+"Sync your cutlings across all your devices using iCloud." = "透過 iCloud 在所有裝置間同步你的剪切片段。";
 "Storage" = "儲存空間";
 "Text Cutlings" = "文字剪切片段";
 "Image Cutlings" = "圖片剪切片段";
@@ -96,41 +96,41 @@
 "Sync Now" = "立即同步";
 "Turn On iCloud Sync" = "開啟 iCloud 同步";
 "Max Text Length" = "最大文字長度";
-"%lld chars" = "%lld 字";
+"%lld chars" = "%lld 個字元";
 "About" = "關於";
 "Version" = "版本";
-"Keyboard Added" = "已新增鍵盤";
-"Full Access" = "完整存取";
+"Keyboard Added" = "已加入鍵盤";
+"Full Access" = "完整取用權限";
 "Experimental Feature: iCloud" = "實驗性功能：iCloud";
 "Contact Support" = "聯絡支援";
-"Privacy Policy" = "隱私權政策";
+"Privacy Policy" = "私隱政策";
 "Auto-detect Input Types" = "自動偵測輸入類型";
-"Enable iCloud Sync" = "啟用 iCloud 同步";
-"Keep your cutlings in sync across all your devices." = "在所有裝置上同步您的剪貼內容。";
-"Automatically detect and suggest input type categories when editing text." = "編輯文字時自動偵測並建議輸入類型分類。";
+"Enable iCloud Sync" = "開啟 iCloud 同步";
+"Keep your cutlings in sync across all your devices." = "讓你的剪切片段在所有裝置間保持同步。";
+"Automatically detect and suggest input type categories when editing text." = "在編輯文字時自動偵測並建議輸入類型類別。";
 
 /* MARK: - Image Picker */
 "No image selected" = "未選擇圖片";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "這將以剪貼板內容取代目前的文字。";
-"This will replace the current image with whatever is in your clipboard." = "這將以剪貼板內容取代目前的圖片。";
-"This cutling will be automatically deleted at the selected date and time." = "此剪切片段將在選定的日期和時間自動刪除。";
+"This will replace the current text with whatever is in your clipboard." = "這將以你剪貼板中的內容取代目前的文字。";
+"This will replace the current image with whatever is in your clipboard." = "這將以你剪貼板中的內容取代目前的圖片。";
+"This cutling will be automatically deleted at the selected date and time." = "這個剪切片段將在所選日期與時間自動刪除。";
 "Each text cutling can hold up to %lld characters." = "每個文字剪切片段最多可包含 %lld 個字元。";
 
 /* MARK: - Alerts */
 "Limit Reached" = "已達上限";
-"Delete Cutling?" = "刪除剪切片段？";
-"This action cannot be undone." = "此操作無法還原。";
+"Delete Cutling?" = "刪除這個剪切片段？";
+"This action cannot be undone." = "此操作無法復原。";
 "Cannot add text cutling" = "無法新增文字剪切片段";
 "Cannot add image cutling" = "無法新增圖片剪切片段";
-"Cannot add more text cutlings." = "無法再新增更多文字剪切片段。";
-"Cannot add more image cutlings." = "無法再新增更多圖片剪切片段。";
+"Cannot add more text cutlings." = "無法再新增文字剪切片段。";
+"Cannot add more image cutlings." = "無法再新增圖片剪切片段。";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "剪切片段數量已達上限（%lld）。請刪除一些後再新增。";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "圖片剪切片段已達上限（%lld）。圖片在鍵盤中佔用較多記憶體。請刪除一些後再新增。";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "文字剪切片段已達上限（%lld）。請刪除一些後再新增。";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "你已達到總計 %lld 個剪切片段的上限。請刪除一些以新增更多。";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "你已達到 %lld 個圖片剪切片段的上限。圖片在鍵盤中佔用大量記憶體。請刪除部分圖片以新增更多。";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "你已達到 %lld 個文字剪切片段的上限。請刪除一些以新增更多。";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "輸入類型建議";
@@ -155,35 +155,35 @@
 
 /* MARK: - Keyboard Setup */
 "Setup Progress" = "設定進度";
-"Open Cutling Settings" = "開啟 Cutling 設定";
-"Tap here, then switch to Cutling" = "在此點選，然後切換至 Cutling";
+"Open Cutling Settings" = "開啟剪切片段設定";
+"Tap here, then switch to Cutling" = "在此點選，然後切換至剪切片段";
 "How to Use Your Keyboard" = "鍵盤使用方法";
 "Storage Limits" = "儲存限制";
 "You're All Set!" = "設定完成！";
 "Set Up Your Keyboard" = "設定鍵盤";
-"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Cutling 鍵盤已準備就緒！在任何地方輸入時，點選鍵盤上的🌐地球圖示切換至 Cutling。";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "剪切片段鍵盤已準備就緒！在任何地方輸入時，點選鍵盤上的🌐地球圖示切換至剪切片段。";
 "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "按照以下兩個簡單步驟開始使用您的自訂鍵盤。完成每個步驟後，此頁面將自動更新。";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**第1步：** 點選下方「開啟 Cutling 設定」，進入**鍵盤**，從清單中選擇 **Cutling**。";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**第1步：** 點選下方「開啟剪切片段設定」，進入**鍵盤**，從清單中選擇**剪切片段**。";
 "**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**第2步：** 確認**允許完整存取**已開啟。這將允許鍵盤將圖片複製到剪貼板。您的資料始終保持私密，不會傳送至任何地方。";
-"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**第3步：** 點選文字輸入框，使用鍵盤上的🌐地球圖示選擇「Cutling」，以更新「完整存取」狀態。";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**第3步：** 點選文字輸入框，使用鍵盤上的🌐地球圖示選擇「剪切片段」，以更新「完整存取」狀態。";
 "**Step 4:** You're good to go! The usage guide is provided below." = "**第4步：** 一切就緒！使用指南在下方提供。";
-"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "在任何應用程式中輸入時，點選或長按鍵盤左下角的🌐地球鍵，然後選擇 Cutling";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "在任何應用程式中輸入時，點選或長按鍵盤左下角的🌐地球鍵，然後選擇剪切片段";
 "Tap any text cutling and it will be typed into your current text field immediately" = "點選任意文字剪切片段，它將立即輸入到目前的文字框中";
 "Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "點選圖片剪切片段可將其複製到剪貼板，然後貼到您正在使用的應用程式中（通常是長按後選擇貼上）。Apple 目前不支援在此應用程式中直接貼上圖片。";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "複製任意文字，然後在 Cutling 鍵盤中點選「從剪貼板新增」按鈕，即可儲存為新的剪切片段";
-"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "您可以在主要 Cutling 應用程式中管理所有剪切片段。您的更改將立即反映在鍵盤中。";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "複製任意文字，然後在剪切片段鍵盤中點選「從剪貼板新增」按鈕，即可儲存為新的剪切片段";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "您可以在主要剪切片段 App 中管理所有剪切片段。您的更改將立即反映在鍵盤中。";
 "Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "鍵盤擴充功能有嚴格的記憶體限制以確保系統穩定性。圖片比文字佔用更多記憶體，因此我們限制了數量以保持鍵盤快速可靠。達到限制時，只需刪除一些剪切片段即可新增新的。";
 "Up to **%lld text** cutlings" = "最多 **%lld 個文字**剪切片段";
 "Up to **%lld image** cutlings" = "最多 **%lld 個圖片**剪切片段";
 "Back" = "返回";
 "Next" = "下一步";
 "Get Started" = "開始使用";
-"Follow a few simple steps to start using your custom Cutling keyboard." = "按照幾個簡單步驟開始使用您的 Cutling 鍵盤。";
-"Enable Cutling Keyboard" = "啟用 Cutling 鍵盤";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "按照幾個簡單步驟開始使用您的剪切片段鍵盤。";
+"Enable Cutling Keyboard" = "啟用剪切片段鍵盤";
 "Test Your Keyboard" = "測試鍵盤";
 "All set! Swipe to continue." = "全部完成！滑動繼續。";
 "Your data stays private and is never sent anywhere." = "您的資料始終保持私密，不會傳送至任何地方。";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**不適合儲存敏感資料** — 請勿儲存密碼、卡號、私鑰或令牌";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**不適合儲存敏感資料**：請勿儲存密碼、卡號、私鑰或令牌";
 "Set Up Cutling Keyboard" = "設定剪切片段鍵盤";
 "What You Can Do" = "你可以做什麼";
 "Smart Field Suggestions" = "智慧欄位建議";
@@ -196,7 +196,7 @@
 "Search your saved cutlings right from Spotlight and copy them in a single tap." = "直接在 Spotlight 中搜尋已儲存的剪切片段，輕點一下即可複製。";
 "Sync Across Devices" = "跨裝置同步";
 "Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "開啟 iCloud 同步，讓所有登入 Apple 帳號的裝置上的剪切片段都能保持最新。";
-"Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "點一下上方的文字欄位，然後使用 🌐 地球儀鍵切換到 **剪切片段**。這將驗證一切設定是否正確。";
+"Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "點一下上方的文字欄位，然後使用 🌐 地球儀鍵切換到**剪切片段**。這將驗證一切設定是否正確。";
 
 /* MARK: - What's New Sheet */
 "What's New in Cutling" = "剪切片段新功能";
@@ -206,11 +206,11 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "請 Siri 免動手新增、拷貝或搜尋您的剪切片段。";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "在裝置的**設定** App 中打開 Cutling。";
-"Tap **Keyboards** and enable **Cutling**." = "點一下**鍵盤**並啟用 **Cutling**。";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "開啟**允許完整取用**，讓鍵盤可以將圖片拷貝到剪貼簿。";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "點一下下方的文字欄位，然後使用 🌐 地球儀鍵切換到 **Cutling**。這將驗證一切設定是否正確。";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud 同步是一項**實驗性功能**。它可能無法在所有情況下正常運作，這可能導致資料遺失。你可以隨時在設定中更改此選項。";
+"Open Cutling in your device's **Settings** app." = "在裝置的 **設定** App 中開啟 Cutling。";
+"Tap **Keyboards** and enable **Cutling**." = "點一下 **鍵盤** 並啟用 **Cutling**。";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "開啟 **允許完整取用權限**，讓鍵盤可以將圖片複製到你的剪貼板。";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "點一下下方的文字欄位，然後用 🌐 地球鍵切換到 **Cutling**。這可以驗證一切是否設定正確。";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud 同步是 **實驗性功能**。在某些情況下可能無法正常運作，因此可能導致資料遺失。你可以隨時在「設定」中更改此項。";
 
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "最近刪除";
@@ -218,14 +218,14 @@
 "Delete All Permanently?" = "永久刪除全部？";
 "Delete Permanently?" = "永久刪除？";
 "Delete Permanently" = "永久刪除";
-"Recover" = "復原";
-"Items will be permanently deleted after 30 days." = "項目將在30天後被永久刪除。";
+"Recover" = "回復";
+"Items will be permanently deleted after 30 days." = "項目將在 30 天後永久刪除。";
 "No Recently Deleted Items" = "沒有最近刪除的項目";
-"Deleted cutlings will appear here for 30 days." = "已刪除的剪切片段將在此處保留30天。";
-"This will permanently delete all %lld items. This action cannot be undone." = "將永久刪除全部%lld個項目。此操作無法復原。";
+"Deleted cutlings will appear here for 30 days." = "刪除的剪切片段將在這裡保留 30 天。";
+"This will permanently delete all %lld items. This action cannot be undone." = "這將永久刪除 %lld 個項目。此操作無法復原。";
 "\"%@\" will be deleted permanently." = "「%@」將被永久刪除。";
-"1 day left" = "剩餘1天";
-"%lld days left" = "剩餘%lld天";
+"1 day left" = "剩餘 1 天";
+"%lld days left" = "剩餘 %lld 天";
 
 /* MARK: - Context Menu */
 "Share" = "分享";
@@ -322,23 +322,23 @@
 
 /* MARK: - TipKit */
 "Saved cutlings" = "已儲存的剪切片段";
-"Your pinned snippets live here, ready to copy with one click." = "已釘選的片段會顯示在這裡，輕點一下即可複製。";
+"Your pinned snippets live here, ready to copy with one click." = "你釘選的片段都在這裡，隨時一鍵複製。";
 "Recent clipboard" = "最近剪貼板";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "複製的所有內容都會出現在這裡。在任意一行上按右鍵即可將其儲存為剪切片段。";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "你複製的所有內容都會到這裡。在任一列上按右鍵即可將其儲存為剪切片段。";
 "Wipe the list" = "清空列表";
-"Empties your recent clipboard. Saved cutlings stay put." = "清空最近剪貼板。已儲存的剪切片段不會受到影響。";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "可重新設定快捷鍵、開關剪貼板擷取、管理 iCloud 同步。";
+"Empties your recent clipboard. Saved cutlings stay put." = "清空你最近的剪貼板。已儲存的剪切片段保持不變。";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "重新指定快速鍵、切換剪貼板擷取，並管理 iCloud 同步。";
 "Undo deletes" = "復原刪除";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "已刪除的剪切片段會在此處保留 30 天。可以還原它們，也可以徹底清空。";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "點此可選擇多個剪切片段、重新排列，或還原最近刪除的項目。";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "刪除的剪切片段在這裡保留 30 天。可回復它們，亦可永久清空。";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "點一下此處可選擇多個剪切片段、重新排序，或回復最近刪除的項目。";
 "Long-press a cutling" = "長按剪切片段";
-"Hold any card for quick actions: copy, edit, share, or delete." = "長按任意卡片，可使用複製、編輯、分享、刪除等快速動作。";
-"Drag to select" = "拖曳以選擇";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "在卡片上滑動可選取一個範圍。反向滑動可取消選取。";
-"Smart field matching" = "智慧欄位比對";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "剪切片段會辨識電子郵件、URL、電話號碼和地址欄位，並將相符的片段顯示在鍵盤頂部。";
-"Create a new cutling" = "新建剪切片段";
-"Save text or image snippets you'll reuse from any app." = "儲存可在任何 App 中重複使用的文字或圖片片段。";
+"Hold any card for quick actions: copy, edit, share, or delete." = "按住任一張卡片以使用快速操作：複製、編輯、分享或刪除。";
+"Drag to select" = "拖移以選擇";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "在卡片上滑動以選擇範圍。反向滑動可取消選擇。";
+"Smart field matching" = "智慧型欄位比對";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "剪切片段會偵測電子郵件、URL、電話和地址欄位，並將相符的片段放到鍵盤頂部。";
+"Create a new cutling" = "建立新的剪切片段";
+"Save text or image snippets you'll reuse from any app." = "儲存你會在任何 App 中重複使用的文字或圖片片段。";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "歡迎使用剪切片段";
@@ -359,3 +359,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "讓剪切片段可以直接把內容貼到你正在使用的 App 中。";
 "Grant" = "授予權限";
 "You can skip Accessibility and grant it later from Settings → Paste." = "你可以跳過輔助使用，稍後在「設定 → 貼上」中授予。";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "儲存為檔案…";
+"Image Saving" = "圖片儲存";
+"When saving images" = "儲存圖片時";
+"Ask each time" = "每次詢問";
+"Save to folder" = "儲存到檔案夾";
+"Folder" = "檔案夾";
+"Change Folder…" = "更改檔案夾…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "選擇圖片剪切片段的「儲存為檔案」操作的運作方式。選擇「儲存到檔案夾」後，圖片會以唯一檔名直接儲存到所選的檔案夾，不再詢問。";
+"Choose" = "選擇";
+"Choose Image Folder" = "選擇圖片檔案夾";
+"Pick a folder where Cutling will save image cutlings." = "選擇剪切片段儲存圖片剪切片段的檔案夾。";
+"Preview" = "預覽";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "已儲存";
+"History" = "歷史";
+"No saved cutlings yet" = "尚無已儲存的剪切片段";
+"Copy something to see it here" = "複製內容後會顯示在這裡";
+"Clipboard history is off. Enable it in Settings." = "剪貼板歷史已關閉。請在設定中開啟。";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "納入 Spotlight 搜尋";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "讓你的剪切片段可從 Spotlight 搜尋到。敏感內容（信用卡、API 金鑰、JWT 權杖、助記詞、私鑰）永不被索引。";
+"Copy Cutling" = "拷貝剪切片段";
+"Copy a cutling's contents to the clipboard." = "將剪切片段的內容拷貝到剪貼板。";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "用這些片語搭配 Siri，或在「捷徑」App 中瀏覽所有 Cutling 捷徑。";
+"Copied \"%@\"" = "已拷貝「%@」";

@@ -1,14 +1,14 @@
 /* MARK: - Navigation & Titles */
-"My Cutlings" = "Minu Cutlings";
-"Select Items" = "Vali üksused";
+"My Cutlings" = "Minu Cutlingid";
+"Select Items" = "Vali objektid";
 "%lld Selected" = "%lld valitud";
 "Reorder" = "Järjesta ümber";
-"Settings" = "Seaded";
+"Settings" = "Sätted";
 "Keyboard Setup" = "Klaviatuuri seadistamine";
 "New" = "Uus";
 "Choose Icon" = "Vali ikoon";
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Tekst, %lld/%lld Pildid";
-"%lld Cutlings" = "%lld Cutlingid";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld tekst, %lld/%lld pilti";
+"%lld Cutlings" = "%lld Cutlingit";
 "Cutlings" = "Cutlingid";
 
 /* MARK: - Common Actions */
@@ -24,27 +24,27 @@
 "Delete Selected" = "Kustuta valitud";
 
 /* MARK: - Menu Items */
-"Text Cutling" = "Teksti Cutling";
-"Image Cutling" = "Pildi Cutling";
-"Select Cutlings" = "Vali Cutlings";
-"Reorder Cutlings" = "Järjesta Cutlings ümber";
+"Text Cutling" = "Teksti-Cutling";
+"Image Cutling" = "Pildi-Cutling";
+"Select Cutlings" = "Vali Cutlingid";
+"Reorder Cutlings" = "Järjesta Cutlingid ümber";
 "Keyboard Setup Guide" = "Klaviatuuri seadistamise juhend";
 "Name (A → Z)" = "Nimi (A → Z)";
 "Name (Z → A)" = "Nimi (Z → A)";
-"Text First" = "Tekst esmalt";
-"Images First" = "Pildid esmalt";
-"Shortest First" = "Lühim esmalt";
-"Longest First" = "Pikim esmalt";
-"Reverse Order" = "Vastupidine järjekord";
+"Text First" = "Tekst esimesena";
+"Images First" = "Pildid esimesena";
+"Shortest First" = "Lühimad esimesena";
+"Longest First" = "Pikimad esimesena";
+"Reverse Order" = "Pööratud järjekord";
 
 /* MARK: - Empty States */
-"No Cutlings Yet" = "Cutlings veel pole";
+"No Cutlings Yet" = "Cutlinge veel ei ole";
 "No Results" = "Tulemusi pole";
-"Tap + to add your first cutling." = "Puuduta +, et lisada oma esimene cutling.";
+"Tap + to add your first cutling." = "Lisa esimene cutling, vajutades +.";
 "Try a different search term." = "Proovi teist otsingusõna.";
 
 /* MARK: - Search */
-"Search cutlings" = "Otsi cutlings";
+"Search cutlings" = "Otsi cutlinge";
 "Search icons" = "Otsi ikoone";
 
 /* MARK: - Form Labels */
@@ -83,54 +83,54 @@
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
-"iCloud Sync" = "iCloud sünkroonimine";
-"Sync your cutlings across all your devices using iCloud." = "Sünkroonige oma cutlings kõigis seadmetes iCloud abil.";
-"Storage" = "Salvestusruum";
-"Text Cutlings" = "Teksti Cutlings";
-"Image Cutlings" = "Pildi Cutlings";
+"iCloud Sync" = "iCloud-i sünkroonimine";
+"Sync your cutlings across all your devices using iCloud." = "Sünkrooni oma Cutlingid kõigis seadmetes iCloud-i abil.";
+"Storage" = "Talletus";
+"Text Cutlings" = "Teksti-Cutlingid";
+"Image Cutlings" = "Pildi-Cutlingid";
 "Total Cutlings" = "Cutlinge kokku";
 "Disk Usage" = "Kettakasutus";
 "Status" = "Olek";
-"Syncing…" = "Sünkroonimine…";
+"Syncing…" = "Sünkroonin…";
 "Up to date" = "Ajakohane";
-"Sync Now" = "Sünkrooni nüüd";
-"Turn On iCloud Sync" = "Lülita iCloudi sünkroonimine sisse";
-"Max Text Length" = "Maks teksti pikkus";
-"%lld chars" = "%lld tähemärki";
+"Sync Now" = "Sünkrooni kohe";
+"Turn On iCloud Sync" = "Lülita iCloud-i sünkroonimine sisse";
+"Max Text Length" = "Teksti maks. pikkus";
+"%lld chars" = "%lld märki";
 "About" = "Teave";
 "Version" = "Versioon";
 "Keyboard Added" = "Klaviatuur lisatud";
 "Full Access" = "Täielik juurdepääs";
 "Experimental Feature: iCloud" = "Eksperimentaalne funktsioon: iCloud";
-"Contact Support" = "Võta ühendust toega";
+"Contact Support" = "Pöördu kasutajatoe poole";
 "Privacy Policy" = "Privaatsuspoliitika";
-"Auto-detect Input Types" = "Sisestustüüpide automaatne tuvastamine";
-"Enable iCloud Sync" = "Luba iCloudi sünkroonimine";
-"Keep your cutlings in sync across all your devices." = "Hoidke oma cutlingud kõigis seadmetes sünkroonis.";
-"Automatically detect and suggest input type categories when editing text." = "Tuvasta ja soovita teksti redigeerimisel automaatselt sisestustüübi kategooriaid.";
+"Auto-detect Input Types" = "Tuvasta sisestustüübid automaatselt";
+"Enable iCloud Sync" = "Lülita iCloud-i sünkroonimine sisse";
+"Keep your cutlings in sync across all your devices." = "Hoia oma Cutlingid kõigi seadmete vahel sünkroonis.";
+"Automatically detect and suggest input type categories when editing text." = "Tuvastab ja pakub teksti redigeerimisel automaatselt sisestustüübi kategooriaid.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Pilti pole valitud";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "See asendab praeguse teksti lõikelaual oleva sisuga.";
-"This will replace the current image with whatever is in your clipboard." = "See asendab praeguse pildi lõikelaual oleva sisuga.";
+"This will replace the current text with whatever is in your clipboard." = "See asendab praeguse teksti sellega, mis on sinu lõikelaual.";
+"This will replace the current image with whatever is in your clipboard." = "See asendab praeguse pildi sellega, mis on sinu lõikelaual.";
 "This cutling will be automatically deleted at the selected date and time." = "See cutling kustutatakse automaatselt valitud kuupäeval ja kellaajal.";
-"Each text cutling can hold up to %lld characters." = "Iga teksti cutling mahutab kuni %lld tähemärki.";
+"Each text cutling can hold up to %lld characters." = "Iga teksti-cutling võib sisaldada kuni %lld märki.";
 
 /* MARK: - Alerts */
-"Limit Reached" = "Limiit saavutatud";
+"Limit Reached" = "Piir saavutatud";
 "Delete Cutling?" = "Kustutada Cutling?";
 "This action cannot be undone." = "Seda toimingut ei saa tagasi võtta.";
-"Cannot add text cutling" = "Teksti cutling-ut ei saa lisada";
-"Cannot add image cutling" = "Pildi cutling-ut ei saa lisada";
-"Cannot add more text cutlings." = "Rohkem teksti cutlings ei saa lisada.";
-"Cannot add more image cutlings." = "Rohkem pildi cutlings ei saa lisada.";
+"Cannot add text cutling" = "Teksti-cutlingit ei saa lisada";
+"Cannot add image cutling" = "Pildi-cutlingit ei saa lisada";
+"Cannot add more text cutlings." = "Rohkem teksti-cutlinge ei saa lisada.";
+"Cannot add more image cutlings." = "Rohkem pildi-cutlinge ei saa lisada.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Olete saavutanud maksimaalse %lld cutlings arvu. Kustutage mõned, et lisada uusi.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Olete saavutanud maksimaalse %lld pildi cutlings arvu. Pildid kasutavad klaviatuuris märkimisväärselt mälu. Kustutage mõned pildid, et lisada uusi.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Olete saavutanud maksimaalse %lld teksti cutlings arvu. Kustutage mõned, et lisada uusi.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Oled saavutanud kokku %lld Cutlingi ülempiiri. Kustuta mõni, et juurde lisada.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Oled saavutanud %lld pildi-cutlingi ülempiiri. Pildid kasutavad klaviatuuris palju mälu. Kustuta mõni pilt, et juurde lisada.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Oled saavutanud %lld teksti-cutlingi ülempiiri. Kustuta mõni, et juurde lisada.";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Sisestustüübi soovitused";
@@ -163,14 +163,14 @@
 "Set Up Your Keyboard" = "Seadistage oma klaviatuur";
 "Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Teie Cutling klaviatuur on valmis! Kõikjal tippides puudutage klaviatuuril 🌐 gloobuse ikooni, et lülituda Cutling-ile.";
 "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Järgige allpool olevaid kahte lihtsat sammu, et hakata kasutama oma kohandatud klaviatuuri. See leht uueneb automaatselt iga sammu lõpetamisel.";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**1. samm:** Puudutage allpool 'Ava Cutling seaded', minge jaotisse **Klaviatuurid** ja valige loendist **Cutling**.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**1. samm:** Puudutage allpool „Ava Cutling seaded”, minge jaotisse **Klaviatuurid** ja valige loendist **Cutling**.";
 "**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**2. samm:** Veenduge, et **Luba täielik juurdepääs** on sisse lülitatud. See võimaldab klaviatuuril pilte lõikelauale kopeerida. Teie andmed jäävad privaatseks ega saadeta kunagi kuhugi.";
-"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**3. samm:** Puudutage tekstisisestusvälja ja valige \"Cutling\" klaviatuuril oleva 🌐 gloobuse ikooni abil, et uuendada \"Täielik juurdepääs\" olekut.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**3. samm:** Puudutage tekstisisestusvälja ja valige „Cutling” klaviatuuril oleva 🌐 gloobuse ikooni abil, et uuendada „Täielik juurdepääs” olekut.";
 "**Step 4:** You're good to go! The usage guide is provided below." = "**4. samm:** Olete valmis! Kasutusjuhend on toodud allpool.";
 "While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Mis tahes rakenduses tippides puudutage või hoidke all 🌐 gloobuse klahvi klaviatuuri vasakus alumises nurgas, seejärel valige Cutling";
 "Tap any text cutling and it will be typed into your current text field immediately" = "Puudutage mis tahes teksti cutling-ut ja see trükitakse kohe teie praegusele tekstiväljale";
 "Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Puudutage pildi cutling-ut, et see lõikelauale kopeerida, seejärel kleepige see kasutatavasse rakendusse (tavaliselt puudutades ja all hoides, seejärel valides Kleebi). Apple ei toeta praegu selles rakenduses pildi otse kleepimist.";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Kopeerige mis tahes tekst, seejärel puudutage Cutling klaviatuuril nuppu 'Lisa lõikelaualt', et salvestada see uue cutling-una";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Kopeerige mis tahes tekst, seejärel puudutage Cutling klaviatuuril nuppu „Lisa lõikelaualt”, et salvestada see uue cutling-una";
 "You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Kõiki oma cutlings saate hallata Cutling põhirakenduses. Tehtud muudatused ilmuvad kohe teie klaviatuuris.";
 "Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Klaviatuurilaiendustel on süsteemi stabiilsuse tagamiseks ranged mälulimiidid. Pildid kasutavad rohkem mälu kui tekst, seega piirame neid, et teie klaviatuur jääks kiireks ja usaldusväärseks. Limiidi saavutamisel kustutage lihtsalt mõned cutlings, et lisada uusi.";
 "Up to **%lld text** cutlings" = "Kuni **%lld teksti** cutlings";
@@ -183,7 +183,7 @@
 "Test Your Keyboard" = "Testige oma klaviatuuri";
 "All set! Swipe to continue." = "Kõik valmis! Pühkige jätkamiseks.";
 "Your data stays private and is never sent anywhere." = "Teie andmed jäävad privaatseks ega saadeta kunagi kuhugi.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Mitte tundlike andmete jaoks** — vältige paroolide, kaardinumbrite, privaatvõtmete või tokenite salvestamist";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Mitte tundlike andmete jaoks**: vältige paroolide, kaardinumbrite, privaatvõtmete või tokenite salvestamist";
 "Set Up Cutling Keyboard" = "Seadista Cutlingu klaviatuur";
 "What You Can Do" = "Mida saate teha";
 "Smart Field Suggestions" = "Nutikad väljasoovitused";
@@ -206,24 +206,24 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "Paluge Siril cutlingeid lisada, kopeerida või neist otsida ilma käsi kasutamata.";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "Ava Cutling oma seadme **Seaded** rakenduses.";
-"Tap **Keyboards** and enable **Cutling**." = "Puuduta **Klaviatuurid** ja luba **Cutling**.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Lülita sisse **Luba täielik juurdepääs**, et klaviatuur saaks pilte lõikelauale kopeerida.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Puuduta allolevat tekstivälja ja kasuta 🌐 gloobusnuppu, et lülituda **Cutling**-ile. See kinnitab, et kõik on õigesti seadistatud.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloudi sünkroonimine on **eksperimentaalne funktsioon**. See ei pruugi kõigis olukordades korrektselt töötada, mis võib põhjustada andmekadu. Saad seda alati hiljem Seadetes muuta.";
+"Open Cutling in your device's **Settings** app." = "Ava Cutling oma seadme rakenduses **Sätted**.";
+"Tap **Keyboards** and enable **Cutling**." = "Puuduta **Klaviatuurid** ja lülita **Cutling** sisse.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Lülita sisse **Luba täielik juurdepääs**, et klaviatuur saaks pilte sinu lõikelauale kopeerida.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Puuduta allolevat tekstivälja ja kasuta seejärel maakera klahvi 🌐, et lülituda **Cutlingusse**. See kinnitab, et kõik on õigesti seadistatud.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud-i sünkroonimine on **eksperimentaalne funktsioon**. See ei pruugi kõigis olukordades õigesti töötada, mis võib kaasa tuua andmete kaotuse. Saad seda alati hiljem sätetes muuta.";
 
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "Hiljuti kustutatud";
 "Delete All" = "Kustuta kõik";
-"Delete All Permanently?" = "Kustuta kõik jäädavalt?";
-"Delete Permanently?" = "Kustuta jäädavalt?";
+"Delete All Permanently?" = "Kustutada kõik jäädavalt?";
+"Delete Permanently?" = "Kustutada jäädavalt?";
 "Delete Permanently" = "Kustuta jäädavalt";
 "Recover" = "Taasta";
-"Items will be permanently deleted after 30 days." = "Üksused kustutatakse jäädavalt 30 päeva pärast.";
-"No Recently Deleted Items" = "Hiljuti kustutatud üksusi pole";
-"Deleted cutlings will appear here for 30 days." = "Kustutatud cutlingid kuvatakse siin 30 päeva jooksul.";
-"This will permanently delete all %lld items. This action cannot be undone." = "Kõik %lld üksust kustutatakse jäädavalt. Seda toimingut ei saa tagasi võtta.";
-"\"%@\" will be deleted permanently." = "\"%@\" kustutatakse jäädavalt.";
+"Items will be permanently deleted after 30 days." = "Objektid kustutatakse jäädavalt 30 päeva pärast.";
+"No Recently Deleted Items" = "Hiljuti kustutatud objekte pole";
+"Deleted cutlings will appear here for 30 days." = "Kustutatud Cutlingid kuvatakse siin 30 päeva jooksul.";
+"This will permanently delete all %lld items. This action cannot be undone." = "See kustutab jäädavalt %lld objekti. Seda toimingut ei saa tagasi võtta.";
+"\"%@\" will be deleted permanently." = "„%@“ kustutatakse jäädavalt.";
 "1 day left" = "1 päev jäänud";
 "%lld days left" = "%lld päeva jäänud";
 
@@ -324,21 +324,21 @@
 "Saved cutlings" = "Salvestatud Cutlingid";
 "Your pinned snippets live here, ready to copy with one click." = "Sinu kinnitatud katked elavad siin, valmis ühe klõpsuga kopeerimiseks.";
 "Recent clipboard" = "Hiljutine lõikelaud";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "Kõik, mida kopeerid, jõuab siia. Tee paremklõps suvalisel real, et salvestada see Cutlinguna.";
-"Wipe the list" = "Tühjenda nimekiri";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Kõik, mida kopeerid, jõuab siia. Tee real paremklõps, et salvestada see Cutlingina.";
+"Wipe the list" = "Tühjenda loend";
 "Empties your recent clipboard. Saved cutlings stay put." = "Tühjendab hiljutise lõikelaua. Salvestatud Cutlingid jäävad alles.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Muuda kiirklahvi, lülita lõikelaua hõivamine sisse või välja ja halda iCloudi sünkroonimist.";
-"Undo deletes" = "Võta kustutamine tagasi";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Muuda kiirklahvi, lülita lõikelaua salvestus sisse/välja ja halda iCloud-i sünkroonimist.";
+"Undo deletes" = "Võta kustutamised tagasi";
 "Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Kustutatud Cutlingid jäävad siia 30 päevaks. Taasta need või tühjenda jäädavalt.";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Puuduta siin, et valida mitu Cutlingut, järjestada need ümber või taastada hiljuti kustutatud.";
-"Long-press a cutling" = "Hoia Cutlingut all";
-"Hold any card for quick actions: copy, edit, share, or delete." = "Hoia mis tahes kaarti kiirtegevuste jaoks: kopeeri, muuda, jaga või kustuta.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Puuduta siia, et valida mitu Cutlingit, järjestada need ümber või taastada hiljuti kustutatud.";
+"Long-press a cutling" = "Vajuta cutlingit pikalt";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Hoia mis tahes kaarti kiirtoimingute jaoks: kopeeri, redigeeri, jaga või kustuta.";
 "Drag to select" = "Lohista valimiseks";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "Pühi üle kaartide, et valida vahemik. Pühi tagasi, et valikut tühistada.";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Pühi üle kaartide, et valida vahemik. Pühi tagasi, et tühistada valik.";
 "Smart field matching" = "Nutikas väljade sobitamine";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling tuvastab e-posti, URL-i, telefoni- ja aadressiväljad ning tõstab sobivad katked klaviatuuri ülaosa.";
-"Create a new cutling" = "Loo uus Cutling";
-"Save text or image snippets you'll reuse from any app." = "Salvesta teksti- või pildilõike, mida saad uuesti kasutada igas rakenduses.";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling märkab e-posti, URL-i, telefoni- ja aadressivälju, ning tõstab sobivad katked klaviatuuri ülaossa.";
+"Create a new cutling" = "Loo uus cutling";
+"Save text or image snippets you'll reuse from any app." = "Salvesta teksti- või pildikatked, mida sa igast rakendusest taaskasutad.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "Tere tulemast Cutlingusse";
@@ -359,3 +359,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "Võimaldab Cutlingul kleepida Cutlingu otse rakendusse, mida kasutasid.";
 "Grant" = "Anna luba";
 "You can skip Accessibility and grant it later from Settings → Paste." = "Võid Hõlbustusfunktsioonid vahele jätta ja anda loa hiljem jaotises Sätted → Kleebi.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "Salvesta failina…";
+"Image Saving" = "Piltide salvestamine";
+"When saving images" = "Piltide salvestamisel";
+"Ask each time" = "Küsi iga kord";
+"Save to folder" = "Salvesta kausta";
+"Folder" = "Kaust";
+"Change Folder…" = "Muuda kausta…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "Vali, kuidas tegevus „Salvesta failina” töötab pildi-Cutlingute jaoks. Valikuga „Salvesta kausta” salvestatakse pildid otse sinu valitud kausta unikaalse failinimega, ilma küsimata.";
+"Choose" = "Vali";
+"Choose Image Folder" = "Vali pildikaust";
+"Pick a folder where Cutling will save image cutlings." = "Vali kaust, kuhu Cutling pildi-Cutlingid salvestab.";
+"Preview" = "Eelvaade";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "Salvestatud";
+"History" = "Ajalugu";
+"No saved cutlings yet" = "Veel pole salvestatud Cutlinge";
+"Copy something to see it here" = "Kopeeri midagi, et seda siin näha";
+"Clipboard history is off. Enable it in Settings." = "Lõikelaua ajalugu on välja lülitatud. Lülita see sätetes sisse.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Lisa Spotlighti otsingusse";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "Tee oma Cutlingid Spotlightist otsitavaks. Tundlikku sisu (krediitkaardid, API-võtmed, JWT-žetoonid, algfraasid, privaatvõtmed) ei indekseerita kunagi.";
+"Copy Cutling" = "Kopeeri Cutling";
+"Copy a cutling's contents to the clipboard." = "Kopeerib Cutlingu sisu lõikelauale.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Kasuta neid fraase Siriga või sirvi kõiki Cutlingu otseteid rakenduses Otseteed.";
+"Copied \"%@\"" = "„%@“ kopeeritud";

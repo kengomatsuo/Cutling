@@ -2,12 +2,12 @@
 "My Cutlings" = "Mijn Cutlings";
 "Select Items" = "Selecteer items";
 "%lld Selected" = "%lld geselecteerd";
-"Reorder" = "Herschikken";
+"Reorder" = "Wijzig volgorde";
 "Settings" = "Instellingen";
 "Keyboard Setup" = "Toetsenbord instellen";
 "New" = "Nieuw";
-"Choose Icon" = "Kies icoon";
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Tekst, %lld/%lld Afbeeldingen";
+"Choose Icon" = "Kies symbool";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld tekst, %lld/%lld afbeeldingen";
 "%lld Cutlings" = "%lld Cutlings";
 "Cutlings" = "Cutlings";
 
@@ -27,7 +27,7 @@
 "Text Cutling" = "Tekst-Cutling";
 "Image Cutling" = "Afbeelding-Cutling";
 "Select Cutlings" = "Selecteer Cutlings";
-"Reorder Cutlings" = "Cutlings herschikken";
+"Reorder Cutlings" = "Wijzig volgorde Cutlings";
 "Keyboard Setup Guide" = "Handleiding toetsenbord instellen";
 "Name (A → Z)" = "Naam (A → Z)";
 "Name (Z → A)" = "Naam (Z → A)";
@@ -45,7 +45,7 @@
 
 /* MARK: - Search */
 "Search cutlings" = "Zoek cutlings";
-"Search icons" = "Zoek iconen";
+"Search icons" = "Zoek symbolen";
 
 /* MARK: - Form Labels */
 "Name" = "Naam";
@@ -84,37 +84,37 @@
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
 "iCloud Sync" = "iCloud-synchronisatie";
-"Sync your cutlings across all your devices using iCloud." = "Synchroniseer je cutlings op al je apparaten via iCloud.";
+"Sync your cutlings across all your devices using iCloud." = "Synchroniseer je cutlings op al je apparaten met iCloud.";
 "Storage" = "Opslag";
 "Text Cutlings" = "Tekst-Cutlings";
 "Image Cutlings" = "Afbeelding-Cutlings";
-"Total Cutlings" = "Cutlings totaal";
+"Total Cutlings" = "Totaal Cutlings";
 "Disk Usage" = "Schijfgebruik";
 "Status" = "Status";
-"Syncing…" = "Synchroniseren…";
-"Up to date" = "Actueel";
-"Sync Now" = "Nu synchroniseren";
+"Syncing…" = "Bezig met synchroniseren…";
+"Up to date" = "Bijgewerkt";
+"Sync Now" = "Synchroniseer nu";
 "Turn On iCloud Sync" = "iCloud-synchronisatie inschakelen";
-"Max Text Length" = "Max. tekstlengte";
+"Max Text Length" = "Maximale tekstlengte";
 "%lld chars" = "%lld tekens";
 "About" = "Over";
 "Version" = "Versie";
 "Keyboard Added" = "Toetsenbord toegevoegd";
 "Full Access" = "Volledige toegang";
 "Experimental Feature: iCloud" = "Experimentele functie: iCloud";
-"Contact Support" = "Contact opnemen";
+"Contact Support" = "Neem contact op met support";
 "Privacy Policy" = "Privacybeleid";
 "Auto-detect Input Types" = "Invoertypes automatisch detecteren";
 "Enable iCloud Sync" = "iCloud-synchronisatie inschakelen";
 "Keep your cutlings in sync across all your devices." = "Houd je cutlings gesynchroniseerd op al je apparaten.";
-"Automatically detect and suggest input type categories when editing text." = "Detecteer en stel automatisch invoertypecategorieën voor bij het bewerken van tekst.";
+"Automatically detect and suggest input type categories when editing text." = "Detecteert en stelt automatisch invoertype-categorieën voor bij het bewerken van tekst.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Geen afbeelding geselecteerd";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "Dit vervangt de huidige tekst door de inhoud van je klembord.";
-"This will replace the current image with whatever is in your clipboard." = "Dit vervangt de huidige afbeelding door de inhoud van je klembord.";
+"This will replace the current text with whatever is in your clipboard." = "Hiermee wordt de huidige tekst vervangen door wat er in je klembord staat.";
+"This will replace the current image with whatever is in your clipboard." = "Hiermee wordt de huidige afbeelding vervangen door wat er in je klembord staat.";
 "This cutling will be automatically deleted at the selected date and time." = "Deze cutling wordt automatisch verwijderd op de geselecteerde datum en tijd.";
 "Each text cutling can hold up to %lld characters." = "Elke tekst-cutling kan maximaal %lld tekens bevatten.";
 
@@ -122,13 +122,13 @@
 "Limit Reached" = "Limiet bereikt";
 "Delete Cutling?" = "Cutling verwijderen?";
 "This action cannot be undone." = "Deze actie kan niet ongedaan worden gemaakt.";
-"Cannot add text cutling" = "Kan geen tekst-cutling toevoegen";
-"Cannot add image cutling" = "Kan geen afbeelding-cutling toevoegen";
-"Cannot add more text cutlings." = "Kan niet meer tekst-cutlings toevoegen.";
-"Cannot add more image cutlings." = "Kan niet meer afbeelding-cutlings toevoegen.";
+"Cannot add text cutling" = "Kan tekst-cutling niet toevoegen";
+"Cannot add image cutling" = "Kan afbeelding-cutling niet toevoegen";
+"Cannot add more text cutlings." = "Kan geen tekst-cutlings meer toevoegen.";
+"Cannot add more image cutlings." = "Kan geen afbeelding-cutlings meer toevoegen.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Je hebt het maximum van %lld cutlings bereikt. Verwijder er enkele om meer toe te voegen.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Je hebt het maximum van %lld cutlings in totaal bereikt. Verwijder er enkele om meer toe te voegen.";
 "You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Je hebt het maximum van %lld afbeelding-cutlings bereikt. Afbeeldingen gebruiken veel geheugen in het toetsenbord. Verwijder enkele afbeeldingen om meer toe te voegen.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "Je hebt het maximum van %lld tekst-cutlings bereikt. Verwijder er enkele om meer toe te voegen.";
 
@@ -163,14 +163,14 @@
 "Set Up Your Keyboard" = "Stel je toetsenbord in";
 "Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Je Cutling-toetsenbord is klaar! Tik tijdens het typen op het 🌐 wereldbol-icoon op je toetsenbord om over te schakelen naar Cutling.";
 "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Volg de twee eenvoudige stappen hieronder om je aangepaste toetsenbord te gebruiken. Deze pagina wordt automatisch bijgewerkt na elke stap.";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Stap 1:** Tik hieronder op 'Open Cutling-instellingen', ga naar **Toetsenborden** en selecteer **Cutling** uit de lijst.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Stap 1:** Tik hieronder op ‘Open Cutling-instellingen’, ga naar **Toetsenborden** en selecteer **Cutling** uit de lijst.";
 "**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Stap 2:** Zorg dat **Sta volledige toegang toe** AAN staat. Hiermee kan het toetsenbord afbeeldingen naar je klembord kopiëren. Je gegevens blijven privé en worden nooit ergens naartoe verzonden.";
 "**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Stap 3:** Tik op het tekstveld en kies \"Cutling\" met het 🌐 wereldbol-icoon op je toetsenbord om de status \"Volledige toegang\" bij te werken.";
 "**Step 4:** You're good to go! The usage guide is provided below." = "**Stap 4:** Je bent klaar! De gebruikshandleiding staat hieronder.";
 "While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Tik of houd tijdens het typen in een app de 🌐 wereldbol-toets linksonder op je toetsenbord ingedrukt en selecteer Cutling";
 "Tap any text cutling and it will be typed into your current text field immediately" = "Tik op een tekst-cutling en deze wordt direct in je huidige tekstveld getypt";
 "Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Tik op een afbeelding-cutling om deze naar je klembord te kopiëren en plak deze vervolgens in de app die je gebruikt (meestal door te tikken en vast te houden en dan Plak te selecteren). Apple ondersteunt momenteel niet het direct plakken van een afbeelding in deze app.";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Kopieer tekst en tik vervolgens op de knop 'Toevoegen vanuit klembord' op het Cutling-toetsenbord om het als nieuwe cutling op te slaan";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Kopieer tekst en tik vervolgens op de knop ‘Toevoegen vanuit klembord’ op het Cutling-toetsenbord om het als nieuwe cutling op te slaan";
 "You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Je kunt al je cutlings beheren in de Cutling-app. Wijzigingen verschijnen direct op je toetsenbord.";
 "Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Toetsenbordextensies hebben strikte geheugenlimieten voor systeemstabiliteit. Afbeeldingen gebruiken meer geheugen dan tekst, dus we beperken ze zodat je toetsenbord snel en betrouwbaar blijft. Als je een limiet bereikt, verwijder dan enkele cutlings om nieuwe toe te voegen.";
 "Up to **%lld text** cutlings" = "Maximaal **%lld tekst**-cutlings";
@@ -183,7 +183,7 @@
 "Test Your Keyboard" = "Test je toetsenbord";
 "All set! Swipe to continue." = "Alles klaar! Veeg om verder te gaan.";
 "Your data stays private and is never sent anywhere." = "Je gegevens blijven privé en worden nooit ergens naartoe verzonden.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Niet voor gevoelige gegevens** — vermijd het opslaan van wachtwoorden, kaartnummers, privésleutels of tokens";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Niet voor gevoelige gegevens**: vermijd het opslaan van wachtwoorden, kaartnummers, privésleutels of tokens";
 "Set Up Cutling Keyboard" = "Cutling-toetsenbord instellen";
 "What You Can Do" = "Wat je kunt doen";
 "Smart Field Suggestions" = "Slimme veldsuggesties";
@@ -206,26 +206,26 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "Vraag Siri om handsfree cutlings toe te voegen, te kopiëren of te doorzoeken.";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "Open Cutling in de **Instellingen**-app van je apparaat.";
+"Open Cutling in your device's **Settings** app." = "Open Cutling in de app **Instellingen** op je apparaat.";
 "Tap **Keyboards** and enable **Cutling**." = "Tik op **Toetsenborden** en schakel **Cutling** in.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Zet **Sta volledige toegang toe** aan zodat het toetsenbord afbeeldingen naar je klembord kan kopiëren.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Tik op het tekstveld hieronder en gebruik vervolgens de 🌐 wereldboltoets om naar **Cutling** te schakelen. Dit bevestigt dat alles correct is ingesteld.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud-synchronisatie is een **experimentele functie**. Het werkt mogelijk niet in alle situaties correct, wat kan leiden tot gegevensverlies. Je kunt dit later altijd wijzigen in Instellingen.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Schakel **Volledige toegang toestaan** in zodat het toetsenbord afbeeldingen naar je klembord kan kopiëren.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Tik op het tekstveld hieronder en gebruik vervolgens de 🌐 wereldbol-toets om naar **Cutling** te schakelen. Hiermee controleer je of alles juist is ingesteld.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud-synchronisatie is een **experimentele functie**. Hij werkt mogelijk niet in alle situaties correct, wat kan leiden tot gegevensverlies. Je kunt dit later altijd wijzigen in Instellingen.";
 
 /* MARK: - Recently Deleted */
-"Recently Deleted" = "Onlangs verwijderd";
-"Delete All" = "Alles verwijderen";
-"Delete All Permanently?" = "Alles definitief verwijderen?";
-"Delete Permanently?" = "Definitief verwijderen?";
-"Delete Permanently" = "Definitief verwijderen";
+"Recently Deleted" = "Recent verwijderd";
+"Delete All" = "Verwijder alles";
+"Delete All Permanently?" = "Alles permanent verwijderen?";
+"Delete Permanently?" = "Permanent verwijderen?";
+"Delete Permanently" = "Permanent verwijderen";
 "Recover" = "Herstel";
-"Items will be permanently deleted after 30 days." = "Items worden na 30 dagen definitief verwijderd.";
-"No Recently Deleted Items" = "Geen onlangs verwijderde items";
-"Deleted cutlings will appear here for 30 days." = "Verwijderde cutlings verschijnen hier gedurende 30 dagen.";
-"This will permanently delete all %lld items. This action cannot be undone." = "Alle %lld items worden definitief verwijderd. Deze actie kan niet ongedaan worden gemaakt.";
-"\"%@\" will be deleted permanently." = "\"%@\" wordt definitief verwijderd.";
-"1 day left" = "1 dag resterend";
-"%lld days left" = "%lld dagen resterend";
+"Items will be permanently deleted after 30 days." = "Items worden na 30 dagen permanent verwijderd.";
+"No Recently Deleted Items" = "Geen recent verwijderde items";
+"Deleted cutlings will appear here for 30 days." = "Verwijderde cutlings verschijnen hier 30 dagen lang.";
+"This will permanently delete all %lld items. This action cannot be undone." = "Hiermee worden %lld items permanent verwijderd. Deze actie kan niet ongedaan worden gemaakt.";
+"\"%@\" will be deleted permanently." = "‘%@’ wordt permanent verwijderd.";
+"1 day left" = "Nog 1 dag";
+"%lld days left" = "Nog %lld dagen";
 
 /* MARK: - Context Menu */
 "Share" = "Deel";
@@ -321,24 +321,24 @@
 "Failed to save image." = "Kan afbeelding niet opslaan.";
 
 /* MARK: - TipKit */
-"Saved cutlings" = "Opgeslagen cutlings";
-"Your pinned snippets live here, ready to copy with one click." = "Je vastgemaakte snippets staan hier, klaar om met één klik te kopiëren.";
+"Saved cutlings" = "Bewaarde cutlings";
+"Your pinned snippets live here, ready to copy with one click." = "Je vastgemaakte fragmenten staan hier, klaar om met één klik te kopiëren.";
 "Recent clipboard" = "Recent klembord";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "Alles wat je kopieert komt hier terecht. Klik met de rechtermuisknop op een rij om het op te slaan als cutling.";
-"Wipe the list" = "Lijst wissen";
-"Empties your recent clipboard. Saved cutlings stay put." = "Leegt je recente klembord. Opgeslagen cutlings blijven staan.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Wijzig de sneltoets, schakel klembordregistratie in of uit en beheer iCloud-synchronisatie.";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Alles wat je kopieert komt hier terecht. Rechterklik op een rij om hem als cutling te bewaren.";
+"Wipe the list" = "Lijst legen";
+"Empties your recent clipboard. Saved cutlings stay put." = "Maakt je recente klembord leeg. Bewaarde cutlings blijven staan.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Wijs de sneltoets opnieuw toe, schakel klembordregistratie in/uit en beheer iCloud-synchronisatie.";
 "Undo deletes" = "Verwijderingen ongedaan maken";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Verwijderde cutlings blijven hier 30 dagen staan. Herstel ze of verwijder ze definitief.";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Tik hier om meerdere cutlings te selecteren, ze te herschikken of onlangs verwijderde te herstellen.";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Verwijderde cutlings blijven hier 30 dagen. Herstel ze of leeg ze definitief.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Tik hier om meerdere cutlings te selecteren, hun volgorde te wijzigen of recent verwijderde te herstellen.";
 "Long-press a cutling" = "Houd een cutling ingedrukt";
-"Hold any card for quick actions: copy, edit, share, or delete." = "Houd een kaart vast voor snelle acties: kopiëren, bewerken, delen of verwijderen.";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Houd een kaart ingedrukt voor snelle acties: kopiëren, bewerken, delen of verwijderen.";
 "Drag to select" = "Sleep om te selecteren";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "Veeg over kaarten om een reeks te selecteren. Veeg terug over ze om de selectie op te heffen.";
-"Smart field matching" = "Slim veldherkenning";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling herkent e-mail-, URL-, telefoon- en adresvelden en plaatst passende snippets bovenaan het toetsenbord.";
-"Create a new cutling" = "Nieuwe Cutling maken";
-"Save text or image snippets you'll reuse from any app." = "Bewaar tekst- of afbeeldingsfragmenten die je in elke app opnieuw kunt gebruiken.";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Veeg over de kaarten om een bereik te selecteren. Veeg terug om te deselecteren.";
+"Smart field matching" = "Slimme veldherkenning";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling herkent e-mail-, URL-, telefoon- en adresvelden en plaatst passende fragmenten boven aan het toetsenbord.";
+"Create a new cutling" = "Maak een nieuwe cutling";
+"Save text or image snippets you'll reuse from any app." = "Bewaar tekst- of afbeeldingsfragmenten die je vanuit elke app hergebruikt.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "Welkom bij Cutling";
@@ -359,3 +359,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "Hiermee kan Cutling een cutling rechtstreeks plakken in de app die je gebruikte.";
 "Grant" = "Verlenen";
 "You can skip Accessibility and grant it later from Settings → Paste." = "Je kunt Toegankelijkheid overslaan en het later verlenen via Instellingen → Plakken.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "Bewaar als bestand…";
+"Image Saving" = "Afbeeldingen bewaren";
+"When saving images" = "Bij het bewaren van afbeeldingen";
+"Ask each time" = "Elke keer vragen";
+"Save to folder" = "Bewaar in een map";
+"Folder" = "Map";
+"Change Folder…" = "Wijzig map…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "Kies hoe de actie “Bewaar als bestand” werkt voor afbeelding-cutlings. Met “Bewaar in een map” worden afbeeldingen rechtstreeks in de gekozen map opgeslagen met een unieke bestandsnaam, zonder vraag.";
+"Choose" = "Kies";
+"Choose Image Folder" = "Kies afbeeldingenmap";
+"Pick a folder where Cutling will save image cutlings." = "Kies een map waar Cutling afbeelding-cutlings bewaart.";
+"Preview" = "Voorvertoning";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "Bewaard";
+"History" = "Geschiedenis";
+"No saved cutlings yet" = "Nog geen bewaarde cutlings";
+"Copy something to see it here" = "Kopieer iets om het hier te zien";
+"Clipboard history is off. Enable it in Settings." = "Klembordgeschiedenis staat uit. Schakel die in via Instellingen.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Opnemen in Spotlight-zoekopdracht";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "Maak je cutlings doorzoekbaar vanuit Spotlight. Gevoelige inhoud (creditcards, API-sleutels, JWT-tokens, seedzinnen, privésleutels) wordt nooit geïndexeerd.";
+"Copy Cutling" = "Cutling kopiëren";
+"Copy a cutling's contents to the clipboard." = "Kopieert de inhoud van een cutling naar het klembord.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Gebruik deze zinnen met Siri of blader door alle Cutling-opdrachten in de app Opdrachten.";
+"Copied \"%@\"" = "‘%@’ gekopieerd";

@@ -1,14 +1,14 @@
 /* MARK: - Navigation & Titles */
-"My Cutlings" = "Moji Катлинзи";
-"Select Items" = "Izaberi stavke";
-"%lld Selected" = "%lld izabrano";
-"Reorder" = "Promeni redosled";
-"Settings" = "Podešavanja";
-"Keyboard Setup" = "Podešavanje tastature";
-"New" = "Novo";
-"Choose Icon" = "Izaberi ikonu";
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Текст, %lld/%lld Слике";
-"%lld Cutlings" = "%lld Катлинзи";
+"My Cutlings" = "Моји Катлинзи";
+"Select Items" = "Изабери ставке";
+"%lld Selected" = "Изабрано: %lld";
+"Reorder" = "Преуреди";
+"Settings" = "Подешавања";
+"Keyboard Setup" = "Подешавање тастатуре";
+"New" = "Ново";
+"Choose Icon" = "Изабери иконицу";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld текст, %lld/%lld слике";
+"%lld Cutlings" = "Катлинга: %lld";
 "Cutlings" = "Катлинзи";
 
 /* MARK: - Common Actions */
@@ -24,28 +24,28 @@
 "Delete Selected" = "Обриши изабрано";
 
 /* MARK: - Menu Items */
-"Text Cutling" = "Tekstualni Катлинг";
-"Image Cutling" = "Slikovni Катлинг";
-"Select Cutlings" = "Izaberi Катлинзи";
-"Reorder Cutlings" = "Promeni redosled Катлинзи";
-"Keyboard Setup Guide" = "Vodič za podešavanje tastature";
-"Name (A → Z)" = "Naziv (A → Z)";
-"Name (Z → A)" = "Naziv (Z → A)";
-"Text First" = "Tekst prvo";
-"Images First" = "Slike prvo";
-"Shortest First" = "Najkraći prvo";
-"Longest First" = "Najduži prvo";
-"Reverse Order" = "Obrnuti redosled";
+"Text Cutling" = "Текстуални Катлинг";
+"Image Cutling" = "Сликовни Катлинг";
+"Select Cutlings" = "Изабери Катлинге";
+"Reorder Cutlings" = "Преуреди Катлинге";
+"Keyboard Setup Guide" = "Водич за подешавање тастатуре";
+"Name (A → Z)" = "Назив (А → Ш)";
+"Name (Z → A)" = "Назив (Ш → А)";
+"Text First" = "Прво текст";
+"Images First" = "Прво слике";
+"Shortest First" = "Прво најкраћи";
+"Longest First" = "Прво најдужи";
+"Reverse Order" = "Обрнути редослед";
 
 /* MARK: - Empty States */
-"No Cutlings Yet" = "Još nema Катлинзи";
-"No Results" = "Nema rezultata";
-"Tap + to add your first cutling." = "Dodirnite + da dodate svoj prvi Катлинг.";
-"Try a different search term." = "Pokušajte sa drugim pojmom za pretragu.";
+"No Cutlings Yet" = "Још нема Катлинга";
+"No Results" = "Нема резултата";
+"Tap + to add your first cutling." = "Додирни + да додаш свој први катлинг.";
+"Try a different search term." = "Покушај други израз за претрагу.";
 
 /* MARK: - Search */
-"Search cutlings" = "Pretraži Катлинзи";
-"Search icons" = "Pretraži ikone";
+"Search cutlings" = "Претражи катлинге";
+"Search icons" = "Претражи иконице";
 
 /* MARK: - Form Labels */
 "Name" = "Naziv";
@@ -57,7 +57,7 @@
 "Auto-Delete" = "Automatsko brisanje";
 "Delete At" = "Obriši u";
 "Category" = "Kategorija";
-"Status" = "Статус";
+"Status" = "Стање";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "npr. E-pošta";
@@ -83,66 +83,66 @@
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
-"iCloud Sync" = "iCloud sinhronizacija";
-"Sync your cutlings across all your devices using iCloud." = "Sinhronizujte svoje Катлинзи na svim uređajima koristeći iCloud.";
-"Storage" = "Skladište";
-"Text Cutlings" = "Tekstualni Катлинзи";
-"Image Cutlings" = "Slikovni Катлинзи";
-"Total Cutlings" = "Укупно Катлинзи";
-"Disk Usage" = "Употреба диска";
+"iCloud Sync" = "iCloud синхронизација";
+"Sync your cutlings across all your devices using iCloud." = "Синхронизуј своје катлинге на свим уређајима преко iCloud-а.";
+"Storage" = "Складиште";
+"Text Cutlings" = "Текстуални Катлинзи";
+"Image Cutlings" = "Сликовни Катлинзи";
+"Total Cutlings" = "Укупно Катлинга";
+"Disk Usage" = "Заузеће диска";
 "Status" = "Статус";
 "Syncing…" = "Синхронизација…";
 "Up to date" = "Ажурно";
 "Sync Now" = "Синхронизуј сада";
 "Turn On iCloud Sync" = "Укључи iCloud синхронизацију";
-"Max Text Length" = "Maksimalna dužina teksta";
-"%lld chars" = "%lld znakova";
-"About" = "O aplikaciji";
-"Version" = "Verzija";
-"Keyboard Added" = "Tastatura dodata";
-"Full Access" = "Potpuni pristup";
+"Max Text Length" = "Макс. дужина текста";
+"%lld chars" = "%lld знакова";
+"About" = "О апликацији";
+"Version" = "Верзија";
+"Keyboard Added" = "Тастатура додата";
+"Full Access" = "Пуни приступ";
 "Experimental Feature: iCloud" = "Експериментална функција: iCloud";
-"Contact Support" = "Контактирајте подршку";
+"Contact Support" = "Контактирај подршку";
 "Privacy Policy" = "Политика приватности";
-"Auto-detect Input Types" = "Аутоматско препознавање врста уноса";
-"Enable iCloud Sync" = "Омогући iCloud синхронизацију";
-"Keep your cutlings in sync across all your devices." = "Одржавајте своје Катлинзи синхронизоване на свим уређајима.";
-"Automatically detect and suggest input type categories when editing text." = "Аутоматски препознај и предложи категорије врста уноса при уређивању текста.";
+"Auto-detect Input Types" = "Аутоматски препознај типове уноса";
+"Enable iCloud Sync" = "Укључи iCloud синхронизацију";
+"Keep your cutlings in sync across all your devices." = "Држи своје катлинге синхронизованим на свим својим уређајима.";
+"Automatically detect and suggest input type categories when editing text." = "Аутоматски препознаје и предлаже категорије типова уноса при уређивању текста.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Nijedna slika nije izabrana";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "Ovo će zameniti trenutni tekst onim što je u vašoj privremenoj memoriji.";
-"This will replace the current image with whatever is in your clipboard." = "Ovo će zameniti trenutnu sliku onim što je u vašoj privremenoj memoriji.";
-"This cutling will be automatically deleted at the selected date and time." = "Ovaj Катлинг će biti automatski obrisan na izabrani datum i vreme.";
-"Each text cutling can hold up to %lld characters." = "Svaki tekstualni Катлинг može da sadrži do %lld znakova.";
+"This will replace the current text with whatever is in your clipboard." = "Ово ће заменити тренутни текст оним што имаш у привременој меморији.";
+"This will replace the current image with whatever is in your clipboard." = "Ово ће заменити тренутну слику оним што имаш у привременој меморији.";
+"This cutling will be automatically deleted at the selected date and time." = "Овај катлинг биће аутоматски обрисан на изабрани датум и време.";
+"Each text cutling can hold up to %lld characters." = "Сваки текстуални катлинг може да садржи до %lld знакова.";
 
 /* MARK: - Alerts */
-"Limit Reached" = "Dostignut limit";
-"Delete Cutling?" = "Obrisati Катлинг?";
-"This action cannot be undone." = "Ova radnja ne može da se poništi.";
-"Cannot add text cutling" = "Nije moguće dodati tekstualni Катлинг";
-"Cannot add image cutling" = "Nije moguće dodati slikovni Катлинг";
-"Cannot add more text cutlings." = "Nije moguće dodati više tekstualnih Катлингa.";
-"Cannot add more image cutlings." = "Nije moguće dodati više slikovnih Катлингa.";
+"Limit Reached" = "Достигнут лимит";
+"Delete Cutling?" = "Обрисати Катлинг?";
+"This action cannot be undone." = "Ову радњу није могуће опозвати.";
+"Cannot add text cutling" = "Текстуални катлинг не може да се дода";
+"Cannot add image cutling" = "Сликовни катлинг не може да се дода";
+"Cannot add more text cutlings." = "Не могу се додати још текстуалних катлинга.";
+"Cannot add more image cutlings." = "Не могу се додати још сликовних катлинга.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Dostigli ste maksimum od %lld ukupnih Катлингa. Obrišite neke da biste dodali nove.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Dostigli ste maksimum od %lld slikovnih Катлингa. Slike koriste značajnu memoriju u tastaturi. Obrišite neke slike da biste dodali nove.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Dostigli ste maksimum od %lld tekstualnih Катлингa. Obrišite neke da biste dodali nove.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Достигао си максимум — укупно %lld катлинга. Обриши неке да би додао још.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Достигао си максимум — %lld сликовних катлинга. Слике у тастатури троше много меморије. Обриши неке слике да би додао још.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Достигао си максимум — %lld текстуалних катлинга. Обриши неке да би додао још.";
 
 /* MARK: - Input Type Suggestions */
-"Input Type Suggestions" = "Predlozi vrsta unosa";
-"Suggest for Input Types" = "Predloži za vrste unosa";
-"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Kada se fokusirate na tekstualno polje odgovarajuće vrste, ovaj Катлинг će se pojaviti na vrhu tastature.";
-"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Dodelite Катлинзи vrstama unosa tako da se pojave na vrhu tastature kada se fokusirate na odgovarajuće tekstualno polje.";
-"No cutlings yet. Add some first." = "Još nema Катлингa. Prvo dodajte neke.";
-"Suggested" = "Predloženo";
-"Email" = "E-pošta";
+"Input Type Suggestions" = "Предлози врста уноса";
+"Suggest for Input Types" = "Предложи за врсте уноса";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Када се фокусирате на текстуално поље одговарајуће врсте, овај Катлинг ће се појавити на врху тастатуре.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Доделите Катлинге врстама уноса тако да се појаве на врху тастатуре када се фокусирате на одговарајуће текстуално поље.";
+"No cutlings yet. Add some first." = "Још нема Катлинга. Прво додајте неке.";
+"Suggested" = "Предложено";
+"Email" = "Е-пошта";
 "URL" = "URL";
-"Phone Number" = "Broj telefona";
-"Address" = "Adresa";
+"Phone Number" = "Број телефона";
+"Address" = "Адреса";
 "Input Types" = "Врсте уноса";
 
 /* MARK: - Detection */
@@ -154,36 +154,36 @@
 "Inserted" = "Umetnuto";
 
 /* MARK: - Keyboard Setup */
-"Setup Progress" = "Napredak podešavanja";
-"Open Cutling Settings" = "Otvori Катлинг podešavanja";
-"Tap here, then switch to Cutling" = "Dodirnite ovde, zatim prebacite na Катлинг";
-"How to Use Your Keyboard" = "Kako koristiti tastaturu";
-"Storage Limits" = "Ograničenja skladišta";
-"You're All Set!" = "Sve je spremno!";
-"Set Up Your Keyboard" = "Podesite svoju tastaturu";
-"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Vaša Катлинг tastatura je spremna! Dok kucate bilo gde, dodirnite ikonu 🌐 globusa na tastaturi da biste prešli na Катлинг.";
-"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Pratite dva jednostavna koraka ispod da biste počeli da koristite svoju prilagođenu tastaturu. Ova stranica će se automatski ažurirati kako završite svaki korak.";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Korak 1:** Dodirnite 'Otvori Катлинг podešavanja' ispod, idite na **Tastature** i izaberite **Катлинг** sa liste.";
-"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Korak 2:** Proverite da li je **Dozvoli potpuni pristup** uključeno. Ovo omogućava tastaturi da kopira slike u vašu privremenu memoriju. Vaši podaci ostaju privatni i nikada se ne šalju nigde.";
-"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Korak 3:** Dodirnite tekstualni unos i izaberite \"Катлинг\" koristeći ikonu 🌐 globusa na tastaturi da biste ažurirali status \"Potpuni pristup\".";
-"**Step 4:** You're good to go! The usage guide is provided below." = "**Korak 4:** Sve je spremno! Vodič za korišćenje je dat ispod.";
-"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Dok kucate u bilo kojoj aplikaciji, dodirnite ili držite taster 🌐 globusa u donjem levom uglu tastature, zatim izaberite Катлинг";
-"Tap any text cutling and it will be typed into your current text field immediately" = "Dodirnite bilo koji tekstualni Катлинг i on će odmah biti ukucan u vaše trenutno tekstualno polje";
-"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Dodirnite slikovni Катлинг da biste ga kopirali u privremenu memoriju, zatim ga nalepite u aplikaciju koju koristite (obično dodirom i držanjem, a zatim izborom Nalepi). Apple trenutno ne podržava direktno lepljenje slike u ovoj aplikaciji.";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Kopirajte bilo koji tekst, zatim dodirnite dugme 'Dodaj iz privremene memorije' na Катлинг tastaturi da biste ga sačuvali kao novi Катлинг";
-"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Možete upravljati svim svojim Катлинзи u glavnoj Катлинг aplikaciji. Promene koje napravite odmah će se pojaviti na vašoj tastaturi.";
-"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Proširenja tastature imaju stroga ograničenja memorije kako bi se obezbedila stabilnost sistema. Slike koriste više memorije od teksta, pa ih ograničavamo kako bi vaša tastatura ostala brza i pouzdana. Ako dostignete ograničenje, jednostavno obrišite neke Катлинзи da biste dodali nove.";
-"Up to **%lld text** cutlings" = "Do **%lld tekstualnih** Катлингa";
-"Up to **%lld image** cutlings" = "Do **%lld slikovnih** Катлингa";
-"Back" = "Nazad";
-"Next" = "Dalje";
-"Get Started" = "Počnite";
-"Follow a few simple steps to start using your custom Cutling keyboard." = "Pratite nekoliko jednostavnih koraka da biste počeli da koristite svoju prilagođenu Катлинг tastaturu.";
-"Enable Cutling Keyboard" = "Omogući Катлинг tastaturu";
-"Test Your Keyboard" = "Testirajte svoju tastaturu";
-"All set! Swipe to continue." = "Sve je spremno! Prevucite za nastavak.";
-"Your data stays private and is never sent anywhere." = "Vaši podaci ostaju privatni i nikada se ne šalju nigde.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Није за осетљиве податке** — избегавајте чување лозинки, бројева картица, приватних кључева или токена";
+"Setup Progress" = "Напредак подешавања";
+"Open Cutling Settings" = "Отвори Катлинг подешавања";
+"Tap here, then switch to Cutling" = "Додирните овде, затим пребаците на Катлинг";
+"How to Use Your Keyboard" = "Како користити тастатуру";
+"Storage Limits" = "Ограничења складишта";
+"You're All Set!" = "Све је спремно!";
+"Set Up Your Keyboard" = "Подесите своју тастатуру";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Ваша Катлинг тастатура је спремна! Док куцате било где, додирните икону 🌐 глобуса на тастатури да бисте прешли на Катлинг.";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Пратите два једноставна корака испод да бисте почели да користите своју прилагођену тастатуру. Ова страница ће се аутоматски ажурирати како завршите сваки корак.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Корак 1:** Додирните „Отвори Катлинг подешавања” испод, идите на **Тастатуре** и изаберите **Катлинг** са листе.";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Корак 2:** Проверите да ли је **Дозволи потпуни приступ** укључено. Ово омогућава тастатури да копира слике у вашу привремену меморију. Ваши подаци остају приватни и никада се не шаљу нигде.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Корак 3:** Додирните текстуални унос и изаберите „Катлинг” користећи икону 🌐 глобуса на тастатури да бисте ажурирали статус „Потпуни приступ”.";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**Корак 4:** Све је спремно! Водич за коришћење је дат испод.";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Док куцате у било којој апликацији, додирните или држите тастер 🌐 глобуса у доњем левом углу тастатуре, затим изаберите Катлинг";
+"Tap any text cutling and it will be typed into your current text field immediately" = "Додирните било који текстуални Катлинг и он ће одмах бити укуцан у ваше тренутно текстуално поље";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Додирните сликовни Катлинг да бисте га копирали у привремену меморију, затим га налепите у апликацију коју користите (обично додиром и држањем, а затим избором Налепи). Apple тренутно не подржава директно лепљење слике у овој апликацији.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Копирајте било који текст, затим додирните дугме „Додај из привремене меморије” на Катлинг тастатури да бисте га сачували као нови Катлинг";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Можете управљати свим својим Катлинзима у главној Катлинг апликацији. Промене које направите одмах ће се појавити на вашој тастатури.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Проширења тастатуре имају строга ограничења меморије како би се обезбедила стабилност система. Слике користе више меморије од текста, па их ограничавамо како би ваша тастатура остала брза и поуздана. Ако достигнете ограничење, једноставно обришите неке Катлинге да бисте додали нове.";
+"Up to **%lld text** cutlings" = "До **%lld текстуалних** Катлинга";
+"Up to **%lld image** cutlings" = "До **%lld сликовних** Катлинга";
+"Back" = "Назад";
+"Next" = "Даље";
+"Get Started" = "Почните";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "Пратите неколико једноставних корака да бисте почели да користите своју прилагођену Катлинг тастатуру.";
+"Enable Cutling Keyboard" = "Омогући Катлинг тастатуру";
+"Test Your Keyboard" = "Тестирајте своју тастатуру";
+"All set! Swipe to continue." = "Све је спремно! Превуците за наставак.";
+"Your data stays private and is never sent anywhere." = "Ваши подаци остају приватни и никада се не шаљу нигде.";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Није за осетљиве податке**: избегавајте чување лозинки, бројева картица, приватних кључева или токена";
 "Set Up Cutling Keyboard" = "Подеси Катлинг тастатуру";
 "What You Can Do" = "Шта можете да радите";
 "Smart Field Suggestions" = "Паметни предлози поља";
@@ -206,11 +206,11 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "Замолите Siri да дода, копира или претражи ваше катлинге без употребе руку.";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "Отворите Катлинг у апликацији **Подешавања** на вашем уређају.";
-"Tap **Keyboards** and enable **Cutling**." = "Додирните **Тастатуре** и омогућите **Катлинг**.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Укључите **Дозволи пун приступ** да би тастатура могла да копира слике у привремену меморију.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Додирните поље за текст испод, а затим користите тастер 🌐 глобуса да пређете на **Катлинг**. Ово потврђује да је све исправно подешено.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud синхронизација је **експериментална функција**. Можда неће правилно радити у свим ситуацијама, што може довести до губитка података. Ово увек можете променити касније у Подешавањима.";
+"Open Cutling in your device's **Settings** app." = "Отвори Катлинг у апликацији **Подешавања** на свом уређају.";
+"Tap **Keyboards** and enable **Cutling**." = "Додирни **Тастатуре** и укључи **Катлинг**.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Укључи **Дозволи пуни приступ** како би тастатура могла да копира слике у твоју привремену меморију.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Додирни текстуално поље испод, а затим тастером глобуса 🌐 пребаци на **Катлинг**. Овим потврђујеш да је све исправно подешено.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud синхронизација је **експериментална функција**. У неким ситуацијама можда неће радити исправно, што може довести до губитка података. Ово увек можеш променити касније у Подешавањима.";
 
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "Недавно обрисано";
@@ -218,14 +218,14 @@
 "Delete All Permanently?" = "Трајно обрисати све?";
 "Delete Permanently?" = "Трајно обрисати?";
 "Delete Permanently" = "Трајно обриши";
-"Recover" = "Врати";
+"Recover" = "Опорави";
 "Items will be permanently deleted after 30 days." = "Ставке ће бити трајно обрисане након 30 дана.";
 "No Recently Deleted Items" = "Нема недавно обрисаних ставки";
-"Deleted cutlings will appear here for 30 days." = "Обрисани катлинзи ће се приказивати овде 30 дана.";
-"This will permanently delete all %lld items. This action cannot be undone." = "Свих %lld ставки биће трајно обрисано. Ова радња не може да се поништи.";
-"\"%@\" will be deleted permanently." = "\"%@\" ће бити трајно обрисано.";
+"Deleted cutlings will appear here for 30 days." = "Обрисани катлинзи ће се појављивати овде 30 дана.";
+"This will permanently delete all %lld items. This action cannot be undone." = "Ово ће трајно обрисати %lld ставки. Ову радњу није могуће опозвати.";
+"\"%@\" will be deleted permanently." = "„%@” биће трајно обрисан.";
 "1 day left" = "Преостао 1 дан";
-"%lld days left" = "Преостало %lld дана";
+"%lld days left" = "Преостало дана: %lld";
 
 /* MARK: - Context Menu */
 "Share" = "Подели";
@@ -309,8 +309,8 @@
 "Get the text from your most recently saved cutling." = "Преузмите текст из последње сачуваног Катлинга.";
 "Save Image" = "Сачувај слику";
 "Save an image as a new cutling." = "Сачувај слику као нови Катлинг.";
-"Search Cutlings" = "Претражи Катлинзе";
-"Find cutlings whose name or contents match a search query." = "Пронађите Катлинзе чији назив или садржај одговарају упиту за претрагу.";
+"Search Cutlings" = "Претражи Катлинге";
+"Find cutlings whose name or contents match a search query." = "Пронађите Катлинге чији назив или садржај одговарају упиту за претрагу.";
 "Open Cutling" = "Отвори Катлинг";
 "Open the Cutling app." = "Отвори апликацију Катлинг.";
 "Open Cutling and start a new text cutling." = "Отвори Катлинг и започни нови текстуални Катлинг.";
@@ -321,24 +321,24 @@
 "Failed to save image." = "Чување слике није успело.";
 
 /* MARK: - TipKit */
-"Saved cutlings" = "Сачувани Катлинзи";
-"Your pinned snippets live here, ready to copy with one click." = "Ваши закачени исечци живе овде, спремни за копирање једним кликом.";
+"Saved cutlings" = "Сачувани катлинзи";
+"Your pinned snippets live here, ready to copy with one click." = "Твоји закачени исечци живе овде, спремни за копирање једним кликом.";
 "Recent clipboard" = "Недавна привремена меморија";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "Све што копирате стиже овде. Десни клик на било који ред да га сачувате као Катлинг.";
-"Wipe the list" = "Обриши листу";
-"Empties your recent clipboard. Saved cutlings stay put." = "Празни недавну привремену меморију. Сачувани Катлинзи остају на свом месту.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Промените пречицу, укључите или искључите хватање привремене меморије и управљајте iCloud синхронизацијом.";
-"Undo deletes" = "Поништи брисања";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Обрисани Катлинзи остају овде 30 дана. Вратите их или трајно испразните.";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Додирните овде да изаберете више Катлинга, промените им редослед или вратите недавно обрисане.";
-"Long-press a cutling" = "Дуго притисните Катлинг";
-"Hold any card for quick actions: copy, edit, share, or delete." = "Држите било коју картицу за брзе радње: копирање, уређивање, дељење или брисање.";
-"Drag to select" = "Превуците за избор";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "Превуците преко картица да изаберете опсег. Превуците назад да поништите избор.";
-"Smart field matching" = "Паметно подударање поља";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Катлинг препознаје поља за е-пошту, URL, телефон и адресу и одговарајуће исечке приказује на врху тастатуре.";
-"Create a new cutling" = "Креирај нови Катлинг";
-"Save text or image snippets you'll reuse from any app." = "Сачувајте исечке текста или слика које ћете поново користити из било које апликације.";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Све што копираш слети овде. Десним кликом на ред сачувај га као катлинг.";
+"Wipe the list" = "Испразни листу";
+"Empties your recent clipboard. Saved cutlings stay put." = "Празни твоју недавну привремену меморију. Сачувани катлинзи остају.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Промени пречицу, укључи/искључи снимање привремене меморије и управљај iCloud синхронизацијом.";
+"Undo deletes" = "Опозови брисања";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Обрисани катлинзи остају овде 30 дана. Опорави их или испразни заувек.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Додирни овде да изабереш више катлинга, преуредиш их или опоравиш недавно обрисане.";
+"Long-press a cutling" = "Дуго притисни катлинг";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Држи било коју картицу за брзе радње: копирај, уреди, подели или обриши.";
+"Drag to select" = "Превуци за избор";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Превуци преко картица за избор опсега. Превуци назад за поништавање избора.";
+"Smart field matching" = "Паметно препознавање поља";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Катлинг препознаје поља за е-пошту, URL, телефон и адресу, и подиже одговарајуће исечке на врх тастатуре.";
+"Create a new cutling" = "Креирај нови катлинг";
+"Save text or image snippets you'll reuse from any app." = "Сачувај текстуалне или сликовне исечке које поново користиш из било које апликације.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "Добродошли у Катлинг";
@@ -359,3 +359,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "Омогућава Катлингу да налепи катлинг директно у апликацију коју сте користили.";
 "Grant" = "Одобри";
 "You can skip Accessibility and grant it later from Settings → Paste." = "Приступачност можете прескочити и одобрити касније у Подешавања → Лепљење.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "Сачувај као фајл…";
+"Image Saving" = "Чување слика";
+"When saving images" = "Приликом чувања слика";
+"Ask each time" = "Питај сваки пут";
+"Save to folder" = "Сачувај у фасциклу";
+"Folder" = "Фасцикла";
+"Change Folder…" = "Промени фасциклу…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "Изабери како функционише радња „Сачувај као фајл” за Катлинге слика. Уз „Сачувај у фасциклу” слике се чувају директно у изабраној фасцикли са јединственим именом фајла, без питања.";
+"Choose" = "Изабери";
+"Choose Image Folder" = "Избор фасцикле за слике";
+"Pick a folder where Cutling will save image cutlings." = "Изабери фасциклу у коју ће Катлинг чувати Катлинге слика.";
+"Preview" = "Преглед";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "Сачувани";
+"History" = "Историја";
+"No saved cutlings yet" = "Још нема сачуваних Катлинга";
+"Copy something to see it here" = "Копирај нешто да то видиш овде";
+"Clipboard history is off. Enable it in Settings." = "Историја привремене меморије је искључена. Укључи је у Подешавањима.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Укључи у Spotlight претрагу";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "Учини своје Катлинге претраживим из Spotlight-а. Осетљив садржај (кредитне картице, API кључеви, JWT токени, seed фразе, приватни кључеви) се никада не индексира.";
+"Copy Cutling" = "Копирај Катлинг";
+"Copy a cutling's contents to the clipboard." = "Копира садржај Катлинга у привремену меморију.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Користи ове фразе са Siri или прегледај све пречице Катлинга у апликацији Пречице.";
+"Copied \"%@\"" = "„%@” копирано";

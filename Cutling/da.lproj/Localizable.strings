@@ -1,13 +1,13 @@
 /* MARK: - Navigation & Titles */
 "My Cutlings" = "Mine Cutlings";
-"Select Items" = "Vælg elementer";
+"Select Items" = "Vælg objekter";
 "%lld Selected" = "%lld valgt";
 "Reorder" = "Omarranger";
 "Settings" = "Indstillinger";
 "Keyboard Setup" = "Tastaturopsætning";
 "New" = "Ny";
-"Choose Icon" = "Vælg ikon";
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Tekst, %lld/%lld Billeder";
+"Choose Icon" = "Vælg symbol";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld tekst, %lld/%lld billeder";
 "%lld Cutlings" = "%lld Cutlings";
 "Cutlings" = "Cutlings";
 
@@ -25,12 +25,12 @@
 
 /* MARK: - Menu Items */
 "Text Cutling" = "Tekst-Cutling";
-"Image Cutling" = "Billede-Cutling";
+"Image Cutling" = "Billed-Cutling";
 "Select Cutlings" = "Vælg Cutlings";
 "Reorder Cutlings" = "Omarranger Cutlings";
-"Keyboard Setup Guide" = "Guide til tastaturopsætning";
-"Name (A → Z)" = "Navn (A → Å)";
-"Name (Z → A)" = "Navn (Å → A)";
+"Keyboard Setup Guide" = "Vejledning til tastaturopsætning";
+"Name (A → Z)" = "Navn (A → Z)";
+"Name (Z → A)" = "Navn (Z → A)";
 "Text First" = "Tekst først";
 "Images First" = "Billeder først";
 "Shortest First" = "Korteste først";
@@ -41,11 +41,11 @@
 "No Cutlings Yet" = "Ingen Cutlings endnu";
 "No Results" = "Ingen resultater";
 "Tap + to add your first cutling." = "Tryk på + for at tilføje din første cutling.";
-"Try a different search term." = "Prøv et andet søgeord.";
+"Try a different search term." = "Prøv en anden søgning.";
 
 /* MARK: - Search */
 "Search cutlings" = "Søg cutlings";
-"Search icons" = "Søg ikoner";
+"Search icons" = "Søg symboler";
 
 /* MARK: - Form Labels */
 "Name" = "Navn";
@@ -84,17 +84,17 @@
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
 "iCloud Sync" = "iCloud-synkronisering";
-"Sync your cutlings across all your devices using iCloud." = "Synkroniser dine cutlings på alle dine enheder via iCloud.";
-"Storage" = "Lagring";
+"Sync your cutlings across all your devices using iCloud." = "Synkroniser dine cutlings på tværs af alle dine enheder med iCloud.";
+"Storage" = "Arkiv";
 "Text Cutlings" = "Tekst-Cutlings";
-"Image Cutlings" = "Billede-Cutlings";
+"Image Cutlings" = "Billed-Cutlings";
 "Total Cutlings" = "Cutlings i alt";
-"Disk Usage" = "Pladsforbrug";
+"Disk Usage" = "Diskforbrug";
 "Status" = "Status";
 "Syncing…" = "Synkroniserer…";
 "Up to date" = "Opdateret";
 "Sync Now" = "Synkroniser nu";
-"Turn On iCloud Sync" = "Aktivér iCloud-sync";
+"Turn On iCloud Sync" = "Aktivér iCloud-synkronisering";
 "Max Text Length" = "Maks. tekstlængde";
 "%lld chars" = "%lld tegn";
 "About" = "Om";
@@ -104,18 +104,18 @@
 "Experimental Feature: iCloud" = "Eksperimentel funktion: iCloud";
 "Contact Support" = "Kontakt support";
 "Privacy Policy" = "Privatlivspolitik";
-"Auto-detect Input Types" = "Automatisk registrering af inputtyper";
+"Auto-detect Input Types" = "Find inputtyper automatisk";
 "Enable iCloud Sync" = "Aktivér iCloud-synkronisering";
 "Keep your cutlings in sync across all your devices." = "Hold dine cutlings synkroniseret på tværs af alle dine enheder.";
-"Automatically detect and suggest input type categories when editing text." = "Registrer og foreslå automatisk inputtypekategorier ved redigering af tekst.";
+"Automatically detect and suggest input type categories when editing text." = "Finder og foreslår automatisk inputtype-kategorier, når du redigerer tekst.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Intet billede valgt";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "Dette erstatter den aktuelle tekst med indholdet af din udklipsholder.";
-"This will replace the current image with whatever is in your clipboard." = "Dette erstatter det aktuelle billede med indholdet af din udklipsholder.";
-"This cutling will be automatically deleted at the selected date and time." = "Denne cutling slettes automatisk på den valgte dato og tid.";
+"This will replace the current text with whatever is in your clipboard." = "Dette erstatter den nuværende tekst med det, der ligger i din udklipsholder.";
+"This will replace the current image with whatever is in your clipboard." = "Dette erstatter det nuværende billede med det, der ligger i din udklipsholder.";
+"This cutling will be automatically deleted at the selected date and time." = "Denne cutling slettes automatisk på den valgte dato og det valgte tidspunkt.";
 "Each text cutling can hold up to %lld characters." = "Hver tekst-cutling kan indeholde op til %lld tegn.";
 
 /* MARK: - Alerts */
@@ -123,14 +123,14 @@
 "Delete Cutling?" = "Slet Cutling?";
 "This action cannot be undone." = "Denne handling kan ikke fortrydes.";
 "Cannot add text cutling" = "Kan ikke tilføje tekst-cutling";
-"Cannot add image cutling" = "Kan ikke tilføje billede-cutling";
+"Cannot add image cutling" = "Kan ikke tilføje billed-cutling";
 "Cannot add more text cutlings." = "Kan ikke tilføje flere tekst-cutlings.";
-"Cannot add more image cutlings." = "Kan ikke tilføje flere billede-cutlings.";
+"Cannot add more image cutlings." = "Kan ikke tilføje flere billed-cutlings.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Du har nået grænsen på %lld cutlings i alt. Slet nogle for at tilføje flere.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Du har nået grænsen på %lld billede-cutlings. Billeder bruger meget hukommelse i tastaturet. Slet nogle billeder for at tilføje flere.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Du har nået grænsen på %lld tekst-cutlings. Slet nogle for at tilføje flere.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Du har nået maks. %lld cutlings i alt. Slet nogle for at tilføje flere.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Du har nået maks. %lld billed-cutlings. Billeder bruger meget hukommelse i tastaturet. Slet nogle billeder for at tilføje flere.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Du har nået maks. %lld tekst-cutlings. Slet nogle for at tilføje flere.";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Forslag til inputtype";
@@ -163,14 +163,14 @@
 "Set Up Your Keyboard" = "Opsæt dit tastatur";
 "Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Dit Cutling-tastatur er klar! Tryk på 🌐 globusikonet på dit tastatur mens du skriver for at skifte til Cutling.";
 "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Følg de to enkle trin nedenfor for at begynde at bruge dit brugerdefinerede tastatur. Siden opdateres automatisk, når du fuldfører hvert trin.";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Trin 1:** Tryk på \"Åbn Cutling-indstillinger\" nedenfor, gå til **Tastaturer** og vælg **Cutling** fra listen.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Trin 1:** Tryk på „Åbn Cutling-indstillinger” nedenfor, gå til **Tastaturer** og vælg **Cutling** fra listen.";
 "**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Trin 2:** Sørg for at **Tillad fuld adgang** er SLÅET TIL. Dette lader tastaturet kopiere billeder til din udklipsholder. Dine data forbliver private og sendes aldrig nogen steder.";
-"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Trin 3:** Tryk på tekstfeltet og vælg \"Cutling\" med 🌐 globusikonet på dit tastatur for at opdatere \"Fuld adgang\"-status.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Trin 3:** Tryk på tekstfeltet og vælg „Cutling” med 🌐 globusikonet på dit tastatur for at opdatere „Fuld adgang”-status.";
 "**Step 4:** You're good to go! The usage guide is provided below." = "**Trin 4:** Du er klar! Brugsguiden er nedenfor.";
 "While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Mens du skriver i en app, tryk eller hold 🌐 globustasten nederst til venstre på dit tastatur, og vælg derefter Cutling";
 "Tap any text cutling and it will be typed into your current text field immediately" = "Tryk på en tekst-cutling, og den skrives øjeblikkeligt i dit aktuelle tekstfelt";
 "Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Tryk på en billede-cutling for at kopiere den til din udklipsholder, og indsæt den derefter i den app, du bruger (normalt ved at trykke og holde, derefter vælge Indsæt). Apple understøtter i øjeblikket ikke direkte indsættelse af billeder i denne app.";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Kopier en tekst, og tryk derefter på knappen \"Tilføj fra udklipsholder\" på Cutling-tastaturet for at gemme den som en ny cutling";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Kopier en tekst, og tryk derefter på knappen „Tilføj fra udklipsholder” på Cutling-tastaturet for at gemme den som en ny cutling";
 "You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Du kan administrere alle dine cutlings i Cutling-appen. Ændringer vises øjeblikkeligt på dit tastatur.";
 "Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Tastaturudvidelser har strenge hukommelsesgrænser for systemstabilitet. Billeder bruger mere hukommelse end tekst, så vi begrænser dem for at holde dit tastatur hurtigt og pålideligt. Hvis du når en grænse, slet blot nogle cutlings for at tilføje nye.";
 "Up to **%lld text** cutlings" = "Op til **%lld tekst**-cutlings";
@@ -183,7 +183,7 @@
 "Test Your Keyboard" = "Test dit tastatur";
 "All set! Swipe to continue." = "Alt klar! Stryg for at fortsætte.";
 "Your data stays private and is never sent anywhere." = "Dine data forbliver private og sendes aldrig nogen steder.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Ikke til følsomme data** — undgå at gemme adgangskoder, kortnumre, private nøgler eller tokens";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Ikke til følsomme data**: undgå at gemme adgangskoder, kortnumre, private nøgler eller tokens";
 "Set Up Cutling Keyboard" = "Opsæt Cutling-tastatur";
 "What You Can Do" = "Hvad du kan gøre";
 "Smart Field Suggestions" = "Smarte feltforslag";
@@ -219,24 +219,24 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "Bed Siri om at tilføje, kopiere eller søge i dine cutlings håndfrit.";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "Åbn Cutling i din enheds **Indstillinger**-app.";
-"Tap **Keyboards** and enable **Cutling**." = "Tryk på **Tastaturer** og aktiver **Cutling**.";
+"Open Cutling in your device's **Settings** app." = "Åbn Cutling i appen **Indstillinger** på din enhed.";
+"Tap **Keyboards** and enable **Cutling**." = "Tryk på **Tastaturer**, og aktivér **Cutling**.";
 "Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Slå **Tillad fuld adgang** til, så tastaturet kan kopiere billeder til din udklipsholder.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Tryk på tekstfeltet nedenfor, og brug derefter 🌐 globustasten til at skifte til **Cutling**. Dette bekræfter, at alt er korrekt konfigureret.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud-synkronisering er en **eksperimentel funktion**. Den fungerer muligvis ikke korrekt i alle situationer, hvilket kan føre til datatab. Du kan altid ændre dette senere i Indstillinger.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Tryk på tekstfeltet nedenfor, og brug derefter 🌐 jordklode-tasten til at skifte til **Cutling**. Dette bekræfter, at alt er sat korrekt op.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud-synkronisering er en **eksperimentel funktion**. Den fungerer muligvis ikke korrekt i alle situationer, hvilket kan føre til tab af data. Du kan altid ændre dette senere i Indstillinger.";
 
 /* MARK: - Recently Deleted */
-"Recently Deleted" = "Senest slettet";
+"Recently Deleted" = "Slettet for nylig";
 "Delete All" = "Slet alle";
-"Delete All Permanently?" = "Slet alle permanent?";
+"Delete All Permanently?" = "Slet alt permanent?";
 "Delete Permanently?" = "Slet permanent?";
 "Delete Permanently" = "Slet permanent";
 "Recover" = "Gendan";
-"Items will be permanently deleted after 30 days." = "Elementer slettes permanent efter 30 dage.";
-"No Recently Deleted Items" = "Ingen senest slettede elementer";
+"Items will be permanently deleted after 30 days." = "Objekter slettes permanent efter 30 dage.";
+"No Recently Deleted Items" = "Ingen nyligt slettede objekter";
 "Deleted cutlings will appear here for 30 days." = "Slettede cutlings vises her i 30 dage.";
-"This will permanently delete all %lld items. This action cannot be undone." = "Alle %lld elementer slettes permanent. Denne handling kan ikke fortrydes.";
-"\"%@\" will be deleted permanently." = "\"%@\" slettes permanent.";
+"This will permanently delete all %lld items. This action cannot be undone." = "Dette sletter permanent %lld objekter. Denne handling kan ikke fortrydes.";
+"\"%@\" will be deleted permanently." = "„%@” slettes permanent.";
 "1 day left" = "1 dag tilbage";
 "%lld days left" = "%lld dage tilbage";
 
@@ -335,23 +335,23 @@
 
 /* MARK: - TipKit */
 "Saved cutlings" = "Gemte cutlings";
-"Your pinned snippets live here, ready to copy with one click." = "Dine fastgjorte uddrag bor her, klar til at kopiere med ét klik.";
+"Your pinned snippets live here, ready to copy with one click." = "Dine fastgjorte stykker ligger her, klar til at blive kopieret med et klik.";
 "Recent clipboard" = "Seneste udklipsholder";
 "Everything you copy lands here. Right-click any row to save it as a cutling." = "Alt, du kopierer, lander her. Højreklik på en række for at gemme den som en cutling.";
 "Wipe the list" = "Ryd listen";
-"Empties your recent clipboard. Saved cutlings stay put." = "Tømmer din seneste udklipsholder. Gemte cutlings forbliver.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Skift tastaturgenvejen, slå opsamling fra udklipsholder til eller fra, og styr iCloud-synkronisering.";
+"Empties your recent clipboard. Saved cutlings stay put." = "Rydder din seneste udklipsholder. Gemte cutlings forbliver.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Skift genvejen, slå udklipsregistrering til/fra, og administrer iCloud-synkronisering.";
 "Undo deletes" = "Fortryd sletninger";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Slettede cutlings forbliver her i 30 dage. Gendan dem, eller tøm permanent.";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Tryk her for at vælge flere cutlings, omarrangere dem eller gendanne senest slettede.";
-"Long-press a cutling" = "Hold en cutling nede";
-"Hold any card for quick actions: copy, edit, share, or delete." = "Hold på et kort for hurtige handlinger: kopier, rediger, del eller slet.";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Slettede cutlings ligger her i 30 dage. Gendan dem, eller ryd dem for altid.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Tryk her for at vælge flere cutlings, omarrangere dem eller gendanne nyligt slettede.";
+"Long-press a cutling" = "Tryk længe på en cutling";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Hold på et kort for hurtige handlinger: kopiér, rediger, del eller slet.";
 "Drag to select" = "Træk for at vælge";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "Stryg hen over kort for at vælge et område. Stryg tilbage over dem for at fravælge.";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Stryg hen over kortene for at vælge et område. Stryg tilbage for at fravælge.";
 "Smart field matching" = "Smart feltgenkendelse";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling registrerer e-mail-, URL-, telefon- og adressefelter og placerer matchende uddrag øverst på tastaturet.";
-"Create a new cutling" = "Opret en ny Cutling";
-"Save text or image snippets you'll reuse from any app." = "Gem tekst- eller billedfragmenter, du genbruger fra enhver app.";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling genkender felter til e-mail, URL, telefon og adresse, og flytter matchende stykker øverst på tastaturet.";
+"Create a new cutling" = "Opret en ny cutling";
+"Save text or image snippets you'll reuse from any app." = "Gem tekst- eller billedstykker, som du genbruger fra enhver app.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "Velkommen til Cutling";
@@ -372,3 +372,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "Lader Cutling indsætte en cutling direkte i den app, du brugte.";
 "Grant" = "Tildel";
 "You can skip Accessibility and grant it later from Settings → Paste." = "Du kan springe Tilgængelighed over og tildele den senere fra Indstillinger → Indsæt.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "Arkiver som fil…";
+"Image Saving" = "Billedarkivering";
+"When saving images" = "Når der arkiveres billeder";
+"Ask each time" = "Spørg hver gang";
+"Save to folder" = "Arkiver i mappe";
+"Folder" = "Mappe";
+"Change Folder…" = "Skift mappe…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "Vælg, hvordan handlingen „Arkiver som fil” fungerer for billed-cutlings. Med „Arkiver i mappe” arkiveres billeder direkte i den valgte mappe med et unikt filnavn, uden at spørge.";
+"Choose" = "Vælg";
+"Choose Image Folder" = "Vælg billedmappe";
+"Pick a folder where Cutling will save image cutlings." = "Vælg en mappe, hvor Cutling arkiverer billed-cutlings.";
+"Preview" = "Eksempel";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "Arkiverede";
+"History" = "Historik";
+"No saved cutlings yet" = "Ingen arkiverede cutlings endnu";
+"Copy something to see it here" = "Kopier noget for at se det her";
+"Clipboard history is off. Enable it in Settings." = "Udklipsholderens historik er slået fra. Slå den til i Indstillinger.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Medtag i Spotlight-søgning";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "Gør dine cutlings søgbare fra Spotlight. Følsomt indhold (kreditkort, API-nøgler, JWT-tokens, seed-sætninger, private nøgler) indekseres aldrig.";
+"Copy Cutling" = "Arkiver Cutling";
+"Copy a cutling's contents to the clipboard." = "Arkiverer indholdet af en cutling i udklipsholderen.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Brug disse sætninger med Siri, eller gennemse alle Cutling-genveje i appen Genveje.";
+"Copied \"%@\"" = "„%@” kopieret";

@@ -1,14 +1,14 @@
 /* MARK: - Navigation & Titles */
-"My Cutlings" = "Omat Cutlingit";
+"My Cutlings" = "Cutlingini";
 "Select Items" = "Valitse kohteet";
 "%lld Selected" = "%lld valittu";
 "Reorder" = "Järjestä uudelleen";
 "Settings" = "Asetukset";
-"Keyboard Setup" = "Näppäimistön asennus";
+"Keyboard Setup" = "Näppäimistön käyttöönotto";
 "New" = "Uusi";
 "Choose Icon" = "Valitse kuvake";
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Teksti, %lld/%lld Kuvat";
-"%lld Cutlings" = "%lld Cutlingit";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld tekstiä, %lld/%lld kuvaa";
+"%lld Cutlings" = "%lld Cutlingia";
 "Cutlings" = "Cutlingit";
 
 /* MARK: - Common Actions */
@@ -24,28 +24,28 @@
 "Delete Selected" = "Poista valitut";
 
 /* MARK: - Menu Items */
-"Text Cutling" = "Teksti-Cutling";
-"Image Cutling" = "Kuva-Cutling";
+"Text Cutling" = "Tekstilcutling";
+"Image Cutling" = "Kuvacutling";
 "Select Cutlings" = "Valitse Cutlingit";
 "Reorder Cutlings" = "Järjestä Cutlingit uudelleen";
-"Keyboard Setup Guide" = "Näppäimistön asennusopas";
-"Name (A → Z)" = "Nimi (A → Ö)";
-"Name (Z → A)" = "Nimi (Ö → A)";
-"Text First" = "Teksti ensin";
+"Keyboard Setup Guide" = "Näppäimistön käyttöönotto-opas";
+"Name (A → Z)" = "Nimi (A → Z)";
+"Name (Z → A)" = "Nimi (Z → A)";
+"Text First" = "Tekstit ensin";
 "Images First" = "Kuvat ensin";
-"Shortest First" = "Lyhyin ensin";
-"Longest First" = "Pisin ensin";
+"Shortest First" = "Lyhyimmät ensin";
+"Longest First" = "Pisimmät ensin";
 "Reverse Order" = "Käänteinen järjestys";
 
 /* MARK: - Empty States */
 "No Cutlings Yet" = "Ei vielä Cutlingeja";
 "No Results" = "Ei tuloksia";
-"Tap + to add your first cutling." = "Napauta + lisätäksesi ensimmäisen cutlingin.";
-"Try a different search term." = "Kokeile eri hakusanaa.";
+"Tap + to add your first cutling." = "Lisää ensimmäinen cutlingisi napauttamalla +.";
+"Try a different search term." = "Kokeile toista hakusanaa.";
 
 /* MARK: - Search */
-"Search cutlings" = "Hae cutlingeja";
-"Search icons" = "Hae kuvakkeita";
+"Search cutlings" = "Etsi cutlingeja";
+"Search icons" = "Etsi kuvakkeita";
 
 /* MARK: - Form Labels */
 "Name" = "Nimi";
@@ -84,53 +84,53 @@
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
 "iCloud Sync" = "iCloud-synkronointi";
-"Sync your cutlings across all your devices using iCloud." = "Synkronoi cutlingisi kaikilla laitteillasi iCloudin avulla.";
+"Sync your cutlings across all your devices using iCloud." = "Synkronoi Cutlingisi kaikkiin laitteisiisi iCloudin avulla.";
 "Storage" = "Tallennustila";
-"Text Cutlings" = "Teksti-Cutlingit";
-"Image Cutlings" = "Kuva-Cutlingit";
-"Total Cutlings" = "Cutlingit yhteensä";
-"Disk Usage" = "Levyn käyttö";
+"Text Cutlings" = "Tekstilcutlingit";
+"Image Cutlings" = "Kuvacutlingit";
+"Total Cutlings" = "Cutlingeja yhteensä";
+"Disk Usage" = "Levytila";
 "Status" = "Tila";
 "Syncing…" = "Synkronoidaan…";
 "Up to date" = "Ajan tasalla";
 "Sync Now" = "Synkronoi nyt";
 "Turn On iCloud Sync" = "Ota iCloud-synkronointi käyttöön";
-"Max Text Length" = "Maks. tekstin pituus";
+"Max Text Length" = "Tekstin enimmäispituus";
 "%lld chars" = "%lld merkkiä";
 "About" = "Tietoja";
 "Version" = "Versio";
 "Keyboard Added" = "Näppäimistö lisätty";
-"Full Access" = "Täysi käyttöoikeus";
+"Full Access" = "Täydet käyttöoikeudet";
 "Experimental Feature: iCloud" = "Kokeellinen ominaisuus: iCloud";
 "Contact Support" = "Ota yhteyttä tukeen";
 "Privacy Policy" = "Tietosuojakäytäntö";
 "Auto-detect Input Types" = "Tunnista syöttötyypit automaattisesti";
 "Enable iCloud Sync" = "Ota iCloud-synkronointi käyttöön";
-"Keep your cutlings in sync across all your devices." = "Pidä leikkeesi synkronoituna kaikilla laitteillasi.";
-"Automatically detect and suggest input type categories when editing text." = "Tunnista ja ehdota syöttötyyppikategorioita automaattisesti tekstiä muokatessa.";
+"Keep your cutlings in sync across all your devices." = "Pidä Cutlingisi synkronoituna kaikilla laitteillasi.";
+"Automatically detect and suggest input type categories when editing text." = "Tunnistaa ja ehdottaa syöttötyyppiluokkia automaattisesti tekstiä muokattaessa.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Kuvaa ei valittu";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "Nykyinen teksti korvataan leikepöydän sisällöllä.";
-"This will replace the current image with whatever is in your clipboard." = "Nykyinen kuva korvataan leikepöydän sisällöllä.";
-"This cutling will be automatically deleted at the selected date and time." = "Tämä cutling poistetaan automaattisesti valittuna päivänä ja aikana.";
-"Each text cutling can hold up to %lld characters." = "Jokainen teksti-cutling voi sisältää enintään %lld merkkiä.";
+"This will replace the current text with whatever is in your clipboard." = "Tämä korvaa nykyisen tekstin sillä, mitä leikepöydälläsi on.";
+"This will replace the current image with whatever is in your clipboard." = "Tämä korvaa nykyisen kuvan sillä, mitä leikepöydälläsi on.";
+"This cutling will be automatically deleted at the selected date and time." = "Tämä cutling poistetaan automaattisesti valittuna päivänä ja kellonaikana.";
+"Each text cutling can hold up to %lld characters." = "Yksi tekstilcutling voi sisältää enintään %lld merkkiä.";
 
 /* MARK: - Alerts */
 "Limit Reached" = "Raja saavutettu";
-"Delete Cutling?" = "Poista Cutling?";
+"Delete Cutling?" = "Poistetaanko Cutling?";
 "This action cannot be undone." = "Tätä toimintoa ei voi kumota.";
-"Cannot add text cutling" = "Teksti-cutlingia ei voi lisätä";
-"Cannot add image cutling" = "Kuva-cutlingia ei voi lisätä";
-"Cannot add more text cutlings." = "Lisää teksti-cutlingeja ei voi lisätä.";
-"Cannot add more image cutlings." = "Lisää kuva-cutlingeja ei voi lisätä.";
+"Cannot add text cutling" = "Tekstilcutlingia ei voi lisätä";
+"Cannot add image cutling" = "Kuvacutlingia ei voi lisätä";
+"Cannot add more text cutlings." = "Tekstilcutlingeja ei voi enää lisätä.";
+"Cannot add more image cutlings." = "Kuvacutlingeja ei voi enää lisätä.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Olet saavuttanut enimmäismäärän %lld cutlingia. Poista joitakin lisätäksesi lisää.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Olet saavuttanut enimmäismäärän %lld kuva-cutlingia. Kuvat käyttävät paljon muistia näppäimistössä. Poista joitakin kuvia lisätäksesi lisää.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Olet saavuttanut enimmäismäärän %lld teksti-cutlingia. Poista joitakin lisätäksesi lisää.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Olet saavuttanut enimmäismäärän %lld Cutlingia yhteensä. Poista joitakin lisätäksesi uusia.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Olet saavuttanut enimmäismäärän %lld kuvacutlingia. Kuvat käyttävät paljon muistia näppäimistössä. Poista joitakin kuvia lisätäksesi uusia.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Olet saavuttanut enimmäismäärän %lld tekstilcutlingia. Poista joitakin lisätäksesi uusia.";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Syöttötyypin ehdotukset";
@@ -163,14 +163,14 @@
 "Set Up Your Keyboard" = "Asenna näppäimistö";
 "Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Cutling-näppäimistö on valmis! Napauta 🌐 maapallokuvaketta näppäimistöllä kirjoittaessasi vaihtaaksesi Cutlingiin.";
 "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Noudata alla olevia kahta yksinkertaista vaihetta aloittaaksesi mukautetun näppäimistön käytön. Sivu päivittyy automaattisesti jokaisen vaiheen jälkeen.";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Vaihe 1:** Napauta \"Avaa Cutling-asetukset\" alla, siirry kohtaan **Näppäimistöt** ja valitse **Cutling** luettelosta.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Vaihe 1:** Napauta ”Avaa Cutling-asetukset” alla, siirry kohtaan **Näppäimistöt** ja valitse **Cutling** luettelosta.";
 "**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Vaihe 2:** Varmista, että **Salli täysi käyttöoikeus** on PÄÄLLÄ. Tämä antaa näppäimistön kopioida kuvia leikepöydälle. Tietosi pysyvät yksityisinä eikä niitä lähetetä mihinkään.";
-"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Vaihe 3:** Napauta tekstikenttää ja valitse \"Cutling\" 🌐 maapallokuvakkeella näppäimistöltä päivittääksesi \"Täysi käyttöoikeus\" -tilan.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Vaihe 3:** Napauta tekstikenttää ja valitse ”Cutling” 🌐 maapallokuvakkeella näppäimistöltä päivittääksesi ”Täysi käyttöoikeus” -tilan.";
 "**Step 4:** You're good to go! The usage guide is provided below." = "**Vaihe 4:** Olet valmis! Käyttöohje on alla.";
 "While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Kirjoittaessasi missä tahansa sovelluksessa, napauta tai pidä pohjassa 🌐 maapallonäppäintä näppäimistön vasemmassa alakulmassa ja valitse Cutling";
 "Tap any text cutling and it will be typed into your current text field immediately" = "Napauta mitä tahansa teksti-cutlingia ja se kirjoitetaan heti nykyiseen tekstikenttään";
 "Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Napauta kuva-cutlingia kopioidaksesi sen leikepöydälle ja liitä se sitten käyttämääsi sovellukseen (yleensä napauttamalla ja pitämällä pohjassa, sitten valitsemalla Liitä). Apple ei tällä hetkellä tue kuvan suoraa liittämistä tässä sovelluksessa.";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Kopioi mikä tahansa teksti ja napauta sitten \"Lisää leikepöydältä\" -painiketta Cutling-näppäimistössä tallentaaksesi sen uutena cutlingina";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Kopioi mikä tahansa teksti ja napauta sitten ”Lisää leikepöydältä” -painiketta Cutling-näppäimistössä tallentaaksesi sen uutena cutlingina";
 "You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Voit hallita kaikkia cutlingejasi Cutling-sovelluksessa. Tekemäsi muutokset näkyvät heti näppäimistössä.";
 "Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Näppäimistölaajennuksilla on tiukat muistirajat järjestelmän vakauden varmistamiseksi. Kuvat käyttävät enemmän muistia kuin teksti, joten rajoitamme niitä näppäimistön nopeuden ja luotettavuuden takaamiseksi. Jos saavutat rajan, poista joitakin cutlingeja lisätäksesi uusia.";
 "Up to **%lld text** cutlings" = "Enintään **%lld teksti**-cutlingia";
@@ -183,7 +183,7 @@
 "Test Your Keyboard" = "Testaa näppäimistö";
 "All set! Swipe to continue." = "Kaikki valmista! Pyyhkäise jatkaaksesi.";
 "Your data stays private and is never sent anywhere." = "Tietosi pysyvät yksityisinä eikä niitä lähetetä mihinkään.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Ei arkaluonteisille tiedoille** — vältä salasanojen, korttinumeroiden, yksityisten avainten tai tunnisteiden tallentamista";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Ei arkaluonteisille tiedoille**: vältä salasanojen, korttinumeroiden, yksityisten avainten tai tunnisteiden tallentamista";
 "Set Up Cutling Keyboard" = "Asenna Cutling-näppäimistö";
 "What You Can Do" = "Mitä voit tehdä";
 "Smart Field Suggestions" = "Älykkäät kenttäehdotukset";
@@ -219,24 +219,24 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "Pyydä Siriä lisäämään, kopioimaan tai hakemaan cutlingejasi käsivapaasti.";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "Avaa Cutling laitteesi **Asetukset**-sovelluksessa.";
+"Open Cutling in your device's **Settings** app." = "Avaa Cutling laitteesi **Asetukset**-apissa.";
 "Tap **Keyboards** and enable **Cutling**." = "Napauta **Näppäimistöt** ja ota **Cutling** käyttöön.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Ota **Salli täysi käyttöoikeus** käyttöön, jotta näppäimistö voi kopioida kuvia leikepöydälle.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Napauta alla olevaa tekstikenttää ja vaihda sitten **Cutling**-näppäimistöön 🌐 maapallonäppäimellä. Tämä varmistaa, että kaikki on asetettu oikein.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud-synkronointi on **kokeellinen ominaisuus**. Se ei välttämättä toimi oikein kaikissa tilanteissa, mikä voi johtaa tietojen menetykseen. Voit aina muuttaa tätä myöhemmin Asetuksista.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Ota **Salli täydet käyttöoikeudet** käyttöön, jotta näppäimistö voi kopioida kuvia leikepöydällesi.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Napauta alla olevaa tekstikenttää, ja vaihda sitten **Cutlingiin** maapallonäppäimellä 🌐. Tämä varmistaa, että kaikki on asennettu oikein.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud-synkronointi on **kokeellinen ominaisuus**. Se ei välttämättä toimi oikein kaikissa tilanteissa, mikä voi johtaa tietojen menetykseen. Voit aina muuttaa tämän myöhemmin Asetuksissa.";
 
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "Äskettäin poistetut";
 "Delete All" = "Poista kaikki";
-"Delete All Permanently?" = "Poista kaikki pysyvästi?";
-"Delete Permanently?" = "Poista pysyvästi?";
+"Delete All Permanently?" = "Poistetaanko kaikki pysyvästi?";
+"Delete Permanently?" = "Poistetaanko pysyvästi?";
 "Delete Permanently" = "Poista pysyvästi";
 "Recover" = "Palauta";
 "Items will be permanently deleted after 30 days." = "Kohteet poistetaan pysyvästi 30 päivän kuluttua.";
 "No Recently Deleted Items" = "Ei äskettäin poistettuja kohteita";
-"Deleted cutlings will appear here for 30 days." = "Poistetut cutlingit näkyvät täällä 30 päivän ajan.";
-"This will permanently delete all %lld items. This action cannot be undone." = "Kaikki %lld kohdetta poistetaan pysyvästi. Tätä toimintoa ei voi kumota.";
-"\"%@\" will be deleted permanently." = "\"%@\" poistetaan pysyvästi.";
+"Deleted cutlings will appear here for 30 days." = "Poistetut Cutlingit näkyvät täällä 30 päivän ajan.";
+"This will permanently delete all %lld items. This action cannot be undone." = "Tämä poistaa pysyvästi %lld kohdetta. Tätä toimintoa ei voi kumota.";
+"\"%@\" will be deleted permanently." = "”%@” poistetaan pysyvästi.";
 "1 day left" = "1 päivä jäljellä";
 "%lld days left" = "%lld päivää jäljellä";
 
@@ -335,23 +335,23 @@
 
 /* MARK: - TipKit */
 "Saved cutlings" = "Tallennetut Cutlingit";
-"Your pinned snippets live here, ready to copy with one click." = "Kiinnitetyt leikkeesi ovat täällä, valmiina kopioitaviksi yhdellä napsautuksella.";
-"Recent clipboard" = "Viimeisin leikepöytä";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "Kaikki kopioimasi päätyy tänne. Napsauta hiiren oikealla painikkeella riviä tallentaaksesi sen Cutlingiksi.";
+"Your pinned snippets live here, ready to copy with one click." = "Kiinnittämäsi pätkät ovat täällä, valmiina kopioitaviksi yhdellä klikkauksella.";
+"Recent clipboard" = "Tuore leikepöytä";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Kaikki, mitä kopioit, laskeutuu tänne. Klikkaa riviä hiiren oikealla tallentaaksesi sen Cutlingiksi.";
 "Wipe the list" = "Tyhjennä lista";
-"Empties your recent clipboard. Saved cutlings stay put." = "Tyhjentää viimeisimmän leikepöytäsi. Tallennetut Cutlingit säilyvät.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Vaihda pikanäppäin, kytke leikepöydän tallennus päälle tai pois ja hallinnoi iCloud-synkronointia.";
+"Empties your recent clipboard. Saved cutlings stay put." = "Tyhjentää tuoreen leikepöytäsi. Tallennetut Cutlingit säilyvät.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Vaihda pikanäppäin, kytke leikepöydän kaappaus päälle/pois ja hallitse iCloud-synkronointia.";
 "Undo deletes" = "Kumoa poistot";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Poistetut Cutlingit säilyvät täällä 30 päivää. Palauta ne tai tyhjennä lopullisesti.";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Napauta tästä valitaksesi useita Cutlingeja, järjestääksesi niitä uudelleen tai palauttaaksesi äskettäin poistettuja.";
-"Long-press a cutling" = "Paina Cutlingia pitkään";
-"Hold any card for quick actions: copy, edit, share, or delete." = "Pidä korttia painettuna pikatoimintoja varten: kopioi, muokkaa, jaa tai poista.";
-"Drag to select" = "Valitse vetämällä";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "Pyyhkäise korttien yli valitaksesi alueen. Pyyhkäise takaisin niiden yli poistaaksesi valinnan.";
-"Smart field matching" = "Älykäs kenttätunnistus";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling tunnistaa sähköposti-, URL-, puhelin- ja osoitekentät ja nostaa sopivat leikkeet näppäimistön yläosaan.";
-"Create a new cutling" = "Luo uusi Cutling";
-"Save text or image snippets you'll reuse from any app." = "Tallenna teksti- tai kuvaleikkeitä, joita käytät uudelleen mistä tahansa sovelluksesta.";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Poistetut Cutlingit pysyvät täällä 30 päivää. Palauta ne tai tyhjennä lopullisesti.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Napauta tätä valitaksesi useita Cutlingeja, järjestääksesi niitä uudelleen tai palauttaaksesi äskettäin poistettuja.";
+"Long-press a cutling" = "Paina pitkään cutlingia";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Pidä korttia painettuna pikavalintoja varten: kopioi, muokkaa, jaa tai poista.";
+"Drag to select" = "Vedä valitaksesi";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Pyyhkäise korttien yli valitaksesi alueen. Pyyhkäise takaisin poistaaksesi valinnan.";
+"Smart field matching" = "Älykäs kentäntunnistus";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling tunnistaa sähköposti-, URL-, puhelin- ja osoitekentät ja nostaa vastaavat pätkät näppäimistön yläosaan.";
+"Create a new cutling" = "Luo uusi cutling";
+"Save text or image snippets you'll reuse from any app." = "Tallenna tekstin- tai kuvanpätkät, joita käytät uudelleen mistä tahansa apista.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "Tervetuloa Cutlingiin";
@@ -372,3 +372,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "Sallii Cutlingin liittää cutlingin suoraan käyttämääsi sovellukseen.";
 "Grant" = "Myönnä";
 "You can skip Accessibility and grant it later from Settings → Paste." = "Voit ohittaa Käyttöavun ja myöntää sen myöhemmin kohdassa Asetukset → Liitä.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "Tallenna tiedostona…";
+"Image Saving" = "Kuvien tallennus";
+"When saving images" = "Kuvia tallennettaessa";
+"Ask each time" = "Kysy joka kerta";
+"Save to folder" = "Tallenna kansioon";
+"Folder" = "Kansio";
+"Change Folder…" = "Vaihda kansio…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "Valitse, miten toiminto ”Tallenna tiedostona” toimii kuva-Cutlingeille. Vaihtoehdolla ”Tallenna kansioon” kuvat tallennetaan suoraan valitsemaasi kansioon ainutkertaisella tiedostonimellä, ilman kyselyä.";
+"Choose" = "Valitse";
+"Choose Image Folder" = "Valitse kuvakansio";
+"Pick a folder where Cutling will save image cutlings." = "Valitse kansio, johon Cutling tallentaa kuva-Cutlingit.";
+"Preview" = "Esikatselu";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "Tallennetut";
+"History" = "Historia";
+"No saved cutlings yet" = "Ei vielä tallennettuja Cutlingeja";
+"Copy something to see it here" = "Kopioi jotain nähdäksesi sen täällä";
+"Clipboard history is off. Enable it in Settings." = "Leikepöydän historia on poissa päältä. Ota se käyttöön asetuksissa.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Sisällytä Spotlight-hakuun";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "Tee Cutlingeistasi haettavia Spotlightista. Arkaluonteista sisältöä (luottokortit, API-avaimet, JWT-tokenit, seed-fraasit, yksityiset avaimet) ei koskaan indeksoida.";
+"Copy Cutling" = "Kopioi Cutling";
+"Copy a cutling's contents to the clipboard." = "Kopioi Cutlingin sisällön leikepöydälle.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Käytä näitä lauseita Sirin kanssa tai selaa kaikkia Cutlingin pikakomentoja Pikakomennot-apissa.";
+"Copied \"%@\"" = "”%@” kopioitu";

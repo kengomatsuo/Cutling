@@ -1,15 +1,15 @@
 /* MARK: - Navigation & Titles */
-"My Cutlings" = "הקאטלינגים שלי";
+"My Cutlings" = "הקאטלינג שלי";
 "Select Items" = "בחר פריטים";
 "%lld Selected" = "%lld נבחרו";
 "Reorder" = "סדר מחדש";
 "Settings" = "הגדרות";
-"Keyboard Setup" = "הגדרת מקלדת";
+"Keyboard Setup" = "הגדרת המקלדת";
 "New" = "חדש";
 "Choose Icon" = "בחר סמל";
 "%lld/%lld Text, %lld/%lld Images" = "%lld/%lld טקסט, %lld/%lld תמונות";
-"%lld Cutlings" = "%lld קאטלינגים";
-"Cutlings" = "קאטלינגים";
+"%lld Cutlings" = "%lld קאטלינג";
+"Cutlings" = "קאטלינג";
 
 /* MARK: - Common Actions */
 "Cancel" = "ביטול";
@@ -26,25 +26,25 @@
 /* MARK: - Menu Items */
 "Text Cutling" = "קאטלינג טקסט";
 "Image Cutling" = "קאטלינג תמונה";
-"Select Cutlings" = "בחר קאטלינגים";
-"Reorder Cutlings" = "סדר קאטלינגים מחדש";
-"Keyboard Setup Guide" = "מדריך הגדרת מקלדת";
-"Name (A → Z)" = "שם (א → ת)";
-"Name (Z → A)" = "שם (ת → א)";
-"Text First" = "טקסט קודם";
-"Images First" = "תמונות קודם";
-"Shortest First" = "הקצר ביותר קודם";
-"Longest First" = "הארוך ביותר קודם";
+"Select Cutlings" = "בחר קאטלינג";
+"Reorder Cutlings" = "סדר קאטלינג מחדש";
+"Keyboard Setup Guide" = "מדריך הגדרת המקלדת";
+"Name (A → Z)" = "שם (A → Z)";
+"Name (Z → A)" = "שם (Z → A)";
+"Text First" = "תחילה טקסט";
+"Images First" = "תחילה תמונות";
+"Shortest First" = "תחילה הקצרים ביותר";
+"Longest First" = "תחילה הארוכים ביותר";
 "Reverse Order" = "סדר הפוך";
 
 /* MARK: - Empty States */
-"No Cutlings Yet" = "אין עדיין קאטלינגים";
+"No Cutlings Yet" = "אין עדיין קאטלינג";
 "No Results" = "אין תוצאות";
-"Tap + to add your first cutling." = "הקש + כדי להוסיף את הקאטלינג הראשון שלך.";
-"Try a different search term." = "נסה מונח חיפוש אחר.";
+"Tap + to add your first cutling." = "הקש על + כדי להוסיף את הקאטלינג הראשון שלך.";
+"Try a different search term." = "נסה מילת חיפוש אחרת.";
 
 /* MARK: - Search */
-"Search cutlings" = "חפש קאטלינגים";
+"Search cutlings" = "חפש קאטלינג";
 "Search icons" = "חפש סמלים";
 
 /* MARK: - Form Labels */
@@ -84,12 +84,12 @@
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
 "iCloud Sync" = "סנכרון iCloud";
-"Sync your cutlings across all your devices using iCloud." = "סנכרן את הקאטלינגים שלך בכל המכשירים באמצעות iCloud.";
+"Sync your cutlings across all your devices using iCloud." = "סנכרן את הקאטלינג שלך בכל המכשירים שלך באמצעות iCloud.";
 "Storage" = "אחסון";
-"Text Cutlings" = "קאטלינגים של טקסט";
-"Image Cutlings" = "קאטלינגים של תמונה";
-"Total Cutlings" = "סך הקאטלינגים";
-"Disk Usage" = "שימוש בדיסק";
+"Text Cutlings" = "קאטלינג טקסט";
+"Image Cutlings" = "קאטלינג תמונה";
+"Total Cutlings" = "סך הקאטלינג";
+"Disk Usage" = "ניצול דיסק";
 "Status" = "סטטוס";
 "Syncing…" = "מסנכרן…";
 "Up to date" = "מעודכן";
@@ -99,38 +99,38 @@
 "%lld chars" = "%lld תווים";
 "About" = "אודות";
 "Version" = "גרסה";
-"Keyboard Added" = "מקלדת נוספה";
+"Keyboard Added" = "המקלדת נוספה";
 "Full Access" = "גישה מלאה";
 "Experimental Feature: iCloud" = "תכונה ניסיונית: iCloud";
 "Contact Support" = "צור קשר עם התמיכה";
 "Privacy Policy" = "מדיניות פרטיות";
-"Auto-detect Input Types" = "זיהוי אוטומטי של סוגי קלט";
+"Auto-detect Input Types" = "זהה אוטומטית סוגי קלט";
 "Enable iCloud Sync" = "הפעל סנכרון iCloud";
-"Keep your cutlings in sync across all your devices." = "שמור על הקאטלינגים שלך מסונכרנים בכל המכשירים.";
-"Automatically detect and suggest input type categories when editing text." = "זהה והצע אוטומטית קטגוריות סוגי קלט בעת עריכת טקסט.";
+"Keep your cutlings in sync across all your devices." = "שמור על הקאטלינג שלך מסונכרן בכל המכשירים שלך.";
+"Automatically detect and suggest input type categories when editing text." = "מזהה ומציע אוטומטית קטגוריות של סוג קלט בעת עריכת טקסט.";
 
 /* MARK: - Image Picker */
 "No image selected" = "לא נבחרה תמונה";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "פעולה זו תחליף את הטקסט הנוכחי בתוכן לוח הגזירים.";
-"This will replace the current image with whatever is in your clipboard." = "פעולה זו תחליף את התמונה הנוכחית בתוכן לוח הגזירים.";
-"This cutling will be automatically deleted at the selected date and time." = "קאטלינג זה יימחק אוטומטית בתאריך ובשעה שנבחרו.";
+"This will replace the current text with whatever is in your clipboard." = "פעולה זו תחליף את הטקסט הנוכחי במה שנמצא בלוח הגזירים שלך.";
+"This will replace the current image with whatever is in your clipboard." = "פעולה זו תחליף את התמונה הנוכחית במה שנמצא בלוח הגזירים שלך.";
+"This cutling will be automatically deleted at the selected date and time." = "הקאטלינג הזה יימחק אוטומטית בתאריך ובשעה שנבחרו.";
 "Each text cutling can hold up to %lld characters." = "כל קאטלינג טקסט יכול להכיל עד %lld תווים.";
 
 /* MARK: - Alerts */
-"Limit Reached" = "הגעת למגבלה";
+"Limit Reached" = "הגיעו למגבלה";
 "Delete Cutling?" = "למחוק את הקאטלינג?";
 "This action cannot be undone." = "לא ניתן לבטל פעולה זו.";
 "Cannot add text cutling" = "לא ניתן להוסיף קאטלינג טקסט";
 "Cannot add image cutling" = "לא ניתן להוסיף קאטלינג תמונה";
-"Cannot add more text cutlings." = "לא ניתן להוסיף עוד קאטלינגים של טקסט.";
-"Cannot add more image cutlings." = "לא ניתן להוסיף עוד קאטלינגים של תמונה.";
+"Cannot add more text cutlings." = "לא ניתן להוסיף עוד קאטלינג טקסט.";
+"Cannot add more image cutlings." = "לא ניתן להוסיף עוד קאטלינג תמונה.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "הגעת למקסימום של %lld קאטלינגים. מחק כמה כדי להוסיף עוד.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "הגעת למקסימום של %lld קאטלינגים של תמונה. תמונות משתמשות בזיכרון רב במקלדת. מחק כמה תמונות כדי להוסיף עוד.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "הגעת למקסימום של %lld קאטלינגים של טקסט. מחק כמה כדי להוסיף עוד.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "הגעת למקסימום של %lld קאטלינג בסך הכל. מחק כמה כדי להוסיף עוד.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "הגעת למקסימום של %lld קאטלינג תמונה. תמונות משתמשות בהרבה זיכרון במקלדת. מחק כמה תמונות כדי להוסיף עוד.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "הגעת למקסימום של %lld קאטלינג טקסט. מחק כמה כדי להוסיף עוד.";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "הצעות לסוג קלט";
@@ -183,7 +183,7 @@
 "Test Your Keyboard" = "בדוק את המקלדת";
 "All set! Swipe to continue." = "הכל מוכן! החלק כדי להמשיך.";
 "Your data stays private and is never sent anywhere." = "הנתונים שלך נשארים פרטיים ואינם נשלחים לשום מקום.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**לא למידע רגיש** — הימנעו מאחסון סיסמאות, מספרי כרטיסים, מפתחות פרטיים או אסימונים";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**לא למידע רגיש**: הימנעו מאחסון סיסמאות, מספרי כרטיסים, מפתחות פרטיים או אסימונים";
 "Set Up Cutling Keyboard" = "הגדרת מקלדת קאטלינג";
 "What You Can Do" = "מה אפשר לעשות";
 "Smart Field Suggestions" = "הצעות חכמות לשדות";
@@ -206,11 +206,11 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "בקשו מ-Siri להוסיף, להעתיק או לחפש קאטלינגים שלכם ללא ידיים.";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "פתחו את קאטלינג באפליקציית **הגדרות** של המכשיר.";
-"Tap **Keyboards** and enable **Cutling**." = "הקישו על **מקלדות** והפעילו את **קאטלינג**.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "הפעילו **אפשר גישה מלאה** כדי שהמקלדת תוכל להעתיק תמונות ללוח.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "הקישו על שדה הטקסט למטה, ואז השתמשו במקש 🌐 גלובוס כדי לעבור ל-**קאטלינג**. זה מאמת שהכל מוגדר כראוי.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "סנכרון iCloud הוא **תכונה ניסיונית**. ייתכן שלא תפעל כראוי בכל המצבים, מה שעלול לגרום לאובדן נתונים. תמיד ניתן לשנות זאת מאוחר יותר בהגדרות.";
+"Open Cutling in your device's **Settings** app." = "פתח את Cutling ביישום **הגדרות** במכשיר שלך.";
+"Tap **Keyboards** and enable **Cutling**." = "הקש על **מקלדות** והפעל את **Cutling**.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "הפעל **אפשר גישה מלאה** כדי שהמקלדת תוכל להעתיק תמונות ללוח הגזירים שלך.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "הקש על שדה הטקסט למטה, ואז השתמש במקש 🌐 הגלובוס כדי לעבור ל-**Cutling**. זה מאמת שהכל הוגדר כראוי.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "סנכרון iCloud הוא **תכונה ניסיונית**. ייתכן שלא יפעל כראוי בכל המצבים, מה שעלול להוביל לאובדן נתונים. ניתן לשנות זאת בכל עת מאוחר יותר בהגדרות.";
 
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "נמחקו לאחרונה";
@@ -219,11 +219,11 @@
 "Delete Permanently?" = "למחוק לצמיתות?";
 "Delete Permanently" = "מחק לצמיתות";
 "Recover" = "שחזר";
-"Items will be permanently deleted after 30 days." = "הפריטים יימחקו לצמיתות לאחר 30 יום.";
+"Items will be permanently deleted after 30 days." = "פריטים יימחקו לצמיתות לאחר 30 יום.";
 "No Recently Deleted Items" = "אין פריטים שנמחקו לאחרונה";
-"Deleted cutlings will appear here for 30 days." = "קאטלינגים שנמחקו יופיעו כאן למשך 30 יום.";
-"This will permanently delete all %lld items. This action cannot be undone." = "כל %lld הפריטים יימחקו לצמיתות. לא ניתן לבטל פעולה זו.";
-"\"%@\" will be deleted permanently." = "\"%@\" יימחק לצמיתות.";
+"Deleted cutlings will appear here for 30 days." = "קאטלינג שנמחק יופיע כאן למשך 30 יום.";
+"This will permanently delete all %lld items. This action cannot be undone." = "פעולה זו תמחק לצמיתות %lld פריטים. לא ניתן לבטל פעולה זו.";
+"\"%@\" will be deleted permanently." = "“%@” יימחק לצמיתות.";
 "1 day left" = "נותר יום אחד";
 "%lld days left" = "נותרו %lld ימים";
 
@@ -321,24 +321,24 @@
 "Failed to save image." = "שמירת התמונה נכשלה.";
 
 /* MARK: - TipKit */
-"Saved cutlings" = "קאטלינגים שמורים";
-"Your pinned snippets live here, ready to copy with one click." = "המקטעים המוצמדים שלך נמצאים כאן, מוכנים להעתקה בלחיצה אחת.";
-"Recent clipboard" = "לוח גזירים אחרון";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "כל מה שאתה מעתיק מגיע לכאן. לחץ לחיצה ימנית על כל שורה כדי לשמור אותה כקאטלינג.";
+"Saved cutlings" = "קאטלינג שמורים";
+"Your pinned snippets live here, ready to copy with one click." = "הקטעים שהצמדת חיים כאן, מוכנים להעתקה בלחיצה אחת.";
+"Recent clipboard" = "לוח הגזירים האחרון";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "כל מה שאתה מעתיק נוחת כאן. לחץ לחיצה ימנית על שורה כדי לשמור אותה כקאטלינג.";
 "Wipe the list" = "נקה את הרשימה";
-"Empties your recent clipboard. Saved cutlings stay put." = "מרוקן את לוח הגזירים האחרון שלך. הקאטלינגים השמורים נשארים במקומם.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "הגדר מחדש את מקש הקיצור, החלף את לכידת לוח הגזירים, ונהל את סנכרון iCloud.";
+"Empties your recent clipboard. Saved cutlings stay put." = "מנקה את לוח הגזירים האחרון שלך. קאטלינג שמורים נשארים במקומם.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "שנה את מקש הקיצור, החלף לכידת לוח גזירים, ונהל סנכרון iCloud.";
 "Undo deletes" = "בטל מחיקות";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "קאטלינגים שנמחקו נשארים כאן 30 ימים. שחזר אותם או רוקן לתמיד.";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "הקש כאן כדי לבחור מספר קאטלינגים, לסדר אותם מחדש, או לשחזר כאלה שנמחקו לאחרונה.";
-"Long-press a cutling" = "לחיצה ארוכה על קאטלינג";
-"Hold any card for quick actions: copy, edit, share, or delete." = "החזק כל כרטיס לפעולות מהירות: העתקה, עריכה, שיתוף, או מחיקה.";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "קאטלינג שנמחק נשאר כאן 30 יום. שחזר אותם או נקה לתמיד.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "הקש כאן כדי לבחור מספר קאטלינג, לסדר אותם מחדש, או לשחזר את שנמחקו לאחרונה.";
+"Long-press a cutling" = "הקשה ארוכה על קאטלינג";
+"Hold any card for quick actions: copy, edit, share, or delete." = "החזק כל כרטיס לפעולות מהירות: העתק, ערוך, שתף, או מחק.";
 "Drag to select" = "גרור לבחירה";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "החלק על פני הכרטיסים כדי לבחור טווח. החלק חזרה עליהם כדי לבטל את הבחירה.";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "החלק על הכרטיסים כדי לבחור טווח. החלק בחזרה כדי לבטל את הבחירה.";
 "Smart field matching" = "התאמת שדות חכמה";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "קאטלינג מזהה שדות של דוא\"ל, כתובת אתר, טלפון וכתובת, ואז מציף מקטעים תואמים לראש המקלדת.";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling מזהה שדות אימייל, URL, טלפון וכתובת, ומעלה קטעים תואמים לראש המקלדת.";
 "Create a new cutling" = "צור קאטלינג חדש";
-"Save text or image snippets you'll reuse from any app." = "שמור קטעי טקסט או תמונה שתשתמש בהם שוב מכל אפליקציה.";
+"Save text or image snippets you'll reuse from any app." = "שמור קטעי טקסט או תמונה שתשתמש בהם שוב מכל יישום.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "ברוכים הבאים לקאטלינג";
@@ -359,3 +359,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "מאפשר לקאטלינג להדביק קאטלינג ישירות לאפליקציה שבה השתמשתם.";
 "Grant" = "אשר";
 "You can skip Accessibility and grant it later from Settings → Paste." = "תוכלו לדלג על נגישות ולאשר אותה אחר כך מהגדרות ← הדבקה.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "שמור כקובץ…";
+"Image Saving" = "שמירת תמונות";
+"When saving images" = "בעת שמירת תמונות";
+"Ask each time" = "שאל בכל פעם";
+"Save to folder" = "שמור לתיקייה";
+"Folder" = "תיקייה";
+"Change Folder…" = "החלף תיקייה…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "בחר כיצד פועלת הפעולה “שמור כקובץ” עבור קאטלינגים של תמונות. עם “שמור לתיקייה”, התמונות נשמרות ישירות לתיקייה שבחרת בשם קובץ ייחודי, ללא שאלה.";
+"Choose" = "בחר";
+"Choose Image Folder" = "בחר תיקיית תמונות";
+"Pick a folder where Cutling will save image cutlings." = "בחר תיקייה שבה קאטלינג ישמור את קאטלינגים של תמונות.";
+"Preview" = "תצוגה מקדימה";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "שמורים";
+"History" = "היסטוריה";
+"No saved cutlings yet" = "אין עדיין קאטלינגים שמורים";
+"Copy something to see it here" = "העתק משהו כדי לראותו כאן";
+"Clipboard history is off. Enable it in Settings." = "היסטוריית הלוח כבויה. הפעל אותה בהגדרות.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "כלול בחיפוש Spotlight";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "הפוך את הקאטלינגים שלך לניתנים לחיפוש מ-Spotlight. תוכן רגיש (כרטיסי אשראי, מפתחות API, אסימוני JWT, ביטויי seed, מפתחות פרטיים) לעולם לא נכלל באינדקס.";
+"Copy Cutling" = "העתק קאטלינג";
+"Copy a cutling's contents to the clipboard." = "מעתיק את תוכן הקאטלינג ללוח.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "השתמש בביטויים אלה עם Siri או עיין בכל הקיצורים של Cutling באפליקציית הקיצורים.";
+"Copied \"%@\"" = "“%@” הועתק";

@@ -1,8 +1,8 @@
 /* MARK: - Navigation & Titles */
-"My Cutlings" = "আমার কাটলিংগুলি";
+"My Cutlings" = "আমার কাটলিং";
 "Select Items" = "আইটেম নির্বাচন করুন";
 "%lld Selected" = "%lld নির্বাচিত";
-"Reorder" = "পুনর্বিন্যাস";
+"Reorder" = "পুনরায় সাজান";
 "Settings" = "সেটিংস";
 "Keyboard Setup" = "কীবোর্ড সেটআপ";
 "New" = "নতুন";
@@ -27,25 +27,25 @@
 "Text Cutling" = "টেক্সট কাটলিং";
 "Image Cutling" = "ছবি কাটলিং";
 "Select Cutlings" = "কাটলিং নির্বাচন করুন";
-"Reorder Cutlings" = "কাটলিং পুনর্বিন্যাস করুন";
+"Reorder Cutlings" = "কাটলিং পুনরায় সাজান";
 "Keyboard Setup Guide" = "কীবোর্ড সেটআপ গাইড";
 "Name (A → Z)" = "নাম (A → Z)";
 "Name (Z → A)" = "নাম (Z → A)";
-"Text First" = "টেক্সট প্রথমে";
-"Images First" = "ছবি প্রথমে";
-"Shortest First" = "সংক্ষিপ্ত প্রথমে";
-"Longest First" = "দীর্ঘতম প্রথমে";
-"Reverse Order" = "উল্টো ক্রম";
+"Text First" = "আগে টেক্সট";
+"Images First" = "আগে ছবি";
+"Shortest First" = "আগে সবচেয়ে ছোট";
+"Longest First" = "আগে সবচেয়ে দীর্ঘ";
+"Reverse Order" = "বিপরীত ক্রম";
 
 /* MARK: - Empty States */
-"No Cutlings Yet" = "এখনও কোনো কাটলিং নেই";
-"No Results" = "কোনো ফলাফল নেই";
-"Tap + to add your first cutling." = "আপনার প্রথম কাটলিং যোগ করতে + ট্যাপ করুন।";
+"No Cutlings Yet" = "এখনও কোনও কাটলিং নেই";
+"No Results" = "কোনও ফলাফল নেই";
+"Tap + to add your first cutling." = "আপনার প্রথম কাটলিং যোগ করতে + এ ট্যাপ করুন।";
 "Try a different search term." = "অন্য একটি অনুসন্ধান শব্দ চেষ্টা করুন।";
 
 /* MARK: - Search */
-"Search cutlings" = "কাটলিং অনুসন্ধান";
-"Search icons" = "আইকন অনুসন্ধান";
+"Search cutlings" = "কাটলিং অনুসন্ধান করুন";
+"Search icons" = "আইকন অনুসন্ধান করুন";
 
 /* MARK: - Form Labels */
 "Name" = "নাম";
@@ -84,7 +84,7 @@
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
 "iCloud Sync" = "iCloud সিঙ্ক";
-"Sync your cutlings across all your devices using iCloud." = "iCloud ব্যবহার করে আপনার সব ডিভাইসে কাটলিং সিঙ্ক করুন।";
+"Sync your cutlings across all your devices using iCloud." = "iCloud ব্যবহার করে আপনার সব ডিভাইসে আপনার কাটলিং সিঙ্ক করুন।";
 "Storage" = "স্টোরেজ";
 "Text Cutlings" = "টেক্সট কাটলিং";
 "Image Cutlings" = "ছবি কাটলিং";
@@ -92,45 +92,45 @@
 "Disk Usage" = "ডিস্ক ব্যবহার";
 "Status" = "অবস্থা";
 "Syncing…" = "সিঙ্ক হচ্ছে…";
-"Up to date" = "আপ টু ডেট";
+"Up to date" = "হালনাগাদ";
 "Sync Now" = "এখনই সিঙ্ক করুন";
 "Turn On iCloud Sync" = "iCloud সিঙ্ক চালু করুন";
 "Max Text Length" = "সর্বোচ্চ টেক্সট দৈর্ঘ্য";
 "%lld chars" = "%lld অক্ষর";
 "About" = "সম্পর্কে";
 "Version" = "সংস্করণ";
-"Keyboard Added" = "কীবোর্ড যোগ হয়েছে";
+"Keyboard Added" = "কীবোর্ড যোগ করা হয়েছে";
 "Full Access" = "সম্পূর্ণ অ্যাক্সেস";
 "Experimental Feature: iCloud" = "পরীক্ষামূলক বৈশিষ্ট্য: iCloud";
-"Contact Support" = "সাপোর্টে যোগাযোগ";
+"Contact Support" = "সহায়তা যোগাযোগ";
 "Privacy Policy" = "গোপনীয়তা নীতি";
-"Auto-detect Input Types" = "ইনপুট ধরন স্বয়ংক্রিয় শনাক্তকরণ";
-"Enable iCloud Sync" = "iCloud সিঙ্ক সক্রিয় করুন";
-"Keep your cutlings in sync across all your devices." = "আপনার সব ডিভাইসে কাটলিংগুলো সিঙ্ক রাখুন।";
-"Automatically detect and suggest input type categories when editing text." = "টেক্সট সম্পাদনার সময় স্বয়ংক্রিয়ভাবে ইনপুট ধরনের বিভাগ শনাক্ত ও পরামর্শ দিন।";
+"Auto-detect Input Types" = "ইনপুট ধরন স্বয়ংক্রিয়ভাবে শনাক্ত করুন";
+"Enable iCloud Sync" = "iCloud সিঙ্ক চালু করুন";
+"Keep your cutlings in sync across all your devices." = "আপনার সব ডিভাইসে আপনার কাটলিং সিঙ্ক রাখুন।";
+"Automatically detect and suggest input type categories when editing text." = "টেক্সট সম্পাদনার সময় ইনপুট ধরন ক্যাটাগরি স্বয়ংক্রিয়ভাবে শনাক্ত ও প্রস্তাব করে।";
 
 /* MARK: - Image Picker */
 "No image selected" = "কোনো ছবি নির্বাচন করা হয়নি";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "এটি আপনার ক্লিপবোর্ডে যা আছে তা দিয়ে বর্তমান টেক্সট প্রতিস্থাপন করবে।";
-"This will replace the current image with whatever is in your clipboard." = "এটি আপনার ক্লিপবোর্ডে যা আছে তা দিয়ে বর্তমান ছবি প্রতিস্থাপন করবে।";
-"This cutling will be automatically deleted at the selected date and time." = "এই কাটলিং নির্বাচিত তারিখ ও সময়ে স্বয়ংক্রিয়ভাবে মুছে যাবে।";
+"This will replace the current text with whatever is in your clipboard." = "এটি বর্তমান টেক্সটকে আপনার ক্লিপবোর্ডে যা আছে তা দিয়ে প্রতিস্থাপন করবে।";
+"This will replace the current image with whatever is in your clipboard." = "এটি বর্তমান ছবিকে আপনার ক্লিপবোর্ডে যা আছে তা দিয়ে প্রতিস্থাপন করবে।";
+"This cutling will be automatically deleted at the selected date and time." = "এই কাটলিং নির্বাচিত তারিখ ও সময়ে স্বয়ংক্রিয়ভাবে মুছে ফেলা হবে।";
 "Each text cutling can hold up to %lld characters." = "প্রতিটি টেক্সট কাটলিং সর্বোচ্চ %lld অক্ষর ধারণ করতে পারে।";
 
 /* MARK: - Alerts */
-"Limit Reached" = "সীমা পূর্ণ";
+"Limit Reached" = "সীমা পৌঁছে গেছে";
 "Delete Cutling?" = "কাটলিং মুছবেন?";
-"This action cannot be undone." = "এই কাজটি পূর্বাবস্থায় ফেরানো যাবে না।";
-"Cannot add text cutling" = "টেক্সট কাটলিং যোগ করা যাচ্ছে না";
-"Cannot add image cutling" = "ছবি কাটলিং যোগ করা যাচ্ছে না";
-"Cannot add more text cutlings." = "আর টেক্সট কাটলিং যোগ করা যাচ্ছে না।";
-"Cannot add more image cutlings." = "আর ছবি কাটলিং যোগ করা যাচ্ছে না।";
+"This action cannot be undone." = "এই কাজটি ফিরিয়ে আনা যাবে না।";
+"Cannot add text cutling" = "টেক্সট কাটলিং যোগ করা যায়নি";
+"Cannot add image cutling" = "ছবি কাটলিং যোগ করা যায়নি";
+"Cannot add more text cutlings." = "আর কোনও টেক্সট কাটলিং যোগ করা যাবে না।";
+"Cannot add more image cutlings." = "আর কোনও ছবি কাটলিং যোগ করা যাবে না।";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "আপনি সর্বোচ্চ %lld কাটলিং-এ পৌঁছে গেছেন। আরো যোগ করতে কিছু মুছুন।";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "আপনি সর্বোচ্চ %lld ছবি কাটলিং-এ পৌঁছে গেছেন। ছবি কীবোর্ডে উল্লেখযোগ্য মেমোরি ব্যবহার করে। আরো যোগ করতে কিছু ছবি মুছুন।";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "আপনি সর্বোচ্চ %lld টেক্সট কাটলিং-এ পৌঁছে গেছেন। আরো যোগ করতে কিছু মুছুন।";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "আপনি মোট %lld কাটলিং-এর সর্বোচ্চ সীমায় পৌঁছেছেন। আরও যোগ করতে কিছু মুছুন।";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "আপনি %lld ছবি কাটলিং-এর সর্বোচ্চ সীমায় পৌঁছেছেন। ছবি কীবোর্ডে অনেক মেমরি ব্যবহার করে। আরও যোগ করতে কিছু ছবি মুছুন।";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "আপনি %lld টেক্সট কাটলিং-এর সর্বোচ্চ সীমায় পৌঁছেছেন। আরও যোগ করতে কিছু মুছুন।";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "ইনপুট ধরনের পরামর্শ";
@@ -183,7 +183,7 @@
 "Test Your Keyboard" = "আপনার কীবোর্ড পরীক্ষা করুন";
 "All set! Swipe to continue." = "সব প্রস্তুত! চালিয়ে যেতে সোয়াইপ করুন।";
 "Your data stays private and is never sent anywhere." = "আপনার ডেটা ব্যক্তিগত থাকে এবং কোথাও পাঠানো হয় না।";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**সংবেদনশীল ডেটার জন্য নয়** — পাসওয়ার্ড, কার্ড নম্বর, ব্যক্তিগত কী বা টোকেন সংরক্ষণ এড়িয়ে চলুন";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**সংবেদনশীল ডেটার জন্য নয়:** পাসওয়ার্ড, কার্ড নম্বর, প্রাইভেট কী বা টোকেন সংরক্ষণ করা থেকে বিরত থাকুন";
 "Set Up Cutling Keyboard" = "কাটলিং কীবোর্ড সেটআপ করুন";
 "What You Can Do" = "আপনি যা করতে পারেন";
 "Smart Field Suggestions" = "স্মার্ট ফিল্ড পরামর্শ";
@@ -206,11 +206,11 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "হাত না লাগিয়ে কাটলিং যোগ, কপি বা সার্চ করতে Siri-কে বলুন।";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "আপনার ডিভাইসের **সেটিংস** অ্যাপে কাটলিং খুলুন।";
-"Tap **Keyboards** and enable **Cutling**." = "**কিবোর্ড** ট্যাপ করুন এবং **কাটলিং** সক্রিয় করুন।";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "কিবোর্ড যাতে আপনার ক্লিপবোর্ডে ছবি কপি করতে পারে তার জন্য **সম্পূর্ণ অ্যাক্সেসের অনুমতি দিন** চালু করুন।";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "নিচের টেক্সট ফিল্ডে ট্যাপ করুন, তারপর **কাটলিং**-এ স্যুইচ করতে 🌐 গ্লোব কী ব্যবহার করুন। এটি নিশ্চিত করে যে সবকিছু সঠিকভাবে সেটআপ করা হয়েছে।";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud সিঙ্ক একটি **পরীক্ষামূলক বৈশিষ্ট্য**। এটি সমস্ত পরিস্থিতিতে সঠিকভাবে কাজ নাও করতে পারে, যার ফলে ডেটা হারানো হতে পারে। আপনি সেটিংসে পরে যেকোনো সময় এটি পরিবর্তন করতে পারেন।";
+"Open Cutling in your device's **Settings** app." = "আপনার ডিভাইসের **সেটিংস** অ্যাপে Cutling খুলুন।";
+"Tap **Keyboards** and enable **Cutling**." = "**কীবোর্ড** এ ট্যাপ করুন এবং **Cutling** সক্ষম করুন।";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "**সম্পূর্ণ অ্যাক্সেসের অনুমতি দিন** চালু করুন যাতে কীবোর্ড ছবিগুলি আপনার ক্লিপবোর্ডে কপি করতে পারে।";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "নিচের টেক্সট ফিল্ডে ট্যাপ করুন, তারপর 🌐 গ্লোব কী ব্যবহার করে **Cutling** এ স্যুইচ করুন। এটি যাচাই করে যে সব সঠিকভাবে সেটআপ করা হয়েছে।";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud সিঙ্ক একটি **পরীক্ষামূলক বৈশিষ্ট্য**। এটি সব পরিস্থিতিতে সঠিকভাবে কাজ নাও করতে পারে, যা ডেটা হারানোর কারণ হতে পারে। আপনি এটি পরে যেকোনও সময় সেটিংসে পরিবর্তন করতে পারেন।";
 
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "সম্প্রতি মোছা হয়েছে";
@@ -219,12 +219,12 @@
 "Delete Permanently?" = "স্থায়ীভাবে মুছবেন?";
 "Delete Permanently" = "স্থায়ীভাবে মুছুন";
 "Recover" = "পুনরুদ্ধার";
-"Items will be permanently deleted after 30 days." = "আইটেমগুলি 30 দিন পরে স্থায়ীভাবে মুছে ফেলা হবে।";
-"No Recently Deleted Items" = "সম্প্রতি মোছা কোনো আইটেম নেই";
-"Deleted cutlings will appear here for 30 days." = "মোছা কাটলিংগুলি 30 দিনের জন্য এখানে দেখা যাবে।";
-"This will permanently delete all %lld items. This action cannot be undone." = "সব %lld আইটেম স্থায়ীভাবে মুছে ফেলা হবে। এই ক্রিয়া পূর্বাবস্থায় ফেরানো যাবে না।";
-"\"%@\" will be deleted permanently." = "\"%@\" স্থায়ীভাবে মুছে ফেলা হবে।";
-"1 day left" = "1 দিন বাকি";
+"Items will be permanently deleted after 30 days." = "আইটেমগুলি ৩০ দিন পরে স্থায়ীভাবে মুছে যাবে।";
+"No Recently Deleted Items" = "সম্প্রতি মোছা কোনও আইটেম নেই";
+"Deleted cutlings will appear here for 30 days." = "মোছা কাটলিংগুলি এখানে ৩০ দিন পর্যন্ত প্রদর্শিত হবে।";
+"This will permanently delete all %lld items. This action cannot be undone." = "এটি %lld আইটেম স্থায়ীভাবে মুছে দেবে। এই কাজটি ফিরিয়ে আনা যাবে না।";
+"\"%@\" will be deleted permanently." = "“%@” স্থায়ীভাবে মুছে যাবে।";
+"1 day left" = "১ দিন বাকি";
 "%lld days left" = "%lld দিন বাকি";
 
 /* MARK: - Context Menu */
@@ -320,23 +320,23 @@
 
 /* MARK: - TipKit */
 "Saved cutlings" = "সংরক্ষিত কাটলিং";
-"Your pinned snippets live here, ready to copy with one click." = "আপনার পিন করা স্নিপেটগুলি এখানে থাকে, এক ক্লিকে কপি করার জন্য প্রস্তুত।";
+"Your pinned snippets live here, ready to copy with one click." = "আপনার পিন করা অংশগুলি এখানে থাকে, এক ক্লিকেই কপি করার জন্য প্রস্তুত।";
 "Recent clipboard" = "সাম্প্রতিক ক্লিপবোর্ড";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "আপনি যা কিছু কপি করেন তা এখানে আসে। যেকোনো সারিতে রাইট-ক্লিক করে এটি কাটলিং হিসেবে সংরক্ষণ করুন।";
-"Wipe the list" = "তালিকা মুছুন";
-"Empties your recent clipboard. Saved cutlings stay put." = "আপনার সাম্প্রতিক ক্লিপবোর্ড খালি করে। সংরক্ষিত কাটলিং থেকে যায়।";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "হটকি পুনঃনির্ধারণ করুন, ক্লিপবোর্ড ক্যাপচার টগল করুন, এবং iCloud সিঙ্ক পরিচালনা করুন।";
-"Undo deletes" = "মোছা পূর্বাবস্থায় ফেরান";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "মোছা কাটলিং ৩০ দিন এখানে থাকে। তাদের পুনরুদ্ধার করুন বা চিরতরে খালি করুন।";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "একাধিক কাটলিং নির্বাচন, পুনর্বিন্যাস, বা সম্প্রতি মোছা কাটলিং পুনরুদ্ধার করতে এখানে ট্যাপ করুন।";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "আপনি যা কপি করেন তা সব এখানে আসে। যেকোনও সারিতে ডান-ক্লিক করে কাটলিং হিসেবে সংরক্ষণ করুন।";
+"Wipe the list" = "তালিকা পরিষ্কার করুন";
+"Empties your recent clipboard. Saved cutlings stay put." = "আপনার সাম্প্রতিক ক্লিপবোর্ড পরিষ্কার করে। সংরক্ষিত কাটলিং থেকে যায়।";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "হটকি পুনরায় নির্ধারণ করুন, ক্লিপবোর্ড ক্যাপচার চালু/বন্ধ করুন, এবং iCloud সিঙ্ক পরিচালনা করুন।";
+"Undo deletes" = "মোছা পূর্বাবস্থায় ফিরিয়ে আনুন";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "মোছা কাটলিংগুলি এখানে ৩০ দিন থাকে। পুনরুদ্ধার করুন বা চিরতরে পরিষ্কার করুন।";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "একাধিক কাটলিং নির্বাচন করতে, তাদের পুনরায় সাজাতে, বা সম্প্রতি মোছাগুলি পুনরুদ্ধার করতে এখানে ট্যাপ করুন।";
 "Long-press a cutling" = "একটি কাটলিং দীর্ঘক্ষণ চাপুন";
-"Hold any card for quick actions: copy, edit, share, or delete." = "দ্রুত ক্রিয়ার জন্য যেকোনো কার্ড ধরে রাখুন: কপি, সম্পাদনা, শেয়ার, বা মুছুন।";
+"Hold any card for quick actions: copy, edit, share, or delete." = "দ্রুত কাজের জন্য যেকোনও কার্ড চেপে ধরুন: কপি, সম্পাদনা, শেয়ার, বা মুছুন।";
 "Drag to select" = "নির্বাচন করতে টেনে আনুন";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "একটি পরিসর নির্বাচন করতে কার্ডের উপর সোয়াইপ করুন। নির্বাচন বাতিল করতে তাদের উপর আবার সোয়াইপ করুন।";
-"Smart field matching" = "স্মার্ট ফিল্ড মিল";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "কাটলিং ইমেল, URL, ফোন এবং ঠিকানার ফিল্ড শনাক্ত করে, তারপর মিলে যাওয়া স্নিপেট কীবোর্ডের শীর্ষে নিয়ে আসে।";
-"Create a new cutling" = "নতুন কাটলিং তৈরি করুন";
-"Save text or image snippets you'll reuse from any app." = "যেকোনো অ্যাপ থেকে পুনরায় ব্যবহার করতে পারেন এমন টেক্সট বা ছবির স্নিপেট সংরক্ষণ করুন।";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "একটি পরিসর নির্বাচন করতে কার্ডগুলিতে সোয়াইপ করুন। নির্বাচন বাতিল করতে পিছনে সোয়াইপ করুন।";
+"Smart field matching" = "স্মার্ট ফিল্ড মিলকরণ";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "কাটলিং ইমেল, URL, ফোন এবং ঠিকানার ফিল্ড শনাক্ত করে এবং মিলে যাওয়া অংশগুলিকে কীবোর্ডের শীর্ষে নিয়ে আসে।";
+"Create a new cutling" = "একটি নতুন কাটলিং তৈরি করুন";
+"Save text or image snippets you'll reuse from any app." = "টেক্সট বা ছবির এমন অংশ সংরক্ষণ করুন যা আপনি যেকোনও অ্যাপ থেকে পুনরায় ব্যবহার করবেন।";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "কাটলিং-এ স্বাগতম";
@@ -357,3 +357,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "কাটলিংকে আপনি যে অ্যাপ ব্যবহার করছিলেন সেখানে সরাসরি একটি কাটলিং পেস্ট করতে দেয়।";
 "Grant" = "অনুমতি দিন";
 "You can skip Accessibility and grant it later from Settings → Paste." = "আপনি অ্যাক্সেসিবিলিটি এড়িয়ে যেতে পারেন এবং পরে সেটিংস → পেস্ট থেকে এটি অনুমোদন করতে পারেন।";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "ফাইল হিসাবে সংরক্ষণ…";
+"Image Saving" = "ছবি সংরক্ষণ";
+"When saving images" = "ছবি সংরক্ষণের সময়";
+"Ask each time" = "প্রতিবার জিজ্ঞেস করো";
+"Save to folder" = "ফোল্ডারে সংরক্ষণ";
+"Folder" = "ফোল্ডার";
+"Change Folder…" = "ফোল্ডার পরিবর্তন…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "ছবি কাটলিং-এর জন্য “ফাইল হিসাবে সংরক্ষণ” কাজটি কীভাবে কাজ করবে তা বেছে নিন। “ফোল্ডারে সংরক্ষণ” বেছে নিলে ছবি কোনো জিজ্ঞাসা ছাড়াই আপনার বেছে নেওয়া ফোল্ডারে অনন্য ফাইল নামে সরাসরি সংরক্ষিত হয়।";
+"Choose" = "বেছে নিন";
+"Choose Image Folder" = "ছবির ফোল্ডার বেছে নিন";
+"Pick a folder where Cutling will save image cutlings." = "এমন একটি ফোল্ডার বেছে নিন যেখানে কাটলিং ছবি কাটলিং সংরক্ষণ করবে।";
+"Preview" = "প্রাকদর্শন";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "সংরক্ষিত";
+"History" = "ইতিহাস";
+"No saved cutlings yet" = "এখনও কোনও সংরক্ষিত কাটলিং নেই";
+"Copy something to see it here" = "এখানে দেখতে কিছু কপি করুন";
+"Clipboard history is off. Enable it in Settings." = "ক্লিপবোর্ড ইতিহাস বন্ধ আছে। সেটিংসে চালু করুন।";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Spotlight অনুসন্ধানে অন্তর্ভুক্ত করুন";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "আপনার কাটলিংগুলিকে Spotlight থেকে অনুসন্ধানযোগ্য করুন। সংবেদনশীল সামগ্রী (ক্রেডিট কার্ড, API কী, JWT টোকেন, সিড বাক্যাংশ, ব্যক্তিগত কী) কখনই সূচীবদ্ধ হয় না।";
+"Copy Cutling" = "কাটলিং কপি করুন";
+"Copy a cutling's contents to the clipboard." = "কাটলিংয়ের সামগ্রী ক্লিপবোর্ডে কপি করে।";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "এই বাক্যাংশগুলি Siri-র সাথে ব্যবহার করুন বা Shortcuts অ্যাপে সমস্ত Cutling শর্টকাট ব্রাউজ করুন।";
+"Copied \"%@\"" = "“%@” কপি করা হয়েছে";

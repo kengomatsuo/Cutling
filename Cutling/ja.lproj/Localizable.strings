@@ -1,6 +1,6 @@
 /* MARK: - Navigation & Titles */
 "My Cutlings" = "マイカットリング";
-"Select Items" = "アイテムを選択";
+"Select Items" = "項目を選択";
 "%lld Selected" = "%lld 件選択中";
 "Reorder" = "並べ替え";
 "Settings" = "設定";
@@ -8,7 +8,7 @@
 "New" = "新規";
 "Choose Icon" = "アイコンを選択";
 "%lld/%lld Text, %lld/%lld Images" = "%lld/%lld テキスト、%lld/%lld 画像";
-"%lld Cutlings" = "%lld 個の カットリング";
+"%lld Cutlings" = "%lld 個のカットリング";
 "Cutlings" = "カットリング";
 
 /* MARK: - Common Actions */
@@ -29,19 +29,19 @@
 "Select Cutlings" = "カットリングを選択";
 "Reorder Cutlings" = "カットリングを並べ替え";
 "Keyboard Setup Guide" = "キーボード設定ガイド";
-"Name (A → Z)" = "名前（A → Z）";
-"Name (Z → A)" = "名前（Z → A）";
-"Text First" = "テキスト優先";
-"Images First" = "画像優先";
+"Name (A → Z)" = "名前 (A → Z)";
+"Name (Z → A)" = "名前 (Z → A)";
+"Text First" = "テキストを先に";
+"Images First" = "画像を先に";
 "Shortest First" = "短い順";
 "Longest First" = "長い順";
-"Reverse Order" = "逆順";
+"Reverse Order" = "順序を反転";
 
 /* MARK: - Empty States */
-"No Cutlings Yet" = "カットリングがありません";
+"No Cutlings Yet" = "まだカットリングがありません";
 "No Results" = "結果なし";
 "Tap + to add your first cutling." = "+ をタップして最初のカットリングを追加しましょう。";
-"Try a different search term." = "別のキーワードで検索してください。";
+"Try a different search term." = "別の検索語を試してみてください。";
 
 /* MARK: - Search */
 "Search cutlings" = "カットリングを検索";
@@ -57,7 +57,7 @@
 "Auto-Delete" = "自動削除";
 "Delete At" = "削除日時";
 "Category" = "カテゴリ";
-"Status" = "ステータス";
+"Status" = "状況";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "例：メール";
@@ -83,54 +83,54 @@
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
-"iCloud Sync" = "iCloud同期";
-"Sync your cutlings across all your devices using iCloud." = "iCloudを使ってすべてのデバイスでカットリングを同期します。";
+"iCloud Sync" = "iCloud 同期";
+"Sync your cutlings across all your devices using iCloud." = "iCloud を使ってすべてのデバイス間でカットリングを同期します。";
 "Storage" = "ストレージ";
 "Text Cutlings" = "テキストカットリング";
 "Image Cutlings" = "画像カットリング";
-"Total Cutlings" = "合計カットリング";
+"Total Cutlings" = "カットリング合計";
 "Disk Usage" = "ディスク使用量";
 "Status" = "状態";
 "Syncing…" = "同期中…";
 "Up to date" = "最新";
 "Sync Now" = "今すぐ同期";
-"Turn On iCloud Sync" = "iCloud同期をオンにする";
-"Max Text Length" = "最大テキスト長";
+"Turn On iCloud Sync" = "iCloud 同期をオン";
+"Max Text Length" = "テキストの最大長";
 "%lld chars" = "%lld 文字";
-"About" = "このアプリについて";
+"About" = "情報";
 "Version" = "バージョン";
-"Keyboard Added" = "キーボード追加済み";
+"Keyboard Added" = "キーボードを追加済み";
 "Full Access" = "フルアクセス";
-"Experimental Feature: iCloud" = "試験的機能: iCloud";
+"Experimental Feature: iCloud" = "実験的機能: iCloud";
 "Contact Support" = "サポートに連絡";
 "Privacy Policy" = "プライバシーポリシー";
 "Auto-detect Input Types" = "入力タイプを自動検出";
-"Enable iCloud Sync" = "iCloud同期を有効にする";
-"Keep your cutlings in sync across all your devices." = "すべてのデバイスでカットリングを同期します。";
-"Automatically detect and suggest input type categories when editing text." = "テキスト編集時に入力タイプのカテゴリを自動検出して提案します。";
+"Enable iCloud Sync" = "iCloud 同期をオン";
+"Keep your cutlings in sync across all your devices." = "すべてのデバイス間でカットリングを同期させましょう。";
+"Automatically detect and suggest input type categories when editing text." = "テキスト編集時に入力タイプのカテゴリを自動的に検出して提案します。";
 
 /* MARK: - Image Picker */
 "No image selected" = "画像未選択";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "クリップボードの内容で現在のテキストが置き換えられます。";
-"This will replace the current image with whatever is in your clipboard." = "クリップボードの内容で現在の画像が置き換えられます。";
-"This cutling will be automatically deleted at the selected date and time." = "選択した日時にカットリングが自動的に削除されます。";
-"Each text cutling can hold up to %lld characters." = "テキストカットリングは最大%lld文字まで保持できます。";
+"This will replace the current text with whatever is in your clipboard." = "現在のテキストはクリップボードの内容に置き換わります。";
+"This will replace the current image with whatever is in your clipboard." = "現在の画像はクリップボードの内容に置き換わります。";
+"This cutling will be automatically deleted at the selected date and time." = "このカットリングは指定した日時に自動的に削除されます。";
+"Each text cutling can hold up to %lld characters." = "テキストカットリングは最大 %lld 文字まで含められます。";
 
 /* MARK: - Alerts */
 "Limit Reached" = "上限に達しました";
 "Delete Cutling?" = "カットリングを削除しますか？";
-"This action cannot be undone." = "この操作は元に戻せません。";
+"This action cannot be undone." = "この操作は取り消せません。";
 "Cannot add text cutling" = "テキストカットリングを追加できません";
 "Cannot add image cutling" = "画像カットリングを追加できません";
 "Cannot add more text cutlings." = "これ以上テキストカットリングを追加できません。";
 "Cannot add more image cutlings." = "これ以上画像カットリングを追加できません。";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "カットリングの合計上限（%lld）に達しました。いくつか削除してから追加してください。";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "画像カットリングの上限（%lld）に達しました。キーボードのメモリを節約するため制限しています。いくつか削除してから追加してください。";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "テキストカットリングの上限（%lld）に達しました。いくつか削除してから追加してください。";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "カットリングの合計上限 %lld 個に達しました。追加するにはいくつか削除してください。";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "画像カットリングの上限 %lld 個に達しました。画像はキーボードで大きなメモリを使います。追加するには画像をいくつか削除してください。";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "テキストカットリングの上限 %lld 個に達しました。追加するにはいくつか削除してください。";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "入力タイプの候補";
@@ -183,7 +183,7 @@
 "Test Your Keyboard" = "キーボードをテスト";
 "All set! Swipe to continue." = "準備完了！スワイプして続けてください。";
 "Your data stays private and is never sent anywhere." = "データはプライベートに保たれ、外部に送信されることはありません。";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**機密データには不向き** — パスワード、カード番号、秘密鍵、トークンの保存は避けてください";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**機密データには不向き**: パスワード、カード番号、秘密鍵、トークンの保存は避けてください";
 "Set Up Cutling Keyboard" = "カットリングキーボードを設定";
 "What You Can Do" = "できること";
 "Smart Field Suggestions" = "スマートな入力候補";
@@ -206,11 +206,11 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "Siriに頼んで、ハンズフリーでカットリングの追加・コピー・検索ができます。";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "デバイスの**設定**アプリでカットリングを開いてください。";
-"Tap **Keyboards** and enable **Cutling**." = "**キーボード**をタップして、**カットリング**を有効にしてください。";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "**フルアクセスを許可**をオンにして、キーボードがクリップボードに画像をコピーできるようにしてください。";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "下のテキストフィールドをタップし、🌐地球儀キーを使って**カットリング**に切り替えてください。これにより、すべてが正しく設定されていることを確認できます。";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud同期は**実験的な機能**です。すべての状況で正しく動作しない可能性があり、データが失われる場合があります。この設定は後からいつでも設定で変更できます。";
+"Open Cutling in your device's **Settings** app." = "デバイスの **設定** アプリで Cutling を開きます。";
+"Tap **Keyboards** and enable **Cutling**." = "**キーボード** をタップして **Cutling** を有効にします。";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "キーボードが画像をクリップボードにコピーできるよう、**フルアクセスを許可** をオンにします。";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "下のテキストフィールドをタップしてから、🌐 地球儀キーで **Cutling** に切り替えます。これですべてが正しく設定されていることを確認できます。";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud 同期は **実験的機能** です。状況によっては正しく動作せず、データ消失につながる可能性があります。設定からいつでも変更できます。";
 
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "最近削除した項目";
@@ -219,13 +219,13 @@
 "Delete Permanently?" = "完全に削除しますか？";
 "Delete Permanently" = "完全に削除";
 "Recover" = "復元";
-"Items will be permanently deleted after 30 days." = "項目は30日後に完全に削除されます。";
+"Items will be permanently deleted after 30 days." = "項目は 30 日後に完全に削除されます。";
 "No Recently Deleted Items" = "最近削除した項目はありません";
-"Deleted cutlings will appear here for 30 days." = "削除されたカットリングは30日間ここに表示されます。";
-"This will permanently delete all %lld items. This action cannot be undone." = "%lld件の項目をすべて完全に削除します。この操作は元に戻せません。";
-"\"%@\" will be deleted permanently." = "「%@」が完全に削除されます。";
-"1 day left" = "残り1日";
-"%lld days left" = "残り%lld日";
+"Deleted cutlings will appear here for 30 days." = "削除されたカットリングはここに 30 日間表示されます。";
+"This will permanently delete all %lld items. This action cannot be undone." = "%lld 件の項目を完全に削除します。この操作は取り消せません。";
+"\"%@\" will be deleted permanently." = "「%@」は完全に削除されます。";
+"1 day left" = "残り 1 日";
+"%lld days left" = "残り %lld 日";
 
 /* MARK: - Context Menu */
 "Share" = "共有";
@@ -322,23 +322,23 @@
 
 /* MARK: - TipKit */
 "Saved cutlings" = "保存したカットリング";
-"Your pinned snippets live here, ready to copy with one click." = "ピン留めしたスニペットはここに表示され、ワンクリックでコピーできます。";
+"Your pinned snippets live here, ready to copy with one click." = "ピン留めしたスニペットはここに置かれ、ワンクリックでコピーできます。";
 "Recent clipboard" = "最近のクリップボード";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "コピーした内容はすべてここに表示されます。任意の行を右クリックすると、カットリングとして保存できます。";
-"Wipe the list" = "リストを消去";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "コピーしたものはすべてここに届きます。行を右クリックでカットリングとして保存できます。";
+"Wipe the list" = "リストを空に";
 "Empties your recent clipboard. Saved cutlings stay put." = "最近のクリップボードを空にします。保存したカットリングはそのまま残ります。";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "ホットキーの変更、クリップボード取得の切り替え、iCloud同期の管理ができます。";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "ホットキーを再割り当てしたり、クリップボードキャプチャを切り替えたり、iCloud 同期を管理しましょう。";
 "Undo deletes" = "削除を取り消す";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "削除されたカットリングはここに30日間保存されます。復元するか、完全に削除できます。";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "ここをタップすると、複数のカットリングを選択したり、並べ替えたり、最近削除した項目を復元したりできます。";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "削除したカットリングはここに 30 日間残ります。復元するか完全に空にしましょう。";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "ここをタップして、複数のカットリングを選択、並べ替え、または最近削除した項目の復元ができます。";
 "Long-press a cutling" = "カットリングを長押し";
-"Hold any card for quick actions: copy, edit, share, or delete." = "任意のカードを長押しすると、コピー、編集、共有、削除のクイックアクションを利用できます。";
+"Hold any card for quick actions: copy, edit, share, or delete." = "任意のカードを長押しすると、コピー、編集、共有、削除のクイックアクションが表示されます。";
 "Drag to select" = "ドラッグで選択";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "カードの上をスワイプして範囲選択します。もう一度スワイプすると選択を解除できます。";
-"Smart field matching" = "スマートフィールドマッチング";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "カットリングがメール、URL、電話番号、住所の入力欄を検知し、一致するスニペットをキーボードの上部に表示します。";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "カードの上をスワイプして範囲選択します。逆方向にスワイプすると選択解除できます。";
+"Smart field matching" = "スマートフィールド照合";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "カットリングはメール、URL、電話番号、住所のフィールドを検出し、一致するスニペットをキーボード上部に表示します。";
 "Create a new cutling" = "新しいカットリングを作成";
-"Save text or image snippets you'll reuse from any app." = "どのアプリからでも再利用できるテキストや画像のスニペットを保存します。";
+"Save text or image snippets you'll reuse from any app." = "どのアプリからでも再利用したいテキストや画像のスニペットを保存しましょう。";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "カットリングへようこそ";
@@ -359,3 +359,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "使用中のAppにカットリングを直接貼り付けられるようにします。";
 "Grant" = "許可する";
 "You can skip Accessibility and grant it later from Settings → Paste." = "アクセシビリティはスキップして、あとから設定 → ペーストで許可することもできます。";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "ファイルとして保存…";
+"Image Saving" = "画像の保存";
+"When saving images" = "画像を保存するとき";
+"Ask each time" = "毎回確認する";
+"Save to folder" = "フォルダに保存";
+"Folder" = "フォルダ";
+"Change Folder…" = "フォルダを変更…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "画像カットリングに対する「ファイルとして保存」操作の動作を選択します。「フォルダに保存」を選ぶと、画像は確認なしで、選択したフォルダに一意のファイル名で直接保存されます。";
+"Choose" = "選択";
+"Choose Image Folder" = "画像フォルダを選択";
+"Pick a folder where Cutling will save image cutlings." = "カットリングが画像カットリングを保存するフォルダを選択してください。";
+"Preview" = "プレビュー";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "保存済み";
+"History" = "履歴";
+"No saved cutlings yet" = "保存されたカットリングはまだありません";
+"Copy something to see it here" = "何かをコピーするとここに表示されます";
+"Clipboard history is off. Enable it in Settings." = "クリップボード履歴がオフです。設定でオンにしてください。";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Spotlight 検索に含める";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "カットリングを Spotlight から検索できるようにします。機密情報（クレジットカード、API キー、JWT トークン、シードフレーズ、秘密鍵）は決してインデックス化されません。";
+"Copy Cutling" = "カットリングをコピー";
+"Copy a cutling's contents to the clipboard." = "カットリングの内容をクリップボードにコピーします。";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "これらのフレーズを Siri で使うか、ショートカット App ですべての Cutling ショートカットを参照しましょう。";
+"Copied \"%@\"" = "「%@」をコピーしました";

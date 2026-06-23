@@ -1,8 +1,8 @@
 /* MARK: - Navigation & Titles */
 "My Cutlings" = "Meine Cutlings";
-"Select Items" = "Elemente auswählen";
+"Select Items" = "Objekte auswählen";
 "%lld Selected" = "%lld ausgewählt";
-"Reorder" = "Neuanordnung";
+"Reorder" = "Neu anordnen";
 "Settings" = "Einstellungen";
 "Keyboard Setup" = "Tastatur einrichten";
 "New" = "Neu";
@@ -28,7 +28,7 @@
 "Image Cutling" = "Bild-Cutling";
 "Select Cutlings" = "Cutlings auswählen";
 "Reorder Cutlings" = "Cutlings neu anordnen";
-"Keyboard Setup Guide" = "Tastatur-Einrichtungsanleitung";
+"Keyboard Setup Guide" = "Anleitung zur Tastatureinrichtung";
 "Name (A → Z)" = "Name (A → Z)";
 "Name (Z → A)" = "Name (Z → A)";
 "Text First" = "Text zuerst";
@@ -40,12 +40,12 @@
 /* MARK: - Empty States */
 "No Cutlings Yet" = "Noch keine Cutlings";
 "No Results" = "Keine Ergebnisse";
-"Tap + to add your first cutling." = "Tippe auf +, um dein erstes Cutling hinzuzufügen.";
-"Try a different search term." = "Versuche einen anderen Suchbegriff.";
+"Tap + to add your first cutling." = "Tippe auf +, um deinen ersten Cutling hinzuzufügen.";
+"Try a different search term." = "Probier einen anderen Suchbegriff.";
 
 /* MARK: - Search */
-"Search cutlings" = "Cutlings suchen";
-"Search icons" = "Symbole suchen";
+"Search cutlings" = "Cutlings durchsuchen";
+"Search icons" = "Symbole durchsuchen";
 
 /* MARK: - Form Labels */
 "Name" = "Name";
@@ -83,40 +83,40 @@
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
-"iCloud Sync" = "iCloud-Synchronisation";
-"Sync your cutlings across all your devices using iCloud." = "Synchronisiere deine Cutlings mit iCloud auf allen Geräten.";
+"iCloud Sync" = "iCloud-Sync";
+"Sync your cutlings across all your devices using iCloud." = "Synchronisiere deine Cutlings auf allen deinen Geräten über iCloud.";
 "Storage" = "Speicher";
 "Text Cutlings" = "Text-Cutlings";
 "Image Cutlings" = "Bild-Cutlings";
-"Total Cutlings" = "Cutlings gesamt";
+"Total Cutlings" = "Cutlings insgesamt";
 "Disk Usage" = "Speichernutzung";
 "Status" = "Status";
 "Syncing…" = "Wird synchronisiert…";
 "Up to date" = "Aktuell";
 "Sync Now" = "Jetzt synchronisieren";
-"Turn On iCloud Sync" = "iCloud-Synchronisation aktivieren";
-"Max Text Length" = "Max. Textlänge";
+"Turn On iCloud Sync" = "iCloud-Sync aktivieren";
+"Max Text Length" = "Maximale Textlänge";
 "%lld chars" = "%lld Zeichen";
-"About" = "Info";
+"About" = "Über";
 "Version" = "Version";
 "Keyboard Added" = "Tastatur hinzugefügt";
-"Full Access" = "Vollzugriff";
+"Full Access" = "Vollständiger Zugriff";
 "Experimental Feature: iCloud" = "Experimentelle Funktion: iCloud";
 "Contact Support" = "Support kontaktieren";
 "Privacy Policy" = "Datenschutzrichtlinie";
 "Auto-detect Input Types" = "Eingabetypen automatisch erkennen";
-"Enable iCloud Sync" = "iCloud-Synchronisierung aktivieren";
-"Keep your cutlings in sync across all your devices." = "Halte deine Cutlings auf allen Geräten synchron.";
-"Automatically detect and suggest input type categories when editing text." = "Eingabetypkategorien beim Bearbeiten von Text automatisch erkennen und vorschlagen.";
+"Enable iCloud Sync" = "iCloud-Sync aktivieren";
+"Keep your cutlings in sync across all your devices." = "Halte deine Cutlings auf allen deinen Geräten synchron.";
+"Automatically detect and suggest input type categories when editing text." = "Erkennt und schlägt beim Bearbeiten von Text automatisch Eingabetypkategorien vor.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Kein Bild ausgewählt";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "Dadurch wird der aktuelle Text durch den Inhalt der Zwischenablage ersetzt.";
-"This will replace the current image with whatever is in your clipboard." = "Dadurch wird das aktuelle Bild durch den Inhalt der Zwischenablage ersetzt.";
-"This cutling will be automatically deleted at the selected date and time." = "Dieses Cutling wird zum ausgewählten Datum und Uhrzeit automatisch gelöscht.";
-"Each text cutling can hold up to %lld characters." = "Jedes Text-Cutling kann bis zu %lld Zeichen enthalten.";
+"This will replace the current text with whatever is in your clipboard." = "Damit wird der aktuelle Text durch den Inhalt deiner Zwischenablage ersetzt.";
+"This will replace the current image with whatever is in your clipboard." = "Damit wird das aktuelle Bild durch den Inhalt deiner Zwischenablage ersetzt.";
+"This cutling will be automatically deleted at the selected date and time." = "Dieser Cutling wird zum gewählten Datum und zur gewählten Zeit automatisch gelöscht.";
+"Each text cutling can hold up to %lld characters." = "Jeder Text-Cutling kann bis zu %lld Zeichen enthalten.";
 
 /* MARK: - Alerts */
 "Limit Reached" = "Limit erreicht";
@@ -124,13 +124,13 @@
 "This action cannot be undone." = "Diese Aktion kann nicht rückgängig gemacht werden.";
 "Cannot add text cutling" = "Text-Cutling kann nicht hinzugefügt werden";
 "Cannot add image cutling" = "Bild-Cutling kann nicht hinzugefügt werden";
-"Cannot add more text cutlings." = "Keine weiteren Text-Cutlings können hinzugefügt werden.";
-"Cannot add more image cutlings." = "Keine weiteren Bild-Cutlings können hinzugefügt werden.";
+"Cannot add more text cutlings." = "Es können keine weiteren Text-Cutlings hinzugefügt werden.";
+"Cannot add more image cutlings." = "Es können keine weiteren Bild-Cutlings hinzugefügt werden.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Du hast das Maximum von %lld Cutlings erreicht. Lösche einige, um weitere hinzuzufügen.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Du hast das Maximum von %lld Bild-Cutlings erreicht. Bilder verbrauchen viel Speicher. Lösche einige, um weitere hinzuzufügen.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Du hast das Maximum von %lld Text-Cutlings erreicht. Lösche einige, um weitere hinzuzufügen.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Du hast das Maximum von %lld Cutlings insgesamt erreicht. Lösche einige, um mehr hinzuzufügen.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Du hast das Maximum von %lld Bild-Cutlings erreicht. Bilder belegen in der Tastatur viel Speicher. Lösche einige Bilder, um mehr hinzuzufügen.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Du hast das Maximum von %lld Text-Cutlings erreicht. Lösche einige, um mehr hinzuzufügen.";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Eingabetyp-Vorschläge";
@@ -163,14 +163,14 @@
 "Set Up Your Keyboard" = "Tastatur einrichten";
 "Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Deine Cutling-Tastatur ist bereit! Tippe beim Schreiben auf das 🌐 Globus-Symbol, um zu Cutling zu wechseln.";
 "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Folge den zwei einfachen Schritten unten, um deine benutzerdefinierte Tastatur zu verwenden. Diese Seite wird automatisch aktualisiert.";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Schritt 1:** Tippe auf „Cutling-Einstellungen öffnen\", gehe zu **Tastaturen** und wähle **Cutling** aus der Liste.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Schritt 1:** Tippe auf „Cutling-Einstellungen öffnen“, gehe zu **Tastaturen** und wähle **Cutling** aus der Liste.";
 "**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Schritt 2:** Stelle sicher, dass **Vollzugriff erlauben** aktiviert ist. So kann die Tastatur Bilder in die Zwischenablage kopieren. Deine Daten bleiben privat.";
-"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Schritt 3:** Tippe auf das Texteingabefeld und wähle „Cutling\" über das 🌐 Globus-Symbol, um den „Vollzugriff\"-Status zu aktualisieren.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Schritt 3:** Tippe auf das Texteingabefeld und wähle „Cutling“ über das 🌐 Globus-Symbol, um den „Vollzugriff“-Status zu aktualisieren.";
 "**Step 4:** You're good to go! The usage guide is provided below." = "**Schritt 4:** Du bist startklar! Die Anleitung findest du unten.";
 "While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Tippe oder halte in jeder App die 🌐 Globus-Taste unten links auf der Tastatur, dann wähle Cutling";
 "Tap any text cutling and it will be typed into your current text field immediately" = "Tippe auf ein Text-Cutling, um es sofort in das aktuelle Textfeld einzufügen";
-"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Tippe auf ein Bild-Cutling, um es in die Zwischenablage zu kopieren, und füge es dann in die gewünschte App ein (meist mit langem Tippen und „Einsetzen\"). Apple unterstützt derzeit kein direktes Einfügen von Bildern in diese App.";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Kopiere Text und tippe dann in der Cutling-Tastatur auf „Aus Zwischenablage hinzufügen\", um ihn als neues Cutling zu speichern";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Tippe auf ein Bild-Cutling, um es in die Zwischenablage zu kopieren, und füge es dann in die gewünschte App ein (meist mit langem Tippen und „Einsetzen“). Apple unterstützt derzeit kein direktes Einfügen von Bildern in diese App.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Kopiere Text und tippe dann in der Cutling-Tastatur auf „Aus Zwischenablage hinzufügen“, um ihn als neues Cutling zu speichern";
 "You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Verwalte alle deine Cutlings in der Cutling-App. Änderungen erscheinen sofort in deiner Tastatur.";
 "Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Tastatur-Erweiterungen haben strenge Speicherlimits für die Systemstabilität. Da Bilder mehr Speicher als Text benötigen, limitieren wir sie. Bei Erreichen des Limits einfach einige Cutlings löschen.";
 "Up to **%lld text** cutlings" = "Bis zu **%lld Text**-Cutlings";
@@ -183,7 +183,7 @@
 "Test Your Keyboard" = "Tastatur testen";
 "All set! Swipe to continue." = "Alles bereit! Wische, um fortzufahren.";
 "Your data stays private and is never sent anywhere." = "Deine Daten bleiben privat und werden nirgendwohin gesendet.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Nicht für sensible Daten** — vermeide das Speichern von Passwörtern, Kartennummern, privaten Schlüsseln oder Tokens";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Nicht für sensible Daten**: vermeide das Speichern von Passwörtern, Kartennummern, privaten Schlüsseln oder Tokens";
 "Set Up Cutling Keyboard" = "Cutling-Tastatur einrichten";
 "What You Can Do" = "Was du tun kannst";
 "Smart Field Suggestions" = "Intelligente Feldvorschläge";
@@ -206,11 +206,11 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "Bitte Siri freihändig deine Cutlings hinzuzufügen, zu kopieren oder zu durchsuchen.";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "Öffne Cutling in der **Einstellungen**-App deines Geräts.";
+"Open Cutling in your device's **Settings** app." = "Öffne Cutling in der App **Einstellungen** auf deinem Gerät.";
 "Tap **Keyboards** and enable **Cutling**." = "Tippe auf **Tastaturen** und aktiviere **Cutling**.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Aktiviere **Vollzugriff erlauben**, damit die Tastatur Bilder in die Zwischenablage kopieren kann.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Tippe auf das Textfeld unten und verwende die 🌐 Globus-Taste, um zu **Cutling** zu wechseln. Dies bestätigt, dass alles korrekt eingerichtet ist.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud-Synchronisierung ist eine **experimentelle Funktion**. Sie funktioniert möglicherweise nicht in allen Situationen korrekt, was zu Datenverlust führen kann. Du kannst dies jederzeit in den Einstellungen ändern.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Aktiviere **Vollständigen Zugriff erlauben**, damit die Tastatur Bilder in deine Zwischenablage kopieren kann.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Tippe auf das Textfeld unten und nutze dann die 🌐 Globus-Taste, um zu **Cutling** zu wechseln. Damit prüfst du, dass alles korrekt eingerichtet ist.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud-Sync ist eine **experimentelle Funktion**. Sie funktioniert möglicherweise nicht in allen Situationen korrekt, was zu Datenverlust führen kann. Du kannst das jederzeit später in den Einstellungen ändern.";
 
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "Zuletzt gelöscht";
@@ -221,11 +221,11 @@
 "Recover" = "Wiederherstellen";
 "Items will be permanently deleted after 30 days." = "Objekte werden nach 30 Tagen endgültig gelöscht.";
 "No Recently Deleted Items" = "Keine zuletzt gelöschten Objekte";
-"Deleted cutlings will appear here for 30 days." = "Gelöschte Cutlings werden hier 30 Tage lang angezeigt.";
-"This will permanently delete all %lld items. This action cannot be undone." = "Alle %lld Objekte werden endgültig gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.";
-"\"%@\" will be deleted permanently." = "\"%@\" wird endgültig gelöscht.";
-"1 day left" = "1 Tag verbleibend";
-"%lld days left" = "%lld Tage verbleibend";
+"Deleted cutlings will appear here for 30 days." = "Gelöschte Cutlings erscheinen hier 30 Tage lang.";
+"This will permanently delete all %lld items. This action cannot be undone." = "Damit werden %lld Objekte endgültig gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.";
+"\"%@\" will be deleted permanently." = "„%@“ wird endgültig gelöscht.";
+"1 day left" = "Noch 1 Tag";
+"%lld days left" = "Noch %lld Tage";
 
 /* MARK: - Context Menu */
 "Share" = "Teilen";
@@ -321,24 +321,24 @@
 "Failed to save image." = "Bild konnte nicht gespeichert werden.";
 
 /* MARK: - TipKit */
-"Saved cutlings" = "Gespeicherte Cutlings";
-"Your pinned snippets live here, ready to copy with one click." = "Deine angepinnten Snippets findest du hier, bereit zum Kopieren mit einem Klick.";
-"Recent clipboard" = "Letzte Zwischenablage";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "Alles, was du kopierst, landet hier. Rechtsklicke auf eine Zeile, um sie als Cutling zu speichern.";
+"Saved cutlings" = "Gesicherte Cutlings";
+"Your pinned snippets live here, ready to copy with one click." = "Deine angepinnten Schnipsel leben hier, bereit zum Kopieren mit einem Klick.";
+"Recent clipboard" = "Aktuelle Zwischenablage";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Alles, was du kopierst, landet hier. Klick mit der rechten Maustaste auf eine Zeile, um sie als Cutling zu sichern.";
 "Wipe the list" = "Liste leeren";
-"Empties your recent clipboard. Saved cutlings stay put." = "Leert deine letzte Zwischenablage. Gespeicherte Cutlings bleiben erhalten.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Tastenkürzel neu belegen, Zwischenablage-Erfassung umschalten und iCloud-Synchronisation verwalten.";
+"Empties your recent clipboard. Saved cutlings stay put." = "Leert deine aktuelle Zwischenablage. Gesicherte Cutlings bleiben.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Kurzbefehl neu belegen, Zwischenablage-Erfassung umschalten und iCloud-Sync verwalten.";
 "Undo deletes" = "Löschungen rückgängig machen";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Gelöschte Cutlings bleiben hier 30 Tage lang. Stelle sie wieder her oder lösche sie endgültig.";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Gelöschte Cutlings bleiben hier 30 Tage. Stelle sie wieder her oder lösche sie endgültig.";
 "Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Tippe hier, um mehrere Cutlings auszuwählen, neu anzuordnen oder zuletzt gelöschte wiederherzustellen.";
 "Long-press a cutling" = "Cutling lange drücken";
-"Hold any card for quick actions: copy, edit, share, or delete." = "Halte eine Karte gedrückt für Schnellaktionen: Kopieren, Bearbeiten, Teilen oder Löschen.";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Halte eine beliebige Karte gedrückt für Schnellaktionen: kopieren, bearbeiten, teilen oder löschen.";
 "Drag to select" = "Zum Auswählen ziehen";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "Wische über Karten, um einen Bereich auszuwählen. Wische zurück darüber, um die Auswahl aufzuheben.";
-"Smart field matching" = "Intelligente Felderkennung";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling erkennt E-Mail-, URL-, Telefon- und Adressfelder und blendet passende Snippets oben auf der Tastatur ein.";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Wische über die Karten, um einen Bereich auszuwählen. Wische zurück, um die Auswahl aufzuheben.";
+"Smart field matching" = "Intelligente Feldzuordnung";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling erkennt E-Mail-, URL-, Telefon- und Adressfelder und schiebt passende Schnipsel an den oberen Rand der Tastatur.";
 "Create a new cutling" = "Neuen Cutling erstellen";
-"Save text or image snippets you'll reuse from any app." = "Speichere Text- oder Bildausschnitte, die du in jeder App wiederverwenden kannst.";
+"Save text or image snippets you'll reuse from any app." = "Sichere Text- oder Bildschnipsel, die du in jeder App wiederverwenden willst.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "Willkommen bei Cutling";
@@ -359,3 +359,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "Erlaubt Cutling, ein Cutling direkt in die App einzufügen, die du gerade verwendet hast.";
 "Grant" = "Erteilen";
 "You can skip Accessibility and grant it later from Settings → Paste." = "Du kannst die Bedienungshilfen überspringen und sie später unter Einstellungen → Einfügen erteilen.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "Als Datei sichern…";
+"Image Saving" = "Bildsicherung";
+"When saving images" = "Beim Sichern von Bildern";
+"Ask each time" = "Jedes Mal fragen";
+"Save to folder" = "In Ordner sichern";
+"Folder" = "Ordner";
+"Change Folder…" = "Ordner ändern…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "Lege fest, wie die Aktion „Als Datei sichern“ für Bild-Cutlings funktioniert. Mit „In Ordner sichern“ werden Bilder direkt im gewählten Ordner mit einem eindeutigen Dateinamen abgelegt, ohne Nachfrage.";
+"Choose" = "Auswählen";
+"Choose Image Folder" = "Bildordner auswählen";
+"Pick a folder where Cutling will save image cutlings." = "Wähle einen Ordner, in dem Cutling Bild-Cutlings sichert.";
+"Preview" = "Vorschau";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "Gesichert";
+"History" = "Verlauf";
+"No saved cutlings yet" = "Noch keine gesicherten Cutlings";
+"Copy something to see it here" = "Kopiere etwas, um es hier zu sehen";
+"Clipboard history is off. Enable it in Settings." = "Der Zwischenablage-Verlauf ist aus. Aktiviere ihn in den Einstellungen.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "In Spotlight-Suche einbeziehen";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "Mache deine Cutlings über Spotlight durchsuchbar. Sensible Inhalte (Kreditkarten, API-Schlüssel, JWT-Tokens, Seed-Phrasen, private Schlüssel) werden niemals indiziert.";
+"Copy Cutling" = "Cutling kopieren";
+"Copy a cutling's contents to the clipboard." = "Kopiert den Inhalt eines Cutlings in die Zwischenablage.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Nutze diese Sätze mit Siri oder durchstöbere alle Cutling-Kurzbefehle in der App Kurzbefehle.";
+"Copied \"%@\"" = "„%@“ kopiert";

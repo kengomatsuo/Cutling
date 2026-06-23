@@ -137,8 +137,10 @@ private struct GeneralSettingsTab: View {
     @AppStorage("autoDetectInputTypes") private var autoDetectInputTypes = true
     @AppStorage("hasOnboarded") private var hasOnboarded = false
     @AppStorage("showMenuBarIcon") private var showMenuBarIcon = true
+    @AppStorage("imageSaveBehavior") private var imageSaveBehaviorRaw = ImageSaveService.Behavior.ask.rawValue
     @Environment(\.openWindow) private var openWindow
     @State private var launchAtLogin = LaunchAtLoginService.shared.isEnabled
+    @State private var imageFolderPath: String = ImageSaveService.shared.savedFolderDisplayPath
 
     var body: some View {
         Form {
@@ -192,6 +194,52 @@ private struct GeneralSettingsTab: View {
                 }
             } footer: {
                 Text("Suggest input type categories (email, URL, phone, name, address) when editing text cutlings.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+
+            Section {
+                Picker(selection: $imageSaveBehaviorRaw) {
+                    Text("Ask each time").tag(ImageSaveService.Behavior.ask.rawValue)
+                    Text("Save to folder").tag(ImageSaveService.Behavior.autoFolder.rawValue)
+                } label: {
+                    Label("When saving images", systemImage: "square.and.arrow.down")
+                }
+                .pickerStyle(.menu)
+                .onChange(of: imageSaveBehaviorRaw) { _, newValue in
+                    // First-time switch to auto-folder with no folder set:
+                    // prompt the user to pick one immediately so the option
+                    // isn't a black hole.
+                    if newValue == ImageSaveService.Behavior.autoFolder.rawValue,
+                       ImageSaveService.shared.savedFolderURL == nil {
+                        if ImageSaveService.shared.chooseFolder() == nil {
+                            // User cancelled the picker; revert so the menu
+                            // doesn't claim auto-folder is active without
+                            // a folder.
+                            imageSaveBehaviorRaw = ImageSaveService.Behavior.ask.rawValue
+                        }
+                        imageFolderPath = ImageSaveService.shared.savedFolderDisplayPath
+                    }
+                }
+
+                if imageSaveBehaviorRaw == ImageSaveService.Behavior.autoFolder.rawValue {
+                    LabeledContent("Folder") {
+                        Text(imageFolderPath)
+                            .foregroundStyle(.secondary)
+                            .lineLimit(1)
+                            .truncationMode(.middle)
+                            .help(imageFolderPath)
+                    }
+                    Button("Change Folder\u{2026}") {
+                        if ImageSaveService.shared.chooseFolder() != nil {
+                            imageFolderPath = ImageSaveService.shared.savedFolderDisplayPath
+                        }
+                    }
+                }
+            } header: {
+                Text("Image Saving")
+            } footer: {
+                Text("Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt.")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }

@@ -1,14 +1,14 @@
 /* MARK: - Navigation & Titles */
-"My Cutlings" = "Cutlings Zangu";
-"Select Items" = "Chagua Vipengee";
-"%lld Selected" = "%lld Vimechaguliwa";
-"Reorder" = "Panga Upya";
+"My Cutlings" = "Cutling Zangu";
+"Select Items" = "Chagua vitu";
+"%lld Selected" = "%lld vimechaguliwa";
+"Reorder" = "Panga upya";
 "Settings" = "Mipangilio";
-"Keyboard Setup" = "Usanidi wa Kibodi";
+"Keyboard Setup" = "Kuweka kibodi";
 "New" = "Mpya";
-"Choose Icon" = "Chagua Ikoni";
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Maandishi, %lld/%lld Picha";
-"%lld Cutlings" = "%lld Cutling";
+"Choose Icon" = "Chagua ikoni";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld maandishi, %lld/%lld picha";
+"%lld Cutlings" = "Cutling %lld";
 "Cutlings" = "Cutling";
 
 /* MARK: - Common Actions */
@@ -24,27 +24,27 @@
 "Delete Selected" = "Futa Zilizochaguliwa";
 
 /* MARK: - Menu Items */
-"Text Cutling" = "Cutling ya Maandishi";
-"Image Cutling" = "Cutling ya Picha";
-"Select Cutlings" = "Chagua Cutlings";
-"Reorder Cutlings" = "Panga Cutlings Upya";
-"Keyboard Setup Guide" = "Mwongozo wa Usanidi wa Kibodi";
+"Text Cutling" = "Cutling ya maandishi";
+"Image Cutling" = "Cutling ya picha";
+"Select Cutlings" = "Chagua Cutling";
+"Reorder Cutlings" = "Panga upya Cutling";
+"Keyboard Setup Guide" = "Mwongozo wa kuweka kibodi";
 "Name (A → Z)" = "Jina (A → Z)";
 "Name (Z → A)" = "Jina (Z → A)";
-"Text First" = "Maandishi Kwanza";
-"Images First" = "Picha Kwanza";
-"Shortest First" = "Fupi Kwanza";
-"Longest First" = "Ndefu Kwanza";
-"Reverse Order" = "Mpangilio wa Nyuma";
+"Text First" = "Maandishi kwanza";
+"Images First" = "Picha kwanza";
+"Shortest First" = "Fupi zaidi kwanza";
+"Longest First" = "Ndefu zaidi kwanza";
+"Reverse Order" = "Mpangilio wa kinyume";
 
 /* MARK: - Empty States */
-"No Cutlings Yet" = "Hakuna Cutlings Bado";
-"No Results" = "Hakuna Matokeo";
-"Tap + to add your first cutling." = "Gusa + kuongeza cutling yako ya kwanza.";
-"Try a different search term." = "Jaribu neno tofauti la utafutaji.";
+"No Cutlings Yet" = "Bado hakuna Cutling";
+"No Results" = "Hakuna matokeo";
+"Tap + to add your first cutling." = "Gusa + ili kuongeza cutling yako ya kwanza.";
+"Try a different search term." = "Jaribu neno lingine la utafutaji.";
 
 /* MARK: - Search */
-"Search cutlings" = "Tafuta cutlings";
+"Search cutlings" = "Tafuta cutling";
 "Search icons" = "Tafuta ikoni";
 
 /* MARK: - Form Labels */
@@ -84,60 +84,60 @@
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
 "iCloud Sync" = "Usawazishaji wa iCloud";
-"Sync your cutlings across all your devices using iCloud." = "Sawazisha cutlings zako kwenye vifaa vyako vyote kwa kutumia iCloud.";
+"Sync your cutlings across all your devices using iCloud." = "Sawazisha Cutling zako katika vifaa vyako vyote ukitumia iCloud.";
 "Storage" = "Hifadhi";
-"Text Cutlings" = "Cutlings za Maandishi";
-"Image Cutlings" = "Cutlings za Picha";
-"Total Cutlings" = "Jumla ya Cutlings";
-"Disk Usage" = "Matumizi ya Diski";
+"Text Cutlings" = "Cutling za maandishi";
+"Image Cutlings" = "Cutling za picha";
+"Total Cutlings" = "Jumla ya Cutling";
+"Disk Usage" = "Matumizi ya diski";
 "Status" = "Hali";
 "Syncing…" = "Inasawazisha…";
-"Up to date" = "Ya hivi karibuni";
-"Sync Now" = "Sawazisha Sasa";
-"Turn On iCloud Sync" = "Washa Usawazishaji wa iCloud";
-"Max Text Length" = "Urefu wa Juu wa Maandishi";
-"%lld chars" = "herufi %lld";
+"Up to date" = "Imesasishwa";
+"Sync Now" = "Sawazisha sasa";
+"Turn On iCloud Sync" = "Washa usawazishaji wa iCloud";
+"Max Text Length" = "Urefu wa juu wa maandishi";
+"%lld chars" = "Herufi %lld";
 "About" = "Kuhusu";
 "Version" = "Toleo";
-"Keyboard Added" = "Kibodi Imeongezwa";
-"Full Access" = "Ufikiaji Kamili";
-"Experimental Feature: iCloud" = "Kipengele cha Majaribio: iCloud";
-"Contact Support" = "Wasiliana na Msaada";
-"Privacy Policy" = "Sera ya Faragha";
-"Auto-detect Input Types" = "Tambua Aina za Ingizo Kiotomatiki";
-"Enable iCloud Sync" = "Wezesha Usawazishaji wa iCloud";
-"Keep your cutlings in sync across all your devices." = "Weka cutlings zako zikiwa zimesawazishwa katika vifaa vyako vyote.";
-"Automatically detect and suggest input type categories when editing text." = "Tambua na pendekeza kategoria za aina za ingizo kiotomatiki unapohariri maandishi.";
+"Keyboard Added" = "Kibodi imeongezwa";
+"Full Access" = "Ufikiaji kamili";
+"Experimental Feature: iCloud" = "Kipengele cha majaribio: iCloud";
+"Contact Support" = "Wasiliana na usaidizi";
+"Privacy Policy" = "Sera ya faragha";
+"Auto-detect Input Types" = "Tambua aina za uingizaji kiotomatiki";
+"Enable iCloud Sync" = "Washa usawazishaji wa iCloud";
+"Keep your cutlings in sync across all your devices." = "Weka Cutling zako zikiwa zimesawazishwa katika vifaa vyako vyote.";
+"Automatically detect and suggest input type categories when editing text." = "Hutambua na kupendekeza aina za kategoria za uingizaji kiotomatiki unapohariri maandishi.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Hakuna picha iliyochaguliwa";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "Hii itabadilisha maandishi ya sasa na chochote kilicho kwenye ubao wako wa kunakili.";
-"This will replace the current image with whatever is in your clipboard." = "Hii itabadilisha picha ya sasa na chochote kilicho kwenye ubao wako wa kunakili.";
-"This cutling will be automatically deleted at the selected date and time." = "Cutling hii itafutwa kiotomatiki katika tarehe na saa iliyochaguliwa.";
-"Each text cutling can hold up to %lld characters." = "Kila cutling ya maandishi inaweza kushikilia hadi herufi %lld.";
+"This will replace the current text with whatever is in your clipboard." = "Hii itabadilisha maandishi ya sasa na kile kilichopo kwenye ubao wako wa kunakili.";
+"This will replace the current image with whatever is in your clipboard." = "Hii itabadilisha picha ya sasa na kile kilichopo kwenye ubao wako wa kunakili.";
+"This cutling will be automatically deleted at the selected date and time." = "Cutling hii itafutwa kiotomatiki tarehe na saa zilizochaguliwa.";
+"Each text cutling can hold up to %lld characters." = "Kila Cutling ya maandishi inaweza kushikilia hadi herufi %lld.";
 
 /* MARK: - Alerts */
-"Limit Reached" = "Kikomo Kimefikiwa";
+"Limit Reached" = "Kikomo kimefikiwa";
 "Delete Cutling?" = "Futa Cutling?";
-"This action cannot be undone." = "Kitendo hiki hakiwezi kutendulishwa.";
-"Cannot add text cutling" = "Haiwezi kuongeza cutling ya maandishi";
-"Cannot add image cutling" = "Haiwezi kuongeza cutling ya picha";
-"Cannot add more text cutlings." = "Haiwezi kuongeza cutlings zaidi za maandishi.";
-"Cannot add more image cutlings." = "Haiwezi kuongeza cutlings zaidi za picha.";
+"This action cannot be undone." = "Kitendo hiki hakiwezi kutenduliwa.";
+"Cannot add text cutling" = "Haiwezi kuongeza Cutling ya maandishi";
+"Cannot add image cutling" = "Haiwezi kuongeza Cutling ya picha";
+"Cannot add more text cutlings." = "Haiwezi kuongeza Cutling zaidi za maandishi.";
+"Cannot add more image cutlings." = "Haiwezi kuongeza Cutling zaidi za picha.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Umefika kikomo cha cutlings %lld kwa jumla. Futa baadhi ili kuongeza zaidi.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Umefika kikomo cha cutlings %lld za picha. Picha hutumia kumbukumbu nyingi kwenye kibodi. Futa picha baadhi ili kuongeza zaidi.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Umefika kikomo cha cutlings %lld za maandishi. Futa baadhi ili kuongeza zaidi.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Umefikia upeo wa Cutling %lld jumla. Futa baadhi ili kuongeza zaidi.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Umefikia upeo wa Cutling %lld za picha. Picha hutumia kumbukumbu nyingi kwenye kibodi. Futa picha kadhaa ili kuongeza zaidi.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Umefikia upeo wa Cutling %lld za maandishi. Futa baadhi ili kuongeza zaidi.";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Mapendekezo ya Aina ya Ingizo";
 "Suggest for Input Types" = "Pendekeza kwa Aina za Ingizo";
-"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Unapolenga sehemu ya maandishi ya aina inayolingana, cutling hii itaonekana juu ya kibodi.";
-"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Tenga cutlings kwa aina za ingizo ili zionekane juu ya kibodi unapolenga sehemu ya maandishi inayolingana.";
-"No cutlings yet. Add some first." = "Hakuna cutlings bado. Ongeza baadhi kwanza.";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Unapolenga sehemu ya maandishi ya aina inayolingana, Cutling hii itaonekana juu ya kibodi.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Tenga Cutling kwa aina za ingizo ili zionekane juu ya kibodi unapolenga sehemu ya maandishi inayolingana.";
+"No cutlings yet. Add some first." = "Hakuna Cutling bado. Ongeza baadhi kwanza.";
 "Suggested" = "Iliyopendekezwa";
 "Email" = "Barua pepe";
 "URL" = "URL";
@@ -168,13 +168,13 @@
 "**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Hatua ya 3:** Gusa ingizo la maandishi na uchague \"Cutling\" kwa kutumia ikoni ya 🌐 ulimwengu kwenye kibodi yako ili kusasisha hali ya \"Ufikiaji Kamili\".";
 "**Step 4:** You're good to go! The usage guide is provided below." = "**Hatua ya 4:** Uko tayari kwenda! Mwongozo wa matumizi umetolewa hapa chini.";
 "While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Unapoandika katika programu yoyote, gusa au shikilia kitufe cha 🌐 ulimwengu chini-kushoto ya kibodi yako, kisha uchague Cutling";
-"Tap any text cutling and it will be typed into your current text field immediately" = "Gusa cutling yoyote ya maandishi na itaandikwa kwenye sehemu yako ya sasa ya maandishi mara moja";
-"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Gusa cutling ya picha kuinakili kwenye ubao wako wa kunakili, kisha ibandike kwenye programu unayotumia (kawaida kwa kugusa na kushikilia, kisha kuchagua Bandika). Apple kwa sasa haiauni kubandika picha moja kwa moja kwenye programu hii.";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Nakili maandishi yoyote, kisha gusa kitufe cha 'Ongeza kutoka Ubao wa Kunakili' kwenye kibodi ya Cutling ili kuihifadhi kama cutling mpya";
-"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Unaweza kudhibiti cutlings zako zote kwenye programu kuu ya Cutling. Mabadiliko unayofanya yataonekana mara moja kwenye kibodi yako.";
-"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Viendelezi vya kibodi vina vikomo vikali vya kumbukumbu ili kuhakikisha utulivu wa mfumo. Picha hutumia kumbukumbu zaidi kuliko maandishi, kwa hivyo tunaziwekea vikomo ili kuhakikisha kibodi yako inabaki haraka na ya kuaminika. Ukifika kikomo, futa tu cutlings baadhi ili kuongeza mpya.";
-"Up to **%lld text** cutlings" = "Hadi cutlings **%lld za maandishi**";
-"Up to **%lld image** cutlings" = "Hadi cutlings **%lld za picha**";
+"Tap any text cutling and it will be typed into your current text field immediately" = "Gusa Cutling yoyote ya maandishi na itaandikwa kwenye sehemu yako ya sasa ya maandishi mara moja";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Gusa Cutling ya picha kuinakili kwenye ubao wako wa kunakili, kisha ibandike kwenye programu unayotumia (kawaida kwa kugusa na kushikilia, kisha kuchagua Bandika). Apple kwa sasa haiauni kubandika picha moja kwa moja kwenye programu hii.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Nakili maandishi yoyote, kisha gusa kitufe cha 'Ongeza kutoka Ubao wa Kunakili' kwenye kibodi ya Cutling ili kuihifadhi kama Cutling mpya";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Unaweza kudhibiti Cutling zako zote kwenye programu kuu ya Cutling. Mabadiliko unayofanya yataonekana mara moja kwenye kibodi yako.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Viendelezi vya kibodi vina vikomo vikali vya kumbukumbu ili kuhakikisha utulivu wa mfumo. Picha hutumia kumbukumbu zaidi kuliko maandishi, kwa hivyo tunaziwekea vikomo ili kuhakikisha kibodi yako inabaki haraka na ya kuaminika. Ukifika kikomo, futa tu baadhi ya Cutling ili kuongeza mpya.";
+"Up to **%lld text** cutlings" = "Hadi Cutling **%lld za maandishi**";
+"Up to **%lld image** cutlings" = "Hadi Cutling **%lld za picha**";
 "Back" = "Rudi";
 "Next" = "Ifuatayo";
 "Get Started" = "Anza";
@@ -183,19 +183,19 @@
 "Test Your Keyboard" = "Jaribu Kibodi Yako";
 "All set! Swipe to continue." = "Tayari! Telezesha ili kuendelea.";
 "Your data stays private and is never sent anywhere." = "Data yako inabaki ya faragha na haitumwi popote.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Si kwa data nyeti** — epuka kuhifadhi nywila, nambari za kadi, funguo za faragha au tokeni";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Si kwa data nyeti**: epuka kuhifadhi nywila, nambari za kadi, funguo za faragha au tokeni";
 "Set Up Cutling Keyboard" = "Sanidi Kibodi ya Cutling";
 "What You Can Do" = "Unachoweza Kufanya";
 "Smart Field Suggestions" = "Mapendekezo Mahiri ya Sehemu";
-"Cutling spots email, URL, phone, and address fields, then floats matching cutlings to the top of the keyboard." = "Cutling hutambua sehemu za barua pepe, URL, simu na anwani, kisha huleta cutlings zinazolingana juu ya kibodi.";
+"Cutling spots email, URL, phone, and address fields, then floats matching cutlings to the top of the keyboard." = "Cutling hutambua sehemu za barua pepe, URL, simu na anwani, kisha huleta Cutling zinazolingana juu ya kibodi.";
 "Save from Anywhere" = "Hifadhi kutoka Popote";
 "Send text, links, or images to Cutling straight from any app's Share Sheet or the Action extension." = "Tuma maandishi, viungo au picha kwa Cutling moja kwa moja kutoka Karatasi ya Kushiriki ya programu yoyote au kiendelezi cha Action.";
 "Widgets & Controls" = "Wijeti na Vidhibiti";
-"Pin favorite cutlings to your Home Screen, Lock Screen, or Control Center for one-tap copy." = "Bandika cutlings unazozipenda kwenye Skrini ya Mwanzo, Skrini ya Kufunga au Kituo cha Kudhibiti ili kunakili kwa mguso mmoja.";
+"Pin favorite cutlings to your Home Screen, Lock Screen, or Control Center for one-tap copy." = "Bandika Cutling unazozipenda kwenye Skrini ya Mwanzo, Skrini ya Kufunga au Kituo cha Kudhibiti ili kunakili kwa mguso mmoja.";
 "Find with Spotlight" = "Tafuta kwa Spotlight";
-"Search your saved cutlings right from Spotlight and copy them in a single tap." = "Tafuta cutlings zako zilizohifadhiwa moja kwa moja kutoka Spotlight na uzinakili kwa mguso mmoja.";
+"Search your saved cutlings right from Spotlight and copy them in a single tap." = "Tafuta Cutling zako zilizohifadhiwa moja kwa moja kutoka Spotlight na uzinakili kwa mguso mmoja.";
 "Sync Across Devices" = "Sawazisha Katika Vifaa";
-"Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Washa Usawazishaji wa iCloud ili kuweka cutlings zako zikiwa zimesasishwa kwenye kila kifaa kilichoingia kwenye Akaunti yako ya Apple.";
+"Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Washa Usawazishaji wa iCloud ili kuweka Cutling zako zikiwa zimesasishwa kwenye kila kifaa kilichoingia kwenye Akaunti yako ya Apple.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Gusa sehemu ya maandishi hapo juu, kisha tumia kitufe cha 🌐 globu kubadilisha hadi **Cutling**. Hii inathibitisha kuwa kila kitu kimesanidiwa vizuri.";
 "Set Up Cutling Keyboard" = "Sanidi Kibodi ya Cutling";
 "What You Can Do" = "Unachoweza Kufanya";
@@ -219,24 +219,24 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "Mwombe Siri kuongeza, kunakili au kutafuta cutlings zako bila kutumia mikono.";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "Fungua Cutling katika programu ya **Mipangilio** ya kifaa chako.";
+"Open Cutling in your device's **Settings** app." = "Fungua Cutling katika programu ya **Mipangilio** kwenye kifaa chako.";
 "Tap **Keyboards** and enable **Cutling**." = "Gusa **Kibodi** na uwashe **Cutling**.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Washa **Ruhusu Ufikiaji Kamili** ili kibodi iweze kunakili picha kwenye ubao wa kunakili.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Gusa sehemu ya maandishi hapa chini, kisha tumia kitufe cha 🌐 globu kubadilisha hadi **Cutling**. Hii inathibitisha kuwa kila kitu kimesanidiwa vizuri.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Usawazishaji wa iCloud ni **kipengele cha majaribio**. Huenda kisifanye kazi vizuri katika hali zote, ambayo inaweza kusababisha upotevu wa data. Unaweza kubadilisha hii baadaye wakati wowote katika Mipangilio.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Washa **Ruhusu Ufikiaji Kamili** ili kibodi iweze kunakili picha kwenye ubao wako wa kunakili.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Gusa sehemu ya maandishi hapa chini, kisha tumia kitufe cha 🌐 globu kubadili hadi **Cutling**. Hii inathibitisha kuwa kila kitu kimewekwa sawasawa.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Usawazishaji wa iCloud ni **kipengele cha majaribio**. Huenda usifanye kazi vyema katika hali zote, jambo ambalo linaweza kusababisha upotevu wa data. Unaweza kubadili hili wakati wowote baadaye katika Mipangilio.";
 
 /* MARK: - Recently Deleted */
-"Recently Deleted" = "Zilizofutwa Hivi Karibuni";
-"Delete All" = "Futa Zote";
-"Delete All Permanently?" = "Futa Zote Kabisa?";
-"Delete Permanently?" = "Futa Kabisa?";
-"Delete Permanently" = "Futa Kabisa";
+"Recently Deleted" = "Iliyofutwa hivi karibuni";
+"Delete All" = "Futa zote";
+"Delete All Permanently?" = "Futa zote kabisa?";
+"Delete Permanently?" = "Futa kabisa?";
+"Delete Permanently" = "Futa kabisa";
 "Recover" = "Rejesha";
-"Items will be permanently deleted after 30 days." = "Vipengele vitafutwa kabisa baada ya siku 30.";
-"No Recently Deleted Items" = "Hakuna Vipengele Vilivyofutwa Hivi Karibuni";
+"Items will be permanently deleted after 30 days." = "Vitu vitafutwa kabisa baada ya siku 30.";
+"No Recently Deleted Items" = "Hakuna vitu vilivyofutwa hivi karibuni";
 "Deleted cutlings will appear here for 30 days." = "Cutling zilizofutwa zitaonekana hapa kwa siku 30.";
-"This will permanently delete all %lld items. This action cannot be undone." = "Vipengele vyote %lld vitafutwa kabisa. Kitendo hiki hakiwezi kutenduliwa.";
-"\"%@\" will be deleted permanently." = "\"%@\" itafutwa kabisa.";
+"This will permanently delete all %lld items. This action cannot be undone." = "Hii itafuta kabisa vitu %lld. Kitendo hiki hakiwezi kutenduliwa.";
+"\"%@\" will be deleted permanently." = "“%@” itafutwa kabisa.";
 "1 day left" = "Siku 1 imebaki";
 "%lld days left" = "Siku %lld zimebaki";
 
@@ -312,46 +312,46 @@
 "Don't Warn About This Again" = "Usionyeshe Onyo Hili Tena";
 
 /* MARK: - App Shortcuts (Siri / Shortcuts gallery) */
-"Save clipboard contents as a new cutling." = "Hifadhi yaliyomo ya ubao wa kunakili kama cutling mpya.";
+"Save clipboard contents as a new cutling." = "Hifadhi yaliyomo ya ubao wa kunakili kama Cutling mpya.";
 "Save Text" = "Hifadhi Maandishi";
-"Save text as a new cutling." = "Hifadhi maandishi kama cutling mpya.";
+"Save text as a new cutling." = "Hifadhi maandishi kama Cutling mpya.";
 "Get Cutling Text" = "Pata Maandishi ya Cutling";
-"Get the text contents of a cutling as a value for use in other shortcuts." = "Pata yaliyomo ya maandishi ya cutling kama thamani ya kutumika katika njia za mkato nyingine.";
+"Get the text contents of a cutling as a value for use in other shortcuts." = "Pata yaliyomo ya maandishi ya Cutling kama thamani ya kutumika katika njia za mkato nyingine.";
 "Get Latest Cutling" = "Pata Cutling ya Hivi Karibuni";
 "Latest Cutling" = "Cutling ya Hivi Karibuni";
-"Get the text from your most recently saved cutling." = "Pata maandishi kutoka cutling yako iliyohifadhiwa hivi karibuni zaidi.";
+"Get the text from your most recently saved cutling." = "Pata maandishi kutoka Cutling yako iliyohifadhiwa hivi karibuni zaidi.";
 "Save Image" = "Hifadhi Picha";
-"Save an image as a new cutling." = "Hifadhi picha kama cutling mpya.";
-"Search Cutlings" = "Tafuta Cutlings";
-"Find cutlings whose name or contents match a search query." = "Tafuta cutlings ambazo jina au yaliyomo yake yanalingana na hoja ya utafutaji.";
+"Save an image as a new cutling." = "Hifadhi picha kama Cutling mpya.";
+"Search Cutlings" = "Tafuta Cutling";
+"Find cutlings whose name or contents match a search query." = "Tafuta Cutling ambazo jina au yaliyomo yake yanalingana na hoja ya utafutaji.";
 "Open Cutling" = "Fungua Cutling";
 "Open the Cutling app." = "Fungua programu ya Cutling.";
-"Open Cutling and start a new text cutling." = "Fungua Cutling na anza cutling mpya ya maandishi.";
-"Open Cutling and start a new image cutling." = "Fungua Cutling na anza cutling mpya ya picha.";
+"Open Cutling and start a new text cutling." = "Fungua Cutling na uanze Cutling mpya ya maandishi.";
+"Open Cutling and start a new image cutling." = "Fungua Cutling na uanze Cutling mpya ya picha.";
 "Query" = "Hoja";
 "Nothing to save." = "Hakuna cha kuhifadhi.";
 "That doesn't look like an image." = "Hiyo haionekani kama picha.";
 "Failed to save image." = "Imeshindwa kuhifadhi picha.";
 
 /* MARK: - TipKit */
-"Saved cutlings" = "Cutlings zilizohifadhiwa";
-"Your pinned snippets live here, ready to copy with one click." = "Vipande vilivyobandikwa viko hapa, tayari kunakiliwa kwa mguso mmoja.";
+"Saved cutlings" = "Cutling zilizohifadhiwa";
+"Your pinned snippets live here, ready to copy with one click." = "Vipande vyako vilivyobandikwa vinaishi hapa, vikiwa tayari kunakiliwa kwa mbofyo mmoja.";
 "Recent clipboard" = "Ubao wa kunakili wa hivi karibuni";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "Kila kitu unachonakili kinafika hapa. Bofya-kulia mstari wowote ili kuuhifadhi kama cutling.";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Kila kitu unachonakili huingia hapa. Bonyeza-kulia kwenye safu yoyote ili kuihifadhi kama Cutling.";
 "Wipe the list" = "Futa orodha";
-"Empties your recent clipboard. Saved cutlings stay put." = "Inafuta ubao wako wa kunakili wa hivi karibuni. Cutlings zilizohifadhiwa zinabaki.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Badilisha kibodi ya mkato, washa au zima unasaji wa ubao wa kunakili, na simamia usawazishaji wa iCloud.";
-"Undo deletes" = "Tendua kufuta";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Cutlings zilizofutwa hubaki hapa kwa siku 30. Zirejeshe au futa kabisa.";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Gusa hapa kuchagua cutlings kadhaa, kuzipanga upya, au kurejesha zilizofutwa hivi karibuni.";
-"Long-press a cutling" = "Shikilia cutling";
-"Hold any card for quick actions: copy, edit, share, or delete." = "Shikilia kadi yoyote kupata vitendo vya haraka: nakili, hariri, shiriki au futa.";
+"Empties your recent clipboard. Saved cutlings stay put." = "Hufuta ubao wako wa kunakili wa hivi karibuni. Cutling zilizohifadhiwa zinabaki.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Weka upya kitufe cha mkato, washa/zima kunasa ubao wa kunakili, na simamia usawazishaji wa iCloud.";
+"Undo deletes" = "Tendua ufutaji";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Cutling zilizofutwa zinabaki hapa kwa siku 30. Zirejeshe au futa kabisa.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Gusa hapa kuchagua Cutling nyingi, kuzipanga upya, au kurejesha zile zilizofutwa hivi karibuni.";
+"Long-press a cutling" = "Bonyeza kwa muda mrefu kwenye Cutling";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Shikilia kadi yoyote kwa vitendo vya haraka: nakili, hariri, shiriki, au futa.";
 "Drag to select" = "Buruta ili kuchagua";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "Telezesha juu ya kadi ili kuchagua aina mbalimbali. Telezesha nyuma juu yake ili kubatilisha uchaguzi.";
-"Smart field matching" = "Ulinganishaji mahiri wa sehemu";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling hutambua sehemu za barua pepe, URL, simu na anwani, kisha huleta vipande vinavyolingana juu ya kibodi.";
-"Create a new cutling" = "Unda Cutling mpya";
-"Save text or image snippets you'll reuse from any app." = "Hifadhi vipande vya maandishi au picha utakavyotumia tena kutoka kwa programu yoyote.";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Telezesha kwenye kadi ili kuchagua safu. Telezesha kurudi ili kuondoa chaguo.";
+"Smart field matching" = "Ulinganishaji wa uwanja mahiri";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling hutambua sehemu za barua pepe, URL, simu na anwani, na kuinua vipande vinavyolingana juu ya kibodi.";
+"Create a new cutling" = "Tengeneza Cutling mpya";
+"Save text or image snippets you'll reuse from any app." = "Hifadhi vipande vya maandishi au picha ambavyo utavitumia tena kutoka programu yoyote.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "Karibu kwenye Cutling";
@@ -372,3 +372,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "Inaruhusu Cutling kubandika cutling moja kwa moja kwenye programu uliyokuwa unaitumia.";
 "Grant" = "Ruhusu";
 "You can skip Accessibility and grant it later from Settings → Paste." = "Unaweza kuruka Ufikivu na uiruhusu baadaye kutoka Mipangilio → Bandika.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "Hifadhi kama faili…";
+"Image Saving" = "Uhifadhi wa picha";
+"When saving images" = "Wakati wa kuhifadhi picha";
+"Ask each time" = "Uliza kila wakati";
+"Save to folder" = "Hifadhi kwenye folda";
+"Folder" = "Folda";
+"Change Folder…" = "Badilisha folda…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "Chagua jinsi kitendo cha “Hifadhi kama faili” kinavyofanya kazi kwa Cutling za picha. Ukichagua “Hifadhi kwenye folda”, picha huhifadhiwa moja kwa moja kwenye folda uliyochagua kwa jina la faili la kipekee, bila kuuliza.";
+"Choose" = "Chagua";
+"Choose Image Folder" = "Chagua folda ya picha";
+"Pick a folder where Cutling will save image cutlings." = "Chagua folda ambapo Cutling itahifadhi Cutling za picha.";
+"Preview" = "Onyesho la awali";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "Zilizohifadhiwa";
+"History" = "Historia";
+"No saved cutlings yet" = "Bado hakuna Cutling zilizohifadhiwa";
+"Copy something to see it here" = "Nakili kitu ili kuona hapa";
+"Clipboard history is off. Enable it in Settings." = "Historia ya ubao wa kunakili imezimwa. Iwashe katika Mipangilio.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Jumuisha katika utafutaji wa Spotlight";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "Fanya Cutling zako zitafutwa kupitia Spotlight. Maudhui nyeti (kadi za mkopo, funguo za API, tokeni za JWT, vifungu vya seed, funguo za faragha) hayaorodheshwi kamwe.";
+"Copy Cutling" = "Nakili Cutling";
+"Copy a cutling's contents to the clipboard." = "Hunakili maudhui ya Cutling kwenye ubao wa kunakili.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Tumia misemo hii pamoja na Siri au vinjari njia za mkato za Cutling zote katika programu ya Njia za Mkato.";
+"Copied \"%@\"" = "“%@” imenakiliwa";

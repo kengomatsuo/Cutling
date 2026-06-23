@@ -1,15 +1,15 @@
 /* MARK: - Navigation & Titles */
 "My Cutlings" = "Mani Cutlings";
-"Select Items" = "Atlasīt vienumus";
+"Select Items" = "Atlasi vienumus";
 "%lld Selected" = "%lld atlasīti";
 "Reorder" = "Pārkārtot";
 "Settings" = "Iestatījumi";
 "Keyboard Setup" = "Tastatūras iestatīšana";
 "New" = "Jauns";
-"Choose Icon" = "Izvēlēties ikonu";
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Teksts, %lld/%lld Attēli";
-"%lld Cutlings" = "%lld Cutlingi";
-"Cutlings" = "Cutlingi";
+"Choose Icon" = "Izvēlies ikonu";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld teksts, %lld/%lld attēli";
+"%lld Cutlings" = "%lld Cutlings";
+"Cutlings" = "Cutlings";
 
 /* MARK: - Common Actions */
 "Cancel" = "Atcelt";
@@ -26,22 +26,22 @@
 /* MARK: - Menu Items */
 "Text Cutling" = "Teksta Cutling";
 "Image Cutling" = "Attēla Cutling";
-"Select Cutlings" = "Atlasīt Cutlings";
-"Reorder Cutlings" = "Pārkārtot Cutlings";
+"Select Cutlings" = "Atlasi Cutlings";
+"Reorder Cutlings" = "Pārkārto Cutlings";
 "Keyboard Setup Guide" = "Tastatūras iestatīšanas ceļvedis";
 "Name (A → Z)" = "Nosaukums (A → Z)";
 "Name (Z → A)" = "Nosaukums (Z → A)";
-"Text First" = "Teksts vispirms";
-"Images First" = "Attēli vispirms";
-"Shortest First" = "Īsākais vispirms";
-"Longest First" = "Garākais vispirms";
-"Reverse Order" = "Apgrieztā secībā";
+"Text First" = "Vispirms teksts";
+"Images First" = "Vispirms attēli";
+"Shortest First" = "Vispirms īsākie";
+"Longest First" = "Vispirms garākie";
+"Reverse Order" = "Apgriezta secība";
 
 /* MARK: - Empty States */
-"No Cutlings Yet" = "Pagaidām nav Cutlings";
+"No Cutlings Yet" = "Vēl nav neviena Cutling";
 "No Results" = "Nav rezultātu";
-"Tap + to add your first cutling." = "Pieskarieties +, lai pievienotu savu pirmo cutling.";
-"Try a different search term." = "Mēģiniet citu meklēšanas vārdu.";
+"Tap + to add your first cutling." = "Pieskaries +, lai pievienotu pirmo cutlingu.";
+"Try a different search term." = "Mēģini citu meklēšanas vārdu.";
 
 /* MARK: - Search */
 "Search cutlings" = "Meklēt cutlings";
@@ -84,19 +84,19 @@
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
 "iCloud Sync" = "iCloud sinhronizācija";
-"Sync your cutlings across all your devices using iCloud." = "Sinhronizējiet savus cutlings visās ierīcēs, izmantojot iCloud.";
+"Sync your cutlings across all your devices using iCloud." = "Sinhronizē savus cutlings visās ierīcēs, izmantojot iCloud.";
 "Storage" = "Krātuve";
 "Text Cutlings" = "Teksta Cutlings";
-"Image Cutlings" = "Attēlu Cutlings";
+"Image Cutlings" = "Attēla Cutlings";
 "Total Cutlings" = "Cutlings kopā";
 "Disk Usage" = "Diska lietojums";
 "Status" = "Statuss";
 "Syncing…" = "Sinhronizē…";
 "Up to date" = "Aktuāls";
-"Sync Now" = "Sinhronizēt tūlīt";
+"Sync Now" = "Sinhronizēt tagad";
 "Turn On iCloud Sync" = "Ieslēgt iCloud sinhronizāciju";
 "Max Text Length" = "Maks. teksta garums";
-"%lld chars" = "%lld rakstz.";
+"%lld chars" = "%lld rakstzīmes";
 "About" = "Par";
 "Version" = "Versija";
 "Keyboard Added" = "Tastatūra pievienota";
@@ -105,32 +105,32 @@
 "Contact Support" = "Sazināties ar atbalstu";
 "Privacy Policy" = "Privātuma politika";
 "Auto-detect Input Types" = "Automātiski noteikt ievades veidus";
-"Enable iCloud Sync" = "Iespējot iCloud sinhronizāciju";
-"Keep your cutlings in sync across all your devices." = "Uzturiet savus cutlingus sinhronizētus visās ierīcēs.";
-"Automatically detect and suggest input type categories when editing text." = "Automātiski noteikt un ieteikt ievades veidu kategorijas, rediģējot tekstu.";
+"Enable iCloud Sync" = "Ieslēgt iCloud sinhronizāciju";
+"Keep your cutlings in sync across all your devices." = "Saglabā savus cutlings sinhronizētus visās ierīcēs.";
+"Automatically detect and suggest input type categories when editing text." = "Rediģējot tekstu, automātiski nosaka un piedāvā ievades veida kategorijas.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Nav atlasīts neviens attēls";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "Tas aizstās pašreizējo tekstu ar to, kas ir jūsu starpliktuvē.";
-"This will replace the current image with whatever is in your clipboard." = "Tas aizstās pašreizējo attēlu ar to, kas ir jūsu starpliktuvē.";
+"This will replace the current text with whatever is in your clipboard." = "Tas aizstās pašreizējo tekstu ar to, kas ir tavā starpliktuvē.";
+"This will replace the current image with whatever is in your clipboard." = "Tas aizstās pašreizējo attēlu ar to, kas ir tavā starpliktuvē.";
 "This cutling will be automatically deleted at the selected date and time." = "Šis cutling tiks automātiski dzēsts izvēlētajā datumā un laikā.";
-"Each text cutling can hold up to %lld characters." = "Katrs teksta cutling var saturēt līdz %lld rakstzīmēm.";
+"Each text cutling can hold up to %lld characters." = "Katrā teksta cutlingā var būt līdz %lld rakstzīmēm.";
 
 /* MARK: - Alerts */
 "Limit Reached" = "Ierobežojums sasniegts";
 "Delete Cutling?" = "Dzēst Cutling?";
 "This action cannot be undone." = "Šo darbību nevar atsaukt.";
-"Cannot add text cutling" = "Nevar pievienot teksta cutling";
-"Cannot add image cutling" = "Nevar pievienot attēla cutling";
-"Cannot add more text cutlings." = "Nevar pievienot vairāk teksta cutlings.";
-"Cannot add more image cutlings." = "Nevar pievienot vairāk attēlu cutlings.";
+"Cannot add text cutling" = "Nevar pievienot teksta cutlingu";
+"Cannot add image cutling" = "Nevar pievienot attēla cutlingu";
+"Cannot add more text cutlings." = "Nevar pievienot vairāk teksta cutlingu.";
+"Cannot add more image cutlings." = "Nevar pievienot vairāk attēla cutlingu.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Esat sasniedzis maksimālo %lld cutlings skaitu. Dzēsiet dažus, lai pievienotu jaunus.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Esat sasniedzis maksimālo %lld attēlu cutlings skaitu. Attēli izmanto ievērojamu atmiņu tastatūrā. Dzēsiet dažus attēlus, lai pievienotu jaunus.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Esat sasniedzis maksimālo %lld teksta cutlings skaitu. Dzēsiet dažus, lai pievienotu jaunus.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Esi sasniedzis maksimumu — %lld cutlings kopā. Izdzēs dažus, lai pievienotu vairāk.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Esi sasniedzis maksimumu — %lld attēla cutlings. Attēli tastatūrā aizņem daudz atmiņas. Izdzēs dažus attēlus, lai pievienotu vairāk.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Esi sasniedzis maksimumu — %lld teksta cutlings. Izdzēs dažus, lai pievienotu vairāk.";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Ievades veida ieteikumi";
@@ -163,14 +163,14 @@
 "Set Up Your Keyboard" = "Iestatiet savu tastatūru";
 "Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Jūsu Cutling tastatūra ir gatava! Rakstot jebkur, pieskarieties 🌐 globusa ikonai uz tastatūras, lai pārslēgtos uz Cutling.";
 "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Izpildiet divus vienkāršus soļus zemāk, lai sāktu lietot savu pielāgoto tastatūru. Šī lapa automātiski atjaunināsies, kad pabeigsiet katru soli.";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**1. solis:** Pieskarieties 'Atvērt Cutling iestatījumus' zemāk, dodieties uz **Tastatūras** un atlasiet **Cutling** no saraksta.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**1. solis:** Pieskarieties „Atvērt Cutling iestatījumus“ zemāk, dodieties uz **Tastatūras** un atlasiet **Cutling** no saraksta.";
 "**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**2. solis:** Pārliecinieties, ka **Atļaut pilnu piekļuvi** ir ieslēgts. Tas ļauj tastatūrai kopēt attēlus jūsu starpliktuvē. Jūsu dati paliek privāti un nekad netiek nosūtīti nekur.";
 "**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**3. solis:** Pieskarieties teksta ievades laukam un izvēlieties \"Cutling\", izmantojot 🌐 globusa ikonu uz tastatūras, lai atjauninātu \"Pilna piekļuve\" statusu.";
 "**Step 4:** You're good to go! The usage guide is provided below." = "**4. solis:** Viss ir gatavs! Lietošanas ceļvedis ir sniegts zemāk.";
 "While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Rakstot jebkurā lietotnē, pieskarieties vai turiet 🌐 globusa taustiņu tastatūras apakšējā kreisajā stūrī, pēc tam atlasiet Cutling";
 "Tap any text cutling and it will be typed into your current text field immediately" = "Pieskarieties jebkuram teksta cutling un tas uzreiz tiks ierakstīts jūsu pašreizējā teksta laukā";
 "Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Pieskarieties attēla cutling, lai to nokopētu starpliktuvē, pēc tam ielīmējiet to lietotnē, kuru izmantojat (parasti pieskaroties un turot, pēc tam atlasot Ielīmēt). Apple pašlaik neatbalsta tiešu attēla ielīmēšanu šajā lietotnē.";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Nokopējiet jebkuru tekstu, pēc tam pieskarieties pogai 'Pievienot no starpliktuves' Cutling tastatūrā, lai saglabātu to kā jaunu cutling";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Nokopējiet jebkuru tekstu, pēc tam pieskarieties pogai „Pievienot no starpliktuves“ Cutling tastatūrā, lai saglabātu to kā jaunu cutling";
 "You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Visus savus cutlings varat pārvaldīt galvenajā Cutling lietotnē. Izmaiņas, ko veicat, uzreiz parādīsies jūsu tastatūrā.";
 "Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Tastatūras paplašinājumiem ir stingri atmiņas ierobežojumi, lai nodrošinātu sistēmas stabilitāti. Attēli izmanto vairāk atmiņas nekā teksts, tāpēc mēs tos ierobežojam, lai jūsu tastatūra paliktu ātra un uzticama. Ja sasniedzat ierobežojumu, vienkārši dzēsiet dažus cutlings, lai pievienotu jaunus.";
 "Up to **%lld text** cutlings" = "Līdz **%lld teksta** cutlings";
@@ -183,7 +183,7 @@
 "Test Your Keyboard" = "Pārbaudiet savu tastatūru";
 "All set! Swipe to continue." = "Viss gatavs! Velciet, lai turpinātu.";
 "Your data stays private and is never sent anywhere." = "Jūsu dati paliek privāti un nekad netiek nosūtīti nekur.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Nav paredzēts sensitīviem datiem** — izvairieties no paroļu, karšu numuru, privāto atslēgu vai tokenu glabāšanas";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Nav paredzēts sensitīviem datiem**: izvairieties no paroļu, karšu numuru, privāto atslēgu vai tokenu glabāšanas";
 "Set Up Cutling Keyboard" = "Iestatīt Cutling tastatūru";
 "What You Can Do" = "Ko jūs varat darīt";
 "Smart Field Suggestions" = "Viedi lauku ieteikumi";
@@ -206,25 +206,25 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "Lūdziet Siri pievienot, kopēt vai meklēt jūsu cutlings, neizmantojot rokas.";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "Atveriet Cutling ierīces **Iestatījumu** lietotnē.";
-"Tap **Keyboards** and enable **Cutling**." = "Pieskarieties **Tastatūras** un iespējojiet **Cutling**.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Ieslēdziet **Atļaut pilnu piekļuvi**, lai tastatūra varētu kopēt attēlus starpliktuvē.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Pieskarieties teksta laukam zemāk, pēc tam izmantojiet 🌐 globusa taustiņu, lai pārslēgtos uz **Cutling**. Tas pārbauda, vai viss ir iestatīts pareizi.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud sinhronizācija ir **eksperimentāla funkcija**. Tā var nedarboties pareizi visās situācijās, kas var izraisīt datu zudumu. Šo iestatījumu vienmēr varat mainīt vēlāk Iestatījumos.";
+"Open Cutling in your device's **Settings** app." = "Atver Cutling savas ierīces lietotnē **Iestatījumi**.";
+"Tap **Keyboards** and enable **Cutling**." = "Pieskaries **Tastatūras** un ieslēdz **Cutling**.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Ieslēdz **Atļaut pilnu piekļuvi**, lai tastatūra varētu kopēt attēlus tavā starpliktuvē.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Pieskaries tālāk redzamajam teksta laukam un tad izmanto 🌐 globusa taustiņu, lai pārslēgtos uz **Cutling**. Tas pārbauda, vai viss ir pareizi iestatīts.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud sinhronizācija ir **eksperimentāla funkcija**. Tā var nedarboties pareizi visās situācijās, kas var izraisīt datu zudumu. To vienmēr vari mainīt vēlāk iestatījumos.";
 
 /* MARK: - Recently Deleted */
-"Recently Deleted" = "Nesen dzēstie";
-"Delete All" = "Dzēst visu";
-"Delete All Permanently?" = "Neatgriezeniski dzēst visu?";
-"Delete Permanently?" = "Neatgriezeniski dzēst?";
-"Delete Permanently" = "Neatgriezeniski dzēst";
+"Recently Deleted" = "Nesen dzēsti";
+"Delete All" = "Dzēst visus";
+"Delete All Permanently?" = "Dzēst visus pavisam?";
+"Delete Permanently?" = "Dzēst pavisam?";
+"Delete Permanently" = "Dzēst pavisam";
 "Recover" = "Atjaunot";
-"Items will be permanently deleted after 30 days." = "Vienumi tiks neatgriezeniski dzēsti pēc 30 dienām.";
+"Items will be permanently deleted after 30 days." = "Vienumi pēc 30 dienām tiks dzēsti pavisam.";
 "No Recently Deleted Items" = "Nav nesen dzēstu vienumu";
-"Deleted cutlings will appear here for 30 days." = "Dzēstie cutlingi būs redzami šeit 30 dienas.";
-"This will permanently delete all %lld items. This action cannot be undone." = "Visi %lld vienumi tiks neatgriezeniski dzēsti. Šo darbību nevar atsaukt.";
-"\"%@\" will be deleted permanently." = "\"%@\" tiks neatgriezeniski dzēsts.";
-"1 day left" = "Atlicis 1 diena";
+"Deleted cutlings will appear here for 30 days." = "Dzēstie cutlings šeit būs redzami 30 dienas.";
+"This will permanently delete all %lld items. This action cannot be undone." = "Tas pavisam izdzēsīs %lld vienumus. Šo darbību nevar atsaukt.";
+"\"%@\" will be deleted permanently." = "„%@“ tiks dzēsts pavisam.";
+"1 day left" = "Atlikusi 1 diena";
 "%lld days left" = "Atlikušas %lld dienas";
 
 /* MARK: - Context Menu */
@@ -321,24 +321,24 @@
 "Failed to save image." = "Neizdevās saglabāt attēlu.";
 
 /* MARK: - TipKit */
-"Saved cutlings" = "Saglabātie Cutlingi";
-"Your pinned snippets live here, ready to copy with one click." = "Jūsu piespraustie fragmenti atrodas šeit, gatavi kopēšanai ar vienu klikšķi.";
-"Recent clipboard" = "Nesenā starpliktuve";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "Viss, ko kopējat, nonāk šeit. Ar peles labo pogu noklikšķiniet uz jebkuras rindas, lai to saglabātu kā Cutling.";
+"Saved cutlings" = "Saglabātie cutlings";
+"Your pinned snippets live here, ready to copy with one click." = "Tavi piespraustie fragmenti ir šeit, gatavi vienā klikšķī kopējami.";
+"Recent clipboard" = "Nesenais starpliktuve";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Viss, ko nokopē, nonāk šeit. Ar peles labo pogu noklikšķini uz rindas, lai saglabātu to kā cutlingu.";
 "Wipe the list" = "Notīrīt sarakstu";
-"Empties your recent clipboard. Saved cutlings stay put." = "Iztukšo neseno starpliktuvi. Saglabātie Cutlingi paliek savā vietā.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Mainiet īsinājumtaustiņu, ieslēdziet vai izslēdziet starpliktuves uztveršanu un pārvaldiet iCloud sinhronizāciju.";
-"Undo deletes" = "Atsaukt dzēšanu";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Dzēstie Cutlingi paliek šeit 30 dienas. Atjaunojiet tos vai neatgriezeniski iztukšojiet.";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Pieskarieties šeit, lai atlasītu vairākus Cutlings, mainītu to secību vai atjaunotu nesen dzēstos.";
-"Long-press a cutling" = "Turiet Cutling";
-"Hold any card for quick actions: copy, edit, share, or delete." = "Turiet jebkuru karti ātrām darbībām: kopēt, rediģēt, kopīgot vai dzēst.";
-"Drag to select" = "Velciet, lai atlasītu";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "Velciet pāri kartēm, lai atlasītu diapazonu. Velciet atpakaļ, lai noņemtu atlasi.";
-"Smart field matching" = "Vieda lauku saskaņošana";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling atpazīst e-pasta, URL, tālruņa un adreses laukus un pārvieto atbilstošos fragmentus tastatūras augšpusē.";
-"Create a new cutling" = "Izveidot jaunu Cutling";
-"Save text or image snippets you'll reuse from any app." = "Saglabā teksta vai attēlu fragmentus, kurus atkārtoti izmantosi jebkurā lietotnē.";
+"Empties your recent clipboard. Saved cutlings stay put." = "Notīra tavu neseno starpliktuvi. Saglabātie cutlings paliek.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Maini īsinājumtaustiņu, ieslēdz/izslēdz starpliktuves uzņemšanu un pārvaldi iCloud sinhronizāciju.";
+"Undo deletes" = "Atsaukt dzēšanas";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Dzēstie cutlings šeit paliek 30 dienas. Atjauno tos vai notīri uz visiem laikiem.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Pieskaries šeit, lai atlasītu vairākus cutlings, pārkārtotu tos vai atjaunotu nesen dzēstos.";
+"Long-press a cutling" = "Ilgi nospied cutlingu";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Turi nospiestu jebkuru kartīti ātrām darbībām: kopēt, rediģēt, kopīgot vai dzēst.";
+"Drag to select" = "Velc, lai atlasītu";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Velc pa kartītēm, lai atlasītu diapazonu. Velc atpakaļ, lai noņemtu atlasi.";
+"Smart field matching" = "Viedā lauku atpazīšana";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling atpazīst e-pasta, URL, tālruņa un adreses laukus, un paceļ atbilstošos fragmentus tastatūras augšpusē.";
+"Create a new cutling" = "Izveido jaunu cutlingu";
+"Save text or image snippets you'll reuse from any app." = "Saglabā teksta vai attēla fragmentus, ko atkārtoti izmantosi no jebkuras lietotnes.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "Laipni lūdzam Cutling";
@@ -359,3 +359,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "Ļauj Cutling ielīmēt Cutling tieši lietotnē, kuru izmantojāt.";
 "Grant" = "Piešķirt";
 "You can skip Accessibility and grant it later from Settings → Paste." = "Varat izlaist Pieejamību un piešķirt to vēlāk sadaļā Iestatījumi → Ielīmēt.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "Saglabāt kā failu…";
+"Image Saving" = "Attēlu saglabāšana";
+"When saving images" = "Saglabājot attēlus";
+"Ask each time" = "Vaicāt katru reizi";
+"Save to folder" = "Saglabāt mapē";
+"Folder" = "Mape";
+"Change Folder…" = "Mainīt mapi…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "Izvēlies, kā darbība „Saglabāt kā failu“ darbojas attēlu Cutling vienībām. Ar „Saglabāt mapē“ attēli tiek saglabāti tieši izvēlētajā mapē ar unikālu faila nosaukumu, bez vaicāšanas.";
+"Choose" = "Izvēlēties";
+"Choose Image Folder" = "Izvēlēties attēlu mapi";
+"Pick a folder where Cutling will save image cutlings." = "Izvēlies mapi, kurā Cutling saglabās attēlu Cutling vienības.";
+"Preview" = "Priekšskatījums";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "Saglabātie";
+"History" = "Vēsture";
+"No saved cutlings yet" = "Vēl nav saglabātu cutling vienību";
+"Copy something to see it here" = "Nokopē kaut ko, lai redzētu šeit";
+"Clipboard history is off. Enable it in Settings." = "Starpliktuves vēsture ir izslēgta. Ieslēdz to Iestatījumos.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Iekļaut Spotlight meklēšanā";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "Padari savas cutling vienības meklējamas no Spotlight. Sensitīvs saturs (kredītkartes, API atslēgas, JWT marķieri, sākotnējās frāzes, privātās atslēgas) nekad netiek indeksēts.";
+"Copy Cutling" = "Kopēt Cutling";
+"Copy a cutling's contents to the clipboard." = "Iekopē cutling vienības saturu starpliktuvē.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Lieto šīs frāzes ar Siri vai pārlūko visas Cutling īsceļas lietotnē Īsceļas.";
+"Copied \"%@\"" = "„%@“ nokopēts";

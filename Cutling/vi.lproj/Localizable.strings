@@ -1,13 +1,13 @@
 /* MARK: - Navigation & Titles */
-"My Cutlings" = "Cutling Của Tôi";
-"Select Items" = "Chọn Mục";
-"%lld Selected" = "Đã Chọn %lld";
-"Reorder" = "Sắp Xếp Lại";
-"Settings" = "Cài Đặt";
-"Keyboard Setup" = "Cài Đặt Bàn Phím";
+"My Cutlings" = "Cutling của tôi";
+"Select Items" = "Chọn các mục";
+"%lld Selected" = "%lld đã chọn";
+"Reorder" = "Sắp xếp lại";
+"Settings" = "Cài đặt";
+"Keyboard Setup" = "Cài đặt bàn phím";
 "New" = "Mới";
-"Choose Icon" = "Chọn Biểu Tượng";
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Văn bản, %lld/%lld Hình ảnh";
+"Choose Icon" = "Chọn biểu tượng";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld văn bản, %lld/%lld hình ảnh";
 "%lld Cutlings" = "%lld Cutling";
 "Cutlings" = "Cutling";
 
@@ -24,24 +24,24 @@
 "Delete Selected" = "Xóa mục đã chọn";
 
 /* MARK: - Menu Items */
-"Text Cutling" = "Cutling Văn Bản";
-"Image Cutling" = "Cutling Hình Ảnh";
+"Text Cutling" = "Cutling văn bản";
+"Image Cutling" = "Cutling hình ảnh";
 "Select Cutlings" = "Chọn Cutling";
-"Reorder Cutlings" = "Sắp Xếp Lại Cutling";
-"Keyboard Setup Guide" = "Hướng Dẫn Cài Đặt Bàn Phím";
+"Reorder Cutlings" = "Sắp xếp lại Cutling";
+"Keyboard Setup Guide" = "Hướng dẫn cài đặt bàn phím";
 "Name (A → Z)" = "Tên (A → Z)";
 "Name (Z → A)" = "Tên (Z → A)";
-"Text First" = "Văn Bản Trước";
-"Images First" = "Hình Ảnh Trước";
-"Shortest First" = "Ngắn Nhất Trước";
-"Longest First" = "Dài Nhất Trước";
-"Reverse Order" = "Thứ Tự Ngược";
+"Text First" = "Văn bản trước";
+"Images First" = "Hình ảnh trước";
+"Shortest First" = "Ngắn nhất trước";
+"Longest First" = "Dài nhất trước";
+"Reverse Order" = "Thứ tự ngược";
 
 /* MARK: - Empty States */
-"No Cutlings Yet" = "Chưa Có Cutling Nào";
-"No Results" = "Không Có Kết Quả";
-"Tap + to add your first cutling." = "Nhấn + để thêm cutling đầu tiên của bạn.";
-"Try a different search term." = "Thử từ khóa tìm kiếm khác.";
+"No Cutlings Yet" = "Chưa có Cutling nào";
+"No Results" = "Không có kết quả";
+"Tap + to add your first cutling." = "Chạm vào + để thêm cutling đầu tiên.";
+"Try a different search term." = "Hãy thử một từ khoá khác.";
 
 /* MARK: - Search */
 "Search cutlings" = "Tìm cutling";
@@ -83,54 +83,54 @@
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
-"iCloud Sync" = "Đồng Bộ iCloud";
+"iCloud Sync" = "Đồng bộ iCloud";
 "Sync your cutlings across all your devices using iCloud." = "Đồng bộ cutling của bạn trên tất cả thiết bị bằng iCloud.";
-"Storage" = "Bộ Nhớ";
-"Text Cutlings" = "Cutling Văn Bản";
-"Image Cutlings" = "Cutling Hình Ảnh";
-"Total Cutlings" = "Tổng Cutling";
-"Disk Usage" = "Dung lượng đĩa";
+"Storage" = "Bộ nhớ";
+"Text Cutlings" = "Cutling văn bản";
+"Image Cutlings" = "Cutling hình ảnh";
+"Total Cutlings" = "Tổng số Cutling";
+"Disk Usage" = "Mức dùng đĩa";
 "Status" = "Trạng thái";
 "Syncing…" = "Đang đồng bộ…";
 "Up to date" = "Đã cập nhật";
 "Sync Now" = "Đồng bộ ngay";
 "Turn On iCloud Sync" = "Bật đồng bộ iCloud";
-"Max Text Length" = "Độ Dài Tối Đa";
+"Max Text Length" = "Độ dài văn bản tối đa";
 "%lld chars" = "%lld ký tự";
-"About" = "Giới Thiệu";
-"Version" = "Phiên Bản";
-"Keyboard Added" = "Đã Thêm Bàn Phím";
-"Full Access" = "Quyền Truy Cập Đầy Đủ";
+"About" = "Giới thiệu";
+"Version" = "Phiên bản";
+"Keyboard Added" = "Bàn phím đã thêm";
+"Full Access" = "Toàn quyền truy cập";
 "Experimental Feature: iCloud" = "Tính năng thử nghiệm: iCloud";
 "Contact Support" = "Liên hệ hỗ trợ";
 "Privacy Policy" = "Chính sách bảo mật";
-"Auto-detect Input Types" = "Tự động nhận diện loại nhập liệu";
+"Auto-detect Input Types" = "Tự động phát hiện loại đầu vào";
 "Enable iCloud Sync" = "Bật đồng bộ iCloud";
-"Keep your cutlings in sync across all your devices." = "Giữ các cutling của bạn được đồng bộ trên tất cả thiết bị.";
-"Automatically detect and suggest input type categories when editing text." = "Tự động nhận diện và đề xuất danh mục loại nhập liệu khi chỉnh sửa văn bản.";
+"Keep your cutlings in sync across all your devices." = "Giữ cutling của bạn được đồng bộ trên tất cả thiết bị.";
+"Automatically detect and suggest input type categories when editing text." = "Tự động phát hiện và đề xuất các nhóm loại đầu vào khi chỉnh sửa văn bản.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Chưa chọn hình ảnh";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "Thao tác này sẽ thay thế văn bản hiện tại bằng nội dung trong bộ nhớ tạm của bạn.";
-"This will replace the current image with whatever is in your clipboard." = "Thao tác này sẽ thay thế hình ảnh hiện tại bằng nội dung trong bộ nhớ tạm của bạn.";
-"This cutling will be automatically deleted at the selected date and time." = "Cutling này sẽ được tự động xóa vào ngày giờ đã chọn.";
+"This will replace the current text with whatever is in your clipboard." = "Việc này sẽ thay thế văn bản hiện tại bằng nội dung trong khay nhớ tạm.";
+"This will replace the current image with whatever is in your clipboard." = "Việc này sẽ thay thế hình ảnh hiện tại bằng nội dung trong khay nhớ tạm.";
+"This cutling will be automatically deleted at the selected date and time." = "Cutling này sẽ bị xoá tự động vào ngày và giờ đã chọn.";
 "Each text cutling can hold up to %lld characters." = "Mỗi cutling văn bản có thể chứa tối đa %lld ký tự.";
 
 /* MARK: - Alerts */
-"Limit Reached" = "Đã Đạt Giới Hạn";
-"Delete Cutling?" = "Xóa Cutling?";
-"This action cannot be undone." = "Thao tác này không thể hoàn tác.";
+"Limit Reached" = "Đã đạt giới hạn";
+"Delete Cutling?" = "Xoá Cutling?";
+"This action cannot be undone." = "Không thể hoàn tác thao tác này.";
 "Cannot add text cutling" = "Không thể thêm cutling văn bản";
 "Cannot add image cutling" = "Không thể thêm cutling hình ảnh";
 "Cannot add more text cutlings." = "Không thể thêm cutling văn bản nữa.";
 "Cannot add more image cutlings." = "Không thể thêm cutling hình ảnh nữa.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Bạn đã đạt tối đa %lld cutling. Xóa một số để thêm mới.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Bạn đã đạt tối đa %lld cutling hình ảnh. Hình ảnh sử dụng nhiều bộ nhớ trong bàn phím. Xóa một số hình ảnh để thêm mới.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Bạn đã đạt tối đa %lld cutling văn bản. Xóa một số để thêm mới.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Bạn đã đạt tối đa %lld cutling. Hãy xoá bớt để thêm.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Bạn đã đạt tối đa %lld cutling hình ảnh. Hình ảnh dùng nhiều bộ nhớ trên bàn phím. Hãy xoá bớt hình để thêm.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Bạn đã đạt tối đa %lld cutling văn bản. Hãy xoá bớt để thêm.";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Gợi ý loại nhập liệu";
@@ -154,48 +154,48 @@
 "Inserted" = "Đã Chèn";
 
 /* MARK: - Keyboard Setup */
-"Setup Progress" = "Tiến Trình Cài Đặt";
-"Open Cutling Settings" = "Mở Cài Đặt Cutling";
+"Setup Progress" = "Tiến trình cài đặt";
+"Open Cutling Settings" = "Mở cài đặt Cutling";
 "Tap here, then switch to Cutling" = "Nhấn vào đây, rồi chuyển sang Cutling";
-"How to Use Your Keyboard" = "Cách Sử Dụng Bàn Phím";
-"Storage Limits" = "Giới Hạn Bộ Nhớ";
-"You're All Set!" = "Đã Sẵn Sàng!";
-"Set Up Your Keyboard" = "Cài Đặt Bàn Phím";
+"How to Use Your Keyboard" = "Cách sử dụng bàn phím";
+"Storage Limits" = "Giới hạn bộ nhớ";
+"You're All Set!" = "Đã sẵn sàng!";
+"Set Up Your Keyboard" = "Cài đặt bàn phím";
 "Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Bàn phím Cutling đã sẵn sàng! Khi đang gõ ở bất kỳ đâu, nhấn biểu tượng 🌐 quả địa cầu trên bàn phím để chuyển sang Cutling.";
 "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Thực hiện hai bước đơn giản dưới đây để bắt đầu sử dụng bàn phím tùy chỉnh. Trang này sẽ tự động cập nhật khi bạn hoàn thành mỗi bước.";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Bước 1:** Nhấn 'Mở Cài Đặt Cutling' bên dưới, vào **Bàn Phím** và chọn **Cutling** từ danh sách.";
-"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Bước 2:** Đảm bảo **Cho Phép Quyền Truy Cập Đầy Đủ** đang BẬT. Điều này cho phép bàn phím sao chép hình ảnh vào bộ nhớ tạm. Dữ liệu của bạn luôn riêng tư và không bao giờ được gửi đi đâu.";
-"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Bước 3:** Nhấn vào ô nhập văn bản và chọn \"Cutling\" bằng biểu tượng 🌐 quả địa cầu trên bàn phím để cập nhật trạng thái \"Quyền Truy Cập Đầy Đủ\".";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Bước 1:** Nhấn 'Mở cài đặt Cutling' bên dưới, vào **Bàn phím** và chọn **Cutling** từ danh sách.";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Bước 2:** Đảm bảo **Cho phép quyền truy cập đầy đủ** đang BẬT. Điều này cho phép bàn phím sao chép hình ảnh vào bộ nhớ tạm. Dữ liệu của bạn luôn riêng tư và không bao giờ được gửi đi đâu.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Bước 3:** Nhấn vào ô nhập văn bản và chọn \"Cutling\" bằng biểu tượng 🌐 quả địa cầu trên bàn phím để cập nhật trạng thái \"Quyền truy cập đầy đủ\".";
 "**Step 4:** You're good to go! The usage guide is provided below." = "**Bước 4:** Bạn đã sẵn sàng! Hướng dẫn sử dụng ở bên dưới.";
 "While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Khi đang gõ trong bất kỳ ứng dụng nào, nhấn hoặc giữ phím 🌐 quả địa cầu ở góc dưới bên trái bàn phím, rồi chọn Cutling";
 "Tap any text cutling and it will be typed into your current text field immediately" = "Nhấn vào bất kỳ cutling văn bản nào và nó sẽ được gõ vào ô văn bản hiện tại ngay lập tức";
 "Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Nhấn vào cutling hình ảnh để sao chép vào bộ nhớ tạm, rồi dán vào ứng dụng bạn đang dùng (thường bằng cách nhấn giữ, rồi chọn Dán). Apple hiện không hỗ trợ dán hình ảnh trực tiếp trên ứng dụng này.";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Sao chép bất kỳ văn bản nào, rồi nhấn nút 'Thêm từ Bộ Nhớ Tạm' trên bàn phím Cutling để lưu thành cutling mới";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Sao chép bất kỳ văn bản nào, rồi nhấn nút 'Thêm từ bộ nhớ tạm' trên bàn phím Cutling để lưu thành cutling mới";
 "You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Bạn có thể quản lý tất cả cutling trong ứng dụng Cutling chính. Các thay đổi sẽ xuất hiện ngay trên bàn phím.";
 "Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Tiện ích bàn phím có giới hạn bộ nhớ nghiêm ngặt để đảm bảo sự ổn định của hệ thống. Hình ảnh sử dụng nhiều bộ nhớ hơn văn bản, nên chúng tôi giới hạn chúng để bàn phím luôn nhanh và đáng tin cậy. Nếu đạt giới hạn, chỉ cần xóa một số cutling để thêm mới.";
 "Up to **%lld text** cutlings" = "Tối đa **%lld văn bản** cutling";
 "Up to **%lld image** cutlings" = "Tối đa **%lld hình ảnh** cutling";
-"Back" = "Quay Lại";
-"Next" = "Tiếp Theo";
-"Get Started" = "Bắt Đầu";
+"Back" = "Quay lại";
+"Next" = "Tiếp theo";
+"Get Started" = "Bắt đầu";
 "Follow a few simple steps to start using your custom Cutling keyboard." = "Thực hiện vài bước đơn giản để bắt đầu sử dụng bàn phím Cutling tùy chỉnh.";
-"Enable Cutling Keyboard" = "Bật Bàn Phím Cutling";
-"Test Your Keyboard" = "Kiểm Tra Bàn Phím";
+"Enable Cutling Keyboard" = "Bật bàn phím Cutling";
+"Test Your Keyboard" = "Kiểm tra bàn phím";
 "All set! Swipe to continue." = "Đã sẵn sàng! Vuốt để tiếp tục.";
 "Your data stays private and is never sent anywhere." = "Dữ liệu của bạn luôn riêng tư và không bao giờ được gửi đi đâu.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Không dành cho dữ liệu nhạy cảm** — tránh lưu trữ mật khẩu, số thẻ, khóa riêng tư hoặc token";
-"Set Up Cutling Keyboard" = "Cài Đặt Bàn Phím Cutling";
-"What You Can Do" = "Bạn Có Thể Làm Gì";
-"Smart Field Suggestions" = "Gợi Ý Trường Thông Minh";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Không dành cho dữ liệu nhạy cảm**: tránh lưu trữ mật khẩu, số thẻ, khóa riêng tư hoặc token";
+"Set Up Cutling Keyboard" = "Cài đặt bàn phím Cutling";
+"What You Can Do" = "Bạn có thể làm gì";
+"Smart Field Suggestions" = "Gợi ý trường thông minh";
 "Cutling spots email, URL, phone, and address fields, then floats matching cutlings to the top of the keyboard." = "Cutling phát hiện các trường email, URL, số điện thoại và địa chỉ, rồi đưa các cutling phù hợp lên đầu bàn phím.";
-"Save from Anywhere" = "Lưu Từ Mọi Nơi";
-"Send text, links, or images to Cutling straight from any app's Share Sheet or the Action extension." = "Gửi văn bản, liên kết hoặc hình ảnh đến Cutling trực tiếp từ Bảng Chia Sẻ của bất kỳ ứng dụng nào hoặc tiện ích Action.";
-"Widgets & Controls" = "Widget & Điều Khiển";
-"Pin favorite cutlings to your Home Screen, Lock Screen, or Control Center for one-tap copy." = "Ghim các cutling yêu thích vào Màn Hình Chính, Màn Hình Khóa hoặc Trung Tâm Điều Khiển để sao chép chỉ với một chạm.";
-"Find with Spotlight" = "Tìm Bằng Spotlight";
+"Save from Anywhere" = "Lưu từ mọi nơi";
+"Send text, links, or images to Cutling straight from any app's Share Sheet or the Action extension." = "Gửi văn bản, liên kết hoặc hình ảnh đến Cutling trực tiếp từ Bảng chia sẻ của bất kỳ ứng dụng nào hoặc tiện ích Action.";
+"Widgets & Controls" = "Widget và điều khiển";
+"Pin favorite cutlings to your Home Screen, Lock Screen, or Control Center for one-tap copy." = "Ghim các cutling yêu thích vào Màn hình chính, Màn hình khóa hoặc Trung tâm điều khiển để sao chép chỉ với một chạm.";
+"Find with Spotlight" = "Tìm bằng Spotlight";
 "Search your saved cutlings right from Spotlight and copy them in a single tap." = "Tìm kiếm các cutling đã lưu ngay từ Spotlight và sao chép chỉ với một chạm.";
-"Sync Across Devices" = "Đồng Bộ Trên Mọi Thiết Bị";
-"Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Bật Đồng Bộ iCloud để giữ cho các cutling luôn cập nhật trên mọi thiết bị đã đăng nhập Tài Khoản Apple của bạn.";
+"Sync Across Devices" = "Đồng bộ trên mọi thiết bị";
+"Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Bật đồng bộ iCloud để giữ cho các cutling luôn cập nhật trên mọi thiết bị đã đăng nhập Tài khoản Apple của bạn.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Chạm vào trường văn bản phía trên, sau đó sử dụng phím 🌐 quả cầu để chuyển sang **Cutling**. Điều này xác nhận mọi thứ đã được thiết lập đúng cách.";
 "Set Up Cutling Keyboard" = "Cài Đặt Bàn Phím Cutling";
 "What You Can Do" = "Bạn Có Thể Làm Gì";
@@ -215,28 +215,28 @@
 "What's New in Cutling" = "Có Gì Mới Trong Cutling";
 "Cutling for Mac" = "Cutling Dành Cho Mac";
 "Cutling now runs on your Mac with a global hotkey and menu bar picker." = "Cutling giờ đã chạy trên Mac của bạn với phím tắt toàn cục và bộ chọn trên thanh menu.";
-"Siri & Shortcuts" = "Siri & Phím tắt";
+"Siri & Shortcuts" = "Siri và phím tắt";
 "Ask Siri to add, copy, or search your cutlings hands-free." = "Yêu cầu Siri thêm, sao chép hoặc tìm kiếm các cutling của bạn rảnh tay.";
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Mở Cutling trong ứng dụng **Cài đặt** trên thiết bị của bạn.";
 "Tap **Keyboards** and enable **Cutling**." = "Chạm vào **Bàn phím** và bật **Cutling**.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Bật **Cho phép truy cập đầy đủ** để bàn phím có thể sao chép hình ảnh vào bảng nhớ tạm.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Chạm vào trường văn bản bên dưới, sau đó sử dụng phím 🌐 quả cầu để chuyển sang **Cutling**. Điều này xác nhận mọi thứ đã được thiết lập đúng cách.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Đồng bộ iCloud là một **tính năng thử nghiệm**. Tính năng này có thể không hoạt động chính xác trong mọi trường hợp, có thể dẫn đến mất dữ liệu. Bạn luôn có thể thay đổi điều này sau trong Cài đặt.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Bật **Cho phép truy cập đầy đủ** để bàn phím có thể sao chép hình ảnh vào khay nhớ tạm.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Chạm vào trường văn bản bên dưới, rồi dùng phím 🌐 quả cầu để chuyển sang **Cutling**. Việc này xác nhận mọi thứ đã được cài đặt đúng.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Đồng bộ iCloud là một **tính năng thử nghiệm**. Nó có thể không hoạt động đúng trong mọi tình huống, có thể dẫn đến mất dữ liệu. Bạn có thể thay đổi tuỳ chọn này bất kỳ lúc nào trong Cài đặt.";
 
 /* MARK: - Recently Deleted */
-"Recently Deleted" = "Đã xóa gần đây";
-"Delete All" = "Xóa tất cả";
-"Delete All Permanently?" = "Xóa vĩnh viễn tất cả?";
-"Delete Permanently?" = "Xóa vĩnh viễn?";
-"Delete Permanently" = "Xóa vĩnh viễn";
+"Recently Deleted" = "Đã xoá gần đây";
+"Delete All" = "Xoá tất cả";
+"Delete All Permanently?" = "Xoá vĩnh viễn tất cả?";
+"Delete Permanently?" = "Xoá vĩnh viễn?";
+"Delete Permanently" = "Xoá vĩnh viễn";
 "Recover" = "Khôi phục";
-"Items will be permanently deleted after 30 days." = "Các mục sẽ bị xóa vĩnh viễn sau 30 ngày.";
-"No Recently Deleted Items" = "Không có mục nào đã xóa gần đây";
-"Deleted cutlings will appear here for 30 days." = "Các cutling đã xóa sẽ hiển thị ở đây trong 30 ngày.";
-"This will permanently delete all %lld items. This action cannot be undone." = "Tất cả %lld mục sẽ bị xóa vĩnh viễn. Hành động này không thể hoàn tác.";
-"\"%@\" will be deleted permanently." = "\"%@\" sẽ bị xóa vĩnh viễn.";
+"Items will be permanently deleted after 30 days." = "Các mục sẽ bị xoá vĩnh viễn sau 30 ngày.";
+"No Recently Deleted Items" = "Không có mục nào đã xoá gần đây";
+"Deleted cutlings will appear here for 30 days." = "Cutling đã xoá sẽ xuất hiện ở đây trong 30 ngày.";
+"This will permanently delete all %lld items. This action cannot be undone." = "Việc này sẽ xoá vĩnh viễn %lld mục. Không thể hoàn tác thao tác này.";
+"\"%@\" will be deleted permanently." = "“%@” sẽ bị xoá vĩnh viễn.";
 "1 day left" = "Còn 1 ngày";
 "%lld days left" = "Còn %lld ngày";
 
@@ -313,45 +313,45 @@
 
 /* MARK: - App Shortcuts (Siri / Shortcuts gallery) */
 "Save clipboard contents as a new cutling." = "Lưu nội dung bộ nhớ tạm thành một cutling mới.";
-"Save Text" = "Lưu Văn Bản";
+"Save Text" = "Lưu văn bản";
 "Save text as a new cutling." = "Lưu văn bản thành một cutling mới.";
-"Get Cutling Text" = "Lấy Văn Bản Cutling";
+"Get Cutling Text" = "Lấy văn bản cutling";
 "Get the text contents of a cutling as a value for use in other shortcuts." = "Lấy nội dung văn bản của một cutling làm giá trị để dùng trong các phím tắt khác.";
-"Get Latest Cutling" = "Lấy Cutling Mới Nhất";
-"Latest Cutling" = "Cutling Mới Nhất";
+"Get Latest Cutling" = "Lấy cutling mới nhất";
+"Latest Cutling" = "Cutling mới nhất";
 "Get the text from your most recently saved cutling." = "Lấy văn bản từ cutling bạn đã lưu gần đây nhất.";
-"Save Image" = "Lưu Hình Ảnh";
+"Save Image" = "Lưu hình ảnh";
 "Save an image as a new cutling." = "Lưu một hình ảnh thành một cutling mới.";
-"Search Cutlings" = "Tìm Cutling";
+"Search Cutlings" = "Tìm cutling";
 "Find cutlings whose name or contents match a search query." = "Tìm cutling có tên hoặc nội dung khớp với truy vấn tìm kiếm.";
 "Open Cutling" = "Mở Cutling";
 "Open the Cutling app." = "Mở ứng dụng Cutling.";
 "Open Cutling and start a new text cutling." = "Mở Cutling và bắt đầu một cutling văn bản mới.";
 "Open Cutling and start a new image cutling." = "Mở Cutling và bắt đầu một cutling hình ảnh mới.";
-"Query" = "Truy Vấn";
+"Query" = "Truy vấn";
 "Nothing to save." = "Không có gì để lưu.";
 "That doesn't look like an image." = "Đó dường như không phải là hình ảnh.";
 "Failed to save image." = "Không thể lưu hình ảnh.";
 
 /* MARK: - TipKit */
 "Saved cutlings" = "Cutling đã lưu";
-"Your pinned snippets live here, ready to copy with one click." = "Các đoạn đã ghim của bạn nằm ở đây, sẵn sàng sao chép chỉ với một cú nhấp.";
-"Recent clipboard" = "Bộ nhớ tạm gần đây";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "Mọi thứ bạn sao chép sẽ xuất hiện ở đây. Nhấp chuột phải vào bất kỳ hàng nào để lưu thành một cutling.";
-"Wipe the list" = "Xóa danh sách";
-"Empties your recent clipboard. Saved cutlings stay put." = "Làm trống bộ nhớ tạm gần đây của bạn. Các cutling đã lưu vẫn còn nguyên.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Đặt lại phím tắt, bật tắt thu nhận bộ nhớ tạm và quản lý đồng bộ iCloud.";
-"Undo deletes" = "Hoàn tác xóa";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Các cutling đã xóa lưu lại đây trong 30 ngày. Khôi phục hoặc xóa hẳn.";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Nhấn vào đây để chọn nhiều cutling, sắp xếp lại, hoặc khôi phục các mục vừa xóa.";
+"Your pinned snippets live here, ready to copy with one click." = "Các đoạn đã ghim ở đây, sẵn sàng để sao chép chỉ với một cú nhấp.";
+"Recent clipboard" = "Khay nhớ tạm gần đây";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Mọi thứ bạn sao chép đều đến đây. Nhấp chuột phải vào một dòng để lưu thành cutling.";
+"Wipe the list" = "Xoá sạch danh sách";
+"Empties your recent clipboard. Saved cutlings stay put." = "Xoá sạch khay nhớ tạm gần đây của bạn. Cutling đã lưu vẫn còn đó.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Đổi phím tắt, bật/tắt thu khay nhớ tạm, và quản lý đồng bộ iCloud.";
+"Undo deletes" = "Hoàn tác xoá";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Cutling đã xoá ở lại đây 30 ngày. Khôi phục hoặc xoá hẳn.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Chạm vào đây để chọn nhiều cutling, sắp xếp lại, hoặc khôi phục các mục đã xoá gần đây.";
 "Long-press a cutling" = "Nhấn giữ một cutling";
-"Hold any card for quick actions: copy, edit, share, or delete." = "Nhấn giữ bất kỳ thẻ nào để truy cập thao tác nhanh: sao chép, sửa, chia sẻ hoặc xóa.";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Giữ bất kỳ thẻ nào để dùng thao tác nhanh: sao chép, chỉnh sửa, chia sẻ, hoặc xoá.";
 "Drag to select" = "Kéo để chọn";
 "Swipe across cards to select a range. Swipe back over them to deselect." = "Vuốt qua các thẻ để chọn một dải. Vuốt ngược lại để bỏ chọn.";
 "Smart field matching" = "Khớp trường thông minh";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling phát hiện các trường email, URL, số điện thoại và địa chỉ, rồi đưa các đoạn phù hợp lên đầu bàn phím.";
-"Create a new cutling" = "Tạo Cutling mới";
-"Save text or image snippets you'll reuse from any app." = "Lưu các đoạn văn bản hoặc hình ảnh để dùng lại từ bất kỳ ứng dụng nào.";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling nhận diện các trường email, URL, số điện thoại và địa chỉ, rồi đưa các đoạn phù hợp lên đầu bàn phím.";
+"Create a new cutling" = "Tạo cutling mới";
+"Save text or image snippets you'll reuse from any app." = "Lưu các đoạn văn bản hoặc hình ảnh bạn sẽ dùng lại từ bất kỳ ứng dụng nào.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "Chào mừng đến với Cutling";
@@ -372,3 +372,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "Cho phép Cutling dán một cutling thẳng vào ứng dụng bạn đang sử dụng.";
 "Grant" = "Cấp quyền";
 "You can skip Accessibility and grant it later from Settings → Paste." = "Bạn có thể bỏ qua Trợ năng và cấp quyền sau trong Cài Đặt → Dán.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "Lưu thành tệp…";
+"Image Saving" = "Lưu hình ảnh";
+"When saving images" = "Khi lưu hình ảnh";
+"Ask each time" = "Hỏi mỗi lần";
+"Save to folder" = "Lưu vào thư mục";
+"Folder" = "Thư mục";
+"Change Folder…" = "Đổi thư mục…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "Chọn cách hoạt động của thao tác “Lưu thành tệp” đối với cutling hình ảnh. Khi chọn “Lưu vào thư mục”, hình ảnh sẽ được lưu thẳng vào thư mục bạn chọn với tên tệp duy nhất, không hỏi lại.";
+"Choose" = "Chọn";
+"Choose Image Folder" = "Chọn thư mục hình ảnh";
+"Pick a folder where Cutling will save image cutlings." = "Chọn thư mục mà Cutling sẽ lưu các cutling hình ảnh.";
+"Preview" = "Xem trước";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "Đã lưu";
+"History" = "Lịch sử";
+"No saved cutlings yet" = "Chưa có cutling nào được lưu";
+"Copy something to see it here" = "Sao chép gì đó để thấy ở đây";
+"Clipboard history is off. Enable it in Settings." = "Lịch sử khay nhớ tạm đã tắt. Bật nó trong Cài đặt.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Đưa vào tìm kiếm Spotlight";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "Cho phép tìm cutling của bạn từ Spotlight. Nội dung nhạy cảm (thẻ tín dụng, khoá API, token JWT, cụm từ khoá khôi phục, khoá riêng) không bao giờ bị lập chỉ mục.";
+"Copy Cutling" = "Sao chép Cutling";
+"Copy a cutling's contents to the clipboard." = "Sao chép nội dung của một cutling vào khay nhớ tạm.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Dùng các cụm từ này với Siri hoặc duyệt mọi phím tắt Cutling trong ứng dụng Phím tắt.";
+"Copied \"%@\"" = "Đã sao chép “%@”";

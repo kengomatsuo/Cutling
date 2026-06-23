@@ -120,18 +120,11 @@ struct RecentlyDeletedView: View {
     // MARK: - Empty State
 
     private var emptyState: some View {
-        VStack(spacing: 12) {
-            Image(systemName: "trash")
-                .font(.system(size: 48, weight: .thin))
-                .foregroundStyle(.tertiary)
-            Text("No Recently Deleted Items")
-                .font(.title3.weight(.semibold))
-                .foregroundStyle(.secondary)
-            Text("Deleted cutlings will appear here for 30 days.")
-                .font(.subheadline)
-                .foregroundStyle(.tertiary)
-                .multilineTextAlignment(.center)
-        }
+        ContentUnavailableView(
+            "No Recently Deleted Items",
+            systemImage: "trash",
+            description: Text("Deleted cutlings will appear here for 30 days.")
+        )
         .frame(maxWidth: .infinity)
         .padding(.top, 80)
     }

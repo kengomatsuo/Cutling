@@ -3,11 +3,11 @@
 "Select Items" = "Selecciona elements";
 "%lld Selected" = "%lld seleccionats";
 "Reorder" = "Reordena";
-"Settings" = "Configuració";
+"Settings" = "Ajustaments";
 "Keyboard Setup" = "Configuració del teclat";
 "New" = "Nou";
 "Choose Icon" = "Tria una icona";
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Text, %lld/%lld Imatges";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld text, %lld/%lld imatges";
 "%lld Cutlings" = "%lld Cutlings";
 "Cutlings" = "Cutlings";
 
@@ -25,23 +25,23 @@
 
 /* MARK: - Menu Items */
 "Text Cutling" = "Cutling de text";
-"Image Cutling" = "Cutling d'imatge";
+"Image Cutling" = "Cutling d’imatge";
 "Select Cutlings" = "Selecciona Cutlings";
-"Reorder Cutlings" = "Reordena els Cutlings";
+"Reorder Cutlings" = "Reordena Cutlings";
 "Keyboard Setup Guide" = "Guia de configuració del teclat";
 "Name (A → Z)" = "Nom (A → Z)";
 "Name (Z → A)" = "Nom (Z → A)";
 "Text First" = "Text primer";
 "Images First" = "Imatges primer";
-"Shortest First" = "Més curt primer";
-"Longest First" = "Més llarg primer";
+"Shortest First" = "Més curts primer";
+"Longest First" = "Més llargs primer";
 "Reverse Order" = "Ordre invers";
 
 /* MARK: - Empty States */
-"No Cutlings Yet" = "Encara no hi ha Cutlings";
-"No Results" = "Sense resultats";
+"No Cutlings Yet" = "Encara no hi ha cap Cutling";
+"No Results" = "Cap resultat";
 "Tap + to add your first cutling." = "Toca + per afegir el teu primer cutling.";
-"Try a different search term." = "Prova un terme de cerca diferent.";
+"Try a different search term." = "Prova un altre terme de cerca.";
 
 /* MARK: - Search */
 "Search cutlings" = "Cerca cutlings";
@@ -83,67 +83,67 @@
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
-"iCloud Sync" = "Sincronització iCloud";
-"Sync your cutlings across all your devices using iCloud." = "Sincronitza els teus cutlings a tots els dispositius amb iCloud.";
+"iCloud Sync" = "Sincronització amb iCloud";
+"Sync your cutlings across all your devices using iCloud." = "Sincronitza els teus cutlings a tots els teus dispositius amb iCloud.";
 "Storage" = "Emmagatzematge";
 "Text Cutlings" = "Cutlings de text";
-"Image Cutlings" = "Cutlings d'imatge";
-"Total Cutlings" = "Cutlings totals";
+"Image Cutlings" = "Cutlings d’imatge";
+"Total Cutlings" = "Total de Cutlings";
 "Disk Usage" = "Ús del disc";
 "Status" = "Estat";
 "Syncing…" = "Sincronitzant…";
 "Up to date" = "Actualitzat";
 "Sync Now" = "Sincronitza ara";
-"Turn On iCloud Sync" = "Activa la sincronització d'iCloud";
-"Max Text Length" = "Llargada màx. del text";
+"Turn On iCloud Sync" = "Activa la sincronització amb iCloud";
+"Max Text Length" = "Longitud màxima del text";
 "%lld chars" = "%lld caràcters";
 "About" = "Quant a";
 "Version" = "Versió";
 "Keyboard Added" = "Teclat afegit";
 "Full Access" = "Accés complet";
 "Experimental Feature: iCloud" = "Funció experimental: iCloud";
-"Contact Support" = "Contactar amb suport";
+"Contact Support" = "Contacta amb el suport";
 "Privacy Policy" = "Política de privacitat";
-"Auto-detect Input Types" = "Detecció automàtica de tipus d'entrada";
-"Enable iCloud Sync" = "Activa la sincronització d'iCloud";
-"Keep your cutlings in sync across all your devices." = "Mantén els teus cutlings sincronitzats a tots els dispositius.";
-"Automatically detect and suggest input type categories when editing text." = "Detecta i suggereix automàticament categories de tipus d'entrada en editar text.";
+"Auto-detect Input Types" = "Detecta tipus d’entrada automàticament";
+"Enable iCloud Sync" = "Activa la sincronització amb iCloud";
+"Keep your cutlings in sync across all your devices." = "Mantingues els teus cutlings sincronitzats a tots els teus dispositius.";
+"Automatically detect and suggest input type categories when editing text." = "Detecta i suggereix automàticament categories de tipus d’entrada en editar text.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Cap imatge seleccionada";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "El text actual es reemplaçarà pel contingut del porta-retalls.";
-"This will replace the current image with whatever is in your clipboard." = "La imatge actual es reemplaçarà pel contingut del porta-retalls.";
-"This cutling will be automatically deleted at the selected date and time." = "Aquest cutling s'eliminarà automàticament en la data i hora seleccionades.";
+"This will replace the current text with whatever is in your clipboard." = "Això substituirà el text actual per allò que tinguis al porta-retalls.";
+"This will replace the current image with whatever is in your clipboard." = "Això substituirà la imatge actual per allò que tinguis al porta-retalls.";
+"This cutling will be automatically deleted at the selected date and time." = "Aquest cutling s’eliminarà automàticament a la data i hora seleccionades.";
 "Each text cutling can hold up to %lld characters." = "Cada cutling de text pot contenir fins a %lld caràcters.";
 
 /* MARK: - Alerts */
 "Limit Reached" = "Límit assolit";
-"Delete Cutling?" = "Eliminar el Cutling?";
+"Delete Cutling?" = "Eliminar Cutling?";
 "This action cannot be undone." = "Aquesta acció no es pot desfer.";
-"Cannot add text cutling" = "No es pot afegir un cutling de text";
-"Cannot add image cutling" = "No es pot afegir un cutling d'imatge";
+"Cannot add text cutling" = "No es pot afegir el cutling de text";
+"Cannot add image cutling" = "No es pot afegir el cutling d’imatge";
 "Cannot add more text cutlings." = "No es poden afegir més cutlings de text.";
-"Cannot add more image cutlings." = "No es poden afegir més cutlings d'imatge.";
+"Cannot add more image cutlings." = "No es poden afegir més cutlings d’imatge.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Has assolit el màxim de %lld cutlings. Elimina'n alguns per afegir-ne més.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Has assolit el màxim de %lld cutlings d'imatge. Les imatges utilitzen molta memòria al teclat. Elimina algunes imatges per afegir-ne més.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Has assolit el màxim de %lld cutlings de text. Elimina'n alguns per afegir-ne més.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Has arribat al màxim de %lld cutlings en total. Elimina’n alguns per afegir-ne més.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Has arribat al màxim de %lld cutlings d’imatge. Les imatges fan servir molta memòria al teclat. Elimina’n algunes per afegir-ne més.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Has arribat al màxim de %lld cutlings de text. Elimina’n alguns per afegir-ne més.";
 
 /* MARK: - Input Type Suggestions */
-"Input Type Suggestions" = "Suggeriments per tipus d'entrada";
-"Suggest for Input Types" = "Suggerir per a tipus d'entrada";
-"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Quan seleccionis un camp de text del tipus corresponent, aquest cutling apareixerà a la part superior del teclat.";
-"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Assigna cutlings a tipus d'entrada perquè apareguin a la part superior del teclat quan seleccionis un camp de text corresponent.";
-"No cutlings yet. Add some first." = "Encara no hi ha cutlings. Afegeix-ne uns quants primer.";
+"Input Type Suggestions" = "Suggeriments per tipus d’entrada";
+"Suggest for Input Types" = "Suggerir per a tipus d’entrada";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Quan enfoquis un camp de text del tipus coincident, aquest cutling apareixerà a la part superior del teclat.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Assigna cutlings a tipus d’entrada perquè apareguin a la part superior del teclat quan enfoquis un camp de text coincident.";
+"No cutlings yet. Add some first." = "Encara no hi ha cutlings. Afegeix-ne algun primer.";
 "Suggested" = "Suggerit";
-"Email" = "Correu electrònic";
+"Email" = "Correu";
 "URL" = "URL";
 "Phone Number" = "Número de telèfon";
 "Address" = "Adreça";
-"Input Types" = "Tipus d'entrada";
+"Input Types" = "Tipus d’entrada";
 
 /* MARK: - Detection */
 "Detected: %@" = "Detectat: %@";
@@ -155,48 +155,48 @@
 
 /* MARK: - Keyboard Setup */
 "Setup Progress" = "Progrés de la configuració";
-"Open Cutling Settings" = "Obre la configuració de Cutling";
-"Tap here, then switch to Cutling" = "Toca aquí i canvia a Cutling";
-"How to Use Your Keyboard" = "Com utilitzar el teclat";
-"Storage Limits" = "Límits d'emmagatzematge";
-"You're All Set!" = "Tot a punt!";
+"Open Cutling Settings" = "Obre els ajustaments de Cutling";
+"Tap here, then switch to Cutling" = "Toca aquí, llavors canvia a Cutling";
+"How to Use Your Keyboard" = "Com fer servir el teu teclat";
+"Storage Limits" = "Límits d’emmagatzematge";
+"You're All Set!" = "Tot llest!";
 "Set Up Your Keyboard" = "Configura el teu teclat";
-"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "El teclat Cutling està llest! Mentre escrius, toca la icona 🌐 del teclat per canviar a Cutling.";
-"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Segueix els dos passos senzills a continuació per començar a utilitzar el teclat personalitzat. La pàgina s'actualitzarà automàticament en completar cada pas.";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Pas 1:** Toca «Obre la configuració de Cutling» a continuació, ves a **Teclats** i selecciona **Cutling** de la llista.";
-"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Pas 2:** Assegura't que **Permet accés complet** estigui ACTIVAT. Això permet al teclat copiar imatges al porta-retalls. Les teves dades es mantenen privades i mai s'envien enlloc.";
-"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Pas 3:** Toca el camp de text i tria \"Cutling\" amb la icona 🌐 del teclat per actualitzar l'estat d'\"Accés complet\".";
-"**Step 4:** You're good to go! The usage guide is provided below." = "**Pas 4:** Tot a punt! La guia d'ús es troba a continuació.";
-"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Mentre escrius en qualsevol app, toca o mantén premuda la tecla 🌐 a baix a l'esquerra del teclat i selecciona Cutling";
-"Tap any text cutling and it will be typed into your current text field immediately" = "Toca qualsevol cutling de text i s'escriurà immediatament al camp de text actual";
-"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Toca un cutling d'imatge per copiar-lo al porta-retalls i enganxa'l a l'app que estàs utilitzant (normalment tocant i mantenint, i seleccionant Enganxa). Apple actualment no permet enganxar directament una imatge en aquesta app.";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Copia qualsevol text i toca el botó «Afegeix del porta-retalls» al teclat Cutling per desar-lo com un nou cutling";
-"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Pots gestionar tots els cutlings a l'app principal Cutling. Els canvis apareixeran al moment al teclat.";
-"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Les extensions de teclat tenen límits de memòria estrictes per garantir l'estabilitat del sistema. Les imatges utilitzen més memòria que el text, per això les limitem per mantenir el teclat ràpid i fiable. Si arribes a un límit, simplement elimina alguns cutlings per afegir-ne de nous.";
-"Up to **%lld text** cutlings" = "Fins a **%lld** cutlings de text";
-"Up to **%lld image** cutlings" = "Fins a **%lld** cutlings d'imatge";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "El teu teclat Cutling és a punt! Mentre escrius en qualsevol lloc, toca la icona 🌐 globus del teclat per canviar a Cutling.";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Segueix els dos senzills passos de sota per començar a fer servir el teu teclat personalitzat. Aquesta pàgina s’actualitzarà automàticament quan completis cada pas.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Pas 1:** Toca ‘Obre els ajustaments de Cutling’ a sota, ves a **Teclats** i selecciona **Cutling** de la llista.";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Pas 2:** Assegura’t que **Permet accés complet** està activat. Això permet que el teclat copiï imatges al porta-retalls. Les teves dades segueixen sent privades i no s’envien enlloc.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Pas 3:** Toca el camp de text i tria \"Cutling\" amb la icona 🌐 globus del teclat per actualitzar l’estat de \"Accés complet\".";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**Pas 4:** Tot a punt! A sota tens la guia d’ús.";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Mentre escrius en qualsevol app, toca o mantén la tecla 🌐 globus de la part inferior esquerra del teclat i, llavors, selecciona Cutling";
+"Tap any text cutling and it will be typed into your current text field immediately" = "Toca qualsevol cutling de text i s’escriurà immediatament al camp de text actual";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Toca un cutling d’imatge per copiar-lo al porta-retalls i, després, enganxa’l a l’app que utilitzes (normalment mantenint premut i triant Enganxa). Apple encara no permet enganxar una imatge directament en aquesta app.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Copia qualsevol text i, llavors, toca el botó ‘Afegeix des del porta-retalls’ al teclat Cutling per desar-lo com un nou cutling";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Pots gestionar tots els teus cutlings a l’app principal de Cutling. Els canvis que facis apareixeran instantàniament al teclat.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Les extensions de teclat tenen límits de memòria estrictes per garantir l’estabilitat del sistema. Les imatges fan servir més memòria que el text, per això les limitem perquè el teclat continuï sent ràpid i fiable. Si arribes a un límit, només cal que eliminis alguns cutlings per afegir-ne de nous.";
+"Up to **%lld text** cutlings" = "Fins a **%lld** cutlings de **text**";
+"Up to **%lld image** cutlings" = "Fins a **%lld** cutlings d’**imatge**";
 "Back" = "Enrere";
 "Next" = "Següent";
 "Get Started" = "Comença";
-"Follow a few simple steps to start using your custom Cutling keyboard." = "Segueix uns quants passos senzills per començar a utilitzar el teclat Cutling.";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "Segueix uns senzills passos per començar a fer servir el teu teclat Cutling personalitzat.";
 "Enable Cutling Keyboard" = "Activa el teclat Cutling";
-"Test Your Keyboard" = "Prova el teclat";
+"Test Your Keyboard" = "Prova el teu teclat";
 "All set! Swipe to continue." = "Tot a punt! Llisca per continuar.";
-"Your data stays private and is never sent anywhere." = "Les teves dades es mantenen privades i mai s'envien enlloc.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**No per a dades sensibles** — eviteu emmagatzemar contrasenyes, números de targeta, claus privades o tokens";
+"Your data stays private and is never sent anywhere." = "Les teves dades segueixen sent privades i no s’envien enlloc.";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**No per a dades sensibles**: evita desar contrasenyes, números de targeta, claus privades o tokens";
 "Set Up Cutling Keyboard" = "Configura el teclat Cutling";
 "What You Can Do" = "Què pots fer";
 "Smart Field Suggestions" = "Suggeriments intel·ligents per camp";
-"Cutling spots email, URL, phone, and address fields, then floats matching cutlings to the top of the keyboard." = "Cutling detecta camps de correu, URL, telèfon i adreça i mostra els cutlings que coincideixen a la part superior del teclat.";
+"Cutling spots email, URL, phone, and address fields, then floats matching cutlings to the top of the keyboard." = "Cutling detecta camps de correu, URL, telèfon i adreça, i mostra els cutlings coincidents a la part superior del teclat.";
 "Save from Anywhere" = "Desa des de qualsevol lloc";
-"Send text, links, or images to Cutling straight from any app's Share Sheet or the Action extension." = "Envia text, enllaços o imatges a Cutling directament des del full per compartir o l'extensió d'acció de qualsevol app.";
+"Send text, links, or images to Cutling straight from any app's Share Sheet or the Action extension." = "Envia text, enllaços o imatges a Cutling directament des del full Comparteix o l’extensió Acció de qualsevol app.";
 "Widgets & Controls" = "Widgets i controls";
-"Pin favorite cutlings to your Home Screen, Lock Screen, or Control Center for one-tap copy." = "Fixa els teus cutlings preferits a la pantalla d'inici, la pantalla bloquejada o el centre de control per copiar-los amb un sol toc.";
-"Find with Spotlight" = "Cerca amb Spotlight";
-"Search your saved cutlings right from Spotlight and copy them in a single tap." = "Cerca els teus cutlings desats directament des de Spotlight i copia'ls amb un sol toc.";
+"Pin favorite cutlings to your Home Screen, Lock Screen, or Control Center for one-tap copy." = "Fixa els teus cutlings preferits a la pantalla d’inici, pantalla de bloqueig o centre de control per copiar-los amb un sol toc.";
+"Find with Spotlight" = "Troba amb Spotlight";
+"Search your saved cutlings right from Spotlight and copy them in a single tap." = "Cerca els teus cutlings desats directament des d’Spotlight i copia’ls amb un sol toc.";
 "Sync Across Devices" = "Sincronitza entre dispositius";
-"Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Activa la sincronització amb iCloud per mantenir els teus cutlings al dia a cada dispositiu connectat al teu compte Apple.";
-"Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Toca el camp de text de dalt i fes servir la tecla 🌐 globus per canviar a **Cutling**. Això verifica que tot estigui configurat correctament.";
+"Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Activa Sincronització amb iCloud per mantenir els teus cutlings actualitzats a tots els dispositius amb el teu compte d’Apple.";
+"Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Toca el camp de text de dalt i fes servir la tecla 🌐 globus per canviar a **Cutling**. Això comprova que tot està configurat correctament.";
 
 /* MARK: - What's New Sheet */
 "What's New in Cutling" = "Novetats de Cutling";
@@ -206,26 +206,26 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "Demaneu a Siri que afegeixi, copiï o cerqui els vostres cutlings sense les mans.";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "Obriu Cutling a l'aplicació **Ajustos** del vostre dispositiu.";
-"Tap **Keyboards** and enable **Cutling**." = "Toqueu **Teclats** i activeu **Cutling**.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Activeu **Permetre accés complet** perquè el teclat pugui copiar imatges al porta-retalls.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Toqueu el camp de text a continuació i useu la tecla 🌐 globus per canviar a **Cutling**. Això verifica que tot estigui configurat correctament.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "La sincronització amb iCloud és una **funció experimental**. Pot no funcionar correctament en totes les situacions, cosa que pot provocar pèrdua de dades. Sempre podeu canviar-ho més tard a Ajustos.";
+"Open Cutling in your device's **Settings** app." = "Obre Cutling a l’app **Ajustaments** del teu dispositiu.";
+"Tap **Keyboards** and enable **Cutling**." = "Toca **Teclats** i activa **Cutling**.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Activa **Permetre accés complet** perquè el teclat pugui copiar imatges al teu porta-retalls.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Toca el camp de text de sota i fes servir la tecla 🌐 globus per canviar a **Cutling**. Això comprova que tot està configurat correctament.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "La sincronització amb iCloud és una **funció experimental**. Pot ser que no funcioni correctament en totes les situacions, cosa que podria provocar pèrdua de dades. Sempre pots canviar-ho més tard als Ajustaments.";
 
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "Eliminats recentment";
-"Delete All" = "Eliminar-ho tot";
+"Delete All" = "Elimina-ho tot";
 "Delete All Permanently?" = "Eliminar-ho tot permanentment?";
 "Delete Permanently?" = "Eliminar permanentment?";
-"Delete Permanently" = "Eliminar permanentment";
-"Recover" = "Recuperar";
-"Items will be permanently deleted after 30 days." = "Els elements s'eliminaran permanentment després de 30 dies.";
+"Delete Permanently" = "Elimina permanentment";
+"Recover" = "Recupera";
+"Items will be permanently deleted after 30 days." = "Els elements s’eliminaran permanentment després de 30 dies.";
 "No Recently Deleted Items" = "No hi ha elements eliminats recentment";
 "Deleted cutlings will appear here for 30 days." = "Els cutlings eliminats apareixeran aquí durant 30 dies.";
-"This will permanently delete all %lld items. This action cannot be undone." = "S'eliminaran permanentment els %lld elements. Aquesta acció no es pot desfer.";
-"\"%@\" will be deleted permanently." = "\"%@\" s'eliminarà permanentment.";
-"1 day left" = "1 dia restant";
-"%lld days left" = "%lld dies restants";
+"This will permanently delete all %lld items. This action cannot be undone." = "Això eliminarà permanentment %lld elements. Aquesta acció no es pot desfer.";
+"\"%@\" will be deleted permanently." = "\"%@\" s’eliminarà permanentment.";
+"1 day left" = "Queda 1 dia";
+"%lld days left" = "Queden %lld dies";
 
 /* MARK: - Context Menu */
 "Share" = "Compartir";
@@ -300,45 +300,45 @@
 
 /* MARK: - App Shortcuts (Siri / Shortcuts gallery) */
 "Save clipboard contents as a new cutling." = "Desa el contingut del porta-retalls com un nou cutling.";
-"Save Text" = "Desa el text";
-"Save text as a new cutling." = "Desa el text com un nou cutling.";
-"Get Cutling Text" = "Obtenir text del Cutling";
-"Get the text contents of a cutling as a value for use in other shortcuts." = "Obté el contingut de text d'un cutling com a valor per utilitzar en altres dreceres.";
-"Get Latest Cutling" = "Obtenir l'últim Cutling";
+"Save Text" = "Desa text";
+"Save text as a new cutling." = "Desa un text com un nou cutling.";
+"Get Cutling Text" = "Obté text de Cutling";
+"Get the text contents of a cutling as a value for use in other shortcuts." = "Obté el contingut de text d’un cutling com a valor per a fer servir en altres dreceres.";
+"Get Latest Cutling" = "Obté l’últim Cutling";
 "Latest Cutling" = "Últim Cutling";
 "Get the text from your most recently saved cutling." = "Obté el text del teu cutling desat més recentment.";
-"Save Image" = "Desa la imatge";
+"Save Image" = "Desa imatge";
 "Save an image as a new cutling." = "Desa una imatge com un nou cutling.";
 "Search Cutlings" = "Cerca Cutlings";
-"Find cutlings whose name or contents match a search query." = "Troba cutlings el nom o el contingut dels quals coincideix amb una consulta de cerca.";
-"Open Cutling" = "Obrir Cutling";
-"Open the Cutling app." = "Obre l'app Cutling.";
+"Find cutlings whose name or contents match a search query." = "Cerca cutlings el nom o contingut dels quals coincideix amb una consulta de cerca.";
+"Open Cutling" = "Obre Cutling";
+"Open the Cutling app." = "Obre l’app Cutling.";
 "Open Cutling and start a new text cutling." = "Obre Cutling i comença un nou cutling de text.";
-"Open Cutling and start a new image cutling." = "Obre Cutling i comença un nou cutling d'imatge.";
+"Open Cutling and start a new image cutling." = "Obre Cutling i comença un nou cutling d’imatge.";
 "Query" = "Consulta";
 "Nothing to save." = "Res per desar.";
 "That doesn't look like an image." = "Això no sembla una imatge.";
-"Failed to save image." = "No s'ha pogut desar la imatge.";
+"Failed to save image." = "No s’ha pogut desar la imatge.";
 
 /* MARK: - TipKit */
 "Saved cutlings" = "Cutlings desats";
-"Your pinned snippets live here, ready to copy with one click." = "Els teus fragments fixats viuen aquí, llestos per copiar amb un clic.";
+"Your pinned snippets live here, ready to copy with one click." = "Els teus fragments fixats viuen aquí, llestos per copiar-los amb un clic.";
 "Recent clipboard" = "Porta-retalls recent";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "Tot el que copies apareix aquí. Fes clic dret a qualsevol fila per desar-la com a cutling.";
-"Wipe the list" = "Esborra la llista";
-"Empties your recent clipboard. Saved cutlings stay put." = "Buida el teu porta-retalls recent. Els cutlings desats es queden.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Canvia la drecera de teclat, activa o desactiva la captura del porta-retalls i gestiona la sincronització d'iCloud.";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Tot el que copies arriba aquí. Fes clic dret a qualsevol fila per desar-la com a cutling.";
+"Wipe the list" = "Buida la llista";
+"Empties your recent clipboard. Saved cutlings stay put." = "Buida el porta-retalls recent. Els cutlings desats es mantenen.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Reassigna la drecera, activa la captura del porta-retalls i gestiona la sincronització amb iCloud.";
 "Undo deletes" = "Desfés eliminacions";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Els cutlings eliminats es queden aquí durant 30 dies. Recupera'ls o buida-ho definitivament.";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Els cutlings eliminats es queden aquí 30 dies. Restaura’ls o buida’ls per sempre.";
 "Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Toca aquí per seleccionar diversos cutlings, reordenar-los o restaurar els eliminats recentment.";
-"Long-press a cutling" = "Manté premut un cutling";
+"Long-press a cutling" = "Mantén premut un cutling";
 "Hold any card for quick actions: copy, edit, share, or delete." = "Mantén premuda qualsevol targeta per a accions ràpides: copiar, editar, compartir o eliminar.";
 "Drag to select" = "Arrossega per seleccionar";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "Llisca sobre les targetes per seleccionar un interval. Torna a passar-hi per desseleccionar-les.";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Llisca pels targetes per seleccionar un rang. Llisca cap enrere per desseleccionar.";
 "Smart field matching" = "Coincidència intel·ligent de camps";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling detecta camps de correu, URL, telèfon i adreça i mostra els fragments coincidents a la part superior del teclat.";
-"Create a new cutling" = "Crea un nou Cutling";
-"Save text or image snippets you'll reuse from any app." = "Desa fragments de text o d'imatge que reutilitzaràs des de qualsevol app.";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling detecta camps de correu, URL, telèfon i adreça, i mostra els fragments coincidents a la part superior del teclat.";
+"Create a new cutling" = "Crea un nou cutling";
+"Save text or image snippets you'll reuse from any app." = "Desa fragments de text o imatge que reutilitzaràs des de qualsevol app.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "Et donem la benvinguda a Cutling";
@@ -359,3 +359,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "Permet que Cutling enganxi un cutling directament a l'app que estaves utilitzant.";
 "Grant" = "Concedeix";
 "You can skip Accessibility and grant it later from Settings → Paste." = "Pots ometre l'accessibilitat i concedir-la més tard des de Configuració → Enganxa.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "Desar com a fitxer…";
+"Image Saving" = "Desament d’imatges";
+"When saving images" = "En desar imatges";
+"Ask each time" = "Preguntar sempre";
+"Save to folder" = "Desar a una carpeta";
+"Folder" = "Carpeta";
+"Change Folder…" = "Canviar carpeta…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "Tria com funciona l’acció “Desar com a fitxer” per als cutlings d’imatge. Amb “Desar a una carpeta”, les imatges van directament a la carpeta triada amb un nom de fitxer únic, sense preguntar.";
+"Choose" = "Triar";
+"Choose Image Folder" = "Triar carpeta d’imatges";
+"Pick a folder where Cutling will save image cutlings." = "Tria una carpeta on Cutling desarà els cutlings d’imatge.";
+"Preview" = "Visualització prèvia";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "Desats";
+"History" = "Historial";
+"No saved cutlings yet" = "Encara no hi ha cap cutling desat";
+"Copy something to see it here" = "Copia alguna cosa per veure-la aquí";
+"Clipboard history is off. Enable it in Settings." = "L’historial del porta-retalls està desactivat. Activa’l a Ajustaments.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Incloure a la cerca d’Spotlight";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "Fes que els teus cutlings es puguin cercar des de Spotlight. El contingut sensible (targetes de crèdit, claus d’API, tokens JWT, frases llavor, claus privades) mai no s’indexa.";
+"Copy Cutling" = "Copiar Cutling";
+"Copy a cutling's contents to the clipboard." = "Copia el contingut d’un cutling al porta-retalls.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Fes servir aquestes frases amb Siri o explora totes les dreceres de Cutling a l’app Dreceres.";
+"Copied \"%@\"" = "Copiat «%@»";

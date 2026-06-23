@@ -1,13 +1,13 @@
 /* MARK: - Navigation & Titles */
 "My Cutlings" = "Cutling Saya";
-"Select Items" = "Pilih Item";
-"%lld Selected" = "%lld Dipilih";
-"Reorder" = "Urutkan Ulang";
+"Select Items" = "Pilih item";
+"%lld Selected" = "%lld dipilih";
+"Reorder" = "Susun ulang";
 "Settings" = "Pengaturan";
-"Keyboard Setup" = "Pengaturan Keyboard";
+"Keyboard Setup" = "Penyiapan keyboard";
 "New" = "Baru";
-"Choose Icon" = "Pilih Ikon";
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Teks, %lld/%lld Gambar";
+"Choose Icon" = "Pilih ikon";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld teks, %lld/%lld gambar";
 "%lld Cutlings" = "%lld Cutling";
 "Cutlings" = "Cutling";
 
@@ -24,24 +24,24 @@
 "Delete Selected" = "Hapus yang Dipilih";
 
 /* MARK: - Menu Items */
-"Text Cutling" = "Cutling Teks";
-"Image Cutling" = "Cutling Gambar";
+"Text Cutling" = "Cutling teks";
+"Image Cutling" = "Cutling gambar";
 "Select Cutlings" = "Pilih Cutling";
-"Reorder Cutlings" = "Urutkan Ulang Cutling";
-"Keyboard Setup Guide" = "Panduan Pengaturan Keyboard";
+"Reorder Cutlings" = "Susun ulang Cutling";
+"Keyboard Setup Guide" = "Panduan penyiapan keyboard";
 "Name (A → Z)" = "Nama (A → Z)";
 "Name (Z → A)" = "Nama (Z → A)";
-"Text First" = "Teks Dulu";
-"Images First" = "Gambar Dulu";
-"Shortest First" = "Terpendek Dulu";
-"Longest First" = "Terpanjang Dulu";
-"Reverse Order" = "Urutan Terbalik";
+"Text First" = "Teks dulu";
+"Images First" = "Gambar dulu";
+"Shortest First" = "Terpendek dulu";
+"Longest First" = "Terpanjang dulu";
+"Reverse Order" = "Urutan terbalik";
 
 /* MARK: - Empty States */
-"No Cutlings Yet" = "Belum Ada Cutling";
-"No Results" = "Tidak Ada Hasil";
+"No Cutlings Yet" = "Belum ada Cutling";
+"No Results" = "Tidak ada hasil";
 "Tap + to add your first cutling." = "Ketuk + untuk menambahkan cutling pertama Anda.";
-"Try a different search term." = "Coba kata pencarian lain.";
+"Try a different search term." = "Coba kata kunci lain.";
 
 /* MARK: - Search */
 "Search cutlings" = "Cari cutling";
@@ -84,53 +84,53 @@
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
 "iCloud Sync" = "Sinkronisasi iCloud";
-"Sync your cutlings across all your devices using iCloud." = "Sinkronkan cutling Anda di semua perangkat menggunakan iCloud.";
+"Sync your cutlings across all your devices using iCloud." = "Sinkronkan cutling Anda di semua perangkat dengan iCloud.";
 "Storage" = "Penyimpanan";
-"Text Cutlings" = "Cutling Teks";
-"Image Cutlings" = "Cutling Gambar";
+"Text Cutlings" = "Cutling teks";
+"Image Cutlings" = "Cutling gambar";
 "Total Cutlings" = "Total Cutling";
-"Disk Usage" = "Penggunaan Disk";
+"Disk Usage" = "Penggunaan disk";
 "Status" = "Status";
 "Syncing…" = "Menyinkronkan…";
 "Up to date" = "Terkini";
-"Sync Now" = "Sinkronkan Sekarang";
-"Turn On iCloud Sync" = "Aktifkan Sinkronisasi iCloud";
-"Max Text Length" = "Panjang Teks Maks";
+"Sync Now" = "Sinkronkan sekarang";
+"Turn On iCloud Sync" = "Aktifkan sinkronisasi iCloud";
+"Max Text Length" = "Panjang teks maks.";
 "%lld chars" = "%lld karakter";
 "About" = "Tentang";
 "Version" = "Versi";
-"Keyboard Added" = "Keyboard Ditambahkan";
-"Full Access" = "Akses Penuh";
-"Experimental Feature: iCloud" = "Fitur Eksperimental: iCloud";
-"Contact Support" = "Hubungi Dukungan";
-"Privacy Policy" = "Kebijakan Privasi";
-"Auto-detect Input Types" = "Deteksi Otomatis Jenis Input";
-"Enable iCloud Sync" = "Aktifkan Sinkronisasi iCloud";
+"Keyboard Added" = "Keyboard ditambahkan";
+"Full Access" = "Akses penuh";
+"Experimental Feature: iCloud" = "Fitur eksperimental: iCloud";
+"Contact Support" = "Hubungi dukungan";
+"Privacy Policy" = "Kebijakan privasi";
+"Auto-detect Input Types" = "Deteksi tipe input otomatis";
+"Enable iCloud Sync" = "Aktifkan sinkronisasi iCloud";
 "Keep your cutlings in sync across all your devices." = "Jaga cutling Anda tetap sinkron di semua perangkat.";
-"Automatically detect and suggest input type categories when editing text." = "Deteksi dan sarankan kategori jenis input secara otomatis saat mengedit teks.";
+"Automatically detect and suggest input type categories when editing text." = "Deteksi dan sarankan kategori tipe input secara otomatis saat mengedit teks.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Tidak ada gambar dipilih";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "Ini akan mengganti teks saat ini dengan isi papan klip Anda.";
-"This will replace the current image with whatever is in your clipboard." = "Ini akan mengganti gambar saat ini dengan isi papan klip Anda.";
+"This will replace the current text with whatever is in your clipboard." = "Ini akan menggantikan teks saat ini dengan apa pun yang ada di papan klip Anda.";
+"This will replace the current image with whatever is in your clipboard." = "Ini akan menggantikan gambar saat ini dengan apa pun yang ada di papan klip Anda.";
 "This cutling will be automatically deleted at the selected date and time." = "Cutling ini akan dihapus otomatis pada tanggal dan waktu yang dipilih.";
-"Each text cutling can hold up to %lld characters." = "Setiap cutling teks dapat menampung hingga %lld karakter.";
+"Each text cutling can hold up to %lld characters." = "Setiap cutling teks dapat memuat hingga %lld karakter.";
 
 /* MARK: - Alerts */
-"Limit Reached" = "Batas Tercapai";
+"Limit Reached" = "Batas tercapai";
 "Delete Cutling?" = "Hapus Cutling?";
 "This action cannot be undone." = "Tindakan ini tidak dapat dibatalkan.";
-"Cannot add text cutling" = "Tidak dapat menambah cutling teks";
-"Cannot add image cutling" = "Tidak dapat menambah cutling gambar";
-"Cannot add more text cutlings." = "Tidak dapat menambah cutling teks lagi.";
-"Cannot add more image cutlings." = "Tidak dapat menambah cutling gambar lagi.";
+"Cannot add text cutling" = "Tidak dapat menambahkan cutling teks";
+"Cannot add image cutling" = "Tidak dapat menambahkan cutling gambar";
+"Cannot add more text cutlings." = "Tidak dapat menambahkan cutling teks lagi.";
+"Cannot add more image cutlings." = "Tidak dapat menambahkan cutling gambar lagi.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Anda telah mencapai batas maksimum %lld cutling. Hapus beberapa untuk menambah lagi.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Anda telah mencapai batas maksimum %lld cutling gambar. Gambar menggunakan memori yang besar di keyboard. Hapus beberapa gambar untuk menambah lagi.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Anda telah mencapai batas maksimum %lld cutling teks. Hapus beberapa untuk menambah lagi.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Anda telah mencapai maksimum %lld cutling total. Hapus beberapa untuk menambah lagi.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Anda telah mencapai maksimum %lld cutling gambar. Gambar memakai banyak memori pada keyboard. Hapus beberapa gambar untuk menambah lagi.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Anda telah mencapai maksimum %lld cutling teks. Hapus beberapa untuk menambah lagi.";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Saran Jenis Input";
@@ -183,7 +183,7 @@
 "Test Your Keyboard" = "Uji Keyboard Anda";
 "All set! Swipe to continue." = "Semua siap! Geser untuk melanjutkan.";
 "Your data stays private and is never sent anywhere." = "Data Anda tetap privat dan tidak pernah dikirim ke mana pun.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Bukan untuk data sensitif** — hindari menyimpan kata sandi, nomor kartu, kunci privat, atau token";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Bukan untuk data sensitif**: hindari menyimpan kata sandi, nomor kartu, kunci privat, atau token";
 "Set Up Cutling Keyboard" = "Atur Keyboard Cutling";
 "What You Can Do" = "Yang Bisa Anda Lakukan";
 "Smart Field Suggestions" = "Saran Bidang Cerdas";
@@ -219,26 +219,26 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "Minta Siri untuk menambah, menyalin, atau mencari cutling Anda tanpa menggunakan tangan.";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "Buka Cutling di aplikasi **Pengaturan** perangkat Anda.";
-"Tap **Keyboards** and enable **Cutling**." = "Ketuk **Papan Ketik** dan aktifkan **Cutling**.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Nyalakan **Izinkan Akses Penuh** agar keyboard dapat menyalin gambar ke clipboard.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Ketuk kolom teks di bawah, lalu gunakan tombol 🌐 globe untuk beralih ke **Cutling**. Ini memverifikasi bahwa semuanya telah diatur dengan benar.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Sinkronisasi iCloud adalah **fitur eksperimental**. Mungkin tidak berfungsi dengan benar di semua situasi, yang dapat menyebabkan kehilangan data. Anda selalu dapat mengubahnya nanti di Pengaturan.";
+"Open Cutling in your device's **Settings** app." = "Buka Cutling di aplikasi **Pengaturan** pada perangkat Anda.";
+"Tap **Keyboards** and enable **Cutling**." = "Ketuk **Keyboard** dan aktifkan **Cutling**.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Aktifkan **Izinkan Akses Penuh** agar keyboard dapat menyalin gambar ke papan klip Anda.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Ketuk bidang teks di bawah, lalu gunakan tombol 🌐 globe untuk beralih ke **Cutling**. Ini memastikan semuanya sudah disiapkan dengan benar.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Sinkronisasi iCloud adalah **fitur eksperimental**. Mungkin tidak bekerja dengan benar dalam semua situasi, yang dapat menyebabkan kehilangan data. Anda selalu dapat mengubahnya nanti di Pengaturan.";
 
 /* MARK: - Recently Deleted */
-"Recently Deleted" = "Baru Dihapus";
-"Delete All" = "Hapus Semua";
-"Delete All Permanently?" = "Hapus Semua Secara Permanen?";
-"Delete Permanently?" = "Hapus Secara Permanen?";
-"Delete Permanently" = "Hapus Secara Permanen";
+"Recently Deleted" = "Baru-baru ini dihapus";
+"Delete All" = "Hapus semua";
+"Delete All Permanently?" = "Hapus semua secara permanen?";
+"Delete Permanently?" = "Hapus secara permanen?";
+"Delete Permanently" = "Hapus secara permanen";
 "Recover" = "Pulihkan";
 "Items will be permanently deleted after 30 days." = "Item akan dihapus secara permanen setelah 30 hari.";
 "No Recently Deleted Items" = "Tidak ada item yang baru dihapus";
 "Deleted cutlings will appear here for 30 days." = "Cutling yang dihapus akan muncul di sini selama 30 hari.";
-"This will permanently delete all %lld items. This action cannot be undone." = "Semua %lld item akan dihapus secara permanen. Tindakan ini tidak dapat dibatalkan.";
-"\"%@\" will be deleted permanently." = "\"%@\" akan dihapus secara permanen.";
-"1 day left" = "1 hari tersisa";
-"%lld days left" = "%lld hari tersisa";
+"This will permanently delete all %lld items. This action cannot be undone." = "Ini akan menghapus %lld item secara permanen. Tindakan ini tidak dapat dibatalkan.";
+"\"%@\" will be deleted permanently." = "“%@” akan dihapus secara permanen.";
+"1 day left" = "Sisa 1 hari";
+"%lld days left" = "Sisa %lld hari";
 
 /* MARK: - Context Menu */
 "Share" = "Bagikan";
@@ -335,23 +335,23 @@
 
 /* MARK: - TipKit */
 "Saved cutlings" = "Cutling tersimpan";
-"Your pinned snippets live here, ready to copy with one click." = "Snippet yang kamu pin ada di sini, siap disalin dengan sekali klik.";
-"Recent clipboard" = "Papan klip terbaru";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "Semua yang kamu salin akan muncul di sini. Klik kanan baris mana pun untuk menyimpannya sebagai cutling.";
-"Wipe the list" = "Bersihkan daftar";
-"Empties your recent clipboard. Saved cutlings stay put." = "Mengosongkan papan klip terbaru. Cutling tersimpan tetap aman.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Ubah pintasan tombol, atur penangkapan papan klip, dan kelola sinkronisasi iCloud.";
-"Undo deletes" = "Batalkan penghapusan";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Cutling yang dihapus tinggal di sini selama 30 hari. Pulihkan atau kosongkan selamanya.";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Ketuk di sini untuk memilih beberapa cutling, mengurutkannya, atau memulihkan yang baru dihapus.";
-"Long-press a cutling" = "Tekan lama sebuah cutling";
-"Hold any card for quick actions: copy, edit, share, or delete." = "Tahan kartu mana pun untuk aksi cepat: salin, edit, bagikan, atau hapus.";
+"Your pinned snippets live here, ready to copy with one click." = "Potongan yang Anda sematkan ada di sini, siap disalin sekali klik.";
+"Recent clipboard" = "Papan klip terkini";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Semua yang Anda salin mendarat di sini. Klik kanan baris untuk menyimpannya sebagai cutling.";
+"Wipe the list" = "Kosongkan daftar";
+"Empties your recent clipboard. Saved cutlings stay put." = "Mengosongkan papan klip terkini Anda. Cutling tersimpan tetap ada.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Atur ulang pintasan, alihkan perekaman papan klip, dan kelola sinkronisasi iCloud.";
+"Undo deletes" = "Urungkan penghapusan";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Cutling yang dihapus tetap di sini selama 30 hari. Pulihkan atau kosongkan secara permanen.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Ketuk di sini untuk memilih beberapa cutling, menyusun ulang, atau memulihkan yang baru dihapus.";
+"Long-press a cutling" = "Tekan lama pada cutling";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Tahan kartu mana pun untuk tindakan cepat: salin, edit, bagikan, atau hapus.";
 "Drag to select" = "Seret untuk memilih";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "Geser melintasi kartu untuk memilih rentang. Geser balik untuk membatalkan pilihan.";
-"Smart field matching" = "Pencocokan bidang pintar";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling mengenali bidang email, URL, telepon, dan alamat, lalu menampilkan snippet yang cocok di bagian atas keyboard.";
-"Create a new cutling" = "Buat Cutling baru";
-"Save text or image snippets you'll reuse from any app." = "Simpan potongan teks atau gambar yang mau kamu pakai lagi di aplikasi mana pun.";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Geser pada kartu untuk memilih rentang. Geser kembali untuk membatalkan pilihan.";
+"Smart field matching" = "Pencocokan bidang cerdas";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling mengenali bidang email, URL, telepon, dan alamat, lalu menaikkan potongan yang sesuai ke bagian atas keyboard.";
+"Create a new cutling" = "Buat cutling baru";
+"Save text or image snippets you'll reuse from any app." = "Simpan potongan teks atau gambar yang akan Anda gunakan kembali dari aplikasi mana pun.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "Selamat Datang di Cutling";
@@ -372,3 +372,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "Memungkinkan Cutling menempel sebuah cutling langsung ke aplikasi yang sedang Anda gunakan.";
 "Grant" = "Berikan";
 "You can skip Accessibility and grant it later from Settings → Paste." = "Anda dapat melewati Aksesibilitas dan memberikannya nanti dari Pengaturan → Tempel.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "Simpan sebagai berkas…";
+"Image Saving" = "Penyimpanan gambar";
+"When saving images" = "Saat menyimpan gambar";
+"Ask each time" = "Tanyakan setiap kali";
+"Save to folder" = "Simpan ke folder";
+"Folder" = "Folder";
+"Change Folder…" = "Ubah folder…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "Pilih bagaimana tindakan “Simpan sebagai berkas” bekerja untuk cutling gambar. Dengan “Simpan ke folder”, gambar langsung tersimpan di folder yang Anda pilih dengan nama berkas unik, tanpa pertanyaan.";
+"Choose" = "Pilih";
+"Choose Image Folder" = "Pilih folder gambar";
+"Pick a folder where Cutling will save image cutlings." = "Pilih folder tempat Cutling akan menyimpan cutling gambar.";
+"Preview" = "Pratinjau";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "Tersimpan";
+"History" = "Riwayat";
+"No saved cutlings yet" = "Belum ada cutling tersimpan";
+"Copy something to see it here" = "Salin sesuatu untuk melihatnya di sini";
+"Clipboard history is off. Enable it in Settings." = "Riwayat papan klip nonaktif. Aktifkan di Pengaturan.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Sertakan dalam pencarian Spotlight";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "Buat cutling Anda dapat dicari dari Spotlight. Konten sensitif (kartu kredit, kunci API, token JWT, frasa benih, kunci privat) tidak pernah diindeks.";
+"Copy Cutling" = "Salin Cutling";
+"Copy a cutling's contents to the clipboard." = "Menyalin konten cutling ke papan klip.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Gunakan frasa ini dengan Siri atau jelajahi semua pintasan Cutling di aplikasi Pintasan.";
+"Copied \"%@\"" = "“%@” disalin";

@@ -676,19 +676,17 @@ struct MainContentView: View {
             gridTipBanner
             #endif
             if filtered.isEmpty {
-                VStack(spacing: 12) {
-                    Image(systemName: searchText.isEmpty ? "tray" : "magnifyingglass")
-                        .font(.system(size: 48, weight: .thin))
-                        .foregroundStyle(.tertiary)
-                        .accessibilityHidden(true)
-                    Text(searchText.isEmpty ? "No Cutlings Yet" : "No Results")
-                        .font(.title3.weight(.semibold))
-                        .foregroundStyle(.secondary)
-                    Text(searchText.isEmpty ? "Tap + to add your first cutling." : "Try a different search term.")
-                        .font(.subheadline)
-                        .foregroundStyle(.tertiary)
+                Group {
+                    if searchText.isEmpty {
+                        ContentUnavailableView(
+                            "No Cutlings Yet",
+                            systemImage: "tray",
+                            description: Text("Tap + to add your first cutling.")
+                        )
+                    } else {
+                        ContentUnavailableView.search(text: searchText)
+                    }
                 }
-                .accessibilityElement(children: .combine)
                 .frame(maxWidth: .infinity)
                 .padding(.top, 80)
             } else {

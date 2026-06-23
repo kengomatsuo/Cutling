@@ -2,12 +2,12 @@
 "My Cutlings" = "എന്റെ കട്ട്‌ലിംഗുകൾ";
 "Select Items" = "ഇനങ്ങൾ തിരഞ്ഞെടുക്കുക";
 "%lld Selected" = "%lld തിരഞ്ഞെടുത്തു";
-"Reorder" = "പുനക്രമീകരിക്കുക";
+"Reorder" = "പുനഃക്രമീകരിക്കുക";
 "Settings" = "ക്രമീകരണങ്ങൾ";
-"Keyboard Setup" = "കീബോർഡ് സെറ്റപ്പ്";
-"New" = "പുതിയ";
+"Keyboard Setup" = "കീബോർഡ് സജ്ജീകരണം";
+"New" = "പുതിയത്";
 "Choose Icon" = "ഐക്കൺ തിരഞ്ഞെടുക്കുക";
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld ടെക്സ്റ്റ്, %lld/%lld ചിത്രങ്ങൾ";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld വാചകം, %lld/%lld ചിത്രങ്ങൾ";
 "%lld Cutlings" = "%lld കട്ട്‌ലിംഗുകൾ";
 "Cutlings" = "കട്ട്‌ലിംഗുകൾ";
 
@@ -24,22 +24,22 @@
 "Delete Selected" = "തിരഞ്ഞെടുത്തവ ഇല്ലാതാക്കുക";
 
 /* MARK: - Menu Items */
-"Text Cutling" = "ടെക്സ്റ്റ് കട്ട്‌ലിംഗ്";
-"Image Cutling" = "ചിത്രം കട്ട്‌ലിംഗ്";
+"Text Cutling" = "വാചക കട്ട്‌ലിംഗ്";
+"Image Cutling" = "ചിത്ര കട്ട്‌ലിംഗ്";
 "Select Cutlings" = "കട്ട്‌ലിംഗുകൾ തിരഞ്ഞെടുക്കുക";
-"Reorder Cutlings" = "കട്ട്‌ലിംഗുകൾ പുനക്രമീകരിക്കുക";
-"Keyboard Setup Guide" = "കീബോർഡ് സെറ്റപ്പ് ഗൈഡ്";
+"Reorder Cutlings" = "കട്ട്‌ലിംഗുകൾ പുനഃക്രമീകരിക്കുക";
+"Keyboard Setup Guide" = "കീബോർഡ് സജ്ജീകരണ വഴികാട്ടി";
 "Name (A → Z)" = "പേര് (A → Z)";
 "Name (Z → A)" = "പേര് (Z → A)";
-"Text First" = "ടെക്സ്റ്റ് ആദ്യം";
-"Images First" = "ചിത്രം ആദ്യം";
-"Shortest First" = "ഏറ്റവും ചെറിയത് ആദ്യം";
-"Longest First" = "ഏറ്റവും നീളമുള്ളത് ആദ്യം";
+"Text First" = "ആദ്യം വാചകം";
+"Images First" = "ആദ്യം ചിത്രങ്ങൾ";
+"Shortest First" = "ആദ്യം ഏറ്റവും ചെറുത്";
+"Longest First" = "ആദ്യം ഏറ്റവും വലുത്";
 "Reverse Order" = "വിപരീത ക്രമം";
 
 /* MARK: - Empty States */
 "No Cutlings Yet" = "ഇതുവരെ കട്ട്‌ലിംഗുകൾ ഇല്ല";
-"No Results" = "ഫലങ്ങളില്ല";
+"No Results" = "ഫലങ്ങൾ ഇല്ല";
 "Tap + to add your first cutling." = "നിങ്ങളുടെ ആദ്യ കട്ട്‌ലിംഗ് ചേർക്കാൻ + ടാപ്പ് ചെയ്യുക.";
 "Try a different search term." = "മറ്റൊരു തിരയൽ പദം പരീക്ഷിക്കുക.";
 
@@ -57,7 +57,7 @@
 "Auto-Delete" = "ഓട്ടോ-ഇല്ലാതാക്കൽ";
 "Delete At" = "ഇല്ലാതാക്കുന്ന സമയം";
 "Category" = "വിഭാഗം";
-"Status" = "സ്ഥിതി";
+"Status" = "നില";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "ഉദാ. ഇമെയിൽ";
@@ -85,52 +85,52 @@
 "iCloud" = "iCloud";
 "iCloud Sync" = "iCloud സമന്വയം";
 "Sync your cutlings across all your devices using iCloud." = "iCloud ഉപയോഗിച്ച് നിങ്ങളുടെ എല്ലാ ഉപകരണങ്ങളിലും കട്ട്‌ലിംഗുകൾ സമന്വയിപ്പിക്കുക.";
-"Storage" = "സ്റ്റോറേജ്";
-"Text Cutlings" = "ടെക്സ്റ്റ് കട്ട്‌ലിംഗുകൾ";
-"Image Cutlings" = "ചിത്രം കട്ട്‌ലിംഗുകൾ";
+"Storage" = "സംഭരണം";
+"Text Cutlings" = "വാചക കട്ട്‌ലിംഗുകൾ";
+"Image Cutlings" = "ചിത്ര കട്ട്‌ലിംഗുകൾ";
 "Total Cutlings" = "ആകെ കട്ട്‌ലിംഗുകൾ";
 "Disk Usage" = "ഡിസ്ക് ഉപയോഗം";
 "Status" = "നില";
 "Syncing…" = "സമന്വയിക്കുന്നു…";
-"Up to date" = "കാലികം";
+"Up to date" = "പുതുക്കിയിരിക്കുന്നു";
 "Sync Now" = "ഇപ്പോൾ സമന്വയിപ്പിക്കുക";
-"Turn On iCloud Sync" = "iCloud സമന്വയം ഓണാക്കുക";
-"Max Text Length" = "പരമാവധി ടെക്സ്റ്റ് നീളം";
+"Turn On iCloud Sync" = "iCloud സമന്വയം ഓൺ ചെയ്യുക";
+"Max Text Length" = "പരമാവധി വാചക ദൈർഘ്യം";
 "%lld chars" = "%lld അക്ഷരങ്ങൾ";
 "About" = "കുറിച്ച്";
 "Version" = "പതിപ്പ്";
 "Keyboard Added" = "കീബോർഡ് ചേർത്തു";
-"Full Access" = "പൂർണ ആക്സസ്";
-"Experimental Feature: iCloud" = "പരീക്ഷണാത്മക ഫീച്ചർ: iCloud";
-"Contact Support" = "സപ്പോർട്ടുമായി ബന്ധപ്പെടുക";
+"Full Access" = "പൂർണ്ണ ആക്സസ്";
+"Experimental Feature: iCloud" = "പരീക്ഷണാത്മക സവിശേഷത: iCloud";
+"Contact Support" = "പിന്തുണയെ ബന്ധപ്പെടുക";
 "Privacy Policy" = "സ്വകാര്യതാ നയം";
-"Auto-detect Input Types" = "ഇൻപുട്ട് തരം ഓട്ടോ-കണ്ടെത്തൽ";
-"Enable iCloud Sync" = "iCloud സമന്വയം സജീവമാക്കുക";
-"Keep your cutlings in sync across all your devices." = "നിങ്ങളുടെ എല്ലാ ഉപകരണങ്ങളിലും കട്ട്‌ലിംഗുകൾ സമന്വയത്തിൽ നിലനിർത്തുക.";
-"Automatically detect and suggest input type categories when editing text." = "ടെക്സ്റ്റ് എഡിറ്റ് ചെയ്യുമ്പോൾ ഇൻപുട്ട് തരം വിഭാഗങ്ങൾ സ്വയമേവ കണ്ടെത്തുകയും നിർദ്ദേശിക്കുകയും ചെയ്യുക.";
+"Auto-detect Input Types" = "ഇൻപുട്ട് തരങ്ങൾ സ്വയം കണ്ടെത്തുക";
+"Enable iCloud Sync" = "iCloud സമന്വയം ഓൺ ചെയ്യുക";
+"Keep your cutlings in sync across all your devices." = "നിങ്ങളുടെ എല്ലാ ഉപകരണങ്ങളിലും കട്ട്‌ലിംഗുകൾ സമന്വയത്തിൽ സൂക്ഷിക്കുക.";
+"Automatically detect and suggest input type categories when editing text." = "വാചകം എഡിറ്റ് ചെയ്യുമ്പോൾ ഇൻപുട്ട് തരം വിഭാഗങ്ങൾ സ്വയം കണ്ടെത്തി നിർദ്ദേശിക്കും.";
 
 /* MARK: - Image Picker */
 "No image selected" = "ചിത്രം തിരഞ്ഞെടുത്തിട്ടില്ല";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "ഇത് നിങ്ങളുടെ ക്ലിപ്ബോർഡിലുള്ളത് ഉപയോഗിച്ച് നിലവിലെ ടെക്സ്റ്റ് മാറ്റിസ്ഥാപിക്കും.";
-"This will replace the current image with whatever is in your clipboard." = "ഇത് നിങ്ങളുടെ ക്ലിപ്ബോർഡിലുള്ളത് ഉപയോഗിച്ച് നിലവിലെ ചിത്രം മാറ്റിസ്ഥാപിക്കും.";
-"This cutling will be automatically deleted at the selected date and time." = "ഈ കട്ട്‌ലിംഗ് തിരഞ്ഞെടുത്ത തീയതിയിലും സമയത്തും സ്വയമേവ ഇല്ലാതാക്കപ്പെടും.";
-"Each text cutling can hold up to %lld characters." = "ഓരോ ടെക്സ്റ്റ് കട്ട്‌ലിംഗ്-ഉം പരമാവധി %lld അക്ഷരങ്ങൾ ഉൾക്കൊള്ളും.";
+"This will replace the current text with whatever is in your clipboard." = "ഇത് നിലവിലെ വാചകത്തെ നിങ്ങളുടെ ക്ലിപ്പ്ബോർഡിലുള്ളത് കൊണ്ട് മാറ്റിസ്ഥാപിക്കും.";
+"This will replace the current image with whatever is in your clipboard." = "ഇത് നിലവിലെ ചിത്രത്തെ നിങ്ങളുടെ ക്ലിപ്പ്ബോർഡിലുള്ളത് കൊണ്ട് മാറ്റിസ്ഥാപിക്കും.";
+"This cutling will be automatically deleted at the selected date and time." = "ഈ കട്ട്‌ലിംഗ് തിരഞ്ഞെടുത്ത തീയതിയിലും സമയത്തും സ്വയം നീക്കം ചെയ്യപ്പെടും.";
+"Each text cutling can hold up to %lld characters." = "ഓരോ വാചക കട്ട്‌ലിംഗും പരമാവധി %lld അക്ഷരങ്ങൾ ഉൾക്കൊള്ളും.";
 
 /* MARK: - Alerts */
 "Limit Reached" = "പരിധി എത്തി";
-"Delete Cutling?" = "കട്ട്‌ലിംഗ് ഇല്ലാതാക്കണോ?";
+"Delete Cutling?" = "കട്ട്‌ലിംഗ് നീക്കം ചെയ്യണോ?";
 "This action cannot be undone." = "ഈ പ്രവർത്തനം പഴയപടിയാക്കാൻ കഴിയില്ല.";
-"Cannot add text cutling" = "ടെക്സ്റ്റ് കട്ട്‌ലിംഗ് ചേർക്കാൻ കഴിയുന്നില്ല";
-"Cannot add image cutling" = "ചിത്രം കട്ട്‌ലിംഗ് ചേർക്കാൻ കഴിയുന്നില്ല";
-"Cannot add more text cutlings." = "കൂടുതൽ ടെക്സ്റ്റ് കട്ട്‌ലിംഗുകൾ ചേർക്കാൻ കഴിയുന്നില്ല.";
-"Cannot add more image cutlings." = "കൂടുതൽ ചിത്രം കട്ട്‌ലിംഗുകൾ ചേർക്കാൻ കഴിയുന്നില്ല.";
+"Cannot add text cutling" = "വാചക കട്ട്‌ലിംഗ് ചേർക്കാൻ കഴിയില്ല";
+"Cannot add image cutling" = "ചിത്ര കട്ട്‌ലിംഗ് ചേർക്കാൻ കഴിയില്ല";
+"Cannot add more text cutlings." = "കൂടുതൽ വാചക കട്ട്‌ലിംഗുകൾ ചേർക്കാൻ കഴിയില്ല.";
+"Cannot add more image cutlings." = "കൂടുതൽ ചിത്ര കട്ട്‌ലിംഗുകൾ ചേർക്കാൻ കഴിയില്ല.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "നിങ്ങൾ മൊത്തം %lld കട്ട്‌ലിംഗുകൾ പരമാവധി പരിധിയിൽ എത്തി. കൂടുതൽ ചേർക്കാൻ ചിലത് ഇല്ലാതാക്കുക.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "നിങ്ങൾ %lld ചിത്രം കട്ട്‌ലിംഗുകൾ പരമാവധി പരിധിയിൽ എത്തി. ചിത്രങ്ങൾ കീബോർഡിൽ കാര്യമായ മെമ്മറി ഉപയോഗിക്കുന്നു. കൂടുതൽ ചേർക്കാൻ ചില ചിത്രങ്ങൾ ഇല്ലാതാക്കുക.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "നിങ്ങൾ %lld ടെക്സ്റ്റ് കട്ട്‌ലിംഗുകൾ പരമാവധി പരിധിയിൽ എത്തി. കൂടുതൽ ചേർക്കാൻ ചിലത് ഇല്ലാതാക്കുക.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "ആകെ %lld കട്ട്‌ലിംഗുകളുടെ പരമാവധിയിലെത്തി. കൂടുതൽ ചേർക്കാൻ ചിലത് നീക്കം ചെയ്യുക.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "%lld ചിത്ര കട്ട്‌ലിംഗുകളുടെ പരമാവധിയിലെത്തി. ചിത്രങ്ങൾ കീബോർഡിൽ വളരെയധികം മെമ്മറി ഉപയോഗിക്കുന്നു. കൂടുതൽ ചേർക്കാൻ ചില ചിത്രങ്ങൾ നീക്കം ചെയ്യുക.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "%lld വാചക കട്ട്‌ലിംഗുകളുടെ പരമാവധിയിലെത്തി. കൂടുതൽ ചേർക്കാൻ ചിലത് നീക്കം ചെയ്യുക.";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "ഇൻപുട്ട് തരം നിർദ്ദേശങ്ങൾ";
@@ -156,12 +156,12 @@
 /* MARK: - Keyboard Setup */
 "Setup Progress" = "സെറ്റപ്പ് പുരോഗതി";
 "Open Cutling Settings" = "കട്ട്‌ലിംഗ് ക്രമീകരണങ്ങൾ തുറക്കുക";
-"Tap here, then switch to Cutling" = "ഇവിടെ ടാപ്പ് ചെയ്യുക, തുടർന്ന് കട്ട്‌ലിംഗ്-ലേക്ക് മാറുക";
+"Tap here, then switch to Cutling" = "ഇവിടെ ടാപ്പ് ചെയ്യുക, തുടർന്ന് കട്ട്‌ലിംഗിലേക്ക് മാറുക";
 "How to Use Your Keyboard" = "നിങ്ങളുടെ കീബോർഡ് എങ്ങനെ ഉപയോഗിക്കാം";
 "Storage Limits" = "സ്റ്റോറേജ് പരിധികൾ";
 "You're All Set!" = "എല്ലാം തയ്യാർ!";
 "Set Up Your Keyboard" = "നിങ്ങളുടെ കീബോർഡ് സജ്ജമാക്കുക";
-"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "നിങ്ങളുടെ കട്ട്‌ലിംഗ് കീബോർഡ് തയ്യാർ! എവിടെയെങ്കിലും ടൈപ്പ് ചെയ്യുമ്പോൾ, കട്ട്‌ലിംഗ്-ലേക്ക് മാറാൻ നിങ്ങളുടെ കീബോർഡിലെ 🌐 ഗ്ലോബ് ഐക്കൺ ടാപ്പ് ചെയ്യുക.";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "നിങ്ങളുടെ കട്ട്‌ലിംഗ് കീബോർഡ് തയ്യാർ! എവിടെയെങ്കിലും ടൈപ്പ് ചെയ്യുമ്പോൾ, കട്ട്‌ലിംഗിലേക്ക് മാറാൻ നിങ്ങളുടെ കീബോർഡിലെ 🌐 ഗ്ലോബ് ഐക്കൺ ടാപ്പ് ചെയ്യുക.";
 "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "നിങ്ങളുടെ ഇഷ്ടാനുസൃത കീബോർഡ് ഉപയോഗിക്കാൻ ചുവടെയുള്ള രണ്ട് ലളിതമായ ഘട്ടങ്ങൾ പിന്തുടരുക. ഓരോ ഘട്ടവും പൂർത്തിയാകുമ്പോൾ ഈ പേജ് സ്വയമേവ അപ്ഡേറ്റ് ചെയ്യും.";
 "**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**ഘട്ടം 1:** ചുവടെയുള്ള 'കട്ട്‌ലിംഗ് ക്രമീകരണങ്ങൾ തുറക്കുക' ടാപ്പ് ചെയ്യുക, **കീബോർഡുകൾ** സന്ദർശിക്കുക, ലിസ്റ്റിൽ നിന്ന് **കട്ട്‌ലിംഗ്** തിരഞ്ഞെടുക്കുക.";
 "**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**ഘട്ടം 2:** **പൂർണ ആക്സസ് അനുവദിക്കുക** ഓൺ ആണെന്ന് ഉറപ്പാക്കുക. ഇത് കീബോർഡിന് നിങ്ങളുടെ ക്ലിപ്ബോർഡിലേക്ക് ചിത്രങ്ങൾ പകർത്താൻ അനുവദിക്കുന്നു. നിങ്ങളുടെ ഡാറ്റ സ്വകാര്യമായി തുടരുന്നു, ഒരിടത്തും അയയ്ക്കുന്നില്ല.";
@@ -171,7 +171,7 @@
 "Tap any text cutling and it will be typed into your current text field immediately" = "ഏതെങ്കിലും ടെക്സ്റ്റ് കട്ട്‌ലിംഗ് ടാപ്പ് ചെയ്യുക, അത് നിങ്ങളുടെ നിലവിലെ ടെക്സ്റ്റ് ഫീൽഡിൽ ഉടൻ ടൈപ്പ് ചെയ്യപ്പെടും";
 "Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "ചിത്രം കട്ട്‌ലിംഗ് ടാപ്പ് ചെയ്ത് നിങ്ങളുടെ ക്ലിപ്ബോർഡിലേക്ക് പകർത്തുക, തുടർന്ന് നിങ്ങൾ ഉപയോഗിക്കുന്ന ആപ്പിൽ ഒട്ടിക്കുക (സാധാരണയായി ടാപ്പ് ചെയ്ത് പിടിക്കുക, തുടർന്ന് ഒട്ടിക്കുക തിരഞ്ഞെടുക്കുക). Apple നിലവിൽ ഈ ആപ്പിൽ നേരിട്ട് ചിത്രം ഒട്ടിക്കുന്നതിനെ പിന്തുണയ്ക്കുന്നില്ല.";
 "Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "ഏതെങ്കിലും ടെക്സ്റ്റ് പകർത്തുക, തുടർന്ന് പുതിയ കട്ട്‌ലിംഗ് ആയി സേവ് ചെയ്യാൻ കട്ട്‌ലിംഗ് കീബോർഡിലെ 'ക്ലിപ്ബോർഡിൽ നിന്ന് ചേർക്കുക' ബട്ടൺ ടാപ്പ് ചെയ്യുക";
-"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "പ്രധാന കട്ട്‌ലിംഗ് ആപ്പിൽ നിങ്ങളുടെ എല്ലാ കട്ട്‌ലിംഗുകൾ-ഉം നിയന്ത്രിക്കാം. നിങ്ങൾ വരുത്തുന്ന മാറ്റങ്ങൾ നിങ്ങളുടെ കീബോർഡിൽ ഉടൻ ദൃശ്യമാകും.";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "പ്രധാന കട്ട്‌ലിംഗ് ആപ്പിൽ നിങ്ങളുടെ എല്ലാ കട്ട്‌ലിംഗുകളും നിയന്ത്രിക്കാം. നിങ്ങൾ വരുത്തുന്ന മാറ്റങ്ങൾ നിങ്ങളുടെ കീബോർഡിൽ ഉടൻ ദൃശ്യമാകും.";
 "Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "സിസ്റ്റം സ്ഥിരത ഉറപ്പാക്കാൻ കീബോർഡ് എക്സ്റ്റൻഷനുകൾക്ക് കർശനമായ മെമ്മറി പരിധികളുണ്ട്. ചിത്രങ്ങൾ ടെക്സ്റ്റിനേക്കാൾ കൂടുതൽ മെമ്മറി ഉപയോഗിക്കുന്നു, അതിനാൽ നിങ്ങളുടെ കീബോർഡ് വേഗതയും വിശ്വസനീയവുമായി നിലനിർത്താൻ ഞങ്ങൾ അവ പരിമിതപ്പെടുത്തുന്നു. പരിധിയിൽ എത്തിയാൽ, പുതിയവ ചേർക്കാൻ ചില കട്ട്‌ലിംഗുകൾ ഇല്ലാതാക്കുക.";
 "Up to **%lld text** cutlings" = "**%lld ടെക്സ്റ്റ്** കട്ട്‌ലിംഗുകൾ വരെ";
 "Up to **%lld image** cutlings" = "**%lld ചിത്രം** കട്ട്‌ലിംഗുകൾ വരെ";
@@ -183,7 +183,7 @@
 "Test Your Keyboard" = "നിങ്ങളുടെ കീബോർഡ് പരിശോധിക്കുക";
 "All set! Swipe to continue." = "എല്ലാം തയ്യാർ! തുടരാൻ സ്വൈപ്പ് ചെയ്യുക.";
 "Your data stays private and is never sent anywhere." = "നിങ്ങളുടെ ഡാറ്റ സ്വകാര്യമായി തുടരുന്നു, ഒരിടത്തും അയയ്ക്കുന്നില്ല.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**സംവേദനക്ഷമമായ ডেറ്റാക്കായി അല്ല** — പാസ്‌വേഡ്, കാർഡ് നമ്പർ, നിജ കീ അല്ലെങ്കിൽ ടോകൺ സംരക്ഷണം ഉണ്ടാകുന്നത് ഒഴിവാക്കുക";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**സെൻസിറ്റീവ് ഡാറ്റയ്ക്കല്ല**: പാസ്‌വേഡുകൾ, കാർഡ് നമ്പറുകൾ, പ്രൈവറ്റ് കീകൾ അല്ലെങ്കിൽ ടോക്കണുകൾ സംഭരിക്കുന്നത് ഒഴിവാക്കുക";
 "Set Up Cutling Keyboard" = "കട്ട്‌ലിംഗ് കീബോർഡ് സജ്ജമാക്കുക";
 "What You Can Do" = "നിങ്ങൾക്ക് എന്തു ചെയ്യാം";
 "Smart Field Suggestions" = "സ്മാർട്ട് ഫീൽഡ് നിർദ്ദേശങ്ങൾ";
@@ -206,26 +206,26 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "കൈ ഉപയോഗിക്കാതെ കട്ട്‌ലിംഗുകൾ ചേർക്കാനോ പകർത്താനോ തിരയാനോ Siri-യോട് ആവശ്യപ്പെടുക.";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "നിങ്ങളുടെ ഉപകരണത്തിന്റെ **സെറ്റിംഗ്സ്** ആപ്പിൽ കട്ട്‌ലിംഗ് തുറക്കുക.";
-"Tap **Keyboards** and enable **Cutling**." = "**കീബോർഡുകൾ** ടാപ്പ് ചെയ്ത് **കട്ട്‌ലിംഗ്** പ്രവർത്തനക്ഷമമാക്കുക.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "കീബോർഡിന് നിങ്ങളുടെ ക്ലിപ്ബോർഡിലേക്ക് ചിത്രങ്ങൾ പകർത്താൻ **പൂർണ്ണ ആക്സസ് അനുവദിക്കുക** ഓൺ ചെയ്യുക.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "ചുവടെയുള്ള ടെക്സ്റ്റ് ഫീൽഡ് ടാപ്പ് ചെയ്യുക, തുടർന്ന് 🌐 ഗ്ലോബ് കീ ഉപയോഗിച്ച് **കട്ട്‌ലിംഗ്**-ലേക്ക് മാറുക. എല്ലാം ശരിയായി സജ്ജീകരിച്ചിട്ടുണ്ടെന്ന് ഇത് പരിശോധിക്കുന്നു.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud സമന്വയം ഒരു **പരീക്ഷണാത്മക ഫീച്ചർ** ആണ്. ഇത് എല്ലാ സാഹചര്യങ്ങളിലും ശരിയായി പ്രവർത്തിക്കണമെന്നില്ല, ഇത് ഡാറ്റ നഷ്ടത്തിന് കാരണമാകാം. ഈ ക്രമീകരണം പിന്നീട് എപ്പോൾ വേണമെങ്കിലും സെറ്റിംഗ്സിൽ മാറ്റാവുന്നതാണ്.";
+"Open Cutling in your device's **Settings** app." = "നിങ്ങളുടെ ഉപകരണത്തിന്റെ **ക്രമീകരണങ്ങൾ** ആപ്പിൽ Cutling തുറക്കുക.";
+"Tap **Keyboards** and enable **Cutling**." = "**കീബോർഡുകൾ** ടാപ്പ് ചെയ്ത് **Cutling** പ്രവർത്തനക്ഷമമാക്കുക.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "കീബോർഡിന് നിങ്ങളുടെ ക്ലിപ്പ്ബോർഡിലേക്ക് ചിത്രങ്ങൾ പകർത്താൻ കഴിയുന്നതിന് **പൂർണ്ണ ആക്സസ് അനുവദിക്കുക** ഓൺ ചെയ്യുക.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "താഴെയുള്ള വാചക ഫീൽഡിൽ ടാപ്പ് ചെയ്യുക, തുടർന്ന് **Cutling** ലേക്ക് മാറാൻ 🌐 ഗ്ലോബ് കീ ഉപയോഗിക്കുക. ഇത് എല്ലാം ശരിയായി സജ്ജീകരിച്ചിട്ടുണ്ടെന്ന് സ്ഥിരീകരിക്കും.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud സമന്വയം ഒരു **പരീക്ഷണാത്മക സവിശേഷത** ആണ്. ഇത് എല്ലാ സാഹചര്യങ്ങളിലും ശരിയായി പ്രവർത്തിക്കണമെന്നില്ല, ഇത് ഡാറ്റ നഷ്ടത്തിലേക്ക് നയിച്ചേക്കാം. ക്രമീകരണങ്ങളിൽ ഇത് എപ്പോൾ വേണമെങ്കിലും മാറ്റാം.";
 
 /* MARK: - Recently Deleted */
-"Recently Deleted" = "അടുത്തിടെ ഇല്ലാതാക്കിയവ";
-"Delete All" = "എല്ലാം ഇല്ലാതാക്കുക";
-"Delete All Permanently?" = "എല്ലാം ശാശ്വതമായി ഇല്ലാതാക്കണോ?";
-"Delete Permanently?" = "ശാശ്വതമായി ഇല്ലാതാക്കണോ?";
-"Delete Permanently" = "ശാശ്വതമായി ഇല്ലാതാക്കുക";
+"Recently Deleted" = "അടുത്തിടെ നീക്കം ചെയ്തവ";
+"Delete All" = "എല്ലാം നീക്കം ചെയ്യുക";
+"Delete All Permanently?" = "എല്ലാം ശാശ്വതമായി നീക്കം ചെയ്യണോ?";
+"Delete Permanently?" = "ശാശ്വതമായി നീക്കം ചെയ്യണോ?";
+"Delete Permanently" = "ശാശ്വതമായി നീക്കം ചെയ്യുക";
 "Recover" = "വീണ്ടെടുക്കുക";
-"Items will be permanently deleted after 30 days." = "ഇനങ്ങൾ 30 ദിവസത്തിന് ശേഷം ശാശ്വതമായി ഇല്ലാതാക്കപ്പെടും.";
-"No Recently Deleted Items" = "അടുത്തിടെ ഇല്ലാതാക്കിയ ഇനങ്ങളില്ല";
-"Deleted cutlings will appear here for 30 days." = "ഇല്ലാതാക്കിയ കട്ട്‌ലിംഗുകൾ 30 ദിവസത്തേക്ക് ഇവിടെ ദൃശ്യമാകും.";
-"This will permanently delete all %lld items. This action cannot be undone." = "എല്ലാ %lld ഇനങ്ങളും ശാശ്വതമായി ഇല്ലാതാക്കപ്പെടും. ഈ പ്രവർത്തനം പഴയപടിയാക്കാൻ കഴിയില്ല.";
-"\"%@\" will be deleted permanently." = "\"%@\" ശാശ്വതമായി ഇല്ലാതാക്കപ്പെടും.";
+"Items will be permanently deleted after 30 days." = "ഇനങ്ങൾ 30 ദിവസത്തിന് ശേഷം ശാശ്വതമായി നീക്കം ചെയ്യപ്പെടും.";
+"No Recently Deleted Items" = "അടുത്തിടെ നീക്കം ചെയ്ത ഇനങ്ങൾ ഇല്ല";
+"Deleted cutlings will appear here for 30 days." = "നീക്കിയ കട്ട്‌ലിംഗുകൾ ഇവിടെ 30 ദിവസത്തേക്ക് ദൃശ്യമാകും.";
+"This will permanently delete all %lld items. This action cannot be undone." = "ഇത് %lld ഇനങ്ങൾ ശാശ്വതമായി നീക്കം ചെയ്യും. ഈ പ്രവർത്തനം പഴയപടിയാക്കാൻ കഴിയില്ല.";
+"\"%@\" will be deleted permanently." = "“%@” ശാശ്വതമായി നീക്കം ചെയ്യപ്പെടും.";
 "1 day left" = "1 ദിവസം ബാക്കി";
-"%lld days left" = "%lld ദിവസം ബാക്കി";
+"%lld days left" = "%lld ദിവസങ്ങൾ ബാക്കി";
 
 /* MARK: - Context Menu */
 "Share" = "പങ്കിടുക";
@@ -319,24 +319,24 @@
 "Failed to save image." = "ചിത്രം സേവ് ചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു.";
 
 /* MARK: - TipKit */
-"Saved cutlings" = "സേവ് ചെയ്ത കട്ട്‌ലിംഗുകൾ";
-"Your pinned snippets live here, ready to copy with one click." = "നിങ്ങളുടെ പിൻ ചെയ്ത സ്‌നിപ്പെറ്റുകൾ ഇവിടെയുണ്ട്, ഒറ്റ ക്ലിക്കിൽ പകർത്താൻ തയ്യാർ.";
+"Saved cutlings" = "സംരക്ഷിച്ച കട്ട്‌ലിംഗുകൾ";
+"Your pinned snippets live here, ready to copy with one click." = "നിങ്ങൾ പിൻ ചെയ്ത ശകലങ്ങൾ ഇവിടെ വസിക്കുന്നു, ഒറ്റ ക്ലിക്കിൽ പകർത്താൻ തയ്യാറാണ്.";
 "Recent clipboard" = "സമീപകാല ക്ലിപ്പ്ബോർഡ്";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "നിങ്ങൾ പകർത്തുന്നതെല്ലാം ഇവിടെ എത്തുന്നു. ഏതെങ്കിലും വരിയിൽ റൈറ്റ്-ക്ലിക്ക് ചെയ്ത് അത് ഒരു കട്ട്‌ലിംഗായി സേവ് ചെയ്യുക.";
-"Wipe the list" = "ലിസ്റ്റ് മായ്ക്കുക";
-"Empties your recent clipboard. Saved cutlings stay put." = "നിങ്ങളുടെ സമീപകാല ക്ലിപ്പ്ബോർഡ് ഒഴിവാക്കുന്നു. സേവ് ചെയ്ത കട്ട്‌ലിംഗുകൾ നിലനിൽക്കും.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "ഹോട്ട്കീ വീണ്ടും ബന്ധിപ്പിക്കുക, ക്ലിപ്പ്ബോർഡ് ക്യാപ്ചർ ടോഗിൾ ചെയ്യുക, iCloud സിങ്ക് നിയന്ത്രിക്കുക.";
-"Undo deletes" = "ഇല്ലാതാക്കലുകൾ പഴയപടിയാക്കുക";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "ഇല്ലാതാക്കിയ കട്ട്‌ലിംഗുകൾ 30 ദിവസം ഇവിടെ ഉണ്ടാകും. അവ പുനഃസ്ഥാപിക്കുക അല്ലെങ്കിൽ ശാശ്വതമായി ഒഴിവാക്കുക.";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "ഒന്നിലധികം കട്ട്‌ലിംഗുകൾ തിരഞ്ഞെടുക്കാൻ, അവ പുനക്രമീകരിക്കാൻ, അല്ലെങ്കിൽ അടുത്തിടെ ഇല്ലാതാക്കിയവ പുനഃസ്ഥാപിക്കാൻ ഇവിടെ ടാപ്പ് ചെയ്യുക.";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "നിങ്ങൾ പകർത്തുന്നതെല്ലാം ഇവിടെ എത്തുന്നു. ഒരു വരിയിൽ വലത്-ക്ലിക്ക് ചെയ്ത് അത് കട്ട്‌ലിംഗായി സംരക്ഷിക്കുക.";
+"Wipe the list" = "പട്ടിക മായ്ക്കുക";
+"Empties your recent clipboard. Saved cutlings stay put." = "നിങ്ങളുടെ സമീപകാല ക്ലിപ്പ്ബോർഡ് മായ്ക്കുന്നു. സംരക്ഷിച്ച കട്ട്‌ലിംഗുകൾ നിലനിൽക്കും.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "ഹോട്ട്കീ പുനഃസജ്ജമാക്കുക, ക്ലിപ്പ്ബോർഡ് കാപ്ചർ ഓൺ/ഓഫ് ചെയ്യുക, iCloud സമന്വയം നിയന്ത്രിക്കുക.";
+"Undo deletes" = "നീക്കം ചെയ്യലുകൾ പഴയപടിയാക്കുക";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "നീക്കിയ കട്ട്‌ലിംഗുകൾ 30 ദിവസത്തേക്ക് ഇവിടെ തുടരും. അവ വീണ്ടെടുക്കുകയോ ശാശ്വതമായി മായ്ക്കുകയോ ചെയ്യുക.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "ഒന്നിലധികം കട്ട്‌ലിംഗുകൾ തിരഞ്ഞെടുക്കാൻ, അവ പുനഃക്രമീകരിക്കാൻ, അല്ലെങ്കിൽ അടുത്തിടെ നീക്കിയവ വീണ്ടെടുക്കാൻ ഇവിടെ ടാപ്പ് ചെയ്യുക.";
 "Long-press a cutling" = "ഒരു കട്ട്‌ലിംഗിൽ ദീർഘനേരം അമർത്തുക";
-"Hold any card for quick actions: copy, edit, share, or delete." = "വേഗത്തിലുള്ള പ്രവർത്തനങ്ങൾക്ക് ഏതെങ്കിലും കാർഡ് അമർത്തിപ്പിടിക്കുക: പകർത്തുക, എഡിറ്റ് ചെയ്യുക, പങ്കിടുക, അല്ലെങ്കിൽ ഇല്ലാതാക്കുക.";
-"Drag to select" = "തിരഞ്ഞെടുക്കാൻ വലിച്ചിടുക";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "ഒരു ശ്രേണി തിരഞ്ഞെടുക്കാൻ കാർഡുകളിലൂടെ സ്വൈപ്പ് ചെയ്യുക. തിരഞ്ഞെടുപ്പ് നീക്കം ചെയ്യാൻ അവയ്ക്ക് മുകളിലൂടെ വീണ്ടും സ്വൈപ്പ് ചെയ്യുക.";
-"Smart field matching" = "സ്മാർട്ട് ഫീൽഡ് മാച്ചിംഗ്";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "കട്ട്‌ലിംഗ് ഇമെയിൽ, URL, ഫോൺ, വിലാസ ഫീൽഡുകൾ തിരിച്ചറിയുന്നു, പിന്നീട് പൊരുത്തപ്പെടുന്ന സ്‌നിപ്പെറ്റുകൾ കീബോർഡിന്റെ മുകളിലേക്ക് കൊണ്ടുവരുന്നു.";
+"Hold any card for quick actions: copy, edit, share, or delete." = "വേഗത്തിലുള്ള പ്രവർത്തനങ്ങൾക്കായി ഏതെങ്കിലും കാർഡ് അമർത്തിപ്പിടിക്കുക: പകർത്തുക, എഡിറ്റ് ചെയ്യുക, പങ്കിടുക, അല്ലെങ്കിൽ നീക്കം ചെയ്യുക.";
+"Drag to select" = "തിരഞ്ഞെടുക്കാൻ വലിക്കുക";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "ഒരു റേഞ്ച് തിരഞ്ഞെടുക്കാൻ കാർഡുകളിലൂടെ സ്വൈപ്പ് ചെയ്യുക. തിരഞ്ഞെടുപ്പ് റദ്ദാക്കാൻ പിന്നോട്ട് സ്വൈപ്പ് ചെയ്യുക.";
+"Smart field matching" = "സ്മാർട്ട് ഫീൽഡ് പൊരുത്തപ്പെടുത്തൽ";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "കട്ട്‌ലിംഗ് ഇമെയിൽ, URL, ഫോൺ, വിലാസ ഫീൽഡുകൾ കണ്ടെത്തുകയും, പൊരുത്തപ്പെടുന്ന ശകലങ്ങളെ കീബോർഡിന്റെ മുകളിലേക്ക് കൊണ്ടുവരുകയും ചെയ്യുന്നു.";
 "Create a new cutling" = "പുതിയ കട്ട്‌ലിംഗ് സൃഷ്ടിക്കുക";
-"Save text or image snippets you'll reuse from any app." = "ഏതെങ്കിലും ആപ്പിൽ വീണ്ടും ഉപയോഗിക്കാവുന്ന ടെക്സ്റ്റ് അല്ലെങ്കിൽ ഇമേജ് ഭാഗങ്ങൾ സംരക്ഷിക്കുക.";
+"Save text or image snippets you'll reuse from any app." = "ഏതെങ്കിലും ആപ്പിൽ നിന്ന് വീണ്ടും ഉപയോഗിക്കാൻ പോകുന്ന വാചക അല്ലെങ്കിൽ ചിത്ര ശകലങ്ങൾ സംരക്ഷിക്കുക.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "കട്ട്‌ലിംഗിലേക്ക് സ്വാഗതം";
@@ -357,3 +357,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "നിങ്ങൾ ഉപയോഗിച്ചുകൊണ്ടിരുന്ന ആപ്പിലേക്ക് നേരിട്ട് ഒരു കട്ട്‌ലിംഗ് പേസ്റ്റ് ചെയ്യാൻ കട്ട്‌ലിംഗിനെ അനുവദിക്കുന്നു.";
 "Grant" = "അനുവദിക്കുക";
 "You can skip Accessibility and grant it later from Settings → Paste." = "നിങ്ങൾക്ക് ആക്സസിബിലിറ്റി ഒഴിവാക്കാം, പിന്നീട് ക്രമീകരണങ്ങൾ → പേസ്റ്റ് എന്നതിൽ നിന്ന് അനുവദിക്കാം.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "ഫയലായി സംരക്ഷിക്കുക…";
+"Image Saving" = "ചിത്രം സംരക്ഷണം";
+"When saving images" = "ചിത്രങ്ങൾ സംരക്ഷിക്കുമ്പോൾ";
+"Ask each time" = "എല്ലായ്പ്പോഴും ചോദിക്കുക";
+"Save to folder" = "ഫോൾഡറിലേക്ക് സംരക്ഷിക്കുക";
+"Folder" = "ഫോൾഡർ";
+"Change Folder…" = "ഫോൾഡർ മാറ്റുക…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "ചിത്ര കട്ട്‌ലിംഗുകൾക്കായി “ഫയലായി സംരക്ഷിക്കുക” എന്ന ക്രിയ എങ്ങനെ പ്രവർത്തിക്കണമെന്ന് തിരഞ്ഞെടുക്കുക. “ഫോൾഡറിലേക്ക് സംരക്ഷിക്കുക” ഉപയോഗിച്ച്, ചിത്രങ്ങൾ ചോദ്യങ്ങളില്ലാതെ നിങ്ങൾ തിരഞ്ഞെടുത്ത ഫോൾഡറിലേക്ക് സവിശേഷമായ ഫയൽ പേരോടെ നേരിട്ട് സംരക്ഷിക്കപ്പെടും.";
+"Choose" = "തിരഞ്ഞെടുക്കുക";
+"Choose Image Folder" = "ചിത്ര ഫോൾഡർ തിരഞ്ഞെടുക്കുക";
+"Pick a folder where Cutling will save image cutlings." = "കട്ട്‌ലിംഗ് ചിത്ര കട്ട്‌ലിംഗുകൾ സംരക്ഷിക്കുന്ന ഫോൾഡർ തിരഞ്ഞെടുക്കുക.";
+"Preview" = "പ്രിവ്യൂ";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "സംരക്ഷിച്ചവ";
+"History" = "ചരിത്രം";
+"No saved cutlings yet" = "ഇതുവരെ സംരക്ഷിച്ച കട്ട്‌ലിംഗുകൾ ഇല്ല";
+"Copy something to see it here" = "ഇവിടെ കാണാൻ എന്തെങ്കിലും പകർത്തുക";
+"Clipboard history is off. Enable it in Settings." = "ക്ലിപ്പ്ബോർഡ് ചരിത്രം ഓഫാണ്. ക്രമീകരണങ്ങളിൽ ഓണാക്കുക.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Spotlight തിരയലിൽ ഉൾപ്പെടുത്തുക";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "നിങ്ങളുടെ കട്ട്‌ലിംഗുകൾ Spotlight ൽ നിന്ന് തിരയാൻ കഴിയുന്നതാക്കുക. സെൻസിറ്റീവ് ഉള്ളടക്കം (ക്രെഡിറ്റ് കാർഡുകൾ, API കീകൾ, JWT ടോക്കണുകൾ, വിത്ത് വാക്യങ്ങൾ, സ്വകാര്യ കീകൾ) ഒരിക്കലും സൂചികപ്പെടുത്തുന്നില്ല.";
+"Copy Cutling" = "കട്ട്‌ലിംഗ് പകർത്തുക";
+"Copy a cutling's contents to the clipboard." = "ഒരു കട്ട്‌ലിംഗിന്റെ ഉള്ളടക്കം ക്ലിപ്പ്ബോർഡിലേക്ക് പകർത്തുന്നു.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "ഈ വാക്യങ്ങൾ Siri യുമായി ഉപയോഗിക്കുക അല്ലെങ്കിൽ Shortcuts ആപ്പിൽ എല്ലാ Cutling കുറുക്കുവഴികളും ബ്രൗസ് ചെയ്യുക.";
+"Copied \"%@\"" = "“%@” പകർത്തി";

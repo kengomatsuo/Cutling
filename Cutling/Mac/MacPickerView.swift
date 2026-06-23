@@ -7,6 +7,7 @@
 import SwiftUI
 import AppKit
 import TipKit
+import UniformTypeIdentifiers
 
 enum MacPickerTab: Hashable {
     case saved
@@ -25,6 +26,10 @@ struct MacPickerView: View {
     @State private var tab: MacPickerTab = .saved
     @State private var isAccessibilityTrusted: Bool = PasteService.shared.isTrusted
     @State private var trustCheckTimer: Timer?
+    /// Content-area height captured the first time the picker appears.
+    /// Used as the fixed height while searching, so the host NSWindow
+    /// doesn't resize per keystroke as the match counts change.
+    @State private var stableContentHeight: CGFloat?
     @FocusState private var searchFieldFocused: Bool
     @AppStorage("captureClipboardHistory") private var captureClipboardHistory = true
 
@@ -70,12 +75,29 @@ struct MacPickerView: View {
         }
     }
 
+    /// When the search field has text, the picker switches to a unified
+    /// "find anywhere" layout: tabs are hidden and matches from both
+    /// Saved and History are shown together in two labelled sections.
+    private var searchActive: Bool { !searchText.isEmpty }
+
+    /// Rendered height of `tabBar`: text(12) + vertical padding 4*2 = 22pt
+    /// for the pill, plus the HStack's `.padding(.bottom, 4)` = 26pt total.
+    /// Used to donate that space to the content area while searching so
+    /// the popover doesn't visibly change size.
+    private let tabBarHeight: CGFloat = 26
+
     var body: some View {
         VStack(spacing: 0) {
             header
-            tabBar
+            if !searchActive {
+                tabBar
+            }
             Divider()
+            // During search the tab bar is gone; donate its vertical space
+            // to the content so the total popover height stays constant
+            // (no NSWindow resize when search activates or deactivates).
             content
+                .frame(height: (stableContentHeight ?? 420) + (searchActive ? tabBarHeight : 0))
             if !isAccessibilityTrusted {
                 accessibilityBanner
             }
@@ -110,6 +132,19 @@ struct MacPickerView: View {
             }
         }
         syncClearHistoryGate(forTab: tab)
+        if stableContentHeight == nil {
+            stableContentHeight = initialContentHeight()
+        }
+    }
+
+    /// Height the content area takes on first appear, matching the
+    /// `singleSectionContent` formula on the default Saved tab. We freeze
+    /// this and reuse it for the search results so the popover keeps a
+    /// constant height instead of resizing per keystroke.
+    private func initialContentHeight() -> CGFloat {
+        let items = filteredSaved
+        if items.isEmpty { return 160 }
+        return min(CGFloat(items.count) * 50, 420)
     }
 
     private func handleDisappear() {
@@ -154,7 +189,15 @@ struct MacPickerView: View {
             TextField("Search cutlings", text: $searchText)
                 .textFieldStyle(.plain)
                 .focused($searchFieldFocused)
-                .onAppear { searchFieldFocused = true }
+                .onAppear {
+                    // Defer to the next runloop tick so the host NSWindow
+                    // (menu-bar popover or floating panel) is key by the
+                    // time we assign @FocusState. Otherwise focus is
+                    // dropped on the floor for the panel surface.
+                    DispatchQueue.main.async {
+                        searchFieldFocused = true
+                    }
+                }
             if !searchText.isEmpty {
                 Button {
                     searchText = ""
@@ -172,7 +215,7 @@ struct MacPickerView: View {
     private var tabBar: some View {
         HStack(spacing: 0) {
             tabButton(.saved, title: "Saved", count: filteredSaved.count)
-            tabButton(.history, title: "History", count: filteredHistory.count)
+            tabButton(.history, title: "History", count: nil)
             Spacer()
         }
         .padding(.horizontal, 8)
@@ -180,16 +223,18 @@ struct MacPickerView: View {
     }
 
     @ViewBuilder
-    private func tabButton(_ value: MacPickerTab, title: LocalizedStringKey, count: Int) -> some View {
+    private func tabButton(_ value: MacPickerTab, title: LocalizedStringKey, count: Int?) -> some View {
         let button = Button {
             tab = value
         } label: {
             HStack(spacing: 4) {
                 Text(title)
                     .font(.system(size: 12, weight: .medium))
-                Text("\(count)")
-                    .font(.system(size: 11))
-                    .foregroundStyle(.secondary)
+                if let count {
+                    Text("\(count)")
+                        .font(.system(size: 11))
+                        .foregroundStyle(.secondary)
+                }
             }
             .padding(.horizontal, 8)
             .padding(.vertical, 4)
@@ -212,94 +257,155 @@ struct MacPickerView: View {
 
     @ViewBuilder
     private var content: some View {
+        if searchActive {
+            searchResultsContent
+        } else {
+            singleSectionContent
+        }
+    }
+
+    @ViewBuilder
+    private var singleSectionContent: some View {
         let items = tab == .saved ? filteredSaved : filteredHistory
         if items.isEmpty {
             emptyState
-                .frame(height: 160)
         } else {
-            // Each row is ~38–42pt with its divider. Size the ScrollView to
-            // the content but cap at 420pt so the popover never gets oversized.
-            let rowHeight: CGFloat = tab == .history ? 36 : 50
-            let listHeight = min(CGFloat(items.count) * rowHeight, 420)
             ScrollView {
                 LazyVStack(spacing: 0) {
                     ForEach(items) { cutling in
-                        VStack(spacing: 0) {
-                            MacPickerRow(cutling: cutling, compact: tab == .history, tourActive: tourActive) {
-                                copy(cutling)
-                            } onPromote: {
-                                _ = store.promoteHistoryToSaved(cutling.id)
-                            } onDelete: {
-                                if tab == .history {
-                                    store.deleteHistory(cutling.id)
-                                } else {
-                                    store.delete(cutling)
-                                    RecentlyDeletedButtonTip.hasDeletedCutlings = true
-                                }
+                        cutlingRow(cutling, isHistory: tab == .history)
+                    }
+                }
+            }
+        }
+    }
+
+    /// "Find anywhere" layout used while the search field has text. Shows
+    /// matching Saved and History rows together with section headers, so
+    /// the user doesn't have to think about which tab their hit lives on.
+    @ViewBuilder
+    private var searchResultsContent: some View {
+        let saved = filteredSaved
+        let history = filteredHistory
+        if saved.isEmpty && history.isEmpty {
+            emptyState
+        } else {
+            ScrollView {
+                LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
+                    if !saved.isEmpty {
+                        Section(header: sectionHeader("Saved", count: saved.count)) {
+                            ForEach(saved) { cutling in
+                                cutlingRow(cutling, isHistory: false)
                             }
-                            .contextMenu {
-                                Button("Copy") { copy(cutling) }
-                                if tab == .saved {
-                                    Button("Edit\u{2026}") {
-                                        AppActivationManager.shared.showWindow(source: surface) {
-                                            openWindow(id: "editCutling", value: cutling.id)
-                                        }
-                                    }
-                                    Button("Duplicate") {
-                                        store.duplicate(cutling)
-                                    }
-                                }
-                                if tab == .history {
-                                    Button("Save as Cutling") {
-                                        _ = store.promoteHistoryToSaved(cutling.id)
-                                    }
-                                }
-                                Divider()
-                                Button(role: .destructive) {
-                                    if tab == .history {
-                                        store.deleteHistory(cutling.id)
-                                    } else {
-                                        store.delete(cutling)
-                                        RecentlyDeletedButtonTip.hasDeletedCutlings = true
-                                    }
-                                } label: {
-                                    Text(tab == .history ? "Remove from History" : "Delete")
-                                        .foregroundStyle(.red)
-                                }
+                        }
+                    }
+                    if !history.isEmpty {
+                        Section(header: sectionHeader("History", count: history.count)) {
+                            ForEach(history) { cutling in
+                                cutlingRow(cutling, isHistory: true)
                             }
-                            Divider().padding(.leading, 42)
                         }
                     }
                 }
             }
-            .frame(height: listHeight)
         }
     }
 
-    private var emptyState: some View {
-        VStack(spacing: 8) {
-            Image(systemName: tab == .saved ? "tray" : "clock")
-                .font(.system(size: 36))
-                .foregroundStyle(.tertiary)
-            Text(emptyMessage)
-                .font(.system(size: 13))
+    private func sectionHeader(_ title: LocalizedStringKey, count: Int) -> some View {
+        HStack(spacing: 6) {
+            Text(title)
+                .font(.system(size: 11, weight: .semibold))
                 .foregroundStyle(.secondary)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 24)
+            Text("\(count)")
+                .font(.system(size: 11).monospacedDigit())
+                .foregroundStyle(.tertiary)
+            Spacer(minLength: 0)
+        }
+        .padding(.horizontal, 12)
+        .padding(.vertical, 4)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .background(.background.secondary)
+    }
+
+    @ViewBuilder
+    private func cutlingRow(_ cutling: Cutling, isHistory: Bool) -> some View {
+        VStack(spacing: 0) {
+            MacPickerRow(cutling: cutling, compact: isHistory, tourActive: tourActive) {
+                copy(cutling)
+            } onPromote: {
+                _ = store.promoteHistoryToSaved(cutling.id)
+            } onDelete: {
+                if isHistory {
+                    store.deleteHistory(cutling.id)
+                } else {
+                    store.delete(cutling)
+                    RecentlyDeletedButtonTip.hasDeletedCutlings = true
+                }
+            } onSaveImageToDisk: {
+                saveImageToDisk(cutling)
+            }
+            .contextMenu {
+                Button("Copy") { copy(cutling) }
+                if cutling.kind == .image {
+                    Button("Save as File\u{2026}") {
+                        saveImageToDisk(cutling)
+                    }
+                }
+                if !isHistory {
+                    Button("Edit\u{2026}") {
+                        AppActivationManager.shared.showWindow(source: surface) {
+                            openWindow(id: "editCutling", value: cutling.id)
+                        }
+                    }
+                    Button("Duplicate") {
+                        store.duplicate(cutling)
+                    }
+                }
+                if isHistory {
+                    Button("Save as Cutling") {
+                        _ = store.promoteHistoryToSaved(cutling.id)
+                    }
+                }
+                Divider()
+                Button(role: .destructive) {
+                    if isHistory {
+                        store.deleteHistory(cutling.id)
+                    } else {
+                        store.delete(cutling)
+                        RecentlyDeletedButtonTip.hasDeletedCutlings = true
+                    }
+                } label: {
+                    Text(isHistory ? "Remove from History" : "Delete")
+                        .foregroundStyle(.red)
+                }
+            }
+            Divider().padding(.leading, 42)
+        }
+    }
+
+    @ViewBuilder
+    private var emptyState: some View {
+        Group {
+            if searchActive {
+                ContentUnavailableView.search(text: searchText)
+            } else {
+                switch tab {
+                case .saved:
+                    ContentUnavailableView(
+                        "No saved cutlings yet",
+                        systemImage: "tray"
+                    )
+                case .history:
+                    ContentUnavailableView(
+                        captureClipboardHistory
+                            ? "Copy something to see it here"
+                            : "Clipboard history is off. Enable it in Settings.",
+                        systemImage: "clock"
+                    )
+                }
+            }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-    }
-
-    private var emptyMessage: LocalizedStringKey {
-        if !searchText.isEmpty { return "No matches" }
-        switch tab {
-        case .saved:
-            return "No saved cutlings yet"
-        case .history:
-            return captureClipboardHistory
-                ? "Copy something to see it here"
-                : "Clipboard history is off. Enable it in Settings."
-        }
     }
 
     private var footer: some View {
@@ -410,11 +516,29 @@ struct MacPickerView: View {
                 }
             }
         }
+        // Tell the monitor we caused this changeCount bump so it does not
+        // echo the just-picked item back into history.
+        CutlingAppDelegate.pasteboardMonitor?.acknowledgeCurrentPasteboardChange()
         NotificationCenter.default.post(
             name: .cutlingDidPickFromPicker,
             object: nil,
             userInfo: ["cutlingID": cutling.id.uuidString]
         )
+    }
+
+    fileprivate func saveImageToDisk(_ cutling: Cutling) {
+        guard cutling.kind == .image,
+              let filename = cutling.imageFilename,
+              let data = store.loadImageData(named: filename)
+        else { return }
+        let suggested = cutling.name.trimmingCharacters(in: .whitespacesAndNewlines)
+        let base = suggested.isEmpty ? "Cutling" : suggested
+        // Defer to the next runloop tick so the context menu (or popover
+        // button) finishes dismissing before the save logic runs and
+        // potentially presents a modal panel.
+        DispatchQueue.main.async {
+            _ = ImageSaveService.shared.save(data: data, suggestedName: base)
+        }
     }
 }
 
@@ -425,15 +549,15 @@ private struct MacPickerRow: View {
     /// where the auto-generated "name" is a redundant prefix of the value).
     var compact: Bool = false
     /// When true, the guided tour is showing a tip somewhere in the
-    /// popover. Suppress row hover previews for the duration so they
+    /// popover. Suppress row preview controls for the duration so they
     /// don't fight the `.popoverTip` for the single popover slot.
     var tourActive: Bool = false
     let onTap: () -> Void
     let onPromote: () -> Void
     let onDelete: () -> Void
+    let onSaveImageToDisk: () -> Void
     @State private var hovered = false
     @State private var showPreview = false
-    @State private var previewTask: Task<Void, Never>?
 
     var body: some View {
         Button(action: onTap) {
@@ -458,6 +582,11 @@ private struct MacPickerRow: View {
                     }
                 }
                 Spacer(minLength: 0)
+                // Reserve trailing space so the row text never slides under
+                // the edge button when it appears on hover.
+                if previewQualifies {
+                    Color.clear.frame(width: 22, height: 22)
+                }
             }
             .padding(.horizontal, 12)
             .padding(.vertical, compact ? 6 : 8)
@@ -465,30 +594,59 @@ private struct MacPickerRow: View {
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
-        .onHover { handleHover($0) }
+        .overlay(alignment: .trailing) { previewButton }
+        .onHover { hovered = $0 }
         .onChange(of: tourActive) { _, active in
-            if active {
-                previewTask?.cancel()
-                showPreview = false
-            }
+            if active { showPreview = false }
         }
-        .popover(isPresented: $showPreview, arrowEdge: .trailing) {
-            if cutling.kind == .image, let filename = cutling.imageFilename {
-                ImagePreviewPopover(filename: filename, cutling: cutling, store: store)
-            } else if cutling.kind == .text {
-                TextPreviewPopover(cutling: cutling)
+    }
+
+    /// Trailing toggle for the preview popover. Anchors the popover so the
+    /// preview never overlaps the row itself (the previous hover popover
+    /// blocked click-throughs back to the row).
+    @ViewBuilder
+    private var previewButton: some View {
+        if previewQualifies, !tourActive, hovered || showPreview {
+            Button {
+                showPreview.toggle()
+            } label: {
+                Image(systemName: "eye")
+                    .font(.system(size: 11, weight: .medium))
+                    .foregroundStyle(.secondary)
+                    .frame(width: 22, height: 22)
+                    .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .padding(.trailing, 8)
+            .help("Preview")
+            .popover(isPresented: $showPreview, arrowEdge: .trailing) {
+                if cutling.kind == .image, let filename = cutling.imageFilename {
+                    ImagePreviewPopover(
+                        filename: filename,
+                        cutling: cutling,
+                        store: store,
+                        onSaveToDisk: onSaveImageToDisk
+                    )
+                } else if cutling.kind == .text {
+                    TextPreviewPopover(cutling: cutling)
+                }
             }
         }
     }
 
-    /// Long enough or multiline enough that the row's single-line preview
-    /// can't show the meaningful bit. We only schedule a hover popover for
-    /// these to avoid useless popovers on short snippets like passwords or
-    /// short codes that already fit on the row.
-    private var textNeedsPopover: Bool {
-        let value = cutling.value
-        if value.contains("\n") || value.contains("\r") { return true }
-        return value.count > 45
+    /// True when the row has more content than the single-line preview can
+    /// show, so the edge button is worth surfacing. Images always qualify
+    /// (the preview shows pixels and dimensions); text only qualifies when
+    /// it's multiline or longer than the row can render.
+    private var previewQualifies: Bool {
+        switch cutling.kind {
+        case .image:
+            return cutling.imageFilename != nil
+        case .text:
+            let value = cutling.value
+            if value.contains("\n") || value.contains("\r") { return true }
+            return value.count > 45
+        }
     }
 
     @ViewBuilder
@@ -522,35 +680,6 @@ private struct MacPickerRow: View {
         formatter.unitsStyle = .abbreviated
         return formatter.localizedString(for: cutling.createdDate, relativeTo: Date())
     }
-
-    private func handleHover(_ hovering: Bool) {
-        hovered = hovering
-        previewTask?.cancel()
-        guard !tourActive else {
-            showPreview = false
-            return
-        }
-        let qualifies: Bool
-        switch cutling.kind {
-        case .image:
-            qualifies = cutling.imageFilename != nil
-        case .text:
-            qualifies = textNeedsPopover
-        }
-        guard qualifies else {
-            showPreview = false
-            return
-        }
-        if hovering {
-            previewTask = Task { @MainActor in
-                try? await Task.sleep(for: .milliseconds(450))
-                guard !Task.isCancelled else { return }
-                showPreview = true
-            }
-        } else {
-            showPreview = false
-        }
-    }
 }
 
 /// Popover shown after a brief hover delay over an image row. Loads a
@@ -561,6 +690,7 @@ private struct ImagePreviewPopover: View {
     let filename: String
     let cutling: Cutling
     let store: CutlingStore
+    let onSaveToDisk: () -> Void
     @State private var image: NSImage?
     @State private var pixelSize: CGSize?
 
@@ -578,15 +708,27 @@ private struct ImagePreviewPopover: View {
                         .frame(width: 200, height: 140)
                 }
             }
-            VStack(alignment: .leading, spacing: 2) {
-                if let size = pixelSize {
-                    Text("\(Int(size.width)) × \(Int(size.height)) px")
-                        .font(.caption.monospacedDigit())
-                        .foregroundStyle(.secondary)
+            HStack(alignment: .bottom) {
+                VStack(alignment: .leading, spacing: 2) {
+                    if let size = pixelSize {
+                        Text("\(Int(size.width)) × \(Int(size.height)) px")
+                            .font(.caption.monospacedDigit())
+                            .foregroundStyle(.secondary)
+                    }
+                    Text(cutling.createdDate.formatted(date: .abbreviated, time: .shortened))
+                        .font(.caption)
+                        .foregroundStyle(.tertiary)
                 }
-                Text(cutling.createdDate.formatted(date: .abbreviated, time: .shortened))
-                    .font(.caption)
-                    .foregroundStyle(.tertiary)
+                Spacer(minLength: 8)
+                Button {
+                    onSaveToDisk()
+                } label: {
+                    Label("Save as File\u{2026}", systemImage: "square.and.arrow.down")
+                        .labelStyle(.titleAndIcon)
+                        .font(.system(size: 11))
+                }
+                .buttonStyle(.bordered)
+                .controlSize(.small)
             }
         }
         .padding(12)

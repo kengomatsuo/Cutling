@@ -1,14 +1,14 @@
 /* MARK: - Navigation & Titles */
-"My Cutlings" = "Moji Cutlings";
-"Select Items" = "Izberi elemente";
-"%lld Selected" = "%lld izbranih";
-"Reorder" = "Preuredi";
+"My Cutlings" = "Moji Cutlingi";
+"Select Items" = "Izberi predmete";
+"%lld Selected" = "Izbrano: %lld";
+"Reorder" = "Razvrsti znova";
 "Settings" = "Nastavitve";
 "Keyboard Setup" = "Nastavitev tipkovnice";
-"New" = "Novo";
+"New" = "Nov";
 "Choose Icon" = "Izberi ikono";
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Besedilo, %lld/%lld Slike";
-"%lld Cutlings" = "%lld Cutlingi";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld besedilo, %lld/%lld slike";
+"%lld Cutlings" = "Cutlingov: %lld";
 "Cutlings" = "Cutlingi";
 
 /* MARK: - Common Actions */
@@ -26,26 +26,26 @@
 /* MARK: - Menu Items */
 "Text Cutling" = "Besedilni Cutling";
 "Image Cutling" = "Slikovni Cutling";
-"Select Cutlings" = "Izberi Cutlings";
-"Reorder Cutlings" = "Preuredi Cutlings";
+"Select Cutlings" = "Izberi Cutlinge";
+"Reorder Cutlings" = "Razvrsti Cutlinge znova";
 "Keyboard Setup Guide" = "Vodnik za nastavitev tipkovnice";
 "Name (A → Z)" = "Ime (A → Ž)";
 "Name (Z → A)" = "Ime (Ž → A)";
-"Text First" = "Besedilo najprej";
-"Images First" = "Slike najprej";
-"Shortest First" = "Najkrajše najprej";
-"Longest First" = "Najdaljše najprej";
+"Text First" = "Najprej besedilo";
+"Images First" = "Najprej slike";
+"Shortest First" = "Najprej najkrajši";
+"Longest First" = "Najprej najdaljši";
 "Reverse Order" = "Obratni vrstni red";
 
 /* MARK: - Empty States */
-"No Cutlings Yet" = "Še ni Cutlings";
+"No Cutlings Yet" = "Še ni nobenega Cutlinga";
 "No Results" = "Ni rezultatov";
-"Tap + to add your first cutling." = "Tapnite +, da dodate svoj prvi cutling.";
-"Try a different search term." = "Poskusite z drugim iskalnim izrazom.";
+"Tap + to add your first cutling." = "Tapni +, da dodaš svoj prvi cutling.";
+"Try a different search term." = "Poskusi z drugačnim iskalnim izrazom.";
 
 /* MARK: - Search */
-"Search cutlings" = "Išči cutlings";
-"Search icons" = "Išči ikone";
+"Search cutlings" = "Iskanje cutlingov";
+"Search icons" = "Iskanje ikon";
 
 /* MARK: - Form Labels */
 "Name" = "Ime";
@@ -83,18 +83,18 @@
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
-"iCloud Sync" = "iCloud sinhronizacija";
-"Sync your cutlings across all your devices using iCloud." = "Sinhronizirajte svoje cutlings na vseh napravah z uporabo iCloud.";
+"iCloud Sync" = "Sinhronizacija z iCloud";
+"Sync your cutlings across all your devices using iCloud." = "Sinhroniziraj svoje cutlinge med vsemi napravami prek iClouda.";
 "Storage" = "Shramba";
-"Text Cutlings" = "Besedilni Cutlings";
-"Image Cutlings" = "Slikovni Cutlings";
-"Total Cutlings" = "Vsi Cutlings";
+"Text Cutlings" = "Besedilni Cutlingi";
+"Image Cutlings" = "Slikovni Cutlingi";
+"Total Cutlings" = "Skupno Cutlingov";
 "Disk Usage" = "Poraba diska";
 "Status" = "Stanje";
 "Syncing…" = "Sinhroniziram…";
 "Up to date" = "Posodobljeno";
 "Sync Now" = "Sinhroniziraj zdaj";
-"Turn On iCloud Sync" = "Vklopi sinhronizacijo iCloud";
+"Turn On iCloud Sync" = "Vklopi sinhronizacijo z iCloud";
 "Max Text Length" = "Najv. dolžina besedila";
 "%lld chars" = "%lld znakov";
 "About" = "O aplikaciji";
@@ -102,41 +102,41 @@
 "Keyboard Added" = "Tipkovnica dodana";
 "Full Access" = "Polni dostop";
 "Experimental Feature: iCloud" = "Eksperimentalna funkcija: iCloud";
-"Contact Support" = "Kontaktirajte podporo";
+"Contact Support" = "Stik s podporo";
 "Privacy Policy" = "Pravilnik o zasebnosti";
-"Auto-detect Input Types" = "Samodejno zaznavanje vrst vnosa";
-"Enable iCloud Sync" = "Omogoči sinhronizacijo iCloud";
-"Keep your cutlings in sync across all your devices." = "Ohranite svoje cutlinge sinhronizirane na vseh napravah.";
-"Automatically detect and suggest input type categories when editing text." = "Samodejno zaznaj in predlagaj kategorije vrst vnosa pri urejanju besedila.";
+"Auto-detect Input Types" = "Samodejno zaznaj tipe vnosa";
+"Enable iCloud Sync" = "Vklopi sinhronizacijo z iCloud";
+"Keep your cutlings in sync across all your devices." = "Ohranjaj svoje cutlinge sinhronizirane med vsemi napravami.";
+"Automatically detect and suggest input type categories when editing text." = "Pri urejanju besedila samodejno zazna in predlaga kategorije tipov vnosa.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Nobena slika ni izbrana";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "To bo zamenjalo trenutno besedilo s tem, kar je v vašem odložišču.";
-"This will replace the current image with whatever is in your clipboard." = "To bo zamenjalo trenutno sliko s tem, kar je v vašem odložišču.";
-"This cutling will be automatically deleted at the selected date and time." = "Ta cutling bo samodejno izbrisan na izbrani datum in čas.";
+"This will replace the current text with whatever is in your clipboard." = "S tem boš nadomestil trenutno besedilo s tem, kar imaš v odložišču.";
+"This will replace the current image with whatever is in your clipboard." = "S tem boš nadomestil trenutno sliko s tem, kar imaš v odložišču.";
+"This cutling will be automatically deleted at the selected date and time." = "Ta cutling bo samodejno izbrisan ob izbranem datumu in uri.";
 "Each text cutling can hold up to %lld characters." = "Vsak besedilni cutling lahko vsebuje do %lld znakov.";
 
 /* MARK: - Alerts */
-"Limit Reached" = "Omejitev dosežena";
-"Delete Cutling?" = "Izbrisati Cutling?";
+"Limit Reached" = "Dosežena meja";
+"Delete Cutling?" = "Izbrišem Cutling?";
 "This action cannot be undone." = "Tega dejanja ni mogoče razveljaviti.";
-"Cannot add text cutling" = "Ni mogoče dodati besedilnega cutlinga";
-"Cannot add image cutling" = "Ni mogoče dodati slikovnega cutlinga";
-"Cannot add more text cutlings." = "Ni mogoče dodati več besedilnih cutlingov.";
-"Cannot add more image cutlings." = "Ni mogoče dodati več slikovnih cutlingov.";
+"Cannot add text cutling" = "Besedilnega cutlinga ni mogoče dodati";
+"Cannot add image cutling" = "Slikovnega cutlinga ni mogoče dodati";
+"Cannot add more text cutlings." = "Več besedilnih cutlingov ni mogoče dodati.";
+"Cannot add more image cutlings." = "Več slikovnih cutlingov ni mogoče dodati.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Dosegli ste največje dovoljeno število %lld cutlingov. Izbrišite nekaj, da dodate nove.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Dosegli ste največje dovoljeno število %lld slikovnih cutlingov. Slike porabijo veliko pomnilnika v tipkovnici. Izbrišite nekaj slik, da dodate nove.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Dosegli ste največje dovoljeno število %lld besedilnih cutlingov. Izbrišite nekaj, da dodate nove.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Dosegel si največje število — skupaj %lld cutlingov. Nekaj jih izbriši, da boš lahko dodal nove.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Dosegel si največje število — %lld slikovnih cutlingov. Slike na tipkovnici porabijo veliko pomnilnika. Izbriši nekaj slik, da boš lahko dodal nove.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Dosegel si največje število — %lld besedilnih cutlingov. Nekaj jih izbriši, da boš lahko dodal nove.";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Predlogi za vrsto vnosa";
 "Suggest for Input Types" = "Predlagaj za vrste vnosa";
 "When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Ko se osredotočite na besedilno polje ustrezne vrste, se bo ta cutling prikazal na vrhu tipkovnice.";
-"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Dodelite cutlings vrstam vnosa, da se prikažejo na vrhu tipkovnice, ko se osredotočite na ustrezno besedilno polje.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Dodelite cutlinge vrstam vnosa, da se prikažejo na vrhu tipkovnice, ko se osredotočite na ustrezno besedilno polje.";
 "No cutlings yet. Add some first." = "Še ni cutlingov. Najprej dodajte nekaj.";
 "Suggested" = "Predlagano";
 "Email" = "E-pošta";
@@ -163,15 +163,15 @@
 "Set Up Your Keyboard" = "Nastavite svojo tipkovnico";
 "Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Vaša Cutling tipkovnica je pripravljena! Med tipkanjem kjerkoli tapnite ikono 🌐 globusa na tipkovnici, da preklopite na Cutling.";
 "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Sledite dvema preprostima korakoma spodaj, da začnete uporabljati svojo prilagojeno tipkovnico. Ta stran se bo samodejno posodobila, ko dokončate vsak korak.";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Korak 1:** Tapnite 'Odpri Cutling nastavitve' spodaj, pojdite na **Tipkovnice** in izberite **Cutling** s seznama.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Korak 1:** Tapnite „Odpri Cutling nastavitve“ spodaj, pojdite na **Tipkovnice** in izberite **Cutling** s seznama.";
 "**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Korak 2:** Prepričajte se, da je **Dovoli polni dostop** vklopljeno. To omogoča tipkovnici kopiranje slik v vaše odložišče. Vaši podatki ostanejo zasebni in se nikoli ne pošljejo nikamor.";
-"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Korak 3:** Tapnite besedilno polje za vnos in izberite \"Cutling\" z ikono 🌐 globusa na tipkovnici, da posodobite stanje \"Polni dostop\".";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Korak 3:** Tapnite besedilno polje za vnos in izberite „Cutling“ z ikono 🌐 globusa na tipkovnici, da posodobite stanje „Polni dostop“.";
 "**Step 4:** You're good to go! The usage guide is provided below." = "**Korak 4:** Pripravljeni ste! Navodila za uporabo so spodaj.";
 "While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Med tipkanjem v kateri koli aplikaciji tapnite ali pridržite tipko 🌐 globusa spodaj levo na tipkovnici, nato izberite Cutling";
 "Tap any text cutling and it will be typed into your current text field immediately" = "Tapnite kateri koli besedilni cutling in takoj bo vtipkan v vaše trenutno besedilno polje";
 "Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Tapnite slikovni cutling, da ga kopirate v odložišče, nato ga prilepite v aplikacijo, ki jo uporabljate (običajno s tapom in pridržanjem, nato izberite Prilepi). Apple trenutno ne podpira neposrednega lepljenja slike v tej aplikaciji.";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Kopirajte katero koli besedilo, nato tapnite gumb 'Dodaj iz odložišča' na Cutling tipkovnici, da ga shranite kot nov cutling";
-"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Vse svoje cutlings lahko upravljate v glavni aplikaciji Cutling. Spremembe, ki jih naredite, se bodo takoj pojavile na vaši tipkovnici.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Kopirajte katero koli besedilo, nato tapnite gumb „Dodaj iz odložišča“ na Cutling tipkovnici, da ga shranite kot nov cutling";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Vse svoje cutlinge lahko upravljate v glavni aplikaciji Cutling. Spremembe, ki jih naredite, se bodo takoj pojavile na vaši tipkovnici.";
 "Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Razširitve tipkovnice imajo stroge omejitve pomnilnika za zagotavljanje stabilnosti sistema. Slike porabijo več pomnilnika kot besedilo, zato jih omejujemo, da vaša tipkovnica ostane hitra in zanesljiva. Če dosežete omejitev, preprosto izbrišite nekaj cutlingov, da dodate nove.";
 "Up to **%lld text** cutlings" = "Do **%lld besedilnih** cutlingov";
 "Up to **%lld image** cutlings" = "Do **%lld slikovnih** cutlingov";
@@ -183,7 +183,7 @@
 "Test Your Keyboard" = "Preizkusite svojo tipkovnico";
 "All set! Swipe to continue." = "Vse je pripravljeno! Povlecite za nadaljevanje.";
 "Your data stays private and is never sent anywhere." = "Vaši podatki ostanejo zasebni in se nikoli ne pošljejo nikamor.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Ni za občutljive podatke** — izogibajte se shranjevanju gesel, številk kartic, zasebnih ključev ali žetonov";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Ni za občutljive podatke**: izogibajte se shranjevanju gesel, številk kartic, zasebnih ključev ali žetonov";
 "Set Up Cutling Keyboard" = "Nastavi Cutling tipkovnico";
 "What You Can Do" = "Kaj lahko počnete";
 "Smart Field Suggestions" = "Pametni predlogi polj";
@@ -206,26 +206,26 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "Prosite Siri, da doda, kopira ali poišče vaše cutlinge brez uporabe rok.";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "Odprite Cutling v aplikaciji **Nastavitve** na vaši napravi.";
-"Tap **Keyboards** and enable **Cutling**." = "Tapnite **Tipkovnice** in omogočite **Cutling**.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Vklopite **Dovoli poln dostop**, da bo tipkovnica lahko kopirala slike v odložišče.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Tapnite besedilno polje spodaj, nato uporabite tipko 🌐 globus za preklop na **Cutling**. S tem preverite, ali je vse pravilno nastavljeno.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Sinhronizacija iCloud je **eksperimentalna funkcija**. Morda ne bo pravilno delovala v vseh primerih, kar lahko povzroči izgubo podatkov. To lahko kadar koli spremenite pozneje v Nastavitvah.";
+"Open Cutling in your device's **Settings** app." = "Odpri Cutling v aplikaciji **Nastavitve** na svoji napravi.";
+"Tap **Keyboards** and enable **Cutling**." = "Tapni **Tipkovnice** in vklopi **Cutling**.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Vklopi **Dovoli polni dostop**, da bo tipkovnica lahko kopirala slike v tvoje odložišče.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Tapni besedilno polje spodaj in nato s tipko 🌐 preklopi na **Cutling**. S tem preveriš, ali je vse pravilno nastavljeno.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Sinhronizacija z iCloud je **eksperimentalna funkcija**. V nekaterih primerih morda ne deluje pravilno, kar lahko vodi v izgubo podatkov. To lahko kadar koli pozneje spremeniš v Nastavitvah.";
 
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "Nedavno izbrisano";
 "Delete All" = "Izbriši vse";
-"Delete All Permanently?" = "Trajno izbrisati vse?";
-"Delete Permanently?" = "Trajno izbrisati?";
+"Delete All Permanently?" = "Trajno izbrišem vse?";
+"Delete Permanently?" = "Trajno izbrišem?";
 "Delete Permanently" = "Trajno izbriši";
 "Recover" = "Obnovi";
-"Items will be permanently deleted after 30 days." = "Elementi bodo trajno izbrisani po 30 dneh.";
-"No Recently Deleted Items" = "Ni nedavno izbrisanih elementov";
-"Deleted cutlings will appear here for 30 days." = "Izbrisani cutlingi bodo prikazani tukaj 30 dni.";
-"This will permanently delete all %lld items. This action cannot be undone." = "Vseh %lld elementov bo trajno izbrisanih. Tega dejanja ni mogoče razveljaviti.";
-"\"%@\" will be deleted permanently." = "\"%@\" bo trajno izbrisan.";
+"Items will be permanently deleted after 30 days." = "Predmeti bodo po 30 dneh trajno izbrisani.";
+"No Recently Deleted Items" = "Ni nedavno izbrisanih predmetov";
+"Deleted cutlings will appear here for 30 days." = "Izbrisani cutlingi se bodo tu prikazovali 30 dni.";
+"This will permanently delete all %lld items. This action cannot be undone." = "S tem boš trajno izbrisal %lld predmetov. Tega dejanja ni mogoče razveljaviti.";
+"\"%@\" will be deleted permanently." = "„%@“ bo trajno izbrisan.";
 "1 day left" = "Še 1 dan";
-"%lld days left" = "Še %lld dni";
+"%lld days left" = "Še dni: %lld";
 
 /* MARK: - Context Menu */
 "Share" = "Deli";
@@ -321,24 +321,24 @@
 "Failed to save image." = "Shranjevanje slike ni uspelo.";
 
 /* MARK: - TipKit */
-"Saved cutlings" = "Shranjeni Cutlingi";
-"Your pinned snippets live here, ready to copy with one click." = "Tu so vaši pripeti odlomki, pripravljeni za kopiranje z enim klikom.";
+"Saved cutlings" = "Shranjeni cutlingi";
+"Your pinned snippets live here, ready to copy with one click." = "Tvoji pripeti odlomki živijo tukaj, pripravljeni za kopiranje z enim klikom.";
 "Recent clipboard" = "Nedavno odložišče";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "Vse, kar kopirate, pristane tukaj. Z desnim klikom na vrstico jo shranite kot Cutling.";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Vse, kar kopiraš, pristane tukaj. Z desnim klikom na vrstico jo shraniš kot cutling.";
 "Wipe the list" = "Počisti seznam";
-"Empties your recent clipboard. Saved cutlings stay put." = "Izprazni nedavno odložišče. Shranjeni Cutlingi ostanejo na svojem mestu.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Spremenite bližnjico, vklopite ali izklopite zajemanje odložišča in upravljajte sinhronizacijo iCloud.";
-"Undo deletes" = "Razveljavi brisanja";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Izbrisani Cutlingi ostanejo tukaj 30 dni. Obnovite jih ali trajno izpraznite.";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Tapnite tukaj za izbiro več Cutlingov, njihovo preureditev ali obnovitev nedavno izbrisanih.";
-"Long-press a cutling" = "Pridržite Cutling";
-"Hold any card for quick actions: copy, edit, share, or delete." = "Pridržite katero koli kartico za hitra dejanja: kopiranje, urejanje, deljenje ali brisanje.";
-"Drag to select" = "Povlecite za izbiro";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "Povlecite čez kartice za izbiro obsega. Povlecite nazaj za preklic izbire.";
-"Smart field matching" = "Pametno ujemanje polj";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling prepozna polja za e-pošto, URL, telefon in naslov ter ustrezne odlomke prikaže na vrhu tipkovnice.";
-"Create a new cutling" = "Ustvari nov Cutling";
-"Save text or image snippets you'll reuse from any app." = "Shrani odlomke besedila ali slik, ki jih boš znova uporabil v katerikoli aplikaciji.";
+"Empties your recent clipboard. Saved cutlings stay put." = "Počisti tvoje nedavno odložišče. Shranjeni cutlingi ostanejo.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Spremeni bližnjico, vklopi/izklopi zajem odložišča in upravljaj sinhronizacijo z iCloud.";
+"Undo deletes" = "Razveljavi izbrise";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Izbrisani cutlingi tu ostanejo 30 dni. Obnovi jih ali pa jih dokončno počisti.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Tapni tukaj, da izbereš več cutlingov, jih razvrstiš ali obnoviš nedavno izbrisane.";
+"Long-press a cutling" = "Dolgo pridrži cutling";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Pridrži katero koli kartico za hitra dejanja: kopiraj, uredi, deli ali izbriši.";
+"Drag to select" = "Povleci za izbiro";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Podrsaj čez kartice, da izbereš obseg. Podrsaj nazaj, da prekličeš izbor.";
+"Smart field matching" = "Pametno prepoznavanje polj";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling zazna polja za e-pošto, URL, telefon in naslov, ter dvigne ustrezne odlomke na vrh tipkovnice.";
+"Create a new cutling" = "Ustvari nov cutling";
+"Save text or image snippets you'll reuse from any app." = "Shrani odlomke besedila ali slik, ki jih boš znova uporabljal iz katere koli aplikacije.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "Dobrodošli v Cutlingu";
@@ -359,3 +359,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "Omogoča Cutlingu, da prilepi cutling neposredno v aplikacijo, ki ste jo uporabljali.";
 "Grant" = "Odobri";
 "You can skip Accessibility and grant it later from Settings → Paste." = "Dostopnost lahko preskočite in jo odobrite kasneje v Nastavitve → Lepljenje.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "Shrani kot datoteko…";
+"Image Saving" = "Shranjevanje slik";
+"When saving images" = "Pri shranjevanju slik";
+"Ask each time" = "Vsakič vprašaj";
+"Save to folder" = "Shrani v mapo";
+"Folder" = "Mapa";
+"Change Folder…" = "Spremeni mapo…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "Izberi, kako deluje dejanje „Shrani kot datoteko“ za slikovne Cutlinge. Z možnostjo „Shrani v mapo“ se slike samodejno shranijo v izbrano mapo z edinstvenim imenom datoteke, brez vprašanja.";
+"Choose" = "Izberi";
+"Choose Image Folder" = "Izberi mapo za slike";
+"Pick a folder where Cutling will save image cutlings." = "Izberi mapo, kamor bo Cutling shranjeval slikovne Cutlinge.";
+"Preview" = "Predogled";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "Shranjeni";
+"History" = "Zgodovina";
+"No saved cutlings yet" = "Še ni shranjenih Cutlingov";
+"Copy something to see it here" = "Kopiraj nekaj, da boš to videl tukaj";
+"Clipboard history is off. Enable it in Settings." = "Zgodovina odložišča je izklopljena. Vklopi jo v Nastavitvah.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Vključi v iskanje Spotlight";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "Naredi svoje Cutlinge iskljive iz Spotlighta. Občutljiva vsebina (kreditne kartice, ključi API, žetoni JWT, semenske fraze, zasebni ključi) se nikoli ne indeksira.";
+"Copy Cutling" = "Kopiraj Cutling";
+"Copy a cutling's contents to the clipboard." = "Kopira vsebino Cutlinga v odložišče.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Uporabi te fraze s Siri ali prebrskaj vse bližnjice Cutlinga v aplikaciji Bližnjice.";
+"Copied \"%@\"" = "Kopirano „%@“";

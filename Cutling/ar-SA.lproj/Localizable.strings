@@ -29,23 +29,23 @@
 "Select Cutlings" = "اختر كاتلينج";
 "Reorder Cutlings" = "إعادة ترتيب كاتلينج";
 "Keyboard Setup Guide" = "دليل إعداد لوحة المفاتيح";
-"Name (A → Z)" = "الاسم (أ → ي)";
-"Name (Z → A)" = "الاسم (ي → أ)";
+"Name (A → Z)" = "الاسم (A → Z)";
+"Name (Z → A)" = "الاسم (Z → A)";
 "Text First" = "النص أولاً";
 "Images First" = "الصور أولاً";
 "Shortest First" = "الأقصر أولاً";
 "Longest First" = "الأطول أولاً";
-"Reverse Order" = "ترتيب عكسي";
+"Reverse Order" = "الترتيب العكسي";
 
 /* MARK: - Empty States */
-"No Cutlings Yet" = "لا يوجد كاتلينج بعد";
+"No Cutlings Yet" = "لا توجد كاتلينج بعد";
 "No Results" = "لا توجد نتائج";
-"Tap + to add your first cutling." = "اضغط + لإضافة أول كاتلينج.";
-"Try a different search term." = "جرّب مصطلح بحث مختلف.";
+"Tap + to add your first cutling." = "اضغط على + لإضافة أول كاتلينج لك.";
+"Try a different search term." = "جرب كلمة بحث مختلفة.";
 
 /* MARK: - Search */
-"Search cutlings" = "البحث في كاتلينج";
-"Search icons" = "البحث عن أيقونات";
+"Search cutlings" = "ابحث في الكاتلينج";
+"Search icons" = "ابحث عن الأيقونات";
 
 /* MARK: - Form Labels */
 "Name" = "الاسم";
@@ -84,58 +84,58 @@
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
 "iCloud Sync" = "مزامنة iCloud";
-"Sync your cutlings across all your devices using iCloud." = "زامن كاتلينج الخاصة بك عبر جميع أجهزتك باستخدام iCloud.";
+"Sync your cutlings across all your devices using iCloud." = "زامن الكاتلينج الخاصة بك عبر جميع أجهزتك باستخدام iCloud.";
 "Storage" = "التخزين";
-"Text Cutlings" = "كاتلينج نصية";
-"Image Cutlings" = "كاتلينج صور";
+"Text Cutlings" = "كاتلينج النصوص";
+"Image Cutlings" = "كاتلينج الصور";
 "Total Cutlings" = "إجمالي الكاتلينج";
-"Disk Usage" = "استخدام التخزين";
+"Disk Usage" = "استخدام القرص";
 "Status" = "الحالة";
 "Syncing…" = "جارٍ المزامنة…";
-"Up to date" = "محدّث";
+"Up to date" = "مُحدّث";
 "Sync Now" = "مزامنة الآن";
 "Turn On iCloud Sync" = "تشغيل مزامنة iCloud";
-"Max Text Length" = "الحد الأقصى لطول النص";
-"%lld chars" = "%lld حرف";
+"Max Text Length" = "أقصى طول للنص";
+"%lld chars" = "%lld حرفًا";
 "About" = "حول";
 "Version" = "الإصدار";
 "Keyboard Added" = "تمت إضافة لوحة المفاتيح";
-"Full Access" = "وصول كامل";
+"Full Access" = "الوصول الكامل";
 "Experimental Feature: iCloud" = "ميزة تجريبية: iCloud";
-"Contact Support" = "الاتصال بالدعم";
+"Contact Support" = "تواصل مع الدعم";
 "Privacy Policy" = "سياسة الخصوصية";
 "Auto-detect Input Types" = "اكتشاف أنواع الإدخال تلقائيًا";
-"Enable iCloud Sync" = "تفعيل مزامنة iCloud";
-"Keep your cutlings in sync across all your devices." = "حافظ على مزامنة قصاصاتك عبر جميع أجهزتك.";
-"Automatically detect and suggest input type categories when editing text." = "اكتشاف واقتراح فئات نوع الإدخال تلقائيًا عند تحرير النص.";
+"Enable iCloud Sync" = "تشغيل مزامنة iCloud";
+"Keep your cutlings in sync across all your devices." = "حافظ على مزامنة الكاتلينج الخاصة بك عبر جميع أجهزتك.";
+"Automatically detect and suggest input type categories when editing text." = "يكتشف ويقترح تلقائيًا فئات نوع الإدخال أثناء تحرير النص.";
 
 /* MARK: - Image Picker */
 "No image selected" = "لم يتم اختيار صورة";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "سيتم استبدال النص الحالي بمحتوى الحافظة.";
-"This will replace the current image with whatever is in your clipboard." = "سيتم استبدال الصورة الحالية بمحتوى الحافظة.";
-"This cutling will be automatically deleted at the selected date and time." = "سيتم حذف هذا الـ كاتلينج تلقائياً في التاريخ والوقت المحددين.";
-"Each text cutling can hold up to %lld characters." = "يمكن لكل كاتلينج نصي أن يحتوي على %lld حرف كحد أقصى.";
+"This will replace the current text with whatever is in your clipboard." = "سيؤدي هذا إلى استبدال النص الحالي بما هو موجود في الحافظة لديك.";
+"This will replace the current image with whatever is in your clipboard." = "سيؤدي هذا إلى استبدال الصورة الحالية بما هو موجود في الحافظة لديك.";
+"This cutling will be automatically deleted at the selected date and time." = "سيتم حذف هذا الكاتلينج تلقائيًا في التاريخ والوقت المحددين.";
+"Each text cutling can hold up to %lld characters." = "يمكن أن يحتوي كل كاتلينج نصي على ما يصل إلى %lld حرفًا.";
 
 /* MARK: - Alerts */
-"Limit Reached" = "تم بلوغ الحد";
-"Delete Cutling?" = "حذف كاتلينج؟";
+"Limit Reached" = "تم الوصول إلى الحد";
+"Delete Cutling?" = "حذف الكاتلينج؟";
 "This action cannot be undone." = "لا يمكن التراجع عن هذا الإجراء.";
-"Cannot add text cutling" = "لا يمكن إضافة كاتلينج نصي";
-"Cannot add image cutling" = "لا يمكن إضافة كاتلينج صورة";
-"Cannot add more text cutlings." = "لا يمكن إضافة المزيد من كاتلينج النصية.";
+"Cannot add text cutling" = "تعذرت إضافة الكاتلينج النصي";
+"Cannot add image cutling" = "تعذرت إضافة الكاتلينج الصورة";
+"Cannot add more text cutlings." = "لا يمكن إضافة المزيد من كاتلينج النصوص.";
 "Cannot add more image cutlings." = "لا يمكن إضافة المزيد من كاتلينج الصور.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "لقد وصلت إلى الحد الأقصى وهو %lld كاتلينج. احذف بعضها لإضافة المزيد.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "لقد وصلت إلى الحد الأقصى وهو %lld كاتلينج صور. تستخدم الصور ذاكرة كبيرة في لوحة المفاتيح. احذف بعض الصور لإضافة المزيد.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "لقد وصلت إلى الحد الأقصى وهو %lld كاتلينج إجمالاً. احذف بعضها لإضافة المزيد.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "لقد وصلت إلى الحد الأقصى وهو %lld كاتلينج صورة. تستخدم الصور قدرًا كبيرًا من الذاكرة في لوحة المفاتيح. احذف بعض الصور لإضافة المزيد.";
 "You've reached the maximum of %lld text cutlings. Delete some to add more." = "لقد وصلت إلى الحد الأقصى وهو %lld كاتلينج نصي. احذف بعضها لإضافة المزيد.";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "اقتراحات نوع الإدخال";
 "Suggest for Input Types" = "اقتراح لأنواع الإدخال";
-"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "عند التركيز على حقل نص من النوع المطابق، سيظهر هذا الـ كاتلينج في أعلى لوحة المفاتيح.";
+"When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "عند التركيز على حقل نص من النوع المطابق، سيظهر هذا الكاتلينج في أعلى لوحة المفاتيح.";
 "Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "قم بتعيين كاتلينج لأنواع الإدخال حتى تظهر في أعلى لوحة المفاتيح عند التركيز على حقل نص مطابق.";
 "No cutlings yet. Add some first." = "لا يوجد كاتلينج بعد. أضف بعضاً أولاً.";
 "Suggested" = "مقترح";
@@ -170,7 +170,7 @@
 "While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "أثناء الكتابة في أي تطبيق، اضغط أو اضغط مطولاً على مفتاح 🌐 الكرة الأرضية في أسفل يسار لوحة المفاتيح، ثم اختر كاتلينج";
 "Tap any text cutling and it will be typed into your current text field immediately" = "اضغط على أي كاتلينج نصي وسيتم كتابته في حقل النص الحالي فوراً";
 "Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "اضغط على كاتلينج صورة لنسخها إلى الحافظة، ثم الصقها في التطبيق الذي تستخدمه (عادةً بالضغط المطول ثم اختيار لصق). Apple لا تدعم حالياً لصق الصور مباشرة في هذا التطبيق.";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "انسخ أي نص، ثم اضغط على زر 'إضافة من الحافظة' في لوحة مفاتيح كاتلينج لحفظه كـ كاتلينج جديد";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "انسخ أي نص، ثم اضغط على زر 'إضافة من الحافظة' في لوحة مفاتيح كاتلينج لحفظه ككاتلينج جديد";
 "You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "يمكنك إدارة جميع كاتلينج في تطبيق كاتلينج الرئيسي. ستظهر التغييرات التي تجريها فوراً في لوحة المفاتيح.";
 "Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "ملحقات لوحة المفاتيح لها حدود صارمة للذاكرة لضمان استقرار النظام. تستخدم الصور ذاكرة أكثر من النص، لذلك نحدّها لضمان بقاء لوحة المفاتيح سريعة وموثوقة. إذا وصلت إلى الحد، ببساطة احذف بعض كاتلينج لإضافة جديدة.";
 "Up to **%lld text** cutlings" = "حتى **%lld نصي** كاتلينج";
@@ -183,7 +183,7 @@
 "Test Your Keyboard" = "اختبر لوحة المفاتيح";
 "All set! Swipe to continue." = "كل شيء جاهز! اسحب للمتابعة.";
 "Your data stays private and is never sent anywhere." = "تبقى بياناتك خاصة ولا تُرسل إلى أي مكان.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**ليس للبيانات الحساسة** — تجنب تخزين كلمات المرور أو أرقام البطاقات أو المفاتيح الخاصة أو الرموز المميزة";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**ليس للبيانات الحساسة**: تجنب تخزين كلمات المرور أو أرقام البطاقات أو المفاتيح الخاصة أو الرموز المميزة";
 "Set Up Cutling Keyboard" = "إعداد لوحة مفاتيح كاتلينج";
 "What You Can Do" = "ما يمكنك فعله";
 "Smart Field Suggestions" = "اقتراحات ذكية للحقول";
@@ -206,26 +206,26 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "اطلب من Siri إضافة كاتلينج أو نسخها أو البحث فيها دون استخدام يديك.";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "افتح كاتلينج في تطبيق **الإعدادات** على جهازك.";
-"Tap **Keyboards** and enable **Cutling**." = "اضغط على **لوحات المفاتيح** وفعّل **كاتلينج**.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "شغّل **السماح بالوصول الكامل** لتتمكن لوحة المفاتيح من نسخ الصور إلى الحافظة.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "اضغط على حقل النص أدناه، ثم استخدم مفتاح 🌐 الكرة الأرضية للتبديل إلى **كاتلينج**. هذا يتحقق من أن كل شيء تم إعداده بشكل صحيح.";
+"Open Cutling in your device's **Settings** app." = "افتح Cutling في تطبيق **الإعدادات** على جهازك.";
+"Tap **Keyboards** and enable **Cutling**." = "اضغط على **لوحات المفاتيح** وقم بتفعيل **Cutling**.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "قم بتشغيل **السماح بالوصول الكامل** حتى تتمكن لوحة المفاتيح من نسخ الصور إلى الحافظة لديك.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "اضغط على حقل النص أدناه، ثم استخدم مفتاح 🌐 الكرة الأرضية للتبديل إلى **Cutling**. هذا يتحقق من أن كل شيء تم إعداده بشكل صحيح.";
 "iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "مزامنة iCloud هي **ميزة تجريبية**. قد لا تعمل بشكل صحيح في جميع الحالات، مما قد يؤدي إلى فقدان البيانات. يمكنك دائمًا تغيير هذا لاحقًا في الإعدادات.";
 
 /* MARK: - Recently Deleted */
-"Recently Deleted" = "المحذوفة مؤخراً";
+"Recently Deleted" = "المحذوفة مؤخرًا";
 "Delete All" = "حذف الكل";
-"Delete All Permanently?" = "حذف الكل نهائياً؟";
-"Delete Permanently?" = "حذف نهائياً؟";
-"Delete Permanently" = "حذف نهائياً";
-"Recover" = "استعادة";
-"Items will be permanently deleted after 30 days." = "سيتم حذف العناصر نهائياً بعد 30 يوماً.";
-"No Recently Deleted Items" = "لا توجد عناصر محذوفة مؤخراً";
-"Deleted cutlings will appear here for 30 days." = "ستظهر العناصر المحذوفة هنا لمدة 30 يوماً.";
-"This will permanently delete all %lld items. This action cannot be undone." = "سيتم حذف جميع العناصر البالغ عددها %lld نهائياً. لا يمكن التراجع عن هذا الإجراء.";
-"\"%@\" will be deleted permanently." = "سيتم حذف \"%@\" نهائياً.";
-"1 day left" = "يوم واحد متبقٍ";
-"%lld days left" = "%lld أيام متبقية";
+"Delete All Permanently?" = "حذف الكل نهائيًا؟";
+"Delete Permanently?" = "حذف نهائيًا؟";
+"Delete Permanently" = "حذف نهائيًا";
+"Recover" = "استرجاع";
+"Items will be permanently deleted after 30 days." = "ستُحذف العناصر نهائيًا بعد 30 يومًا.";
+"No Recently Deleted Items" = "لا توجد عناصر محذوفة مؤخرًا";
+"Deleted cutlings will appear here for 30 days." = "ستظهر كاتلينج المحذوفة هنا لمدة 30 يومًا.";
+"This will permanently delete all %lld items. This action cannot be undone." = "سيؤدي هذا إلى حذف %lld عنصر نهائيًا. لا يمكن التراجع عن هذا الإجراء.";
+"\"%@\" will be deleted permanently." = "سيتم حذف «%@» نهائيًا.";
+"1 day left" = "تبقى يوم واحد";
+"%lld days left" = "تبقى %lld يومًا";
 
 /* MARK: - Context Menu */
 "Share" = "مشاركة";
@@ -327,18 +327,18 @@
 "Everything you copy lands here. Right-click any row to save it as a cutling." = "كل ما تنسخه يصل إلى هنا. انقر بزر الفأرة الأيمن على أي صف لحفظه ككاتلينج.";
 "Wipe the list" = "مسح القائمة";
 "Empties your recent clipboard. Saved cutlings stay put." = "يفرغ حافظتك الأخيرة. تبقى كاتلينج المحفوظة في مكانها.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "أعد ربط مفتاح الاختصار، وبدّل التقاط الحافظة، وأدر مزامنة iCloud.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "أعد تعيين مفتاح الاختصار، وبدّل التقاط الحافظة، وإدارة مزامنة iCloud.";
 "Undo deletes" = "تراجع عن الحذف";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "تبقى كاتلينج المحذوفة هنا لمدة 30 يوماً. استعدها أو أفرغها نهائياً.";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "اضغط هنا لتحديد عدة كاتلينج، أو إعادة ترتيبها، أو استعادة المحذوفة مؤخراً.";
-"Long-press a cutling" = "اضغط مطولاً على كاتلينج";
-"Hold any card for quick actions: copy, edit, share, or delete." = "اضغط مطولاً على أي بطاقة لإجراءات سريعة: نسخ، تعديل، مشاركة، أو حذف.";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "تبقى الكاتلينج المحذوفة هنا لمدة 30 يومًا. استرجعها أو امسحها نهائيًا.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "اضغط هنا لتحديد عدة كاتلينج، أو إعادة ترتيبها، أو استرجاع المحذوفة مؤخرًا.";
+"Long-press a cutling" = "اضغط مطولاً على الكاتلينج";
+"Hold any card for quick actions: copy, edit, share, or delete." = "اضغط مطولاً على أي بطاقة لإجراءات سريعة: نسخ، تحرير، مشاركة، أو حذف.";
 "Drag to select" = "اسحب للتحديد";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "مرر عبر البطاقات لتحديد نطاق. مرر للخلف فوقها لإلغاء التحديد.";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "اسحب عبر البطاقات لتحديد نطاق. اسحب للخلف لإلغاء التحديد.";
 "Smart field matching" = "مطابقة الحقول الذكية";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "يكتشف كاتلينج حقول البريد الإلكتروني والروابط والهاتف والعنوان، ثم يرفع المقتطفات المطابقة إلى أعلى لوحة المفاتيح.";
-"Create a new cutling" = "إنشاء كاتلينج جديد";
-"Save text or image snippets you'll reuse from any app." = "احفظ مقتطفات نصية أو صورية يمكنك إعادة استخدامها من أي تطبيق.";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "تكتشف الكاتلينج حقول البريد الإلكتروني وعناوين URL والهواتف والعناوين، وترفع المقتطفات المطابقة إلى أعلى لوحة المفاتيح.";
+"Create a new cutling" = "أنشئ كاتلينج جديدًا";
+"Save text or image snippets you'll reuse from any app." = "احفظ مقتطفات النص أو الصور التي ستعيد استخدامها من أي تطبيق.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "مرحباً بك في كاتلينج";
@@ -359,3 +359,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "يتيح لكاتلينج لصق كاتلينج مباشرة في التطبيق الذي كنت تستخدمه.";
 "Grant" = "منح";
 "You can skip Accessibility and grant it later from Settings → Paste." = "يمكنك تخطي إمكانية الوصول ومنحه لاحقاً من الإعدادات ← لصق.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "حفظ كملف…";
+"Image Saving" = "حفظ الصور";
+"When saving images" = "عند حفظ الصور";
+"Ask each time" = "اسأل في كل مرة";
+"Save to folder" = "حفظ في مجلد";
+"Folder" = "مجلد";
+"Change Folder…" = "تغيير المجلد…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "اختر كيفية عمل إجراء «حفظ كملف» لكاتلينجات الصور. مع «حفظ في مجلد»، تُحفظ الصور مباشرة في المجلد الذي تختاره باسم ملف فريد، دون سؤال.";
+"Choose" = "اختر";
+"Choose Image Folder" = "اختر مجلد الصور";
+"Pick a folder where Cutling will save image cutlings." = "اختر مجلداً يحفظ فيه كاتلينج كاتلينجات الصور.";
+"Preview" = "معاينة";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "محفوظات";
+"History" = "السجل";
+"No saved cutlings yet" = "لا توجد كاتلينج محفوظة بعد";
+"Copy something to see it here" = "انسخ شيئًا لتراه هنا";
+"Clipboard history is off. Enable it in Settings." = "سجل الحافظة متوقف. شغّله في الإعدادات.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "تضمين في بحث Spotlight";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "اجعل كاتلينج الخاصة بك قابلة للبحث من Spotlight. المحتوى الحساس (بطاقات الائتمان، مفاتيح API، رموز JWT، عبارات seed، المفاتيح الخاصة) لا تتم فهرسته أبدًا.";
+"Copy Cutling" = "نسخ كاتلينج";
+"Copy a cutling's contents to the clipboard." = "ينسخ محتوى الكاتلينج إلى الحافظة.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "استخدم هذه العبارات مع Siri أو تصفح كل اختصارات Cutling في تطبيق الاختصارات.";
+"Copied \"%@\"" = "تم نسخ «%@»";

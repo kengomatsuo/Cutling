@@ -1,13 +1,13 @@
 /* MARK: - Navigation & Titles */
-"My Cutlings" = "Cutlingurile mele";
-"Select Items" = "Selectează elemente";
+"My Cutlings" = "Cutling-urile mele";
+"Select Items" = "Selectează elementele";
 "%lld Selected" = "%lld selectate";
 "Reorder" = "Reordonează";
 "Settings" = "Setări";
 "Keyboard Setup" = "Configurare tastatură";
 "New" = "Nou";
 "Choose Icon" = "Alege pictograma";
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Text, %lld/%lld Imagini";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld text, %lld/%lld imagini";
 "%lld Cutlings" = "%lld Cutling-uri";
 "Cutlings" = "Cutling-uri";
 
@@ -26,25 +26,25 @@
 /* MARK: - Menu Items */
 "Text Cutling" = "Cutling text";
 "Image Cutling" = "Cutling imagine";
-"Select Cutlings" = "Selectează Cutlinguri";
-"Reorder Cutlings" = "Reordonează Cutlinguri";
-"Keyboard Setup Guide" = "Ghid configurare tastatură";
+"Select Cutlings" = "Selectează Cutling-uri";
+"Reorder Cutlings" = "Reordonează Cutling-uri";
+"Keyboard Setup Guide" = "Ghid de configurare a tastaturii";
 "Name (A → Z)" = "Nume (A → Z)";
 "Name (Z → A)" = "Nume (Z → A)";
-"Text First" = "Text întâi";
-"Images First" = "Imagini întâi";
-"Shortest First" = "Cele mai scurte întâi";
-"Longest First" = "Cele mai lungi întâi";
+"Text First" = "Text mai întâi";
+"Images First" = "Imagini mai întâi";
+"Shortest First" = "Cele mai scurte mai întâi";
+"Longest First" = "Cele mai lungi mai întâi";
 "Reverse Order" = "Ordine inversă";
 
 /* MARK: - Empty States */
 "No Cutlings Yet" = "Niciun Cutling încă";
 "No Results" = "Niciun rezultat";
-"Tap + to add your first cutling." = "Apasă + pentru a adăuga primul cutling.";
-"Try a different search term." = "Încearcă un alt termen de căutare.";
+"Tap + to add your first cutling." = "Apasă + pentru a adăuga primul tău cutling.";
+"Try a different search term." = "Încearcă alt termen de căutare.";
 
 /* MARK: - Search */
-"Search cutlings" = "Caută cutlinguri";
+"Search cutlings" = "Caută cutling-uri";
 "Search icons" = "Caută pictograme";
 
 /* MARK: - Form Labels */
@@ -84,66 +84,66 @@
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
 "iCloud Sync" = "Sincronizare iCloud";
-"Sync your cutlings across all your devices using iCloud." = "Sincronizează cutlingurile pe toate dispozitivele tale prin iCloud.";
+"Sync your cutlings across all your devices using iCloud." = "Sincronizează-ți cutling-urile pe toate dispozitivele tale folosind iCloud.";
 "Storage" = "Stocare";
-"Text Cutlings" = "Cutlinguri text";
-"Image Cutlings" = "Cutlinguri imagine";
-"Total Cutlings" = "Total Cutlinguri";
+"Text Cutlings" = "Cutling-uri text";
+"Image Cutlings" = "Cutling-uri imagine";
+"Total Cutlings" = "Total Cutling-uri";
 "Disk Usage" = "Utilizare disc";
 "Status" = "Stare";
 "Syncing…" = "Se sincronizează…";
 "Up to date" = "Actualizat";
 "Sync Now" = "Sincronizează acum";
 "Turn On iCloud Sync" = "Activează sincronizarea iCloud";
-"Max Text Length" = "Lungime maximă text";
+"Max Text Length" = "Lungime maximă a textului";
 "%lld chars" = "%lld caractere";
 "About" = "Despre";
 "Version" = "Versiune";
 "Keyboard Added" = "Tastatură adăugată";
 "Full Access" = "Acces complet";
 "Experimental Feature: iCloud" = "Funcție experimentală: iCloud";
-"Contact Support" = "Contactează suportul";
+"Contact Support" = "Contactează asistența";
 "Privacy Policy" = "Politica de confidențialitate";
-"Auto-detect Input Types" = "Detectare automată a tipurilor de introducere";
+"Auto-detect Input Types" = "Detectează automat tipurile de intrare";
 "Enable iCloud Sync" = "Activează sincronizarea iCloud";
-"Keep your cutlings in sync across all your devices." = "Păstrează-ți cutlingurile sincronizate pe toate dispozitivele.";
-"Automatically detect and suggest input type categories when editing text." = "Detectează și sugerează automat categoriile de tipuri de introducere la editarea textului.";
+"Keep your cutlings in sync across all your devices." = "Păstrează-ți cutling-urile sincronizate pe toate dispozitivele tale.";
+"Automatically detect and suggest input type categories when editing text." = "Detectează și sugerează automat categorii de tip de intrare la editarea textului.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Nicio imagine selectată";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "Textul actual va fi înlocuit cu conținutul din clipboard.";
-"This will replace the current image with whatever is in your clipboard." = "Imaginea actuală va fi înlocuită cu conținutul din clipboard.";
+"This will replace the current text with whatever is in your clipboard." = "Acest lucru va înlocui textul curent cu ce se află în clipboard-ul tău.";
+"This will replace the current image with whatever is in your clipboard." = "Acest lucru va înlocui imaginea curentă cu ce se află în clipboard-ul tău.";
 "This cutling will be automatically deleted at the selected date and time." = "Acest cutling va fi șters automat la data și ora selectate.";
 "Each text cutling can hold up to %lld characters." = "Fiecare cutling text poate conține până la %lld caractere.";
 
 /* MARK: - Alerts */
 "Limit Reached" = "Limită atinsă";
-"Delete Cutling?" = "Ștergi Cutling?";
+"Delete Cutling?" = "Ștergi Cutling-ul?";
 "This action cannot be undone." = "Această acțiune nu poate fi anulată.";
-"Cannot add text cutling" = "Nu se poate adăuga cutling text";
-"Cannot add image cutling" = "Nu se poate adăuga cutling imagine";
-"Cannot add more text cutlings." = "Nu se pot adăuga mai multe cutlinguri text.";
-"Cannot add more image cutlings." = "Nu se pot adăuga mai multe cutlinguri imagine.";
+"Cannot add text cutling" = "Nu se poate adăuga cutling-ul text";
+"Cannot add image cutling" = "Nu se poate adăuga cutling-ul imagine";
+"Cannot add more text cutlings." = "Nu se mai pot adăuga cutling-uri text.";
+"Cannot add more image cutlings." = "Nu se mai pot adăuga cutling-uri imagine.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Ai atins maximul de %lld cutlinguri. Șterge câteva pentru a adăuga altele.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Ai atins maximul de %lld cutlinguri imagine. Imaginile folosesc multă memorie în tastatură. Șterge câteva imagini pentru a adăuga altele.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Ai atins maximul de %lld cutlinguri text. Șterge câteva pentru a adăuga altele.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Ai atins maximul de %lld cutling-uri în total. Șterge câteva pentru a adăuga mai multe.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Ai atins maximul de %lld cutling-uri imagine. Imaginile folosesc multă memorie în tastatură. Șterge câteva pentru a adăuga mai multe.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Ai atins maximul de %lld cutling-uri text. Șterge câteva pentru a adăuga mai multe.";
 
 /* MARK: - Input Type Suggestions */
-"Input Type Suggestions" = "Sugestii pentru tipul de introducere";
-"Suggest for Input Types" = "Sugerează pentru tipuri de introducere";
+"Input Type Suggestions" = "Sugestii pe tip de intrare";
+"Suggest for Input Types" = "Sugerează pentru tipuri de intrare";
 "When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Când focalizezi un câmp de text de tipul corespunzător, acest cutling va apărea în partea de sus a tastaturii.";
-"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Atribuie cutling-uri tipurilor de introducere pentru ca acestea să apară în partea de sus a tastaturii când focalizezi un câmp de text corespunzător.";
-"No cutlings yet. Add some first." = "Niciun cutling încă. Adaugă câteva mai întâi.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Atribuie cutling-uri tipurilor de intrare pentru ca acestea să apară în partea de sus a tastaturii când focalizezi un câmp de text corespunzător.";
+"No cutlings yet. Add some first." = "Încă nu există cutling-uri. Adaugă mai întâi câteva.";
 "Suggested" = "Sugerat";
 "Email" = "E-mail";
 "URL" = "URL";
 "Phone Number" = "Număr de telefon";
 "Address" = "Adresă";
-"Input Types" = "Tipuri de introducere";
+"Input Types" = "Tipuri de intrare";
 
 /* MARK: - Detection */
 "Detected: %@" = "Detectat: %@";
@@ -154,49 +154,49 @@
 "Inserted" = "Inserat";
 
 /* MARK: - Keyboard Setup */
-"Setup Progress" = "Progres configurare";
+"Setup Progress" = "Progresul configurării";
 "Open Cutling Settings" = "Deschide setările Cutling";
-"Tap here, then switch to Cutling" = "Apasă aici, apoi comută la Cutling";
-"How to Use Your Keyboard" = "Cum să-ți folosești tastatura";
+"Tap here, then switch to Cutling" = "Atinge aici, apoi comută pe Cutling";
+"How to Use Your Keyboard" = "Cum să folosești tastatura";
 "Storage Limits" = "Limite de stocare";
-"You're All Set!" = "Totul e pregătit!";
-"Set Up Your Keyboard" = "Configurează tastatura";
-"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Tastatura Cutling este pregătită! În timp ce scrii oriunde, apasă pictograma 🌐 de pe tastatură pentru a comuta la Cutling.";
-"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Urmează cei doi pași simpli de mai jos pentru a începe să folosești tastatura personalizată. Pagina se va actualiza automat pe măsură ce finalizezi fiecare pas.";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Pasul 1:** Apasă \U201EDeschide setările Cutling\U201D mai jos, mergi la **Tastaturi** și selectează **Cutling** din listă.";
-"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Pasul 2:** Asigură-te că **Permite acces complet** este ACTIVAT. Aceasta permite tastaturii să copieze imagini în clipboard. Datele tale rămân private și nu sunt trimise niciodată nicăieri.";
-"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Pasul 3:** Apasă pe câmpul de text și alege \U201ECutling\U201D folosind pictograma 🌐 de pe tastatură pentru a actualiza statusul \U201EAcces complet\U201D.";
-"**Step 4:** You're good to go! The usage guide is provided below." = "**Pasul 4:** Ești pregătit! Ghidul de utilizare este mai jos.";
-"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "În timp ce scrii în orice aplicație, apasă sau ține apăsată tasta 🌐 din stânga jos a tastaturii, apoi selectează Cutling";
-"Tap any text cutling and it will be typed into your current text field immediately" = "Apasă orice cutling text și va fi introdus imediat în câmpul de text curent";
-"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Apasă un cutling imagine pentru a-l copia în clipboard, apoi lipește-l în aplicația pe care o folosești (de obicei apăsând lung, apoi selectând Lipește). Apple nu suportă în prezent lipirea directă a unei imagini în această aplicație.";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Copiază orice text, apoi apasă butonul \U201EAdaugă din clipboard\U201D pe tastatura Cutling pentru a-l salva ca un cutling nou";
-"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Poți gestiona toate cutlingurile în aplicația principală Cutling. Modificările vor apărea instant pe tastatură.";
-"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Extensiile de tastatură au limite stricte de memorie pentru stabilitatea sistemului. Imaginile folosesc mai multă memorie decât textul, așa că le limităm pentru a menține tastatura rapidă și fiabilă. Dacă atingi o limită, șterge câteva cutlinguri pentru a adăuga altele noi.";
-"Up to **%lld text** cutlings" = "Până la **%lld text** cutlinguri";
-"Up to **%lld image** cutlings" = "Până la **%lld imagine** cutlinguri";
+"You're All Set!" = "Totul e gata!";
+"Set Up Your Keyboard" = "Configurează-ți tastatura";
+"Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Tastatura ta Cutling este gata! În timp ce scrii oriunde, atinge pictograma 🌐 glob de pe tastatură pentru a comuta pe Cutling.";
+"Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Urmează cei doi pași simpli de mai jos pentru a începe să-ți folosești tastatura personalizată. Această pagină se va actualiza automat pe măsură ce parcurgi fiecare pas.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Pasul 1:** Atinge ‘Deschide setările Cutling’ mai jos, mergi la **Tastaturi** și selectează **Cutling** din listă.";
+"**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Pasul 2:** Asigură-te că **Permite acces complet** este activat. Asta permite tastaturii să copieze imagini în clipboard-ul tău. Datele tale rămân private și nu sunt trimise niciodată în altă parte.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Pasul 3:** Atinge câmpul de text și alege \"Cutling\" cu pictograma 🌐 glob de pe tastatură pentru a actualiza starea \"Acces complet\".";
+"**Step 4:** You're good to go! The usage guide is provided below." = "**Pasul 4:** Gata! Ghidul de utilizare este mai jos.";
+"While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "În timp ce scrii într-o aplicație, atinge sau ține apăsată tasta 🌐 glob din stânga jos a tastaturii, apoi selectează Cutling";
+"Tap any text cutling and it will be typed into your current text field immediately" = "Atinge orice cutling text și va fi tastat imediat în câmpul de text curent";
+"Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Atinge un cutling imagine pentru a-l copia în clipboard, apoi lipește-l în aplicația pe care o folosești (de obicei ținând apăsat și alegând Lipește). Apple nu permite momentan lipirea directă a unei imagini în această aplicație.";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Copiază orice text, apoi atinge butonul ‘Adaugă din clipboard’ în tastatura Cutling pentru a-l salva ca un nou cutling";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Poți gestiona toate cutling-urile tale în aplicația principală Cutling. Modificările pe care le faci vor apărea instantaneu în tastatură.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Extensiile de tastatură au limite stricte de memorie pentru a asigura stabilitatea sistemului. Imaginile folosesc mai multă memorie decât textul, așa că le limităm pentru ca tastatura ta să rămână rapidă și fiabilă. Dacă atingi o limită, șterge pur și simplu câteva cutling-uri pentru a adăuga altele noi.";
+"Up to **%lld text** cutlings" = "Până la **%lld** cutling-uri **text**";
+"Up to **%lld image** cutlings" = "Până la **%lld** cutling-uri **imagine**";
 "Back" = "Înapoi";
-"Next" = "Înainte";
+"Next" = "Următorul";
 "Get Started" = "Începe";
-"Follow a few simple steps to start using your custom Cutling keyboard." = "Urmează câțiva pași simpli pentru a începe să folosești tastatura Cutling.";
+"Follow a few simple steps to start using your custom Cutling keyboard." = "Urmează câțiva pași simpli pentru a începe să-ți folosești tastatura Cutling personalizată.";
 "Enable Cutling Keyboard" = "Activează tastatura Cutling";
-"Test Your Keyboard" = "Testează tastatura";
-"All set! Swipe to continue." = "Totul e gata! Glisează pentru a continua.";
-"Your data stays private and is never sent anywhere." = "Datele tale rămân private și nu sunt trimise niciodată nicăieri.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Nu pentru date sensibile** — evită stocarea parolelor, numerelor de card, cheilor private sau tokenurilor";
+"Test Your Keyboard" = "Testează-ți tastatura";
+"All set! Swipe to continue." = "Gata! Glisează pentru a continua.";
+"Your data stays private and is never sent anywhere." = "Datele tale rămân private și nu sunt trimise niciodată în altă parte.";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Nu pentru date sensibile**: evită să stochezi parole, numere de card, chei private sau token-uri";
 "Set Up Cutling Keyboard" = "Configurează tastatura Cutling";
 "What You Can Do" = "Ce poți face";
-"Smart Field Suggestions" = "Sugestii inteligente pentru câmpuri";
-"Cutling spots email, URL, phone, and address fields, then floats matching cutlings to the top of the keyboard." = "Cutling detectează câmpurile de e-mail, URL, telefon și adresă, apoi afișează cutlings potrivite în partea de sus a tastaturii.";
+"Smart Field Suggestions" = "Sugestii inteligente pe câmp";
+"Cutling spots email, URL, phone, and address fields, then floats matching cutlings to the top of the keyboard." = "Cutling identifică câmpurile de e-mail, URL, telefon și adresă, apoi aduce cutling-urile corespunzătoare în partea de sus a tastaturii.";
 "Save from Anywhere" = "Salvează de oriunde";
-"Send text, links, or images to Cutling straight from any app's Share Sheet or the Action extension." = "Trimite text, linkuri sau imagini către Cutling direct din meniul Partajează al oricărei aplicații sau din extensia Acțiune.";
-"Widgets & Controls" = "Widgeturi și controale";
-"Pin favorite cutlings to your Home Screen, Lock Screen, or Control Center for one-tap copy." = "Fixează cutlings preferate pe ecranul principal, pe ecranul de blocare sau în Centrul de control pentru a le copia cu o singură atingere.";
+"Send text, links, or images to Cutling straight from any app's Share Sheet or the Action extension." = "Trimite text, link-uri sau imagini către Cutling direct din foaia Partajează sau extensia Acțiune a oricărei aplicații.";
+"Widgets & Controls" = "Widget-uri și comenzi";
+"Pin favorite cutlings to your Home Screen, Lock Screen, or Control Center for one-tap copy." = "Fixează cutling-urile preferate pe Ecranul principal, Ecranul de blocare sau Centrul de control pentru a le copia cu un singur toc.";
 "Find with Spotlight" = "Găsește cu Spotlight";
-"Search your saved cutlings right from Spotlight and copy them in a single tap." = "Caută cutlings salvate direct din Spotlight și copiază-le cu o singură atingere.";
+"Search your saved cutlings right from Spotlight and copy them in a single tap." = "Caută cutling-urile salvate direct din Spotlight și copiază-le cu un singur toc.";
 "Sync Across Devices" = "Sincronizează între dispozitive";
-"Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Activează sincronizarea iCloud pentru a-ți menține cutlings la zi pe fiecare dispozitiv conectat la contul tău Apple.";
-"Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Atinge câmpul de text de mai sus, apoi folosește tasta 🌐 glob pentru a comuta la **Cutling**. Acest lucru verifică dacă totul este configurat corect.";
+"Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Activează Sincronizarea iCloud pentru a-ți menține cutling-urile actualizate pe fiecare dispozitiv conectat la contul Apple.";
+"Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Atinge câmpul de text de mai sus, apoi folosește tasta 🌐 glob pentru a comuta pe **Cutling**. Asta verifică dacă totul este configurat corect.";
 
 /* MARK: - What's New Sheet */
 "What's New in Cutling" = "Noutăți în Cutling";
@@ -206,26 +206,26 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "Roagă-o pe Siri să adauge, să copieze sau să caute cutlings fără să folosești mâinile.";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "Deschide Cutling în aplicația **Setări** a dispozitivului.";
-"Tap **Keyboards** and enable **Cutling**." = "Atinge **Tastaturi** și activează **Cutling**.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Activează **Permite acces complet** pentru ca tastatura să poată copia imagini în clipboard.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Atinge câmpul de text de mai jos, apoi folosește tasta 🌐 glob pentru a comuta la **Cutling**. Acest lucru verifică dacă totul este configurat corect.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Sincronizarea iCloud este o **funcție experimentală**. Este posibil să nu funcționeze corect în toate situațiile, ceea ce poate duce la pierderea datelor. Poți schimba oricând această setare din Setări.";
+"Open Cutling in your device's **Settings** app." = "Deschide Cutling în aplicația **Setări** de pe dispozitivul tău.";
+"Tap **Keyboards** and enable **Cutling**." = "Apasă pe **Tastaturi** și activează **Cutling**.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Activează **Permite acces complet** pentru ca tastatura să poată copia imagini în clipboard-ul tău.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Apasă pe câmpul de text de mai jos, apoi folosește tasta 🌐 glob pentru a comuta la **Cutling**. Acest lucru verifică dacă totul este configurat corect.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Sincronizarea iCloud este o **funcție experimentală**. S-ar putea să nu funcționeze corect în toate situațiile, ceea ce poate duce la pierderea datelor. Poți schimba oricând acest lucru mai târziu în Setări.";
 
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "Șterse recent";
 "Delete All" = "Șterge tot";
-"Delete All Permanently?" = "Ștergi tot permanent?";
-"Delete Permanently?" = "Ștergi permanent?";
-"Delete Permanently" = "Șterge permanent";
+"Delete All Permanently?" = "Ștergi tot definitiv?";
+"Delete Permanently?" = "Ștergi definitiv?";
+"Delete Permanently" = "Șterge definitiv";
 "Recover" = "Recuperează";
-"Items will be permanently deleted after 30 days." = "Elementele vor fi șterse permanent după 30 de zile.";
-"No Recently Deleted Items" = "Nu există elemente șterse recent";
+"Items will be permanently deleted after 30 days." = "Elementele vor fi șterse definitiv după 30 de zile.";
+"No Recently Deleted Items" = "Niciun element șters recent";
 "Deleted cutlings will appear here for 30 days." = "Cutling-urile șterse vor apărea aici timp de 30 de zile.";
-"This will permanently delete all %lld items. This action cannot be undone." = "Toate cele %lld elemente vor fi șterse permanent. Această acțiune nu poate fi anulată.";
-"\"%@\" will be deleted permanently." = "\"%@\" va fi șters permanent.";
-"1 day left" = "1 zi rămasă";
-"%lld days left" = "%lld zile rămase";
+"This will permanently delete all %lld items. This action cannot be undone." = "Acest lucru va șterge definitiv %lld elemente. Această acțiune nu poate fi anulată.";
+"\"%@\" will be deleted permanently." = "„%@” va fi șters definitiv.";
+"1 day left" = "A mai rămas 1 zi";
+"%lld days left" = "Au mai rămas %lld zile";
 
 /* MARK: - Context Menu */
 "Share" = "Partajează";
@@ -299,46 +299,46 @@
 "Don't Warn About This Again" = "Nu mă mai avertiza despre asta";
 
 /* MARK: - App Shortcuts (Siri / Shortcuts gallery) */
-"Save clipboard contents as a new cutling." = "Salvează conținutul din clipboard ca un nou cutling.";
+"Save clipboard contents as a new cutling." = "Salvează conținutul clipboard-ului ca un nou cutling.";
 "Save Text" = "Salvează text";
-"Save text as a new cutling." = "Salvează text ca un nou cutling.";
-"Get Cutling Text" = "Obține textul Cutling";
+"Save text as a new cutling." = "Salvează un text ca un nou cutling.";
+"Get Cutling Text" = "Obține textul Cutling-ului";
 "Get the text contents of a cutling as a value for use in other shortcuts." = "Obține conținutul text al unui cutling ca valoare pentru a fi folosit în alte scurtături.";
 "Get Latest Cutling" = "Obține ultimul Cutling";
 "Latest Cutling" = "Ultimul Cutling";
-"Get the text from your most recently saved cutling." = "Obține textul din cutlingul tău salvat cel mai recent.";
-"Save Image" = "Salvează imaginea";
+"Get the text from your most recently saved cutling." = "Obține textul celui mai recent cutling salvat.";
+"Save Image" = "Salvează imagine";
 "Save an image as a new cutling." = "Salvează o imagine ca un nou cutling.";
-"Search Cutlings" = "Caută Cutlings";
-"Find cutlings whose name or contents match a search query." = "Găsește cutlinguri al căror nume sau conținut corespunde unei căutări.";
+"Search Cutlings" = "Caută Cutling-uri";
+"Find cutlings whose name or contents match a search query." = "Găsește cutling-uri al căror nume sau conținut se potrivește cu o interogare de căutare.";
 "Open Cutling" = "Deschide Cutling";
 "Open the Cutling app." = "Deschide aplicația Cutling.";
 "Open Cutling and start a new text cutling." = "Deschide Cutling și începe un nou cutling text.";
 "Open Cutling and start a new image cutling." = "Deschide Cutling și începe un nou cutling imagine.";
 "Query" = "Interogare";
 "Nothing to save." = "Nimic de salvat.";
-"That doesn't look like an image." = "Aceasta nu pare a fi o imagine.";
-"Failed to save image." = "Salvarea imaginii a eșuat.";
+"That doesn't look like an image." = "Asta nu pare a fi o imagine.";
+"Failed to save image." = "Imaginea nu a putut fi salvată.";
 
 /* MARK: - TipKit */
 "Saved cutlings" = "Cutling-uri salvate";
-"Your pinned snippets live here, ready to copy with one click." = "Fragmentele tale fixate stau aici, gata să fie copiate cu un singur clic.";
+"Your pinned snippets live here, ready to copy with one click." = "Fragmentele tale fixate sunt aici, gata să fie copiate cu un singur clic.";
 "Recent clipboard" = "Clipboard recent";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "Tot ceea ce copiezi ajunge aici. Fă clic dreapta pe orice rând pentru a-l salva ca un cutling.";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Tot ce copiezi ajunge aici. Fă clic dreapta pe orice rând pentru a-l salva ca un cutling.";
 "Wipe the list" = "Golește lista";
-"Empties your recent clipboard. Saved cutlings stay put." = "Golește clipboardul recent. Cutling-urile salvate rămân la locul lor.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Schimbă scurtătura de la tastatură, activează sau dezactivează capturarea clipboardului și gestionează sincronizarea iCloud.";
+"Empties your recent clipboard. Saved cutlings stay put." = "Golește clipboard-ul recent. Cutling-urile salvate rămân pe loc.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Reasociază comanda rapidă, comută capturarea clipboard-ului și gestionează sincronizarea iCloud.";
 "Undo deletes" = "Anulează ștergerile";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Cutling-urile șterse rămân aici timp de 30 de zile. Restaurează-le sau golește definitiv.";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Atinge aici pentru a selecta mai multe cutling-uri, a le reordona sau a le restaura pe cele șterse recent.";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Cutling-urile șterse rămân aici 30 de zile. Restaurează-le sau golește definitiv.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Apasă aici pentru a selecta mai multe cutling-uri, a le reordona sau a restaura cele șterse recent.";
 "Long-press a cutling" = "Apasă lung pe un cutling";
 "Hold any card for quick actions: copy, edit, share, or delete." = "Ține apăsat orice card pentru acțiuni rapide: copiere, editare, partajare sau ștergere.";
-"Drag to select" = "Glisează pentru a selecta";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "Glisează peste carduri pentru a selecta un interval. Glisează din nou peste ele pentru a deselecta.";
+"Drag to select" = "Trage pentru a selecta";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Glisează peste carduri pentru a selecta un interval. Glisează înapoi peste ele pentru a deselecta.";
 "Smart field matching" = "Potrivire inteligentă a câmpurilor";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling detectează câmpurile de e-mail, URL, telefon și adresă, apoi aduce fragmentele potrivite în partea de sus a tastaturii.";
-"Create a new cutling" = "Creează un nou Cutling";
-"Save text or image snippets you'll reuse from any app." = "Salvează fragmente de text sau imagini pe care le vei refolosi din orice aplicație.";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling identifică câmpurile de e-mail, URL, telefon și adresă, apoi aduce fragmentele potrivite în partea de sus a tastaturii.";
+"Create a new cutling" = "Creează un nou cutling";
+"Save text or image snippets you'll reuse from any app." = "Salvează fragmentele de text sau imagine pe care le vei reutiliza din orice aplicație.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "Bine ai venit la Cutling";
@@ -359,3 +359,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "Permite Cutling să lipească un cutling direct în aplicația pe care o foloseai.";
 "Grant" = "Acordă";
 "You can skip Accessibility and grant it later from Settings → Paste." = "Poți sări peste Accesibilitate și o poți acorda mai târziu din Setări → Lipire.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "Salvează ca fișier…";
+"Image Saving" = "Salvare imagini";
+"When saving images" = "La salvarea imaginilor";
+"Ask each time" = "Întreabă de fiecare dată";
+"Save to folder" = "Salvează într-un dosar";
+"Folder" = "Dosar";
+"Change Folder…" = "Schimbă dosarul…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "Alege cum funcționează acțiunea “Salvează ca fișier” pentru cutling-urile imagine. Cu “Salvează într-un dosar”, imaginile merg direct în dosarul ales cu un nume de fișier unic, fără întrebări.";
+"Choose" = "Alege";
+"Choose Image Folder" = "Alege dosarul de imagini";
+"Pick a folder where Cutling will save image cutlings." = "Alege un dosar în care Cutling va salva cutling-urile imagine.";
+"Preview" = "Previzualizare";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "Salvate";
+"History" = "Istoric";
+"No saved cutlings yet" = "Încă nu există cutling-uri salvate";
+"Copy something to see it here" = "Copiază ceva pentru a-l vedea aici";
+"Clipboard history is off. Enable it in Settings." = "Istoricul clipboard-ului este dezactivat. Activează-l în Setări.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Include în căutarea Spotlight";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "Fă cutling-urile tale căutabile din Spotlight. Conținutul sensibil (carduri de credit, chei API, token-uri JWT, fraze seed, chei private) nu este niciodată indexat.";
+"Copy Cutling" = "Copiază Cutling-ul";
+"Copy a cutling's contents to the clipboard." = "Copiază conținutul unui cutling în clipboard.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Folosește aceste fraze cu Siri sau răsfoiește toate scurtăturile Cutling în aplicația Scurtături.";
+"Copied \"%@\"" = "„%@” copiat";

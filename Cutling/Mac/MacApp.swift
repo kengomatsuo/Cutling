@@ -165,6 +165,7 @@ struct MacApp: App {
             "autoDetectInputTypes": true,
             "captureClipboardHistory": true,
             "showMenuBarIcon": true,
+            "imageSaveBehavior": ImageSaveService.Behavior.ask.rawValue,
         ])
         // Configure TipKit before any TipView attempts to render. Errors
         // here are non-fatal (the worst case is no tips appear). The

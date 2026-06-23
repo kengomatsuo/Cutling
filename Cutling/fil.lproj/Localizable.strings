@@ -1,14 +1,14 @@
 /* MARK: - Navigation & Titles */
-"My Cutlings" = "Mga Cutling Ko";
-"Select Items" = "Pumili ng Mga Item";
-"%lld Selected" = "%lld ang Napili";
-"Reorder" = "Ayusin ang Pagkakasunod";
-"Settings" = "Mga Setting";
-"Keyboard Setup" = "Pag-setup ng Keyboard";
+"My Cutlings" = "Aking mga Cutling";
+"Select Items" = "Pumili ng mga item";
+"%lld Selected" = "%lld napili";
+"Reorder" = "Muling ayusin";
+"Settings" = "Mga setting";
+"Keyboard Setup" = "Pag-setup ng keyboard";
 "New" = "Bago";
-"Choose Icon" = "Pumili ng Icon";
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Text, %lld/%lld Larawan";
-"%lld Cutlings" = "%lld Mga Cutling";
+"Choose Icon" = "Pumili ng icon";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld teksto, %lld/%lld larawan";
+"%lld Cutlings" = "%lld Cutling";
 "Cutlings" = "Mga Cutling";
 
 /* MARK: - Common Actions */
@@ -24,23 +24,23 @@
 "Delete Selected" = "Burahin ang Napili";
 
 /* MARK: - Menu Items */
-"Text Cutling" = "Text Cutling";
-"Image Cutling" = "Image Cutling";
+"Text Cutling" = "Tekstong Cutling";
+"Image Cutling" = "Larawan na Cutling";
 "Select Cutlings" = "Pumili ng mga Cutling";
-"Reorder Cutlings" = "Ayusin ang mga Cutling";
-"Keyboard Setup Guide" = "Gabay sa Pag-setup ng Keyboard";
+"Reorder Cutlings" = "Muling ayusin ang mga Cutling";
+"Keyboard Setup Guide" = "Gabay sa pag-setup ng keyboard";
 "Name (A → Z)" = "Pangalan (A → Z)";
 "Name (Z → A)" = "Pangalan (Z → A)";
-"Text First" = "Text Muna";
-"Images First" = "Mga Larawan Muna";
-"Shortest First" = "Pinakamaikli Muna";
-"Longest First" = "Pinakamahabang Muna";
-"Reverse Order" = "Baligtarin ang Pagkakasunod";
+"Text First" = "Teksto muna";
+"Images First" = "Mga larawan muna";
+"Shortest First" = "Pinakamaikli muna";
+"Longest First" = "Pinakamahaba muna";
+"Reverse Order" = "Baliktad na pagkakasunod";
 
 /* MARK: - Empty States */
-"No Cutlings Yet" = "Wala Pang Mga Cutling";
-"No Results" = "Walang Resulta";
-"Tap + to add your first cutling." = "I-tap ang + para magdagdag ng iyong unang cutling.";
+"No Cutlings Yet" = "Wala pang Cutling";
+"No Results" = "Walang resulta";
+"Tap + to add your first cutling." = "I-tap ang + para idagdag ang iyong unang cutling.";
 "Try a different search term." = "Subukan ang ibang search term.";
 
 /* MARK: - Search */
@@ -57,7 +57,7 @@
 "Auto-Delete" = "Auto-Delete";
 "Delete At" = "I-delete Sa";
 "Category" = "Kategorya";
-"Status" = "Katayuan";
+"Status" = "Status";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "hal. Email";
@@ -85,52 +85,52 @@
 "iCloud" = "iCloud";
 "iCloud Sync" = "iCloud Sync";
 "Sync your cutlings across all your devices using iCloud." = "I-sync ang iyong mga cutling sa lahat ng device gamit ang iCloud.";
-"Storage" = "Storage";
-"Text Cutlings" = "Mga Text Cutling";
-"Image Cutlings" = "Mga Image Cutling";
-"Total Cutlings" = "Kabuuang Cutling";
-"Disk Usage" = "Paggamit ng Disk";
+"Storage" = "Imbakan";
+"Text Cutlings" = "Mga tekstong Cutling";
+"Image Cutlings" = "Mga larawan na Cutling";
+"Total Cutlings" = "Kabuuan ng Cutling";
+"Disk Usage" = "Disk usage";
 "Status" = "Status";
 "Syncing…" = "Nagsi-sync…";
-"Up to date" = "Napapanahon";
-"Sync Now" = "Mag-sync Ngayon";
+"Up to date" = "Updated";
+"Sync Now" = "I-sync ngayon";
 "Turn On iCloud Sync" = "I-on ang iCloud Sync";
-"Max Text Length" = "Max na Haba ng Text";
-"%lld chars" = "%lld character";
-"About" = "Tungkol sa";
+"Max Text Length" = "Max na haba ng teksto";
+"%lld chars" = "%lld karakter";
+"About" = "Tungkol dito";
 "Version" = "Bersyon";
-"Keyboard Added" = "Naidagdag na ang Keyboard";
-"Full Access" = "Full Access";
-"Experimental Feature: iCloud" = "Eksperimentong Feature: iCloud";
-"Contact Support" = "Makipag-ugnayan sa Support";
-"Privacy Policy" = "Patakaran sa Privacy";
-"Auto-detect Input Types" = "Auto-detect ng Uri ng Input";
-"Enable iCloud Sync" = "I-enable ang iCloud Sync";
-"Keep your cutlings in sync across all your devices." = "Panatilihing naka-sync ang iyong mga cutling sa lahat ng iyong device.";
-"Automatically detect and suggest input type categories when editing text." = "Awtomatikong mag-detect at mag-suggest ng mga kategorya ng uri ng input kapag nag-e-edit ng text.";
+"Keyboard Added" = "Naidagdag ang keyboard";
+"Full Access" = "Buong access";
+"Experimental Feature: iCloud" = "Eksperimental na feature: iCloud";
+"Contact Support" = "Makipag-ugnayan sa support";
+"Privacy Policy" = "Patakaran sa privacy";
+"Auto-detect Input Types" = "Awtomatikong tukuyin ang mga uri ng input";
+"Enable iCloud Sync" = "I-on ang iCloud Sync";
+"Keep your cutlings in sync across all your devices." = "Panatilihing naka-sync ang iyong mga cutling sa lahat ng device.";
+"Automatically detect and suggest input type categories when editing text." = "Awtomatikong tinutukoy at nagmumungkahi ng mga kategorya ng uri ng input habang nag-eedit ng teksto.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Walang napiling larawan";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "Papalitan nito ang kasalukuyang text ng kung anong nasa iyong clipboard.";
-"This will replace the current image with whatever is in your clipboard." = "Papalitan nito ang kasalukuyang larawan ng kung anong nasa iyong clipboard.";
-"This cutling will be automatically deleted at the selected date and time." = "Ang cutling na ito ay awtomatikong made-delete sa napiling petsa at oras.";
-"Each text cutling can hold up to %lld characters." = "Ang bawat text cutling ay maaaring magkaroon ng hanggang %lld character.";
+"This will replace the current text with whatever is in your clipboard." = "Papalitan nito ang kasalukuyang teksto ng anumang nasa iyong clipboard.";
+"This will replace the current image with whatever is in your clipboard." = "Papalitan nito ang kasalukuyang larawan ng anumang nasa iyong clipboard.";
+"This cutling will be automatically deleted at the selected date and time." = "Awtomatikong tatanggalin ang cutling na ito sa napiling petsa at oras.";
+"Each text cutling can hold up to %lld characters." = "Bawat tekstong cutling ay puwedeng maglaman ng hanggang %lld karakter.";
 
 /* MARK: - Alerts */
-"Limit Reached" = "Naabot na ang Limit";
-"Delete Cutling?" = "I-delete ang Cutling?";
-"This action cannot be undone." = "Hindi na maibabalik ang aksyon na ito.";
-"Cannot add text cutling" = "Hindi makapagdagdag ng text cutling";
-"Cannot add image cutling" = "Hindi makapagdagdag ng image cutling";
-"Cannot add more text cutlings." = "Hindi na makapagdagdag pa ng mga text cutling.";
-"Cannot add more image cutlings." = "Hindi na makapagdagdag pa ng mga image cutling.";
+"Limit Reached" = "Naabot na ang limit";
+"Delete Cutling?" = "Tanggalin ang Cutling?";
+"This action cannot be undone." = "Hindi maaaring bawiin ang aksyon na ito.";
+"Cannot add text cutling" = "Hindi maidagdag ang tekstong cutling";
+"Cannot add image cutling" = "Hindi maidagdag ang larawan na cutling";
+"Cannot add more text cutlings." = "Hindi na puwedeng magdagdag ng mga tekstong cutling.";
+"Cannot add more image cutlings." = "Hindi na puwedeng magdagdag ng mga larawan na cutling.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Naabot mo na ang maximum na %lld cutling. Mag-delete ng ilan para makapagdagdag pa.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Naabot mo na ang maximum na %lld image cutling. Ang mga larawan ay gumagamit ng malaking memory sa keyboard. Mag-delete ng ilang larawan para makapagdagdag pa.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Naabot mo na ang maximum na %lld text cutling. Mag-delete ng ilan para makapagdagdag pa.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Naabot mo na ang maximum na %lld cutling sa kabuuan. Magtanggal ng ilan para makapagdagdag pa.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Naabot mo na ang maximum na %lld larawan na cutling. Malaki ang ginagamit ng mga larawan sa keyboard. Magtanggal ng ilang larawan para makapagdagdag pa.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Naabot mo na ang maximum na %lld tekstong cutling. Magtanggal ng ilan para makapagdagdag pa.";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Mga Mungkahi sa Uri ng Input";
@@ -183,7 +183,7 @@
 "Test Your Keyboard" = "I-test ang Keyboard Mo";
 "All set! Swipe to continue." = "Handa na! Mag-swipe para magpatuloy.";
 "Your data stays private and is never sent anywhere." = "Nananatiling pribado ang iyong data at hindi kailanman ipinapadala kahit saan.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Hindi para sa sensitibong data** — iwasan ang pag-iimbak ng mga password, numero ng card, private key, o token";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Hindi para sa sensitibong data**: iwasan ang pag-iimbak ng mga password, numero ng card, private key, o token";
 "Set Up Cutling Keyboard" = "I-setup ang Cutling Keyboard";
 "What You Can Do" = "Ano ang Magagawa Mo";
 "Smart Field Suggestions" = "Mga Smart na Mungkahi sa Field";
@@ -220,23 +220,23 @@
 
 /* MARK: - Setup Guide Instructions */
 "Open Cutling in your device's **Settings** app." = "Buksan ang Cutling sa **Settings** app ng iyong device.";
-"Tap **Keyboards** and enable **Cutling**." = "I-tap ang **Keyboards** at i-enable ang **Cutling**.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "I-on ang **Allow Full Access** para makakopya ng mga larawan ang keyboard sa iyong clipboard.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "I-tap ang text field sa ibaba, pagkatapos gamitin ang 🌐 globe key para lumipat sa **Cutling**. Bini-verify nito na maayos ang lahat ng setup.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Ang iCloud Sync ay isang **experimental na feature**. Maaaring hindi ito gumana nang tama sa lahat ng sitwasyon, na maaaring magdulot ng pagkawala ng data. Maaari mo itong palitan anumang oras sa Settings.";
+"Tap **Keyboards** and enable **Cutling**." = "I-tap ang **Keyboards** at i-on ang **Cutling**.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "I-on ang **Allow Full Access** para makapag-copy ng mga larawan ang keyboard sa iyong clipboard.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "I-tap ang text field sa ibaba, pagkatapos ay gamitin ang 🌐 globe key para lumipat sa **Cutling**. Ito ay nagpapatunay na tama ang lahat ng setup.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Ang iCloud Sync ay **eksperimental na feature**. Maaaring hindi ito gumana nang tama sa lahat ng sitwasyon, na maaaring magdulot ng pagkawala ng data. Maaari mo itong baguhin mamaya sa Settings.";
 
 /* MARK: - Recently Deleted */
-"Recently Deleted" = "Kamakailang Tinanggal";
-"Delete All" = "Tanggalin Lahat";
-"Delete All Permanently?" = "Permanenteng Tanggalin Lahat?";
-"Delete Permanently?" = "Permanenteng Tanggalin?";
-"Delete Permanently" = "Permanenteng Tanggalin";
-"Recover" = "I-recover";
-"Items will be permanently deleted after 30 days." = "Permanenteng matatanggal ang mga item pagkatapos ng 30 araw.";
-"No Recently Deleted Items" = "Walang Kamakailang Tinanggal na Item";
-"Deleted cutlings will appear here for 30 days." = "Ang mga tinanggal na cutling ay lalabas dito sa loob ng 30 araw.";
-"This will permanently delete all %lld items. This action cannot be undone." = "Permanenteng tatanggalin ang lahat ng %lld item. Hindi na ito maaaring i-undo.";
-"\"%@\" will be deleted permanently." = "Permanenteng tatanggalin ang \"%@\".";
+"Recently Deleted" = "Kamakailang tinanggal";
+"Delete All" = "Tanggalin lahat";
+"Delete All Permanently?" = "Tanggalin lahat nang permanente?";
+"Delete Permanently?" = "Tanggalin nang permanente?";
+"Delete Permanently" = "Tanggalin nang permanente";
+"Recover" = "Bawiin";
+"Items will be permanently deleted after 30 days." = "Permanenteng tatanggalin ang mga item pagkatapos ng 30 araw.";
+"No Recently Deleted Items" = "Walang kamakailang tinanggal na item";
+"Deleted cutlings will appear here for 30 days." = "Makikita rito ang mga tinanggal na cutling sa loob ng 30 araw.";
+"This will permanently delete all %lld items. This action cannot be undone." = "Permanenteng tatanggalin nito ang %lld item. Hindi maaaring bawiin ang aksyon na ito.";
+"\"%@\" will be deleted permanently." = "“%@” ay permanenteng tatanggalin.";
 "1 day left" = "1 araw na lang";
 "%lld days left" = "%lld araw na lang";
 
@@ -335,23 +335,23 @@
 
 /* MARK: - TipKit */
 "Saved cutlings" = "Mga naka-save na cutling";
-"Your pinned snippets live here, ready to copy with one click." = "Nandito ang mga naka-pin mong snippet, handang kopyahin sa isang click.";
+"Your pinned snippets live here, ready to copy with one click." = "Ang mga pinin mong snippet ay nakatira rito, handang i-copy sa isang click.";
 "Recent clipboard" = "Kamakailang clipboard";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "Lahat ng kinopya mo ay napupunta dito. Mag-right-click sa anumang row para i-save ito bilang cutling.";
-"Wipe the list" = "Burahin ang listahan";
-"Empties your recent clipboard. Saved cutlings stay put." = "Inaalis ang kamakailang clipboard mo. Nananatili ang mga naka-save na cutling.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Baguhin ang hotkey, i-toggle ang clipboard capture, at pamahalaan ang iCloud sync.";
-"Undo deletes" = "I-undo ang mga delete";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Nananatili rito ang na-delete na mga cutling sa loob ng 30 araw. I-restore o burahin nang tuluyan.";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "I-tap dito para pumili ng maraming cutling, ayusin ang pagkakasunod, o ibalik ang mga kamakailang na-delete.";
-"Long-press a cutling" = "Pindutin nang matagal ang cutling";
-"Hold any card for quick actions: copy, edit, share, or delete." = "Pindutin ang anumang card para sa mabilisang aksyon: kopyahin, i-edit, i-share, o i-delete.";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Lahat ng kino-copy mo ay napupunta rito. Right-click ang isang row para i-save bilang cutling.";
+"Wipe the list" = "Punasan ang listahan";
+"Empties your recent clipboard. Saved cutlings stay put." = "Bina-blank ang iyong kamakailang clipboard. Mananatili ang mga naka-save na cutling.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Palitan ang hotkey, i-on/i-off ang clipboard capture, at pamahalaan ang iCloud sync.";
+"Undo deletes" = "I-undo ang mga pagtanggal";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Mananatili ang mga tinanggal na cutling rito sa loob ng 30 araw. Bawiin o linisin nang tuluyan.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "I-tap dito para pumili ng maraming cutling, ayusin ulit, o ibalik ang kamakailang tinanggal.";
+"Long-press a cutling" = "I-press-and-hold ang cutling";
+"Hold any card for quick actions: copy, edit, share, or delete." = "I-hold ang anumang card para sa mabilis na aksyon: copy, edit, share, o delete.";
 "Drag to select" = "I-drag para pumili";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "Mag-swipe sa mga card para pumili ng range. Mag-swipe pabalik para i-deselect.";
-"Smart field matching" = "Smart na pagtutugma ng field";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Natutukoy ng Cutling ang email, URL, phone, at address fields, pagkatapos ay ipinapakita ang mga tumutugmang snippet sa itaas ng keyboard.";
-"Create a new cutling" = "Gumawa ng bagong Cutling";
-"Save text or image snippets you'll reuse from any app." = "I-save ang mga snippet ng teksto o larawan na magagamit mong muli sa anumang app.";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "I-swipe sa mga card para pumili ng range. I-swipe pabalik para i-deselect.";
+"Smart field matching" = "Smart field matching";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Tinutukoy ng Cutling ang mga email, URL, telepono, at address na field, at inaakyat ang tugmang snippet sa itaas ng keyboard.";
+"Create a new cutling" = "Gumawa ng bagong cutling";
+"Save text or image snippets you'll reuse from any app." = "Mag-save ng mga teksto o larawan na gagamitin mo ulit sa kahit anong app.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "Maligayang Pagdating sa Cutling";
@@ -372,3 +372,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "Pinapayagan nito ang Cutling na mag-paste ng cutling diretso sa app na ginagamit mo.";
 "Grant" = "Ipagkaloob";
 "You can skip Accessibility and grant it later from Settings → Paste." = "Maaari mong laktawan ang Accessibility at ipagkaloob ito mamaya sa Settings → Paste.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "I-save bilang file…";
+"Image Saving" = "Pag-save ng larawan";
+"When saving images" = "Kapag nagse-save ng mga larawan";
+"Ask each time" = "Magtanong sa bawat pagkakataon";
+"Save to folder" = "I-save sa folder";
+"Folder" = "Folder";
+"Change Folder…" = "Palitan ang folder…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "Piliin kung paano gumagana ang aksyong “I-save bilang file” para sa mga image cutling. Sa “I-save sa folder”, derecho mase-save ang mga larawan sa folder na iyong pinili na may natatanging pangalan ng file, nang walang tanong.";
+"Choose" = "Piliin";
+"Choose Image Folder" = "Pumili ng folder ng larawan";
+"Pick a folder where Cutling will save image cutlings." = "Pumili ng folder kung saan ise-save ng Cutling ang mga image cutling.";
+"Preview" = "Preview";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "Nai-save";
+"History" = "Kasaysayan";
+"No saved cutlings yet" = "Wala pang naka-save na cutling";
+"Copy something to see it here" = "Mag-copy ng kahit ano para makita rito";
+"Clipboard history is off. Enable it in Settings." = "Naka-off ang kasaysayan ng clipboard. I-on sa Settings.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Isama sa paghahanap sa Spotlight";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "Gawing mahahanap ang iyong mga cutling sa Spotlight. Ang sensitibong nilalaman (credit cards, API keys, JWT tokens, seed phrases, private keys) ay hindi kailanman ini-index.";
+"Copy Cutling" = "Kopyahin ang Cutling";
+"Copy a cutling's contents to the clipboard." = "Kinokopya ang nilalaman ng cutling sa clipboard.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Gamitin ang mga pariralang ito sa Siri o tingnan ang lahat ng Cutling shortcut sa Shortcuts app.";
+"Copied \"%@\"" = "Na-copy ang “%@”";

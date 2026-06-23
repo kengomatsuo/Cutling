@@ -1,14 +1,14 @@
 /* MARK: - Navigation & Titles */
-"My Cutlings" = "Мои Катлинг";
-"Select Items" = "Выбрать элементы";
-"%lld Selected" = "%lld выбрано";
+"My Cutlings" = "Мои Катлинги";
+"Select Items" = "Выбрать объекты";
+"%lld Selected" = "Выбрано: %lld";
 "Reorder" = "Изменить порядок";
 "Settings" = "Настройки";
 "Keyboard Setup" = "Настройка клавиатуры";
 "New" = "Новый";
 "Choose Icon" = "Выбрать значок";
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Текст, %lld/%lld Изображения";
-"%lld Cutlings" = "%lld Катлинги";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld текст, %lld/%lld изображения";
+"%lld Cutlings" = "Катлингов: %lld";
 "Cutlings" = "Катлинги";
 
 /* MARK: - Common Actions */
@@ -25,9 +25,9 @@
 
 /* MARK: - Menu Items */
 "Text Cutling" = "Текстовый Катлинг";
-"Image Cutling" = "Катлинг-изображение";
-"Select Cutlings" = "Выбрать Катлинг";
-"Reorder Cutlings" = "Изменить порядок Катлинг";
+"Image Cutling" = "Катлинг с изображением";
+"Select Cutlings" = "Выбрать Катлинги";
+"Reorder Cutlings" = "Изменить порядок Катлингов";
 "Keyboard Setup Guide" = "Руководство по настройке клавиатуры";
 "Name (A → Z)" = "Имя (А → Я)";
 "Name (Z → A)" = "Имя (Я → А)";
@@ -38,13 +38,13 @@
 "Reverse Order" = "Обратный порядок";
 
 /* MARK: - Empty States */
-"No Cutlings Yet" = "Пока нет Катлинг";
+"No Cutlings Yet" = "Катлингов пока нет";
 "No Results" = "Нет результатов";
-"Tap + to add your first cutling." = "Нажмите +, чтобы добавить свой первый Катлинг.";
-"Try a different search term." = "Попробуйте другой поисковый запрос.";
+"Tap + to add your first cutling." = "Нажми +, чтобы добавить первый катлинг.";
+"Try a different search term." = "Попробуй другой запрос.";
 
 /* MARK: - Search */
-"Search cutlings" = "Поиск Катлинг";
+"Search cutlings" = "Поиск катлингов";
 "Search icons" = "Поиск значков";
 
 /* MARK: - Form Labels */
@@ -57,7 +57,7 @@
 "Auto-Delete" = "Автоудаление";
 "Delete At" = "Удалить в";
 "Category" = "Категория";
-"Status" = "Статус";
+"Status" = "Состояние";
 
 /* MARK: - Placeholders */
 "e.g. Email" = "напр. Эл. почта";
@@ -83,19 +83,19 @@
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
-"iCloud Sync" = "Синхронизация iCloud";
-"Sync your cutlings across all your devices using iCloud." = "Синхронизируйте свои Катлинг на всех устройствах с помощью iCloud.";
+"iCloud Sync" = "Синхронизация с iCloud";
+"Sync your cutlings across all your devices using iCloud." = "Синхронизируй свои катлинги на всех устройствах через iCloud.";
 "Storage" = "Хранилище";
-"Text Cutlings" = "Текстовые Катлинг";
-"Image Cutlings" = "Катлинг-изображения";
+"Text Cutlings" = "Текстовые Катлинги";
+"Image Cutlings" = "Катлинги с изображениями";
 "Total Cutlings" = "Всего Катлингов";
 "Disk Usage" = "Использование диска";
 "Status" = "Статус";
 "Syncing…" = "Синхронизация…";
 "Up to date" = "Актуально";
-"Sync Now" = "Синхронизировать";
-"Turn On iCloud Sync" = "Включить синхронизацию iCloud";
-"Max Text Length" = "Макс. длина текста";
+"Sync Now" = "Синхронизировать сейчас";
+"Turn On iCloud Sync" = "Включить синхронизацию с iCloud";
+"Max Text Length" = "Максимальная длина текста";
 "%lld chars" = "%lld симв.";
 "About" = "О приложении";
 "Version" = "Версия";
@@ -104,40 +104,40 @@
 "Experimental Feature: iCloud" = "Экспериментальная функция: iCloud";
 "Contact Support" = "Связаться с поддержкой";
 "Privacy Policy" = "Политика конфиденциальности";
-"Auto-detect Input Types" = "Автоматическое определение типов ввода";
-"Enable iCloud Sync" = "Включить синхронизацию iCloud";
-"Keep your cutlings in sync across all your devices." = "Синхронизируйте свои Катлинги на всех устройствах.";
-"Automatically detect and suggest input type categories when editing text." = "Автоматически определять и предлагать категории типов ввода при редактировании текста.";
+"Auto-detect Input Types" = "Автоопределение типов ввода";
+"Enable iCloud Sync" = "Включить синхронизацию с iCloud";
+"Keep your cutlings in sync across all your devices." = "Держи свои катлинги синхронизированными на всех устройствах.";
+"Automatically detect and suggest input type categories when editing text." = "Автоматически определяет и предлагает категории типов ввода при редактировании текста.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Изображение не выбрано";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "Текущий текст будет заменён содержимым буфера обмена.";
-"This will replace the current image with whatever is in your clipboard." = "Текущее изображение будет заменено содержимым буфера обмена.";
-"This cutling will be automatically deleted at the selected date and time." = "Этот Катлинг будет автоматически удалён в выбранную дату и время.";
-"Each text cutling can hold up to %lld characters." = "Каждый текстовый Катлинг может содержать до %lld символов.";
+"This will replace the current text with whatever is in your clipboard." = "Это заменит текущий текст содержимым буфера обмена.";
+"This will replace the current image with whatever is in your clipboard." = "Это заменит текущее изображение содержимым буфера обмена.";
+"This cutling will be automatically deleted at the selected date and time." = "Этот катлинг будет автоматически удалён в выбранные дату и время.";
+"Each text cutling can hold up to %lld characters." = "Каждый текстовый катлинг может содержать до %lld символов.";
 
 /* MARK: - Alerts */
-"Limit Reached" = "Достигнут лимит";
+"Limit Reached" = "Лимит достигнут";
 "Delete Cutling?" = "Удалить Катлинг?";
 "This action cannot be undone." = "Это действие нельзя отменить.";
-"Cannot add text cutling" = "Невозможно добавить текстовый Катлинг";
-"Cannot add image cutling" = "Невозможно добавить Катлинг-изображение";
-"Cannot add more text cutlings." = "Невозможно добавить больше текстовых Катлинг.";
-"Cannot add more image cutlings." = "Невозможно добавить больше Катлинг-изображений.";
+"Cannot add text cutling" = "Не удалось добавить текстовый катлинг";
+"Cannot add image cutling" = "Не удалось добавить катлинг с изображением";
+"Cannot add more text cutlings." = "Больше нельзя добавить текстовых катлингов.";
+"Cannot add more image cutlings." = "Больше нельзя добавить катлингов с изображениями.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Вы достигли максимума в %lld Катлинг. Удалите некоторые, чтобы добавить новые.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Вы достигли максимума в %lld Катлинг-изображений. Изображения занимают значительную память клавиатуры. Удалите некоторые изображения, чтобы добавить новые.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Вы достигли максимума в %lld текстовых Катлинг. Удалите некоторые, чтобы добавить новые.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Достигнут максимум — %lld катлингов всего. Удали часть, чтобы добавить ещё.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Достигнут максимум — %lld катлингов с изображениями. Изображения занимают много памяти в клавиатуре. Удали часть изображений, чтобы добавить ещё.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Достигнут максимум — %lld текстовых катлингов. Удали часть, чтобы добавить ещё.";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Предложения по типу ввода";
 "Suggest for Input Types" = "Предлагать для типов ввода";
 "When you focus a text field of a matching type, this cutling will appear at the top of the keyboard." = "Когда вы выберете текстовое поле подходящего типа, этот Катлинг появится в верхней части клавиатуры.";
-"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Назначьте Катлинг типам ввода, чтобы они появлялись в верхней части клавиатуры при выборе подходящего текстового поля.";
-"No cutlings yet. Add some first." = "Пока нет Катлинг. Сначала добавьте несколько.";
+"Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field." = "Назначьте Катлинги типам ввода, чтобы они появлялись в верхней части клавиатуры при выборе подходящего текстового поля.";
+"No cutlings yet. Add some first." = "Пока нет Катлингов. Сначала добавьте несколько.";
 "Suggested" = "Предложено";
 "Email" = "Эл. почта";
 "URL" = "URL";
@@ -171,10 +171,10 @@
 "Tap any text cutling and it will be typed into your current text field immediately" = "Нажмите на любой текстовый Катлинг, и он будет мгновенно введён в текущее текстовое поле";
 "Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Нажмите на Катлинг-изображение, чтобы скопировать его в буфер обмена, затем вставьте в используемое приложение (обычно нажмите и удерживайте, затем выберите «Вставить»). Apple пока не поддерживает прямую вставку изображений в этом приложении.";
 "Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Скопируйте любой текст, затем нажмите кнопку «Добавить из буфера обмена» на клавиатуре Катлинг, чтобы сохранить его как новый Катлинг";
-"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Вы можете управлять всеми Катлинг в главном приложении Катлинг. Внесённые изменения мгновенно отобразятся на клавиатуре.";
-"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Расширения клавиатуры имеют строгие ограничения памяти для обеспечения стабильности системы. Изображения используют больше памяти, чем текст, поэтому мы ограничиваем их количество, чтобы клавиатура работала быстро и надёжно. При достижении лимита просто удалите некоторые Катлинг, чтобы добавить новые.";
-"Up to **%lld text** cutlings" = "До **%lld текстовых** Катлинг";
-"Up to **%lld image** cutlings" = "До **%lld Катлинг**-изображений";
+"You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Вы можете управлять всеми Катлингами в главном приложении Катлинг. Внесённые изменения мгновенно отобразятся на клавиатуре.";
+"Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Расширения клавиатуры имеют строгие ограничения памяти для обеспечения стабильности системы. Изображения используют больше памяти, чем текст, поэтому мы ограничиваем их количество, чтобы клавиатура работала быстро и надёжно. При достижении лимита просто удалите некоторые Катлинги, чтобы добавить новые.";
+"Up to **%lld text** cutlings" = "До **%lld текстовых** Катлингов";
+"Up to **%lld image** cutlings" = "До **%lld** Катлингов-изображений";
 "Back" = "Назад";
 "Next" = "Далее";
 "Get Started" = "Начать";
@@ -183,19 +183,19 @@
 "Test Your Keyboard" = "Протестировать клавиатуру";
 "All set! Swipe to continue." = "Всё готово! Проведите, чтобы продолжить.";
 "Your data stays private and is never sent anywhere." = "Ваши данные остаются конфиденциальными и никуда не отправляются.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Не для конфиденциальных данных** — не храните пароли, номера карт, закрытые ключи или токены";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Не для конфиденциальных данных**: не храните пароли, номера карт, закрытые ключи или токены";
 "Set Up Cutling Keyboard" = "Настройка клавиатуры Катлинг";
 "What You Can Do" = "Что вы можете делать";
 "Smart Field Suggestions" = "Умные подсказки для полей";
-"Cutling spots email, URL, phone, and address fields, then floats matching cutlings to the top of the keyboard." = "Катлинг распознаёт поля для эл. почты, URL, телефона и адреса и поднимает подходящие Катлинг в верхнюю часть клавиатуры.";
+"Cutling spots email, URL, phone, and address fields, then floats matching cutlings to the top of the keyboard." = "Катлинг распознаёт поля для эл. почты, URL, телефона и адреса и поднимает подходящие Катлинги в верхнюю часть клавиатуры.";
 "Save from Anywhere" = "Сохраняйте откуда угодно";
 "Send text, links, or images to Cutling straight from any app's Share Sheet or the Action extension." = "Отправляйте текст, ссылки или изображения в Катлинг прямо из меню «Поделиться» или расширения Action в любом приложении.";
 "Widgets & Controls" = "Виджеты и элементы управления";
-"Pin favorite cutlings to your Home Screen, Lock Screen, or Control Center for one-tap copy." = "Закрепляйте любимые Катлинг на экране «Домой», экране блокировки или в Пункте управления, чтобы копировать в одно касание.";
+"Pin favorite cutlings to your Home Screen, Lock Screen, or Control Center for one-tap copy." = "Закрепляйте любимые Катлинги на экране «Домой», экране блокировки или в Пункте управления, чтобы копировать в одно касание.";
 "Find with Spotlight" = "Поиск через Spotlight";
-"Search your saved cutlings right from Spotlight and copy them in a single tap." = "Ищите сохранённые Катлинг прямо в Spotlight и копируйте их одним касанием.";
+"Search your saved cutlings right from Spotlight and copy them in a single tap." = "Ищите сохранённые Катлинги прямо в Spotlight и копируйте их одним касанием.";
 "Sync Across Devices" = "Синхронизация между устройствами";
-"Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Включите синхронизацию iCloud, чтобы поддерживать Катлинг в актуальном состоянии на всех устройствах, где выполнен вход в учётную запись Apple.";
+"Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account." = "Включите синхронизацию iCloud, чтобы поддерживать Катлинги в актуальном состоянии на всех устройствах, где выполнен вход в учётную запись Apple.";
 "Tap the text field above, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Нажмите на текстовое поле выше, затем используйте клавишу 🌐 глобуса, чтобы переключиться на **Катлинг**. Это подтвердит, что всё настроено правильно.";
 
 /* MARK: - What's New Sheet */
@@ -206,26 +206,26 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "Попросите Siri добавить, скопировать или найти ваши Катлинги без помощи рук.";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "Откройте Катлинг в приложении **Настройки** на вашем устройстве.";
-"Tap **Keyboards** and enable **Cutling**." = "Нажмите **Клавиатуры** и включите **Катлинг**.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Включите **Разрешить полный доступ**, чтобы клавиатура могла копировать изображения в буфер обмена.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Нажмите на текстовое поле ниже, затем используйте клавишу 🌐 глобуса, чтобы переключиться на **Катлинг**. Это подтвердит, что всё настроено правильно.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Синхронизация iCloud — это **экспериментальная функция**. Она может работать некорректно в некоторых ситуациях, что может привести к потере данных. Вы всегда можете изменить это позже в Настройках.";
+"Open Cutling in your device's **Settings** app." = "Открой Катлинг в приложении **Настройки** на твоём устройстве.";
+"Tap **Keyboards** and enable **Cutling**." = "Нажми **Клавиатуры** и включи **Катлинг**.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Включи **Разрешить полный доступ**, чтобы клавиатура могла копировать изображения в твой буфер обмена.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Нажми на текстовое поле ниже, затем нажми клавишу-глобус 🌐, чтобы переключиться на **Катлинг**. Это подтверждает, что всё настроено правильно.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "Синхронизация с iCloud — **экспериментальная функция**. Она может работать некорректно в некоторых ситуациях, что может привести к потере данных. Это всегда можно изменить позже в Настройках.";
 
 /* MARK: - Recently Deleted */
 "Recently Deleted" = "Недавно удалённые";
 "Delete All" = "Удалить все";
-"Delete All Permanently?" = "Удалить все навсегда?";
+"Delete All Permanently?" = "Удалить всё навсегда?";
 "Delete Permanently?" = "Удалить навсегда?";
 "Delete Permanently" = "Удалить навсегда";
 "Recover" = "Восстановить";
-"Items will be permanently deleted after 30 days." = "Элементы будут окончательно удалены через 30 дней.";
-"No Recently Deleted Items" = "Нет недавно удалённых элементов";
-"Deleted cutlings will appear here for 30 days." = "Удалённые катлинги будут отображаться здесь в течение 30 дней.";
-"This will permanently delete all %lld items. This action cannot be undone." = "Все %lld элементов будут удалены навсегда. Это действие нельзя отменить.";
-"\"%@\" will be deleted permanently." = "\"%@\" будет удалён навсегда.";
+"Items will be permanently deleted after 30 days." = "Объекты будут удалены навсегда через 30 дней.";
+"No Recently Deleted Items" = "Нет недавно удалённых объектов";
+"Deleted cutlings will appear here for 30 days." = "Удалённые катлинги будут отображаться здесь 30 дней.";
+"This will permanently delete all %lld items. This action cannot be undone." = "Это навсегда удалит %lld объектов. Это действие нельзя отменить.";
+"\"%@\" will be deleted permanently." = "«%@» будет удалён навсегда.";
 "1 day left" = "Остался 1 день";
-"%lld days left" = "Осталось %lld дн.";
+"%lld days left" = "Осталось дней: %lld";
 
 /* MARK: - Context Menu */
 "Share" = "Поделиться";
@@ -321,24 +321,24 @@
 "Failed to save image." = "Не удалось сохранить изображение.";
 
 /* MARK: - TipKit */
-"Saved cutlings" = "Сохранённые Катлинги";
-"Your pinned snippets live here, ready to copy with one click." = "Ваши закреплённые фрагменты находятся здесь и готовы к копированию одним кликом.";
+"Saved cutlings" = "Сохранённые катлинги";
+"Your pinned snippets live here, ready to copy with one click." = "Твои закреплённые фрагменты живут здесь, готовые скопироваться в один клик.";
 "Recent clipboard" = "Недавний буфер обмена";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "Всё, что вы копируете, попадает сюда. Щёлкните правой кнопкой по строке, чтобы сохранить её как Катлинг.";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Всё, что ты копируешь, попадает сюда. Кликни правой кнопкой по строке, чтобы сохранить её как катлинг.";
 "Wipe the list" = "Очистить список";
-"Empties your recent clipboard. Saved cutlings stay put." = "Очищает недавний буфер обмена. Сохранённые Катлинги остаются на месте.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Измените сочетание клавиш, включите или выключите захват буфера обмена и управляйте синхронизацией iCloud.";
+"Empties your recent clipboard. Saved cutlings stay put." = "Очищает твой недавний буфер обмена. Сохранённые катлинги остаются на месте.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Переназначь сочетание клавиш, включи захват буфера обмена и управляй синхронизацией с iCloud.";
 "Undo deletes" = "Отменить удаления";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Удалённые Катлинги остаются здесь 30 дней. Восстановите их или удалите навсегда.";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Нажмите здесь, чтобы выбрать несколько Катлингов, изменить их порядок или восстановить недавно удалённые.";
-"Long-press a cutling" = "Нажмите и удерживайте Катлинг";
-"Hold any card for quick actions: copy, edit, share, or delete." = "Удерживайте любую карточку для быстрых действий: копировать, изменить, поделиться или удалить.";
-"Drag to select" = "Перетащите для выбора";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "Проведите по карточкам, чтобы выбрать диапазон. Проведите обратно, чтобы снять выбор.";
-"Smart field matching" = "Умное сопоставление полей";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Катлинг распознаёт поля для эл. почты, URL, телефона и адреса и поднимает подходящие фрагменты в верхнюю часть клавиатуры.";
-"Create a new cutling" = "Создать новый Катлинг";
-"Save text or image snippets you'll reuse from any app." = "Сохраняйте фрагменты текста или изображений, которые будете использовать повторно из любого приложения.";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Удалённые катлинги остаются здесь 30 дней. Восстанови их или очисти навсегда.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Нажми здесь, чтобы выбрать несколько катлингов, изменить их порядок или восстановить недавно удалённые.";
+"Long-press a cutling" = "Долгое нажатие на катлинг";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Удерживай любую карточку для быстрых действий: копировать, редактировать, поделиться или удалить.";
+"Drag to select" = "Проведи, чтобы выбрать";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Проведи по карточкам, чтобы выбрать диапазон. Проведи обратно, чтобы снять выбор.";
+"Smart field matching" = "Умное распознавание полей";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Катлинг распознаёт поля email, URL, телефона и адреса и поднимает подходящие фрагменты в верх клавиатуры.";
+"Create a new cutling" = "Создай новый катлинг";
+"Save text or image snippets you'll reuse from any app." = "Сохраняй фрагменты текста или изображений, которые ты используешь снова и снова в любом приложении.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "Добро пожаловать в Катлинг";
@@ -359,3 +359,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "Позволяет Катлингу вставить катлинг прямо в приложение, которое вы использовали.";
 "Grant" = "Предоставить";
 "You can skip Accessibility and grant it later from Settings → Paste." = "Универсальный доступ можно пропустить и предоставить позже в Настройки → Вставка.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "Сохранить как файл…";
+"Image Saving" = "Сохранение изображений";
+"When saving images" = "При сохранении изображений";
+"Ask each time" = "Спрашивать каждый раз";
+"Save to folder" = "Сохранять в папку";
+"Folder" = "Папка";
+"Change Folder…" = "Изменить папку…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "Выберите, как работает действие «Сохранить как файл» для Катлингов с изображениями. С «Сохранять в папку» изображения попадают прямо в выбранную папку с уникальным именем файла, без запросов.";
+"Choose" = "Выбрать";
+"Choose Image Folder" = "Выбор папки для изображений";
+"Pick a folder where Cutling will save image cutlings." = "Выберите папку, в которую Катлинг будет сохранять Катлинги с изображениями.";
+"Preview" = "Просмотр";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "Сохранённые";
+"History" = "История";
+"No saved cutlings yet" = "Сохранённых Катлингов пока нет";
+"Copy something to see it here" = "Скопируй что-нибудь, чтобы увидеть здесь";
+"Clipboard history is off. Enable it in Settings." = "История буфера обмена выключена. Включи её в Настройках.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Включить в поиск Spotlight";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "Сделай свои Катлинги доступными для поиска через Spotlight. Конфиденциальное содержимое (кредитные карты, API-ключи, JWT-токены, сид-фразы, приватные ключи) никогда не индексируется.";
+"Copy Cutling" = "Скопировать Катлинг";
+"Copy a cutling's contents to the clipboard." = "Копирует содержимое Катлинга в буфер обмена.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Используй эти фразы с Siri или просматривай все команды Катлинга в приложении Команды.";
+"Copied \"%@\"" = "Скопировано «%@»";

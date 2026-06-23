@@ -1,14 +1,14 @@
 /* MARK: - Navigation & Titles */
-"My Cutlings" = "Mano Cutlings";
+"My Cutlings" = "Mano Cutlingai";
 "Select Items" = "Pasirinkti elementus";
 "%lld Selected" = "%lld pasirinkta";
 "Reorder" = "Pertvarkyti";
 "Settings" = "Nustatymai";
-"Keyboard Setup" = "Klaviatūros nustatymas";
+"Keyboard Setup" = "Klaviatūros sąranka";
 "New" = "Naujas";
 "Choose Icon" = "Pasirinkti piktogramą";
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Tekstas, %lld/%lld Vaizdai";
-"%lld Cutlings" = "%lld Cutlingai";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld tekstas, %lld/%lld vaizdai";
+"%lld Cutlings" = "%lld Cutlingų";
 "Cutlings" = "Cutlingai";
 
 /* MARK: - Common Actions */
@@ -24,27 +24,27 @@
 "Delete Selected" = "Ištrinti pasirinktus";
 
 /* MARK: - Menu Items */
-"Text Cutling" = "Tekstinis Cutling";
-"Image Cutling" = "Vaizdinis Cutling";
-"Select Cutlings" = "Pasirinkti Cutlings";
-"Reorder Cutlings" = "Pertvarkyti Cutlings";
-"Keyboard Setup Guide" = "Klaviatūros nustatymo vadovas";
+"Text Cutling" = "Teksto Cutlingas";
+"Image Cutling" = "Vaizdo Cutlingas";
+"Select Cutlings" = "Pasirinkti Cutlingus";
+"Reorder Cutlings" = "Pertvarkyti Cutlingus";
+"Keyboard Setup Guide" = "Klaviatūros sąrankos vadovas";
 "Name (A → Z)" = "Pavadinimas (A → Z)";
 "Name (Z → A)" = "Pavadinimas (Z → A)";
-"Text First" = "Tekstas pirma";
-"Images First" = "Vaizdai pirma";
-"Shortest First" = "Trumpiausias pirma";
-"Longest First" = "Ilgiausias pirma";
+"Text First" = "Pirma tekstas";
+"Images First" = "Pirma vaizdai";
+"Shortest First" = "Trumpiausi pirma";
+"Longest First" = "Ilgiausi pirma";
 "Reverse Order" = "Atvirkštinė tvarka";
 
 /* MARK: - Empty States */
-"No Cutlings Yet" = "Kol kas nėra Cutlings";
-"No Results" = "Nėra rezultatų";
-"Tap + to add your first cutling." = "Bakstelėkite +, kad pridėtumėte pirmąjį cutling.";
-"Try a different search term." = "Pabandykite kitą paieškos terminą.";
+"No Cutlings Yet" = "Cutlingų dar nėra";
+"No Results" = "Rezultatų nėra";
+"Tap + to add your first cutling." = "Bakstelėk +, kad pridėtum pirmąjį cutlingą.";
+"Try a different search term." = "Pabandyk kitą paieškos žodį.";
 
 /* MARK: - Search */
-"Search cutlings" = "Ieškoti cutlings";
+"Search cutlings" = "Ieškoti cutlingų";
 "Search icons" = "Ieškoti piktogramų";
 
 /* MARK: - Form Labels */
@@ -84,53 +84,53 @@
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
 "iCloud Sync" = "iCloud sinchronizavimas";
-"Sync your cutlings across all your devices using iCloud." = "Sinchronizuokite savo cutlings visuose įrenginiuose naudodami iCloud.";
+"Sync your cutlings across all your devices using iCloud." = "Sinchronizuok savo cutlingus visuose įrenginiuose naudodamas iCloud.";
 "Storage" = "Saugykla";
-"Text Cutlings" = "Tekstiniai Cutlings";
-"Image Cutlings" = "Vaizdiniai Cutlings";
-"Total Cutlings" = "Iš viso Cutlings";
+"Text Cutlings" = "Teksto Cutlingai";
+"Image Cutlings" = "Vaizdo Cutlingai";
+"Total Cutlings" = "Iš viso Cutlingų";
 "Disk Usage" = "Disko naudojimas";
 "Status" = "Būsena";
 "Syncing…" = "Sinchronizuojama…";
 "Up to date" = "Atnaujinta";
 "Sync Now" = "Sinchronizuoti dabar";
 "Turn On iCloud Sync" = "Įjungti iCloud sinchronizavimą";
-"Max Text Length" = "Didž. teksto ilgis";
-"%lld chars" = "%lld simb.";
+"Max Text Length" = "Didžiausias teksto ilgis";
+"%lld chars" = "%lld simbolių";
 "About" = "Apie";
 "Version" = "Versija";
 "Keyboard Added" = "Klaviatūra pridėta";
-"Full Access" = "Pilna prieiga";
+"Full Access" = "Visa prieiga";
 "Experimental Feature: iCloud" = "Eksperimentinė funkcija: iCloud";
 "Contact Support" = "Susisiekti su palaikymu";
 "Privacy Policy" = "Privatumo politika";
 "Auto-detect Input Types" = "Automatiškai aptikti įvesties tipus";
 "Enable iCloud Sync" = "Įjungti iCloud sinchronizavimą";
-"Keep your cutlings in sync across all your devices." = "Sinchronizuokite savo cutlingus visuose įrenginiuose.";
-"Automatically detect and suggest input type categories when editing text." = "Automatiškai aptikti ir siūlyti įvesties tipų kategorijas redaguojant tekstą.";
+"Keep your cutlings in sync across all your devices." = "Laikyk savo cutlingus sinchronizuotus visuose įrenginiuose.";
+"Automatically detect and suggest input type categories when editing text." = "Redaguojant tekstą automatiškai aptinka ir siūlo įvesties tipų kategorijas.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Nepasirinktas joks vaizdas";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "Tai pakeis esamą tekstą tuo, kas yra jūsų iškarpinėje.";
-"This will replace the current image with whatever is in your clipboard." = "Tai pakeis esamą vaizdą tuo, kas yra jūsų iškarpinėje.";
-"This cutling will be automatically deleted at the selected date and time." = "Šis cutling bus automatiškai ištrintas pasirinktu laiku ir data.";
-"Each text cutling can hold up to %lld characters." = "Kiekvienas tekstinis cutling gali talpinti iki %lld simbolių.";
+"This will replace the current text with whatever is in your clipboard." = "Tai pakeis esamą tekstą tuo, kas yra tavo iškarpinėje.";
+"This will replace the current image with whatever is in your clipboard." = "Tai pakeis esamą vaizdą tuo, kas yra tavo iškarpinėje.";
+"This cutling will be automatically deleted at the selected date and time." = "Šis cutlingas bus automatiškai pašalintas pasirinktą datą ir laiką.";
+"Each text cutling can hold up to %lld characters." = "Kiekvienas teksto cutlingas gali talpinti iki %lld simbolių.";
 
 /* MARK: - Alerts */
 "Limit Reached" = "Pasiekta riba";
-"Delete Cutling?" = "Ištrinti Cutling?";
-"This action cannot be undone." = "Šio veiksmo negalima atšaukti.";
-"Cannot add text cutling" = "Nepavyksta pridėti tekstinio cutling";
-"Cannot add image cutling" = "Nepavyksta pridėti vaizdinio cutling";
-"Cannot add more text cutlings." = "Negalima pridėti daugiau tekstinių cutlings.";
-"Cannot add more image cutlings." = "Negalima pridėti daugiau vaizdinių cutlings.";
+"Delete Cutling?" = "Pašalinti Cutlingą?";
+"This action cannot be undone." = "Šio veiksmo atšaukti negalima.";
+"Cannot add text cutling" = "Nepavyko pridėti teksto cutlingo";
+"Cannot add image cutling" = "Nepavyko pridėti vaizdo cutlingo";
+"Cannot add more text cutlings." = "Daugiau teksto cutlingų pridėti negalima.";
+"Cannot add more image cutlings." = "Daugiau vaizdo cutlingų pridėti negalima.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Pasiekėte didžiausią leistiną %lld cutlings skaičių. Ištrinkite kelis, kad pridėtumėte naujų.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Pasiekėte didžiausią leistiną %lld vaizdinių cutlings skaičių. Vaizdai naudoja daug klaviatūros atminties. Ištrinkite kelis vaizdus, kad pridėtumėte naujų.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Pasiekėte didžiausią leistiną %lld tekstinių cutlings skaičių. Ištrinkite kelis, kad pridėtumėte naujų.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Pasiekei didžiausią ribą — %lld cutlingų iš viso. Pašalink kelis, kad galėtum pridėti daugiau.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "Pasiekei didžiausią ribą — %lld vaizdo cutlingų. Vaizdai klaviatūroje užima daug atminties. Pašalink kelis vaizdus, kad galėtum pridėti daugiau.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "Pasiekei didžiausią ribą — %lld teksto cutlingų. Pašalink kelis, kad galėtum pridėti daugiau.";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Įvesties tipo pasiūlymai";
@@ -163,14 +163,14 @@
 "Set Up Your Keyboard" = "Nustatykite savo klaviatūrą";
 "Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Jūsų Cutling klaviatūra paruošta! Rašydami bet kur, bakstelėkite 🌐 gaublio piktogramą klaviatūroje, kad perjungtumėte į Cutling.";
 "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Atlikite du paprastus žingsnius žemiau, kad pradėtumėte naudoti savo tinkintą klaviatūrą. Šis puslapis automatiškai atsinaujins, kai atliksite kiekvieną žingsnį.";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**1 žingsnis:** Bakstelėkite 'Atverti Cutling nustatymus' žemiau, eikite į **Klaviatūros** ir pasirinkite **Cutling** iš sąrašo.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**1 žingsnis:** Bakstelėkite „Atverti Cutling nustatymus“ žemiau, eikite į **Klaviatūros** ir pasirinkite **Cutling** iš sąrašo.";
 "**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**2 žingsnis:** Įsitikinkite, kad **Leisti pilną prieigą** yra įjungta. Tai leidžia klaviatūrai kopijuoti vaizdus į jūsų iškarpinę. Jūsų duomenys lieka privatūs ir niekada nėra siunčiami niekur.";
 "**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**3 žingsnis:** Bakstelėkite teksto įvesties laukelį ir pasirinkite \"Cutling\" naudodami 🌐 gaublio piktogramą klaviatūroje, kad atnaujintumėte \"Pilna prieiga\" būseną.";
 "**Step 4:** You're good to go! The usage guide is provided below." = "**4 žingsnis:** Viskas paruošta! Naudojimo vadovas pateiktas žemiau.";
 "While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Rašydami bet kurioje programėlėje, bakstelėkite arba palaikykite 🌐 gaublio klavišą apatiniame kairiajame klaviatūros kampe, tada pasirinkite Cutling";
 "Tap any text cutling and it will be typed into your current text field immediately" = "Bakstelėkite bet kurį tekstinį cutling ir jis bus iškart įvestas į jūsų dabartinį teksto laukelį";
 "Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Bakstelėkite vaizdinį cutling, kad nukopijuotumėte jį į iškarpinę, tada įklijuokite į naudojamą programėlę (paprastai bakstelėjus ir palaikius, tada pasirinkus Įklijuoti). Apple šiuo metu nepalaiko tiesioginio vaizdo įklijavimo šioje programėlėje.";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Nukopijuokite bet kokį tekstą, tada bakstelėkite mygtuką 'Pridėti iš iškarpinės' Cutling klaviatūroje, kad išsaugotumėte jį kaip naują cutling";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Nukopijuokite bet kokį tekstą, tada bakstelėkite mygtuką „Pridėti iš iškarpinės“ Cutling klaviatūroje, kad išsaugotumėte jį kaip naują cutling";
 "You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Visus savo cutlings galite valdyti pagrindinėje Cutling programėlėje. Jūsų atlikti pakeitimai akimirksniu atsiras klaviatūroje.";
 "Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Klaviatūros plėtiniai turi griežtus atminties apribojimus sistemos stabilumui užtikrinti. Vaizdai naudoja daugiau atminties nei tekstas, todėl juos ribojame, kad jūsų klaviatūra išliktų greita ir patikima. Jei pasieksite ribą, tiesiog ištrinkite kelis cutlings, kad pridėtumėte naujų.";
 "Up to **%lld text** cutlings" = "Iki **%lld tekstinių** cutlings";
@@ -183,7 +183,7 @@
 "Test Your Keyboard" = "Išbandykite savo klaviatūrą";
 "All set! Swipe to continue." = "Viskas paruošta! Braukite, kad tęstumėte.";
 "Your data stays private and is never sent anywhere." = "Jūsų duomenys lieka privatūs ir niekada nėra siunčiami niekur.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Ne slaptiems duomenims** — venkite saugoti slaptažodžius, kortelių numerius, privačius raktus ar prieigos raktus";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Ne slaptiems duomenims**: venkite saugoti slaptažodžius, kortelių numerius, privačius raktus ar prieigos raktus";
 "Set Up Cutling Keyboard" = "Nustatyti Cutling klaviatūrą";
 "What You Can Do" = "Ką galite daryti";
 "Smart Field Suggestions" = "Išmanūs laukų pasiūlymai";
@@ -206,26 +206,26 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "Paprašykite Siri pridėti, nukopijuoti arba ieškoti jūsų cutlings be rankų.";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "Atidarykite Cutling savo įrenginio **Nustatymų** programoje.";
-"Tap **Keyboards** and enable **Cutling**." = "Palieskite **Klaviatūros** ir įjunkite **Cutling**.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Įjunkite **Leisti pilną prieigą**, kad klaviatūra galėtų kopijuoti vaizdus į iškarpinę.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Palieskite teksto laukelį žemiau, tada naudokite 🌐 gaublio klavišą, kad perjungtumėte į **Cutling**. Tai patvirtina, kad viskas nustatyta teisingai.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "„iCloud“ sinchronizavimas yra **eksperimentinė funkcija**. Ji gali neveikti tinkamai visose situacijose, o tai gali sukelti duomenų praradimą. Šį nustatymą visada galite pakeisti vėliau Nustatymuose.";
+"Open Cutling in your device's **Settings** app." = "Atidaryk Cutlingą savo įrenginio programėlėje **Nustatymai**.";
+"Tap **Keyboards** and enable **Cutling**." = "Bakstelėk **Klaviatūros** ir įjunk **Cutling**.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Įjunk **Leisti visišką prieigą**, kad klaviatūra galėtų kopijuoti vaizdus į tavo iškarpinę.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Bakstelėk žemiau esantį teksto lauką, tada naudok 🌐 gaublio klavišą, kad perjungtum į **Cutling**. Taip patikrinsi, ar viskas teisingai sukonfigūruota.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud sinchronizavimas yra **eksperimentinė funkcija**. Jis gali tinkamai neveikti visose situacijose, dėl ko gali būti prarasti duomenys. Tai bet kada vėliau gali pakeisti Nustatymuose.";
 
 /* MARK: - Recently Deleted */
-"Recently Deleted" = "Neseniai ištrinti";
-"Delete All" = "Ištrinti viską";
-"Delete All Permanently?" = "Visam laikui ištrinti viską?";
-"Delete Permanently?" = "Visam laikui ištrinti?";
-"Delete Permanently" = "Visam laikui ištrinti";
+"Recently Deleted" = "Neseniai pašalinti";
+"Delete All" = "Pašalinti visus";
+"Delete All Permanently?" = "Pašalinti visus visam laikui?";
+"Delete Permanently?" = "Pašalinti visam laikui?";
+"Delete Permanently" = "Pašalinti visam laikui";
 "Recover" = "Atkurti";
-"Items will be permanently deleted after 30 days." = "Elementai bus visam laikui ištrinti po 30 dienų.";
-"No Recently Deleted Items" = "Nėra neseniai ištrintų elementų";
-"Deleted cutlings will appear here for 30 days." = "Ištrinti cutlingai bus rodomi čia 30 dienų.";
-"This will permanently delete all %lld items. This action cannot be undone." = "Visi %lld elementai bus visam laikui ištrinti. Šio veiksmo negalima atšaukti.";
-"\"%@\" will be deleted permanently." = "\"%@\" bus visam laikui ištrintas.";
+"Items will be permanently deleted after 30 days." = "Elementai po 30 dienų bus pašalinti visam laikui.";
+"No Recently Deleted Items" = "Nėra neseniai pašalintų elementų";
+"Deleted cutlings will appear here for 30 days." = "Pašalinti cutlingai čia bus rodomi 30 dienų.";
+"This will permanently delete all %lld items. This action cannot be undone." = "Tai visam laikui pašalins %lld elementų. Šio veiksmo atšaukti negalima.";
+"\"%@\" will be deleted permanently." = "„%@“ bus pašalintas visam laikui.";
 "1 day left" = "Liko 1 diena";
-"%lld days left" = "Liko %lld dienų";
+"%lld days left" = "Liko %lld d.";
 
 /* MARK: - Context Menu */
 "Share" = "Dalintis";
@@ -321,24 +321,24 @@
 "Failed to save image." = "Nepavyko išsaugoti vaizdo.";
 
 /* MARK: - TipKit */
-"Saved cutlings" = "Išsaugoti Cutlingai";
-"Your pinned snippets live here, ready to copy with one click." = "Jūsų prisegtos ištraukos yra čia, paruoštos kopijuoti vienu paspaudimu.";
+"Saved cutlings" = "Išsaugoti cutlingai";
+"Your pinned snippets live here, ready to copy with one click." = "Tavo prisegtos iškarpos čia, paruoštos vienu paspaudimu nukopijuoti.";
 "Recent clipboard" = "Naujausia iškarpinė";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "Viskas, ką nukopijuojate, patenka čia. Spustelėkite eilutę dešiniuoju klavišu, kad išsaugotumėte ją kaip Cutling.";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Viskas, ką nukopijuoji, atsiranda čia. Spustelėk dešinįjį pelės klavišą ant eilutės, kad išsaugotum kaip cutlingą.";
 "Wipe the list" = "Išvalyti sąrašą";
-"Empties your recent clipboard. Saved cutlings stay put." = "Išvalo naujausią iškarpinę. Išsaugoti Cutlingai lieka savo vietoje.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Pakeiskite spartųjį klavišą, įjunkite arba išjunkite iškarpinės fiksavimą ir valdykite iCloud sinchronizavimą.";
-"Undo deletes" = "Anuliuoti trynimus";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Ištrinti Cutlingai lieka čia 30 dienų. Atkurkite juos arba ištuštinkite visam laikui.";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Bakstelėkite čia, kad pasirinktumėte kelis Cutlings, pertvarkytumėte juos arba atkurtumėte neseniai ištrintus.";
-"Long-press a cutling" = "Palaikykite Cutling";
-"Hold any card for quick actions: copy, edit, share, or delete." = "Palaikykite bet kurią kortelę greitiems veiksmams: kopijuoti, redaguoti, bendrinti arba ištrinti.";
-"Drag to select" = "Tempkite, kad pasirinktumėte";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "Braukite per korteles, kad pasirinktumėte intervalą. Braukite atgal, kad panaikintumėte pasirinkimą.";
-"Smart field matching" = "Išmanus laukų atitikimas";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling atpažįsta el. pašto, URL, telefono ir adreso laukus ir iškelia atitinkamas ištraukas į klaviatūros viršų.";
-"Create a new cutling" = "Sukurti naują Cutling";
-"Save text or image snippets you'll reuse from any app." = "Išsaugok teksto ar vaizdų fragmentus, kuriuos pakartotinai naudosi bet kurioje programėlėje.";
+"Empties your recent clipboard. Saved cutlings stay put." = "Išvalo tavo naujausią iškarpinę. Išsaugoti cutlingai lieka.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Iš naujo priskirk spartųjį klavišą, įjunk/išjunk iškarpinės registravimą ir tvarkyk iCloud sinchronizavimą.";
+"Undo deletes" = "Atšaukti šalinimus";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Pašalinti cutlingai lieka čia 30 dienų. Atkurk juos arba išvalyk visam laikui.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Bakstelėk čia, kad pasirinktum kelis cutlingus, juos pertvarkytum arba atkurtum neseniai pašalintus.";
+"Long-press a cutling" = "Ilgai palaikyk cutlingą";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Palaikyk bet kurią kortelę greitiems veiksmams: kopijuoti, redaguoti, bendrinti arba pašalinti.";
+"Drag to select" = "Tempk, kad pasirinktum";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Brauk per korteles, kad pasirinktum intervalą. Brauk atgal, kad panaikintum pasirinkimą.";
+"Smart field matching" = "Išmanusis laukų atitikimas";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling atpažįsta el. pašto, URL, telefono ir adreso laukus, ir iškelia atitinkamas iškarpas į klaviatūros viršų.";
+"Create a new cutling" = "Sukurk naują cutlingą";
+"Save text or image snippets you'll reuse from any app." = "Išsaugok teksto ar vaizdo iškarpas, kurias naudosi iš bet kurios programėlės.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "Sveiki atvykę į Cutling";
@@ -359,3 +359,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "Leidžia Cutling įklijuoti Cutling tiesiai į programėlę, kurią naudojote.";
 "Grant" = "Suteikti";
 "You can skip Accessibility and grant it later from Settings → Paste." = "Galite praleisti Pritaikymą neįgaliesiems ir suteikti jį vėliau iš Nustatymai → Įklijuoti.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "Įrašyti kaip failą…";
+"Image Saving" = "Vaizdų įrašymas";
+"When saving images" = "Įrašant vaizdus";
+"Ask each time" = "Klausti kiekvieną kartą";
+"Save to folder" = "Įrašyti į aplanką";
+"Folder" = "Aplankas";
+"Change Folder…" = "Keisti aplanką…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "Pasirink, kaip veikia veiksmas „Įrašyti kaip failą“ vaizdo cutling‘ams. Su „Įrašyti į aplanką“ vaizdai keliauja tiesiai į pasirinktą aplanką su unikaliu failo pavadinimu, be klausimo.";
+"Choose" = "Pasirinkti";
+"Choose Image Folder" = "Pasirinkti vaizdų aplanką";
+"Pick a folder where Cutling will save image cutlings." = "Pasirink aplanką, kuriame Cutling įrašys vaizdo cutling‘us.";
+"Preview" = "Peržiūra";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "Įrašyti";
+"History" = "Istorija";
+"No saved cutlings yet" = "Dar nėra įrašytų cutling‘ų";
+"Copy something to see it here" = "Ką nors nukopijuok, kad pamatytum čia";
+"Clipboard history is off. Enable it in Settings." = "Iškarpinės istorija išjungta. Įjunk ją Nustatymuose.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Įtraukti į Spotlight paiešką";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "Padaryk savo cutling‘us paieškomus per Spotlight. Slapta informacija (kredito kortelės, API raktai, JWT žetonai, sėklos frazės, privatūs raktai) niekada nėra indeksuojama.";
+"Copy Cutling" = "Kopijuoti Cutling";
+"Copy a cutling's contents to the clipboard." = "Nukopijuoja cutlingo turinį į iškarpinę.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Naudok šias frazes su Siri arba naršyk visus Cutling sparčiuosius mygtukus programėlėje Spartieji mygtukai.";
+"Copied \"%@\"" = "„%@“ nukopijuota";

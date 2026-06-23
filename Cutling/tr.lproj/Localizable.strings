@@ -1,15 +1,15 @@
 /* MARK: - Navigation & Titles */
-"My Cutlings" = "Cutling'lerim";
-"Select Items" = "Öğe Seç";
-"%lld Selected" = "%lld Seçildi";
-"Reorder" = "Yeniden Sırala";
+"My Cutlings" = "Cutling’lerim";
+"Select Items" = "Öğeleri seç";
+"%lld Selected" = "%lld seçildi";
+"Reorder" = "Yeniden sırala";
 "Settings" = "Ayarlar";
-"Keyboard Setup" = "Klavye Kurulumu";
+"Keyboard Setup" = "Klavye kurulumu";
 "New" = "Yeni";
-"Choose Icon" = "Simge Seç";
-"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld Metin, %lld/%lld Görsel";
-"%lld Cutlings" = "%lld Cutling'ler";
-"Cutlings" = "Cutling'ler";
+"Choose Icon" = "Simge seç";
+"%lld/%lld Text, %lld/%lld Images" = "%lld/%lld metin, %lld/%lld görsel";
+"%lld Cutlings" = "%lld Cutling";
+"Cutlings" = "Cutling’ler";
 
 /* MARK: - Common Actions */
 "Cancel" = "İptal";
@@ -24,24 +24,24 @@
 "Delete Selected" = "Seçilenleri Sil";
 
 /* MARK: - Menu Items */
-"Text Cutling" = "Metin Cutling";
-"Image Cutling" = "Görsel Cutling";
-"Select Cutlings" = "Cutling Seç";
-"Reorder Cutlings" = "Cutling'leri Yeniden Sırala";
-"Keyboard Setup Guide" = "Klavye Kurulum Kılavuzu";
+"Text Cutling" = "Metin Cutling’i";
+"Image Cutling" = "Görsel Cutling’i";
+"Select Cutlings" = "Cutling’leri seç";
+"Reorder Cutlings" = "Cutling’leri yeniden sırala";
+"Keyboard Setup Guide" = "Klavye kurulum kılavuzu";
 "Name (A → Z)" = "Ad (A → Z)";
 "Name (Z → A)" = "Ad (Z → A)";
-"Text First" = "Önce Metin";
-"Images First" = "Önce Görseller";
-"Shortest First" = "Önce En Kısa";
-"Longest First" = "Önce En Uzun";
-"Reverse Order" = "Ters Sıra";
+"Text First" = "Önce metin";
+"Images First" = "Önce görseller";
+"Shortest First" = "Önce en kısa";
+"Longest First" = "Önce en uzun";
+"Reverse Order" = "Ters sıra";
 
 /* MARK: - Empty States */
-"No Cutlings Yet" = "Henüz Cutling Yok";
-"No Results" = "Sonuç Yok";
-"Tap + to add your first cutling." = "İlk cutling'inizi eklemek için + simgesine dokunun.";
-"Try a different search term." = "Farklı bir arama terimi deneyin.";
+"No Cutlings Yet" = "Henüz Cutling yok";
+"No Results" = "Sonuç yok";
+"Tap + to add your first cutling." = "İlk cutling’ini eklemek için +’ya dokun.";
+"Try a different search term." = "Başka bir arama terimi dene.";
 
 /* MARK: - Search */
 "Search cutlings" = "Cutling ara";
@@ -83,54 +83,54 @@
 
 /* MARK: - Settings Sections */
 "iCloud" = "iCloud";
-"iCloud Sync" = "iCloud Senkronizasyonu";
-"Sync your cutlings across all your devices using iCloud." = "iCloud kullanarak cutling'lerinizi tüm cihazlarınızda senkronize edin.";
+"iCloud Sync" = "iCloud Eşitleme";
+"Sync your cutlings across all your devices using iCloud." = "Cutling’lerini iCloud aracılığıyla tüm cihazlarında eşitle.";
 "Storage" = "Depolama";
-"Text Cutlings" = "Metin Cutling'ler";
-"Image Cutlings" = "Görsel Cutling'ler";
+"Text Cutlings" = "Metin Cutling’leri";
+"Image Cutlings" = "Görsel Cutling’leri";
 "Total Cutlings" = "Toplam Cutling";
-"Disk Usage" = "Disk Kullanımı";
+"Disk Usage" = "Disk kullanımı";
 "Status" = "Durum";
 "Syncing…" = "Eşitleniyor…";
 "Up to date" = "Güncel";
-"Sync Now" = "Şimdi Eşitle";
-"Turn On iCloud Sync" = "iCloud Eşitlemeyi Aç";
-"Max Text Length" = "Maks. Metin Uzunluğu";
+"Sync Now" = "Şimdi eşitle";
+"Turn On iCloud Sync" = "iCloud Eşitlemeyi aç";
+"Max Text Length" = "Maks. metin uzunluğu";
 "%lld chars" = "%lld karakter";
 "About" = "Hakkında";
 "Version" = "Sürüm";
-"Keyboard Added" = "Klavye Eklendi";
-"Full Access" = "Tam Erişim";
-"Experimental Feature: iCloud" = "Deneysel Özellik: iCloud";
-"Contact Support" = "Destek ile İletişim";
-"Privacy Policy" = "Gizlilik Politikası";
-"Auto-detect Input Types" = "Giriş Türlerini Otomatik Algıla";
-"Enable iCloud Sync" = "iCloud Senkronizasyonunu Etkinleştir";
-"Keep your cutlings in sync across all your devices." = "Cutling'lerinizi tüm cihazlarınızda senkronize tutun.";
-"Automatically detect and suggest input type categories when editing text." = "Metin düzenlerken giriş türü kategorilerini otomatik olarak algıla ve öner.";
+"Keyboard Added" = "Klavye eklendi";
+"Full Access" = "Tam erişim";
+"Experimental Feature: iCloud" = "Deneysel özellik: iCloud";
+"Contact Support" = "Destekle iletişime geç";
+"Privacy Policy" = "Gizlilik politikası";
+"Auto-detect Input Types" = "Giriş türlerini otomatik algıla";
+"Enable iCloud Sync" = "iCloud Eşitlemeyi aç";
+"Keep your cutlings in sync across all your devices." = "Cutling’lerini tüm cihazlarında eşit tut.";
+"Automatically detect and suggest input type categories when editing text." = "Metin düzenlerken giriş türü kategorilerini otomatik olarak algılar ve önerir.";
 
 /* MARK: - Image Picker */
 "No image selected" = "Görsel seçilmedi";
 
 /* MARK: - Footer Texts */
-"This will replace the current text with whatever is in your clipboard." = "Mevcut metin, panodaki içerikle değiştirilecektir.";
-"This will replace the current image with whatever is in your clipboard." = "Mevcut görsel, panodaki içerikle değiştirilecektir.";
-"This cutling will be automatically deleted at the selected date and time." = "Bu cutling seçilen tarih ve saatte otomatik olarak silinecektir.";
-"Each text cutling can hold up to %lld characters." = "Her metin cutling en fazla %lld karakter içerebilir.";
+"This will replace the current text with whatever is in your clipboard." = "Bu, mevcut metni panodakiyle değiştirir.";
+"This will replace the current image with whatever is in your clipboard." = "Bu, mevcut görseli panodakiyle değiştirir.";
+"This cutling will be automatically deleted at the selected date and time." = "Bu cutling, seçilen tarih ve saatte otomatik olarak silinir.";
+"Each text cutling can hold up to %lld characters." = "Her metin cutling’i en fazla %lld karakter içerebilir.";
 
 /* MARK: - Alerts */
-"Limit Reached" = "Sınıra Ulaşıldı";
-"Delete Cutling?" = "Cutling Silinsin mi?";
+"Limit Reached" = "Sınıra ulaşıldı";
+"Delete Cutling?" = "Cutling silinsin mi?";
 "This action cannot be undone." = "Bu işlem geri alınamaz.";
-"Cannot add text cutling" = "Metin cutling eklenemiyor";
-"Cannot add image cutling" = "Görsel cutling eklenemiyor";
-"Cannot add more text cutlings." = "Daha fazla metin cutling eklenemiyor.";
-"Cannot add more image cutlings." = "Daha fazla görsel cutling eklenemiyor.";
+"Cannot add text cutling" = "Metin cutling’i eklenemiyor";
+"Cannot add image cutling" = "Görsel cutling’i eklenemiyor";
+"Cannot add more text cutlings." = "Daha fazla metin cutling’i eklenemiyor.";
+"Cannot add more image cutlings." = "Daha fazla görsel cutling’i eklenemiyor.";
 
 /* MARK: - CutlingStore Errors */
-"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Toplam %lld cutling sınırına ulaştınız. Daha fazla eklemek için bazılarını silin.";
-"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "%lld görsel cutling sınırına ulaştınız. Görseller klavyede önemli miktarda bellek kullanır. Daha fazla eklemek için bazı görselleri silin.";
-"You've reached the maximum of %lld text cutlings. Delete some to add more." = "%lld metin cutling sınırına ulaştınız. Daha fazla eklemek için bazılarını silin.";
+"You've reached the maximum of %lld total cutlings. Delete some to add more." = "Toplam %lld cutling üst sınırına ulaştın. Daha fazla eklemek için bir kısmını sil.";
+"You've reached the maximum of %lld image cutlings. Images use significant memory in the keyboard. Delete some images to add more." = "%lld görsel cutling üst sınırına ulaştın. Görseller klavyede çok bellek kullanır. Daha fazla eklemek için bazı görselleri sil.";
+"You've reached the maximum of %lld text cutlings. Delete some to add more." = "%lld metin cutling üst sınırına ulaştın. Daha fazla eklemek için bir kısmını sil.";
 
 /* MARK: - Input Type Suggestions */
 "Input Type Suggestions" = "Giriş türü önerileri";
@@ -163,14 +163,14 @@
 "Set Up Your Keyboard" = "Klavyenizi Kurun";
 "Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling." = "Cutling klavyeniz hazır! Herhangi bir yerde yazarken, Cutling'e geçmek için klavyenizdeki 🌐 küre simgesine dokunun.";
 "Follow the two simple steps below to start using your custom keyboard. This page will automatically update as you complete each step." = "Özel klavyenizi kullanmaya başlamak için aşağıdaki iki basit adımı izleyin. Her adımı tamamladığınızda bu sayfa otomatik olarak güncellenecektir.";
-"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Adım 1:** Aşağıdaki 'Cutling Ayarlarını Aç'a dokunun, **Klavyeler**'e gidin ve listeden **Cutling**'i seçin.";
+"**Step 1:** Tap 'Open Cutling Settings' below, go to **Keyboards** and select **Cutling** from the list." = "**Adım 1:** Aşağıdaki „Cutling Ayarlarını Aç”a dokunun, **Klavyeler**'e gidin ve listeden **Cutling**'i seçin.";
 "**Step 2:** Make sure **Allow Full Access** is ON. This lets the keyboard copy images to your clipboard. Your data stays private and is never sent anywhere." = "**Adım 2:** **Tam Erişime İzin Ver** seçeneğinin açık olduğundan emin olun. Bu, klavyenin görselleri panonuza kopyalamasını sağlar. Verileriniz gizli kalır ve hiçbir yere gönderilmez.";
-"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Adım 3:** Metin giriş alanına dokunun ve \"Tam Erişim\" durumunu güncellemek için klavyenizdeki 🌐 küre simgesini kullanarak \"Cutling\"i seçin.";
+"**Step 3:** Tap on the text input and choose \"Cutling\" using the 🌐 globe icon on your keyboard to update the \"Full Access\" status." = "**Adım 3:** Metin giriş alanına dokunun ve „Tam Erişim” durumunu güncellemek için klavyenizdeki 🌐 küre simgesini kullanarak „Cutling”i seçin.";
 "**Step 4:** You're good to go! The usage guide is provided below." = "**Adım 4:** Hazırsınız! Kullanım kılavuzu aşağıda verilmiştir.";
 "While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling" = "Herhangi bir uygulamada yazarken, klavyenizin sol altındaki 🌐 küre tuşuna dokunun veya basılı tutun, ardından Cutling'i seçin";
 "Tap any text cutling and it will be typed into your current text field immediately" = "Herhangi bir metin cutling'e dokunun ve mevcut metin alanınıza anında yazılacaktır";
 "Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app." = "Görsel cutling'e dokunarak panonuza kopyalayın, ardından kullandığınız uygulamaya yapıştırın (genellikle dokunup basılı tutarak, sonra Yapıştır'ı seçerek). Apple şu anda bu uygulamada doğrudan görsel yapıştırmayı desteklememektedir.";
-"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Herhangi bir metni kopyalayın, ardından yeni bir cutling olarak kaydetmek için Cutling klavyesindeki 'Panodan Ekle' düğmesine dokunun";
+"Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling" = "Herhangi bir metni kopyalayın, ardından yeni bir cutling olarak kaydetmek için Cutling klavyesindeki „Panodan Ekle” düğmesine dokunun";
 "You can manage all your cutlings in the main Cutling app. Changes you make will instantly appear in your keyboard." = "Tüm cutling'lerinizi ana Cutling uygulamasından yönetebilirsiniz. Yaptığınız değişiklikler klavyenizde anında görünecektir.";
 "Keyboard extensions have strict memory limits to ensure system stability. Images use more memory than text, so we limit them to ensure your keyboard stays fast and reliable. If you reach a limit, simply delete some cutlings to add new ones." = "Klavye uzantıları, sistem kararlılığını sağlamak için sıkı bellek sınırlarına sahiptir. Görseller metinden daha fazla bellek kullanır, bu nedenle klavyenizin hızlı ve güvenilir kalması için bunları sınırlandırıyoruz. Sınıra ulaşırsanız, yenilerini eklemek için bazı cutling'leri silin.";
 "Up to **%lld text** cutlings" = "En fazla **%lld metin** cutling";
@@ -183,7 +183,7 @@
 "Test Your Keyboard" = "Klavyenizi Test Edin";
 "All set! Swipe to continue." = "Her şey hazır! Devam etmek için kaydırın.";
 "Your data stays private and is never sent anywhere." = "Verileriniz gizli kalır ve hiçbir yere gönderilmez.";
-"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Hassas veriler için değil** — şifre, kart numarası, özel anahtar veya token saklamaktan kaçının";
+"**Not for sensitive data** — avoid storing passwords, card numbers, private keys, or tokens" = "**Hassas veriler için değil**: şifre, kart numarası, özel anahtar veya token saklamaktan kaçının";
 "Set Up Cutling Keyboard" = "Cutling Klavyesini Kur";
 "What You Can Do" = "Neler Yapabilirsiniz";
 "Smart Field Suggestions" = "Akıllı Alan Önerileri";
@@ -206,24 +206,24 @@
 "Ask Siri to add, copy, or search your cutlings hands-free." = "Siri'den cutling'leri eller serbest şekilde eklemesini, kopyalamasını veya aramasını isteyin.";
 
 /* MARK: - Setup Guide Instructions */
-"Open Cutling in your device's **Settings** app." = "Cihazınızın **Ayarlar** uygulamasında Cutling'i açın.";
-"Tap **Keyboards** and enable **Cutling**." = "**Klavyeler**'e dokunun ve **Cutling**'i etkinleştirin.";
-"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Klavyenin panonuza görüntü kopyalayabilmesi için **Tam Erişime İzin Ver**'i açın.";
-"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Aşağıdaki metin alanına dokunun, ardından **Cutling**'e geçmek için 🌐 küre tuşunu kullanın. Bu, her şeyin doğru şekilde ayarlandığını doğrular.";
-"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud Senkronizasyonu **deneysel bir özelliktir**. Her durumda doğru çalışmayabilir ve veri kaybına yol açabilir. Bunu daha sonra istediğiniz zaman Ayarlar'dan değiştirebilirsiniz.";
+"Open Cutling in your device's **Settings** app." = "Cihazındaki **Ayarlar** uygulamasında Cutling’i aç.";
+"Tap **Keyboards** and enable **Cutling**." = "**Klavyeler**’e dokun ve **Cutling**’i aç.";
+"Turn on **Allow Full Access** so the keyboard can copy images to your clipboard." = "Klavyenin görselleri panona kopyalayabilmesi için **Tam erişime izin ver**’i aç.";
+"Tap the text field below, then use the 🌐 globe key to switch to **Cutling**. This verifies that everything is set up correctly." = "Aşağıdaki metin alanına dokun, ardından **Cutling**’e geçmek için 🌐 küre tuşunu kullan. Bu, her şeyin doğru kurulduğunu doğrular.";
+"iCloud Sync is an **experimental feature**. It may not work correctly in all situations, which may lead to data loss. You can always change this later in Settings." = "iCloud Eşitleme **deneysel bir özelliktir**. Her durumda doğru çalışmayabilir, bu da veri kaybına yol açabilir. Bunu daha sonra Ayarlar’dan istediğin zaman değiştirebilirsin.";
 
 /* MARK: - Recently Deleted */
-"Recently Deleted" = "Son Silinenler";
-"Delete All" = "Tümünü Sil";
-"Delete All Permanently?" = "Tümü Kalıcı Olarak Silinsin mi?";
-"Delete Permanently?" = "Kalıcı Olarak Silinsin mi?";
-"Delete Permanently" = "Kalıcı Olarak Sil";
-"Recover" = "Kurtar";
-"Items will be permanently deleted after 30 days." = "Öğeler 30 gün sonra kalıcı olarak silinecektir.";
-"No Recently Deleted Items" = "Son Silinen Öğe Yok";
-"Deleted cutlings will appear here for 30 days." = "Silinen cutling'ler burada 30 gün boyunca görünecektir.";
-"This will permanently delete all %lld items. This action cannot be undone." = "Tüm %lld öğe kalıcı olarak silinecektir. Bu işlem geri alınamaz.";
-"\"%@\" will be deleted permanently." = "\"%@\" kalıcı olarak silinecektir.";
+"Recently Deleted" = "Son silinenler";
+"Delete All" = "Tümünü sil";
+"Delete All Permanently?" = "Tümünü kalıcı olarak sil?";
+"Delete Permanently?" = "Kalıcı olarak sil?";
+"Delete Permanently" = "Kalıcı olarak sil";
+"Recover" = "Geri yükle";
+"Items will be permanently deleted after 30 days." = "Öğeler 30 gün sonra kalıcı olarak silinir.";
+"No Recently Deleted Items" = "Son silinen öğe yok";
+"Deleted cutlings will appear here for 30 days." = "Silinen cutling’ler 30 gün boyunca burada görünür.";
+"This will permanently delete all %lld items. This action cannot be undone." = "Bu işlem %lld öğeyi kalıcı olarak siler. Bu işlem geri alınamaz.";
+"\"%@\" will be deleted permanently." = "“%@” kalıcı olarak silinecek.";
 "1 day left" = "1 gün kaldı";
 "%lld days left" = "%lld gün kaldı";
 
@@ -299,46 +299,46 @@
 "Don't Warn About This Again" = "Bu Konuda Tekrar Uyarma";
 
 /* MARK: - App Shortcuts (Siri / Shortcuts gallery) */
-"Save clipboard contents as a new cutling." = "Panodaki içeriği yeni bir cutling olarak kaydedin.";
+"Save clipboard contents as a new cutling." = "Panodaki içeriği yeni bir Cutling olarak kaydedin.";
 "Save Text" = "Metni Kaydet";
-"Save text as a new cutling." = "Metni yeni bir cutling olarak kaydedin.";
+"Save text as a new cutling." = "Metni yeni bir Cutling olarak kaydedin.";
 "Get Cutling Text" = "Cutling Metnini Al";
-"Get the text contents of a cutling as a value for use in other shortcuts." = "Diğer kısayollarda kullanmak için bir cutling'in metin içeriğini değer olarak alın.";
+"Get the text contents of a cutling as a value for use in other shortcuts." = "Diğer kısayollarda kullanmak için bir Cutling'in metin içeriğini değer olarak alın.";
 "Get Latest Cutling" = "En Son Cutling'i Al";
 "Latest Cutling" = "En Son Cutling";
-"Get the text from your most recently saved cutling." = "En son kaydettiğiniz cutling'den metni alın.";
+"Get the text from your most recently saved cutling." = "En son kaydettiğiniz Cutling'den metni alın.";
 "Save Image" = "Görseli Kaydet";
-"Save an image as a new cutling." = "Bir görseli yeni bir cutling olarak kaydedin.";
+"Save an image as a new cutling." = "Bir görseli yeni bir Cutling olarak kaydedin.";
 "Search Cutlings" = "Cutling'lerde Ara";
-"Find cutlings whose name or contents match a search query." = "Adı veya içeriği arama sorgusuyla eşleşen cutling'leri bulun.";
+"Find cutlings whose name or contents match a search query." = "Adı veya içeriği arama sorgusuyla eşleşen Cutling'leri bulun.";
 "Open Cutling" = "Cutling'i Aç";
 "Open the Cutling app." = "Cutling uygulamasını açar.";
-"Open Cutling and start a new text cutling." = "Cutling'i açın ve yeni bir metin cutling'i oluşturun.";
-"Open Cutling and start a new image cutling." = "Cutling'i açın ve yeni bir görsel cutling'i oluşturun.";
+"Open Cutling and start a new text cutling." = "Cutling'i açın ve yeni bir metin Cutling'i oluşturun.";
+"Open Cutling and start a new image cutling." = "Cutling'i açın ve yeni bir görsel Cutling'i oluşturun.";
 "Query" = "Sorgu";
 "Nothing to save." = "Kaydedilecek bir şey yok.";
 "That doesn't look like an image." = "Bu bir görsele benzemiyor.";
 "Failed to save image." = "Görsel kaydedilemedi.";
 
 /* MARK: - TipKit */
-"Saved cutlings" = "Kaydedilen cutling'ler";
-"Your pinned snippets live here, ready to copy with one click." = "Sabitlediğiniz parçalar burada, tek tıkla kopyalanmaya hazır.";
+"Saved cutlings" = "Kaydedilmiş cutling’ler";
+"Your pinned snippets live here, ready to copy with one click." = "Sabitlediğin parçacıklar burada yaşar, tek tıkla kopyalanmaya hazırdır.";
 "Recent clipboard" = "Son pano";
-"Everything you copy lands here. Right-click any row to save it as a cutling." = "Kopyaladığınız her şey buraya düşer. Bir cutling olarak kaydetmek için herhangi bir satıra sağ tıklayın.";
+"Everything you copy lands here. Right-click any row to save it as a cutling." = "Kopyaladığın her şey buraya iner. Bir satıra sağ tıklayarak cutling olarak kaydet.";
 "Wipe the list" = "Listeyi temizle";
-"Empties your recent clipboard. Saved cutlings stay put." = "Son pano geçmişinizi boşaltır. Kaydedilen cutling'ler yerinde kalır.";
-"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Kısayol tuşunu yeniden atayın, pano yakalamayı açıp kapatın ve iCloud senkronizasyonunu yönetin.";
+"Empties your recent clipboard. Saved cutlings stay put." = "Son panonu temizler. Kaydedilmiş cutling’ler yerinde kalır.";
+"Rebind the hotkey, toggle clipboard capture, and manage iCloud sync." = "Kısayolu yeniden ata, pano yakalamayı aç/kapat ve iCloud Eşitlemeyi yönet.";
 "Undo deletes" = "Silmeleri geri al";
-"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Silinen cutling'ler burada 30 gün kalır. Geri yükleyin veya temelli silin.";
-"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Birden fazla cutling seçmek, yeniden sıralamak veya son silinenleri geri yüklemek için buraya dokunun.";
-"Long-press a cutling" = "Bir cutling'e uzun basın";
-"Hold any card for quick actions: copy, edit, share, or delete." = "Hızlı işlemler için herhangi bir karta basılı tutun: kopyala, düzenle, paylaş veya sil.";
-"Drag to select" = "Seçmek için sürükleyin";
-"Swipe across cards to select a range. Swipe back over them to deselect." = "Bir aralık seçmek için kartların üzerinde kaydırın. Seçimi kaldırmak için üzerlerinden geriye doğru kaydırın.";
+"Deleted cutlings stay here for 30 days. Restore them or empty for good." = "Silinen cutling’ler burada 30 gün kalır. Geri yükle veya kalıcı olarak temizle.";
+"Tap here to select multiple cutlings, reorder them, or restore recently deleted ones." = "Birden çok cutling’i seçmek, sıralarını değiştirmek veya son silinenleri geri yüklemek için buraya dokun.";
+"Long-press a cutling" = "Cutling’e uzun bas";
+"Hold any card for quick actions: copy, edit, share, or delete." = "Hızlı işlemler için herhangi bir karta basılı tut: kopyala, düzenle, paylaş veya sil.";
+"Drag to select" = "Seçmek için sürükle";
+"Swipe across cards to select a range. Swipe back over them to deselect." = "Bir aralık seçmek için kartların üzerinden kaydır. Seçimi kaldırmak için tersine kaydır.";
 "Smart field matching" = "Akıllı alan eşleştirme";
-"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling; e-posta, URL, telefon ve adres alanlarını algılar ve uyan parçaları klavyenin üstüne çıkarır.";
-"Create a new cutling" = "Yeni bir Cutling oluştur";
-"Save text or image snippets you'll reuse from any app." = "Herhangi bir uygulamada yeniden kullanacağın metin veya görsel parçaları kaydet.";
+"Cutling spots email, URL, phone, and address fields, then floats matching snippets to the top of the keyboard." = "Cutling e-posta, URL, telefon ve adres alanlarını fark eder ve eşleşen parçacıkları klavyenin üstüne çıkarır.";
+"Create a new cutling" = "Yeni bir cutling oluştur";
+"Save text or image snippets you'll reuse from any app." = "Herhangi bir uygulamada yeniden kullanacağın metin veya görsel parçacıklarını kaydet.";
 
 /* MARK: - Welcome Window (macOS first launch) */
 "Welcome to Cutling" = "Cutling'e Hoş Geldiniz";
@@ -359,3 +359,33 @@
 "Lets Cutling paste a cutling straight into the app you were using." = "Cutling'in, kullandığınız uygulamaya doğrudan bir cutling yapıştırmasına olanak tanır.";
 "Grant" = "İzin Ver";
 "You can skip Accessibility and grant it later from Settings → Paste." = "Erişilebilirliği atlayıp daha sonra Ayarlar → Yapıştırma üzerinden verebilirsiniz.";
+
+
+/* MARK: - Image Saving (macOS) */
+"Save as File…" = "Dosya olarak kaydet…";
+"Image Saving" = "Resim kaydetme";
+"When saving images" = "Resimler kaydedilirken";
+"Ask each time" = "Her seferinde sor";
+"Save to folder" = "Klasöre kaydet";
+"Folder" = "Klasör";
+"Change Folder…" = "Klasörü değiştir…";
+"Choose how the “Save as File” action works for image cutlings. With “Save to folder”, images go straight into the folder you pick with a unique filename, no prompt." = "Resim Cutling’leri için “Dosya olarak kaydet” eyleminin nasıl çalışacağını seç. “Klasöre kaydet” seçildiğinde resimler, sorulmadan, benzersiz bir dosya adıyla doğrudan seçtiğin klasöre gider.";
+"Choose" = "Seç";
+"Choose Image Folder" = "Resim klasörü seç";
+"Pick a folder where Cutling will save image cutlings." = "Cutling’in resim Cutling’lerini kaydedeceği bir klasör seç.";
+"Preview" = "Önizleme";
+
+
+/* MARK: - Newly added keys */
+"Saved" = "Kaydedildi";
+"History" = "Geçmiş";
+"No saved cutlings yet" = "Henüz kaydedilmiş Cutling yok";
+"Copy something to see it here" = "Burada görmek için bir şey kopyala";
+"Clipboard history is off. Enable it in Settings." = "Pano geçmişi kapalı. Ayarlar’dan aç.";
+"Spotlight" = "Spotlight";
+"Include in Spotlight Search" = "Spotlight aramasına dahil et";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "Cutling’lerini Spotlight’tan aranabilir yap. Hassas içerik (kredi kartları, API anahtarları, JWT belirteçleri, seed ifadeleri, özel anahtarlar) hiçbir zaman dizine eklenmez.";
+"Copy Cutling" = "Cutling’i Kopyala";
+"Copy a cutling's contents to the clipboard." = "Bir cutling’in içeriğini panoya kopyalar.";
+"Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Bu kalıpları Siri ile kullan ya da Kısayollar uygulamasından tüm Cutling kısayollarına göz at.";
+"Copied \"%@\"" = "“%@” kopyalandı";
