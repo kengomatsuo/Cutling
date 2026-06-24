@@ -292,22 +292,21 @@ private struct KeyCap: View {
 // MARK: - Step 3: Permissions (launch at login + accessibility)
 
 private struct StepAccessibility: View {
+    @AppStorage("pasteAutomatically") private var pasteAutomatically = false
     @State private var isTrusted: Bool = PasteService.shared.isTrusted
     @State private var pollTimer: Timer?
     @State private var launchAtLogin: Bool = LaunchAtLoginService.shared.isEnabled
-    @State private var didAutoPromptAX = false
-    @State private var didAutoEnableLogin = false
 
     var body: some View {
         VStack(spacing: 18) {
-            Image(systemName: isTrusted ? "checkmark.shield.fill" : "lock.shield")
+            Image(systemName: pasteAutomatically && isTrusted ? "checkmark.shield.fill" : "lock.shield")
                 .font(.system(size: 48, weight: .light))
-                .foregroundStyle(isTrusted ? AnyShapeStyle(.green) : AnyShapeStyle(.tint))
+                .foregroundStyle(pasteAutomatically && isTrusted ? AnyShapeStyle(.green) : AnyShapeStyle(.tint))
                 .contentTransition(.symbolEffect(.replace))
                 .padding(.top, 16)
 
             VStack(spacing: 4) {
-                Text(isTrusted ? "You're all set" : "Almost there")
+                Text(pasteAutomatically && isTrusted ? "You're all set" : "Almost there")
                     .font(.title2.bold())
                     .contentTransition(.opacity)
                 Text("Two quick permissions so Cutling can work the way you'd expect. You can change either later in Settings.")
@@ -337,20 +336,21 @@ private struct StepAccessibility: View {
                 }
 
                 PermissionRow(
-                    icon: isTrusted ? "checkmark.circle.fill" : "hand.raised.fill",
-                    iconTint: isTrusted ? .green : .accentColor,
+                    icon: pasteAutomatically && isTrusted ? "checkmark.circle.fill" : "hand.raised.fill",
+                    iconTint: pasteAutomatically && isTrusted ? .green : .accentColor,
                     title: "Accessibility access",
-                    subtitle: isTrusted
+                    subtitle: pasteAutomatically && isTrusted
                         ? "Granted. Cutling can paste directly into other apps."
                         : "Lets Cutling paste a cutling straight into the app you were using.",
                     trailing: AnyView(
                         Group {
-                            if isTrusted {
+                            if pasteAutomatically && isTrusted {
                                 Image(systemName: "checkmark")
                                     .font(.system(size: 13, weight: .semibold))
                                     .foregroundStyle(.green)
                             } else {
                                 Button("Grant") {
+                                    pasteAutomatically = true
                                     PasteService.shared.requestTrustIfNeeded()
                                     PasteService.shared.openAccessibilitySettings()
                                 }
@@ -373,25 +373,6 @@ private struct StepAccessibility: View {
         .animation(.snappy, value: isTrusted)
         .onAppear {
             isTrusted = PasteService.shared.isTrusted
-            // Auto-enable launch at login on first arrival at this step
-            // for fresh installs. SMAppService.register() is silent for
-            // app-scope login items (a system notification appears; no
-            // modal). If registration fails (unsigned, denied), the
-            // toggle reflects the real state.
-            if !didAutoEnableLogin {
-                didAutoEnableLogin = true
-                if !launchAtLogin {
-                    _ = LaunchAtLoginService.shared.setEnabled(true)
-                    launchAtLogin = LaunchAtLoginService.shared.isEnabled
-                }
-            }
-            // Auto-surface the system Accessibility prompt the first
-            // time the user lands here. The OS only shows this dialog
-            // once per launch; the Grant button below covers reruns.
-            if !didAutoPromptAX && !isTrusted {
-                didAutoPromptAX = true
-                _ = PasteService.shared.requestTrustIfNeeded()
-            }
             pollTimer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { _ in
                 Task { @MainActor in
                     isTrusted = PasteService.shared.isTrusted

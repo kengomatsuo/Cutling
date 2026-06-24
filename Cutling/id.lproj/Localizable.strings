@@ -402,3 +402,9 @@
 "Copy a cutling's contents to the clipboard." = "Menyalin konten cutling ke papan klip.";
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Gunakan frasa ini dengan Siri atau jelajahi semua pintasan Cutling di aplikasi Pintasan.";
 "Copied \"%@\"" = "“%@” disalin";
+
+/* MARK: - Paste Settings (macOS) - Auto-Paste opt-in */
+"Paste automatically into other apps" = "Tempel otomatis ke aplikasi lain";
+"When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V." = "Saat aktif, memilih sebuah Cutling dari pemilih yang dimunculkan pintasan akan mengirim satu ketukan ⌘V ke aplikasi yang sebelumnya berada di depan, sehingga Cutling tertempel di posisi kursor. Mati secara baku. Saat mati, Cutling menyalin ke papan klip dan kamu menempelnya secara manual dengan ⌘V.";
+"Permission" = "Izin";
+"Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "Cutling menggunakan Akses Aksesibilitas hanya untuk mengirim ketukan ⌘V ke aplikasi yang sebelumnya berfokus setelah kamu memilih sebuah Cutling. Aplikasi ini tidak membaca UI aplikasi lain atau mengontrol komputermu.";

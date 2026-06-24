@@ -92,13 +92,18 @@ final class CutlingPickerController {
         }
     }
 
-    /// When the user picks an item: if the panel was the source AND we know
-    /// the previous frontmost app AND Accessibility is granted, restore that
-    /// app and post ⌘V into it. Otherwise: copy-only.
+    /// When the user picks an item: if the panel was the source AND the user
+    /// has opted in to "Paste automatically" AND Accessibility is granted AND
+    /// we know the previous frontmost app, restore that app and post ⌘V into
+    /// it. Otherwise: copy-only. The feature is opt-in via Settings → Paste,
+    /// so Accessibility is never used unless the user explicitly asked for it.
     private func handleDidPick() {
         let cameFromPanel = panel?.isVisible == true
         hide()
         guard cameFromPanel else { return }
+        guard UserDefaults.standard.bool(forKey: "pasteAutomatically") else {
+            return
+        }
         guard PasteService.shared.isTrusted else {
             print("⚠️ Cutling: auto-paste skipped, Accessibility access not granted. Open Settings → Paste.")
             return

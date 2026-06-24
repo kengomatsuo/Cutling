@@ -389,3 +389,9 @@
 "Copy a cutling's contents to the clipboard." = "Kopira vsebino Cutlinga v odložišče.";
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Uporabi te fraze s Siri ali prebrskaj vse bližnjice Cutlinga v aplikaciji Bližnjice.";
 "Copied \"%@\"" = "Kopirano „%@“";
+
+/* MARK: - Paste Settings (macOS) - Auto-Paste opt-in */
+"Paste automatically into other apps" = "Samodejno prilepi v druge aplikacije";
+"When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V." = "Ko je vključeno, izbira Cutlinga iz izbirnika, priklicanega s tipko za bližnjico, pošlje en pritisk ⌘V aplikaciji, ki je bila v ospredju, in tako se Cutling prilepi na mesto kazalca. Privzeto izklopljeno. Ko je izklopljeno, Cutling kopira v odložišče in prilepiš ročno s ⌘V.";
+"Permission" = "Dovoljenje";
+"Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "Cutling uporablja dostop do dostopnosti samo za pošiljanje pritiska ⌘V predhodno aktivni aplikaciji po izbiri Cutlinga. Ne bere uporabniškega vmesnika drugih aplikacij in ne upravlja tvojega računalnika.";

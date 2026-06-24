@@ -389,3 +389,9 @@
 "Copy a cutling's contents to the clipboard." = "컷링의 내용을 클립보드로 복사합니다.";
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "이 문구를 Siri와 함께 사용하거나 단축어 앱에서 모든 Cutling 단축어를 둘러보세요.";
 "Copied \"%@\"" = "“%@”이(가) 복사됨";
+
+/* MARK: - Paste Settings (macOS) - Auto-Paste opt-in */
+"Paste automatically into other apps" = "다른 앱에 자동으로 붙여넣기";
+"When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V." = "켜져 있으면 단축키로 호출한 피커에서 컷링을 선택할 때 직전에 활성화되어 있던 앱에 ⌘V 한 번이 전송되어 컷링이 커서 위치에 붙여넣어집니다. 기본값은 꺼짐입니다. 꺼져 있으면 컷링이 클립보드에 복사되며 ⌘V로 직접 붙여넣어야 합니다.";
+"Permission" = "권한";
+"Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "컷링은 컷링을 선택한 후 직전에 포커스가 있던 앱에 ⌘V 키 입력을 보내기 위해서만 손쉬운 사용 접근 권한을 사용합니다. 다른 앱의 UI를 읽거나 컴퓨터를 제어하지 않습니다.";

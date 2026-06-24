@@ -402,3 +402,9 @@
 "Copy a cutling's contents to the clipboard." = "Kinokopya ang nilalaman ng cutling sa clipboard.";
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Gamitin ang mga pariralang ito sa Siri o tingnan ang lahat ng Cutling shortcut sa Shortcuts app.";
 "Copied \"%@\"" = "Na-copy ang “%@”";
+
+/* MARK: - Paste Settings (macOS) - Auto-Paste opt-in */
+"Paste automatically into other apps" = "I-paste nang awtomatiko sa ibang apps";
+"When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V." = "Kapag naka-on, ang pagpili ng cutling mula sa picker na binubuksan ng hotkey ay nagpapadala ng isang ⌘V keystroke sa app na nasa harapan, kaya ang cutling ay napa-paste sa cursor. Naka-off bilang default. Kapag naka-off, kinokopya ng Cutling sa clipboard at ipa-paste mo nang manual gamit ang ⌘V.";
+"Permission" = "Pahintulot";
+"Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "Gumagamit lamang ang Cutling ng Accessibility access para magpadala ng ⌘V keystroke sa app na huling nakatuon pagkatapos mong pumili ng cutling. Hindi nito binabasa ang UI ng ibang apps o kinokontrol ang iyong computer.";

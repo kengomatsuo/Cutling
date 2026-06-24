@@ -402,3 +402,9 @@
 "Copy a cutling's contents to the clipboard." = "Hunakili maudhui ya Cutling kwenye ubao wa kunakili.";
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Tumia misemo hii pamoja na Siri au vinjari njia za mkato za Cutling zote katika programu ya Njia za Mkato.";
 "Copied \"%@\"" = "“%@” imenakiliwa";
+
+/* MARK: - Paste Settings (macOS) - Auto-Paste opt-in */
+"Paste automatically into other apps" = "Bandika kiotomatiki kwenye programu zingine";
+"When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V." = "Ikiwa imewashwa, kuchagua Cutling kutoka kichagua kinachofunguliwa kwa funguo ya mkato hutuma mbofyo mmoja wa ⌘V kwa programu iliyokuwa mbele, hivyo Cutling inabandikwa kwenye kishale. Imezimwa kwa chaguo-msingi. Ikiwa imezimwa, Cutling inanakili kwenye ubao wa kunakili na unabandika kwa mkono kwa kutumia ⌘V.";
+"Permission" = "Ruhusa";
+"Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "Cutling hutumia Ufikiaji wa Ufikivu pekee kutuma mbofyo wa ⌘V kwa programu iliyokuwa imelenga awali baada ya kuchagua Cutling. Haisomi UI ya programu zingine au kudhibiti kompyuta yako.";

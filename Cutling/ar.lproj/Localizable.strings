@@ -389,3 +389,9 @@
 "Copy a cutling's contents to the clipboard." = "ينسخ محتوى الكاتلينج إلى الحافظة.";
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "استخدم هذه العبارات مع Siri أو تصفح كل اختصارات Cutling في تطبيق الاختصارات.";
 "Copied \"%@\"" = "تم نسخ «%@»";
+
+/* MARK: - Paste Settings (macOS) - Auto-Paste opt-in */
+"Paste automatically into other apps" = "اللصق تلقائيًا في تطبيقات أخرى";
+"When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V." = "عند التشغيل، يؤدي اختيار كاتلينج من المنتقي الذي يُستدعى بالاختصار إلى إرسال ضغطة ⌘V واحدة إلى التطبيق الذي كان في المقدمة، فيُلصق الكاتلينج عند المؤشر. مُعطّل افتراضيًا. عند الإيقاف، ينسخ كاتلينج إلى الحافظة وتلصق يدويًا بـ ⌘V.";
+"Permission" = "الإذن";
+"Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "يستخدم كاتلينج وصول إمكانية الوصول فقط لإرسال ضغطة ⌘V إلى التطبيق المُركَّز عليه سابقًا بعد أن تختار كاتلينج. لا يقرأ واجهة تطبيقات أخرى ولا يتحكم في حاسوبك.";

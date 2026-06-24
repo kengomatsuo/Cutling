@@ -389,3 +389,9 @@
 "Copy a cutling's contents to the clipboard." = "Skopíruje obsah Cutlingu do schránky.";
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Použi tieto frázy so Siri alebo prechádzaj všetky skratky Cutlingu v aplikácii Skratky.";
 "Copied \"%@\"" = "„%@“ skopírované";
+
+/* MARK: - Paste Settings (macOS) - Auto-Paste opt-in */
+"Paste automatically into other apps" = "Automaticky vložiť do iných aplikácií";
+"When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V." = "Keď je zapnuté, výber Cutlingu zo selektora vyvolaného klávesovou skratkou pošle jediné stlačenie ⌘V do aplikácie, ktorá bola v popredí, takže sa Cutling vloží na pozícii kurzora. V predvolenom nastavení vypnuté. Keď je vypnuté, Cutling skopíruje do schránky a ty vložíš manuálne pomocou ⌘V.";
+"Permission" = "Povolenie";
+"Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "Cutling používa prístup k funkciám prístupnosti len na to, aby po tvojom výbere poslal stlačenie ⌘V predtým zameranej aplikácii. Nečíta používateľské rozhranie iných aplikácií ani neovláda tvoj počítač.";

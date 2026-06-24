@@ -24,6 +24,7 @@ extension Notification.Name {
 }
 
 struct MacSettingsView: View {
+    @AppStorage("pasteAutomatically") private var pasteAutomatically = false
     @State private var tab: MacSettingsTab = .general
     @State private var isTrusted: Bool = PasteService.shared.isTrusted
     @State private var trustTimer: Timer?
@@ -41,7 +42,7 @@ struct MacSettingsView: View {
             PasteSettingsTab()
                 .tabItem { Label("Paste", systemImage: "doc.on.clipboard") }
                 .tag(MacSettingsTab.paste)
-                .badge(isTrusted ? nil : Text("!"))
+                .badge((pasteAutomatically && !isTrusted) ? Text("!") : nil)
 
             SyncSettingsTab()
                 .tabItem { Label("iCloud", systemImage: "icloud") }
@@ -73,6 +74,7 @@ struct MacSettingsView: View {
 }
 
 private struct PasteSettingsTab: View {
+    @AppStorage("pasteAutomatically") private var pasteAutomatically = false
     @State private var isTrusted: Bool = PasteService.shared.isTrusted
     @State private var checkTimer: Timer?
 
@@ -83,36 +85,57 @@ private struct PasteSettingsTab: View {
     var body: some View {
         Form {
             Section {
-                HStack {
-                    Label("Accessibility access", systemImage: isTrusted ? "checkmark.shield.fill" : "exclamationmark.shield.fill")
-                        .foregroundStyle(isTrusted ? .green : .orange)
-                    Spacer()
-                    Text(isTrusted ? "Granted" : "Not granted")
-                        .foregroundStyle(.secondary)
+                Toggle(isOn: $pasteAutomatically) {
+                    Label("Paste automatically into other apps", systemImage: "doc.on.clipboard")
                 }
-                if !isTrusted {
-                    Button("Grant Access…") {
+                .onChange(of: pasteAutomatically) { _, newValue in
+                    // Only request Accessibility when the user opts in to the
+                    // feature. Without this consent, Cutling never asks.
+                    if newValue && !isTrusted {
                         PasteService.shared.requestTrustIfNeeded()
-                        // System prompt may already have been used; offer the
-                        // System Settings deep link as well.
-                        PasteService.shared.openAccessibilitySettings()
                     }
-                }
-                Button("Show Cutling.app in Finder") {
-                    let url = URL(fileURLWithPath: Bundle.main.bundlePath)
-                    NSWorkspace.shared.activateFileViewerSelecting([url])
                 }
             } header: {
                 Text("Auto-Paste")
             } footer: {
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("With Accessibility access, picking a cutling from the hotkey-summoned picker will paste it directly into the app that was frontmost. Without it, Cutling will copy to the clipboard so you can paste manually.")
-                    if isDebugBuild {
-                        Text("Debug build detected. macOS treats each rebuild as a different app, so Accessibility access has to be granted to *this* .app bundle. Click \u{201C}Show Cutling.app in Finder\u{201D}, then drag it into System Settings → Privacy & Security → Accessibility and tick the box. For a permanent setup, run the Release build (⌘R → Product › Scheme › Edit Scheme → Run → Release).")
+                Text("When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+
+            if pasteAutomatically {
+                Section {
+                    HStack {
+                        Label("Accessibility access", systemImage: isTrusted ? "checkmark.shield.fill" : "exclamationmark.shield.fill")
+                            .foregroundStyle(isTrusted ? .green : .orange)
+                        Spacer()
+                        Text(isTrusted ? "Granted" : "Not granted")
+                            .foregroundStyle(.secondary)
                     }
+                    if !isTrusted {
+                        Button("Grant Access…") {
+                            PasteService.shared.requestTrustIfNeeded()
+                            // System prompt may already have been used; offer the
+                            // System Settings deep link as well.
+                            PasteService.shared.openAccessibilitySettings()
+                        }
+                    }
+                    Button("Show Cutling.app in Finder") {
+                        let url = URL(fileURLWithPath: Bundle.main.bundlePath)
+                        NSWorkspace.shared.activateFileViewerSelecting([url])
+                    }
+                } header: {
+                    Text("Permission")
+                } footer: {
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text("Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer.")
+                        if isDebugBuild {
+                            Text("Debug build detected. macOS treats each rebuild as a different app, so Accessibility access has to be granted to *this* .app bundle. Click \u{201C}Show Cutling.app in Finder\u{201D}, then drag it into System Settings → Privacy & Security → Accessibility and tick the box. For a permanent setup, run the Release build (⌘R → Product › Scheme › Edit Scheme → Run → Release).")
+                        }
+                    }
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
                 }
-                .font(.caption)
-                .foregroundStyle(.secondary)
             }
         }
         .formStyle(.grouped)

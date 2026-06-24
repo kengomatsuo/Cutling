@@ -389,3 +389,9 @@
 "Copy a cutling's contents to the clipboard." = "将剪切片段的内容拷贝到剪贴板。";
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "在 Siri 中使用这些短语，或在“快捷指令” App 中浏览所有 Cutling 快捷指令。";
 "Copied \"%@\"" = "已拷贝“%@”";
+
+/* MARK: - Paste Settings (macOS) - Auto-Paste opt-in */
+"Paste automatically into other apps" = "自动粘贴到其他 App";
+"When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V." = "开启后，从快捷键唤起的选取器中选择一个剪切片段，会向之前最前面的 App 发送一次 ⌘V，从而把剪切片段粘贴到光标处。默认关闭。关闭时，剪切片段会被复制到剪贴板，需要你用 ⌘V 手动粘贴。";
+"Permission" = "权限";
+"Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "剪切片段仅在你选取一个剪切片段后，使用辅助功能权限把 ⌘V 发送给之前获得焦点的 App。它不会读取其他 App 的界面，也不会控制你的电脑。";

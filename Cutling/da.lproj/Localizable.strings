@@ -402,3 +402,9 @@
 "Copy a cutling's contents to the clipboard." = "Arkiverer indholdet af en cutling i udklipsholderen.";
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Brug disse sætninger med Siri, eller gennemse alle Cutling-genveje i appen Genveje.";
 "Copied \"%@\"" = "„%@” kopieret";
+
+/* MARK: - Paste Settings (macOS) - Auto-Paste opt-in */
+"Paste automatically into other apps" = "Indsæt automatisk i andre apps";
+"When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V." = "Når aktiveret, sender valg af en Cutling fra vælgeren, der kaldes frem med tastaturgenvejen, et enkelt ⌘V-tastetryk til den forreste app, så Cutlingen indsættes ved markøren. Slået fra som standard. Når slået fra, kopierer Cutling til udklipsholderen, og du indsætter manuelt med ⌘V.";
+"Permission" = "Tilladelse";
+"Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "Cutling bruger kun tilgængelighedsadgang til at sende ⌘V-tastetrykket til den senest fokuserede app, efter du har valgt en Cutling. Den læser ikke andre apps' brugerflader og styrer ikke din computer.";

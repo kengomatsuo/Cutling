@@ -387,3 +387,9 @@
 "Copy a cutling's contents to the clipboard." = "কাটলিংয়ের সামগ্রী ক্লিপবোর্ডে কপি করে।";
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "এই বাক্যাংশগুলি Siri-র সাথে ব্যবহার করুন বা Shortcuts অ্যাপে সমস্ত Cutling শর্টকাট ব্রাউজ করুন।";
 "Copied \"%@\"" = "“%@” কপি করা হয়েছে";
+
+/* MARK: - Paste Settings (macOS) - Auto-Paste opt-in */
+"Paste automatically into other apps" = "অন্যান্য অ্যাপে স্বয়ংক্রিয়ভাবে পেস্ট করুন";
+"When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V." = "চালু থাকলে, হটকি দিয়ে আনা পিকার থেকে একটি কাটলিং বেছে নিলে সামনের অ্যাপে একটি ⌘V কীস্ট্রোক পাঠানো হয় এবং কাটলিংটি কার্সরের জায়গায় পেস্ট হয়। ডিফল্টভাবে বন্ধ। বন্ধ থাকলে, কাটলিং ক্লিপবোর্ডে কপি হয় এবং আপনাকে ⌘V চেপে ম্যানুয়ালি পেস্ট করতে হবে।";
+"Permission" = "অনুমতি";
+"Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "কাটলিং কেবল অ্যাক্সেসিবিলিটি অ্যাক্সেস ব্যবহার করে আগে ফোকাস করা অ্যাপে ⌘V কীস্ট্রোক পাঠাতে, যখন আপনি একটি কাটলিং বেছে নেন। এটি অন্যান্য অ্যাপের UI পড়ে না বা আপনার কম্পিউটার নিয়ন্ত্রণ করে না।";
