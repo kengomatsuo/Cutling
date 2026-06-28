@@ -390,8 +390,10 @@
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "ఈ పదబంధాలను Siri తో ఉపయోగించండి లేదా Shortcuts యాప్‌లో అన్ని Cutling షార్ట్‌కట్‌లను బ్రౌజ్ చేయండి.";
 "Copied \"%@\"" = "“%@” కాపీ చేయబడింది";
 
-/* MARK: - Paste Settings (macOS) - Auto-Paste opt-in */
-"Paste automatically into other apps" = "ఇతర యాప్‌లలోకి ఆటోమేటిక్‌గా పేస్ట్ చేయండి";
+/* MARK: - Paste Settings (macOS) - Direct Paste opt-in */
+"Paste directly into other apps" = "ఇతర యాప్‌లలోకి నేరుగా పేస్ట్ చేయండి";
 "When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V." = "ఆన్‌లో ఉన్నప్పుడు, హాట్‌కీతో తెరిచిన పికర్ నుండి కట్లింగ్‌ను ఎంచుకుంటే, ముందుండిన యాప్‌కు ఒక ⌘V కీస్ట్రోక్ పంపబడుతుంది, తద్వారా కట్లింగ్ కర్సర్ వద్ద పేస్ట్ అవుతుంది. డిఫాల్ట్‌గా ఆఫ్. ఆఫ్ ఉన్నప్పుడు, కట్లింగ్ క్లిప్‌బోర్డ్‌కు కాపీ చేస్తుంది, మీరు ⌘V ద్వారా మాన్యువల్‌గా పేస్ట్ చేస్తారు.";
 "Permission" = "అనుమతి";
 "Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "మీరు ఒక కట్లింగ్‌ను ఎంచుకున్న తర్వాత, ముందుగా ఫోకస్‌లో ఉన్న యాప్‌కు ⌘V కీస్ట్రోక్ పంపేందుకు మాత్రమే కట్లింగ్ యాక్సెసిబిలిటీ యాక్సెస్‌ను ఉపయోగిస్తుంది. ఇది ఇతర యాప్‌ల UIని చదవదు లేదా మీ కంప్యూటర్‌ను నియంత్రించదు.";
+"Direct Paste" = "నేరుగా పేస్ట్";
+"Direct paste needs Accessibility access." = "నేరుగా పేస్ట్ చేయడానికి యాక్సెసిబిలిటీ యాక్సెస్ అవసరం.";

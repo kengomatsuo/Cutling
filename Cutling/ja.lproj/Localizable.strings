@@ -390,8 +390,10 @@
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "これらのフレーズを Siri で使うか、ショートカット App ですべての Cutling ショートカットを参照しましょう。";
 "Copied \"%@\"" = "「%@」をコピーしました";
 
-/* MARK: - Paste Settings (macOS) - Auto-Paste opt-in */
-"Paste automatically into other apps" = "他のAppに自動的にペースト";
+/* MARK: - Paste Settings (macOS) - Direct Paste opt-in */
+"Paste directly into other apps" = "他のAppに直接ペースト";
 "When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V." = "オンの場合、ホットキーで呼び出すピッカーからカットリングを選ぶと、直前に最前面だったAppに⌘Vのキーストロークを1回送信し、カーソル位置にカットリングがペーストされます。デフォルトはオフです。オフの場合、カットリングはクリップボードにコピーされるので、⌘Vで手動でペーストしてください。";
 "Permission" = "許可";
 "Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "カットリングは、あなたがカットリングを選んだあと、直前にフォーカスのあったAppに⌘Vのキーストロークを送るためだけにアクセシビリティアクセスを使用します。他のAppのUIを読み取ったり、コンピュータを操作したりはしません。";
+"Direct Paste" = "直接ペースト";
+"Direct paste needs Accessibility access." = "直接ペーストにはアクセシビリティアクセスが必要です。";

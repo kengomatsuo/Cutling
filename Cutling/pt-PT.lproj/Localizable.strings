@@ -390,8 +390,10 @@
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Utilize estas frases com a Siri ou explore todos os atalhos do Cutling na app Atalhos.";
 "Copied \"%@\"" = "«%@» copiado";
 
-/* MARK: - Paste Settings (macOS) - Auto-Paste opt-in */
-"Paste automatically into other apps" = "Colar automaticamente noutras apps";
+/* MARK: - Paste Settings (macOS) - Direct Paste opt-in */
+"Paste directly into other apps" = "Colar diretamente noutras apps";
 "When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V." = "Quando está ativado, escolher um cutling no seletor invocado pelo atalho envia uma única pressão de ⌘V para a app que estava em primeiro plano, pelo que o cutling é colado na posição do cursor. Desativado por predefinição. Quando está desativado, o Cutling copia para a área de transferência e colas manualmente com ⌘V.";
 "Permission" = "Permissão";
 "Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "O Cutling usa o acesso de acessibilidade apenas para enviar a pressão de ⌘V para a app que estava em foco depois de escolheres um cutling. Não lê a interface de outras apps nem controla o teu computador.";
+"Direct Paste" = "Colagem direta";
+"Direct paste needs Accessibility access." = "A colagem direta precisa de acesso de acessibilidade.";

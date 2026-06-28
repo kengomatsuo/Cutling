@@ -22,6 +22,7 @@ struct MacPickerView: View {
     /// hotkey panel). Forwarded to `AppActivationManager.showWindow(source:_:)`
     /// so a save in the add/edit window re-presents the same surface.
     @Environment(\.macWindowSurface) private var surface
+    @AppStorage("pasteDirectly") private var pasteDirectly = false
     @State private var searchText = ""
     @State private var tab: MacPickerTab = .saved
     @State private var isAccessibilityTrusted: Bool = PasteService.shared.isTrusted
@@ -98,7 +99,12 @@ struct MacPickerView: View {
             // (no NSWindow resize when search activates or deactivates).
             content
                 .frame(height: (stableContentHeight ?? 420) + (searchActive ? tabBarHeight : 0))
-            if !isAccessibilityTrusted {
+            // Banner only matters in the floating picker panel: auto-paste
+            // fires from there, not from the menu-bar popover (see
+            // PickerPanel.handleDidPick where `cameFromPanel` gates the post).
+            // And only when the user has opted in to auto-paste and the
+            // permission is still missing.
+            if surface == .pickerPanel && pasteDirectly && !isAccessibilityTrusted {
                 accessibilityBanner
             }
             Divider()
@@ -164,7 +170,7 @@ struct MacPickerView: View {
             Image(systemName: "exclamationmark.triangle.fill")
                 .foregroundStyle(.orange)
                 .font(.system(size: 11))
-            Text("Auto-paste needs Accessibility access.")
+            Text("Direct paste needs Accessibility access.")
                 .font(.system(size: 11))
                 .foregroundStyle(.secondary)
             Spacer(minLength: 0)

@@ -390,8 +390,10 @@
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Használd ezeket a mondatokat a Sirivel, vagy böngészd a Cutling összes parancsikonját a Parancsikonok appban.";
 "Copied \"%@\"" = "„%@” másolva";
 
-/* MARK: - Paste Settings (macOS) - Auto-Paste opt-in */
-"Paste automatically into other apps" = "Automatikus beillesztés más alkalmazásokba";
+/* MARK: - Paste Settings (macOS) - Direct Paste opt-in */
+"Paste directly into other apps" = "Közvetlen beillesztés más alkalmazásokba";
 "When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V." = "Bekapcsolva egy Cutling kiválasztása a gyorsbillentyűvel megnyitott választóból egyetlen ⌘V billentyűleütést küld az előtérben lévő alkalmazásnak, így a Cutling a kurzorhoz illeszti be. Alapértelmezetten ki van kapcsolva. Kikapcsolt állapotban a Cutling a vágólapra másol, és kézzel ⌘V-vel illesztheted be.";
 "Permission" = "Engedély";
 "Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "A Cutling a kisegítő lehetőségek hozzáférését kizárólag arra használja, hogy egy Cutling kiválasztása után ⌘V billentyűleütést küldjön a korábban fókuszban lévő alkalmazásnak. Nem olvassa más alkalmazások felületét, és nem irányítja a számítógépedet.";
+"Direct Paste" = "Közvetlen beillesztés";
+"Direct paste needs Accessibility access." = "A közvetlen beillesztéshez kisegítő lehetőségek hozzáférése szükséges.";

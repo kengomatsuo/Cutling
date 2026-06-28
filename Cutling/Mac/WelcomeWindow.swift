@@ -292,21 +292,21 @@ private struct KeyCap: View {
 // MARK: - Step 3: Permissions (launch at login + accessibility)
 
 private struct StepAccessibility: View {
-    @AppStorage("pasteAutomatically") private var pasteAutomatically = false
+    @AppStorage("pasteDirectly") private var pasteDirectly = false
     @State private var isTrusted: Bool = PasteService.shared.isTrusted
     @State private var pollTimer: Timer?
     @State private var launchAtLogin: Bool = LaunchAtLoginService.shared.isEnabled
 
     var body: some View {
         VStack(spacing: 18) {
-            Image(systemName: pasteAutomatically && isTrusted ? "checkmark.shield.fill" : "lock.shield")
+            Image(systemName: pasteDirectly && isTrusted ? "checkmark.shield.fill" : "lock.shield")
                 .font(.system(size: 48, weight: .light))
-                .foregroundStyle(pasteAutomatically && isTrusted ? AnyShapeStyle(.green) : AnyShapeStyle(.tint))
+                .foregroundStyle(pasteDirectly && isTrusted ? AnyShapeStyle(.green) : AnyShapeStyle(.tint))
                 .contentTransition(.symbolEffect(.replace))
                 .padding(.top, 16)
 
             VStack(spacing: 4) {
-                Text(pasteAutomatically && isTrusted ? "You're all set" : "Almost there")
+                Text(pasteDirectly && isTrusted ? "You're all set" : "Almost there")
                     .font(.title2.bold())
                     .contentTransition(.opacity)
                 Text("Two quick permissions so Cutling can work the way you'd expect. You can change either later in Settings.")
@@ -336,21 +336,21 @@ private struct StepAccessibility: View {
                 }
 
                 PermissionRow(
-                    icon: pasteAutomatically && isTrusted ? "checkmark.circle.fill" : "hand.raised.fill",
-                    iconTint: pasteAutomatically && isTrusted ? .green : .accentColor,
+                    icon: pasteDirectly && isTrusted ? "checkmark.circle.fill" : "hand.raised.fill",
+                    iconTint: pasteDirectly && isTrusted ? .green : .accentColor,
                     title: "Accessibility access",
-                    subtitle: pasteAutomatically && isTrusted
+                    subtitle: pasteDirectly && isTrusted
                         ? "Granted. Cutling can paste directly into other apps."
                         : "Lets Cutling paste a cutling straight into the app you were using.",
                     trailing: AnyView(
                         Group {
-                            if pasteAutomatically && isTrusted {
+                            if pasteDirectly && isTrusted {
                                 Image(systemName: "checkmark")
                                     .font(.system(size: 13, weight: .semibold))
                                     .foregroundStyle(.green)
                             } else {
                                 Button("Grant") {
-                                    pasteAutomatically = true
+                                    pasteDirectly = true
                                     PasteService.shared.requestTrustIfNeeded()
                                     PasteService.shared.openAccessibilitySettings()
                                 }

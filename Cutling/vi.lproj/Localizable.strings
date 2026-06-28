@@ -403,8 +403,10 @@
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Dùng các cụm từ này với Siri hoặc duyệt mọi phím tắt Cutling trong ứng dụng Phím tắt.";
 "Copied \"%@\"" = "Đã sao chép “%@”";
 
-/* MARK: - Paste Settings (macOS) - Auto-Paste opt-in */
-"Paste automatically into other apps" = "Tự động dán vào các ứng dụng khác";
+/* MARK: - Paste Settings (macOS) - Direct Paste opt-in */
+"Paste directly into other apps" = "Dán trực tiếp vào các ứng dụng khác";
 "When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V." = "Khi bật, chọn một Cutling từ trình chọn được mở bằng phím tắt sẽ gửi một lần nhấn ⌘V đến ứng dụng đang ở phía trước, để Cutling được dán tại con trỏ. Mặc định tắt. Khi tắt, Cutling sao chép vào bảng tạm và bạn dán thủ công bằng ⌘V.";
 "Permission" = "Quyền";
 "Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "Cutling chỉ sử dụng quyền truy cập trợ năng để gửi phím ⌘V đến ứng dụng từng được focus sau khi bạn chọn một Cutling. Nó không đọc giao diện của các ứng dụng khác và không điều khiển máy tính của bạn.";
+"Direct Paste" = "Dán trực tiếp";
+"Direct paste needs Accessibility access." = "Dán trực tiếp cần quyền truy cập trợ năng.";

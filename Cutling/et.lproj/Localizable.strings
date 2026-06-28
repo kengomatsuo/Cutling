@@ -390,8 +390,10 @@
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Kasuta neid fraase Siriga või sirvi kõiki Cutlingu otseteid rakenduses Otseteed.";
 "Copied \"%@\"" = "„%@“ kopeeritud";
 
-/* MARK: - Paste Settings (macOS) - Auto-Paste opt-in */
-"Paste automatically into other apps" = "Aseta automaatselt teistesse rakendustesse";
+/* MARK: - Paste Settings (macOS) - Direct Paste opt-in */
+"Paste directly into other apps" = "Aseta otse teistesse rakendustesse";
 "When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V." = "Kui sisse lülitatud, saadab Cutlingu valimine kiirklahviga avatud valijast esiplaanil olnud rakendusele ühe ⌘V vajutuse, nii et Cutling kleebitakse kursori asukohta. Vaikimisi välja lülitatud. Kui välja lülitatud, kopeerib Cutling lõikepuhvrisse ja saad käsitsi ⌘V-ga kleepida.";
 "Permission" = "Luba";
 "Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "Cutling kasutab hõlbustusfunktsioonide juurdepääsu üksnes ⌘V vajutuse saatmiseks viimati fookuses olnud rakendusele pärast seda, kui valid Cutlingu. See ei loe teiste rakenduste kasutajaliidest ega juhi sinu arvutit.";
+"Direct Paste" = "Otsene asetamine";
+"Direct paste needs Accessibility access." = "Otsene asetamine vajab hõlbustusfunktsioonide juurdepääsu.";

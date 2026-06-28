@@ -388,8 +388,10 @@
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "ഈ വാക്യങ്ങൾ Siri യുമായി ഉപയോഗിക്കുക അല്ലെങ്കിൽ Shortcuts ആപ്പിൽ എല്ലാ Cutling കുറുക്കുവഴികളും ബ്രൗസ് ചെയ്യുക.";
 "Copied \"%@\"" = "“%@” പകർത്തി";
 
-/* MARK: - Paste Settings (macOS) - Auto-Paste opt-in */
-"Paste automatically into other apps" = "മറ്റ് ആപ്പുകളിലേക്ക് സ്വയം പേസ്റ്റ് ചെയ്യുക";
+/* MARK: - Paste Settings (macOS) - Direct Paste opt-in */
+"Paste directly into other apps" = "മറ്റ് ആപ്പുകളിലേക്ക് നേരിട്ട് പേസ്റ്റ് ചെയ്യുക";
 "When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V." = "ഓൺ ആകുമ്പോൾ, ഹോട്ട്കീ വഴി തുറക്കുന്ന പിക്കറിൽ നിന്ന് കട്ട്‌ലിംഗ് തിരഞ്ഞെടുക്കുമ്പോൾ മുൻഭാഗത്തുണ്ടായിരുന്ന ആപ്പിന് ഒരു ⌘V കീസ്ട്രോക്ക് അയക്കും, അങ്ങനെ കട്ട്‌ലിംഗ് കഴ്സറിൽ പേസ്റ്റ് ചെയ്യും. സ്ഥിരസ്ഥിതിയായി ഓഫ്. ഓഫ് ആകുമ്പോൾ, കട്ട്‌ലിംഗ് ക്ലിപ്പ്ബോർഡിലേക്ക് കോപ്പി ചെയ്യും, ⌘V ഉപയോഗിച്ച് സ്വയം പേസ്റ്റ് ചെയ്യണം.";
 "Permission" = "അനുമതി";
 "Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "നിങ്ങൾ ഒരു കട്ട്‌ലിംഗ് തിരഞ്ഞെടുത്ത ശേഷം, മുമ്പ് ഫോക്കസ് ഉണ്ടായിരുന്ന ആപ്പിന് ⌘V കീസ്ട്രോക്ക് അയക്കാൻ മാത്രമേ കട്ട്‌ലിംഗ് ആക്സസിബിലിറ്റി ആക്സസ് ഉപയോഗിക്കൂ. അത് മറ്റ് ആപ്പുകളുടെ UI വായിക്കുകയോ നിങ്ങളുടെ കമ്പ്യൂട്ടറിനെ നിയന്ത്രിക്കുകയോ ചെയ്യില്ല.";
+"Direct Paste" = "നേരിട്ടുള്ള പേസ്റ്റ്";
+"Direct paste needs Accessibility access." = "നേരിട്ടുള്ള പേസ്റ്റിന് ആക്സസിബിലിറ്റി ആക്സസ് ആവശ്യമാണ്.";

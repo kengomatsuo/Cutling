@@ -24,7 +24,7 @@ extension Notification.Name {
 }
 
 struct MacSettingsView: View {
-    @AppStorage("pasteAutomatically") private var pasteAutomatically = false
+    @AppStorage("pasteDirectly") private var pasteDirectly = false
     @State private var tab: MacSettingsTab = .general
     @State private var isTrusted: Bool = PasteService.shared.isTrusted
     @State private var trustTimer: Timer?
@@ -42,7 +42,7 @@ struct MacSettingsView: View {
             PasteSettingsTab()
                 .tabItem { Label("Paste", systemImage: "doc.on.clipboard") }
                 .tag(MacSettingsTab.paste)
-                .badge((pasteAutomatically && !isTrusted) ? Text("!") : nil)
+                .badge((pasteDirectly && !isTrusted) ? Text("!") : nil)
 
             SyncSettingsTab()
                 .tabItem { Label("iCloud", systemImage: "icloud") }
@@ -74,7 +74,7 @@ struct MacSettingsView: View {
 }
 
 private struct PasteSettingsTab: View {
-    @AppStorage("pasteAutomatically") private var pasteAutomatically = false
+    @AppStorage("pasteDirectly") private var pasteDirectly = false
     @State private var isTrusted: Bool = PasteService.shared.isTrusted
     @State private var checkTimer: Timer?
 
@@ -85,10 +85,10 @@ private struct PasteSettingsTab: View {
     var body: some View {
         Form {
             Section {
-                Toggle(isOn: $pasteAutomatically) {
-                    Label("Paste automatically into other apps", systemImage: "doc.on.clipboard")
+                Toggle(isOn: $pasteDirectly) {
+                    Label("Paste directly into other apps", systemImage: "doc.on.clipboard")
                 }
-                .onChange(of: pasteAutomatically) { _, newValue in
+                .onChange(of: pasteDirectly) { _, newValue in
                     // Only request Accessibility when the user opts in to the
                     // feature. Without this consent, Cutling never asks.
                     if newValue && !isTrusted {
@@ -96,14 +96,14 @@ private struct PasteSettingsTab: View {
                     }
                 }
             } header: {
-                Text("Auto-Paste")
+                Text("Direct Paste")
             } footer: {
                 Text("When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V.")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
 
-            if pasteAutomatically {
+            if pasteDirectly {
                 Section {
                     HStack {
                         Label("Accessibility access", systemImage: isTrusted ? "checkmark.shield.fill" : "exclamationmark.shield.fill")

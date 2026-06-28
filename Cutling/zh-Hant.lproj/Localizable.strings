@@ -390,8 +390,10 @@
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "用這些片語搭配 Siri，或在「捷徑」App 中瀏覽所有 Cutling 捷徑。";
 "Copied \"%@\"" = "已拷貝「%@」";
 
-/* MARK: - Paste Settings (macOS) - Auto-Paste opt-in */
-"Paste automatically into other apps" = "自動貼上到其他 App";
+/* MARK: - Paste Settings (macOS) - Direct Paste opt-in */
+"Paste directly into other apps" = "直接貼上到其他 App";
 "When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V." = "開啟後，從快捷鍵喚出的選取器中選擇一個剪切片段，會向先前在前景的 App 傳送一次 ⌘V，使剪切片段貼到游標位置。預設為關閉。關閉時，剪切片段會複製到剪貼板，需要你用 ⌘V 手動貼上。";
 "Permission" = "權限";
 "Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "剪切片段僅在你選擇一個剪切片段後，使用輔助使用權限向先前獲得焦點的 App 傳送 ⌘V。它不會讀取其他 App 的介面，也不會控制你的電腦。";
+"Direct Paste" = "直接貼上";
+"Direct paste needs Accessibility access." = "直接貼上需要輔助使用權限。";

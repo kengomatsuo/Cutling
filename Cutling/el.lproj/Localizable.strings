@@ -390,8 +390,10 @@
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Χρησιμοποίησε αυτές τις φράσεις με τη Siri ή περιήγησε σε όλες τις συντομεύσεις του Cutling στην εφαρμογή Συντομεύσεις.";
 "Copied \"%@\"" = "Αντιγράφηκε «%@»";
 
-/* MARK: - Paste Settings (macOS) - Auto-Paste opt-in */
-"Paste automatically into other apps" = "Αυτόματη επικόλληση σε άλλες εφαρμογές";
+/* MARK: - Paste Settings (macOS) - Direct Paste opt-in */
+"Paste directly into other apps" = "Άμεση επικόλληση σε άλλες εφαρμογές";
 "When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V." = "Όταν είναι ενεργό, η επιλογή ενός Cutling από τον επιλογέα που εμφανίζεται με τη συντόμευση στέλνει ένα πάτημα ⌘V στην εφαρμογή που βρισκόταν σε πρώτο πλάνο, ώστε το Cutling να επικολληθεί στη θέση του δρομέα. Απενεργοποιημένο από προεπιλογή. Όταν είναι απενεργοποιημένο, το Cutling αντιγράφει στο πρόχειρο και επικολλάς χειροκίνητα με ⌘V.";
 "Permission" = "Άδεια";
 "Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "Το Cutling χρησιμοποιεί την πρόσβαση στην Προσβασιμότητα μόνο για να στείλει το πάτημα ⌘V στην εφαρμογή που είχε εστίαση μετά την επιλογή ενός Cutling. Δεν διαβάζει το περιβάλλον άλλων εφαρμογών ούτε ελέγχει τον υπολογιστή σου.";
+"Direct Paste" = "Άμεση επικόλληση";
+"Direct paste needs Accessibility access." = "Η άμεση επικόλληση χρειάζεται πρόσβαση στην Προσβασιμότητα.";

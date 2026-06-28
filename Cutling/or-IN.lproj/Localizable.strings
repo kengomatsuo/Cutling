@@ -388,8 +388,10 @@
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "ଏହି ବାକ୍ୟଗୁଡ଼ିକୁ Siri ସହିତ ବ୍ୟବହାର କରନ୍ତୁ କିମ୍ବା Shortcuts ଆପରେ ସମସ୍ତ Cutling ସର୍ଟକଟ ଖୋଜନ୍ତୁ।";
 "Copied \"%@\"" = "“%@” କପି ହୋଇଛି";
 
-/* MARK: - Paste Settings (macOS) - Auto-Paste opt-in */
-"Paste automatically into other apps" = "ଅନ୍ୟ ଆପ୍ସରେ ସ୍ୱୟଂଚାଳିତ ଭାବେ ପେଷ୍ଟ କରନ୍ତୁ";
+/* MARK: - Paste Settings (macOS) - Direct Paste opt-in */
+"Paste directly into other apps" = "ଅନ୍ୟ ଆପ୍ସରେ ସିଧାସଳଖ ପେଷ୍ଟ କରନ୍ତୁ";
 "When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V." = "ଅନ୍ ଥିବାବେଳେ, ହଟ୍‍କୀ ଦ୍ୱାରା ଖୋଲାଯାଇଥିବା ପିକର୍‌ରୁ କଟ୍‌ଲିଙ୍ଗ୍ ବାଛିଲେ ସାମ୍ନାରେ ଥିବା ଆପ୍‍କୁ ଗୋଟିଏ ⌘V କୀଷ୍ଟ୍ରୋକ୍ ପଠାଯାଏ, ଯାହାଦ୍ୱାରା କଟ୍‌ଲିଙ୍ଗ୍ କର୍ସର୍‍ରେ ପେଷ୍ଟ ହୁଏ. ଡିଫଲ୍ଟ ଭାବେ ଅଫ୍. ଅଫ୍ ଥିବାବେଳେ, କଟ୍‌ଲିଙ୍ଗ୍ କ୍ଲିପ୍‌ବୋର୍ଡ୍‌କୁ କପି କରେ ଏବଂ ଆପଣ ⌘V ସହିତ ମ୍ୟାନୁଆଲି ପେଷ୍ଟ କରନ୍ତି.";
 "Permission" = "ଅନୁମତି";
 "Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "ଆପଣ ଗୋଟିଏ କଟ୍‌ଲିଙ୍ଗ୍ ବାଛିବା ପରେ କେବଳ ପୂର୍ବରେ ଫୋକସ୍ ଥିବା ଆପ୍‌କୁ ⌘V କୀଷ୍ଟ୍ରୋକ୍ ପଠାଇବା ପାଇଁ କଟ୍‌ଲିଙ୍ଗ୍ ଆକ୍ସେସିବିଲିଟି ଆକ୍ସେସ୍ ବ୍ୟବହାର କରେ. ଏହା ଅନ୍ୟ ଆପ୍ସର UI ପଢ଼େ ନାହିଁ କିମ୍ବା ଆପଣଙ୍କ କମ୍ପ୍ୟୁଟର ନିୟନ୍ତ୍ରଣ କରେ ନାହିଁ.";
+"Direct Paste" = "ସିଧାସଳଖ ପେଷ୍ଟ";
+"Direct paste needs Accessibility access." = "ସିଧାସଳଖ ପେଷ୍ଟ ପାଇଁ ଆକ୍ସେସିବିଲିଟି ଆକ୍ସେସ୍ ଆବଶ୍ୟକ.";

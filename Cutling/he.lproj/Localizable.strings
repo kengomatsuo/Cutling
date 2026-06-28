@@ -390,8 +390,10 @@
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "השתמש בביטויים אלה עם Siri או עיין בכל הקיצורים של Cutling באפליקציית הקיצורים.";
 "Copied \"%@\"" = "“%@” הועתק";
 
-/* MARK: - Paste Settings (macOS) - Auto-Paste opt-in */
-"Paste automatically into other apps" = "הדבק אוטומטית באפליקציות אחרות";
+/* MARK: - Paste Settings (macOS) - Direct Paste opt-in */
+"Paste directly into other apps" = "הדבק ישירות באפליקציות אחרות";
 "When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V." = "כשהאפשרות מופעלת, בחירת קאטלינג מהבורר שמופעל באמצעות קיצור המקלדת שולחת לחיצה אחת של ⌘V לאפליקציה שהייתה בקדמת המסך, כך שהקאטלינג מודבק במקום הסמן. כבוי כברירת מחדל. כשכבוי, קאטלינג מעתיק ללוח ואתה מדביק ידנית באמצעות ⌘V.";
 "Permission" = "הרשאה";
 "Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "קאטלינג משתמש בגישת נגישות אך ורק כדי לשלוח את לחיצת ⌘V לאפליקציה שהייתה במיקוד לאחר שאתה בוחר קאטלינג. הוא אינו קורא את ממשק המשתמש של אפליקציות אחרות ואינו שולט במחשב שלך.";
+"Direct Paste" = "הדבקה ישירה";
+"Direct paste needs Accessibility access." = "הדבקה ישירה דורשת גישת נגישות.";

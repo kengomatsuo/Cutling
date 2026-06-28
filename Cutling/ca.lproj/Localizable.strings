@@ -390,8 +390,10 @@
 "Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app." = "Fes servir aquestes frases amb Siri o explora totes les dreceres de Cutling a l’app Dreceres.";
 "Copied \"%@\"" = "Copiat «%@»";
 
-/* MARK: - Paste Settings (macOS) - Auto-Paste opt-in */
-"Paste automatically into other apps" = "Enganxa automàticament a altres apps";
+/* MARK: - Paste Settings (macOS) - Direct Paste opt-in */
+"Paste directly into other apps" = "Enganxa directament a altres apps";
 "When on, picking a cutling from the hotkey-summoned picker sends a single ⌘V keystroke into the app that was frontmost, so the cutling is pasted at the cursor. Off by default. When off, Cutling copies to the clipboard and you paste manually with ⌘V." = "Quan està activat, escollir un cutling des del selector invocat amb la drecera envia una pulsació de ⌘V a l'app que era a primer pla, de manera que el cutling s'enganxa al cursor. Desactivat per defecte. Quan està desactivat, Cutling copia al porta-retalls i pots enganxar manualment amb ⌘V.";
 "Permission" = "Permís";
 "Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "Cutling només fa servir l'accés d'accessibilitat per enviar la pulsació ⌘V a l'app que tenia el focus després que esculls un cutling. No llegeix la interfície d'altres apps ni controla el teu ordinador.";
+"Direct Paste" = "Enganxament directe";
+"Direct paste needs Accessibility access." = "L'enganxament directe necessita accés d'accessibilitat.";
