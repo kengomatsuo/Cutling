@@ -16,3 +16,9 @@ fastlane/report.xml
 # Local crashlogs
 crashlogs/
 fastlane/screenshots/screenshots.html
+
+# Signing certificates and keys (never commit)
+certs/
+*.p12
+*.cer
+*.certSigningRequest

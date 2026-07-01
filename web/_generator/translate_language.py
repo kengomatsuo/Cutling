@@ -223,6 +223,67 @@ if __name__ == "__main__":
     english = load_english()
     all_keys = [(k, v) for k, v in english.items() if not k.startswith("_")]
 
+    if sys.argv[1] == "--missing-keys":
+        # Incrementally translate ONLY keys present in en-US but missing from
+        # each existing locale file, then merge them in (preserving en-US key
+        # order). Does not re-translate keys that already exist. Use after
+        # adding new strings to en-US.json.
+        locales = load_json(LOCALES_FILE)
+        codes = [l["code"] for l in locales
+                 if not l["code"].startswith("en-") and l["code"] != "en-US"]
+
+        def fill_missing(code):
+            path = TRANSLATIONS_DIR / f"{code}.json"
+            if not path.exists():
+                print(f"  skip {code}: no file yet (run a full translate first)")
+                return 0
+            existing = load_json(path)
+            missing = [(k, v) for k, v in all_keys if k not in existing]
+            if not missing:
+                return 0
+            google_code = get_google_code(code)
+            app_name = get_app_name(code)
+            app_name_plural = get_app_name_plural(app_name)
+            local_cache = {}
+            for key, en_value in missing:
+                if key == "app_name":
+                    existing[key] = app_name
+                    continue
+                translated = translate_text(en_value, google_code, local_cache)
+                def brand_repl(m: re.Match) -> str:
+                    matched = m.group(0)
+                    return str(app_name_plural if matched.lower().endswith('s') else app_name)
+                translated = re.sub(r'(?i)cutlings?', brand_repl, translated)
+                existing[key] = translated
+                time.sleep(0.1)
+            # Reorder to match en-US: metadata first, then en-US key order,
+            # then any leftover keys (e.g. _rtl).
+            ordered = {}
+            for meta in ("_language_code", "_language_name"):
+                if meta in existing:
+                    ordered[meta] = existing[meta]
+            for k, _ in all_keys:
+                if k in existing:
+                    ordered[k] = existing[k]
+            for k, v in existing.items():
+                if k not in ordered:
+                    ordered[k] = v
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(ordered, f, ensure_ascii=False, indent=4)
+            return len(missing)
+
+        total = 0
+        with tqdm(total=len(codes), desc="Filling missing keys", unit="lang") as bar:
+            with ThreadPoolExecutor(max_workers=WORKERS) as executor:
+                futures = {executor.submit(fill_missing, c): c for c in codes}
+                for f in futures:
+                    n = f.result()
+                    total += n
+                    bar.set_postfix_str(f"{futures[f]} (+{n})")
+                    bar.update(1)
+        print(f"\nDone! Added {total} translated values across {len(codes)} locales.")
+        sys.exit(0)
+
     if sys.argv[1] == "--clean":
         print("Checking for English pollution...")
         deleted_count = 0

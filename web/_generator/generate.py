@@ -40,9 +40,12 @@ TRANSLATION_ALIASES = {
 
 TEMPLATES = [
     "index.html",
+    "mac/index.html",
+    "download/index.html",
     "faq/index.html",
     "support/index.html",
     "privacy/index.html",
+    "terms/index.html",
 ]
 
 
@@ -205,7 +208,7 @@ def clean_generated(locales):
 
     # Folders that should never be deleted
     protected_names = {
-        "_generator", "img", "faq", "support", "privacy",
+        "_generator", "img", "faq", "support", "privacy", "mac", "download", "terms",
         ".git", ".claude", "Cutling.xcodeproj"
     }
 

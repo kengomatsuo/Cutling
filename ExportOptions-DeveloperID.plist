@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Direct-download (outside Mac App Store) distribution. -->
+	<key>method</key>
+	<string>developer-id</string>
+	<key>teamID</key>
+	<string>PM3K35YS39</string>
+	<!-- Let Xcode resolve/create the Developer ID provisioning profile
+	     (with iCloud + App Groups) from the logged-in account. -->
+	<key>signingStyle</key>
+	<string>automatic</string>
+	<!-- Notarization is run as a separate notarytool step in deploy.sh so we
+	     control credentials and can staple; keep the export itself offline. -->
+	<key>destination</key>
+	<string>export</string>
+</dict>
+</plist>

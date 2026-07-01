@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="{{LANG_CODE}}"{{DIR_ATTR}}>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{page_title_mac}}</title>
+    <link rel="icon" type="image/x-icon" href="{{ROOT}}/favicon.ico">
+    <link rel="stylesheet" href="{{ROOT}}/style.css">
+    <script src="{{ROOT}}/locale-router.js"></script>
+</head>
+<body>
+    <nav class="site-nav">
+        <a href="{{LANG_PREFIX}}/" class="nav-brand">
+            <img src="{{ROOT}}/icon.png" alt="{{app_name}}" width="28" height="28">
+            {{app_name}}
+        </a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span><span></span><span></span>
+        </label>
+        <ul class="nav-links">
+            <li><a href="{{LANG_PREFIX}}/">{{nav_home}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/mac/" class="active">{{nav_mac}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/download/">{{nav_download}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/faq/">{{nav_faq}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/support/">{{nav_support}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/privacy/">{{nav_privacy}}</a></li>
+            {{LANGUAGE_PICKER}}
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>{{mac_hero_title}}</h1>
+        <p class="hero-subtitle">{{mac_hero_subtitle}}</p>
+        <div class="cta-row">
+            <a href="https://github.com/kengomatsuo/Cutling/releases/latest/download/Cutling-macOS.dmg" class="cta-button">{{mac_download_button}}</a>
+        </div>
+        <p class="cta-note">{{mac_download_note}}</p>
+    </section>
+
+    <!-- Mac Features -->
+    <section class="content-section">
+        <div class="section-inner">
+            <h2>{{mac_features_title}}</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>{{mac_menubar_title}}</h3>
+                    <p>{{mac_menubar_desc}}</p>
+                </div>
+                <div class="feature-card">
+                    <h3>{{mac_hotkey_title}}</h3>
+                    <p>{{mac_hotkey_desc}}</p>
+                </div>
+                <div class="feature-card">
+                    <h3>{{mac_directpaste_title}}</h3>
+                    <p>{{mac_directpaste_desc}}</p>
+                </div>
+                <div class="feature-card">
+                    <h3>{{mac_history_title}}</h3>
+                    <p>{{mac_history_desc}}</p>
+                </div>
+                <div class="feature-card">
+                    <h3>{{mac_sync_title}}</h3>
+                    <p>{{mac_sync_desc}}</p>
+                </div>
+                <div class="feature-card">
+                    <h3>{{mac_privacy_title}}</h3>
+                    <p>{{mac_privacy_desc}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="content-section alt-bg">
+        <div class="section-inner">
+            <h2>{{mac_cta_title}}</h2>
+            <p>{{mac_cta_text}}</p>
+            <div class="cta-row">
+                <a href="https://github.com/kengomatsuo/Cutling/releases/latest/download/Cutling-macOS.dmg" class="cta-button">{{mac_download_button}}</a>
+            </div>
+            <p class="cta-note">{{mac_download_note}}</p>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <ul class="footer-links">
+            <li><a href="{{LANG_PREFIX}}/">{{nav_home}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/mac/">{{nav_mac}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/download/">{{nav_download}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/faq/">{{nav_faq}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/support/">{{nav_support}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/privacy/">{{nav_privacy}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/terms/">{{nav_terms}}</a></li>
+        </ul>
+        <p class="copyright">{{footer_copyright}}</p>
+    </footer>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{page_title_support}}</title>
+    <title>{{page_title_download}}</title>
     <link rel="icon" type="image/x-icon" href="{{ROOT}}/favicon.ico">
     <link rel="stylesheet" href="{{ROOT}}/style.css">
     <script src="{{ROOT}}/locale-router.js"></script>
@@ -21,9 +21,9 @@
         <ul class="nav-links">
             <li><a href="{{LANG_PREFIX}}/">{{nav_home}}</a></li>
             <li><a href="{{LANG_PREFIX}}/mac/">{{nav_mac}}</a></li>
-            <li><a href="{{LANG_PREFIX}}/download/">{{nav_download}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/download/" class="active">{{nav_download}}</a></li>
             <li><a href="{{LANG_PREFIX}}/faq/">{{nav_faq}}</a></li>
-            <li><a href="{{LANG_PREFIX}}/support/" class="active">{{nav_support}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/support/">{{nav_support}}</a></li>
             <li><a href="{{LANG_PREFIX}}/privacy/">{{nav_privacy}}</a></li>
             {{LANGUAGE_PICKER}}
         </ul>
@@ -31,38 +31,28 @@
 
     <div class="container">
         <div class="page-header">
-            <h1>{{support_title}}</h1>
-            <p class="page-subtitle">{{support_subtitle}}</p>
+            <h1>{{download_title}}</h1>
+            <p class="page-subtitle">{{download_subtitle}}</p>
+        </div>
+
+        <div class="download-grid">
+            <div class="download-card">
+                <h2>{{download_ios_title}}</h2>
+                <p>{{download_ios_desc}}</p>
+                <a href="https://apps.apple.com/app/cutling/id6759476314" class="cta-button">{{download_ios_button}}</a>
+                <p class="cta-note">{{download_ios_meta}}</p>
+            </div>
+            <div class="download-card">
+                <h2>{{download_mac_title}}</h2>
+                <p>{{download_mac_desc}}</p>
+                <a href="https://github.com/kengomatsuo/Cutling/releases/latest/download/Cutling-macOS.dmg" class="cta-button">{{download_mac_button}}</a>
+                <p class="cta-note">{{download_mac_meta}}</p>
+            </div>
         </div>
 
         <div class="support-section">
-            <h2>{{support_contact_title}}</h2>
-            <p>{{support_contact_text}}</p>
-            <p>{{support_contact_response}}</p>
-        </div>
-
-        <div class="support-section">
-            <h2>{{support_troubleshooting_title}}</h2>
-
-            <h3>{{support_ts_keyboard_title}}</h3>
-            <p>{{support_ts_keyboard_text}}</p>
-
-            <h3>{{support_ts_cutlings_title}}</h3>
-            <p>{{support_ts_cutlings_text}}</p>
-
-            <h3>{{support_ts_icloud_title}}</h3>
-            <p>{{support_ts_icloud_text}}</p>
-
-            <h3>{{support_ts_images_title}}</h3>
-            <p>{{support_ts_images_text}}</p>
-
-            <h3>{{support_ts_mac_paste_title}}</h3>
-            <p>{{support_ts_mac_paste_text}}</p>
-        </div>
-
-        <div class="support-section">
-            <h2>{{support_more_help_title}}</h2>
-            <p>{{support_more_help_text}}</p>
+            <h2>{{download_mac_install_title}}</h2>
+            <p>{{download_mac_install_text}}</p>
         </div>
     </div>
 
