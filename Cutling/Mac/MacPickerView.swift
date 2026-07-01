@@ -27,10 +27,6 @@ struct MacPickerView: View {
     @State private var tab: MacPickerTab = .saved
     @State private var isAccessibilityTrusted: Bool = PasteService.shared.isTrusted
     @State private var trustCheckTimer: Timer?
-    /// Content-area height captured the first time the picker appears.
-    /// Used as the fixed height while searching, so the host NSWindow
-    /// doesn't resize per keystroke as the match counts change.
-    @State private var stableContentHeight: CGFloat?
     @FocusState private var searchFieldFocused: Bool
     @AppStorage("captureClipboardHistory") private var captureClipboardHistory = true
 
@@ -81,6 +77,10 @@ struct MacPickerView: View {
     /// Saved and History are shown together in two labelled sections.
     private var searchActive: Bool { !searchText.isEmpty }
 
+    /// Fixed content-area height. The popover is always sized to hold a
+    /// full list so the host NSWindow never resizes as rows come and go.
+    private let contentHeight: CGFloat = 420
+
     /// Rendered height of `tabBar`: text(12) + vertical padding 4*2 = 22pt
     /// for the pill, plus the HStack's `.padding(.bottom, 4)` = 26pt total.
     /// Used to donate that space to the content area while searching so
@@ -98,7 +98,7 @@ struct MacPickerView: View {
             // to the content so the total popover height stays constant
             // (no NSWindow resize when search activates or deactivates).
             content
-                .frame(height: (stableContentHeight ?? 420) + (searchActive ? tabBarHeight : 0))
+                .frame(height: contentHeight + (searchActive ? tabBarHeight : 0))
             // Banner only matters in the floating picker panel: direct-paste
             // fires from there, not from the menu-bar popover (see
             // PickerPanel.handleDidPick where `cameFromPanel` gates the post).
@@ -138,19 +138,6 @@ struct MacPickerView: View {
             }
         }
         syncClearHistoryGate(forTab: tab)
-        if stableContentHeight == nil {
-            stableContentHeight = initialContentHeight()
-        }
-    }
-
-    /// Height the content area takes on first appear, matching the
-    /// `singleSectionContent` formula on the default Saved tab. We freeze
-    /// this and reuse it for the search results so the popover keeps a
-    /// constant height instead of resizing per keystroke.
-    private func initialContentHeight() -> CGFloat {
-        let items = filteredSaved
-        if items.isEmpty { return 160 }
-        return min(CGFloat(items.count) * 50, 420)
     }
 
     private func handleDisappear() {

@@ -339,17 +339,13 @@ struct TextDetailView: View {
             }
             SensitiveContentWarning(types: sensitiveContentTypes)
             Section {
-                #if os(iOS)
-                // Inline (not a popover): a popover on the focused Value field
-                // steals/​restores first-responder and bounces the cursor to Name.
-                TipView(editorTextTip)
-                #endif
                 TextEditor(text: undoHandler.binding($value, actionName: String(localized: "Change Text")))
                     .focused($focusedField, equals: .value)
                     .frame(minHeight: 120, maxHeight: 450)
                     .scrollContentBackground(.hidden)
                     #if os(iOS)
                     .id("tutorialTextSection")
+                    .popoverTip(editorTextTip, arrowEdge: .top)
                     #endif
                     .onChange(of: value) { oldValue, newValue in
                         if newValue.count > CutlingStore.maxTextLength {
@@ -459,10 +455,17 @@ struct TextDetailView: View {
         // Advance the name step however the user leaves the field (Return, tap
         // elsewhere, keyboard dismiss), not only on Return.
         .onChange(of: focusedField) { oldValue, newValue in
+            let t = TutorialCoordinator.shared
             if oldValue == .name, newValue != .name, !name.isEmpty,
-               TutorialCoordinator.shared.isActive,
-               TutorialCoordinator.shared.step == .createName {
-                TutorialCoordinator.shared.advance(from: .createName)
+               t.isActive, t.step == .createName {
+                t.advance(from: .createName)
+            }
+            // The name step is done past createName. A tip popover presenting /
+            // dismissing can restore first-responder to the Name field; since
+            // the name is complete, send focus back to the Value field.
+            if newValue == .name, t.isActive, !isEditing,
+               t.step == .createSave {
+                focusedField = .value
             }
         }
         // Typing dismisses the current field's tip; it (or the next one) shows

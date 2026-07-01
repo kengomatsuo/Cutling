@@ -2,12 +2,13 @@
 //  WelcomeWindow.swift
 //  Cutling: first-launch onboarding for the macOS app.
 //
-//  Three steps that teach what HIG calls "the things a user must know
-//  up-front for the app to work at all":
+//  Steps that teach what HIG calls "the things a user must know up-front
+//  for the app to work at all":
 //    1. Cutling lives in the menu bar (LSUIElement apps have no Dock icon,
 //       which disorients new users).
 //    2. The global hotkey to summon it from anywhere.
-//    3. Optional Accessibility access for direct-paste, with explanation.
+//    3. Optional iCloud Sync to keep cutlings up to date across devices.
+//    4. Optional Accessibility access for direct-paste, with explanation.
 //
 //  Gated by @AppStorage("hasOnboarded"). After dismissal we drop the Dock
 //  icon via AppActivationManager (the window-close notification it watches
@@ -25,8 +26,8 @@ struct WelcomeView: View {
     @Namespace private var dotNamespace
     @Environment(\.dismissWindow) private var dismissWindow
 
-    private let totalSteps = 4
-    
+    private let totalSteps = 5
+
     private var stepTransition: AnyTransition {
         .asymmetric(
             insertion: .move(edge: goingForward ? .trailing : .leading),
@@ -41,6 +42,7 @@ struct WelcomeView: View {
                 case 0: StepWelcome()
                 case 1: StepMenuBar()
                 case 2: StepHotkey()
+                case 3: StepiCloud()
                 default: StepAccessibility()
                 }
             }
@@ -289,7 +291,54 @@ private struct KeyCap: View {
     }
 }
 
-// MARK: - Step 3: Permissions (launch at login + accessibility)
+// MARK: - Step 3: iCloud Sync
+
+private struct StepiCloud: View {
+    @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
+
+    var body: some View {
+        VStack(spacing: 20) {
+            Image(systemName: iCloudSyncEnabled ? "checkmark.icloud.fill" : "icloud")
+                .font(.system(size: 48, weight: .light))
+                .foregroundStyle(iCloudSyncEnabled ? AnyShapeStyle(.green) : AnyShapeStyle(.tint))
+                .contentTransition(.symbolEffect(.replace))
+                .padding(.top, 36)
+
+            VStack(spacing: 6) {
+                Text("Sync Across Devices")
+                    .font(.title2.bold())
+                Text("Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account.")
+                    .font(.callout)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 32)
+            }
+
+            Toggle(isOn: $iCloudSyncEnabled) {
+                Label("Enable iCloud Sync", systemImage: "arrow.triangle.2.circlepath.icloud")
+            }
+            .toggleStyle(.switch)
+            .padding(.horizontal, 48)
+            .onChange(of: iCloudSyncEnabled) { _, enabled in
+                // Mirror the Settings → iCloud toggle so the shared App
+                // Group default (read by the sync engine bootstrap) stays
+                // in sync regardless of where the user flips it.
+                UserDefaults(suiteName: appGroupID)?.set(enabled, forKey: "iCloudSyncEnabled")
+            }
+
+            Text("You can change this later in Settings → iCloud.")
+                .font(.caption)
+                .foregroundStyle(.tertiary)
+                .padding(.top, 4)
+
+            Spacer(minLength: 0)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .animation(.snappy, value: iCloudSyncEnabled)
+    }
+}
+
+// MARK: - Step 4: Permissions (launch at login + accessibility)
 
 private struct StepAccessibility: View {
     @AppStorage("pasteDirectly") private var pasteDirectly = false

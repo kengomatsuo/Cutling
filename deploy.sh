@@ -65,9 +65,10 @@ dist_release() {
   local build_num
   build_num="$(grep -m1 'CURRENT_PROJECT_VERSION\[sdk=macosx\*\]' "$REPO_ROOT/Cutling.xcodeproj/project.pbxproj" \
     | sed -E 's/.*= *([^;]+);/\1/' | tr -d ' ')"
-  # Stable asset name so the website can hard-link
-  # releases/latest/download/Cutling-macOS.dmg permanently across versions.
-  local dmg="$build_dir/Cutling-macOS.dmg"
+  # Lowercase, version-embedded asset name. Because the filename changes per
+  # version, the website links to the releases/latest PAGE rather than a fixed
+  # asset URL.
+  local dmg="$build_dir/cutling-$version-macos.dmg"
   local tag="v$version-mac"
 
   echo "==> Building Cutling $version ($build_num) for Developer ID distribution"
