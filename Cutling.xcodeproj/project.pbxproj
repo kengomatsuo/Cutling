@@ -11,6 +11,7 @@
 		CFA931332FA65E7700A4ABB6 /* CutlingShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFA931292FA65E7600A4ABB6 /* CutlingShare.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CFA931632FA66CA200A4ABB6 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA931622FA66CA200A4ABB6 /* UniformTypeIdentifiers.framework */; };
 		CFA9316F2FA66CA200A4ABB6 /* CutlingAction.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFA931602FA66CA200A4ABB6 /* CutlingAction.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CFB12C5D2FF4E2950073B4BF /* Sparkle in Frameworks */ = {isa = PBXBuildFile; platformFilters = (macos, ); productRef = CFB12C5C2FF4E2950073B4BF /* Sparkle */; };
 		CFC7CC9C2FA7AFD10046275C /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC7CC752FA7AE730046275C /* WidgetKit.framework */; };
 		CFC7CC9D2FA7AFD10046275C /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC7CC772FA7AE730046275C /* SwiftUI.framework */; };
 		CFC7CCAE2FA7AFD20046275C /* CutlingWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFC7CC9B2FA7AFD10046275C /* CutlingWidgetsExtension.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -228,6 +229,7 @@
 		CF1F45F42F457B3C00582E62 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				CFB12C5D2FF4E2950073B4BF /* Sparkle in Frameworks */,
 			);
 		};
 		CF7BB11C2F78BA9700CBE010 /* Frameworks */ = {
@@ -323,6 +325,9 @@
 				CF1F45F92F457B3C00582E62 /* Cutling */,
 			);
 			name = Cutling;
+			packageProductDependencies = (
+				CFB12C5C2FF4E2950073B4BF /* Sparkle */,
+			);
 			productName = Cutling;
 			productReference = CF1F45F72F457B3C00582E62 /* Cutling.app */;
 			productType = "com.apple.product-type.application";
@@ -536,6 +541,9 @@
 			);
 			mainGroup = CF1F45EE2F457B3C00582E62;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				CFB12C5B2FF4E2950073B4BF /* XCRemoteSwiftPackageReference "Sparkle" */,
+			);
 			preferredProjectObjectVersion = 100;
 			productRefGroup = CF1F45F82F457B3C00582E62 /* Products */;
 			projectDirPath = "";
@@ -1319,6 +1327,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CFB12C5B2FF4E2950073B4BF /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CFB12C5C2FF4E2950073B4BF /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CFB12C5B2FF4E2950073B4BF /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CF1F45EF2F457B3C00582E62 /* Project object */;
 }

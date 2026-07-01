@@ -1,3 +1,4 @@
-• Fixed a crash that could occur when opening the keyboard for the first time after a device restart
-• Improved keyboard startup performance by deferring background sync
-• Improved reliability of cross-process data sync
+• Fixed an issue where saved cutlings could disappear after creating one with iCloud sync turned on. Your cutlings now save and sync reliably.
+• New guided walkthrough shows you how to create, edit, delete, and recover cutlings. Replay it anytime from the keyboard manager's About section.
+• On Mac, turn on iCloud sync right from the welcome screen.
+• Localization fixes and performance improvements.

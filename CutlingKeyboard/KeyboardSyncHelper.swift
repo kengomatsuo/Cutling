@@ -21,97 +21,15 @@ enum KeyboardSyncHelper {
     private static let containerID = "iCloud.com.matsuokengo.Cutling"
     private static let zoneName = "CutlingZone"
     private static let recordType = "Cutling"
-    private static let appGroupID = "group.com.matsuokengo.Cutling"
 
-    // MARK: - Fetch Remote Changes
-
-    /// Fetches all cutlings from CloudKit and syncs with the local store.
-    /// Adds missing, updates existing, and removes deleted cutlings.
-    /// Only diffs (removes absent cutlings) when the fetch looks complete —
-    /// i.e. remote count is not suspiciously low compared to local.
-    /// Called when the keyboard appears so it picks up changes from other devices
-    /// even if the main app hasn't been opened.
-    @MainActor static func fetchFromCloudKit(store: CutlingStore) {
-        guard let defaults = UserDefaults(suiteName: appGroupID),
-              defaults.bool(forKey: "iCloudSyncEnabled") else {
-            return
-        }
-
-        // Snapshot local state on the main actor before going to background,
-        // so performFetch never hops back to the main actor mid-network-call.
-        let localIDs = store.cutlings.map(\.id)
-        let localModDates = store.cutlings.map(\.lastModifiedDate)
-        let imagesDir = store.imagesDirectory
-
-        Task.detached(priority: .utility) {
-            await performFetch(
-                store: store,
-                localIDs: localIDs,
-                localModDates: localModDates,
-                imagesDirectory: imagesDir
-            )
-        }
-    }
-
-    private static func performFetch(
-        store: CutlingStore,
-        localIDs: [UUID],
-        localModDates: [Date],
-        imagesDirectory: URL,
-        retryCount: Int = 0
-    ) async {
-        do {
-            let container = CKContainer(identifier: containerID)
-            let db = container.privateCloudDatabase
-            let zoneID = CKRecordZone.ID(zoneName: zoneName)
-            let query = CKQuery(recordType: recordType, predicate: NSPredicate(value: true))
-
-            let (results, cursor) = try await db.records(matching: query, inZoneWith: zoneID)
-
-            guard cursor == nil else {
-                if retryCount < 1 {
-                    log.log("Keyboard got partial fetch (cursor present), retrying in 3s…")
-                    try? await Task.sleep(for: .seconds(3))
-                    await performFetch(
-                        store: store,
-                        localIDs: localIDs,
-                        localModDates: localModDates,
-                        imagesDirectory: imagesDirectory,
-                        retryCount: retryCount + 1
-                    )
-                } else {
-                    log.log("Keyboard got partial fetch on retry, skipping sync")
-                }
-                return
-            }
-
-            var remoteCutlings: [Cutling] = []
-            for (_, result) in results {
-                if case .success(let record) = result,
-                   let c = parseCutling(from: record, imagesDirectory: imagesDirectory) {
-                    remoteCutlings.append(c)
-                }
-            }
-
-            log.log("Keyboard fetched \(remoteCutlings.count) cutlings from CloudKit")
-
-            let sorted = remoteCutlings.sorted { $0.sortOrder < $1.sortOrder }
-            let remoteIDs = sorted.map(\.id)
-            let remoteModDates = sorted.map(\.lastModifiedDate)
-            guard localIDs != remoteIDs || localModDates != remoteModDates else {
-                log.log("Keyboard sync: no changes detected, skipping UI update")
-                return
-            }
-            await MainActor.run {
-                store.cutlings = sorted
-                store.save()
-            }
-        } catch let error as CKError where error.code == .zoneNotFound {
-            log.debug("Zone not found — no remote cutlings yet")
-        } catch {
-            log.error("Keyboard CloudKit fetch failed: \(error)")
-        }
-    }
+    // Fetching remote changes from within the keyboard extension was removed
+    // deliberately. A direct CloudKit query here would overwrite the shared
+    // local store with whatever the server returned, and an empty or partial
+    // result (e.g. a just-created cutling not yet uploaded by the main app)
+    // wiped all local cutlings. The keyboard now reads the shared App Group
+    // store only; remote changes reach it through the main app's CKSyncEngine
+    // (foreground sync + scheduled BGAppRefresh/BGProcessing sync), which
+    // writes the merged result back to the shared store.
 
     // MARK: - Upload
     /// Fires and forgets — errors are logged but not surfaced to the user.
@@ -183,54 +101,5 @@ enum KeyboardSyncHelper {
         }
 
         return record
-    }
-
-    // MARK: - Record Parsing
-
-    private static func parseCutling(from record: CKRecord, imagesDirectory: URL) -> Cutling? {
-        guard let name = record["name"] as? String,
-              let value = record["value"] as? String,
-              let icon = record["icon"] as? String,
-              let kindRaw = record["kind"] as? String,
-              let kind = CutlingKind(rawValue: kindRaw),
-              let id = UUID(uuidString: record.recordID.recordName) else {
-            return nil
-        }
-
-        let sortOrder = record["sortOrder"] as? Int ?? 0
-        let lastModified = record["lastModifiedDate"] as? Date ?? (record.modificationDate ?? Date())
-        let expiresAt = record["expiresAt"] as? Date
-        let color = record["color"] as? String
-        let inputTypeTriggers = record["inputTypeTriggers"] as? [String]
-
-        var imageFilename: String? = nil
-        if kind == .image, let asset = record["imageAsset"] as? CKAsset, let fileURL = asset.fileURL {
-            let filename = id.uuidString + ".png"
-            let destURL = imagesDirectory.appendingPathComponent(filename)
-            if FileManager.default.fileExists(atPath: destURL.path) {
-                imageFilename = filename
-            } else {
-                do {
-                    try FileManager.default.copyItem(at: fileURL, to: destURL)
-                    imageFilename = filename
-                } catch {
-                    log.error("Failed to copy image asset: \(error)")
-                }
-            }
-        }
-
-        return Cutling(
-            id: id,
-            name: name,
-            value: value,
-            icon: icon,
-            kind: kind,
-            imageFilename: imageFilename,
-            sortOrder: sortOrder,
-            lastModifiedDate: lastModified,
-            expiresAt: expiresAt,
-            color: color,
-            inputTypeTriggers: inputTypeTriggers
-        )
     }
 }

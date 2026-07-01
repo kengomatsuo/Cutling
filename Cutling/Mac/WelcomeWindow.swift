@@ -320,10 +320,16 @@ private struct StepiCloud: View {
             .toggleStyle(.switch)
             .padding(.horizontal, 48)
             .onChange(of: iCloudSyncEnabled) { _, enabled in
-                // Mirror the Settings → iCloud toggle so the shared App
-                // Group default (read by the sync engine bootstrap) stays
-                // in sync regardless of where the user flips it.
-                UserDefaults(suiteName: appGroupID)?.set(enabled, forKey: "iCloudSyncEnabled")
+                // Start/stop the sync engine live. The Welcome window lives
+                // outside the main scene tree, so it drives CutlingStore.shared
+                // directly (which also mirrors the flag to the App Group + KVS).
+                // Without this, enabling iCloud here does nothing until the
+                // next launch.
+                if enabled {
+                    CutlingStore.shared.startCloudSyncIfNeeded()
+                } else {
+                    CutlingStore.shared.stopCloudSync()
+                }
             }
 
             Text("You can change this later in Settings → iCloud.")
@@ -345,6 +351,9 @@ private struct StepAccessibility: View {
     @State private var isTrusted: Bool = PasteService.shared.isTrusted
     @State private var pollTimer: Timer?
     @State private var launchAtLogin: Bool = LaunchAtLoginService.shared.isEnabled
+    #if canImport(Sparkle)
+    @State private var autoUpdate: Bool = UpdaterController.shared.automaticallyChecksForUpdates
+    #endif
 
     var body: some View {
         VStack(spacing: 18) {
@@ -358,11 +367,22 @@ private struct StepAccessibility: View {
                 Text(pasteDirectly && isTrusted ? "You're all set" : "Almost there")
                     .font(.title2.bold())
                     .contentTransition(.opacity)
+                // The direct-download build adds an "Automatic updates" row
+                // below, so the count-specific "Two quick permissions" copy
+                // would be wrong there; use count-neutral wording instead.
+                #if canImport(Sparkle)
+                Text("A few quick settings so Cutling can work the way you'd expect. You can change any of these later in Settings.")
+                    .font(.callout)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 32)
+                #else
                 Text("Two quick permissions so Cutling can work the way you'd expect. You can change either later in Settings.")
                     .font(.callout)
                     .foregroundStyle(.secondary)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 32)
+                #endif
             }
 
             VStack(spacing: 10) {
@@ -409,6 +429,26 @@ private struct StepAccessibility: View {
                         }
                     )
                 )
+
+                // Direct-download build only. The App Store build updates
+                // through the App Store, so this row (and Sparkle) is absent.
+                // Presenting the choice here replaces Sparkle's own separate
+                // second-launch permission prompt (SUEnableAutomaticChecks=NO).
+                #if canImport(Sparkle)
+                PermissionRow(
+                    icon: "arrow.down.circle",
+                    title: "Automatic updates",
+                    subtitle: "Let Cutling check for and install new versions on its own.",
+                    trailing: AnyView(
+                        Toggle("", isOn: $autoUpdate)
+                            .labelsHidden()
+                            .toggleStyle(.switch)
+                    )
+                )
+                .onChange(of: autoUpdate) { _, newValue in
+                    UpdaterController.shared.automaticallyChecksForUpdates = newValue
+                }
+                #endif
             }
             .padding(.horizontal, 24)
 

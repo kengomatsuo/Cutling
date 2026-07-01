@@ -247,6 +247,12 @@ struct CutlingApp: App {
                     }
                     #if os(iOS)
                     if newPhase == .background {
+                        // Push any pending local changes to iCloud before the
+                        // process is (likely) suspended or force-quit, so a
+                        // just-created cutling isn't stranded on-device.
+                        if let sm = store.syncManager {
+                            Task { await sm.flushPendingChanges() }
+                        }
                         Self.scheduleBackgroundSync()
                         Self.scheduleBackgroundProcessing()
                     }

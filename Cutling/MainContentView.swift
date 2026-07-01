@@ -1062,17 +1062,6 @@ struct MainContentView: View {
             } label: {
                 Label("Recently Deleted", systemImage: "trash")
             }
-
-            #if os(iOS)
-            Divider()
-
-            Button {
-                moreMenuTip.invalidate(reason: .actionPerformed)
-                tutorial.start()
-            } label: {
-                Label("How to Use Cutling", systemImage: "questionmark.circle")
-            }
-            #endif
         } label: {
             Image(systemName: "ellipsis")
         }

@@ -379,6 +379,19 @@ platform :ios do
     )
   end
 
+  desc "Upload the already-built IPA to App Store Connect (binary only, no metadata/screenshots). Run `build` first. Does NOT submit for review."
+  lane :upload_binary do
+    ipa_path = File.expand_path("../build/Cutling.ipa", __dir__)
+    UI.user_error!("IPA not found at #{ipa_path} — run `./deploy.sh build` first") unless File.exist?(ipa_path)
+    deliver(
+      skip_metadata: true,
+      skip_screenshots: true,
+      force: true,
+      ignore_language_directory_validation: true,
+      ipa: ipa_path
+    )
+  end
+
   desc "Full deploy: metadata → missing screenshots → frame → upload all → build & submit"
   lane :deploy do
     # 1. Upload metadata (standard + new locales)

@@ -125,6 +125,21 @@ final actor CloudKitSyncManager {
 
     // MARK: - Lifecycle
 
+    /// Enabling iCloud with pre-existing local cutlings is a union, never a
+    /// replace. Two independent halves cooperate, following CKSyncEngine's
+    /// change-tracking model:
+    ///
+    /// - `uploadUnsyncedCutlings()` pushes every local cutling not yet on the
+    ///   server (on first enable, all of them).
+    /// - The engine's first fetch has no persisted change token, so the server
+    ///   returns every existing record as a *modification* (not a deletion),
+    ///   and `applyRemoteChanges` merges those in additively.
+    ///
+    /// The result is local ∪ remote — no local data is dropped. Deletions are
+    /// never inferred from a record's absence; they arrive only as explicit
+    /// tombstone events in `handleFetchedRecordZoneChanges`, keyed off the
+    /// server change token. That is why we can safely upload absent-locals
+    /// without resurrecting remotely-deleted records or deleting fresh locals.
     func start() {
         ensureMetadataLoaded()
         _ = syncEngine // Triggers lazy init
@@ -147,7 +162,24 @@ final actor CloudKitSyncManager {
         try? await syncEngine.fetchChanges()
     }
 
+    /// Forces an immediate send of pending local changes instead of waiting
+    /// for CKSyncEngine's system-scheduled sync. Called right after a local
+    /// mutation and on backgrounding so a freshly created or edited cutling
+    /// isn't stranded on-device if the user force-quits before the scheduler
+    /// fires — the exact window that previously let the keyboard's fetch see
+    /// an empty server zone and wipe local data.
+    func flushPendingChanges() async {
+        guard _syncEngine != nil else { return }
+        try? await syncEngine.sendChanges()
+    }
+
     /// Finds local cutlings never uploaded to CloudKit and enqueues them.
+    ///
+    /// "Never uploaded" means absent from `lastKnownRecordMetadata` — the set
+    /// of record ids we have successfully synced at least once. A missing id is
+    /// treated as a local-only creation to push, *not* as a remote deletion to
+    /// honor; genuine deletions come through the change-token-driven tombstone
+    /// path instead (see `start()`).
     private func uploadUnsyncedCutlings() async {
         ensureMetadataLoaded()
         let localCutlings = await MainActor.run { store.cutlings }

@@ -32,6 +32,7 @@ GOOGLE_LANG_MAP = {
     "de-DE": "de",
     "es-ES": "es",
     "es-MX": "es",
+    "fil": "tl",
     "fr-CA": "fr",
     "fr-FR": "fr",
     "gu-IN": "gu",

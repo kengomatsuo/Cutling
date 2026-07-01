@@ -228,6 +228,19 @@ struct KeyboardView: View {
                 Section("About") {
                     LabeledContent("Version", value: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "Unknown")
 
+                    #if os(iOS)
+                    Button {
+                        // Close this sheet, then run the walkthrough on the grid.
+                        dismiss()
+                        Task { @MainActor in
+                            try? await Task.sleep(for: .seconds(0.45))
+                            TutorialCoordinator.shared.start()
+                        }
+                    } label: {
+                        Label("How to Use Cutling", systemImage: "questionmark.circle")
+                    }
+                    #endif
+
                     Link(destination: URL(string: "mailto:kenneth@matsuokengo.com")!) {
                         Label("Contact Support", systemImage: "envelope")
                     }

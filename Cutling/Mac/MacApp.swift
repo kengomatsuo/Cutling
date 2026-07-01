@@ -95,6 +95,19 @@ final class CutlingAppDelegate: NSObject, NSApplicationDelegate {
         let store = CutlingStore.shared
         store.load()
 
+        // Restore the iCloud sync preference from iCloud KVS if the local
+        // default was wiped (e.g. after a reinstall). Mirrors iOS's
+        // configureSyncIfNeeded so a returning user keeps syncing without
+        // re-toggling. Must run before the App Group mirror below so the
+        // shared default reflects the restored value.
+        if !UserDefaults.standard.bool(forKey: "iCloudSyncEnabled") {
+            let kvs = NSUbiquitousKeyValueStore.default
+            kvs.synchronize()
+            if kvs.bool(forKey: "iCloudSyncEnabled") {
+                UserDefaults.standard.set(true, forKey: "iCloudSyncEnabled")
+            }
+        }
+
         // Mirror UserDefaults into the App Group so the keyboard ext
         // and any other shared consumers see the same values.
         if let groupDefaults = UserDefaults(suiteName: appGroupID) {
@@ -107,10 +120,8 @@ final class CutlingAppDelegate: NSObject, NSApplicationDelegate {
         }
 
         // iCloud
-        if UserDefaults.standard.bool(forKey: "iCloudSyncEnabled"), store.syncManager == nil {
-            let manager = CloudKitSyncManager(store: store)
-            store.syncManager = manager
-            Task { await manager.start() }
+        if UserDefaults.standard.bool(forKey: "iCloudSyncEnabled") {
+            store.startCloudSyncIfNeeded()
         }
 
         // Pasteboard monitor (persisted in MacApp via @State, but the
@@ -128,6 +139,13 @@ final class CutlingAppDelegate: NSObject, NSApplicationDelegate {
 
         // Activation policy watcher.
         _ = AppActivationManager.shared
+
+        // Sparkle auto-update (direct-download build only; the file is inert
+        // until the Sparkle package is linked). Instantiating the controller
+        // starts the background update-check schedule.
+        #if canImport(Sparkle)
+        _ = UpdaterController.shared
+        #endif
 
         // Menu-bar hint only when the icon is visible and the user has
         // cleared the welcome wizard. Fresh installs get the hint from
@@ -286,47 +304,6 @@ struct MacApp: App {
             return WindowPlacement(CGPoint(x: x, y: y), size: size)
         }
         .defaultLaunchBehavior(hasOnboarded ? .suppressed : .presented)
-    }
-
-    private func syncPreferencesToAppGroup() {
-        guard let groupDefaults = UserDefaults(suiteName: appGroupID) else { return }
-        groupDefaults.set(
-            UserDefaults.standard.bool(forKey: "iCloudSyncEnabled"),
-            forKey: "iCloudSyncEnabled"
-        )
-        let autoDetect = UserDefaults.standard.object(forKey: "autoDetectInputTypes") as? Bool ?? true
-        groupDefaults.set(autoDetect, forKey: "autoDetectInputTypes")
-    }
-
-    private func configureSyncIfNeeded() {
-        if !iCloudSyncEnabled {
-            let kvs = NSUbiquitousKeyValueStore.default
-            kvs.synchronize()
-            if kvs.bool(forKey: "iCloudSyncEnabled") {
-                iCloudSyncEnabled = true
-            }
-        }
-        if iCloudSyncEnabled, store.syncManager == nil {
-            let manager = CloudKitSyncManager(store: store)
-            store.syncManager = manager
-            Task { await manager.start() }
-        }
-    }
-
-    private func configurePasteboardMonitor() {
-        if pasteboardMonitor == nil {
-            pasteboardMonitor = PasteboardMonitor(store: store)
-        }
-        if captureClipboardHistory {
-            pasteboardMonitor?.start()
-        }
-    }
-
-    private func registerGlobalHotkey() {
-        // Touch the controller so it subscribes to .cutlingHotkeyPressed
-        // before the hotkey is registered. Otherwise the first press is lost.
-        _ = CutlingPickerController.shared
-        GlobalHotkey.shared.register()
     }
 }
 #endif

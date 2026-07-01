@@ -164,6 +164,9 @@ private struct GeneralSettingsTab: View {
     @Environment(\.openWindow) private var openWindow
     @State private var launchAtLogin = LaunchAtLoginService.shared.isEnabled
     @State private var imageFolderPath: String = ImageSaveService.shared.savedFolderDisplayPath
+    #if canImport(Sparkle)
+    @State private var autoUpdate: Bool = UpdaterController.shared.automaticallyChecksForUpdates
+    #endif
 
     var body: some View {
         Form {
@@ -284,6 +287,25 @@ private struct GeneralSettingsTab: View {
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
+
+            // Auto-update, direct-download (Developer ID) build only. The
+            // App Store build updates through the App Store, so the section
+            // is hidden when Sparkle isn't linked.
+            #if canImport(Sparkle)
+            Section {
+                Toggle("Check for updates automatically", isOn: $autoUpdate)
+                    .onChange(of: autoUpdate) { _, newValue in
+                        UpdaterController.shared.automaticallyChecksForUpdates = newValue
+                    }
+                CheckForUpdatesView()
+            } header: {
+                Text("Updates")
+            } footer: {
+                Text("Cutling can update itself to new versions. Turn on automatic checks, or check for updates manually any time.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+            #endif
         }
         .formStyle(.grouped)
         .padding()
@@ -321,7 +343,11 @@ private struct SyncSettingsTab: View {
                     Label("iCloud Sync", systemImage: "icloud")
                 }
                 .onChange(of: iCloudSyncEnabled) { _, enabled in
-                    UserDefaults(suiteName: appGroupID)?.set(enabled, forKey: "iCloudSyncEnabled")
+                    if enabled {
+                        store.startCloudSyncIfNeeded()
+                    } else {
+                        store.stopCloudSync()
+                    }
                 }
                 if iCloudSyncEnabled {
                     HStack {

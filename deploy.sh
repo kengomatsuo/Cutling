@@ -24,7 +24,9 @@ Commands:
   frame             Add device bezels and marketing text to screenshots
   screenshots       Upload framed screenshots to App Store Connect
   upload            Upload metadata + framed screenshots together
-  build             Build IPA for App Store
+  build             Build IPA for App Store (output: ./build/Cutling.ipa)
+  binary            Upload the already-built IPA to App Store Connect (binary
+                    only; run 'build' first; does not submit for review)
   dist              Build, notarize & publish the macOS Developer ID app to a
                     GitHub Release (direct download, outside the App Store)
   help              Show this help
@@ -132,7 +134,41 @@ dist_release() {
       --notes "Direct-download build of Cutling for macOS, signed with Developer ID and notarized by Apple. Includes direct paste (Accessibility). Download the DMG, drag Cutling to Applications."
   fi
 
+  echo "==> Generating Sparkle appcast..."
+  ensure_sparkle_tools
+  local appcast_dir="$build_dir/appcast"
+  rm -rf "$appcast_dir"; mkdir -p "$appcast_dir"
+  cp "$dmg" "$appcast_dir/"
+  # Single-item appcast: Sparkle compares the running version to the newest
+  # item, so listing only the latest release is enough to update everyone.
+  # Enclosure URLs point at this release's permanent GitHub asset path.
+  "$SPARKLE_TOOLS/bin/generate_appcast" \
+    --download-url-prefix "https://github.com/kengomatsuo/Cutling/releases/download/$tag/" \
+    "$appcast_dir"
+  cp "$appcast_dir/appcast.xml" "$REPO_ROOT/web/appcast.xml"
+  echo "    Wrote web/appcast.xml. Run './deploy.sh web' to publish it so"
+  echo "    installed apps can see the update."
+
   echo "==> Done: $dmg"
+}
+
+# Download + cache the Sparkle CLI tools (generate_appcast, sign_update).
+# Sets SPARKLE_TOOLS to a dir containing bin/.
+SPARKLE_TOOLS=""
+ensure_sparkle_tools() {
+  local cache="$REPO_ROOT/build/.sparkle-tools"
+  if [ -x "$cache/bin/generate_appcast" ]; then
+    SPARKLE_TOOLS="$cache"
+    return
+  fi
+  echo "    Fetching Sparkle tools..."
+  mkdir -p "$cache"
+  local url
+  url="$(gh api repos/sparkle-project/Sparkle/releases/latest \
+    --jq '.assets[] | select(.name|test("Sparkle-.*\\.tar\\.xz$")) | .browser_download_url' | head -1)"
+  curl -sL "$url" -o "$cache/sparkle.tar.xz"
+  tar -xf "$cache/sparkle.tar.xz" -C "$cache"
+  SPARKLE_TOOLS="$cache"
 }
 
 deploy_web() {
@@ -150,6 +186,9 @@ deploy_web() {
   cp "$WEB/icon.png" "$DIST/"
   cp -r "$WEB/img/" "$DIST/img/"
   cp "$REPO_ROOT/locales.json" "$DIST/"
+  # Sparkle appcast (written by `./deploy.sh dist`). Served at
+  # https://kengomatsuo.github.io/Cutling/appcast.xml (matches SUFeedURL).
+  [ -f "$WEB/appcast.xml" ] && cp "$WEB/appcast.xml" "$DIST/"
 
   echo "==> Deploying to gh-pages via git worktree..."
   WORKTREE="$(mktemp -d)"
@@ -186,6 +225,7 @@ case "${1:-help}" in
   screenshots)      $FASTLANE ios upload_screenshots ;;
   upload)           $FASTLANE ios upload ;;
   build)            $FASTLANE ios build ;;
+  binary)           $FASTLANE ios upload_binary ;;
   dist)             dist_release ;;
   help|*)           usage ;;
 esac

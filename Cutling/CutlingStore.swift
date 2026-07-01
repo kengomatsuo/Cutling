@@ -68,6 +68,37 @@ class CutlingStore: ObservableObject {
 
     /// Set by CutlingApp when iCloud sync is enabled.
     var syncManager: CloudKitSyncManager?
+
+    #if os(macOS)
+    /// Starts the CloudKit sync engine at runtime (idempotent). macOS toggles
+    /// iCloud from the Welcome wizard and Settings; unlike iOS these live
+    /// outside the main scene tree, so they call this directly instead of
+    /// relying on a scene-level `.onChange`. Without it, enabling iCloud does
+    /// nothing until the next launch.
+    @MainActor
+    func startCloudSyncIfNeeded() {
+        guard syncManager == nil else { return }
+        let manager = CloudKitSyncManager(store: self)
+        syncManager = manager
+        Task { await manager.start() }
+        // Mirror to app group + KVS so the keyboard extension and other
+        // devices see the enabled state.
+        UserDefaults(suiteName: appGroupID)?.set(true, forKey: "iCloudSyncEnabled")
+        NSUbiquitousKeyValueStore.default.set(true, forKey: "iCloudSyncEnabled")
+    }
+
+    /// Tears down the CloudKit sync engine at runtime and clears the flags.
+    @MainActor
+    func stopCloudSync() {
+        if let manager = syncManager {
+            Task { await manager.stop() }
+        }
+        syncManager = nil
+        isSyncing = false
+        UserDefaults(suiteName: appGroupID)?.set(false, forKey: "iCloudSyncEnabled")
+        NSUbiquitousKeyValueStore.default.set(false, forKey: "iCloudSyncEnabled")
+    }
+    #endif
     #endif
 
     private let defaults: UserDefaults
@@ -314,7 +345,7 @@ class CutlingStore: ObservableObject {
         schedulePurgeTimer()
         #if MAIN_APP
         SpotlightIndexer.shared.index(c)
-        if let sm = syncManager { Task { await sm.enqueueSave(c) } }
+        if let sm = syncManager { Task { await sm.enqueueSave(c); await sm.flushPendingChanges() } }
         #endif
     }
     
@@ -463,7 +494,7 @@ class CutlingStore: ObservableObject {
             schedulePurgeTimer()
             #if MAIN_APP
             SpotlightIndexer.shared.index(c)
-            if let sm = syncManager { Task { await sm.enqueueSave(c) } }
+            if let sm = syncManager { Task { await sm.enqueueSave(c); await sm.flushPendingChanges() } }
             #endif
         }
     }
@@ -478,7 +509,7 @@ class CutlingStore: ObservableObject {
         recentlyDeleted.insert(deleted, at: 0)
         saveRecentlyDeleted()
         // Enqueue CloudKit delete so other devices remove it from their active list
-        if let sm = syncManager { Task { await sm.enqueueDelete(cutling.id) } }
+        if let sm = syncManager { Task { await sm.enqueueDelete(cutling.id); await sm.flushPendingChanges() } }
         #else
         // Keyboard extension: permanently delete (no recently deleted UI there)
         if let filename = cutling.imageFilename {

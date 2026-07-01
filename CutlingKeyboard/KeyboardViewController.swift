@@ -351,16 +351,6 @@ class KeyboardViewController: UIInputViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        // CKContainer init dispatches setup work to the main queue internally.
-        // Delay so it doesn't interrupt the keyboard transition animation.
-        Task {
-            try? await Task.sleep(for: .milliseconds(500))
-            KeyboardSyncHelper.fetchFromCloudKit(store: store)
-        }
-    }
-
     // Called every time the text input context changes — new text field,
     // keyboard type change, return key type change, etc.
     override func textDidChange(_ textInput: UITextInput?) {

@@ -4,7 +4,9 @@ ApiKey.p8
 docs/_generator/.venv/
 docs/
 dist/
+build/
 web/_generator/__pycache__/
+web/appcast.xml
 
 # Generated test artifacts
 *.log

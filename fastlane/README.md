@@ -87,6 +87,14 @@ Create/update ASC localizations for new languages via Spaceship API
 
 Build IPA for App Store submission
 
+### ios upload_binary
+
+```sh
+[bundle exec] fastlane ios upload_binary
+```
+
+Upload the already-built IPA to App Store Connect (binary only, no metadata/screenshots). Run `build` first. Does NOT submit for review.
+
 ### ios deploy
 
 ```sh
