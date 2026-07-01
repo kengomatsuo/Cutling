@@ -122,6 +122,10 @@ dist_release() {
   if gh release view "$tag" >/dev/null 2>&1; then
     gh release upload "$tag" "$dmg" --clobber
   else
+    # Drop any stale local tag that isn't on the remote; otherwise
+    # `gh release create` refuses ("tag exists locally but has not been
+    # pushed"). With no local tag, gh creates and pushes the tag itself.
+    git tag -d "$tag" >/dev/null 2>&1 || true
     gh release create "$tag" "$dmg" \
       --title "Cutling $version (macOS, direct download)" \
       --notes "Direct-download build of Cutling for macOS, signed with Developer ID and notarized by Apple. Includes direct paste (Accessibility). Download the DMG, drag Cutling to Applications."
