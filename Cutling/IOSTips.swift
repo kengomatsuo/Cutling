@@ -36,29 +36,6 @@ struct MoreMenuTip: Tip {
     var options: [Option] { MaxDisplayCount(1) }
 }
 
-/// The long-press context menu on each card hides Copy / Edit / Share /
-/// Delete shortcuts. Surface this once the user has enough cards that
-/// per-card actions matter. `hasOpenedContextMenu` flips true the first
-/// time any card's context menu fires and persists via TipKit's datastore.
-struct LongPressCardTip: Tip {
-    @Parameter static var cutlingCount: Int = 0
-    @Parameter static var hasOpenedContextMenu: Bool = false
-    @Parameter static var setupComplete: Bool = false
-
-    var title: Text { Text("Long-press a cutling") }
-    var message: Text? {
-        Text("Hold any card for quick actions: copy, edit, share, or delete.")
-    }
-    var image: Image? { Image(systemName: "hand.tap") }
-
-    var rules: [Rule] {
-        #Rule(Self.$setupComplete) { $0 == true }
-        #Rule(Self.$cutlingCount) { $0 >= 3 }
-        #Rule(Self.$hasOpenedContextMenu) { $0 == false }
-    }
-    var options: [Option] { MaxDisplayCount(1) }
-}
-
 /// The drag-across-cards range-select gesture is completely invisible
 /// without a hint. Fires once the user enters Select mode for the first
 /// time and disappears the moment they leave the mode or perform a drag.
@@ -99,5 +76,61 @@ struct InputTypeMatchTip: Tip {
         #Rule(Self.$hasTaggedCutling) { $0 == true }
     }
     var options: [Option] { MaxDisplayCount(1) }
+}
+
+// MARK: - Interactive tutorial: in-sheet steps (native popovers)
+//
+// The editor (create / edit) steps use TipKit popovers instead of the custom
+// overlay so the system handles anchoring, scrolling, and keyboard avoidance.
+// The coordinator drives `EditorTipAnchor` (with a 2s debounce and dismiss
+// while typing); each tip is eligible only when the anchor matches.
+// (#Rule can't read enum rawValue, so the raw ints are inlined.)
+
+enum EditorTipAnchor: Int {
+    case none = -1, name = 0, text = 1, save = 2, back = 3, delete = 4
+}
+
+struct EditorNameTip: Tip {
+    @Parameter static var anchor: Int = -1
+    var title: Text { Text("Give your cutling a name.") }
+    var rules: [Rule] { #Rule(Self.$anchor) { $0 == 0 } }
+    var options: [Option] { MaxDisplayCount(1000) }
+}
+
+struct EditorTextTip: Tip {
+    @Parameter static var anchor: Int = -1
+    var title: Text { Text("Now type the text you want to save.") }
+    var rules: [Rule] { #Rule(Self.$anchor) { $0 == 1 } }
+    var options: [Option] { MaxDisplayCount(1000) }
+}
+
+struct EditorSaveTip: Tip {
+    @Parameter static var anchor: Int = -1
+    var title: Text { Text("Tap here to save your cutling.") }
+    var rules: [Rule] { #Rule(Self.$anchor) { $0 == 2 } }
+    var options: [Option] { MaxDisplayCount(1000) }
+}
+
+struct EditorBackTip: Tip {
+    @Parameter static var anchor: Int = -1
+    var title: Text { Text("Edit anything, then go back to save.") }
+    var rules: [Rule] { #Rule(Self.$anchor) { $0 == 3 } }
+    var options: [Option] { MaxDisplayCount(1000) }
+}
+
+struct EditorDeleteTip: Tip {
+    @Parameter static var anchor: Int = -1
+    var title: Text { Text("Scroll down and tap Delete Cutling to remove it.") }
+    var rules: [Rule] { #Rule(Self.$anchor) { $0 == 4 } }
+    var options: [Option] { MaxDisplayCount(1000) }
+}
+
+/// Popover on the toolbar More button, shown once the walkthrough finishes via
+/// the recover step, to teach where Recently Deleted lives.
+struct RecoverWhereTip: Tip {
+    @Parameter static var active: Bool = false
+    var title: Text { Text("Open the More menu, then Recently Deleted, to restore anything you removed.") }
+    var rules: [Rule] { #Rule(Self.$active) { $0 == true } }
+    var options: [Option] { MaxDisplayCount(1000) }
 }
 #endif

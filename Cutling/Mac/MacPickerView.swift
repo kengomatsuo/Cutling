@@ -99,10 +99,10 @@ struct MacPickerView: View {
             // (no NSWindow resize when search activates or deactivates).
             content
                 .frame(height: (stableContentHeight ?? 420) + (searchActive ? tabBarHeight : 0))
-            // Banner only matters in the floating picker panel: auto-paste
+            // Banner only matters in the floating picker panel: direct-paste
             // fires from there, not from the menu-bar popover (see
             // PickerPanel.handleDidPick where `cameFromPanel` gates the post).
-            // And only when the user has opted in to auto-paste and the
+            // And only when the user has opted in to direct-paste and the
             // permission is still missing.
             if surface == .pickerPanel && pasteDirectly && !isAccessibilityTrusted {
                 accessibilityBanner

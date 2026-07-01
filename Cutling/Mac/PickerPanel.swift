@@ -105,14 +105,14 @@ final class CutlingPickerController {
             return
         }
         guard PasteService.shared.isTrusted else {
-            print("⚠️ Cutling: auto-paste skipped, Accessibility access not granted. Open Settings → Paste.")
+            print("⚠️ Cutling: direct-paste skipped, Accessibility access not granted. Open Settings → Paste.")
             return
         }
         guard let bid = previousFrontmostBundleID,
               bid != Bundle.main.bundleIdentifier,
               let app = NSRunningApplication.runningApplications(withBundleIdentifier: bid).first
         else {
-            print("⚠️ Cutling: auto-paste skipped, could not resolve previous frontmost app (was \(previousFrontmostBundleID ?? "nil")).")
+            print("⚠️ Cutling: direct-paste skipped, could not resolve previous frontmost app (was \(previousFrontmostBundleID ?? "nil")).")
             return
         }
         // Resign key + hide the panel, then reactivate the previous app.

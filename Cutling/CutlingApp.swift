@@ -92,6 +92,9 @@ struct CutlingApp: App {
 
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
     @AppStorage("hasCompletedSetup") private var hasCompletedSetup = false
+    // The contextual TipKit hints stay dormant until the interactive
+    // walkthrough has been completed or skipped (set by MainContentView).
+    @AppStorage("hasSeenInteractiveTutorial") private var hasSeenInteractiveTutorial = false
 
     // Last app version the user opened. Drives migrations and the
     // "What's New" sheet — advanced only after a terminal decision so a
@@ -251,6 +254,9 @@ struct CutlingApp: App {
                 }
                 #if os(iOS)
                 .onChange(of: hasCompletedSetup) { _, _ in
+                    syncTipSetupParameters()
+                }
+                .onChange(of: hasSeenInteractiveTutorial) { _, _ in
                     syncTipSetupParameters()
                 }
                 .onChange(of: showOnboarding) { _, _ in
@@ -487,11 +493,11 @@ struct CutlingApp: App {
 
     private func syncTipSetupParameters() {
         let complete = hasCompletedSetup
+            && hasSeenInteractiveTutorial
             && !keyboardNeedsSetup
             && !showOnboarding
             && !showWhatsNew
         MoreMenuTip.setupComplete = complete
-        LongPressCardTip.setupComplete = complete
         DragToSelectTip.setupComplete = complete
         InputTypeMatchTip.setupComplete = complete
     }

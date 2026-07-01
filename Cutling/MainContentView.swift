@@ -45,6 +45,24 @@ enum MainContentMode: Equatable {
     case ordering
 }
 
+#if os(iOS)
+/// The More button shows the recover-where popover right after the walkthrough
+/// finishes, otherwise the usual contextual More tip. Only one popover can
+/// attach to a view, so this swaps between them.
+private struct MoreButtonTipModifier: ViewModifier {
+    let recoverActive: Bool
+    let moreTip: MoreMenuTip
+    let recoverTip: RecoverWhereTip
+    func body(content: Content) -> some View {
+        if recoverActive {
+            content.popoverTip(recoverTip, arrowEdge: .top)
+        } else {
+            content.popoverTip(moreTip, arrowEdge: .top)
+        }
+    }
+}
+#endif
+
 // MARK: - Main Content
 
 struct MainContentView: View {
@@ -98,8 +116,13 @@ struct MainContentView: View {
 
     // MARK: TipKit (iOS)
     private let moreMenuTip = MoreMenuTip()
-    private let longPressCardTip = LongPressCardTip()
+    private let recoverWhereTip = RecoverWhereTip()
     private let dragToSelectTip = DragToSelectTip()
+
+    // MARK: Interactive Tutorial (iOS)
+    private var tutorial: TutorialCoordinator { .shared }
+    @AppStorage("hasCompletedSetup") private var hasCompletedSetup = false
+    @AppStorage("hasSeenInteractiveTutorial") private var hasSeenInteractiveTutorial = false
     #endif
 
     init(
@@ -148,6 +171,26 @@ struct MainContentView: View {
             $0.name.localizedCaseInsensitiveContains(searchText) ||
             $0.value.localizedCaseInsensitiveContains(searchText)
         }
+    }
+
+    /// The card the walkthrough wants the user to act on: the cutling they just
+    /// created (not the oldest/first card).
+    private func isTutorialTargetCard(_ item: Cutling) -> Bool {
+        #if os(iOS)
+        return tutorial.isActive && item.id == store.lastAddedCutlingID
+        #else
+        return false
+        #endif
+    }
+
+    /// Tutorial lock state for a given card (only the target card's ⋯ is live
+    /// during the edit/delete steps; otherwise all cards are inert).
+    private func cardTutorialMode(for item: Cutling) -> CardTutorialMode {
+        #if os(iOS)
+        return tutorial.cardMode(isTarget: item.id == store.lastAddedCutlingID)
+        #else
+        return .normal
+        #endif
     }
 
     // MARK: - Selection & Scroll Types
@@ -244,7 +287,6 @@ struct MainContentView: View {
     private func syncTipParameters() {
         let count = store.cutlings.count
         MoreMenuTip.cutlingCount = count
-        LongPressCardTip.cutlingCount = count
         DragToSelectTip.isSelecting = mode == .selecting
     }
     #endif
@@ -414,8 +456,93 @@ struct MainContentView: View {
                 }
                 #endif
         }
+        #if os(iOS)
+        .tutorialOverlay(.grid)
+        .animation(.easeInOut(duration: 0.25), value: tutorial.isActive)
+        .animation(.easeInOut(duration: 0.25), value: tutorial.step)
+        // Auto-launch once for anyone who hasn't seen it: fresh setups (when
+        // hasCompletedSetup flips true) and existing users on update (caught on
+        // appear). Always skippable; never shown again once seen or skipped.
+        .onAppear { startTutorialIfUnseen() }
+        .onChange(of: hasCompletedSetup) { _, _ in startTutorialIfUnseen() }
+        .onChange(of: tutorial.isActive) { _, active in
+            if !active { hasSeenInteractiveTutorial = true }
+        }
+        // Drive navigation for the steps the walkthrough performs itself.
+        .onChange(of: tutorial.step) { _, step in
+            switch step {
+            case .createdCelebrate, .recoveredCelebrate, .editOpen, .deleteOpen:
+                // Bring the relevant cutling into view (celebration / ⋯).
+                if let id = store.lastAddedCutlingID {
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        scrollProperties.position.scrollTo(id: id, anchor: .center)
+                    }
+                }
+            case .recoverIntro:
+                // Wait for the edit editor to finish popping before pushing
+                // Recently Deleted, otherwise the navigation races and the
+                // pushed screen comes up blank.
+                Task { @MainActor in
+                    try? await Task.sleep(for: .seconds(0.6))
+                    if tutorial.step == .recoverIntro, !showRecentlyDeleted {
+                        showRecentlyDeleted = true
+                    }
+                }
+            default: break
+            }
+        }
+        // Forced advancement: react to the real action behind each step.
+        .onChange(of: activeSheet) { _, sheet in
+            if case .newCutling = sheet { tutorial.advance(from: .createAdd) }
+            // The create editor was dismissed without saving — restart create.
+            if sheet == nil {
+                switch tutorial.step {
+                case .createName, .createSave: tutorial.reset(to: .createAdd)
+                default: break
+                }
+            }
+        }
+        .onChange(of: store.cutlings.count) { oldValue, newValue in
+            if newValue > oldValue { tutorial.advance(from: .createSave) }
+            if newValue < oldValue { tutorial.advance(from: .deleteConfirm) }
+        }
+        .onChange(of: selectedItem) { _, item in
+            if item != nil {
+                // The ⋯ button opens the editor for both the edit and delete steps.
+                tutorial.advance(from: .editOpen)
+                tutorial.advance(from: .deleteOpen)
+            } else {
+                tutorial.advance(from: .editSave)
+            }
+        }
+        .onChange(of: store.recentlyDeleted.count) { oldValue, newValue in
+            if newValue < oldValue {
+                let wasRecovering = tutorial.step == .recoverTap
+                tutorial.advance(from: .recoverTap)   // → recoveredCelebrate
+                if wasRecovering { showRecentlyDeleted = false }   // return home to celebrate
+            }
+        }
+        #endif
     }
-    
+
+    #if os(iOS)
+    /// Launches the walkthrough exactly once for any user who hasn't seen it —
+    /// both fresh setups (after "Get Started") and existing users on update.
+    /// Always skippable. The short delay lets the setup / What's New sheet
+    /// dismiss and the grid settle so the spotlight lands on the real controls.
+    private func startTutorialIfUnseen() {
+        #if DEBUG
+        if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") { return }
+        #endif
+        guard hasCompletedSetup, !hasSeenInteractiveTutorial, !tutorial.isActive else { return }
+        Task { @MainActor in
+            try? await Task.sleep(for: .seconds(0.8))
+            guard hasCompletedSetup, !hasSeenInteractiveTutorial, !tutorial.isActive else { return }
+            tutorial.start()
+        }
+    }
+    #endif
+
     // MARK: - Main Content View
     
     private var mainContent: some View {
@@ -475,6 +602,7 @@ struct MainContentView: View {
                             Image(systemName: "keyboard")
                         }
                         .accessibilityIdentifier("keyboardToolbarButton")
+                        .disabled(!tutorial.allowsUnrelatedControls)
                     }
                     .matchedTransitionSource(id: keyboardButtonZoomID, in: zoomNamespace)
                 } else {
@@ -485,6 +613,7 @@ struct MainContentView: View {
                             Image(systemName: "keyboard")
                         }
                         .accessibilityIdentifier("keyboardToolbarButton")
+                        .disabled(!tutorial.allowsUnrelatedControls)
                     }
                 }
                 #endif
@@ -716,7 +845,9 @@ struct MainContentView: View {
                             },
                             onDelete: {
                                 beginDisappear(item)
-                            }
+                            },
+                            isTutorialAnchor: isTutorialTargetCard(item),
+                            tutorialMode: cardTutorialMode(for: item)
                         )
                         .frame(height: cardHeight)
                         .opacity(isDisappearing ? 0 : 1)
@@ -784,9 +915,7 @@ struct MainContentView: View {
     private var gridTipBanner: some View {
         switch mode {
         case .browsing:
-            TipView(longPressCardTip)
-                .padding(.horizontal)
-                .padding(.top, 8)
+            EmptyView()
         case .selecting:
             TipView(dragToSelectTip)
                 .padding(.horizontal)
@@ -802,7 +931,9 @@ struct MainContentView: View {
     #if os(iOS)
     @ViewBuilder
     private var addMenu: some View {
-        Menu {
+        // During the walkthrough's first step, + opens a text cutling directly
+        // (no submenu) so the tutorial can spotlight a single concrete action.
+        if tutorial.isActive && tutorial.step == .createAdd {
             Button {
                 let canAddText = store.canAdd(.text)
                 if canAddText.allowed {
@@ -811,23 +942,41 @@ struct MainContentView: View {
                     limitAlertMessage = canAddText.reason ?? String(localized: "Cannot add text cutling")
                 }
             } label: {
-                Label("Text Cutling", systemImage: "doc.text")
+                Image(systemName: "plus")
             }
-            Button {
-                let canAddImage = store.canAdd(.image)
-                if canAddImage.allowed {
-                    activeSheet = .newCutling(NewCutlingDraft(kind: .image))
-                } else {
-                    limitAlertMessage = canAddImage.reason ?? String(localized: "Cannot add image cutling")
+            .accessibilityLabel(String(localized: "Add cutling"))
+            .tutorialFrame(.addButton)
+            .disabled(!tutorial.allowsAddButton)
+        } else {
+            Menu {
+                Button {
+                    let canAddText = store.canAdd(.text)
+                    if canAddText.allowed {
+                        activeSheet = .newCutling(NewCutlingDraft(kind: .text))
+                    } else {
+                        limitAlertMessage = canAddText.reason ?? String(localized: "Cannot add text cutling")
+                    }
+                } label: {
+                    Label("Text Cutling", systemImage: "doc.text")
+                }
+                Button {
+                    let canAddImage = store.canAdd(.image)
+                    if canAddImage.allowed {
+                        activeSheet = .newCutling(NewCutlingDraft(kind: .image))
+                    } else {
+                        limitAlertMessage = canAddImage.reason ?? String(localized: "Cannot add image cutling")
+                    }
+                } label: {
+                    Label("Image Cutling", systemImage: "photo")
                 }
             } label: {
-                Label("Image Cutling", systemImage: "photo")
+                Image(systemName: "plus")
             }
-        } label: {
-            Image(systemName: "plus")
+            .menuIndicator(.hidden)
+            .accessibilityLabel(String(localized: "Add cutling"))
+            .tutorialFrame(.addButton)
+            .disabled(!tutorial.allowsAddButton)
         }
-        .menuIndicator(.hidden)
-        .accessibilityLabel(String(localized: "Add cutling"))
     }
     #endif
 
@@ -913,13 +1062,30 @@ struct MainContentView: View {
             } label: {
                 Label("Recently Deleted", systemImage: "trash")
             }
+
+            #if os(iOS)
+            Divider()
+
+            Button {
+                moreMenuTip.invalidate(reason: .actionPerformed)
+                tutorial.start()
+            } label: {
+                Label("How to Use Cutling", systemImage: "questionmark.circle")
+            }
+            #endif
         } label: {
             Image(systemName: "ellipsis")
         }
         .menuIndicator(.hidden)
         .accessibilityLabel(String(localized: "More options"))
         #if os(iOS)
-        .popoverTip(moreMenuTip, arrowEdge: .top)
+        .tutorialFrame(.moreButton)
+        .disabled(!tutorial.allowsMoreButton)
+        .modifier(MoreButtonTipModifier(
+            recoverActive: tutorial.recoverWhereActive,
+            moreTip: moreMenuTip,
+            recoverTip: recoverWhereTip
+        ))
         #endif
     }
 

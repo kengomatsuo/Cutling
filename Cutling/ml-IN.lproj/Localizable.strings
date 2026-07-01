@@ -395,3 +395,30 @@
 "Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "നിങ്ങൾ ഒരു കട്ട്‌ലിംഗ് തിരഞ്ഞെടുത്ത ശേഷം, മുമ്പ് ഫോക്കസ് ഉണ്ടായിരുന്ന ആപ്പിന് ⌘V കീസ്ട്രോക്ക് അയക്കാൻ മാത്രമേ കട്ട്‌ലിംഗ് ആക്സസിബിലിറ്റി ആക്സസ് ഉപയോഗിക്കൂ. അത് മറ്റ് ആപ്പുകളുടെ UI വായിക്കുകയോ നിങ്ങളുടെ കമ്പ്യൂട്ടറിനെ നിയന്ത്രിക്കുകയോ ചെയ്യില്ല.";
 "Direct Paste" = "നേരിട്ടുള്ള പേസ്റ്റ്";
 "Direct paste needs Accessibility access." = "നേരിട്ടുള്ള പേസ്റ്റിന് ആക്സസിബിലിറ്റി ആക്സസ് ആവശ്യമാണ്.";
+
+/* MARK: - Interactive Tutorial (iOS walkthrough) */
+"How to Use Cutling" = "കട്ട്‌ലിംഗ് എങ്ങനെ ഉപയോഗിക്കാം";
+"Create a cutling" = "ഒരു കട്ട്‌ലിംഗ് സൃഷ്ടിക്കുക";
+"Tap + to save text or an image you reuse often." = "നിങ്ങൾ പതിവായി വീണ്ടും ഉപയോഗിക്കുന്ന വാചകമോ ചിത്രമോ സേവ് ചെയ്യാൻ + ടാപ്പ് ചെയ്യുക.";
+"Edit a cutling" = "ഒരു കട്ട്‌ലിംഗ് എഡിറ്റ് ചെയ്യുക";
+"Touch and hold any card, then choose Edit to change it." = "ഏതെങ്കിലും കാർഡ് അമർത്തിപ്പിടിക്കുക, തുടർന്ന് അത് മാറ്റാൻ എഡിറ്റ് ചെയ്യുക തിരഞ്ഞെടുക്കുക.";
+"Delete a cutling" = "ഒരു കട്ട്‌ലിംഗ് നീക്കം ചെയ്യുക";
+"Touch and hold a card, then choose Delete to remove it." = "ഒരു കാർഡ് അമർത്തിപ്പിടിക്കുക, തുടർന്ന് അത് നീക്കാൻ നീക്കം ചെയ്യുക തിരഞ്ഞെടുക്കുക.";
+"Touch and hold a deleted cutling, then tap Recover." = "ഇല്ലാതാക്കിയ ഒരു കട്ട്‌ലിംഗ് അമർത്തിപ്പിടിക്കുക, തുടർന്ന് വീണ്ടെടുക്കുക ടാപ്പ് ചെയ്യുക.";
+"Recovered! Your cutling is back." = "വീണ്ടെടുത്തു! നിങ്ങളുടെ കട്ട്‌ലിംഗ് തിരികെ വന്നു.";
+"Recover a cutling" = "ഒരു കട്ട്‌ലിംഗ് വീണ്ടെടുക്കുക";
+"Open the More menu, then Recently Deleted, to restore anything you removed." = "നിങ്ങൾ നീക്കിയ എന്തെങ്കിലും പുനഃസ്ഥാപിക്കാൻ, കൂടുതൽ ഓപ്ഷനുകൾ മെനു തുറന്ന്, തുടർന്ന് അടുത്തിടെ നീക്കം ചെയ്തവ തുറക്കുക.";
+"Tap + to start a new text cutling." = "ഒരു പുതിയ ടെക്സ്റ്റ് കട്ട്‌ലിംഗ് തുടങ്ങാൻ + ടാപ്പ് ചെയ്യുക.";
+"Give your cutling a name." = "നിങ്ങളുടെ കട്ട്‌ലിംഗിന് ഒരു പേര് നൽകുക.";
+"Now type the text you want to save." = "ഇപ്പോൾ നിങ്ങൾ സേവ് ചെയ്യാൻ ആഗ്രഹിക്കുന്ന വാചകം ടൈപ്പ് ചെയ്യുക.";
+"Tap here to save your cutling." = "നിങ്ങളുടെ കട്ട്‌ലിംഗ് സേവ് ചെയ്യാൻ ഇവിടെ ടാപ്പ് ചെയ്യുക.";
+"Edit the text, then tap here to save." = "വാചകം എഡിറ്റ് ചെയ്യുക, തുടർന്ന് സേവ് ചെയ്യാൻ ഇവിടെ ടാപ്പ് ചെയ്യുക.";
+"Edit the text or anything else you like." = "വാചകമോ നിങ്ങൾക്ക് ഇഷ്ടമുള്ള മറ്റെന്തെങ്കിലുമോ എഡിറ്റ് ചെയ്യുക.";
+"Tap a deleted cutling to bring it back." = "ഇല്ലാതാക്കിയ ഒരു കട്ട്‌ലിംഗ് തിരികെ കൊണ്ടുവരാൻ അത് ടാപ്പ് ചെയ്യുക.";
+"Nice! Your cutling is saved." = "കൊള്ളാം! നിങ്ങളുടെ കട്ട്‌ലിംഗ് സേവ് ചെയ്തു.";
+"Tap the ⋯ button on a card to open and edit it." = "ഒരു കാർഡ് തുറന്ന് എഡിറ്റ് ചെയ്യാൻ അതിലെ ⋯ ബട്ടൺ ടാപ്പ് ചെയ്യുക.";
+"To delete, open a cutling with the ⋯ button." = "ഇല്ലാതാക്കാൻ, ⋯ ബട്ടൺ ഉപയോഗിച്ച് ഒരു കട്ട്‌ലിംഗ് തുറക്കുക.";
+"Scroll down and tap Delete Cutling to remove it." = "അത് നീക്കം ചെയ്യാൻ, താഴേക്ക് സ്ക്രോൾ ചെയ്ത് കട്ട്‌ലിംഗ് ഇല്ലാതാക്കുക ടാപ്പ് ചെയ്യുക.";
+"Edit the text, then tap Back. Your changes save automatically." = "വാചകം എഡിറ്റ് ചെയ്യുക, തുടർന്ന് പിന്നിലേക്ക് ടാപ്പ് ചെയ്യുക. നിങ്ങളുടെ മാറ്റങ്ങൾ സ്വയമേവ സേവ് ചെയ്യപ്പെടും.";
+"Edit anything, then go back to save." = "എന്തു വേണമെങ്കിലും എഡിറ്റ് ചെയ്യൂ, പിന്നെ സേവ് ചെയ്യാൻ തിരികെ പോകൂ.";
+"Skip Tutorial" = "ട്യൂട്ടോറിയൽ ഒഴിവാക്കുക";

@@ -397,3 +397,30 @@
 "Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "ਜਦੋਂ ਤੁਸੀਂ ਕੋਈ ਕਟਲਿੰਗ ਚੁਣਦੇ ਹੋ, ਉਸ ਤੋਂ ਬਾਅਦ ਪਿਛਲੀ ਫੋਕਸ ਵਾਲੀ ਐਪ ਨੂੰ ⌘V ਕੀਸਟ੍ਰੋਕ ਭੇਜਣ ਲਈ ਹੀ ਕਟਲਿੰਗ ਪਹੁੰਚਯੋਗਤਾ ਪਹੁੰਚ ਵਰਤਦਾ ਹੈ। ਇਹ ਹੋਰ ਐਪਾਂ ਦਾ UI ਨਹੀਂ ਪੜ੍ਹਦਾ ਅਤੇ ਤੁਹਾਡੇ ਕੰਪਿਊਟਰ ਨੂੰ ਨਿਯੰਤਰਿਤ ਨਹੀਂ ਕਰਦਾ।";
 "Direct Paste" = "ਸਿੱਧਾ ਪੇਸਟ";
 "Direct paste needs Accessibility access." = "ਸਿੱਧਾ ਪੇਸਟ ਕਰਨ ਲਈ ਪਹੁੰਚਯੋਗਤਾ ਪਹੁੰਚ ਚਾਹੀਦੀ ਹੈ।";
+
+/* MARK: - Interactive Tutorial (iOS walkthrough) */
+"Tap the ⋯ button on a card to open and edit it." = "ਕਾਰਡ ਖੋਲ੍ਹ ਕੇ ਸੋਧਣ ਲਈ ਉਸ ਉੱਤੇ ⋯ ਬਟਨ ਨੂੰ ਟੈਪ ਕਰੋ।";
+"To delete, open a cutling with the ⋯ button." = "ਮਿਟਾਉਣ ਲਈ, ⋯ ਬਟਨ ਨਾਲ ਕੋਈ ਕਟਲਿੰਗ ਖੋਲ੍ਹੋ।";
+"Scroll down and tap Delete Cutling to remove it." = "ਇਸਨੂੰ ਹਟਾਉਣ ਲਈ ਹੇਠਾਂ ਸਕ੍ਰੋਲ ਕਰੋ ਅਤੇ ਕਟਲਿੰਗ ਮਿਟਾਓ ਨੂੰ ਟੈਪ ਕਰੋ।";
+"How to Use Cutling" = "ਕਟਲਿੰਗ ਕਿਵੇਂ ਵਰਤਣਾ ਹੈ";
+"Create a cutling" = "ਕਟਲਿੰਗ ਬਣਾਓ";
+"Tap + to save text or an image you reuse often." = "ਜੋ ਟੈਕਸਟ ਜਾਂ ਤਸਵੀਰ ਤੁਸੀਂ ਅਕਸਰ ਵਰਤਦੇ ਹੋ ਉਸਨੂੰ ਸੰਭਾਲਣ ਲਈ + ਨੂੰ ਟੈਪ ਕਰੋ।";
+"Edit a cutling" = "ਕਟਲਿੰਗ ਸੋਧੋ";
+"Touch and hold any card, then choose Edit to change it." = "ਕਿਸੇ ਵੀ ਕਾਰਡ ਨੂੰ ਦਬਾ ਕੇ ਰੱਖੋ, ਫਿਰ ਇਸਨੂੰ ਬਦਲਣ ਲਈ ਸੋਧੋ ਚੁਣੋ।";
+"Delete a cutling" = "ਕਟਲਿੰਗ ਮਿਟਾਓ";
+"Touch and hold a card, then choose Delete to remove it." = "ਕਾਰਡ ਨੂੰ ਦਬਾ ਕੇ ਰੱਖੋ, ਫਿਰ ਇਸਨੂੰ ਹਟਾਉਣ ਲਈ ਮਿਟਾਓ ਚੁਣੋ।";
+"Recover a cutling" = "ਕਟਲਿੰਗ ਮੁੜ ਪ੍ਰਾਪਤ ਕਰੋ";
+"Open the More menu, then Recently Deleted, to restore anything you removed." = "ਤੁਹਾਡੇ ਹਟਾਏ ਕਿਸੇ ਵੀ ਚੀਜ਼ ਨੂੰ ਬਹਾਲ ਕਰਨ ਲਈ ਹੋਰ ਵਿਕਲਪ ਮੇਨੂ ਖੋਲ੍ਹੋ, ਫਿਰ ਹਾਲ ਹੀ ਵਿੱਚ ਮਿਟਾਏ ਗਏ ਚੁਣੋ।";
+"Touch and hold a deleted cutling, then tap Recover." = "ਕਿਸੇ ਮਿਟਾਏ ਗਏ ਕਟਲਿੰਗ ਨੂੰ ਦਬਾ ਕੇ ਰੱਖੋ, ਫਿਰ ਮੁੜ ਪ੍ਰਾਪਤ ਕਰੋ ਨੂੰ ਟੈਪ ਕਰੋ।";
+"Recovered! Your cutling is back." = "ਮੁੜ ਪ੍ਰਾਪਤ! ਤੁਹਾਡਾ ਕਟਲਿੰਗ ਵਾਪਸ ਆ ਗਿਆ।";
+"Tap + to start a new text cutling." = "ਨਵਾਂ ਟੈਕਸਟ ਕਟਲਿੰਗ ਸ਼ੁਰੂ ਕਰਨ ਲਈ + ਨੂੰ ਟੈਪ ਕਰੋ।";
+"Give your cutling a name." = "ਆਪਣੇ ਕਟਲਿੰਗ ਨੂੰ ਇੱਕ ਨਾਮ ਦਿਓ।";
+"Now type the text you want to save." = "ਹੁਣ ਉਹ ਟੈਕਸਟ ਟਾਈਪ ਕਰੋ ਜੋ ਤੁਸੀਂ ਸੰਭਾਲਣਾ ਚਾਹੁੰਦੇ ਹੋ।";
+"Tap here to save your cutling." = "ਆਪਣਾ ਕਟਲਿੰਗ ਸੰਭਾਲਣ ਲਈ ਇੱਥੇ ਟੈਪ ਕਰੋ।";
+"Edit the text, then tap here to save." = "ਟੈਕਸਟ ਨੂੰ ਸੋਧੋ, ਫਿਰ ਸੰਭਾਲਣ ਲਈ ਇੱਥੇ ਟੈਪ ਕਰੋ।";
+"Edit the text or anything else you like." = "ਟੈਕਸਟ ਜਾਂ ਜੋ ਵੀ ਤੁਸੀਂ ਚਾਹੋ ਉਸਨੂੰ ਸੋਧੋ।";
+"Edit the text, then tap Back. Your changes save automatically." = "ਟੈਕਸਟ ਨੂੰ ਸੋਧੋ, ਫਿਰ ਪਿੱਛੇ ਟੈਪ ਕਰੋ। ਤੁਹਾਡੇ ਬਦਲਾਅ ਆਪਣੇ ਆਪ ਸੰਭਾਲੇ ਜਾਂਦੇ ਹਨ।";
+"Edit anything, then go back to save." = "ਜੋ ਚਾਹੋ ਸੋਧੋ, ਫਿਰ ਸੰਭਾਲਣ ਲਈ ਪਿੱਛੇ ਜਾਓ।";
+"Tap a deleted cutling to bring it back." = "ਮਿਟਾਏ ਗਏ ਕਟਲਿੰਗ ਨੂੰ ਵਾਪਸ ਲਿਆਉਣ ਲਈ ਇਸ 'ਤੇ ਟੈਪ ਕਰੋ।";
+"Nice! Your cutling is saved." = "ਵਧੀਆ! ਤੁਹਾਡਾ ਕਟਲਿੰਗ ਸੰਭਾਲ ਲਿਆ ਗਿਆ।";
+"Skip Tutorial" = "ਟਿਊਟੋਰੀਅਲ ਛੱਡੋ";

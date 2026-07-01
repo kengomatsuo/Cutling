@@ -10,6 +10,9 @@
 
 
 import SwiftUI
+#if os(iOS)
+import TipKit
+#endif
 
 // MARK: - Item Detail
 
@@ -39,12 +42,28 @@ struct TextDetailView: View {
     @State private var titleFetchTask: Task<Void, Never>?
     @State private var isFetchingTitle = false
     @State private var isAutoDetecting = false
+    /// The exact name auto-detect last wrote. Auto-detect only manages the name
+    /// while it's empty or still equals this value; once the user types anything
+    /// (even a reserved word like "Email"), it diverges and is left alone.
+    @State private var lastAutoName: String = ""
     @State private var userSetInputType: Bool
     @State private var userDidPickIcon = false
     @State private var sensitiveContentTypes: Set<SensitiveContentType> = []
     @State private var wasTruncated: Bool
     @AppStorage("autoDetectInputTypes") private var autoDetectInputTypes = true
     @State private var undoHandler = UndoHandler()
+
+    /// Lets the Name field's Return key move focus to the Text field.
+    private enum Field: Hashable { case name, value }
+    @FocusState private var focusedField: Field?
+
+    #if os(iOS)
+    private let editorNameTip = EditorNameTip()
+    private let editorTextTip = EditorTextTip()
+    private let editorSaveTip = EditorSaveTip()
+    private let editorBackTip = EditorBackTip()
+    private let editorDeleteTip = EditorDeleteTip()
+    #endif
 
     init(
         item: Cutling?,
@@ -126,6 +145,7 @@ struct TextDetailView: View {
         if presentedAsSheet {
             NavigationStack {
                 formContent
+                    .interactiveDismissDisabled(tutorialLocksCancel)
                     .toolbar {
                         ToolbarItem(placement: .cancellationAction) {
                             Button {
@@ -137,6 +157,7 @@ struct TextDetailView: View {
                                     Text("Cancel")
                                 }
                             }
+                            .disabled(tutorialLocksCancel)
                         }
                         compactUndoToolbarContent
                         ToolbarItem(placement: .confirmationAction) {
@@ -148,11 +169,13 @@ struct TextDetailView: View {
                                 }
                                 .buttonStyle(.borderedProminent)
                                 .disabled(name.isEmpty || value.isEmpty)
+                                .popoverTip(editorSaveTip, arrowEdge: .top)
                             } else {
                                 Button("Done") {
                                     saveAndDismiss()
                                 }
                                 .disabled(name.isEmpty || value.isEmpty)
+                                .popoverTip(editorSaveTip, arrowEdge: .top)
                             }
                         }
                     }
@@ -235,9 +258,24 @@ struct TextDetailView: View {
     // MARK: - Form Content
 
     private var formContent: some View {
+        ScrollViewReader { proxy in
         Form {
+            #if os(iOS)
+            // Edit step: the back tip is shown inline at the top (anchoring a
+            // popover to the system Back button isn't reliable).
+            if isEditing {
+                TipView(editorBackTip)
+                    .listRowBackground(Color.clear)
+            }
+            #endif
             Section {
                 TextField("e.g. Email", text: undoHandler.binding($name, actionName: String(localized: "Change Name")))
+                    .focused($focusedField, equals: .name)
+                    .submitLabel(.next)
+                    .onSubmit { handleNameSubmit() }
+                    #if os(iOS)
+                    .popoverTip(editorNameTip, arrowEdge: .top)
+                    #endif
             } header: {
                 HStack(spacing: 6) {
                     Text("Name")
@@ -301,9 +339,18 @@ struct TextDetailView: View {
             }
             SensitiveContentWarning(types: sensitiveContentTypes)
             Section {
+                #if os(iOS)
+                // Inline (not a popover): a popover on the focused Value field
+                // steals/​restores first-responder and bounces the cursor to Name.
+                TipView(editorTextTip)
+                #endif
                 TextEditor(text: undoHandler.binding($value, actionName: String(localized: "Change Text")))
+                    .focused($focusedField, equals: .value)
                     .frame(minHeight: 120, maxHeight: 450)
                     .scrollContentBackground(.hidden)
+                    #if os(iOS)
+                    .id("tutorialTextSection")
+                    #endif
                     .onChange(of: value) { oldValue, newValue in
                         if newValue.count > CutlingStore.maxTextLength {
                             value = String(newValue.prefix(CutlingStore.maxTextLength))
@@ -359,10 +406,14 @@ struct TextDetailView: View {
                         dismiss()
                     }
                     .frame(maxWidth: .infinity, alignment: .center)
+                    .id("tutorialDeleteButton")
+                    #if os(iOS)
+                    .popoverTip(editorDeleteTip, arrowEdge: .bottom)
+                    #endif
                 }
             }
         }
-        .scrollDismissesKeyboard(.interactively)
+        .scrollDismissesKeyboard(.immediately)
         .formStyle(.grouped)
         .navigationTitle(isEditing ? "Edit" : "New")
         .accessibilityIdentifier("detailView")
@@ -394,7 +445,94 @@ struct TextDetailView: View {
             undoHandler.closeAllGroups()
             undoManager?.removeAllActions()
         }
+        #if os(iOS)
+        // Only reveal the tip once the zoom transition (and any scroll) settles.
+        .onAppear { revealEditorTip(proxy) }
+        .onChange(of: TutorialCoordinator.shared.step) { _, newStep in
+            focusForTutorialStep()
+            // Same-sheet create transition (name → value) has no new appearance,
+            // so show the text tip right away.
+            if newStep == .createSave, !isEditing {
+                TutorialCoordinator.shared.showEditorTipForCurrentStep()
+            }
+        }
+        // Advance the name step however the user leaves the field (Return, tap
+        // elsewhere, keyboard dismiss), not only on Return.
+        .onChange(of: focusedField) { oldValue, newValue in
+            if oldValue == .name, newValue != .name, !name.isEmpty,
+               TutorialCoordinator.shared.isActive,
+               TutorialCoordinator.shared.step == .createName {
+                TutorialCoordinator.shared.advance(from: .createName)
+            }
+        }
+        // Typing dismisses the current field's tip; it (or the next one) shows
+        // again after a 2s pause.
+        .onChange(of: name) { _, _ in
+            let t = TutorialCoordinator.shared
+            // Only go back to the name step if the user actually cleared the
+            // Name field while editing it. If they're in the Value field (or a
+            // stray auto-detect blanked the name), never reset/refocus — that's
+            // what was yanking the cursor back to Name mid-typing.
+            if t.isActive, t.step == .createSave, !isEditing,
+               name.isEmpty, focusedField == .name {
+                t.reset(to: .createName)
+                return
+            }
+            t.editorTypingChanged(valueEmpty: value.isEmpty)
+        }
+        .onChange(of: value) { _, _ in
+            TutorialCoordinator.shared.editorTypingChanged(valueEmpty: value.isEmpty)
+        }
+        #endif
+        }
+    }
 
+    #if os(iOS)
+    /// Focuses only the Name field at the start of create (so Return flows to
+    /// the text field). The value/edit steps just show the tip — no auto-focus.
+    private func focusForTutorialStep() {
+        guard TutorialCoordinator.shared.isActive else { return }
+        // Never yank focus away from the Value field.
+        if TutorialCoordinator.shared.step == .createName, !isEditing, focusedField != .value {
+            focusedField = .name
+        }
+    }
+
+    /// While the walkthrough is creating a cutling, the only way out of the
+    /// sheet is Save — Cancel is locked so the user completes the step.
+    private var tutorialLocksCancel: Bool {
+        !isEditing && TutorialCoordinator.shared.isActive
+    }
+
+    /// Reveal the editor tip only after the zoom transition (and, for the
+    /// delete step, the scroll to the button) has fully finished.
+    private func revealEditorTip(_ proxy: ScrollViewProxy) {
+        guard TutorialCoordinator.shared.isActive else { return }
+        Task { @MainActor in
+            try? await Task.sleep(for: .seconds(0.5))      // zoom / sheet transition
+            guard TutorialCoordinator.shared.isActive else { return }
+            focusForTutorialStep()
+            if TutorialCoordinator.shared.step == .deleteConfirm {
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    proxy.scrollTo("tutorialDeleteButton", anchor: .center)
+                }
+                try? await Task.sleep(for: .seconds(0.45)) // wait for the scroll
+                guard TutorialCoordinator.shared.step == .deleteConfirm else { return }
+            }
+            TutorialCoordinator.shared.showEditorTipForCurrentStep()
+        }
+    }
+    #endif
+
+    /// Return on the Name field jumps to the Text field (rather than just
+    /// dismissing the keyboard), and advances the walkthrough's name step.
+    private func handleNameSubmit() {
+        focusedField = .value
+        #if os(iOS)
+        if !isEditing, !name.isEmpty {
+            TutorialCoordinator.shared.advance(from: .createName)
+        }
+        #endif
     }
 
     // MARK: - Save Helpers
@@ -515,12 +653,15 @@ struct TextDetailView: View {
 
         // Auto-suggest name when empty or when it matches a previous auto-suggestion
         // (including numbered variants like "Email 2").
-        if name.isEmpty || isAutoSuggestedName(name) {
+        // Only manage the name while the user hasn't typed their own (it's empty
+        // or still exactly what we last auto-set).
+        if name.isEmpty || name == lastAutoName {
             if !suggestion.categories.isEmpty {
                 name = deduplicatedName(for: suggestion.name)
             } else {
                 name = ""
             }
+            lastAutoName = name
         }
 
         titleFetchTask?.cancel()
@@ -530,28 +671,14 @@ struct TextDetailView: View {
                 defer { isFetchingTitle = false }
                 guard let title = await InputTypeCategory.fetchURLTitle(from: value),
                       !Task.isCancelled else { return }
-                if name.isEmpty || isAutoSuggestedName(name) {
+                if name.isEmpty || name == lastAutoName {
                     name = deduplicatedName(for: title)
+                    lastAutoName = name
                 }
             }
         } else {
             isFetchingTitle = false
         }
-    }
-
-    /// Returns true if the given name is an auto-suggested category name or a numbered variant (e.g. "Email 2").
-    private func isAutoSuggestedName(_ name: String) -> Bool {
-        let baseNames = Set(InputTypeCategory.allCases.map(\.displayName))
-        if baseNames.contains(name) { return true }
-        // Check for numbered variants like "Email 2"
-        for base in baseNames {
-            if name.hasPrefix(base + " "),
-               let suffix = Int(name.dropFirst(base.count + 1)),
-               suffix >= 2 {
-                return true
-            }
-        }
-        return false
     }
 
     /// Returns a unique name based on the category display name, appending a number if needed.
@@ -577,7 +704,7 @@ struct TextDetailView: View {
         // Only use hasStrings — does NOT trigger the paste-permission prompt.
         // The actual .string access happens in pasteFromClipboard() which is
         // called either by the user tapping "Paste from Clipboard" or after
-        // the delayed auto-paste.
+        // the delayed direct-paste.
         hasClipboardText = UIPasteboard.general.hasStrings
         #endif
         #if os(macOS)

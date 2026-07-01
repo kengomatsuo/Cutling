@@ -33,6 +33,16 @@ struct RecentlyDeletedView: View {
     private let cardHeight: CGFloat = 160
     #endif
 
+    /// True while the interactive walkthrough is running, so the destructive
+    /// "Delete All" action stays locked during the recover step.
+    private var tutorialLocksControls: Bool {
+        #if os(iOS)
+        return TutorialCoordinator.shared.isActive
+        #else
+        return false
+        #endif
+    }
+
     var body: some View {
         ScrollView {
             if store.recentlyDeleted.isEmpty {
@@ -56,6 +66,9 @@ struct RecentlyDeletedView: View {
                                     insertion: .scale(scale: 0.85).combined(with: .opacity),
                                     removal: .identity
                                 ))
+                                #if os(iOS)
+                                .tutorialFirstRecoverCard(item.id == store.recentlyDeleted.first?.id)
+                                #endif
                         }
                     }
                     .padding()
@@ -76,6 +89,7 @@ struct RecentlyDeletedView: View {
         .navigationTitle("Recently Deleted")
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
+        .tutorialOverlay(.recentlyDeleted)
         #endif
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
@@ -83,7 +97,7 @@ struct RecentlyDeletedView: View {
                     showEmptyAllConfirmation = true
                 }
                 .foregroundStyle(store.recentlyDeleted.isEmpty ? Color.secondary : Color.red)
-                .disabled(store.recentlyDeleted.isEmpty)
+                .disabled(store.recentlyDeleted.isEmpty || tutorialLocksControls)
                 .confirmationDialog(
                     "Delete All Permanently?",
                     isPresented: $showEmptyAllConfirmation,
@@ -193,10 +207,6 @@ struct RecentlyDeletedView: View {
         #endif
         .accessibilityElement(children: .combine)
         .accessibilityLabel("\(cutling.name), \(item.daysRemaining == 1 ? String(localized: "1 day left") : String(localized: "\(item.daysRemaining) days left"))")
-        .accessibilityHint(String(localized: "Double tap to recover"))
-        .onTapGesture {
-            beginDisappear(item) { store.restore($0) }
-        }
     }
 
     // MARK: - State-driven disappearance

@@ -7,7 +7,7 @@
 //    1. Cutling lives in the menu bar (LSUIElement apps have no Dock icon,
 //       which disorients new users).
 //    2. The global hotkey to summon it from anywhere.
-//    3. Optional Accessibility access for auto-paste, with explanation.
+//    3. Optional Accessibility access for direct-paste, with explanation.
 //
 //  Gated by @AppStorage("hasOnboarded"). After dismissal we drop the Dock
 //  icon via AppActivationManager (the window-close notification it watches

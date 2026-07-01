@@ -397,3 +397,30 @@
 "Cutling uses Accessibility access only to send the ⌘V keystroke to the previously focused app after you pick a cutling. It does not read other apps' UI or control your computer." = "Катлінг використовує доступ до доступності лише для надсилання натискання ⌘V до програми, що раніше мала фокус, після того як ви виберете Катлінг. Він не зчитує інтерфейс інших програм і не керує вашим комп'ютером.";
 "Direct Paste" = "Пряма вставка";
 "Direct paste needs Accessibility access." = "Прямій вставці потрібен доступ до доступності.";
+
+/* MARK: - Interactive Tutorial (iOS walkthrough) */
+"How to Use Cutling" = "Як користуватися Катлінгом";
+"Tap the ⋯ button on a card to open and edit it." = "Натисни кнопку ⋯ на картці, щоб відкрити й відредагувати її.";
+"To delete, open a cutling with the ⋯ button." = "Щоб видалити, відкрий Катлінг кнопкою ⋯.";
+"Scroll down and tap Delete Cutling to remove it." = "Прокрути вниз і натисни «Видалити Катлінг», щоб його прибрати.";
+"Create a cutling" = "Створення Катлінга";
+"Tap + to save text or an image you reuse often." = "Натисни +, щоб зберегти текст або зображення, які часто використовуєш.";
+"Edit a cutling" = "Редагування Катлінга";
+"Touch and hold any card, then choose Edit to change it." = "Натисни й утримуй будь-яку картку, потім вибери «Редагувати», щоб її змінити.";
+"Delete a cutling" = "Видалення Катлінга";
+"Touch and hold a card, then choose Delete to remove it." = "Натисни й утримуй картку, потім вибери «Видалити», щоб її прибрати.";
+"Recover a cutling" = "Відновлення Катлінга";
+"Open the More menu, then Recently Deleted, to restore anything you removed." = "Відкрий меню «Більше опцій», потім «Нещодавно видалені», щоб відновити все, що ти прибрав.";
+"Tap + to start a new text cutling." = "Натисни +, щоб створити новий текстовий Катлінг.";
+"Give your cutling a name." = "Дай своєму Катлінгу назву.";
+"Now type the text you want to save." = "Тепер введи текст, який хочеш зберегти.";
+"Tap here to save your cutling." = "Натисни тут, щоб зберегти свій Катлінг.";
+"Edit the text, then tap here to save." = "Зміни текст, потім натисни тут, щоб зберегти.";
+"Edit the text or anything else you like." = "Зміни текст або будь-що інше на свій смак.";
+"Tap a deleted cutling to bring it back." = "Натисни на видалений Катлінг, щоб повернути його.";
+"Touch and hold a deleted cutling, then tap Recover." = "Натисни й утримуй видалений катлінг, потім натисни «Відновити».";
+"Recovered! Your cutling is back." = "Відновлено! Твій Катлінг повернувся.";
+"Nice! Your cutling is saved." = "Чудово! Твій Катлінг збережено.";
+"Edit the text, then tap Back. Your changes save automatically." = "Зміни текст, потім натисни Назад. Твої зміни зберігаються автоматично.";
+"Edit anything, then go back to save." = "Зміни що завгодно, потім повернись, щоб зберегти.";
+"Skip Tutorial" = "Пропустити навчання";

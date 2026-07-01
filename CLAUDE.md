@@ -72,6 +72,7 @@ Soft-delete: `DeletedCutling` with 30-day retention, recoverable from `RecentlyD
 - `TextDetailView.swift` / `ImageDetailView.swift` — editors with undo/redo
 - `KeyboardSetupView.swift` — 6-page onboarding wizard
 - `CardView.swift` — cutling card display component
+- `TutorialOverlay.swift` — iOS-only interactive, forced, skippable coach-mark walkthrough. A shared `TutorialCoordinator.shared` drives a 10-step flow (createAdd → createName → createText → createSave → editOpen → editSave → deleteOpen → deleteConfirm → recoverTap → recoverWhere) across three screens; controls publish live global frames via `.tutorialFrame(_:)` and each screen hosts its own overlay via `.tutorialOverlay(_:)` so coach-marks render above sheets/pushes. Edit and delete are spotlighted with no un-highlightable menu rows: the card's ⋯ button (`CardView.topRightButton`, which calls `onEdit()` directly) opens the editor, and delete uses the editor's bottom "Delete Cutling" button (`.editorDelete`). Content controls (cards, form fields, in-form buttons) get a hard tap-through hole (`BlockingScrim`); nav-bar controls (+, Save, More) are highlighted but non-blocking. During the walkthrough `+` opens a text cutling directly and Recently Deleted is navigated programmatically (then it points back at More). Auto-launches once for any user who hasn't seen it (`hasSeenInteractiveTutorial`), replayable from the More menu's "How to Use Cutling". The long-press TipKit tip was removed (the tutorial teaches it); the remaining tips (More-menu, drag-to-select, smart matching) stay gated until the tutorial is seen.
 
 ### App Intents & Siri Shortcuts
 
@@ -79,7 +80,9 @@ Soft-delete: `DeletedCutling` with 30-day retention, recoverable from `RecentlyD
 
 ## Localization
 
-59 locales. Each target has `.lproj/Localizable.strings` and `.lproj/InfoPlist.strings`. App Shortcut phrases live in **`.lproj/AppShortcuts.strings`** (separate file required by AppIntents) — placeholder syntax is `${applicationName}` / `${target}` (not the Swift `\(.applicationName)` / `\(\.$target)` form). Release notes are translated via `./deploy.sh release_notes` from `fastlane/metadata/en-US/release_notes.txt`.
+59 languages / 76 locale folders. Each target has `.lproj/Localizable.strings` and `.lproj/InfoPlist.strings`. App Shortcut phrases live in **`.lproj/AppShortcuts.strings`** (separate file required by AppIntents) — placeholder syntax is `${applicationName}` / `${target}` (not the Swift `\(.applicationName)` / `\(\.$target)` form).
+
+**In-app UI strings (`.lproj/Localizable.strings`) are hand-translated into every locale** — read the existing locale file first and reuse its established terms, and use the per-locale "Cutling" form (see project memory). The `./deploy.sh release_notes` Google-translate flow is **only** for fastlane release notes (`fastlane/metadata/en-US/release_notes.txt`); never use it for `Localizable.strings`.
 
 ## Release Workflow
 

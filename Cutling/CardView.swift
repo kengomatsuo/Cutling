@@ -52,6 +52,14 @@ let cardShape = RoundedRectangle(
     style: .continuous
 )
 
+/// How a grid card responds while the interactive tutorial is running.
+/// `.normal` is also the everyday (non-tutorial) behaviour.
+enum CardTutorialMode {
+    case normal        // full interaction
+    case disabled      // fully inert
+    case ellipsisOnly  // only the ⋯ button works (tap-to-copy and menu off)
+}
+
 // MARK: - Card View
 
 struct CardView: View {
@@ -64,6 +72,17 @@ struct CardView: View {
     let onEdit: () -> Void
     let onToggleSelection: () -> Void
     let onDelete: () -> Void
+    /// When true, the ⋯ button publishes its frame as the tutorial's edit/delete
+    /// spotlight target (the first card in the grid during the walkthrough).
+    var isTutorialAnchor: Bool = false
+    /// Locks down interaction while the walkthrough runs; `.normal` otherwise.
+    var tutorialMode: CardTutorialMode = .normal
+
+    /// Tap-to-copy, the long-press menu, and dragging are all live only in
+    /// `.normal`. In `.ellipsisOnly` just the ⋯ button works; `.disabled`
+    /// makes the whole card inert.
+    private var cardInteractive: Bool { tutorialMode == .normal }
+    private var cardFullyDisabled: Bool { tutorialMode == .disabled }
 
     @State private var copied = false
     @State private var showInfo = false
@@ -91,7 +110,7 @@ struct CardView: View {
                 copiedOverlay
             }
             .animation(reduceMotion ? .easeOut(duration: 0.15) : .spring(), value: copied)
-            .modifier(CardDraggableModifier(item: item, isEnabled: !isSelecting))
+            .modifier(CardDraggableModifier(item: item, isEnabled: !isSelecting && cardInteractive))
             #if os(iOS)
             .contextMenu {
                 cardContextMenu
@@ -117,6 +136,14 @@ struct CardView: View {
                 CutlingInfoView(item: item)
                     .environmentObject(store)
             }
+            // Tutorial: a `.disabled` card ignores taps, the long-press menu,
+            // and the ⋯ button. `.ellipsisOnly` keeps the ⋯ live (handled in
+            // handleTap / cardContextMenu) so only that one control responds.
+            .disabled(cardFullyDisabled)
+            #if os(iOS)
+            // Publishes the whole-card frame for the "created" celebration step.
+            .modifier(ConditionalFrameReporter(target: .card, active: isTutorialAnchor))
+            #endif
     }
 
     // MARK: - Card Content
@@ -159,7 +186,9 @@ struct CardView: View {
 
     @ViewBuilder
     private var cardContextMenu: some View {
-        if !isSelecting {
+        // Suppressed during the walkthrough so long-press can't bypass the
+        // guided ⋯ → editor flow (an empty menu presents no actions).
+        if !isSelecting && cardInteractive {
             ControlGroup {
                 Button {
                     markContextMenuDiscovered()
@@ -209,18 +238,15 @@ struct CardView: View {
         }
     }
 
-    /// Flips the TipKit parameter that hides the long-press hint once the
-    /// user has used the menu at least once. iOS-only; no-op on macOS where
-    /// the tip doesn't exist.
-    private func markContextMenuDiscovered() {
-        #if os(iOS)
-        if !LongPressCardTip.hasOpenedContextMenu {
-            LongPressCardTip.hasOpenedContextMenu = true
-        }
-        #endif
-    }
+    /// Previously flipped a TipKit parameter to hide the long-press hint after
+    /// first use. The interactive tutorial now teaches long-press directly and
+    /// that tip was removed, so this is intentionally a no-op (call sites kept
+    /// for clarity at each context-menu action).
+    private func markContextMenuDiscovered() {}
 
     private func handleTap() {
+        // During the walkthrough, tap-to-copy is off; only the ⋯ button is live.
+        guard cardInteractive else { return }
         #if os(iOS)
         if !isSelecting {
             Self.haptic.impactOccurred()
@@ -419,6 +445,9 @@ struct CardView: View {
             .frame(width: 36, height: 36)
         }
         .buttonStyle(.plain)
+        #if os(iOS)
+        .modifier(ConditionalFrameReporter(target: .editEllipsis, active: isTutorialAnchor && !isSelecting))
+        #endif
     }
 
     private func copyToClipboard() {
