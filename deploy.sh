@@ -18,8 +18,10 @@ Usage: ./deploy.sh [command]
 Commands:
   web               Build website and deploy to gh-pages
   all               Full pipeline: metadata + screenshots + build + upload
-  release_notes     Translate release notes from en-US to all languages
-  metadata          Upload metadata to App Store Connect (all languages)
+  release_notes     Translate iOS release notes from en-US to all languages
+  release_notes_mac Translate macOS release notes (fastlane/metadata_mac) to all languages
+  metadata          Upload iOS metadata to App Store Connect (all languages)
+  metadata_mac      Upload macOS release notes to App Store Connect (platform osx)
   snap [--all]      Capture screenshots (missing only, or --all from scratch)
   frame             Add device bezels and marketing text to screenshots
   screenshots       Upload framed screenshots to App Store Connect
@@ -28,7 +30,11 @@ Commands:
   binary            Upload the already-built IPA to App Store Connect (binary
                     only; run 'build' first; does not submit for review)
   dist              Build, notarize & publish the macOS Developer ID app to a
-                    GitHub Release (direct download, outside the App Store)
+                    GitHub Release (direct download; "Cutling (Direct)" target,
+                    the only one that links Sparkle)
+  mas               Build the clean "Cutling" target for the Mac App Store
+                    (no Sparkle) and upload the signed .pkg to App Store
+                    Connect via fastlane (build_mac_app + deliver, platform osx)
   help              Show this help
 
 Individual steps (run in order for a full deploy):
@@ -51,7 +57,9 @@ EOF
 # --- Developer ID direct-download release -----------------------------------
 TEAM_ID="PM3K35YS39"
 NOTARY_PROFILE="cutling-notary"       # keychain profile created via notarytool store-credentials
-DIST_SCHEME="Cutling"
+# The direct-download build is the ONLY target that links Sparkle. The App
+# Store builds (iOS + macOS) come from the clean `Cutling` target/scheme.
+DIST_SCHEME="Cutling (Direct)"
 
 dist_release() {
   local build_dir="$REPO_ROOT/build/dist"
@@ -171,6 +179,7 @@ ensure_sparkle_tools() {
   SPARKLE_TOOLS="$cache"
 }
 
+
 deploy_web() {
   DIST="$REPO_ROOT/dist"
   WEB="$REPO_ROOT/web"
@@ -213,7 +222,9 @@ case "${1:-help}" in
   web)              deploy_web ;;
   all)              $FASTLANE ios deploy ;;
   release_notes)    source "$VENV" && python3 translate_release_notes.py ;;
+  release_notes_mac) source "$VENV" && python3 translate_release_notes.py --mac ;;
   metadata)         $FASTLANE ios upload_metadata ;;
+  metadata_mac)     $FASTLANE mac upload_metadata_mac ;;
   snap)
     if [ "${2:-}" = "--all" ]; then
       $FASTLANE ios screenshots
@@ -226,6 +237,8 @@ case "${1:-help}" in
   upload)           $FASTLANE ios upload ;;
   build)            $FASTLANE ios build ;;
   binary)           $FASTLANE ios upload_binary ;;
+  resubmit_notes)   $FASTLANE ios resubmit_notes ;;
   dist)             dist_release ;;
+  mas)              $FASTLANE mac upload_mas ;;
   help|*)           usage ;;
 esac

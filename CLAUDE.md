@@ -14,12 +14,22 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ./deploy.sh snap --all     # Recapture all screenshots
 ./deploy.sh frame          # Add device frames + marketing text to screenshots
 ./deploy.sh screenshots    # Upload framed screenshots to App Store Connect
-./deploy.sh metadata       # Upload metadata/release notes to App Store Connect
+./deploy.sh metadata       # Upload iOS metadata/release notes to App Store Connect
+./deploy.sh metadata_mac   # Upload macOS release notes (fastlane/metadata_mac) to App Store Connect (platform osx)
 ./deploy.sh upload         # Upload metadata + framed screenshots together
 ./deploy.sh all            # Full pipeline: metadata → screenshots → build → upload
-./deploy.sh release_notes  # Translate release_notes.txt to all 59 locales
+./deploy.sh release_notes  # Translate iOS release_notes.txt to all locales (fastlane/metadata)
+./deploy.sh release_notes_mac # Translate macOS release notes to all locales (fastlane/metadata_mac)
 ./deploy.sh web            # Deploy website to gh-pages
+./deploy.sh dist           # Build/notarize/publish the macOS Developer ID app (direct download) + Sparkle appcast
+./deploy.sh mas            # Build the clean "Cutling" target for the Mac App Store (no Sparkle) and upload the .pkg via fastlane (build_mac_app + deliver, platform osx)
 ```
+
+**The App Store is clean; only the direct-download build carries Sparkle:**
+- **`Cutling`** target → **all App Store builds**: iOS App Store (`build`/`binary`) **and** the macOS **App Store** (`mas`). It does **not** link Sparkle, so no App Store binary ever contains a self-updater (guideline 2.4.5). Uses `Cutling/Info.plist` (no `SU*` keys).
+- **`Cutling (Direct)`** target → the macOS **direct-download** build (`dist`) only. Same sources, macOS-only, and the **only** target that links the **Sparkle** Swift Package. Uses `CutlingDirect/Info.plist` (which holds the `SU*` keys).
+
+Every Sparkle call site is gated on `#if canImport(Sparkle)`, so a target that doesn't link the package compiles all of it out with **zero code changes** — the clean `Cutling` target simply has no Sparkle symbols. Both targets share bundle ID `com.matsuokengo.Cutling` (universal purchase) and `Cutling/Cutling.entitlements`. `mas` is a fastlane `platform :mac` lane (`build_mac_app` + `upload_to_app_store platform: "osx"`) and reuses the same App Store Connect auth as the iOS lanes (Appfile / session), so no extra credentials are needed.
 
 **UI Tests:** `CutlingUITests` target uses XCUITest + fastlane snapshot for screenshot automation. No unit test suite exists.
 
@@ -31,7 +41,8 @@ Cutling is a SwiftUI-first iOS/macOS clipboard manager with **no third-party dep
 
 | Target | Type | Notes |
 |--------|------|-------|
-| `Cutling` | Main App | iOS + macOS, iCloud sync, background tasks |
+| `Cutling` | Main App | iOS + macOS, iCloud sync, background tasks. Ships **all App Store builds** (iOS + macOS App Store); **no Sparkle**. Uses `Cutling/Info.plist` |
+| `Cutling (Direct)` | Main App (macOS) | macOS **direct-download** build only. Same sources as `Cutling`, macOS-only, and the **only** target that links Sparkle. Shares the `Cutling` synchronized source folder; uses `CutlingDirect/Info.plist` |
 | `CutlingKeyboard` | Keyboard Extension | UIKit + SwiftUI hybrid (`UIInputViewController`) |
 | `CutlingShare` | Share Extension | SwiftUI |
 | `CutlingAction` | Action Extension | Reuses `ShareView` |
@@ -73,7 +84,7 @@ Soft-delete: `DeletedCutling` with 30-day retention, recoverable from `RecentlyD
 - `TextDetailView.swift` / `ImageDetailView.swift` — editors with undo/redo
 - `KeyboardSetupView.swift` — 6-page onboarding wizard
 - `CardView.swift` — cutling card display component
-- `TutorialOverlay.swift` — iOS-only interactive, forced, skippable coach-mark walkthrough. A shared `TutorialCoordinator.shared` drives a 10-step flow (createAdd → createName → createText → createSave → editOpen → editSave → deleteOpen → deleteConfirm → recoverTap → recoverWhere) across three screens; controls publish live global frames via `.tutorialFrame(_:)` and each screen hosts its own overlay via `.tutorialOverlay(_:)` so coach-marks render above sheets/pushes. Edit and delete are spotlighted with no un-highlightable menu rows: the card's ⋯ button (`CardView.topRightButton`, which calls `onEdit()` directly) opens the editor, and delete uses the editor's bottom "Delete Cutling" button (`.editorDelete`). Content controls (cards, form fields, in-form buttons) get a hard tap-through hole (`BlockingScrim`); nav-bar controls (+, Save, More) are highlighted but non-blocking. During the walkthrough `+` opens a text cutling directly and Recently Deleted is navigated programmatically (then it points back at More). Auto-launches once for any user who hasn't seen it (`hasSeenInteractiveTutorial`), replayable via "How to Use Cutling" in the keyboard manager's (`KeyboardView`) About section (which dismisses the sheet, then starts the walkthrough on the grid). The long-press TipKit tip was removed (the tutorial teaches it); the remaining tips (More-menu, drag-to-select, smart matching) stay gated until the tutorial is seen.
+- `TutorialOverlay.swift` — iOS-only interactive, forced, skippable coach-mark walkthrough. A shared `TutorialCoordinator.shared` drives a 10-step flow (createAdd → createName → createText → createSave → editOpen → editSave → deleteOpen → deleteConfirm → recoverTap → recoverWhere) across three screens; controls publish live global frames via `.tutorialFrame(_:)` and each screen hosts its own overlay via `.tutorialOverlay(_:)` so coach-marks render above sheets/pushes. Edit and delete are spotlighted with no un-highlightable menu rows: the card's ⋯ button (`CardView.topRightButton`, which calls `onEdit()` directly) opens the editor, and delete uses the editor's bottom "Delete Cutling" button (`.editorDelete`). Content controls (cards, form fields, in-form buttons) get a hard tap-through hole (`BlockingScrim`); nav-bar controls (+, Save, More) are highlighted but non-blocking. During the walkthrough `+` opens a text cutling directly and Recently Deleted is navigated programmatically (then it points back at More). Backing out is a deliberate escape hatch rather than blocked: the create sheet keeps Cancel enabled but routes it (and only it — swipe-dismiss stays off) through a "Leave Tutorial?" confirmation alert (`tutorialGuardsDismiss`); the pushed editor swaps its system Back for a custom one during the edit/delete steps (`tutorialInterceptsBack`) — on `editSave` Back requires a real text edit (`tutorialDidEdit`, set from `value` changes) or else shows the same leave alert, and on `deleteConfirm` Back resets the flow to `deleteOpen` (re-points at ⋯) instead of stranding it. Auto-launches once for any user who hasn't seen it (`hasSeenInteractiveTutorial`), replayable via "How to Use Cutling" in the keyboard manager's (`KeyboardView`) About section (which dismisses the sheet, then starts the walkthrough on the grid). The long-press TipKit tip was removed (the tutorial teaches it); the remaining tips (More-menu, drag-to-select, smart matching) stay gated until the tutorial is seen.
 
 ### App Intents & Siri Shortcuts
 
@@ -83,11 +94,16 @@ Soft-delete: `DeletedCutling` with 30-day retention, recoverable from `RecentlyD
 
 59 languages / 76 locale folders. Each target has `.lproj/Localizable.strings` and `.lproj/InfoPlist.strings`. App Shortcut phrases live in **`.lproj/AppShortcuts.strings`** (separate file required by AppIntents) — placeholder syntax is `${applicationName}` / `${target}` (not the Swift `\(.applicationName)` / `\(\.$target)` form).
 
-**In-app UI strings (`.lproj/Localizable.strings`) are hand-translated into every locale** — read the existing locale file first and reuse its established terms, and use the per-locale "Cutling" form (see project memory). The `./deploy.sh release_notes` Google-translate flow is **only** for fastlane release notes (`fastlane/metadata/en-US/release_notes.txt`); never use it for `Localizable.strings`.
+**In-app UI strings (`.lproj/Localizable.strings`) are hand-translated into every locale** — read the existing locale file first and reuse its established terms, and use the per-locale "Cutling" form (see project memory). The `./deploy.sh release_notes` / `release_notes_mac` Google-translate flow is **only** for fastlane release notes (`fastlane/metadata/en-US/release_notes.txt` for iOS, `fastlane/metadata_mac/en-US/release_notes.txt` for macOS); never use it for `Localizable.strings`.
 
 ## Release Workflow
 
 1. Bump version in Xcode (CFBundleShortVersionString / CFBundleVersion)
-2. Edit `fastlane/metadata/en-US/release_notes.txt`
-3. `./deploy.sh release_notes` — translate to all locales
-4. `./deploy.sh all` — build, screenshot, and upload to App Store Connect
+2. Edit the **two** App Store "What's New" sources — iOS and macOS carry **different** copy and live in separate metadata trees:
+   - `fastlane/metadata/en-US/release_notes.txt` — **iOS** App Store. iOS-relevant items only; never list macOS-only features (Mac welcome screen, global hotkey, menu bar picker, auto-update) here.
+   - `fastlane/metadata_mac/en-US/release_notes.txt` — **macOS** App Store (the `Cutling` target's `mas` build). macOS-relevant items only. (The direct-download `dist` + Sparkle build is a separate channel and has no App Store listing.)
+   - Scope each to the delta over what is LIVE on that platform (a platform's live version can differ from the other's).
+3. `./deploy.sh release_notes` (iOS) and `./deploy.sh release_notes_mac` (macOS) — translate each to all locales
+4. `./deploy.sh all` (iOS build + metadata + screenshots) and `./deploy.sh metadata_mac` (macOS notes); macOS binary via `./deploy.sh mas`
+
+To correct notes on a version already submitted for review, use `./deploy.sh resubmit_notes` (cancels the in-review submission, re-uploads metadata, resubmits — resets the review queue).

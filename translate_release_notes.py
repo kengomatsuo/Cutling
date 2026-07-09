@@ -9,8 +9,11 @@ each translation to fastlane/metadata/<locale>/release_notes.txt.
 Requires: source docs/_generator/.venv/bin/activate && pip install deep-translator
 
 Usage:
-    python3 translate_release_notes.py            # Translate all languages
-    python3 translate_release_notes.py ja de-DE   # Translate specific locales only
+    python3 translate_release_notes.py            # iOS notes, all languages
+    python3 translate_release_notes.py ja de-DE   # iOS notes, specific locales
+    python3 translate_release_notes.py --mac      # macOS notes (fastlane/metadata_mac)
+    python3 translate_release_notes.py --mac ja   # macOS notes, specific locales
+    python3 translate_release_notes.py --mac --file promotional_text.txt   # any metadata file
 """
 
 import json
@@ -65,46 +68,61 @@ def google_code(locale):
     return GOOGLE_LANG_MAP.get(locale, locale.split("-")[0])
 
 
-def translate_locale(locale, source_text):
+def translate_locale(locale, source_text, metadata_dir, filename="release_notes.txt"):
     target = google_code(locale)
     try:
         translator = GoogleTranslator(source="en", target=target)
         translated = translator.translate(source_text)
-        out_dir = METADATA_DIR / locale
+        out_dir = metadata_dir / locale
         out_dir.mkdir(parents=True, exist_ok=True)
-        (out_dir / "release_notes.txt").write_text(translated + "\n", encoding="utf-8")
+        (out_dir / filename).write_text(translated + "\n", encoding="utf-8")
         return locale, True, None
     except Exception as e:
         return locale, False, str(e)
 
 
 def main():
+    # `--mac` targets the macOS App Store metadata tree (fastlane/metadata_mac);
+    # without it we translate the iOS tree (fastlane/metadata). The two stores
+    # carry different copy, so they live in separate trees. `--file <name>`
+    # picks which metadata file to translate (default release_notes.txt), so
+    # the same flow works for promotional_text.txt etc.
+    args = [a for a in sys.argv[1:] if a != "--mac"]
+    is_mac = "--mac" in sys.argv[1:]
+    metadata_dir = REPO_ROOT / "fastlane" / ("metadata_mac" if is_mac else "metadata")
+
+    filename = "release_notes.txt"
+    if "--file" in args:
+        i = args.index("--file")
+        filename = args[i + 1]
+        del args[i:i + 2]
+
     locales = load_locales()
     all_codes = [l["code"] for l in locales]
 
-    source_path = METADATA_DIR / SOURCE_LOCALE / "release_notes.txt"
+    source_path = metadata_dir / SOURCE_LOCALE / filename
     source_text = source_path.read_text(encoding="utf-8").strip()
 
     # English variants get a direct copy
     english_variants = [c for c in all_codes if c.startswith("en-") and c != SOURCE_LOCALE]
     for code in english_variants:
-        out_dir = METADATA_DIR / code
+        out_dir = metadata_dir / code
         out_dir.mkdir(parents=True, exist_ok=True)
-        (out_dir / "release_notes.txt").write_text(source_text + "\n", encoding="utf-8")
+        (out_dir / filename).write_text(source_text + "\n", encoding="utf-8")
         print(f"  = {code} (copy)")
 
     non_english = [c for c in all_codes if not c.startswith("en")]
 
-    if len(sys.argv) > 1:
-        requested = set(sys.argv[1:])
+    if args:
+        requested = set(args)
         non_english = [c for c in non_english if c in requested]
 
-    print(f"\nSource ({SOURCE_LOCALE}):\n{source_text}\n")
+    print(f"\n{'macOS' if is_mac else 'iOS'} {filename} source ({SOURCE_LOCALE}) -> {metadata_dir.name}:\n{source_text}\n")
     print(f"Translating to {len(non_english)} languages...\n")
 
     with ThreadPoolExecutor(max_workers=WORKERS) as pool:
         futures = {
-            pool.submit(translate_locale, locale, source_text): locale
+            pool.submit(translate_locale, locale, source_text, metadata_dir, filename): locale
             for locale in non_english
         }
         for future in as_completed(futures):

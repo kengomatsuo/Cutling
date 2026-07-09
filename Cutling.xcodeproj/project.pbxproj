@@ -7,17 +7,49 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF259C372FFF68A0000D78E6 /* CutlingAction.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFA931602FA66CA200A4ABB6 /* CutlingAction.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CF259C382FFF68A0000D78E6 /* CutlingKeyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFA06CA42F45AD10005CD274 /* CutlingKeyboard.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CF259C392FFF68A0000D78E6 /* CutlingShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFA931292FA65E7600A4ABB6 /* CutlingShare.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CF259C3A2FFF68A0000D78E6 /* CutlingWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFC7CC9B2FA7AFD10046275C /* CutlingWidgetsExtension.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CF259CD62FFFF7A6000D78E6 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = CF259CD52FFFF7A6000D78E6 /* Sparkle */; };
 		CFA06CAB2F45AD10005CD274 /* CutlingKeyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFA06CA42F45AD10005CD274 /* CutlingKeyboard.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CFA931332FA65E7700A4ABB6 /* CutlingShare.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFA931292FA65E7600A4ABB6 /* CutlingShare.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CFA931632FA66CA200A4ABB6 /* UniformTypeIdentifiers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFA931622FA66CA200A4ABB6 /* UniformTypeIdentifiers.framework */; };
 		CFA9316F2FA66CA200A4ABB6 /* CutlingAction.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFA931602FA66CA200A4ABB6 /* CutlingAction.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		CFB12C5D2FF4E2950073B4BF /* Sparkle in Frameworks */ = {isa = PBXBuildFile; platformFilters = (macos, ); productRef = CFB12C5C2FF4E2950073B4BF /* Sparkle */; };
 		CFC7CC9C2FA7AFD10046275C /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC7CC752FA7AE730046275C /* WidgetKit.framework */; };
 		CFC7CC9D2FA7AFD10046275C /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFC7CC772FA7AE730046275C /* SwiftUI.framework */; };
 		CFC7CCAE2FA7AFD20046275C /* CutlingWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CFC7CC9B2FA7AFD10046275C /* CutlingWidgetsExtension.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CF259C292FFF68A0000D78E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF1F45EF2F457B3C00582E62 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFA06CA32F45AD10005CD274;
+			remoteInfo = CutlingKeyboard;
+		};
+		CF259C2B2FFF68A0000D78E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF1F45EF2F457B3C00582E62 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFA931282FA65E7600A4ABB6;
+			remoteInfo = CutlingShare;
+		};
+		CF259C2D2FFF68A0000D78E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF1F45EF2F457B3C00582E62 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFA9315F2FA66CA200A4ABB6;
+			remoteInfo = CutlingAction;
+		};
+		CF259C2F2FFF68A0000D78E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF1F45EF2F457B3C00582E62 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFC7CC9A2FA7AFD10046275C;
+			remoteInfo = CutlingWidgetsExtension;
+		};
 		CF7BB1252F78BA9700CBE010 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CF1F45EF2F457B3C00582E62 /* Project object */;
@@ -56,6 +88,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		CF259C362FFF68A0000D78E6 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			dstPath = "";
+			dstSubfolder = PlugIns;
+			files = (
+				CF259C372FFF68A0000D78E6 /* CutlingAction.appex in Embed Foundation Extensions */,
+				CF259C382FFF68A0000D78E6 /* CutlingKeyboard.appex in Embed Foundation Extensions */,
+				CF259C392FFF68A0000D78E6 /* CutlingShare.appex in Embed Foundation Extensions */,
+				CF259C3A2FFF68A0000D78E6 /* CutlingWidgetsExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+		};
 		CFA06CB02F45AD10005CD274 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			dstPath = "";
@@ -72,6 +116,7 @@
 
 /* Begin PBXFileReference section */
 		CF1F45F72F457B3C00582E62 /* Cutling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cutling.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF259C3E2FFF68A0000D78E6 /* Cutling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cutling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF7BB11F2F78BA9700CBE010 /* CutlingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CutlingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFA06CA42F45AD10005CD274 /* CutlingKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CutlingKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFA931292FA65E7600A4ABB6 /* CutlingShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CutlingShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -229,7 +274,12 @@
 		CF1F45F42F457B3C00582E62 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
-				CFB12C5D2FF4E2950073B4BF /* Sparkle in Frameworks */,
+			);
+		};
+		CF259C332FFF68A0000D78E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+				CF259CD62FFFF7A6000D78E6 /* Sparkle in Frameworks */,
 			);
 		};
 		CF7BB11C2F78BA9700CBE010 /* Frameworks */ = {
@@ -287,6 +337,7 @@
 				CFA931292FA65E7600A4ABB6 /* CutlingShare.appex */,
 				CFA931602FA66CA200A4ABB6 /* CutlingAction.appex */,
 				CFC7CC9B2FA7AFD10046275C /* CutlingWidgetsExtension.appex */,
+				CF259C3E2FFF68A0000D78E6 /* Cutling.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -325,11 +376,36 @@
 				CF1F45F92F457B3C00582E62 /* Cutling */,
 			);
 			name = Cutling;
-			packageProductDependencies = (
-				CFB12C5C2FF4E2950073B4BF /* Sparkle */,
-			);
 			productName = Cutling;
 			productReference = CF1F45F72F457B3C00582E62 /* Cutling.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CF259C272FFF68A0000D78E6 /* Cutling (Direct) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF259C3B2FFF68A0000D78E6 /* Build configuration list for PBXNativeTarget "Cutling (Direct)" */;
+			buildPhases = (
+				CF259C322FFF68A0000D78E6 /* Sources */,
+				CF259C332FFF68A0000D78E6 /* Frameworks */,
+				CF259C352FFF68A0000D78E6 /* Resources */,
+				CF259C362FFF68A0000D78E6 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF259C282FFF68A0000D78E6 /* PBXTargetDependency */,
+				CF259C2A2FFF68A0000D78E6 /* PBXTargetDependency */,
+				CF259C2C2FFF68A0000D78E6 /* PBXTargetDependency */,
+				CF259C2E2FFF68A0000D78E6 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				CF1F45F92F457B3C00582E62 /* Cutling */,
+			);
+			name = "Cutling (Direct)";
+			packageProductDependencies = (
+				CF259CD52FFFF7A6000D78E6 /* Sparkle */,
+			);
+			productName = Cutling;
+			productReference = CF259C3E2FFF68A0000D78E6 /* Cutling.app */;
 			productType = "com.apple.product-type.application";
 		};
 		CF7BB11E2F78BA9700CBE010 /* CutlingUITests */ = {
@@ -542,7 +618,7 @@
 			mainGroup = CF1F45EE2F457B3C00582E62;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				CFB12C5B2FF4E2950073B4BF /* XCRemoteSwiftPackageReference "Sparkle" */,
+				CF259CD42FFFF7A6000D78E6 /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			preferredProjectObjectVersion = 100;
 			productRefGroup = CF1F45F82F457B3C00582E62 /* Products */;
@@ -555,12 +631,18 @@
 				CFA931282FA65E7600A4ABB6 /* CutlingShare */,
 				CFA9315F2FA66CA200A4ABB6 /* CutlingAction */,
 				CFC7CC9A2FA7AFD10046275C /* CutlingWidgetsExtension */,
+				CF259C272FFF68A0000D78E6 /* Cutling (Direct) */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CF1F45F52F457B3C00582E62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		CF259C352FFF68A0000D78E6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
 			);
@@ -598,6 +680,11 @@
 			files = (
 			);
 		};
+		CF259C322FFF68A0000D78E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
 		CF7BB11B2F78BA9700CBE010 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
@@ -626,6 +713,30 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CF259C282FFF68A0000D78E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = CFA06CA32F45AD10005CD274 /* CutlingKeyboard */;
+			targetProxy = CF259C292FFF68A0000D78E6 /* PBXContainerItemProxy */;
+		};
+		CF259C2A2FFF68A0000D78E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = CFA931282FA65E7600A4ABB6 /* CutlingShare */;
+			targetProxy = CF259C2B2FFF68A0000D78E6 /* PBXContainerItemProxy */;
+		};
+		CF259C2C2FFF68A0000D78E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = CFA9315F2FA66CA200A4ABB6 /* CutlingAction */;
+			targetProxy = CF259C2D2FFF68A0000D78E6 /* PBXContainerItemProxy */;
+		};
+		CF259C2E2FFF68A0000D78E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = CFC7CC9A2FA7AFD10046275C /* CutlingWidgetsExtension */;
+			targetProxy = CF259C2F2FFF68A0000D78E6 /* PBXContainerItemProxy */;
+		};
 		CF7BB1262F78BA9700CBE010 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CF1F45F62F457B3C00582E62 /* Cutling */;
@@ -848,7 +959,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matsuokengo.Cutling;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -884,7 +995,6 @@
 				CODE_SIGN_ENTITLEMENTS = Cutling/Cutling.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				"CURRENT_PROJECT_VERSION[sdk=macosx*]" = 6;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = PM3K35YS39;
 				ENABLE_APP_SANDBOX = YES;
@@ -918,7 +1028,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.0;
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matsuokengo.Cutling;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -939,6 +1049,140 @@
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				XROS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Release;
+		};
+		CF259C3C2FFF68A0000D78E6 /* Debug configuration for PBXNativeTarget "Cutling (Direct)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				AUTOMATION_APPLE_EVENTS = NO;
+				CODE_SIGN_ENTITLEMENTS = Cutling/Cutling.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = PM3K35YS39;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CutlingDirect/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Cutling;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "2026 Kenneth Johannes Fang";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.5.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matsuokengo.Cutling;
+				PRODUCT_NAME = Cutling;
+				REGISTER_APP_GROUPS = YES;
+				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
+				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
+				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
+				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
+				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
+				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) MAIN_APP";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				XROS_DEPLOYMENT_TARGET = 26.2;
+			};
+			name = Debug;
+		};
+		CF259C3D2FFF68A0000D78E6 /* Release configuration for PBXNativeTarget "Cutling (Direct)" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				AUTOMATION_APPLE_EVENTS = NO;
+				CODE_SIGN_ENTITLEMENTS = Cutling/Cutling.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = PM3K35YS39;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_RESOURCE_ACCESS_AUDIO_INPUT = NO;
+				ENABLE_RESOURCE_ACCESS_CALENDARS = NO;
+				ENABLE_RESOURCE_ACCESS_CAMERA = NO;
+				ENABLE_RESOURCE_ACCESS_CONTACTS = NO;
+				ENABLE_RESOURCE_ACCESS_LOCATION = NO;
+				ENABLE_RESOURCE_ACCESS_PHOTO_LIBRARY = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CutlingDirect/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Cutling;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_LSUIElement = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "2026 Kenneth Johannes Fang";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.5.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.matsuokengo.Cutling;
+				PRODUCT_NAME = Cutling;
+				REGISTER_APP_GROUPS = YES;
+				RUNTIME_EXCEPTION_ALLOW_DYLD_ENVIRONMENT_VARIABLES = NO;
+				RUNTIME_EXCEPTION_ALLOW_JIT = NO;
+				RUNTIME_EXCEPTION_ALLOW_UNSIGNED_EXECUTABLE_MEMORY = NO;
+				RUNTIME_EXCEPTION_DEBUGGING_TOOL = NO;
+				RUNTIME_EXCEPTION_DISABLE_EXECUTABLE_PAGE_PROTECTION = NO;
+				RUNTIME_EXCEPTION_DISABLE_LIBRARY_VALIDATION = NO;
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = macosx;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = MAIN_APP;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				XROS_DEPLOYMENT_TARGET = 26.2;
 			};
@@ -1007,7 +1251,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matsuokengo.Cutling.CutlingKeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1044,7 +1288,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matsuokengo.Cutling.CutlingKeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1082,7 +1326,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matsuokengo.Cutling.CutlingShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1115,7 +1359,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matsuokengo.Cutling.CutlingShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1149,7 +1393,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matsuokengo.Cutling.CutlingAction;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1182,7 +1426,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matsuokengo.Cutling.CutlingAction;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1217,7 +1461,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matsuokengo.Cutling.CutlingWidgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1251,7 +1495,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.5.1;
+				MARKETING_VERSION = 1.5.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matsuokengo.Cutling.CutlingWidgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1283,6 +1527,14 @@
 			buildConfigurations = (
 				CF1F46032F457B3D00582E62 /* Debug configuration for PBXNativeTarget "Cutling" */,
 				CF1F46042F457B3D00582E62 /* Release configuration for PBXNativeTarget "Cutling" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		CF259C3B2FFF68A0000D78E6 /* Build configuration list for PBXNativeTarget "Cutling (Direct)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF259C3C2FFF68A0000D78E6 /* Debug configuration for PBXNativeTarget "Cutling (Direct)" */,
+				CF259C3D2FFF68A0000D78E6 /* Release configuration for PBXNativeTarget "Cutling (Direct)" */,
 			);
 			defaultConfigurationName = Release;
 		};
@@ -1329,20 +1581,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CFB12C5B2FF4E2950073B4BF /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+		CF259CD42FFFF7A6000D78E6 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sparkle-project/Sparkle";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 2.9.3;
+				minimumVersion = 2.9.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CFB12C5C2FF4E2950073B4BF /* Sparkle */ = {
+		CF259CD52FFFF7A6000D78E6 /* Sparkle */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CFB12C5B2FF4E2950073B4BF /* XCRemoteSwiftPackageReference "Sparkle" */;
+			package = CF259CD42FFFF7A6000D78E6 /* XCRemoteSwiftPackageReference "Sparkle" */;
 			productName = Sparkle;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Катлінг - Буфер Клавіатура для Mac</title>
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../locale-router.js"></script>
+</head>
+<body>
+    <nav class="site-nav">
+        <a href="../" class="nav-brand">
+            <img src="../../icon.png" alt="Катлінг" width="28" height="28">
+            Катлінг
+        </a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span><span></span><span></span>
+        </label>
+        <ul class="nav-links">
+            <li><a href="../">додому</a></li>
+            <li><a href="../mac/" class="active">Mac</a></li>
+            <li><a href="../download/">Завантажити</a></li>
+            <li><a href="../faq/">FAQ</a></li>
+            <li><a href="../support/">Підтримка</a></li>
+            <li><a href="../privacy/">Конфіденційність</a></li>
+            <li class="lang-picker">
+                <details class="lang-dropdown-wrapper">
+                    <summary>Українська</summary>
+                    <ul class="lang-dropdown">
+                        <li><a href="../../en-us/mac/">English (US)</a></li>
+                        <li><a href="../../ar-sa/mac/">العربية</a></li>
+                        <li><a href="../../bn-bd/mac/">বাংলা</a></li>
+                        <li><a href="../../ca/mac/">Català</a></li>
+                        <li><a href="../../zh-hans/mac/">简体中文</a></li>
+                        <li><a href="../../zh-hant/mac/">繁體中文</a></li>
+                        <li><a href="../../hr/mac/">Hrvatski</a></li>
+                        <li><a href="../../cs/mac/">Čeština</a></li>
+                        <li><a href="../../da/mac/">Dansk</a></li>
+                        <li><a href="../../nl-nl/mac/">Nederlands</a></li>
+                        <li><a href="../../en-au/mac/">English (Australia)</a></li>
+                        <li><a href="../../en-ca/mac/">English (Canada)</a></li>
+                        <li><a href="../../en-gb/mac/">English (UK)</a></li>
+                        <li><a href="../../fi/mac/">Suomi</a></li>
+                        <li><a href="../../fr-fr/mac/">Français</a></li>
+                        <li><a href="../../fr-ca/mac/">Français (Canada)</a></li>
+                        <li><a href="../../de-de/mac/">Deutsch</a></li>
+                        <li><a href="../../el/mac/">Ελληνικά</a></li>
+                        <li><a href="../../gu-in/mac/">ગુજરાતી</a></li>
+                        <li><a href="../../he/mac/">עברית</a></li>
+                        <li><a href="../../hi/mac/">हिन्दी</a></li>
+                        <li><a href="../../hu/mac/">Magyar</a></li>
+                        <li><a href="../../id/mac/">Indonesia</a></li>
+                        <li><a href="../../it/mac/">Italiano</a></li>
+                        <li><a href="../../ja/mac/">日本語</a></li>
+                        <li><a href="../../kn-in/mac/">ಕನ್ನಡ</a></li>
+                        <li><a href="../../ko/mac/">한국어</a></li>
+                        <li><a href="../../ms/mac/">Melayu</a></li>
+                        <li><a href="../../ml-in/mac/">മലയാളം</a></li>
+                        <li><a href="../../mr-in/mac/">मराठी</a></li>
+                        <li><a href="../../no/mac/">Norsk bokmål</a></li>
+                        <li><a href="../../or-in/mac/">ଓଡ଼ିଆ</a></li>
+                        <li><a href="../../pl/mac/">Polski</a></li>
+                        <li><a href="../../pt-br/mac/">Português (Brasil)</a></li>
+                        <li><a href="../../pt-pt/mac/">Português (Portugal)</a></li>
+                        <li><a href="../../pa-in/mac/">ਪੰਜਾਬੀ</a></li>
+                        <li><a href="../../ro/mac/">Română</a></li>
+                        <li><a href="../../ru/mac/">Русский</a></li>
+                        <li><a href="../../sk/mac/">Slovenčina</a></li>
+                        <li><a href="../../sl-si/mac/">Slovenščina</a></li>
+                        <li><a href="../../es-mx/mac/">Español (México)</a></li>
+                        <li><a href="../../es-es/mac/">Español</a></li>
+                        <li><a href="../../sv/mac/">Svenska</a></li>
+                        <li><a href="../../ta-in/mac/">தமிழ்</a></li>
+                        <li><a href="../../te-in/mac/">తెలుగు</a></li>
+                        <li><a href="../../th/mac/">ไทย</a></li>
+                        <li><a href="../../tr/mac/">Türkçe</a></li>
+                        <li><a href="../../uk/mac/" class="active">Українська</a></li>
+                        <li><a href="../../ur-pk/mac/">اردو</a></li>
+                        <li><a href="../../vi/mac/">Tiếng Việt</a></li>
+                        <li><a href="../../bg/mac/">Български</a></li>
+                        <li><a href="../../bn-in/mac/">বাংলা (ভারত)</a></li>
+                        <li><a href="../../en-in/mac/">English (India)</a></li>
+                        <li><a href="../../et/mac/">Eesti</a></li>
+                        <li><a href="../../fa/mac/">فارسی</a></li>
+                        <li><a href="../../fil/mac/">Filipino</a></li>
+                        <li><a href="../../lt/mac/">Lietuvių</a></li>
+                        <li><a href="../../lv/mac/">Latviešu</a></li>
+                        <li><a href="../../sr/mac/">Српски</a></li>
+                        <li><a href="../../sw/mac/">Kiswahili</a></li>
+                    </ul>
+                </details>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Катлінг - Буфер Клавіатура для Mac</h1>
+        <p class="hero-subtitle">Ваш буфер обміну, одна гаряча клавіша. Катлінг - Буфер Клавіатура живе на панелі меню та з’являється всюди, де знаходиться ваш курсор, тому ви можете перекинути збережений фрагмент у будь-яку програму, не порушуючи процес.</p>
+        <div class="cta-row">
+            <a href="https://apps.apple.com/app/cutling/id6759476314" class="cta-button">Завантажити з Mac App Store</a>
+            <a href="https://github.com/kengomatsuo/Cutling/releases/latest" class="cta-button">Безпосереднє завантаження (безкоштовно)</a>
+        </div>
+        <p class="cta-note">Безкоштовно безпосередньо з цього сайту або в Mac App Store &mdash; включено без додаткової плати, якщо у вас уже є Катлінг - Буфер Клавіатура на iPhone або iPad завдяки універсальній покупці. Обидва підписані ідентифікатором розробника та нотаріально засвідчені Apple. Потрібна macOS 14 або пізнішої версії, Apple silicon або Intel.</p>
+    </section>
+
+    <!-- Mac Features -->
+    <section class="content-section">
+        <div class="section-inner">
+            <h2>Створено для робочого столу</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Живе в рядку меню</h3>
+                    <p>Катлінг - Буфер Клавіатура тихо сидить у панелі меню, поза Dock і подалі. Натисніть піктограму, щоб переглянути збережені вирізки та останню історію буфера обміну.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Глобальна гаряча клавіша</h3>
+                    <p>Натисніть ярлик у будь-якій програмі, щоб відкрити плаваючу панель вибору прямо біля курсору. Переприв'яжіть його до будь-якої комбінації клавіш у налаштуваннях.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Пряма паста</h3>
+                    <p>За бажанням дозвольте Катлінг - Буфер Клавіатура вставити ваш вибір прямо в програму, якою ви користуєтеся. За замовчуванням вимкнено, увімкнути його завжди за вашим вибором.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Історія буфера обміну</h3>
+                    <p>Усе, що ви копіюєте, автоматично записується, тому нічого не втрачається. Збережіть ті, які варто зберегти, одним клацанням миші.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>iCloud синхронізація</h3>
+                    <p>Увімкніть iCloud, щоб зберегти збережені живці на iPhone, iPad і Mac. Необов'язковий і приватний.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Приватний за дизайном</h3>
+                    <p>Ні облікових записів, ні аналітики, ні відстеження. Буфер обміну залишається на вашому Mac або у вашому iCloud, якщо ви ввімкнете синхронізацію.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="content-section alt-bg">
+        <div class="section-inner">
+            <h2>Готові спробувати?</h2>
+            <p>Завантажте Катлінг - Буфер Клавіатура для Mac і зберігайте все, що ви повторно використовуєте, на відстані одного ярлика.</p>
+            <div class="cta-row">
+                <a href="https://apps.apple.com/app/cutling/id6759476314" class="cta-button">Завантажити з Mac App Store</a>
+                <a href="https://github.com/kengomatsuo/Cutling/releases/latest" class="cta-button">Безпосереднє завантаження (безкоштовно)</a>
+            </div>
+            <p class="cta-note">Безкоштовно безпосередньо з цього сайту або в Mac App Store &mdash; включено без додаткової плати, якщо у вас уже є Катлінг - Буфер Клавіатура на iPhone або iPad завдяки універсальній покупці. Обидва підписані ідентифікатором розробника та нотаріально засвідчені Apple. Потрібна macOS 14 або пізнішої версії, Apple silicon або Intel.</p>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <ul class="footer-links">
+            <li><a href="../">додому</a></li>
+            <li><a href="../mac/">Mac</a></li>
+            <li><a href="../download/">Завантажити</a></li>
+            <li><a href="../faq/">FAQ</a></li>
+            <li><a href="../support/">Підтримка</a></li>
+            <li><a href="../privacy/">Конфіденційність</a></li>
+            <li><a href="../terms/">Умови</a></li>
+        </ul>
+        <p class="copyright">&copy; 2026 Кеннет Йоганнес Фанг. Всі права захищені.</p>
+    </footer>
+</body>
+</html>

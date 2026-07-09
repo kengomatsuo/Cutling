@@ -103,6 +103,43 @@ Upload the already-built IPA to App Store Connect (binary only, no metadata/scre
 
 Full deploy: metadata → missing screenshots → frame → upload all → build & submit
 
+### ios asc_status
+
+```sh
+[bundle exec] fastlane ios asc_status
+```
+
+Print current iOS App Store version + review-submission states (read-only)
+
+### ios resubmit_notes
+
+```sh
+[bundle exec] fastlane ios resubmit_notes
+```
+
+Cancel the in-review submission, push corrected metadata, and resubmit for review
+
+----
+
+
+## Mac
+
+### mac upload_mas
+
+```sh
+[bundle exec] fastlane mac upload_mas
+```
+
+Build the clean Cutling macOS App Store target (no Sparkle) and upload the .pkg to App Store Connect
+
+### mac upload_metadata_mac
+
+```sh
+[bundle exec] fastlane mac upload_metadata_mac
+```
+
+Upload macOS App Store metadata (release notes only) from fastlane/metadata_mac
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.

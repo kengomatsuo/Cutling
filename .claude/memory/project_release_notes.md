@@ -22,6 +22,8 @@ When asked to write or update release notes, Claude should:
 
 3. **Inspect each commit** for user-facing changes (skip pure metadata, localization-only, or internal tooling commits). Check diffs with `git show <hash> -- "*.swift"`.
 
+   **iOS-ONLY — critical:** `release_notes.txt` is the **iOS** App Store "What's New" (deploy is `platform :ios`, bundle `com.matsuokengo.Cutling`). The macOS app ships separately via direct download (`./deploy.sh dist` + Sparkle) and has no App Store listing here. The commit diffs mix iOS + macOS + web changes, so filter every bullet: does this feature exist in the iOS app? NEVER list macOS-only features (Mac welcome screen, global hotkey, menu bar picker, Sparkle auto-update) or web-only changes. (A stray "On Mac, turn on iCloud from the welcome screen" line once shipped into an iOS submission — do not repeat.)
+
 4. **Write the release notes** to `fastlane/metadata/en-US/release_notes.txt` — bullet points, plain language, user-facing framing.
 
 5. **Run translations** immediately after writing:

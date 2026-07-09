@@ -29,6 +29,7 @@ struct TextDetailView: View {
     @State private var value: String
     @State private var icon: String
     @State private var showIconPicker = false
+    @State private var showLeaveTutorialAlert = false
     @State private var showLimitAlert = false
     @State private var limitAlertMessage = ""
     @State private var hasClipboardText = false
@@ -46,6 +47,10 @@ struct TextDetailView: View {
     /// while it's empty or still equals this value; once the user types anything
     /// (even a reserved word like "Email"), it diverges and is left alone.
     @State private var lastAutoName: String = ""
+    /// Latched true the first time the Name field is focused. While false the
+    /// walkthrough auto-focuses the title; once true nothing auto-focuses it
+    /// again. Resets with the view (a new create sheet / relaunch starts fresh).
+    @State private var nameFocusedOnce = false
     @State private var userSetInputType: Bool
     @State private var userDidPickIcon = false
     @State private var sensitiveContentTypes: Set<SensitiveContentType> = []
@@ -145,11 +150,15 @@ struct TextDetailView: View {
         if presentedAsSheet {
             NavigationStack {
                 formContent
-                    .interactiveDismissDisabled(tutorialLocksCancel)
+                    .interactiveDismissDisabled(tutorialGuardsDismiss)
                     .toolbar {
                         ToolbarItem(placement: .cancellationAction) {
                             Button {
-                                dismiss()
+                                if tutorialGuardsDismiss {
+                                    showLeaveTutorialAlert = true
+                                } else {
+                                    dismiss()
+                                }
                             } label: {
                                 if #available(iOS 26, *) {
                                     Image(systemName: "xmark")
@@ -157,7 +166,6 @@ struct TextDetailView: View {
                                     Text("Cancel")
                                 }
                             }
-                            .disabled(tutorialLocksCancel)
                         }
                         compactUndoToolbarContent
                         ToolbarItem(placement: .confirmationAction) {
@@ -182,8 +190,10 @@ struct TextDetailView: View {
             }
         } else {
             formContent
+                .navigationBarBackButtonHidden(tutorialInterceptsBack)
                 .toolbar {
                     undoRedoToolbarContent
+                    tutorialBackToolbarContent
                 }
                 .onWillDisappear {
                     undoHandler.closeAllGroups()
@@ -442,6 +452,17 @@ struct TextDetailView: View {
             undoManager?.removeAllActions()
         }
         #if os(iOS)
+        .alert("Leave Tutorial?", isPresented: $showLeaveTutorialAlert) {
+            Button("Leave", role: .destructive) {
+                TutorialCoordinator.shared.skip()
+                dismiss()
+            }
+            Button("Continue Tutorial", role: .cancel) {
+                TutorialCoordinator.shared.resumeEditorTips()
+            }
+        } message: {
+            Text("You can restart it anytime from How to Use Cutling in the keyboard settings.")
+        }
         // Only reveal the tip once the zoom transition (and any scroll) settles.
         .onAppear { revealEditorTip(proxy) }
         .onChange(of: TutorialCoordinator.shared.step) { _, newStep in
@@ -460,31 +481,19 @@ struct TextDetailView: View {
                t.isActive, t.step == .createName {
                 t.advance(from: .createName)
             }
-            // The name step is done past createName. A tip popover presenting /
-            // dismissing can restore first-responder to the Name field; since
-            // the name is complete, send focus back to the Value field.
-            if newValue == .name, t.isActive, !isEditing,
-               t.step == .createSave {
-                focusedField = .value
+            // First time the title gets focused, latch it done so nothing ever
+            // auto-focuses it again.
+            if newValue == .name, t.isActive, !isEditing {
+                nameFocusedOnce = true
             }
         }
         // Typing dismisses the current field's tip; it (or the next one) shows
         // again after a 2s pause.
         .onChange(of: name) { _, _ in
-            let t = TutorialCoordinator.shared
-            // Only go back to the name step if the user actually cleared the
-            // Name field while editing it. If they're in the Value field (or a
-            // stray auto-detect blanked the name), never reset/refocus — that's
-            // what was yanking the cursor back to Name mid-typing.
-            if t.isActive, t.step == .createSave, !isEditing,
-               name.isEmpty, focusedField == .name {
-                t.reset(to: .createName)
-                return
-            }
-            t.editorTypingChanged(valueEmpty: value.isEmpty)
+            TutorialCoordinator.shared.editorTypingChanged(nameEmpty: name.isEmpty, valueEmpty: value.isEmpty)
         }
         .onChange(of: value) { _, _ in
-            TutorialCoordinator.shared.editorTypingChanged(valueEmpty: value.isEmpty)
+            TutorialCoordinator.shared.editorTypingChanged(nameEmpty: name.isEmpty, valueEmpty: value.isEmpty)
         }
         #endif
         }
@@ -495,17 +504,54 @@ struct TextDetailView: View {
     /// the text field). The value/edit steps just show the tip — no auto-focus.
     private func focusForTutorialStep() {
         guard TutorialCoordinator.shared.isActive else { return }
-        // Never yank focus away from the Value field.
-        if TutorialCoordinator.shared.step == .createName, !isEditing, focusedField != .value {
+        // Auto-focus the title only until it's been focused once.
+        if TutorialCoordinator.shared.step == .createName, !isEditing, !nameFocusedOnce {
             focusedField = .name
         }
     }
 
-    /// While the walkthrough is creating a cutling, the only way out of the
-    /// sheet is Save — Cancel is locked so the user completes the step.
-    private var tutorialLocksCancel: Bool {
+    /// While the walkthrough is creating a cutling, backing out of the sheet
+    /// asks for confirmation (and leaves the tutorial) instead of being blocked.
+    /// Interactive swipe-dismiss stays disabled so the deliberate Cancel button
+    /// is the single, explicit escape hatch.
+    private var tutorialGuardsDismiss: Bool {
         !isEditing && TutorialCoordinator.shared.isActive
     }
+
+    #if os(iOS)
+    /// During the walkthrough's delete step the pushed editor swaps its system
+    /// Back button for a custom one, so Back steps the walkthrough back to the ⋯
+    /// button instead of stranding it on an empty editor. The edit step keeps the
+    /// normal Back: the user may leave freely, edited or not.
+    private var tutorialInterceptsBack: Bool {
+        guard isEditing, TutorialCoordinator.shared.isActive else { return false }
+        return TutorialCoordinator.shared.step == .deleteConfirm
+    }
+
+    @ToolbarContentBuilder
+    private var tutorialBackToolbarContent: some ToolbarContent {
+        if tutorialInterceptsBack {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    handleTutorialBack()
+                } label: {
+                    Label("Back", systemImage: "chevron.backward")
+                        .labelStyle(.titleAndIcon)
+                }
+            }
+        }
+    }
+
+    /// Handles the custom Back button during the walkthrough's delete step.
+    private func handleTutorialBack() {
+        // Backing out of delete without deleting: re-point at the ⋯ button so the
+        // walkthrough can't get stuck on an empty editor screen.
+        if TutorialCoordinator.shared.step == .deleteConfirm {
+            TutorialCoordinator.shared.reset(to: .deleteOpen)
+        }
+        dismiss()
+    }
+    #endif
 
     /// Reveal the editor tip only after the zoom transition (and, for the
     /// delete step, the scroll to the button) has fully finished.

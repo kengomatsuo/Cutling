@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>חיתוך למק</title>
+    <link rel="icon" type="image/x-icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../style.css">
+    <script src="../../locale-router.js"></script>
+</head>
+<body>
+    <nav class="site-nav">
+        <a href="../" class="nav-brand">
+            <img src="../../icon.png" alt="קאטלינג" width="28" height="28">
+            קאטלינג
+        </a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span><span></span><span></span>
+        </label>
+        <ul class="nav-links">
+            <li><a href="../">בַּיִת</a></li>
+            <li><a href="../mac/" class="active">מק</a></li>
+            <li><a href="../download/">הורד</a></li>
+            <li><a href="../faq/">שאלות נפוצות</a></li>
+            <li><a href="../support/">תְמִיכָה</a></li>
+            <li><a href="../privacy/">פְּרָטִיוּת</a></li>
+            <li class="lang-picker">
+                <details class="lang-dropdown-wrapper">
+                    <summary>עברית</summary>
+                    <ul class="lang-dropdown">
+                        <li><a href="../../en-us/mac/">English (US)</a></li>
+                        <li><a href="../../ar-sa/mac/">العربية</a></li>
+                        <li><a href="../../bn-bd/mac/">বাংলা</a></li>
+                        <li><a href="../../ca/mac/">Català</a></li>
+                        <li><a href="../../zh-hans/mac/">简体中文</a></li>
+                        <li><a href="../../zh-hant/mac/">繁體中文</a></li>
+                        <li><a href="../../hr/mac/">Hrvatski</a></li>
+                        <li><a href="../../cs/mac/">Čeština</a></li>
+                        <li><a href="../../da/mac/">Dansk</a></li>
+                        <li><a href="../../nl-nl/mac/">Nederlands</a></li>
+                        <li><a href="../../en-au/mac/">English (Australia)</a></li>
+                        <li><a href="../../en-ca/mac/">English (Canada)</a></li>
+                        <li><a href="../../en-gb/mac/">English (UK)</a></li>
+                        <li><a href="../../fi/mac/">Suomi</a></li>
+                        <li><a href="../../fr-fr/mac/">Français</a></li>
+                        <li><a href="../../fr-ca/mac/">Français (Canada)</a></li>
+                        <li><a href="../../de-de/mac/">Deutsch</a></li>
+                        <li><a href="../../el/mac/">Ελληνικά</a></li>
+                        <li><a href="../../gu-in/mac/">ગુજરાતી</a></li>
+                        <li><a href="../../he/mac/" class="active">עברית</a></li>
+                        <li><a href="../../hi/mac/">हिन्दी</a></li>
+                        <li><a href="../../hu/mac/">Magyar</a></li>
+                        <li><a href="../../id/mac/">Indonesia</a></li>
+                        <li><a href="../../it/mac/">Italiano</a></li>
+                        <li><a href="../../ja/mac/">日本語</a></li>
+                        <li><a href="../../kn-in/mac/">ಕನ್ನಡ</a></li>
+                        <li><a href="../../ko/mac/">한국어</a></li>
+                        <li><a href="../../ms/mac/">Melayu</a></li>
+                        <li><a href="../../ml-in/mac/">മലയാളം</a></li>
+                        <li><a href="../../mr-in/mac/">मराठी</a></li>
+                        <li><a href="../../no/mac/">Norsk bokmål</a></li>
+                        <li><a href="../../or-in/mac/">ଓଡ଼ିଆ</a></li>
+                        <li><a href="../../pl/mac/">Polski</a></li>
+                        <li><a href="../../pt-br/mac/">Português (Brasil)</a></li>
+                        <li><a href="../../pt-pt/mac/">Português (Portugal)</a></li>
+                        <li><a href="../../pa-in/mac/">ਪੰਜਾਬੀ</a></li>
+                        <li><a href="../../ro/mac/">Română</a></li>
+                        <li><a href="../../ru/mac/">Русский</a></li>
+                        <li><a href="../../sk/mac/">Slovenčina</a></li>
+                        <li><a href="../../sl-si/mac/">Slovenščina</a></li>
+                        <li><a href="../../es-mx/mac/">Español (México)</a></li>
+                        <li><a href="../../es-es/mac/">Español</a></li>
+                        <li><a href="../../sv/mac/">Svenska</a></li>
+                        <li><a href="../../ta-in/mac/">தமிழ்</a></li>
+                        <li><a href="../../te-in/mac/">తెలుగు</a></li>
+                        <li><a href="../../th/mac/">ไทย</a></li>
+                        <li><a href="../../tr/mac/">Türkçe</a></li>
+                        <li><a href="../../uk/mac/">Українська</a></li>
+                        <li><a href="../../ur-pk/mac/">اردو</a></li>
+                        <li><a href="../../vi/mac/">Tiếng Việt</a></li>
+                        <li><a href="../../bg/mac/">Български</a></li>
+                        <li><a href="../../bn-in/mac/">বাংলা (ভারত)</a></li>
+                        <li><a href="../../en-in/mac/">English (India)</a></li>
+                        <li><a href="../../et/mac/">Eesti</a></li>
+                        <li><a href="../../fa/mac/">فارسی</a></li>
+                        <li><a href="../../fil/mac/">Filipino</a></li>
+                        <li><a href="../../lt/mac/">Lietuvių</a></li>
+                        <li><a href="../../lv/mac/">Latviešu</a></li>
+                        <li><a href="../../sr/mac/">Српски</a></li>
+                        <li><a href="../../sw/mac/">Kiswahili</a></li>
+                    </ul>
+                </details>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>חיתוך למק</h1>
+        <p class="hero-subtitle">הלוח שלך, במרחק מקש קיצור אחד. קאטלינג - לוח מקלדת חי בשורת התפריטים ומופיע בכל מקום שבו הסמן שלך נמצא, כך שאתה יכול לשחרר קטע קוד שמור לכל אפליקציה מבלי לשבור את הזרימה שלך.</p>
+        <div class="cta-row">
+            <a href="https://apps.apple.com/app/cutling/id6759476314" class="cta-button">הורד ב-Mac App Store</a>
+            <a href="https://github.com/kengomatsuo/Cutling/releases/latest" class="cta-button">הורד ישירות (חינם)</a>
+        </div>
+        <p class="cta-note">חינם ישירות מאתר זה, או ב-Mac App Store &mdash; כלול ללא עלות נוספת אם כבר בבעלותך קאטלינג - לוח מקלדת באייפון או אייפד, הודות לרכישה אוניברסלית. שניהם חתומים במזהה מפתח ומאושרים על ידי אפל. דורש macOS 14 ואילך, Apple Silicon או Intel.</p>
+    </section>
+
+    <!-- Mac Features -->
+    <section class="content-section">
+        <div class="section-inner">
+            <h2>נבנה עבור שולחן העבודה</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>גר בשורת התפריטים</h3>
+                    <p>קאטלינג - לוח מקלדת יושב בשקט בשורת התפריטים שלך, מחוץ לרציף ומחוץ לדרך. לחץ על הסמל כדי לראות את החיתוכים ששמרת ואת היסטוריית הלוח העדכנית.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>מקש קיצור גלובלי</h3>
+                    <p>לחץ על קיצור הדרך שלך מכל אפליקציה כדי לפתוח בורר צף ממש ליד הסמן. קשר אותו מחדש לכל צירוף מקשים בהגדרות.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>הדבקה ישירה</h3>
+                    <p>אופציונלי לתת ל-Catling להדביק את הבחירה שלך ישירות לתוך האפליקציה שבה השתמשת. כבוי כברירת מחדל, ותמיד הבחירה שלך להפעיל.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>היסטוריית הלוח</h3>
+                    <p>כל מה שאתה מעתיק נלכד אוטומטית כך ששום דבר לא הולך לאיבוד. שמור את אלה ששווה לשמור בלחיצה אחת.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>סנכרון iCloud</h3>
+                    <p>הפעל את iCloud כדי לשמור על הנתחים השמורים שלך בקצב ב-iPhone, iPad ו-Mac. אופציונלי ופרטי.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>פרטי בעיצוב</h3>
+                    <p>אין חשבונות, אין ניתוחים, אין מעקב. הלוח שלך נשאר ב-Mac שלך, או ב-iCloud שלך אם אתה מפעיל סנכרון.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="content-section alt-bg">
+        <div class="section-inner">
+            <h2>מוכן לנסות את זה?</h2>
+            <p>הורד את קאטלינג - לוח מקלדת עבור Mac והרחיק את כל מה שאתה עושה שימוש חוזר בקיצור דרך אחד.</p>
+            <div class="cta-row">
+                <a href="https://apps.apple.com/app/cutling/id6759476314" class="cta-button">הורד ב-Mac App Store</a>
+                <a href="https://github.com/kengomatsuo/Cutling/releases/latest" class="cta-button">הורד ישירות (חינם)</a>
+            </div>
+            <p class="cta-note">חינם ישירות מאתר זה, או ב-Mac App Store &mdash; כלול ללא עלות נוספת אם כבר בבעלותך קאטלינג - לוח מקלדת באייפון או אייפד, הודות לרכישה אוניברסלית. שניהם חתומים במזהה מפתח ומאושרים על ידי אפל. דורש macOS 14 ואילך, Apple Silicon או Intel.</p>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <ul class="footer-links">
+            <li><a href="../">בַּיִת</a></li>
+            <li><a href="../mac/">מק</a></li>
+            <li><a href="../download/">הורד</a></li>
+            <li><a href="../faq/">שאלות נפוצות</a></li>
+            <li><a href="../support/">תְמִיכָה</a></li>
+            <li><a href="../privacy/">פְּרָטִיוּת</a></li>
+            <li><a href="../terms/">תנאים</a></li>
+        </ul>
+        <p class="copyright">&copy; 2026 קנת' יוהנס פאנג. כֹּל הַזְכוּיוֹת שְׁמוּרוֹת.</p>
+    </footer>
+</body>
+</html>

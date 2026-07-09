@@ -422,4 +422,112 @@ platform :ios do
 
     UI.success("Deploy complete!")
   end
+
+  desc "Print current iOS App Store version + review-submission states (read-only)"
+  lane :asc_status do
+    require 'spaceship'
+    Spaceship::ConnectAPI.login(
+      CredentialsManager::AppfileConfig.try_fetch_value(:apple_id),
+      use_portal: false, use_tunes: true
+    )
+    platform = Spaceship::ConnectAPI::Platform::IOS
+    app = Spaceship::ConnectAPI::App.find("com.matsuokengo.Cutling")
+    UI.user_error!("App not found") unless app
+
+    app.get_app_store_versions(filter: { platform: platform }).each do |v|
+      UI.important("Version #{v.version_string} — appStoreState=#{v.app_store_state} appVersionState=#{v.app_version_state} (id #{v.id})")
+    end
+    subs = app.get_review_submissions(filter: { platform: platform })
+    if subs.empty?
+      UI.important("No review submissions of any state.")
+    else
+      subs.each { |s| UI.important("ReviewSubmission #{s.id} — state=#{s.state}") }
+    end
+  end
+
+  desc "Cancel the in-review submission, push corrected metadata, and resubmit for review"
+  lane :resubmit_notes do
+    require 'spaceship'
+
+    Spaceship::ConnectAPI.login(
+      CredentialsManager::AppfileConfig.try_fetch_value(:apple_id),
+      use_portal: false,
+      use_tunes: true
+    )
+
+    platform = Spaceship::ConnectAPI::Platform::IOS
+    app = Spaceship::ConnectAPI::App.find("com.matsuokengo.Cutling")
+    UI.user_error!("App not found") unless app
+
+    # 1. Cancel the in-progress review submission, if any.
+    sub = app.get_in_progress_review_submission(platform: platform)
+    if sub
+      UI.important("Cancelling review submission #{sub.id} (state: #{sub.state})")
+      sub.cancel_submission
+    else
+      UI.message("No in-progress review submission found.")
+    end
+
+    # 2. Wait for the version to return to an editable state (cancel is async).
+    version = nil
+    30.times do
+      version = app.get_edit_app_store_version(platform: platform)
+      break if version
+      UI.message("Waiting for the version to become editable...")
+      sleep(5)
+    end
+    UI.user_error!("Version did not become editable after cancelling review") unless version
+    UI.success("Editable version #{version.version_string} ready")
+
+    # 3. Push the corrected metadata (notes are already fixed on disk).
+    upload_metadata
+
+    # 4. Resubmit the same version for review.
+    UI.message("Creating a new review submission...")
+    review_submission = app.create_review_submission(platform: platform)
+    review_submission.add_app_store_version_to_review_items(app_store_version_id: version.id)
+    review_submission.submit_for_review
+    UI.success("Resubmitted #{version.version_string} for review with corrected notes")
+  end
+end
+
+platform :mac do
+  desc "Build the clean Cutling macOS App Store target (no Sparkle) and upload the .pkg to App Store Connect"
+  lane :upload_mas do
+    # The clean `Cutling` target/scheme (no Sparkle) ships to the Mac App
+    # Store. build_mac_app packages a signed .pkg for the store (plain gym
+    # can't); upload_to_app_store(platform: "osx") sends it to ASC. Binary
+    # only — no metadata/screenshots — and it does not submit for review
+    # (mirrors the iOS `binary` lane).
+    build_mac_app(
+      scheme: "Cutling",
+      export_method: "app-store",
+      output_directory: "./build/mas",
+      output_name: "Cutling.pkg"
+    )
+    upload_to_app_store(
+      platform: "osx",
+      pkg: "./build/mas/Cutling.pkg",
+      skip_metadata: true,
+      skip_screenshots: true,
+      run_precheck_before_submit: false,
+      force: true
+    )
+  end
+
+  desc "Upload macOS App Store metadata (release notes only) from fastlane/metadata_mac"
+  lane :upload_metadata_mac do
+    # macOS carries its own "What's New" (different from iOS), so it has a
+    # separate metadata tree. Only release_notes.txt files live there, so this
+    # updates just the release notes on the editable macOS version — no binary,
+    # no screenshots, no other fields.
+    deliver(
+      platform: "osx",
+      metadata_path: "./fastlane/metadata_mac",
+      skip_binary_upload: true,
+      skip_screenshots: true,
+      force: true,
+      ignore_language_directory_validation: true
+    )
+  end
 end

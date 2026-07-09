@@ -2,20 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<!-- Sparkle auto-update (macOS direct-download build only; ignored on iOS). -->
-	<key>SUFeedURL</key>
-	<string>https://kengomatsuo.github.io/Cutling/appcast.xml</string>
-	<key>SUPublicEDKey</key>
-	<string>ZyT4/ezVd83f4Q2V8xPNKbqdaHmgpK9twWZt8gWyEDk=</string>
-	<!-- Opt-in: don't auto-check until the user turns it on in onboarding or
-	     Settings. This also suppresses Sparkle's own second-launch permission
-	     prompt, since Cutling presents the choice in its Welcome flow instead. -->
-	<key>SUEnableAutomaticChecks</key>
-	<false/>
-	<key>SUEnableInstallerLauncherService</key>
-	<true/>
-	<key>SUEnableDownloaderService</key>
-	<true/>
+	<!-- This is the App Store plist (iOS + macOS App Store, from the `Cutling`
+	     target). Sparkle keys (SUFeedURL / SUPublicEDKey / SUEnable*) live only
+	     in CutlingDirect/Info.plist, used by the `Cutling (Direct)` target, so
+	     no App Store build carries a self-updater (guideline 2.4.5). -->
 	<key>BGTaskSchedulerPermittedIdentifiers</key>
 	<array>
 		<string>com.matsuokengo.Cutling.sync</string>

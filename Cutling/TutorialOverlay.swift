@@ -45,6 +45,7 @@ enum TutorialTarget: Hashable {
 }
 
 enum TutorialStep: Int, CaseIterable {
+    case createIntro
     case createAdd
     case createName
     case createSave
@@ -59,20 +60,20 @@ enum TutorialStep: Int, CaseIterable {
 
     var screen: TutorialScreen {
         switch self {
-        case .createAdd, .createdCelebrate, .editOpen, .deleteOpen, .recoveredCelebrate: return .grid
+        case .createIntro, .createAdd, .createdCelebrate, .editOpen, .deleteOpen, .recoveredCelebrate: return .grid
         case .createName, .createSave, .editSave, .deleteConfirm: return .editor
         case .recoverIntro, .recoverTap: return .recentlyDeleted
         }
     }
 
     /// A page-intro step (centred caption, no spotlight, tap Next to continue).
-    var isIntro: Bool { self == .recoverIntro }
+    var isIntro: Bool { self == .createIntro || self == .recoverIntro }
 
     /// The spotlight target for custom-overlay (grid) steps. Editor and recover
     /// steps use native TipKit popovers instead.
     func target(hintShown: Bool) -> TutorialTarget {
         switch self {
-        case .createAdd: return .addButton
+        case .createIntro, .createAdd: return .addButton
         case .createName: return .editorName
         case .createSave: return hintShown ? .editorSave : .editorText
         case .createdCelebrate: return .card
@@ -86,6 +87,7 @@ enum TutorialStep: Int, CaseIterable {
 
     func message(hintShown: Bool) -> LocalizedStringKey {
         switch self {
+        case .createIntro: return "Welcome to Cutling! Let's create your first cutling together."
         case .createAdd: return "Tap + to start a new text cutling."
         case .createName: return "Give your cutling a name."
         case .createSave:
@@ -107,7 +109,7 @@ enum TutorialStep: Int, CaseIterable {
     var dimsBackground: Bool { screen != .editor }
 
     /// Steps advanced by a button in the coach-mark.
-    var showsNext: Bool { self == .createName || self == .createdCelebrate || self == .recoverIntro }
+    var showsNext: Bool { self == .createIntro || self == .createName || self == .createdCelebrate || self == .recoverIntro }
     /// The name step's Next is gated until the name has content.
     var nextRequiresValidName: Bool { self == .createName }
 
@@ -175,7 +177,7 @@ final class TutorialCoordinator {
         captionHidden = false
         recoverWhereActive = false
         RecoverWhereTip.active = false
-        step = .createAdd
+        step = .createIntro
         isActive = true
         // Replay: make the in-sheet tips eligible again if previously closed.
         if #available(iOS 26, *) {
@@ -236,10 +238,30 @@ final class TutorialCoordinator {
         }
     }
 
+    /// Re-present the current editor tip after the user cancels the "Leave
+    /// Tutorial?" alert. The alert dismisses (and invalidates) the popover, so we
+    /// reset its eligibility and re-anchor once the alert has gone.
+    func resumeEditorTips() {
+        guard isActive else { return }
+        editorTipTask?.cancel()
+        Task { @MainActor in
+            if #available(iOS 26, *) {
+                await EditorNameTip().resetEligibility()
+                await EditorTextTip().resetEligibility()
+                await EditorSaveTip().resetEligibility()
+                await EditorBackTip().resetEligibility()
+                await EditorDeleteTip().resetEligibility()
+            }
+            setEditorAnchor(.none)
+            try? await Task.sleep(for: .seconds(0.35))
+            if isActive { showEditorTipForCurrentStep() }
+        }
+    }
+
     /// Reacts to typing. Editor tips are inline now, so we don't hide/re-present
     /// popovers on every keystroke (that churn resigned/restored first-responder
     /// and bounced the cursor). We just advance after a pause.
-    func editorTypingChanged(valueEmpty: Bool) {
+    func editorTypingChanged(nameEmpty: Bool, valueEmpty: Bool) {
         guard isActive else { return }
         switch step {
         case .createName:
@@ -253,10 +275,12 @@ final class TutorialCoordinator {
                 }
             }
         case .createSave:
-            // Keep the inline text tip visible while typing; once there's text
-            // and the user pauses, move the spotlight to the Save button.
+            // Guide toward whatever's still missing: title first, then text,
+            // then (once Save is valid) the Save button after a pause.
             editorTipTask?.cancel()
-            if valueEmpty {
+            if nameEmpty {
+                setEditorAnchor(.name)   // re-prompt the title
+            } else if valueEmpty {
                 setEditorAnchor(.text)
             } else {
                 editorTipTask = Task { @MainActor in

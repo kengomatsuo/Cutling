@@ -472,8 +472,15 @@ struct MainContentView: View {
         .onChange(of: tutorial.step) { _, step in
             switch step {
             case .createdCelebrate, .recoveredCelebrate, .editOpen, .deleteOpen:
-                // Bring the relevant cutling into view (celebration / ⋯).
-                if let id = store.lastAddedCutlingID {
+                // Centre the relevant card (celebration / ⋯). The scroll must wait
+                // for the transition that precedes each of these steps to finish
+                // (the create sheet dismissing, the editor or Recently Deleted
+                // popping) and for the card to be laid out — firing it inline lands
+                // the card at the screen edge instead of centred.
+                guard let id = store.lastAddedCutlingID else { break }
+                Task { @MainActor in
+                    try? await Task.sleep(for: .seconds(0.5))
+                    guard tutorial.step == step else { return }
                     withAnimation(.easeInOut(duration: 0.3)) {
                         scrollProperties.position.scrollTo(id: id, anchor: .center)
                     }

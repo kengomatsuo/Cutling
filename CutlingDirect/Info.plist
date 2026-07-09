@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Direct-download (Developer ID) macOS build only. These Sparkle keys
+	     live here, NOT in Cutling/Info.plist, so the App Store builds (iOS +
+	     macOS, from the `Cutling` target) never carry a self-updater. The
+	     `Cutling (Direct)` target is the only one that links Sparkle. -->
+	<key>SUFeedURL</key>
+	<string>https://kengomatsuo.github.io/Cutling/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>ZyT4/ezVd83f4Q2V8xPNKbqdaHmgpK9twWZt8gWyEDk=</string>
+	<!-- Opt-in: don't auto-check until the user turns it on in onboarding or
+	     Settings. This also suppresses Sparkle's own second-launch permission
+	     prompt, since Cutling presents the choice in its Welcome flow instead. -->
+	<key>SUEnableAutomaticChecks</key>
+	<false/>
+	<key>SUEnableInstallerLauncherService</key>
+	<true/>
+	<key>SUEnableDownloaderService</key>
+	<true/>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+		<string>com.matsuokengo.Cutling.sync</string>
+		<string>com.matsuokengo.Cutling.sync.processing</string>
+	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.matsuokengo.Cutling</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>cutling</string>
+			</array>
+		</dict>
+	</array>
+	<key>CoreSpotlightActions</key>
+	<array>
+		<dict>
+			<key>CoreSpotlightActionIdentifier</key>
+			<string>com.matsuokengo.Cutling.edit</string>
+			<key>CoreSpotlightActionSymbolImage</key>
+			<string>pencil</string>
+			<key>CoreSpotlightActionTitle</key>
+			<string>Edit</string>
+		</dict>
+	</array>
+	<key>CoreSpotlightContinuation</key>
+	<true/>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>doc.text</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>New Text Cutling</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.matsuokengo.Cutling.addText</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconSymbolName</key>
+			<string>photo</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>New Image Cutling</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>com.matsuokengo.Cutling.addImage</string>
+		</dict>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>processing</string>
+		<string>remote-notification</string>
+	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIColorName</key>
+		<string>LaunchBackground</string>
+	</dict>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>Cutling</string>
+			<key>UTTypeIdentifier</key>
+			<string>com.matsuokengo.Cutling.cutling</string>
+			<key>UTTypeTagSpecification</key>
+			<dict/>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -16,10 +16,12 @@ import SwiftUI
 struct RecentlyDeletedView: View {
     @EnvironmentObject var store: CutlingStore
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.dismiss) private var dismiss
 
     @State private var showEmptyAllConfirmation = false
     @State private var itemToDelete: DeletedCutling?
     @State private var showDeleteConfirmation = false
+    @State private var showLeaveTutorialAlert = false
     @State private var disappearingIDs: Set<UUID> = []
 
     private let cardShape = RoundedRectangle(cornerRadius: 24, style: .continuous)
@@ -43,6 +45,18 @@ struct RecentlyDeletedView: View {
         #endif
     }
 
+    /// During the walkthrough's recover step the system Back button is hidden so
+    /// leaving can't silently strand the tutorial on the grid. The only ways out
+    /// stay Recover (which advances) or Skip (on the coach-mark overlay).
+    private var tutorialLocksBack: Bool {
+        #if os(iOS)
+        let t = TutorialCoordinator.shared
+        return t.isActive && (t.step == .recoverIntro || t.step == .recoverTap)
+        #else
+        return false
+        #endif
+    }
+
     var body: some View {
         ScrollView {
             if store.recentlyDeleted.isEmpty {
@@ -58,6 +72,7 @@ struct RecentlyDeletedView: View {
                     LazyVGrid(columns: columns, spacing: 12) {
                         ForEach(store.recentlyDeleted) { item in
                             let isDisappearing = disappearingIDs.contains(item.id)
+                            let isFirst = item.id == store.recentlyDeleted.first?.id
                             deletedCard(item)
                                 .frame(height: cardHeight)
                                 .opacity(isDisappearing ? 0 : 1)
@@ -67,7 +82,10 @@ struct RecentlyDeletedView: View {
                                     removal: .identity
                                 ))
                                 #if os(iOS)
-                                .tutorialFirstRecoverCard(item.id == store.recentlyDeleted.first?.id)
+                                // During the recover step only the spotlighted
+                                // (first) card is actionable.
+                                .disabled(!TutorialCoordinator.shared.recoverRowEnabled(isFirst: isFirst))
+                                .tutorialFirstRecoverCard(isFirst)
                                 #endif
                         }
                     }
@@ -89,9 +107,25 @@ struct RecentlyDeletedView: View {
         .navigationTitle("Recently Deleted")
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(tutorialLocksBack)
         .tutorialOverlay(.recentlyDeleted)
         #endif
         .toolbar {
+            #if os(iOS)
+            // Mirror the create sheet: a visible Back that routes through the
+            // "Leave Tutorial?" confirmation (the system back + edge-swipe are
+            // hidden/disabled via navigationBarBackButtonHidden above).
+            if tutorialLocksBack {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        showLeaveTutorialAlert = true
+                    } label: {
+                        Label("Back", systemImage: "chevron.backward")
+                            .labelStyle(.titleAndIcon)
+                    }
+                }
+            }
+            #endif
             ToolbarItem(placement: .primaryAction) {
                 Button("Delete All", role: .destructive) {
                     showEmptyAllConfirmation = true
@@ -129,6 +163,17 @@ struct RecentlyDeletedView: View {
             } message: { item in
                 Text("\"\(item.cutling.name)\" will be deleted permanently.")
             }
+        #if os(iOS)
+        .alert("Leave Tutorial?", isPresented: $showLeaveTutorialAlert) {
+            Button("Leave", role: .destructive) {
+                TutorialCoordinator.shared.skip()
+                dismiss()
+            }
+            Button("Continue Tutorial", role: .cancel) {}
+        } message: {
+            Text("You can restart it anytime from How to Use Cutling in the keyboard settings.")
+        }
+        #endif
     }
 
     // MARK: - Empty State
@@ -176,12 +221,16 @@ struct RecentlyDeletedView: View {
             } label: {
                 Label("Recover", systemImage: "arrow.uturn.backward")
             }
-            Divider()
-            Button(role: .destructive) {
-                itemToDelete = item
-                showDeleteConfirmation = true
-            } label: {
-                Label("Delete Permanently", systemImage: "trash")
+            // During the walkthrough only Recover is offered: a permanent delete
+            // also drops the count and would falsely "complete" the recover step.
+            if !tutorialLocksControls {
+                Divider()
+                Button(role: .destructive) {
+                    itemToDelete = item
+                    showDeleteConfirmation = true
+                } label: {
+                    Label("Delete Permanently", systemImage: "trash")
+                }
             }
         } preview: {
             deletedPreviewContent(item)
