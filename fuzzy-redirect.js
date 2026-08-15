@@ -54,7 +54,7 @@
         'privatezza': 'privacy', 'privacidade': 'privacy'
     };
 
-    var SITE_BASE = '/Cutling';
+    var SITE_BASE = '';
     var PREF_KEY   = 'cutling_lang_preference';
     var DEFAULT_LOCALE = 'en-us';
 
