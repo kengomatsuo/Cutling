@@ -6,8 +6,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Xcode:** Open `Cutling.xcodeproj`. Requires Xcode 16+ (uses `fileSystemSynchronizedGroups`). Main app target is `Cutling`, minimum deployment iOS 18.0 / macOS 14.0.
 
+**App Store Connect auth** — metadata authenticates via a 2FA Spaceship session, binaries via `altool`, which ignores that session and needs an app-specific password. Drop an ASC API key at `fastlane/asc_api_key.json` (`key_id` / `issuer_id` / `key`, gitignored) and both paths use it instead, so deploys run unattended; with no key file every lane falls back to the Apple ID flow. Setup notes: the header of [fastlane/Fastfile](fastlane/Fastfile).
+
 **Deploy script wrapper** — always use `./deploy.sh` commands, never invoke `fastlane` directly:
 ```bash
+./deploy.sh bump [patch|minor|major]  # Bump MARKETING_VERSION across every shipping build config
 ./deploy.sh build          # Build IPA for App Store (output: ./build/Cutling.ipa)
 ./deploy.sh binary         # Upload the already-built IPA to App Store Connect (binary only, no submit; run build first)
 ./deploy.sh snap           # Capture missing locale screenshots
@@ -15,15 +18,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ./deploy.sh frame          # Add device frames + marketing text to screenshots
 ./deploy.sh screenshots    # Upload framed screenshots to App Store Connect
 ./deploy.sh metadata       # Upload iOS metadata/release notes to App Store Connect
-./deploy.sh metadata_mac   # Upload macOS release notes (fastlane/metadata_mac) to App Store Connect (platform osx)
+./deploy.sh metadata_mac   # Upload macOS metadata (fastlane/metadata_mac: release notes, promo text, description, keywords, support URL) to App Store Connect (platform osx)
 ./deploy.sh upload         # Upload metadata + framed screenshots together
 ./deploy.sh all            # Full pipeline: metadata → screenshots → build → upload
 ./deploy.sh release_notes  # Translate iOS release_notes.txt to all locales (fastlane/metadata)
 ./deploy.sh release_notes_mac # Translate macOS release notes to all locales (fastlane/metadata_mac)
-./deploy.sh web            # Deploy website to gh-pages
+./deploy.sh web            # Deploy website to gh-pages (serves cutling.matsuokengo.com)
 ./deploy.sh dist           # Build/notarize/publish the macOS Developer ID app (direct download) + Sparkle appcast
 ./deploy.sh mas            # Build the clean "Cutling" target for the Mac App Store (no Sparkle) and upload the .pkg via fastlane (build_mac_app + deliver, platform osx)
 ```
+
+**Website is `cutling.matsuokengo.com`** (moved off `kengomatsuo.github.io/Cutling` 2026-08-15). Pages serves `gh-pages` at the domain root, so `SITE_BASE` in `web/locale-router.js` + `web/fuzzy-redirect.js` is `''`, and `web/CNAME` must be copied into `dist/` on every build — `deploy_web` rsyncs with `--delete` and would otherwise wipe it and silently unset the domain. Old github.io URLs 301 with the path preserved, which is what keeps already-installed Sparkle clients on the old `SUFeedURL` updating.
 
 **The App Store is clean; only the direct-download build carries Sparkle:**
 - **`Cutling`** target → **all App Store builds**: iOS App Store (`build`/`binary`) **and** the macOS **App Store** (`mas`). It does **not** link Sparkle, so no App Store binary ever contains a self-updater (guideline 2.4.5). Uses `Cutling/Info.plist` (no `SU*` keys).
@@ -65,7 +70,7 @@ Widgets communicate with the main app via a `pendingControlAction` key in shared
 
 **`Cutling` struct** (`Cutling.swift`): id (UUID), name, value (text), icon (SF Symbol name), color, expiration, inputTypeTriggers, kind (.text | .image).
 
-**`CutlingStore`** (`CutlingStore.swift`): `@MainActor @Observable` class, single source of truth. Persists to App Group `UserDefaults` + image files. Enforces limits: 100 text, 25 image, 125 total; 2,000 char max per text cutling.
+**`CutlingStore`** (`CutlingStore.swift`): `@MainActor @Observable` class, single source of truth. Persists to App Group `UserDefaults` + image files. Enforces limits: 100 text, 25 image, 125 total; 1,000 char max per text cutling (`CutlingStore.maxTextLength`).
 
 Soft-delete: `DeletedCutling` with 30-day retention, recoverable from `RecentlyDeletedView`.
 
@@ -84,7 +89,7 @@ Soft-delete: `DeletedCutling` with 30-day retention, recoverable from `RecentlyD
 - `TextDetailView.swift` / `ImageDetailView.swift` — editors with undo/redo
 - `KeyboardSetupView.swift` — 6-page onboarding wizard
 - `CardView.swift` — cutling card display component
-- `TutorialOverlay.swift` — iOS-only interactive, forced, skippable coach-mark walkthrough. A shared `TutorialCoordinator.shared` drives a 10-step flow (createAdd → createName → createText → createSave → editOpen → editSave → deleteOpen → deleteConfirm → recoverTap → recoverWhere) across three screens; controls publish live global frames via `.tutorialFrame(_:)` and each screen hosts its own overlay via `.tutorialOverlay(_:)` so coach-marks render above sheets/pushes. Edit and delete are spotlighted with no un-highlightable menu rows: the card's ⋯ button (`CardView.topRightButton`, which calls `onEdit()` directly) opens the editor, and delete uses the editor's bottom "Delete Cutling" button (`.editorDelete`). Content controls (cards, form fields, in-form buttons) get a hard tap-through hole (`BlockingScrim`); nav-bar controls (+, Save, More) are highlighted but non-blocking. During the walkthrough `+` opens a text cutling directly and Recently Deleted is navigated programmatically (then it points back at More). Backing out is a deliberate escape hatch rather than blocked: the create sheet keeps Cancel enabled but routes it (and only it — swipe-dismiss stays off) through a "Leave Tutorial?" confirmation alert (`tutorialGuardsDismiss`); the pushed editor swaps its system Back for a custom one during the edit/delete steps (`tutorialInterceptsBack`) — on `editSave` Back requires a real text edit (`tutorialDidEdit`, set from `value` changes) or else shows the same leave alert, and on `deleteConfirm` Back resets the flow to `deleteOpen` (re-points at ⋯) instead of stranding it. Auto-launches once for any user who hasn't seen it (`hasSeenInteractiveTutorial`), replayable via "How to Use Cutling" in the keyboard manager's (`KeyboardView`) About section (which dismisses the sheet, then starts the walkthrough on the grid). The long-press TipKit tip was removed (the tutorial teaches it); the remaining tips (More-menu, drag-to-select, smart matching) stay gated until the tutorial is seen.
+- `TutorialOverlay.swift` — iOS-only interactive, skippable, 12-step coach-mark walkthrough (create → edit → delete → recover). A persistent `TutorialHUD` carries progress + Skip on every screen, so no missing spotlight frame or closed TipKit popover can strand the user. Full account: [docs/tutorial.md](docs/tutorial.md).
 
 ### App Intents & Siri Shortcuts
 
@@ -96,9 +101,11 @@ Soft-delete: `DeletedCutling` with 30-day retention, recoverable from `RecentlyD
 
 **In-app UI strings (`.lproj/Localizable.strings`) are hand-translated into every locale** — read the existing locale file first and reuse its established terms, and use the per-locale "Cutling" form (see project memory). The `./deploy.sh release_notes` / `release_notes_mac` Google-translate flow is **only** for fastlane release notes (`fastlane/metadata/en-US/release_notes.txt` for iOS, `fastlane/metadata_mac/en-US/release_notes.txt` for macOS); never use it for `Localizable.strings`.
 
+**Website copy is composed per locale from a meaning brief, never translated** — `web/_generator/INTENT.md` states what each of the 181 keys must MEAN; each `web/_generator/translations/<locale>.json` is written from it without reading `en-US.json`. Gate every file on `python3 web/_generator/validate_translations.py`.
+
 ## Release Workflow
 
-1. Bump version in Xcode (CFBundleShortVersionString / CFBundleVersion)
+1. `./deploy.sh bump` (patch by default) — rewrites MARKETING_VERSION **and CURRENT_PROJECT_VERSION** in every shipping build config, leaving CutlingUITests alone. App Store Connect tracks build numbers **per platform** and rejects any that isn't higher than that platform's last upload, so the single shared counter must exceed BOTH (macOS was already at 14 while iOS was at 1 — hence the jump to 15 for 1.5.3).
 2. Edit the **two** App Store "What's New" sources — iOS and macOS carry **different** copy and live in separate metadata trees:
    - `fastlane/metadata/en-US/release_notes.txt` — **iOS** App Store. iOS-relevant items only; never list macOS-only features (Mac welcome screen, global hotkey, menu bar picker, auto-update) here.
    - `fastlane/metadata_mac/en-US/release_notes.txt` — **macOS** App Store (the `Cutling` target's `mas` build). macOS-relevant items only. (The direct-download `dist` + Sparkle build is a separate channel and has no App Store listing.)

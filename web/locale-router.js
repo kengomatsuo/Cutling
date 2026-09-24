@@ -17,7 +17,9 @@ var AVAILABLE_LANGS = [
 (function() {
   var PREF_KEY = 'cutling_lang_preference';
   var DEFAULT_LOCALE = 'en-us';
-  var SITE_BASE = '/Cutling';
+  // Served at the root of cutling.matsuokengo.com. Empty base: every helper
+  // below guards on `siteBase &&`, so '' leaves paths untouched.
+  var SITE_BASE = '';
 
   var currentPath = window.location.pathname;
   var currentLang = getCurrentLanguage(currentPath, SITE_BASE);

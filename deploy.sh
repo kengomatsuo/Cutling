@@ -16,6 +16,8 @@ usage() {
 Usage: ./deploy.sh [command]
 
 Commands:
+  bump [part]       Bump MARKETING_VERSION across every shipping build config
+                    (part = patch (default) | minor | major)
   web               Build website and deploy to gh-pages
   all               Full pipeline: metadata + screenshots + build + upload
   release_notes     Translate iOS release notes from en-US to all languages
@@ -68,20 +70,30 @@ dist_release() {
   local app="$export_dir/Cutling.app"
   local dmg_dir="$build_dir/dmg"
 
-  # Version + build number drive the DMG name and the git tag.
-  local version
-  version="$(grep -m1 'MARKETING_VERSION' "$REPO_ROOT/Cutling.xcodeproj/project.pbxproj" \
-    | sed -E 's/.*= *([^;]+);/\1/' | tr -d ' ')"
-  local build_num
-  build_num="$(grep -m1 'CURRENT_PROJECT_VERSION\[sdk=macosx\*\]' "$REPO_ROOT/Cutling.xcodeproj/project.pbxproj" \
-    | sed -E 's/.*= *([^;]+);/\1/' | tr -d ' ')"
+  # Version + build number drive the DMG name and the git tag, so they must be
+  # the values this scheme will actually build with. Ask xcodebuild rather than
+  # grepping project.pbxproj: `grep -m1 MARKETING_VERSION` just takes whichever
+  # config appears first in the file (CutlingUITests still sits at 1.0, so a
+  # reordering would silently tag the release "v1.0-mac"), and the old
+  # CURRENT_PROJECT_VERSION[sdk=macosx*] pattern matches nothing at all — the
+  # build number printed below has been empty this whole time.
+  local settings
+  settings="$(xcodebuild -project "$REPO_ROOT/Cutling.xcodeproj" -scheme "$DIST_SCHEME" -showBuildSettings 2>/dev/null)"
+  local version build_num
+  version="$(awk -F' = ' '/ MARKETING_VERSION = /{gsub(/ /,"",$2); print $2; exit}' <<<"$settings")"
+  build_num="$(awk -F' = ' '/ CURRENT_PROJECT_VERSION = /{gsub(/ /,"",$2); print $2; exit}' <<<"$settings")"
+  [ -n "$version" ] || { echo "ERROR: could not read MARKETING_VERSION for scheme '$DIST_SCHEME'." >&2; exit 1; }
   # Lowercase, version-embedded asset name. Because the filename changes per
   # version, the website links to the releases/latest PAGE rather than a fixed
   # asset URL.
   local dmg="$build_dir/cutling-$version-macos.dmg"
   local tag="v$version-mac"
 
-  echo "==> Building Cutling $version ($build_num) for Developer ID distribution"
+  # `Cutling (Direct)` defines no CURRENT_PROJECT_VERSION, so build_num can be
+  # empty here. Sparkle compares CFBundleVersion (the appcast's
+  # <sparkle:version>), so if that value ever stops increasing between
+  # releases, installed apps will not be offered the update.
+  echo "==> Building Cutling $version (${build_num:-build number unset}) for Developer ID distribution"
 
   # Verify the notary credential exists before spending minutes on a build.
   if ! xcrun notarytool history --keychain-profile "$NOTARY_PROFILE" >/dev/null 2>&1; then
@@ -180,6 +192,62 @@ ensure_sparkle_tools() {
 }
 
 
+# Bump MARKETING_VERSION across every shipping config. Only rewrites configs
+# that currently hold the app's version, so CutlingUITests (pinned at 1.0) and
+# any other unrelated target are left alone.
+bump_version() {
+  local part="${1:-patch}"
+  local pbx="$REPO_ROOT/Cutling.xcodeproj/project.pbxproj"
+
+  local current
+  current="$(xcodebuild -project "$REPO_ROOT/Cutling.xcodeproj" -scheme Cutling -showBuildSettings 2>/dev/null \
+    | awk -F' = ' '/ MARKETING_VERSION = /{gsub(/ /,"",$2); print $2; exit}')"
+  [ -n "$current" ] || { echo "ERROR: could not read the current MARKETING_VERSION." >&2; exit 1; }
+
+  local major minor patch
+  IFS='.' read -r major minor patch <<<"$current"
+  minor="${minor:-0}"; patch="${patch:-0}"
+
+  case "$part" in
+    major) major=$((major + 1)); minor=0; patch=0 ;;
+    minor) minor=$((minor + 1)); patch=0 ;;
+    patch) patch=$((patch + 1)) ;;
+    *) echo "ERROR: bump takes major|minor|patch (got '$part')." >&2; exit 1 ;;
+  esac
+  local next="$major.$minor.$patch"
+
+  local count
+  count="$(grep -c "MARKETING_VERSION = $current;" "$pbx" || true)"
+  [ "$count" -gt 0 ] || { echo "ERROR: no config found at version $current." >&2; exit 1; }
+
+  sed -i '' "s/MARKETING_VERSION = $current;/MARKETING_VERSION = $next;/g" "$pbx"
+  echo "==> Bumped $current -> $next across $count build configs."
+
+  # The build number MUST increase too. App Store Connect rejects an upload
+  # whose CFBundleVersion was already used ("The bundle version must be higher
+  # than the previously uploaded version"), and Sparkle compares CFBundleVersion
+  # to decide whether the direct-download build has an update. Bumping only
+  # MARKETING_VERSION leaves both broken.
+  local build_current build_next build_count
+  build_current="$(xcodebuild -project "$REPO_ROOT/Cutling.xcodeproj" -scheme Cutling -showBuildSettings 2>/dev/null \
+    | awk -F' = ' '/ CURRENT_PROJECT_VERSION = /{gsub(/ /,"",$2); print $2; exit}')"
+  if [ -n "$build_current" ]; then
+    build_next=$((build_current + 1))
+    build_count="$(grep -c "CURRENT_PROJECT_VERSION = $build_current;" "$pbx" || true)"
+    if [ "$build_count" -gt 0 ]; then
+      sed -i '' "s/CURRENT_PROJECT_VERSION = $build_current;/CURRENT_PROJECT_VERSION = $build_next;/g" "$pbx"
+      echo "==> Bumped build number $build_current -> $build_next across $build_count build configs."
+    else
+      echo "    WARNING: build number is $build_current but no config literally holds it; bump it by hand." >&2
+    fi
+  else
+    echo "    WARNING: could not read CURRENT_PROJECT_VERSION; bump the build number by hand." >&2
+  fi
+  echo "    Next: edit fastlane/metadata/en-US/release_notes.txt (iOS) and"
+  echo "          fastlane/metadata_mac/en-US/release_notes.txt (macOS), then"
+  echo "          ./deploy.sh release_notes && ./deploy.sh release_notes_mac"
+}
+
 deploy_web() {
   DIST="$REPO_ROOT/dist"
   WEB="$REPO_ROOT/web"
@@ -195,8 +263,12 @@ deploy_web() {
   cp "$WEB/icon.png" "$DIST/"
   cp -r "$WEB/img/" "$DIST/img/"
   cp "$REPO_ROOT/locales.json" "$DIST/"
+  # GitHub Pages custom domain. MUST be copied into dist/ on every build: the
+  # rsync below runs with --delete, so a CNAME living only on gh-pages would be
+  # wiped here and silently unset the custom domain.
+  cp "$WEB/CNAME" "$DIST/"
   # Sparkle appcast (written by `./deploy.sh dist`). Served at
-  # https://kengomatsuo.github.io/Cutling/appcast.xml (matches SUFeedURL).
+  # https://cutling.matsuokengo.com/appcast.xml (matches SUFeedURL).
   [ -f "$WEB/appcast.xml" ] && cp "$WEB/appcast.xml" "$DIST/"
 
   echo "==> Deploying to gh-pages via git worktree..."
@@ -219,6 +291,7 @@ deploy_web() {
 }
 
 case "${1:-help}" in
+  bump)             bump_version "${2:-patch}" ;;
   web)              deploy_web ;;
   all)              $FASTLANE ios deploy ;;
   release_notes)    source "$VENV" && python3 translate_release_notes.py ;;

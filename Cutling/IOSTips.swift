@@ -113,7 +113,9 @@ struct EditorSaveTip: Tip {
 
 struct EditorBackTip: Tip {
     @Parameter static var anchor: Int = -1
-    var title: Text { Text("Edit anything, then go back to save.") }
+    // Same wording as the step's own instruction, so the tip and the
+    // walkthrough never say the same thing two different ways.
+    var title: Text { Text("Edit the text, then tap Back. Your changes save automatically.") }
     var rules: [Rule] { #Rule(Self.$anchor) { $0 == 3 } }
     var options: [Option] { MaxDisplayCount(1000) }
 }

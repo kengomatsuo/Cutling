@@ -15,12 +15,15 @@ import TipKit
 
 #if !os(macOS)
 
-private let websiteBaseURL = "https://kengomatsuo.github.io/Cutling"
+private let websiteBaseURL = "https://cutling.matsuokengo.com"
 
 struct KeyboardView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var store: CutlingStore
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
+    /// Sticky dismissal for the Siri phrase tip — AppIntents doesn't remember
+    /// that its close button was tapped.
+    @AppStorage("hasDismissedSiriTip") private var hasDismissedSiriTip = false
     #if os(iOS)
     @State private var isKeyboardAdded = false
     @State private var hasFullAccess = false
@@ -168,16 +171,26 @@ struct KeyboardView: View {
                 }
 
                 #if os(iOS)
-                Section {
-                    SiriTipView(intent: AddFromClipboardIntent(), isVisible: .constant(true))
-
-                    ShortcutsLink()
-                        .shortcutsLinkStyle(.automaticOutline)
-                        .frame(maxWidth: .infinity)
-                } header: {
-                    Text("Siri & Shortcuts")
-                } footer: {
-                    Text("Use these phrases with Siri or browse all Cutling shortcuts in the Shortcuts app.")
+                // Just the spoken-phrase suggestion, the way Apple's own
+                // examples place it: one inline tip, no heading, no framing
+                // section, no Shortcuts button competing with it.
+                //
+                // `isVisible` was `.constant(true)`, so the tip's own close
+                // button set a binding that could never change and the tip
+                // never went away. AppIntents doesn't persist the dismissal
+                // for us, so it's backed by AppStorage here.
+                if !hasDismissedSiriTip {
+                    Section {
+                        SiriTipView(
+                            intent: AddFromClipboardIntent(),
+                            isVisible: Binding(
+                                get: { !hasDismissedSiriTip },
+                                set: { hasDismissedSiriTip = !$0 }
+                            )
+                        )
+                        .listRowInsets(EdgeInsets())
+                        .listRowBackground(Color.clear)
+                    }
                 }
                 #endif
 

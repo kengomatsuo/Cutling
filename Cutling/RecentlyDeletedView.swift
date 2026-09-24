@@ -109,6 +109,8 @@ struct RecentlyDeletedView: View {
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(tutorialLocksBack)
         .tutorialOverlay(.recentlyDeleted)
+        // After the overlay, so the bar draws above the dim.
+        .tutorialHUD(.recentlyDeleted)
         #endif
         .toolbar {
             #if os(iOS)
@@ -127,11 +129,15 @@ struct RecentlyDeletedView: View {
             }
             #endif
             ToolbarItem(placement: .primaryAction) {
+                // One condition drives both the colour and `disabled`: keyed off
+                // emptiness alone, the button stayed fully red while the
+                // walkthrough had it locked, so it read as tappable.
+                let deleteAllDisabled = store.recentlyDeleted.isEmpty || tutorialLocksControls
                 Button("Delete All", role: .destructive) {
                     showEmptyAllConfirmation = true
                 }
-                .foregroundStyle(store.recentlyDeleted.isEmpty ? Color.secondary : Color.red)
-                .disabled(store.recentlyDeleted.isEmpty || tutorialLocksControls)
+                .foregroundStyle(deleteAllDisabled ? Color.secondary : Color.red)
+                .disabled(deleteAllDisabled)
                 .confirmationDialog(
                     "Delete All Permanently?",
                     isPresented: $showEmptyAllConfirmation,

@@ -116,8 +116,12 @@ struct HotkeyCombo: Codable, Equatable, Sendable {
         }
     }
 
-    /// Registers the current combo. Idempotent.
-    func register() {
+    /// Registers the current combo. Idempotent. Returns whether the system
+    /// accepted it — `RegisterEventHotKey` fails when another app already owns
+    /// the chord, and a caller that ignores this leaves the user with a
+    /// shortcut the UI claims is set but that never fires.
+    @discardableResult
+    func register() -> Bool {
         unregister()
         installEventHandlerIfNeeded()
 
@@ -134,9 +138,10 @@ struct HotkeyCombo: Codable, Equatable, Sendable {
         )
         if status == noErr {
             hotKeyRef = unsafe ref
-        } else {
-            print("⚠️ Cutling: failed to register global hotkey (\(combo.displayString)): status \(status)")
+            return true
         }
+        print("⚠️ Cutling: failed to register global hotkey (\(combo.displayString)): status \(status)")
+        return false
     }
 
     func unregister() {
@@ -146,13 +151,23 @@ struct HotkeyCombo: Codable, Equatable, Sendable {
         }
     }
 
-    /// Replace the combo, persist it, and re-register.
-    func set(_ newCombo: HotkeyCombo) {
+    /// Replace the combo, persist it, and re-register. Returns false (and rolls
+    /// back to the previous, working combo) when the system refuses the chord —
+    /// otherwise the recorder would show a shortcut that silently never fires.
+    @discardableResult
+    func set(_ newCombo: HotkeyCombo) -> Bool {
+        let previous = combo
         combo = newCombo
-        if let data = try? JSONEncoder().encode(newCombo) {
-            UserDefaults(suiteName: appGroupID)?.set(data, forKey: storeKey)
+        if register() {
+            if let data = try? JSONEncoder().encode(newCombo) {
+                UserDefaults(suiteName: appGroupID)?.set(data, forKey: storeKey)
+            }
+            return true
         }
+        // Refused — restore whatever was working before and re-register it.
+        combo = previous
         register()
+        return false
     }
 
     private func installEventHandlerIfNeeded() {

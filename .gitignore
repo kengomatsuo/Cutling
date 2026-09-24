@@ -2,7 +2,12 @@ xcuserdata/
 .DS_Store
 ApiKey.p8
 docs/_generator/.venv/
-docs/
+# Ignore the generator and its artifacts, but TRACK the hand-written docs that
+# CLAUDE.md points at — a bare `docs/` excluded the directory itself, and git
+# cannot re-include a file whose parent directory is excluded, so the prose
+# docs were silently uncommittable.
+docs/*
+!docs/*.md
 dist/
 build/
 web/_generator/__pycache__/
@@ -24,3 +29,7 @@ certs/
 *.p12
 *.cer
 *.certSigningRequest
+*.p8
+# App Store Connect API key (key_id + issuer_id + private key) — grants full
+# ASC access, so it must never be committed.
+fastlane/asc_api_key.json

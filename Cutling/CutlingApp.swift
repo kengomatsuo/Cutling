@@ -265,6 +265,12 @@ struct CutlingApp: App {
                 .onChange(of: hasSeenInteractiveTutorial) { _, _ in
                     syncTipSetupParameters()
                 }
+                // The "seen" flag is now set when the walkthrough STARTS, so the
+                // live `isActive` is what keeps the contextual tips quiet while
+                // it runs.
+                .onChange(of: TutorialCoordinator.shared.isActive) { _, _ in
+                    syncTipSetupParameters()
+                }
                 .onChange(of: showOnboarding) { _, _ in
                     syncTipSetupParameters()
                 }
@@ -500,6 +506,7 @@ struct CutlingApp: App {
     private func syncTipSetupParameters() {
         let complete = hasCompletedSetup
             && hasSeenInteractiveTutorial
+            && !TutorialCoordinator.shared.isActive
             && !keyboardNeedsSetup
             && !showOnboarding
             && !showWhatsNew

@@ -59,8 +59,15 @@ struct HotkeyRecorderView: View {
             let nonShift = mods & (UInt32(cmdKey) | UInt32(optionKey) | UInt32(controlKey))
             guard nonShift != 0 else { return nil }
             let new = HotkeyCombo(keyCode: UInt32(event.keyCode), modifiers: mods)
-            combo = new
-            GlobalHotkey.shared.set(new)
+            if GlobalHotkey.shared.set(new) {
+                combo = new
+            } else {
+                // Another app already owns this chord. Snap back to the combo
+                // that still works and beep, the standard macOS "input
+                // rejected" cue, rather than displaying a dead shortcut.
+                combo = GlobalHotkey.shared.combo
+                NSSound.beep()
+            }
             stopRecording()
             return nil
         }

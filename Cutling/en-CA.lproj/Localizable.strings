@@ -42,6 +42,11 @@
 "No Results" = "No Results";
 "Tap + to add your first cutling." = "Tap + to add your first cutling.";
 "Try a different search term." = "Try a different search term.";
+"Saved" = "Saved";
+"History" = "History";
+"No saved cutlings yet" = "No saved cutlings yet";
+"Copy something to see it here" = "Copy something to see it here";
+"Clipboard history is off. Enable it in Settings." = "Clipboard history is off. Enable it in Settings.";
 
 /* MARK: - Search */
 "Search cutlings" = "Search cutlings";
@@ -297,6 +302,12 @@
 "This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager." = "This looks like an authentication token. Tokens should be stored securely, not in a clipboard manager.";
 "This looks like a recovery phrase. Store seed phrases in a secure, offline location." = "This looks like a recovery phrase. Store seed phrases in a secure, offline location.";
 "Don't Warn About This Again" = "Don't Warn About This Again";
+"Include in Spotlight Search" = "Include in Spotlight Search";
+"Spotlight" = "Spotlight";
+"Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed." = "Make your cutlings searchable from Spotlight. Sensitive content (credit cards, API keys, JWT tokens, seed phrases, private keys) is never indexed.";
+"Copy Cutling" = "Copy Cutling";
+"Copy a cutling's contents to the clipboard." = "Copy a cutling's contents to the clipboard.";
+"Copied \"%@\"" = "Copied \"%@\"";
 
 /* MARK: - App Shortcuts (Siri / Shortcuts gallery) */
 "Save clipboard contents as a new cutling." = "Save clipboard contents as a new cutling.";
@@ -316,6 +327,10 @@
 "Open Cutling and start a new text cutling." = "Open Cutling and start a new text cutling.";
 "Open Cutling and start a new image cutling." = "Open Cutling and start a new image cutling.";
 "Query" = "Query";
+"View Cutling" = "View Cutling";
+"Open a cutling in the Cutling app." = "Open a cutling in the Cutling app.";
+"Cutling" = "Cutling";
+"Screen" = "Screen";
 "Nothing to save." = "Nothing to save.";
 "That doesn't look like an image." = "That doesn't look like an image.";
 "Failed to save image." = "Failed to save image.";

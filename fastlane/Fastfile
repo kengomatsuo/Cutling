@@ -11,12 +11,71 @@ def locale_codes_from_json
   ).map { |locale| locale.fetch('code') }
 end
 
+# --- App Store Connect authentication ---------------------------------------
+#
+# Metadata and binaries authenticate through DIFFERENT paths: metadata goes via
+# Spaceship (a 2FA web session), while binaries go via altool, which ignores
+# that session and demands an app-specific password. A single App Store Connect
+# API key satisfies both, so neither wall recurs and deploys can run unattended.
+#
+# Drop the key at fastlane/asc_api_key.json (gitignored):
+#
+#   {
+#     "key_id":    "ABCD123456",
+#     "issuer_id": "6053b7fe-68a8-4acb-89be-165aa6465141",
+#     "key":       "-----BEGIN PRIVATE KEY-----\nMIGT...\n-----END PRIVATE KEY-----"
+#   }
+#
+# With no key file present, every lane falls back to the old Apple ID + session
+# flow, so nothing changes until the key is actually there.
+ASC_API_KEY_FILE = File.join(__dir__, "asc_api_key.json")
+
+def asc_key_config
+  return @asc_key_config if defined?(@asc_key_config)
+  @asc_key_config =
+    if File.exist?(ASC_API_KEY_FILE)
+      JSON.parse(File.read(ASC_API_KEY_FILE, encoding: 'UTF-8'))
+    end
+end
+
+# The api_key hash that deliver / upload_to_app_store / build_mac_app accept.
+# nil when no key is configured, which those actions treat as "not provided".
+def asc_api_key
+  cfg = asc_key_config
+  return nil unless cfg
+  @asc_api_key ||= app_store_connect_api_key(
+    key_id: cfg.fetch("key_id"),
+    issuer_id: cfg.fetch("issuer_id"),
+    key_content: cfg.fetch("key"),
+    in_house: false
+  )
+end
+
+# Authenticate the raw Spaceship client for lanes that hit ConnectAPI directly.
+def asc_login
+  require 'spaceship'
+  cfg = asc_key_config
+  if cfg
+    Spaceship::ConnectAPI.auth(
+      key_id: cfg.fetch("key_id"),
+      issuer_id: cfg.fetch("issuer_id"),
+      key: cfg.fetch("key")
+    )
+  else
+    Spaceship::ConnectAPI.login(
+      CredentialsManager::AppfileConfig.try_fetch_value(:apple_id),
+      use_portal: false,
+      use_tunes: true
+    )
+  end
+end
+
 def localized_support_url(locale)
-  "https://kengomatsuo.github.io/Cutling/#{locale.downcase}/support"
+  "https://cutling.matsuokengo.com/#{locale.downcase}/support"
 end
 
 def localized_marketing_url(locale)
-  "https://kengomatsuo.github.io/Cutling/#{locale.downcase}"
+  "https://cutling.matsuokengo.com/#{locale.downcase}"
 end
 
 def read_metadata_text(file)
@@ -219,6 +278,10 @@ platform :ios do
     add_new_locales
 
     deliver(
+      api_key: asc_api_key,
+      # precheck cannot read in-app purchases via an API key; the rest of
+      # the metadata rules still run.
+      precheck_include_in_app_purchases: false,
       skip_binary_upload: true,
       skip_screenshots: true,
       force: true,
@@ -230,6 +293,7 @@ platform :ios do
   lane :upload_screenshots do
     tmp = prepare_framed_screenshots_dir
     deliver(
+      api_key: asc_api_key,
       screenshots_path: tmp,
       skip_binary_upload: true,
       skip_metadata: true,
@@ -247,6 +311,10 @@ platform :ios do
     add_new_locales
 
     deliver(
+      api_key: asc_api_key,
+      # precheck cannot read in-app purchases via an API key; the rest of
+      # the metadata rules still run.
+      precheck_include_in_app_purchases: false,
       screenshots_path: tmp,
       ignore_language_directory_validation: true,
       overwrite_screenshots: true,
@@ -263,11 +331,7 @@ platform :ios do
     new_locales = locale_codes_from_json.reject { |locale| BASE_FASTLANE_LOCALES.include?(locale) }
     metadata_path = File.join(__dir__, "metadata")
 
-    Spaceship::ConnectAPI.login(
-      CredentialsManager::AppfileConfig.try_fetch_value(:apple_id),
-      use_portal: false,
-      use_tunes: true
-    )
+    asc_login
 
     app = Spaceship::ConnectAPI::App.find("com.matsuokengo.Cutling")
     UI.user_error!("App not found") unless app
@@ -384,10 +448,16 @@ platform :ios do
     ipa_path = File.expand_path("../build/Cutling.ipa", __dir__)
     UI.user_error!("IPA not found at #{ipa_path} — run `./deploy.sh build` first") unless File.exist?(ipa_path)
     deliver(
+      api_key: asc_api_key,
       skip_metadata: true,
       skip_screenshots: true,
       force: true,
       ignore_language_directory_validation: true,
+      # Binary-only lane: precheck reviews METADATA text, which `metadata`
+      # already uploaded and prechecked. It also can't read in-app purchases
+      # when authenticating with an API key, so leaving it on just fails the
+      # upload for a check that doesn't apply here.
+      run_precheck_before_submit: false,
       ipa: ipa_path
     )
   end
@@ -414,9 +484,14 @@ platform :ios do
     UI.header("Step 5/5: Building and uploading binary")
     build
     deliver(
+      api_key: asc_api_key,
       skip_metadata: true,
       skip_screenshots: true,
       force: true,
+      # Step 1 already uploaded and prechecked the metadata; precheck also
+      # can't read in-app purchases via an API key. Same reasoning as
+      # `upload_binary`.
+      run_precheck_before_submit: false,
       ipa: "./build/Cutling.ipa"
     )
 
@@ -426,10 +501,7 @@ platform :ios do
   desc "Print current iOS App Store version + review-submission states (read-only)"
   lane :asc_status do
     require 'spaceship'
-    Spaceship::ConnectAPI.login(
-      CredentialsManager::AppfileConfig.try_fetch_value(:apple_id),
-      use_portal: false, use_tunes: true
-    )
+    asc_login
     platform = Spaceship::ConnectAPI::Platform::IOS
     app = Spaceship::ConnectAPI::App.find("com.matsuokengo.Cutling")
     UI.user_error!("App not found") unless app
@@ -449,11 +521,7 @@ platform :ios do
   lane :resubmit_notes do
     require 'spaceship'
 
-    Spaceship::ConnectAPI.login(
-      CredentialsManager::AppfileConfig.try_fetch_value(:apple_id),
-      use_portal: false,
-      use_tunes: true
-    )
+    asc_login
 
     platform = Spaceship::ConnectAPI::Platform::IOS
     app = Spaceship::ConnectAPI::App.find("com.matsuokengo.Cutling")
@@ -499,29 +567,58 @@ platform :mac do
     # can't); upload_to_app_store(platform: "osx") sends it to ASC. Binary
     # only — no metadata/screenshots — and it does not submit for review
     # (mirrors the iOS `binary` lane).
+    # build_mac_app only builds/packages — it takes no api_key (authentication
+    # belongs to the upload_to_app_store call below).
+    #
+    # `sdk: "macosx"` is MANDATORY here, and destination alone is not enough.
+    # `Cutling` is a multiplatform scheme (SUPPORTED_PLATFORMS = iphoneos
+    # iphonesimulator macosx), and gym decides whether it is building a Mac app
+    # with (gym/module.rb):
+    #
+    #   Gym.project.multiplatform? && Gym.project.mac? && Gym.config[:sdk] == "macosx"
+    #
+    # Without the sdk, that is false, so gym archived macOS correctly but then
+    # looked for an .ipa to package and died with the misleading "IPA invalid"
+    # instead of picking up the exported .pkg.
+    #
+    # gym appends the real extension to output_name, so the name is given
+    # WITHOUT ".pkg" or the result is Cutling.pkg.pkg.
     build_mac_app(
       scheme: "Cutling",
+      sdk: "macosx",
+      destination: "generic/platform=macOS",
       export_method: "app-store",
       output_directory: "./build/mas",
-      output_name: "Cutling.pkg"
+      output_name: "Cutling"
     )
     upload_to_app_store(
+      api_key: asc_api_key,
       platform: "osx",
       pkg: "./build/mas/Cutling.pkg",
       skip_metadata: true,
       skip_screenshots: true,
       run_precheck_before_submit: false,
-      force: true
+      force: true,
+      # deliver validates ./fastlane/metadata even for a binary-only upload,
+      # and locales.json carries codes outside fastlane's built-in list
+      # (bg, bn-IN, en-IN, et, fa, fil, lt, lv, sr, sw). Every other lane
+      # already disables this check.
+      ignore_language_directory_validation: true
     )
   end
 
-  desc "Upload macOS App Store metadata (release notes only) from fastlane/metadata_mac"
+  desc "Upload macOS App Store metadata from fastlane/metadata_mac"
   lane :upload_metadata_mac do
     # macOS carries its own "What's New" (different from iOS), so it has a
-    # separate metadata tree. Only release_notes.txt files live there, so this
-    # updates just the release notes on the editable macOS version — no binary,
-    # no screenshots, no other fields.
+    # separate metadata tree. It holds release notes and promotional text
+    # (macOS-specific), plus description, keywords, and support URL copied from
+    # the iOS tree. This updates those fields on the editable macOS version, no
+    # binary and no screenshots.
     deliver(
+      api_key: asc_api_key,
+      # precheck cannot read in-app purchases via an API key; the rest of
+      # the metadata rules still run.
+      precheck_include_in_app_purchases: false,
       platform: "osx",
       metadata_path: "./fastlane/metadata_mac",
       skip_binary_upload: true,

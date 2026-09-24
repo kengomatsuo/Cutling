@@ -455,7 +455,7 @@ struct MacPickerView: View {
             .popoverTip(recentlyDeletedTip, arrowEdge: .bottom)
 
             Button {
-                if let url = URL(string: "https://kengomatsuo.github.io/Cutling") {
+                if let url = URL(string: "https://cutling.matsuokengo.com") {
                     NSWorkspace.shared.open(url)
                 }
             } label: {

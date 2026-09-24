@@ -443,14 +443,18 @@ struct MainContentView: View {
                     let groupDefaults = UserDefaults(suiteName: "group.com.matsuokengo.Cutling")
                     guard groupDefaults?.string(forKey: "pendingControlAction") == "addFromClipboard" else { return }
                     groupDefaults?.removeObject(forKey: "pendingControlAction")
-                    if let string = UIPasteboard.general.string, !string.isEmpty {
-                        if store.findDuplicateText(value: string) == nil {
-                            activeSheet = .newCutling(NewCutlingDraft(kind: .text, text: string))
-                        }
-                    } else if let image = UIPasteboard.general.image,
-                              let data = image.pngData() {
+                    // Image first: Safari puts the image URL beside it.
+                    let pasteboard = UIPasteboard.general
+                    let imageData = [UTType.gif, .png, .jpeg].lazy
+                        .compactMap { pasteboard.data(forPasteboardType: $0.identifier) }
+                        .first ?? pasteboard.image?.pngData()
+                    if let data = imageData {
                         if store.findDuplicateImage(data: data) == nil {
                             activeSheet = .newCutling(NewCutlingDraft(kind: .image, name: String(localized: "Shared Image"), imageData: data))
+                        }
+                    } else if let string = pasteboard.string, !string.isEmpty {
+                        if store.findDuplicateText(value: string) == nil {
+                            activeSheet = .newCutling(NewCutlingDraft(kind: .text, text: string))
                         }
                     }
                 }
@@ -458,6 +462,8 @@ struct MainContentView: View {
         }
         #if os(iOS)
         .tutorialOverlay(.grid)
+        // After the overlay, so the bar draws above the dim.
+        .tutorialHUD(.grid)
         .animation(.easeInOut(duration: 0.25), value: tutorial.isActive)
         .animation(.easeInOut(duration: 0.25), value: tutorial.step)
         // Auto-launch once for anyone who hasn't seen it: fresh setups (when
@@ -465,8 +471,13 @@ struct MainContentView: View {
         // appear). Always skippable; never shown again once seen or skipped.
         .onAppear { startTutorialIfUnseen() }
         .onChange(of: hasCompletedSetup) { _, _ in startTutorialIfUnseen() }
-        .onChange(of: tutorial.isActive) { _, active in
-            if !active { hasSeenInteractiveTutorial = true }
+        // Search can filter the target card out of the grid, leaving the
+        // spotlight with nothing to resolve, so it stays shut for the duration.
+        .onChange(of: tutorial.isActive, initial: true) { _, active in
+            if active { closeSearchForTutorial() }
+        }
+        .onChange(of: searchIsPresented) { _, presented in
+            if presented, !tutorial.allowsSearch { closeSearchForTutorial() }
         }
         // Drive navigation for the steps the walkthrough performs itself.
         .onChange(of: tutorial.step) { _, step in
@@ -542,11 +553,28 @@ struct MainContentView: View {
         if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") { return }
         #endif
         guard hasCompletedSetup, !hasSeenInteractiveTutorial, !tutorial.isActive else { return }
+        // The walkthrough's first act is creating a cutling; at the text limit
+        // the + only raises an alert and the flow could never proceed.
+        guard store.canAdd(.text).allowed else { return }
         Task { @MainActor in
             try? await Task.sleep(for: .seconds(0.8))
             guard hasCompletedSetup, !hasSeenInteractiveTutorial, !tutorial.isActive else { return }
+            // Mark it seen the moment it starts, not when it ends: a force-quit
+            // (or a crash) part-way through otherwise replays the whole thing on
+            // every launch, creating another cutling each time. HIG: "don't
+            // present it again on subsequent launches." The contextual TipKit
+            // hints gated on this flag also test `!tutorial.isActive`, so they
+            // still stay quiet until the walkthrough is actually over.
+            hasSeenInteractiveTutorial = true
             tutorial.start()
         }
+    }
+
+    /// Force the search field shut while the walkthrough runs. `.searchable`
+    /// offers no `disabled`, so this is the only way to keep the grid unfiltered.
+    private func closeSearchForTutorial() {
+        searchText = ""
+        searchIsPresented = false
     }
     #endif
 

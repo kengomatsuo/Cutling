@@ -114,7 +114,16 @@ struct KeyboardSetupView: View {
                         .navigationBarTitleDisplayMode(.inline)
                 }
         }
-        .interactiveDismissDisabled(!allDone)
+        // Gate the swipe on the COMPLETION FLAG, not on `allDone`.
+        // `allDone` flips as soon as the keyboard and Full Access are
+        // detected, which re-enabled swipe-to-dismiss while the user was
+        // still mid-flow. `hasCompletedSetup` is only set by `finish()`, so
+        // swiping away used to leave it false — and that flag gates the
+        // interactive tutorial, the contextual tips, and whether onboarding
+        // re-presents on every launch. Programmatic `dismiss()` from
+        // `finish()` is unaffected by this modifier, and a returning user who
+        // reopens setup from the keyboard manager can still swipe out.
+        .interactiveDismissDisabled(!hasCompletedSetup)
         .onAppear {
             #if DEBUG
             if isSnapshotMode {

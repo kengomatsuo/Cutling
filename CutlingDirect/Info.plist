@@ -7,7 +7,7 @@
 	     macOS, from the `Cutling` target) never carry a self-updater. The
 	     `Cutling (Direct)` target is the only one that links Sparkle. -->
 	<key>SUFeedURL</key>
-	<string>https://kengomatsuo.github.io/Cutling/appcast.xml</string>
+	<string>https://cutling.matsuokengo.com/appcast.xml</string>
 	<key>SUPublicEDKey</key>
 	<string>ZyT4/ezVd83f4Q2V8xPNKbqdaHmgpK9twWZt8gWyEDk=</string>
 	<!-- Opt-in: don't auto-check until the user turns it on in onboarding or

@@ -187,6 +187,7 @@ struct TextDetailView: View {
                             }
                         }
                     }
+                    .tutorialHUD(.editor)
             }
         } else {
             formContent
@@ -195,6 +196,7 @@ struct TextDetailView: View {
                     undoRedoToolbarContent
                     tutorialBackToolbarContent
                 }
+                .tutorialHUD(.editor)
                 .onWillDisappear {
                     undoHandler.closeAllGroups()
                     autoSave()
@@ -468,8 +470,11 @@ struct TextDetailView: View {
         .onChange(of: TutorialCoordinator.shared.step) { _, newStep in
             focusForTutorialStep()
             // Same-sheet create transition (name → value) has no new appearance,
-            // so show the text tip right away.
-            if newStep == .createSave, !isEditing {
+            // so show the text tip right away — but only if nothing is focused.
+            // Presenting a popover while the user is in a field resigns first
+            // responder and eats their keystrokes; once they put the keyboard
+            // down, `editorFocusChanged` anchors it instead.
+            if newStep == .createSave, !isEditing, focusedField == nil {
                 TutorialCoordinator.shared.showEditorTipForCurrentStep()
             }
         }
@@ -477,6 +482,8 @@ struct TextDetailView: View {
         // elsewhere, keyboard dismiss), not only on Return.
         .onChange(of: focusedField) { oldValue, newValue in
             let t = TutorialCoordinator.shared
+            // Popovers may only move while nothing is focused.
+            t.editorFocusChanged(focused: newValue != nil, nameEmpty: name.isEmpty, valueEmpty: value.isEmpty)
             if oldValue == .name, newValue != .name, !name.isEmpty,
                t.isActive, t.step == .createName {
                 t.advance(from: .createName)

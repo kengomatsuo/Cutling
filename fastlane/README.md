@@ -138,7 +138,7 @@ Build the clean Cutling macOS App Store target (no Sparkle) and upload the .pkg 
 [bundle exec] fastlane mac upload_metadata_mac
 ```
 
-Upload macOS App Store metadata (release notes only) from fastlane/metadata_mac
+Upload macOS App Store metadata from fastlane/metadata_mac
 
 ----
 
