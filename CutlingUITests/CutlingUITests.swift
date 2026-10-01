@@ -25,72 +25,6 @@ final class CutlingUITests: XCTestCase {
         try? (existing + line).write(toFile: logPath, atomically: true, encoding: .utf8)
     }
 
-    /// Finds and long-presses the globe (keyboard switch) key.
-    /// The globe key's label is localized ("Next keyboard", "次のキーボード", etc.),
-    /// so we find it by its position: it's always the button immediately before the
-    /// dictation button (id='dictation') in the accessibility hierarchy.
-    @MainActor
-    private func longPressGlobeKey(in app: XCUIApplication) -> Bool {
-        // Wait for keyboard to appear via the dictation button (stable identifier).
-        let dictation = app.buttons["dictation"].firstMatch
-        guard dictation.waitForExistence(timeout: 5) else {
-            log("GLOBE: dictation button not found — keyboard may not be visible")
-            return false
-        }
-
-        // The globe key is the button right before dictation in the hierarchy.
-        let allButtons = app.buttons.allElementsBoundByIndex
-        for i in 0..<allButtons.count {
-            if allButtons[i].identifier == "dictation" && i > 0 {
-                let globe = allButtons[i - 1]
-                log("GLOBE: Found at index \(i-1), label='\(globe.label)'")
-                globe.press(forDuration: 1.0)
-                sleep(1)
-                return true
-            }
-        }
-
-        log("GLOBE: Could not find globe key before dictation button")
-        return false
-    }
-
-    /// Selects "Cutling" from the keyboard picker that appears after long-pressing globe.
-    @MainActor
-    private func selectCutlingFromPicker(in app: XCUIApplication) -> Bool {
-        // Try as button first.
-        let cutlingBtn = app.buttons.matching(
-            NSPredicate(format: "label CONTAINS[c] 'Cutling'")
-        ).firstMatch
-        if cutlingBtn.waitForExistence(timeout: 2) {
-            log("PICKER: Found Cutling as button")
-            cutlingBtn.tap()
-            sleep(1)
-            return true
-        }
-        // Try as static text.
-        let cutlingTxt = app.staticTexts.matching(
-            NSPredicate(format: "label CONTAINS[c] 'Cutling'")
-        ).firstMatch
-        if cutlingTxt.waitForExistence(timeout: 2) {
-            log("PICKER: Found Cutling as staticText")
-            cutlingTxt.tap()
-            sleep(1)
-            return true
-        }
-        // Try as any element.
-        let cutlingAny = app.descendants(matching: .any).matching(
-            NSPredicate(format: "label CONTAINS[c] 'Cutling'")
-        ).firstMatch
-        if cutlingAny.waitForExistence(timeout: 2) {
-            log("PICKER: Found Cutling as \(cutlingAny.elementType.rawValue)")
-            cutlingAny.tap()
-            sleep(1)
-            return true
-        }
-        log("PICKER: Cutling not found")
-        return false
-    }
-
     @MainActor
     func testTakeScreenshots() throws {
         try? "".write(toFile: logPath, atomically: true, encoding: .utf8)
@@ -101,10 +35,6 @@ final class CutlingUITests: XCTestCase {
         runHostCommand("/usr/bin/defaults", ["write", "com.apple.iphonesimulator", "ConnectHardwareKeyboard", "-bool", "false"])
         log("S0: Hardware keyboard disabled")
 
-        log("S0: Setting simulator system language to English")
-        runSimctl(["spawn", "booted", "defaults", "write", "-globalDomain", "AppleLanguages", "-array", "en"])
-        runSimctl(["spawn", "booted", "defaults", "write", "-globalDomain", "AppleLocale", "en_US"])
-        log("S0: Simulator language set to English")
 
         let app = XCUIApplication()
         setupSnapshot(app)
@@ -227,30 +157,47 @@ final class CutlingUITests: XCTestCase {
         }
         sleep(2)
 
-        let cutlingKBElement = app.buttons.matching(
-            NSPredicate(format: "identifier == 'CutlingKeyboardView'")
-        ).firstMatch
-        let cutlingAlreadyActive = cutlingKBElement.waitForExistence(timeout: 2)
-        log("S4: CutlingKeyboardView already active=\(cutlingAlreadyActive)")
+        // Cutling's keys are not in the app's tree on iOS 27, while the
+        // system and emoji keyboards expose keys: zero keys means Cutling.
+        func cutlingIsUp() -> Bool { app.keys.count == 0 }
 
-        if !cutlingAlreadyActive {
-            log("S4: Attempting to switch keyboard via globe key")
-            let pressedGlobe = longPressGlobeKey(in: app)
-            log("S4: Globe key long-pressed=\(pressedGlobe)")
-
-            if pressedGlobe {
-                let selectedCutling = selectCutlingFromPicker(in: app)
-                log("S4: Selected Cutling from picker=\(selectedCutling)")
-            } else {
-                log("S4: Globe key not found, proceeding with current keyboard")
+        var cutlingActive = cutlingIsUp()
+        log("S4: Cutling keyboard already active=\(cutlingActive)")
+        for attempt in 0..<6 where !cutlingActive {
+            let globe = app.buttons.allElementsBoundByIndex
+                .firstIndex { $0.identifier == "dictation" }
+                .flatMap { $0 > 0 ? app.buttons.element(boundBy: $0 - 1) : nil }
+            guard let globe else { break }
+            log("S4: Globe tap \(attempt + 1), keys=\(app.keys.count)")
+            globe.tap()
+            sleep(2)
+            // iOS shows a one-time "Quickly Change Keyboards" sheet
+            let tipContinue = app.buttons.matching(
+                NSPredicate(format: "label == 'Continue' AND identifier != 'continueButton'")
+            ).firstMatch
+            if tipContinue.exists {
+                log("S4: Dismissing keyboard tip sheet")
+                tipContinue.tap()
+                sleep(1)
             }
+            cutlingActive = cutlingIsUp()
         }
-        sleep(1)
+        log("S4: Cutling keyboard active=\(cutlingActive)")
 
         let testPage = app.descendants(matching: .any).matching(identifier: "testPage").firstMatch
         let testPageVisible = testPage.waitForExistence(timeout: 5)
         log("S4: testPage visible=\(testPageVisible)")
         XCTAssertTrue(testPageVisible, "Test page not visible for screenshot 4")
+
+        // Paste the first snippet so frame 1 shows the keyboard working,
+        // tapping the first card by its place on screen.
+        if cutlingActive {
+            let isPad = UIDevice.current.userInterfaceIdiom == .pad
+            let firstCardSpot = isPad ? CGVector(dx: 0.5, dy: 0.79) : CGVector(dx: 0.25, dy: 0.71)
+            log("S4: Tapping first keyboard card at \(firstCardSpot)")
+            app.coordinate(withNormalizedOffset: firstCardSpot).tap()
+            sleep(2)
+        }
 
         log("S4: Taking screenshot 01_KeyboardInMessages")
         snapshot("01_KeyboardInMessages")
@@ -287,7 +234,31 @@ final class CutlingUITests: XCTestCase {
         log("S5: howToUsePage visible=\(howToUseVisible)")
         XCTAssertTrue(howToUseVisible, "How to Use page not visible for screenshot 5")
 
-        log("S5: Taking screenshot 04_KeyboardGuide")
+        // Frame 4 is the dark-mode frame. simctl cannot reach CoreSimulator
+        // from inside the simulator, so relaunch the app forced dark.
+        app.terminate()
+        app.launchArguments += ["-SNAPSHOT_DARK", "YES"]
+        app.launch()
+        let kbButtonDark = app.buttons["keyboardToolbarButton"].firstMatch
+        XCTAssertTrue(kbButtonDark.waitForExistence(timeout: 15), "Keyboard button not found (dark)")
+        kbButtonDark.tap()
+        sleep(1)
+        let guideDark = app.buttons["keyboardSetupGuide"].firstMatch
+        if !guideDark.waitForExistence(timeout: 3) { app.swipeUp(); sleep(1) }
+        XCTAssertTrue(guideDark.waitForExistence(timeout: 5), "Setup guide not found (dark)")
+        guideDark.tap()
+        sleep(1)
+        for _ in 0..<3 {
+            let next = app.buttons["continueButton"].firstMatch
+            guard next.waitForExistence(timeout: 5) else { break }
+            next.tap()
+            sleep(1)
+            // Leave the keyboard down on the test page
+            if app.keys.count > 0 { app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.2)).tap(); sleep(1) }
+        }
+        XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "howToUsePage").firstMatch
+            .waitForExistence(timeout: 5), "How to Use page not visible (dark)")
+        log("S5: Taking screenshot 04_KeyboardGuide (dark)")
         snapshot("04_KeyboardGuide")
         log("S5: Screenshot 04 done")
 
@@ -445,9 +416,5 @@ final class CutlingUITests: XCTestCase {
         task.setValue(arguments, forKey: "arguments")
         _ = unsafe task.perform(NSSelectorFromString("launch"))
         _ = unsafe task.perform(NSSelectorFromString("waitUntilExit"))
-    }
-
-    private func runSimctl(_ arguments: [String]) {
-        runHostCommand("/usr/bin/xcrun", ["simctl"] + arguments)
     }
 }

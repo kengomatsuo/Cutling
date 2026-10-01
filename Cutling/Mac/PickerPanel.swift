@@ -147,6 +147,16 @@ final class CutlingPickerController {
         installClickOutsideMonitor()
     }
 
+    #if DEBUG
+    /// Shows the panel without activating the app or taking keystrokes.
+    func showForSnapshot() {
+        let panel = panel ?? makePanel()
+        self.panel = panel
+        panel.center()
+        panel.orderFrontRegardless()
+    }
+    #endif
+
     func hide() {
         guard let panel, panel.isVisible else { return }
         panel.orderOut(nil)

@@ -25,8 +25,9 @@ Commands:
   metadata          Upload iOS metadata to App Store Connect (all languages)
   metadata_mac      Upload macOS release notes to App Store Connect (platform osx)
   snap [--all]      Capture screenshots (missing only, or --all from scratch)
-  frame             Add device bezels and marketing text to screenshots
+  frame             Caption screenshots for iPhone, iPad, Mac and product pages (fastlane/compose)
   screenshots       Upload framed screenshots to App Store Connect
+  screenshots_mac   Upload captioned Mac screenshots to the editable macOS version
   upload            Upload metadata + framed screenshots together
   build             Build IPA for App Store (output: ./build/Cutling.ipa)
   binary            Upload the already-built IPA to App Store Connect (binary
@@ -305,13 +306,19 @@ case "${1:-help}" in
       $FASTLANE ios new_screenshots
     fi
     ;;
-  frame)            $FASTLANE ios frame ;;
+  frame)
+    # CoreText captions: frameit's ImageMagick has no shaping for Arabic, Indic, Thai
+    mkdir -p build
+    swiftc -O fastlane/compose/compose.swift -o build/compose
+    python3 fastlane/compose/render_all.py build/compose
+    ;;
   screenshots)      $FASTLANE ios upload_screenshots ;;
   upload)           $FASTLANE ios upload ;;
   build)            $FASTLANE ios build ;;
   binary)           $FASTLANE ios upload_binary ;;
   resubmit_notes)   $FASTLANE ios resubmit_notes ;;
   dist)             dist_release ;;
+  screenshots_mac)  $FASTLANE mac upload_screenshots_mac ;;
   mas)              $FASTLANE mac upload_mas ;;
   help|*)           usage ;;
 esac

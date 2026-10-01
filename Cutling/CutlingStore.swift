@@ -58,6 +58,13 @@ extension CutlingStore {
 class CutlingStore: ObservableObject {
     static let shared = CutlingStore()
 
+    #if DEBUG && os(macOS)
+    /// Screenshot runs on Mac use a throwaway store.
+    nonisolated static var isMacSnapshotMode: Bool {
+        ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE")
+    }
+    #endif
+
     @Published var cutlings: [Cutling] = []
     @Published var lastAddedCutlingID: UUID?
     /// Auto-captured clipboard history (Mac only). Device-local, not synced via CloudKit.
@@ -117,8 +124,17 @@ class CutlingStore: ObservableObject {
     private let maxThumbnailSize: CGFloat = 200
 
     init() {
+        #if DEBUG && os(macOS)
+        // Mac screenshots run on a real Mac: keep the owner's store untouched
+        let snapshotDefaults: UserDefaults? = Self.isMacSnapshotMode
+            ? UserDefaults(suiteName: "com.matsuokengo.Cutling.snapshot-store") : nil
+        #else
+        let snapshotDefaults: UserDefaults? = nil
+        #endif
         // Use App Group defaults if available, otherwise fall back to standard
-        if let groupDefaults = UserDefaults(suiteName: appGroupID) {
+        if let snapshotDefaults {
+            defaults = snapshotDefaults
+        } else if let groupDefaults = UserDefaults(suiteName: appGroupID) {
             defaults = groupDefaults
         } else {
             print("⚠️ App Group not available, using standard UserDefaults")
@@ -126,7 +142,10 @@ class CutlingStore: ObservableObject {
         }
 
         // Use App Group container if available, otherwise fall back to Documents
-        if let containerURL = FileManager.default.containerURL(
+        if snapshotDefaults != nil {
+            imagesDirectory = FileManager.default.temporaryDirectory
+                .appendingPathComponent("CutlingSnapshotImages", isDirectory: true)
+        } else if let containerURL = FileManager.default.containerURL(
             forSecurityApplicationGroupIdentifier: appGroupID
         ) {
             imagesDirectory = containerURL.appendingPathComponent("Images", isDirectory: true)

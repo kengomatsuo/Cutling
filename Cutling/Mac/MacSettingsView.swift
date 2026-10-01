@@ -25,7 +25,17 @@ extension Notification.Name {
 
 struct MacSettingsView: View {
     @AppStorage("pasteDirectly") private var pasteDirectly = false
-    @State private var tab: MacSettingsTab = .general
+    @State private var tab: MacSettingsTab = {
+        #if DEBUG
+        switch UserDefaults.standard.string(forKey: "SNAPSHOT_SETTINGS_TAB") {
+        case "hotkey": return .hotkey
+        case "sync": return .sync
+        case "paste": return .paste
+        default: break
+        }
+        #endif
+        return .general
+    }()
     @State private var isTrusted: Bool = PasteService.shared.isTrusted
     @State private var trustTimer: Timer?
 

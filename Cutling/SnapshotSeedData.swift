@@ -93,5 +93,22 @@ extension CutlingStore {
         cutlings = samples
         save()
     }
+
+    #if os(macOS)
+    /// Language-neutral clipboard history for the Mac History frame.
+    func seedHistoryForSnapshots() {
+        historyCutlings.removeAll()
+        for text in [
+            "1Z 999 AA1 01 2345 6784",
+            "+1 (555) 014-2233",
+            "alex@example.com",
+            "https://cutling.matsuokengo.com",
+            "DE89 3704 0044 0532 0130 00",
+        ] {
+            appendHistoryText(text)
+        }
+    }
+    #endif
 }
+
 #endif

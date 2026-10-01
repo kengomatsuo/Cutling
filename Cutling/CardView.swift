@@ -484,6 +484,9 @@ struct CardView: View {
         #endif
         #if os(macOS)
         unsafe NSAccessibility.post(element: NSApp as Any, notification: .valueChanged)
+        // Mac has no keyboard; copies gate the review prompt
+        let defaults = UserDefaults(suiteName: appGroupID)
+        defaults?.set((defaults?.integer(forKey: "keyboardPasteCount") ?? 0) + 1, forKey: "keyboardPasteCount")
         #endif
         Task {
             try? await Task.sleep(for: .seconds(1.5))

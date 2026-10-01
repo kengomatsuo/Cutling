@@ -24,7 +24,12 @@ struct MacPickerView: View {
     @Environment(\.macWindowSurface) private var surface
     @AppStorage("pasteDirectly") private var pasteDirectly = false
     @State private var searchText = ""
-    @State private var tab: MacPickerTab = .saved
+    @State private var tab: MacPickerTab = {
+        #if DEBUG
+        if UserDefaults.standard.string(forKey: "SNAPSHOT_PICKER_TAB") == "history" { return .history }
+        #endif
+        return .saved
+    }()
     @State private var isAccessibilityTrusted: Bool = PasteService.shared.isTrusted
     @State private var trustCheckTimer: Timer?
     @FocusState private var searchFieldFocused: Bool
@@ -87,6 +92,27 @@ struct MacPickerView: View {
     /// the popover doesn't visibly change size.
     private let tabBarHeight: CGFloat = 26
 
+    #if DEBUG
+    /// Screenshot runs: open the window -SNAPSHOT_SCREEN names, then step aside.
+    private func runSnapshotDriver() async {
+        guard CutlingStore.isMacSnapshotMode else { return }
+        try? await Task.sleep(for: .seconds(0.5))
+        switch UserDefaults.standard.string(forKey: "SNAPSHOT_SCREEN") {
+        case "editor":
+            if let first = store.cutlings.first { openWindow(id: "editCutling", value: first.id) }
+        case "settings":
+            openSettings()
+        default:
+            return
+        }
+        CutlingPickerController.shared.hide()
+        // Never hold keyboard focus: the owner may be typing elsewhere
+        try? await Task.sleep(for: .seconds(1))
+        NSApp.deactivate()
+        for window in NSApp.windows where window.isVisible { window.orderFrontRegardless() }
+    }
+    #endif
+
     var body: some View {
         VStack(spacing: 0) {
             header
@@ -114,6 +140,9 @@ struct MacPickerView: View {
         .background(MenuBarPopoverWindowAccessor())
         .onAppear(perform: handleAppear)
         .onDisappear(perform: handleDisappear)
+        #if DEBUG
+        .task { await runSnapshotDriver() }
+        #endif
         .onChange(of: tab) { _, newTab in
             syncClearHistoryGate(forTab: newTab)
         }
@@ -465,7 +494,9 @@ struct MacPickerView: View {
             .help("Help")
             
             #if DEBUG
-            Text("DEBUG")
+            if !CutlingStore.isMacSnapshotMode {
+                Text("DEBUG")
+            }
             #endif
 
             Spacer()

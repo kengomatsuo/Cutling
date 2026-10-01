@@ -95,6 +95,24 @@ final class CutlingAppDelegate: NSObject, NSApplicationDelegate {
         let store = CutlingStore.shared
         store.load()
 
+        #if DEBUG
+        // Screenshot runs: throwaway store, no sync, hotkey or clipboard capture
+        if CutlingStore.isMacSnapshotMode {
+            store.seedForSnapshots()
+            store.seedHistoryForSnapshots()
+            if UserDefaults.standard.bool(forKey: "SNAPSHOT_DARK") {
+                NSApp.appearance = NSAppearance(named: .darkAqua)
+            }
+            if UserDefaults.standard.string(forKey: "SNAPSHOT_SCREEN") != nil {
+                Task { @MainActor in
+                    try? await Task.sleep(for: .seconds(1.5))
+                    CutlingPickerController.shared.showForSnapshot()
+                }
+            }
+            return
+        }
+        #endif
+
         // Restore the iCloud sync preference from iCloud KVS if the local
         // default was wiped (e.g. after a reinstall). Mirrors iOS's
         // configureSyncIfNeeded so a returning user keeps syncing without
@@ -190,6 +208,9 @@ struct MacApp: App {
         // here are non-fatal (the worst case is no tips appear). The
         // datastore is persisted across launches so users only see each
         // tip once; Settings → "Reset to Fresh Install" wipes it on demand.
+        #if DEBUG
+        if CutlingStore.isMacSnapshotMode { Tips.hideAllTipsForTesting() }
+        #endif
         try? Tips.configure()
     }
 

@@ -8,6 +8,8 @@ docs/_generator/.venv/
 # docs were silently uncommittable.
 docs/*
 !docs/*.md
+# ASO research, measurements and probe scripts (docs/aso/data/README.md)
+!docs/aso/
 dist/
 build/
 web/_generator/__pycache__/

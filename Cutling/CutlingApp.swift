@@ -153,10 +153,16 @@ struct CutlingApp: App {
                 copiedCutlingName: $copiedCutlingName
             )
                 .environmentObject(store)
+                #if DEBUG
+                // Screenshot runs: the dark-mode frame
+                .preferredColorScheme(UserDefaults.standard.bool(forKey: "SNAPSHOT_DARK") ? .dark : nil)
+                #endif
                 .onAppear {
                     #if DEBUG
                     if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") {
                         store.seedForSnapshots()
+                        // The UI test grants Full Access in Settings before launch
+                        UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(true, forKey: "hasFullAccess")
                         UserDefaults.standard.removeObject(forKey: "keyboardSetupPage")
                         if let lang = Locale.preferredLanguages.first {
                             UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(lang, forKey: "snapshotLanguage")

@@ -294,6 +294,7 @@ platform :ios do
     tmp = prepare_framed_screenshots_dir
     deliver(
       api_key: asc_api_key,
+      precheck_include_in_app_purchases: false,
       screenshots_path: tmp,
       skip_binary_upload: true,
       skip_metadata: true,
@@ -626,5 +627,27 @@ platform :mac do
       force: true,
       ignore_language_directory_validation: true
     )
+  end
+
+  desc "Upload captioned Mac screenshots (fastlane/screenshots_mac/<locale>) to the editable macOS version"
+  lane :upload_screenshots_mac do
+    # deliver reads every folder as a locale, so leave raw/ captures behind
+    tmp = Dir.mktmpdir("cutling_mac_screenshots")
+    Dir.glob(File.join(__dir__, "screenshots_mac", "*")).each do |dir|
+      next if !File.directory?(dir) || File.basename(dir) == "raw"
+      FileUtils.cp_r(dir, tmp)
+    end
+    deliver(
+      api_key: asc_api_key,
+      precheck_include_in_app_purchases: false,
+      platform: "osx",
+      screenshots_path: tmp,
+      skip_binary_upload: true,
+      skip_metadata: true,
+      overwrite_screenshots: true,
+      force: true,
+      ignore_language_directory_validation: true
+    )
+    FileUtils.rm_rf(tmp)
   end
 end

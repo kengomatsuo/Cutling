@@ -53,10 +53,23 @@ languages([
   "ur-PK",
   "vi",
   "zh-Hans",
-  "zh-Hant"
+  "zh-Hant",
+  "bg",
+  "bn-IN",
+  "en-IN",
+  "et",
+  "fa",
+  "fil",
+  "lt",
+  "lv",
+  "sr",
+  "sw"
 ])
 
-ios_version("26.4.1")
+ios_version("27.0")
+override_status_bar(true)
+# No clones: the UI test drives this simulator by name with simctl
+xcargs("-parallel-testing-enabled NO")
 scheme("Cutling")
 output_directory("./fastlane/screenshots")
 clear_previous_screenshots(false)
@@ -65,6 +78,6 @@ reinstall_app(false)
 erase_simulator(false)
 disable_slide_to_type(true)
 concurrent_simulators(true)
-number_of_retries(0)
-stop_after_first_error(true)
+number_of_retries(2)
+stop_after_first_error(false)
 xcodebuild_formatter('./fastlane/utf8_xcpretty')

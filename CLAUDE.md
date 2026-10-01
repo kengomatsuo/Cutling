@@ -15,7 +15,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ./deploy.sh binary         # Upload the already-built IPA to App Store Connect (binary only, no submit; run build first)
 ./deploy.sh snap           # Capture missing locale screenshots
 ./deploy.sh snap --all     # Recapture all screenshots
-./deploy.sh frame          # Add device frames + marketing text to screenshots
+./deploy.sh frame          # Caption iPhone/iPad/Mac/product-page screenshots (fastlane/compose, CoreText; frameit cannot shape Arabic/Indic/Thai)
 ./deploy.sh screenshots    # Upload framed screenshots to App Store Connect
 ./deploy.sh metadata       # Upload iOS metadata/release notes to App Store Connect
 ./deploy.sh metadata_mac   # Upload macOS metadata (fastlane/metadata_mac: release notes, promo text, description, keywords, support URL) to App Store Connect (platform osx)

@@ -1,0 +1,805 @@
+{
+ "pages": [
+  {
+   "name": "Quick replies",
+   "deepLink": "cutling://addText",
+   "keywords": {
+    "bg": [
+     "шаблон"
+    ],
+    "ca": [
+     "plantilla"
+    ],
+    "cs": [
+     "šablona"
+    ],
+    "da": [
+     "skabelon"
+    ],
+    "de-DE": [
+     "vorlage",
+     "antwort"
+    ],
+    "en-AU": [
+     "quick",
+     "template",
+     "canned",
+     "responses",
+     "phrases"
+    ],
+    "en-CA": [
+     "quick",
+     "template",
+     "canned",
+     "responses",
+     "phrases"
+    ],
+    "en-GB": [
+     "quick",
+     "template",
+     "canned",
+     "responses",
+     "phrases"
+    ],
+    "en-IN": [
+     "quick",
+     "template",
+     "canned",
+     "responses",
+     "phrases"
+    ],
+    "en-US": [
+     "quick",
+     "template",
+     "canned",
+     "responses",
+     "phrases"
+    ],
+    "es-ES": [
+     "plantilla",
+     "respuesta"
+    ],
+    "es-MX": [
+     "plantilla",
+     "respuesta"
+    ],
+    "et": [
+     "mall"
+    ],
+    "fil": [
+     "template"
+    ],
+    "fr-CA": [
+     "modèle"
+    ],
+    "fr-FR": [
+     "modèle"
+    ],
+    "he": [
+     "תבנית"
+    ],
+    "id": [
+     "template"
+    ],
+    "it": [
+     "messaggio",
+     "risposta"
+    ],
+    "ja": [
+     "テンプレート",
+     "返信",
+     "常用文字"
+    ],
+    "ko": [
+     "템플릿",
+     "정형문",
+     "답장"
+    ],
+    "lt": [
+     "šablonas"
+    ],
+    "ms": [
+     "template",
+     "jawapan"
+    ],
+    "pl": [
+     "szablon",
+     "odpowiedź"
+    ],
+    "pt-BR": [
+     "modelo",
+     "resposta"
+    ],
+    "pt-PT": [
+     "modelo",
+     "resposta"
+    ],
+    "ru": [
+     "шаблон"
+    ],
+    "sr": [
+     "шаблон"
+    ],
+    "sv": [
+     "mall",
+     "svar"
+    ],
+    "th": [
+     "แม่แบบ"
+    ],
+    "tr": [
+     "şablon",
+     "yanıt"
+    ],
+    "uk": [
+     "шаблон"
+    ],
+    "vi": [
+     "mẫu"
+    ],
+    "zh-Hans": [
+     "模板",
+     "常用文字",
+     "回复",
+     "快捷方式",
+     "定型文"
+    ],
+    "zh-Hant": [
+     "範本",
+     "常用文字",
+     "快捷鍵",
+     "定型文"
+    ]
+   },
+   "locales": {
+    "ar-SA": {
+     "promo": "احفظ ردودك السريعة المتكررة والصقها في أي محادثة بلمسة واحدة من لوحة المفاتيح، بدل كتابتها كل مرة.",
+     "screenshots": {}
+    },
+    "bg": {
+     "promo": "Пазете бързи отговори и готови шаблони на едно място. От клавиатурата ги изпращате във всяко приложение с едно докосване, без да пишете наново.",
+     "screenshots": {}
+    },
+    "bn-BD": {
+     "promo": "বারবার পাঠানো উত্তরগুলো একবার সেভ করে রাখুন। কুইক রিপ্লাই হিসেবে কীবোর্ড থেকে এক ট্যাপেই যেকোনো চ্যাটে বসান।",
+     "screenshots": {}
+    },
+    "bn-IN": {
+     "promo": "বারবার পাঠানো উত্তরগুলো একবার সেভ করে রাখুন। কুইক রিপ্লাই হিসেবে কীবোর্ড থেকে এক ট্যাপেই যেকোনো চ্যাটে বসান।",
+     "screenshots": {}
+    },
+    "ca": {
+     "promo": "Desa les respostes ràpides que envies cada dia i enganxa-les amb un toc des del teclat, a missatges, correu o qualsevol altra app.",
+     "screenshots": {}
+    },
+    "cs": {
+     "promo": "Hotové odpovědi na zprávy a e-maily si uložte jednou. Pak je z klávesnice vložíte jedním klepnutím, ať píšete kdekoli.",
+     "screenshots": {}
+    },
+    "da": {
+     "promo": "Gem dine faste svar og skabeloner, og send dem fra tastaturet med ét tryk. Virker i alle apps, uden konto og uden reklamer.",
+     "screenshots": {}
+    },
+    "de-DE": {
+     "promo": "Deine Schnellantworten und Textbausteine liegen auf der Tastatur bereit. Ein Tipp, und die fertige Antwort steht in jeder App im Textfeld.",
+     "screenshots": {}
+    },
+    "el": {
+     "promo": "Κράτα τις έτοιμες απαντήσεις σου σε ένα μέρος και στείλε τες σε οποιαδήποτε εφαρμογή με ένα πάτημα, χωρίς να πληκτρολογείς ξανά το ίδιο κείμενο.",
+     "screenshots": {}
+    },
+    "en-AU": {
+     "promo": "Answer the same questions faster. Save your canned responses and quick replies once, then paste them into chats, email and support tickets from the keyboard.",
+     "screenshots": {}
+    },
+    "en-CA": {
+     "promo": "Answer the same questions faster. Save your canned responses and quick replies once, then paste them into chats, email and support tickets from the keyboard.",
+     "screenshots": {}
+    },
+    "en-GB": {
+     "promo": "Answer the same questions faster. Save your canned responses and quick replies once, then paste them into chats, email and support tickets from the keyboard.",
+     "screenshots": {}
+    },
+    "en-IN": {
+     "promo": "Answer the same questions faster. Save your canned responses and quick replies once, then paste them into chats, email and support tickets from the keyboard.",
+     "screenshots": {}
+    },
+    "en-US": {
+     "promo": "Answer the same questions faster. Save your canned responses and quick replies once, then paste them into chats, email and support tickets from the keyboard.",
+     "screenshots": {}
+    },
+    "es-ES": {
+     "promo": "Guarda tus respuestas rápidas de siempre y pégalas en cualquier chat o correo con un toque desde el teclado. Sin cuenta, sin anuncios.",
+     "screenshots": {}
+    },
+    "es-MX": {
+     "promo": "Guarda tus respuestas rápidas de siempre y pégalas en cualquier chat o correo con un toque desde el teclado. Sin cuenta, sin anuncios.",
+     "screenshots": {}
+    },
+    "et": {
+     "promo": "Salvestage kiirvastused ja valmistekstid ning kleepige need klaviatuurilt ühe puudutusega mis tahes vestlusesse. Ei mingit tippimist uuesti ja uuesti.",
+     "screenshots": {}
+    },
+    "fa": {
+     "promo": "پیام‌هایی را که مدام تکرار می‌کنید یک بار بنویسید و ذخیره کنید؛ بعد با یک لمس از روی کیبورد در هر گفتگویی بفرستید.",
+     "screenshots": {}
+    },
+    "fi": {
+     "promo": "Tallenna pikavastaukset ja usein käyttämäsi viestipohjat kerran ja lähetä ne mistä tahansa sovelluksesta yhdellä napautuksella näppäimistöstä.",
+     "screenshots": {}
+    },
+    "fil": {
+     "promo": "Mga mabilis na reply at sagot na lagi mong ginagamit, naka-save na. Piliin mula sa keyboard at i-paste sa kahit anong chat o email sa isang tap.",
+     "screenshots": {}
+    },
+    "fr-CA": {
+     "promo": "Garde tes réponses rapides, tes signatures et tes messages types au même endroit, puis envoie-les d'un tap depuis le clavier, dans n'importe quelle app.",
+     "screenshots": {}
+    },
+    "fr-FR": {
+     "promo": "Gardez vos réponses rapides, vos signatures et vos messages types au même endroit, puis envoyez-les d'un toucher depuis le clavier, dans n'importe quelle app.",
+     "screenshots": {}
+    },
+    "gu-IN": {
+     "promo": "વારંવાર મોકલાતા જવાબો એક વાર સેવ કરો. કીબોર્ડમાં એક ટેપ કરતાં જ તૈયાર જવાબ કોઈ પણ ચેટ કે ઇમેઇલમાં લખાઈ જશે.",
+     "screenshots": {}
+    },
+    "he": {
+     "promo": "שמרו את התשובות המהירות שאתם שולחים כל יום, והדביקו אותן מהמקלדת בנגיעה אחת בכל אפליקציית הודעות או מייל.",
+     "screenshots": {}
+    },
+    "hi": {
+     "promo": "अक्सर भेजे जाने वाले जवाब एक बार लिखकर सेव कर लें। फिर किसी भी चैट या ईमेल में कीबोर्ड से एक टैप में भेजें।",
+     "screenshots": {}
+    },
+    "hr": {
+     "promo": "Spremi brze odgovore koje stalno ponovno tipkaš i šalji ih jednim dodirom s tipkovnice, u poruci, mailu ili chatu.",
+     "screenshots": {}
+    },
+    "hu": {
+     "promo": "Mentsd el a gyakran küldött válaszaidat, és küldd el őket bármelyik alkalmazásban egyetlen érintéssel, a Cutling billentyűzetről. Nem kell többet újragépelned.",
+     "screenshots": {}
+    },
+    "id": {
+     "promo": "Simpan balasan cepat yang sering kamu kirim, lalu tempel ke chat atau email apa pun dengan satu ketukan dari keyboard. Tidak perlu mengetik ulang.",
+     "screenshots": {}
+    },
+    "it": {
+     "promo": "Salva le risposte rapide che scrivi ogni giorno e inseriscile in qualsiasi chat o email con un tocco dalla tastiera, senza riscrivere nulla.",
+     "screenshots": {}
+    },
+    "ja": {
+     "promo": "何度も送る返信を定型文として保存しておけば、キーボードからワンタップで入力できます。メッセージでもメールでも、打ち直す手間がなくなります。",
+     "screenshots": {}
+    },
+    "kn-IN": {
+     "promo": "ಪದೇ ಪದೇ ಕಳುಹಿಸುವ ತ್ವರಿತ ಉತ್ತರಗಳನ್ನು ಒಮ್ಮೆ ಉಳಿಸಿ. ಕೀಬೋರ್ಡ್‌ನಲ್ಲಿ ಒಂದು ಟ್ಯಾಪ್ ಮಾಡಿದರೆ ಯಾವುದೇ ಆ್ಯಪ್‌ನಲ್ಲಿ ಉತ್ತರ ತಯಾರು.",
+     "screenshots": {}
+    },
+    "ko": {
+     "promo": "자주 보내는 답장을 저장해 두고, 키보드에서 탭 한 번으로 보내세요. 빠른 답장을 매번 다시 치지 않아도 돼요.",
+     "screenshots": {}
+    },
+    "lt": {
+     "promo": "Greiti atsakymai, šablonai ir dažnai siunčiamos frazės laukia klaviatūroje. Palieskite, ir paruoštas tekstas atsiduria pokalbyje.",
+     "screenshots": {}
+    },
+    "lv": {
+     "promo": "Sagatavojiet ātrās atbildes vienreiz un sūtiet tās jebkurā lietotnē ar vienu pieskārienu tastatūrā. Bez konta, bez reklāmām.",
+     "screenshots": {}
+    },
+    "ml-IN": {
+     "promo": "പതിവായി അയയ്ക്കുന്ന മറുപടികൾ ഒരിക്കൽ സേവ് ചെയ്യൂ. ഏത് ആപ്പിലെ ചാറ്റിലും കീബോർഡിൽ നിന്ന് ഒരു ടാപ്പിൽ അയയ്ക്കാം.",
+     "screenshots": {}
+    },
+    "mr-IN": {
+     "promo": "नेहमी पाठवता ते रेडीमेड रिप्लाय एकदा सेव्ह करा. मेसेजमध्ये कीबोर्डवरून एका टॅपमध्ये पाठवा, पुन्हा पुन्हा टाइप करायची गरज नाही.",
+     "screenshots": {}
+    },
+    "ms": {
+     "promo": "Simpan balasan pantas yang anda taip berulang kali, daripada ucapan sehingga jawapan standard, dan hantar dengan satu ketikan dari papan kekunci di mana-mana app.",
+     "screenshots": {}
+    },
+    "nl-NL": {
+     "promo": "Bewaar je snelle antwoorden en standaardantwoorden op één plek en plak ze met één tik in elke app. Geen account, geen advertenties.",
+     "screenshots": {}
+    },
+    "no": {
+     "promo": "Samle hurtigsvarene dine på ett sted og send dem med ett trykk fra tastaturet, i meldinger, e-post og alle andre apper.",
+     "screenshots": {}
+    },
+    "or-IN": {
+     "promo": "ବାରମ୍ବାର ଦେଉଥିବା ଉତ୍ତର ଥରେ ଲେଖି ସେଭ୍ କରନ୍ତୁ, ତାପରେ କୀବୋର୍ଡରୁ ଗୋଟିଏ ଟ୍ୟାପରେ ଯେକୌଣସି ଚାଟ୍ ବା ମେଲରେ ପେଷ୍ଟ କରନ୍ତୁ।",
+     "screenshots": {}
+    },
+    "pa-IN": {
+     "promo": "ਜਿਹੜੇ ਜਵਾਬ ਤੁਸੀਂ ਰੋਜ਼ ਭੇਜਦੇ ਹੋ, ਉਹ ਇੱਕ ਵਾਰ ਸੇਵ ਕਰੋ। ਫਿਰ ਕੀਬੋਰਡ ਤੋਂ ਇੱਕ ਟੈਪ ਨਾਲ ਕਿਸੇ ਵੀ ਚੈਟ ਜਾਂ ਈਮੇਲ ਵਿੱਚ ਪੇਸਟ ਕਰੋ।",
+     "screenshots": {}
+    },
+    "pl": {
+     "promo": "Szybkie odpowiedzi, które piszesz co dzień, zapisz raz. Potem wklejaj je jednym stuknięciem z klawiatury w każdej aplikacji, bez konta i bez reklam.",
+     "screenshots": {}
+    },
+    "pt-BR": {
+     "promo": "Suas respostas rápidas e mensagens prontas sempre à mão. Salve uma vez e mande em qualquer app com um toque, direto do teclado.",
+     "screenshots": {}
+    },
+    "pt-PT": {
+     "promo": "As suas respostas rápidas e mensagens prontas sempre à mão. Guarde uma vez e envie em qualquer app com um toque, diretamente no teclado.",
+     "screenshots": {}
+    },
+    "ro": {
+     "promo": "Salvează răspunsurile pe care le trimiți des și lipește-le în orice conversație cu o atingere, direct de pe tastatură. Fără cont, fără reclame.",
+     "screenshots": {}
+    },
+    "ru": {
+     "promo": "Быстрые ответы и шаблоны сообщений всегда под рукой. Сохраните фразы, которые вы пишете снова и снова, и вставляйте их с клавиатуры одним касанием.",
+     "screenshots": {}
+    },
+    "sk": {
+     "promo": "Odpovede, ktoré píšete dookola, si uložte raz. Z klávesnice ich vložíte do správy jedným ťuknutím, v ktorejkoľvek aplikácii.",
+     "screenshots": {}
+    },
+    "sl-SI": {
+     "promo": "Hitri odgovori, ki jih pišete znova in znova, so shranjeni in pripravljeni. Na tipkovnici tapnete odgovor in se vstavi v pogovor, brez računa in brez oglasov.",
+     "screenshots": {}
+    },
+    "sr": {
+     "promo": "Сачувајте одговоре које стално куцате изнова. Када затребају, пребаците се на Cutling тастатуру и једним додиром их налепите у било коју апликацију.",
+     "screenshots": {}
+    },
+    "sv": {
+     "promo": "Spara dina snabbsvar och mallar på ett ställe och skicka dem med ett tryck från tangentbordet, i vilken app som helst. Slipp skriva samma svar igen.",
+     "screenshots": {}
+    },
+    "sw": {
+     "promo": "Weka majibu yako ya haraka mahali pamoja na uyabandike kwenye mazungumzo yoyote kwa mguso mmoja. Hakuna kuandika upya kila siku.",
+     "screenshots": {}
+    },
+    "ta-IN": {
+     "promo": "அடிக்கடி அனுப்பும் பதில்களை ஒருமுறை எழுதி வைத்தால் போதும். கீபோர்டில் ஒரு தட்டல், எந்த ஆப்பிலும் செய்தி தயார்.",
+     "screenshots": {}
+    },
+    "te-IN": {
+     "promo": "తరచూ పంపే జవాబులను క్విక్ రిప్లైలుగా సేవ్ చేయండి. కీబోర్డ్ నుంచి ఒక్క ట్యాప్‌తో ఏ చాట్‌లోనైనా పంపండి.",
+     "screenshots": {}
+    },
+    "th": {
+     "promo": "เก็บข้อความตอบกลับสำเร็จรูปที่ใช้บ่อยไว้ในคีย์บอร์ดเดียว แตะครั้งเดียวก็ส่งได้ทุกแอป ไม่ต้องพิมพ์ประโยคเดิมซ้ำอีก",
+     "screenshots": {}
+    },
+    "tr": {
+     "promo": "Sık yazdığın cevapları, şablonları ve mesajları kaydet. Klavyeden tek dokunuşla yapıştır, aynı cümleyi bir daha yazma.",
+     "screenshots": {}
+    },
+    "uk": {
+     "promo": "Готові відповіді завжди під рукою: збережіть шаблони повідомлень один раз і вставляйте їх у будь-якому чаті або листі одним дотиком із клавіатури.",
+     "screenshots": {}
+    },
+    "ur-PK": {
+     "promo": "اکثر بھیجے جانے والے جوابات ایک بار محفوظ کریں، پھر کی بورڈ سے ایک ٹیپ میں کسی بھی چیٹ یا ای میل میں چسپاں کریں۔",
+     "screenshots": {}
+    },
+    "vi": {
+     "promo": "Soạn sẵn các tin nhắn mẫu bạn gửi đi gửi lại, rồi chèn vào mọi cuộc trò chuyện chỉ với một chạm trên bàn phím. Không cần tài khoản.",
+     "screenshots": {}
+    },
+    "zh-Hans": {
+     "promo": "把常用的回复存成快捷短语，聊天、邮件、客服留言里从键盘一点就发出去。地址和账号也能一起放在这里。",
+     "screenshots": {}
+    },
+    "zh-Hant": {
+     "promo": "把常用的回覆存成快捷短語，聊天、寄信、回覆客服時從鍵盤點一下就送出。地址和帳號也能一起放在這裡。",
+     "screenshots": {}
+    }
+   }
+  },
+  {
+   "name": "Personal details",
+   "deepLink": "cutling://addText",
+   "keywords": {
+    "ar-SA": [
+     "عنوان"
+    ],
+    "bg": [
+     "адрес"
+    ],
+    "bn-BD": [
+     "autofill"
+    ],
+    "bn-IN": [
+     "autofill"
+    ],
+    "cs": [
+     "adresa"
+    ],
+    "da": [
+     "adresse"
+    ],
+    "de-DE": [
+     "adresse"
+    ],
+    "en-AU": [
+     "autofill",
+     "address"
+    ],
+    "en-CA": [
+     "autofill",
+     "address"
+    ],
+    "en-GB": [
+     "autofill",
+     "address"
+    ],
+    "en-IN": [
+     "autofill",
+     "address"
+    ],
+    "en-US": [
+     "autofill",
+     "address"
+    ],
+    "es-ES": [
+     "dirección"
+    ],
+    "es-MX": [
+     "dirección"
+    ],
+    "et": [
+     "aadress"
+    ],
+    "fil": [
+     "address"
+    ],
+    "fr-CA": [
+     "adresse"
+    ],
+    "fr-FR": [
+     "adresse"
+    ],
+    "he": [
+     "כתובת"
+    ],
+    "hr": [
+     "adresa"
+    ],
+    "id": [
+     "alamat"
+    ],
+    "it": [
+     "indirizzo"
+    ],
+    "ja": [
+     "自動入力"
+    ],
+    "kn-IN": [
+     "autofill"
+    ],
+    "ko": [
+     "자동입력",
+     "주소"
+    ],
+    "lt": [
+     "adresas"
+    ],
+    "lv": [
+     "adrese"
+    ],
+    "ml-IN": [
+     "autofill"
+    ],
+    "mr-IN": [
+     "autofill"
+    ],
+    "ms": [
+     "alamat"
+    ],
+    "nl-NL": [
+     "adres"
+    ],
+    "no": [
+     "adresse"
+    ],
+    "or-IN": [
+     "autofill"
+    ],
+    "pa-IN": [
+     "autofill"
+    ],
+    "pl": [
+     "adres"
+    ],
+    "pt-BR": [
+     "endereço"
+    ],
+    "ro": [
+     "adresă"
+    ],
+    "ru": [
+     "адрес"
+    ],
+    "sk": [
+     "adresa"
+    ],
+    "sr": [
+     "адреса"
+    ],
+    "sv": [
+     "adress"
+    ],
+    "ta-IN": [
+     "autofill"
+    ],
+    "te-IN": [
+     "autofill"
+    ],
+    "th": [
+     "ที่อยู่"
+    ],
+    "tr": [
+     "adres",
+     "banka"
+    ],
+    "uk": [
+     "адреса"
+    ],
+    "ur-PK": [
+     "autofill"
+    ],
+    "vi": [
+     "địa chỉ"
+    ],
+    "zh-Hans": [
+     "自动填充",
+     "地址"
+    ],
+    "zh-Hant": [
+     "自動填寫",
+     "地址"
+    ]
+   },
+   "locales": {
+    "ar-SA": {
+     "promo": "عنوانك ورقم هويتك وبيانات حسابك محفوظة وجاهزة. عبّئ أي نموذج في ثوانٍ بلمسة من لوحة المفاتيح.",
+     "screenshots": {}
+    },
+    "bg": {
+     "promo": "Адрес, лични номера и банкови данни, запазени веднъж. Попълването на формуляри се свежда до едно докосване на клавиатурата.",
+     "screenshots": {}
+    },
+    "bn-BD": {
+     "promo": "ঠিকানা, আইডি নম্বর আর ব্যাংক তথ্য একবার সেভ করুন। যেকোনো ফর্মে কীবোর্ড থেকে এক ট্যাপেই বসিয়ে দ্রুত পূরণ করুন।",
+     "screenshots": {}
+    },
+    "bn-IN": {
+     "promo": "ঠিকানা, আধার বা আইডি নম্বর আর ব্যাঙ্কের তথ্য একবার সেভ করুন। যেকোনো ফর্মে কীবোর্ড থেকে এক ট্যাপেই বসিয়ে দ্রুত পূরণ করুন।",
+     "screenshots": {}
+    },
+    "ca": {
+     "promo": "Omple adreces, DNI i dades bancàries en un moment: les tens desades al teclat i les insereixes amb un toc.",
+     "screenshots": {}
+    },
+    "cs": {
+     "promo": "Adresu, číslo dokladu i bankovní údaje už nemusíte psát znovu. Uložte je a vkládejte z klávesnice jedním klepnutím.",
+     "screenshots": {}
+    },
+    "da": {
+     "promo": "Gem din adresse, dit kontonummer og dit CPR-nummer, og udfyld felterne med ét tryk fra tastaturet i stedet for at skrive dem igen.",
+     "screenshots": {}
+    },
+    "de-DE": {
+     "promo": "Adresse, IBAN und Ausweisnummer musst du nicht mehr jedes Mal tippen. Speichere sie einmal und füge sie per Tipp in jedes Formularfeld ein.",
+     "screenshots": {}
+    },
+    "el": {
+     "promo": "Η διεύθυνση, η ταυτότητα και ο λογαριασμός σου περιμένουν στο πληκτρολόγιο. Συμπλήρωσε τα στοιχεία σου σε οποιαδήποτε φόρμα με ένα πάτημα.",
+     "screenshots": {}
+    },
+    "en-AU": {
+     "promo": "Stop retyping your address, IBAN, booking numbers and ID. Save them once and fill in any form with one tap from the Cutling keyboard.",
+     "screenshots": {}
+    },
+    "en-CA": {
+     "promo": "Stop retyping your address, IBAN, booking numbers and ID. Save them once and fill in any form with one tap from the Cutling keyboard.",
+     "screenshots": {}
+    },
+    "en-GB": {
+     "promo": "Stop retyping your address, IBAN, booking numbers and ID. Save them once and fill in any form with one tap from the Cutling keyboard.",
+     "screenshots": {}
+    },
+    "en-IN": {
+     "promo": "Stop retyping your address, IBAN, booking numbers and ID. Save them once and fill in any form with one tap from the Cutling keyboard.",
+     "screenshots": {}
+    },
+    "en-US": {
+     "promo": "Stop retyping your address, IBAN, booking numbers and ID. Save them once and fill in any form with one tap from the Cutling keyboard.",
+     "screenshots": {}
+    },
+    "es-ES": {
+     "promo": "Tu dirección, tu IBAN o tu DNI a un toque. Guarda tus datos y autorrellénalos en cualquier app desde el teclado, sin volver a teclearlos.",
+     "screenshots": {}
+    },
+    "es-MX": {
+     "promo": "Tu dirección, tu CLABE o tu CURP a un toque. Guarda tus datos y llénalos en cualquier app desde el teclado, sin volver a escribirlos.",
+     "screenshots": {}
+    },
+    "et": {
+     "promo": "Aadress, isikukood ja pangakonto olgu alati käepärast. Puudutage klaviatuuril salvestatud andmeid ja need ilmuvad vormi ilma tippimata.",
+     "screenshots": {}
+    },
+    "fa": {
+     "promo": "آدرس، شماره شناسه و اطلاعات بانکی را یک بار ذخیره کنید و از آن پس بدون تایپ دوباره، با یک لمس در هر فرمی وارد کنید.",
+     "screenshots": {}
+    },
+    "fi": {
+     "promo": "Osoite, henkilötunnus ja tilinumero eivät tarvitse enää kirjoittamista. Täytä lomakkeet sekunneissa napauttamalla tallennettu tieto näppäimistöstä.",
+     "screenshots": {}
+    },
+    "fil": {
+     "promo": "Address, ID at bank details mo, naka-save na. Hindi mo na kailangang i-type ulit ang mga ito sa bawat form; piliin lang mula sa keyboard.",
+     "screenshots": {}
+    },
+    "fr-CA": {
+     "promo": "Adresse, numéros de compte, pièce d'identité : enregistre-les une fois, puis insère-les d'un tap depuis le clavier au lieu de les retaper à chaque formulaire.",
+     "screenshots": {}
+    },
+    "fr-FR": {
+     "promo": "Adresse, numéros de compte, pièce d'identité : enregistrez-les une fois, puis insérez-les d'un toucher depuis le clavier au lieu de les retaper à chaque formulaire.",
+     "screenshots": {}
+    },
+    "gu-IN": {
+     "promo": "સરનામું, આઈડી નંબર અને બેંક વિગતો ફોર્મમાં વારંવાર ભરવી પડતી નથી. એક વાર સેવ કરો અને કીબોર્ડમાંથી એક ટેપમાં ભરો.",
+     "screenshots": {}
+    },
+    "he": {
+     "promo": "כתובת, תעודת זהות, פרטי בנק: כותבים פעם אחת, ומילוי הפרטים בכל טופס לוקח אחר כך נגיעה אחת מהמקלדת.",
+     "screenshots": {}
+    },
+    "hi": {
+     "promo": "पता, आईडी नंबर और बैंक डिटेल्स बार-बार टाइप न करें। एक बार सेव करें और फ़ॉर्म में कीबोर्ड से एक टैप में भरें।",
+     "screenshots": {}
+    },
+    "hr": {
+     "promo": "Adresu, OIB, IBAN i ostale osobne podatke spremi jednom. Kad zatrebaju, popuniš ih jednim dodirom umjesto tipkanja.",
+     "screenshots": {}
+    },
+    "hu": {
+     "promo": "A címed, a bankszámlaszámod és az igazolványszámod mentve van, és egy érintéssel a mezőben terem. Nem kell többé fejből vagy a tárcából begépelned.",
+     "screenshots": {}
+    },
+    "id": {
+     "promo": "Alamat, nomor KTP, rekening bank: simpan sekali, lalu isi formulir mana pun dengan satu ketukan dari keyboard. Tanpa akun, tanpa iklan.",
+     "screenshots": {}
+    },
+    "it": {
+     "promo": "Indirizzo, IBAN, documenti: salvali una volta e inseriscili dove servono con un tocco, per una compilazione automatica dei moduli su qualsiasi app.",
+     "screenshots": {}
+    },
+    "ja": {
+     "promo": "住所、口座情報、メールアドレスなど、何度も打つ個人情報を保存しておけます。入力欄でキーボードを切り替えるだけで、すぐに入力できます。",
+     "screenshots": {}
+    },
+    "kn-IN": {
+     "promo": "ವಿಳಾಸ, ಐಡಿ ಸಂಖ್ಯೆ, ಬ್ಯಾಂಕ್ ವಿವರಗಳನ್ನು ಒಮ್ಮೆ ಉಳಿಸಿ. ಫಾರ್ಮ್‌ಗಳಲ್ಲಿ ಮತ್ತೆ ಟೈಪ್ ಮಾಡದೆ ಒಂದು ಟ್ಯಾಪ್‌ನಲ್ಲಿ ತುಂಬಿಸಿ.",
+     "screenshots": {}
+    },
+    "ko": {
+     "promo": "집 주소, 계좌번호, 신분증 번호를 저장해 두세요. 입력란이 나오면 키보드에서 탭 한 번으로 채울 수 있어요.",
+     "screenshots": {}
+    },
+    "lt": {
+     "promo": "Namų adresas, asmens kodas, banko duomenys ir telefonas išsaugoti vienoje vietoje. Formas užpildysite greičiau, nieko nebeperrašydami.",
+     "screenshots": {}
+    },
+    "lv": {
+     "promo": "Adrese, bankas konts, personas kods: saglabājiet savus datus vienreiz un aizpildiet veidlapas ar vienu pieskārienu tastatūrā.",
+     "screenshots": {}
+    },
+    "ml-IN": {
+     "promo": "വിലാസം, ഐഡി നമ്പർ, ബാങ്ക് വിവരങ്ങൾ എന്നിവ ഇനി വീണ്ടും വീണ്ടും ടൈപ്പ് ചെയ്യേണ്ട. ഫോമിൽ ഒറ്റ ടാപ്പിൽ നിറയ്ക്കൂ.",
+     "screenshots": {}
+    },
+    "mr-IN": {
+     "promo": "पत्ता, आयडी नंबर आणि बँक तपशील एकदा सेव्ह करा. फॉर्ममध्ये एका टॅपमध्ये भरा, प्रत्येक वेळी टाइप करायची गरज नाही.",
+     "screenshots": {}
+    },
+    "ms": {
+     "promo": "Isi alamat, nombor kad pengenalan dan butiran bank dengan pantas. Simpan sekali, kemudian tampal dari papan kekunci tanpa menaip semula.",
+     "screenshots": {}
+    },
+    "nl-NL": {
+     "promo": "Je adres, ID-nummer en bankgegevens staan klaar op je toetsenbord. Tik, en het veld is ingevuld. Geen account, geen advertenties.",
+     "screenshots": {}
+    },
+    "no": {
+     "promo": "Slipp å skrive adressen, kontonummeret og fødselsnummeret på nytt hver gang. Lagre dem én gang og fyll ut med ett trykk.",
+     "screenshots": {}
+    },
+    "or-IN": {
+     "promo": "ଠିକଣା, ଆଇଡି ନମ୍ବର ଓ ବ୍ୟାଙ୍କ ବିବରଣୀ ଥରେ ସେଭ୍ କରନ୍ତୁ, ଫର୍ମ ଓ ଆପ୍‌ରେ ଗୋଟିଏ ଟ୍ୟାପରେ ଭରନ୍ତୁ।",
+     "screenshots": {}
+    },
+    "pa-IN": {
+     "promo": "ਪਤਾ, ਆਈਡੀ ਅਤੇ ਬੈਂਕ ਵੇਰਵੇ ਹਰ ਫਾਰਮ ਵਿੱਚ ਦੁਬਾਰਾ ਨਾ ਲਿਖੋ। ਇੱਕ ਵਾਰ ਸੇਵ ਕਰੋ ਤੇ ਕੀਬੋਰਡ ਤੋਂ ਇੱਕ ਟੈਪ ਨਾਲ ਭਰੋ।",
+     "screenshots": {}
+    },
+    "pl": {
+     "promo": "Adres, numer konta, dane do faktury: wpisz raz i nie pisz więcej. Wypełnianie formularzy z klawiatury Cutling zajmuje jedno stuknięcie.",
+     "screenshots": {}
+    },
+    "pt-BR": {
+     "promo": "Preenchimento automático dos seus dados: endereço, documentos e conta bancária ficam salvos e entram em qualquer formulário com um toque.",
+     "screenshots": {}
+    },
+    "pt-PT": {
+     "promo": "Preenchimento automático dos seus dados: morada, documentos e conta bancária ficam guardados e entram em qualquer formulário com um toque.",
+     "screenshots": {}
+    },
+    "ro": {
+     "promo": "Adresa, IBAN-ul, numărul de act: scrie-le o singură dată în Cutling și completează-le apoi oriunde cu o atingere, fără să le mai tastezi de fiecare dată.",
+     "screenshots": {}
+    },
+    "ru": {
+     "promo": "Адрес, номера документов и банковские реквизиты не нужно набирать каждый раз. Сохраните их один раз и вставляйте с клавиатуры в любую форму одним касанием.",
+     "screenshots": {}
+    },
+    "sk": {
+     "promo": "Adresu, čísla dokladov a údaje k účtu máte uložené. Pri vypĺňaní formulára ich z klávesnice vložíte jedným ťuknutím.",
+     "screenshots": {}
+    },
+    "sl-SI": {
+     "promo": "Naslov, številka računa in osebni podatki so shranjeni enkrat. Pri naslednjem obrazcu jih s tipkovnice vnesete z enim dotikom, brez ponovnega tipkanja.",
+     "screenshots": {}
+    },
+    "sr": {
+     "promo": "Адресу, ИД и податке о рачуну не морате више да куцате. Сачувајте их једном и уметните са тастатуре једним додиром, у било којој апликацији.",
+     "screenshots": {}
+    },
+    "sv": {
+     "promo": "Adress, personnummer och bankuppgifter ligger redo på tangentbordet. Fyll i formulär på ett par sekunder utan att leta i anteckningar eller mejl.",
+     "screenshots": {}
+    },
+    "sw": {
+     "promo": "Anwani, nambari ya kitambulisho na taarifa za benki vimehifadhiwa kwenye kibodi yako. Gusa kipande, nacho kinaingia kwenye fomu yoyote.",
+     "screenshots": {}
+    },
+    "ta-IN": {
+     "promo": "முகவரி, அடையாள எண், வங்கி விவரங்கள் போன்றவற்றை ஒவ்வொரு முறையும் தட்டச்சு செய்ய வேண்டாம். ஒருமுறை சேமித்தால் கீபோர்டிலிருந்து ஒட்டலாம்.",
+     "screenshots": {}
+    },
+    "te-IN": {
+     "promo": "చిరునామా, ఐడీ, బ్యాంక్ ఖాతా వివరాలను ఒకసారి సేవ్ చేయండి. ఏ ఫారమ్‌లోనైనా ఒక్క ట్యాప్‌తో నింపండి.",
+     "screenshots": {}
+    },
+    "th": {
+     "promo": "กรอกที่อยู่ เลขบัญชี และข้อมูลส่วนตัวได้เร็วขึ้น เซฟไว้ครั้งเดียว แล้วแตะจากคีย์บอร์ดเพื่อวางลงในแอปไหนก็ได้",
+     "screenshots": {}
+    },
+    "tr": {
+     "promo": "Adresini, kimlik ve banka bilgilerini bir kez kaydet. Formlarda ve mesajlarda klavyeden tek dokunuşla doldur.",
+     "screenshots": {}
+    },
+    "uk": {
+     "promo": "Адреса, номер рахунку, паспортні дані: збережіть один раз і вставляйте в будь-яку форму одним дотиком, не набираючи знову.",
+     "screenshots": {}
+    },
+    "ur-PK": {
+     "promo": "پتہ، شناختی نمبر اور بینک تفصیلات ہر بار ٹائپ نہ کریں۔ ایک بار محفوظ کریں اور کی بورڈ سے ایک ٹیپ میں بھر دیں۔",
+     "screenshots": {}
+    },
+    "vi": {
+     "promo": "Địa chỉ, số tài khoản, số CCCD luôn nằm sẵn trên bàn phím. Chạm một lần là điền xong, bạn không phải gõ lại từng ký tự.",
+     "screenshots": {}
+    },
+    "zh-Hans": {
+     "promo": "地址、证件号、银行账号只存一次，填表时从键盘一点即入，不用再翻备忘录，也不用一遍遍重打。",
+     "screenshots": {}
+    },
+    "zh-Hant": {
+     "promo": "地址、證件號碼、銀行帳號只要存一次，填表時從鍵盤點一下就帶入，不用再翻備忘錄，也不用一遍遍重打。",
+     "screenshots": {}
+    }
+   }
+  }
+ ]
+}
