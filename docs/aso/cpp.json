@@ -4,157 +4,193 @@
    "name": "Quick replies",
    "deepLink": "cutling://addText",
    "keywords": {
+    "ar-SA": [
+     "قوالب"
+    ],
     "bg": [
      "шаблон"
     ],
+    "bn-BD": [
+     "template",
+     "phrases"
+    ],
+    "bn-IN": [
+     "template",
+     "phrases"
+    ],
     "ca": [
-     "plantilla"
+     "respostes"
     ],
     "cs": [
-     "šablona"
+     "odpovědi",
+     "šablony"
     ],
     "da": [
-     "skabelon"
+     "svar",
+     "skabeloner"
     ],
     "de-DE": [
-     "vorlage",
-     "antwort"
+     "schnellantworten",
+     "vorlagen"
     ],
     "en-AU": [
-     "quick",
      "template",
-     "canned",
-     "responses",
-     "phrases"
+     "signature",
+     "quickpaste"
     ],
     "en-CA": [
-     "quick",
-     "template",
      "canned",
-     "responses",
-     "phrases"
+     "response",
+     "quick",
+     "phrase"
     ],
     "en-GB": [
-     "quick",
-     "template",
      "canned",
-     "responses",
-     "phrases"
+     "response",
+     "quick",
+     "reply",
+     "replacement"
     ],
     "en-IN": [
-     "quick",
-     "template",
      "canned",
-     "responses",
-     "phrases"
+     "response",
+     "quick",
+     "reply",
+     "phrase"
     ],
     "en-US": [
-     "quick",
-     "template",
      "canned",
-     "responses",
-     "phrases"
+     "response",
+     "quick",
+     "replacement"
     ],
     "es-ES": [
-     "plantilla",
-     "respuesta"
+     "respuestas",
+     "plantillas"
     ],
     "es-MX": [
-     "plantilla",
-     "respuesta"
+     "respuestas",
+     "plantillas"
     ],
     "et": [
-     "mall"
+     "mallid"
+    ],
+    "fi": [
+     "pikavastaukset"
     ],
     "fil": [
      "template"
     ],
     "fr-CA": [
-     "modèle"
+     "réponses",
+     "modèles"
     ],
     "fr-FR": [
-     "modèle"
-    ],
-    "he": [
-     "תבנית"
+     "réponses",
+     "modèles"
     ],
     "id": [
      "template"
     ],
     "it": [
-     "messaggio",
-     "risposta"
+     "messaggi"
     ],
     "ja": [
-     "テンプレート",
      "返信",
-     "常用文字"
+     "テンプレ"
+    ],
+    "kn-IN": [
+     "replacement"
     ],
     "ko": [
-     "템플릿",
      "정형문",
+     "상용구",
      "답장"
     ],
     "lt": [
-     "šablonas"
+     "šablonai"
+    ],
+    "ml-IN": [
+     "quick",
+     "messages",
+     "replies"
+    ],
+    "mr-IN": [
+     "quick",
+     "reply",
+     "canned",
+     "responses"
     ],
     "ms": [
-     "template",
-     "jawapan"
+     "templat"
+    ],
+    "no": [
+     "hurtigsvar"
     ],
     "pl": [
-     "szablon",
-     "odpowiedź"
-    ],
-    "pt-BR": [
-     "modelo",
-     "resposta"
-    ],
-    "pt-PT": [
-     "modelo",
-     "resposta"
+     "odpowiedzi",
+     "szablony"
     ],
     "ru": [
-     "шаблон"
+     "шаблоны"
     ],
     "sr": [
      "шаблон"
     ],
     "sv": [
-     "mall",
-     "svar"
+     "mallar"
+    ],
+    "ta-IN": [
+     "signature"
     ],
     "th": [
+     "ตอบกลับด่วน",
      "แม่แบบ"
     ],
     "tr": [
-     "şablon",
-     "yanıt"
+     "yanıt",
+     "şablon"
     ],
     "uk": [
-     "шаблон"
+     "відповіді"
+    ],
+    "ur-PK": [
+     "quick",
+     "reply"
     ],
     "vi": [
-     "mẫu"
+     "trả"
     ],
     "zh-Hans": [
-     "模板",
+     "快捷短语",
      "常用文字",
-     "回复",
-     "快捷方式",
-     "定型文"
+     "模板"
     ],
     "zh-Hant": [
-     "範本",
      "常用文字",
-     "快捷鍵",
-     "定型文"
+     "快捷短語",
+     "範本"
     ]
    },
    "locales": {
     "ar-SA": {
      "promo": "احفظ ردودك السريعة المتكررة والصقها في أي محادثة بلمسة واحدة من لوحة المفاتيح، بدل كتابتها كل مرة.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ar-SA/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ar-SA/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ar-SA/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ar-SA/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ar-SA/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ar-SA/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ar-SA/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ar-SA/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ar-SA/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ar-SA/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "bg": {
      "promo": "Пазете бързи отговори и готови шаблони на едно място. От клавиатурата ги изпращате във всяко приложение с едно докосване, без да пишете наново.",
@@ -162,7 +198,22 @@
     },
     "bn-BD": {
      "promo": "বারবার পাঠানো উত্তরগুলো একবার সেভ করে রাখুন। কুইক রিপ্লাই হিসেবে কীবোর্ড থেকে এক ট্যাপেই যেকোনো চ্যাটে বসান।",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/bn-BD/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/bn-BD/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/bn-BD/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/bn-BD/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/bn-BD/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/bn-BD/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/bn-BD/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/bn-BD/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/bn-BD/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/bn-BD/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "bn-IN": {
      "promo": "বারবার পাঠানো উত্তরগুলো একবার সেভ করে রাখুন। কুইক রিপ্লাই হিসেবে কীবোর্ড থেকে এক ট্যাপেই যেকোনো চ্যাটে বসান।",
@@ -170,35 +221,155 @@
     },
     "ca": {
      "promo": "Desa les respostes ràpides que envies cada dia i enganxa-les amb un toc des del teclat, a missatges, correu o qualsevol altra app.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ca/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ca/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ca/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ca/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ca/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ca/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ca/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ca/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ca/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ca/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "cs": {
      "promo": "Hotové odpovědi na zprávy a e-maily si uložte jednou. Pak je z klávesnice vložíte jedním klepnutím, ať píšete kdekoli.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/cs/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/cs/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/cs/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/cs/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/cs/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/cs/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/cs/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/cs/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/cs/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/cs/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "da": {
      "promo": "Gem dine faste svar og skabeloner, og send dem fra tastaturet med ét tryk. Virker i alle apps, uden konto og uden reklamer.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/da/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/da/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/da/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/da/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/da/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/da/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/da/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/da/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/da/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/da/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "de-DE": {
      "promo": "Deine Schnellantworten und Textbausteine liegen auf der Tastatur bereit. Ein Tipp, und die fertige Antwort steht in jeder App im Textfeld.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/de-DE/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/de-DE/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/de-DE/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/de-DE/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/de-DE/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/de-DE/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/de-DE/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/de-DE/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/de-DE/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/de-DE/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "el": {
      "promo": "Κράτα τις έτοιμες απαντήσεις σου σε ένα μέρος και στείλε τες σε οποιαδήποτε εφαρμογή με ένα πάτημα, χωρίς να πληκτρολογείς ξανά το ίδιο κείμενο.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/el/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/el/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/el/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/el/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/el/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/el/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/el/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/el/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/el/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/el/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "en-AU": {
      "promo": "Answer the same questions faster. Save your canned responses and quick replies once, then paste them into chats, email and support tickets from the keyboard.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-AU/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-AU/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-AU/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-AU/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-AU/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-AU/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-AU/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-AU/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-AU/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-AU/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "en-CA": {
      "promo": "Answer the same questions faster. Save your canned responses and quick replies once, then paste them into chats, email and support tickets from the keyboard.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-CA/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-CA/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-CA/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-CA/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-CA/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-CA/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-CA/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-CA/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-CA/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-CA/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "en-GB": {
      "promo": "Answer the same questions faster. Save your canned responses and quick replies once, then paste them into chats, email and support tickets from the keyboard.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-GB/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-GB/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-GB/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-GB/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-GB/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-GB/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-GB/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-GB/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-GB/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-GB/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "en-IN": {
      "promo": "Answer the same questions faster. Save your canned responses and quick replies once, then paste them into chats, email and support tickets from the keyboard.",
@@ -206,15 +377,60 @@
     },
     "en-US": {
      "promo": "Answer the same questions faster. Save your canned responses and quick replies once, then paste them into chats, email and support tickets from the keyboard.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-US/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-US/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-US/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-US/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-US/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-US/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-US/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-US/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-US/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/en-US/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "es-ES": {
      "promo": "Guarda tus respuestas rápidas de siempre y pégalas en cualquier chat o correo con un toque desde el teclado. Sin cuenta, sin anuncios.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/es-ES/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/es-ES/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/es-ES/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/es-ES/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/es-ES/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/es-ES/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/es-ES/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/es-ES/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/es-ES/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/es-ES/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "es-MX": {
      "promo": "Guarda tus respuestas rápidas de siempre y pégalas en cualquier chat o correo con un toque desde el teclado. Sin cuenta, sin anuncios.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/es-MX/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/es-MX/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/es-MX/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/es-MX/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/es-MX/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/es-MX/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/es-MX/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/es-MX/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/es-MX/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/es-MX/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "et": {
      "promo": "Salvestage kiirvastused ja valmistekstid ning kleepige need klaviatuurilt ühe puudutusega mis tahes vestlusesse. Ei mingit tippimist uuesti ja uuesti.",
@@ -226,7 +442,22 @@
     },
     "fi": {
      "promo": "Tallenna pikavastaukset ja usein käyttämäsi viestipohjat kerran ja lähetä ne mistä tahansa sovelluksesta yhdellä napautuksella näppäimistöstä.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fi/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fi/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fi/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fi/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fi/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fi/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fi/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fi/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fi/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fi/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "fil": {
      "promo": "Mga mabilis na reply at sagot na lagi mong ginagamit, naka-save na. Piliin mula sa keyboard at i-paste sa kahit anong chat o email sa isang tap.",
@@ -234,51 +465,231 @@
     },
     "fr-CA": {
      "promo": "Garde tes réponses rapides, tes signatures et tes messages types au même endroit, puis envoie-les d'un tap depuis le clavier, dans n'importe quelle app.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fr-CA/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fr-CA/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fr-CA/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fr-CA/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fr-CA/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fr-CA/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fr-CA/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fr-CA/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fr-CA/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fr-CA/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "fr-FR": {
      "promo": "Gardez vos réponses rapides, vos signatures et vos messages types au même endroit, puis envoyez-les d'un toucher depuis le clavier, dans n'importe quelle app.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fr-FR/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fr-FR/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fr-FR/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fr-FR/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fr-FR/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fr-FR/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fr-FR/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fr-FR/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fr-FR/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/fr-FR/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "gu-IN": {
      "promo": "વારંવાર મોકલાતા જવાબો એક વાર સેવ કરો. કીબોર્ડમાં એક ટેપ કરતાં જ તૈયાર જવાબ કોઈ પણ ચેટ કે ઇમેઇલમાં લખાઈ જશે.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/gu-IN/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/gu-IN/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/gu-IN/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/gu-IN/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/gu-IN/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/gu-IN/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/gu-IN/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/gu-IN/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/gu-IN/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/gu-IN/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "he": {
      "promo": "שמרו את התשובות המהירות שאתם שולחים כל יום, והדביקו אותן מהמקלדת בנגיעה אחת בכל אפליקציית הודעות או מייל.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/he/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/he/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/he/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/he/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/he/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/he/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/he/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/he/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/he/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/he/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "hi": {
      "promo": "अक्सर भेजे जाने वाले जवाब एक बार लिखकर सेव कर लें। फिर किसी भी चैट या ईमेल में कीबोर्ड से एक टैप में भेजें।",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hi/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hi/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hi/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hi/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hi/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hi/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hi/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hi/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hi/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hi/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "hr": {
      "promo": "Spremi brze odgovore koje stalno ponovno tipkaš i šalji ih jednim dodirom s tipkovnice, u poruci, mailu ili chatu.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hr/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hr/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hr/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hr/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hr/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hr/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hr/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hr/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hr/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hr/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "hu": {
      "promo": "Mentsd el a gyakran küldött válaszaidat, és küldd el őket bármelyik alkalmazásban egyetlen érintéssel, a Cutling billentyűzetről. Nem kell többet újragépelned.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hu/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hu/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hu/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hu/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hu/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hu/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hu/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hu/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hu/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/hu/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "id": {
      "promo": "Simpan balasan cepat yang sering kamu kirim, lalu tempel ke chat atau email apa pun dengan satu ketukan dari keyboard. Tidak perlu mengetik ulang.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/id/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/id/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/id/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/id/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/id/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/id/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/id/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/id/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/id/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/id/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "it": {
      "promo": "Salva le risposte rapide che scrivi ogni giorno e inseriscile in qualsiasi chat o email con un tocco dalla tastiera, senza riscrivere nulla.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/it/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/it/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/it/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/it/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/it/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/it/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/it/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/it/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/it/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/it/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "ja": {
      "promo": "何度も送る返信を定型文として保存しておけば、キーボードからワンタップで入力できます。メッセージでもメールでも、打ち直す手間がなくなります。",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ja/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ja/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ja/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ja/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ja/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ja/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ja/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ja/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ja/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ja/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "kn-IN": {
      "promo": "ಪದೇ ಪದೇ ಕಳುಹಿಸುವ ತ್ವರಿತ ಉತ್ತರಗಳನ್ನು ಒಮ್ಮೆ ಉಳಿಸಿ. ಕೀಬೋರ್ಡ್‌ನಲ್ಲಿ ಒಂದು ಟ್ಯಾಪ್ ಮಾಡಿದರೆ ಯಾವುದೇ ಆ್ಯಪ್‌ನಲ್ಲಿ ಉತ್ತರ ತಯಾರು.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/kn-IN/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/kn-IN/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/kn-IN/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/kn-IN/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/kn-IN/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/kn-IN/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/kn-IN/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/kn-IN/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/kn-IN/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/kn-IN/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "ko": {
      "promo": "자주 보내는 답장을 저장해 두고, 키보드에서 탭 한 번으로 보내세요. 빠른 답장을 매번 다시 치지 않아도 돼요.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ko/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ko/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ko/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ko/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ko/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ko/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ko/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ko/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ko/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ko/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "lt": {
      "promo": "Greiti atsakymai, šablonai ir dažnai siunčiamos frazės laukia klaviatūroje. Palieskite, ir paruoštas tekstas atsiduria pokalbyje.",
@@ -290,59 +701,269 @@
     },
     "ml-IN": {
      "promo": "പതിവായി അയയ്ക്കുന്ന മറുപടികൾ ഒരിക്കൽ സേവ് ചെയ്യൂ. ഏത് ആപ്പിലെ ചാറ്റിലും കീബോർഡിൽ നിന്ന് ഒരു ടാപ്പിൽ അയയ്ക്കാം.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ml-IN/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ml-IN/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ml-IN/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ml-IN/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ml-IN/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ml-IN/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ml-IN/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ml-IN/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ml-IN/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ml-IN/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "mr-IN": {
      "promo": "नेहमी पाठवता ते रेडीमेड रिप्लाय एकदा सेव्ह करा. मेसेजमध्ये कीबोर्डवरून एका टॅपमध्ये पाठवा, पुन्हा पुन्हा टाइप करायची गरज नाही.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/mr-IN/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/mr-IN/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/mr-IN/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/mr-IN/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/mr-IN/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/mr-IN/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/mr-IN/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/mr-IN/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/mr-IN/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/mr-IN/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "ms": {
      "promo": "Simpan balasan pantas yang anda taip berulang kali, daripada ucapan sehingga jawapan standard, dan hantar dengan satu ketikan dari papan kekunci di mana-mana app.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ms/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ms/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ms/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ms/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ms/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ms/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ms/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ms/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ms/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ms/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "nl-NL": {
      "promo": "Bewaar je snelle antwoorden en standaardantwoorden op één plek en plak ze met één tik in elke app. Geen account, geen advertenties.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/nl-NL/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/nl-NL/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/nl-NL/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/nl-NL/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/nl-NL/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/nl-NL/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/nl-NL/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/nl-NL/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/nl-NL/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/nl-NL/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "no": {
      "promo": "Samle hurtigsvarene dine på ett sted og send dem med ett trykk fra tastaturet, i meldinger, e-post og alle andre apper.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/no/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/no/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/no/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/no/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/no/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/no/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/no/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/no/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/no/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/no/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "or-IN": {
      "promo": "ବାରମ୍ବାର ଦେଉଥିବା ଉତ୍ତର ଥରେ ଲେଖି ସେଭ୍ କରନ୍ତୁ, ତାପରେ କୀବୋର୍ଡରୁ ଗୋଟିଏ ଟ୍ୟାପରେ ଯେକୌଣସି ଚାଟ୍ ବା ମେଲରେ ପେଷ୍ଟ କରନ୍ତୁ।",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/or-IN/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/or-IN/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/or-IN/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/or-IN/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/or-IN/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/or-IN/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/or-IN/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/or-IN/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/or-IN/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/or-IN/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "pa-IN": {
      "promo": "ਜਿਹੜੇ ਜਵਾਬ ਤੁਸੀਂ ਰੋਜ਼ ਭੇਜਦੇ ਹੋ, ਉਹ ਇੱਕ ਵਾਰ ਸੇਵ ਕਰੋ। ਫਿਰ ਕੀਬੋਰਡ ਤੋਂ ਇੱਕ ਟੈਪ ਨਾਲ ਕਿਸੇ ਵੀ ਚੈਟ ਜਾਂ ਈਮੇਲ ਵਿੱਚ ਪੇਸਟ ਕਰੋ।",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pa-IN/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pa-IN/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pa-IN/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pa-IN/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pa-IN/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pa-IN/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pa-IN/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pa-IN/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pa-IN/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pa-IN/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "pl": {
      "promo": "Szybkie odpowiedzi, które piszesz co dzień, zapisz raz. Potem wklejaj je jednym stuknięciem z klawiatury w każdej aplikacji, bez konta i bez reklam.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pl/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pl/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pl/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pl/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pl/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pl/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pl/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pl/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pl/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pl/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "pt-BR": {
      "promo": "Suas respostas rápidas e mensagens prontas sempre à mão. Salve uma vez e mande em qualquer app com um toque, direto do teclado.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pt-BR/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pt-BR/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pt-BR/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pt-BR/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pt-BR/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pt-BR/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pt-BR/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pt-BR/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pt-BR/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pt-BR/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "pt-PT": {
      "promo": "As suas respostas rápidas e mensagens prontas sempre à mão. Guarde uma vez e envie em qualquer app com um toque, diretamente no teclado.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pt-PT/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pt-PT/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pt-PT/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pt-PT/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pt-PT/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pt-PT/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pt-PT/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pt-PT/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pt-PT/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/pt-PT/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "ro": {
      "promo": "Salvează răspunsurile pe care le trimiți des și lipește-le în orice conversație cu o atingere, direct de pe tastatură. Fără cont, fără reclame.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ro/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ro/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ro/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ro/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ro/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ro/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ro/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ro/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ro/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ro/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "ru": {
      "promo": "Быстрые ответы и шаблоны сообщений всегда под рукой. Сохраните фразы, которые вы пишете снова и снова, и вставляйте их с клавиатуры одним касанием.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ru/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ru/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ru/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ru/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ru/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ru/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ru/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ru/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ru/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ru/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "sk": {
      "promo": "Odpovede, ktoré píšete dookola, si uložte raz. Z klávesnice ich vložíte do správy jedným ťuknutím, v ktorejkoľvek aplikácii.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sk/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sk/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sk/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sk/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sk/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sk/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sk/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sk/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sk/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sk/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "sl-SI": {
      "promo": "Hitri odgovori, ki jih pišete znova in znova, so shranjeni in pripravljeni. Na tipkovnici tapnete odgovor in se vstavi v pogovor, brez računa in brez oglasov.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sl-SI/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sl-SI/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sl-SI/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sl-SI/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sl-SI/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sl-SI/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sl-SI/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sl-SI/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sl-SI/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sl-SI/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "sr": {
      "promo": "Сачувајте одговоре које стално куцате изнова. Када затребају, пребаците се на Cutling тастатуру и једним додиром их налепите у било коју апликацију.",
@@ -350,7 +971,22 @@
     },
     "sv": {
      "promo": "Spara dina snabbsvar och mallar på ett ställe och skicka dem med ett tryck från tangentbordet, i vilken app som helst. Slipp skriva samma svar igen.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sv/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sv/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sv/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sv/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sv/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sv/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sv/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sv/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sv/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/sv/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "sw": {
      "promo": "Weka majibu yako ya haraka mahali pamoja na uyabandike kwenye mazungumzo yoyote kwa mguso mmoja. Hakuna kuandika upya kila siku.",
@@ -358,39 +994,174 @@
     },
     "ta-IN": {
      "promo": "அடிக்கடி அனுப்பும் பதில்களை ஒருமுறை எழுதி வைத்தால் போதும். கீபோர்டில் ஒரு தட்டல், எந்த ஆப்பிலும் செய்தி தயார்.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ta-IN/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ta-IN/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ta-IN/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ta-IN/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ta-IN/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ta-IN/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ta-IN/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ta-IN/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ta-IN/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ta-IN/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "te-IN": {
      "promo": "తరచూ పంపే జవాబులను క్విక్ రిప్లైలుగా సేవ్ చేయండి. కీబోర్డ్ నుంచి ఒక్క ట్యాప్‌తో ఏ చాట్‌లోనైనా పంపండి.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/te-IN/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/te-IN/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/te-IN/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/te-IN/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/te-IN/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/te-IN/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/te-IN/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/te-IN/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/te-IN/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/te-IN/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "th": {
      "promo": "เก็บข้อความตอบกลับสำเร็จรูปที่ใช้บ่อยไว้ในคีย์บอร์ดเดียว แตะครั้งเดียวก็ส่งได้ทุกแอป ไม่ต้องพิมพ์ประโยคเดิมซ้ำอีก",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/th/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/th/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/th/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/th/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/th/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/th/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/th/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/th/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/th/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/th/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "tr": {
      "promo": "Sık yazdığın cevapları, şablonları ve mesajları kaydet. Klavyeden tek dokunuşla yapıştır, aynı cümleyi bir daha yazma.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/tr/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/tr/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/tr/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/tr/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/tr/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/tr/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/tr/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/tr/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/tr/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/tr/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "uk": {
      "promo": "Готові відповіді завжди під рукою: збережіть шаблони повідомлень один раз і вставляйте їх у будь-якому чаті або листі одним дотиком із клавіатури.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/uk/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/uk/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/uk/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/uk/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/uk/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/uk/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/uk/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/uk/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/uk/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/uk/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "ur-PK": {
      "promo": "اکثر بھیجے جانے والے جوابات ایک بار محفوظ کریں، پھر کی بورڈ سے ایک ٹیپ میں کسی بھی چیٹ یا ای میل میں چسپاں کریں۔",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ur-PK/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ur-PK/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ur-PK/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ur-PK/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ur-PK/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ur-PK/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ur-PK/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ur-PK/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ur-PK/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/ur-PK/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "vi": {
      "promo": "Soạn sẵn các tin nhắn mẫu bạn gửi đi gửi lại, rồi chèn vào mọi cuộc trò chuyện chỉ với một chạm trên bàn phím. Không cần tài khoản.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/vi/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/vi/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/vi/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/vi/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/vi/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/vi/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/vi/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/vi/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/vi/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/vi/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "zh-Hans": {
      "promo": "把常用的回复存成快捷短语，聊天、邮件、客服留言里从键盘一点就发出去。地址和账号也能一起放在这里。",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/zh-Hans/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/zh-Hans/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/zh-Hans/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/zh-Hans/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/zh-Hans/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/zh-Hans/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/zh-Hans/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/zh-Hans/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/zh-Hans/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/zh-Hans/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "zh-Hant": {
      "promo": "把常用的回覆存成快捷短語，聊天、寄信、回覆客服時從鍵盤點一下就送出。地址和帳號也能一起放在這裡。",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/zh-Hant/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/zh-Hant/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/zh-Hant/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/zh-Hant/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/zh-Hant/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/zh-Hant/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/zh-Hant/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/zh-Hant/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/zh-Hant/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/replies/zh-Hant/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     }
    }
   },
@@ -398,20 +1169,11 @@
    "name": "Personal details",
    "deepLink": "cutling://addText",
    "keywords": {
-    "ar-SA": [
-     "عنوان"
-    ],
-    "bg": [
-     "адрес"
-    ],
     "bn-BD": [
      "autofill"
     ],
     "bn-IN": [
      "autofill"
-    ],
-    "cs": [
-     "adresa"
     ],
     "da": [
      "adresse"
@@ -420,48 +1182,22 @@
      "adresse"
     ],
     "en-AU": [
-     "autofill",
-     "address"
+     "iban",
+     "email",
+     "address",
+     "bank"
     ],
     "en-CA": [
-     "autofill",
-     "address"
+     "autofill"
     ],
     "en-GB": [
-     "autofill",
-     "address"
+     "autofill"
     ],
     "en-IN": [
-     "autofill",
-     "address"
+     "autofill"
     ],
     "en-US": [
-     "autofill",
-     "address"
-    ],
-    "es-ES": [
-     "dirección"
-    ],
-    "es-MX": [
-     "dirección"
-    ],
-    "et": [
-     "aadress"
-    ],
-    "fil": [
-     "address"
-    ],
-    "fr-CA": [
-     "adresse"
-    ],
-    "fr-FR": [
-     "adresse"
-    ],
-    "he": [
-     "כתובת"
-    ],
-    "hr": [
-     "adresa"
+     "autofill"
     ],
     "id": [
      "alamat"
@@ -469,99 +1205,58 @@
     "it": [
      "indirizzo"
     ],
-    "ja": [
-     "自動入力"
-    ],
-    "kn-IN": [
-     "autofill"
-    ],
     "ko": [
-     "자동입력",
-     "주소"
-    ],
-    "lt": [
-     "adresas"
-    ],
-    "lv": [
-     "adrese"
-    ],
-    "ml-IN": [
-     "autofill"
-    ],
-    "mr-IN": [
-     "autofill"
+     "자동입력"
     ],
     "ms": [
      "alamat"
     ],
-    "nl-NL": [
-     "adres"
-    ],
     "no": [
      "adresse"
-    ],
-    "or-IN": [
-     "autofill"
-    ],
-    "pa-IN": [
-     "autofill"
-    ],
-    "pl": [
-     "adres"
-    ],
-    "pt-BR": [
-     "endereço"
     ],
     "ro": [
      "adresă"
     ],
-    "ru": [
-     "адрес"
-    ],
     "sk": [
      "adresa"
     ],
-    "sr": [
-     "адреса"
-    ],
-    "sv": [
-     "adress"
-    ],
     "ta-IN": [
-     "autofill"
-    ],
-    "te-IN": [
-     "autofill"
-    ],
-    "th": [
-     "ที่อยู่"
-    ],
-    "tr": [
-     "adres",
-     "banka"
-    ],
-    "uk": [
-     "адреса"
+     "address",
+     "iban",
+     "email"
     ],
     "ur-PK": [
      "autofill"
     ],
     "vi": [
-     "địa chỉ"
+     "địa"
     ],
     "zh-Hans": [
-     "自动填充",
-     "地址"
+     "自动填充"
     ],
     "zh-Hant": [
-     "自動填寫",
-     "地址"
+     "自動填寫"
     ]
    },
    "locales": {
     "ar-SA": {
      "promo": "عنوانك ورقم هويتك وبيانات حسابك محفوظة وجاهزة. عبّئ أي نموذج في ثوانٍ بلمسة من لوحة المفاتيح.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ar-SA/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ar-SA/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ar-SA/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ar-SA/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ar-SA/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ar-SA/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ar-SA/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ar-SA/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ar-SA/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ar-SA/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "bg": {
      "promo": "Адрес, лични номера и банкови данни, запазени веднъж. Попълването на формуляри се свежда до едно докосване на клавиатурата.",
@@ -569,7 +1264,22 @@
     },
     "bn-BD": {
      "promo": "ঠিকানা, আইডি নম্বর আর ব্যাংক তথ্য একবার সেভ করুন। যেকোনো ফর্মে কীবোর্ড থেকে এক ট্যাপেই বসিয়ে দ্রুত পূরণ করুন।",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/bn-BD/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/bn-BD/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/bn-BD/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/bn-BD/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/bn-BD/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/bn-BD/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/bn-BD/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/bn-BD/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/bn-BD/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/bn-BD/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "bn-IN": {
      "promo": "ঠিকানা, আধার বা আইডি নম্বর আর ব্যাঙ্কের তথ্য একবার সেভ করুন। যেকোনো ফর্মে কীবোর্ড থেকে এক ট্যাপেই বসিয়ে দ্রুত পূরণ করুন।",
@@ -577,35 +1287,155 @@
     },
     "ca": {
      "promo": "Omple adreces, DNI i dades bancàries en un moment: les tens desades al teclat i les insereixes amb un toc.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ca/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ca/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ca/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ca/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ca/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ca/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ca/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ca/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ca/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ca/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "cs": {
      "promo": "Adresu, číslo dokladu i bankovní údaje už nemusíte psát znovu. Uložte je a vkládejte z klávesnice jedním klepnutím.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/cs/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/cs/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/cs/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/cs/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/cs/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/cs/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/cs/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/cs/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/cs/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/cs/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "da": {
      "promo": "Gem din adresse, dit kontonummer og dit CPR-nummer, og udfyld felterne med ét tryk fra tastaturet i stedet for at skrive dem igen.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/da/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/da/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/da/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/da/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/da/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/da/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/da/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/da/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/da/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/da/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "de-DE": {
      "promo": "Adresse, IBAN und Ausweisnummer musst du nicht mehr jedes Mal tippen. Speichere sie einmal und füge sie per Tipp in jedes Formularfeld ein.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/de-DE/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/de-DE/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/de-DE/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/de-DE/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/de-DE/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/de-DE/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/de-DE/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/de-DE/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/de-DE/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/de-DE/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "el": {
      "promo": "Η διεύθυνση, η ταυτότητα και ο λογαριασμός σου περιμένουν στο πληκτρολόγιο. Συμπλήρωσε τα στοιχεία σου σε οποιαδήποτε φόρμα με ένα πάτημα.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/el/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/el/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/el/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/el/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/el/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/el/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/el/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/el/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/el/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/el/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "en-AU": {
      "promo": "Stop retyping your address, IBAN, booking numbers and ID. Save them once and fill in any form with one tap from the Cutling keyboard.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-AU/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-AU/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-AU/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-AU/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-AU/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-AU/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-AU/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-AU/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-AU/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-AU/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "en-CA": {
      "promo": "Stop retyping your address, IBAN, booking numbers and ID. Save them once and fill in any form with one tap from the Cutling keyboard.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-CA/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-CA/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-CA/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-CA/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-CA/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-CA/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-CA/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-CA/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-CA/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-CA/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "en-GB": {
      "promo": "Stop retyping your address, IBAN, booking numbers and ID. Save them once and fill in any form with one tap from the Cutling keyboard.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-GB/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-GB/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-GB/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-GB/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-GB/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-GB/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-GB/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-GB/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-GB/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-GB/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "en-IN": {
      "promo": "Stop retyping your address, IBAN, booking numbers and ID. Save them once and fill in any form with one tap from the Cutling keyboard.",
@@ -613,15 +1443,60 @@
     },
     "en-US": {
      "promo": "Stop retyping your address, IBAN, booking numbers and ID. Save them once and fill in any form with one tap from the Cutling keyboard.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-US/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-US/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-US/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-US/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-US/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-US/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-US/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-US/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-US/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/en-US/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "es-ES": {
      "promo": "Tu dirección, tu IBAN o tu DNI a un toque. Guarda tus datos y autorrellénalos en cualquier app desde el teclado, sin volver a teclearlos.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/es-ES/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/es-ES/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/es-ES/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/es-ES/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/es-ES/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/es-ES/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/es-ES/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/es-ES/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/es-ES/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/es-ES/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "es-MX": {
      "promo": "Tu dirección, tu CLABE o tu CURP a un toque. Guarda tus datos y llénalos en cualquier app desde el teclado, sin volver a escribirlos.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/es-MX/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/es-MX/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/es-MX/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/es-MX/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/es-MX/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/es-MX/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/es-MX/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/es-MX/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/es-MX/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/es-MX/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "et": {
      "promo": "Aadress, isikukood ja pangakonto olgu alati käepärast. Puudutage klaviatuuril salvestatud andmeid ja need ilmuvad vormi ilma tippimata.",
@@ -633,7 +1508,22 @@
     },
     "fi": {
      "promo": "Osoite, henkilötunnus ja tilinumero eivät tarvitse enää kirjoittamista. Täytä lomakkeet sekunneissa napauttamalla tallennettu tieto näppäimistöstä.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fi/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fi/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fi/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fi/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fi/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fi/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fi/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fi/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fi/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fi/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "fil": {
      "promo": "Address, ID at bank details mo, naka-save na. Hindi mo na kailangang i-type ulit ang mga ito sa bawat form; piliin lang mula sa keyboard.",
@@ -641,51 +1531,231 @@
     },
     "fr-CA": {
      "promo": "Adresse, numéros de compte, pièce d'identité : enregistre-les une fois, puis insère-les d'un tap depuis le clavier au lieu de les retaper à chaque formulaire.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fr-CA/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fr-CA/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fr-CA/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fr-CA/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fr-CA/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fr-CA/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fr-CA/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fr-CA/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fr-CA/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fr-CA/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "fr-FR": {
      "promo": "Adresse, numéros de compte, pièce d'identité : enregistrez-les une fois, puis insérez-les d'un toucher depuis le clavier au lieu de les retaper à chaque formulaire.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fr-FR/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fr-FR/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fr-FR/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fr-FR/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fr-FR/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fr-FR/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fr-FR/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fr-FR/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fr-FR/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/fr-FR/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "gu-IN": {
      "promo": "સરનામું, આઈડી નંબર અને બેંક વિગતો ફોર્મમાં વારંવાર ભરવી પડતી નથી. એક વાર સેવ કરો અને કીબોર્ડમાંથી એક ટેપમાં ભરો.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/gu-IN/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/gu-IN/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/gu-IN/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/gu-IN/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/gu-IN/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/gu-IN/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/gu-IN/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/gu-IN/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/gu-IN/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/gu-IN/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "he": {
      "promo": "כתובת, תעודת זהות, פרטי בנק: כותבים פעם אחת, ומילוי הפרטים בכל טופס לוקח אחר כך נגיעה אחת מהמקלדת.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/he/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/he/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/he/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/he/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/he/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/he/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/he/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/he/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/he/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/he/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "hi": {
      "promo": "पता, आईडी नंबर और बैंक डिटेल्स बार-बार टाइप न करें। एक बार सेव करें और फ़ॉर्म में कीबोर्ड से एक टैप में भरें।",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hi/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hi/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hi/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hi/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hi/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hi/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hi/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hi/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hi/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hi/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "hr": {
      "promo": "Adresu, OIB, IBAN i ostale osobne podatke spremi jednom. Kad zatrebaju, popuniš ih jednim dodirom umjesto tipkanja.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hr/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hr/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hr/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hr/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hr/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hr/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hr/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hr/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hr/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hr/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "hu": {
      "promo": "A címed, a bankszámlaszámod és az igazolványszámod mentve van, és egy érintéssel a mezőben terem. Nem kell többé fejből vagy a tárcából begépelned.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hu/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hu/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hu/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hu/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hu/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hu/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hu/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hu/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hu/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/hu/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "id": {
      "promo": "Alamat, nomor KTP, rekening bank: simpan sekali, lalu isi formulir mana pun dengan satu ketukan dari keyboard. Tanpa akun, tanpa iklan.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/id/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/id/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/id/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/id/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/id/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/id/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/id/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/id/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/id/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/id/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "it": {
      "promo": "Indirizzo, IBAN, documenti: salvali una volta e inseriscili dove servono con un tocco, per una compilazione automatica dei moduli su qualsiasi app.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/it/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/it/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/it/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/it/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/it/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/it/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/it/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/it/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/it/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/it/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "ja": {
      "promo": "住所、口座情報、メールアドレスなど、何度も打つ個人情報を保存しておけます。入力欄でキーボードを切り替えるだけで、すぐに入力できます。",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ja/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ja/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ja/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ja/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ja/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ja/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ja/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ja/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ja/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ja/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "kn-IN": {
      "promo": "ವಿಳಾಸ, ಐಡಿ ಸಂಖ್ಯೆ, ಬ್ಯಾಂಕ್ ವಿವರಗಳನ್ನು ಒಮ್ಮೆ ಉಳಿಸಿ. ಫಾರ್ಮ್‌ಗಳಲ್ಲಿ ಮತ್ತೆ ಟೈಪ್ ಮಾಡದೆ ಒಂದು ಟ್ಯಾಪ್‌ನಲ್ಲಿ ತುಂಬಿಸಿ.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/kn-IN/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/kn-IN/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/kn-IN/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/kn-IN/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/kn-IN/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/kn-IN/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/kn-IN/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/kn-IN/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/kn-IN/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/kn-IN/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "ko": {
      "promo": "집 주소, 계좌번호, 신분증 번호를 저장해 두세요. 입력란이 나오면 키보드에서 탭 한 번으로 채울 수 있어요.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ko/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ko/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ko/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ko/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ko/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ko/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ko/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ko/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ko/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ko/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "lt": {
      "promo": "Namų adresas, asmens kodas, banko duomenys ir telefonas išsaugoti vienoje vietoje. Formas užpildysite greičiau, nieko nebeperrašydami.",
@@ -697,59 +1767,269 @@
     },
     "ml-IN": {
      "promo": "വിലാസം, ഐഡി നമ്പർ, ബാങ്ക് വിവരങ്ങൾ എന്നിവ ഇനി വീണ്ടും വീണ്ടും ടൈപ്പ് ചെയ്യേണ്ട. ഫോമിൽ ഒറ്റ ടാപ്പിൽ നിറയ്ക്കൂ.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ml-IN/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ml-IN/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ml-IN/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ml-IN/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ml-IN/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ml-IN/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ml-IN/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ml-IN/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ml-IN/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ml-IN/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "mr-IN": {
      "promo": "पत्ता, आयडी नंबर आणि बँक तपशील एकदा सेव्ह करा. फॉर्ममध्ये एका टॅपमध्ये भरा, प्रत्येक वेळी टाइप करायची गरज नाही.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/mr-IN/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/mr-IN/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/mr-IN/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/mr-IN/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/mr-IN/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/mr-IN/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/mr-IN/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/mr-IN/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/mr-IN/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/mr-IN/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "ms": {
      "promo": "Isi alamat, nombor kad pengenalan dan butiran bank dengan pantas. Simpan sekali, kemudian tampal dari papan kekunci tanpa menaip semula.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ms/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ms/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ms/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ms/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ms/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ms/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ms/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ms/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ms/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ms/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "nl-NL": {
      "promo": "Je adres, ID-nummer en bankgegevens staan klaar op je toetsenbord. Tik, en het veld is ingevuld. Geen account, geen advertenties.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/nl-NL/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/nl-NL/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/nl-NL/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/nl-NL/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/nl-NL/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/nl-NL/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/nl-NL/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/nl-NL/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/nl-NL/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/nl-NL/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "no": {
      "promo": "Slipp å skrive adressen, kontonummeret og fødselsnummeret på nytt hver gang. Lagre dem én gang og fyll ut med ett trykk.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/no/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/no/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/no/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/no/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/no/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/no/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/no/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/no/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/no/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/no/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "or-IN": {
      "promo": "ଠିକଣା, ଆଇଡି ନମ୍ବର ଓ ବ୍ୟାଙ୍କ ବିବରଣୀ ଥରେ ସେଭ୍ କରନ୍ତୁ, ଫର୍ମ ଓ ଆପ୍‌ରେ ଗୋଟିଏ ଟ୍ୟାପରେ ଭରନ୍ତୁ।",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/or-IN/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/or-IN/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/or-IN/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/or-IN/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/or-IN/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/or-IN/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/or-IN/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/or-IN/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/or-IN/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/or-IN/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "pa-IN": {
      "promo": "ਪਤਾ, ਆਈਡੀ ਅਤੇ ਬੈਂਕ ਵੇਰਵੇ ਹਰ ਫਾਰਮ ਵਿੱਚ ਦੁਬਾਰਾ ਨਾ ਲਿਖੋ। ਇੱਕ ਵਾਰ ਸੇਵ ਕਰੋ ਤੇ ਕੀਬੋਰਡ ਤੋਂ ਇੱਕ ਟੈਪ ਨਾਲ ਭਰੋ।",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pa-IN/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pa-IN/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pa-IN/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pa-IN/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pa-IN/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pa-IN/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pa-IN/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pa-IN/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pa-IN/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pa-IN/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "pl": {
      "promo": "Adres, numer konta, dane do faktury: wpisz raz i nie pisz więcej. Wypełnianie formularzy z klawiatury Cutling zajmuje jedno stuknięcie.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pl/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pl/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pl/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pl/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pl/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pl/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pl/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pl/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pl/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pl/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "pt-BR": {
      "promo": "Preenchimento automático dos seus dados: endereço, documentos e conta bancária ficam salvos e entram em qualquer formulário com um toque.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pt-BR/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pt-BR/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pt-BR/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pt-BR/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pt-BR/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pt-BR/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pt-BR/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pt-BR/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pt-BR/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pt-BR/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "pt-PT": {
      "promo": "Preenchimento automático dos seus dados: morada, documentos e conta bancária ficam guardados e entram em qualquer formulário com um toque.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pt-PT/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pt-PT/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pt-PT/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pt-PT/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pt-PT/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pt-PT/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pt-PT/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pt-PT/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pt-PT/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/pt-PT/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "ro": {
      "promo": "Adresa, IBAN-ul, numărul de act: scrie-le o singură dată în Cutling și completează-le apoi oriunde cu o atingere, fără să le mai tastezi de fiecare dată.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ro/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ro/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ro/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ro/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ro/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ro/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ro/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ro/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ro/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ro/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "ru": {
      "promo": "Адрес, номера документов и банковские реквизиты не нужно набирать каждый раз. Сохраните их один раз и вставляйте с клавиатуры в любую форму одним касанием.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ru/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ru/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ru/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ru/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ru/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ru/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ru/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ru/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ru/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ru/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "sk": {
      "promo": "Adresu, čísla dokladov a údaje k účtu máte uložené. Pri vypĺňaní formulára ich z klávesnice vložíte jedným ťuknutím.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sk/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sk/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sk/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sk/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sk/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sk/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sk/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sk/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sk/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sk/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "sl-SI": {
      "promo": "Naslov, številka računa in osebni podatki so shranjeni enkrat. Pri naslednjem obrazcu jih s tipkovnice vnesete z enim dotikom, brez ponovnega tipkanja.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sl-SI/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sl-SI/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sl-SI/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sl-SI/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sl-SI/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sl-SI/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sl-SI/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sl-SI/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sl-SI/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sl-SI/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "sr": {
      "promo": "Адресу, ИД и податке о рачуну не морате више да куцате. Сачувајте их једном и уметните са тастатуре једним додиром, у било којој апликацији.",
@@ -757,7 +2037,22 @@
     },
     "sv": {
      "promo": "Adress, personnummer och bankuppgifter ligger redo på tangentbordet. Fyll i formulär på ett par sekunder utan att leta i anteckningar eller mejl.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sv/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sv/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sv/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sv/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sv/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sv/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sv/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sv/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sv/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/sv/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "sw": {
      "promo": "Anwani, nambari ya kitambulisho na taarifa za benki vimehifadhiwa kwenye kibodi yako. Gusa kipande, nacho kinaingia kwenye fomu yoyote.",
@@ -765,39 +2060,174 @@
     },
     "ta-IN": {
      "promo": "முகவரி, அடையாள எண், வங்கி விவரங்கள் போன்றவற்றை ஒவ்வொரு முறையும் தட்டச்சு செய்ய வேண்டாம். ஒருமுறை சேமித்தால் கீபோர்டிலிருந்து ஒட்டலாம்.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ta-IN/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ta-IN/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ta-IN/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ta-IN/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ta-IN/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ta-IN/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ta-IN/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ta-IN/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ta-IN/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ta-IN/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "te-IN": {
      "promo": "చిరునామా, ఐడీ, బ్యాంక్ ఖాతా వివరాలను ఒకసారి సేవ్ చేయండి. ఏ ఫారమ్‌లోనైనా ఒక్క ట్యాప్‌తో నింపండి.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/te-IN/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/te-IN/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/te-IN/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/te-IN/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/te-IN/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/te-IN/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/te-IN/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/te-IN/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/te-IN/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/te-IN/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "th": {
      "promo": "กรอกที่อยู่ เลขบัญชี และข้อมูลส่วนตัวได้เร็วขึ้น เซฟไว้ครั้งเดียว แล้วแตะจากคีย์บอร์ดเพื่อวางลงในแอปไหนก็ได้",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/th/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/th/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/th/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/th/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/th/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/th/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/th/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/th/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/th/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/th/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "tr": {
      "promo": "Adresini, kimlik ve banka bilgilerini bir kez kaydet. Formlarda ve mesajlarda klavyeden tek dokunuşla doldur.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/tr/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/tr/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/tr/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/tr/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/tr/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/tr/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/tr/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/tr/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/tr/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/tr/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "uk": {
      "promo": "Адреса, номер рахунку, паспортні дані: збережіть один раз і вставляйте в будь-яку форму одним дотиком, не набираючи знову.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/uk/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/uk/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/uk/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/uk/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/uk/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/uk/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/uk/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/uk/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/uk/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/uk/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "ur-PK": {
      "promo": "پتہ، شناختی نمبر اور بینک تفصیلات ہر بار ٹائپ نہ کریں۔ ایک بار محفوظ کریں اور کی بورڈ سے ایک ٹیپ میں بھر دیں۔",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ur-PK/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ur-PK/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ur-PK/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ur-PK/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ur-PK/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ur-PK/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ur-PK/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ur-PK/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ur-PK/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/ur-PK/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "vi": {
      "promo": "Địa chỉ, số tài khoản, số CCCD luôn nằm sẵn trên bàn phím. Chạm một lần là điền xong, bạn không phải gõ lại từng ký tự.",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/vi/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/vi/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/vi/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/vi/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/vi/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/vi/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/vi/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/vi/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/vi/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/vi/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "zh-Hans": {
      "promo": "地址、证件号、银行账号只存一次，填表时从键盘一点即入，不用再翻备忘录，也不用一遍遍重打。",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/zh-Hans/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/zh-Hans/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/zh-Hans/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/zh-Hans/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/zh-Hans/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/zh-Hans/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/zh-Hans/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/zh-Hans/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/zh-Hans/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/zh-Hans/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     },
     "zh-Hant": {
      "promo": "地址、證件號碼、銀行帳號只要存一次，填表時從鍵盤點一下就帶入，不用再翻備忘錄，也不用一遍遍重打。",
-     "screenshots": {}
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/zh-Hant/iPhone 14 Pro Max-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/zh-Hant/iPhone 14 Pro Max-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/zh-Hant/iPhone 14 Pro Max-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/zh-Hant/iPhone 14 Pro Max-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/zh-Hant/iPhone 14 Pro Max-05.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/zh-Hant/iPad Air 13-inch (M4)-01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/zh-Hant/iPad Air 13-inch (M4)-02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/zh-Hant/iPad Air 13-inch (M4)-03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/zh-Hant/iPad Air 13-inch (M4)-04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots_cpp/details/zh-Hant/iPad Air 13-inch (M4)-05.png"
+      ]
+     }
     }
    }
   }

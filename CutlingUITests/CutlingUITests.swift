@@ -159,11 +159,20 @@ final class CutlingUITests: XCTestCase {
 
         // Cutling's keys are not in the app's tree on iOS 27, while the
         // system and emoji keyboards expose keys: zero keys means Cutling.
-        func cutlingIsUp() -> Bool { app.keys.count == 0 }
+        // The system globe/dictation row stays under a custom keyboard, so
+        // no keys plus that row, twice in a row, means Cutling is showing.
+        func cutlingIsUp() -> Bool {
+            guard app.keys.count == 0, app.buttons["dictation"].exists else { return false }
+            sleep(2)
+            return app.keys.count == 0 && app.buttons["dictation"].exists
+        }
 
         var cutlingActive = cutlingIsUp()
         log("S4: Cutling keyboard already active=\(cutlingActive)")
-        for attempt in 0..<6 where !cutlingActive {
+        // iPad frame 1 comes from the iOS 26 captures (keyboard state is not
+        // observable there), so only iPhone cycles keyboards
+        let cyclesKeyboards = UIDevice.current.userInterfaceIdiom == .phone
+        for attempt in 0..<8 where !cutlingActive && cyclesKeyboards {
             let globe = app.buttons.allElementsBoundByIndex
                 .firstIndex { $0.identifier == "dictation" }
                 .flatMap { $0 > 0 ? app.buttons.element(boundBy: $0 - 1) : nil }
@@ -263,6 +272,35 @@ final class CutlingUITests: XCTestCase {
         log("S5: Screenshot 04 done")
 
         log("========== TEST COMPLETE ==========")
+    }
+
+    /// Captures only the dark frame (04): launch forced dark, open the
+    /// keyboard guide, step to its last page. No Settings setup needed.
+    @MainActor
+    func testDarkFrame() throws {
+        let app = XCUIApplication()
+        setupSnapshot(app)
+        app.launchArguments += ["-SNAPSHOT_MODE", "-SNAPSHOT_DARK", "YES"]
+        app.launch()
+        let kbButton = app.buttons["keyboardToolbarButton"].firstMatch
+        XCTAssertTrue(kbButton.waitForExistence(timeout: 20), "Keyboard button not found")
+        kbButton.tap()
+        sleep(1)
+        let guide = app.buttons["keyboardSetupGuide"].firstMatch
+        if !guide.waitForExistence(timeout: 3) { app.swipeUp(); sleep(1) }
+        XCTAssertTrue(guide.waitForExistence(timeout: 5), "Setup guide not found")
+        guide.tap()
+        sleep(1)
+        let howToUse = app.descendants(matching: .any).matching(identifier: "howToUsePage").firstMatch
+        for _ in 0..<4 where !howToUse.exists {
+            if app.keys.count > 0 { app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.15)).tap(); sleep(1) }
+            let next = app.buttons["continueButton"].firstMatch
+            guard next.waitForExistence(timeout: 5) else { break }
+            next.tap()
+            sleep(1)
+        }
+        XCTAssertTrue(howToUse.waitForExistence(timeout: 5), "How to Use page not visible")
+        snapshot("04_KeyboardGuide")
     }
 
     // MARK: - Enable Keyboard via Settings App

@@ -12,6 +12,7 @@
 require 'spaceship'
 require 'json'
 require 'digest'
+$stdout.sync = true
 
 APP_ID = "6759476314"
 cfg = JSON.parse(File.read(File.join(__dir__, "asc_api_key.json")))
@@ -119,7 +120,9 @@ spec["pages"].each do |p|
           { data: { type: "appCustomProductPageVersions", id: version["id"], attributes: { deepLink: p["deepLink"] } } })
 
   locs = all("v1/appCustomProductPageVersions/#{version['id']}/appCustomProductPageLocalizations")
+  only = ENV["CPP_LOCALES"]&.split(",")
   p["locales"].each do |locale, l|
+    next if only && !only.include?(locale)
     loc = locs.find { |x| x.dig("attributes", "locale") == locale }
     if loc
       C.patch("v1/appCustomProductPageLocalizations/#{loc['id']}",
