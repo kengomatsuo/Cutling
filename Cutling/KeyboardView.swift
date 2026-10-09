@@ -28,6 +28,16 @@ struct KeyboardView: View {
     @State private var isKeyboardAdded = false
     @State private var hasFullAccess = false
     @State private var showSetupGuide = false
+    @State private var pendingReplacementCount = 0
+    @AppStorage(CutlingPasteboard.alwaysPlainKey, store: UserDefaults(suiteName: "group.com.matsuokengo.Cutling"))
+    private var alwaysPastePlainText = false
+    @State private var hasCachedReplacements = false
+
+    private func refreshTextReplacements() {
+        pendingReplacementCount = store.pendingTextReplacements.count
+        let cached = UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.array(forKey: TextReplacementImport.defaultsKey)
+        hasCachedReplacements = !(cached ?? []).isEmpty
+    }
 
     private var isKeyboardEnabled: Bool {
         let bundleID = Bundle.main.bundleIdentifier ?? ""
@@ -161,6 +171,37 @@ struct KeyboardView: View {
                 } footer: {
                     Text("Assign cutlings to input types so they appear at the top of the keyboard when you focus a matching text field.")
                 }
+
+                #if os(iOS)
+                Section {
+                    Button {
+                        store.importTextReplacements()
+                        refreshTextReplacements()
+                    } label: {
+                        LabeledContent {
+                            Text("\(pendingReplacementCount)")
+                        } label: {
+                            Label("Import", systemImage: "square.and.arrow.down")
+                        }
+                    }
+                    .disabled(pendingReplacementCount == 0)
+                } header: {
+                    Text("Text Replacement")
+                } footer: {
+                    if !hasCachedReplacements {
+                        Text("Switch to the Cutling keyboard once to find yours.")
+                    }
+                }
+                .onAppear(perform: refreshTextReplacements)
+
+                Section {
+                    Toggle(isOn: $alwaysPastePlainText) {
+                        Label("Always Paste Plain Text", systemImage: "textformat")
+                    }
+                } footer: {
+                    Text("Formatted text keeps bold, italic and links when copied.")
+                }
+                #endif
 
                 Section {
                     LabeledContent("Text Cutlings", value: "\(store.textCutlingsCount) / \(CutlingStore.maxTextCutlings)")

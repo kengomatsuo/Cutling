@@ -96,7 +96,7 @@ meaning. Do not pad. If your language says something in fewer words, use fewer w
    official Apple form in your language where Apple has one (e.g. the App Store's own
    localized name), and otherwise leave it in Latin script.
 5. **Key names, HTML and code are never translated** — only the values.
-6. Numbers stay: 100, 25, 2,000, 750+, 12, 30, 48, 13, 18, 14. Format them the way
+6. Numbers stay: 100, 25, 1,000, 590+, 30, 48, 13, 18, 15. Format them the way
    your language formats numbers (decimal and thousands separators, digit shapes if
    your locale genuinely uses them in app UI).
 7. Dates: `March 8, 2026` and `July 1, 2026` — write them in your language's normal
@@ -153,30 +153,61 @@ language's normal title separator). They appear in browser tabs and search resul
 - `cta_button_mac` — secondary button leading to the Mac page. Says: get Cutling for
   Mac. Short, brand form plus "for Mac".
 
-## Front page — how it works (four steps)
+## Front page — hero picture
 
-- `how_it_works_title` — section heading: how the app works.
+- `img_alt_keyboard` — alt text: the Cutling keyboard open on a phone, showing saved
+  cutlings ready to tap. (Rewritten 2026-10-03: the screenshot is Cutling's own keyboard
+  test page, not Messages.)
+- `img_alt_mac_picker` — alt text: Cutling's picker on a Mac, listing saved cutlings.
+- The line under the buttons reuses `feature_devices_title` (iPhone, iPad and Mac).
 
-- `step1_title` — short imperative heading: save it.
-- `step1_text` — you add text snippets or images to your collection: addresses,
-  signatures, QR codes, anything you reuse often.
-- `img_alt_main_view` — alt text for a screenshot of the app's main screen showing
-  saved cutlings.
+## Front page — one panel per job (added 2026-10-03)
 
-- `step2_title` — short imperative heading: make it yours / customise it.
-- `step2_text` — you can pick from more than 750 icons and 12 colours to organise your
-  cutlings, and set expiry dates on ones you only need temporarily.
-- `img_alt_text_details` — alt text: editing a cutling, choosing icons and colours.
+Each panel is a heading of two to five words and one or two plain sentences beside a
+screenshot. Headings are sentence case. No exclamation marks.
 
-- `step3_title` — short heading: reach it anywhere.
-- `step3_text` — inside any app you switch to the Cutling keyboard and tap to paste,
-  without leaving what you were doing.
-- `img_alt_keyboard` — alt text: the Cutling keyboard open in the Messages app.
+- `sec_save_title` — keep a thing once and stop retyping it.
+- `sec_save_text` — the kinds of things people keep (addresses, replies, account
+  numbers, code), the limits (100 text and 25 image cutlings), an icon and any colour of
+  your choosing for each, and an end date after which a cutling clears itself.
+- `img_alt_main_view` — alt text: the app's main screen with saved cutlings.
+- `sec_format_title` — formatting travels with your text.
+- `sec_format_text` — paste from Mail or a document and bold, italic and links are
+  kept. Code is kept exactly as written, and Cutling recognises code by itself.
+- `img_alt_text_details` — alt text: editing a cutling.
+- `sec_suggest_title` — the cutling you need shows up first.
+- `sec_suggest_text` — in an email field your email cutlings come first (the same for
+  phone, address and name fields); starting to type a cutling's name brings it up ready to
+  tap; the text replacements already set up on the iPhone can be brought in.
+- `img_alt_settings` — alt text: the keyboard settings screen with field suggestions.
 
-- `step4_title` — short heading: sync across devices.
-- `step4_text` — you can optionally turn on iCloud so your cutlings stay in sync
-  across iPhone, iPad and Mac.
-- `img_alt_settings` — alt text: the settings screen with iCloud sync.
+## Front page — save from anywhere (added 2026-10-03)
+
+- `sec_capture_title` — heading: you can save from anywhere.
+- `tile_share_title` / `tile_share_text` — the share sheet: send text, links or images
+  to Cutling from any app. Use Apple's own name for the share sheet in your language if
+  iOS shows one; otherwise describe it plainly.
+- `tile_control_title` / `tile_control_text` — Control Center: start a new cutling from
+  what you copied with one tap. Use Apple's localized name for Control Center (the one
+  the iOS Settings app shows).
+- `tile_siri_title` / `tile_siri_text` — Siri and Shortcuts: add, copy and find cutlings
+  by asking. Siri and Shortcuts keep Apple's localized names.
+- `tile_spotlight_title` / `tile_spotlight_text` — Spotlight: search from the Home
+  Screen and copy the result. Spotlight is never translated; Home Screen uses Apple's
+  localized term.
+
+## Front page — the Mac band (added 2026-10-03)
+
+- `sec_mac_title` — on the Mac, one keyboard shortcut does it; the title ends with the
+  literal shortcut ⌘⇧V, kept as those three symbols.
+- `sec_mac_text` — a picker opens where the pointer is; you choose a cutling or
+  something copied earlier, and Cutling pastes it into the app you were in.
+- `sec_mac_link` — link label to the Mac page: Cutling for Mac.
+
+## Retired keys
+
+`how_it_works_title`, `step1_*` to `step4_*` are no longer on any page. Leave them in
+the files; nothing reads them.
 
 ## Front page — why it costs money
 
@@ -201,13 +232,14 @@ Eight cards, each a short title and one or two sentences. Titles are noun phrase
 must stay short enough for a card heading.
 
 - `feature_text_snippets_title` / `_desc` — text snippets. Up to 100 text cutlings, each
-  up to 2,000 characters.
+  up to 1,000 characters.
 - `feature_image_cutlings_title` / `_desc` — image cutlings. Up to 25 images for quick
   access: QR codes, signatures, diagrams.
 - `feature_custom_keyboard_title` / `_desc` — the custom keyboard. Insert cutlings from
   inside any app without switching apps; one tap pastes.
-- `feature_icons_colors_title` / `_desc` — icons and colours. More than 750 icons and 12
-  colours to organise your collection. The title joins the two nouns.
+- `feature_icons_colors_title` / `_desc` — icons and colours. More than 590 icons and
+  any colour you like to organise your collection. The title joins the two nouns.
+  (Rewritten 2026-10-03: the editor has a full colour picker, not 12 fixed colours.)
 - `feature_expiration_title` / `_desc` — expiry dates. Set an auto-delete date on
   temporary snippets and they remove themselves.
 - `feature_icloud_title` / `_desc` — iCloud sync. Keeps cutlings in step across all your
@@ -261,7 +293,7 @@ calm and concrete.
   switched off in settings at any time.
 - `faq_q6` — are there limits on how many cutlings I can save?
 - `faq_a6` — up to 100 text cutlings and 25 image cutlings; text cutlings hold up to
-  2,000 characters each.
+  1,000 characters each.
 - `faq_q7` — does Cutling work on Mac?
 - `faq_a7` — yes. On Mac it lives in the menu bar and can be called up anywhere with a
   global keyboard shortcut. You pick a cutling and it is pasted straight into whichever
@@ -437,7 +469,7 @@ Six cards, short title plus two sentences.
 - `download_mac_appstore_button` — button: download on the Mac App Store.
 - `download_mac_button` — button: download directly, free in parentheses.
 - `download_mac_meta` — small print: on the Mac App Store, or free directly from this
-  site; needs macOS 14 or later; universal, meaning Apple silicon and Intel.
+  site; needs macOS 15 or later; universal, meaning Apple silicon and Intel.
 - `download_mac_install_title` — heading: installing on Mac.
 - `download_mac_install_text` — from the Mac App Store it installs like any other app.
   For the direct download you open the DMG and drag Cutling into your Applications

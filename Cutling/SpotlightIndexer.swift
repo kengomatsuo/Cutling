@@ -98,7 +98,7 @@ final class SpotlightIndexer {
     private func searchableItem(for cutling: Cutling) -> CSSearchableItem? {
         if cutling.isExpired { return nil }
         if cutling.kind == .text,
-           !SensitiveContentType.detect(in: cutling.value).isEmpty {
+           !SensitiveContentType.detect(in: cutling.plainValue).isEmpty {
             return nil
         }
 
@@ -108,7 +108,7 @@ final class SpotlightIndexer {
         attributes.displayName = cutling.name
 
         if cutling.kind == .text {
-            let value = cutling.value
+            let value = cutling.plainValue
             let snippet = value.count > 1000 ? String(value.prefix(1000)) : value
             attributes.contentDescription = snippet
             attributes.textContent = snippet

@@ -126,7 +126,7 @@ struct CardView: View {
             .accessibilityIdentifier("cutlingCard")
             .accessibilityElement(children: .combine)
             .accessibilityLabel(item.name)
-            .accessibilityValue(item.kind == .text ? item.value : String(localized: "Image"))
+            .accessibilityValue(item.kind == .text ? item.plainValue : String(localized: "Image"))
             .accessibilityHint(isSelecting ? String(localized: "Double tap to toggle selection") : String(localized: "Double tap to copy, long press for options"))
             .accessibilityAddTraits(isSelecting && isSelected ? .isSelected : [])
             .onTapGesture {
@@ -205,6 +205,16 @@ struct CardView: View {
                 }
             }
 
+            // Copy keeps formatting; this drops it.
+            if item.kind == .text, item.textFormat == .rich {
+                Button {
+                    markContextMenuDiscovered()
+                    CutlingPasteboard.copy(item, plainOnly: true)
+                } label: {
+                    Label("Copy as Plain Text", systemImage: "textformat")
+                }
+            }
+
             Button {
                 markContextMenuDiscovered()
                 onEdit()
@@ -273,7 +283,7 @@ struct CardView: View {
             Text(item.name)
                 .font(.headline)
                 .lineLimit(1)
-            Text(item.value)
+            item.displayText
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
                 .lineLimit(3)
@@ -370,7 +380,7 @@ struct CardView: View {
                     Spacer()
                 }
 
-                Text(item.value)
+                item.displayText
                     .font(.body)
                     .lineLimit(18)
             }
@@ -453,13 +463,7 @@ struct CardView: View {
     private func copyToClipboard() {
         switch item.kind {
         case .text:
-            #if os(iOS)
-            UIPasteboard.general.string = item.value
-            #endif
-            #if os(macOS)
-            NSPasteboard.general.clearContents()
-            NSPasteboard.general.setString(item.value, forType: .string)
-            #endif
+            CutlingPasteboard.copy(item)
 
         case .image:
             if let filename = item.imageFilename,
@@ -499,7 +503,7 @@ struct CardView: View {
         case .text:
             #if os(iOS)
             let cutling = item
-            let trimmed = cutling.value.trimmingCharacters(in: .whitespacesAndNewlines)
+            let trimmed = cutling.plainValue.trimmingCharacters(in: .whitespacesAndNewlines)
             if let url = URL(string: trimmed),
                let scheme = url.scheme,
                ["http", "https", "ftp"].contains(scheme.lowercased()) {
@@ -512,13 +516,13 @@ struct CardView: View {
             }
             #endif
             #if os(macOS)
-            let trimmed = item.value.trimmingCharacters(in: .whitespacesAndNewlines)
+            let trimmed = item.plainValue.trimmingCharacters(in: .whitespacesAndNewlines)
             if let url = URL(string: trimmed),
                let scheme = url.scheme,
                ["http", "https", "ftp"].contains(scheme.lowercased()) {
                 presentShareSheet(items: [url])
             } else {
-                presentShareSheet(items: [item.value])
+                presentShareSheet(items: [item.plainValue])
             }
             #endif
         case .image:
@@ -620,7 +624,7 @@ struct CutlingInfoView: View {
 
                 Section("Size") {
                     if item.kind == .text {
-                        LabeledContent("Characters", value: "\(item.value.count)")
+                        LabeledContent("Characters", value: "\(item.plainValue.count)")
                         LabeledContent("Words", value: "\(wordCount)")
                         LabeledContent("Lines", value: "\(lineCount)")
                     } else if let size = imageFileSize {
@@ -675,14 +679,14 @@ struct CutlingInfoView: View {
 
     private var wordCount: Int {
         var count = 0
-        item.value.enumerateSubstrings(in: item.value.startIndex..., options: [.byWords, .substringNotRequired]) { _, _, _, _ in
+        item.plainValue.enumerateSubstrings(in: item.plainValue.startIndex..., options: [.byWords, .substringNotRequired]) { _, _, _, _ in
             count += 1
         }
         return count
     }
 
     private var lineCount: Int {
-        item.value.isEmpty ? 0 : item.value.components(separatedBy: .newlines).count
+        item.plainValue.isEmpty ? 0 : item.plainValue.components(separatedBy: .newlines).count
     }
 }
 
@@ -711,7 +715,7 @@ class CutlingActivityItemSource: NSObject, UIActivityItemSource {
         } else {
             self.previewImage = nil
         }
-        let trimmed = cutling.value.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmed = cutling.plainValue.trimmingCharacters(in: .whitespacesAndNewlines)
         if let url = URL(string: trimmed),
            let scheme = url.scheme,
            ["http", "https", "ftp"].contains(scheme.lowercased()) {
@@ -734,7 +738,7 @@ class CutlingActivityItemSource: NSObject, UIActivityItemSource {
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
         if let image = previewImage { return image }
         if let url = resolvedURL { return url }
-        return cutling.value
+        return cutling.plainValue
     }
 
     func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
@@ -757,7 +761,7 @@ class CutlingActivityItemSource: NSObject, UIActivityItemSource {
         } else if let resolvedURL {
             provider.registerObject(resolvedURL as NSURL, visibility: .all)
         } else {
-            provider.registerObject(cutling.value as NSString, visibility: .all)
+            provider.registerObject(cutling.plainValue as NSString, visibility: .all)
         }
 
         return provider

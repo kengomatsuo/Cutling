@@ -59,6 +59,8 @@ final class KeyboardState: ObservableObject {
     @Published var needsInputModeSwitchKey: Bool = false
     @Published var keyboardType: UIKeyboardType = .default
     @Published var textContentType: UITextContentType?
+    /// Letters/digits typed right before the cursor.
+    @Published var wordBeforeCursor: String = ""
 }
 
 // MARK: - Keyboard Sound
@@ -253,6 +255,8 @@ class KeyboardViewController: UIInputViewController {
         keyboardState.keyboardType = textDocumentProxy.keyboardType ?? .default
         let contentType: UITextContentType? = textDocumentProxy.textContentType
         keyboardState.textContentType = contentType
+        refreshWordBeforeCursor()
+        cacheTextReplacements()
         
         // Only create the hosting controller once
         if hostingController == nil {
@@ -262,7 +266,8 @@ class KeyboardViewController: UIInputViewController {
             let keyboardView = KeyboardView(
                 store: store,
                 state: keyboardState,
-                onInsertText: { inputVC.textDocumentProxy.insertText($0) },
+                onInsertText: { inputVC.textDocumentProxy.insertText($0); inputVC.refreshWordBeforeCursor() },
+                onInsertCutling: { inputVC.insertCutling($0, replacingCount: $1, smartSpacing: $2) },
                 onCopyImage: { data in
                     // Set the raw image bytes directly without decoding to UIImage.
                     // UIImage(data:) decompresses to a bitmap that can be 10-30x the
@@ -280,6 +285,7 @@ class KeyboardViewController: UIInputViewController {
                     let proxy = inputVC.textDocumentProxy
                     guard proxy.hasText else { return false }
                     proxy.deleteBackward()
+                    inputVC.refreshWordBeforeCursor()
                     return true
                 },
                 onDeleteWord: { wordCount in
@@ -314,6 +320,7 @@ class KeyboardViewController: UIInputViewController {
                         }
                         didDelete = true
                     }
+                    inputVC.refreshWordBeforeCursor()
                     return didDelete
                 },
                 onSwitchKeyboard: { inputVC.advanceToNextInputMode() }
@@ -366,6 +373,56 @@ class KeyboardViewController: UIInputViewController {
         let newContentType: UITextContentType? = textDocumentProxy.textContentType
         if keyboardState.textContentType != newContentType {
             keyboardState.textContentType = newContentType
+        }
+        refreshWordBeforeCursor()
+    }
+
+    // MARK: - Completion
+
+    fileprivate func refreshWordBeforeCursor() {
+        let word = Self.trailingWord(in: textDocumentProxy.documentContextBeforeInput ?? "")
+        if keyboardState.wordBeforeCursor != word {
+            keyboardState.wordBeforeCursor = word
+        }
+    }
+
+    static func trailingWord(in context: String) -> String {
+        String(context.reversed().prefix { $0.isLetter || $0.isNumber || $0 == "_" || $0 == "-" }.reversed())
+    }
+
+    /// Inserts a cutling, optionally replacing the typed word and spacing it from the text before.
+    fileprivate func insertCutling(_ value: String, replacingCount: Int, smartSpacing: Bool) {
+        let proxy = textDocumentProxy
+        let before = String((proxy.documentContextBeforeInput ?? "").dropLast(replacingCount))
+        for _ in 0..<replacingCount { proxy.deleteBackward() }
+        // Code goes in byte-for-byte.
+        proxy.insertText(smartSpacing ? Self.spaced(value, after: before, keyboardType: proxy.keyboardType ?? .default, contentType: proxy.textContentType) : value)
+        refreshWordBeforeCursor()
+    }
+
+    /// Adds a space after a word, and drops a doubled one.
+    static func spaced(_ value: String, after before: String, keyboardType: UIKeyboardType, contentType: UITextContentType?) -> String {
+        // Spaces would break URLs, emails, usernames and codes.
+        let spacelessTypes: [UIKeyboardType] = [.URL, .emailAddress, .webSearch, .numberPad, .decimalPad, .numbersAndPunctuation, .asciiCapableNumberPad]
+        let spacelessContent: [UITextContentType] = [.URL, .emailAddress, .username, .oneTimeCode]
+        if spacelessTypes.contains(keyboardType) { return value }
+        if let contentType, spacelessContent.contains(contentType) { return value }
+        guard let last = before.last, let first = value.first else { return value }
+        if last == " " && first == " " { return String(value.dropFirst()) }
+        let opensSpan = "([{\"'“‘/@#$-\n\t".contains(last)
+        let closesSpan = first.isWhitespace || ".,;:!?)]}…".contains(first)
+        if !last.isWhitespace && !opensSpan && !closesSpan { return " " + value }
+        return value
+    }
+
+    /// Caches the user's system text replacements for the app to import.
+    private func cacheTextReplacements() {
+        // UIKit calls this on a background XPC queue, not the main actor.
+        requestSupplementaryLexicon { @Sendable lexicon in
+            let pairs = lexicon.entries
+                .filter { $0.userInput.caseInsensitiveCompare($0.documentText) != .orderedSame }
+                .map { ["shortcut": $0.userInput, "phrase": $0.documentText] }
+            UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(pairs, forKey: TextReplacementImport.defaultsKey)
         }
     }
 }
@@ -644,6 +701,7 @@ struct KeyboardView: View {
     @ObservedObject var store: CutlingStore
     @ObservedObject var state: KeyboardState
     let onInsertText: (String) -> Void
+    let onInsertCutling: (String, Int, Bool) -> Void
     let onCopyImage: (Data) -> Void
     let onBackspace: () -> Bool
     let onDeleteWord: (Int) -> Bool
@@ -653,6 +711,7 @@ struct KeyboardView: View {
     @State private var existedID: UUID? = nil
     @State private var newlyAddedID: UUID? = nil
     @State private var showAddedToast = false
+    @State private var copiedStyledID: UUID? = nil
     @State private var showNoAccessToast = false
     @State private var showEmptyClipboardToast = false
     @State private var showLimitToast = false
@@ -790,6 +849,19 @@ struct KeyboardView: View {
 
     // MARK: - Input Type Suggestion
 
+    /// Text cutlings whose name starts with the word before the cursor.
+    private func wordMatches(from liveCutlings: [Cutling]) -> [Cutling] {
+        let word = state.wordBeforeCursor
+        guard word.count >= 2 else { return [] }
+        return liveCutlings.filter { cutling in
+            cutling.kind == .text
+                && cutling.name.range(of: word, options: [.anchored, .caseInsensitive, .diacriticInsensitive]) != nil
+                && cutling.plainValue.caseInsensitiveCompare(word) != .orderedSame
+        }
+        .prefix(6)
+        .map { $0 }
+    }
+
     /// Cutlings whose inputTypeTriggers match the current text field context.
     private func suggestedCutlings(from liveCutlings: [Cutling]) -> [Cutling] {
         let activeKeys = InputTypeCategory.activeTriggerKeys(
@@ -808,7 +880,9 @@ struct KeyboardView: View {
 
     private var cutlingGrid: some View {
         let liveCutlings = store.cutlings.filter { !$0.isExpired }
-        let suggested = suggestedCutlings(from: liveCutlings)
+        let matches = wordMatches(from: liveCutlings)
+        let matchIDs = Set(matches.map(\.id))
+        let suggested = matches + suggestedCutlings(from: liveCutlings).filter { !matchIDs.contains($0.id) }
         let suggestedIDs = Set(suggested.map(\.id))
         let remaining = liveCutlings.filter { !suggestedIDs.contains($0.id) }
         let gridColumns = [GridItem(.adaptive(minimum: KeyStyle.cardMinWidth(for: horizontalSizeClass)), spacing: keySpacing)]
@@ -848,7 +922,10 @@ struct KeyboardView: View {
                                         store: store,
                                         isCopied: copiedID == cutling.id,
                                         isExisted: existedID == cutling.id,
-                                        onTap: { handleTap(cutling) }
+                                        isBlocked: isBlockedByASCIIField(cutling),
+                                        copiedStyled: copiedStyledID == cutling.id,
+                                        onTypePlain: typePlainAction(for: cutling),
+                                        onTap: { handleTap(cutling, replacesWord: matchIDs.contains(cutling.id)) }
                                     )
                                     .id(cutling.id)
                                     .transition(AsymmetricTransition(
@@ -874,6 +951,9 @@ struct KeyboardView: View {
                                     store: store,
                                     isCopied: copiedID == cutling.id,
                                     isExisted: existedID == cutling.id,
+                                    isBlocked: isBlockedByASCIIField(cutling),
+                                    copiedStyled: copiedStyledID == cutling.id,
+                                    onTypePlain: typePlainAction(for: cutling),
                                     onTap: { handleTap(cutling) }
                                 )
                                 .id(cutling.id)
@@ -962,10 +1042,43 @@ struct KeyboardView: View {
 
     // MARK: - Actions
 
-    private func handleTap(_ cutling: Cutling) {
+    /// ASCII-only fields can't take non-ASCII text.
+    private func isBlockedByASCIIField(_ cutling: Cutling) -> Bool {
+        guard cutling.kind == .text,
+              state.keyboardType == .asciiCapable || state.keyboardType == .asciiCapableNumberPad
+        else { return false }
+        return !cutling.plainValue.allSatisfy(\.isASCII)
+    }
+
+    /// Keyboards can only type plain text, so a styled tap copies instead.
+    private func tapCopiesStyled(_ cutling: Cutling) -> Bool {
+        cutling.kind == .text && cutling.textFormat == .rich
+            && state.hasFullAccess && !CutlingPasteboard.alwaysPastesPlain
+    }
+
+    /// Long-press on a styled key types it plain instead.
+    private func typePlainAction(for cutling: Cutling) -> (() -> Void)? {
+        guard tapCopiesStyled(cutling) else { return nil }
+        return {
+            onInsertCutling(cutling.plainValue, 0, true)
+            copiedStyledID = nil
+            showCopied(cutling.id)
+            incrementPasteCount()
+        }
+    }
+
+    private func handleTap(_ cutling: Cutling, replacesWord: Bool = false) {
+        guard !isBlockedByASCIIField(cutling) else { return }
         switch cutling.kind {
         case .text:
-            onInsertText(cutling.value)
+            // Styled by default: the user pastes it to keep the formatting.
+            if tapCopiesStyled(cutling), !replacesWord {
+                CutlingPasteboard.copy(cutling)
+                copiedStyledID = cutling.id
+            } else {
+                onInsertCutling(cutling.plainValue, replacesWord ? state.wordBeforeCursor.count : 0, cutling.textFormat != .code)
+                copiedStyledID = nil
+            }
             showCopied(cutling.id)
             incrementPasteCount()
         case .image:
@@ -1087,11 +1200,22 @@ struct KeyboardView: View {
             return
         }
 
+        // Formatting comes from RTF only; HTML import needs WebKit.
+        var value = text
+        var format = TextFormat.suggested(for: text)
+        if let markdown = CutlingPasteboard.formattedMarkdown(allowHTML: false),
+           RichText.plainText(markdown).count <= CutlingStore.maxTextLength,
+           markdown.count <= RichText.maxStoredLength {
+            value = markdown
+            format = .rich
+        }
+
         let clipName = String(localized: "Clip: \(timestampString())", bundle: snapshotBundle)
         let cutling = Cutling(
             name: clipName,
-            value: text,
-            icon: "doc.on.clipboard"
+            value: value,
+            icon: "doc.on.clipboard",
+            format: format == .plain ? nil : format
         )
 
         store.add(cutling)
@@ -1171,6 +1295,9 @@ struct CutlingKeyView: View {
     let store: CutlingStore
     let isCopied: Bool
     let isExisted: Bool
+    var isBlocked: Bool = false
+    var copiedStyled = false
+    var onTypePlain: (() -> Void)? = nil
     let onTap: () -> Void
     
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
@@ -1206,7 +1333,7 @@ struct CutlingKeyView: View {
                     RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous)
                         .fill(.ultraThinMaterial)
                     Label {
-                        Text(cutling.kind == .text ? "Inserted" : "Copied", bundle: snapshotBundle)
+                        Text(cutling.kind == .text && !copiedStyled ? "Inserted" : "Copied", bundle: snapshotBundle)
                     } icon: {
                         Image(systemName: "checkmark")
                     }
@@ -1221,6 +1348,13 @@ struct CutlingKeyView: View {
             .animation(.spring(duration: 0.4, bounce: 0.5), value: isExisted)
         }
         .buttonStyle(KeyboardButtonStyle())
+        .contextMenu {
+            if let onTypePlain {
+                Button("Type as Plain Text", systemImage: "character.cursor.ibeam", action: onTypePlain)
+            }
+        }
+        .disabled(isBlocked)
+        .opacity(isBlocked ? 0.4 : 1)
         .animation(.spring(duration: 0.35, bounce: 0.2), value: isCopied)
     }
 
@@ -1234,7 +1368,7 @@ struct CutlingKeyView: View {
                     .font(.system(size: KeyStyle.titleSize(for: horizontalSizeClass), weight: .semibold))
                     .lineLimit(1)
             }
-            Text(cutling.value)
+            cutling.displayText
                 .font(.system(size: KeyStyle.bodySize(for: horizontalSizeClass)))
                 .foregroundStyle(.secondary)
                 .lineLimit(2)

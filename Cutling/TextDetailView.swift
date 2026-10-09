@@ -55,6 +55,13 @@ struct TextDetailView: View {
     @State private var userDidPickIcon = false
     @State private var sensitiveContentTypes: Set<SensitiveContentType> = []
     @State private var wasTruncated: Bool
+    @State private var format: TextFormat
+    /// Set once the user picks a format, so detection stops changing it.
+    @State private var userPickedFormat: Bool
+    /// Once Formatted or Code appears, the native editor stays so typing never loses focus.
+    @State private var usesNativeEditor: Bool
+    @State private var codeLanguage: String?
+    @State private var formatTask: Task<Void, Never>?
     @AppStorage("autoDetectInputTypes") private var autoDetectInputTypes = true
     @State private var undoHandler = UndoHandler()
 
@@ -68,6 +75,7 @@ struct TextDetailView: View {
     private let editorSaveTip = EditorSaveTip()
     private let editorBackTip = EditorBackTip()
     private let editorDeleteTip = EditorDeleteTip()
+    private let formattedPasteTip = FormattedPasteTip()
     #endif
 
     init(
@@ -79,6 +87,7 @@ struct TextDetailView: View {
         initialTriggers: [String] = [],
         initialExpiresAt: Date? = nil,
         initialWasTruncated: Bool = false,
+        initialFormat: TextFormat? = nil,
         presentedAsSheet: Bool = true
     ) {
         self.existingItem = item
@@ -103,6 +112,22 @@ struct TextDetailView: View {
         // (e.g. dropped from another cutling) so auto-detect doesn't override it.
         _userDidPickIcon = State(initialValue: item != nil || initialIcon != nil)
         _wasTruncated = State(initialValue: initialWasTruncated)
+        _format = State(initialValue: item?.textFormat ?? initialFormat ?? .plain)
+        // Cutlings saved before formats existed still get detected.
+        _userPickedFormat = State(initialValue: item?.format != nil || initialFormat != nil)
+        _usesNativeEditor = State(initialValue: (item?.textFormat ?? initialFormat ?? .plain) != .plain)
+    }
+
+    /// The text a reader sees; Rich markers don't count toward the limit.
+    private var visibleText: String {
+        format == .rich ? RichText.plainText(value) : value
+    }
+
+    /// nil keeps a legacy Plain cutling untouched; any change is written explicitly.
+    private var formatToSave: TextFormat? {
+        // Code typed by hand is caught at save, so the editor never swaps mid-typing.
+        if format == .plain, !userPickedFormat, CodeDetector.ruleVerdict(value) == true { return .code }
+        return format == .plain && existingItem?.format == nil ? nil : format
     }
 
     var isEditing: Bool { existingItem != nil }
@@ -351,16 +376,21 @@ struct TextDetailView: View {
             }
             SensitiveContentWarning(types: sensitiveContentTypes)
             Section {
-                TextEditor(text: undoHandler.binding($value, actionName: String(localized: "Change Text")))
-                    .focused($focusedField, equals: .value)
+                textEditor
                     .frame(minHeight: 120, maxHeight: 450)
-                    .scrollContentBackground(.hidden)
                     #if os(iOS)
                     .id("tutorialTextSection")
                     .popoverTip(editorTextTip, arrowEdge: .top)
                     #endif
                     .onChange(of: value) { oldValue, newValue in
-                        if newValue.count > CutlingStore.maxTextLength {
+                        if format == .rich {
+                            // Cutting Markdown mid-marker would garble it, so refuse the edit.
+                            if RichText.plainText(newValue).count > CutlingStore.maxTextLength
+                                || newValue.count > RichText.maxStoredLength {
+                                value = oldValue
+                                return
+                            }
+                        } else if newValue.count > CutlingStore.maxTextLength {
                             value = String(newValue.prefix(CutlingStore.maxTextLength))
                         }
                         if wasTruncated && newValue != oldValue {
@@ -397,11 +427,23 @@ struct TextDetailView: View {
                         }
                         .foregroundStyle(.orange)
                     }
-                    Text("\(value.count) / \(CutlingStore.maxTextLength)")
-                        .foregroundStyle(value.count > CutlingStore.maxTextLength - 500 ? .orange : .secondary)
+                    HStack {
+                        Text("\(visibleText.count) / \(CutlingStore.maxTextLength)")
+                            .foregroundStyle(visibleText.count > CutlingStore.maxTextLength - 500 ? .orange : .secondary)
+                        Spacer()
+                        formatChip
+                    }
                 }
                 .font(.caption)
             }
+            #if os(iOS)
+            // Keyboards can't type formatting; explain once, inline so it fits.
+            if format == .rich && !TutorialCoordinator.shared.isActive {
+                TipView(formattedPasteTip)
+                    .listRowInsets(EdgeInsets())
+                    .listRowBackground(Color.clear)
+            }
+            #endif
             InputTypePickerSection(selectedTriggers: undoHandler.binding($inputTypeTriggers, actionName: String(localized: "Change Input Types")), userSetInputType: $userSetInputType)
             ExpirationPickerSection(autoDeleteEnabled: undoHandler.binding($autoDeleteEnabled, actionName: String(localized: "Change Expiration")), deleteAt: undoHandler.binding($deleteAt, actionName: String(localized: "Change Expiration")))
 
@@ -443,7 +485,11 @@ struct TextDetailView: View {
                 scheduleAutoDetect()
             }
             if !value.isEmpty {
-                sensitiveContentTypes = SensitiveContentType.detect(in: value)
+                sensitiveContentTypes = SensitiveContentType.detect(in: visibleText)
+            }
+            // Detect undecided text; for Code, this also fetches the language name.
+            if !value.isEmpty, format == .code || (!userPickedFormat && format != .rich) {
+                detectCodeFormat()
             }
         }
         .onChange(of: undoManager, initial: true) { _, newValue in
@@ -603,6 +649,7 @@ struct TextDetailView: View {
             updated.color = Cutling.hexString(from: pickedColor)
             updated.inputTypeTriggers = inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
             updated.userSetInputType = userSetInputType
+            updated.format = formatToSave
             store.update(updated)
             postMacSaveNotification()
             dismiss()
@@ -617,7 +664,8 @@ struct TextDetailView: View {
                         expiresAt: autoDeleteEnabled ? deleteAt : nil,
                         color: Cutling.hexString(from: pickedColor),
                         inputTypeTriggers: inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers),
-                        userSetInputType: userSetInputType
+                        userSetInputType: userSetInputType,
+                        format: formatToSave
                     )
                 )
                 postMacSaveNotification()
@@ -645,6 +693,7 @@ struct TextDetailView: View {
             updated.color = Cutling.hexString(from: pickedColor)
             updated.inputTypeTriggers = inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers)
             updated.userSetInputType = userSetInputType
+            updated.format = formatToSave
             store.update(updated)
         } else {
             guard !name.isEmpty, !value.isEmpty else { return }
@@ -658,7 +707,8 @@ struct TextDetailView: View {
                     expiresAt: autoDeleteEnabled ? deleteAt : nil,
                     color: Cutling.hexString(from: pickedColor),
                     inputTypeTriggers: inputTypeTriggers.isEmpty ? nil : Array(inputTypeTriggers),
-                    userSetInputType: userSetInputType
+                    userSetInputType: userSetInputType,
+                    format: formatToSave
                 )
             )
         }
@@ -674,20 +724,23 @@ struct TextDetailView: View {
             if autoDetectInputTypes || !isEditing {
                 runAutoDetect()
             }
-            sensitiveContentTypes = SensitiveContentType.detect(in: value)
+            sensitiveContentTypes = SensitiveContentType.detect(in: visibleText)
         }
     }
 
     private func runAutoDetectNow() {
         detectTask?.cancel()
+        // Only pastes and big edits may switch the editor; typing never does.
+        if format != .rich, !userPickedFormat || format == .code { detectCodeFormat() }
         if autoDetectInputTypes || !isEditing {
             runAutoDetect()
         }
-        sensitiveContentTypes = SensitiveContentType.detect(in: value)
+        sensitiveContentTypes = SensitiveContentType.detect(in: visibleText)
     }
 
     private func runAutoDetect() {
-        let suggestion = InputTypeCategory.suggest(from: value)
+        let suggestion = InputTypeCategory.suggest(from: visibleText)
+
 
         isAutoDetecting = true
         defer { isAutoDetecting = false }
@@ -725,7 +778,7 @@ struct TextDetailView: View {
             isFetchingTitle = true
             titleFetchTask = Task { @MainActor in
                 defer { isFetchingTitle = false }
-                guard let title = await InputTypeCategory.fetchURLTitle(from: value),
+                guard let title = await InputTypeCategory.fetchURLTitle(from: visibleText),
                       !Task.isCancelled else { return }
                 if name.isEmpty || name == lastAutoName {
                     name = deduplicatedName(for: title)
@@ -753,6 +806,96 @@ struct TextDetailView: View {
         return "\(baseName) \(counter)"
     }
 
+    // MARK: - Format
+
+    @ViewBuilder
+    private var textEditor: some View {
+        let text = undoHandler.binding($value, actionName: String(localized: "Change Text"))
+        if usesNativeEditor || format != .plain {
+            FormattedTextEditor(text: text, format: $format)
+        } else {
+            TextEditor(text: text)
+                .focused($focusedField, equals: .value)
+                .scrollContentBackground(.hidden)
+        }
+    }
+
+    /// Shown only when the text isn't plain; picks Plain Text, Formatted or Code.
+    @ViewBuilder
+    private var formatChip: some View {
+        if format != .plain {
+            Menu {
+                Picker(selection: Binding(get: { format }, set: { changeFormat(to: $0) })) {
+                    Text("Plain Text").tag(TextFormat.plain)
+                    if format == .rich { Text("Formatted").tag(TextFormat.rich) }
+                    Text("Code").tag(TextFormat.code)
+                } label: {
+                    EmptyView()
+                }
+                .pickerStyle(.inline)
+            } label: {
+                HStack(spacing: 3) {
+                    Text(formatChipTitle)
+                    Image(systemName: "chevron.up.chevron.down")
+                        .imageScale(.small)
+                }
+                .padding(.horizontal, 8)
+                .padding(.vertical, 3)
+                .background(.quaternary, in: Capsule())
+            }
+            .menuStyle(.button)
+            .buttonStyle(.plain)
+            .fixedSize()
+        }
+    }
+
+    private var formatChipTitle: String {
+        switch format {
+        case .rich: String(localized: "Formatted")
+        case .code: codeLanguage.map { String(localized: "Code: \($0)") } ?? String(localized: "Code")
+        case .plain: ""
+        }
+    }
+
+    /// Reads the text as code or not; the on-device model also names the language.
+    private func detectCodeFormat() {
+        formatTask?.cancel()
+        let snapshot = value
+        formatTask = Task { @MainActor in
+            let verdict = await CodeDetector.detect(snapshot)
+            guard !Task.isCancelled, snapshot == value, format != .rich else { return }
+            codeLanguage = verdict.isCode ? verdict.language : nil
+            guard !userPickedFormat else { return }
+            if verdict.isCode { usesNativeEditor = true }
+            format = verdict.isCode ? .code : .plain
+        }
+    }
+
+    /// Converts the text so switching formats never changes what a reader sees.
+    private func changeFormat(to newFormat: TextFormat) {
+        guard newFormat != format else { return }
+        userPickedFormat = true
+        let oldValue = value
+        let oldFormat = format
+        var newValue = value
+        if oldFormat == .rich {
+            newValue = RichText.plainText(value)
+        } else if newFormat == .rich {
+            newValue = RichText.escape(value)
+            if newValue.count > RichText.maxStoredLength { return }
+        }
+        format = newFormat
+        if newFormat != .plain { usesNativeEditor = true }
+        if newFormat == .code, codeLanguage == nil { detectCodeFormat() }
+        if newValue != oldValue {
+            value = newValue
+            undoHandler.registerUndo(from: oldValue, to: newValue, actionName: String(localized: "Change Format")) { restored in
+                value = restored
+                format = restored == oldValue ? oldFormat : newFormat
+            }
+        }
+    }
+
     // MARK: - Actions
     
     private func checkClipboard() {
@@ -773,18 +916,26 @@ struct TextDetailView: View {
     }
     
     private func pasteFromClipboard() {
-        var newText: String?
-        #if os(iOS)
-        if let text = UIPasteboard.general.string, !text.isEmpty {
-            newText = text
+        let clipboard = CutlingPasteboard.readText(allowHTML: true)
+        // Formatted sources become Formatted unless the user chose another format.
+        if !userPickedFormat || format == .rich,
+           let markdown = clipboard.markdown,
+           RichText.plainText(markdown).count <= CutlingStore.maxTextLength,
+           markdown.count <= RichText.maxStoredLength {
+            isPasting = true
+            canPaste = false
+            let oldValue = value
+            let oldFormat = format
+            format = .rich
+            usesNativeEditor = true
+            value = markdown
+            undoHandler.registerUndo(from: oldValue, to: markdown, actionName: String(localized: "Paste")) { restored in
+                value = restored
+                format = restored == oldValue ? oldFormat : .rich
+            }
+            return
         }
-        #endif
-        #if os(macOS)
-        if let text = NSPasteboard.general.string(forType: .string), !text.isEmpty {
-            newText = text
-        }
-        #endif
-        if let newText {
+        if let newText = clipboard.plain, !newText.isEmpty {
             isPasting = true
             canPaste = false
             let oldValue = value

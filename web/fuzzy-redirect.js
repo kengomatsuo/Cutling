@@ -26,14 +26,14 @@
         'zh-hans', 'zh-hant'
     ];
 
-    var KNOWN_PAGES = ['faq', 'support', 'privacy'];
+    var KNOWN_PAGES = ['faq', 'support', 'privacy', 'terms', 'mac', 'download'];
 
     // Common alternative names / translations people might type for each page.
     var PAGE_ALIASES = {
         // faq
         'faqs': 'faq', 'fag': 'faq', 'faw': 'faq', 'fac': 'faq',
         'questions': 'faq', 'question': 'faq', 'asked': 'faq',
-        'help': 'faq', 'hilfe': 'faq', 'aide': 'faq', 'ayuda': 'faq',
+        'hilfe': 'faq', 'aide': 'faq', 'ayuda': 'faq',
         'qa': 'faq', 'q-a': 'faq', 'q&a': 'faq',
         'preguntas': 'faq', 'domande': 'faq', 'perguntas': 'faq',
         // support
@@ -47,11 +47,17 @@
         // privacy
         'privaci': 'privacy', 'privavy': 'privacy', 'privay': 'privacy',
         'privcy': 'privacy', 'privacv': 'privacy',
-        'legal': 'privacy', 'policy': 'privacy', 'terms': 'privacy',
+        'policy': 'privacy',
         'data': 'privacy', 'gdpr': 'privacy',
         'privacidad': 'privacy', 'datenschutz': 'privacy',
         'confidentialite': 'privacy', 'confidentialité': 'privacy',
-        'privatezza': 'privacy', 'privacidade': 'privacy'
+        'privatezza': 'privacy', 'privacidade': 'privacy',
+        // terms
+        'legal': 'terms', 'tos': 'terms', 'eula': 'terms', 'term': 'terms', 'license': 'terms',
+        // mac
+        'macos': 'mac', 'macbook': 'mac', 'desktop': 'mac', 'menubar': 'mac',
+        // download
+        'downloads': 'download', 'get': 'download', 'install': 'download', 'dmg': 'download'
     };
 
     var SITE_BASE = '';

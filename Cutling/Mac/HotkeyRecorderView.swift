@@ -18,7 +18,7 @@ struct HotkeyRecorderView: View {
 
     var body: some View {
         HStack(spacing: 8) {
-            Text(isRecording ? "Press a key combination…" : combo.displayString)
+            (isRecording ? Text("Press a key combination…") : Text(verbatim: combo.displayString))
                 .font(.system(size: 13, design: .monospaced))
                 .foregroundStyle(isRecording ? .secondary : .primary)
                 .lineLimit(1)

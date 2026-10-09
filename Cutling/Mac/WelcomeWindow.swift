@@ -479,8 +479,8 @@ private struct StepAccessibility: View {
 private struct PermissionRow: View {
     let icon: String
     var iconTint: Color = .accentColor
-    let title: String
-    let subtitle: String
+    let title: LocalizedStringKey
+    let subtitle: LocalizedStringKey
     let trailing: AnyView
 
     var body: some View {

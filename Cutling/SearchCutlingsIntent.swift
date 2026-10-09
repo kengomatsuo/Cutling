@@ -45,7 +45,7 @@ struct SearchCutlingsIntent: AppIntent {
             .filter { !$0.isExpired }
             .filter {
                 $0.name.lowercased().contains(needle) ||
-                $0.value.lowercased().contains(needle)
+                $0.plainValue.lowercased().contains(needle)
             }
             .prefix(25)
 
@@ -56,7 +56,7 @@ struct SearchCutlingsIntent: AppIntent {
                 name: cutling.name,
                 icon: cutling.icon,
                 kind: cutling.kind,
-                preview: cutling.kind == .image ? "" : cutling.value,
+                preview: cutling.kind == .image ? "" : cutling.plainValue,
                 entity: CutlingAppEntity(id: cutling.id, name: cutling.name)
             )
         }

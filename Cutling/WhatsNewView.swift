@@ -41,9 +41,9 @@ struct WhatsNewView: View {
                         detail: "Ask Siri to add, copy, or search your cutlings hands-free."
                     )
                     featureRow(
-                        icon: "rectangle.3.group.fill",
-                        title: "Widgets & Controls",
-                        detail: "Pin favorite cutlings to your Home Screen, Lock Screen, or Control Center for one-tap copy."
+                        icon: "switch.2",
+                        title: "Control Center",
+                        detail: "Save what you copied, or start a new text or image, right from Control Center."
                     )
                     featureRow(
                         icon: "square.and.arrow.up.fill",

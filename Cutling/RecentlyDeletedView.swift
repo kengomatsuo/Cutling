@@ -296,7 +296,7 @@ struct RecentlyDeletedView: View {
             Text(cutling.name)
                 .font(.headline)
                 .lineLimit(1)
-            Text(cutling.value)
+            cutling.displayText
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
                 .lineLimit(3)
@@ -364,7 +364,7 @@ struct RecentlyDeletedView: View {
                     Spacer()
                 }
 
-                Text(cutling.value)
+                cutling.displayText
                     .font(.body)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }

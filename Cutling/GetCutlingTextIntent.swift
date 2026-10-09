@@ -38,8 +38,8 @@ struct GetCutlingTextIntent: AppIntent {
             )
         }
         return .result(
-            value: cutling.value,
-            dialog: IntentDialog(stringLiteral: cutling.value)
+            value: cutling.plainValue,
+            dialog: IntentDialog(stringLiteral: cutling.plainValue)
         )
     }
 }

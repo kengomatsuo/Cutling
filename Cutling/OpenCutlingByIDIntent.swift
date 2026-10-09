@@ -47,7 +47,7 @@ struct OpenCutlingByIDIntent: OpenIntent {
 
         switch cutling.kind {
         case .text:
-            copyText(cutling.value)
+            CutlingPasteboard.copy(cutling)
         case .image:
             if let filename = cutling.imageFilename,
                let data = store.loadImageData(named: filename) {

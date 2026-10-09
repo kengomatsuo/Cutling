@@ -140,6 +140,14 @@ Build the clean Cutling macOS App Store target (no Sparkle) and upload the .pkg 
 
 Upload macOS App Store metadata from fastlane/metadata_mac
 
+### mac upload_screenshots_mac
+
+```sh
+[bundle exec] fastlane mac upload_screenshots_mac
+```
+
+Upload captioned Mac screenshots (fastlane/screenshots_mac/<locale>) to the editable macOS version
+
 ----
 
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.

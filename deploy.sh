@@ -253,6 +253,9 @@ deploy_web() {
   DIST="$REPO_ROOT/dist"
   WEB="$REPO_ROOT/web"
 
+  echo "==> Checking website translations..."
+  python3 "$WEB/_generator/validate_translations.py" > /dev/null || { python3 "$WEB/_generator/validate_translations.py" | grep ERROR; exit 1; }
+
   echo "==> Building website into dist/..."
   python3 "$WEB/_generator/generate.py" --output-dir "$DIST"
 
@@ -262,7 +265,8 @@ deploy_web() {
   cp "$WEB/fuzzy-redirect.js" "$DIST/"
   cp "$WEB/favicon.ico" "$DIST/"
   cp "$WEB/icon.png" "$DIST/"
-  cp -r "$WEB/img/" "$DIST/img/"
+  # Per-locale screenshots from the App Store captures, as WebP.
+  python3 "$WEB/_generator/build_images.py" --output-dir "$DIST"
   cp "$REPO_ROOT/locales.json" "$DIST/"
   # GitHub Pages custom domain. MUST be copied into dist/ on every build: the
   # rsync below runs with --delete, so a CNAME living only on gh-pages would be
@@ -291,6 +295,11 @@ deploy_web() {
   rm -rf "$WORKTREE"
 }
 
+# A UI literal with no key ships English in every locale
+check_strings() {
+  python3 check_mac_ui_strings.py && python3 check_localizations.py --summary >/dev/null
+}
+
 case "${1:-help}" in
   bump)             bump_version "${2:-patch}" ;;
   web)              deploy_web ;;
@@ -313,12 +322,12 @@ case "${1:-help}" in
     python3 fastlane/compose/render_all.py build/compose
     ;;
   screenshots)      $FASTLANE ios upload_screenshots ;;
+  screenshots_mac)  $FASTLANE mac upload_screenshots_mac ;;
   upload)           $FASTLANE ios upload ;;
-  build)            $FASTLANE ios build ;;
+  build)            check_strings && $FASTLANE ios build ;;
   binary)           $FASTLANE ios upload_binary ;;
   resubmit_notes)   $FASTLANE ios resubmit_notes ;;
-  dist)             dist_release ;;
-  screenshots_mac)  $FASTLANE mac upload_screenshots_mac ;;
-  mas)              $FASTLANE mac upload_mas ;;
+  dist)             check_strings && dist_release ;;
+  mas)              check_strings && $FASTLANE mac upload_mas ;;
   help|*)           usage ;;
 esac

@@ -152,6 +152,19 @@ def compare_all_languages(strings_by_lang: Dict[str, Dict[str, str]],
     return 0
 
 
+
+def check_english_punctuation(root):
+    """House copy rule: no em dash or middot as punctuation in English UI strings."""
+    import re, glob as _g
+    bad = []
+    for f in sorted(_g.glob(str(root / "*" / "en*.lproj" / "Localizable.strings"))):
+        for i, line in enumerate(open(f, encoding="utf-8"), 1):
+            m = re.match(r'^".*" = "(.*)";$', line.strip())
+            if m and (" — " in m.group(1) or " · " in m.group(1)):
+                bad.append(f"{f}:{i}: {m.group(1)[:80]}")
+    return bad
+
+
 def main():
     """Main entry point."""
     parser = argparse.ArgumentParser(
@@ -182,6 +195,13 @@ def main():
     args = parser.parse_args()
     
     root_path = Path(__file__).parent
+
+    punctuation = check_english_punctuation(root_path)
+    if punctuation:
+        print("English UI strings with an em dash or middot (house copy rule):")
+        for line in punctuation:
+            print("  " + line)
+        sys.exit(1)
     
     # Find all Localizable.strings files
     files = find_localizable_files(root_path)

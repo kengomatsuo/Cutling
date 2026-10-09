@@ -173,6 +173,8 @@ private struct GeneralSettingsTab: View {
     @AppStorage("imageSaveBehavior") private var imageSaveBehaviorRaw = ImageSaveService.Behavior.ask.rawValue
     @Environment(\.openWindow) private var openWindow
     @State private var launchAtLogin = LaunchAtLoginService.shared.isEnabled
+    @AppStorage(CutlingPasteboard.alwaysPlainKey, store: UserDefaults(suiteName: "group.com.matsuokengo.Cutling"))
+    private var alwaysPastePlainText = false
     @State private var imageFolderPath: String = ImageSaveService.shared.savedFolderDisplayPath
     #if canImport(Sparkle)
     @State private var autoUpdate: Bool = UpdaterController.shared.automaticallyChecksForUpdates
@@ -220,6 +222,16 @@ private struct GeneralSettingsTab: View {
                 }
             } footer: {
                 Text("Automatically save everything you copy to the History tab. Items flagged as concealed by password managers are ignored.")
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+
+            Section {
+                Toggle(isOn: $alwaysPastePlainText) {
+                    Label("Always paste plain text", systemImage: "textformat")
+                }
+            } footer: {
+                Text("Formatted text keeps bold, italic and links when pasted. ⌥-click to paste plain text instead.")
                     .font(.caption)
                     .foregroundStyle(.secondary)
             }
@@ -659,7 +671,7 @@ private struct DeletedCutlingRow: View {
                         .font(.system(size: 11))
                         .foregroundStyle(.secondary)
                         .lineLimit(1)
-                    Text("\(deleted.daysRemaining)d left")
+                    Text(deleted.daysRemaining == 1 ? LocalizedStringKey("1 day left") : "\(deleted.daysRemaining) days left")
                         .font(.system(size: 11))
                         .foregroundStyle(deleted.daysRemaining <= 3 ? AnyShapeStyle(.orange) : AnyShapeStyle(.tertiary))
                 }
@@ -681,7 +693,7 @@ private struct DeletedCutlingRow: View {
     private var preview: String {
         switch deleted.cutling.kind {
         case .text:
-            let trimmed = deleted.cutling.value.trimmingCharacters(in: .whitespacesAndNewlines)
+            let trimmed = deleted.cutling.plainValue.trimmingCharacters(in: .whitespacesAndNewlines)
             return trimmed.isEmpty ? String(localized: "Empty") : trimmed
         case .image:
             return String(localized: "Image")

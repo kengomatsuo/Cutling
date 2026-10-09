@@ -181,6 +181,7 @@ struct NewCutlingDraft: Identifiable, Equatable {
     var inputTypeTriggers: [String]? = nil
     var expiresAt: Date? = nil
     var wasTruncated: Bool = false
+    var format: TextFormat? = nil
 }
 
 // MARK: - Cutling Drag & Drop Payload
@@ -200,7 +201,7 @@ struct CutlingPayload: Codable, Transferable {
     static var transferRepresentation: some TransferRepresentation {
         CodableRepresentation(contentType: .cutling)
         ProxyRepresentation { (payload: CutlingPayload) -> String in
-            payload.cutling.value
+            payload.cutling.plainValue
         }
         DataRepresentation(exportedContentType: .png) { payload in
             guard let data = payload.imageData else {
@@ -449,6 +450,8 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
     /// this cutling. While false, the store is free to (re)run auto-detection
     /// over `value` and replace `inputTypeTriggers`.
     var userSetInputType: Bool
+    /// nil on cutlings saved before formats existed; read via `textFormat`.
+    var format: TextFormat?
 
     /// The input type categories this cutling is assigned to.
     var assignedCategories: Set<InputTypeCategory> {
@@ -553,7 +556,8 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
         expiresAt: Date? = nil,
         color: String? = nil,
         inputTypeTriggers: [String]? = nil,
-        userSetInputType: Bool = false
+        userSetInputType: Bool = false,
+        format: TextFormat? = nil
     ) {
         self.id = id
         self.name = name
@@ -568,6 +572,7 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
         self.color = color
         self.inputTypeTriggers = inputTypeTriggers
         self.userSetInputType = userSetInputType
+        self.format = format
     }
     
     /// Decodes gracefully from older data that may lack sortOrder/lastModifiedDate/expiresAt/color.
@@ -587,6 +592,17 @@ struct Cutling: Identifiable, Codable, Hashable, Sendable {
         color = try container.decodeIfPresent(String.self, forKey: .color)
         inputTypeTriggers = try container.decodeIfPresent([String].self, forKey: .inputTypeTriggers)
         userSetInputType = try container.decodeIfPresent(Bool.self, forKey: .userSetInputType) ?? false
+        format = try container.decodeIfPresent(TextFormat.self, forKey: .format)
+    }
+
+    /// A remote copy merged onto the local one. Records saved by older
+    /// builds lack the newer fields, so the local values survive.
+    nonisolated static func merging(remote: Cutling, onto local: Cutling) -> Cutling {
+        var merged = remote
+        merged.createdDate = min(local.createdDate, remote.createdDate)
+        merged.userSetInputType = remote.userSetInputType || local.userSetInputType
+        merged.format = remote.format ?? local.format
+        return merged
     }
 }
 
@@ -615,5 +631,21 @@ struct DeletedCutling: Identifiable, Codable, Hashable {
     /// Days remaining before permanent deletion.
     var daysRemaining: Int {
         max(0, Calendar.current.dateComponents([.day], from: Date(), to: permanentDeletionDate).day ?? 0)
+    }
+}
+
+// MARK: - CloudKit Schema
+
+enum CloudKitSchema {
+    /// Flip once createdDate/userSetInputType/format are deployed to the production schema.
+    /// Production rejects saves carrying fields it doesn't know.
+    nonisolated static let productionHasMetadataFields = true
+
+    nonisolated static var writesMetadataFields: Bool {
+        #if DEBUG
+        true // Debug saves create the fields in the development schema.
+        #else
+        productionHasMetadataFields
+        #endif
     }
 }

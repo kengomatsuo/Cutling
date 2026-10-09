@@ -73,7 +73,7 @@ struct MacPickerView: View {
         guard !searchText.isEmpty else { return list }
         let q = searchText.lowercased()
         return list.filter {
-            $0.name.lowercased().contains(q) || $0.value.lowercased().contains(q)
+            $0.name.lowercased().contains(q) || $0.plainValue.lowercased().contains(q)
         }
     }
 
@@ -130,7 +130,7 @@ struct MacPickerView: View {
             // PickerPanel.handleDidPick where `cameFromPanel` gates the post).
             // And only when the user has opted in to direct-paste and the
             // permission is still missing.
-            if surface == .pickerPanel && pasteDirectly && !isAccessibilityTrusted {
+            if surface == .pickerPanel && pasteDirectly && !isAccessibilityTrusted && !Self.isPromoTake {
                 accessibilityBanner
             }
             Divider()
@@ -179,6 +179,15 @@ struct MacPickerView: View {
     /// or history is empty).
     private func syncClearHistoryGate(forTab tab: MacPickerTab) {
         ClearHistoryTip.canShow = tab == .history && !store.historyCutlings.isEmpty
+    }
+
+    /// Promo takes run a debug build macOS hasn't trusted; the footer would mislead.
+    private static var isPromoTake: Bool {
+        #if DEBUG
+        ProcessInfo.processInfo.arguments.contains("-PROMO_MODE")
+        #else
+        false
+        #endif
     }
 
     private var accessibilityBanner: some View {
@@ -368,6 +377,9 @@ struct MacPickerView: View {
             }
             .contextMenu {
                 Button("Copy") { copy(cutling) }
+                if cutling.textFormat == .rich {
+                    Button("Copy as Plain Text") { copy(cutling, plainOnly: true) }
+                }
                 if cutling.kind == .image {
                     Button("Save as File\u{2026}") {
                         saveImageToDisk(cutling)
@@ -526,13 +538,14 @@ struct MacPickerView: View {
         .background(.background.secondary)
     }
 
-    private func copy(_ cutling: Cutling) {
-        let pb = NSPasteboard.general
-        pb.clearContents()
+    private func copy(_ cutling: Cutling, plainOnly: Bool = false) {
         switch cutling.kind {
         case .text:
-            pb.setString(cutling.value, forType: .string)
+            // ⌥-click pastes without formatting.
+            CutlingPasteboard.copy(cutling, plainOnly: plainOnly || NSEvent.modifierFlags.contains(.option))
         case .image:
+            let pb = NSPasteboard.general
+            pb.clearContents()
             if let filename = cutling.imageFilename {
                 let path = store.imagesDirectory.appendingPathComponent(filename)
                 if let image = NSImage(contentsOf: path) {
@@ -667,7 +680,7 @@ private struct MacPickerRow: View {
         case .image:
             return cutling.imageFilename != nil
         case .text:
-            let value = cutling.value
+            let value = cutling.plainValue
             if value.contains("\n") || value.contains("\r") { return true }
             return value.count > 45
         }
@@ -689,7 +702,7 @@ private struct MacPickerRow: View {
     private var preview: String {
         switch cutling.kind {
         case .text:
-            let trimmed = cutling.value.trimmingCharacters(in: .whitespacesAndNewlines)
+            let trimmed = cutling.plainValue.trimmingCharacters(in: .whitespacesAndNewlines)
             return trimmed.isEmpty ? String(localized: "Empty") : trimmed
         case .image:
             // In the History tab the row is single-line, so prefer the
@@ -798,7 +811,7 @@ private struct TextPreviewPopover: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             ScrollView {
-                Text(cutling.value)
+                cutling.displayText
                     .font(.system(size: 12, design: codeLooking ? .monospaced : .default))
                     .textSelection(.enabled)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -807,7 +820,7 @@ private struct TextPreviewPopover: View {
             .frame(maxHeight: 280)
 
             HStack {
-                Text("\(cutling.value.count) chars")
+                Text("\(cutling.plainValue.count) chars")
                     .font(.caption.monospacedDigit())
                     .foregroundStyle(.secondary)
                 Spacer()
@@ -824,6 +837,8 @@ private struct TextPreviewPopover: View {
     /// like source code or structured data. Keeps prose readable in the
     /// default font and code legible in mono.
     private var codeLooking: Bool {
+        if cutling.textFormat == .code { return true }
+        if cutling.textFormat == .rich { return false }
         let v = cutling.value
         return v.contains("{") || v.contains(";") || v.contains("=>") ||
                v.range(of: #"^\s*\w+\s*=\s*"#, options: .regularExpression) != nil

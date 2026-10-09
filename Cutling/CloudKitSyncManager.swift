@@ -302,7 +302,7 @@ final actor CloudKitSyncManager {
                 // Update existing cutlings with remote data
                 for i in local.indices {
                     if let remote = remoteByID[local[i].id.uuidString] {
-                        local[i] = remote
+                        local[i] = Cutling.merging(remote: remote, onto: local[i])
                     }
                 }
                 
@@ -400,6 +400,11 @@ final actor CloudKitSyncManager {
         } else {
             record["inputTypeTriggers"] = nil
         }
+        if CloudKitSchema.writesMetadataFields {
+            record["createdDate"] = cutling.createdDate as CKRecordValue
+            record["userSetInputType"] = (cutling.userSetInputType ? 1 : 0) as CKRecordValue
+            record["format"] = cutling.format?.rawValue as CKRecordValue?
+        }
 
         // Image asset
         if cutling.kind == .image, let filename = cutling.imageFilename {
@@ -434,6 +439,10 @@ final actor CloudKitSyncManager {
         let expiresAt = record["expiresAt"] as? Date
         let color = record["color"] as? String
         let inputTypeTriggers = record["inputTypeTriggers"] as? [String]
+        // Absent on records saved before these fields synced.
+        let createdDate = record["createdDate"] as? Date ?? lastModified
+        let userSetInputType = (record["userSetInputType"] as? Int ?? 0) != 0
+        let format = (record["format"] as? String).flatMap(TextFormat.init(rawValue:))
 
         var imageFilename: String? = nil
         if kind == .image, let asset = record["imageAsset"] as? CKAsset, let fileURL = asset.fileURL {
@@ -459,10 +468,13 @@ final actor CloudKitSyncManager {
             kind: kind,
             imageFilename: imageFilename,
             sortOrder: sortOrder,
+            createdDate: createdDate,
             lastModifiedDate: lastModified,
             expiresAt: expiresAt,
             color: color,
-            inputTypeTriggers: inputTypeTriggers
+            inputTypeTriggers: inputTypeTriggers,
+            userSetInputType: userSetInputType,
+            format: format
         )
     }
 
@@ -500,7 +512,7 @@ final actor CloudKitSyncManager {
             // Apply modifications (add or update)
             for (id, remoteCutling) in mods {
                 if let idx = current.firstIndex(where: { $0.id.uuidString == id }) {
-                    current[idx] = remoteCutling
+                    current[idx] = Cutling.merging(remote: remoteCutling, onto: current[idx])
                 } else {
                     current.append(remoteCutling)
                 }
@@ -686,7 +698,7 @@ extension CloudKitSyncManager: CKSyncEngineDelegate {
                             let updated = remoteCutling
                             var current = cutlings
                             if let idx = current.firstIndex(where: { $0.id.uuidString == id }) {
-                                current[idx] = updated
+                                current[idx] = Cutling.merging(remote: updated, onto: current[idx])
                             }
                             let final_ = current
                             Task { @MainActor in

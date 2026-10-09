@@ -44,12 +44,16 @@ struct SaveTextToCutlingIntent: AppIntent {
         }
 
         let suggestion = InputTypeCategory.suggest(from: trimmed)
+        // Code keeps its indentation; only blank edge lines go.
+        let isCode = TextFormat.looksLikeCode(text)
+        let value = isCode ? text.trimmingCharacters(in: .newlines) : trimmed
         let cutling = Cutling(
             name: String(trimmed.prefix(50)),
-            value: String(trimmed.prefix(CutlingStore.maxTextLength)),
+            value: String(value.prefix(CutlingStore.maxTextLength)),
             icon: suggestion.icon,
             kind: .text,
-            inputTypeTriggers: suggestion.triggers.isEmpty ? nil : Array(suggestion.triggers)
+            inputTypeTriggers: suggestion.triggers.isEmpty ? nil : Array(suggestion.triggers),
+            format: isCode ? .code : nil
         )
         store.add(cutling)
 

@@ -38,7 +38,7 @@ struct InputTypeCutlingPicker: View {
                                     .font(.body)
                                     .lineLimit(1)
                                 if cutling.kind == .text && !cutling.value.isEmpty {
-                                    Text(cutling.value)
+                                    Text(cutling.plainValue)
                                         .font(.caption)
                                         .foregroundStyle(.secondary)
                                         .lineLimit(1)

@@ -100,6 +100,11 @@ final class CutlingAppDelegate: NSObject, NSApplicationDelegate {
         if CutlingStore.isMacSnapshotMode {
             store.seedForSnapshots()
             store.seedHistoryForSnapshots()
+            // Promo sync shot: the cutling just saved on iPhone, at the top.
+            if ProcessInfo.processInfo.arguments.contains("-PROMO_SYNC") {
+                store.cutlings.insert(Cutling(name: "Office door", value: "Code 4815, then push twice", icon: "key.fill", sortOrder: -1, color: "orange"), at: 0)
+                store.save()
+            }
             if UserDefaults.standard.bool(forKey: "SNAPSHOT_DARK") {
                 NSApp.appearance = NSAppearance(named: .darkAqua)
             }
@@ -108,6 +113,11 @@ final class CutlingAppDelegate: NSObject, NSApplicationDelegate {
                     try? await Task.sleep(for: .seconds(1.5))
                     CutlingPickerController.shared.showForSnapshot()
                 }
+            }
+            // Promo takes film the real hotkey; the store stays throwaway.
+            if ProcessInfo.processInfo.arguments.contains("-PROMO_MODE") {
+                _ = CutlingPickerController.shared
+                GlobalHotkey.shared.register()
             }
             return
         }

@@ -384,6 +384,7 @@ class CutlingStore: ObservableObject {
         )
         copy.color = cutling.color
         copy.inputTypeTriggers = cutling.inputTypeTriggers
+        copy.format = cutling.format
 
         if let filename = cutling.imageFilename,
            let data = loadImageData(named: filename) {
@@ -499,7 +500,7 @@ class CutlingStore: ObservableObject {
         guard !trimmed.isEmpty else { return nil }
         return cutlings.first {
             $0.kind == .text &&
-            $0.value.trimmingCharacters(in: .whitespacesAndNewlines) == trimmed
+            $0.plainValue.trimmingCharacters(in: .whitespacesAndNewlines) == trimmed
         }
     }
 
@@ -794,7 +795,7 @@ class CutlingStore: ObservableObject {
     func migrateInputTypeTriggers() {
         var changed = false
         for i in cutlings.indices where cutlings[i].kind == .text && cutlings[i].inputTypeTriggers == nil {
-            let detected = InputTypeCategory.detect(from: cutlings[i].value)
+            let detected = InputTypeCategory.detect(from: cutlings[i].plainValue)
             guard !detected.isEmpty else { continue }
             let triggers = detected.flatMap { $0.triggerKeys }
             cutlings[i].inputTypeTriggers = Array(Set(triggers))
@@ -811,7 +812,7 @@ class CutlingStore: ObservableObject {
     /// 800 ms debounce) where the in-page detector might never have fired.
     private func applyInputTypeDetection(_ cutling: inout Cutling) {
         guard cutling.kind == .text, !cutling.userSetInputType else { return }
-        let triggers = InputTypeCategory.detect(from: cutling.value).flatMap { $0.triggerKeys }
+        let triggers = InputTypeCategory.detect(from: cutling.plainValue).flatMap { $0.triggerKeys }
         cutling.inputTypeTriggers = triggers.isEmpty ? nil : Array(Set(triggers))
     }
 
@@ -822,7 +823,7 @@ class CutlingStore: ObservableObject {
     func scanInputTypesIfNeeded() {
         var changed = false
         for i in cutlings.indices where cutlings[i].kind == .text && !cutlings[i].userSetInputType {
-            let detected = InputTypeCategory.detect(from: cutlings[i].value)
+            let detected = InputTypeCategory.detect(from: cutlings[i].plainValue)
             let newTriggers = detected.isEmpty ? nil : Array(Set(detected.flatMap { $0.triggerKeys }))
             let oldSet = Set(cutlings[i].inputTypeTriggers ?? [])
             let newSet = Set(newTriggers ?? [])
@@ -927,7 +928,11 @@ class CutlingStore: ObservableObject {
     @discardableResult
     func promoteHistoryToSaved(_ id: UUID) -> Bool {
         guard let index = historyCutlings.firstIndex(where: { $0.id == id }) else { return false }
-        let item = historyCutlings[index]
+        var item = historyCutlings[index]
+        // History keeps full text; saved cutlings obey the limit.
+        if item.kind == .text, isTextTooLong(item.value) {
+            item.value = String(item.value.prefix(Self.maxTextLength))
+        }
         let canAddCheck = canAdd(item.kind)
         guard canAddCheck.allowed else { return false }
         historyCutlings.remove(at: index)
@@ -967,5 +972,39 @@ extension Data {
             let hex = String(byte, radix: 16)
             return byte < 16 ? "0" + hex : hex
         }.joined()
+    }
+}
+
+// MARK: - Text Replacement Import
+
+/// System text replacements, cached by the keyboard (only it can read them).
+enum TextReplacementImport {
+    nonisolated static let defaultsKey = "textReplacements"
+}
+
+extension CutlingStore {
+    /// Cached replacements not yet saved as cutlings.
+    var pendingTextReplacements: [(shortcut: String, phrase: String)] {
+        let pairs = defaults.array(forKey: TextReplacementImport.defaultsKey) as? [[String: String]] ?? []
+        let existing = Set(cutlings.map { "\($0.name)\u{1F}\($0.value)" })
+        return pairs.compactMap { pair in
+            guard let shortcut = pair["shortcut"], let phrase = pair["phrase"],
+                  !phrase.isEmpty, phrase.count <= Self.maxTextLength,
+                  !existing.contains("\(shortcut)\u{1F}\(phrase)")
+            else { return nil }
+            return (shortcut, phrase)
+        }
+    }
+
+    /// Saves pending replacements as cutlings until a limit is hit; returns how many.
+    @discardableResult
+    func importTextReplacements() -> Int {
+        var imported = 0
+        for (shortcut, phrase) in pendingTextReplacements {
+            guard canAdd(.text).allowed else { break }
+            add(Cutling(name: shortcut, value: phrase, icon: "character.cursor.ibeam"))
+            imported += 1
+        }
+        return imported
     }
 }

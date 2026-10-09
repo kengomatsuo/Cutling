@@ -40,13 +40,13 @@ struct GetLatestCutlingTextIntent: AppIntent {
             name: latest.name,
             icon: latest.icon,
             kind: latest.kind,
-            preview: latest.value,
+            preview: latest.plainValue,
             entity: CutlingAppEntity(id: latest.id, name: latest.name)
         )
 
         return .result(
-            value: latest.value,
-            dialog: IntentDialog(stringLiteral: latest.value),
+            value: latest.plainValue,
+            dialog: IntentDialog(stringLiteral: latest.plainValue),
             view: LatestCutlingSnippetView(item: item)
         )
     }

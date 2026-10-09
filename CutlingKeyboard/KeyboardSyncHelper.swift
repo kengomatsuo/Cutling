@@ -91,6 +91,11 @@ enum KeyboardSyncHelper {
         if let triggers = cutling.inputTypeTriggers, !triggers.isEmpty {
             record["inputTypeTriggers"] = triggers as CKRecordValue
         }
+        if CloudKitSchema.writesMetadataFields {
+            record["createdDate"] = cutling.createdDate as CKRecordValue
+            record["userSetInputType"] = (cutling.userSetInputType ? 1 : 0) as CKRecordValue
+            if let format = cutling.format { record["format"] = format.rawValue as CKRecordValue }
+        }
 
         // Image asset
         if cutling.kind == .image, let filename = cutling.imageFilename {

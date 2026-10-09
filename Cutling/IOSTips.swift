@@ -78,6 +78,15 @@ struct InputTypeMatchTip: Tip {
     var options: [Option] { MaxDisplayCount(1) }
 }
 
+/// A keyboard can only type plain text, so tapping a Formatted cutling
+/// copies it instead. Shown once, on the editor's Formatted chip, the
+/// first time a cutling's text is detected as formatted.
+struct FormattedPasteTip: Tip {
+    var title: Text { Text("Due to iOS keyboard limits, formatted text is copied, not typed.") }
+    var image: Image? { Image(systemName: "doc.on.clipboard") }
+    var options: [Option] { MaxDisplayCount(1) }
+}
+
 // MARK: - Interactive tutorial: in-sheet steps (native popovers)
 //
 // The editor (create / edit) steps use TipKit popovers instead of the custom

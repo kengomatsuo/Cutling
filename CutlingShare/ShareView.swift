@@ -22,6 +22,27 @@ struct SharedItem: Identifiable {
     var deleteAt = Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date()
     var needsTitleFetch = false
     var sensitiveContentTypes: Set<SensitiveContentType> = []
+    var format: TextFormat? = nil
+
+    /// Text with Rich markers removed.
+    func visibleText(_ text: String) -> String {
+        format == .rich ? RichText.plainText(text) : text
+    }
+
+    func styledText(_ text: String) -> Text {
+        switch format ?? .plain {
+        case .plain: Text(text)
+        case .rich: Text(RichText.attributed(text))
+        case .code: Text(text).monospaced()
+        }
+    }
+
+    /// Rich text is refused rather than cut mid-marker.
+    func fits(_ text: String) -> Bool {
+        format == .rich
+            ? RichText.plainText(text).count <= CutlingStore.maxTextLength && text.count <= RichText.maxStoredLength
+            : text.count <= CutlingStore.maxTextLength
+    }
 }
 
 struct ShareView: View {
@@ -161,13 +182,14 @@ struct ShareView: View {
             switch item.content {
             case .text(let text):
                 Section {
-                    Text(text)
+                    item.styledText(text)
                         .frame(minHeight: 120, maxHeight: 650, alignment: .topLeading)
                 } header: {
                     Text("Text")
                 } footer: {
-                    Text("\(text.count) / \(CutlingStore.maxTextLength)")
-                        .foregroundStyle(text.count > CutlingStore.maxTextLength - 500 ? .orange : .secondary)
+                    let visible = item.visibleText(text)
+                    Text("\(visible.count) / \(CutlingStore.maxTextLength)")
+                        .foregroundStyle(visible.count > CutlingStore.maxTextLength - 500 ? .orange : .secondary)
                         .font(.caption)
                 }
 
@@ -314,7 +336,8 @@ struct ShareView: View {
                                 autoDeleteEnabled: original.expiresAt != nil,
                                 deleteAt: original.expiresAt ?? Calendar.current.date(byAdding: .day, value: 1, to: Date()) ?? Date(),
                                 needsTitleFetch: false,
-                                sensitiveContentTypes: SensitiveContentType.detect(in: original.value)
+                                sensitiveContentTypes: SensitiveContentType.detect(in: original.plainValue),
+                                format: original.format
                             ))
                         case .image:
                             if let imageData = payload.imageData {
@@ -360,6 +383,25 @@ struct ShareView: View {
                     }
                 }
 
+                // Formatted text arrives as RTF beside the plain flavour.
+                if provider.hasItemConformingToTypeIdentifier(UTType.rtf.identifier),
+                   let result = try? await provider.loadItem(forTypeIdentifier: UTType.rtf.identifier),
+                   let data = (result as? Data) ?? (result as? URL).flatMap({ try? Data(contentsOf: $0) }),
+                   let markdown = RichText.markdown(fromRTF: data) {
+                    let text = RichText.plainText(markdown)
+                    let contentFallback = String(text.prefix(40)).components(separatedBy: .newlines).first ?? String(localized: "Shared Text")
+                    let suggestion = InputTypeCategory.suggest(from: text, defaultIcon: "document", defaultName: contentFallback)
+                    extracted.append(SharedItem(
+                        name: title ?? suggestion.name,
+                        icon: suggestion.icon,
+                        content: .text(markdown),
+                        inputTypeTriggers: suggestion.triggers,
+                        sensitiveContentTypes: SensitiveContentType.detect(in: text),
+                        format: .rich
+                    ))
+                    continue
+                }
+
                 if provider.hasItemConformingToTypeIdentifier(UTType.plainText.identifier) {
                     if let result = try? await provider.loadItem(forTypeIdentifier: UTType.plainText.identifier),
                        let text = result as? String {
@@ -370,7 +412,8 @@ struct ShareView: View {
                             icon: suggestion.icon,
                             content: .text(text),
                             inputTypeTriggers: suggestion.triggers,
-                            sensitiveContentTypes: SensitiveContentType.detect(in: text)
+                            sensitiveContentTypes: SensitiveContentType.detect(in: text),
+                            format: TextFormat.looksLikeCode(text) ? .code : nil
                         ))
                         continue
                     }
@@ -471,8 +514,8 @@ struct ShareView: View {
 
             switch item.content {
             case .text(let text):
-                if store.isTextTooLong(text) { continue }
-                if store.findDuplicateText(value: text) != nil { continue }
+                if !item.fits(text) { continue }
+                if store.findDuplicateText(value: item.visibleText(text)) != nil { continue }
                 let cutling = Cutling(
                     name: item.name,
                     value: text,
@@ -481,7 +524,8 @@ struct ShareView: View {
                     expiresAt: expiresAt,
                     color: Cutling.hexString(from: item.color),
                     inputTypeTriggers: item.inputTypeTriggers.isEmpty ? nil : Array(item.inputTypeTriggers),
-                    userSetInputType: item.userSetInputType
+                    userSetInputType: item.userSetInputType,
+                    format: item.format
                 )
                 store.add(cutling)
                 addedIDs.append(cutling.id)
@@ -633,6 +677,11 @@ enum ShareCloudKitUpload {
         if let triggers = cutling.inputTypeTriggers, !triggers.isEmpty {
             record["inputTypeTriggers"] = triggers as CKRecordValue
         }
+        if CloudKitSchema.writesMetadataFields {
+            record["createdDate"] = cutling.createdDate as CKRecordValue
+            record["userSetInputType"] = (cutling.userSetInputType ? 1 : 0) as CKRecordValue
+            if let format = cutling.format { record["format"] = format.rawValue as CKRecordValue }
+        }
         if cutling.kind == .image, let filename = cutling.imageFilename {
             let imageURL = imagesDirectory.appendingPathComponent(filename)
             if FileManager.default.fileExists(atPath: imageURL.path) {
@@ -707,13 +756,14 @@ private struct SharedItemDetailView: View {
             switch item.content {
             case .text(let text):
                 Section {
-                    Text(text)
+                    item.styledText(text)
                         .frame(minHeight: 120, maxHeight: 650, alignment: .topLeading)
                 } header: {
                     Text("Text")
                 } footer: {
-                    Text("\(text.count) / \(CutlingStore.maxTextLength)")
-                        .foregroundStyle(text.count > CutlingStore.maxTextLength - 500 ? .orange : .secondary)
+                    let visible = item.visibleText(text)
+                    Text("\(visible.count) / \(CutlingStore.maxTextLength)")
+                        .foregroundStyle(visible.count > CutlingStore.maxTextLength - 500 ? .orange : .secondary)
                         .font(.caption)
                 }
 
@@ -768,7 +818,7 @@ private struct SharedItemRow: View {
 
                 switch item.content {
                 case .text(let text):
-                    Text(text.prefix(60))
+                    Text(item.visibleText(text).prefix(60))
                         .font(.caption)
                         .foregroundStyle(.secondary)
                         .lineLimit(1)

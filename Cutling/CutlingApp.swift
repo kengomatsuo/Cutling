@@ -126,6 +126,14 @@ struct CutlingApp: App {
         UserDefaults.standard.register(defaults: [
             "autoDetectInputTypes": true,
         ])
+        #if DEBUG
+        // FormattingUITests start on the grid, not the first-run guide.
+        if ProcessInfo.processInfo.arguments.contains("-FORMAT_TEST") {
+            UserDefaults.standard.set(true, forKey: "hasCompletedSetup")
+            // Each run sees the one-time tips afresh.
+            try? Tips.resetDatastore()
+        }
+        #endif
         try? Tips.configure()
         #if os(iOS)
         BGTaskScheduler.shared.register(
@@ -159,8 +167,15 @@ struct CutlingApp: App {
                 #endif
                 .onAppear {
                     #if DEBUG
-                    if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") {
-                        store.seedForSnapshots()
+                    if ProcessInfo.processInfo.arguments.contains("-FORMAT_TEST") {
+                        store.seedForFormatTests()
+                        UserDefaults.standard.removeObject(forKey: "keyboardSetupPage")
+                    } else if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") {
+                        if ProcessInfo.processInfo.arguments.contains("-PROMO_MODE") {
+                            store.seedForPromo()
+                        } else {
+                            store.seedForSnapshots()
+                        }
                         // The UI test grants Full Access in Settings before launch
                         UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(true, forKey: "hasFullAccess")
                         UserDefaults.standard.removeObject(forKey: "keyboardSetupPage")

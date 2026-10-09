@@ -169,7 +169,7 @@ struct MainContentView: View {
         if searchText.isEmpty { return live }
         return live.filter {
             $0.name.localizedCaseInsensitiveContains(searchText) ||
-            $0.value.localizedCaseInsensitiveContains(searchText)
+            $0.plainValue.localizedCaseInsensitiveContains(searchText)
         }
     }
 
@@ -396,6 +396,7 @@ struct MainContentView: View {
                                     initialTriggers: draft.inputTypeTriggers ?? [],
                                     initialExpiresAt: draft.expiresAt,
                                     initialWasTruncated: draft.wasTruncated,
+                                    initialFormat: draft.format,
                                     presentedAsSheet: true
                                 )
                             case .image:
@@ -452,9 +453,10 @@ struct MainContentView: View {
                         if store.findDuplicateImage(data: data) == nil {
                             activeSheet = .newCutling(NewCutlingDraft(kind: .image, name: String(localized: "Shared Image"), imageData: data))
                         }
-                    } else if let string = pasteboard.string, !string.isEmpty {
-                        if store.findDuplicateText(value: string) == nil {
-                            activeSheet = .newCutling(NewCutlingDraft(kind: .text, text: string))
+                    } else {
+                        let clipboard = CutlingPasteboard.readText(allowHTML: true)
+                        if let string = clipboard.plain, !string.isEmpty, store.findDuplicateText(value: string) == nil {
+                            activeSheet = .newCutling(textDraft(plain: string, markdown: clipboard.markdown))
                         }
                     }
                 }
@@ -550,7 +552,8 @@ struct MainContentView: View {
     /// dismiss and the grid settle so the spotlight lands on the real controls.
     private func startTutorialIfUnseen() {
         #if DEBUG
-        if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") { return }
+        let args = ProcessInfo.processInfo.arguments
+        if args.contains("-SNAPSHOT_MODE") || args.contains("-FORMAT_TEST") { return }
         #endif
         guard hasCompletedSetup, !hasSeenInteractiveTutorial, !tutorial.isActive else { return }
         // The walkthrough's first act is creating a cutling; at the text limit
@@ -810,7 +813,7 @@ struct MainContentView: View {
                             .font(.body.weight(.medium))
                             .lineLimit(1)
                         if item.kind == .text {
-                            Text(item.value)
+                            item.displayText
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)
                                 .lineLimit(1)
@@ -1243,9 +1246,9 @@ struct MainContentView: View {
                     return lhs.kind == .image
                 }
             case .shortestFirst:
-                store.sortCutlings { $0.value.count < $1.value.count }
+                store.sortCutlings { $0.plainValue.count < $1.plainValue.count }
             case .longestFirst:
-                store.sortCutlings { $0.value.count > $1.value.count }
+                store.sortCutlings { $0.plainValue.count > $1.plainValue.count }
             case .reverse:
                 store.reverseCutlings()
             }
@@ -1397,7 +1400,7 @@ struct MainContentView: View {
             // the share sheet shows hero/favicon previews.
             let metadataMap: [UUID: LPLinkMetadata] = await withTaskGroup(of: (UUID, LPLinkMetadata?).self) { group in
                 for cutling in selected where cutling.kind == .text {
-                    let trimmed = cutling.value.trimmingCharacters(in: .whitespacesAndNewlines)
+                    let trimmed = cutling.plainValue.trimmingCharacters(in: .whitespacesAndNewlines)
                     guard let url = URL(string: trimmed),
                           let scheme = url.scheme,
                           ["http", "https", "ftp"].contains(scheme.lowercased()) else { continue }
@@ -1449,12 +1452,12 @@ struct MainContentView: View {
         for cutling in selected {
             switch cutling.kind {
             case .text:
-                let trimmed = cutling.value.trimmingCharacters(in: .whitespacesAndNewlines)
+                let trimmed = cutling.plainValue.trimmingCharacters(in: .whitespacesAndNewlines)
                 if let url = URL(string: trimmed),
                    let scheme = url.scheme, ["http", "https", "ftp"].contains(scheme.lowercased()) {
                     items.append(url)
                 } else {
-                    items.append(cutling.value)
+                    items.append(cutling.plainValue)
                 }
             case .image:
                 if let filename = cutling.imageFilename,
@@ -1526,7 +1529,7 @@ struct MainContentView: View {
 
         switch cutling.kind {
         case .text:
-            if store.findDuplicateText(value: cutling.value) != nil {
+            if store.findDuplicateText(value: cutling.plainValue) != nil {
                 showDuplicateNotice()
                 return
             }
@@ -1535,17 +1538,14 @@ struct MainContentView: View {
                 limitAlertMessage = check.reason ?? String(localized: "Cannot add text cutling")
                 return
             }
-            let (finalText, wasTruncated) = truncatedForCutling(cutling.value)
-            activeSheet = .newCutling(NewCutlingDraft(
-                kind: .text,
-                name: cutling.name,
-                text: finalText,
-                icon: cutling.icon,
-                color: cutling.color,
-                inputTypeTriggers: cutling.inputTypeTriggers,
-                expiresAt: cutling.expiresAt,
-                wasTruncated: wasTruncated
-            ))
+            var draft = textDraft(plain: cutling.plainValue, markdown: cutling.textFormat == .rich ? cutling.value : nil)
+            if draft.format == nil, cutling.textFormat == .code { draft.format = .code }
+            draft.name = cutling.name
+            draft.icon = cutling.icon
+            draft.color = cutling.color
+            draft.inputTypeTriggers = cutling.inputTypeTriggers
+            draft.expiresAt = cutling.expiresAt
+            activeSheet = .newCutling(draft)
         case .image:
             guard let data = imageData else {
                 dropNotice = DropNotice(
@@ -1625,6 +1625,17 @@ struct MainContentView: View {
             text: finalText,
             wasTruncated: wasTruncated
         ))
+    }
+
+    /// A text draft that keeps formatting when it fits, else trimmed plain text.
+    private func textDraft(plain: String, markdown: String?) -> NewCutlingDraft {
+        if let markdown,
+           RichText.plainText(markdown).count <= CutlingStore.maxTextLength,
+           markdown.count <= RichText.maxStoredLength {
+            return NewCutlingDraft(kind: .text, text: markdown, format: .rich)
+        }
+        let (text, wasTruncated) = truncatedForCutling(plain)
+        return NewCutlingDraft(kind: .text, text: text, wasTruncated: wasTruncated)
     }
 
     private func truncatedForCutling(_ text: String) -> (String, Bool) {

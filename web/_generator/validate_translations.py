@@ -40,7 +40,7 @@ MUST_CONTAIN = {
     "terms_contact_text": ["kenneth@matsuokengo.com"],
     "footer_copyright": ["Kenneth Johannes Fang", "2026"],
     "download_ios_meta": ["18"],
-    "download_mac_meta": ["14"],
+    "download_mac_meta": ["15"],
     "feature_text_snippets_desc": ["100"],
     "feature_image_cutlings_desc": ["25"],
 }
@@ -106,6 +106,10 @@ def check(locale, en):
         ):
             errors.append(f"{locale}.{key}: lost <strong> tags")
 
+        # House copy rule for English: no em dash or middot as punctuation.
+        if locale.startswith("en-") and ("&mdash;" in value or "\u2014" in value or "&middot;" in value or " \u00b7 " in value):
+            errors.append(f"{locale}.{key}: em dash or middot in English copy")
+
         for needle in MUST_CONTAIN.get(key, []):
             if needle not in value:
                 errors.append(f"{locale}.{key}: lost {needle!r}")
@@ -129,6 +133,9 @@ def main():
     ]
 
     all_errors, all_warnings = [], []
+    for key, value in en.items():
+        if isinstance(value, str) and ("&mdash;" in value or "\u2014" in value or "&middot;" in value):
+            all_errors.append(f"en-US.{key}: em dash or middot in English copy")
     checked = 0
     for locale in locales:
         if locale == "en-US":

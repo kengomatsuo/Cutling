@@ -178,6 +178,7 @@ def generate_page(template_content, translation, en_translation, locale_code, is
     """Replace all placeholders in a template with translated values."""
     html = template_content
 
+    html = html.replace("{{IMG}}", f"{root}/img/{web_code(locale_code)}")
     html = html.replace("{{ROOT}}", root)
     html = html.replace("{{LANG_PREFIX}}", lang_prefix)
     html = html.replace("{{LANG_CODE}}", locale_code)

@@ -14,6 +14,34 @@ import Foundation
 
 #if DEBUG
 extension CutlingStore {
+    /// One cutling per format, for FormattingUITests.
+    func seedForFormatTests() {
+        cutlings = [
+            Cutling(name: "Rich", value: "**Bold** and [link](https://example.com)", icon: "textformat", sortOrder: 0, format: .rich),
+            Cutling(name: "Code", value: "print(\"a_b\")", icon: "chevron.left.forwardslash.chevron.right", sortOrder: 1, format: .code),
+            Cutling(name: "Plain", value: "Hello", icon: "document", sortOrder: 2),
+            // Saved before formats existed: no stored format, detected as code.
+            Cutling(name: "Legacy", value: "def greet():\n    return \"hi\"", icon: "document", sortOrder: 3)
+        ]
+        save()
+    }
+
+    /// The screenshot set plus one Formatted and one Code cutling, for promo takes.
+    func seedForPromo() {
+        seedForSnapshots()
+        if let index = cutlings.firstIndex(where: { $0.name == "Email Signature" }) { cutlings[index].name = "Signature" }
+        cutlings += [
+            Cutling(name: "Work Email", value: "alex@example.com", icon: "at", sortOrder: 10, color: "cyan", inputTypeTriggers: ["content:emailAddress", "keyboard:emailAddress"]),
+            Cutling(name: "Meeting Notes", value: "**Agenda** for Friday, see [the brief](https://example.com/brief)", icon: "textformat", sortOrder: 8, color: "yellow", format: .rich),
+            Cutling(name: "Deploy", value: "git push origin main", icon: "chevron.left.forwardslash.chevron.right", sortOrder: 9, color: "brown", format: .code)
+        ]
+        // Both new ones sit in the keyboard's first rows.
+        let first = ["Meeting Notes", "Deploy", "Work Email", "Home Address", "Signature"]
+        cutlings.sort { (first.firstIndex(of: $0.name) ?? 99, $0.sortOrder) < (first.firstIndex(of: $1.name) ?? 99, $1.sortOrder) }
+        for index in cutlings.indices { cutlings[index].sortOrder = index }
+        save()
+    }
+
     /// Seeds the store with sample cutlings for screenshot automation.
     func seedForSnapshots() {
         // Clear any existing data first
