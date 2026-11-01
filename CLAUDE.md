@@ -2,6 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+**Open ASO items: say them in the first reply of each session until they close (owner, 2026-10-01).** Full account: [docs/aso/open-items.md](docs/aso/open-items.md)
+
 ## Build & Deploy
 
 **Xcode:** Open `Cutling.xcodeproj`. Requires Xcode 16+ (uses `fileSystemSynchronizedGroups`). Main app target is `Cutling`, minimum deployment iOS 18.0 / macOS 14.0.
@@ -28,7 +30,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ./deploy.sh mas            # Build the clean "Cutling" target for the Mac App Store (no Sparkle) and upload the .pkg via fastlane (build_mac_app + deliver, platform osx)
 ```
 
-**Website is `cutling.matsuokengo.com`** (moved off `kengomatsuo.github.io/Cutling` 2026-08-15). Pages serves `gh-pages` at the domain root, so `SITE_BASE` in `web/locale-router.js` + `web/fuzzy-redirect.js` is `''`, and `web/CNAME` must be copied into `dist/` on every build — `deploy_web` rsyncs with `--delete` and would otherwise wipe it and silently unset the domain. Old github.io URLs 301 with the path preserved, which is what keeps already-installed Sparkle clients on the old `SUFeedURL` updating.
+**Website is `cutling.matsuokengo.com`** (moved off `kengomatsuo.github.io/Cutling` 2026-08-15). Pages serves `gh-pages` at the domain root, so `SITE_BASE` in `web/locale-router.js` + `web/fuzzy-redirect.js` is `''`, and `web/CNAME` must be copied into `dist/` on every build — `deploy_web` rsyncs with `--delete` and would otherwise wipe it and silently unset the domain. Old github.io URLs 301 with the path preserved, which is what keeps already-installed Sparkle clients on the old `SUFeedURL` updating. Full account, with the DNS token: [docs/website-domain.md](docs/website-domain.md).
 
 **The App Store is clean; only the direct-download build carries Sparkle:**
 - **`Cutling`** target → **all App Store builds**: iOS App Store (`build`/`binary`) **and** the macOS **App Store** (`mas`). It does **not** link Sparkle, so no App Store binary ever contains a self-updater (guideline 2.4.5). Uses `Cutling/Info.plist` (no `SU*` keys).
