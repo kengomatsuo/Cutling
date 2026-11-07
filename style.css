@@ -980,3 +980,35 @@ a, .cta-button, .tile { transition: color var(--dur) var(--ease), background-col
 
 .hero-media-mac { flex-direction: column; align-items: center; gap: 20px; padding-bottom: 48px; background: linear-gradient(180deg, var(--band-from), var(--band-to)); border-radius: var(--radius-lg); }
 .hero-media-mac .shot-panel { display: block; margin: 0; width: min(360px, 80vw); }
+
+/* Language offer on the English root pages (lang-suggest.js). Fixed, so it shifts no layout. */
+.lang-suggest {
+    position: fixed;
+    inset-inline-end: 16px;
+    bottom: calc(16px + env(safe-area-inset-bottom));
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 4px 4px 16px;
+    background: var(--surface);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    box-shadow: var(--shadow-pop);
+}
+.lang-suggest a { color: var(--accent); font-weight: 600; text-decoration: none; padding: 10px 0; }
+.lang-suggest a:hover { color: var(--accent-hover); }
+.lang-suggest button {
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--ink-3);
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+}
+.lang-suggest button:hover { background: var(--bg-alt); }
+.lang-suggest a:focus-visible, .lang-suggest button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }

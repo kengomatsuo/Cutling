@@ -1,17 +1,238 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="dark light">
+    <title>Cutling for Mac</title>
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
-    <style>
-        html, body { margin: 0; padding: 0; min-height: 100vh; }
-        body { background: #fafafa; }
-        @media (prefers-color-scheme: dark) { body { background: #1c1c1e; } }
-    </style>
+    <link rel="stylesheet" href="../style.css">
+    <script src="../lang-suggest.js" defer></script>
+    <link rel="canonical" href="https://cutling.matsuokengo.com/en-us/mac/">
+    <link rel="alternate" hreflang="en-US" href="https://cutling.matsuokengo.com/en-us/mac/">
+    <link rel="alternate" hreflang="ar-SA" href="https://cutling.matsuokengo.com/ar-sa/mac/">
+    <link rel="alternate" hreflang="bn-BD" href="https://cutling.matsuokengo.com/bn-bd/mac/">
+    <link rel="alternate" hreflang="ca" href="https://cutling.matsuokengo.com/ca/mac/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://cutling.matsuokengo.com/zh-hans/mac/">
+    <link rel="alternate" hreflang="zh-Hant" href="https://cutling.matsuokengo.com/zh-hant/mac/">
+    <link rel="alternate" hreflang="hr" href="https://cutling.matsuokengo.com/hr/mac/">
+    <link rel="alternate" hreflang="cs" href="https://cutling.matsuokengo.com/cs/mac/">
+    <link rel="alternate" hreflang="da" href="https://cutling.matsuokengo.com/da/mac/">
+    <link rel="alternate" hreflang="nl-NL" href="https://cutling.matsuokengo.com/nl-nl/mac/">
+    <link rel="alternate" hreflang="en-AU" href="https://cutling.matsuokengo.com/en-au/mac/">
+    <link rel="alternate" hreflang="en-CA" href="https://cutling.matsuokengo.com/en-ca/mac/">
+    <link rel="alternate" hreflang="en-GB" href="https://cutling.matsuokengo.com/en-gb/mac/">
+    <link rel="alternate" hreflang="fi" href="https://cutling.matsuokengo.com/fi/mac/">
+    <link rel="alternate" hreflang="fr-FR" href="https://cutling.matsuokengo.com/fr-fr/mac/">
+    <link rel="alternate" hreflang="fr-CA" href="https://cutling.matsuokengo.com/fr-ca/mac/">
+    <link rel="alternate" hreflang="de-DE" href="https://cutling.matsuokengo.com/de-de/mac/">
+    <link rel="alternate" hreflang="el" href="https://cutling.matsuokengo.com/el/mac/">
+    <link rel="alternate" hreflang="gu-IN" href="https://cutling.matsuokengo.com/gu-in/mac/">
+    <link rel="alternate" hreflang="he" href="https://cutling.matsuokengo.com/he/mac/">
+    <link rel="alternate" hreflang="hi" href="https://cutling.matsuokengo.com/hi/mac/">
+    <link rel="alternate" hreflang="hu" href="https://cutling.matsuokengo.com/hu/mac/">
+    <link rel="alternate" hreflang="id" href="https://cutling.matsuokengo.com/id/mac/">
+    <link rel="alternate" hreflang="it" href="https://cutling.matsuokengo.com/it/mac/">
+    <link rel="alternate" hreflang="ja" href="https://cutling.matsuokengo.com/ja/mac/">
+    <link rel="alternate" hreflang="kn-IN" href="https://cutling.matsuokengo.com/kn-in/mac/">
+    <link rel="alternate" hreflang="ko" href="https://cutling.matsuokengo.com/ko/mac/">
+    <link rel="alternate" hreflang="ms" href="https://cutling.matsuokengo.com/ms/mac/">
+    <link rel="alternate" hreflang="ml-IN" href="https://cutling.matsuokengo.com/ml-in/mac/">
+    <link rel="alternate" hreflang="mr-IN" href="https://cutling.matsuokengo.com/mr-in/mac/">
+    <link rel="alternate" hreflang="no" href="https://cutling.matsuokengo.com/no/mac/">
+    <link rel="alternate" hreflang="or-IN" href="https://cutling.matsuokengo.com/or-in/mac/">
+    <link rel="alternate" hreflang="pl" href="https://cutling.matsuokengo.com/pl/mac/">
+    <link rel="alternate" hreflang="pt-BR" href="https://cutling.matsuokengo.com/pt-br/mac/">
+    <link rel="alternate" hreflang="pt-PT" href="https://cutling.matsuokengo.com/pt-pt/mac/">
+    <link rel="alternate" hreflang="pa-IN" href="https://cutling.matsuokengo.com/pa-in/mac/">
+    <link rel="alternate" hreflang="ro" href="https://cutling.matsuokengo.com/ro/mac/">
+    <link rel="alternate" hreflang="ru" href="https://cutling.matsuokengo.com/ru/mac/">
+    <link rel="alternate" hreflang="sk" href="https://cutling.matsuokengo.com/sk/mac/">
+    <link rel="alternate" hreflang="sl-SI" href="https://cutling.matsuokengo.com/sl-si/mac/">
+    <link rel="alternate" hreflang="es-MX" href="https://cutling.matsuokengo.com/es-mx/mac/">
+    <link rel="alternate" hreflang="es-ES" href="https://cutling.matsuokengo.com/es-es/mac/">
+    <link rel="alternate" hreflang="sv" href="https://cutling.matsuokengo.com/sv/mac/">
+    <link rel="alternate" hreflang="ta-IN" href="https://cutling.matsuokengo.com/ta-in/mac/">
+    <link rel="alternate" hreflang="te-IN" href="https://cutling.matsuokengo.com/te-in/mac/">
+    <link rel="alternate" hreflang="th" href="https://cutling.matsuokengo.com/th/mac/">
+    <link rel="alternate" hreflang="tr" href="https://cutling.matsuokengo.com/tr/mac/">
+    <link rel="alternate" hreflang="uk" href="https://cutling.matsuokengo.com/uk/mac/">
+    <link rel="alternate" hreflang="ur-PK" href="https://cutling.matsuokengo.com/ur-pk/mac/">
+    <link rel="alternate" hreflang="vi" href="https://cutling.matsuokengo.com/vi/mac/">
+    <link rel="alternate" hreflang="bg" href="https://cutling.matsuokengo.com/bg/mac/">
+    <link rel="alternate" hreflang="bn-IN" href="https://cutling.matsuokengo.com/bn-in/mac/">
+    <link rel="alternate" hreflang="en-IN" href="https://cutling.matsuokengo.com/en-in/mac/">
+    <link rel="alternate" hreflang="et" href="https://cutling.matsuokengo.com/et/mac/">
+    <link rel="alternate" hreflang="fa" href="https://cutling.matsuokengo.com/fa/mac/">
+    <link rel="alternate" hreflang="tl" href="https://cutling.matsuokengo.com/fil/mac/">
+    <link rel="alternate" hreflang="lt" href="https://cutling.matsuokengo.com/lt/mac/">
+    <link rel="alternate" hreflang="lv" href="https://cutling.matsuokengo.com/lv/mac/">
+    <link rel="alternate" hreflang="sr" href="https://cutling.matsuokengo.com/sr/mac/">
+    <link rel="alternate" hreflang="sw" href="https://cutling.matsuokengo.com/sw/mac/">
+    <link rel="alternate" hreflang="x-default" href="https://cutling.matsuokengo.com/en-us/mac/">
+    <meta name="description" content="Your clipboard, one hotkey away. Cutling lives in the menu bar and appears wherever your cursor is, so you can drop a saved snippet into any app without breaking your flow.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cutling.matsuokengo.com/en-us/mac/">
+    <meta property="og:image" content="https://cutling.matsuokengo.com/icon.png">
+    <meta name="twitter:card" content="summary">
+    <meta property="og:description" content="Your clipboard, one hotkey away. Cutling lives in the menu bar and appears wherever your cursor is, so you can drop a saved snippet into any app without breaking your flow.">
 </head>
 <body>
-    <script src="../locale-router.js"></script>
+    <nav class="site-nav">
+        <a href="../" class="nav-brand">
+            <img src="../icon.png" alt="Cutling" width="28" height="28">
+            Cutling
+        </a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span><span></span><span></span>
+        </label>
+        <ul class="nav-links">
+            <li><a href="../">Home</a></li>
+            <li><a href="../mac/" class="active">Mac</a></li>
+            <li><a href="../download/">Download</a></li>
+            <li><a href="../faq/">FAQ</a></li>
+            <li><a href="../support/">Support</a></li>
+            <li><a href="../privacy/">Privacy</a></li>
+            <li class="lang-picker">
+                <details class="lang-dropdown-wrapper">
+                    <summary>English (US)</summary>
+                    <ul class="lang-dropdown">
+                        <li><a href="../en-us/mac/" class="active">English (US)</a></li>
+                        <li><a href="../ar-sa/mac/">العربية</a></li>
+                        <li><a href="../bn-bd/mac/">বাংলা</a></li>
+                        <li><a href="../ca/mac/">Català</a></li>
+                        <li><a href="../zh-hans/mac/">简体中文</a></li>
+                        <li><a href="../zh-hant/mac/">繁體中文</a></li>
+                        <li><a href="../hr/mac/">Hrvatski</a></li>
+                        <li><a href="../cs/mac/">Čeština</a></li>
+                        <li><a href="../da/mac/">Dansk</a></li>
+                        <li><a href="../nl-nl/mac/">Nederlands</a></li>
+                        <li><a href="../en-au/mac/">English (Australia)</a></li>
+                        <li><a href="../en-ca/mac/">English (Canada)</a></li>
+                        <li><a href="../en-gb/mac/">English (UK)</a></li>
+                        <li><a href="../fi/mac/">Suomi</a></li>
+                        <li><a href="../fr-fr/mac/">Français</a></li>
+                        <li><a href="../fr-ca/mac/">Français (Canada)</a></li>
+                        <li><a href="../de-de/mac/">Deutsch</a></li>
+                        <li><a href="../el/mac/">Ελληνικά</a></li>
+                        <li><a href="../gu-in/mac/">ગુજરાતી</a></li>
+                        <li><a href="../he/mac/">עברית</a></li>
+                        <li><a href="../hi/mac/">हिन्दी</a></li>
+                        <li><a href="../hu/mac/">Magyar</a></li>
+                        <li><a href="../id/mac/">Indonesia</a></li>
+                        <li><a href="../it/mac/">Italiano</a></li>
+                        <li><a href="../ja/mac/">日本語</a></li>
+                        <li><a href="../kn-in/mac/">ಕನ್ನಡ</a></li>
+                        <li><a href="../ko/mac/">한국어</a></li>
+                        <li><a href="../ms/mac/">Melayu</a></li>
+                        <li><a href="../ml-in/mac/">മലയാളം</a></li>
+                        <li><a href="../mr-in/mac/">मराठी</a></li>
+                        <li><a href="../no/mac/">Norsk bokmål</a></li>
+                        <li><a href="../or-in/mac/">ଓଡ଼ିଆ</a></li>
+                        <li><a href="../pl/mac/">Polski</a></li>
+                        <li><a href="../pt-br/mac/">Português (Brasil)</a></li>
+                        <li><a href="../pt-pt/mac/">Português (Portugal)</a></li>
+                        <li><a href="../pa-in/mac/">ਪੰਜਾਬੀ</a></li>
+                        <li><a href="../ro/mac/">Română</a></li>
+                        <li><a href="../ru/mac/">Русский</a></li>
+                        <li><a href="../sk/mac/">Slovenčina</a></li>
+                        <li><a href="../sl-si/mac/">Slovenščina</a></li>
+                        <li><a href="../es-mx/mac/">Español (México)</a></li>
+                        <li><a href="../es-es/mac/">Español</a></li>
+                        <li><a href="../sv/mac/">Svenska</a></li>
+                        <li><a href="../ta-in/mac/">தமிழ்</a></li>
+                        <li><a href="../te-in/mac/">తెలుగు</a></li>
+                        <li><a href="../th/mac/">ไทย</a></li>
+                        <li><a href="../tr/mac/">Türkçe</a></li>
+                        <li><a href="../uk/mac/">Українська</a></li>
+                        <li><a href="../ur-pk/mac/">اردو</a></li>
+                        <li><a href="../vi/mac/">Tiếng Việt</a></li>
+                        <li><a href="../bg/mac/">Български</a></li>
+                        <li><a href="../bn-in/mac/">বাংলা (ভারত)</a></li>
+                        <li><a href="../en-in/mac/">English (India)</a></li>
+                        <li><a href="../et/mac/">Eesti</a></li>
+                        <li><a href="../fa/mac/">فارسی</a></li>
+                        <li><a href="../fil/mac/">Filipino</a></li>
+                        <li><a href="../lt/mac/">Lietuvių</a></li>
+                        <li><a href="../lv/mac/">Latviešu</a></li>
+                        <li><a href="../sr/mac/">Српски</a></li>
+                        <li><a href="../sw/mac/">Kiswahili</a></li>
+                    </ul>
+                </details>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero hero-home">
+        <h1>Cutling for Mac</h1>
+        <p class="hero-subtitle">Your clipboard, one hotkey away. Cutling lives in the menu bar and appears wherever your cursor is, so you can drop a saved snippet into any app without breaking your flow.</p>
+        <div class="cta-row">
+            <a href="https://apps.apple.com/app/cutling/id6759476314?platform=mac" class="cta-button">Download on the Mac App Store</a>
+            <a href="https://github.com/kengomatsuo/Cutling/releases/latest" class="cta-button">Download Directly (Free)</a>
+        </div>
+        <div class="hero-media hero-media-mac">
+            <p class="keycaps keycaps-light" aria-hidden="true"><kbd>⌘</kbd><kbd>⇧</kbd><kbd>V</kbd></p>
+            <img class="shot shot-panel" src="../img/en-us/mac-picker.webp" alt="Cutling’s picker on a Mac, listing saved cutlings" width="360" height="514">
+        </div>
+    </section>
+
+    <!-- Mac Features -->
+    <section class="content-section">
+        <div class="section-inner">
+            <h2>Built for the desktop</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Lives in the menu bar</h3>
+                    <p>Cutling sits quietly in your menu bar, out of the Dock and out of the way. Click the icon to see your saved cutlings and recent clipboard history.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Global hotkey</h3>
+                    <p>Press your shortcut from any app to open a floating picker right at your cursor. Rebind it to any key combination in settings.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Direct paste</h3>
+                    <p>Optionally let Cutling paste your pick straight into the app you were using. Off by default, and always your choice to enable.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Clipboard history</h3>
+                    <p>Everything you copy is captured automatically so nothing is lost. Save the ones worth keeping with a single click.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>iCloud sync</h3>
+                    <p>Turn on iCloud to keep your saved cutlings in step across iPhone, iPad, and Mac. Optional and private.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Private by design</h3>
+                    <p>No accounts, no analytics, no tracking. Your clipboard stays on your Mac, or in your own iCloud if you enable sync.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing CTA -->
+    <section class="content-section alt-bg">
+        <div class="section-inner">
+            <h2>Ready to try it?</h2>
+            <p>Download Cutling for Mac and keep everything you reuse one shortcut away.</p>
+            <div class="cta-row">
+                <a href="https://apps.apple.com/app/cutling/id6759476314?platform=mac" class="cta-button">Download on the Mac App Store</a>
+                <a href="https://github.com/kengomatsuo/Cutling/releases/latest" class="cta-button">Download Directly (Free)</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <ul class="footer-links">
+            <li><a href="../">Home</a></li>
+            <li><a href="../mac/">Mac</a></li>
+            <li><a href="../download/">Download</a></li>
+            <li><a href="../faq/">FAQ</a></li>
+            <li><a href="../support/">Support</a></li>
+            <li><a href="../privacy/">Privacy</a></li>
+            <li><a href="../terms/">Terms</a></li>
+        </ul>
+        <p class="copyright">&copy; 2026 Kenneth Johannes Fang. All rights reserved.</p>
+    </footer>
 </body>
 </html>
