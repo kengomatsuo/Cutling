@@ -7,7 +7,7 @@ Sparkle appcast sit on a domain that survives any move off GitHub Pages.
 
 Three things break the site if forgotten:
 
-1. `web/CNAME` must be copied into `dist/` by `deploy_web`. The rsync uses `--delete`, so a
+1. `web/CNAME` must be copied into `dist/` by `deploy_web`. gh-pages becomes exactly `dist/`, so a
    CNAME that lives only on `gh-pages` is wiped and the custom domain unsets without a
    message.
 2. The site is served at the domain root, so `SITE_BASE` in `web/locale-router.js` and
