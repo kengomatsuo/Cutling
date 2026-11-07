@@ -115,6 +115,18 @@ a:hover { text-decoration: underline; }
     padding: 40px 24px 80px;
 }
 
+.container.container-compare { max-width: 1000px; }
+.table-wrap { position: relative; overflow-x: auto; margin: 24px 0 8px; border: 1px solid var(--line); border-radius: var(--radius); }
+.compare { border-collapse: collapse; width: 100%; min-width: 880px; font-size: 14px; line-height: 1.45; }
+.compare th, .compare td { padding: 12px 14px; text-align: start; vertical-align: top; border-bottom: 1px solid var(--line); }
+.compare tbody tr:last-child > * { border-bottom: 0; }
+.compare thead th { background: var(--bg-alt); font-weight: 600; color: var(--ink); }
+.compare tbody th { font-weight: 600; color: var(--ink); width: 13%; }
+.compare td { color: var(--ink-2); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.container-compare .section, .container-compare .page-header, .container-compare .summary-box { max-width: 640px; margin-inline: auto; }
+.container-compare .summary-box { margin-block: 24px 36px; }
+
 .container-wide {
     max-width: 960px;
     margin: 0 auto;
@@ -516,7 +528,8 @@ a:hover { text-decoration: underline; }
 .site-footer .footer-links {
     display: flex;
     justify-content: center;
-    gap: 24px;
+    flex-wrap: wrap;
+    gap: 8px 24px;
     list-style: none;
     margin-bottom: 16px;
 }
