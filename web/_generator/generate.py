@@ -246,19 +246,7 @@ ROOT_REDIRECT_TEMPLATE = """<!DOCTYPE html>
 
 
 def generate_root_redirect_pages():
-    """Generate blank dark-mode-compatible redirect pages at the docs root for all page paths."""
-    pages = [("index.html", "./")] + [
-        (f"{name}/index.html", "../")
-        for name in [t.split("/")[0] for t in TEMPLATES if "/" in t]
-    ]
-    for rel_path, router_prefix in pages:
-        html = ROOT_REDIRECT_TEMPLATE.format(router_path=router_prefix)
-        out_path = DOCS_DIR / rel_path
-        out_path.parent.mkdir(parents=True, exist_ok=True)
-        with open(out_path, "w", encoding="utf-8") as f:
-            f.write(html)
-        print(f"  Generated root loading page: {rel_path}")
-
+    """Generate 404.html; the root pages themselves are the English pages (see main)."""
     # 404.html: GitHub Pages serves this for any unmatched URL.
     # fuzzy-redirect.js handles typos and aliases before falling back to locale preference.
     html_404 = ROOT_REDIRECT_TEMPLATE.format(router_path="./").replace(
@@ -268,6 +256,150 @@ def generate_root_redirect_pages():
     with open(out_path, "w", encoding="utf-8") as f:
         f.write(html_404)
     print("  Generated 404.html")
+
+
+SITE = "https://cutling.matsuokengo.com"
+APP_ID = "6759476314"
+APP_URL = f"https://apps.apple.com/app/cutling/id{APP_ID}"
+METADATA_DIR = REPO_ROOT / "fastlane" / "metadata"
+
+# hreflang takes ISO 639-1 language codes (Google: localized-versions). Filipino has
+# no 639-1 code of its own; Tagalog's "tl" is the one Google accepts.
+HREFLANG_OVERRIDES = {"fil": "tl"}
+
+# Page description keys per template. Pages without one get no description rather
+# than a copy of another page's (Google: snippet guidelines want them unique).
+DESCRIPTION_KEYS = {
+    "mac/index.html": "mac_hero_subtitle",
+    "support/index.html": "support_subtitle",
+}
+
+
+def hreflang(code):
+    return HREFLANG_OVERRIDES.get(code, code)
+
+
+def page_url(code, template_rel):
+    page_dir = os.path.dirname(template_rel)
+    return f"{SITE}/{web_code(code)}/" + (f"{page_dir}/" if page_dir else "")
+
+
+def store_text(code, field):
+    """A field of the App Store listing for this locale, already written per language."""
+    path = METADATA_DIR / code / f"{field}.txt"
+    return path.read_text(encoding="utf-8").strip() if path.exists() else ""
+
+
+def live_price():
+    """The US App Store price, read at build time so the structured data never goes stale."""
+    import urllib.request
+    try:
+        with urllib.request.urlopen(f"https://itunes.apple.com/lookup?id={APP_ID}&country=us", timeout=15) as r:
+            result = json.load(r)["results"][0]
+        return f'{result["price"]:.2f}', result["currency"]
+    except Exception as e:  # offline build: leave the offer out instead of guessing a price
+        print(f"  WARNING: no live price ({e}); structured data ships without an offer")
+        return None, None
+
+
+def esc_attr(value):
+    return (value.replace("&", "&amp;").replace('"', "&quot;")
+            .replace("<", "&lt;").replace(">", "&gt;"))
+
+
+def head_tags(code, template_rel, translation, available_codes, locales, price):
+    """Canonical, hreflang set, description, Open Graph and, on home pages, JSON-LD."""
+    tags = [f'<link rel="canonical" href="{page_url(code, template_rel)}">']
+    for loc in locales:
+        if loc["code"] in available_codes:
+            tags.append(f'<link rel="alternate" hreflang="{hreflang(loc["code"])}" href="{page_url(loc["code"], template_rel)}">')
+    tags.append(f'<link rel="alternate" hreflang="x-default" href="{page_url(DEFAULT_LOCALE, template_rel)}">')
+
+    is_home = template_rel == "index.html"
+    if is_home:
+        description = store_text(code, "promotional_text") or store_text(DEFAULT_LOCALE, "promotional_text")
+    else:
+        key = DESCRIPTION_KEYS.get(template_rel)
+        description = translation.get(key, "") if key else ""
+    if description:
+        tags.append(f'<meta name="description" content="{esc_attr(description)}">')
+
+    tags += [
+        '<meta property="og:type" content="website">',
+        f'<meta property="og:url" content="{page_url(code, template_rel)}">',
+        f'<meta property="og:image" content="{SITE}/icon.png">',
+        '<meta name="twitter:card" content="summary">',
+    ]
+    if description:
+        tags.append(f'<meta property="og:description" content="{esc_attr(description)}">')
+
+    if is_home:
+        app = {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": store_text(code, "name") or "Cutling",
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "iOS, iPadOS, macOS",
+            "url": page_url(code, template_rel),
+            "image": f"{SITE}/icon.png",
+            "installUrl": APP_URL,
+            "inLanguage": code,
+            "author": {"@type": "Person", "name": "Kenneth Johannes Fang"},
+        }
+        if description:
+            app["description"] = description
+        if price[0]:
+            app["offers"] = {"@type": "Offer", "price": price[0], "priceCurrency": price[1]}
+        tags.append('<script type="application/ld+json">' + json.dumps(app, ensure_ascii=False).replace("</", "<\\/") + "</script>")
+    return "\n    ".join(tags)
+
+
+def home_title(code, translation):
+    """The store name and subtitle carry the searched words; the slogan does not."""
+    name, subtitle = store_text(code, "name"), store_text(code, "subtitle")
+    return f"{name} | {subtitle}" if name and subtitle else translation.get("page_title_home")
+
+
+def git_date(*paths):
+    import subprocess
+    dates = []
+    for p in paths:
+        out = subprocess.run(["git", "-C", str(REPO_ROOT), "log", "-1", "--format=%cs", "--", str(p)],
+                             capture_output=True, text=True).stdout.strip()
+        if out:
+            dates.append(out)
+    return max(dates) if dates else None
+
+
+def write_sitemap_and_robots(locales, available_codes):
+    template_dates = {t: git_date(TEMPLATES_DIR / t) for t in TEMPLATES}
+    lines = ['<?xml version="1.0" encoding="UTF-8"?>',
+             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">']
+    codes = [l["code"] for l in locales if l["code"] in available_codes]
+    for code in codes:
+        trans_date = git_date(TRANSLATIONS_DIR / f"{code}.json", METADATA_DIR / code)
+        for t in TEMPLATES:
+            lines.append("  <url>")
+            lines.append(f"    <loc>{page_url(code, t)}</loc>")
+            lastmod = max(d for d in (template_dates[t], trans_date) if d) if (template_dates[t] or trans_date) else None
+            if lastmod:
+                lines.append(f"    <lastmod>{lastmod}</lastmod>")
+            for alt in codes:
+                lines.append(f'    <xhtml:link rel="alternate" hreflang="{hreflang(alt)}" href="{page_url(alt, t)}"/>')
+            lines.append(f'    <xhtml:link rel="alternate" hreflang="x-default" href="{page_url(DEFAULT_LOCALE, t)}"/>')
+            lines.append("  </url>")
+    lines.append("</urlset>")
+    (DOCS_DIR / "sitemap.xml").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    (DOCS_DIR / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
+    print(f"  Generated sitemap.xml ({len(codes) * len(TEMPLATES)} URLs) and robots.txt")
+
+
+def write_lang_suggest(locales, available_codes):
+    """lang-suggest.js: offers the visitor's language on the English root pages, never redirects."""
+    names = {web_code(l["code"]): l["name"] for l in locales if l["code"] in available_codes}
+    src = (TEMPLATES_DIR.parent / "lang-suggest.src.js").read_text(encoding="utf-8")
+    (DOCS_DIR / "lang-suggest.js").write_text(
+        src.replace("/*LANG_NAMES*/{}", json.dumps(names, ensure_ascii=False)), encoding="utf-8")
 
 
 def main():
@@ -307,6 +439,7 @@ def main():
         print("Cleaning generated directories...")
         clean_generated(locales)
 
+    price = live_price()
     generated_count = 0
     for loc in locales:
         code = loc["code"]
@@ -336,8 +469,14 @@ def main():
                 locales, available_codes, code, root, template_rel
             )
 
+            page_template = template_content
+            if template_rel == "index.html":
+                page_template = page_template.replace("{{page_title_home}}", esc_attr(home_title(code, translation)))
+            page_template = page_template.replace(
+                "</head>", "    " + head_tags(code, template_rel, translation, available_codes, locales, price) + "\n</head>", 1)
+
             html = generate_page(
-                template_content, translation, en_translation,
+                page_template, translation, en_translation,
                 code, is_rtl, root, lang_prefix, picker_html
             )
 
@@ -347,11 +486,29 @@ def main():
             with open(out_path, "w", encoding="utf-8") as f:
                 f.write(html)
 
+            # The site root carries the English pages themselves, so crawlers and
+            # first visitors get content. Their canonical points at /en-us/, and
+            # lang-suggest.js offers the visitor's language instead of redirecting.
+            if is_default and not specific_web_locales:
+                root_html = generate_page(
+                    page_template, translation, en_translation, code, is_rtl,
+                    compute_root(template_depth, True), compute_lang_prefix(template_depth),
+                    build_language_picker(locales, available_codes, code,
+                                          compute_root(template_depth, True), template_rel))
+                root_html = root_html.replace(
+                    f'<script src="{compute_root(template_depth, True)}/locale-router.js"></script>',
+                    f'<script src="{compute_root(template_depth, True)}/lang-suggest.js" defer></script>')
+                root_out = DOCS_DIR / template_rel
+                root_out.parent.mkdir(parents=True, exist_ok=True)
+                root_out.write_text(root_html, encoding="utf-8")
+
             generated_count += 1
 
     if not specific_web_locales:
-        print("Generating root loading pages...")
+        print("Generating 404, sitemap, robots.txt and lang-suggest.js...")
         generate_root_redirect_pages()
+        write_sitemap_and_robots(locales, available_codes)
+        write_lang_suggest(locales, available_codes)
 
     print(f"\nDone! Generated {generated_count} pages.")
 
