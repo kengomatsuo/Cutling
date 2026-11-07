@@ -268,31 +268,29 @@ deploy_web() {
   # Per-locale screenshots from the App Store captures, as WebP.
   python3 "$WEB/_generator/build_images.py" --output-dir "$DIST"
   cp "$REPO_ROOT/locales.json" "$DIST/"
-  # GitHub Pages custom domain. MUST be copied into dist/ on every build: the
-  # rsync below runs with --delete, so a CNAME living only on gh-pages would be
-  # wiped here and silently unset the custom domain.
+  # GitHub Pages custom domain. MUST be copied into dist/ on every build: gh-pages
+  # becomes exactly dist/, so a CNAME living only on gh-pages would be wiped and
+  # silently unset the custom domain.
   cp "$WEB/CNAME" "$DIST/"
   # Sparkle appcast (written by `./deploy.sh dist`). Served at
   # https://cutling.matsuokengo.com/appcast.xml (matches SUFeedURL).
   [ -f "$WEB/appcast.xml" ] && cp "$WEB/appcast.xml" "$DIST/"
 
-  echo "==> Deploying to gh-pages via git worktree..."
-  WORKTREE="$(mktemp -d)"
-  git worktree add "$WORKTREE" gh-pages
-  rsync -a --delete --exclude='.git' "$DIST/" "$WORKTREE/"
-  (
-    cd "$WORKTREE"
-    git add -A
-    if git diff --cached --quiet; then
-      echo "Nothing to deploy — gh-pages is already up to date."
-    else
-      git commit -m "Deploy website $(date +%Y-%m-%d)"
-      git push origin gh-pages
-      echo "==> Deployed!"
-    fi
-  )
-  git worktree remove --force "$WORKTREE"
-  rm -rf "$WORKTREE"
+  echo "==> Deploying to gh-pages through a throwaway index (nothing is checked out)..."
+  git -C "$REPO_ROOT" fetch origin gh-pages
+  PARENT="$(git -C "$REPO_ROOT" rev-parse FETCH_HEAD)"
+  INDEX="$(mktemp)"; rm -f "$INDEX"
+  GIT_INDEX_FILE="$INDEX" git -C "$REPO_ROOT" --work-tree="$DIST" add -A .
+  TREE="$(GIT_INDEX_FILE="$INDEX" git -C "$REPO_ROOT" write-tree)"
+  rm -f "$INDEX"
+  if [ "$TREE" = "$(git -C "$REPO_ROOT" rev-parse "$PARENT^{tree}")" ]; then
+    echo "Nothing to deploy — gh-pages is already up to date."
+  else
+    COMMIT="$(git -C "$REPO_ROOT" commit-tree "$TREE" -p "$PARENT" -m "Deploy website $(date +%Y-%m-%d)")"
+    git -C "$REPO_ROOT" push origin "$COMMIT:refs/heads/gh-pages"
+    git -C "$REPO_ROOT" update-ref refs/heads/gh-pages "$COMMIT"
+    echo "==> Deployed!"
+  fi
 }
 
 # A UI literal with no key ships English in every locale
