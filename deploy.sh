@@ -290,6 +290,8 @@ deploy_web() {
     git -C "$REPO_ROOT" push origin "$COMMIT:refs/heads/gh-pages"
     git -C "$REPO_ROOT" update-ref refs/heads/gh-pages "$COMMIT"
     echo "==> Deployed!"
+    # IndexNow: a failed ping is printed, never fatal. The key file ships in dist/.
+    python3 "$WEB/_generator/generate.py" --output-dir "$DIST" --indexnow || echo "WARNING: IndexNow step failed"
   fi
 }
 

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<!--
+  English only, no translations. Facts read on 2026-11-07 from:
+  Paste:        https://apps.apple.com/us/app/paste-limitless-clipboard/id967805235
+  Clipboard++:  https://apps.apple.com/us/app/clipboard/id854707788
+  Cutling:      https://apps.apple.com/us/app/cutling-clipboard-keyboard/id6759476314 (price filled in at build time)
+  Text replacement: https://support.apple.com/guide/iphone/use-text-replacements-iph6d01d862/ios
+  Universal Clipboard: https://support.apple.com/en-us/102430
+  Cutling's own save limits: the English FAQ.
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cutling vs Paste, Clipboard++ and iOS text replacement</title>
+    <link rel="icon" type="image/x-icon" href="{{ROOT}}/favicon.ico">
+    <link rel="stylesheet" href="{{ROOT}}/style.css">
+</head>
+<body>
+    <nav class="site-nav">
+        <a href="{{LANG_PREFIX}}/" class="nav-brand">
+            <img src="{{ROOT}}/icon.png" alt="{{app_name}}" width="28" height="28">
+            {{app_name}}
+        </a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label">
+            <span></span><span></span><span></span>
+        </label>
+        <ul class="nav-links">
+            <li><a href="{{LANG_PREFIX}}/">{{nav_home}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/mac/">{{nav_mac}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/download/">{{nav_download}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/faq/">{{nav_faq}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/support/">{{nav_support}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/privacy/">{{nav_privacy}}</a></li>
+            {{LANGUAGE_PICKER}}
+        </ul>
+    </nav>
+
+    <div class="container container-compare">
+        <div class="page-header">
+            <h1>Cutling compared with Paste, Clipboard++ and iOS's own tools</h1>
+            <p class="page-subtitle">Read on 7 November 2026 from each app's US App Store page and Apple's support pages.</p>
+        </div>
+
+        <div class="summary-box">
+            <p>Cutling keeps the few things you retype all the time, like an address or a bank number, one tap away in a keyboard. Paste does much more and costs more. The built-in tools cost nothing and cover part of the job.</p>
+        </div>
+
+        <div class="table-wrap">
+        <table class="compare">
+            <thead>
+                <tr>
+                    <th scope="col"><span class="sr-only">Feature</span></th>
+                    <th scope="col">Cutling</th>
+                    <th scope="col"><a href="https://apps.apple.com/us/app/paste-limitless-clipboard/id967805235" rel="noopener">Paste</a></th>
+                    <th scope="col"><a href="https://apps.apple.com/us/app/clipboard/id854707788" rel="noopener">Clipboard++</a></th>
+                    <th scope="col"><a href="https://support.apple.com/guide/iphone/use-text-replacements-iph6d01d862/ios" rel="noopener">Text replacement</a></th>
+                    <th scope="col"><a href="https://support.apple.com/en-us/102430" rel="noopener">Universal Clipboard</a></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">What it does</th>
+                    <td>Keeps text and images you save yourself and inserts them from a keyboard (iPhone, iPad) or a menu bar picker (Mac)</td>
+                    <td>Remembers everything you copy, with search, Pinboards and sharing</td>
+                    <td>Saves clipboard entries for later and can pair with Chrome</td>
+                    <td>Types a phrase when you type a shortcut</td>
+                    <td>Copy on one Apple device, paste on another</td>
+                </tr>
+                <tr>
+                    <th scope="row">Price model</th>
+                    <td>{{CUTLING_PRICE_CELL}}</td>
+                    <td>Free to download with a one-week trial. Plans listed: $3.99 monthly, $29.99 annual, $59.99 family, $99.99 lifetime</td>
+                    <td>Free to download. In-app purchases: iCloud sync $3.99, tags $2.99, import and export $1.99, all three $6.99</td>
+                    <td>Free, part of iOS</td>
+                    <td>Free, part of Apple's systems</td>
+                </tr>
+                <tr>
+                    <th scope="row">Keyboard on iPhone</th>
+                    <td>Yes, it is the main way to use it</td>
+                    <td>Yes, the Paste Keyboard</td>
+                    <td>Not mentioned in its listing</td>
+                    <td>Works in Apple's own keyboard as you type</td>
+                    <td>No, you paste as normal</td>
+                </tr>
+                <tr>
+                    <th scope="row">Mac</th>
+                    <td>Yes, menu bar app with a shortcut. macOS 15 or later</td>
+                    <td>Yes, macOS 14 or later</td>
+                    <td>Listing shows macOS 13 or later on Apple silicon Macs</td>
+                    <td>Apple's guide says iCloud can keep your personal dictionary current on your other devices</td>
+                    <td>Yes</td>
+                </tr>
+                <tr>
+                    <th scope="row">Sync</th>
+                    <td>Optional, through your own iCloud</td>
+                    <td>iCloud sync across Mac, iPhone and iPad</td>
+                    <td>iCloud sync is a paid in-app purchase</td>
+                    <td>Through iCloud, if you turn it on</td>
+                    <td>Between nearby devices on the same Apple Account with Wi-Fi, Bluetooth and Handoff on</td>
+                </tr>
+                <tr>
+                    <th scope="row">Tracking, per its privacy label</th>
+                    <td>Data Not Collected</td>
+                    <td>Data Linked to You: Identifiers. Data Not Linked to You: Purchases, Usage Data, Diagnostics. No tracking listed</td>
+                    <td>Data Not Collected</td>
+                    <td>Not an app, so no label</td>
+                    <td>Not an app, so no label</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <div class="section">
+            <h2>Where the others are better</h2>
+            <p>Paste keeps everything you copy without being asked and lets you search it, including text inside screenshots, according to its listing. Cutling only holds what you save, and it caps that at 100 text cutlings and 25 image cutlings. If you want a history of everything, Paste is the tool, and it has a team feature Cutling does not.</p>
+            <p>Text replacement and Universal Clipboard cost nothing and need no install. If your reusable text is a handful of short phrases, text replacement may be all you need. Clipboard++ costs nothing to start, and you pay only for the extras you use.</p>
+        </div>
+
+        <div class="section">
+            <h2>Where Cutling fits</h2>
+            <p>You retype the same address, account number or signature, and you want it in a keyboard one tap away, without a subscription. You pay once, and the privacy label lists no data collected. Cutling runs without accounts, analytics or a server of its own, and syncing is optional.</p>
+            <p>It does not remember what you copy and has no history to search. The questions people ask are on the <a href="{{LANG_PREFIX}}/faq/">FAQ page</a>.</p>
+            <div class="cta-row">
+                <a href="https://apps.apple.com/app/cutling/id6759476314" class="cta-button">{{cta_button}}</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <ul class="footer-links">
+            <li><a href="{{LANG_PREFIX}}/">{{nav_home}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/mac/">{{nav_mac}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/download/">{{nav_download}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/faq/">{{nav_faq}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/support/">{{nav_support}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/privacy/">{{nav_privacy}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/terms/">{{nav_terms}}</a></li>
+            <li><a href="{{LANG_PREFIX}}/compare/">Compare</a></li>
+        </ul>
+        <p class="copyright">{{footer_copyright}}</p>
+    </footer>
+</body>
+</html>

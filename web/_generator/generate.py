@@ -16,6 +16,7 @@ Usage:
 """
 
 import argparse
+import datetime
 import json
 import os
 import shutil
@@ -259,6 +260,11 @@ def generate_root_redirect_pages():
 
 
 SITE = "https://cutling.matsuokengo.com"
+# IndexNow keys are public by design: <key>.txt at the site root proves ownership.
+INDEXNOW_KEY = "c27785c94a2066218caa0af8c11655f9"
+INDEXNOW_ENDPOINT = "https://api.indexnow.org/indexnow"
+# English-only pages: not translated, hreflang "en" and x-default only.
+EN_ONLY_PAGES = ["compare/"]
 APP_ID = "6759476314"
 APP_URL = f"https://apps.apple.com/app/cutling/id{APP_ID}"
 METADATA_DIR = REPO_ROOT / "fastlane" / "metadata"
@@ -371,6 +377,66 @@ def git_date(*paths):
     return max(dates) if dates else None
 
 
+def write_en_only_pages(en_translation, locales, available_codes, price):
+    """/en-us/compare/: one English page, linked from the English footer, not part of the locale loop."""
+    template = (TEMPLATES_DIR / "compare" / "index.html").read_text(encoding="utf-8")
+    url = f"{SITE}/en-us/compare/"
+    title = "Cutling vs Paste, Clipboard++ and iOS text replacement"
+    description = ("How Cutling compares with Paste, Clipboard++, iOS text replacement and Universal Clipboard: "
+                   "price model, keyboard, Mac, sync and what each privacy label says.")
+    price_cell = (f"One-time purchase, ${price[0]} in the US store. No subscription or in-app purchases"
+                  if price[0] and price[1] == "USD" else "One-time purchase. No subscription or in-app purchases")
+    ld = [{"@context": "https://schema.org", "@type": "WebPage", "name": title, "url": url, "inLanguage": "en",
+           "datePublished": "2026-11-07", "dateModified": "2026-11-07"},
+          {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+              {"@type": "ListItem", "position": 1, "name": "Cutling", "item": f"{SITE}/en-us/"},
+              {"@type": "ListItem", "position": 2, "name": "Compare", "item": url}]}]
+    tags = [f'<link rel="canonical" href="{url}">',
+            f'<link rel="alternate" hreflang="en" href="{url}">',
+            f'<link rel="alternate" hreflang="x-default" href="{url}">',
+            f'<meta name="description" content="{esc_attr(description)}">',
+            '<meta property="og:type" content="website">',
+            f'<meta property="og:title" content="{esc_attr(title)}">',
+            f'<meta property="og:description" content="{esc_attr(description)}">',
+            f'<meta property="og:url" content="{url}">',
+            f'<meta property="og:image" content="{SITE}/icon.png">',
+            '<meta name="twitter:card" content="summary">']
+    tags += ['<script type="application/ld+json">' + json.dumps(x, ensure_ascii=False).replace("</", "<\\/") + "</script>" for x in ld]
+    template = template.replace("</head>", "    " + "\n    ".join(tags) + "\n</head>", 1).replace("{{CUTLING_PRICE_CELL}}", price_cell)
+    root, prefix = compute_root(1, False), compute_lang_prefix(1)
+    html = generate_page(template, en_translation, en_translation, DEFAULT_LOCALE, False, root, prefix,
+                         build_language_picker(locales, available_codes, DEFAULT_LOCALE, root, "index.html"))
+    out = DOCS_DIR / "en-us" / "compare" / "index.html"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(html, encoding="utf-8")
+    print("  Generated en-us/compare/")
+
+
+def write_indexnow_key():
+    (DOCS_DIR / f"{INDEXNOW_KEY}.txt").write_text(INDEXNOW_KEY, encoding="utf-8")
+
+
+def submit_indexnow():
+    """Tell IndexNow about every sitemap URL. Prints the HTTP status and never raises."""
+    import re
+    import urllib.error
+    import urllib.request
+    urls = re.findall(r"<loc>([^<]+)</loc>", (DOCS_DIR / "sitemap.xml").read_text(encoding="utf-8"))
+    body = json.dumps({"host": SITE.split("//", 1)[1], "key": INDEXNOW_KEY,
+                       "keyLocation": f"{SITE}/{INDEXNOW_KEY}.txt", "urlList": urls}).encode()
+    req = urllib.request.Request(INDEXNOW_ENDPOINT, data=body, method="POST",
+                                 headers={"Content-Type": "application/json; charset=utf-8"})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            status = r.status
+    except urllib.error.HTTPError as e:
+        status = e.code
+    except Exception as e:
+        print(f"WARNING: IndexNow not reached ({e})")
+        return
+    print(f"IndexNow: HTTP {status} for {len(urls)} URLs" + ("" if status in (200, 202) else " (WARNING: not 200/202)"))
+
+
 def write_sitemap_and_robots(locales, available_codes):
     template_dates = {t: git_date(TEMPLATES_DIR / t) for t in TEMPLATES}
     lines = ['<?xml version="1.0" encoding="UTF-8"?>',
@@ -388,10 +454,16 @@ def write_sitemap_and_robots(locales, available_codes):
                 lines.append(f'    <xhtml:link rel="alternate" hreflang="{hreflang(alt)}" href="{page_url(alt, t)}"/>')
             lines.append(f'    <xhtml:link rel="alternate" hreflang="x-default" href="{page_url(DEFAULT_LOCALE, t)}"/>')
             lines.append("  </url>")
+    today = datetime.date.today().isoformat()
+    for page in EN_ONLY_PAGES:
+        url = f"{SITE}/en-us/{page}"
+        lines += ["  <url>", f"    <loc>{url}</loc>", f"    <lastmod>{git_date(TEMPLATES_DIR / page) or today}</lastmod>",
+                  f'    <xhtml:link rel="alternate" hreflang="en" href="{url}"/>',
+                  f'    <xhtml:link rel="alternate" hreflang="x-default" href="{url}"/>', "  </url>"]
     lines.append("</urlset>")
     (DOCS_DIR / "sitemap.xml").write_text("\n".join(lines) + "\n", encoding="utf-8")
     (DOCS_DIR / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
-    print(f"  Generated sitemap.xml ({len(codes) * len(TEMPLATES)} URLs) and robots.txt")
+    print(f"  Generated sitemap.xml ({len(codes) * len(TEMPLATES) + len(EN_ONLY_PAGES)} URLs) and robots.txt")
 
 
 def write_lang_suggest(locales, available_codes):
@@ -406,12 +478,17 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output-dir", default=None, help="Output directory (default: parent of _generator/)")
     parser.add_argument("locales", nargs="*", help="Specific locale codes to build")
+    parser.add_argument("--indexnow", action="store_true", help="submit the built sitemap URLs to IndexNow and exit")
     args = parser.parse_args()
 
     global DOCS_DIR
     if args.output_dir:
         DOCS_DIR = Path(args.output_dir).resolve()
         DOCS_DIR.mkdir(parents=True, exist_ok=True)
+
+    if args.indexnow:
+        submit_indexnow()
+        return
 
     specific_web_locales = {web_code(arg) for arg in args.locales} if args.locales else None
 
@@ -470,6 +547,10 @@ def main():
             )
 
             page_template = template_content
+            if is_default:
+                page_template = page_template.replace(
+                    '</ul>\n        <p class="copyright">',
+                    '    <li><a href="/en-us/compare/">Compare</a></li>\n        </ul>\n        <p class="copyright">')
             if template_rel == "index.html":
                 page_template = page_template.replace("{{page_title_home}}", esc_attr(home_title(code, translation)))
             page_template = page_template.replace(
@@ -509,6 +590,8 @@ def main():
         generate_root_redirect_pages()
         write_sitemap_and_robots(locales, available_codes)
         write_lang_suggest(locales, available_codes)
+        write_en_only_pages(en_translation, locales, available_codes, price)
+        write_indexnow_key()
 
     print(f"\nDone! Generated {generated_count} pages.")
 
