@@ -133,6 +133,12 @@ final class CutlingPickerController {
     }
 
     func show() {
+        #if DEBUG
+        if PromoTakeDirector.isDirected {
+            showForPromoTake()
+            return
+        }
+        #endif
         // If the menu-bar popover is open, dismiss it first so the user
         // never sees two pickers at the same time. SwiftUI MenuBarExtra
         // exposes no dismiss API; AppActivationManager does it via the
@@ -148,6 +154,18 @@ final class CutlingPickerController {
     }
 
     #if DEBUG
+    var isPanelVisible: Bool { panel?.isVisible == true }
+
+    /// A promo take: behind every other window, no activation, no keystrokes, so the
+    /// window can be filmed on its own while the owner's screen and focus stay untouched.
+    func showForPromoTake() {
+        let panel = panel ?? makePanel()
+        self.panel = panel
+        panel.level = .normal
+        panel.center()
+        panel.orderBack(nil)
+    }
+
     /// Shows the panel without activating the app or taking keystrokes.
     func showForSnapshot() {
         let panel = panel ?? makePanel()

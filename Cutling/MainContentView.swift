@@ -1863,6 +1863,10 @@ struct ChangeHandlersModifier: ViewModifier {
     }
 
     private func requestReviewIfAppropriate() {
+        #if DEBUG
+        // Screenshot and promo runs never show the rating sheet.
+        if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") { return }
+        #endif
         let pasteCount = UserDefaults(suiteName: appGroupID)?.integer(forKey: "keyboardPasteCount") ?? 0
 
         guard pasteCount >= 5,

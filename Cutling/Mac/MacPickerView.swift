@@ -142,6 +142,9 @@ struct MacPickerView: View {
         .onDisappear(perform: handleDisappear)
         #if DEBUG
         .task { await runSnapshotDriver() }
+        .onReceive(PromoTakeDirector.shared.$requestedTab) { requested in
+            if let requested { tab = requested }
+        }
         #endif
         .onChange(of: tab) { _, newTab in
             syncClearHistoryGate(forTab: newTab)
@@ -595,6 +598,15 @@ private struct MacPickerRow: View {
     let onSaveImageToDisk: () -> Void
     @State private var hovered = false
     @State private var showPreview = false
+    #if DEBUG
+    @ObservedObject private var promoDirector = PromoTakeDirector.shared
+    /// A directed promo take shows hover and press without the owner's pointer.
+    private var shownHovered: Bool { hovered || promoDirector.hoveredRow == cutling.id }
+    private var shownPressed: Bool { promoDirector.pressedRow == cutling.id }
+    #else
+    private var shownHovered: Bool { hovered }
+    private var shownPressed: Bool { false }
+    #endif
 
     var body: some View {
         Button(action: onTap) {
@@ -627,8 +639,9 @@ private struct MacPickerRow: View {
             }
             .padding(.horizontal, 12)
             .padding(.vertical, compact ? 6 : 8)
-            .background(hovered ? Color.accentColor.opacity(0.18) : Color.clear)
+            .background(shownHovered ? Color.accentColor.opacity(0.18) : Color.clear)
             .contentShape(Rectangle())
+            .opacity(shownPressed ? 0.55 : 1)
         }
         .buttonStyle(.plain)
         .overlay(alignment: .trailing) { previewButton }
@@ -643,7 +656,7 @@ private struct MacPickerRow: View {
     /// blocked click-throughs back to the row).
     @ViewBuilder
     private var previewButton: some View {
-        if previewQualifies, !tourActive, hovered || showPreview {
+        if previewQualifies, !tourActive, shownHovered || showPreview {
             Button {
                 showPreview.toggle()
             } label: {

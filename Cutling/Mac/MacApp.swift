@@ -117,7 +117,17 @@ final class CutlingAppDelegate: NSObject, NSApplicationDelegate {
             // Promo takes film the real hotkey; the store stays throwaway.
             if ProcessInfo.processInfo.arguments.contains("-PROMO_MODE") {
                 _ = CutlingPickerController.shared
-                GlobalHotkey.shared.register()
+                if PromoTakeDirector.isDirected {
+                    // A running copy of Cutling owns ⌘⇧V: a directed take opens the
+                    // picker through the hotkey's own notification instead. The film
+                    // is light whatever the Mac's own appearance is.
+                    NSApp.appearance = NSAppearance(named: .aqua)
+                    store.seedForPromo()
+                    store.seedHistoryForPromo()
+                    PromoTakeDirector.shared.start()
+                } else {
+                    GlobalHotkey.shared.register()
+                }
             }
             return
         }
