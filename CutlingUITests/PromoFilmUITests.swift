@@ -757,22 +757,10 @@ final class PromoFilmUITests: XCTestCase {
         launchProp("page")
         let share = prop.buttons["share"].firstMatch
         XCTAssertTrue(share.waitForExistence(timeout: 6))
-        // Warm: the share sheet and Cutling's compose view, off camera.
-        share.tap()
-        Thread.sleep(forTimeInterval: 2.5)
         let cutlingCell = prop.cells.matching(identifier: "shareCell").matching(NSPredicate(format: "label == 'Cutling' OR label == 'カットリング'")).firstMatch
-        if cutlingCell.waitForExistence(timeout: 6) { cutlingCell.tap() }
-        Thread.sleep(forTimeInterval: 4)
-        dump("capture-compose-prop", prop)
-        dump("capture-compose-springboard", springboard)
-        // Leave Cutling's sheet, whichever process draws it.
-        let close = shareSheetButton("xmark")
-        if close.exists { close.tap() } else { coordinate(0.09, 0.09, in: prop).tap() }
-        Thread.sleep(forTimeInterval: 2.0)
-        // Cutling's sheet closed back to the share sheet; a tap on the page closes that one too.
-        coordinate(0.5, 0.82, in: prop).tap()
-        // Staying in this process keeps the share sheet warm for the filmed run.
-        Thread.sleep(forTimeInterval: 2.5)
+        // Warm: the share sheet and Cutling's form, twice, in this same process, so neither arrives cold on camera.
+        warmShareRound(share: share, cutlingCell: cutlingCell)
+        warmShareRound(share: share, cutlingCell: cutlingCell)
         XCTAssertTrue(share.waitForExistence(timeout: 8))
         beginTake("capture")
         Thread.sleep(forTimeInterval: 1.2)
@@ -786,6 +774,24 @@ final class PromoFilmUITests: XCTestCase {
         let frame = save.frame
         press("save", x: frame.midX / screen.width, y: frame.midY / screen.height, in: prop, rest: 1.0)
         endTake(hold: 3.5)
+    }
+
+    /// One round off camera: the share sheet, Cutling's form fully loaded, then both closed again.
+    private func warmShareRound(share: XCUIElement, cutlingCell: XCUIElement) {
+        XCTAssertTrue(share.waitForExistence(timeout: 8), "No share button")
+        share.tap()
+        XCTAssertTrue(cutlingCell.waitForExistence(timeout: 12), "Cutling not in the share sheet")
+        Thread.sleep(forTimeInterval: 1.0)
+        cutlingCell.tap()
+        let save = shareSheetButton("checkmark")
+        XCTAssertTrue(save.waitForExistence(timeout: 6), "No save button in Cutling's sheet")
+        Thread.sleep(forTimeInterval: 1.0)
+        let close = shareSheetButton("xmark")
+        if close.exists { close.tap() } else { coordinate(0.09, 0.09, in: prop).tap() }
+        Thread.sleep(forTimeInterval: 2.0)
+        // Cutling's sheet closes back to the share sheet; a tap on the page closes that one too.
+        coordinate(0.5, 0.82, in: prop).tap()
+        Thread.sleep(forTimeInterval: 2.5)
     }
 
     /// Cutling's share view is an extension; its toolbar shows in the host's tree or SpringBoard's.
