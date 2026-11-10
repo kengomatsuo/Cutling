@@ -897,6 +897,9 @@ a:hover { text-decoration: underline; }
 .hero-media .shot-phone { width: min(360px, 70vw); margin-bottom: -96px; }
 .hero-media .shot-panel { margin-bottom: 32px; }
 
+.film { max-width: 960px; margin: 96px auto 0; padding: 0 24px; }
+.film-video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: var(--radius-lg); background: #000; }
+
 .panel {
     display: grid;
     grid-template-columns: 1fr auto;

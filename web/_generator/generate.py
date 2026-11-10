@@ -175,6 +175,21 @@ def report_translation_status(locale_code, translation, source):
         print(f"  MISSING TRANSLATION FILE: {locale_code}.json")
 
 
+def film_html(locale_code, translation, root):
+    """The explainer film for a locale whose language has its own voice read, else nothing."""
+    language = locale_code.split("-")[0]
+    if language not in ("en", "id", "ja"):
+        return ""
+    label = esc_attr(translation["hero_title"])
+    return (
+        '    <section class="film">\n'
+        f'        <video class="film-video" controls playsinline preload="none" aria-label="{label}" '
+        f'poster="{root}/film/poster-{language}.jpg" width="1920" height="1080" '
+        f'src="{root}/film/cutling-{language}.mp4"></video>\n'
+        "    </section>\n"
+    )
+
+
 def generate_page(template_content, translation, en_translation, locale_code, is_rtl, root, lang_prefix, picker_html):
     """Replace all placeholders in a template with translated values."""
     html = template_content
@@ -185,6 +200,7 @@ def generate_page(template_content, translation, en_translation, locale_code, is
     html = html.replace("{{LANG_CODE}}", locale_code)
     html = html.replace("{{DIR_ATTR}}", ' dir="rtl"' if is_rtl else "")
     html = html.replace("{{LANGUAGE_PICKER}}", picker_html)
+    html = html.replace("{{FILM}}", film_html(locale_code, translation, root))
 
     for key in en_translation:
         if key.startswith("_"):

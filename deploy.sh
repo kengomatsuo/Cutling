@@ -265,6 +265,8 @@ deploy_web() {
   cp "$WEB/fuzzy-redirect.js" "$DIST/"
   cp "$WEB/favicon.ico" "$DIST/"
   cp "$WEB/icon.png" "$DIST/"
+  # The explainer film and its poster in en, id and ja.
+  cp -R "$WEB/film" "$DIST/"
   # Per-locale screenshots from the App Store captures, as WebP.
   python3 "$WEB/_generator/build_images.py" --output-dir "$DIST"
   cp "$REPO_ROOT/locales.json" "$DIST/"
