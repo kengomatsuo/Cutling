@@ -24,7 +24,8 @@ each new session until they close.
 5. **Release state.** iOS 1.6.1 (19) was rejected on 2026-11-11 under guideline 2.3.4:
    its iPhone and iPad previews draw a phone bezel around the screen recording. Re-cut
    previews in the style of Undirect's accepted ones (bare rounded screen, no hardware)
-   replace them on 1.6.1; resubmission waits for the owner's yes. Mac 1.6.1 is in review.
+   replace them on 1.6.1. Resubmitted 2026-11-12 with `ruby fastlane/resubmit_rejected.rb IOS`;
+   iOS 1.6.1 is WAITING_FOR_REVIEW and Mac 1.6.1 is in review.
 
 ## What a screenshot run costs
 
