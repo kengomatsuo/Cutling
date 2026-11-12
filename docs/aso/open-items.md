@@ -13,12 +13,15 @@ each new session until they close.
    test cannot switch to the Cutling keyboard, so frame 1 reuses iOS 26 captures (es-ES
    uses es-MX's).
 3. **Previews.** The iPhone 6.9" preview for 1.6.0 went up on 2026-10-09 (feature film
-   first, older save film second). No iPad or Mac preview exists yet.
+   first, older save film second). As of 1.6.1, en-US, id and ja have iPhone, iPad and
+   Mac previews; the iPhone and iPad ones are being re-cut without the device frame.
 4. **Live ranks cover 565 of 1,109 queries**, because Apple's search endpoint returned 403.
    Rerun per [data/README.md](data/README.md), and take the 48-hour and 3-4-week
    re-measures after 1.5.5 ships.
-5. **Release state.** 1.6.0 (18) went to review on iOS and Mac on 2026-10-09; Mac 1.5.5
-   released the same day.
+5. **Release state.** iOS 1.6.1 (19) was rejected on 2026-11-11 under guideline 2.3.4:
+   its iPhone and iPad previews draw a phone bezel around the screen recording. Re-cut
+   previews in the style of Undirect's accepted ones (bare rounded screen, no hardware)
+   replace them on 1.6.1; resubmission waits for the owner's yes. Mac 1.6.1 is in review.
 
 ## What a screenshot run costs
 
