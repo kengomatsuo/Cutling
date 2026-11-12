@@ -15,9 +15,12 @@ each new session until they close.
 3. **Previews.** The iPhone 6.9" preview for 1.6.0 went up on 2026-10-09 (feature film
    first, older save film second). As of 1.6.1, en-US, id and ja have iPhone, iPad and
    Mac previews; the iPhone and iPad ones are being re-cut without the device frame.
-4. **Live ranks cover 565 of 1,109 queries**, because Apple's search endpoint returned 403.
-   Rerun per [data/README.md](data/README.md), and take the 48-hour and 3-4-week
-   re-measures after 1.5.5 ships.
+4. **Closed 2026-11-12: live ranks cover all 1,146 queries** (1,110 with results; 36 have
+   none in their storefront). Cutling is top ten in 21 of them, top three in 2, and ranks in
+   352. On the 566 searches measured since 2026-10-01 it is top ten in 7, against 8 on
+   2026-11-07 and 2 on 2026-10-01. The earlier 403 came from parallel runs: about 20 requests
+   a second draws an empty 403 from Apple's gateway for about a minute, and one process at
+   1.2 s draws none. Data: [data/ranks-2026-11-12.json](data/ranks-2026-11-12.json).
 5. **Release state.** iOS 1.6.1 (19) was rejected on 2026-11-11 under guideline 2.3.4:
    its iPhone and iPad previews draw a phone bezel around the screen recording. Re-cut
    previews in the style of Undirect's accepted ones (bare rounded screen, no hardware)

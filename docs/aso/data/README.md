@@ -31,6 +31,13 @@ resumed by repeating the same command. Compare `cutlingRank` per `storefront|ter
   `rank.py` processes in parallel plus a type-ahead run drew `403` on the live search and `429`
   with a `retry-after` of about 26 minutes on hints. Run `rank.py` as one process, and wait out
   the `retry-after` before retrying.
+- The live search 403 was reproduced on 2026-11-12: 24 parallel requests (about 20 a second)
+  drew an empty `403` from Apple's `daiquiri` gateway after 129 requests, with no `retry-after`,
+  and the block lifted about a minute later. 8 parallel (about 10 a second, 400 requests) and
+  one process at 1.2 s (1,146 requests) drew none. `rank.py` now waits 60 s on a 403 and prints
+  every HTTP error instead of failing silently.
+- IPv6 to `search.itunes.apple.com` times out on the Mac's network while IPv4 answers, and urllib
+  waits out each IPv6 address first, so `rank.py` tries IPv4 first.
 - Storefront ids in `storefronts.py` were each checked live: the live search answers with
   `meta.storefront.cc` and the id, and both matched. Bangladesh (143490) answered with an empty
   page and the Search API returns 0 results for `country=bd`, so BD has no live search and is

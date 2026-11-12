@@ -11,12 +11,19 @@ at 3 to 4 weeks after a keyword change, into a new out file.
 import datetime
 import json
 import os
+import socket
 import sys
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 
 from storefronts import STOREFRONTS
+
+# search.itunes.apple.com publishes IPv6 addresses that time out on some networks, and
+# urllib tries every address in order with the full timeout before IPv4. Try IPv4 first.
+_getaddrinfo = socket.getaddrinfo
+socket.getaddrinfo = lambda *a, **k: sorted(_getaddrinfo(*a, **k), key=lambda x: x[0] != socket.AF_INET)
 
 
 def search(storefront, term):
@@ -29,7 +36,14 @@ def search(storefront, term):
                 "User-Agent": "iTunes/12.9 (Macintosh; OS X 10.15) AppleWebKit/605"})
             try:
                 return json.load(urllib.request.urlopen(req, timeout=30))
-            except Exception:
+            except urllib.error.HTTPError as e:
+                # Apple's gateway answers a burst (about 20 requests a second) with an empty 403
+                # and no retry-after, and lifts it after about a minute.
+                wait = int(e.headers.get("retry-after") or (60 if e.code == 403 else 0))
+                print("HTTP", e.code, header, term, "retry-after", wait, flush=True)
+                time.sleep(max(wait, 1))
+            except Exception as e:
+                print("ERR", type(e).__name__, header, term, flush=True)
                 time.sleep(1)
         time.sleep(4 * (attempt + 1))
     return None
