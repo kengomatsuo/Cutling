@@ -66,7 +66,7 @@ languages([
   "sw"
 ])
 
-ios_version("27.0")
+ios_version("27.2")
 override_status_bar(true)
 # No clones: the UI test drives this simulator by name with simctl
 xcargs("-parallel-testing-enabled NO")
