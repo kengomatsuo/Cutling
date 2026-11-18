@@ -190,9 +190,13 @@ def film_html(locale_code, translation, root):
     )
 
 
-def generate_page(template_content, translation, en_translation, locale_code, is_rtl, root, lang_prefix, picker_html):
+def generate_page(template_content, translation, en_translation, locale_code, is_rtl, root, lang_prefix, picker_html, template_rel):
     """Replace all placeholders in a template with translated values."""
     html = template_content
+
+    campaign = page_campaign(template_rel)
+    html = html.replace("{{STORE_IOS}}", esc_attr(store_url(campaign)))
+    html = html.replace("{{STORE_MAC}}", esc_attr(store_url(campaign if campaign == "web-mac" else campaign + "-mac", mac=True)))
 
     html = html.replace("{{IMG}}", f"{root}/img/{web_code(locale_code)}")
     html = html.replace("{{ROOT}}", root)
@@ -282,7 +286,20 @@ INDEXNOW_ENDPOINT = "https://api.indexnow.org/indexnow"
 # English-only pages: not translated, hreflang "en" and x-default only.
 EN_ONLY_PAGES = ["compare/"]
 APP_ID = "6759476314"
-APP_URL = f"https://apps.apple.com/app/cutling/id{APP_ID}"
+PROVIDER_TOKEN = "127609326"  # the developer account's pt=, the same on every campaign link
+
+
+def store_url(campaign, mac=False):
+    """Apple's campaign link, so App Store Connect counts views and downloads per campaign (ct, 30 chars at most).
+    mt=12 and platform=mac open the Mac listing; mt=8 the iPhone and iPad one."""
+    assert len(campaign) <= 30, campaign
+    tail = "&mt=12&platform=mac" if mac else "&mt=8"
+    return f"https://apps.apple.com/app/apple-store/id{APP_ID}?pt={PROVIDER_TOKEN}&ct={campaign}{tail}"
+
+
+def page_campaign(template_rel):
+    """One campaign per page: web-home, web-download, web-mac, web-compare."""
+    return "web-" + (template_rel.removesuffix("index.html").strip("/") or "home")
 METADATA_DIR = REPO_ROOT / "fastlane" / "metadata"
 
 # hreflang takes ISO 639-1 language codes (Google: localized-versions). Filipino has
@@ -364,7 +381,7 @@ def head_tags(code, template_rel, translation, available_codes, locales, price):
             "operatingSystem": "iOS, iPadOS, macOS",
             "url": page_url(code, template_rel),
             "image": f"{SITE}/icon.png",
-            "installUrl": APP_URL,
+            "installUrl": store_url("web-schema"),
             "inLanguage": code,
             "author": {"@type": "Person", "name": "Kenneth Johannes Fang"},
         }
@@ -421,7 +438,8 @@ def write_en_only_pages(en_translation, locales, available_codes, price):
     template = template.replace("</head>", "    " + "\n    ".join(tags) + "\n</head>", 1).replace("{{CUTLING_PRICE_CELL}}", price_cell)
     root, prefix = compute_root(1, False), compute_lang_prefix(1)
     html = generate_page(template, en_translation, en_translation, DEFAULT_LOCALE, False, root, prefix,
-                         build_language_picker(locales, available_codes, DEFAULT_LOCALE, root, "index.html"))
+                         build_language_picker(locales, available_codes, DEFAULT_LOCALE, root, "index.html"),
+                         "compare/index.html")
     out = DOCS_DIR / "en-us" / "compare" / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding="utf-8")
@@ -574,7 +592,7 @@ def main():
 
             html = generate_page(
                 page_template, translation, en_translation,
-                code, is_rtl, root, lang_prefix, picker_html
+                code, is_rtl, root, lang_prefix, picker_html, template_rel
             )
 
             out_path = DOCS_DIR / web_code(code) / template_rel
@@ -591,7 +609,8 @@ def main():
                     page_template, translation, en_translation, code, is_rtl,
                     compute_root(template_depth, True), compute_lang_prefix(template_depth),
                     build_language_picker(locales, available_codes, code,
-                                          compute_root(template_depth, True), template_rel))
+                                          compute_root(template_depth, True), template_rel),
+                    template_rel)
                 root_html = root_html.replace(
                     f'<script src="{compute_root(template_depth, True)}/locale-router.js"></script>',
                     f'<script src="{compute_root(template_depth, True)}/lang-suggest.js" defer></script>')
