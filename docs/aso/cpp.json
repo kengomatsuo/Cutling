@@ -2230,6 +2230,303 @@
      }
     }
    }
+  },
+  {
+   "name": "Text expander",
+   "deepLink": "cutling://addText",
+   "keywords": {
+    "en-US": [
+     "expander",
+     "autotext",
+     "shortcuts"
+    ],
+    "en-GB": [
+     "expander",
+     "autotext",
+     "shortcuts"
+    ],
+    "en-AU": [
+     "snippet",
+     "typing"
+    ],
+    "en-CA": [
+     "expander",
+     "autotext",
+     "shortcuts"
+    ]
+   },
+   "locales": {
+    "en-US": {
+     "promo": "Skip the shortcut codes. Save a snippet once, then tap it in the Cutling keyboard to insert the whole text in any app.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPhone 14 Pro Max-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPhone 14 Pro Max-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPhone 14 Pro Max-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPhone 14 Pro Max-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPhone 14 Pro Max-04_KeyboardGuide.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPad Air 13-inch (M4)-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPad Air 13-inch (M4)-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPad Air 13-inch (M4)-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPad Air 13-inch (M4)-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPad Air 13-inch (M4)-04_KeyboardGuide.png"
+      ]
+     }
+    },
+    "en-GB": {
+     "promo": "Skip the shortcut codes. Save a snippet once, then tap it in the Cutling keyboard to insert the whole text in any app.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPhone 14 Pro Max-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPhone 14 Pro Max-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPhone 14 Pro Max-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPhone 14 Pro Max-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPhone 14 Pro Max-04_KeyboardGuide.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPad Air 13-inch (M4)-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPad Air 13-inch (M4)-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPad Air 13-inch (M4)-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPad Air 13-inch (M4)-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPad Air 13-inch (M4)-04_KeyboardGuide.png"
+      ]
+     }
+    },
+    "en-AU": {
+     "promo": "Skip the shortcut codes. Save a snippet once, then tap it in the Cutling keyboard to insert the whole text in any app.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPhone 14 Pro Max-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPhone 14 Pro Max-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPhone 14 Pro Max-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPhone 14 Pro Max-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPhone 14 Pro Max-04_KeyboardGuide.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPad Air 13-inch (M4)-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPad Air 13-inch (M4)-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPad Air 13-inch (M4)-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPad Air 13-inch (M4)-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPad Air 13-inch (M4)-04_KeyboardGuide.png"
+      ]
+     }
+    },
+    "en-CA": {
+     "promo": "Skip the shortcut codes. Save a snippet once, then tap it in the Cutling keyboard to insert the whole text in any app.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPhone 14 Pro Max-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPhone 14 Pro Max-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPhone 14 Pro Max-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPhone 14 Pro Max-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPhone 14 Pro Max-04_KeyboardGuide.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPad Air 13-inch (M4)-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPad Air 13-inch (M4)-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPad Air 13-inch (M4)-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPad Air 13-inch (M4)-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPad Air 13-inch (M4)-04_KeyboardGuide.png"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "name": "Clipboard history",
+   "deepLink": "cutling://addText",
+   "keywords": {
+    "en-US": [
+     "history",
+     "copy",
+     "manager"
+    ],
+    "en-GB": [
+     "history",
+     "manager"
+    ],
+    "en-CA": [
+     "history",
+     "copy",
+     "manager"
+    ]
+   },
+   "locales": {
+    "en-US": {
+     "promo": "Keep the text you copy. Save it with the keyboard's Add from Clipboard button, then paste it again in any app whenever you need it.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPhone 14 Pro Max-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPhone 14 Pro Max-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPhone 14 Pro Max-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPhone 14 Pro Max-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPhone 14 Pro Max-04_KeyboardGuide.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPad Air 13-inch (M4)-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPad Air 13-inch (M4)-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPad Air 13-inch (M4)-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPad Air 13-inch (M4)-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPad Air 13-inch (M4)-04_KeyboardGuide.png"
+      ]
+     }
+    },
+    "en-GB": {
+     "promo": "Keep the text you copy. Save it with the keyboard's Add from Clipboard button, then paste it again in any app whenever you need it.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPhone 14 Pro Max-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPhone 14 Pro Max-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPhone 14 Pro Max-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPhone 14 Pro Max-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPhone 14 Pro Max-04_KeyboardGuide.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPad Air 13-inch (M4)-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPad Air 13-inch (M4)-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPad Air 13-inch (M4)-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPad Air 13-inch (M4)-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPad Air 13-inch (M4)-04_KeyboardGuide.png"
+      ]
+     }
+    },
+    "en-AU": {
+     "promo": "Keep the text you copy. Save it with the keyboard's Add from Clipboard button, then paste it again in any app whenever you need it.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPhone 14 Pro Max-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPhone 14 Pro Max-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPhone 14 Pro Max-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPhone 14 Pro Max-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPhone 14 Pro Max-04_KeyboardGuide.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPad Air 13-inch (M4)-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPad Air 13-inch (M4)-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPad Air 13-inch (M4)-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPad Air 13-inch (M4)-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPad Air 13-inch (M4)-04_KeyboardGuide.png"
+      ]
+     }
+    },
+    "en-CA": {
+     "promo": "Keep the text you copy. Save it with the keyboard's Add from Clipboard button, then paste it again in any app whenever you need it.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPhone 14 Pro Max-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPhone 14 Pro Max-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPhone 14 Pro Max-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPhone 14 Pro Max-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPhone 14 Pro Max-04_KeyboardGuide.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPad Air 13-inch (M4)-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPad Air 13-inch (M4)-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPad Air 13-inch (M4)-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPad Air 13-inch (M4)-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPad Air 13-inch (M4)-04_KeyboardGuide.png"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "name": "Notes you paste",
+   "deepLink": "cutling://addText",
+   "keywords": {
+    "en-US": [
+     "notes"
+    ],
+    "en-GB": [
+     "notes"
+    ],
+    "en-AU": [
+     "notepad"
+    ],
+    "en-CA": [
+     "notes"
+    ]
+   },
+   "locales": {
+    "en-US": {
+     "promo": "Keep the addresses, account numbers and notes you paste most in one place, one tap away in the Cutling keyboard.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPhone 14 Pro Max-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPhone 14 Pro Max-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPhone 14 Pro Max-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPhone 14 Pro Max-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPhone 14 Pro Max-04_KeyboardGuide.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPad Air 13-inch (M4)-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPad Air 13-inch (M4)-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPad Air 13-inch (M4)-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPad Air 13-inch (M4)-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-US/iPad Air 13-inch (M4)-04_KeyboardGuide.png"
+      ]
+     }
+    },
+    "en-GB": {
+     "promo": "Keep the addresses, account numbers and notes you paste most in one place, one tap away in the Cutling keyboard.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPhone 14 Pro Max-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPhone 14 Pro Max-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPhone 14 Pro Max-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPhone 14 Pro Max-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPhone 14 Pro Max-04_KeyboardGuide.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPad Air 13-inch (M4)-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPad Air 13-inch (M4)-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPad Air 13-inch (M4)-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPad Air 13-inch (M4)-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-GB/iPad Air 13-inch (M4)-04_KeyboardGuide.png"
+      ]
+     }
+    },
+    "en-AU": {
+     "promo": "Keep the addresses, account numbers and notes you paste most in one place, one tap away in the Cutling keyboard.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPhone 14 Pro Max-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPhone 14 Pro Max-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPhone 14 Pro Max-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPhone 14 Pro Max-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPhone 14 Pro Max-04_KeyboardGuide.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPad Air 13-inch (M4)-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPad Air 13-inch (M4)-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPad Air 13-inch (M4)-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPad Air 13-inch (M4)-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-AU/iPad Air 13-inch (M4)-04_KeyboardGuide.png"
+      ]
+     }
+    },
+    "en-CA": {
+     "promo": "Keep the addresses, account numbers and notes you paste most in one place, one tap away in the Cutling keyboard.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPhone 14 Pro Max-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPhone 14 Pro Max-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPhone 14 Pro Max-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPhone 14 Pro Max-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPhone 14 Pro Max-04_KeyboardGuide.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPad Air 13-inch (M4)-02_MainGrid.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPad Air 13-inch (M4)-03_DetailView.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPad Air 13-inch (M4)-01_KeyboardInMessages.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPad Air 13-inch (M4)-05_KeyboardSettings.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/screenshots/en-CA/iPad Air 13-inch (M4)-04_KeyboardGuide.png"
+      ]
+     }
+    }
+   }
   }
  ]
 }
