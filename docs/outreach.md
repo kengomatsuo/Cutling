@@ -34,7 +34,7 @@ URLs were fetched on 2026-11-07 and returned 200 unless noted.
 3. Links: site and App Store.
 4. Description: the press blurb below, shortened. Topics: iPhone, Productivity, Privacy.
 5. Gallery: App Store screenshots and the promo film if you have one.
-6. First comment: say you are the developer, one person in Indonesia, and what you want feedback on.
+6. First comment: say you are the developer, working alone, and what you want feedback on.
 7. Choose the launch date yourself. Do not ask friends for upvotes in bulk; Product Hunt discourages it.
 
 ## 3. Pitch emails
@@ -48,7 +48,7 @@ I read "Mac clipboard history: How to find and use it in macOS 26 Tahoe". I make
 
 It is $4.99 once, with no account or tracking, and the Mac app comes with the same purchase. If it fits a future piece, I can send a promo code: [CODE].
 
-I am the developer, one person in Indonesia. Site: https://cutling.matsuokengo.com
+I am the developer, working alone. Site: https://cutling.matsuokengo.com
 
 Kenneth Johannes Fang
 
@@ -61,7 +61,7 @@ Your guide "How to save and access your clipboard on iPhone" is the page I would
 
 It costs $4.99 one time and runs without an account, analytics or a server. iCloud sync is optional. It also has a Mac menu-bar app.
 
-If you would like to try it, here is a promo code: [CODE]. I am the developer, working alone from Indonesia.
+If you would like to try it, here is a promo code: [CODE]. I am the developer, working alone.
 
 https://cutling.matsuokengo.com
 
@@ -76,7 +76,7 @@ I read "10 Best clipboard managers for Mac in 2026" and your iPhone clipboard gu
 
 $4.99 once, and it never asks you to sign up or tracks you. Formatted text keeps its bold and links, and code stays exact.
 
-Here is a promo code for a review: [CODE]. I am the developer, one person in Indonesia.
+Here is a promo code for a review: [CODE]. I am the developer, working alone.
 
 https://cutling.matsuokengo.com
 
@@ -131,7 +131,7 @@ Check that both devices are signed in to the same Apple ID, have Wi-Fi and Bluet
 
 ## 6. Press blurb
 
-Cutling is a clipboard manager for iPhone, iPad and Mac, made by Kenneth Johannes Fang, one developer in Indonesia. You save text and images you reuse, such as an address, a bank account number, an email signature or a QR code. On iPhone and iPad you switch to the Cutling keyboard in any app and tap an item to insert it. On Mac it sits in the menu bar and a keyboard shortcut opens a picker at your cursor. It costs $4.99 once. There are no accounts, ads, subscriptions, analytics or third-party code, and the developer has no server that could see your data. Sync runs through your own iCloud, and only if you switch it on.
+Cutling is a clipboard manager for iPhone, iPad and Mac, made by Kenneth Johannes Fang, one developer. You save text and images you reuse, such as an address, a bank account number, an email signature or a QR code. On iPhone and iPad you switch to the Cutling keyboard in any app and tap an item to insert it. On Mac it sits in the menu bar and a keyboard shortcut opens a picker at your cursor. It costs $4.99 once. There are no accounts, ads, subscriptions, analytics or third-party code, and the developer has no server that could see your data. Sync runs through your own iCloud, and only if you switch it on.
 
 ## 7. Fact sheet
 
@@ -145,6 +145,6 @@ Cutling is a clipboard manager for iPhone, iPad and Mac, made by Kenneth Johanne
 | Privacy | Nothing is collected and there is no account, server or third-party code. Data stays on the device. iCloud sync is optional and uses your own account. |
 | Keyboard permission | Needs Full Access to read saved items from local storage |
 | Other features | Formatted text and code kept intact, expiry dates for temporary items, colour labels and icons, import of iPhone Text Replacements |
-| Developer | Kenneth Johannes Fang, one person, Indonesia |
+| Developer | Kenneth Johannes Fang, one person |
 | Contact | kenneth@matsuokengo.com |
 | Links | https://cutling.matsuokengo.com and https://apps.apple.com/app/cutling/id6759476314 |
