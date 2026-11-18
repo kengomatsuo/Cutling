@@ -1,4 +1,4 @@
-// compose.swift — App Store frame: background, two caption lines, device.
+// compose.swift — App Store frame: background, two caption lines (or one headline), device.
 //
 // Replaces frameit's text step: frameit draws text with ImageMagick, which
 // here has no shaping engine, so Arabic, Indic and Thai captions came out
@@ -38,13 +38,13 @@ func cgImage(_ path: String) -> CGImage? {
 }
 
 /// Bold system font; CoreText's cascade supplies each script's own face.
-func attributed(_ text: String, size: CGFloat, lang: String, alpha: CGFloat) -> NSAttributedString {
+func attributed(_ text: String, size: CGFloat, lang: String, alpha: CGFloat, weight: NSFont.Weight = .bold) -> NSAttributedString {
     let para = NSMutableParagraphStyle()
     para.alignment = .center
     para.baseWritingDirection = .natural
     para.lineBreakMode = .byWordWrapping
     para.lineHeightMultiple = 1.05
-    var font = NSFont.systemFont(ofSize: size, weight: .bold)
+    var font = NSFont.systemFont(ofSize: size, weight: weight)
     // Pick the regional CJK face (PingFang TC vs SC, Hiragino for ja)
     let cascade: [String: String] = ["zh-Hant": "PingFangTC-Semibold", "zh-Hans": "PingFangSC-Semibold",
                                      "ja": "HiraginoSans-W7", "ko": "AppleSDGothicNeo-Bold"]
@@ -58,8 +58,8 @@ func attributed(_ text: String, size: CGFloat, lang: String, alpha: CGFloat) -> 
 }
 
 /// Lines `text` needs at `size` within `width`.
-func lineCount(_ text: String, size: CGFloat, width: CGFloat, lang: String) -> Int {
-    let setter = CTFramesetterCreateWithAttributedString(attributed(text, size: size, lang: lang, alpha: 1))
+func lineCount(_ text: String, size: CGFloat, width: CGFloat, lang: String, weight: NSFont.Weight) -> Int {
+    let setter = CTFramesetterCreateWithAttributedString(attributed(text, size: size, lang: lang, alpha: 1, weight: weight))
     let path = CGPath(rect: CGRect(x: 0, y: 0, width: width, height: 10_000), transform: nil)
     return (CTFrameGetLines(CTFramesetterCreateFrame(setter, CFRange(), path, nil)) as! [CTLine]).count
 }
@@ -68,17 +68,17 @@ func lineCount(_ text: String, size: CGFloat, width: CGFloat, lang: String) -> I
 /// (CJK otherwise breaks mid-word), else up to maxLines, shrinking to fit.
 @discardableResult
 func drawText(_ text: String, in ctx: CGContext, top: CGFloat, width: CGFloat, canvas: CGSize,
-              size: CGFloat, maxLines: Int, lang: String, alpha: CGFloat) -> CGFloat {
+              size: CGFloat, maxLines: Int, lang: String, alpha: CGFloat, weight: NSFont.Weight = .bold) -> CGFloat {
     guard !text.isEmpty else { return top }
     var fontSize = size
     var maxLines = maxLines
     var probe = size
     while probe >= size * 0.8 {
-        if lineCount(text, size: probe, width: width, lang: lang) == 1 { fontSize = probe; maxLines = 1; break }
+        if lineCount(text, size: probe, width: width, lang: lang, weight: weight) == 1 { fontSize = probe; maxLines = 1; break }
         probe -= 2
     }
     while true {
-        let str = attributed(text, size: fontSize, lang: lang, alpha: alpha)
+        let str = attributed(text, size: fontSize, lang: lang, alpha: alpha, weight: weight)
         let setter = CTFramesetterCreateWithAttributedString(str)
         let fit = CTFramesetterSuggestFrameSizeWithConstraints(
             setter, CFRange(), nil, CGSize(width: width, height: .greatestFiniteMagnitude), nil)
@@ -109,15 +109,19 @@ func render(_ job: Job) throws {
     let scale = size.width / 1290
     let isMac = job.device == "mac"
     let textWidth = size.width - (isMac ? 520 : 150 * scale)
-    let titleSize: CGFloat = isMac ? 104 : 92 * scale
+    // A job with no subtitle is a headline frame: one large heavy result line
+    let headline = job.subtitle.isEmpty && !isMac
+    let titleSize: CGFloat = isMac ? 104 : (headline ? 132 : 92) * scale
     let subSize: CGFloat = isMac ? 60 : 56 * scale
-    var y: CGFloat = isMac ? 110 : 150 * scale
+    var y: CGFloat = isMac ? 110 : (headline ? 100 : 150) * scale
     y = drawText(job.title, in: ctx, top: y, width: textWidth, canvas: size,
-                 size: titleSize, maxLines: 2, lang: job.lang, alpha: 1)
-    y += isMac ? 24 : 26 * scale
-    y = drawText(job.subtitle, in: ctx, top: y, width: textWidth, canvas: size,
-                 size: subSize, maxLines: 2, lang: job.lang, alpha: 0.88)
-    y += isMac ? 80 : 90 * scale
+                 size: titleSize, maxLines: 2, lang: job.lang, alpha: 1, weight: headline ? .heavy : .bold)
+    if !headline {
+        y += isMac ? 24 : 26 * scale
+        y = drawText(job.subtitle, in: ctx, top: y, width: textWidth, canvas: size,
+                     size: subSize, maxLines: 2, lang: job.lang, alpha: 0.88)
+    }
+    y += isMac ? 80 : (headline ? 70 : 90) * scale
 
     guard let shot = cgImage(job.input) else { throw NSError(domain: "compose", code: 1) }
 
