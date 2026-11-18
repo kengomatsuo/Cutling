@@ -1,5 +1,12 @@
 # Cutling
 
+<p>
+<a href="https://macbrowse.com"><img src="https://macbrowse.com/badge/listed-light.svg" alt="Listed on Mac Browse" height="48"></a>
+<a href="https://macappindex.com/apps/cutling?ref=badge"><img src="https://macappindex.com/apps/cutling/badge.svg?theme=light&height=56" alt="Listed on Mac App Index" height="48"></a>
+<a href="https://macpip.com/apps/cutling?ref=badge"><img src="https://macpip.com/badge/cutling.svg" alt="Listed on MacPip" height="48"></a>
+<a href="https://nativeshelf.com/cutling?ref=badge"><img src="https://nativeshelf.com/badge/dark.png?v=6" alt="Featured on NativeShelf" height="48"></a>
+</p>
+
 **Your clipboard, organized.**
 
 Cutling is a native iOS and macOS clipboard manager that puts your most-used text and images one tap away. Save snippets and access them instantly from any app via a custom keyboard extension — no accounts, no tracking, just your stuff.
