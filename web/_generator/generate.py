@@ -35,6 +35,18 @@ LOCALES_FILE = REPO_ROOT / "locales.json"
 
 DEFAULT_LOCALE = "en-US"
 
+# Directory badges in every page footer. Each listing site checks for its own badge on the live site
+# to keep a free listing or launch, so one is never dropped without checking that site's rules.
+DIRECTORY_BADGES = [
+    '<a href="https://nativeshelf.com?ref=badge" target="_blank" title="Featured on NativeShelf.com"><img src="https://nativeshelf.com/badge/dark.png?v=6" alt="Featured on NativeShelf.com" width="232" height="68" /></a>',
+    '<a href="https://macpip.com/apps/cutling?ref=badge"><img src="https://macpip.com/badge/cutling.svg" height="44" alt="Listed on MacPip"></a>',
+    '<a href="https://macbase.app/apps/cutling?ref=badge" target="_blank" rel="noopener"><img src="https://macbase.app/badge/featured-on-macbase.svg" alt="Cutling is featured on MacBase" height="44" style="height:44px;width:auto"></a>',
+    '<a href="https://macbrowse.com"><img src="https://macbrowse.com/badge/listed-light.svg" alt="Listed on Mac Browse" height="44"></a>',
+    '<a href="https://macappindex.com/apps/cutling?ref=badge" target="_blank" title="Cutling on Mac App Index"><img src="https://macappindex.com/apps/cutling/badge.svg?theme=light&height=56" alt="Cutling on Mac App Index" width="224" height="56" /></a>',
+    '<a href="https://macnative.io/apps/cutling?utm_source=macnative-badge&utm_medium=referral" target="_blank" rel="noopener"><img src="https://macnative.io/badge?kind=listed&theme=light&slug=cutling" alt="Listed on MacNative" width="212" height="58" /></a>',
+    '<a href="https://ipip.fyi/apps/cutling?ref=badge"><img src="https://ipip.fyi/badge/cutling.svg" alt="Cutling on iPip" width="220" height="56"></a>',
+]
+
 TRANSLATION_ALIASES = {
     "no": "nb",
 }
@@ -205,6 +217,7 @@ def generate_page(template_content, translation, en_translation, locale_code, is
     html = html.replace("{{DIR_ATTR}}", ' dir="rtl"' if is_rtl else "")
     html = html.replace("{{LANGUAGE_PICKER}}", picker_html)
     html = html.replace("{{FILM}}", film_html(locale_code, translation, root))
+    html = html.replace("{{DIRECTORY_BADGES}}", '<div class="directory-badges">' + "".join(DIRECTORY_BADGES) + "</div>")
 
     for key in en_translation:
         if key.startswith("_"):

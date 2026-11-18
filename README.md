@@ -5,6 +5,7 @@
 <a href="https://macappindex.com/apps/cutling?ref=badge"><img src="https://macappindex.com/apps/cutling/badge.svg?theme=light&height=56" alt="Listed on Mac App Index" height="48"></a>
 <a href="https://macpip.com/apps/cutling?ref=badge"><img src="https://macpip.com/badge/cutling.svg" alt="Listed on MacPip" height="48"></a>
 <a href="https://nativeshelf.com/cutling?ref=badge"><img src="https://nativeshelf.com/badge/dark.png?v=6" alt="Featured on NativeShelf" height="48"></a>
+<a href="https://ipip.fyi/apps/cutling?ref=badge"><img src="https://ipip.fyi/badge/cutling.svg" alt="Cutling on iPip" height="48"></a>
 </p>
 
 **Your clipboard, organized.**
