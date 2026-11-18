@@ -46,7 +46,7 @@ Hi D. Griffin,
 
 I read "Mac clipboard history: How to find and use it in macOS 26 Tahoe". I make Cutling, a clipboard keyboard for iPhone and iPad with a menu-bar app for Mac. You save text and images you reuse, such as an address or a signature. On Mac a shortcut opens a small picker at your cursor.
 
-It is $4.99 once, with no account or tracking, and the Mac app comes with the same purchase. If it fits a future piece, I can send a promo code: [CODE].
+It is $3.99 once, with no account or tracking, and the Mac app comes with the same purchase. If it fits a future piece, I can send a promo code: [CODE].
 
 I am the developer, one person in Indonesia. Site: https://cutling.matsuokengo.com
 
@@ -59,7 +59,7 @@ Hi Ankur,
 
 Your guide "How to save and access your clipboard on iPhone" is the page I would want people to find. iOS keeps one copied item. Cutling is my app for the rest: you save text and images once, then insert them from its keyboard in any app.
 
-It costs $4.99 one time and runs without an account, analytics or a server. iCloud sync is optional. It also has a Mac menu-bar app.
+It costs $3.99 one time and runs without an account, analytics or a server. iCloud sync is optional. It also has a Mac menu-bar app.
 
 If you would like to try it, here is a promo code: [CODE]. I am the developer, working alone from Indonesia.
 
@@ -74,7 +74,7 @@ Hi,
 
 I read "10 Best clipboard managers for Mac in 2026" and your iPhone clipboard guide. Cutling is a clipboard manager for iPhone, iPad and Mac. On iPhone it works as a keyboard, so you tap a saved snippet and it goes into the app you are in. On Mac it sits in the menu bar and opens with a shortcut.
 
-$4.99 once, and it never asks you to sign up or tracks you. Formatted text keeps its bold and links, and code stays exact.
+$3.99 once, and it never asks you to sign up or tracks you. Formatted text keeps its bold and links, and code stays exact.
 
 Here is a promo code for a review: [CODE]. I am the developer, one person in Indonesia.
 
@@ -99,7 +99,7 @@ Title: I made a keyboard that pastes your saved snippets (developer here)
 
 I'm the developer, so take this as a plug. iOS remembers one copied item, and I was tired of retyping my address and bank details. Cutling is a keyboard: you save text and images, switch to it in any app, and tap one to insert it.
 
-It is $4.99 once, with no ads and nothing collected. It has no account or server. iCloud sync is optional. There is also a Mac menu-bar app.
+It is $3.99 once, with no ads and nothing collected. It has no account or server. iCloud sync is optional. There is also a Mac menu-bar app.
 
 The keyboard needs Full Access to read your saved items from local storage. I explain why on the site's FAQ. I can send promo codes to people who want to try it and tell me what is missing.
 
@@ -110,7 +110,7 @@ Title: Cutling, a menu-bar snippet picker for Mac, also on iPhone (I'm the devel
 
 I'm the developer. Cutling lives in the menu bar. Press a shortcut from anywhere and a small picker opens at your cursor with your saved text and images. Pick one and it is inserted. Direct paste is off by default because macOS asks for Accessibility permission to send the keystroke.
 
-$4.99 once, which also covers the iPhone and iPad app. It collects nothing and has no account or third-party code. Sync through your own iCloud is optional.
+$3.99 once, which also covers the iPhone and iPad app. It collects nothing and has no account or third-party code. Sync through your own iCloud is optional.
 
 Tell me what the picker lacks. I can send a promo code if you want to try it.
 
@@ -121,7 +121,7 @@ https://cutling.matsuokengo.com
 Use these in existing threads. Post only where the thread invites suggestions, and say you are the developer when you mention Cutling.
 
 ### Reply 1, "clipboard manager for iPhone?"
-iOS has no clipboard history built in; it keeps the last copied item. Free ways around that: paste things you reuse into a note and pin it, or add them under Settings > General > Keyboard > Text Replacement so a short code expands to the full text. If you want taps instead of codes, a keyboard-based manager does it. I make one called Cutling ($4.99 once, no account), so weigh my opinion accordingly.
+iOS has no clipboard history built in; it keeps the last copied item. Free ways around that: paste things you reuse into a note and pin it, or add them under Settings > General > Keyboard > Text Replacement so a short code expands to the full text. If you want taps instead of codes, a keyboard-based manager does it. I make one called Cutling ($3.99 once, no account), so weigh my opinion accordingly.
 
 ### Reply 2, "How do I type my address and email quickly?"
 Text Replacement is the cheapest answer: set "@@" to your email and "addr" to your address. It syncs through iCloud and works in most apps. It falls short for images, multi-line text with formatting, and long lists. For those, a snippet keyboard helps. I'm the developer of Cutling, one such app; it can import your Text Replacements.
@@ -131,7 +131,7 @@ Check that both devices are signed in to the same Apple ID, have Wi-Fi and Bluet
 
 ## 6. Press blurb
 
-Cutling is a clipboard manager for iPhone, iPad and Mac, made by Kenneth Johannes Fang, one developer in Indonesia. You save text and images you reuse, such as an address, a bank account number, an email signature or a QR code. On iPhone and iPad you switch to the Cutling keyboard in any app and tap an item to insert it. On Mac it sits in the menu bar and a keyboard shortcut opens a picker at your cursor. It costs $4.99 once. There are no accounts, ads, subscriptions, analytics or third-party code, and the developer has no server that could see your data. Sync runs through your own iCloud, and only if you switch it on.
+Cutling is a clipboard manager for iPhone, iPad and Mac, made by Kenneth Johannes Fang, one developer in Indonesia. You save text and images you reuse, such as an address, a bank account number, an email signature or a QR code. On iPhone and iPad you switch to the Cutling keyboard in any app and tap an item to insert it. On Mac it sits in the menu bar and a keyboard shortcut opens a picker at your cursor. It costs $3.99 once. There are no accounts, ads, subscriptions, analytics or third-party code, and the developer has no server that could see your data. Sync runs through your own iCloud, and only if you switch it on.
 
 ## 7. Fact sheet
 
@@ -139,7 +139,7 @@ Cutling is a clipboard manager for iPhone, iPad and Mac, made by Kenneth Johanne
 | --- | --- |
 | Name | Cutling - Clipboard Keyboard |
 | One line | Save text and images once, insert them from a keyboard in any app. |
-| Price | $4.99, one-time, with no subscription, in-app purchase or ad. |
+| Price | $3.99, one-time, with no subscription, in-app purchase or ad. |
 | Platforms | iPhone and iPad (keyboard extension), Mac (menu-bar app, included in the same purchase) |
 | Languages | 60 App Store localisations |
 | Privacy | Nothing is collected and there is no account, server or third-party code. Data stays on the device. iCloud sync is optional and uses your own account. |
