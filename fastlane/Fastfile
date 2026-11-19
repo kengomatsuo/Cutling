@@ -5,6 +5,9 @@ ENV["PATH"] = "/opt/homebrew/bin:#{ENV['PATH']}"
 require 'json'
 require 'fastlane_core/languages'
 
+# Archives, exports and DerivedData go to the temp folder build-dir.sh names, never the repo.
+BUILD_DIR = `bash "#{File.expand_path('../build-dir.sh', __dir__)}"`.strip
+
 def locale_codes_from_json
   @locale_codes_from_json ||= JSON.parse(
     File.read(File.join(__dir__, '..', 'locales.json'), encoding: 'UTF-8')
@@ -224,6 +227,7 @@ platform :ios do
   desc "Clear all screenshots and recapture from scratch"
   lane :screenshots do
     snapshot(
+      derived_data_path: "#{BUILD_DIR}/SnapshotDerivedData",
       clear_previous_screenshots: true,
       skip_open_summary: true,
       disable_slide_to_type: true
@@ -233,6 +237,7 @@ platform :ios do
   desc "Clear all screenshots, recapture, and add device frames with marketing text"
   lane :framed_screenshots do
     snapshot(
+      derived_data_path: "#{BUILD_DIR}/SnapshotDerivedData",
       clear_previous_screenshots: true
     )
     # Restore frameit assets that clear_previous_screenshots may have removed
@@ -256,6 +261,7 @@ platform :ios do
     UI.message("Missing screenshots for: #{missing.join(', ')}")
 
     snapshot(
+      derived_data_path: "#{BUILD_DIR}/SnapshotDerivedData",
       languages: missing,
       clear_previous_screenshots: false,
       output_directory: "./fastlane/screenshots"
@@ -439,14 +445,16 @@ platform :ios do
     gym(
       scheme: "Cutling",
       export_method: "app-store",
-      output_directory: "./build",
+      output_directory: "#{BUILD_DIR}/ios",
+      archive_path: "#{BUILD_DIR}/ios/Cutling.xcarchive",
+      derived_data_path: "#{BUILD_DIR}/DerivedData",
       clean: true
     )
   end
 
   desc "Upload the already-built IPA to App Store Connect (binary only, no metadata/screenshots). Run `build` first. Does NOT submit for review."
   lane :upload_binary do
-    ipa_path = File.expand_path("../build/Cutling.ipa", __dir__)
+    ipa_path = "#{BUILD_DIR}/ios/Cutling.ipa"
     UI.user_error!("IPA not found at #{ipa_path} — run `./deploy.sh build` first") unless File.exist?(ipa_path)
     deliver(
       api_key: asc_api_key,
@@ -493,7 +501,7 @@ platform :ios do
       # can't read in-app purchases via an API key. Same reasoning as
       # `upload_binary`.
       run_precheck_before_submit: false,
-      ipa: "./build/Cutling.ipa"
+      ipa: "#{BUILD_DIR}/ios/Cutling.ipa"
     )
 
     UI.success("Deploy complete!")
@@ -589,13 +597,15 @@ platform :mac do
       sdk: "macosx",
       destination: "generic/platform=macOS",
       export_method: "app-store",
-      output_directory: "./build/mas",
-      output_name: "Cutling"
+      output_directory: "#{BUILD_DIR}/mas",
+      output_name: "Cutling",
+      archive_path: "#{BUILD_DIR}/mas/Cutling.xcarchive",
+      derived_data_path: "#{BUILD_DIR}/DerivedData"
     )
     upload_to_app_store(
       api_key: asc_api_key,
       platform: "osx",
-      pkg: "./build/mas/Cutling.pkg",
+      pkg: "#{BUILD_DIR}/mas/Cutling.pkg",
       skip_metadata: true,
       skip_screenshots: true,
       run_precheck_before_submit: false,

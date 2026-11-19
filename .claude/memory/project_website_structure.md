@@ -11,6 +11,6 @@ Website source lives in `web/` on the `main` branch (tracked):
 - `web/style.css`, `web/locale-router.js`, `web/icon.png`, `web/img/` — static assets
 - `locales.json` at repo root — shared source of truth for locale list (used by both iOS and the generator)
 
-Generated output goes to `dist/` (gitignored). `gh-pages` branch is write-only output — never edit it directly.
+Generated output goes to `$(./build-dir.sh)/site`, a temp folder outside the repo. `gh-pages` branch is write-only output — never edit it directly.
 
 **Why:** Moved source from `gh-pages` branch to `main` so the user never needs to switch branches to edit the website. The generated locale HTML dirs were polluting code analysis tools.

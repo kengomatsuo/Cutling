@@ -8,7 +8,7 @@ captures borrows its base language's, then English. Output lands in
 <output>/img/<lowercased-locale>/, the folder the {{IMG}} placeholder names.
 
 Usage:
-    python3 web/_generator/build_images.py --output-dir dist
+    python3 web/_generator/build_images.py --output-dir "$(./build-dir.sh)/site"
 """
 
 import argparse

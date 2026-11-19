@@ -2,7 +2,7 @@
 
 ```bash
 ./deploy.sh bump [patch|minor|major]  # Bump MARKETING_VERSION across every shipping build config
-./deploy.sh build          # Build IPA for App Store (output: ./build/Cutling.ipa)
+./deploy.sh build          # Build IPA for App Store (output: $(./build-dir.sh)/ios/Cutling.ipa, a temp folder)
 ./deploy.sh binary         # Upload the already-built IPA to App Store Connect (binary only, no submit; run build first)
 ./deploy.sh snap           # Capture missing locale screenshots
 ./deploy.sh snap --all     # Recapture all screenshots

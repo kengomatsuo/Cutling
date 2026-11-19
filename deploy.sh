@@ -10,6 +10,8 @@ FASTLANE="/Users/hafang/.rbenv/shims/fastlane"
 VENV="docs/_generator/.venv/bin/activate"
 
 REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
+# Every archive, export, DMG, site and tool build goes here, in the temp folder, never in the repo.
+BUILD_DIR="$("$REPO_ROOT/build-dir.sh")"
 
 usage() {
   cat <<EOF
@@ -29,9 +31,10 @@ Commands:
   screenshots       Upload framed screenshots to App Store Connect
   screenshots_mac   Upload captioned Mac screenshots to the editable macOS version
   upload            Upload metadata + framed screenshots together
-  build             Build IPA for App Store (output: ./build/Cutling.ipa)
+  build             Build IPA for App Store (output: $BUILD_DIR/ios/Cutling.ipa)
   binary            Upload the already-built IPA to App Store Connect (binary
-                    only; run 'build' first; does not submit for review)
+                    only; run 'build' first; does not submit for review);
+                    deletes the IPA and its archive once uploaded
   dist              Build, notarize & publish the macOS Developer ID app to a
                     GitHub Release (direct download; "Cutling (Direct)" target,
                     the only one that links Sparkle)
@@ -65,7 +68,7 @@ NOTARY_PROFILE="cutling-notary"       # keychain profile created via notarytool 
 DIST_SCHEME="Cutling (Direct)"
 
 dist_release() {
-  local build_dir="$REPO_ROOT/build/dist"
+  local build_dir="$BUILD_DIR/dist"
   local archive="$build_dir/Cutling.xcarchive"
   local export_dir="$build_dir/export"
   local app="$export_dir/Cutling.app"
@@ -115,6 +118,7 @@ dist_release() {
     -scheme "$DIST_SCHEME" \
     -destination 'generic/platform=macOS' \
     -archivePath "$archive" \
+    -derivedDataPath "$build_dir/DerivedData" \
     -allowProvisioningUpdates
 
   echo "==> Exporting Developer ID app..."
@@ -170,14 +174,16 @@ dist_release() {
   echo "    Wrote web/appcast.xml. Run './deploy.sh web' to publish it so"
   echo "    installed apps can see the update."
 
-  echo "==> Done: $dmg"
+  # The DMG is on the GitHub release and the appcast is in web/, so no built copy stays behind.
+  rm -rf "$build_dir"
+  echo "==> Done: $tag is published; the local build in $build_dir is deleted."
 }
 
 # Download + cache the Sparkle CLI tools (generate_appcast, sign_update).
 # Sets SPARKLE_TOOLS to a dir containing bin/.
 SPARKLE_TOOLS=""
 ensure_sparkle_tools() {
-  local cache="$REPO_ROOT/build/.sparkle-tools"
+  local cache="$BUILD_DIR/sparkle-tools"
   if [ -x "$cache/bin/generate_appcast" ]; then
     SPARKLE_TOOLS="$cache"
     return
@@ -250,13 +256,13 @@ bump_version() {
 }
 
 deploy_web() {
-  DIST="$REPO_ROOT/dist"
+  DIST="$BUILD_DIR/site"
   WEB="$REPO_ROOT/web"
 
   echo "==> Checking website translations..."
   python3 "$WEB/_generator/validate_translations.py" > /dev/null || { python3 "$WEB/_generator/validate_translations.py" | grep ERROR; exit 1; }
 
-  echo "==> Building website into dist/..."
+  echo "==> Building website into $DIST..."
   python3 "$WEB/_generator/generate.py" --output-dir "$DIST"
 
   echo "==> Copying static assets..."
@@ -270,8 +276,8 @@ deploy_web() {
   # Per-locale screenshots from the App Store captures, as WebP.
   python3 "$WEB/_generator/build_images.py" --output-dir "$DIST"
   cp "$REPO_ROOT/locales.json" "$DIST/"
-  # GitHub Pages custom domain. MUST be copied into dist/ on every build: gh-pages
-  # becomes exactly dist/, so a CNAME living only on gh-pages would be wiped and
+  # GitHub Pages custom domain. MUST be copied into the site on every build: gh-pages
+  # becomes exactly the built site, so a CNAME living only on gh-pages would be wiped and
   # silently unset the custom domain.
   cp "$WEB/CNAME" "$DIST/"
   # Sparkle appcast (written by `./deploy.sh dist`). Served at
@@ -292,7 +298,7 @@ deploy_web() {
     git -C "$REPO_ROOT" push origin "$COMMIT:refs/heads/gh-pages"
     git -C "$REPO_ROOT" update-ref refs/heads/gh-pages "$COMMIT"
     echo "==> Deployed!"
-    # IndexNow: a failed ping is printed, never fatal. The key file ships in dist/.
+    # IndexNow: a failed ping is printed, never fatal. The key file ships in the site.
     python3 "$WEB/_generator/generate.py" --output-dir "$DIST" --indexnow || echo "WARNING: IndexNow step failed"
   fi
 }
@@ -319,15 +325,15 @@ case "${1:-help}" in
     ;;
   frame)
     # CoreText captions: frameit's ImageMagick has no shaping for Arabic, Indic, Thai
-    mkdir -p build
-    swiftc -O fastlane/compose/compose.swift -o build/compose
-    python3 fastlane/compose/render_all.py build/compose
+    mkdir -p "$BUILD_DIR"
+    swiftc -O fastlane/compose/compose.swift -o "$BUILD_DIR/compose"
+    python3 fastlane/compose/render_all.py "$BUILD_DIR/compose"
     ;;
   screenshots)      $FASTLANE ios upload_screenshots ;;
   screenshots_mac)  $FASTLANE mac upload_screenshots_mac ;;
   upload)           $FASTLANE ios upload ;;
   build)            check_strings && $FASTLANE ios build ;;
-  binary)           $FASTLANE ios upload_binary ;;
+  binary)           $FASTLANE ios upload_binary && rm -rf "$BUILD_DIR/ios" ;;
   resubmit_notes)   $FASTLANE ios resubmit_notes ;;
   dist)             check_strings && dist_release ;;
   mas)              check_strings && $FASTLANE mac upload_mas ;;
