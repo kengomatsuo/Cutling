@@ -217,5 +217,8 @@
   "faq_q14": "Kodėl iškarpinė nesisinchronizuoja tarp iPhone ir Mac?",
   "faq_a14": "Nukopijuoti viename įrenginyje ir įklijuoti kitame leidžia Apple universalioji iškarpinė. Jai reikia, kad abu įrenginiai būtų prisijungę prie tos pačios Apple paskyros ir juose būtų įjungti Wi-Fi, Bluetooth ir Handoff. Cutling vietoj to sinchronizuoja jūsų išsaugotus cutlingus per iCloud, todėl jie yra kiekviename įrenginyje, kai tik prireikia. Mac iškarpinės istorija lieka Mac kompiuteryje.",
   "faq_q15": "Ar fragmentuose gali būti pildomų laukų, kaip TextExpander?",
-  "faq_a15": "Kol kas ne. Cutlingas įklijuoja lygiai tai, ką išsaugojote. Pildomi laukai ir datos žymos yra tai, ką kuriame toliau."
+  "faq_a15": "Kol kas ne. Cutlingas įklijuoja lygiai tai, ką išsaugojote. Pildomi laukai ir datos žymos yra tai, ką kuriame toliau.",
+  "pain6_q": "Vardo ir datos įrašymas ranka į paruoštus atsakymus",
+  "pain6_a": "Ten, kur turi būti tuščias laukas, parašykite žodį riestiniuose skliaustuose, pavyzdžiui, {Vardas}, o vietoj datos ar laiko – {date} arba {time}. Cutling klaviatūra iPhone įveda tekstą iki kito lauko ir palaukia, kol reikšmę įrašysite įprasta klaviatūra arba bakstelėsite anksčiau naudotą, o Mac kompiuteryje prieš įklijuojant atsiranda nedidelė forma su šiais laukais. Data ir laikas užsipildo patys.",
+  "faq_a15_live": "Taip, žodis riestiniuose skliaustuose, pavyzdžiui, {Vardas}, cutlinge yra pildomas laukas, {Planas: Basic | Pro} – laukas su pasirinkimais, {date} ir {time} virsta šiandienos data ir esamu laiku, {date +7d} – data po savaitės, o {cursor} nurodo, kur atsidurs žymeklis. Į tekstą juos įterpsite per meniu „Įterpti lauką arba datą“, kurį rasite redaguodami cutlingą, o iš Raycast perkelti kodai veikia be pakeitimų. Cutling klaviatūra iPhone įveda tekstą iki kito lauko ir palaukia, kol reikšmę įrašysite įprasta klaviatūra arba bakstelėsite anksčiau naudotą, o Mac kompiuteryje prieš įklijuojant atsiranda trumpa forma su laukais."
 }

@@ -178,6 +178,13 @@ stronger claim than described here.
 - `pain5_q` — passwords piling up in clipboard history.
 - `pain5_a` — on Mac, Cutling's history skips anything a password manager marks as
   concealed, so a copied password never lands in it.
+- `pain6_q` — a saved reply that still needs a name or today's date typed in by hand each
+  time (shown only once the app version with fill-ins is live, `LIVE_FEATURES` in live.py).
+- `pain6_a` — put a word in curly braces where a blank goes, such as {Name}, and {date} or
+  {time} for a stamp (the codes stay exactly as written, in English, with braces). On iPhone
+  the Cutling keyboard types up to each blank and waits while you type it with your usual
+  keyboard or tap a value you used before; on Mac a small form asks for the blanks before
+  pasting. The date and time fill themselves in.
 
 ## Front page — hero picture
 
@@ -364,6 +371,14 @@ calm and concrete.
 - `faq_q15` — can snippets have blanks to fill in, like TextExpander?
 - `faq_a15` — not yet: a cutling pastes exactly what was saved. Fill-in fields and date
   stamps are what we are building next.
+- `faq_a15_live` — replaces `faq_a15` once the app version with fill-ins is live: yes. In
+  a cutling, a word in curly braces such as {Name} is a blank, {Plan: Basic | Pro} is a
+  blank with choices, {date} and {time} become today's date and the time, {date +7d} a week
+  from today, and {cursor} marks where the cursor lands (codes stay exactly as written, in
+  English). The editor's menu for adding a blank or a date puts them in for you (use the
+  app's own label for that menu in your language). On iPhone the keyboard types up to each
+  blank and waits while you type it with your usual keyboard or tap a value used before; on
+  Mac a short form asks before pasting. Raycast's placeholder codes work as they are.
 
 ## Support page
 

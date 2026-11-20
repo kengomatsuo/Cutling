@@ -217,5 +217,8 @@
   "faq_q14": "Waarom synchroniseert mijn klembord niet tussen iPhone en Mac?",
   "faq_a14": "Kopiëren op het ene apparaat en plakken op het andere is het Universeel klembord van Apple. Daarvoor moeten beide apparaten met hetzelfde Apple Account zijn ingelogd, met wifi, Bluetooth en Handoff aan. Cutling synchroniseert in plaats daarvan je bewaarde cutlings via iCloud, zodat ze op elk apparaat klaarstaan wanneer je ze nodig hebt. De klembordgeschiedenis van je Mac blijft op de Mac.",
   "faq_q15": "Kunnen snippets invulvelden hebben, zoals in TextExpander?",
-  "faq_a15": "Nog niet. Een cutling plakt precies wat je hebt bewaard. Invulvelden en datumstempels zijn het volgende waar we aan bouwen."
+  "faq_a15": "Nog niet. Een cutling plakt precies wat je hebt bewaard. Invulvelden en datumstempels zijn het volgende waar we aan bouwen.",
+  "pain6_q": "Elke keer zelf een naam of datum in een vast antwoord intikken",
+  "pain6_a": "Zet een woord tussen accolades waar iets ingevuld moet worden, zoals {Naam}. Op de iPhone typt het Cutling-toetsenbord tot aan elk invulveld en wacht tot je het invult met je gewone toetsenbord of op een eerder gebruikte waarde tikt; op de Mac vraagt een klein formulier ernaar voordat Cutling plakt. Met {date} en {time} komen de datum en de tijd er vanzelf in.",
+  "faq_a15_live": "Ja, in een cutling staat een woord tussen accolades, zoals {Naam}, voor een invulveld, {Plan: Basic | Pro} voor een invulveld met keuzes, {date} en {time} voor de datum van vandaag en de tijd, {date +7d} voor de datum over een week en {cursor} voor de plek waar de cursor terechtkomt. In de editor voegt het menu “Voeg plaatshouder in” deze codes voor je toe, en plaatshoudercodes uit Raycast werken gewoon zoals ze zijn. Op de iPhone typt het Cutling-toetsenbord tot aan elk invulveld en wacht tot je het invult met je gewone toetsenbord of op een eerder gebruikte waarde tikt; op de Mac vraagt een kort formulier ernaar voordat Cutling plakt."
 }

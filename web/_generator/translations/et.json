@@ -217,5 +217,8 @@
   "faq_q14": "Miks mu lõikelaud iPhone'i ja Maci vahel ei sünkrooni?",
   "faq_a14": "Ühes seadmes kopeerimine ja teises kleepimine on Apple'i universaalne lõikelaud. Selleks peavad mõlemad seadmed kasutama sama Apple'i kontot ning neis peavad olema sisse lülitatud Wi-Fi, Bluetooth ja Handoff. Cutling sünkroonib selle asemel sinu salvestatud Cutlingud iCloudi kaudu, nii et need on olemas igas seadmes. Maci lõikelaua ajalugu jääb Maci.",
   "faq_q15": "Kas katketesse saab panna täidetavaid välju nagu TextExpanderis?",
-  "faq_a15": "Veel mitte. Cutling kleebib täpselt selle, mille salvestasid. Täidetavad väljad ja kuupäevatemplid on see, mida järgmisena ehitame."
+  "faq_a15": "Veel mitte. Cutling kleebib täpselt selle, mille salvestasid. Täidetavad väljad ja kuupäevatemplid on see, mida järgmisena ehitame.",
+  "pain6_q": "Nime ja kuupäeva trükkimine korduvasse vastusesse iga kord",
+  "pain6_a": "Kirjuta sinna, kuhu tuleb täidetav väli, sõna loogelistes sulgudes, näiteks {Nimi}, ning kuupäeva või kellaaja kohale {date} või {time}, mis täituvad ise. iPhone'is trükib Cutlingu klaviatuur teksti iga väljani ja ootab, kuni sisestad väärtuse oma tavalise klaviatuuriga või puudutad varem kasutatud väärtust. Macis küsib väike vorm enne kleepimist väljade väärtusi.",
+  "faq_a15_live": "Jah, loogelistes sulgudes olev sõna, näiteks {Nimi}, on Cutlingus täidetav väli, {Pakett: Baas | Pro} valikutega väli, {date} ja {time} tänane kuupäev ja kellaaeg, {date +7d} kuupäev nädala pärast ning {cursor} näitab, kuhu kursor jääb. Redaktori menüü „Lisa väli või kuupäev” lisab need sinu eest ning Raycasti kohatäitjad töötavad muutmata kujul. iPhone'is trükib klaviatuur teksti iga väljani ja ootab, kuni sisestad väärtuse oma tavalise klaviatuuriga või puudutad varem kasutatud väärtust, Macis aga küsib lühike vorm enne kleepimist väljade väärtusi."
 }

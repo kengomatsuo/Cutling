@@ -217,5 +217,8 @@
   "faq_q14": "Kāpēc starpliktuve nesinhronizējas starp iPhone un Mac?",
   "faq_a14": "Kopēšana vienā ierīcē un ielīmēšana citā ir Apple universālā starpliktuve. Tai abām ierīcēm jābūt pierakstītām vienā Apple kontā, un tajās jābūt ieslēgtam Wi-Fi, Bluetooth un Handoff. Cutling tā vietā sinhronizē jūsu saglabātos cutlings caur iCloud, tāpēc tie ir pieejami katrā ierīcē, kad vien vajag. Mac starpliktuves vēsture paliek Mac datorā.",
   "faq_q15": "Vai fragmentos var būt aizpildāmi lauki, kā TextExpander?",
-  "faq_a15": "Vēl ne. Cutling ielīmē tieši to, ko saglabājāt. Aizpildāmie lauki un datuma zīmogi ir tas, ko veidojam tālāk."
+  "faq_a15": "Vēl ne. Cutling ielīmē tieši to, ko saglabājāt. Aizpildāmie lauki un datuma zīmogi ir tas, ko veidojam tālāk.",
+  "pain6_q": "Saglabāta atbilde, kurā vārds un datums katru reizi jāraksta ar roku",
+  "pain6_a": "Aizpildāmā lauka vietā ierakstiet vārdu figūriekavās, piemēram, {Vārds}, bet datuma vai laika vietā {date} vai {time}, ko Cutling aizpilda pats. iPhone tālrunī Cutling tastatūra ieraksta tekstu līdz katram laukam un gaida, kamēr jūs ierakstāt vērtību ar parasto tastatūru vai pieskaraties kādai iepriekš izmantotai vērtībai. Mac datorā pirms ielīmēšanas neliela veidlapa pajautā lauku vērtības.",
+  "faq_a15_live": "Jā, cutling tekstā vārds figūriekavās, piemēram, {Vārds}, ir aizpildāms lauks, {Plāns: Pamata | Pro} ir lauks ar izvēles iespējām, {date} un {time} kļūst par šodienas datumu un laiku, {date +7d} par datumu pēc nedēļas, bet {cursor} norāda, kur paliks kursors. Redaktora izvēlne „Ievietot lauku vai datumu“ tos ievieto jūsu vietā, un Raycast vietturu kodi darbojas bez izmaiņām. iPhone tālrunī tastatūra ieraksta tekstu līdz katram laukam un gaida, kamēr jūs ierakstāt vērtību ar parasto tastatūru vai pieskaraties iepriekš izmantotai vērtībai, bet Mac datorā pirms ielīmēšanas neliela veidlapa pajautā lauku vērtības."
 }

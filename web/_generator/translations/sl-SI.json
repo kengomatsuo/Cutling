@@ -217,5 +217,8 @@
   "faq_q14": "Zakaj se odložišče ne sinhronizira med iPhonom in Macom?",
   "faq_a14": "Kopiranje na eni napravi in lepljenje na drugi omogoča Applova funkcija Universal Clipboard (univerzalno odložišče), za katero morata biti obe napravi prijavljeni v isti račun Apple ter imeti vklopljene Wi-Fi, Bluetooth in Handoff. Cutling deluje drugače: shranjene cutlinge sinhronizira prek iClouda, zato so na vsaki napravi, ko jih potrebujete. Zgodovina odložišča na Macu ostane na Macu.",
   "faq_q15": "Ali imajo lahko odlomki polja za izpolnjevanje, kot v TextExpanderju?",
-  "faq_a15": "Še ne. Cutling prilepi točno to, kar ste shranili. Polja za izpolnjevanje in samodejni datum so naslednje, kar razvijamo."
+  "faq_a15": "Še ne. Cutling prilepi točno to, kar ste shranili. Polja za izpolnjevanje in samodejni datum so naslednje, kar razvijamo.",
+  "pain6_q": "Ime in datum, ki ju v vsak odgovor vtipkate ročno",
+  "pain6_a": "Kjer naj bo polje za izpolnjevanje, napišite besedo v zavitih oklepajih, na primer {Ime}, za datum ali čas pa {date} ali {time}. Na iPhonu tipkovnica Cutling natipka besedilo do vsakega polja in počaka, da vrednost vtipkate z običajno tipkovnico ali tapnete eno od že uporabljenih, na Macu pa polja pred lepljenjem izpolnite v majhnem obrazcu. Datum in čas se vpišeta sama.",
+  "faq_a15_live": "Da, beseda v zavitih oklepajih, na primer {Ime}, je polje za izpolnjevanje, {Paket: Osnovni | Pro} je polje z izbiro, {date} in {time} postaneta današnji datum in trenutni čas, {date +7d} datum čez teden dni, {cursor} pa označi, kam se postavi kazalec. Pri urejanju cutlinga jih vstavite z menijem „Vstavi polje ali datum“, kode, ki jih uporablja Raycast, pa delujejo brez sprememb. Na iPhonu tipkovnica Cutling pri vsakem polju počaka, da vrednost vtipkate z običajno tipkovnico ali tapnete že uporabljeno, na Macu pa polja pred lepljenjem izpolnite v kratkem obrazcu."
 }

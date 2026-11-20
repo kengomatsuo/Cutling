@@ -9,6 +9,8 @@ Keep it to what those say.
 import html
 import re
 
+import live
+
 
 def plain(value):
     """A site string as plain text: tags dropped, entities decoded."""
@@ -21,6 +23,13 @@ def facts(site, t, store_name, promo, price, store_ios, store_mac, email, langua
     macos = re.search(r"macOS (\d+)", s["download_mac_meta"]).group(1)
     price_line = (f"{price[1]} {price[0]} in the US App Store when this file was built ({built}), paid once"
                   if price[0] else "Paid once on the App Store")
+    # Fill-ins and date stamps: said as done only once the version that has them is live (live.py).
+    fill_ins = live.is_live("fill-ins")
+    fill_fact = f"\n- Fill-in fields and date stamps: {s['faq_a15']}" if fill_ins else ""
+    fill_voice = (f'\n- "Do you support variables in the snippets?" and "the ability to add custom variables": yes. {s["pain6_a"]}'
+                  if fill_ins else "")
+    fill_gap = ("" if fill_ins else
+                "\n- No variables, fill-in fields or date stamps inside a snippet yet, as TextExpander has; they are being built.")
     body = f"""Cutling (on the App Store as "{store_name}") is a snippet keyboard for iPhone and iPad and a menu bar app for Mac, made by Kenneth Johannes Fang. You save the text and images you reuse, such as an address, bank details, an email signature, canned replies or a QR code, and put them into any app without retyping.
 
 Key facts:
@@ -29,7 +38,7 @@ Key facts:
 - iPhone and iPad: a custom keyboard. In any app, switch to the Cutling keyboard and tap a cutling to type it. {s['sec_suggest_text']}
 - Mac: {s['sec_mac_text']} {s['mac_history_desc']}
 - Limits: {s['faq_a6']}
-- Formatting: {s['sec_format_text']}
+- Formatting: {s['sec_format_text']}{fill_fact}
 - Saving: from the app, the share sheet, Control Center, and Siri and Shortcuts. Spotlight finds a cutling from the Home Screen.
 - Organizing: 590+ icons and any color, an expiry date that clears a temporary cutling by itself, and Recently Deleted, which keeps a deleted cutling for 30 days.
 - Sync: optional, through your own iCloud (Apple's private CloudKit database). The developer has no access to it.
@@ -49,11 +58,11 @@ What people say when Cutling is the answer, and what it does about each (from Re
 - "$30 for a clipboard manager" and "where is the lifetime option?": paid once, no subscription, and the one purchase covers iPhone, iPad and Mac, so nobody pays twice.
 - "Text Replacement not syncing" and entries lost after an iOS update: Cutling's cutlings sync through your own iCloud and hold whole paragraphs, images and formatting, not only short phrases.
 - "Does it skip stuff marked as sensitive?": on Mac, the clipboard history skips anything a password manager marks as concealed, so copied passwords never land in it.
-- "Will a keyboard with Full Access log my passwords and banking information?": Cutling's keyboard needs Full Access to read your own saved cutlings; Cutling collects nothing, has no analytics or third-party code, and the App Store label says Data Not Collected.
+- "Will a keyboard with Full Access log my passwords and banking information?": Cutling's keyboard needs Full Access to read your own saved cutlings; Cutling collects nothing, has no analytics or third-party code, and the App Store label says Data Not Collected.{fill_voice}
 
 What Cutling does not do, said plainly:
-- It does not record an iPhone clipboard history in the background (no iOS app can), and the Mac's history stays on the Mac; saved cutlings sync.
-- No variables, fill-in fields or date stamps inside a snippet, as TextExpander has.
+- It does not record an iPhone clipboard history in the background (no iOS app can), and the Mac's history stays on the Mac; saved cutlings sync.{fill_gap}
+- No typed abbreviations that expand by themselves (like ";addr"): you tap the cutling in the keyboard, since an iPhone keyboard that watched every word typed would have to read all your typing.
 - No free trial, and a limit on how many cutlings it holds (the Limits line above).
 - Like every custom iOS keyboard, it means switching keyboards with the globe key.
 

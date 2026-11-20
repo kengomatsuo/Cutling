@@ -217,5 +217,8 @@
   "faq_q14": "Panom neden iPhone ile Mac arasında eşitlenmiyor?",
   "faq_a14": "Bir cihazda kopyalayıp diğerinde yapıştırmak Apple’ın Evrensel Pano özelliğidir; bunun için iki cihazda da aynı Apple Hesabı ile giriş yapılmış olması ve Wi-Fi, Bluetooth ile Handoff’un açık olması gerekir. Cutling ise kaydettiğiniz cutling’leri iCloud üzerinden eşitler; böylece ihtiyaç duyduğunuzda her cihazda hazır olurlar. Mac’teki pano geçmişi Mac’te kalır.",
   "faq_q15": "TextExpander’daki gibi doldurulacak boşluklar ekleyebilir miyim?",
-  "faq_a15": "Henüz değil. Bir cutling, kaydettiğiniz şeyi aynen yapıştırır. Doldurulacak alanlar ve tarih damgaları sıradaki işimiz."
+  "faq_a15": "Henüz değil. Bir cutling, kaydettiğiniz şeyi aynen yapıştırır. Doldurulacak alanlar ve tarih damgaları sıradaki işimiz.",
+  "pain6_q": "Hazır yanıtlara her seferinde elle ad ve tarih yazmak",
+  "pain6_a": "Doldurulacak her yere süslü parantez içinde bir kelime yazın, örneğin {Ad}; kendiliğinden dolan tarih ve saat için de {date} ya da {time} kullanın. iPhone’da Cutling klavyesi metni her alana kadar yazar ve siz o alanı her zamanki klavyenizle doldurana ya da daha önce kullandığınız bir değere dokunana kadar bekler. Mac’te ise küçük bir form, yapıştırmadan önce bu alanları sorar.",
+  "faq_a15_live": "Evet, bir cutling’de {Ad} gibi süslü parantez içindeki bir kelime doldurulacak bir alandır; {Paket: Temel | Pro} seçenekli bir alan, {date} ve {time} bugünün tarihi ile o anki saat, {date +7d} bir hafta sonraki tarih, {cursor} ise imlecin duracağı yerdir. Düzenleyicideki &ldquo;Alan veya Tarih Ekle&rdquo; menüsü bunları sizin için ekler, Raycast’in yer tutucu kodları da olduğu gibi çalışır. iPhone’da klavye metni her alana kadar yazar ve siz alanı her zamanki klavyenizle doldurana ya da daha önce kullandığınız bir değere dokunana kadar bekler; Mac’te ise kısa bir form yapıştırmadan önce alanları sorar."
 }

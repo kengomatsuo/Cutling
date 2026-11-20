@@ -217,5 +217,8 @@
   "faq_q14": "Zašto se međuspremnik ne sinkronizira između iPhonea i Maca?",
   "faq_a14": "Kopiranje na jednom uređaju i lijepljenje na drugom Appleov je Univerzalni međuspremnik. Za njega oba uređaja moraju biti prijavljena na isti Apple račun, s uključenim Wi-Fijem, Bluetoothom i Handoffom. Cutling umjesto toga sinkronizira vaše spremljene cutlinge preko iClouda, pa su vam na svakom uređaju kad god zatrebaju. Povijest međuspremnika na Macu ostaje na Macu.",
   "faq_q15": "Mogu li isječci imati prazna polja za popunjavanje, kao u TextExpanderu?",
-  "faq_a15": "Još ne. Cutling zalijepi točno ono što ste spremili. Polja za popunjavanje i umetanje datuma ono su na čemu sljedeće radimo."
+  "faq_a15": "Još ne. Cutling zalijepi točno ono što ste spremili. Polja za popunjavanje i umetanje datuma ono su na čemu sljedeće radimo.",
+  "pain6_q": "Ručno upisivanje imena i datuma u svaki odgovor",
+  "pain6_a": "Gdje treba polje za popunjavanje, napišite riječ u vitičastim zagradama, na primjer {Ime}, a za datum ili vrijeme {date} ili {time}. Na iPhoneu Cutling tipkovnica utipka tekst do svakog polja i čeka da vrijednost upišete uobičajenom tipkovnicom ili dodirnete neku koju ste već koristili, a na Macu polja prije lijepljenja popunite u malom obrascu. Datum i vrijeme upišu se sami.",
+  "faq_a15_live": "Da, riječ u vitičastim zagradama, na primjer {Ime}, polje je za popunjavanje, {Paket: Osnovni | Pro} polje s izborom, {date} i {time} postaju današnji datum i trenutno vrijeme, {date +7d} datum za tjedan dana, a {cursor} označava gdje će stati pokazivač. Dok uređujete cutling, umećete ih izbornikom „Umetni polje ili datum”, a kodovi koje koristi Raycast rade bez izmjena. Na iPhoneu Cutling tipkovnica kod svakog polja čeka da vrijednost upišete uobičajenom tipkovnicom ili dodirnete već korištenu, a na Macu polja prije lijepljenja popunite u kratkom obrascu."
 }

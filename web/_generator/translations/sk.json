@@ -217,5 +217,8 @@
   "faq_q14": "Prečo sa mi schránka nesynchronizuje medzi iPhonom a Macom?",
   "faq_a14": "Kopírovanie na jednom zariadení a vkladanie na druhom zabezpečuje Univerzálna schránka od Apple. Obe zariadenia na to musia byť prihlásené do toho istého Apple účtu a mať zapnutý Wi-Fi, Bluetooth a Handoff. Cutling na to ide inak: uložené cutlingy synchronizuje cez iCloud, takže ich máte na každom zariadení, kedykoľvek ich potrebujete. História schránky na Macu zostáva na Macu.",
   "faq_q15": "Dajú sa do textov pridať polia na vyplnenie, ako v TextExpanderi?",
-  "faq_a15": "Zatiaľ nie. Cutling vloží presne to, čo ste uložili. Polia na vyplnenie a vkladanie dátumu chystáme ako ďalšie."
+  "faq_a15": "Zatiaľ nie. Cutling vloží presne to, čo ste uložili. Polia na vyplnenie a vkladanie dátumu chystáme ako ďalšie.",
+  "pain6_q": "Ručné dopisovanie mena a dátumu do uložených odpovedí",
+  "pain6_a": "Kde má byť prázdne pole, napíšte slovo do zložených zátvoriek, napríklad {Meno}, a namiesto dátumu alebo času {date} či {time}. Na iPhone klávesnica Cutling napíše text až k ďalšiemu poľu a počká, kým hodnotu napíšete na bežnej klávesnici alebo ťuknete na niektorú z predtým použitých; na Macu sa pred vložením objaví malý formulár s týmito poľami. Dátum a čas sa doplnia samy.",
+  "faq_a15_live": "Áno, slovo v zložených zátvorkách, napríklad {Meno}, znamená v cutlingu pole na vyplnenie, {Plán: Basic | Pro} pole s výberom, {date} a {time} sa nahradia dnešným dátumom a aktuálnym časom, {date +7d} dátumom o týždeň a {cursor} určí, kde skončí kurzor. Do textu ich pridáte ponukou „Vložiť pole alebo dátum“ v editore a kódy z Raycastu fungujú tak, ako sú. Na iPhone klávesnica napíše text až k ďalšiemu poľu a počká, kým hodnotu napíšete na bežnej klávesnici alebo ťuknete na niektorú z predtým použitých; na Macu sa pred vložením objaví krátky formulár s týmito poľami."
 }

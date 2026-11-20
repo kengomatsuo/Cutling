@@ -217,5 +217,8 @@
   "faq_q14": "Miksi leikepöytäni ei synkronoidu iPhonen ja Macin välillä?",
   "faq_a14": "Kopiointi yhdellä laitteella ja liittäminen toisella on Applen Yleinen leikepöytä. Se vaatii, että molemmissa on sama Apple-tili ja että Wi-Fi, Bluetooth ja Handoff ovat päällä. Cutling synkronoi sen sijaan tallennetut cutlingisi iCloudin kautta, joten ne ovat jokaisella laitteella. Macin leikepöytähistoria pysyy Macilla.",
   "faq_q15": "Voiko pätkiin lisätä täytettäviä kohtia, kuten TextExpanderissa?",
-  "faq_a15": "Ei vielä. Cutling liittää täsmälleen sen, minkä tallensit. Täytettävät kentät ja päivämääräleimat ovat seuraavana työn alla."
+  "faq_a15": "Ei vielä. Cutling liittää täsmälleen sen, minkä tallensit. Täytettävät kentät ja päivämääräleimat ovat seuraavana työn alla.",
+  "pain6_q": "Nimen ja päivämäärän näpyttely vakiovastaukseen joka kerta",
+  "pain6_a": "Kirjoita täytettävän kohdan paikalle sana aaltosulkeisiin, esimerkiksi {Nimi}, ja päivämäärän tai kellonajan paikalle {date} tai {time}, jotka täyttyvät itsestään. iPhonella Cutling-näppäimistö kirjoittaa tekstin aina seuraavaan kenttään asti ja odottaa, että kirjoitat arvon tavallisella näppäimistölläsi tai napautat aiemmin käyttämääsi arvoa. Macilla pieni lomake kysyy kenttien arvot ennen liittämistä.",
+  "faq_a15_live": "Kyllä, cutlingissa aaltosulkeisiin kirjoitettu sana, kuten {Nimi}, on täytettävä kenttä, {Paketti: Perus | Pro} kenttä valmiine vaihtoehtoineen, {date} ja {time} päivän päivämäärä ja kellonaika, {date +7d} päivämäärä viikon päästä ja {cursor} kohta, johon kohdistin jää. Muokkaimen valikko ”Lisää kenttä tai päivämäärä” lisää koodit puolestasi, ja Raycastin paikkamerkkikoodit toimivat sellaisinaan. iPhonella Cutling-näppäimistö kirjoittaa tekstin aina seuraavaan kenttään asti ja odottaa, että kirjoitat arvon tavallisella näppäimistölläsi tai napautat aiemmin käyttämääsi arvoa, ja Macilla lyhyt lomake kysyy arvot ennen liittämistä."
 }

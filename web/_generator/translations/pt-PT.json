@@ -217,5 +217,8 @@
   "faq_q14": "Porque é que a área de transferência não sincroniza entre o iPhone e o Mac?",
   "faq_a14": "Copiar num dispositivo e colar noutro é o Clipboard universal da Apple, que exige os dois com sessão iniciada na mesma conta Apple e com Wi-Fi, Bluetooth e Handoff ativos. O Cutling segue outro caminho: sincroniza os cutlings guardados através do iCloud, para que estejam em todos os dispositivos sempre que precisar. O histórico da área de transferência do Mac fica no Mac.",
   "faq_q15": "Os excertos podem ter campos para preencher, como no TextExpander?",
-  "faq_a15": "Ainda não. Um cutling cola exatamente o que guardou. Campos para preencher e datas automáticas são a próxima coisa em que estamos a trabalhar."
+  "faq_a15": "Ainda não. Um cutling cola exatamente o que guardou. Campos para preencher e datas automáticas são a próxima coisa em que estamos a trabalhar.",
+  "pain6_q": "Escrever à mão o nome e a data em cada resposta",
+  "pain6_a": "Escreva uma palavra entre chavetas onde deve ficar um campo para preencher, como {Nome}, e {date} ou {time} onde quiser a data ou a hora. No iPhone, o teclado do Cutling escreve até cada campo e espera enquanto o preenche com o teclado habitual ou toca num valor que já usou; no Mac, um pequeno formulário pede os campos antes de colar. A data e a hora preenchem-se sozinhas.",
+  "faq_a15_live": "Sim, num cutling uma palavra entre chavetas como {Nome} é um campo para preencher, {Plano: Básico | Pro} é um campo com opções, {date} e {time} passam a ser a data e a hora de hoje, {date +7d} a data daqui a uma semana e {cursor} marca onde fica o cursor. Também os pode inserir através do menu «Inserir campo» do editor, e os códigos do Raycast funcionam tal como estão. No iPhone, o teclado escreve até cada campo e espera enquanto o preenche com o teclado habitual ou toca num valor que já usou; no Mac, um formulário curto pede os campos antes de colar."
 }

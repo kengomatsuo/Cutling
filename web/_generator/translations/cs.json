@@ -217,5 +217,8 @@
   "faq_q14": "Proč se mi schránka nesynchronizuje mezi iPhonem a Macem?",
   "faq_a14": "Zkopírovat na jednom zařízení a vložit na druhém umožňuje univerzální schránka od Applu. Obě zařízení k tomu musí být přihlášená ke stejnému Apple účtu a mít zapnutou Wi-Fi, Bluetooth a Handoff. Cutling místo toho synchronizuje vaše uložené cutlingy přes iCloud, takže je máte na každém zařízení. Historie schránky na Macu zůstává na Macu.",
   "faq_q15": "Dají se do úryvků dávat pole k vyplnění jako v TextExpanderu?",
-  "faq_a15": "Zatím ne. Cutling vloží přesně to, co jste uložili. Pole k vyplnění a vkládání data chystáme jako další."
+  "faq_a15": "Zatím ne. Cutling vloží přesně to, co jste uložili. Pole k vyplnění a vkládání data chystáme jako další.",
+  "pain6_q": "Ruční dopisování jména a data do uložených odpovědí",
+  "pain6_a": "Kde má být prázdné pole, napište slovo do složených závorek, třeba {Jméno}, a místo data nebo času {date} či {time}. Na iPhonu klávesnice Cutling napíše text až k dalšímu poli a počká, než hodnotu napíšete na běžné klávesnici nebo klepnete na některou z dříve použitých; na Macu se před vložením objeví malý formulář s těmito poli. Datum a čas se doplní samy.",
+  "faq_a15_live": "Ano, slovo ve složených závorkách, třeba {Jméno}, znamená v cutlingu pole k vyplnění, {Plán: Basic | Pro} pole s výběrem, {date} a {time} se nahradí dnešním datem a aktuálním časem, {date +7d} datem za týden a {cursor} určí, kde skončí kurzor. Do textu je přidáte nabídkou „Vložit pole nebo datum“ v editoru a kódy z Raycastu fungují tak, jak jsou. Na iPhonu klávesnice napíše text až k dalšímu poli a počká, než hodnotu napíšete na běžné klávesnici nebo klepnete na některou z dříve použitých; na Macu se před vložením objeví krátký formulář s těmito poli."
 }

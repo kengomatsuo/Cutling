@@ -217,5 +217,8 @@
   "faq_q14": "Perché gli appunti non si sincronizzano tra iPhone e Mac?",
   "faq_a14": "Copiare su un dispositivo e incollare su un altro è la funzione Appunti universali di Apple, che richiede che entrambi usino lo stesso account Apple, con Wi-Fi, Bluetooth e Handoff attivi. Cutling invece sincronizza i cutling salvati tramite iCloud, così li trovi su ogni dispositivo quando ti servono. La cronologia degli appunti del Mac resta sul Mac.",
   "faq_q15": "Gli snippet possono avere spazi da compilare, come in TextExpander?",
-  "faq_a15": "Non ancora. Un cutling incolla esattamente quello che hai salvato. Campi da compilare e data automatica sono la prossima cosa a cui lavoriamo."
+  "faq_a15": "Non ancora. Un cutling incolla esattamente quello che hai salvato. Campi da compilare e data automatica sono la prossima cosa a cui lavoriamo.",
+  "pain6_q": "Scrivere a mano nome e data in ogni risposta",
+  "pain6_a": "Scrivi una parola tra parentesi graffe dove serve un campo da compilare, come {Nome}, e {date} o {time} dove vuoi la data o l’ora. Su iPhone la tastiera Cutling scrive fino a ogni campo e aspetta che tu lo compili con la tua tastiera di sempre o tocchi un valore già usato; su Mac un piccolo modulo ti chiede i campi prima di incollare. Data e ora si inseriscono da sole.",
+  "faq_a15_live": "Sì, in un cutling una parola tra parentesi graffe come {Nome} è un campo da compilare, {Piano: Base | Pro} è un campo con opzioni, {date} e {time} diventano la data e l’ora di oggi, {date +7d} la data tra una settimana e {cursor} segna dove finisce il cursore. Puoi anche inserirli dal menu «Inserisci campo» dell’editor, e i codici di Raycast funzionano così come sono. Su iPhone la tastiera scrive fino a ogni campo e aspetta che tu lo compili con la tua tastiera di sempre o tocchi un valore già usato; su Mac un breve modulo te li chiede prima di incollare."
 }

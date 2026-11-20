@@ -217,5 +217,8 @@
   "faq_q14": "Hvorfor synkroniseres ikke utklippstavlen mellom iPhone og Mac?",
   "faq_a14": "Å kopiere på én enhet og lime inn på en annen er Apples Universell utklippstavle, som krever at begge er logget på samme Apple-konto med Wi-Fi, Bluetooth og Handoff slått på. Cutling synkroniserer i stedet de lagrede cutlingene dine gjennom iCloud, så de finnes på alle enhetene dine når du trenger dem. Utklippshistorikken på Mac blir værende på Macen.",
   "faq_q15": "Kan tekstbitene ha felt som fylles ut, slik som i TextExpander?",
-  "faq_a15": "Ikke ennå. En cutling limer inn nøyaktig det du lagret. Utfyllingsfelt og datostempler er det neste vi lager."
+  "faq_a15": "Ikke ennå. En cutling limer inn nøyaktig det du lagret. Utfyllingsfelt og datostempler er det neste vi lager.",
+  "pain6_q": "Faste svar der navn og dato må skrives inn for hånd hver gang",
+  "pain6_a": "Skriv et ord i krøllparenteser der noe skal fylles ut, for eksempel {Navn}. På iPhone skriver Cutling-tastaturet fram til hvert felt og venter mens du fyller det ut med det vanlige tastaturet eller trykker på en verdi du har brukt før; på Mac spør et lite skjema etter feltene før Cutling limer inn. Med {date} og {time} fylles dato og klokkeslett ut av seg selv.",
+  "faq_a15_live": "Ja, i en cutling står et ord i krøllparenteser, som {Navn}, for et felt du fyller ut, {Plan: Basic | Pro} for et felt med valg, {date} og {time} for dagens dato og klokkeslettet, {date +7d} for datoen om en uke og {cursor} for stedet der markøren havner. I redigeringsvinduet setter menyen «Sett inn plassholder» inn kodene for deg, og plassholderkodene fra Raycast virker som de er. På iPhone skriver Cutling-tastaturet fram til hvert felt og venter mens du fyller det ut med det vanlige tastaturet eller trykker på en verdi du har brukt før; på Mac spør et kort skjema etter feltene før Cutling limer inn."
 }

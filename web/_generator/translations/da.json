@@ -217,5 +217,8 @@
   "faq_q14": "Hvorfor synkroniserer min udklipsholder ikke mellem iPhone og Mac?",
   "faq_a14": "At kopiere på én enhed og sætte ind på en anden er Apples Universel udklipsholder. Den kræver, at begge enheder bruger samme Apple-konto og har Wi-Fi, Bluetooth og Handoff slået til. Cutling synkroniserer i stedet dine gemte cutlings via iCloud, så de ligger klar på alle dine enheder. Udklipsholderhistorikken på Mac bliver på Mac’en.",
   "faq_q15": "Kan tekststykker have felter, man udfylder, ligesom i TextExpander?",
-  "faq_a15": "Ikke endnu. En cutling indsætter præcis det, du har gemt. Udfyldningsfelter og datostempler er det næste, vi bygger."
+  "faq_a15": "Ikke endnu. En cutling indsætter præcis det, du har gemt. Udfyldningsfelter og datostempler er det næste, vi bygger.",
+  "pain6_q": "Faste svar, hvor navn og dato skal skrives ind i hånden hver gang",
+  "pain6_a": "Sæt et ord i tuborgklammer, hvor et felt skal udfyldes, fx {Navn}. På iPhone skriver Cutling-tastaturet frem til hvert felt og venter, mens du udfylder det med dit normale tastatur eller trykker på en værdi, du har brugt før; på Mac spørger en lille formular efter felterne, før Cutling sætter ind. Med {date} og {time} udfyldes dato og klokkeslæt automatisk.",
+  "faq_a15_live": "Ja, i en cutling står et ord i tuborgklammer, fx {Navn}, for et felt, du udfylder, {Plan: Basic | Pro} for et felt med valgmuligheder, {date} og {time} for dagens dato og klokkeslættet, {date +7d} for datoen om en uge og {cursor} for stedet, hvor markøren lander. I editoren sætter menuen „Indsæt pladsholder” koderne ind for dig, og Raycasts pladsholderkoder virker, som de er. På iPhone skriver Cutling-tastaturet frem til hvert felt og venter, mens du udfylder det med dit normale tastatur eller trykker på en værdi, du har brugt før; på Mac spørger en kort formular efter felterne, før Cutling sætter ind."
 }

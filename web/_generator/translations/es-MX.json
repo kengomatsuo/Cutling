@@ -217,5 +217,8 @@
   "faq_q14": "¿Por qué no se sincroniza mi portapapeles entre el iPhone y la Mac?",
   "faq_a14": "Copiar en un dispositivo y pegar en otro es el Portapapeles universal de Apple, que necesita que ambos usen la misma cuenta de Apple y tengan activados el Wi-Fi, el Bluetooth y Handoff. Cutling, en cambio, sincroniza tus cutlings guardados con iCloud, para que estén en todos tus dispositivos. El historial del portapapeles de la Mac se queda en la Mac.",
   "faq_q15": "¿Un fragmento puede tener espacios para llenar, como en TextExpander?",
-  "faq_a15": "Todavía no. Un cutling pega exactamente lo que guardaste. Los campos para llenar y la fecha automática son lo siguiente que estamos construyendo."
+  "faq_a15": "Todavía no. Un cutling pega exactamente lo que guardaste. Los campos para llenar y la fecha automática son lo siguiente que estamos construyendo.",
+  "pain6_q": "Escribir a mano el nombre y la fecha en cada respuesta",
+  "pain6_a": "Escribe una palabra entre llaves donde vaya un campo para llenar, como {Nombre}, y {date} o {time} donde quieras la fecha o la hora. En el iPhone, el teclado Cutling escribe hasta cada campo y espera a que lo llenes con tu teclado de siempre o toques un valor que ya usaste; en la Mac, un pequeño formulario te pide los campos antes de pegar. La fecha y la hora se ponen solas.",
+  "faq_a15_live": "Sí, en un cutling una palabra entre llaves como {Nombre} es un campo para llenar, {Plan: Básico | Pro} es un campo con opciones, {date} y {time} se convierten en la fecha y la hora de hoy, {date +7d} en la fecha de dentro de una semana y {cursor} marca dónde queda el cursor. También puedes agregarlos desde el menú “Insertar campo” del editor, y los códigos de Raycast funcionan tal cual. En el iPhone, el teclado escribe hasta cada campo y espera a que lo llenes con tu teclado de siempre o toques un valor que ya usaste; en la Mac, un pequeño formulario te los pide antes de pegar."
 }

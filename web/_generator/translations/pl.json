@@ -217,5 +217,8 @@
   "faq_q14": "Dlaczego schowek nie synchronizuje się między iPhonem a komputerem Mac?",
   "faq_a14": "Kopiowanie na jednym urządzeniu i wklejanie na drugim to Uniwersalny schowek Apple. Wymaga, żeby oba urządzenia były zalogowane na to samo konto Apple i miały włączone Wi-Fi, Bluetooth i Handoff. Cutling synchronizuje natomiast zapisane cutlingi przez iCloud, więc są na każdym urządzeniu, kiedy tylko ich potrzebujesz. Historia schowka z Maca zostaje na Macu.",
   "faq_q15": "Czy fragmenty mogą mieć pola do uzupełnienia, jak w TextExpanderze?",
-  "faq_a15": "Jeszcze nie. Cutling wkleja dokładnie to, co zostało zapisane. Pola do uzupełnienia i wstawianie daty to następna rzecz, nad którą pracujemy."
+  "faq_a15": "Jeszcze nie. Cutling wkleja dokładnie to, co zostało zapisane. Pola do uzupełnienia i wstawianie daty to następna rzecz, nad którą pracujemy.",
+  "pain6_q": "Ręczne dopisywanie imienia i daty do gotowych odpowiedzi",
+  "pain6_a": "Tam, gdzie ma być puste pole, wpisz słowo w nawiasach klamrowych, np. {Imię}, a datę lub godzinę oznacz jako {date} albo {time}. Na iPhonie klawiatura Cutling wpisuje tekst, a przy każdym polu czeka, aż podasz wartość na zwykłej klawiaturze albo stukniesz wcześniej użytą; na Macu przed wklejeniem pojawia się mały formularz z tymi polami. Datę i godzinę Cutling wstawia sam.",
+  "faq_a15_live": "Tak, w cutlingu słowo w nawiasach klamrowych, np. {Imię}, to pole do uzupełnienia, {Plan: Basic | Pro} to pole z wyborem, {date} i {time} zamieniają się w dzisiejszą datę i aktualną godzinę, {date +7d} w datę za tydzień, a {cursor} wskazuje, gdzie stanie kursor. Wstawisz je z menu „Wstaw pole lub datę” w edytorze, a kody skopiowane z Raycasta działają bez zmian. Na iPhonie klawiatura wpisuje tekst, a przy każdym polu czeka, aż podasz wartość na zwykłej klawiaturze albo stukniesz wcześniej użytą; na Macu przed wklejeniem pojawia się krótki formularz z tymi polami."
 }

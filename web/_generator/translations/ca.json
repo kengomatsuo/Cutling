@@ -217,5 +217,8 @@
   "faq_q14": "Per què el porta-retalls no se sincronitza entre l’iPhone i el Mac?",
   "faq_a14": "Copiar en un dispositiu i enganxar en un altre és el porta-retalls universal d’Apple, que necessita que tots dos tinguin el mateix compte d’Apple i la Wi-Fi, el Bluetooth i el Handoff activats. Cutling, en canvi, sincronitza els cutlings desats a través d’iCloud, perquè els tinguis a tots els dispositius. L’historial del porta-retalls del Mac es queda al Mac.",
   "faq_q15": "Els fragments poden tenir buits per omplir, com a TextExpander?",
-  "faq_a15": "Encara no. Un cutling enganxa exactament el que vas desar. Els camps per omplir i la data automàtica són el següent que estem preparant."
+  "faq_a15": "Encara no. Un cutling enganxa exactament el que vas desar. Els camps per omplir i la data automàtica són el següent que estem preparant.",
+  "pain6_q": "Escriure a mà el nom i la data a cada resposta",
+  "pain6_a": "Escriu una paraula entre claus on hagi d’anar un camp per omplir, com ara {Nom}, i {date} o {time} on vulguis la data o l’hora. A l’iPhone, el teclat Cutling escriu fins a cada camp i espera que l’omplis amb el teclat de sempre o toquis un valor que ja has fet servir; al Mac, un petit formulari et demana els camps abans d’enganxar. La data i l’hora es posen soles.",
+  "faq_a15_live": "Sí, en un cutling una paraula entre claus com ara {Nom} és un camp per omplir, {Pla: Bàsic | Pro} és un camp amb opcions, {date} i {time} es converteixen en la data i l’hora d’avui, {date +7d} en la data d’aquí a una setmana i {cursor} marca on queda el cursor. També els pots afegir des del menú “Insereix un camp” de l’editor, i els codis de Raycast funcionen tal com estan. A l’iPhone, el teclat escriu fins a cada camp i espera que l’omplis amb el teclat de sempre o toquis un valor que ja has fet servir; al Mac, un formulari curt te’ls demana abans d’enganxar."
 }

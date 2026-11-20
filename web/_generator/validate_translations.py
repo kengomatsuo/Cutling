@@ -48,6 +48,9 @@ MUST_CONTAIN = {
     "footer_copyright": ["Kenneth Johannes Fang", "2026"],
     "download_ios_meta": ["18"],
     "download_mac_meta": ["15"],
+    # Placeholder codes the app reads exactly as written (docs/fill-ins.md).
+    "pain6_a": ["{date}"],
+    "faq_a15_live": ["{date}", "{cursor}"],
 }
 
 

@@ -217,5 +217,8 @@
     "faq_q14": "Why isn't my clipboard syncing between iPhone and Mac?",
     "faq_a14": "Copying on one device and pasting on another is Apple's Universal Clipboard, which needs both on the same Apple Account with Wi-Fi, Bluetooth and Handoff on. Cutling syncs your saved cutlings through iCloud instead, so they are there on every device whenever you need them. Your Mac clipboard history stays on the Mac.",
     "faq_q15": "Can snippets have blanks to fill in, like TextExpander?",
-    "faq_a15": "Not yet. A cutling pastes exactly what you saved. Fill-in fields and date stamps are the next thing we are building."
+    "faq_a15": "Not yet. A cutling pastes exactly what you saved. Fill-in fields and date stamps are the next thing we are building.",
+    "pain6_q": "Typing the name and today's date into the same reply, every time",
+    "pain6_a": "Write a blank in braces, like {Name}, and {date} or {time} for a stamp. On iPhone the Cutling keyboard types up to each blank and waits while you fill it with your usual keyboard or one tap on a value you used before; on Mac a small form asks first. The date and time fill themselves in.",
+    "faq_a15_live": "Yes. In a cutling, a word in braces such as {Name} is a blank, {Plan: Basic | Pro} is a blank with choices, {date} and {time} become today's date and the time, {date +7d} is a week from today, and {cursor} marks where the cursor lands. The editor's Add Fill-in or Date menu puts them in for you. On iPhone the keyboard types up to each blank and waits while you type it with your usual keyboard or tap a value you used before; on Mac a short form asks before pasting. Raycast's placeholder codes work as they are."
 }

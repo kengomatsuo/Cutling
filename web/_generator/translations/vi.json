@@ -217,5 +217,8 @@
   "faq_q14": "Sao bộ nhớ tạm không đồng bộ giữa iPhone và Mac?",
   "faq_a14": "Sao chép trên thiết bị này rồi dán trên thiết bị kia là tính năng Bảng nhớ tạm chung của Apple, cần cả hai thiết bị đăng nhập cùng một Tài khoản Apple và bật Wi-Fi, Bluetooth cùng Handoff. Cutling thì khác: các cutling đã lưu được đồng bộ qua iCloud, nên lúc nào cần cũng có sẵn trên mọi thiết bị. Lịch sử bộ nhớ tạm của Mac vẫn chỉ nằm trên Mac.",
   "faq_q15": "Đoạn văn bản có chừa chỗ trống để điền như TextExpander được không?",
-  "faq_a15": "Chưa được. Cutling dán đúng y những gì bạn đã lưu. Trường điền thông tin và chèn ngày tự động là những thứ chúng tôi đang làm tiếp theo."
+  "faq_a15": "Chưa được. Cutling dán đúng y những gì bạn đã lưu. Trường điền thông tin và chèn ngày tự động là những thứ chúng tôi đang làm tiếp theo.",
+  "pain6_q": "Câu trả lời soạn sẵn mà vẫn phải tự gõ tên và ngày",
+  "pain6_a": "Đặt một từ trong dấu ngoặc nhọn ở chỗ cần điền, như {Tên}, và dùng {date} hoặc {time} để ngày giờ tự điền vào. Trên iPhone, bàn phím Cutling gõ đến từng chỗ trống rồi chờ bạn gõ bằng bàn phím thường dùng hoặc chạm vào giá trị đã dùng trước đó. Trên Mac, một biểu mẫu nhỏ hỏi nội dung các chỗ trống trước khi dán.",
+  "faq_a15_live": "Được, từ đặt trong ngoặc nhọn như {Tên} là một chỗ trống, {Gói: Basic | Pro} là chỗ trống có sẵn lựa chọn, {date} và {time} thành ngày và giờ lúc dùng cutling, {date +7d} thành ngày một tuần sau đó, còn {cursor} đánh dấu chỗ con trỏ dừng lại. Menu &ldquo;Chèn Chỗ Trống hoặc Ngày&rdquo; trong trình chỉnh sửa chèn sẵn các mã này cho bạn, và mã placeholder của Raycast dùng được y nguyên. Trên iPhone, bàn phím gõ đến từng chỗ trống rồi chờ bạn gõ bằng bàn phím thường dùng hoặc chạm vào giá trị đã dùng trước đó, còn trên Mac một biểu mẫu ngắn sẽ hỏi trước khi dán."
 }

@@ -217,5 +217,8 @@
   "faq_q14": "De ce nu se sincronizează clipboardul între iPhone și Mac?",
   "faq_a14": "Copiatul pe un dispozitiv și lipitul pe altul țin de Clipboard universal de la Apple, care cere ca ambele să fie autentificate cu același cont Apple, cu Wi-Fi, Bluetooth și Handoff activate. Cutling merge pe alt drum: îți sincronizează cutling-urile salvate prin iCloud, ca să le ai pe fiecare dispozitiv oricând ai nevoie. Istoricul clipboardului de pe Mac rămâne pe Mac.",
   "faq_q15": "Pot avea fragmentele câmpuri de completat, ca în TextExpander?",
-  "faq_a15": "Încă nu. Un cutling lipește exact ce ai salvat. Câmpurile de completat și data inserată automat sunt următorul lucru la care lucrăm."
+  "faq_a15": "Încă nu. Un cutling lipește exact ce ai salvat. Câmpurile de completat și data inserată automat sunt următorul lucru la care lucrăm.",
+  "pain6_q": "Numele și data, tastate manual în fiecare răspuns",
+  "pain6_a": "Pune un cuvânt între acolade în locul fiecărui câmp de completat, de exemplu {Nume}, și {date} sau {time} pentru dată și oră, care se completează singure. Pe iPhone, tastatura Cutling scrie textul până la fiecare câmp și așteaptă până îl scrii cu tastatura obișnuită sau atingi o valoare folosită înainte. Pe Mac, un formular scurt ți le cere înainte de lipire.",
+  "faq_a15_live": "Da, într-un cutling un cuvânt între acolade, cum ar fi {Nume}, e un câmp de completat, {Pachet: Basic | Pro} e un câmp cu variante, {date} și {time} devin data de azi și ora, {date +7d} data de peste o săptămână, iar {cursor} arată unde se oprește cursorul. Meniul „Adaugă un câmp sau data” din editor le pune în text pentru tine, și codurile din Raycast funcționează ca atare. Pe iPhone, tastatura scrie până la fiecare câmp și așteaptă până îl scrii cu tastatura obișnuită sau atingi o valoare folosită înainte, iar pe Mac un formular scurt ți le cere înainte de lipire."
 }

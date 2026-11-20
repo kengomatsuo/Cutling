@@ -28,6 +28,8 @@ from pathlib import Path
 
 import ai_facts
 import ai_files
+import live
+from live import LIVE_CAPS
 
 SCRIPT_DIR = Path(__file__).parent
 DOCS_DIR = SCRIPT_DIR.parent
@@ -62,10 +64,7 @@ DIRECTORY_BADGES = [
     '<a href="https://twelve.tools" target="_blank"><img src="https://twelve.tools/badge1-light.svg" alt="Featured on Twelve Tools" width="148" height="40"></a>',
 ]
 
-# The snippet caps of the Cutling version live on the App Store, written into every locale's copy where it says
-# {{MAX_TEXT_CUTLINGS}} or {{MAX_IMAGE_CUTLINGS}}. They change on the day a release with new caps is live, never
-# before: CutlingStore.swift in the repo can be ahead of the store.
-LIVE_CAPS = {"MAX_TEXT_CUTLINGS": 100, "MAX_IMAGE_CUTLINGS": 25}
+# The caps and features of the Cutling version live on the App Store: live.py, shared with ai_facts.py.
 
 TRANSLATION_ALIASES = {
     "no": "nb",
@@ -110,7 +109,7 @@ def fill_caps(translation):
 
 
 def load_translation_file(path):
-    return fill_caps(load_json(path))
+    return live.apply_keys(fill_caps(load_json(path)))
 
 
 def resolve_translation(locale_code):
@@ -259,7 +258,7 @@ def film_html(locale_code, translation, root):
 
 def generate_page(template_content, translation, en_translation, locale_code, is_rtl, root, lang_prefix, picker_html, template_rel):
     """Replace all placeholders in a template with translated values."""
-    html = template_content
+    html = live.apply_blocks(template_content)
 
     campaign = page_campaign(template_rel)
     html = html.replace("{{STORE_IOS}}", esc_attr(store_url(campaign)))

@@ -217,5 +217,8 @@
   "faq_q14": "Varför synkas inte urklippet mellan iPhone och Mac?",
   "faq_a14": "Att kopiera på en enhet och klistra in på en annan sköts av Apples Universella urklipp, som kräver att båda är inloggade med samma Apple-konto och har Wi-Fi, Bluetooth och Handoff påslaget. Cutling gör det på ett annat sätt: dina sparade cutlings synkas via iCloud, så de finns på varje enhet när du behöver dem. Urklippshistoriken på din Mac stannar på din Mac.",
   "faq_q15": "Kan textsnuttar ha fält att fylla i, som i TextExpander?",
-  "faq_a15": "Inte än. En cutling klistrar in exakt det du sparade. Ifyllningsfält och datumstämplar är nästa sak vi bygger."
+  "faq_a15": "Inte än. En cutling klistrar in exakt det du sparade. Ifyllningsfält och datumstämplar är nästa sak vi bygger.",
+  "pain6_q": "Färdiga svar där namn och datum ändå skrivs för hand",
+  "pain6_a": "Skriv ett ord inom klammerparenteser där något ska fyllas i, till exempel {Namn}, medan {date} och {time} blir dagens datum och klockslaget av sig själva. På iPhone skriver Cutling-tangentbordet texten fram till varje fält och väntar tills du har fyllt i det med ditt vanliga tangentbord eller tryckt på ett värde du använt förut. På Mac frågar ett litet formulär efter fälten innan texten klistras in.",
+  "faq_a15_live": "Ja, i en cutling blir ett ord inom klammerparenteser, som {Namn}, ett fält att fylla i, {Paket: Bas | Pro} ett fält med val, {date} och {time} dagens datum och klockslaget och {date +7d} datumet om en vecka, medan {cursor} visar var markören hamnar. Menyn ”Infoga fält eller datum” i redigeraren lägger in koderna åt dig, och Raycasts platshållarkoder fungerar som de är. På iPhone skriver tangentbordet texten fram till varje fält och väntar tills du har fyllt i det med ditt vanliga tangentbord eller tryckt på ett värde du använt förut, och på Mac frågar ett kort formulär efter fälten innan texten klistras in."
 }
