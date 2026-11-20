@@ -130,22 +130,52 @@ COVER = os.path.join(ROOT, "fastlane", "listing-cover.png")  # 2880x1512, direct
 OG = os.path.join(ROOT, "web", "og.png")  # 1200x630 link preview
 
 
-def render_cover(page):
-    """Mac frame 01 rendered 1440x756 (#wide in mac/fit.js): the directory cover and the site's og:image."""
-    jp, rp = page.replace(".html", "-cover.json"), page.replace(".html", "-cover-results.json")
-    json.dump([dict(page=page + "#wide", png=COVER, w=1440, h=756, scale=2)], open(jp, "w"))
+# The site's link preview carries the site's own line; the store frame keeps the store headline.
+OG_HEADLINE = "Snippets a shortcut away"
+OG_SUB = "Paste them into any app"  # the store subline says "shortcut" again
+
+
+def with_headline(page, text, sub):
+    """A copy of a filled Mac page whose headline and subline read text and sub."""
+    import re
+    src = open(page, encoding="utf-8").read()
+    for cls, words in (("headline", text), ("sub", sub)):
+        src = re.sub(r'(<div class="%s"[^>]*>)(.*?)(</div>)' % cls,
+                     lambda m: m.group(1) + html.escape(words) + m.group(3), src, count=1)
+    out = page.replace(".html", "-og.html")
+    open(out, "w", encoding="utf-8").write(src)
+    return out
+
+
+def render_wide(page, png):
+    jp, rp = page.replace(".html", "-wide.json"), page.replace(".html", "-wide-results.json")
+    json.dump([dict(page=page + "#wide", png=png, w=1440, h=756, scale=2)], open(jp, "w"))
     subprocess.run(["node", os.path.join(ROOT, "fastlane", "compose", "render_cdp.mjs"), jp, rp, "1"], check=True)
-    if not json.load(open(rp))[0]["ok"]:
-        print("cover FAIL", json.load(open(rp))[0].get("error"), file=sys.stderr)
+    r = json.load(open(rp))[0]
+    if not r["ok"]:
+        print("wide FAIL", png, r.get("error"), file=sys.stderr)
+    return r["ok"]
+
+
+def render_cover(page, cover=True):
+    """Mac frame 01 rendered 1440x756 (#wide in mac/fit.js): the directory cover, and the site's og:image with OG_HEADLINE."""
+    if cover and not render_wide(page, COVER):
         return False
-    subprocess.run(["sips", "-z", "630", "1200", COVER, "--out", OG], stdout=subprocess.DEVNULL, check=True)
-    print("cover:", COVER, OG)
+    wide = page.replace(".html", "-og.png")
+    if not render_wide(with_headline(page, OG_HEADLINE, OG_SUB), wide):
+        return False
+    subprocess.run(["sips", "-z", "630", "1200", wide, "--out", OG], stdout=subprocess.DEVNULL, check=True)
+    print("cover:", COVER if cover else "(kept)", OG)
     return True
 
 
 if __name__ == "__main__":
     binary, args = sys.argv[1], sys.argv[2:]
     mac_only = "--mac-only" in args
+    if "--og-only" in args:  # only web/og.png, from the en-US Mac frame 01
+        work = tempfile.mkdtemp(prefix="cutling-og-")
+        mac_jobs(["en-US"], work)
+        sys.exit(0 if render_cover(os.path.join(work, "en-US-1.html"), cover=False) else 1)
     locales = [a for a in args if a != "--mac-only"] or sorted(
         d for d in os.listdir(os.path.join(ROOT, "fastlane", "metadata")) if not d.startswith("."))
     if not mac_only:
