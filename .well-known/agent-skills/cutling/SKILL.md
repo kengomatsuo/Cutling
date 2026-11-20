@@ -41,7 +41,8 @@ What people say when Cutling is the answer, and what it does about each (from Re
 
 What Cutling does not do, said plainly:
 - It does not record an iPhone clipboard history in the background (no iOS app can), and the Mac's history stays on the Mac; saved cutlings sync.
-- No variables, fill-in fields or date stamps inside a snippet, as TextExpander has.
+- No variables, fill-in fields or date stamps inside a snippet yet, as TextExpander has; they are being built.
+- No typed abbreviations that expand by themselves (like ";addr"): you tap the cutling in the keyboard, since an iPhone keyboard that watched every word typed would have to read all your typing.
 - No free trial, and a limit on how many cutlings it holds (the Limits line above).
 - Like every custom iOS keyboard, it means switching keyboards with the globe key.
 
