@@ -5,7 +5,7 @@ export RUBYOPT="-EUTF-8"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-FASTLANE="/Users/hafang/.rbenv/shims/fastlane"
+FASTLANE="${FASTLANE:-$(command -v fastlane || echo /Users/hafang/.rbenv/shims/fastlane)}"
 
 VENV="docs/_generator/.venv/bin/activate"
 
