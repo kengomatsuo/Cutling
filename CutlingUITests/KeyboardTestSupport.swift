@@ -84,8 +84,8 @@ extension XCTestCase {
         }
         XCTAssertTrue(field.waitForExistence(timeout: 3), "Keyboard test field not found")
         // On a loaded Mac the first tap can land before the field takes focus; tap until a keyboard shows.
-        for _ in 0..<3 {
-            field.tap()
+        for attempt in 0..<4 {
+            if attempt % 2 == 0 { field.tap() } else { field.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap() }
             if keyboardGlobe(in: app).waitForExistence(timeout: 10) { break }
         }
         sleep(2)

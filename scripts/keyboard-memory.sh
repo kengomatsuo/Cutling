@@ -71,13 +71,18 @@ for size in "$@"; do
       -only-testing:CutlingUITests/KeyboardMemoryUITests/testKeyboardMemory \
       -resultBundlePath "$run/result.xcresult" >"$run/test.log" 2>&1 &
   test_pid=$!
-  started=$SECONDS; said=$SECONDS
+  # The device queue ends a job whose log stays quiet for a minute, and on a loaded Mac one footprint call
+  # can take longer than that, so the progress line runs on its own.
+  ( started=$SECONDS
+    while kill -0 "$test_pid" 2>/dev/null; do
+      sleep 20; echo "  $size: $(tail -1 "$run/phases.txt" | cut -d' ' -f1) after $((SECONDS - started)) s"
+    done ) &
+  progress_pid=$!
   while kill -0 "$test_pid" 2>/dev/null; do
     sample >>"$run/samples.txt"; sleep 0.5
-    # The device queue ends a job whose log stays quiet for a minute; a loaded Mac makes each sample slow, so count seconds, not samples.
-    if [ $((SECONDS - said)) -ge 20 ]; then said=$SECONDS; echo "  $size: $(tail -1 "$run/phases.txt" | cut -d' ' -f1) after $((SECONDS - started)) s"; fi
   done
   status=0; wait "$test_pid" || status=$?
+  kill "$progress_pid" 2>/dev/null || true
 
   # Footprint 3 s after the keyboard came up, the last sample before copy_image/end, and the peak.
   python3 -I - "$run" "$size" "$status" <<'PY'

@@ -130,9 +130,13 @@ final class FormattingUITests: XCTestCase {
         let card = app.descendants(matching: .any).matching(identifier: "cutlingCard")
             .matching(NSPredicate(format: "label == %@", name)).firstMatch
         XCTAssertTrue(card.waitForExistence(timeout: 10), "No \(name) card")
-        card.press(forDuration: 1.0)
         let edit = app.buttons.matching(NSPredicate(format: "identifier == 'editButton' OR label == 'Edit'")).firstMatch
-        XCTAssertTrue(edit.waitForExistence(timeout: 5), "\(name)'s menu has no Edit")
+        // A loaded Mac can drop a long press before the menu opens; press again until it does.
+        for _ in 0..<3 where !edit.exists {
+            card.press(forDuration: 1.6)
+            _ = edit.waitForExistence(timeout: 8)
+        }
+        XCTAssertTrue(edit.exists, "\(name)'s menu has no Edit")
         edit.tap()
     }
 
