@@ -106,6 +106,10 @@ final class CutlingAppDelegate: NSObject, NSApplicationDelegate {
                 store.cutlings.insert(Cutling(name: "Office door", value: "Code 4815, then push twice", icon: "key.fill", sortOrder: -1, color: "orange"), at: 0)
                 store.save()
             }
+            // Fill-in walks: the test cutlings in place of the snapshot set.
+            if ProcessInfo.processInfo.arguments.contains("-FILLIN_TEST") {
+                store.seedForFillInTests()
+            }
             if UserDefaults.standard.bool(forKey: "SNAPSHOT_DARK") {
                 NSApp.appearance = NSAppearance(named: .darkAqua)
             }
