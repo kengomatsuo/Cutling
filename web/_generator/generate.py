@@ -56,6 +56,8 @@ DIRECTORY_BADGES = [
     '<a href="https://ailaun.ch/projects/cutling?utm_source=badge" target="_blank" rel="noopener noreferrer"><img src="https://ailaun.ch/ailaunch/images/badges/featured-on-light.svg" alt="Featured on AI Launch" style="height:44px;width:auto"/></a>',
     '<a href="https://www.nxgntools.com/tools/cutling?utm_source=cutling" target="_blank" rel="noopener" style="display: inline-block; width: auto;"><img src="https://www.nxgntools.com/api/embed/cutling?type=FIND_US_ON" alt="Find us on NxGn Tools" style="height: 48px; width: auto;" /></a>',
     '<a href="https://dodolaunch.com/p/cutling?ref=badge" target="_blank"><img src="https://dodolaunch.com/badge/cutling?theme=light" alt="Cutling on DodoLaunch" width="200" height="54" /></a>',
+    '<a href="https://alternativeto.net/software/cutling/about/?utm_source=badge&utm_medium=referral" target="_blank"><img src="https://alternativeto.net/static/badges/badge-compact-color.svg" alt="Cutling | AlternativeTo" width="173" height="56" style="width:173px;height:56px" /></a>',
+    '<a href="https://indieappcatalog.com/app/5527"><img src="https://indieappcatalog.com/badge/listed-on-indie-app-catalog-black.svg" alt="Listed on Indie App Catalog" width="183" height="40"></a>',
 ]
 
 # The snippet caps of the Cutling version live on the App Store, written into every locale's copy where it says

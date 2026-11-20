@@ -11,6 +11,10 @@
 <a href="https://ailaun.ch/projects/cutling?utm_source=badge"><img src="https://ailaun.ch/ailaunch/images/badges/featured-on-light.svg" alt="Featured on AI Launch" height="48"></a>
 <a href="https://www.nxgntools.com/tools/cutling?utm_source=cutling"><img src="https://www.nxgntools.com/api/embed/cutling?type=FIND_US_ON" alt="Find us on NxGn Tools" height="48"></a>
 <a href="https://dodolaunch.com/p/cutling?ref=badge"><img src="https://dodolaunch.com/badge/cutling?theme=light" alt="Cutling on DodoLaunch" height="48"></a>
+<a href="https://alternativeto.net/software/cutling/about/?utm_source=badge&utm_medium=referral"><img src="https://alternativeto.net/static/badges/badge-compact-color.svg" alt="Cutling | AlternativeTo" height="48"></a>
+<a href="https://indieappcatalog.com/app/5527"><img src="https://indieappcatalog.com/badge/listed-on-indie-app-catalog-black.svg" alt="Listed on Indie App Catalog" height="48"></a>
+<a href="https://macbase.app/apps/cutling?ref=badge"><img src="https://macbase.app/badge/featured-on-macbase.svg" alt="Featured on MacBase" height="48"></a>
+<a href="https://macnative.io/apps/cutling?utm_source=macnative-badge&utm_medium=referral"><img src="https://macnative.io/badge?kind=listed&theme=light&slug=cutling" alt="Listed on MacNative" height="48"></a>
 </p>
 
 **Your clipboard, organized.**
