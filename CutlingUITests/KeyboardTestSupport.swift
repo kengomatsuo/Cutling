@@ -181,22 +181,12 @@ extension XCTestCase {
     /// Switches the focused field to the Cutling keyboard through the globe key.
     @MainActor
     func switchToCutlingKeyboard(in app: XCUIApplication, showing name: String? = nil) {
-        // Long-pressing the globe lists every keyboard; pick Cutling there first.
-        if !cutlingKeyboardIsUp(in: app, showing: name) {
-            let globe = keyboardGlobe(in: app)
-            XCTAssertTrue(globe.waitForExistence(timeout: 10), "No globe key (keys: \(app.keys.count))")
-            globe.press(forDuration: 1.2)
-            // The list's row, not the app (whose own label is Cutling) or a bar: it opens over the keyboard, in the
-            // lower half. The simulator can hold many keyboards, so cycling with taps may take long.
-            let entry = onKeyboard(app.descendants(matching: .any).matching(NSPredicate(
-                format: "label BEGINSWITH 'Cutling' AND elementType != %d AND elementType != %d",
-                XCUIElement.ElementType.navigationBar.rawValue, XCUIElement.ElementType.application.rawValue
-            )), in: app)
-            if let entry, entry.isHittable { entry.tap() } else { globe.tap() }
-            sleep(2)
-        }
+        // Taps on the globe only: on iOS 27 the held globe's list closes when the finger lifts, and the tap meant for
+        // its Cutling row then lands on the page and closes the keyboard. The simulator can hold many keyboards.
+        XCTAssertTrue(cutlingKeyboardIsUp(in: app, showing: name) || keyboardGlobe(in: app).waitForExistence(timeout: 10),
+                      "No globe key (keys: \(app.keys.count))")
         // Each tap moves to the next keyboard; wait for each switch to land.
-        for _ in 0..<10 where !cutlingKeyboardIsUp(in: app, showing: name) {
+        for _ in 0..<15 where !cutlingKeyboardIsUp(in: app, showing: name) {
             let globe = keyboardGlobe(in: app)
             if globe.waitForExistence(timeout: 5) { globe.tap() }
             let tip = app.buttons.matching(NSPredicate(format: "label == 'Continue' AND identifier != 'continueButton'")).firstMatch
