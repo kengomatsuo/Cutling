@@ -21,6 +21,8 @@ struct FillInForm: View {
     let cutling: Cutling
     /// "Copy" in the app, "Paste" in the Mac picker when it pastes directly.
     let actionTitle: LocalizedStringKey
+    /// Values already in the fields when the form opens, by `Field.key`.
+    var initialValues: [String: String] = [:]
     let onDone: (_ values: [String: String]) -> Void
     let onCancel: () -> Void
 
@@ -120,11 +122,14 @@ struct FillInForm: View {
                             values[field.key] = choice
                             advance(from: field)
                         } label: {
+                            let chosen = values[field.key] == choice
                             Text(choice)
                                 .lineLimit(1)
                                 .padding(.horizontal, 10)
                                 .padding(.vertical, 4)
-                                .background(.quaternary, in: Capsule())
+                                .foregroundStyle(chosen ? AnyShapeStyle(.white) : AnyShapeStyle(.primary))
+                                .background(chosen ? AnyShapeStyle(.tint) : AnyShapeStyle(.quaternary), in: Capsule())
+                                .accessibilityAddTraits(chosen ? .isSelected : [])
                         }
                         .buttonStyle(.plain)
                     }
@@ -134,6 +139,7 @@ struct FillInForm: View {
     }
 
     private func start() {
+        values.merge(initialValues) { current, _ in current }
         // A choice field starts on its first option, so Return alone takes it.
         for field in fields where values[field.key] == nil {
             if field.options.count > 1 { values[field.key] = field.options[0] }

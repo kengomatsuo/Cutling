@@ -35,6 +35,8 @@ struct MacPickerView: View {
     @FocusState private var searchFieldFocused: Bool
     /// A cutling whose blanks are being filled before it is copied or pasted.
     @State private var filling: (cutling: Cutling, plainOnly: Bool)?
+    /// Values a screenshot run shows typed into the fill-in form.
+    @State private var snapshotFillValues: [String: String] = [:]
     @AppStorage("captureClipboardHistory") private var captureClipboardHistory = true
 
     /// Ordered, single-track tour through every control in the popover.
@@ -104,15 +106,28 @@ struct MacPickerView: View {
             if let first = store.cutlings.first { openWindow(id: "editCutling", value: first.id) }
         case "settings":
             openSettings()
+        case "fillin":
+            // The picker itself, on the first cutling with blanks, filled in the way a person would.
+            guard let cutling = store.cutlings.first(where: { !$0.fillInFields.isEmpty }) else { return }
+            snapshotFillValues = Dictionary(uniqueKeysWithValues: cutling.fillInFields.map { field in
+                (field.key, field.options.last ?? "Sarah")
+            })
+            filling = (cutling, false)
+            await parkWindowsForCapture()
+            return
         default:
             return
         }
         CutlingPickerController.shared.hide()
-        // Never hold keyboard focus: the owner may be typing elsewhere
+        await parkWindowsForCapture()
+    }
+
+    /// Never holds keyboard focus (the owner may be typing elsewhere), and sits below the desktop
+    /// picture: the window still draws, and screencapture -l still reads it, but it never covers
+    /// the owner's work.
+    private func parkWindowsForCapture() async {
         try? await Task.sleep(for: .seconds(1))
         NSApp.deactivate()
-        // Below the desktop picture: the window still draws, and screencapture -l still
-        // reads it, but it never covers the owner's work.
         let belowDesktop = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.desktopWindow)) - 1)
         for window in NSApp.windows where window.isVisible {
             window.level = belowDesktop
@@ -135,7 +150,8 @@ struct MacPickerView: View {
                 if let filling {
                     FillInForm(
                         cutling: filling.cutling,
-                        actionTitle: surface == .pickerPanel && pasteDirectly ? "Paste Filled Text" : "Copy"
+                        actionTitle: surface == .pickerPanel && pasteDirectly ? "Paste Filled Text" : "Copy",
+                        initialValues: snapshotFillValues
                     ) { values in
                         self.filling = nil
                         copyText(filling.cutling, values: values, plainOnly: filling.plainOnly)
