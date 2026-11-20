@@ -60,15 +60,25 @@ final class KeyboardMemoryUITests: XCTestCase {
         addCutlingKeyboardInSettings()
         app.launch()
 
-        _ = openKeyboardTestField(in: app, seeded: textCount != "0" || imageCount != "0")
-        switchToCutlingKeyboard(in: app)
-        XCTAssertTrue(cutlingKeyboardIsUp(in: app), "Cutling keyboard did not come up (keys: \(app.keys.count))")
+        // Images are seeded first, so the first key is Photo 1, or Snippet 1 without images; an empty store has none.
+        let firstName: String? = imageCount != "0" ? "Photo 1" : textCount != "0" ? "Snippet 1" : nil
+        _ = openKeyboardTestField(in: app, seeded: firstName != nil)
+        switchToCutlingKeyboard(in: app, showing: firstName)
+        XCTAssertTrue(cutlingKeyboardIsUp(in: app, showing: firstName), "Cutling keyboard did not come up (keys: \(app.keys.count))")
         mark("keyboard_up")
         sleep(3)
+        guard let firstName else {
+            mark("end")
+            sleep(2)
+            return
+        }
 
-        // Fling through the whole grid and back, so every card and thumbnail is built once.
-        let low = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.86))
-        let high = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.64))
+        // Fling through the whole grid and back, so every card and thumbnail is built once. The first key's place,
+        // read once, anchors the drags: its row tops a grid at least 180 points tall on every screen shape.
+        let first = cutlingKey(firstName, in: app).frame
+        let origin = app.coordinate(withNormalizedOffset: .zero)
+        let low = origin.withOffset(CGVector(dx: first.midX, dy: first.minY + 140))
+        let high = origin.withOffset(CGVector(dx: first.midX, dy: first.minY - 40))
         mark("scroll_down")
         for _ in 0..<flings {
             low.press(forDuration: 0.05, thenDragTo: high, withVelocity: .fast, thenHoldForDuration: 0)
@@ -80,10 +90,10 @@ final class KeyboardMemoryUITests: XCTestCase {
         }
         sleep(2)
 
-        // Images are seeded first, so the first card copies a full-size image.
+        // Back at the top, the first key copies a full-size image.
         if imageCount != "0" {
             mark("copy_image")
-            app.coordinate(withNormalizedOffset: CGVector(dx: 0.25, dy: 0.71)).tap()
+            origin.withOffset(CGVector(dx: first.midX, dy: first.midY)).tap()
             sleep(3)
         }
         mark("end")

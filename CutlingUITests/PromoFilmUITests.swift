@@ -301,13 +301,10 @@ final class PromoFilmUITests: XCTestCase {
     }
 
     private func globePoint(in app: XCUIApplication) -> CGPoint {
-        let globe = NSPredicate(format: "label ==[c] 'Next keyboard' OR label ==[c] 'Papan Ketik Berikutnya' OR label ==[c] '次のキーボード'")
-        for query in [app.buttons, app.keys] {
-            let element = query.matching(globe).firstMatch
-            if element.exists {
-                let frame = element.frame
-                return CGPoint(x: frame.midX / screen.width, y: frame.midY / screen.height)
-            }
+        let element = keyboardGlobe(in: app)
+        if element.exists {
+            let frame = element.frame
+            return CGPoint(x: frame.midX / screen.width, y: frame.midY / screen.height)
         }
         return isPad ? CGPoint(x: 0.06, y: 0.95) : CGPoint(x: 0.0966, y: 0.9644)
     }

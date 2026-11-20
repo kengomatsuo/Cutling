@@ -88,13 +88,34 @@ extension XCTestCase {
         return field
     }
 
-    /// Cutling's keys aren't in the tree, so zero keys means Cutling is up.
-    /// Keys also read zero mid-switch, so it must hold for two seconds.
+    /// The globe key, found by name: simulators place it differently (under the keys on most iPhones,
+    /// in the bottom row of a wide one's), so no screen fraction finds it everywhere.
+    /// Labels for the languages the tests and films run in.
     @MainActor
-    func cutlingKeyboardIsUp(in app: XCUIApplication) -> Bool {
+    func keyboardGlobe(in app: XCUIApplication) -> XCUIElement {
+        let label = NSPredicate(format: "label ==[c] 'Next keyboard' OR label ==[c] 'Papan Ketik Berikutnya' OR label ==[c] '次のキーボード'")
+        let button = app.buttons.matching(label).firstMatch
+        return button.exists ? button : app.keys.matching(label).firstMatch
+    }
+
+    /// A cutling's key on the Cutling keyboard, by the cutling's name. Its label is the name, then the text
+    /// after a comma; an image key's placeholder icon can come first. The app's own cards carry `cutlingCard`.
+    @MainActor
+    func cutlingKey(_ name: String, in app: XCUIApplication) -> XCUIElement {
+        app.buttons.matching(NSPredicate(
+            format: "identifier != 'cutlingCard' AND (label == %@ OR label BEGINSWITH %@ OR label ENDSWITH %@)",
+            name, name + ",", ", " + name
+        )).firstMatch
+    }
+
+    /// Cutling's keys are buttons, not keys, so zero keys with a globe on screen means Cutling is up; given a
+    /// cutling's name, its key must show too. Keys also read zero mid-switch, so it must hold for two seconds.
+    @MainActor
+    func cutlingKeyboardIsUp(in app: XCUIApplication, showing name: String? = nil) -> Bool {
         var steady = 0
         for _ in 0..<10 {
-            steady = app.keys.count == 0 && app.buttons["dictation"].exists ? steady + 1 : 0
+            let shown = name.map { cutlingKey($0, in: app).exists } ?? keyboardGlobe(in: app).exists
+            steady = app.keys.count == 0 && shown ? steady + 1 : 0
             if steady >= 4 { return true }
             usleep(500_000)
         }
@@ -103,11 +124,11 @@ extension XCTestCase {
 
     /// Switches the focused field to the Cutling keyboard through the globe key.
     @MainActor
-    func switchToCutlingKeyboard(in app: XCUIApplication) {
-        // The globe sits bottom-left under every keyboard; wait for each switch to land.
-        let globe = app.coordinate(withNormalizedOffset: CGVector(dx: 0.09, dy: 0.955))
+    func switchToCutlingKeyboard(in app: XCUIApplication, showing name: String? = nil) {
         // Long-pressing the globe lists every keyboard; pick Cutling there first.
-        if !cutlingKeyboardIsUp(in: app) {
+        if !cutlingKeyboardIsUp(in: app, showing: name) {
+            let globe = keyboardGlobe(in: app)
+            XCTAssertTrue(globe.waitForExistence(timeout: 10), "No globe key (keys: \(app.keys.count))")
             globe.press(forDuration: 1.2)
             let entry = app.descendants(matching: .any)
                 .matching(NSPredicate(format: "label == 'Cutling' AND elementType != %d", XCUIElement.ElementType.navigationBar.rawValue))
@@ -115,8 +136,10 @@ extension XCTestCase {
             if let entry, entry.exists, entry.isHittable { entry.tap() } else { globe.tap() }
             sleep(2)
         }
-        for _ in 0..<10 where !cutlingKeyboardIsUp(in: app) {
-            globe.tap()
+        // Each tap moves to the next keyboard; wait for each switch to land.
+        for _ in 0..<10 where !cutlingKeyboardIsUp(in: app, showing: name) {
+            let globe = keyboardGlobe(in: app)
+            if globe.waitForExistence(timeout: 5) { globe.tap() }
             let tip = app.buttons.matching(NSPredicate(format: "label == 'Continue' AND identifier != 'continueButton'")).firstMatch
             if tip.waitForExistence(timeout: 1) { tip.tap(); sleep(1) }
         }

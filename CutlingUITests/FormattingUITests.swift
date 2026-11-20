@@ -40,14 +40,13 @@ final class FormattingUITests: XCTestCase {
         app.launch()
 
         let field = openKeyboardTestField(in: app) { shot("01_grid") }
-        switchToCutlingKeyboard(in: app)
+        switchToCutlingKeyboard(in: app, showing: "Rich")
         shot("02_keyboard")
-        XCTAssertTrue(cutlingKeyboardIsUp(in: app), "Cutling keyboard did not come up (keys: \(app.keys.count))")
+        XCTAssertTrue(cutlingKeyboardIsUp(in: app, showing: "Rich"), "Cutling keyboard did not come up (keys: \(app.keys.count))")
 
-        // Two-column grid: Rich, Code / Plain.
-        let rich = app.coordinate(withNormalizedOffset: CGVector(dx: 0.25, dy: 0.71))
-        let code = app.coordinate(withNormalizedOffset: CGVector(dx: 0.75, dy: 0.71))
-        let plain = app.coordinate(withNormalizedOffset: CGVector(dx: 0.25, dy: 0.80))
+        let rich = cutlingKey("Rich", in: app)
+        let code = cutlingKey("Code", in: app)
+        let plain = cutlingKey("Plain", in: app)
 
         // Every tap types: a Formatted key types its text plain, like the others.
         rich.tap()
@@ -103,9 +102,7 @@ final class FormattingUITests: XCTestCase {
         let cards = app.descendants(matching: .any).matching(identifier: "cutlingCard")
         XCTAssertTrue(cards.firstMatch.waitForExistence(timeout: 10), "Grid not reachable")
         for (index, name) in ["05_editor_rich", "07_editor_code"].enumerated() {
-            // The card's ⋯ button opens its editor.
-            // Nested views share the card id, so place the tap on screen.
-            app.coordinate(withNormalizedOffset: CGVector(dx: index == 0 ? 0.398 : 0.876, dy: 0.271)).tap()
+            openEditor(index == 0 ? "Rich" : "Code", in: app)
             let detail = app.descendants(matching: .any).matching(identifier: "detailView").firstMatch
             XCTAssertTrue(detail.waitForExistence(timeout: 5), "Editor did not open")
             sleep(1)
@@ -121,10 +118,29 @@ final class FormattingUITests: XCTestCase {
                 sleep(1)
             }
             // The grid stays in the tree under a pushed editor, so wait for the editor to go.
-            app.coordinate(withNormalizedOffset: CGVector(dx: 0.092, dy: 0.096)).tap()
-            sleep(2)
+            closeEditor(in: app)
             XCTAssertFalse(detail.exists, "Editor did not close")
         }
+    }
+
+    /// Opens a cutling's editor from its card's long-press menu. Cards and menu items are found by name,
+    /// so the steps hold on every simulator's screen shape.
+    @MainActor
+    private func openEditor(_ name: String, in app: XCUIApplication) {
+        let card = app.descendants(matching: .any).matching(identifier: "cutlingCard")
+            .matching(NSPredicate(format: "label == %@", name)).firstMatch
+        XCTAssertTrue(card.waitForExistence(timeout: 10), "No \(name) card")
+        card.press(forDuration: 1.0)
+        let edit = app.buttons.matching(NSPredicate(format: "identifier == 'editButton' OR label == 'Edit'")).firstMatch
+        XCTAssertTrue(edit.waitForExistence(timeout: 5), "\(name)'s menu has no Edit")
+        edit.tap()
+    }
+
+    /// Goes back from the pushed editor, whose bar is titled Edit.
+    @MainActor
+    private func closeEditor(in app: XCUIApplication) {
+        app.navigationBars["Edit"].buttons.firstMatch.tap()
+        sleep(2)
     }
 
     /// Formats are detected, never picked: the chip only appears when the text isn't plain.
@@ -140,13 +156,9 @@ final class FormattingUITests: XCTestCase {
         func chip(_ prefix: String) -> XCUIElement {
             detail.buttons.matching(NSPredicate(format: "label BEGINSWITH %@", prefix)).firstMatch
         }
-        func closeEditor() {
-            app.coordinate(withNormalizedOffset: CGVector(dx: 0.092, dy: 0.096)).tap()
-            sleep(2)
-        }
 
         // Seeded Formatted cutling: chip offers Plain Text / Formatted / Code.
-        app.coordinate(withNormalizedOffset: CGVector(dx: 0.398, dy: 0.271)).tap()
+        openEditor("Rich", in: app)
         XCTAssertTrue(detail.waitForExistence(timeout: 5), "Editor did not open")
         XCTAssertTrue(chip("Formatted").waitForExistence(timeout: 5), "Formatted chip missing")
         shot("10_editor_formatted")
@@ -155,29 +167,23 @@ final class FormattingUITests: XCTestCase {
         shot("11_chip_menu")
         app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.1)).tap()
         sleep(1)
-        closeEditor()
+        closeEditor(in: app)
 
         // Seeded Plain cutling: no chip.
         shot("11b_grid_after_close")
-        // Tapping a card copies it; the card's ⋯ button opens the editor.
-        // Cards share one id and the ⋯ is merged into the card element, so place the tap on screen.
-        for _ in 0..<3 where !detail.exists {
-            app.coordinate(withNormalizedOffset: CGVector(dx: 0.41, dy: 0.408)).tap()
-            _ = detail.waitForExistence(timeout: 3)
-        }
-        shot("11c_after_plain_tap")
+        openEditor("Plain", in: app)
         XCTAssertTrue(detail.waitForExistence(timeout: 5))
         sleep(2)
         XCTAssertFalse(chip("Code").exists || chip("Formatted").exists, "Plain text should show no chip")
         shot("12_editor_plain")
-        closeEditor()
+        closeEditor(in: app)
 
         // A cutling saved before formats existed is detected as Code.
-        app.coordinate(withNormalizedOffset: CGVector(dx: 0.887, dy: 0.408)).tap()
+        openEditor("Legacy", in: app)
         XCTAssertTrue(detail.waitForExistence(timeout: 5))
         XCTAssertTrue(chip("Code").waitForExistence(timeout: 10), "Undecided code was not detected")
         shot("13_legacy_code")
-        closeEditor()
+        closeEditor(in: app)
 
         // Paste detection isn't covered here: on the iOS 27 simulator the app
         // reads an empty clipboard whatever the runner or `simctl pbcopy` puts there.

@@ -350,7 +350,7 @@ struct MacApp: App {
 }
 #endif
 
-#if DEBUG
+#if DEBUG && os(macOS)
 import ObjectiveC
 
 /// Screenshot runs: every window draws as the active, key window (coloured traffic
