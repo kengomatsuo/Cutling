@@ -641,10 +641,15 @@ platform :mac do
 
   desc "Upload captioned Mac screenshots (fastlane/screenshots_mac/<locale>) to the editable macOS version"
   lane :upload_screenshots_mac do
-    # deliver reads every folder as a locale, so leave raw/ captures behind
+    # deliver reads every folder as a locale, so leave raw/ captures behind, and pass only the
+    # languages the editable Mac version lists: the rest are rendered but App Store Connect refuses them.
+    asc_login
+    app = Spaceship::ConnectAPI::App.find(CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier))
+    listed = app.get_edit_app_store_version(platform: Spaceship::ConnectAPI::Platform::MAC_OS)
+                .get_app_store_version_localizations.map(&:locale)
     tmp = Dir.mktmpdir("cutling_mac_screenshots")
     Dir.glob(File.join(__dir__, "screenshots_mac", "*")).each do |dir|
-      next if !File.directory?(dir) || File.basename(dir) == "raw"
+      next if !File.directory?(dir) || !listed.include?(File.basename(dir))
       FileUtils.cp_r(dir, tmp)
     end
     deliver(
