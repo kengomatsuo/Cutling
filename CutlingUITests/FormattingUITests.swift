@@ -44,26 +44,26 @@ final class FormattingUITests: XCTestCase {
         shot("02_keyboard")
         XCTAssertTrue(cutlingKeyboardIsUp(in: app, showing: "Rich"), "Cutling keyboard did not come up (keys: \(app.keys.count))")
 
-        let rich = cutlingKey("Rich", in: app)
-        let code = cutlingKey("Code", in: app)
-        let plain = cutlingKey("Plain", in: app)
+        // Keys report frames in the keyboard's own coordinates, so each press goes to the key's place on screen,
+        // read again before each one in case a suggestion row moved the grid.
+        func key(_ name: String) -> XCUICoordinate { keyCentre(cutlingKey(name, in: app), in: app) }
 
         // Every tap types: a Formatted key types its text plain, like the others.
-        rich.tap()
+        key("Rich").tap()
         sleep(1)
         XCTAssertEqual(field.value as? String, "Bold and link", "Formatted tap should type its text")
 
-        code.tap()
+        key("Code").tap()
         sleep(1)
         XCTAssertEqual(field.value as? String, "Bold and linkprint(\"a_b\")", "Code should go in exactly")
 
-        plain.tap()
+        key("Plain").tap()
         sleep(1)
         XCTAssertEqual(field.value as? String, "Bold and linkprint(\"a_b\") Hello", "Plain should be spaced from the word before")
         shot("03_typed")
 
         // Long-press on the Formatted key offers Copy, which copies the styled version.
-        rich.press(forDuration: 1.2)
+        key("Rich").press(forDuration: 1.2)
         sleep(1)
         shot("04_rich_menu")
         let copy = app.buttons["Copy"].firstMatch

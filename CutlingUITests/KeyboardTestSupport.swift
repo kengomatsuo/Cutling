@@ -106,14 +106,46 @@ extension XCTestCase {
     }
 
     /// A cutling's key on the Cutling keyboard, by the cutling's name. Its label is the name, then the text
-    /// after a comma; an image key's placeholder icon can come first. The app's own cards and their inner parts
-    /// can carry the same name, so only a match in the lower half of the screen, where every keyboard sits, counts.
+    /// after a comma; an image key's placeholder icon can come first. Everything inside the keyboard carries
+    /// the root's `CutlingKeyboardView` identifier, which keeps the app's own cards of the same name out.
     @MainActor
     func cutlingKey(_ name: String, in app: XCUIApplication) -> XCUIElement {
-        let matches = app.buttons.matching(NSPredicate(
-            format: "label == %@ OR label BEGINSWITH %@ OR label ENDSWITH %@", name, name + ",", ", " + name
-        ))
-        return onKeyboard(matches, in: app) ?? app.buttons["no key named \(name)"]
+        app.buttons.matching(NSPredicate(
+            format: "identifier == 'CutlingKeyboardView' AND (label == %@ OR label BEGINSWITH %@ OR label ENDSWITH %@)",
+            name, name + ",", ", " + name
+        )).firstMatch
+    }
+
+    /// Where the Cutling keyboard's top-left corner sits on screen. iOS 27 reports the keyboard's own elements
+    /// in the keyboard's coordinates (its root reads 0,0), so a tap at their frame lands on the app above;
+    /// the host element of the root's size around it carries the screen place. Read from one snapshot.
+    @MainActor
+    func cutlingKeyboardOrigin(in app: XCUIApplication) -> CGPoint {
+        guard let tree = try? app.snapshot() else { return .zero }
+        func find(_ node: XCUIElementSnapshot, _ ancestors: [XCUIElementSnapshot]) -> CGPoint? {
+            if node.identifier == "CutlingKeyboardView" {
+                let host = ancestors.last { $0.frame.size == node.frame.size && $0.identifier != "CutlingKeyboardView" }
+                return host.map { CGPoint(x: $0.frame.minX - node.frame.minX, y: $0.frame.minY - node.frame.minY) } ?? .zero
+            }
+            for child in node.children {
+                if let found = find(child, ancestors + [node]) { return found }
+            }
+            return nil
+        }
+        return find(tree, []) ?? .zero
+    }
+
+    /// A screen point inside the Cutling keyboard, from a frame in the keyboard's own coordinates.
+    @MainActor
+    func keyboardPoint(_ x: CGFloat, _ y: CGFloat, origin: CGPoint, in app: XCUIApplication) -> XCUICoordinate {
+        app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: origin.x + x, dy: origin.y + y))
+    }
+
+    /// The centre of a Cutling key on screen.
+    @MainActor
+    func keyCentre(_ key: XCUIElement, in app: XCUIApplication) -> XCUICoordinate {
+        let frame = key.frame
+        return keyboardPoint(frame.midX, frame.midY, origin: cutlingKeyboardOrigin(in: app), in: app)
     }
 
     /// The first element of `query` in the lower half of the screen.
@@ -123,13 +155,14 @@ extension XCTestCase {
         return query.allElementsBoundByIndex.first { $0.exists && $0.frame.midY > half }
     }
 
-    /// Cutling's keys are buttons, not keys, so zero keys with a globe on screen means Cutling is up; given a
-    /// cutling's name, its key must show too. Keys also read zero mid-switch, so it must hold for two seconds.
+    /// Cutling's keys are buttons, not keys, so zero keys with Cutling's root in the tree means Cutling is up;
+    /// given a cutling's name, its key must show too. Keys also read zero mid-switch, so it must hold for two seconds.
     @MainActor
     func cutlingKeyboardIsUp(in app: XCUIApplication, showing name: String? = nil) -> Bool {
         var steady = 0
         for _ in 0..<10 {
-            let shown = name.map { cutlingKey($0, in: app).exists } ?? keyboardGlobe(in: app).exists
+            let shown = name.map { cutlingKey($0, in: app).exists }
+                ?? app.descendants(matching: .any).matching(identifier: "CutlingKeyboardView").firstMatch.exists
             steady = app.keys.count == 0 && shown ? steady + 1 : 0
             if steady >= 4 { return true }
             usleep(500_000)

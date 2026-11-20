@@ -73,26 +73,28 @@ final class KeyboardMemoryUITests: XCTestCase {
             return
         }
 
-        // Fling through the whole grid and back, so every card and thumbnail is built once. Each fling is a swipe on
-        // whichever key shows now: a coordinate drag (press, then drag) moved nothing in the keyboard's grid.
+        // Fling through the whole grid and back, so every card and thumbnail is built once. Keys report frames in
+        // the keyboard's own coordinates, so the drags add the keyboard's place on screen; the first key's row tops
+        // a grid at least 180 points tall on every screen shape.
         let first = cutlingKey(firstName, in: app).frame
-        let origin = app.coordinate(withNormalizedOffset: .zero)
-        let anyKey = app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Photo ' OR label BEGINSWITH 'Snippet ' OR label CONTAINS ', Photo '"))
+        let origin = cutlingKeyboardOrigin(in: app)
+        let low = keyboardPoint(first.midX, first.minY + 140, origin: origin, in: app)
+        let high = keyboardPoint(first.midX, first.minY - 40, origin: origin, in: app)
         mark("scroll_down")
         for _ in 0..<flings {
-            onKeyboard(anyKey, in: app)?.swipeUp(velocity: .fast)
+            low.press(forDuration: 0.05, thenDragTo: high, withVelocity: .fast, thenHoldForDuration: 0)
         }
         sleep(2)
         mark("scroll_up")
         for _ in 0..<flings {
-            onKeyboard(anyKey, in: app)?.swipeDown(velocity: .fast)
+            high.press(forDuration: 0.05, thenDragTo: low, withVelocity: .fast, thenHoldForDuration: 0)
         }
         sleep(2)
 
         // Back at the top, the first key copies a full-size image.
         if imageCount != "0" {
             mark("copy_image")
-            origin.withOffset(CGVector(dx: first.midX, dy: first.midY)).tap()
+            keyboardPoint(first.midX, first.midY, origin: origin, in: app).tap()
             sleep(3)
         }
         mark("end")
