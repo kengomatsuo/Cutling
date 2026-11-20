@@ -15,6 +15,7 @@
 <a href="https://indieappcatalog.com/app/5527"><img src="https://indieappcatalog.com/badge/listed-on-indie-app-catalog-black.svg" alt="Listed on Indie App Catalog" height="48"></a>
 <a href="https://macbase.app/apps/cutling?ref=badge"><img src="https://macbase.app/badge/featured-on-macbase.svg" alt="Featured on MacBase" height="48"></a>
 <a href="https://macnative.io/apps/cutling?utm_source=macnative-badge&utm_medium=referral"><img src="https://macnative.io/badge?kind=listed&theme=light&slug=cutling" alt="Listed on MacNative" height="48"></a>
+<a href="https://www.producthunt.com/products/cutling?utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-cutling"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1310871&theme=light" alt="Cutling on Product Hunt" height="48"></a>
 </p>
 
 **Your clipboard, organized.**

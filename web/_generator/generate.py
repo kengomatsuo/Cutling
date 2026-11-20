@@ -44,6 +44,7 @@ DEFAULT_LOCALE = "en-US"
 # Directory badges in every page footer. Each listing site checks for its own badge on the live site
 # to keep a free listing or launch, so one is never dropped without checking that site's rules.
 DIRECTORY_BADGES = [
+    '<a href="https://www.producthunt.com/products/cutling?embed=true&amp;utm_source=badge-featured&amp;utm_medium=badge&amp;utm_campaign=badge-cutling" target="_blank" rel="noopener noreferrer"><img alt="Cutling on Product Hunt" width="250" height="54" src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1310871&amp;theme=light"></a>',
     '<a href="https://nativeshelf.com/cutling?ref=badge" target="_blank" title="Featured on NativeShelf.com"><img src="https://nativeshelf.com/badge/dark.png?v=6" alt="Featured on NativeShelf.com" width="232" height="68" /></a>',
     '<a href="https://macpip.com/apps/cutling?ref=badge"><img src="https://macpip.com/badge/cutling.svg" height="44" alt="Listed on MacPip"></a>',
     '<a href="https://macbase.app/apps/cutling?ref=badge" target="_blank" rel="noopener"><img src="https://macbase.app/badge/featured-on-macbase.svg" alt="Cutling is featured on MacBase" height="44" style="height:44px;width:auto"></a>',
