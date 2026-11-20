@@ -17,7 +17,7 @@
 
 Cutling is a native iOS and macOS clipboard manager that puts your most-used text and images one tap away. Save snippets and access them instantly from any app via a custom keyboard extension — no accounts, no tracking, just your stuff.
 
-[![Download on the App Store](https://img.shields.io/badge/Download-App%20Store-blue?style=for-the-badge&logo=apple)](https://apps.apple.com/app/cutling/id6759476314)
+[![Download on the App Store](https://img.shields.io/badge/Download-App%20Store-blue?style=for-the-badge&logo=apple)](https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&ct=github-readme&mt=8)
 
 ![Cutling demo](assets/demo.gif)
 
@@ -72,7 +72,7 @@ Your cutlings stay on your device — or in your personal iCloud account if you 
 
 ### From App Store
 
-Download Cutling from the [App Store](https://apps.apple.com/app/cutling/id6759476314).
+Download Cutling from the [App Store](https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&ct=github-readme&mt=8).
 
 ### Building from Source
 
