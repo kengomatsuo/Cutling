@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>คลิปบอร์ดของคุณ จัดระเบียบเรียบร้อย</h1>
+        <h1>คัตลิงของคุณ แค่ปุ่มลัดเดียว</h1>
         <p class="hero-subtitle">เก็บข้อความและรูปภาพที่ใช้ซ้ำบ่อย ๆ ไว้ในที่เดียว แล้วหยิบมาใช้ได้ทันที บน iPhone และ iPad เรียกจากคีย์บอร์ดของคัตลิงได้เลย ส่วนบน Mac มีแอปบนแถบเมนูและปุ่มลัดที่กดได้จากทุกแอป ไม่ต้องสมัครบัญชี ไม่มีการติดตาม มีแค่ของของคุณ</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">ดาวน์โหลดได้ที่ App Store</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>สิ่งที่คัตลิงแก้ได้</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>พิมพ์ที่อยู่กับเลขบัญชีซ้ำๆ</h3>
+                    <p>บันทึกที่อยู่ ข้อมูลบัญชีธนาคาร ลายเซ็นอีเมล และข้อความตอบกลับที่ใช้บ่อยไว้ครั้งเดียว จากนั้นในแอปไหนก็ได้ สลับไปที่คีย์บอร์ดคัตลิงแล้วแตะอันที่ต้องการ</p>
+                </li>
+                <li>
+                    <h3>จ่ายรายปีให้แอปคลิปบอร์ด</h3>
+                    <p>คัตลิงจ่ายครั้งเดียวจบ ไม่มีค่าสมาชิก ไม่มีอะไรให้ซื้อเพิ่มในแอป และได้แอปบน Mac มาในการซื้อครั้งเดียวกัน</p>
+                </li>
+                <li>
+                    <h3>การแทนที่ข้อความที่ไม่ยอมซิงก์</h3>
+                    <p>คัตลิงซิงก์ระหว่าง iPhone, iPad และ Mac ผ่าน iCloud ของคุณเอง แต่ละอันเก็บได้ทั้งย่อหน้า รูปแบบตัวอักษร หรือรูปภาพ ไม่ใช่แค่วลีสั้น ๆ</p>
+                </li>
+                <li>
+                    <h3>ความกังวลว่าคีย์บอร์ดที่มีการเข้าถึงเต็มรูปแบบเห็นอะไร</h3>
+                    <p>คีย์บอร์ดคัตลิงต้องใช้การเข้าถึงเต็มรูปแบบเพื่ออ่านคัตลิงที่คุณบันทึกไว้ ไม่มีบัญชีผู้ใช้ ไม่มีเซิร์ฟเวอร์ ไม่มีการวิเคราะห์การใช้งาน ไม่มีโค้ดของบุคคลที่สาม และป้ายบน App Store ก็ระบุว่า &ldquo;ไม่ได้เก็บข้อมูล&rdquo;</p>
+                </li>
+                <li>
+                    <h3>รหัสผ่านที่กองอยู่ในประวัติคลิปบอร์ด</h3>
+                    <p>บน Mac ประวัติของคัตลิงจะข้ามทุกอย่างที่ตัวจัดการรหัสผ่านระบุว่าเป็นความลับ รหัสผ่านที่คัดลอกจึงไม่เข้าไปอยู่ในนั้นเลย</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>Ang clipboard mo, maayos.</h1>
+        <h1>Ang mga cutling mo, isang shortcut lang</h1>
         <p class="hero-subtitle">I-save ang mga tekstong snippet at larawan na paulit-ulit mong ginagamit, at abutin ang mga ito agad: mula sa custom keyboard sa iPhone at iPad, o sa menu bar app at global keyboard shortcut sa Mac. Walang account, walang tracking, gamit mo lang.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">I-download sa App Store</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>Ang inaayos ng Cutling</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>Paulit-ulit na pag-type ng address at bank details</h3>
+                    <p>I-save nang isang beses ang address, bank details, email signature at mga madalas mong sagot. Pagkatapos, sa kahit anong app, lumipat sa Cutling keyboard at i-tap ang kailangan mo.</p>
+                </li>
+                <li>
+                    <h3>Taunang bayad para sa clipboard app</h3>
+                    <p>Isang bayad lang ang Cutling. Walang subscription, walang bibilhin sa loob ng app, at kasama na ang Mac app sa parehong bili.</p>
+                </li>
+                <li>
+                    <h3>Text Replacement na tumitigil sa pag-sync</h3>
+                    <p>Nagsi-sync ang mga cutling sa iPhone, iPad at Mac mo gamit ang sarili mong iCloud, at kaya ng bawat isa ang buong talata, formatting o larawan, hindi lang maikling parirala.</p>
+                </li>
+                <li>
+                    <h3>Pag-aalala sa nakikita ng keyboard na may Full Access</h3>
+                    <p>Kailangan ng Cutling keyboard ang Full Access para mabasa ang mga cutling na na-save mo. Walang account, walang server, walang analytics at walang third-party code, at &ldquo;Data Not Collected&rdquo; ang nakasulat sa label nito sa App Store.</p>
+                </li>
+                <li>
+                    <h3>Mga password na naiipon sa kasaysayan ng clipboard</h3>
+                    <p>Sa Mac, nilalaktawan ng kasaysayan ng Cutling ang anumang minarkahan ng password manager na nakatago, kaya hindi kailanman napupunta roon ang kinopyang password.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

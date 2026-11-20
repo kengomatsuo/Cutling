@@ -46,7 +46,7 @@ Something else fits better when someone wants every copy kept and searchable, in
 
 Source: https://cutling.matsuokengo.com/en-us/
 
-## Your clipboard, organized.
+## Snippets a shortcut away
 
 Save text snippets and images, then reach them instantly from a custom keyboard on iPhone and iPad, or a menu-bar app and global hotkey on Mac. No accounts, no tracking, just your stuff.
 
@@ -54,7 +54,29 @@ Save text snippets and images, then reach them instantly from a custom keyboard 
 
 iPhone, iPad & Mac
 
-[Video: Your clipboard, organized.](https://cutling.matsuokengo.com/film/cutling-en.mp4)
+[Video: Snippets a shortcut away](https://cutling.matsuokengo.com/film/cutling-en.mp4)
+
+### What Cutling fixes
+
+#### Retyping your address and bank details
+
+Save your address, bank details, email signature and saved replies once. Then switch to the Cutling keyboard in any app and tap the one you need.
+
+#### Paying every year for a clipboard app
+
+Cutling is paid once. There is no subscription and nothing to buy inside the app, and the Mac app comes with the same purchase.
+
+#### Text Replacement that stops syncing
+
+Cutlings sync between your iPhone, iPad and Mac through your own iCloud, and each one holds whole paragraphs, formatting or an image, not just a short phrase.
+
+#### Worrying what a Full Access keyboard sees
+
+Cutling's keyboard needs Full Access to read the cutlings you saved. It has no account, no server, no analytics and no third-party code, and its App Store label says Data Not Collected.
+
+#### Passwords piling up in clipboard history
+
+On Mac, Cutling's history skips anything a password manager marks as concealed, so a copied password never lands in it.
 
 ### Save it once
 
@@ -269,6 +291,22 @@ Deleted cutlings move to a “Recently Deleted” folder where they're kept for 
 **How do I install the Mac version?**
 
 You have two options, both on the [download page](https://cutling.matsuokengo.com/en-us/download/). On the Mac App Store, Cutling installs like any other app. Or download it free directly: it is signed with a Developer ID and notarized by Apple, so it opens normally with no security warnings. Just open the DMG and drag Cutling into your Applications folder.
+
+**How do I save my address and bank details on my iPhone keyboard?**
+
+Add each one as a cutling in the app, then turn on the Cutling keyboard in Settings. In any app, switch to it with the globe key and tap the cutling you want.
+
+**Can Cutling keep a clipboard history on iPhone?**
+
+No. iOS does not let any app read what you copy while it runs in the background, so no iPhone app can build a full history. On iPhone Cutling keeps what you save, and the Mac app keeps your clipboard history.
+
+**Why isn't my clipboard syncing between iPhone and Mac?**
+
+Copying on one device and pasting on another is Apple's Universal Clipboard, which needs both on the same Apple Account with Wi-Fi, Bluetooth and Handoff on. Cutling syncs your saved cutlings through iCloud instead, so they are there on every device whenever you need them. Your Mac clipboard history stays on the Mac.
+
+**Can snippets have blanks to fill in, like TextExpander?**
+
+Not yet. A cutling pastes exactly what you saved. Fill-in fields and date stamps are the next thing we are building.
 
 **What is direct paste on Mac, and why does it ask for Accessibility?**
 

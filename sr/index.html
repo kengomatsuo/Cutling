@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>Ваш клипборд, сређен</h1>
+        <h1>Ваши катлинзи на једну пречицу</h1>
         <p class="hero-subtitle">Сачувајте текстуалне исечке и слике које стално понављате и дохватите их у трен: преко сопствене тастатуре на iPhone-у и iPad-у или из траке менија и глобалном пречицом на Mac-у. Без налога, без праћења, само ваше ствари.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">Преузмите на App Store-у</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>Шта Катлинг решава</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>Поновно куцање адресе и података о рачуну</h3>
+                    <p>Адресу, податке о рачуну, потпис за имејл и одговоре које стално шаљете сачувајте једном. Затим у било којој апликацији пређите на тастатуру Катлинг и додирните онај који вам треба.</p>
+                </li>
+                <li>
+                    <h3>Годишње плаћање за апликацију за клипборд</h3>
+                    <p>Катлинг се плаћа једном. Нема претплате ни ичега да се доплаћује у апликацији, а апликација за Mac долази уз исту куповину.</p>
+                </li>
+                <li>
+                    <h3>Замена текста која престане да се синхронизује</h3>
+                    <p>Катлинзи се синхронизују између iPhone-а, iPad-а и Mac-а преко вашег сопственог iCloud-а, а сваки прима целе пасусе, форматирање или слику, не само кратку фразу.</p>
+                </li>
+                <li>
+                    <h3>Брига шта види тастатура са пуним приступом</h3>
+                    <p>Тастатури Катлинг треба пуни приступ да би прочитала катлинге које сте сачували. Нема налога, сервера, аналитике ни кода трећих страна, а на App Store-у стоји ознака да се подаци не прикупљају.</p>
+                </li>
+                <li>
+                    <h3>Лозинке које се гомилају у историји клипборда</h3>
+                    <p>На Mac-у историја у Катлингу прескаче све што менаџер лозинки означи као скривено, па копирана лозинка никад не доспе у њу.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

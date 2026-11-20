@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>Vaše odložišče, urejeno.</h1>
+        <h1>Vaši cutlingi na eno bližnjico</h1>
         <p class="hero-subtitle">Shranite odlomke besedila in slike ter jih imejte v hipu pri roki: na iPhonu in iPadu prek prilagojene tipkovnice, na Macu prek aplikacije v menijski vrstici in globalne bližnjice na tipkovnici. Brez računov, brez sledenja. Samo vaše stvari.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">Prenesite iz App Storea</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>Kaj reši Cutling</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>Vnovično tipkanje naslova in bančnih podatkov</h3>
+                    <p>Naslov, bančne podatke, e-poštni podpis in odgovore, ki jih pošiljate vedno znova, shranite enkrat. Nato v kateri koli aplikaciji preklopite na tipkovnico Cutling in tapnite tistega, ki ga potrebujete.</p>
+                </li>
+                <li>
+                    <h3>Letno plačevanje za aplikacijo za odložišče</h3>
+                    <p>Cutling plačate enkrat. Ni naročnine in ničesar za dokupiti v aplikaciji, aplikacija za Mac pa je vključena v isti nakup.</p>
+                </li>
+                <li>
+                    <h3>Zamenjava besedila, ki se neha sinhronizirati</h3>
+                    <p>Cutlingi se med iPhonom, iPadom in Macom sinhronizirajo prek vašega računa iCloud, vsak pa sprejme cele odstavke, oblikovanje ali sliko, ne le kratke fraze.</p>
+                </li>
+                <li>
+                    <h3>Skrb, kaj vidi tipkovnica s polnim dostopom</h3>
+                    <p>Tipkovnica Cutling potrebuje polni dostop, da lahko prebere cutlinge, ki ste jih shranili. Nima računa, strežnika, analitike ali kode tretjih oseb, oznaka v trgovini App Store pa pravi „Podatki se ne zbirajo“.</p>
+                </li>
+                <li>
+                    <h3>Gesla, ki se kopičijo v zgodovini odložišča</h3>
+                    <p>Na Macu zgodovina v Cutlingu preskoči vse, kar upravitelj gesel označi kot skrito, zato kopirano geslo nikoli ne konča v njej.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

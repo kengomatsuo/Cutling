@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>I tuoi appunti, organizzati.</h1>
+        <h1>I tuoi cutling a portata di scorciatoia</h1>
         <p class="hero-subtitle">Salva i frammenti di testo e le immagini che riutilizzi e richiamali all’istante: su iPhone e iPad da una tastiera dedicata, su Mac dalla barra dei menu o con una scorciatoia globale. Nessun account, nessun tracciamento, solo le tue cose.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">Scarica su App Store</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>Cosa risolve Cutling</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>Riscrivere ogni volta indirizzo e IBAN</h3>
+                    <p>Salva una volta sola indirizzo, coordinate bancarie, firma email e le risposte che mandi più spesso. Poi, in qualsiasi app, passa alla tastiera Cutling e tocca quello che ti serve.</p>
+                </li>
+                <li>
+                    <h3>Pagare ogni anno un’app degli appunti</h3>
+                    <p>Cutling si paga una volta. Nessun abbonamento, niente da comprare dentro l’app, e con lo stesso acquisto hai anche l’app per Mac.</p>
+                </li>
+                <li>
+                    <h3>La sostituzione testo che smette di sincronizzarsi</h3>
+                    <p>I cutling si sincronizzano tra iPhone, iPad e Mac tramite il tuo iCloud, e ognuno può contenere paragrafi interi, testo formattato o un’immagine, non solo una frase breve.</p>
+                </li>
+                <li>
+                    <h3>Il dubbio su cosa vede una tastiera con accesso completo</h3>
+                    <p>La tastiera di Cutling ha bisogno dell’accesso completo per leggere i cutling che hai salvato. Niente account, niente server, niente statistiche d’uso, nessun codice di terze parti, e su App Store l’etichetta dice «Dati non raccolti».</p>
+                </li>
+                <li>
+                    <h3>Password accumulate nella cronologia degli appunti</h3>
+                    <p>Su Mac la cronologia di Cutling ignora tutto ciò che un gestore di password segna come nascosto, quindi una password copiata non ci finisce mai.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

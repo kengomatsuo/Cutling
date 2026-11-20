@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>ଆପଣଙ୍କ କ୍ଲିପବୋର୍ଡ, ସୁବ୍ୟବସ୍ଥିତ</h1>
+        <h1>ଆପଣଙ୍କ କଟ୍‌ଲିଂ, ମାତ୍ର ଗୋଟିଏ ସର୍ଟକଟ ଦୂରରେ</h1>
         <p class="hero-subtitle">ଟେକ୍ସଟ ସ୍ନିପେଟ ଓ ଛବି ସଞ୍ଚୟ କରନ୍ତୁ, ଆଉ ସେଗୁଡ଼ିକୁ ତତ୍‌କ୍ଷଣାତ୍ ପାଆନ୍ତୁ। iPhone ଓ iPad ରେ ନିଜସ୍ୱ କୀବୋର୍ଡରୁ, Mac ରେ ମେନୁ ବାର ଆପ ଓ ଏକ ଗ୍ଲୋବାଲ କୀବୋର୍ଡ ସର୍ଟକଟରୁ। ଆକାଉଣ୍ଟ ନାହିଁ, ଟ୍ରାକିଂ ନାହିଁ। କେବଳ ଆପଣଙ୍କ ନିଜର ଜିନିଷ।</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">App Store ରୁ ଡାଉନଲୋଡ କରନ୍ତୁ</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>କଟ୍‌ଲିଂ କ’ଣ ସମାଧାନ କରେ</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>ଠିକଣା ଆଉ ବ୍ୟାଙ୍କ ବିବରଣୀ ବାରମ୍ବାର ଟାଇପ୍ କରିବା</h3>
+                    <p>ଠିକଣା, ବ୍ୟାଙ୍କ ବିବରଣୀ, ଇମେଲ ଦସ୍ତଖତ ଓ ବାରମ୍ବାର ପଠାଉଥିବା ଉତ୍ତର ଥରେ ସଞ୍ଚୟ କରନ୍ତୁ। ତାପରେ ଯେକୌଣସି ଆପରେ କଟ୍‌ଲିଂ କୀବୋର୍ଡକୁ ବଦଳାନ୍ତୁ ଓ ଯାହା ଦରକାର ତାହା ଉପରେ ଟ୍ୟାପ୍ କରନ୍ତୁ।</p>
+                </li>
+                <li>
+                    <h3>କ୍ଲିପବୋର୍ଡ ଆପ ପାଇଁ ପ୍ରତିବର୍ଷ ଦେୟ</h3>
+                    <p>କଟ୍‌ଲିଂ ପାଇଁ ଥରେ ମାତ୍ର ଦେୟ। ସବସ୍କ୍ରିପସନ ନାହିଁ, ଆପ ଭିତରେ କିଛି କିଣିବାକୁ ନାହିଁ, ଆଉ ସେହି କିଣାରେ Mac ଆପ ମଧ୍ୟ ମିଳେ।</p>
+                </li>
+                <li>
+                    <h3>ସିଙ୍କ ହେବା ବନ୍ଦ କରୁଥିବା ଟେକ୍ସଟ ରିପ୍ଲେସମେଣ୍ଟ</h3>
+                    <p>କଟ୍‌ଲିଂଗୁଡ଼ିକ ଆପଣଙ୍କ ନିଜ iCloud ମାଧ୍ୟମରେ iPhone, iPad ଓ Mac ମଧ୍ୟରେ ସିଙ୍କ ହୁଏ, ଆଉ ପ୍ରତ୍ୟେକଟିରେ କେବଳ ଛୋଟ ବାକ୍ୟାଂଶ ନୁହେଁ, ପୂରା ଅନୁଚ୍ଛେଦ, ଫର୍ମାଟିଂ କିମ୍ବା ଗୋଟିଏ ଛବି ବି ରଖିହୁଏ।</p>
+                </li>
+                <li>
+                    <h3>ସମ୍ପୂର୍ଣ୍ଣ ପ୍ରବେଶ ଥିବା କୀବୋର୍ଡ କ’ଣ ଦେଖେ, ସେହି ଚିନ୍ତା</h3>
+                    <p>ଆପଣ ସଞ୍ଚୟ କରିଥିବା କଟ୍‌ଲିଂ ପଢ଼ିବା ପାଇଁ କଟ୍‌ଲିଂ କୀବୋର୍ଡକୁ ସମ୍ପୂର୍ଣ୍ଣ ପ୍ରବେଶ ଦରକାର। ଆକାଉଣ୍ଟ ନାହିଁ, ସର୍ଭର ନାହିଁ, ଆନାଲିଟିକ୍ସ ନାହିଁ, ତୃତୀୟ ପକ୍ଷର କୋଡ ନାହିଁ, ଆଉ App Store ରେ ଏହାର ଲେବଲ କହେ &ldquo;ଡେଟା ସଂଗ୍ରହ କରାଯାଇନାହିଁ&rdquo;।</p>
+                </li>
+                <li>
+                    <h3>କ୍ଲିପବୋର୍ଡ ଇତିହାସରେ ଜମୁଥିବା ପାସୱାର୍ଡ</h3>
+                    <p>Mac ରେ, ପାସୱାର୍ଡ ମ୍ୟାନେଜର ଯାହାକୁ ଗୋପନୀୟ ବୋଲି ଚିହ୍ନିତ କରେ, କଟ୍‌ଲିଂର ଇତିହାସ ତାହା ଛାଡ଼ିଦିଏ, ତେଣୁ କପି କରାଯାଇଥିବା ପାସୱାର୍ଡ କେବେ ସେଥିରେ ପହଞ୍ଚେ ନାହିଁ।</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

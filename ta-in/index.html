@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>உங்கள் கிளிப்போர்டு, ஒழுங்காக</h1>
+        <h1>உங்கள் கட்லிங்குகள், ஒரு ஷார்ட்கட் தூரத்தில்</h1>
         <p class="hero-subtitle">அடிக்கடி பயன்படுத்தும் உரைத் துணுக்குகளையும் படங்களையும் சேமித்து வையுங்கள். iPhone-லும் iPad-லும் கட்லிங்கு விசைப்பலகையிலிருந்தும், Mac-இல் மெனு பட்டியிலிருந்தும் ஒரு குளோபல் குறுக்குவழி மூலமும் அவற்றை உடனே எடுக்கலாம். கணக்குகள் இல்லை, கண்காணிப்பு இல்லை, உங்கள் பொருட்கள் மட்டுமே.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">App Store-இல் பதிவிறக்குங்கள்</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>கட்லிங் எதைச் சரிசெய்கிறது</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>முகவரி, வங்கி விவரங்களை மீண்டும் மீண்டும் தட்டச்சு செய்வது</h3>
+                    <p>உங்கள் முகவரி, வங்கி விவரங்கள், மின்னஞ்சல் கையொப்பம், அடிக்கடி அனுப்பும் பதில்கள் எல்லாவற்றையும் ஒரு முறை சேமியுங்கள். பிறகு எந்த ஆப்பிலும் கட்லிங்கு விசைப்பலகைக்கு மாறி, தேவையானதைத் தட்டுங்கள்.</p>
+                </li>
+                <li>
+                    <h3>கிளிப்போர்டு ஆப்புக்கு ஒவ்வொரு வருடமும் கட்டணம்</h3>
+                    <p>கட்லிங்குக்கு ஒரு முறை பணம் செலுத்தினால் போதும். சந்தா இல்லை, ஆப்புக்குள் வாங்க எதுவும் இல்லை; அதே வாங்குதலில் Mac ஆப்பும் கிடைக்கும்.</p>
+                </li>
+                <li>
+                    <h3>ஒத்திசைவது நின்றுபோகும் உரை மாற்றீடு</h3>
+                    <p>கட்லிங்குகள் உங்கள் சொந்த iCloud வழியாக iPhone, iPad, Mac இடையே ஒத்திசைகின்றன. ஒவ்வொன்றிலும் ஒரு சிறிய சொற்றொடர் மட்டுமல்ல, முழுப் பத்திகள், வடிவமைப்பு அல்லது ஒரு படத்தையே வைக்கலாம்.</p>
+                </li>
+                <li>
+                    <h3>முழு அணுகல் உள்ள விசைப்பலகை எதைப் பார்க்கிறது என்ற கவலை</h3>
+                    <p>நீங்கள் சேமித்த கட்லிங்குகளைப் படிக்கக் கட்லிங்கு விசைப்பலகைக்கு முழு அணுகல் தேவை. கணக்கு இல்லை, சர்வர் இல்லை, பகுப்பாய்வு இல்லை, மூன்றாம் தரப்புக் குறியீடு இல்லை. App Store-இல் அதன் லேபிள் &ldquo;தரவுகள் சேகரிக்கப்படவில்லை&rdquo; என்று சொல்கிறது.</p>
+                </li>
+                <li>
+                    <h3>கிளிப்போர்டு வரலாற்றில் குவியும் கடவுச்சொற்கள்</h3>
+                    <p>Mac-இல், கடவுச்சொல் நிர்வாகி மறைக்கப்பட்டதாகக் குறிக்கும் எதையும் கட்லிங்கின் வரலாறு தவிர்க்கும். ஆகவே நகலெடுத்த கடவுச்சொல் அதில் ஒருபோதும் சேராது.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

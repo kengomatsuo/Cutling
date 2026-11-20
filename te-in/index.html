@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>మీ క్లిప్‌బోర్డ్, వ్యవస్థీకృతం</h1>
+        <h1>మీ కట్లింగ్‌లు, ఒక్క షార్ట్‌కట్ దూరంలో</h1>
         <p class="hero-subtitle">మీరు మళ్ళీ మళ్ళీ వాడే టెక్స్ట్ స్నిప్పెట్‌లను, చిత్రాలను సేవ్ చేసుకోండి. iPhone, iPad లో కస్టమ్ కీబోర్డ్ నుండి, Mac లో మెనూ బార్ యాప్ నుండి లేదా గ్లోబల్ కీబోర్డ్ షార్ట్‌కట్‌తో వాటిని వెంటనే అందుకోండి. ఖాతాలు లేవు, ట్రాకింగ్ లేదు, మీ వస్తువులు మాత్రమే.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">App Store నుండి డౌన్‌లోడ్ చేయండి</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>కట్లింగ్ ఏం సరిచేస్తుంది</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>అడ్రస్, బ్యాంక్ వివరాలు మళ్ళీ మళ్ళీ టైప్ చేయడం</h3>
+                    <p>మీ చిరునామా, బ్యాంక్ వివరాలు, ఈమెయిల్ సంతకం, తరచూ పంపే జవాబులు ఒక్కసారి సేవ్ చేయండి. తర్వాత ఏ యాప్‌లోనైనా కట్లింగ్ కీబోర్డ్‌కు మారి, కావలసినదాన్ని నొక్కండి.</p>
+                </li>
+                <li>
+                    <h3>క్లిప్‌బోర్డ్ యాప్‌కి ఏటా చెల్లింపు</h3>
+                    <p>కట్లింగ్‌కు ఒక్కసారి చెల్లిస్తే చాలు. సబ్‌స్క్రిప్షన్ లేదు, యాప్‌లో కొనాల్సింది ఏమీ లేదు, అదే కొనుగోలుతో Mac యాప్ కూడా వస్తుంది.</p>
+                </li>
+                <li>
+                    <h3>సింక్ ఆగిపోయే టెక్స్ట్ రీప్లేస్‌మెంట్</h3>
+                    <p>కట్లింగ్‌లు మీ సొంత iCloud ద్వారా iPhone, iPad, Mac మధ్య సింక్ అవుతాయి. ఒక్కోదానిలో చిన్న పదబంధం మాత్రమే కాదు, పూర్తి పేరాలు, ఫార్మాటింగ్ లేదా ఒక చిత్రం కూడా పెట్టుకోవచ్చు.</p>
+                </li>
+                <li>
+                    <h3>పూర్తి యాక్సెస్ ఉన్న కీబోర్డ్ ఏం చూస్తుందోనన్న భయం</h3>
+                    <p>మీరు సేవ్ చేసిన కట్లింగ్‌లను చదవడానికి కట్లింగ్ కీబోర్డ్‌కు పూర్తి యాక్సెస్ అవసరం. దానికి ఖాతా లేదు, సర్వర్ లేదు, అనలిటిక్స్ లేవు, ఇతర సంస్థల కోడ్ లేదు. App Storeలో దాని లేబుల్ &ldquo;డేటా సేకరించలేదు&rdquo; అని చెబుతుంది.</p>
+                </li>
+                <li>
+                    <h3>క్లిప్‌బోర్డ్ చరిత్రలో పేరుకుపోయే పాస్‌వర్డ్‌లు</h3>
+                    <p>Macలో, పాస్‌వర్డ్ మేనేజర్ దాచినవిగా గుర్తించిన వేటినీ కట్లింగ్ చరిత్ర నమోదు చేయదు, కాబట్టి కాపీ చేసిన పాస్‌వర్డ్ అందులోకి ఎప్పుడూ రాదు.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

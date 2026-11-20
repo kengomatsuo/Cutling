@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>Вашият клипборд, подреден</h1>
+        <h1>Кътлингите ви на една клавишна комбинация</h1>
         <p class="hero-subtitle">Запазвайте текстови фрагменти и изображения и ги вадете мигновено — от собствена клавиатура на iPhone и iPad или от лентата с менюта и клавишна комбинация на Mac. Без регистрации, без проследяване. Само вашите неща.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">Изтеглете от App Store</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>Какво решава Кътлинг</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>Адресът и банковите данни, писани отново</h3>
+                    <p>Запазете веднъж адреса, банковите данни, имейл подписа и готовите си отговори. После във всяко приложение превключете на клавиатурата Кътлинг и докоснете каквото ви трябва.</p>
+                </li>
+                <li>
+                    <h3>Всяка година плащане за приложение за клипборд</h3>
+                    <p>Кътлинг се плаща веднъж. Няма абонамент, няма нищо за купуване в приложението, а приложението за Mac идва със същата покупка.</p>
+                </li>
+                <li>
+                    <h3>Замяна на текст, която спира да се синхронизира</h3>
+                    <p>Кътлингите се синхронизират между вашите iPhone, iPad и Mac чрез собствения ви iCloud, а всеки от тях побира цели абзаци, форматиране или изображение, не само кратка фраза.</p>
+                </li>
+                <li>
+                    <h3>Тревогата какво вижда клавиатура с пълен достъп</h3>
+                    <p>Клавиатурата на Кътлинг се нуждае от пълен достъп, за да чете кътлингите, които сте запазили. Няма акаунт, сървър, анализи, нито код на трети страни, а в App Store при нея пише „Не се събират данни“.</p>
+                </li>
+                <li>
+                    <h3>Пароли, трупащи се в историята на клипборда</h3>
+                    <p>На Mac историята на Кътлинг пропуска всичко, което мениджърът на пароли маркира като скрито, така че копирана парола никога не попада в нея.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

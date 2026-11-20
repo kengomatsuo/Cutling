@@ -1,4 +1,4 @@
-# Your clipboard, organized.
+# Snippets a shortcut away
 
 Save text snippets and images, then reach them instantly from a custom keyboard on iPhone and iPad, or a menu-bar app and global hotkey on Mac. No accounts, no tracking, just your stuff.
 
@@ -6,7 +6,29 @@ Save text snippets and images, then reach them instantly from a custom keyboard 
 
 iPhone, iPad & Mac
 
-[Video: Your clipboard, organized.](https://cutling.matsuokengo.com/film/cutling-en.mp4)
+[Video: Snippets a shortcut away](https://cutling.matsuokengo.com/film/cutling-en.mp4)
+
+## What Cutling fixes
+
+### Retyping your address and bank details
+
+Save your address, bank details, email signature and saved replies once. Then switch to the Cutling keyboard in any app and tap the one you need.
+
+### Paying every year for a clipboard app
+
+Cutling is paid once. There is no subscription and nothing to buy inside the app, and the Mac app comes with the same purchase.
+
+### Text Replacement that stops syncing
+
+Cutlings sync between your iPhone, iPad and Mac through your own iCloud, and each one holds whole paragraphs, formatting or an image, not just a short phrase.
+
+### Worrying what a Full Access keyboard sees
+
+Cutling's keyboard needs Full Access to read the cutlings you saved. It has no account, no server, no analytics and no third-party code, and its App Store label says Data Not Collected.
+
+### Passwords piling up in clipboard history
+
+On Mac, Cutling's history skips anything a password manager marks as concealed, so a copied password never lands in it.
 
 ## Save it once
 

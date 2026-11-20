@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>ਤੁਹਾਡਾ ਕਲਿੱਪਬੋਰਡ, ਸਲੀਕੇ ਨਾਲ ਸੰਭਾਲਿਆ</h1>
+        <h1>ਤੁਹਾਡੇ ਕਟਲਿੰਗ, ਬੱਸ ਇੱਕ ਸ਼ਾਰਟਕੱਟ ਦੂਰ</h1>
         <p class="hero-subtitle">ਟੈਕਸਟ ਦੇ ਸਨਿੱਪਟ ਅਤੇ ਤਸਵੀਰਾਂ ਸੰਭਾਲੋ ਅਤੇ ਪਲ ਵਿੱਚ ਉਨ੍ਹਾਂ ਤੱਕ ਪਹੁੰਚੋ — iPhone ਅਤੇ iPad ਉੱਤੇ ਕਸਟਮ ਕੀਬੋਰਡ ਤੋਂ, ਅਤੇ Mac ਉੱਤੇ ਮੀਨੂ ਬਾਰ ਐਪ ਤੇ ਗਲੋਬਲ ਸ਼ਾਰਟਕੱਟ ਤੋਂ। ਕੋਈ ਖਾਤਾ ਨਹੀਂ, ਕੋਈ ਟ੍ਰੈਕਿੰਗ ਨਹੀਂ। ਬੱਸ ਤੁਹਾਡੀਆਂ ਆਪਣੀਆਂ ਚੀਜ਼ਾਂ।</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">App Store ਤੋਂ ਡਾਊਨਲੋਡ ਕਰੋ</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>ਕਟਲਿੰਗ ਕੀ ਠੀਕ ਕਰਦਾ ਹੈ</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>ਪਤਾ ਤੇ ਬੈਂਕ ਦੇ ਵੇਰਵੇ ਵਾਰ-ਵਾਰ ਟਾਈਪ ਕਰਨਾ</h3>
+                    <p>ਆਪਣਾ ਪਤਾ, ਬੈਂਕ ਵੇਰਵੇ, ਈਮੇਲ ਦਸਤਖ਼ਤ ਅਤੇ ਅਕਸਰ ਭੇਜੇ ਜਾਣ ਵਾਲੇ ਜਵਾਬ ਇੱਕ ਵਾਰ ਸੰਭਾਲੋ। ਫਿਰ ਕਿਸੇ ਵੀ ਐਪ ਵਿੱਚ ਕਟਲਿੰਗ ਕੀਬੋਰਡ ਉੱਤੇ ਜਾਓ ਅਤੇ ਜੋ ਚਾਹੀਦਾ ਹੈ ਉਸ ਉੱਤੇ ਟੈਪ ਕਰੋ।</p>
+                </li>
+                <li>
+                    <h3>ਕਲਿੱਪਬੋਰਡ ਐਪ ਲਈ ਹਰ ਸਾਲ ਪੈਸੇ</h3>
+                    <p>ਕਟਲਿੰਗ ਲਈ ਸਿਰਫ਼ ਇੱਕ ਵਾਰ ਪੈਸੇ ਦੇਣੇ ਪੈਂਦੇ ਹਨ। ਨਾ ਸਬਸਕ੍ਰਿਪਸ਼ਨ, ਨਾ ਐਪ ਦੇ ਅੰਦਰ ਕੁਝ ਖਰੀਦਣਾ, ਅਤੇ ਉਸੇ ਖਰੀਦ ਵਿੱਚ Mac ਐਪ ਵੀ ਮਿਲ ਜਾਂਦੀ ਹੈ।</p>
+                </li>
+                <li>
+                    <h3>ਟੈਕਸਟ ਬਦਲਣਾ ਦਾ ਸਿੰਕ ਰੁਕ ਜਾਣਾ</h3>
+                    <p>ਕਟਲਿੰਗ ਤੁਹਾਡੇ ਆਪਣੇ iCloud ਰਾਹੀਂ iPhone, iPad ਅਤੇ Mac ਵਿਚਕਾਰ ਸਿੰਕ ਹੁੰਦੇ ਹਨ, ਅਤੇ ਹਰ ਇੱਕ ਵਿੱਚ ਛੋਟਾ ਵਾਕ ਹੀ ਨਹੀਂ, ਪੂਰੇ ਪੈਰੇ, ਫ਼ਾਰਮੈਟਿੰਗ ਜਾਂ ਕੋਈ ਤਸਵੀਰ ਵੀ ਰੱਖੀ ਜਾ ਸਕਦੀ ਹੈ।</p>
+                </li>
+                <li>
+                    <h3>ਪੂਰੀ ਪਹੁੰਚ ਵਾਲਾ ਕੀਬੋਰਡ ਕੀ ਦੇਖਦਾ ਹੈ, ਇਸ ਦੀ ਚਿੰਤਾ</h3>
+                    <p>ਤੁਹਾਡੇ ਸੰਭਾਲੇ ਕਟਲਿੰਗ ਪੜ੍ਹਨ ਲਈ ਕਟਲਿੰਗ ਕੀਬੋਰਡ ਨੂੰ ਪੂਰੀ ਪਹੁੰਚ ਦੀ ਲੋੜ ਹੈ। ਨਾ ਕੋਈ ਖਾਤਾ, ਨਾ ਸਰਵਰ, ਨਾ ਐਨਾਲਿਟਿਕਸ, ਨਾ ਕੋਈ ਬਾਹਰੀ ਕੋਡ, ਅਤੇ App Store ਉੱਤੇ ਇਸ ਦਾ ਲੇਬਲ ਵੀ ਕਹਿੰਦਾ ਹੈ “ਡੇਟਾ ਇਕੱਤਰ ਨਹੀਂ ਕੀਤਾ ਗਿਆ”।</p>
+                </li>
+                <li>
+                    <h3>ਕਲਿੱਪਬੋਰਡ ਇਤਿਹਾਸ ਵਿੱਚ ਜਮ੍ਹਾ ਹੁੰਦੇ ਪਾਸਵਰਡ</h3>
+                    <p>Mac ਉੱਤੇ ਕਟਲਿੰਗ ਦਾ ਇਤਿਹਾਸ ਉਹ ਸਭ ਛੱਡ ਦਿੰਦਾ ਹੈ ਜਿਸ ਨੂੰ ਪਾਸਵਰਡ ਮੈਨੇਜਰ ਲੁਕਿਆ ਹੋਇਆ ਚਿੰਨ੍ਹਿਤ ਕਰਦਾ ਹੈ, ਇਸ ਲਈ ਕਾਪੀ ਕੀਤਾ ਪਾਸਵਰਡ ਕਦੇ ਉਸ ਵਿੱਚ ਨਹੀਂ ਪਹੁੰਚਦਾ।</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

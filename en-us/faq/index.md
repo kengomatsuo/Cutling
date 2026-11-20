@@ -40,6 +40,22 @@ Deleted cutlings move to a “Recently Deleted” folder where they're kept for 
 
 You have two options, both on the [download page](https://cutling.matsuokengo.com/en-us/download/). On the Mac App Store, Cutling installs like any other app. Or download it free directly: it is signed with a Developer ID and notarized by Apple, so it opens normally with no security warnings. Just open the DMG and drag Cutling into your Applications folder.
 
+**How do I save my address and bank details on my iPhone keyboard?**
+
+Add each one as a cutling in the app, then turn on the Cutling keyboard in Settings. In any app, switch to it with the globe key and tap the cutling you want.
+
+**Can Cutling keep a clipboard history on iPhone?**
+
+No. iOS does not let any app read what you copy while it runs in the background, so no iPhone app can build a full history. On iPhone Cutling keeps what you save, and the Mac app keeps your clipboard history.
+
+**Why isn't my clipboard syncing between iPhone and Mac?**
+
+Copying on one device and pasting on another is Apple's Universal Clipboard, which needs both on the same Apple Account with Wi-Fi, Bluetooth and Handoff on. Cutling syncs your saved cutlings through iCloud instead, so they are there on every device whenever you need them. Your Mac clipboard history stays on the Mac.
+
+**Can snippets have blanks to fill in, like TextExpander?**
+
+Not yet. A cutling pastes exactly what you saved. Fill-in fields and date stamps are the next thing we are building.
+
 **What is direct paste on Mac, and why does it ask for Accessibility?**
 
 Direct paste is optional. When you turn it on, choosing a cutling from the picker sends a single Command-V to the app you were using, so the text lands right at your cursor. macOS requires Accessibility permission to send that keystroke. It is off by default, and with it off, Cutling simply copies to the clipboard so you can paste manually.

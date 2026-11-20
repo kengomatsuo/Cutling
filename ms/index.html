@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>Papan keratan anda, tersusun rapi</h1>
+        <h1>Cutling anda, hanya satu pintasan</h1>
         <p class="hero-subtitle">Simpan petikan teks dan imej, kemudian capai semuanya serta-merta: dari papan kekunci tersuai pada iPhone dan iPad, atau dari bar menu dan satu pintasan kekunci global pada Mac. Tiada akaun, tiada penjejakan. Hanya milik anda.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">Muat Turun di App Store</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>Apa yang Cutling selesaikan</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>Menaip semula alamat dan nombor akaun bank</h3>
+                    <p>Simpan alamat, butiran bank, tandatangan e-mel dan balasan yang kerap digunakan sekali sahaja. Kemudian dalam mana-mana aplikasi, tukar ke papan kekunci Cutling dan ketik yang anda perlukan.</p>
+                </li>
+                <li>
+                    <h3>Bayar setiap tahun untuk aplikasi papan keratan</h3>
+                    <p>Cutling dibayar sekali sahaja. Tiada langganan, tiada apa-apa untuk dibeli dalam aplikasi, dan aplikasi Mac datang bersama pembelian yang sama.</p>
+                </li>
+                <li>
+                    <h3>Penggantian Teks yang berhenti segerak</h3>
+                    <p>Cutling disegerakkan antara iPhone, iPad dan Mac melalui iCloud anda sendiri, dan setiap satu boleh memuatkan perenggan penuh, teks berformat atau imej, bukan sekadar frasa pendek.</p>
+                </li>
+                <li>
+                    <h3>Risau apa yang dilihat papan kekunci dengan Akses Penuh</h3>
+                    <p>Papan kekunci Cutling memerlukan Akses Penuh untuk membaca cutling yang anda simpan. Tiada akaun, tiada pelayan, tiada analitis dan tiada kod pihak ketiga, dan label App Store-nya menyatakan &ldquo;Data Tidak Dikumpul&rdquo;.</p>
+                </li>
+                <li>
+                    <h3>Kata laluan yang bertimbun dalam sejarah papan keratan</h3>
+                    <p>Pada Mac, sejarah Cutling melangkau apa-apa yang ditandakan sulit oleh pengurus kata laluan, jadi kata laluan yang disalin tidak akan masuk ke dalamnya.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

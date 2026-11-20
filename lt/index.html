@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>Jūsų iškarpinė, sutvarkyta</h1>
+        <h1>Jūsų cutlingai – vienu spartiuoju klavišu</h1>
         <p class="hero-subtitle">Išsaugokite dažnai naudojamas teksto iškarpas ir vaizdus, o paskui pasiekite juos akimirksniu: iPhone bei iPad – iš atskiros Cutling klaviatūros, Mac kompiuteryje – iš meniu juostos arba vienu sparčiuoju klavišu. Jokių paskyrų, jokio sekimo, tik jūsų pačių turinys.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">Atsisiųsti iš App Store</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>Ką išsprendžia Cutling</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>Adreso ir sąskaitos numerio rinkimas iš naujo</h3>
+                    <p>Vieną kartą išsaugokite adresą, banko duomenis, el. laiško parašą ir dažnus atsakymus. Tada bet kurioje programėlėje perjunkite Cutling klaviatūrą ir bakstelėkite tai, ko reikia.</p>
+                </li>
+                <li>
+                    <h3>Kasmetinis mokestis už iškarpinės programėlę</h3>
+                    <p>Už Cutling mokate vieną kartą. Jokios prenumeratos, programėlėje nieko nereikia pirkti, o Mac programa ateina su tuo pačiu pirkiniu.</p>
+                </li>
+                <li>
+                    <h3>Teksto keitimas, kuris nustoja sinchronizuotis</h3>
+                    <p>Cutlingai sinchronizuojami tarp iPhone, iPad ir Mac per jūsų pačių iCloud, o kiekviename telpa ištisos pastraipos, formatuotas tekstas ar paveikslėlis, ne tik trumpa frazė.</p>
+                </li>
+                <li>
+                    <h3>Nerimas, ką mato klaviatūra su visiška prieiga</h3>
+                    <p>Cutling klaviatūrai visiškos prieigos reikia tam, kad perskaitytų jūsų išsaugotus cutlingus. Jokios paskyros, serverio, analitikos ar trečiųjų šalių kodo, o App Store etiketėje parašyta „Data Not Collected“, tai yra duomenys nerenkami.</p>
+                </li>
+                <li>
+                    <h3>Iškarpinės istorijoje besikaupiantys slaptažodžiai</h3>
+                    <p>Mac kompiuteryje Cutling istorija praleidžia viską, ką slaptažodžių tvarkyklė pažymi kaip paslėptą, todėl nukopijuotas slaptažodis į ją niekada nepatenka.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>Vaša schránka prehľadne</h1>
+        <h1>Vaše cutlingy na jednu skratku</h1>
         <p class="hero-subtitle">Uložte si texty a obrázky, ktoré používate stále dokola, a vytiahnite ich kedykoľvek: na iPhone a iPade z vlastnej klávesnice, na Macu z lišty ponúk alebo klávesovou skratkou odkiaľkoľvek. Žiadne účty, žiadne sledovanie. Len vaše veci.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">Stiahnuť v App Store</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>Čo Cutling vyrieši</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>Opakované písanie adresy a bankových údajov</h3>
+                    <p>Uložte si raz adresu, bankové údaje, e-mailový podpis aj odpovede, ktoré posielate stále dokola. Potom v ľubovoľnej aplikácii prepnite na klávesnicu Cutling a ťuknite na ten, ktorý práve potrebujete.</p>
+                </li>
+                <li>
+                    <h3>Každoročné platby za aplikáciu na schránku</h3>
+                    <p>Cutling zaplatíte raz. Žiadne predplatné, nič na dokúpenie v aplikácii a aplikácia pre Mac je v tom istom nákupe.</p>
+                </li>
+                <li>
+                    <h3>Nahradenie textu, ktoré sa prestane synchronizovať</h3>
+                    <p>Cutlingy sa synchronizujú medzi iPhonom, iPadom a Macom cez váš vlastný iCloud a každý z nich udrží celé odseky, formátovanie alebo obrázok, nielen krátku frázu.</p>
+                </li>
+                <li>
+                    <h3>Obavy, čo vidí klávesnica s plným prístupom</h3>
+                    <p>Klávesnica Cutling potrebuje plný prístup, aby si mohla prečítať cutlingy, ktoré ste si uložili. Nemá účet, server, analytiku ani kód tretích strán a v App Store má štítok „Údaje sa nezhromažďujú“.</p>
+                </li>
+                <li>
+                    <h3>Heslá, ktoré sa hromadia v histórii schránky</h3>
+                    <p>Na Macu história v Cutlingu preskočí všetko, čo správca hesiel označí ako skryté, takže skopírované heslo sa do nej nikdy nedostane.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

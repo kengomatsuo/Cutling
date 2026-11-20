@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>Din udklipsholder, organiseret.</h1>
+        <h1>Dine cutlings, én genvej væk</h1>
         <p class="hero-subtitle">Gem de tekststykker og billeder, du bruger igen og igen, og hent dem frem med det samme – fra et brugerdefineret tastatur på iPhone og iPad, eller fra menulinjen og en global tastaturgenvej på Mac. Ingen konti, ingen sporing. Kun dine egne ting.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">Hent i App Store</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>Det løser Cutling</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>Adresse og kontooplysninger skrevet igen og igen</h3>
+                    <p>Gem din adresse, dine kontooplysninger, din mailsignatur og dine faste svar én gang. Skift derefter til Cutling-tastaturet i en hvilken som helst app, og tryk på det, du skal bruge.</p>
+                </li>
+                <li>
+                    <h3>Betaling hvert år for en udklipsholder-app</h3>
+                    <p>Cutling betaler du for én gang. Intet abonnement, intet at købe inde i appen, og Mac-appen følger med i samme køb.</p>
+                </li>
+                <li>
+                    <h3>Tekstudskiftning, der holder op med at synkronisere</h3>
+                    <p>Cutlings synkroniseres mellem din iPhone, iPad og Mac via din egen iCloud, og hver enkelt kan rumme hele afsnit, formatering eller et billede, ikke kun en kort frase.</p>
+                </li>
+                <li>
+                    <h3>Bekymringen for, hvad et tastatur med fuld adgang ser</h3>
+                    <p>Cutlings tastatur skal have fuld adgang for at kunne læse de cutlings, du har gemt. Der er ingen konto, ingen server, ingen statistik og ingen kode fra tredjepart, og i App Store står der „Data indsamles ikke”.</p>
+                </li>
+                <li>
+                    <h3>Adgangskoder, der hober sig op i udklipsholderhistorikken</h3>
+                    <p>På Mac springer Cutlings historik alt over, som en adgangskodeadministrator markerer som skjult, så en kopieret adgangskode havner aldrig i den.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

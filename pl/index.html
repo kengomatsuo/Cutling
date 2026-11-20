@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>Twój schowek w porządku</h1>
+        <h1>Twoje cutlingi na jeden skrót</h1>
         <p class="hero-subtitle">Zapisuj fragmenty tekstu i obrazy, a potem sięgaj po nie od razu: z klawiatury Cutling na iPhonie i iPadzie albo z paska menu i skrótu klawiszowego na Macu. Bez kont, bez śledzenia. Tylko Twoje rzeczy.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">Pobierz w App Store</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>Co naprawia Cutling</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>Ciągłe wpisywanie adresu i numeru konta</h3>
+                    <p>Zapisz raz adres, dane do przelewu, podpis e-mail i gotowe odpowiedzi. Potem w dowolnej aplikacji przełącz się na klawiaturę Cutling i stuknij to, czego potrzebujesz.</p>
+                </li>
+                <li>
+                    <h3>Coroczne płacenie za aplikację do schowka</h3>
+                    <p>Za Cutling płacisz raz. Bez subskrypcji, bez dokupowania czegokolwiek w aplikacji, a wersja na Maca jest w tym samym zakupie.</p>
+                </li>
+                <li>
+                    <h3>Zastępowanie tekstu, które przestaje się synchronizować</h3>
+                    <p>Cutlingi synchronizują się między iPhonem, iPadem i komputerem Mac przez Twój własny iCloud, a każdy z nich pomieści całe akapity, formatowanie albo obrazek, nie tylko krótką frazę.</p>
+                </li>
+                <li>
+                    <h3>Obawa, co widzi klawiatura z pełnym dostępem</h3>
+                    <p>Klawiatura Cutling potrzebuje pełnego dostępu, żeby odczytać zapisane przez Ciebie cutlingi. Nie ma konta, serwera, analityki ani kodu firm trzecich, a etykieta w App Store mówi „Dane nie są gromadzone”.</p>
+                </li>
+                <li>
+                    <h3>Hasła piętrzące się w historii schowka</h3>
+                    <p>Na Macu historia Cutlinga pomija wszystko, co menedżer haseł oznaczy jako ukryte, więc skopiowane hasło nigdy w niej nie ląduje.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

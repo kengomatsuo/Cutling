@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>Ubao wako wa kunakili, umepangwa vizuri</h1>
+        <h1>Cutling zako, njia moja ya mkato tu</h1>
         <p class="hero-subtitle">Hifadhi vipande vya maandishi na picha, kisha uvifikie papo hapo: kwa kibodi maalum kwenye iPhone na iPad, au kwa programu ya upau wa menyu na njia ya mkato ya kibodi kwenye Mac. Hakuna akaunti, hakuna ufuatiliaji. Vitu vyako tu.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">Pakua kwenye App Store</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>Cutling inatatua nini</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>Kuandika tena anwani na maelezo ya benki</h3>
+                    <p>Hifadhi mara moja anwani yako, maelezo ya benki, sahihi ya barua pepe na majibu unayotuma mara kwa mara. Kisha kwenye programu yoyote badilisha hadi kibodi ya Cutling na uguse unachohitaji.</p>
+                </li>
+                <li>
+                    <h3>Kulipa kila mwaka kwa programu ya ubao wa kunakili</h3>
+                    <p>Cutling unailipia mara moja tu. Hakuna usajili wala chochote cha kununua ndani ya programu, na programu ya Mac inakuja na ununuzi huo huo.</p>
+                </li>
+                <li>
+                    <h3>Ubadilishaji wa Maandishi unaoacha kusawazisha</h3>
+                    <p>Cutling zako husawazishwa kati ya iPhone, iPad na Mac kupitia iCloud yako mwenyewe, na kila moja inaweza kubeba aya nzima, mpangilio wa maandishi au picha, si kifungu kifupi tu.</p>
+                </li>
+                <li>
+                    <h3>Wasiwasi kuhusu kile kibodi yenye Ufikiaji Kamili inaona</h3>
+                    <p>Kibodi ya Cutling inahitaji Ufikiaji Kamili ili kusoma Cutling ulizohifadhi. Haina akaunti, seva, takwimu za matumizi wala msimbo wa wahusika wengine, na lebo yake kwenye App Store inasema data haikusanywi.</p>
+                </li>
+                <li>
+                    <h3>Nywila zinazorundikana kwenye historia ya ubao wa kunakili</h3>
+                    <p>Kwenye Mac, historia ya Cutling inaruka chochote ambacho kidhibiti cha nywila kimekiwekea alama ya siri, kwa hivyo nywila iliyonakiliwa haifiki humo kamwe.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

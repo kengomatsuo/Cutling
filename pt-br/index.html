@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>Sua área de transferência, organizada.</h1>
+        <h1>Seus cutlings a um atalho</h1>
         <p class="hero-subtitle">Salve os trechos de texto e as imagens que você usa sempre e tenha tudo à mão na hora: pelo teclado do Cutling no iPhone e no iPad, ou pela barra de menus e um atalho global no Mac. Sem conta, sem rastreamento. Só as suas coisas.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">Baixar na App Store</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>O que o Cutling resolve</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>Digitar de novo endereço e dados bancários</h3>
+                    <p>Salve uma vez seu endereço, seus dados bancários, sua assinatura de e-mail e as respostas que você sempre manda. Depois, em qualquer app, mude para o teclado do Cutling e toque no que precisar.</p>
+                </li>
+                <li>
+                    <h3>Pagar todo ano por um app de área de transferência</h3>
+                    <p>O Cutling você paga uma vez só. Não tem assinatura nem nada para comprar dentro do app, e o app para Mac vem junto na mesma compra.</p>
+                </li>
+                <li>
+                    <h3>Substituição de Texto que para de sincronizar</h3>
+                    <p>Os cutlings sincronizam entre seu iPhone, iPad e Mac pelo seu próprio iCloud, e cada um guarda parágrafos inteiros, formatação ou uma imagem, não só uma frase curta.</p>
+                </li>
+                <li>
+                    <h3>A dúvida sobre o que um teclado com Acesso Completo vê</h3>
+                    <p>O teclado do Cutling precisa do Acesso Completo para ler os cutlings que você salvou. Não tem conta, nem servidor, nem análise de uso, nem código de terceiros, e a página do app na App Store diz “Dados não coletados”.</p>
+                </li>
+                <li>
+                    <h3>Senhas acumuladas no histórico da área de transferência</h3>
+                    <p>No Mac, o histórico do Cutling ignora tudo o que um gerenciador de senhas marca como oculto, então uma senha copiada nunca entra nele.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

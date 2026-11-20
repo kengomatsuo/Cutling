@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -929,7 +934,7 @@ cursor: pointer;
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:description" content="一個剪切片段就是一則存下來的項目：一段文字，或一張圖片，放在隨手可及的地方。可以把它想成從剪貼板上剪下來的一小片，之後任何時候都能再拿來用。">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Cutling", "item": "https://cutling.matsuokengo.com/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "Cutling｜常見問題", "item": "https://cutling.matsuokengo.com/zh-hant/faq/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "「剪切片段」是什麼？", "acceptedAnswer": {"@type": "Answer", "text": "一個剪切片段就是一則存下來的項目：一段文字，或一張圖片，放在隨手可及的地方。可以把它想成從剪貼板上剪下來的一小片，之後任何時候都能再拿來用。"}}, {"@type": "Question", "name": "要怎麼設定 Cutling 鍵盤？", "acceptedAnswer": {"@type": "Answer", "text": "前往「設定」>「一般」>「鍵盤」>「鍵盤」>「新增鍵盤」，然後選擇 Cutling。接著點一下 Cutling，開啟「允許完整取用權限」。App 裡也有一份設定指南可以照著做。"}}, {"@type": "Question", "name": "鍵盤為什麼需要完整取用權限？", "acceptedAnswer": {"@type": "Answer", "text": "有了完整取用權限，鍵盤才能從裝置的本機儲存空間讀出你存下來的剪切片段，把它們顯示出來。Cutling 不會用這項權限記錄你的輸入、連上網路，或把任何東西傳出去。一切都留在裝置上。"}}, {"@type": "Question", "name": "我的資料安全嗎？", "acceptedAnswer": {"@type": "Answer", "text": "安全。Cutling 完全不收集資料：沒有分析、沒有追蹤、沒有當機報告，也沒有任何第三方程式碼。剪切片段存放在裝置本機；若你開啟同步，就存在你自己的 iCloud 裡。開發者無從取得你的資料。在 Mac 上，剪貼板歷史只留在那台 Mac、不會同步，而且密碼管理工具標示為機密的內容不會被記錄，所以拷貝的密碼不會進到歷史裡。"}}, {"@type": "Question", "name": "iCloud 同步是怎麼運作的？", "acceptedAnswer": {"@type": "Answer", "text": "開啟之後，會透過 Apple 的私人 CloudKit 資料庫，讓剪切片段在你的 Apple 裝置之間保持同步。只有你能用自己的 Apple ID 取得這些資料，開發者沒有存取權。這項功能是選用的，隨時可以在設定中關閉。"}}, {"@type": "Question", "name": "可以存的剪切片段有數量上限嗎？", "acceptedAnswer": {"@type": "Answer", "text": "最多 100 個文字剪切片段和 25 個圖片剪切片段，每個文字剪切片段最多 1,000 字元。"}}, {"@type": "Question", "name": "Cutling 在 Mac 上也能用嗎？", "acceptedAnswer": {"@type": "Answer", "text": "可以。在 Mac 上，Cutling 待在選單列，也可以用全域快捷鍵隨處呼叫出來。選好一個剪切片段，內容就直接貼進你剛才使用的 App。開啟 iCloud 同步後，iPhone、iPad 和 Mac 上的剪切片段會保持一致。"}}, {"@type": "Question", "name": "Mac 版要怎麼安裝？", "acceptedAnswer": {"@type": "Answer", "text": "有兩種方式，都在下載頁面上。從 Mac App Store 安裝，跟裝其他 App 沒有兩樣。也可以免費直接下載：這份程式經過 Developer ID 簽署，並通過 Apple 公證，開啟時不會跳出安全性警告，打開 DMG 再把 Cutling 拖到「應用程式」檔案夾就完成了。"}}, {"@type": "Question", "name": "Mac 上的「直接貼上」是什麼？為什麼需要輔助使用權限？", "acceptedAnswer": {"@type": "Answer", "text": "直接貼上是選用的。開啟後，你從選擇器挑一個剪切片段，Cutling 會向你剛才使用的 App 送出一次 ⌘V，內容就落在游標的位置。macOS 規定要有「輔助使用」權限才能送出這個按鍵。這項功能預設關閉；關閉時 Cutling 只會把內容複製到剪貼板，由你自己貼上。"}}, {"@type": "Question", "name": "有訂閱或 App 內購買嗎？", "acceptedAnswer": {"@type": "Answer", "text": "沒有。Cutling 是一次購買：沒有訂閱、沒有 App 內購買，也沒有廣告。付一次錢，永遠是你的。"}}, {"@type": "Question", "name": "刪掉的剪切片段會怎麼樣？", "acceptedAnswer": {"@type": "Answer", "text": "它們會移到「最近刪除」，在那裡保留 30 天。你可以在這段時間內把它們回復，也可以放著讓它們自己消失。"}}]}]}</script>
+    <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Cutling", "item": "https://cutling.matsuokengo.com/zh-hant/"}, {"@type": "ListItem", "position": 2, "name": "Cutling｜常見問題", "item": "https://cutling.matsuokengo.com/zh-hant/faq/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "「剪切片段」是什麼？", "acceptedAnswer": {"@type": "Answer", "text": "一個剪切片段就是一則存下來的項目：一段文字，或一張圖片，放在隨手可及的地方。可以把它想成從剪貼板上剪下來的一小片，之後任何時候都能再拿來用。"}}, {"@type": "Question", "name": "要怎麼設定 Cutling 鍵盤？", "acceptedAnswer": {"@type": "Answer", "text": "前往「設定」>「一般」>「鍵盤」>「鍵盤」>「新增鍵盤」，然後選擇 Cutling。接著點一下 Cutling，開啟「允許完整取用權限」。App 裡也有一份設定指南可以照著做。"}}, {"@type": "Question", "name": "鍵盤為什麼需要完整取用權限？", "acceptedAnswer": {"@type": "Answer", "text": "有了完整取用權限，鍵盤才能從裝置的本機儲存空間讀出你存下來的剪切片段，把它們顯示出來。Cutling 不會用這項權限記錄你的輸入、連上網路，或把任何東西傳出去。一切都留在裝置上。"}}, {"@type": "Question", "name": "我的資料安全嗎？", "acceptedAnswer": {"@type": "Answer", "text": "安全。Cutling 完全不收集資料：沒有分析、沒有追蹤、沒有當機報告，也沒有任何第三方程式碼。剪切片段存放在裝置本機；若你開啟同步，就存在你自己的 iCloud 裡。開發者無從取得你的資料。在 Mac 上，剪貼板歷史只留在那台 Mac、不會同步，而且密碼管理工具標示為機密的內容不會被記錄，所以拷貝的密碼不會進到歷史裡。"}}, {"@type": "Question", "name": "iCloud 同步是怎麼運作的？", "acceptedAnswer": {"@type": "Answer", "text": "開啟之後，會透過 Apple 的私人 CloudKit 資料庫，讓剪切片段在你的 Apple 裝置之間保持同步。只有你能用自己的 Apple ID 取得這些資料，開發者沒有存取權。這項功能是選用的，隨時可以在設定中關閉。"}}, {"@type": "Question", "name": "可以存的剪切片段有數量上限嗎？", "acceptedAnswer": {"@type": "Answer", "text": "最多 100 個文字剪切片段和 25 個圖片剪切片段，每個文字剪切片段最多 1,000 字元。"}}, {"@type": "Question", "name": "Cutling 在 Mac 上也能用嗎？", "acceptedAnswer": {"@type": "Answer", "text": "可以。在 Mac 上，Cutling 待在選單列，也可以用全域快捷鍵隨處呼叫出來。選好一個剪切片段，內容就直接貼進你剛才使用的 App。開啟 iCloud 同步後，iPhone、iPad 和 Mac 上的剪切片段會保持一致。"}}, {"@type": "Question", "name": "Mac 版要怎麼安裝？", "acceptedAnswer": {"@type": "Answer", "text": "有兩種方式，都在下載頁面上。從 Mac App Store 安裝，跟裝其他 App 沒有兩樣。也可以免費直接下載：這份程式經過 Developer ID 簽署，並通過 Apple 公證，開啟時不會跳出安全性警告，打開 DMG 再把 Cutling 拖到「應用程式」檔案夾就完成了。"}}, {"@type": "Question", "name": "要怎麼把地址和銀行資料存進 iPhone 鍵盤？", "acceptedAnswer": {"@type": "Answer", "text": "在 App 裡把它們各存成一則剪切片段，再到「設定」開啟 Cutling 鍵盤。之後在任何 App 裡，用地球鍵切換過去，點一下想要的剪切片段。"}}, {"@type": "Question", "name": "Cutling 能在 iPhone 上保留剪貼板歷史嗎？", "acceptedAnswer": {"@type": "Answer", "text": "不能。iOS 不允許任何 App 在背景執行時讀取你拷貝的內容，所以沒有一款 iPhone App 能建立完整的歷史紀錄。在 iPhone 上，Cutling 保留的是你存下的內容；剪貼板歷史則由 Mac 版負責。"}}, {"@type": "Question", "name": "為什麼剪貼板沒辦法在 iPhone 和 Mac 之間同步？", "acceptedAnswer": {"@type": "Answer", "text": "在一部裝置上拷貝、到另一部貼上，靠的是 Apple 的「通用剪貼板」，需要兩部裝置以相同的「Apple 帳號」登入，並開啟 Wi-Fi、藍牙和「接力」。Cutling 走的是另一條路：透過 iCloud 同步你存下的剪切片段，需要時每部裝置上都有。Mac 上的剪貼板歷史只留在 Mac。"}}, {"@type": "Question", "name": "能不能像 TextExpander 一樣，在片段裡留空格待填？", "acceptedAnswer": {"@type": "Answer", "text": "目前還不行。剪切片段會原封不動貼上你存下的內容。可填寫的欄位和日期戳記，是我們下一步要做的。"}}, {"@type": "Question", "name": "Mac 上的「直接貼上」是什麼？為什麼需要輔助使用權限？", "acceptedAnswer": {"@type": "Answer", "text": "直接貼上是選用的。開啟後，你從選擇器挑一個剪切片段，Cutling 會向你剛才使用的 App 送出一次 ⌘V，內容就落在游標的位置。macOS 規定要有「輔助使用」權限才能送出這個按鍵。這項功能預設關閉；關閉時 Cutling 只會把內容複製到剪貼板，由你自己貼上。"}}, {"@type": "Question", "name": "有訂閱或 App 內購買嗎？", "acceptedAnswer": {"@type": "Answer", "text": "沒有。Cutling 是一次購買：沒有訂閱、沒有 App 內購買，也沒有廣告。付一次錢，永遠是你的。"}}, {"@type": "Question", "name": "刪掉的剪切片段會怎麼樣？", "acceptedAnswer": {"@type": "Answer", "text": "它們會移到「最近刪除」，在那裡保留 30 天。你可以在這段時間內把它們回復，也可以放著讓它們自己消失。"}}]}]}</script>
     <script src="../../store-source.js" defer></script>
 </head>
 <body>
@@ -1091,6 +1096,34 @@ cursor: pointer;
             <summary>Mac 版要怎麼安裝？</summary>
             <div class="faq-answer">
                 <p>有兩種方式，都在<a href="../download/">下載頁面</a>上。從 Mac App Store 安裝，跟裝其他 App 沒有兩樣。也可以免費直接下載：這份程式經過 Developer ID 簽署，並通過 Apple 公證，開啟時不會跳出安全性警告，打開 DMG 再把 Cutling 拖到「應用程式」檔案夾就完成了。</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>要怎麼把地址和銀行資料存進 iPhone 鍵盤？</summary>
+            <div class="faq-answer">
+                <p>在 App 裡把它們各存成一則剪切片段，再到「設定」開啟 Cutling 鍵盤。之後在任何 App 裡，用地球鍵切換過去，點一下想要的剪切片段。</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>Cutling 能在 iPhone 上保留剪貼板歷史嗎？</summary>
+            <div class="faq-answer">
+                <p>不能。iOS 不允許任何 App 在背景執行時讀取你拷貝的內容，所以沒有一款 iPhone App 能建立完整的歷史紀錄。在 iPhone 上，Cutling 保留的是你存下的內容；剪貼板歷史則由 Mac 版負責。</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>為什麼剪貼板沒辦法在 iPhone 和 Mac 之間同步？</summary>
+            <div class="faq-answer">
+                <p>在一部裝置上拷貝、到另一部貼上，靠的是 Apple 的「通用剪貼板」，需要兩部裝置以相同的「Apple 帳號」登入，並開啟 Wi-Fi、藍牙和「接力」。Cutling 走的是另一條路：透過 iCloud 同步你存下的剪切片段，需要時每部裝置上都有。Mac 上的剪貼板歷史只留在 Mac。</p>
+            </div>
+        </details>
+
+        <details class="faq-item">
+            <summary>能不能像 TextExpander 一樣，在片段裡留空格待填？</summary>
+            <div class="faq-answer">
+                <p>目前還不行。剪切片段會原封不動貼上你存下的內容。可填寫的欄位和日期戳記，是我們下一步要做的。</p>
             </div>
         </details>
 

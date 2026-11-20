@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>A vágólapod, rendszerezve</h1>
+        <h1>A cutlingjaid egy billentyűparancsnyira</h1>
         <p class="hero-subtitle">Mentsd el a gyakran előkerülő szövegrészleteket és képeket, és érd el őket egy pillanat alatt: iPhone-on és iPaden egyéni billentyűzetről, Mac-en a menüsorból vagy egy globális gyorsbillentyűvel. Fiók nélkül, követés nélkül. Csak a te dolgaid.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">Letöltés az App Store-ból</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>Amit a Cutling megold</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>A cím és a bankszámlaszám újragépelése</h3>
+                    <p>A címedet, a bankszámlaadataidat, az e-mail-aláírásodat és a gyakori válaszaidat elég egyszer elmenteni. Utána bármelyik appban válts a Cutling billentyűzetre, és koppints arra, amelyik kell.</p>
+                </li>
+                <li>
+                    <h3>Éves díj egy vágólapappért</h3>
+                    <p>A Cutlingért egyszer fizetsz. Nincs előfizetés, az appon belül nincs mit megvenni, és a Mac-es app is jár ugyanazzal a vásárlással.</p>
+                </li>
+                <li>
+                    <h3>Leálló Szövegcsere-szinkronizálás</h3>
+                    <p>A cutlingok a saját iCloudodon keresztül szinkronizálódnak iPhone, iPad és Mac között, és mindegyikbe egész bekezdés, formázott szöveg vagy kép is belefér, nem csak egy rövid kifejezés.</p>
+                </li>
+                <li>
+                    <h3>Aggódás, mit lát egy teljes hozzáférésű billentyűzet</h3>
+                    <p>A Cutling billentyűzetének azért kell teljes hozzáférés, hogy kiolvassa az általad mentett cutlingokat. Nincs fiók, nincs szerver, nincs analitika, nincs külső fél kódja, és az App Store-ban a címkéje is ezt mondja: „Nem történik adatgyűjtés”.</p>
+                </li>
+                <li>
+                    <h3>Vágólap-előzményekben gyűlő jelszavak</h3>
+                    <p>Macen a Cutling előzményei kihagyják, amit a jelszókezelő rejtettnek jelöl, így a kimásolt jelszó sosem kerül beléjük.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

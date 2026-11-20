@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>Το πρόχειρό σας, οργανωμένο</h1>
+        <h1>Τα cutling σας, μία συντόμευση μακριά</h1>
         <p class="hero-subtitle">Αποθηκεύετε αποσπάσματα κειμένου και εικόνες και τα εισάγετε αμέσως όπου τα χρειάζεστε: από το πληκτρολόγιο του Cutling σε iPhone και iPad, από τη γραμμή μενού και μια καθολική συντόμευση στο Mac. Χωρίς λογαριασμούς, χωρίς παρακολούθηση. Μόνο τα δικά σας.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">Λήψη στο App Store</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>Τι λύνει το Cutling</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>Διεύθυνση και τραπεζικά στοιχεία ξανά και ξανά</h3>
+                    <p>Αποθηκεύστε μία φορά τη διεύθυνση, τα τραπεζικά στοιχεία, την υπογραφή email και τις έτοιμες απαντήσεις σας. Μετά, σε οποιαδήποτε εφαρμογή, περάστε στο πληκτρολόγιο Cutling και πατήστε αυτό που χρειάζεστε.</p>
+                </li>
+                <li>
+                    <h3>Ετήσια πληρωμή για εφαρμογή προχείρου</h3>
+                    <p>Το Cutling το πληρώνετε μία φορά. Χωρίς συνδρομή, χωρίς αγορές μέσα στην εφαρμογή, και η εφαρμογή για Mac περιλαμβάνεται στην ίδια αγορά.</p>
+                </li>
+                <li>
+                    <h3>Αντικατάσταση κειμένου που σταματά να συγχρονίζει</h3>
+                    <p>Τα cutling συγχρονίζονται μεταξύ iPhone, iPad και Mac μέσω του δικού σας iCloud, και το καθένα χωράει ολόκληρες παραγράφους, μορφοποίηση ή μια εικόνα, όχι μόνο μια σύντομη φράση.</p>
+                </li>
+                <li>
+                    <h3>Η ανησυχία για το τι βλέπει ένα πληκτρολόγιο με πλήρη πρόσβαση</h3>
+                    <p>Το πληκτρολόγιο του Cutling χρειάζεται πλήρη πρόσβαση για να διαβάζει τα cutling που έχετε αποθηκεύσει. Δεν υπάρχει λογαριασμός, διακομιστής, στατιστικά ούτε κώδικας τρίτων, και στο App Store η ετικέτα του γράφει «Δεν συλλέγονται δεδομένα».</p>
+                </li>
+                <li>
+                    <h3>Κωδικοί που στοιβάζονται στο ιστορικό προχείρου</h3>
+                    <p>Στο Mac, το ιστορικό του Cutling παραλείπει ό,τι ένας διαχειριστής κωδικών σημειώνει ως κρυφό, οπότε ένας κωδικός που αντιγράψατε δεν μπαίνει ποτέ σε αυτό.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

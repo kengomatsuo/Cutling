@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>El teu porta-retalls, organitzat</h1>
+        <h1>Els teus cutlings, a una drecera</h1>
         <p class="hero-subtitle">Desa els fragments de text i les imatges que reutilitzes i tingues-los a mà a l’instant, amb el teclat personalitzat a l’iPhone i l’iPad o amb la barra de menús i una drecera global al Mac. Sense comptes ni seguiment. Només les teves coses.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">Baixa-la a l’App Store</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>El que resol Cutling</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>Tornar a escriure l’adreça i les dades del banc</h3>
+                    <p>Desa una sola vegada l’adreça, les dades bancàries, la signatura del correu i les respostes de sempre. Després, a qualsevol app, canvia al teclat Cutling i toca el que necessitis.</p>
+                </li>
+                <li>
+                    <h3>Pagar cada any per una app de porta-retalls</h3>
+                    <p>Cutling es paga un sol cop. Sense subscripció, sense res per comprar dins de l’app, i l’app per a Mac ve inclosa en la mateixa compra.</p>
+                </li>
+                <li>
+                    <h3>Una substitució de text que deixa de sincronitzar-se</h3>
+                    <p>Els cutlings se sincronitzen entre l’iPhone, l’iPad i el Mac a través del teu propi iCloud, i cadascun pot contenir paràgrafs sencers, format o una imatge, no només una frase curta.</p>
+                </li>
+                <li>
+                    <h3>El neguit pel que veu un teclat amb accés complet</h3>
+                    <p>El teclat de Cutling necessita l’accés complet per llegir els cutlings que has desat. No té compte, ni servidor, ni analítiques, ni codi de tercers, i la seva fitxa a l’App Store diu “Dades no recopilades”.</p>
+                </li>
+                <li>
+                    <h3>Contrasenyes acumulades a l’historial del porta-retalls</h3>
+                    <p>Al Mac, l’historial de Cutling omet tot el que un gestor de contrasenyes marca com a ocult, de manera que una contrasenya copiada no hi arriba mai.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

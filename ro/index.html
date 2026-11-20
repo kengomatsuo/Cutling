@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>Clipboardul tău, organizat.</h1>
+        <h1>Cutling-urile tale, la o scurtătură distanță</h1>
         <p class="hero-subtitle">Salvează fragmentele de text și imaginile pe care le refolosești, apoi ajungi la ele instantaneu: dintr-o tastatură personalizată pe iPhone și iPad sau din bara de meniu și o scurtătură globală pe Mac. Fără conturi, fără urmărire. Doar lucrurile tale.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">Descarcă din App Store</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>Ce rezolvă Cutling</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>Adresa și datele bancare, tastate iar și iar</h3>
+                    <p>Salvează o singură dată adresa, datele bancare, semnătura de e-mail și răspunsurile pe care le tot trimiți. Apoi, în orice aplicație, treci pe tastatura Cutling și atinge-l pe cel de care ai nevoie.</p>
+                </li>
+                <li>
+                    <h3>Plata anuală pentru o aplicație de clipboard</h3>
+                    <p>Cutling se plătește o singură dată. Nu există abonament și nimic de cumpărat în aplicație, iar aplicația pentru Mac vine cu aceeași achiziție.</p>
+                </li>
+                <li>
+                    <h3>Înlocuire text care nu se mai sincronizează</h3>
+                    <p>Cutling-urile se sincronizează între iPhone, iPad și Mac prin propriul tău iCloud, iar fiecare poate ține paragrafe întregi, formatare sau o imagine, nu doar o expresie scurtă.</p>
+                </li>
+                <li>
+                    <h3>Grija pentru ce vede o tastatură cu acces complet</h3>
+                    <p>Tastatura Cutling are nevoie de acces complet ca să citească cutling-urile pe care le-ai salvat. Nu are cont, server, statistici sau cod de la terți, iar pe App Store eticheta ei spune „Date care nu sunt colectate”.</p>
+                </li>
+                <li>
+                    <h3>Parole adunate în istoricul clipboardului</h3>
+                    <p>Pe Mac, istoricul din Cutling omite tot ce un manager de parole marchează drept ascuns, așa că o parolă copiată nu ajunge niciodată în el.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

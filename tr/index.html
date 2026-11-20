@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>Panonuz, derli toplu</h1>
+        <h1>Cutling’leriniz bir kısayol uzağınızda</h1>
         <p class="hero-subtitle">Sık kullandığınız metinleri ve görselleri kaydedin, hepsine anında ulaşın: iPhone ve iPad’de özel bir klavyeden, Mac’te menü çubuğundaki uygulamadan ve her yerden çalışan bir klavye kısayolundan. Hesap yok, takip yok; yalnızca sizin içerikleriniz.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">App Store’dan indirin</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>Cutling’in çözdükleri</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>Adresi ve banka bilgilerini yeniden yazmak</h3>
+                    <p>Adresinizi, banka bilgilerinizi, e-posta imzanızı ve hazır yanıtlarınızı bir kez kaydedin. Sonra herhangi bir uygulamada Cutling klavyesine geçip ihtiyacınız olana dokunun.</p>
+                </li>
+                <li>
+                    <h3>Bir pano uygulamasına her yıl ödeme</h3>
+                    <p>Cutling’i bir kez satın alırsınız. Abonelik yok, uygulama içinde satın alınacak bir şey yok; Mac uygulaması da aynı satın almaya dahil.</p>
+                </li>
+                <li>
+                    <h3>Eşitlenmeyi bırakan Metin Değiştirme</h3>
+                    <p>Cutling’ler iPhone, iPad ve Mac arasında kendi iCloud’unuz üzerinden eşitlenir; her biri kısa bir ifadeyle sınırlı kalmaz, paragraflarca metin, biçimlendirme ya da bir görsel taşıyabilir.</p>
+                </li>
+                <li>
+                    <h3>Tam Erişimli klavyenin ne gördüğü kaygısı</h3>
+                    <p>Cutling klavyesinin kaydettiğiniz cutling’leri okuyabilmesi için Tam Erişim gerekir. Hesap yok, sunucu yok, analiz yok, üçüncü taraf kod yok; App Store’daki etiketinde de &ldquo;Veriler Toplanmaz&rdquo; yazar.</p>
+                </li>
+                <li>
+                    <h3>Pano geçmişinde biriken parolalar</h3>
+                    <p>Mac’te Cutling’in geçmişi, parola yöneticilerinin gizli olarak işaretlediği her şeyi atlar; kopyalanan bir parola bu geçmişe hiç girmez.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

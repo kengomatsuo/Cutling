@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>നിങ്ങളുടെ ക്ലിപ്പ്ബോർഡ്, ചിട്ടയിൽ</h1>
+        <h1>നിങ്ങളുടെ കട്ട്‌ലിംഗുകൾ, ഒരു ഷോർട്ട്കട്ട് അകലെ</h1>
         <p class="hero-subtitle">വീണ്ടും വീണ്ടും വേണ്ടിവരുന്ന വാചകങ്ങളും ചിത്രങ്ങളും സേവ് ചെയ്തുവയ്ക്കുക, വേണ്ട നിമിഷം അവ കൈയെത്തും ദൂരത്തുണ്ടാകും. iPhone-ലും iPad-ലും ഇഷ്ടാനുസൃത കീബോർഡിൽ നിന്ന്, Mac-ൽ മെനു ബാറിൽ നിന്നും ഒരു ഗ്ലോബൽ ഷോർട്ട്കട്ട് അമർത്തിയും. അക്കൗണ്ടില്ല, ട്രാക്കിംഗില്ല, നിങ്ങളുടേത് മാത്രം.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">App Store-ൽ നിന്ന് ഡൗൺലോഡ് ചെയ്യുക</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>കട്ട്‌ലിംഗ് പരിഹരിക്കുന്നത്</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>വിലാസവും ബാങ്ക് വിവരങ്ങളും വീണ്ടും വീണ്ടും ടൈപ്പ് ചെയ്യൽ</h3>
+                    <p>വിലാസം, ബാങ്ക് വിവരങ്ങൾ, ഇമെയിൽ ഒപ്പ്, പതിവ് മറുപടികൾ എന്നിവ ഒരിക്കൽ സേവ് ചെയ്യുക. പിന്നെ ഏത് ആപ്പിലും കട്ട്‌ലിംഗ് കീബോർഡിലേക്ക് മാറി വേണ്ടതിൽ ടാപ്പ് ചെയ്താൽ മതി.</p>
+                </li>
+                <li>
+                    <h3>ക്ലിപ്പ്ബോർഡ് ആപ്പിന് എല്ലാ വർഷവും പണം</h3>
+                    <p>കട്ട്‌ലിംഗിന് ഒരിക്കൽ പണം കൊടുത്താൽ മതി. സബ്‌സ്ക്രിപ്ഷനില്ല, ആപ്പിനുള്ളിൽ ഒന്നും വാങ്ങാനില്ല, അതേ വാങ്ങലിൽ Mac ആപ്പും കിട്ടും.</p>
+                </li>
+                <li>
+                    <h3>സമന്വയം നിലയ്ക്കുന്ന ടെക്സ്റ്റ് പകരംവയ്ക്കൽ</h3>
+                    <p>കട്ട്‌ലിംഗുകൾ നിങ്ങളുടെ സ്വന്തം iCloud വഴി iPhone, iPad, Mac എന്നിവയ്ക്കിടയിൽ സമന്വയിക്കും. ഓരോന്നിലും ഒരു ചെറിയ വാചകം മാത്രമല്ല, മുഴുവൻ ഖണ്ഡികകളും ഫോർമാറ്റിംഗും ഒരു ചിത്രവും വരെ സൂക്ഷിക്കാം.</p>
+                </li>
+                <li>
+                    <h3>പൂർണ്ണ ആക്സസ് ഉള്ള കീബോർഡ് എന്ത് കാണുന്നു എന്ന ആശങ്ക</h3>
+                    <p>നിങ്ങൾ സേവ് ചെയ്ത കട്ട്‌ലിംഗുകൾ വായിക്കാനാണ് കട്ട്‌ലിംഗ് കീബോർഡിന് പൂർണ്ണ ആക്സസ് വേണ്ടത്. അക്കൗണ്ടില്ല, സെർവറില്ല, അനലിറ്റിക്സില്ല, മൂന്നാം കക്ഷിയുടെ കോഡുമില്ല. App Store-ലെ ലേബലും പറയുന്നത് &ldquo;ഡാറ്റ ശേഖരിച്ചില്ല&rdquo; എന്നാണ്.</p>
+                </li>
+                <li>
+                    <h3>ക്ലിപ്പ്ബോർഡ് ചരിത്രത്തിൽ കുമിയുന്ന പാസ്‌വേഡുകൾ</h3>
+                    <p>Mac-ൽ, പാസ്‌വേഡ് മാനേജർ മറച്ചതായി അടയാളപ്പെടുത്തുന്നതെല്ലാം കട്ട്‌ലിംഗിന്റെ ചരിത്രം ഒഴിവാക്കും, അതിനാൽ പകർത്തിയ പാസ്‌വേഡ് ഒരിക്കലും അതിൽ എത്തില്ല.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

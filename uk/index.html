@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>Ваш буфер обміну, упорядкований</h1>
+        <h1>Ваші катлінги — за одним сполученням клавіш</h1>
         <p class="hero-subtitle">Зберігайте фрагменти тексту та зображення й діставайте їх миттєво: з власної клавіатури на iPhone та iPad або з рядка меню й гарячої клавіші на Mac. Жодних акаунтів, жодного стеження — лише ваші власні речі.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">Завантажити в App Store</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>Що вирішує Катлінг</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>Адреса й реквізити, набрані всоте</h3>
+                    <p>Збережіть один раз адресу, банківські реквізити, підпис для пошти й готові відповіді. Потім у будь-якій програмі перемкніться на клавіатуру Катлінг і натисніть потрібний.</p>
+                </li>
+                <li>
+                    <h3>Щорічна плата за програму для буфера обміну</h3>
+                    <p>Катлінг купується один раз. Жодної підписки, нічого не треба докуповувати в програмі, а версія для Mac входить у ту саму покупку.</p>
+                </li>
+                <li>
+                    <h3>Заміна тексту, що перестала синхронізуватися</h3>
+                    <p>Катлінги синхронізуються між iPhone, iPad і Mac через ваш власний iCloud, і кожен вміщує цілі абзаци, форматування чи зображення, а не лише коротку фразу.</p>
+                </li>
+                <li>
+                    <h3>Тривога, що бачить клавіатура з повним доступом</h3>
+                    <p>Клавіатурі Катлінг потрібен повний доступ, щоб читати збережені вами катлінги. У неї немає облікового запису, сервера, аналітики чи стороннього коду, а на її сторінці в App Store написано «Дані не збираються».</p>
+                </li>
+                <li>
+                    <h3>Паролі, що накопичуються в історії буфера обміну</h3>
+                    <p>На Mac історія Катлінга пропускає все, що менеджер паролів позначив як приховане, тож скопійований пароль туди не потрапляє.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

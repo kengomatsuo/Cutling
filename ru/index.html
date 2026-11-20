@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>Ваш буфер обмена в порядке</h1>
+        <h1>Ваши катлинги — в одно сочетание клавиш</h1>
         <p class="hero-subtitle">Сохраняйте фрагменты текста и изображения и доставайте их мгновенно: на iPhone и iPad — из собственной клавиатуры, на Mac — из строки меню или по сочетанию клавиш в любом приложении. Без аккаунтов, без слежки, только то, что вы сохранили сами.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">Загрузить в App Store</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>Что решает Катлинг</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>Адрес и реквизиты, набранные в сотый раз</h3>
+                    <p>Сохраните один раз адрес, реквизиты, подпись для почты и готовые ответы. Потом в любом приложении переключитесь на клавиатуру Катлинг и нажмите на нужный.</p>
+                </li>
+                <li>
+                    <h3>Ежегодная плата за приложение для буфера обмена</h3>
+                    <p>Катлинг покупается один раз. Никакой подписки и никаких покупок внутри приложения, а версия для Mac входит в ту же покупку.</p>
+                </li>
+                <li>
+                    <h3>Замена текста, которая перестала синхронизироваться</h3>
+                    <p>Катлинги синхронизируются между iPhone, iPad и Mac через ваш собственный iCloud, и в каждый помещается целый абзац, форматирование или картинка, а не только короткая фраза.</p>
+                </li>
+                <li>
+                    <h3>Тревога о том, что видит клавиатура с полным доступом</h3>
+                    <p>Клавиатуре Катлинг нужен полный доступ, чтобы читать сохранённые вами катлинги. У неё нет аккаунта, сервера, аналитики и стороннего кода, а на её странице в App Store написано «Сбор данных не ведется».</p>
+                </li>
+                <li>
+                    <h3>Пароли, копящиеся в истории буфера обмена</h3>
+                    <p>На Mac история Катлинга пропускает всё, что менеджер паролей пометил как скрытое, поэтому скопированный пароль туда не попадает.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

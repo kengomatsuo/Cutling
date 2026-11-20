@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>Jūsu starpliktuve, sakārtota</h1>
+        <h1>Jūsu cutlings – viena īsinājumtaustiņa attālumā</h1>
         <p class="hero-subtitle">Saglabājiet teksta fragmentus un attēlus, ko izmantojat atkal un atkal, un tiem klāt tiksiet uzreiz: iPhone un iPad ar Cutling tastatūru, Mac datorā ar izvēļņu joslas lietotni un globālu īsinājumtaustiņu. Bez kontiem, bez izsekošanas. Tikai jūsu lietas.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">Lejupielādēt no App Store</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>Ko atrisina Cutling</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>Adreses un bankas rekvizītu rakstīšana atkal un atkal</h3>
+                    <p>Saglabājiet adresi, bankas rekvizītus, e-pasta parakstu un biežākās atbildes vienreiz. Pēc tam jebkurā lietotnē pārslēdzieties uz Cutling tastatūru un pieskarieties vajadzīgajam.</p>
+                </li>
+                <li>
+                    <h3>Ikgadēja maksa par starpliktuves lietotni</h3>
+                    <p>Par Cutling maksā vienreiz. Nav abonementa, lietotnē nav ko pirkt, un Mac lietotne nāk līdzi tam pašam pirkumam.</p>
+                </li>
+                <li>
+                    <h3>Teksta aizstāšana, kas pārstāj sinhronizēties</h3>
+                    <p>Cutlings sinhronizējas starp iPhone, iPad un Mac caur jūsu pašu iCloud, un katrā var ietilpt veselas rindkopas, formatēts teksts vai attēls, ne tikai īsa frāze.</p>
+                </li>
+                <li>
+                    <h3>Bažas, ko redz tastatūra ar pilnu piekļuvi</h3>
+                    <p>Cutling tastatūrai pilna piekļuve vajadzīga, lai nolasītu jūsu saglabātos cutlings. Nav ne konta, ne servera, ne analītikas, ne trešo pušu koda, un App Store etiķetē rakstīts „Data Not Collected“, proti, dati netiek vākti.</p>
+                </li>
+                <li>
+                    <h3>Starpliktuves vēsturē uzkrātas paroles</h3>
+                    <p>Mac datorā Cutling vēsture izlaiž visu, ko paroļu pārvaldnieks atzīmējis kā slēptu, tāpēc nokopēta parole tajā nekad nenonāk.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

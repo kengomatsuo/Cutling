@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>Leikepöytäsi, järjestyksessä.</h1>
+        <h1>Cutlingit yhden pikanäppäimen päässä</h1>
         <p class="hero-subtitle">Tallenna tekstipätkät ja kuvat, joita tarvitset yhä uudelleen, niin saat ne esiin hetkessä: iPhonella ja iPadilla oman näppäimistön kautta, Macilla valikkoriviltä tai pikanäppäimellä mistä tahansa. Ei tilejä, ei seurantaa. Vain sinun omat asiasi.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">Lataa App Storesta</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>Mitä Cutling korjaa</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>Osoitteen ja tilinumeron näpyttely yhä uudestaan</h3>
+                    <p>Tallenna osoite, tilitiedot, sähköpostin allekirjoitus ja vakiovastaukset kerran. Vaihda sitten missä tahansa sovelluksessa Cutling-näppäimistöön ja napauta sitä, mitä tarvitset.</p>
+                </li>
+                <li>
+                    <h3>Vuosimaksu leikepöytäsovelluksesta</h3>
+                    <p>Cutling maksetaan kerran. Ei tilausta, ei mitään ostettavaa sovelluksen sisällä, ja Mac-sovellus tulee samalla ostolla.</p>
+                </li>
+                <li>
+                    <h3>Tekstin korvaus, joka lakkaa synkronoimasta</h3>
+                    <p>Cutlingit synkronoituvat iPhonen, iPadin ja Macin välillä omassa iCloudissasi, ja kuhunkin mahtuu kokonaisia kappaleita, muotoiluja tai kuva, ei vain lyhyt fraasi.</p>
+                </li>
+                <li>
+                    <h3>Huoli siitä, mitä näppäimistö näkee täydellä käyttöoikeudella</h3>
+                    <p>Cutling-näppäimistö tarvitsee täyden käyttöoikeuden lukeakseen tallentamasi cutlingit. Ei tiliä, ei palvelinta, ei analytiikkaa eikä kolmannen osapuolen koodia, ja App Storessa sen kohdalla lukee ”Tietoja ei kerätä”.</p>
+                </li>
+                <li>
+                    <h3>Leikepöytähistoriaan kasautuvat salasanat</h3>
+                    <p>Macilla Cutlingin historia ohittaa kaiken, minkä salasanahallinta merkitsee piilotetuksi, joten kopioitu salasana ei koskaan päädy siihen.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

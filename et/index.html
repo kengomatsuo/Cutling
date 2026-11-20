@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>Sinu lõikelaud, korrastatud</h1>
+        <h1>Sinu cutlingud ühe kiirklahvi kaugusel</h1>
         <p class="hero-subtitle">Salvesta tekstikatked ja pildid ning võta need kohe kasutusele: iPhone'is ja iPadis oma klaviatuurilt, Macis menüüribalt ja globaalse kiirklahviga. Ei mingeid kontosid ega jälgimist. Ainult sinu enda asjad.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">Lae alla App Store'ist</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>Mida Cutling lahendab</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>Aadressi ja pangaandmete uuesti trükkimine</h3>
+                    <p>Salvesta aadress, pangaandmed, e-posti allkiri ja korduvad vastused üks kord. Siis lülitu mis tahes rakenduses Cutlingu klaviatuurile ja puuduta seda, mida vajad.</p>
+                </li>
+                <li>
+                    <h3>Iga-aastane maks lõikelaua rakenduse eest</h3>
+                    <p>Cutlingu eest maksad ühe korra. Tellimust pole, rakenduses pole midagi juurde osta ja Maci rakendus tuleb sama ostuga kaasa.</p>
+                </li>
+                <li>
+                    <h3>Teksti asendamine, mis lõpetab sünkroonimise</h3>
+                    <p>Cutlingud sünkroonitakse iPhone'i, iPadi ja Maci vahel sinu enda iCloudi kaudu ning igaühte mahuvad terved lõigud, vorming või pilt, mitte ainult lühike fraas.</p>
+                </li>
+                <li>
+                    <h3>Mure, mida täieliku juurdepääsuga klaviatuur näeb</h3>
+                    <p>Cutlingu klaviatuur vajab täielikku juurdepääsu, et lugeda sinu salvestatud Cutlinguid. Sel pole kontot, serverit, analüütikat ega kolmanda osapoole koodi ning App Store'is on selle juures märge „Andmeid ei koguta”.</p>
+                </li>
+                <li>
+                    <h3>Lõikelaua ajalukku kuhjuvad paroolid</h3>
+                    <p>Macis jätab Cutlingu ajalugu vahele kõik, mille paroolihaldur märgib peidetuks, nii et kopeeritud parool sinna kunagi ei satu.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

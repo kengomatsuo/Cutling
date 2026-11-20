@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>আপনার ক্লিপবোর্ড, এবার গোছানো</h1>
+        <h1>আপনার কাটলিং, এক শর্টকাটেই</h1>
         <p class="hero-subtitle">যে টেক্সট আর ছবি বারবার লাগে সেগুলি সংরক্ষণ করুন, আর দরকারের মুহূর্তেই হাতের নাগালে পান — iPhone ও iPad-এ কাস্টম কীবোর্ড থেকে, Mac-এ মেনু বার অ্যাপ আর গ্লোবাল কীবোর্ড শর্টকাট থেকে। কোনও অ্যাকাউন্ট নেই, ট্র্যাকিং নেই, শুধু আপনার নিজের জিনিস।</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">App Store-এ ডাউনলোড করুন</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>Cutling যা সমাধান করে</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>ঠিকানা আর ব্যাঙ্কের তথ্য বারবার টাইপ করা</h3>
+                    <p>ঠিকানা, ব্যাঙ্কের তথ্য, ইমেল সিগনেচার আর বারবার পাঠানো উত্তরগুলি একবার সেভ করে রাখুন। তারপর যেকোনও অ্যাপে Cutling কীবোর্ডে গিয়ে যেটি দরকার সেটিতে ট্যাপ করুন।</p>
+                </li>
+                <li>
+                    <h3>ক্লিপবোর্ড অ্যাপের জন্য প্রতি বছর টাকা</h3>
+                    <p>Cutling একবারেই কেনা যায়। কোনও সাবস্ক্রিপশন নেই, অ্যাপের ভিতরে কেনার কিছু নেই, আর একই কেনাকাটায় Mac অ্যাপটিও পেয়ে যাবেন।</p>
+                </li>
+                <li>
+                    <h3>টেক্সট প্রতিস্থাপনের সিঙ্ক বন্ধ হয়ে যাওয়া</h3>
+                    <p>কাটলিং আপনার নিজের iCloud দিয়ে iPhone, iPad আর Mac-এর মধ্যে সিঙ্ক হয়, আর প্রতিটিতে পুরো অনুচ্ছেদ, ফরম্যাটিং বা একটি ছবি রাখা যায়, শুধু ছোট একটা বাক্যাংশ নয়।</p>
+                </li>
+                <li>
+                    <h3>সম্পূর্ণ অ্যাক্সেস পাওয়া কীবোর্ড কী দেখে, সেই দুশ্চিন্তা</h3>
+                    <p>সেভ করা কাটলিং পড়ার জন্য Cutling কীবোর্ডের সম্পূর্ণ অ্যাক্সেস লাগে। কোনও অ্যাকাউন্ট নেই, সার্ভার নেই, অ্যানালিটিক্স নেই, তৃতীয় পক্ষের কোডও নেই, আর App Store-এ এর লেবেলে লেখা আছে &ldquo;ডেটা সংগ্রহ করা হয় না&rdquo;।</p>
+                </li>
+                <li>
+                    <h3>ক্লিপবোর্ড ইতিহাসে জমতে থাকা পাসওয়ার্ড</h3>
+                    <p>Mac-এ Cutling-এর ইতিহাস পাসওয়ার্ড ম্যানেজার যা কিছু গোপন বলে চিহ্নিত করে তা বাদ দেয়, তাই কপি করা পাসওয়ার্ড কখনও সেখানে জমা পড়ে না।</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">

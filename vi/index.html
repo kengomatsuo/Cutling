@@ -253,6 +253,11 @@ object-fit: cover;
 border-radius: 20px;
 box-shadow: var(--shadow);
 }
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
 .features-grid {
 display: grid;
 grid-template-columns: 1fr 1fr;
@@ -1022,7 +1027,7 @@ cursor: pointer;
     <!-- Hero -->
     <section class="hero hero-home">
         <img class="hero-icon" src="../icon-192.webp" alt="Cutling app icon" width="96" height="96">
-        <h1>Bộ nhớ tạm của bạn, gọn gàng.</h1>
+        <h1>Cutling của bạn, chỉ cách một phím tắt</h1>
         <p class="hero-subtitle">Lưu các đoạn văn bản và hình ảnh bạn hay dùng lại, rồi lấy ra ngay khi cần: trên iPhone và iPad là bàn phím Cutling, trên Mac là ứng dụng trên thanh menu cùng một phím tắt dùng được ở mọi nơi. Không tài khoản, không theo dõi, chỉ có những thứ của riêng bạn.</p>
         <div class="cta-row">
             <a href="https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&amp;ct=web-home&amp;mt=8" class="cta-button">Tải về trên App Store</a>
@@ -1035,6 +1040,33 @@ cursor: pointer;
         </div>
     </section>
 
+    <section class="content-section pains">
+        <div class="section-inner">
+        <h2>Cutling giải quyết gì</h2>
+        <ul class="pains-list">
+                <li>
+                    <h3>Gõ lại địa chỉ và số tài khoản</h3>
+                    <p>Lưu một lần địa chỉ, thông tin ngân hàng, chữ ký email và những câu trả lời hay gửi. Sau đó, trong bất kỳ ứng dụng nào, chuyển sang bàn phím Cutling và chạm vào thứ bạn cần.</p>
+                </li>
+                <li>
+                    <h3>Trả tiền hằng năm cho ứng dụng bộ nhớ tạm</h3>
+                    <p>Cutling chỉ trả tiền một lần. Không thuê bao, không có gì phải mua thêm trong ứng dụng, và ứng dụng cho Mac đi kèm ngay trong lần mua đó.</p>
+                </li>
+                <li>
+                    <h3>Thay thế văn bản ngừng đồng bộ</h3>
+                    <p>Các cutling đồng bộ giữa iPhone, iPad và Mac qua iCloud của chính bạn, và mỗi cutling chứa được cả đoạn văn, định dạng hay một hình ảnh, chứ không chỉ một cụm từ ngắn.</p>
+                </li>
+                <li>
+                    <h3>Nỗi lo bàn phím có quyền truy cập đầy đủ thấy gì</h3>
+                    <p>Bàn phím Cutling cần quyền truy cập đầy đủ để đọc các cutling bạn đã lưu. Không tài khoản, không máy chủ, không phân tích, không mã của bên thứ ba, và nhãn của ứng dụng trên App Store ghi &ldquo;Dữ Liệu Không Được Thu Thập&rdquo;.</p>
+                </li>
+                <li>
+                    <h3>Mật khẩu chất đống trong lịch sử bộ nhớ tạm</h3>
+                    <p>Trên Mac, lịch sử của Cutling bỏ qua mọi nội dung mà trình quản lý mật khẩu đánh dấu là ẩn, nên mật khẩu đã sao chép không bao giờ lọt vào đó.</p>
+                </li>
+        </ul>
+        </div>
+    </section>
     <!-- One panel per job -->
     <section class="panel">
         <div class="panel-text">
