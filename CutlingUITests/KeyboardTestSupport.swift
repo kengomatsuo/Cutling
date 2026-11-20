@@ -106,23 +106,34 @@ extension XCTestCase {
     }
 
     /// The Cutling keyboard's buttons, with their frames on screen, read from one accessibility snapshot; nil while
-    /// Cutling is not up. The keyboard's root is the first element carrying `CutlingKeyboardView`, and its keys are the
-    /// buttons under it. iOS 27 reports that subtree in the keyboard's own coordinates (the root reads 0,0), so a tap at
-    /// a key's frame lands on the app above; the host element of the root's size around it gives the screen offset.
+    /// Cutling is not up. The root's `CutlingKeyboardView` identifier lands on its leaves (the clipboard bar, the grid,
+    /// the globe), not on the keys or the root itself. iOS 27 reports the keyboard's elements in its own coordinates (the
+    /// root reads 0,0), so a tap at a key's frame lands on the app above; the host of the root's size gives the offset.
     @MainActor
     func cutlingKeys(in app: XCUIApplication) -> [(label: String, frame: CGRect)]? {
         guard let tree = try? app.snapshot() else { return nil }
         func find(_ node: XCUIElementSnapshot, _ ancestors: [XCUIElementSnapshot]) -> [(label: String, frame: CGRect)]? {
             if node.identifier == "CutlingKeyboardView" {
-                let host = ancestors.last { $0.frame.size == node.frame.size && $0.identifier != "CutlingKeyboardView" }
-                let dx = host.map { $0.frame.minX - node.frame.minX } ?? 0
-                let dy = host.map { $0.frame.minY - node.frame.minY } ?? 0
+                // Up from the first marked element: the keyboard's root reads 0,0, and the first element above it
+                // of the same size with a real origin is its host on screen. Without such a pair the frames are
+                // already on screen.
+                var rootSize: CGSize?
+                var host: XCUIElementSnapshot?
+                for ancestor in ancestors.reversed() {
+                    if ancestor.frame.origin == .zero { rootSize = ancestor.frame.size; continue }
+                    guard let size = rootSize else { continue }
+                    if ancestor.frame.size == size { host = ancestor }
+                    break
+                }
+                let scope = host ?? ancestors.last ?? node
+                let dx = host?.frame.minX ?? 0, dy = host?.frame.minY ?? 0
                 var keys: [(label: String, frame: CGRect)] = []
                 func collect(_ element: XCUIElementSnapshot) {
                     if element.elementType == .button { keys.append((element.label, element.frame.offsetBy(dx: dx, dy: dy))) }
                     element.children.forEach(collect)
                 }
-                collect(node)
+                // The host's own frame is on screen; only what sits under it is in keyboard coordinates.
+                scope.children.forEach(collect)
                 return keys
             }
             for child in node.children {
