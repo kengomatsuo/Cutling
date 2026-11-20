@@ -62,10 +62,11 @@ for size in "$@"; do
   run="$out/$size"; mkdir -p "$run/shots"; : >"$run/phases.txt"; : >"$run/samples.txt"
   # Each size starts with a fresh keyboard process.
   for pid in $(pgrep -f "$keyboard" || true); do kill "$pid" 2>/dev/null || true; done
+  # Serial: parallel testing runs on a clone of the queue's simulator, which the queue forbids and this sampler never sees.
+  # No comment may sit inside this continued command: bash ends the command at it and runs xcodebuild without the variables.
   TEST_RUNNER_MEMTEST_TEXT="$text" TEST_RUNNER_MEMTEST_IMAGES="$images" \
   TEST_RUNNER_MEMTEST_LOG="$run/phases.txt" TEST_RUNNER_MEMTEST_SHOTS="$run/shots" \
   TEST_RUNNER_MEMTEST_FLINGS="${MEMTEST_FLINGS:-40}" \
-    # Serial: parallel testing runs on a clone of the queue's simulator, which the queue forbids and this sampler never sees.
     xcodebuild test-without-building -xctestrun "$xctestrun" -destination "id=$udid" -parallel-testing-enabled NO \
       -only-testing:CutlingUITests/KeyboardMemoryUITests/testKeyboardMemory \
       -resultBundlePath "$run/result.xcresult" >"$run/test.log" 2>&1 &
