@@ -316,8 +316,9 @@ case "${1:-help}" in
   bump)             bump_version "${2:-patch}" ;;
   web)              deploy_web ;;
   all)              $FASTLANE ios deploy ;;
-  release_notes)    source "$VENV" && python3 translate_release_notes.py ;;
-  release_notes_mac) source "$VENV" && python3 translate_release_notes.py --mac ;;
+  # uv brings deep-translator itself; the old docs/_generator venv no longer has it.
+  release_notes)    uv run --no-project --with deep-translator python3 translate_release_notes.py ;;
+  release_notes_mac) uv run --no-project --with deep-translator python3 translate_release_notes.py --mac ;;
   metadata)         $FASTLANE ios upload_metadata ;;
   metadata_mac)     $FASTLANE mac upload_metadata_mac ;;
   snap)
