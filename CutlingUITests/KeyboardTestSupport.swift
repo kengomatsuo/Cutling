@@ -84,9 +84,11 @@ extension XCTestCase {
         }
         XCTAssertTrue(field.waitForExistence(timeout: 3), "Keyboard test field not found")
         // On a loaded Mac the first tap can land before the field takes focus; tap until a keyboard shows.
-        for attempt in 0..<4 {
-            if attempt % 2 == 0 { field.tap() } else { field.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap() }
-            if keyboardGlobe(in: app).waitForExistence(timeout: 10) { break }
+        // A retry taps only while no keyboard shows: a rising keyboard scrolls the page, and a tap at the
+        // field's old place lands on whatever moved there (Continue, or empty space that closes the keyboard).
+        for _ in 0..<3 {
+            if field.isHittable { field.tap() }
+            if app.keyboards.firstMatch.waitForExistence(timeout: 20) { break }
         }
         sleep(2)
         return field
@@ -98,8 +100,7 @@ extension XCTestCase {
     @MainActor
     func keyboardGlobe(in app: XCUIApplication) -> XCUIElement {
         let label = NSPredicate(format: "label ==[c] 'Next keyboard' OR label ==[c] 'Papan Ketik Berikutnya' OR label ==[c] '次のキーボード'")
-        let button = app.buttons.matching(label).firstMatch
-        return button.exists ? button : app.keys.matching(label).firstMatch
+        return app.descendants(matching: .any).matching(label).firstMatch
     }
 
     /// A cutling's key on the Cutling keyboard, by the cutling's name. Its label is the name, then the text
