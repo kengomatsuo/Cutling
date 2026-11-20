@@ -111,4 +111,66 @@ final class FillInUITests: XCTestCase {
         shot("06_saved_value")
         button("Cancel").tap()
     }
+
+    /// The same flow in a real web app's prompt box in Safari, where buyers asked for
+    /// "variables in the snippets" for AI prompt templates. $FILLIN_SITE overrides the page.
+    @MainActor
+    func testKeyboardFillsBlanksInSafari() throws {
+        let app = XCUIApplication()
+        app.launchArguments += ["-FILLIN_TEST"]
+        app.launch()
+        app.terminate()
+        addCutlingKeyboardInSettings()
+        app.launch()
+        sleep(3)
+
+        let site = ProcessInfo.processInfo.environment["FILLIN_SITE"] ?? "https://chatgpt.com"
+        let safari = XCUIApplication(bundleIdentifier: "com.apple.mobilesafari")
+        safari.open(URL(string: site)!)
+        XCTAssertTrue(safari.wait(for: .runningForeground, timeout: 20))
+        sleep(8)
+        shot("safari_01_page")
+
+        // The page's prompt box: a contenteditable shows as a text view.
+        let box = safari.webViews.textViews.firstMatch.exists ? safari.webViews.textViews.firstMatch : safari.webViews.textFields.firstMatch
+        XCTAssertTrue(box.waitForExistence(timeout: 20), "No text box on \(site)")
+        box.tap()
+        XCTAssertTrue(safari.keyboards.firstMatch.waitForExistence(timeout: 20) || cutlingKeys(in: safari) != nil, "No keyboard in Safari")
+        sleep(2)
+        switchToCutlingKeyboard(in: safari, showing: "Reply")
+        XCTAssertTrue(cutlingKeyboardIsUp(in: safari, showing: "Reply"), "Cutling keyboard did not come up in Safari")
+
+        func button(_ name: String) -> XCUICoordinate {
+            var frame: CGRect?
+            for _ in 0..<10 {
+                frame = cutlingKeyFrame(name, in: safari)
+                if frame != nil { break }
+                usleep(500_000)
+            }
+            XCTAssertNotNil(frame, "No \(name) button (buttons: \(cutlingKeys(in: safari)?.map(\.label) ?? []))")
+            let f = frame ?? .zero
+            return screenPoint(f.midX, f.midY, in: safari)
+        }
+
+        button("Reply").tap()
+        sleep(2)
+        shot("safari_02_panel")
+        button("Next keyboard").tap()
+        for _ in 0..<6 where !safari.keys["a"].exists && !safari.keys["A"].exists {
+            sleep(1)
+            let globe = keyboardGlobe(in: safari)
+            if globe.exists, !safari.keys["a"].exists, !safari.keys["A"].exists { globe.tap() }
+        }
+        box.typeText("Sarah")
+        sleep(1)
+        switchToCutlingKeyboard(in: safari)
+        button("Next").tap()
+        sleep(1)
+        button("Pro").tap()
+        sleep(2)
+        shot("safari_03_done")
+        let text = (box.value as? String) ?? ""
+        XCTAssertTrue(text.contains("Hi Sarah, your Pro order ships"), "Prompt box reads: \(text)")
+        XCTAssertTrue(text.contains("Thanks!"), "Prompt box reads: \(text)")
+    }
 }

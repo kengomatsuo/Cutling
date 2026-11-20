@@ -7,5 +7,6 @@
    - Scope each to the delta over what is LIVE on that platform (a platform's live version can differ from the other's).
 3. `./deploy.sh release_notes` (iOS) and `./deploy.sh release_notes_mac` (macOS) translate each to all locales.
 4. `./deploy.sh all` (iOS build + metadata + screenshots) and `./deploy.sh metadata_mac` (macOS notes); macOS binary via `./deploy.sh mas`.
+5. On the day the version is live on the store, set `web/_generator/live.py` to what it has (`LIVE_CAPS`, and each `LIVE_FEATURES` entry such as `"fill-ins"`), then `./deploy.sh web`: the site and the AI files say only what the live app does.
 
 To correct notes on a version already submitted for review, use `./deploy.sh resubmit_notes` (cancels the in-review submission, re-uploads metadata, resubmits; resets the review queue).
