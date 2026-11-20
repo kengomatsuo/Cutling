@@ -46,13 +46,16 @@ extension XCTestCase {
     }
 
     /// Opens the setup guide's keyboard test field and focuses it.
-    /// `onGrid` runs once the seeded grid shows, before the guide opens.
+    /// `onGrid` runs once the seeded grid shows, before the guide opens; pass `seeded: false`
+    /// for an empty store, which has no card to wait for.
     @MainActor
-    func openKeyboardTestField(in app: XCUIApplication, onGrid: () -> Void = {}) -> XCUIElement {
+    func openKeyboardTestField(in app: XCUIApplication, seeded: Bool = true, onGrid: () -> Void = {}) -> XCUIElement {
         // A first launch opens the setup guide itself; otherwise open it from the toolbar.
         if !app.buttons["continueButton"].firstMatch.waitForExistence(timeout: 5) {
-            let card = app.descendants(matching: .any).matching(identifier: "cutlingCard").firstMatch
-            XCTAssertTrue(card.waitForExistence(timeout: 30), "Seeded cards did not appear")
+            if seeded {
+                let card = app.descendants(matching: .any).matching(identifier: "cutlingCard").firstMatch
+                XCTAssertTrue(card.waitForExistence(timeout: 30), "Seeded cards did not appear")
+            }
             onGrid()
             let kbButton = app.buttons["keyboardToolbarButton"].firstMatch
             XCTAssertTrue(kbButton.waitForExistence(timeout: 5))

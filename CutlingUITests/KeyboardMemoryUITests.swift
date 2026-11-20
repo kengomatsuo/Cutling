@@ -58,7 +58,7 @@ final class KeyboardMemoryUITests: XCTestCase {
         addCutlingKeyboardInSettings()
         app.launch()
 
-        _ = openKeyboardTestField(in: app)
+        _ = openKeyboardTestField(in: app, seeded: textCount != "0" || imageCount != "0")
         switchToCutlingKeyboard(in: app)
         XCTAssertTrue(cutlingKeyboardIsUp(in: app), "Cutling keyboard did not come up (keys: \(app.keys.count))")
         mark("keyboard_up")
