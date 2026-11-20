@@ -112,6 +112,34 @@ final class FillInUITests: XCTestCase {
         button("Cancel").tap()
     }
 
+    /// Tapping a card with blanks in the app asks for them in a sheet, then copies the finished text.
+    @MainActor
+    func testAppSheetFillsBeforeCopying() throws {
+        let app = XCUIApplication()
+        app.launchArguments += ["-FILLIN_TEST"]
+        app.launch()
+        let card = app.descendants(matching: .any).matching(identifier: "cutlingCard").firstMatch
+        XCTAssertTrue(card.waitForExistence(timeout: 30), "No cards")
+        // A first launch can open the setup guide over the grid.
+        if app.buttons["continueButton"].firstMatch.waitForExistence(timeout: 3) {
+            app.navigationBars.buttons.firstMatch.tap()
+            sleep(1)
+        }
+        card.tap()
+        let field = app.textFields["fillInField"].firstMatch
+        XCTAssertTrue(field.waitForExistence(timeout: 10), "No fill-in sheet")
+        field.tap()
+        field.typeText("Sarah")
+        app.buttons["Pro"].firstMatch.tap()
+        sleep(1)
+        shot("app_sheet")
+        let preview = app.staticTexts["fillInPreview"].firstMatch
+        XCTAssertTrue((preview.label).contains("Hi Sarah, your Pro order ships"), "Preview reads: \(preview.label)")
+        app.buttons["fillInDone"].firstMatch.tap()
+        sleep(1)
+        XCTAssertFalse(field.exists, "Sheet should close after Copy")
+    }
+
     /// The same flow in a real web app's prompt box in Safari, where buyers asked for
     /// "variables in the snippets" for AI prompt templates. $FILLIN_SITE overrides the page.
     @MainActor
