@@ -17,10 +17,12 @@ Usage:
 
 import argparse
 import datetime
+import html as html_lib
 import json
 import os
 import re
 import shutil
+import unicodedata
 import sys
 from pathlib import Path
 
@@ -347,12 +349,54 @@ METADATA_DIR = REPO_ROOT / "fastlane" / "metadata"
 # no 639-1 code of its own; Tagalog's "tl" is the one Google accepts.
 HREFLANG_OVERRIDES = {"fil": "tl"}
 
-# Page description keys per template. Pages without one get no description rather
-# than a copy of another page's (Google: snippet guidelines want them unique).
+# Each page's description is built from that page's own translated text, so every
+# language gets a unique one (Google's snippet guidelines; Bing flags pages without).
 DESCRIPTION_KEYS = {
-    "mac/index.html": "mac_hero_subtitle",
-    "support/index.html": "support_subtitle",
+    "mac/index.html": ["mac_hero_subtitle"],
+    "support/index.html": ["support_subtitle", "faq_q2", "faq_q3", "faq_q5"],
+    "faq/index.html": ["faq_a1", "faq_q7", "faq_q8", "faq_q6"],
+    "download/index.html": ["download_subtitle", "download_ios_desc", "download_mac_desc"],
+    "privacy/index.html": ["privacy_summary", "privacy_collection_text"],
+    "terms/index.html": ["terms_intro", "terms_payment_text"],
 }
+TITLE_KEYS = {  # sub-page titles carry the store subtitle, so they say what Cutling is
+    "mac/index.html": "page_title_mac", "support/index.html": "page_title_support",
+    "faq/index.html": "page_title_faq", "download/index.html": "page_title_download",
+    "privacy/index.html": "page_title_privacy", "terms/index.html": "page_title_terms",
+}
+FAQ_PAIRS = [f"faq_{n}" for n in (1, 2, 3, 4, 5, 6, 7, 10, 11, 8, 9)]
+
+
+def plain(value):
+    """Translated HTML as plain text, with Cutling's caps filled."""
+    text = html_lib.unescape(re.sub(r"<[^>]+>", "", value or ""))
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def text_width(text):
+    """Characters as a results page lays them out: CJK and full-width count twice."""
+    return sum(2 if unicodedata.east_asian_width(c) in "WF" else 1 for c in text)
+
+
+def page_description(translation, keys, limit=160, most=200):
+    """Whole sentences from the given keys: as many as fit in limit, and a short
+    first pass may take one more sentence up to most (widths, CJK counted twice)."""
+    sentences = [x for key in keys
+                 for x in re.split(r"(?<=[.!?。！？])\s*", plain(translation.get(key, ""))) if x]
+    out = ""
+    for sentence in sentences:
+        cjk = re.match(r"[\u3000-\u9fff]", sentence)
+        joined = out + sentence if cjk or not out else f"{out} {sentence}"
+        if out and text_width(joined) > (most if text_width(out) < 100 else limit):
+            break
+        out = joined
+    return out
+
+
+def sub_page_title(code, template_rel, translation):
+    title = plain(translation.get(TITLE_KEYS[template_rel], ""))
+    subtitle = store_text(code, "subtitle") or store_text(DEFAULT_LOCALE, "subtitle")
+    return f"{title} - {subtitle}" if subtitle and subtitle not in title else title
 
 
 def hreflang(code):
@@ -399,8 +443,8 @@ def head_tags(code, template_rel, translation, available_codes, locales, price):
     if is_home:
         description = store_text(code, "promotional_text") or store_text(DEFAULT_LOCALE, "promotional_text")
     else:
-        key = DESCRIPTION_KEYS.get(template_rel)
-        description = translation.get(key, "") if key else ""
+        keys = DESCRIPTION_KEYS.get(template_rel)
+        description = page_description(translation, keys) if keys else ""
     if description:
         tags.append(f'<meta name="description" content="{esc_attr(description)}">')
 
@@ -433,6 +477,18 @@ def head_tags(code, template_rel, translation, available_codes, locales, price):
         if price[0]:
             app["offers"] = {"@type": "Offer", "price": price[0], "priceCurrency": price[1]}
         tags.append('<script type="application/ld+json">' + json.dumps(app, ensure_ascii=False).replace("</", "<\\/") + "</script>")
+    elif template_rel in TITLE_KEYS:
+        graph = [{"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Cutling", "item": page_url(code, "index.html")},
+            {"@type": "ListItem", "position": 2, "name": plain(translation.get(TITLE_KEYS[template_rel], "")),
+             "item": page_url(code, template_rel)}]}]
+        if template_rel == "faq/index.html":
+            graph.append({"@type": "FAQPage", "mainEntity": [
+                {"@type": "Question", "name": plain(translation[f"faq_q{k[4:]}"]),
+                 "acceptedAnswer": {"@type": "Answer", "text": plain(translation[f"faq_a{k[4:]}"])}}
+                for k in FAQ_PAIRS if f"faq_q{k[4:]}" in translation and f"faq_a{k[4:]}" in translation]})
+        ld = {"@context": "https://schema.org", "@graph": graph}
+        tags.append('<script type="application/ld+json">' + json.dumps(ld, ensure_ascii=False).replace("</", "<\\/") + "</script>")
     return "\n    ".join(tags)
 
 
@@ -641,6 +697,9 @@ def main():
                     '    <li><a href="/en-us/compare/">Compare</a></li>\n        </ul>\n        <p class="copyright">')
             if template_rel == "index.html":
                 page_template = page_template.replace("{{page_title_home}}", esc_attr(home_title(code, translation)))
+            elif template_rel in TITLE_KEYS:
+                page_template = page_template.replace("{{" + TITLE_KEYS[template_rel] + "}}",
+                                                      esc_attr(sub_page_title(code, template_rel, translation)))
             page_template = page_template.replace(
                 "</head>", "    " + head_tags(code, template_rel, translation, available_codes, locales, price) + "\n</head>", 1)
 
