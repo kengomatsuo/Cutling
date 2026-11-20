@@ -33,7 +33,7 @@ Cutling is a native iOS and macOS clipboard manager that puts your most-used tex
 ### Core Functionality
 
 - **Text Snippets** — Save up to 1,000 text cutlings, each up to 1,000 characters
-- **Image Cutlings** — Save up to 100 images for quick access (QR codes, signatures, diagrams)
+- **Image Cutlings** — Save up to 50 images for quick access (QR codes, signatures, diagrams)
 - **Custom Keyboard Extension** — Insert cutlings from any app without switching. One tap to paste
 - **Icons & Colors** — Choose from 750+ SF Symbols and 12 colors to organize your collection
 - **Expiration Dates** — Set auto-delete dates for temporary snippets
@@ -200,8 +200,8 @@ Cutling uses an App Group (`group.com.matsuokengo.Cutling`) to share data betwee
 | Type            | Limit          |
 |-----------------|----------------|
 | Text cutlings   | 1,000          |
-| Image cutlings  | 100            |
-| Total cutlings  | 1,100          |
+| Image cutlings  | 50             |
+| Total cutlings  | 1,050          |
 | Text length     | 1,000 chars    |
 
 ---
