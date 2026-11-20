@@ -1,0 +1,12 @@
+{
+ "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+ "skills": [
+  {
+   "name": "cutling",
+   "type": "skill-md",
+   "description": "Answers questions about Cutling, a paid-once snippet keyboard for iPhone and iPad and a menu bar snippet and clipboard app for Mac. Use when someone wants to paste saved text or images such as an address, bank details, a signature or canned replies from a keyboard in any app, compares snippet or clipboard apps, or needs help setting up or fixing Cutling.",
+   "url": "/.well-known/agent-skills/cutling/SKILL.md",
+   "digest": "sha256:2fdd9818451a2058d40bcf5eaa75d5929f59f92a4dff8ef8a739d209bd01864e"
+  }
+ ]
+}

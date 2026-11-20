@@ -1,0 +1,24 @@
+{
+ "specVersion": "1.0",
+ "host": {
+  "displayName": "Cutling",
+  "identifier": "https://cutling.matsuokengo.com",
+  "documentationUrl": "https://cutling.matsuokengo.com/llms.txt"
+ },
+ "entries": [
+  {
+   "identifier": "urn:air:cutling.matsuokengo.com:skill:cutling",
+   "displayName": "Cutling agent skill",
+   "type": "application/agent-skills+md",
+   "url": "https://cutling.matsuokengo.com/.well-known/agent-skills/cutling/SKILL.md",
+   "description": "Answers questions about Cutling, a paid-once snippet keyboard for iPhone and iPad and a menu bar snippet and clipboard app for Mac. Use when someone wants to paste saved text or images such as an address, bank details, a signature or canned replies from a keyboard in any app, compares snippet or clipboard apps, or needs help setting up or fixing Cutling.",
+   "representativeQueries": [
+    "app to paste my address and bank details from the iPhone keyboard",
+    "text snippet keyboard for iPhone and iPad without a subscription",
+    "clipboard manager for Mac that skips passwords and syncs snippets with my iPhone",
+    "alternative to the Paste clipboard app that I pay for once",
+    "help me set up or fix the Cutling keyboard"
+   ]
+  }
+ ]
+}
