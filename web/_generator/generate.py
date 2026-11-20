@@ -24,6 +24,9 @@ import shutil
 import sys
 from pathlib import Path
 
+import ai_facts
+import ai_files
+
 SCRIPT_DIR = Path(__file__).parent
 DOCS_DIR = SCRIPT_DIR.parent
 TEMPLATES_DIR = SCRIPT_DIR / "templates"
@@ -478,6 +481,7 @@ def write_en_only_pages(en_translation, locales, available_codes, price):
             '<meta name="twitter:card" content="summary_large_image">']
     tags += ['<script type="application/ld+json">' + json.dumps(x, ensure_ascii=False).replace("</", "<\\/") + "</script>" for x in ld]
     template = template.replace("</head>", "    " + "\n    ".join(tags) + "\n</head>", 1).replace("{{CUTLING_PRICE_CELL}}", price_cell)
+    template = fill_caps({"faq_a6": en_translation.get("faq_a6", ""), "page": template})["page"]
     root, prefix = compute_root(1, False), compute_lang_prefix(1)
     html = generate_page(template, en_translation, en_translation, DEFAULT_LOCALE, False, root, prefix,
                          build_language_picker(locales, available_codes, DEFAULT_LOCALE, root, "index.html"),
@@ -538,8 +542,16 @@ def write_sitemap_and_robots(locales, available_codes):
                   f'    <xhtml:link rel="alternate" hreflang="x-default" href="{url}"/>', "  </url>"]
     lines.append("</urlset>")
     (DOCS_DIR / "sitemap.xml").write_text("\n".join(lines) + "\n", encoding="utf-8")
-    (DOCS_DIR / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {SITE}/sitemap.xml\n", encoding="utf-8")
-    print(f"  Generated sitemap.xml ({len(codes) * len(TEMPLATES) + len(EN_ONLY_PAGES)} URLs) and robots.txt")
+    print(f"  Generated sitemap.xml ({len(codes) * len(TEMPLATES) + len(EN_ONLY_PAGES)} URLs)")
+
+
+def write_ai_files(en_translation, available_codes, price):
+    """llms.txt, llms-full.txt, robots.txt, the .well-known files and a markdown copy of each English page (ai_files.py)."""
+    fx = ai_facts.facts(SITE, en_translation, store_text(DEFAULT_LOCALE, "name"), store_text(DEFAULT_LOCALE, "promotional_text"),
+                        price, store_url("llms"), store_url("llms", mac=True), "kenneth@matsuokengo.com",
+                        len(available_codes), datetime.date.today().isoformat())
+    ai_files.write(DOCS_DIR, SITE, fx, lambda rel: (DOCS_DIR / rel / "index.html", f"{SITE}/{rel}"))
+    print("  Generated llms.txt, llms-full.txt, robots.txt, .well-known and English index.md pages")
 
 
 def write_lang_suggest(locales, available_codes):
@@ -668,6 +680,7 @@ def main():
         write_sitemap_and_robots(locales, available_codes)
         write_lang_suggest(locales, available_codes)
         write_en_only_pages(en_translation, locales, available_codes, price)
+        write_ai_files(en_translation, available_codes, price)
         write_indexnow_key()
 
     print(f"\nDone! Generated {generated_count} pages.")
