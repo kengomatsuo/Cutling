@@ -80,7 +80,7 @@ final class FillInUITests: XCTestCase {
         for _ in 0..<6 where !app.keys["a"].exists && !app.keys["A"].exists {
             sleep(1)
             let systemGlobe = keyboardGlobe(in: app)
-            if systemGlobe.exists, !app.keys["a"].exists, !app.keys["A"].exists { systemGlobe.tap() }
+            if systemGlobe.exists, !app.keys["a"].exists, !app.keys["A"].exists { systemGlobe.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap() }
         }
         XCTAssertTrue(app.keys["a"].exists || app.keys["A"].exists, "No letter keyboard to type the blank with")
         field.typeText("Sarah")
@@ -234,7 +234,7 @@ final class FillInUITests: XCTestCase {
         for _ in 0..<6 where !safari.keys["a"].exists && !safari.keys["A"].exists {
             sleep(1)
             let globe = keyboardGlobe(in: safari)
-            if globe.exists, !safari.keys["a"].exists, !safari.keys["A"].exists { globe.tap() }
+            if globe.exists, !safari.keys["a"].exists, !safari.keys["A"].exists { globe.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap() }
         }
         box.typeText("Sarah")
         sleep(1)

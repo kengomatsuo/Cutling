@@ -827,6 +827,9 @@ struct KeyboardView: View {
     @State private var showEmptyClipboardToast = false
     @State private var showLimitToast = false
     @State private var limitToastMessage = ""
+    /// The fill-in design mock on show (FillInMocks.swift), only in -FILLIN_TEST runs.
+    private var mockDesign: FillInMock.Design? { FillInMock.design }
+    @State private var mockStep: FillInMock.Step?
     
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.verticalSizeClass) private var verticalSizeClass
@@ -852,6 +855,21 @@ struct KeyboardView: View {
     }
 
     var body: some View {
+        if let design = mockDesign, let step = mockStep {
+            FillInMockView(
+                design: design, step: step,
+                keyHeight: keyHeight, keySpacing: keySpacing, gridHeight: gridHeight, smallKeyWidth: smallKeyWidth,
+                onNext: { mockStep = step == .name ? .plan : nil },
+                onCancel: { mockStep = nil },
+                onSwitchKeyboard: onSwitchKeyboard
+            )
+            .tint(Color(hex: 0x00be86))
+        } else {
+            keyboardBody
+        }
+    }
+
+    private var keyboardBody: some View {
         VStack(spacing: keySpacing) {
             suggestionBar
                 .padding(.horizontal, KeyStyle.horizontalPadding)
@@ -1071,6 +1089,9 @@ struct KeyboardView: View {
         let info = ReturnKeyInfo.from(state.returnKeyType)
 
         return HStack(spacing: keySpacing) {
+            if mockDesign != nil {
+                PreviousKeyboardKey(width: smallKeyWidth, height: keyHeight, action: onSwitchKeyboard)
+            }
             // Next Keyboard (Globe) - only shown when needed
             if state.needsInputModeSwitchKey {
                 Image(systemName: "globe")
@@ -1141,6 +1162,10 @@ struct KeyboardView: View {
 
     private func handleTap(_ cutling: Cutling, replacesWord: Bool = false) {
         guard !isBlockedByASCIIField(cutling) else { return }
+        if mockDesign != nil, !cutling.fillInFields.isEmpty {
+            mockStep = .name
+            return
+        }
         switch cutling.kind {
         case .text:
             onUseCutling(cutling, replacesWord ? state.wordBeforeCursor.count : 0, cutling.textFormat != .code)

@@ -188,7 +188,8 @@ extension XCTestCase {
         // Each tap moves to the next keyboard; wait for each switch to land.
         for _ in 0..<15 where !cutlingKeyboardIsUp(in: app, showing: name) {
             let globe = keyboardGlobe(in: app)
-            if globe.waitForExistence(timeout: 5) { globe.tap() }
+            // A screen-point tap: the system globe under a Face ID iPhone's keyboard refuses scroll-to-visible.
+            if globe.waitForExistence(timeout: 5) { globe.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap() }
             let tip = app.buttons.matching(NSPredicate(format: "label == 'Continue' AND identifier != 'continueButton'")).firstMatch
             if tip.waitForExistence(timeout: 1) { tip.tap(); sleep(1) }
         }
