@@ -49,29 +49,30 @@ final class FormattingUITests: XCTestCase {
         let code = app.coordinate(withNormalizedOffset: CGVector(dx: 0.75, dy: 0.71))
         let plain = app.coordinate(withNormalizedOffset: CGVector(dx: 0.25, dy: 0.80))
 
-        // A Formatted tap copies the styled version (keyboards can't type styles).
+        // Every tap types: a Formatted key types its text plain, like the others.
         rich.tap()
         sleep(1)
-        shot("03a_rich_copied")
-        XCTAssertFalse((field.value as? String ?? "").contains("Bold"), "Formatted tap should copy, not type")
+        XCTAssertEqual(field.value as? String, "Bold and link", "Formatted tap should type its text")
 
         code.tap()
         sleep(1)
-        XCTAssertEqual(field.value as? String, "print(\"a_b\")", "Code should go in exactly")
+        XCTAssertEqual(field.value as? String, "Bold and linkprint(\"a_b\")", "Code should go in exactly")
 
         plain.tap()
         sleep(1)
-        XCTAssertEqual(field.value as? String, "print(\"a_b\") Hello", "Plain should be spaced from the word before")
+        XCTAssertEqual(field.value as? String, "Bold and linkprint(\"a_b\") Hello", "Plain should be spaced from the word before")
         shot("03_typed")
 
-        // Long-press offers Type as Plain Text; the menu sits under the key.
+        // Long-press on the Formatted key offers Copy, which copies the styled version.
         rich.press(forDuration: 1.2)
         sleep(1)
         shot("04_rich_menu")
-        app.coordinate(withNormalizedOffset: CGVector(dx: 0.33, dy: 0.97)).tap()
+        let copy = app.buttons["Copy"].firstMatch
+        XCTAssertTrue(copy.waitForExistence(timeout: 3), "Long-press should offer Copy")
+        copy.tap()
         sleep(1)
-        XCTAssertEqual(field.value as? String, "print(\"a_b\") Hello Bold and link", "Long-press should type plain text")
-        shot("04b_typed_plain")
+        XCTAssertEqual(field.value as? String, "Bold and linkprint(\"a_b\") Hello", "Copy should not type")
+        shot("04b_rich_copied")
         app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.15)).tap()
         sleep(1)
         app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.15)).tap()
@@ -148,12 +149,7 @@ final class FormattingUITests: XCTestCase {
         app.coordinate(withNormalizedOffset: CGVector(dx: 0.398, dy: 0.271)).tap()
         XCTAssertTrue(detail.waitForExistence(timeout: 5), "Editor did not open")
         XCTAssertTrue(chip("Formatted").waitForExistence(timeout: 5), "Formatted chip missing")
-        // First Formatted text: a tip explains copy, then paste.
-        let tip = app.staticTexts["Due to iOS keyboard limits, formatted text is copied, not typed."].firstMatch
-        XCTAssertTrue(tip.waitForExistence(timeout: 5), "Paste tip missing")
         shot("10_editor_formatted")
-        let closeTip = app.buttons.matching(NSPredicate(format: "label == 'Close'")).firstMatch
-        if closeTip.exists { closeTip.tap(); sleep(1) }
         chip("Formatted").tap()
         sleep(1)
         shot("11_chip_menu")

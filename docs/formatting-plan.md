@@ -52,9 +52,9 @@ Snippet tools that care about code (SnippetsLab, Pieces, Gists) store it as plai
 
 | Surface | Plain (default) | Rich | Code |
 |---|---|---|---|
-| Keyboard tap | Insert text, with smart spacing | Copy the styled version (Full Access); the user pastes it. Without Full Access, or with "Always paste plain text" on, type the stripped text | Insert exact text, no smart spacing |
-| Keyboard long-press | — | "Type as Plain Text" types the stripped text (owner, 2026-10-03: styled by default, plain on long-press) | — |
-| Teaching the paste | — | A keyboard can only insert plain strings (`UITextDocumentProxy` has no attributed insert in the iOS 27 SDK), so a formatted tap copies and shows "Copied". The editor shows a one-time inline TipKit tip under the Text field ("Due to iOS keyboard limits, formatted text is copied, not typed.", one sentence, owner 2026-10-09), chosen over an alert because the HIG says to avoid alerts that only inform (owner, 2026-10-09) | — |
+| Keyboard tap | Insert text, with smart spacing | Type the stripped text, with smart spacing (revised 2026-11-20) | Insert exact text, no smart spacing |
+| Keyboard long-press | — | "Copy" puts the styled version on the pasteboard (Full Access, "Always paste plain text" off; revised 2026-11-20) | — |
+| Teaching the paste | — | None since 2026-11-20: a tap types, and the styled copy is the long-press Copy every iOS user knows. (Was a one-time TipKit tip in the editor, 2026-10-09.) | — |
 | App copy (iOS/Mac), share | String | One pasteboard item with plain + RTF + HTML | String |
 | Mac picker paste | String | Same three flavours, then ⌘V; ⌥-click or "Copy as Plain Text" pastes plain (the picker is click-driven, so Maccy's ⌥⇧↩ has no place) | String |
 | Global setting | — | "Always paste plain text" | — |
@@ -138,3 +138,9 @@ The owner dropped the segmented picker and the B / I / S / code / link icons. Th
 - Cutlings saved before formats existed are read through the code rules at display time (`Cutling.textFormat`).
 - Core AI was considered and rejected: it deploys custom converted models (WWDC26 "Meet Core AI"), while classifying a snippet needs no custom model.
 - Foundation Models is weak-linked, so iOS 18–25 still launch; it runs in the main app only, never the keyboard.
+
+## Revised 2026-11-20: every keyboard tap types
+
+The owner approved: a tap on any key types its text, Formatted included (as plain text, since a keyboard can insert nothing else), and a Formatted key's long press offers **Copy**, which puts the styled version on the pasteboard for the user to paste (Full Access, and "Always paste plain text" off). This replaces tap-copies-styled with "Type as Plain Text" on the long press, and the editor tip "formatted text is copied, not typed" is gone with it.
+
+Why: a key that looked like the others but only copied made the most common action fail silently, and the format is chosen by detection, so ordinary pasted text with a link turned into a key that stopped typing. TextExpander's keyboard does the same: formatted snippets type as plain text, and formatting reaches only apps that integrate with it.

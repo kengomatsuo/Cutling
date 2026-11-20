@@ -75,7 +75,6 @@ struct TextDetailView: View {
     private let editorSaveTip = EditorSaveTip()
     private let editorBackTip = EditorBackTip()
     private let editorDeleteTip = EditorDeleteTip()
-    private let formattedPasteTip = FormattedPasteTip()
     #endif
 
     init(
@@ -436,14 +435,6 @@ struct TextDetailView: View {
                 }
                 .font(.caption)
             }
-            #if os(iOS)
-            // Keyboards can't type formatting; explain once, inline so it fits.
-            if format == .rich && !TutorialCoordinator.shared.isActive {
-                TipView(formattedPasteTip)
-                    .listRowInsets(EdgeInsets())
-                    .listRowBackground(Color.clear)
-            }
-            #endif
             InputTypePickerSection(selectedTriggers: undoHandler.binding($inputTypeTriggers, actionName: String(localized: "Change Input Types")), userSetInputType: $userSetInputType)
             ExpirationPickerSection(autoDeleteEnabled: undoHandler.binding($autoDeleteEnabled, actionName: String(localized: "Change Expiration")), deleteAt: undoHandler.binding($deleteAt, actionName: String(localized: "Change Expiration")))
 

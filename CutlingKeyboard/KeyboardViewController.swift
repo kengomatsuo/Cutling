@@ -924,7 +924,7 @@ struct KeyboardView: View {
                                         isExisted: existedID == cutling.id,
                                         isBlocked: isBlockedByASCIIField(cutling),
                                         copiedStyled: copiedStyledID == cutling.id,
-                                        onTypePlain: typePlainAction(for: cutling),
+                                        onCopyStyled: copyStyledAction(for: cutling),
                                         onTap: { handleTap(cutling, replacesWord: matchIDs.contains(cutling.id)) }
                                     )
                                     .id(cutling.id)
@@ -953,7 +953,7 @@ struct KeyboardView: View {
                                     isExisted: existedID == cutling.id,
                                     isBlocked: isBlockedByASCIIField(cutling),
                                     copiedStyled: copiedStyledID == cutling.id,
-                                    onTypePlain: typePlainAction(for: cutling),
+                                    onCopyStyled: copyStyledAction(for: cutling),
                                     onTap: { handleTap(cutling) }
                                 )
                                 .id(cutling.id)
@@ -1050,18 +1050,15 @@ struct KeyboardView: View {
         return !cutling.plainValue.allSatisfy(\.isASCII)
     }
 
-    /// Keyboards can only type plain text, so a styled tap copies instead.
-    private func tapCopiesStyled(_ cutling: Cutling) -> Bool {
-        cutling.kind == .text && cutling.textFormat == .rich
-            && state.hasFullAccess && !CutlingPasteboard.alwaysPastesPlain
-    }
-
-    /// Long-press on a styled key types it plain instead.
-    private func typePlainAction(for cutling: Cutling) -> (() -> Void)? {
-        guard tapCopiesStyled(cutling) else { return nil }
+    /// Keyboards can only type plain text, so a tap types every key's text and a Formatted
+    /// key's long press copies the styled version for the user to paste.
+    private func copyStyledAction(for cutling: Cutling) -> (() -> Void)? {
+        guard cutling.kind == .text, cutling.textFormat == .rich,
+              state.hasFullAccess, !CutlingPasteboard.alwaysPastesPlain
+        else { return nil }
         return {
-            onInsertCutling(cutling.plainValue, 0, true)
-            copiedStyledID = nil
+            CutlingPasteboard.copy(cutling)
+            copiedStyledID = cutling.id
             showCopied(cutling.id)
             incrementPasteCount()
         }
@@ -1071,14 +1068,8 @@ struct KeyboardView: View {
         guard !isBlockedByASCIIField(cutling) else { return }
         switch cutling.kind {
         case .text:
-            // Styled by default: the user pastes it to keep the formatting.
-            if tapCopiesStyled(cutling), !replacesWord {
-                CutlingPasteboard.copy(cutling)
-                copiedStyledID = cutling.id
-            } else {
-                onInsertCutling(cutling.plainValue, replacesWord ? state.wordBeforeCursor.count : 0, cutling.textFormat != .code)
-                copiedStyledID = nil
-            }
+            onInsertCutling(cutling.plainValue, replacesWord ? state.wordBeforeCursor.count : 0, cutling.textFormat != .code)
+            copiedStyledID = nil
             showCopied(cutling.id)
             incrementPasteCount()
         case .image:
@@ -1297,7 +1288,8 @@ struct CutlingKeyView: View {
     let isExisted: Bool
     var isBlocked: Bool = false
     var copiedStyled = false
-    var onTypePlain: (() -> Void)? = nil
+    /// A Formatted key's long-press Copy; nil for every other key.
+    var onCopyStyled: (() -> Void)? = nil
     let onTap: () -> Void
     
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
@@ -1349,8 +1341,8 @@ struct CutlingKeyView: View {
         }
         .buttonStyle(KeyboardButtonStyle())
         .contextMenu {
-            if let onTypePlain {
-                Button("Type as Plain Text", systemImage: "character.cursor.ibeam", action: onTypePlain)
+            if let onCopyStyled {
+                Button("Copy", systemImage: "doc.on.doc", action: onCopyStyled)
             }
         }
         .disabled(isBlocked)
