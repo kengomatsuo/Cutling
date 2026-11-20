@@ -40,6 +40,8 @@ struct CutlingKeyGrid<Key: View>: UIViewRepresentable {
         collection.backgroundColor = .clear
         collection.showsVerticalScrollIndicator = false
         collection.alwaysBounceVertical = true
+        // Keys highlight on touch-down, as they did in the SwiftUI scroll view; a UIKit scroll view delays it.
+        collection.delaysContentTouches = false
         coordinator.attach(to: collection)
         return collection
     }
@@ -49,8 +51,14 @@ struct CutlingKeyGrid<Key: View>: UIViewRepresentable {
         coordinator.grid = self
         coordinator.apply(to: collection)
         if let target = scrollTarget, target != coordinator.lastScrollTarget,
-           let path = coordinator.dataSource?.indexPath(for: .key(target)) {
-            collection.scrollToItem(at: path, at: .centeredVertically, animated: true)
+           let path = coordinator.dataSource?.indexPath(for: .key(target)),
+           let frame = collection.layoutAttributesForItem(at: path)?.frame {
+            // The old grid's withAnimation(.easeInOut) { scrollTo(id, anchor: .center) }.
+            let maxY = max(0, collection.contentSize.height - collection.bounds.height)
+            let y = min(max(0, frame.midY - collection.bounds.height / 2), maxY)
+            UIView.animate(withDuration: 0.35, delay: 0, options: [.curveEaseInOut, .allowUserInteraction]) {
+                collection.contentOffset = CGPoint(x: 0, y: y)
+            }
         }
         coordinator.lastScrollTarget = scrollTarget
     }
@@ -68,10 +76,11 @@ struct CutlingKeyGrid<Key: View>: UIViewRepresentable {
         var lastScrollTarget: UUID?
         private var cutlingsByID: [UUID: Cutling] = [:]
         private var appliedOrder: [[Item]] = []
+        private var hasApplied = false
 
         /// Each section is a title row, a grid of keys, then a hairline, as the SwiftUI grid laid them out.
         func layout() -> UICollectionViewCompositionalLayout {
-            UICollectionViewCompositionalLayout { [weak self] sectionIndex, environment in
+            KeyGridLayout { [weak self] sectionIndex, environment in
                 guard let self, let grid = self.grid, sectionIndex < grid.sections.count else { return nil }
                 let rows = self.appliedOrder.indices.contains(sectionIndex) ? self.appliedOrder[sectionIndex] : []
                 let width = environment.container.effectiveContentSize.width - grid.horizontalPadding * 2
@@ -80,7 +89,8 @@ struct CutlingKeyGrid<Key: View>: UIViewRepresentable {
 
                 var groups: [NSCollectionLayoutItem] = []
                 if rows.contains(where: { if case .title = $0 { true } else { false } }) {
-                    let size = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(26))
+                    // The title row sizes itself: its text with the old paddings (top: spacing, bottom: 4).
+                    let size = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(30))
                     groups.append(NSCollectionLayoutGroup.horizontal(layoutSize: size, subitems: [NSCollectionLayoutItem(layoutSize: size)]))
                 }
                 let keyCount = rows.filter { if case .key = $0 { true } else { false } }.count
@@ -105,13 +115,17 @@ struct CutlingKeyGrid<Key: View>: UIViewRepresentable {
                     groups.append(NSCollectionLayoutGroup.horizontal(layoutSize: size, subitems: [NSCollectionLayoutItem(layoutSize: size)]))
                 }
                 guard !groups.isEmpty else { return nil }
-                let height = groups.reduce(CGFloat(0)) { $0 + ($1.layoutSize.heightDimension.dimension) }
                 let whole = NSCollectionLayoutGroup.vertical(
-                    layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(height)),
+                    layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(200)),
                     subitems: groups)
                 let section = NSCollectionLayoutSection(group: whole)
+                // The old stack: the last section's keys sit `spacing` below the top when nothing comes before
+                // them, and `spacing` above the bottom; a titled section has no padding of its own.
+                let isLast = sectionIndex == grid.sections.count - 1
+                let anythingBefore = self.appliedOrder.prefix(sectionIndex).contains { !$0.isEmpty }
                 section.contentInsets = NSDirectionalEdgeInsets(
-                    top: grid.spacing, leading: grid.horizontalPadding, bottom: grid.spacing, trailing: grid.horizontalPadding)
+                    top: isLast && !anythingBefore ? grid.spacing : 0, leading: grid.horizontalPadding,
+                    bottom: isLast ? grid.spacing : 0, trailing: grid.horizontalPadding)
                 return section
             }
         }
@@ -129,6 +143,8 @@ struct CutlingKeyGrid<Key: View>: UIViewRepresentable {
                         .foregroundStyle(.secondary)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal, 4)
+                        .padding(.top, self?.grid?.spacing ?? 0)
+                        .padding(.bottom, 4)
                 }.margins(.all, 0)
             }
             let dividerCell = UICollectionView.CellRegistration<UICollectionViewCell, Int> { cell, _, _ in
@@ -169,7 +185,14 @@ struct CutlingKeyGrid<Key: View>: UIViewRepresentable {
                     snapshot.appendItems(rows, toSection: index)
                 }
                 collection.collectionViewLayout.invalidateLayout()
-                dataSource.apply(snapshot, animatingDifferences: false)
+                if hasApplied, collection.window != nil {
+                    UIView.animate(springDuration: 0.4, bounce: 0.2) {
+                        dataSource.apply(snapshot, animatingDifferences: true)
+                    }
+                } else {
+                    dataSource.apply(snapshot, animatingDifferences: false)
+                }
+                hasApplied = true
             } else {
                 var snapshot = dataSource.snapshot()
                 let visible = collection.indexPathsForVisibleItems.compactMap { dataSource.itemIdentifier(for: $0) }
@@ -178,6 +201,24 @@ struct CutlingKeyGrid<Key: View>: UIViewRepresentable {
                 dataSource.apply(snapshot, animatingDifferences: false)
             }
         }
+    }
+}
+
+/// Keys come and go as the old grid's did: from 0.8 scale and transparent, and back.
+final class KeyGridLayout: UICollectionViewCompositionalLayout {
+    override func initialLayoutAttributesForAppearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        faded(super.initialLayoutAttributesForAppearingItem(at: itemIndexPath))
+    }
+
+    override func finalLayoutAttributesForDisappearingItem(at itemIndexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        faded(super.finalLayoutAttributesForDisappearingItem(at: itemIndexPath))
+    }
+
+    private func faded(_ attributes: UICollectionViewLayoutAttributes?) -> UICollectionViewLayoutAttributes? {
+        guard let attributes = attributes?.copy() as? UICollectionViewLayoutAttributes else { return nil }
+        attributes.alpha = 0
+        attributes.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        return attributes
     }
 }
 

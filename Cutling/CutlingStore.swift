@@ -711,7 +711,8 @@ class CutlingStore: ObservableObject {
             UIImage(cgImage: downsampled).draw(at: CGPoint(x: -(CGFloat(downsampled.width) - side) / 2,
                                                          y: -(CGFloat(downsampled.height) - side) / 2))
         }
-        if let data = thumbnail.jpegData(compressionQuality: 0.8) {
+        // Lossless, so the key shows the same pixels it drew before thumbnails were kept on disk.
+        if let data = thumbnail.pngData() {
             try? FileManager.default.createDirectory(at: thumbnailURL.deletingLastPathComponent(), withIntermediateDirectories: true)
             try? data.write(to: thumbnailURL, options: .atomic)
         }
@@ -793,7 +794,7 @@ class CutlingStore: ObservableObject {
     
     /// The image's square thumbnail on disk, in the shared container so every target reads the same one.
     func thumbnailFileURL(for filename: String) -> URL {
-        imagesDirectory.appendingPathComponent("Thumbnails", isDirectory: true).appendingPathComponent(filename + ".jpg")
+        imagesDirectory.appendingPathComponent("Thumbnails", isDirectory: true).appendingPathComponent(filename + ".png")
     }
 
     /// Clear thumbnail cache to free memory if needed
