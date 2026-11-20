@@ -64,6 +64,8 @@ struct TextDetailView: View {
     @State private var formatTask: Task<Void, Never>?
     @AppStorage("autoDetectInputTypes") private var autoDetectInputTypes = true
     @State private var undoHandler = UndoHandler()
+    /// A placeholder picked from the menu, waiting to be typed at the cursor.
+    @State private var placeholderInsertion: String?
 
     /// Lets the Name field's Return key move focus to the Text field.
     private enum Field: Hashable { case name, value }
@@ -415,6 +417,10 @@ struct TextDetailView: View {
                 }
                 .foregroundStyle(.primary)
                 .disabled(!canPaste)
+
+                if format != .code {
+                    placeholderMenu
+                }
             } header: {
                 Text("Text")
             } footer: {
@@ -803,12 +809,38 @@ struct TextDetailView: View {
     private var textEditor: some View {
         let text = undoHandler.binding($value, actionName: String(localized: "Change Text"))
         if usesNativeEditor || format != .plain {
-            FormattedTextEditor(text: text, format: $format)
+            FormattedTextEditor(text: text, format: $format, insertion: $placeholderInsertion)
         } else {
             TextEditor(text: text)
                 .focused($focusedField, equals: .value)
                 .scrollContentBackground(.hidden)
         }
+    }
+
+    /// Fill-ins, date stamps, the cursor spot and the clipboard, typed at the cursor.
+    /// Code is pasted byte for byte, so it gets none. Syntax: docs/fill-ins.md
+    private var placeholderMenu: some View {
+        Menu {
+            Section("Filled in each time you use it") {
+                Button("Fill-in Field", systemImage: "character.cursor.ibeam") {
+                    insertPlaceholder("{\(String(localized: "Name"))}")
+                }
+                Button("Today’s Date", systemImage: "calendar") { insertPlaceholder("{date}") }
+                Button("Time", systemImage: "clock") { insertPlaceholder("{time}") }
+                Button("Cursor Position", systemImage: "cursorarrow.rays") { insertPlaceholder("{cursor}") }
+                Button("Clipboard Text", systemImage: "doc.on.clipboard") { insertPlaceholder("{clipboard}") }
+            }
+        } label: {
+            Label("Add Fill-in or Date", systemImage: "curlybraces")
+        }
+        .foregroundStyle(.primary)
+        .accessibilityIdentifier("addPlaceholderMenu")
+    }
+
+    private func insertPlaceholder(_ token: String) {
+        // The native editor types at the cursor; the plain one hands over to it first.
+        usesNativeEditor = true
+        placeholderInsertion = token
     }
 
     /// Shown only when the text isn't plain; picks Plain Text, Formatted or Code.

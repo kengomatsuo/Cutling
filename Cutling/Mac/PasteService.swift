@@ -39,7 +39,9 @@ final class PasteService {
 
     /// Posts ⌘V to the system event tap. The pasteboard and frontmost app
     /// must already be set up before this is called.
-    func performPaste() {
+    /// Then presses ← `cursorBack` times, putting the cursor where a cutling's
+    /// `{cursor}` was, as Espanso places its `$|$`.
+    func performPaste(cursorBack: Int = 0) {
         guard isTrusted else { return }
         let src = CGEventSource(stateID: .hidSystemState)
         let down = CGEvent(keyboardEventSource: src, virtualKey: vKeyCode, keyDown: true)
@@ -48,7 +50,18 @@ final class PasteService {
         let up = CGEvent(keyboardEventSource: src, virtualKey: vKeyCode, keyDown: false)
         up?.flags = .maskCommand
         up?.post(tap: .cghidEventTap)
+        guard cursorBack > 0 else { return }
+        // The target app pastes asynchronously; arrows sent at once can land before the text.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.08) {
+            for _ in 0..<cursorBack {
+                CGEvent(keyboardEventSource: src, virtualKey: self.leftArrowKeyCode, keyDown: true)?.post(tap: .cghidEventTap)
+                CGEvent(keyboardEventSource: src, virtualKey: self.leftArrowKeyCode, keyDown: false)?.post(tap: .cghidEventTap)
+            }
+        }
     }
+
+    /// kVK_LeftArrow.
+    private let leftArrowKeyCode: CGKeyCode = 0x7B
 
     /// Opens the Accessibility pane in System Settings.
     func openAccessibilitySettings() {

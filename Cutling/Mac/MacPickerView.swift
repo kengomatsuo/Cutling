@@ -33,6 +33,8 @@ struct MacPickerView: View {
     @State private var isAccessibilityTrusted: Bool = PasteService.shared.isTrusted
     @State private var trustCheckTimer: Timer?
     @FocusState private var searchFieldFocused: Bool
+    /// A cutling whose blanks are being filled before it is copied or pasted.
+    @State private var filling: (cutling: Cutling, plainOnly: Bool)?
     @AppStorage("captureClipboardHistory") private var captureClipboardHistory = true
 
     /// Ordered, single-track tour through every control in the popover.
@@ -122,15 +124,29 @@ struct MacPickerView: View {
     var body: some View {
         VStack(spacing: 0) {
             header
-            if !searchActive {
+            if !searchActive && filling == nil {
                 tabBar
             }
             Divider()
             // During search the tab bar is gone; donate its vertical space
             // to the content so the total popover height stays constant
             // (no NSWindow resize when search activates or deactivates).
-            content
-                .frame(height: contentHeight + (searchActive ? tabBarHeight : 0))
+            Group {
+                if let filling {
+                    FillInForm(
+                        cutling: filling.cutling,
+                        actionTitle: surface == .pickerPanel && pasteDirectly ? "Paste Filled Text" : "Copy"
+                    ) { values in
+                        self.filling = nil
+                        copyText(filling.cutling, values: values, plainOnly: filling.plainOnly)
+                    } onCancel: {
+                        self.filling = nil
+                    }
+                } else {
+                    content
+                }
+            }
+            .frame(height: contentHeight + (searchActive || filling != nil ? tabBarHeight : 0))
             // Banner only matters in the floating picker panel: direct-paste
             // fires from there, not from the menu-bar popover (see
             // PickerPanel.handleDidPick where `cameFromPanel` gates the post).
@@ -551,7 +567,17 @@ struct MacPickerView: View {
         switch cutling.kind {
         case .text:
             // ⌥-click pastes without formatting.
-            CutlingPasteboard.copy(cutling, plainOnly: plainOnly || NSEvent.modifierFlags.contains(.option))
+            let plain = plainOnly || NSEvent.modifierFlags.contains(.option)
+            // History pastes back exactly what was copied.
+            if store.historyCutlings.contains(where: { $0.id == cutling.id }) {
+                CutlingPasteboard.copy(cutling, plainOnly: plain)
+                didPick(cutling)
+            } else if cutling.fillInFields.isEmpty {
+                copyText(cutling, values: [:], plainOnly: plain)
+            } else {
+                filling = (cutling, plain)
+            }
+            return
         case .image:
             let pb = NSPasteboard.general
             pb.clearContents()
@@ -562,13 +588,28 @@ struct MacPickerView: View {
                 }
             }
         }
+        didPick(cutling)
+    }
+
+    /// Copies a text cutling with its stamps dated and its blanks filled.
+    private func copyText(_ cutling: Cutling, values: [String: String], plainOnly: Bool) {
+        var clipboard: String?
+        if cutling.placeholders?.usesClipboard == true {
+            clipboard = NSPasteboard.general.string(forType: .string)
+        }
+        let filled = cutling.filled(.now(values: values, clipboard: clipboard ?? ""))
+        CutlingPasteboard.copy(filled.cutling, plainOnly: plainOnly)
+        didPick(cutling, cursorBack: filled.charactersAfterCursor ?? 0)
+    }
+
+    private func didPick(_ cutling: Cutling, cursorBack: Int = 0) {
         // Tell the monitor we caused this changeCount bump so it does not
         // echo the just-picked item back into history.
         CutlingAppDelegate.pasteboardMonitor?.acknowledgeCurrentPasteboardChange()
         NotificationCenter.default.post(
             name: .cutlingDidPickFromPicker,
             object: nil,
-            userInfo: ["cutlingID": cutling.id.uuidString]
+            userInfo: ["cutlingID": cutling.id.uuidString, "cursorBack": cursorBack]
         )
     }
 

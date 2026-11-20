@@ -86,6 +86,8 @@ struct CardView: View {
 
     @State private var copied = false
     @State private var showInfo = false
+    /// A cutling with blanks asks for them before it is copied; true copies without formatting.
+    @State private var fillRequest: Bool?
 
     #if os(iOS)
     private static let haptic = UIImpactFeedbackGenerator(style: .light)
@@ -135,6 +137,19 @@ struct CardView: View {
             .sheet(isPresented: $showInfo) {
                 CutlingInfoView(item: item)
                     .environmentObject(store)
+            }
+            .sheet(isPresented: Binding(get: { fillRequest != nil }, set: { if !$0 { fillRequest = nil } })) {
+                FillInForm(cutling: item, actionTitle: "Copy") { values in
+                    let plainOnly = fillRequest ?? false
+                    fillRequest = nil
+                    CutlingPasteboard.copyFilled(item, values: values, plainOnly: plainOnly)
+                    didCopy()
+                } onCancel: {
+                    fillRequest = nil
+                }
+                #if os(macOS)
+                .frame(width: 360, height: 320)
+                #endif
             }
             // Tutorial: a `.disabled` card ignores taps, the long-press menu,
             // and the ⋯ button. `.ellipsisOnly` keeps the ⋯ live (handled in
@@ -209,7 +224,11 @@ struct CardView: View {
             if item.kind == .text, item.textFormat == .rich {
                 Button {
                     markContextMenuDiscovered()
-                    CutlingPasteboard.copy(item, plainOnly: true)
+                    if item.fillInFields.isEmpty {
+                        CutlingPasteboard.copyFilled(item, plainOnly: true)
+                    } else {
+                        fillRequest = true
+                    }
                 } label: {
                     Label("Copy as Plain Text", systemImage: "textformat")
                 }
@@ -463,7 +482,11 @@ struct CardView: View {
     private func copyToClipboard() {
         switch item.kind {
         case .text:
-            CutlingPasteboard.copy(item)
+            guard item.fillInFields.isEmpty else {
+                fillRequest = false
+                return
+            }
+            CutlingPasteboard.copyFilled(item)
 
         case .image:
             if let filename = item.imageFilename,
@@ -481,7 +504,10 @@ struct CardView: View {
                 #endif
             }
         }
+        didCopy()
+    }
 
+    private func didCopy() {
         copied = true
         #if os(iOS)
         unsafe UIAccessibility.post(notification: .announcement, argument: String(localized: "Copied"))

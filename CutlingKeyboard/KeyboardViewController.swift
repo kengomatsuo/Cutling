@@ -61,6 +61,8 @@ final class KeyboardState: ObservableObject {
     @Published var textContentType: UITextContentType?
     /// Letters/digits typed right before the cursor.
     @Published var wordBeforeCursor: String = ""
+    /// A cutling with fill-ins waiting at a blank.
+    @Published var fill: FillSession?
 }
 
 // MARK: - Keyboard Sound
@@ -257,6 +259,10 @@ class KeyboardViewController: UIInputViewController {
         keyboardState.textContentType = contentType
         refreshWordBeforeCursor()
         cacheTextReplacements()
+        // Back from typing a blank in another keyboard: pick up where it stopped.
+        if keyboardState.fill == nil, let session = FillSession.load() {
+            keyboardState.fill = session
+        }
         
         // Only create the hosting controller once
         if hostingController == nil {
@@ -267,7 +273,10 @@ class KeyboardViewController: UIInputViewController {
                 store: store,
                 state: keyboardState,
                 onInsertText: { inputVC.textDocumentProxy.insertText($0); inputVC.refreshWordBeforeCursor() },
-                onInsertCutling: { inputVC.insertCutling($0, replacingCount: $1, smartSpacing: $2) },
+                onUseCutling: { inputVC.use($0, replacingCount: $1, smartSpacing: $2) },
+                onFillPick: { inputVC.fillPick($0) },
+                onFillNext: { inputVC.fillNext() },
+                onFillCancel: { inputVC.fillCancel() },
                 onCopyImage: { data in
                     // Set the raw image bytes directly without decoding to UIImage.
                     // UIImage(data:) decompresses to a bitmap that can be 10-30x the
@@ -390,14 +399,113 @@ class KeyboardViewController: UIInputViewController {
         String(context.reversed().prefix { $0.isLetter || $0.isNumber || $0 == "_" || $0 == "-" }.reversed())
     }
 
-    /// Inserts a cutling, optionally replacing the typed word and spacing it from the text before.
-    fileprivate func insertCutling(_ value: String, replacingCount: Int, smartSpacing: Bool) {
+    /// Types a cutling, optionally replacing the typed word and spacing it from the text before.
+    /// Stamps and the clipboard are filled in; a blank stops typing until the user fills it.
+    fileprivate func use(_ cutling: Cutling, replacingCount: Int, smartSpacing: Bool) {
         let proxy = textDocumentProxy
         let before = String((proxy.documentContextBeforeInput ?? "").dropLast(replacingCount))
         for _ in 0..<replacingCount { proxy.deleteBackward() }
-        // Code goes in byte-for-byte.
-        proxy.insertText(smartSpacing ? Self.spaced(value, after: before, keyboardType: proxy.keyboardType ?? .default, contentType: proxy.textContentType) : value)
+        func spaced(_ text: String) -> String {
+            // Code goes in byte-for-byte.
+            smartSpacing ? Self.spaced(text, after: before, keyboardType: proxy.keyboardType ?? .default, contentType: proxy.textContentType) : text
+        }
+        guard let template = cutling.placeholders else {
+            proxy.insertText(spaced(cutling.plainValue))
+            refreshWordBeforeCursor()
+            return
+        }
+        // A new cutling replaces a blank left waiting.
+        fillCancel()
+        let clipboard = template.usesClipboard && hasFullAccess ? UIPasteboard.general.string : nil
+        var chunks = template.chunks(.now(clipboard: clipboard ?? ""))
+        if case .text(let first)? = chunks.first { chunks[0] = .text(spaced(first)) }
+        let title = cutling.name.isEmpty ? (template.fields.first?.label ?? "") : cutling.name
+        let session = FillSession(cutlingID: cutling.id, title: title, pending: chunks, fieldCount: template.fields.count)
+        runFill(session)
+    }
+
+    /// Types pending pieces until a blank needs the user, or the cutling is done.
+    private func runFill(_ start: FillSession) {
+        var session = start
+        session.field = nil
+        while !session.pending.isEmpty {
+            let chunk = session.pending.removeFirst()
+            switch chunk {
+            case .text(let text):
+                type(text, in: &session)
+            case .cursor:
+                session.afterCursor = 0
+            case .field(let field):
+                // A blank with the same name as one already filled repeats its value.
+                if let value = session.values[field.key] {
+                    type(value, in: &session)
+                    continue
+                }
+                session.field = field
+                session.fieldNumber += 1
+                keyboardState.fill = session
+                FillSession.save(session)
+                refreshWordBeforeCursor()
+                return
+            }
+        }
+        // Done: put the cursor where `{cursor}` was.
+        if let after = session.afterCursor, after > 0, !session.cursorLost {
+            textDocumentProxy.adjustTextPosition(byCharacterOffset: -after)
+        }
+        keyboardState.fill = nil
+        FillSession.save(nil)
         refreshWordBeforeCursor()
+    }
+
+    private func type(_ text: String, in session: inout FillSession) {
+        guard !text.isEmpty else { return }
+        textDocumentProxy.insertText(text)
+        session.tail = String((session.tail + text).suffix(40))
+        if let after = session.afterCursor { session.afterCursor = after + Self.cursorLength(text) }
+    }
+
+    /// The offset `adjustTextPosition(byCharacterOffset:)` needs to step back over `text`.
+    static func cursorLength(_ text: String) -> Int { text.utf16.count }
+
+    /// A saved value or the clipboard fills the current blank.
+    fileprivate func fillPick(_ value: String) {
+        guard var session = keyboardState.fill, let field = session.field else { return }
+        // Anything the user already typed for this blank is replaced.
+        if let typed = session.typedValue(in: textDocumentProxy.documentContextBeforeInput ?? "") {
+            for _ in typed { textDocumentProxy.deleteBackward() }
+        }
+        type(value, in: &session)
+        session.values[field.key] = value
+        FillInMemory.remember([field.key: value])
+        runFill(session)
+    }
+
+    /// The user typed the blank in place; type the rest.
+    fileprivate func fillNext() {
+        guard var session = keyboardState.fill, let field = session.field else { return }
+        let context = textDocumentProxy.documentContextBeforeInput ?? ""
+        if var typed = session.typedValue(in: context) {
+            // A space the keyboard added after a word goes before punctuation that follows.
+            if typed.hasSuffix(" "), case .text(let next)? = session.pending.first,
+               let first = next.first, first == " " || ".,;:!?)]}…".contains(first) {
+                textDocumentProxy.deleteBackward()
+                typed.removeLast()
+            }
+            session.values[field.key] = typed
+            FillInMemory.remember([field.key: typed])
+            session.tail = String((session.tail + typed).suffix(40))
+            if let after = session.afterCursor { session.afterCursor = after + Self.cursorLength(typed) }
+        } else if session.afterCursor != nil {
+            session.cursorLost = true
+        }
+        runFill(session)
+    }
+
+    /// Leaves what was typed and forgets the rest.
+    fileprivate func fillCancel() {
+        keyboardState.fill = nil
+        FillSession.save(nil)
     }
 
     /// Adds a space after a word, and drops a doubled one.
@@ -701,7 +809,10 @@ struct KeyboardView: View {
     @ObservedObject var store: CutlingStore
     @ObservedObject var state: KeyboardState
     let onInsertText: (String) -> Void
-    let onInsertCutling: (String, Int, Bool) -> Void
+    let onUseCutling: (Cutling, Int, Bool) -> Void
+    let onFillPick: (String) -> Void
+    let onFillNext: () -> Void
+    let onFillCancel: () -> Void
     let onCopyImage: (Data) -> Void
     let onBackspace: () -> Bool
     let onDeleteWord: (Int) -> Bool
@@ -747,8 +858,24 @@ struct KeyboardView: View {
                 .frame(height: keyHeight + keySpacing)
                 .padding(.top, keySpacing)
 
-            cutlingGrid
-                .frame(height: gridHeight)
+            Group {
+                if let session = state.fill, let field = session.field {
+                    FillInPanel(
+                        session: session,
+                        field: field,
+                        canPaste: state.hasFullAccess,
+                        onPick: onFillPick,
+                        onNext: onFillNext,
+                        onCancel: onFillCancel,
+                        bundle: snapshotBundle
+                    )
+                    .transition(.opacity)
+                } else {
+                    cutlingGrid
+                }
+            }
+            .frame(height: gridHeight)
+            .animation(.easeOut(duration: 0.15), value: state.fill?.field)
 
             bottomRow
                 .padding(.horizontal, KeyStyle.horizontalPadding)
@@ -1057,7 +1184,7 @@ struct KeyboardView: View {
               state.hasFullAccess, !CutlingPasteboard.alwaysPastesPlain
         else { return nil }
         return {
-            CutlingPasteboard.copy(cutling)
+            CutlingPasteboard.copy(cutling.filled(.now(values: nil)).cutling)
             copiedStyledID = cutling.id
             showCopied(cutling.id)
             incrementPasteCount()
@@ -1068,7 +1195,7 @@ struct KeyboardView: View {
         guard !isBlockedByASCIIField(cutling) else { return }
         switch cutling.kind {
         case .text:
-            onInsertCutling(cutling.plainValue, replacesWord ? state.wordBeforeCursor.count : 0, cutling.textFormat != .code)
+            onUseCutling(cutling, replacesWord ? state.wordBeforeCursor.count : 0, cutling.textFormat != .code)
             copiedStyledID = nil
             showCopied(cutling.id)
             incrementPasteCount()

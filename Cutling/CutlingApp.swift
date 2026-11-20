@@ -183,6 +183,9 @@ struct CutlingApp: App {
                     } else if ProcessInfo.processInfo.arguments.contains("-FORMAT_TEST") {
                         store.seedForFormatTests()
                         UserDefaults.standard.removeObject(forKey: "keyboardSetupPage")
+                    } else if ProcessInfo.processInfo.arguments.contains("-FILLIN_TEST") {
+                        store.seedForFillInTests()
+                        UserDefaults.standard.removeObject(forKey: "keyboardSetupPage")
                     } else if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") {
                         if ProcessInfo.processInfo.arguments.contains("-PROMO_MODE") {
                             store.seedForPromo()

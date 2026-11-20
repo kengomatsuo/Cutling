@@ -44,9 +44,11 @@ struct GetLatestCutlingTextIntent: AppIntent {
             entity: CutlingAppEntity(id: latest.id, name: latest.name)
         )
 
+        // Stamps are dated; blanks stay as written for a shortcut to replace.
+        let text = latest.filled(.now(values: nil)).cutling.plainValue
         return .result(
-            value: latest.plainValue,
-            dialog: IntentDialog(stringLiteral: latest.plainValue),
+            value: text,
+            dialog: IntentDialog(stringLiteral: text),
             view: LatestCutlingSnippetView(item: item)
         )
     }

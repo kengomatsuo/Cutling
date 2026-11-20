@@ -90,6 +90,19 @@ extension CutlingStore {
         save()
     }
 
+    /// Fill-in tests: a cutling with a typed blank, a choice, a date stamp and the cursor spot,
+    /// and one with only a stamp. Saved values and any half-typed keyboard session are cleared.
+    func seedForFillInTests() {
+        cutlings = [
+            Cutling(name: "Reply", value: "Hi {Name}, your {Plan: Basic | Pro} order ships {date:yyyy-MM-dd}.{cursor} Thanks!", icon: "envelope", sortOrder: 0),
+            Cutling(name: "Stamp", value: "Today: {date:yyyy-MM-dd}", icon: "calendar", sortOrder: 1),
+        ]
+        save()
+        let group = UserDefaults(suiteName: "group.com.matsuokengo.Cutling")
+        group?.removeObject(forKey: FillInMemory.defaultsKey)
+        group?.removeObject(forKey: "keyboardFillSession")
+    }
+
     /// A promo take's seed, in the language its viewer reads: `-PROMO_LANG id|en|ja`.
     /// `-PROMO_WITHOUT_BANK` leaves the bank card out and keeps the grid short, for the take that saves it.
     /// `-PROMO_CLIP` puts the bank text on the clipboard, written by this app so

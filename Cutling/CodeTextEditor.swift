@@ -17,6 +17,8 @@ import SwiftUI
 struct FormattedTextEditor {
     @Binding var text: String
     @Binding var format: TextFormat
+    /// Text to type at the cursor, such as a placeholder from the editor's menu; cleared once typed.
+    var insertion: Binding<String?> = .constant(nil)
 
     fileprivate static func rendered(_ text: String, format: TextFormat, size: CGFloat) -> NSAttributedString {
         RichText.nsAttributed(format == .rich ? text : RichText.escape(text), size: size, editorColors: true)
@@ -46,6 +48,12 @@ extension FormattedTextEditor: UIViewRepresentable {
         // Only outside changes (paste button, undo, format switch) reload the view.
         if text != coordinator.lastText || format != coordinator.lastFormat {
             coordinator.load(view, text: text, format: format)
+        }
+        if let pending = insertion.wrappedValue {
+            // Typed like a key press, so undo, the delegate and the binding all see it.
+            view.insertText(pending)
+            coordinator.textViewDidChange(view)
+            DispatchQueue.main.async { insertion.wrappedValue = nil }
         }
     }
 
@@ -138,6 +146,11 @@ extension FormattedTextEditor: NSViewRepresentable {
         if coordinator.configuredFormat != format { coordinator.configure(view, for: format) }
         if text != coordinator.lastText || format != coordinator.lastFormat {
             coordinator.load(view, text: text, format: format)
+        }
+        if let pending = insertion.wrappedValue {
+            view.insertText(pending, replacementRange: view.selectedRange())
+            coordinator.textDidChange(Notification(name: NSText.didChangeNotification, object: view))
+            DispatchQueue.main.async { insertion.wrappedValue = nil }
         }
     }
 

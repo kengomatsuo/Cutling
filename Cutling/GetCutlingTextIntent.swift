@@ -37,9 +37,11 @@ struct GetCutlingTextIntent: AppIntent {
                 dialog: IntentDialog(stringLiteral: String(localized: "No Cutlings Yet"))
             )
         }
+        // Stamps are dated; blanks stay as written for a shortcut to replace.
+        let text = cutling.filled(.now(values: nil)).cutling.plainValue
         return .result(
-            value: cutling.plainValue,
-            dialog: IntentDialog(stringLiteral: cutling.plainValue)
+            value: text,
+            dialog: IntentDialog(stringLiteral: text)
         )
     }
 }

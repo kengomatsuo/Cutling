@@ -80,8 +80,9 @@ final class CutlingPickerController {
             forName: .cutlingDidPickFromPicker,
             object: nil,
             queue: .main
-        ) { [weak self] _ in
-            Task { @MainActor [weak self] in self?.handleDidPick() }
+        ) { [weak self] note in
+            let cursorBack = note.userInfo?["cursorBack"] as? Int ?? 0
+            Task { @MainActor [weak self] in self?.handleDidPick(cursorBack: cursorBack) }
         }
         NotificationCenter.default.addObserver(
             forName: .cutlingPickerWillHide,
@@ -97,7 +98,7 @@ final class CutlingPickerController {
     /// we know the previous frontmost app, restore that app and post ⌘V into
     /// it. Otherwise: copy-only. The feature is opt-in via Settings → Paste,
     /// so Accessibility is never used unless the user explicitly asked for it.
-    private func handleDidPick() {
+    private func handleDidPick(cursorBack: Int = 0) {
         let cameFromPanel = panel?.isVisible == true
         hide()
         guard cameFromPanel else { return }
@@ -120,7 +121,7 @@ final class CutlingPickerController {
         // frontmost status before the synthetic ⌘V arrives.
         app.activate(options: [.activateAllWindows])
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
-            PasteService.shared.performPaste()
+            PasteService.shared.performPaste(cursorBack: cursorBack)
         }
     }
 

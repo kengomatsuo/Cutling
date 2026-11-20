@@ -23,3 +23,11 @@
 "Image: %@" = "ছবি: %@";
 "Clip: %@" = "ক্লিপ: %@";
 "Copy" = "কপি";
+
+/* MARK: - Fill-ins (docs/fill-ins-strings-brief.md) */
+"%lld of %lld" = "%2$lldটির মধ্যে %1$lld";
+"Type it with your keyboard" = "আপনার কীবোর্ডে টাইপ করুন";
+"Paste" = "পেস্ট";
+"Next" = "পরবর্তী";
+"Done" = "সম্পন্ন";
+"Cancel" = "বাতিল";

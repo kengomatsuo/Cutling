@@ -141,6 +141,8 @@
 			membershipExceptions = (
 				Cutling.swift,
 				CutlingStore.swift,
+				FillIn.swift,
+				Placeholders.swift,
 				RichText.swift,
 			);
 			target = CFA06CA32F45AD10005CD274 /* CutlingKeyboard */;
