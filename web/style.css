@@ -296,6 +296,13 @@ a:hover { text-decoration: underline; }
     box-shadow: var(--shadow);
 }
 
+/* ===== Buyer pains, in their words ===== */
+.pains-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 40px; list-style: none; padding: 0; margin: 28px 0 0; }
+.pains-list li { border-left: 3px solid var(--brand); padding-left: 16px; }
+.pains-list h3 { font-size: 17px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+.pains-list p { font-size: 15px; color: var(--ink-2); margin: 0; }
+@media (max-width: 768px) { .pains-list { grid-template-columns: 1fr; } }
+
 /* ===== Features Grid ===== */
 .features-grid {
     display: grid;

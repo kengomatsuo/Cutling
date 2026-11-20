@@ -144,8 +144,7 @@ language's normal title separator). They appear in browser tabs and search resul
 
 ## Front page — hero
 
-- `hero_title` — the headline, large, centred. It says: your clipboard, now organised.
-  Very short. A noun phrase, not a sentence, if that reads better in your language.
+- `hero_title` — the headline, large, centred: your snippets are one keyboard shortcut away. Very short, punchy, the way an ad in your language would say it.
 - `hero_subtitle` — one paragraph under the headline. It must convey: you save text
   snippets and images, and can reach them instantly — from a custom keyboard on iPhone
   and iPad, or from a menu-bar app and a global keyboard shortcut on Mac. Then, curtly:
@@ -154,6 +153,31 @@ language's normal title separator). They appear in browser tabs and search resul
   own localized wording for "Download on the App Store" in your market if one exists.
 - `cta_button_mac` — secondary button leading to the Mac page. Says: get Cutling for
   Mac. Short, brand form plus "for Mac".
+
+## Front page — what buyers complain about (added 2026-11-20)
+
+A section right after the film. Each `_q` is a short plain heading naming a problem
+Cutling fixes, in the everyday words people of your language use for it (no quote marks,
+not a sentence someone says). Each `_a` is Cutling's honest answer, plain, with no
+stronger claim than described here.
+
+- `pains_title` — heading: what Cutling fixes.
+- `pain1_q` — retyping your address and bank details.
+- `pain1_a` — save address, bank details, email signature and saved replies once; then
+  switch to the Cutling keyboard in any app and tap the one you need.
+- `pain2_q` — paying every year for a clipboard app.
+- `pain2_a` — Cutling is paid once: no subscription, nothing to buy inside the app, and
+  the Mac app comes with the same purchase.
+- `pain3_q` — Text Replacement (iOS's name) that stops syncing.
+- `pain3_a` — cutlings sync between iPhone, iPad and Mac through the person's own iCloud,
+  and each holds whole paragraphs, formatting or an image, not only a short phrase.
+- `pain4_q` — worrying what a keyboard with Full Access (iOS's name) can see.
+- `pain4_a` — the keyboard needs Full Access to read the cutlings you saved; no account,
+  no server, no analytics, no third-party code; App Store label says Data Not Collected
+  (use the App Store's own wording for that label in your language).
+- `pain5_q` — passwords piling up in clipboard history.
+- `pain5_a` — on Mac, Cutling's history skips anything a password manager marks as
+  concealed, so a copied password never lands in it.
 
 ## Front page — hero picture
 
@@ -324,6 +348,22 @@ calm and concrete.
 - `faq_a9` — they move to a "Recently Deleted" folder and are kept there for 30 days.
   You can restore them in that window or let them expire on their own. Use the app's own
   name for that folder in your language, in quotation marks.
+
+- `faq_q12` — how do I save my address and bank details on my iPhone keyboard?
+- `faq_a12` — add each as a cutling in the app, turn on the Cutling keyboard in Settings,
+  then in any app switch to it with the globe key and tap the one you want.
+- `faq_q13` — can Cutling keep a clipboard history on iPhone?
+- `faq_a13` — no: iOS lets no app read what you copy while it runs in the background, so
+  no iPhone app can build a full history. On iPhone Cutling keeps what you save; the Mac
+  app keeps the clipboard history.
+- `faq_q14` — why isn't my clipboard syncing between iPhone and Mac?
+- `faq_a14` — copy on one device and paste on another is Apple's Universal Clipboard
+  (Apple's name for it in your language), which needs both on the same Apple Account with
+  Wi-Fi, Bluetooth and Handoff on. Cutling syncs saved cutlings through iCloud instead, so
+  they are on every device; the Mac clipboard history stays on the Mac.
+- `faq_q15` — can snippets have blanks to fill in, like TextExpander?
+- `faq_a15` — not yet: a cutling pastes exactly what was saved. Fill-in fields and date
+  stamps are what we are building next.
 
 ## Support page
 

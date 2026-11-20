@@ -437,7 +437,7 @@ TITLE_KEYS = {  # sub-page titles carry the store subtitle, so they say what Cut
     "faq/index.html": "page_title_faq", "download/index.html": "page_title_download",
     "privacy/index.html": "page_title_privacy", "terms/index.html": "page_title_terms",
 }
-FAQ_PAIRS = [f"faq_{n}" for n in (1, 2, 3, 4, 5, 6, 7, 10, 11, 8, 9)]
+FAQ_PAIRS = [f"faq_{n}" for n in (1, 2, 3, 4, 5, 6, 7, 10, 12, 13, 14, 15, 11, 8, 9)]
 
 
 def plain(value):
