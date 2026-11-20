@@ -222,6 +222,24 @@ def report_translation_status(locale_code, translation, source):
         print(f"  MISSING TRANSLATION FILE: {locale_code}.json")
 
 
+# The stylesheet is inlined into every page's head: at about 5 KB gzipped it costs less than the round
+# trip a <link> makes the first paint wait for. style.css still ships for 404.html and older caches.
+INLINE_CSS = re.sub(r"\s*\n\s*", "\n", re.sub(r"/\*.*?\*/", "", (DOCS_DIR / "style.css").read_text(encoding="utf-8"), flags=re.S)).strip()
+
+
+def speed_up(html, root):
+    """Head and image delivery shared by every generated page: the stylesheet inline, the app icon at
+    192 px instead of the 512 px PNG, and third-party footer badges loaded only when scrolled near."""
+    html = re.sub(r'<link rel="stylesheet" href="[^"]*/style\.css">', lambda _: f"<style>{INLINE_CSS}</style>", html, count=1)
+    html = re.sub(r'(<img [^>]*src=")' + re.escape(root) + r'/icon\.png"', r"\1" + root + '/icon-192.webp"', html)
+    return html
+
+
+def lazy(markup):
+    """Below-the-fold images from other sites never compete with the first paint."""
+    return markup.replace("<img ", '<img loading="lazy" decoding="async" ')
+
+
 def film_html(locale_code, translation, root):
     """The explainer film for a locale whose language has its own voice read, else nothing."""
     language = locale_code.split("-")[0]
@@ -231,7 +249,7 @@ def film_html(locale_code, translation, root):
     return (
         '    <section class="film">\n'
         f'        <video class="film-video" controls playsinline preload="none" aria-label="{label}" '
-        f'poster="{root}/film/poster-{language}.jpg" width="1920" height="1080" '
+        f'poster="{root}/film/poster-{language}.avif" width="1920" height="1080" '
         f'src="{root}/film/cutling-{language}.mp4"></video>\n'
         "    </section>\n"
     )
@@ -253,7 +271,7 @@ def generate_page(template_content, translation, en_translation, locale_code, is
     html = html.replace("{{LANGUAGE_PICKER}}", picker_html)
     html = html.replace("{{FILM}}", film_html(locale_code, translation, root))
     html = html.replace("</head>", f'    <script src="{root}/store-source.js" defer></script>\n</head>', 1)
-    html = html.replace("{{DIRECTORY_BADGES}}", '<div class="directory-badges">' + "".join(DIRECTORY_BADGES) + "</div>")
+    html = html.replace("{{DIRECTORY_BADGES}}", lazy('<div class="directory-badges">' + "".join(DIRECTORY_BADGES) + "</div>"))
 
     for key in en_translation:
         if key.startswith("_"):
@@ -263,7 +281,7 @@ def generate_page(template_content, translation, en_translation, locale_code, is
             value = translation.get(key, en_translation[key])
             html = html.replace(placeholder, value)
 
-    return html
+    return speed_up(html, root)
 
 
 def clean_generated(locales):
@@ -817,6 +835,10 @@ def main():
                 code, is_rtl, root, lang_prefix, picker_html, template_rel
             )
 
+            # On a locale path locale-router.js only records the language: that one line runs inline
+            # instead of a render-blocking script request.
+            html = html.replace(f'<script src="{root}/locale-router.js"></script>',
+                                f"<script>try{{localStorage.setItem('cutling_lang_preference','{web_code(code)}')}}catch(e){{}}</script>")
             out_path = DOCS_DIR / web_code(code) / template_rel
 
             out_path.parent.mkdir(parents=True, exist_ok=True)

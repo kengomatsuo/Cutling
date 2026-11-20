@@ -271,6 +271,7 @@ deploy_web() {
   cp "$WEB/fuzzy-redirect.js" "$DIST/"
   cp "$WEB/favicon.ico" "$DIST/"
   cp "$WEB/icon.png" "$DIST/"
+  cp "$WEB/icon-192.webp" "$DIST/"
   # The link preview: Mac frame 01 at 1200x630, written by fastlane/compose/render_all.py.
   cp "$WEB/og.png" "$DIST/"
   # The explainer film and its poster in en, id and ja.
