@@ -29,38 +29,6 @@ final class FormattingUITests: XCTestCase {
         }
     }
 
-    /// Adds the Cutling keyboard with Full Access through Settings when it isn't there yet.
-    @MainActor
-    private func addKeyboardInSettings() {
-        let settings = XCUIApplication(bundleIdentifier: "com.apple.Preferences")
-        settings.launch()
-        for label in ["General", "Keyboard", "Keyboards"] {
-            let cell = settings.cells.staticTexts[label].firstMatch
-            XCTAssertTrue(cell.waitForExistence(timeout: 5), "Settings: '\(label)' not found")
-            cell.tap()
-            sleep(1)
-        }
-        let cutling = settings.cells.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'Cutling'")).firstMatch
-        if !cutling.exists {
-            let addNew = settings.cells["AddNewKeyboard"].firstMatch
-            if !addNew.exists { settings.swipeUp() }
-            addNew.tap()
-            let option = settings.cells.staticTexts["Cutling"].firstMatch
-            if !option.waitForExistence(timeout: 3) { settings.swipeUp() }
-            option.tap()
-            sleep(1)
-        }
-        XCTAssertTrue(cutling.waitForExistence(timeout: 5), "Cutling keyboard not added")
-        cutling.tap()
-        let fullAccess = settings.switches.matching(NSPredicate(format: "label CONTAINS[c] 'Allow Full Access'")).firstMatch
-        if fullAccess.waitForExistence(timeout: 3), fullAccess.value as? String == "0" {
-            fullAccess.switches.firstMatch.tap()
-            let allow = settings.alerts.buttons["Allow"].firstMatch
-            if allow.waitForExistence(timeout: 3) { allow.tap() }
-        }
-        settings.terminate()
-    }
-
     @MainActor
     func testKeyboardInsertsByFormat() throws {
         let app = XCUIApplication()
@@ -68,72 +36,13 @@ final class FormattingUITests: XCTestCase {
         // Launch once so iOS registers the keyboard extension, then add it.
         app.launch()
         app.terminate()
-        addKeyboardInSettings()
+        addCutlingKeyboardInSettings()
         app.launch()
 
-        // A first launch opens the setup guide itself; otherwise open it from the toolbar.
-        if !app.buttons["continueButton"].firstMatch.waitForExistence(timeout: 5) {
-            let card = app.descendants(matching: .any).matching(identifier: "cutlingCard").firstMatch
-            XCTAssertTrue(card.waitForExistence(timeout: 15), "Seeded cards did not appear")
-            shot("01_grid")
-            let kbButton = app.buttons["keyboardToolbarButton"].firstMatch
-            XCTAssertTrue(kbButton.waitForExistence(timeout: 5))
-            kbButton.tap()
-            let guide = app.buttons["keyboardSetupGuide"].firstMatch
-            if !guide.waitForExistence(timeout: 3) { app.swipeUp() }
-            XCTAssertTrue(guide.waitForExistence(timeout: 5))
-            // The sheet can still be animating in; retry until the guide opens.
-            for _ in 0..<3 where !app.buttons["continueButton"].firstMatch.waitForExistence(timeout: 3) {
-                guide.tap()
-            }
-        }
-        // The guide reopens on its last page: step back to the first, then forward to the test page.
-        let field = app.textFields["keyboardTestField"].firstMatch
-        for _ in 0..<6 where !field.exists {
-            let back = app.navigationBars.buttons.firstMatch
-            guard back.exists else { break }
-            back.tap()
-            sleep(1)
-        }
-        for _ in 0..<2 where !field.exists {
-            let cont = app.buttons["continueButton"].firstMatch
-            XCTAssertTrue(cont.waitForExistence(timeout: 3))
-            cont.tap()
-            sleep(1)
-        }
-        XCTAssertTrue(field.waitForExistence(timeout: 3), "Keyboard test field not found")
-        field.tap()
-        sleep(2)
-
-        // Cutling's keys aren't in the tree, so zero keys means Cutling is up.
-        // The globe sits bottom-left under every keyboard; wait for each switch to land.
-        // Keys also read zero mid-switch, so require it to hold for two seconds.
-        func cutlingIsUp() -> Bool {
-            var steady = 0
-            for _ in 0..<10 {
-                steady = app.keys.count == 0 && app.buttons["dictation"].exists ? steady + 1 : 0
-                if steady >= 4 { return true }
-                usleep(500_000)
-            }
-            return false
-        }
-        let globe = app.coordinate(withNormalizedOffset: CGVector(dx: 0.09, dy: 0.955))
-        // Long-pressing the globe lists every keyboard; pick Cutling there first.
-        if !cutlingIsUp() {
-            globe.press(forDuration: 1.2)
-            let entry = app.descendants(matching: .any)
-                .matching(NSPredicate(format: "label == 'Cutling' AND elementType != %d", XCUIElement.ElementType.navigationBar.rawValue))
-                .allElementsBoundByIndex.last
-            if let entry, entry.exists, entry.isHittable { entry.tap() } else { globe.tap() }
-            sleep(2)
-        }
-        for _ in 0..<10 where !cutlingIsUp() {
-            globe.tap()
-            let tip = app.buttons.matching(NSPredicate(format: "label == 'Continue' AND identifier != 'continueButton'")).firstMatch
-            if tip.waitForExistence(timeout: 1) { tip.tap(); sleep(1) }
-        }
+        let field = openKeyboardTestField(in: app) { shot("01_grid") }
+        switchToCutlingKeyboard(in: app)
         shot("02_keyboard")
-        XCTAssertTrue(cutlingIsUp(), "Cutling keyboard did not come up (keys: \(app.keys.count))")
+        XCTAssertTrue(cutlingKeyboardIsUp(in: app), "Cutling keyboard did not come up (keys: \(app.keys.count))")
 
         // Two-column grid: Rich, Code / Plain.
         let rich = app.coordinate(withNormalizedOffset: CGVector(dx: 0.25, dy: 0.71))

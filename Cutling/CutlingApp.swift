@@ -79,6 +79,16 @@ class SceneDelegate: NSObject, UIWindowSceneDelegate {
 #endif
 
 #if !os(macOS)
+#if DEBUG
+extension CutlingApp {
+    /// UI tests that drive the keyboard start on the grid, with no setup guide or tutorial.
+    static var isKeyboardTestRun: Bool {
+        let arguments = ProcessInfo.processInfo.arguments
+        return arguments.contains("-FORMAT_TEST") || arguments.contains("-MEMORY_TEST")
+    }
+}
+#endif
+
 @main
 struct CutlingApp: App {
     #if os(iOS)
@@ -127,8 +137,8 @@ struct CutlingApp: App {
             "autoDetectInputTypes": true,
         ])
         #if DEBUG
-        // FormattingUITests start on the grid, not the first-run guide.
-        if ProcessInfo.processInfo.arguments.contains("-FORMAT_TEST") {
+        // FormattingUITests and KeyboardMemoryUITests start on the grid, not the first-run guide.
+        if Self.isKeyboardTestRun {
             UserDefaults.standard.set(true, forKey: "hasCompletedSetup")
             // Each run sees the one-time tips afresh.
             try? Tips.resetDatastore()
@@ -167,7 +177,10 @@ struct CutlingApp: App {
                 #endif
                 .onAppear {
                     #if DEBUG
-                    if ProcessInfo.processInfo.arguments.contains("-FORMAT_TEST") {
+                    if ProcessInfo.processInfo.arguments.contains("-MEMORY_TEST") {
+                        store.seedForMemoryTest()
+                        UserDefaults.standard.removeObject(forKey: "keyboardSetupPage")
+                    } else if ProcessInfo.processInfo.arguments.contains("-FORMAT_TEST") {
                         store.seedForFormatTests()
                         UserDefaults.standard.removeObject(forKey: "keyboardSetupPage")
                     } else if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") {

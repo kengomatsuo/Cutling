@@ -210,6 +210,71 @@ extension CutlingStore {
         save()
     }
 
+    /// KeyboardMemoryUITests' worst case, past the caps on purpose:
+    /// `-MEMTEST_IMAGES m` image cutlings, each a full-size 4032×3024 PNG as the editor saves a photo,
+    /// then `-MEMTEST_TEXT n` text cutlings at the full `maxTextLength` in mixed scripts,
+    /// a third each Plain, Formatted and Code. A store already holding those counts is kept.
+    func seedForMemoryTest() {
+        let defaults = UserDefaults.standard
+        let textCount = defaults.integer(forKey: "MEMTEST_TEXT")
+        let imageCount = defaults.integer(forKey: "MEMTEST_IMAGES")
+        if textCutlingsCount == textCount, imageCutlingsCount == imageCount { return }
+        for filename in cutlings.compactMap(\.imageFilename) {
+            deleteImageFile(named: filename)
+        }
+        var seeded: [Cutling] = []
+        #if os(iOS)
+        if imageCount > 0, let photo = Self.memoryTestPhoto() {
+            for index in 0..<imageCount {
+                let id = UUID()
+                seeded.append(Cutling(
+                    id: id, name: "Photo \(index + 1)", value: "", icon: "photo", kind: .image,
+                    imageFilename: saveImageData(photo, for: id), sortOrder: seeded.count
+                ))
+            }
+        }
+        #endif
+        let mixed = "Invoice 2026-118 for **Alex Chen**, see [terms](https://example.com/terms). "
+            + "お振込みは月末までにお願いいたします。 Überweisung bis Monatsende 🙂 "
+            + "func pay(_ amount: Int) -> Bool { amount > 0 } "
+        let value = String(String(repeating: mixed, count: CutlingStore.maxTextLength / mixed.count + 1)
+            .prefix(CutlingStore.maxTextLength))
+        let formats: [TextFormat] = [.plain, .rich, .code]
+        for index in 0..<textCount {
+            seeded.append(Cutling(
+                name: "Snippet \(index + 1)", value: value, icon: "doc.text",
+                sortOrder: seeded.count, color: "blue", format: formats[index % formats.count]
+            ))
+        }
+        cutlings = seeded
+        save()
+    }
+
+    #if os(iOS)
+    /// A 12-megapixel photo-like PNG: a gradient under a few thousand translucent circles.
+    private static func memoryTestPhoto() -> Data? {
+        let size = CGSize(width: 4032, height: 3024)
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 1
+        let image = UIGraphicsImageRenderer(size: size, format: format).image { context in
+            let cg = context.cgContext
+            let colors = [UIColor.systemTeal.cgColor, UIColor.systemOrange.cgColor] as CFArray
+            if let gradient = CGGradient(colorsSpace: CGColorSpaceCreateDeviceRGB(), colors: colors, locations: nil) {
+                cg.drawLinearGradient(gradient, start: .zero, end: CGPoint(x: size.width, y: size.height), options: [])
+            }
+            var generator = SystemRandomNumberGenerator()
+            for _ in 0..<3000 {
+                let radius = CGFloat.random(in: 8...120, using: &generator)
+                let center = CGPoint(x: .random(in: 0...size.width, using: &generator),
+                                     y: .random(in: 0...size.height, using: &generator))
+                UIColor(hue: .random(in: 0...1, using: &generator), saturation: 0.6, brightness: 0.9, alpha: 0.35).setFill()
+                cg.fillEllipse(in: CGRect(x: center.x - radius, y: center.y - radius, width: radius * 2, height: radius * 2))
+            }
+        }
+        return image.pngData()
+    }
+    #endif
+
     #if os(macOS)
     /// Language-neutral clipboard history for the Mac History frame.
     func seedHistoryForSnapshots() {

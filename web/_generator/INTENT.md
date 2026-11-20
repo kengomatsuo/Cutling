@@ -285,7 +285,9 @@ calm and concrete.
 - `faq_q4` — is my data safe?
 - `faq_a4` — yes. Zero data collected: no analytics, no tracking, no crash reports, no
   third-party SDKs. Cutlings are stored locally on the device, or in your own iCloud
-  account if you switch sync on. The developer has no way of reaching your data.
+  account if you switch sync on. The developer has no way of reaching your data. On Mac,
+  the clipboard history stays on that Mac, is never synced, and skips anything a password
+  manager marks as concealed, so copied passwords never land in it.
 - `faq_q5` — how does iCloud sync work?
 - `faq_a5` — when switched on, it uses Apple's private CloudKit database to keep
   cutlings in sync across your Apple devices. Only you can reach that data, through your
@@ -444,7 +446,8 @@ Six cards, short title plus two sentences.
   turn on.
 - `mac_history_title` / `_desc` — clipboard history. Everything you copy is captured
   automatically so nothing gets lost, and you can save the ones worth keeping with one
-  click.
+  click. Anything a password manager marks as concealed is skipped, so a copied password
+  never lands in the history. Two short sentences at most; it sits on a feature card.
 - `mac_sync_title` / `_desc` — iCloud sync. Turn on iCloud to keep saved cutlings in step
   across iPhone, iPad and Mac; optional and private.
 - `mac_privacy_title` / `_desc` — private by design. No accounts, no analytics, no

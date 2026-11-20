@@ -553,7 +553,7 @@ struct MainContentView: View {
     private func startTutorialIfUnseen() {
         #if DEBUG
         let args = ProcessInfo.processInfo.arguments
-        if args.contains("-SNAPSHOT_MODE") || args.contains("-FORMAT_TEST") { return }
+        if args.contains("-SNAPSHOT_MODE") || CutlingApp.isKeyboardTestRun { return }
         #endif
         guard hasCompletedSetup, !hasSeenInteractiveTutorial, !tutorial.isActive else { return }
         // The walkthrough's first act is creating a cutling; at the text limit
