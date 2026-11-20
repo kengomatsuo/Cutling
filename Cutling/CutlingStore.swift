@@ -661,7 +661,7 @@ class CutlingStore: ObservableObject {
         do {
             // Mapped, so a large file's pages come from disk as they are read instead of all landing in
             // memory at once: the keyboard copies image files whole and has 77 MB in all.
-            let data = try Data(contentsOf: fileURL, options: .mappedIfSafe)
+            let data = try Data(contentsOf: fileURL, options: .alwaysMapped)
             return data
         } catch {
             print("❌ Failed to load image \(filename): \(error)")
