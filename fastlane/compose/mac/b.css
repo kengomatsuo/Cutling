@@ -1,0 +1,33 @@
+/* Direction B, "on the desktop": a brand wallpaper, the real app UI floated on it
+   with a deep shadow, a white headline beside it. 1440x900 CSS, rendered at 2x. */
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+:root{--panel-w:1440px;--panel-h:900px;--device-top-ratio:1}
+html,body{width:1440px;height:900px;overflow:hidden;background:#000}
+.panel{position:relative;width:1440px;height:900px;overflow:hidden;font-family:-apple-system,"SF Pro Display",system-ui,sans-serif}
+html.wide,html.wide body,html.wide .panel{height:756px}
+.wall{position:absolute;left:0;top:0;width:1440px;height:900px}
+.wall.flip{transform:scaleX(-1)}
+/* the copy column: centred on the frame's height, shrunk by fit.js until it fits */
+.wrap{position:absolute;z-index:3;display:flex;flex-direction:column;justify-content:center;top:56px;bottom:56px}
+.wrap.top{top:64px;bottom:auto;height:200px;justify-content:flex-start}
+.icon{width:112px;height:112px;margin-bottom:34px;filter:drop-shadow(0 18px 30px rgba(0,0,0,.28))}
+.headline{font-weight:800;font-size:86px;line-height:1;letter-spacing:-.035em;color:#fff;text-wrap:balance;text-shadow:0 2px 30px rgba(0,0,0,.25)}
+.sub{font-weight:500;font-size:33px;line-height:1.2;letter-spacing:-.01em;color:rgba(255,255,255,.88);margin-top:24px;text-wrap:balance}
+/* a window or panel on the desktop */
+.win{position:absolute;z-index:2;overflow:hidden;
+ box-shadow:0 60px 120px -30px rgba(0,0,0,.62),0 24px 50px -24px rgba(0,0,0,.45),0 0 0 1px rgba(255,255,255,.16)}
+.win img{display:block;width:100%;height:auto}
+/* a capture that carries its own shadow and corners (macOS window capture) */
+.cap{position:absolute;z-index:2;display:block}
+/* the macOS menu bar */
+.bar{position:absolute;left:0;right:0;top:0;height:40px;z-index:4;display:flex;align-items:center;justify-content:flex-end;gap:26px;padding:0 28px;
+ background:rgba(255,255,255,.16);backdrop-filter:blur(40px) saturate(1.6);border-bottom:1px solid rgba(255,255,255,.12);color:#fff;font-family:inherit;font-weight:600;font-size:19px}
+.bar .on{height:32px;padding:0 12px;border-radius:9px;background:rgba(255,255,255,.28);display:grid;place-items:center}
+.bar img{height:21px}
+.bar.dark{background:rgba(0,0,0,.28)}
+/* keycaps */
+.keys{display:flex;gap:14px;margin-top:40px}
+.keys b{width:84px;height:84px;border-radius:18px;display:grid;place-items:center;font-family:-apple-system,system-ui,sans-serif;font-weight:600;font-size:40px;color:#fff;
+ background:linear-gradient(180deg,rgba(255,255,255,.28),rgba(255,255,255,.12));border:1px solid rgba(255,255,255,.35);
+ box-shadow:0 6px 0 rgba(0,0,0,.18),0 14px 30px -8px rgba(0,0,0,.35)}
+.keys.big b{width:120px;height:120px;border-radius:26px;font-size:58px}

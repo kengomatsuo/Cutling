@@ -5,7 +5,8 @@
 // broken. CoreText shapes every script and lays out right-to-left text.
 //
 // Usage: compose <jobs.json>
-//   [{"input","output","device":"iphone|ipad|mac","title","subtitle","lang","dark"}]
+//   [{"input","output","device":"iphone|ipad","title","subtitle","lang","dark"}]
+// Mac frames are HTML pages rendered by headless Chrome (render_all.py, compose/mac).
 
 import AppKit
 import CoreText
@@ -107,21 +108,20 @@ func render(_ job: Job) throws {
     ctx.fill(CGRect(origin: .zero, size: size))
 
     let scale = size.width / 1290
-    let isMac = job.device == "mac"
-    let textWidth = size.width - (isMac ? 520 : 150 * scale)
+    let textWidth = size.width - 150 * scale
     // A job with no subtitle is a headline frame: one large heavy result line
-    let headline = job.subtitle.isEmpty && !isMac
-    let titleSize: CGFloat = isMac ? 104 : (headline ? 132 : 92) * scale
-    let subSize: CGFloat = isMac ? 60 : 56 * scale
-    var y: CGFloat = isMac ? 110 : (headline ? 100 : 150) * scale
+    let headline = job.subtitle.isEmpty
+    let titleSize: CGFloat = (headline ? 132 : 92) * scale
+    let subSize: CGFloat = 56 * scale
+    var y: CGFloat = (headline ? 100 : 150) * scale
     y = drawText(job.title, in: ctx, top: y, width: textWidth, canvas: size,
                  size: titleSize, maxLines: 2, lang: job.lang, alpha: 1, weight: headline ? .heavy : .bold)
     if !headline {
-        y += isMac ? 24 : 26 * scale
+        y += 26 * scale
         y = drawText(job.subtitle, in: ctx, top: y, width: textWidth, canvas: size,
                      size: subSize, maxLines: 2, lang: job.lang, alpha: 0.88)
     }
-    y += isMac ? 80 : (headline ? 70 : 90) * scale
+    y += (headline ? 70 : 90) * scale
 
     guard let shot = cgImage(job.input) else { throw NSError(domain: "compose", code: 1) }
 
@@ -141,19 +141,19 @@ func render(_ job: Job) throws {
         ctx.restoreGState()
         ctx.draw(frame, in: rect)
     } else {
-        // iPad and Mac: rounded screen with a dark bezel and soft shadow
-        let maxW = size.width * (isMac ? 0.80 : 0.86)
-        let maxH = isMac ? size.height - y - 60 : CGFloat.greatestFiniteMagnitude
+        // iPad: rounded screen with a dark bezel and soft shadow
+        let maxW = size.width * 0.86
+        let maxH = CGFloat.greatestFiniteMagnitude
         let k = min(maxW / CGFloat(shot.width), maxH / CGFloat(shot.height))
         let w = CGFloat(shot.width) * k, h = CGFloat(shot.height) * k
         let rect = CGRect(x: (size.width - w) / 2, y: size.height - y - h, width: w, height: h)
-        let bezel = isMac ? 0 : 28 * scale
-        let radius: CGFloat = isMac ? 22 : 56 * scale
+        let bezel = 28 * scale
+        let radius: CGFloat = 56 * scale
         let outer = rect.insetBy(dx: -bezel, dy: -bezel)
         ctx.saveGState()
         ctx.setShadow(offset: CGSize(width: 0, height: -20), blur: 60,
                       color: CGColor(gray: 0, alpha: 0.35))
-        ctx.setFillColor(CGColor(gray: isMac ? 1 : 0.08, alpha: 1))
+        ctx.setFillColor(CGColor(gray: 0.08, alpha: 1))
         ctx.addPath(CGPath(roundedRect: outer, cornerWidth: radius + bezel, cornerHeight: radius + bezel,
                            transform: nil))
         ctx.fillPath()

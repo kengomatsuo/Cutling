@@ -1,0 +1,34 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+*{margin:0;padding:0}html,body{width:1440px;height:900px;overflow:hidden}
+.grain{position:absolute;inset:0;opacity:.10;mix-blend-mode:overlay;
+ background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+</style></head><body>
+<!-- The B wallpaper, one per palette, rendered once to wall-<palette>.png:
+     "Google Chrome" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=2 --window-size=1440,900 --screenshot=wall-red.png "file://$PWD/wall.html#red" -->
+<svg id="w" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%">
+<defs>
+<linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="deep"/><stop offset=".55" class="mid"/><stop offset="1" class="base"/></linearGradient>
+<linearGradient id="g2" x1="1" y1="0" x2="0" y2="1"><stop offset="0" class="light" stop-opacity=".95"/><stop offset=".35" class="accent"/><stop offset="1" class="deep" stop-opacity="0"/></linearGradient>
+<linearGradient id="g3" x1="0" y1="1" x2="1" y2="0"><stop offset="0" class="base"/><stop offset=".6" class="mid"/><stop offset="1" class="accent"/></linearGradient>
+<filter id="b1"><feGaussianBlur stdDeviation="18"/></filter><filter id="b2"><feGaussianBlur stdDeviation="3"/></filter><filter id="b3"><feGaussianBlur stdDeviation="60"/></filter>
+</defs>
+<rect width="1440" height="900" class="basef"/>
+<ellipse cx="1100" cy="180" rx="700" ry="420" class="midf" opacity=".55" filter="url(#b3)"/>
+<path d="M-200 760 C 200 420, 620 980, 1000 560 S 1500 260, 1700 420 L 1700 1100 L -200 1100 Z" fill="url(#g1)" filter="url(#b2)"/>
+<path d="M-200 520 C 260 260, 640 760, 1060 380 S 1520 40, 1700 120 L 1700 300 C 1460 260, 1200 520, 980 640 S 300 560, -200 820 Z" fill="url(#g2)" opacity=".9" filter="url(#b2)"/>
+<path d="M-200 980 C 300 700, 760 1020, 1180 760 S 1560 600, 1700 700 L 1700 1100 L -200 1100 Z" fill="url(#g3)" opacity=".95" filter="url(#b2)"/>
+<path d="M-100 560 C 320 330, 650 770, 1060 410 S 1480 90, 1640 150" fill="none" class="lights" stroke-width="10" opacity=".55" filter="url(#b1)"/>
+<path d="M-100 820 C 330 640, 760 960, 1160 740" fill="none" class="lights" stroke-width="6" opacity=".4" filter="url(#b1)"/>
+</svg><div class="grain"></div>
+<script>
+// base, deep, mid, accent, light
+const P={
+ red:["#1A0306","#7A0D17","#D9302B","#FF7A5E","#FFE1D8"],
+ reddark:["#0A0103","#3A050A","#9E1D1F","#D5483A","#FFB3A1"],
+ green:["#062A23","#0F6B57","#1FAE8F","#7EEBCB","#E8FFF7"],
+ greendark:["#020E0B","#073A2F","#137A63","#3FC7A3","#B8F5E2"]}[location.hash.slice(1)];
+const [base,deep,mid,accent,light]=P;
+const css=`.base{stop-color:${base}}.deep{stop-color:${deep}}.mid{stop-color:${mid}}.accent{stop-color:${accent}}.light{stop-color:${light}}
+.basef{fill:${base}}.midf{fill:${mid}}.lights{stroke:${light}}`;
+document.head.insertAdjacentHTML("beforeend","<style>"+css+"</style>");
+</script></body></html>
