@@ -5,8 +5,860 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cutling – preuzimanje - Tipkovnica s međuspremnikom</title>
     <link rel="icon" type="image/x-icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="../../style.css">
-    <script src="../../locale-router.js"></script>
+    <style>:root {
+color-scheme: light dark;
+--bg: #fbfbfa;
+--bg-alt: #f3f3f1;
+--surface: #ffffff;
+--line: #e6e6e3;
+--ink: #1d1d1f;
+--ink-2: #55555b;
+--ink-3: #6e6e73;
+--accent: #007a56;
+--accent-hover: #00684a;
+--on-accent: #ffffff;
+--brand: #00be86;
+--tint: #e8f6f0;
+--shadow: 0 10px 34px rgba(0, 0, 0, 0.10);
+--shadow-pop: 0 6px 24px rgba(0, 0, 0, 0.12);
+--radius: 14px;
+--radius-lg: 24px;
+--ease: cubic-bezier(0.2, 0, 0, 1);
+--dur: 220ms;
+--band-from: #0b3b2e;
+--band-to: #0d5c45;
+--on-band: #ffffff;
+--on-band-2: rgba(255, 255, 255, 0.82);
+--keycap: rgba(255, 255, 255, 0.14);
+}
+@media (prefers-color-scheme: dark) {
+:root {
+--bg: #161618;
+--bg-alt: #1e1e21;
+--surface: #232326;
+--line: #34343a;
+--ink: #f5f5f7;
+--ink-2: #a1a1a6;
+--ink-3: #8e8e93;
+--accent: #3ad6a6;
+--accent-hover: #5ce3b9;
+--on-accent: #0b1f17;
+--tint: #12302a;
+--shadow: 0 10px 34px rgba(0, 0, 0, 0.45);
+--shadow-pop: 0 6px 24px rgba(0, 0, 0, 0.5);
+}
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+background: var(--bg);
+color: var(--ink);
+line-height: 1.7;
+-webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; font-weight: 600; }
+a:hover { text-decoration: underline; }
+.site-nav {
+display: flex;
+align-items: center;
+justify-content: space-between;
+max-width: 960px;
+margin: 0 auto;
+padding: 20px 24px;
+}
+.site-nav .nav-brand {
+display: flex;
+align-items: center;
+gap: 10px;
+text-decoration: none;
+color: var(--ink);
+font-size: 20px;
+font-weight: 700;
+letter-spacing: -0.3px;
+}
+.site-nav .nav-brand:hover { text-decoration: none; }
+.site-nav .nav-brand img {
+width: 28px;
+height: 28px;
+border-radius: 6px;
+}
+.nav-toggle { display: none; }
+.nav-toggle-label { display: none; }
+.nav-links {
+display: flex;
+gap: 28px;
+list-style: none;
+}
+.nav-links a {
+color: var(--ink-2);
+font-size: 14px;
+font-weight: 500;
+text-decoration: none;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a.active { color: var(--ink); font-weight: 600; }
+.container {
+max-width: 640px;
+margin: 0 auto;
+padding: 40px 24px 80px;
+}
+.container.container-compare { max-width: 1000px; }
+.table-wrap { position: relative; overflow-x: auto; margin: 24px 0 8px; border: 1px solid var(--line); border-radius: var(--radius); }
+.compare { border-collapse: collapse; width: 100%; min-width: 880px; font-size: 14px; line-height: 1.45; }
+.compare th, .compare td { padding: 12px 14px; text-align: start; vertical-align: top; border-bottom: 1px solid var(--line); }
+.compare tbody tr:last-child > * { border-bottom: 0; }
+.compare thead th { background: var(--bg-alt); font-weight: 600; color: var(--ink); }
+.compare tbody th { font-weight: 600; color: var(--ink); width: 13%; }
+.compare td { color: var(--ink-2); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.container-compare .section, .container-compare .page-header, .container-compare .summary-box { max-width: 640px; margin-inline: auto; }
+.container-compare .summary-box { margin-block: 24px 36px; }
+.container-wide {
+max-width: 960px;
+margin: 0 auto;
+padding: 0 24px;
+}
+.hero {
+text-align: center;
+padding: 80px 24px 60px;
+}
+.hero h1 {
+font-size: 48px;
+font-weight: 700;
+letter-spacing: -1.5px;
+line-height: 1.1;
+color: var(--ink);
+margin-bottom: 16px;
+}
+.hero .hero-subtitle {
+font-size: 18px;
+color: var(--ink-2);
+max-width: 560px;
+margin: 0 auto 32px;
+line-height: 1.6;
+}
+.cta-button {
+display: inline-block;
+background: var(--accent);
+color: var(--on-accent);
+font-size: 16px;
+font-weight: 600;
+padding: 14px 32px;
+border-radius: 980px;
+text-decoration: none;
+transition: background 0.2s;
+}
+.cta-button:hover {
+background: var(--accent-hover);
+text-decoration: none;
+}
+.content-section {
+padding: 64px 24px;
+}
+.content-section .section-inner {
+max-width: 960px;
+margin: 0 auto;
+}
+.content-section.alt-bg {
+background: var(--bg-alt);
+}
+.content-section h2 {
+font-size: 32px;
+font-weight: 700;
+letter-spacing: -0.5px;
+color: var(--ink);
+margin-bottom: 16px;
+}
+.content-section p {
+font-size: 16px;
+color: var(--ink-2);
+margin-bottom: 16px;
+line-height: 1.7;
+}
+.content-section .section-inner > p:last-child {
+margin-bottom: 0;
+}
+.steps {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 32px;
+margin-top: 32px;
+}
+.step {
+padding: 24px;
+background: var(--surface);
+border-radius: 12px;
+border: 1px solid var(--line);
+}
+.step-number {
+display: inline-block;
+width: 28px;
+height: 28px;
+line-height: 28px;
+text-align: center;
+border-radius: 50%;
+background: var(--accent);
+color: var(--on-accent);
+font-size: 14px;
+font-weight: 700;
+margin-bottom: 12px;
+}
+.step h3 {
+font-size: 17px;
+font-weight: 600;
+color: var(--ink);
+margin-bottom: 8px;
+}
+.step p {
+font-size: 15px;
+color: var(--ink-2);
+margin: 0;
+}
+.step-row {
+display: flex;
+align-items: center;
+gap: 48px;
+max-width: 960px;
+margin: 0 auto;
+padding: 32px 24px;
+}
+.step-row.reverse {
+flex-direction: row-reverse;
+}
+.step-text {
+flex: 1;
+}
+.step-text h3 {
+font-size: 22px;
+font-weight: 600;
+color: var(--ink);
+margin-bottom: 8px;
+}
+.step-text p {
+font-size: 16px;
+color: var(--ink-2);
+margin: 0;
+line-height: 1.7;
+}
+.step-image {
+flex: 1;
+display: flex;
+justify-content: center;
+height: 606px;
+}
+.step-image img {
+width: 280px;
+height: 606px;
+object-fit: cover;
+border-radius: 20px;
+box-shadow: var(--shadow);
+}
+.features-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 24px;
+margin-top: 32px;
+}
+.feature-card {
+padding: 24px;
+background: var(--surface);
+border-radius: 12px;
+border: 1px solid var(--line);
+}
+.feature-card .feature-icon {
+width: 36px;
+height: 36px;
+margin-bottom: 12px;
+display: block;
+}
+.feature-icon-pair {
+display: flex;
+flex-direction: row;
+gap: 8px;
+width: auto;
+height: auto;
+}
+.feature-icon-pair svg {
+width: 36px;
+height: 36px;
+}
+.feature-card h3 {
+font-size: 17px;
+font-weight: 600;
+color: var(--ink);
+margin-bottom: 6px;
+}
+.feature-card p {
+font-size: 15px;
+color: var(--ink-2);
+margin: 0;
+}
+.screenshots {
+display: flex;
+justify-content: center;
+gap: 20px;
+padding: 60px 40px;
+overflow-x: auto;
+scroll-snap-type: x mandatory;
+-webkit-overflow-scrolling: touch;
+scrollbar-width: none;
+}
+.screenshots::-webkit-scrollbar { display: none; }
+.screenshots img {
+flex: 0 0 auto;
+width: 200px;
+height: auto;
+border-radius: 20px;
+box-shadow: var(--shadow);
+scroll-snap-align: center;
+}
+.page-header {
+text-align: center;
+margin-bottom: 48px;
+padding-bottom: 32px;
+border-bottom: 1px solid var(--line);
+}
+.page-header h1 {
+font-size: 28px;
+font-weight: 700;
+letter-spacing: -0.5px;
+color: var(--ink);
+}
+.page-header .page-subtitle {
+font-size: 15px;
+font-weight: 500;
+color: var(--ink-3);
+margin-top: 6px;
+}
+.summary-box {
+background: var(--tint);
+border-radius: 12px;
+padding: 20px 24px;
+margin: 24px 0 36px;
+}
+.summary-box p {
+color: var(--ink);
+font-weight: 500;
+margin: 0;
+font-size: 15px;
+}
+.section {
+margin-bottom: 8px;
+}
+.section h2 {
+font-size: 19px;
+font-weight: 600;
+letter-spacing: -0.2px;
+color: var(--ink);
+margin: 36px 0 12px;
+}
+.section p {
+font-size: 15px;
+color: var(--ink-2);
+margin-bottom: 16px;
+}
+.section ul {
+list-style: none;
+padding: 0;
+margin-bottom: 16px;
+}
+.section ul li {
+font-size: 15px;
+color: var(--ink-2);
+padding-left: 20px;
+margin-bottom: 8px;
+position: relative;
+}
+.section ul li::before {
+content: "\2022";
+position: absolute;
+left: 0;
+}
+.changelog {
+margin-top: 12px;
+font-size: 14px;
+color: var(--ink-3);
+}
+.faq-item {
+border-bottom: 1px solid var(--line);
+}
+.faq-item summary {
+font-size: 17px;
+font-weight: 600;
+color: var(--ink);
+padding: 20px 0;
+cursor: pointer;
+list-style: none;
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+content: "+";
+font-size: 22px;
+font-weight: 400;
+color: var(--ink-3);
+transition: transform 0.2s;
+}
+.faq-item[open] summary::after {
+content: "\2212";
+}
+.faq-item .faq-answer {
+padding: 0 0 20px;
+}
+.faq-item .faq-answer p {
+font-size: 15px;
+color: var(--ink-2);
+margin: 0;
+}
+.support-section {
+margin-bottom: 40px;
+}
+.support-section h2 {
+font-size: 19px;
+font-weight: 600;
+letter-spacing: -0.2px;
+color: var(--ink);
+margin-bottom: 12px;
+}
+.support-section h3 {
+font-size: 16px;
+font-weight: 600;
+color: var(--ink);
+margin: 24px 0 8px;
+}
+.support-section p {
+font-size: 15px;
+color: var(--ink-2);
+margin-bottom: 12px;
+}
+.site-footer {
+margin-top: 48px;
+padding: 24px;
+border-top: 1px solid var(--line);
+text-align: center;
+}
+.site-footer .footer-links {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 8px 24px;
+list-style: none;
+margin-bottom: 16px;
+}
+.site-footer .footer-links a {
+color: var(--ink-3);
+font-size: 13px;
+font-weight: 500;
+text-decoration: none;
+}
+.site-footer .footer-links a:hover { color: var(--ink); }
+.site-footer .copyright {
+font-size: 13px;
+color: var(--ink-3);
+}
+.emphasis-block {
+font-size: 20px;
+font-weight: 600;
+color: var(--ink);
+line-height: 1.5;
+margin-bottom: 20px;
+}
+@media (max-width: 768px) {
+.nav-toggle-label {
+display: flex;
+flex-direction: column;
+gap: 5px;
+cursor: pointer;
+padding: 4px;
+}
+.nav-toggle-label span {
+display: block;
+width: 22px;
+height: 2px;
+background: var(--ink);
+border-radius: 1px;
+transition: transform 0.2s, opacity 0.2s;
+}
+.nav-links {
+display: none;
+position: absolute;
+top: 64px;
+left: 0;
+right: 0;
+background: var(--bg);
+flex-direction: column;
+padding: 16px 24px 24px;
+gap: 16px;
+border-bottom: 1px solid var(--line);
+z-index: 10;
+}
+.nav-toggle:checked ~ .nav-links {
+display: flex;
+}
+.nav-toggle:checked ~ .nav-toggle-label span:nth-child(1) {
+transform: rotate(45deg) translate(5px, 5px);
+}
+.nav-toggle:checked ~ .nav-toggle-label span:nth-child(2) {
+opacity: 0;
+}
+.nav-toggle:checked ~ .nav-toggle-label span:nth-child(3) {
+transform: rotate(-45deg) translate(5px, -5px);
+}
+.site-nav {
+position: relative;
+}
+.hero { padding: 48px 24px 40px; }
+.hero h1 { font-size: 34px; }
+.hero .hero-subtitle { font-size: 16px; }
+.content-section { padding: 48px 24px; }
+.content-section h2 { font-size: 26px; }
+.step-row { flex-direction: column; gap: 24px; padding: 24px; }
+.step-row.reverse { flex-direction: column; }
+.step-image { height: 520px; }
+.step-image img { width: 240px; height: 520px; }
+.steps { grid-template-columns: 1fr; gap: 20px; }
+.features-grid { grid-template-columns: 1fr; gap: 16px; }
+.screenshots { gap: 14px; }
+.screenshots img { width: 160px; border-radius: 16px; }
+}
+.lang-picker {
+position: relative;
+}
+.lang-dropdown-wrapper {
+position: relative;
+}
+.lang-dropdown-wrapper summary {
+cursor: pointer;
+list-style: none;
+font-size: 14px;
+font-weight: 500;
+color: var(--ink-2);
+display: flex;
+align-items: center;
+gap: 4px;
+}
+.lang-dropdown-wrapper summary::-webkit-details-marker { display: none; }
+.lang-dropdown-wrapper summary:hover { color: var(--ink); }
+.lang-dropdown-wrapper summary::after {
+content: "";
+display: inline-block;
+width: 0;
+height: 0;
+border-left: 4px solid transparent;
+border-right: 4px solid transparent;
+border-top: 4px solid currentColor;
+margin-left: 4px;
+}
+.lang-dropdown {
+position: absolute;
+top: 100%;
+right: 0;
+margin-top: 8px;
+background: var(--surface);
+border: 1px solid var(--line);
+border-radius: 10px;
+padding: 6px 0;
+min-width: 180px;
+max-height: 320px;
+overflow-y: auto;
+z-index: 100;
+box-shadow: var(--shadow-pop);
+list-style: none;
+}
+.lang-dropdown li {
+margin: 0;
+padding: 0;
+}
+.lang-dropdown a {
+display: block;
+padding: 6px 16px;
+font-size: 14px;
+font-weight: 400;
+color: var(--ink-2);
+text-decoration: none;
+}
+.lang-dropdown a:hover {
+background: var(--bg-alt);
+text-decoration: none;
+}
+.lang-dropdown a.active {
+font-weight: 600;
+color: var(--ink);
+}
+@media (max-width: 768px) {
+.lang-dropdown {
+position: static;
+box-shadow: none;
+border: none;
+border-top: 1px solid var(--line);
+border-radius: 0;
+margin-top: 4px;
+max-height: 200px;
+}
+}
+@keyframes reveal-up {
+from {
+opacity: 0;
+transform: translateY(32px);
+}
+}
+@supports (animation-timeline: view()) {
+@media (prefers-reduced-motion: no-preference) {
+.hero,
+.section-inner,
+.step-row,
+.feature-card,
+.faq-item,
+.support-section,
+.section,
+.summary-box,
+.page-header {
+animation: reveal-up linear both;
+animation-timeline: view();
+animation-range: entry 0% entry 30%;
+}
+.features-grid .feature-card:nth-child(2) { animation-range: entry 4%  entry 34%; }
+.features-grid .feature-card:nth-child(3) { animation-range: entry 8%  entry 38%; }
+.features-grid .feature-card:nth-child(4) { animation-range: entry 12% entry 42%; }
+.features-grid .feature-card:nth-child(5) { animation-range: entry 16% entry 46%; }
+.features-grid .feature-card:nth-child(6) { animation-range: entry 20% entry 50%; }
+.features-grid .feature-card:nth-child(7) { animation-range: entry 24% entry 54%; }
+.features-grid .feature-card:nth-child(8) { animation-range: entry 28% entry 58%; }
+}
+}
+[dir="rtl"] {
+direction: rtl;
+text-align: right;
+}
+[dir="rtl"] .site-nav { flex-direction: row-reverse; }
+[dir="rtl"] .nav-links { flex-direction: row-reverse; }
+[dir="rtl"] .step-row { flex-direction: row-reverse; }
+[dir="rtl"] .step-row.reverse { flex-direction: row; }
+[dir="rtl"] .section ul li { padding-left: 0; padding-right: 20px; }
+[dir="rtl"] .section ul li::before { left: auto; right: 0; }
+[dir="rtl"] .hero { text-align: center; }
+[dir="rtl"] .page-header { text-align: center; }
+[dir="rtl"] .site-footer { text-align: center; }
+[dir="rtl"] .lang-dropdown { right: auto; left: 0; }
+@media (max-width: 768px) {
+[dir="rtl"] .step-row { flex-direction: column; }
+[dir="rtl"] .step-row.reverse { flex-direction: column; }
+[dir="rtl"] .nav-links { flex-direction: column; }
+}
+.cta-row {
+display: flex;
+gap: 12px;
+justify-content: center;
+flex-wrap: wrap;
+margin-top: 8px;
+}
+.cta-secondary {
+background: transparent;
+color: var(--accent);
+box-shadow: inset 0 0 0 1.5px var(--accent);
+}
+.cta-secondary:hover {
+background: var(--tint);
+color: var(--accent-hover);
+}
+.cta-note {
+font-size: 13px;
+color: var(--ink-3);
+margin-top: 14px;
+}
+.download-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 24px;
+margin: 32px 0 48px;
+}
+.download-card {
+padding: 32px 24px;
+background: var(--surface);
+border-radius: 12px;
+border: 1px solid var(--line);
+text-align: center;
+}
+.download-card h2 {
+font-size: 20px;
+font-weight: 600;
+margin-bottom: 8px;
+}
+.download-card p {
+color: var(--ink-3);
+margin-bottom: 20px;
+}
+.download-card .cta-button {
+margin-bottom: 8px;
+}
+.legal-content h2 {
+font-size: 19px;
+font-weight: 600;
+letter-spacing: -0.2px;
+margin: 32px 0 8px;
+}
+.legal-content p {
+color: var(--ink-2);
+line-height: 1.6;
+}
+@media (max-width: 768px) {
+.download-grid { grid-template-columns: 1fr; gap: 16px; }
+}
+.hero-home { padding-bottom: 0; }
+.hero-icon {
+display: block;
+margin: 0 auto 20px;
+border-radius: 22%;
+box-shadow: var(--shadow-pop);
+}
+.platform-line {
+margin-top: 18px;
+font-size: 14px;
+color: var(--ink-3);
+}
+.shot {
+display: block;
+height: auto;
+border-radius: 28px;
+box-shadow: var(--shadow);
+background: var(--surface);
+}
+.shot-phone { width: min(320px, 72vw); }
+.shot-panel { width: min(320px, 72vw); border-radius: 16px; }
+.hero-media {
+position: relative;
+display: flex;
+justify-content: center;
+align-items: flex-end;
+gap: 28px;
+max-width: 960px;
+margin: 48px auto 0;
+padding: 48px 24px 0;
+border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+background: linear-gradient(180deg, var(--tint), var(--bg));
+overflow: hidden;
+}
+.hero-media .shot-phone { width: min(360px, 70vw); margin-bottom: -96px; }
+.hero-media .shot-panel { margin-bottom: 32px; }
+.film { max-width: 960px; margin: 96px auto 0; padding: 0 24px; }
+.film-video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: var(--radius-lg); background: #000; }
+.panel {
+display: grid;
+grid-template-columns: 1fr auto;
+align-items: center;
+gap: 56px;
+max-width: 960px;
+margin: 0 auto;
+padding: 96px 24px;
+}
+.panel.reverse { grid-template-columns: auto 1fr; }
+.panel.reverse .panel-text { order: 2; }
+.panel-text h2, .mac-band-text h2 {
+font-size: 32px;
+line-height: 1.2;
+letter-spacing: -0.5px;
+color: var(--ink);
+margin-bottom: 14px;
+}
+.panel-text p, .mac-band-text p {
+font-size: 18px;
+color: var(--ink-2);
+max-width: 30em;
+}
+.section-wide { max-width: 960px; }
+.tile-grid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 16px;
+margin-top: 32px;
+}
+.tile {
+padding: 22px;
+border-radius: var(--radius);
+background: var(--surface);
+border: 1px solid var(--line);
+}
+.tile-icon { width: 28px; height: 28px; color: var(--accent); margin-bottom: 12px; }
+.tile h3 { font-size: 17px; color: var(--ink); margin-bottom: 4px; }
+.tile p { font-size: 15px; color: var(--ink-2); }
+.mac-band {
+display: grid;
+grid-template-columns: 1fr auto;
+align-items: center;
+gap: 56px;
+max-width: 960px;
+margin: 48px auto;
+padding: 56px;
+border-radius: var(--radius-lg);
+background: linear-gradient(135deg, var(--band-from), var(--band-to));
+}
+.mac-band .mac-band-text h2 { color: var(--on-band); }
+.mac-band .mac-band-text p { color: var(--on-band-2); }
+.mac-band a { color: var(--on-band); text-decoration: underline; }
+.keycaps { display: flex; gap: 8px; margin-bottom: 18px; direction: ltr; }
+.keycaps kbd {
+display: inline-grid;
+place-items: center;
+min-width: 44px;
+height: 44px;
+padding: 0 10px;
+border-radius: 10px;
+font: 600 20px/1 -apple-system, BlinkMacSystemFont, sans-serif;
+color: var(--on-band);
+background: var(--keycap);
+box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.25);
+}
+a, .cta-button, .tile { transition: color var(--dur) var(--ease), background-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease); }
+@media (max-width: 768px) {
+.hero-media { gap: 12px; padding-top: 32px; }
+.hero-media .shot-panel { display: none; }
+.panel, .panel.reverse, .mac-band { grid-template-columns: 1fr; gap: 32px; padding: 56px 24px; justify-items: center; text-align: center; }
+.panel.reverse .panel-text { order: 0; }
+.panel-text p, .mac-band-text p { margin: 0 auto; }
+.keycaps { justify-content: center; }
+.mac-band { margin: 24px 16px; padding: 40px 24px; }
+.tile-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 480px) {
+.tile-grid { grid-template-columns: 1fr; }
+}
+.hero-media-mac { flex-direction: column; align-items: center; gap: 20px; padding-bottom: 48px; background: linear-gradient(180deg, var(--band-from), var(--band-to)); border-radius: var(--radius-lg); }
+.hero-media-mac .shot-panel { display: block; margin: 0; width: min(360px, 80vw); }
+.lang-suggest {
+position: fixed;
+inset-inline-end: 16px;
+bottom: calc(16px + env(safe-area-inset-bottom));
+z-index: 50;
+display: flex;
+align-items: center;
+gap: 4px;
+padding: 4px 4px 4px 16px;
+background: var(--surface);
+color: var(--ink);
+border: 1px solid var(--line);
+border-radius: 999px;
+box-shadow: var(--shadow-pop);
+}
+.lang-suggest a { color: var(--accent); font-weight: 600; text-decoration: none; padding: 10px 0; }
+.lang-suggest a:hover { color: var(--accent-hover); }
+.lang-suggest button {
+width: 44px;
+height: 44px;
+border: 0;
+border-radius: 50%;
+background: transparent;
+color: var(--ink-3);
+font-size: 22px;
+line-height: 1;
+cursor: pointer;
+}
+.lang-suggest button:hover { background: var(--bg-alt); }
+.lang-suggest a:focus-visible, .lang-suggest button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.directory-badges{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-items:center;margin:20px 0 4px}
+.directory-badges img{height:44px;width:auto;display:block}</style>
+    <script>try{localStorage.setItem('cutling_lang_preference','hr')}catch(e){}</script>
     <link rel="canonical" href="https://cutling.matsuokengo.com/hr/download/">
     <link rel="alternate" hreflang="en-US" href="https://cutling.matsuokengo.com/en-us/download/">
     <link rel="alternate" hreflang="ar-SA" href="https://cutling.matsuokengo.com/ar-sa/download/">
@@ -83,7 +935,7 @@
 <body>
     <nav class="site-nav">
         <a href="../" class="nav-brand">
-            <img src="../../icon.png" alt="Cutling" width="28" height="28">
+            <img src="../../icon-192.webp" alt="Cutling" width="28" height="28">
             Cutling
         </a>
         <input type="checkbox" id="nav-toggle" class="nav-toggle">
@@ -208,7 +1060,7 @@
             <li><a href="../terms/">Uvjeti</a></li>
         </ul>
         <p class="copyright">&copy; 2026 Kenneth Johannes Fang. Sva prava pridržana.</p>
-    <div class="directory-badges"><a href="https://nativeshelf.com/cutling?ref=badge" target="_blank" title="Featured on NativeShelf.com"><img src="https://nativeshelf.com/badge/dark.png?v=6" alt="Featured on NativeShelf.com" width="232" height="68" /></a><a href="https://macpip.com/apps/cutling?ref=badge"><img src="https://macpip.com/badge/cutling.svg" height="44" alt="Listed on MacPip"></a><a href="https://macbase.app/apps/cutling?ref=badge" target="_blank" rel="noopener"><img src="https://macbase.app/badge/featured-on-macbase.svg" alt="Cutling is featured on MacBase" height="44" style="height:44px;width:auto"></a><a href="https://macbrowse.com"><img src="https://macbrowse.com/badge/listed-light.svg" alt="Listed on Mac Browse" height="44"></a><a href="https://macappindex.com/apps/cutling?ref=badge" target="_blank" title="Cutling on Mac App Index"><img src="https://macappindex.com/apps/cutling/badge.svg?theme=light&height=56" alt="Cutling on Mac App Index" width="224" height="56" /></a><a href="https://macnative.io/apps/cutling?utm_source=macnative-badge&utm_medium=referral" target="_blank" rel="noopener"><img src="https://macnative.io/badge?kind=listed&theme=light&slug=cutling" alt="Listed on MacNative" width="212" height="58" /></a><a href="https://ipip.fyi/apps/cutling?ref=badge"><img src="https://ipip.fyi/badge/cutling.svg" alt="Cutling on iPip" width="220" height="56"></a><a href="https://postyourstartup.com/startup/cutling?ref=badge" target="_blank"><img src="https://postyourstartup.com/api/badge/cutling?theme=light" alt="Featured on PostYourStartup" width="212" height="55" /></a><a href="https://launchigniter.com/product/cutling?ref=badge-cutling" target="_blank"><img src="https://launchigniter.com/api/badge/cutling?theme=light" alt="Featured on LaunchIgniter" width="212" height="55" /></a><a href="https://ailaun.ch/projects/cutling?utm_source=badge" target="_blank" rel="noopener noreferrer"><img src="https://ailaun.ch/ailaunch/images/badges/featured-on-light.svg" alt="Featured on AI Launch" style="height:44px;width:auto"/></a><a href="https://www.nxgntools.com/tools/cutling?utm_source=cutling" target="_blank" rel="noopener" style="display: inline-block; width: auto;"><img src="https://www.nxgntools.com/api/embed/cutling?type=FIND_US_ON" alt="Find us on NxGn Tools" style="height: 48px; width: auto;" /></a><a href="https://dodolaunch.com/p/cutling?ref=badge" target="_blank"><img src="https://dodolaunch.com/badge/cutling?theme=light" alt="Cutling on DodoLaunch" width="200" height="54" /></a><a href="https://alternativeto.net/software/cutling/about/?utm_source=badge&utm_medium=referral" target="_blank"><img src="https://alternativeto.net/static/badges/badge-compact-color.svg" alt="Cutling | AlternativeTo" width="173" height="56" style="width:173px;height:56px" /></a><a href="https://indieappcatalog.com/app/5527"><img src="https://indieappcatalog.com/badge/listed-on-indie-app-catalog-black.svg" alt="Listed on Indie App Catalog" width="183" height="40"></a></div>
+    <div class="directory-badges"><a href="https://nativeshelf.com/cutling?ref=badge" target="_blank" title="Featured on NativeShelf.com"><img loading="lazy" decoding="async" src="https://nativeshelf.com/badge/dark.png?v=6" alt="Featured on NativeShelf.com" width="232" height="68" /></a><a href="https://macpip.com/apps/cutling?ref=badge"><img loading="lazy" decoding="async" src="https://macpip.com/badge/cutling.svg" height="44" alt="Listed on MacPip"></a><a href="https://macbase.app/apps/cutling?ref=badge" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="https://macbase.app/badge/featured-on-macbase.svg" alt="Cutling is featured on MacBase" height="44" style="height:44px;width:auto"></a><a href="https://macbrowse.com"><img loading="lazy" decoding="async" src="https://macbrowse.com/badge/listed-light.svg" alt="Listed on Mac Browse" height="44"></a><a href="https://macappindex.com/apps/cutling?ref=badge" target="_blank" title="Cutling on Mac App Index"><img loading="lazy" decoding="async" src="https://macappindex.com/apps/cutling/badge.svg?theme=light&height=56" alt="Cutling on Mac App Index" width="224" height="56" /></a><a href="https://macnative.io/apps/cutling?utm_source=macnative-badge&utm_medium=referral" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="https://macnative.io/badge?kind=listed&theme=light&slug=cutling" alt="Listed on MacNative" width="212" height="58" /></a><a href="https://ipip.fyi/apps/cutling?ref=badge"><img loading="lazy" decoding="async" src="https://ipip.fyi/badge/cutling.svg" alt="Cutling on iPip" width="220" height="56"></a><a href="https://postyourstartup.com/startup/cutling?ref=badge" target="_blank"><img loading="lazy" decoding="async" src="https://postyourstartup.com/api/badge/cutling?theme=light" alt="Featured on PostYourStartup" width="212" height="55" /></a><a href="https://launchigniter.com/product/cutling?ref=badge-cutling" target="_blank"><img loading="lazy" decoding="async" src="https://launchigniter.com/api/badge/cutling?theme=light" alt="Featured on LaunchIgniter" width="212" height="55" /></a><a href="https://ailaun.ch/projects/cutling?utm_source=badge" target="_blank" rel="noopener noreferrer"><img loading="lazy" decoding="async" src="https://ailaun.ch/ailaunch/images/badges/featured-on-light.svg" alt="Featured on AI Launch" style="height:44px;width:auto"/></a><a href="https://www.nxgntools.com/tools/cutling?utm_source=cutling" target="_blank" rel="noopener" style="display: inline-block; width: auto;"><img loading="lazy" decoding="async" src="https://www.nxgntools.com/api/embed/cutling?type=FIND_US_ON" alt="Find us on NxGn Tools" style="height: 48px; width: auto;" /></a><a href="https://dodolaunch.com/p/cutling?ref=badge" target="_blank"><img loading="lazy" decoding="async" src="https://dodolaunch.com/badge/cutling?theme=light" alt="Cutling on DodoLaunch" width="200" height="54" /></a><a href="https://alternativeto.net/software/cutling/about/?utm_source=badge&utm_medium=referral" target="_blank"><img loading="lazy" decoding="async" src="https://alternativeto.net/static/badges/badge-compact-color.svg" alt="Cutling | AlternativeTo" width="173" height="56" style="width:173px;height:56px" /></a><a href="https://indieappcatalog.com/app/5527"><img loading="lazy" decoding="async" src="https://indieappcatalog.com/badge/listed-on-indie-app-catalog-black.svg" alt="Listed on Indie App Catalog" width="183" height="40"></a></div>
     </footer>
 </body>
 </html>
