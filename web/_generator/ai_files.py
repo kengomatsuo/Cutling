@@ -3,7 +3,7 @@
   /llms.txt and /llms-full.txt     what the app is, in markdown (llms.txt v2)
   <page>/index.md                  a markdown copy of each English page, linked from the page
   /robots.txt                      every AI crawler and agent on the ai.robots.txt list, all allowed
-  /.well-known/ard.json            Agentic Resource Discovery manifest, also named by Agentmap: in robots.txt
+  /.well-known/ard.json            Agentic Resource Discovery manifest, named in a robots.txt comment
   /.well-known/agent-skills/       an Agent Skill that teaches an agent to answer about the app
   /.well-known/security.txt        RFC 9116 contact
   /.nojekyll                       GitHub Pages serves the files above as they are
@@ -20,7 +20,7 @@ Sources, read 2026-11-20:
   ARD, https://agenticresourcediscovery.org/spec/ §4.2 and §5.1: entries carry identifier
     (urn:air:<domain>:...), displayName, type and one of url or data, plus 2 to 5
     representativeQueries, which registries index; found at /.well-known/ard.json, rel="ard"
-    and an Agentmap: line in robots.txt. Supabase and Cloudflare Docs publish one.
+    and a robots.txt comment naming it (an Agentmap: directive fails Lighthouse's robots.txt audit). Supabase and Cloudflare Docs publish one.
   Agent Skills discovery v0.2.0, https://github.com/cloudflare/agent-skills-discovery-rfc:
     /.well-known/agent-skills/index.json lists each skill's name, type, description, url and
     sha256 digest; SKILL.md follows https://agentskills.io/specification.
@@ -76,7 +76,7 @@ def robots_txt(site):
              "# crawlers AI answers draw on. A crawler that finds its own name reads this group, not the one above."]
     lines += [f"User-agent: {n}" for n in names]
     lines += [SIGNAL, "Allow: /", "",
-              f"Agentmap: {site}/.well-known/ard.json", f"Sitemap: {site}/sitemap.xml", "",
+              f"# Agentmap: {site}/.well-known/ard.json (a comment: Lighthouse fails robots.txt on directives it does not know; agents also find it at that path and by rel=\"ard\")", f"Sitemap: {site}/sitemap.xml", "",
               f"# A summary for AI assistants: {site}/llms.txt", f"# Everything in one file: {site}/llms-full.txt"]
     return "\n".join(lines) + "\n"
 
