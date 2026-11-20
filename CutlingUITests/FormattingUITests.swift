@@ -55,15 +55,15 @@ final class FormattingUITests: XCTestCase {
         // Every tap types: a Formatted key types its text plain, like the others.
         key("Rich").tap()
         sleep(1)
-        XCTAssertEqual(field.value as? String, "Bold and link", "Formatted tap should type its text")
+        expectValue(of: field, "Bold and link", "Formatted tap should type its text")
 
         key("Code").tap()
         sleep(1)
-        XCTAssertEqual(field.value as? String, "Bold and linkprint(\"a_b\")", "Code should go in exactly")
+        expectValue(of: field, "Bold and linkprint(\"a_b\")", "Code should go in exactly")
 
         key("Plain").tap()
         sleep(1)
-        XCTAssertEqual(field.value as? String, "Bold and linkprint(\"a_b\") Hello", "Plain should be spaced from the word before")
+        expectValue(of: field, "Bold and linkprint(\"a_b\") Hello", "Plain should be spaced from the word before")
         shot("03_typed")
 
         // Long-press on the Formatted key offers Copy, which copies the styled version.
@@ -124,6 +124,15 @@ final class FormattingUITests: XCTestCase {
             // The grid stays in the tree under a pushed editor, so wait for the editor to go.
             closeEditor(in: app)
             XCTAssertFalse(detail.exists, "Editor did not close")
+        }
+    }
+
+    /// Waits for the field to hold `expected`: on a loaded Mac the keyboard's insert can land seconds after the tap.
+    @MainActor
+    private func expectValue(of field: XCUIElement, _ expected: String, _ message: String) {
+        let filled = expectation(for: NSPredicate(format: "value == %@", expected), evaluatedWith: field)
+        if XCTWaiter.wait(for: [filled], timeout: 15) != .completed {
+            XCTAssertEqual(field.value as? String, expected, message)
         }
     }
 
