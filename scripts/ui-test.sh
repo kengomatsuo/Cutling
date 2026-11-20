@@ -10,7 +10,8 @@
 set -u
 name="${1:?UI test class, e.g. FillInUITests}"
 repo="$(cd "$(dirname "$0")/.." && pwd)"
-build="$("$repo/build-dir.sh")/keyboard-memory"
+# $UI_TEST_BUILD picks another build-for-testing folder, so one session's rebuild never swaps the bundle under another's run.
+build="${UI_TEST_BUILD:-$("$repo/build-dir.sh")/keyboard-memory}"
 # The newest build's run file; an older one for another architecture set can sit beside it.
 xctestrun="$(ls -t "$build"/DerivedData/Build/Products/*.xctestrun | head -1)"
 out="${DEVICE_QUEUE_OUT:?run as a device-queue job}/$name"; mkdir -p "$out/shots"
