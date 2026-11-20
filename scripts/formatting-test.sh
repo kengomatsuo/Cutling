@@ -1,0 +1,23 @@
+#!/bin/bash
+# Runs CutlingUITests/FormattingUITests on the shared device queue's simulator, after
+# `scripts/keyboard-memory.sh build` has built the UI tests:
+#
+#   bun ~/.claude/scripts/device-queue/device-queue.ts submit ios-sim --form iphone --tree "$PWD" \
+#     --cap 30 --cmd scripts/formatting-test.sh
+#
+# Prints every 20 s, since the queue ends a job whose log stays quiet for a minute.
+set -u
+repo="$(cd "$(dirname "$0")/.." && pwd)"
+build="$("$repo/build-dir.sh")/keyboard-memory"
+xctestrun="$(ls "$build"/DerivedData/Build/Products/*.xctestrun | head -1)"
+out="${DEVICE_QUEUE_OUT:?run as a device-queue job}/formatting"; mkdir -p "$out"
+# The Cutling keyboard only shows with the software keyboard up.
+defaults write com.apple.iphonesimulator ConnectHardwareKeyboard -bool false
+xcodebuild test-without-building -xctestrun "$xctestrun" -destination "id=${DEVICE_QUEUE_UDID:?}" \
+  -only-testing:CutlingUITests/FormattingUITests -resultBundlePath "$out/result.xcresult" >"$out/test.log" 2>&1 &
+pid=$!; start=$SECONDS
+while kill -0 $pid 2>/dev/null; do sleep 20; echo "formatting: $((SECONDS - start)) s"; done
+wait $pid; status=$?
+grep -E "Test Case|error:|failed|passed" "$out/test.log" | tail -20
+echo "formatting exit $status"
+exit $status
