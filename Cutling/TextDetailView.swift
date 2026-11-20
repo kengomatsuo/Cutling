@@ -418,7 +418,7 @@ struct TextDetailView: View {
                 .foregroundStyle(.primary)
                 .disabled(!canPaste)
 
-                if format != .code {
+                if format != .code, FillIns.isOn {
                     placeholderMenu
                 }
             } header: {

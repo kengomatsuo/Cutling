@@ -137,6 +137,56 @@ final class FillInUITests: XCTestCase {
         XCTAssertFalse(field.exists, "Sheet should close after Copy")
     }
 
+    /// With the fill-ins switch off, as in shipped builds until the redesign is approved, a card
+    /// with blanks copies at once with its braces as written and the editor offers no fill-in menu.
+    @MainActor
+    func testSwitchOffAppKeepsBracesAsWritten() throws {
+        let app = XCUIApplication()
+        app.launchArguments += ["-FILLIN_TEST", "-FILLIN_OFF", "-hasCompletedSetup", "YES", "-hasSeenInteractiveTutorial", "YES"]
+        app.launch()
+        let card = app.descendants(matching: .any).matching(identifier: "cutlingCard").firstMatch
+        XCTAssertTrue(card.waitForExistence(timeout: 30), "No cards")
+        card.coordinate(withNormalizedOffset: CGVector(dx: 0.3, dy: 0.75)).tap()
+        XCTAssertFalse(app.textFields["fillInField"].firstMatch.waitForExistence(timeout: 4), "Fill-in sheet opened with the switch off")
+        shot("switch_off_copied")
+        // The editor (tap() lands on the card's ⋯ Edit button): its Text section, without the fill-in menu.
+        card.tap()
+        XCTAssertTrue(app.buttons["Paste from Clipboard"].firstMatch.waitForExistence(timeout: 10), "Editor's Text section did not load")
+        shot("switch_off_editor")
+        XCTAssertFalse(app.descendants(matching: .any)["addPlaceholderMenu"].exists, "Editor shows the fill-in menu with the switch off")
+    }
+
+    @MainActor
+    func testSwitchOffKeyboardTypesBracesAsWritten() throws {
+        let app = XCUIApplication()
+        app.launchArguments += ["-FILLIN_TEST", "-FILLIN_OFF"]
+        app.launch()
+        app.terminate()
+        addCutlingKeyboardInSettings()
+        app.launch()
+        let field = openKeyboardTestField(in: app)
+        switchToCutlingKeyboard(in: app, showing: "Reply")
+        XCTAssertTrue(cutlingKeyboardIsUp(in: app, showing: "Reply"), "Cutling keyboard did not come up")
+        func button(_ name: String) -> XCUICoordinate {
+            var frame: CGRect?
+            for _ in 0..<10 {
+                frame = cutlingKeyFrame(name, in: app)
+                if frame != nil { break }
+                usleep(500_000)
+            }
+            XCTAssertNotNil(frame, "No \(name) button on the Cutling keyboard")
+            let f = frame ?? .zero
+            return screenPoint(f.midX, f.midY, in: app)
+        }
+        button("Stamp").tap()
+        sleep(1)
+        XCTAssertEqual(field.value as? String, "Today: {date:yyyy-MM-dd}")
+        button("Reply").tap()
+        sleep(1)
+        XCTAssertEqual(field.value as? String, "Today: {date:yyyy-MM-dd} Hi {Name}, your {Plan: Basic | Pro} order ships {date:yyyy-MM-dd}.{cursor} Thanks!")
+        shot("switch_off_keyboard")
+    }
+
     /// The same flow in a real web app's prompt box in Safari, where buyers asked for
     /// "variables in the snippets" for AI prompt templates. $FILLIN_SITE overrides the page.
     @MainActor

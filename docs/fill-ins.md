@@ -2,6 +2,8 @@
 
 A text cutling can hold placeholders in braces, the way Raycast and Alfred write theirs, so a snippet copied from either works as it is. They are replaced each time the cutling is typed, copied or pasted. Research behind every choice: [research/cutling-pains.md](research/cutling-pains.md).
 
+**Off in every build for now.** `FillIns.isOn` (`Cutling/FillIn.swift`, App Group key `fillInsOn`) is false unless the `-FILLIN_TEST` seed sets it, because the owner has not approved the screens below; they are being redesigned to look like Apple's default keyboard (board cards ASG84 to ASG91). While it is off, every path types, copies and pastes braces as written, the editor has no fill-in menu, and What's New, the site (`web/_generator/live.py`) and the store listing say nothing about fill-ins.
+
 ## Syntax (`Cutling/Placeholders.swift`)
 
 | Write | Becomes |

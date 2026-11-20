@@ -12,10 +12,20 @@
 
 import Foundation
 
+/// Whether placeholders are replaced at all. Off in every shipped build until the redesigned
+/// fill-in screens are approved: braces are then typed, copied and pasted as written, as before
+/// fill-ins existed. Only the `-FILLIN_TEST` seed turns it on, in the App Group so the keyboard sees it.
+enum FillIns {
+    static let defaultsKey = "fillInsOn"
+    static var isOn: Bool {
+        UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.bool(forKey: defaultsKey) ?? false
+    }
+}
+
 extension Cutling {
     /// The placeholders a cutling carries, or nil. Code is typed byte for byte, so it carries none.
     var placeholders: Placeholders? {
-        guard kind == .text, textFormat != .code else { return nil }
+        guard FillIns.isOn, kind == .text, textFormat != .code else { return nil }
         let template = Placeholders(plainValue)
         return template.hasTokens ? template : nil
     }
@@ -26,7 +36,7 @@ extension Cutling {
     /// A copy whose text is finished: stamps dated, fields filled, the clipboard read in.
     /// Rich cutlings keep their formatting and get their inserted text escaped.
     func filled(_ context: Placeholders.Context) -> (cutling: Cutling, charactersAfterCursor: Int?) {
-        guard kind == .text, textFormat != .code else { return (self, nil) }
+        guard FillIns.isOn, kind == .text, textFormat != .code else { return (self, nil) }
         var copy = self
         copy.format = textFormat
         if textFormat == .rich {
