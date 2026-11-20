@@ -59,6 +59,7 @@ DIRECTORY_BADGES = [
     '<a href="https://dodolaunch.com/p/cutling?ref=badge" target="_blank"><img src="https://dodolaunch.com/badge/cutling?theme=light" alt="Cutling on DodoLaunch" width="200" height="54" /></a>',
     '<a href="https://alternativeto.net/software/cutling/about/?utm_source=badge&utm_medium=referral" target="_blank"><img src="https://alternativeto.net/static/badges/badge-compact-color.svg" alt="Cutling | AlternativeTo" width="173" height="56" style="width:173px;height:56px" /></a>',
     '<a href="https://indieappcatalog.com/app/5527"><img src="https://indieappcatalog.com/badge/listed-on-indie-app-catalog-black.svg" alt="Listed on Indie App Catalog" width="183" height="40"></a>',
+    '<a href="https://twelve.tools" target="_blank"><img src="https://twelve.tools/badge1-light.svg" alt="Featured on Twelve Tools" width="148" height="40"></a>',
 ]
 
 # The snippet caps of the Cutling version live on the App Store, written into every locale's copy where it says
