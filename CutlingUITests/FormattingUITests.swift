@@ -46,7 +46,11 @@ final class FormattingUITests: XCTestCase {
 
         // Keys report frames in the keyboard's own coordinates, so each press goes to the key's place on screen,
         // read again before each one in case a suggestion row moved the grid.
-        func key(_ name: String) -> XCUICoordinate { keyCentre(cutlingKey(name, in: app), in: app) }
+        func key(_ name: String) -> XCUICoordinate {
+            let frame = cutlingKeyFrame(name, in: app) ?? .zero
+            XCTAssertNotEqual(frame, .zero, "No \(name) key")
+            return screenPoint(frame.midX, frame.midY, in: app)
+        }
 
         // Every tap types: a Formatted key types its text plain, like the others.
         key("Rich").tap()

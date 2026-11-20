@@ -105,47 +105,45 @@ extension XCTestCase {
             ?? app.buttons["no globe key"]
     }
 
-    /// A cutling's key on the Cutling keyboard, by the cutling's name. Its label is the name, then the text
-    /// after a comma; an image key's placeholder icon can come first. Everything inside the keyboard carries
-    /// the root's `CutlingKeyboardView` identifier, which keeps the app's own cards of the same name out.
+    /// The Cutling keyboard's buttons, with their frames on screen, read from one accessibility snapshot; nil while
+    /// Cutling is not up. The keyboard's root is the first element carrying `CutlingKeyboardView`, and its keys are the
+    /// buttons under it. iOS 27 reports that subtree in the keyboard's own coordinates (the root reads 0,0), so a tap at
+    /// a key's frame lands on the app above; the host element of the root's size around it gives the screen offset.
     @MainActor
-    func cutlingKey(_ name: String, in app: XCUIApplication) -> XCUIElement {
-        app.buttons.matching(NSPredicate(
-            format: "identifier == 'CutlingKeyboardView' AND (label == %@ OR label BEGINSWITH %@ OR label ENDSWITH %@)",
-            name, name + ",", ", " + name
-        )).firstMatch
-    }
-
-    /// Where the Cutling keyboard's top-left corner sits on screen. iOS 27 reports the keyboard's own elements
-    /// in the keyboard's coordinates (its root reads 0,0), so a tap at their frame lands on the app above;
-    /// the host element of the root's size around it carries the screen place. Read from one snapshot.
-    @MainActor
-    func cutlingKeyboardOrigin(in app: XCUIApplication) -> CGPoint {
-        guard let tree = try? app.snapshot() else { return .zero }
-        func find(_ node: XCUIElementSnapshot, _ ancestors: [XCUIElementSnapshot]) -> CGPoint? {
+    func cutlingKeys(in app: XCUIApplication) -> [(label: String, frame: CGRect)]? {
+        guard let tree = try? app.snapshot() else { return nil }
+        func find(_ node: XCUIElementSnapshot, _ ancestors: [XCUIElementSnapshot]) -> [(label: String, frame: CGRect)]? {
             if node.identifier == "CutlingKeyboardView" {
                 let host = ancestors.last { $0.frame.size == node.frame.size && $0.identifier != "CutlingKeyboardView" }
-                return host.map { CGPoint(x: $0.frame.minX - node.frame.minX, y: $0.frame.minY - node.frame.minY) } ?? .zero
+                let dx = host.map { $0.frame.minX - node.frame.minX } ?? 0
+                let dy = host.map { $0.frame.minY - node.frame.minY } ?? 0
+                var keys: [(label: String, frame: CGRect)] = []
+                func collect(_ element: XCUIElementSnapshot) {
+                    if element.elementType == .button { keys.append((element.label, element.frame.offsetBy(dx: dx, dy: dy))) }
+                    element.children.forEach(collect)
+                }
+                collect(node)
+                return keys
             }
             for child in node.children {
                 if let found = find(child, ancestors + [node]) { return found }
             }
             return nil
         }
-        return find(tree, []) ?? .zero
+        return find(tree, [])
     }
 
-    /// A screen point inside the Cutling keyboard, from a frame in the keyboard's own coordinates.
+    /// A cutling's key on screen, by the cutling's name. Its label is the name, then the text after a comma;
+    /// an image key's placeholder icon can come first.
     @MainActor
-    func keyboardPoint(_ x: CGFloat, _ y: CGFloat, origin: CGPoint, in app: XCUIApplication) -> XCUICoordinate {
-        app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: origin.x + x, dy: origin.y + y))
+    func cutlingKeyFrame(_ name: String, in app: XCUIApplication) -> CGRect? {
+        cutlingKeys(in: app)?.first { $0.label == name || $0.label.hasPrefix(name + ",") || $0.label.hasSuffix(", " + name) }?.frame
     }
 
-    /// The centre of a Cutling key on screen.
+    /// A point on screen, in points from the top-left corner.
     @MainActor
-    func keyCentre(_ key: XCUIElement, in app: XCUIApplication) -> XCUICoordinate {
-        let frame = key.frame
-        return keyboardPoint(frame.midX, frame.midY, origin: cutlingKeyboardOrigin(in: app), in: app)
+    func screenPoint(_ x: CGFloat, _ y: CGFloat, in app: XCUIApplication) -> XCUICoordinate {
+        app.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: x, dy: y))
     }
 
     /// The first element of `query` in the lower half of the screen.
@@ -161,8 +159,7 @@ extension XCTestCase {
     func cutlingKeyboardIsUp(in app: XCUIApplication, showing name: String? = nil) -> Bool {
         var steady = 0
         for _ in 0..<10 {
-            let shown = name.map { cutlingKey($0, in: app).exists }
-                ?? app.descendants(matching: .any).matching(identifier: "CutlingKeyboardView").firstMatch.exists
+            let shown = name.map { cutlingKeyFrame($0, in: app) != nil } ?? (cutlingKeys(in: app) != nil)
             steady = app.keys.count == 0 && shown ? steady + 1 : 0
             if steady >= 4 { return true }
             usleep(500_000)
