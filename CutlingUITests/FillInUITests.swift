@@ -116,15 +116,11 @@ final class FillInUITests: XCTestCase {
     @MainActor
     func testAppSheetFillsBeforeCopying() throws {
         let app = XCUIApplication()
-        app.launchArguments += ["-FILLIN_TEST"]
+        // Setup and the tutorial count as done, so nothing opens over the grid.
+        app.launchArguments += ["-FILLIN_TEST", "-hasCompletedSetup", "YES", "-hasSeenInteractiveTutorial", "YES"]
         app.launch()
         let card = app.descendants(matching: .any).matching(identifier: "cutlingCard").firstMatch
         XCTAssertTrue(card.waitForExistence(timeout: 30), "No cards")
-        // A first launch can open the setup guide over the grid.
-        if app.buttons["continueButton"].firstMatch.waitForExistence(timeout: 3) {
-            app.navigationBars.buttons.firstMatch.tap()
-            sleep(1)
-        }
         card.tap()
         let field = app.textFields["fillInField"].firstMatch
         XCTAssertTrue(field.waitForExistence(timeout: 10), "No fill-in sheet")

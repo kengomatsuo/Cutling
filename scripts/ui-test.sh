@@ -22,7 +22,7 @@ TEST_RUNNER_FORMAT_TEST_SHOTS="$out/shots" xcodebuild test-without-building -xct
   -parallel-testing-enabled NO -only-testing:"CutlingUITests/$name" -resultBundlePath "$out/result.xcresult" >"$out/test.log" 2>&1 &
 pid=$!; start=$SECONDS
 # The simulator's screen for the whole run, for a clip of what the test did.
-xcrun simctl io "$DEVICE_QUEUE_UDID" recordVideo --codec h264 --force "$out/run.mp4" >/dev/null 2>&1 &
+xcrun simctl io "$DEVICE_QUEUE_UDID" recordVideo --codec h264 --force "$out/run.mp4" >"$out/record.log" 2>&1 &
 rec=$!
 while kill -0 $pid 2>/dev/null; do sleep 20; echo "$name: $((SECONDS - start)) s"; done
 wait $pid; status=$?
