@@ -83,7 +83,11 @@ extension XCTestCase {
             sleep(1)
         }
         XCTAssertTrue(field.waitForExistence(timeout: 3), "Keyboard test field not found")
-        field.tap()
+        // On a loaded Mac the first tap can land before the field takes focus; tap until a keyboard shows.
+        for _ in 0..<3 {
+            field.tap()
+            if keyboardGlobe(in: app).waitForExistence(timeout: 10) { break }
+        }
         sleep(2)
         return field
     }
@@ -99,13 +103,21 @@ extension XCTestCase {
     }
 
     /// A cutling's key on the Cutling keyboard, by the cutling's name. Its label is the name, then the text
-    /// after a comma; an image key's placeholder icon can come first. The app's own cards carry `cutlingCard`.
+    /// after a comma; an image key's placeholder icon can come first. The app's own cards and their inner parts
+    /// can carry the same name, so only a match in the lower half of the screen, where every keyboard sits, counts.
     @MainActor
     func cutlingKey(_ name: String, in app: XCUIApplication) -> XCUIElement {
-        app.buttons.matching(NSPredicate(
-            format: "identifier != 'cutlingCard' AND (label == %@ OR label BEGINSWITH %@ OR label ENDSWITH %@)",
-            name, name + ",", ", " + name
-        )).firstMatch
+        let matches = app.buttons.matching(NSPredicate(
+            format: "label == %@ OR label BEGINSWITH %@ OR label ENDSWITH %@", name, name + ",", ", " + name
+        ))
+        return onKeyboard(matches, in: app) ?? app.buttons["no key named \(name)"]
+    }
+
+    /// The first element of `query` in the lower half of the screen.
+    @MainActor
+    func onKeyboard(_ query: XCUIElementQuery, in app: XCUIApplication) -> XCUIElement? {
+        let half = app.frame.height / 2
+        return query.allElementsBoundByIndex.first { $0.exists && $0.frame.midY > half }
     }
 
     /// Cutling's keys are buttons, not keys, so zero keys with a globe on screen means Cutling is up; given a

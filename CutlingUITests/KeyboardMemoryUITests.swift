@@ -73,20 +73,19 @@ final class KeyboardMemoryUITests: XCTestCase {
             return
         }
 
-        // Fling through the whole grid and back, so every card and thumbnail is built once. The first key's place,
-        // read once, anchors the drags: its row tops a grid at least 180 points tall on every screen shape.
+        // Fling through the whole grid and back, so every card and thumbnail is built once. Each fling is a swipe on
+        // whichever key shows now: a coordinate drag (press, then drag) moved nothing in the keyboard's grid.
         let first = cutlingKey(firstName, in: app).frame
         let origin = app.coordinate(withNormalizedOffset: .zero)
-        let low = origin.withOffset(CGVector(dx: first.midX, dy: first.minY + 140))
-        let high = origin.withOffset(CGVector(dx: first.midX, dy: first.minY - 40))
+        let anyKey = app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Photo ' OR label BEGINSWITH 'Snippet ' OR label CONTAINS ', Photo '"))
         mark("scroll_down")
         for _ in 0..<flings {
-            low.press(forDuration: 0.05, thenDragTo: high, withVelocity: .fast, thenHoldForDuration: 0)
+            onKeyboard(anyKey, in: app)?.swipeUp(velocity: .fast)
         }
         sleep(2)
         mark("scroll_up")
         for _ in 0..<flings {
-            high.press(forDuration: 0.05, thenDragTo: low, withVelocity: .fast, thenHoldForDuration: 0)
+            onKeyboard(anyKey, in: app)?.swipeDown(velocity: .fast)
         }
         sleep(2)
 

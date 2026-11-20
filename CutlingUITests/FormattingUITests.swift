@@ -136,10 +136,12 @@ final class FormattingUITests: XCTestCase {
         edit.tap()
     }
 
-    /// Goes back from the pushed editor, whose bar is titled Edit.
+    /// Goes back from the pushed editor. Its back button sits in the top bar on most iPhones and in a side
+    /// column on a wide screen; both carry `BackButton`.
     @MainActor
     private func closeEditor(in app: XCUIApplication) {
-        app.navigationBars["Edit"].buttons.firstMatch.tap()
+        let back = app.buttons["BackButton"].firstMatch
+        if back.waitForExistence(timeout: 5) { back.tap() } else { app.navigationBars.buttons.firstMatch.tap() }
         sleep(2)
     }
 
