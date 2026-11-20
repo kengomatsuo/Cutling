@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+	<meta charset="utf-8" />
+<meta name="Author" content="Apple Inc." />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="icon" href="/favicon.ico" />
+<link rel="mask-icon" href="/apple-logo.svg" color="#333333">
+
+<link rel="stylesheet" href="/assets/styles/global.dist.css?19212626191" type="text/css" />
+<link rel="stylesheet" href="/assets/styles/dark-mode.css?34212621148" type="text/css" media="(prefers-color-scheme: dark)" data-color-scheme="dark" />
+<link rel="stylesheet" href="/assets/styles/localization.css?34212621148" type="text/css" />
+
+<script src="/assets/scripts/lib/jquery/jquery-3.6.0.min.js?35212621148"></script>
+<script src="/assets/scripts/settings.js?35212621148"></script>
+<script src="/assets/scripts/language-locales.js?50222638203"></script>
+<script src="/assets/scripts/DeveloperBreadcrumbs.js?35212621148"></script>
+<script src="/assets/metrics/scripts/analytics-module.js?35212621148"></script>
+
+<script async src="/assets/scripts/retinate.js?35212621148"></script>
+<script src="/assets/scripts/global-logout.js?35212621148"></script>
+
+<script async crossorigin src="https://sfss.cdn-apple.com/2.0.0-beta.2/sf-symbol.js?57232615324"></script>
+
+
+
+<template id="account-menu-authenticated-template">
+  <div
+    class="account-menu-user-header"
+    role="banner"
+    aria-label="User information"
+    data-aria-label="userInformation"
+  >
+    <div
+      class="account-menu-avatar"
+      data-slot="initial"
+      aria-hidden="true"
+    ></div>
+    <div class="account-menu-user-info">
+      <div class="account-menu-user-name" data-slot="name"></div>
+      <div class="account-menu-user-email" data-slot="email"></div>
+    </div>
+  </div>
+  <hr class="account-menu-divider" role="separator" />
+  <nav aria-label="Account actions" data-aria-label="accountActions">
+    <a href="/account" class="account-menu-link">
+      <span class="account-menu-link-icon-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 117.045 70.459" focusable="false" class="account-menu-link-icon" aria-hidden="true" style="width: 1.17045em; overflow: visible;">
+        <path fill="currentColor" d="M58.496 84.972C85.999 84.972 108.321 62.701 108.321 35.198C108.321 7.695 85.999-14.575 58.496-14.575C31.045-14.575 8.723 7.695 8.723 35.198C8.723 62.701 31.045 84.972 58.496 84.972ZM58.496 76.704C35.551 76.704 17.031 58.143 17.031 35.198C17.031 12.254 35.551-6.308 58.496-6.308C81.441-6.308 100.002 12.254 100.002 35.198C100.002 58.143 81.441 76.704 58.496 76.704ZM91.931 67.386L91.775 66.837C89.342 59.663 76.437 51.8 58.496 51.8C40.576 51.8 27.723 59.652 25.269 66.805L25.113 67.386C33.938 76.078 49.004 81.148 58.507 81.148C68.082 81.148 83.032 76.12 91.931 67.386ZM58.496 43.534C67.894 43.637 75.255 35.61 75.255 25.113C75.255 15.238 67.862 7.065 58.496 7.065C49.182 7.065 41.727 15.238 41.789 25.113C41.841 35.61 49.099 43.43 58.496 43.534Z"/>
+        </svg>
+      </span>
+      <span data-slot="accountOverview"><!-- Account --></span>
+    </a>
+    <a href="https://appstoreconnect.apple.com" class="account-menu-link">
+      <span class="account-menu-link-icon-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 114.927 70.459" focusable="false" class="account-menu-link-icon" aria-hidden="true" style="width: 1.14927em; overflow: visible;">
+        <defs>
+          <mask id="sf-app-badge-mask-0">
+            <rect x="-25" y="-25" width="164.927" height="120.459" fill="white"/>
+            <path d="M94.508 21.908C107.427 21.908 118.135 11.252 118.135-1.719C118.135-14.637 107.427-25.294 94.508-25.294C81.59-25.294 70.933-14.637 70.933-1.719C70.933 11.252 81.59 21.908 94.508 21.908Z" fill="black"/>
+          </mask>
+        </defs>
+        <path fill="currentColor" mask="url(#sf-app-badge-mask-0)" d="M39.031 80.204L75.902 80.204C84.459 80.204 91.145 77.713 95.537 73.321C100.084 68.877 102.472 62.18 102.472 53.633L102.472 16.825C102.472 8.279 100.095 1.592 95.537-2.862C91.083-7.316 84.459-9.745 75.902-9.745L39.031-9.745C30.475-9.745 23.736-7.254 19.344-2.862C14.849 1.582 12.461 8.279 12.461 16.825L12.461 53.633C12.461 62.18 14.838 68.867 19.344 73.321C23.757 77.734 30.475 80.204 39.031 80.204ZM39.031 72.35C32.941 72.35 28.223 70.626 25.125 67.591C21.987 64.442 20.314 59.776 20.314 53.633L20.314 16.825C20.314 10.683 21.987 6.017 25.125 2.868C28.171-0.115 32.941-1.891 39.031-1.891L75.902-1.891C81.941-1.891 86.7-0.167 89.797 2.868C92.946 6.017 94.619 10.683 94.619 16.825L94.619 53.633C94.619 59.776 92.946 64.442 89.797 67.591C86.752 70.574 81.941 72.35 75.902 72.35Z"/>
+        <path fill="currentColor" d="M94.508 15.282C103.767 15.282 111.458 7.643 111.458-1.667C111.458-10.936 103.767-18.565 94.508-18.565C85.25-18.565 77.61-10.936 77.61-1.667C77.61 7.643 85.25 15.282 94.508 15.282Z"/>
+        </svg>
+      </span>
+      <span data-slot="appStoreConnect"><!-- App Store Connect --></span>
+    </a>
+    <a href="/account/resources/" class="account-menu-link">
+      <span class="account-menu-link-icon-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128.282 70.459" focusable="false" class="account-menu-link-icon" aria-hidden="true" style="width: 1.28282em; overflow: visible;">
+        <path fill="currentColor" d="M34.577 77.349L45.175 77.349C46.163 77.349 46.88 77.608 47.607 78.336L55.151 85.817C61.313 92.021 66.975 91.969 73.137 85.817L80.681 78.336C81.409 77.608 82.126 77.349 83.165 77.349L93.712 77.349C102.405 77.349 106.47 73.325 106.47 64.59L106.47 53.991C106.47 53.004 106.792 52.287 107.509 51.549L114.939 44.015C121.142 37.853 121.091 32.192 114.939 25.967L107.509 18.486C106.792 17.758 106.47 16.989 106.47 15.991L106.47 5.455C106.47-3.239 102.457-7.366 93.712-7.366L83.165-7.366C82.126-7.366 81.409-7.626 80.681-8.353L73.137-15.772C66.965-21.997 61.313-22.007 55.141-15.772L47.607-8.353C46.89-7.636 46.163-7.366 45.175-7.366L34.577-7.366C25.831-7.366 21.818-3.342 21.818 5.455L21.818 15.991C21.818 16.989 21.548 17.758 20.831 18.486L13.349 25.967C7.146 32.192 7.198 37.853 13.349 44.015L20.831 51.549C21.548 52.287 21.818 53.004 21.818 53.991L21.818 64.59C21.818 73.284 25.831 77.349 34.577 77.349ZM34.577 69.599C30.256 69.599 29.568 68.911 29.568 64.59L29.568 51.431C29.568 49.926 29.091 48.795 28.063 47.768L18.81 38.555C15.745 35.45 15.745 34.585 18.81 31.427L28.063 22.277C29.091 21.198 29.568 20.056 29.568 18.603L29.568 5.455C29.568 1.009 30.193 0.436 34.577 0.436L47.725 0.436C49.23 0.436 50.371 0.01 51.399-1.121L60.601-10.323C63.707-13.428 64.582-13.428 67.688-10.323L76.889-1.121C77.969 0.01 79.11 0.436 80.564 0.436L93.712 0.436C98.033 0.436 98.731 1.071 98.731 5.455L98.731 18.603C98.731 20.056 99.208 21.198 100.277 22.277L109.489 31.427C112.595 34.585 112.595 35.45 109.489 38.555L100.277 47.768C99.208 48.795 98.731 49.926 98.731 51.431L98.731 64.59C98.731 68.911 98.033 69.599 93.712 69.599L80.564 69.599C79.11 69.599 77.969 70.024 76.889 71.103L67.688 80.357C64.582 83.411 63.707 83.411 60.601 80.357L51.399 71.103C50.371 70.024 49.23 69.599 47.725 69.599Z"/>
+        <path fill="currentColor" d="M58.849 58.158C60.475 58.158 61.832 57.391 62.776 55.89L85.125 20.782C85.653 19.819 86.296 18.721 86.296 17.643C86.296 15.478 84.337 14.079 82.317 14.079C81.063 14.079 79.799 14.805 78.918 16.265L58.631 48.77L49.02 36.306C47.881 34.742 46.793 34.348 45.466 34.348C43.301 34.348 41.695 36.036 41.695 38.223C41.695 39.269 42.089 40.316 42.804 41.259L54.663 55.89C55.917 57.505 57.201 58.158 58.849 58.158Z"/>
+        </svg>
+      </span>
+      <span data-slot="certificatesIDsProfiles"
+        ><!-- Certificates, IDs & Profiles --></span
+      >
+    </a>
+    <a href="/events/view/my-events" class="account-menu-link">
+      <span class="account-menu-link-icon-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 107.046 70.459" focusable="false" class="account-menu-link-icon" aria-hidden="true" style="width: 1.07046em; overflow: visible;">
+        <path fill="currentColor" d="M27.572 87.552L79.423 87.552C89.479 87.552 94.586 82.415 94.586 72.234L94.586-1.796C94.586-12.028 89.51-17.113 79.423-17.113L64.916-17.113C63.29-17.113 62.15-15.963 62.15-14.171C62.15-9.111 58.679-5.566 53.523-5.566C48.327-5.566 44.793-9.111 44.793-14.171C44.793-15.963 43.705-17.113 42.027-17.113L27.572-17.113C17.495-17.113 12.461-12.028 12.461-1.796L12.461 72.234C12.461 82.415 17.516 87.552 27.572 87.552ZM28.007 79.699C22.924 79.699 20.314 76.944 20.314 72.11L20.314-1.671C20.314-6.547 22.924-9.26 28.007-9.26L41.902-9.26L37.353-12.068C38.234-3.494 44.566 2.08 53.523 2.08C62.439 2.08 68.813-3.494 69.693-12.068L65.093-9.26L79.04-9.26C84.071-9.26 86.691-6.547 86.691-1.671L86.691 72.11C86.691 76.944 84.071 79.699 79.04 79.699Z"/>
+        <path fill="currentColor" d="M35.043 19.226L72.065 19.226C73.786 19.226 75.061 17.91 75.061 16.179C75.061 14.5 73.786 13.225 72.065 13.225L35.043 13.225C33.271 13.225 31.986 14.5 31.986 16.179C31.986 17.91 33.271 19.226 35.043 19.226Z"/>
+        <path fill="currentColor" d="M35.043 36.582L52.571 36.582C54.302 36.582 55.587 35.245 55.587 33.587C55.587 31.866 54.302 30.54 52.571 30.54L35.043 30.54C33.271 30.54 31.986 31.866 31.986 33.587C31.986 35.245 33.271 36.582 35.043 36.582Z"/>
+        </svg>
+      </span>
+      <span data-slot="viewEvents"><!-- Events --></span>
+    </a>
+    <a href="https://feedbackassistant.apple.com" class="account-menu-link">
+      <span class="account-menu-link-icon-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132.507 70.459" focusable="false" class="account-menu-link-icon" aria-hidden="true" style="width: 1.32507em; overflow: visible;">
+        <path fill="currentColor" d="M42.493 88.831C44.907 88.831 46.565 87.566 49.465 84.946L66.353 69.961L97.694 69.961C112.219 69.961 120.056 61.896 120.056 47.599L120.056 10.188C120.056-4.109 112.219-12.174 97.694-12.174L34.823-12.174C20.298-12.174 12.461-4.13 12.461 10.188L12.461 47.599C12.461 61.917 20.298 69.961 34.823 69.961L37.126 69.961L37.126 82.645C37.126 86.427 39.064 88.831 42.493 88.831ZM44.492 79.91L44.492 65.776C44.492 63.103 43.497 62.108 40.824 62.108L34.844 62.108C24.95 62.108 20.314 57.099 20.314 47.578L20.314 10.209C20.314 0.729 24.95-4.269 34.844-4.269L97.673-4.269C107.524-4.269 112.202 0.729 112.202 10.209L112.202 47.578C112.202 57.099 107.524 62.108 97.673 62.108L66.034 62.108C63.349 62.108 61.95 62.512 60.104 64.43Z"/>
+        <path fill="currentColor" d="M66.232 37.704C68.595 37.704 69.943 36.398 69.994 33.827L70.709 8.082C70.709 5.615 68.792 3.739 66.181 3.739C63.558 3.739 61.693 5.563 61.745 8.03L62.419 33.827C62.47 36.346 63.808 37.704 66.232 37.704ZM66.232 53.574C69.053 53.574 71.511 51.365 71.511 48.503C71.511 45.641 69.105 43.432 66.232 43.432C63.401 43.432 60.995 45.693 60.995 48.503C60.995 51.313 63.453 53.574 66.232 53.574Z"/>
+        </svg>
+      </span>
+      <span data-slot="feedbackAssistant"><!-- Feedback Assistant --></span>
+    </a>
+    <a href="/forums/" class="account-menu-link">
+      <span class="account-menu-link-icon-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 165.127 70.459" focusable="false" class="account-menu-link-icon" aria-hidden="true" style="width: 1.65127em; overflow: visible;">
+        <defs>
+          <mask id="sf-bubble-left-and-bubble-right-mask-0">
+            <rect x="-25" y="-25" width="215.127" height="120.459" fill="white"/>
+            <path d="M85.887 73.343L101.693 73.343L117.981 87.274C120.963 89.832 122.58 91.127 124.952 91.127C128.308 91.127 130.225 88.734 130.225 85.046L130.225 73.343L131.212 73.343C145.253 73.343 152.669 65.782 152.669 51.948L152.669 25.538C152.669 11.693 145.253 4.122 131.212 4.122L85.887 4.122C71.835 4.122 64.471 11.693 64.471 25.538L64.471 51.969C64.471 65.803 71.835 73.343 85.887 73.343Z" fill="black"/>
+          </mask>
+        </defs>
+        <path fill="currentColor" mask="url(#sf-bubble-left-and-bubble-right-mask-0)" d="M34.823 61.571L37.126 61.571L37.126 74.317C37.126 78.036 39.064 80.451 42.493 80.451C44.907 80.451 46.565 79.176 49.465 76.556L66.353 61.571L97.694 61.571C112.219 61.571 120.056 53.506 120.056 39.209L120.056 1.86C120.056-12.448 112.219-20.502 97.694-20.502L34.823-20.502C20.298-20.502 12.461-12.521 12.461 1.86L12.461 39.209C12.461 53.579 20.298 61.571 34.823 61.571ZM34.844 53.717C24.95 53.717 20.314 48.719 20.314 39.188L20.314 1.881C20.314-7.651 24.95-12.659 34.844-12.659L97.673-12.659C107.524-12.659 112.202-7.651 112.202 1.881L112.202 39.188C112.202 48.719 107.524 53.717 97.673 53.717L66.034 53.717C63.349 53.717 61.95 54.122 60.104 56.05L44.492 71.52L44.492 57.385C44.492 54.712 43.497 53.717 40.824 53.717Z"/>
+        <path fill="currentColor" d="M85.887 73.343L101.693 73.343L117.981 87.274C120.963 89.832 122.58 91.127 124.952 91.127C128.308 91.127 130.225 88.734 130.225 85.046L130.225 73.343L131.212 73.343C145.253 73.343 152.669 65.782 152.669 51.948L152.669 25.538C152.669 11.693 145.253 4.122 131.212 4.122L85.887 4.122C71.835 4.122 64.471 11.693 64.471 25.538L64.471 51.969C64.471 65.803 71.835 73.343 85.887 73.343ZM86.023 65.489C76.477 65.489 72.324 61.006 72.324 51.822L72.335 25.622C72.335 16.49 76.477 11.975 86.023 11.975L131.117 11.975C140.675 11.975 144.764 16.49 144.764 25.622L144.764 51.79C144.764 60.934 140.664 65.489 131.117 65.489L126.671 65.489C124.548 65.489 122.859 66.743 122.859 69.509L122.859 82.278L106.39 67.532C104.72 65.987 103.373 65.489 101.392 65.489Z"/>
+        </svg>
+      </span>
+      <span data-slot="forums"><!-- Forums --></span>
+    </a>
+  </nav>
+  <hr class="account-menu-divider" role="separator" />
+  <nav aria-label="Sign out" data-aria-label="signOut">
+    <a href="/logout/" class="account-menu-link">
+      <span class="account-menu-link-icon-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 138.282 70.459" focusable="false" class="account-menu-link-icon" aria-hidden="true" style="width: 1.38282em; overflow: visible;">
+        <defs>
+          <mask id="sf-rectangle-portrait-and-arrow-right-mask-0">
+            <rect x="-25" y="-25" width="188.282" height="120.459" fill="white"/>
+            <path d="M58.186 48.243L120.556 48.243C127.658 48.243 133.497 42.353 133.497 35.198C133.497 28.043 127.658 22.154 120.556 22.154L58.186 22.154C51.083 22.154 45.193 28.043 45.193 35.198C45.193 42.353 51.083 48.243 58.186 48.243Z" fill="black"/>
+          </mask>
+        </defs>
+        <path fill="currentColor" mask="url(#sf-rectangle-portrait-and-arrow-right-mask-0)" d="M32.893 87.552L74.164 87.552C87.266 87.552 94.586 80.285 94.586 67.12L94.586 3.318C94.586-9.794 87.266-17.113 74.164-17.113L32.893-17.113C19.791-17.113 12.461-9.794 12.461 3.318L12.461 67.12C12.461 80.285 19.791 87.552 32.893 87.552ZM32.882 79.699C24.847 79.699 20.314 75.156 20.314 67.12L20.314 3.308C20.314-4.717 24.847-9.26 32.882-9.26L74.175-9.26C82.2-9.26 86.691-4.717 86.691 3.308L86.691 67.12C86.691 75.156 82.2 79.699 74.175 79.699Z"/>
+        <path fill="currentColor" d="M54.363 35.198C54.363 37.271 56.103 39.073 58.186 39.073L107.808 39.073L120.98 38.494C122.783 38.39 124.275 37.001 124.275 35.198C124.275 33.396 122.783 32.007 120.98 31.903L107.808 31.323L58.186 31.323C56.103 31.323 54.363 33.126 54.363 35.198ZM102.999 18.645C102.999 19.578 103.393 20.614 104.159 21.329L112.206 28.858L118.971 35.198L112.206 41.528L104.159 49.057C103.393 49.772 102.999 50.756 102.999 51.689C102.999 53.74 104.439 55.284 106.46 55.284C107.485 55.284 108.252 54.849 109.019 54.082L124.515 38.027C125.489 37.053 125.821 36.183 125.821 35.198C125.821 34.214 125.489 33.344 124.515 32.37L109.019 16.304C108.252 15.537 107.485 15.102 106.46 15.102C104.439 15.102 102.999 16.584 102.999 18.645Z"/>
+        </svg>
+      </span>
+      <span data-slot="signOut"><!-- Sign out --></span>
+    </a>
+  </nav>
+</template>
+
+<link rel="stylesheet" href="/assets/includes/global-session-nav/session.css" type="text/css" />
+
+<script>
+  // Synchronously disables the account link before first paint so the user
+  // cannot navigate away before session.js registers its click listener.
+  (function () {
+    var accountLink = document.querySelector(".globalnav-link-account");
+
+    if (accountLink) {
+      var href = accountLink.getAttribute("href");
+
+      if (href) {
+        accountLink.dataset.pendingHref = href;
+        accountLink.removeAttribute("href");
+        accountLink.style.cursor = "default";
+      }
+    }
+  })();
+</script>
+
+<script type="module" src="/assets/includes/global-session-nav/session.js"></script>
+
+
+	<link rel="stylesheet" href="https://www.apple.com/wss/fonts?families=SF+Pro,v3|SF+Pro+Icons,v3">
+<link rel="stylesheet" href="https://www.apple.com/wss/fonts?family=SF+Mono&v=2" type="text/css" />
+<link rel="stylesheet" href="https://www.apple.com/wss/fonts?family=Apple+Icons&v=1" type="text/css" />
+
+	<title>Explore game curation and featuring on the App Store - Meet with Apple - Videos - Apple Developer</title>
+	<meta name="omni_page" content="Explore game curation and featuring on the App Store - Meet with Apple - Videos" />
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<link type="text/css" rel="stylesheet" href="/videos/styles/videos.css?3">
+	<link type="text/css" rel="stylesheet" href="/videos/styles/video-overlay.css?3">
+	<meta name="description" content="Learn more about what the App Store editorial team considers when curating games to feature across the App Store and Apple Games app,...">
+
+	<meta property="og:url" content="https://developer.apple.com/videos/play/meet-with-apple/249/" />
+	<meta property="og:title" content="Explore game curation and featuring on the App Store - Meet with Apple - Videos - Apple Developer" />
+	<meta property="og:description" content="Learn more about what the App Store editorial team considers when curating games to feature across the App Store and Apple Games app,..." />
+	<meta property="og:site_name" content="Apple Developer" />
+	<meta property="og:type" content="website" />
+	<meta property="og:video" content="https://devstreaming-cdn.apple.com/videos/meet-with-apple/2025/249/1/10379f4f-69df-474a-b6bb-112c27acf46b/cmaf.m3u8" /> 
+	<meta property="og:video_secure_url" content="https://devstreaming-cdn.apple.com/videos/meet-with-apple/2025/249/1/10379f4f-69df-474a-b6bb-112c27acf46b/cmaf.m3u8" /> 
+	<meta property="og:video:type" content="vnd.apple.mpegURL" /> 
+	<meta property="og:video:width" content="1280" />
+	<meta property="og:video:height" content="720" />
+		<meta property="og:image" content="https://devimages-cdn.apple.com/wwdc-services/images/BC742FC2-04CD-4DDA-9F29-C074010922E7/10673/10673_wide_250x141_2x.jpg" />
+		<meta property="og:locale" content="en_US" />
+	<meta itemprop="datePublished" content="2025-12-17">
+	<meta itemprop="uploadDate" content="2025-12-17">	
+
+	<link rel="alternate" href="https://developer.apple.com/videos/play/meet-with-apple/249/" hreflang="en">
+	<link rel="alternate" href="https://developer.apple.com/kr/videos/play/meet-with-apple/249/" hreflang="ko-KR">
+	<link rel="alternate" href="https://developer.apple.com/cn/videos/play/meet-with-apple/249/" hreflang="zh-CN">
+    <link rel="alternate" href="https://developer.apple.com/jp/videos/play/meet-with-apple/249/" hreflang="ja-JP">
+	<link rel="alternate" href="https://developer.apple.com/la/videos/play/meet-with-apple/249/" hreflang="es-lamr">
+	<link rel="alternate" href="https://developer.apple.com/fr/videos/play/meet-with-apple/249/" hreflang="fr-FR">
+	<link rel="alternate" href="https://developer.apple.com/br/videos/play/meet-with-apple/249/" hreflang="pt-BR">		
+    <link rel="canonical" href="https://developer.apple.com/videos/play/meet-with-apple/249/" />
+
+</head>
+<body class="view-play"
+	>
+	
+	<script>
+	// Execute immediately to avoid UI flash
+	(function () {
+		// Prevent React dev mode from running this multiple times
+		if (window.__didRunColorThemeScript) {
+			return;
+		}
+
+		if (window.angular) {
+			return;
+		}
+
+		window.__didRunColorThemeScript = true;
+
+		const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+		const body = document.body;
+
+		// If theme-dark or theme-light is already applied, do nothing and lock it
+		if (body.classList.contains("theme-dark") || body.classList.contains("theme-light")) {
+
+			// Set the data-color-scheme attribute based on the existing theme
+			body.setAttribute('data-color-scheme', body.classList.contains("theme-dark") ? "dark" : "light");
+
+			// Prevent future modifications
+			window.__disableColorScheme = true;
+
+			// Hide the color picker immediately
+			const style = document.createElement('style');
+			style.textContent = '.color-scheme-toggle { display: none !important; }';
+			document.head.appendChild(style);
+
+			return;
+		}
+
+		// Otherwise, set theme normally based on user settings or system preference
+		if (window.Settings && window.Settings.preferredColorScheme) {
+			const colorTheme = (window.Settings.preferredColorScheme === 'auto') && !prefersDark ? 'light'
+				: (window.Settings.preferredColorScheme === 'light') ? 'light' : 'dark';
+			body.setAttribute('data-color-scheme', colorTheme);
+			colorTheme === "dark" ? body.classList.add("theme-dark") : body.classList.add("theme-light");
+		} else {
+			const colorTheme = prefersDark ? 'dark' : 'light';
+			body.setAttribute('data-color-scheme', colorTheme);
+			prefersDark ? body.classList.add("theme-dark") : body.classList.add("theme-light");
+		}
+	})();
+</script>
+
+<link rel="stylesheet" href="/assets/styles/suggest-lang.css?34212621148" type="text/css" />
+<div id="suggest-lang" class="ribbon hide" lang="en">
+	<div class="ribbon-content-wrapper">
+		<div class="ribbon-content row">
+			<div class="column large-12 large-centered">
+				<p><a href="#" id="suggest-link" class="ribbon-link more">View in English</a></p>
+				<button id="suggest-closer" class="icon icon-after icon-reset" aria-label="Dismiss language suggestion" tabindex="0"></button>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="/assets/scripts/suggest-lang.js?50222638203"></script>
+<link rel="stylesheet" href="/assets/styles/globalnav.css?01192605271" type="text/css" />
+<nav id="globalnav" lang="en-US" dir="ltr" aria-label="Global" class="globalnav js" style="--r-globalnav-text-zoom-scale: 1;" data-aa-content-module="global-header">
+	<div class="globalnav-content">
+		<div class="globalnav-item globalnav-menuback"><button aria-label="Main menu" class="globalnav-menuback-button"><span class="globalnav-chevron-icon"><svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+						<path d="m1.5618 24.0621 6.5581-6.4238c.2368-.2319.2407-.6118.0088-.8486-.2324-.2373-.6123-.2407-.8486-.0088l-7 6.8569c-.1157.1138-.1807.2695-.1802.4316.001.1621.0674.3174.1846.4297l7 6.7241c.1162.1118.2661.1675.4155.1675.1577 0 .3149-.062.4326-.1846.2295-.2388.2222-.6187-.0171-.8481z"></path>
+					</svg></span></button></div>
+		<ul id="globalnav-list" class="globalnav-list">
+			<li class="
+	globalnav-item
+	globalnav-item-apple
+	ac-gn-item
+	ac-gn-apple
+">
+				<a href="/" aria-label="Apple Developer" class="globalnav-link globalnav-link-apple ac-gn-link ac-gn-link-apple-developer" id="ac-gn-firstfocus-small">
+					<span class="ac-gn-link-text globalnav-link-text">Apple Developer</span>
+				</a>
+			</li>
+			<li class="globalnav-item globalnav-menu">
+				<div class="globalnav-flyout" style="--r-globalnav-flyout-item-total: 0; --r-globalnav-flyout-group-number: 0;">
+					<div class="globalnav-menu-list" style="--r-globalnav-flyout-item-total: 7;">
+						<div class="
+    globalnav-item
+    globalnav-item-getting-started
+    globalnav-item-menu
+    globalnav-item-submenu
+" style="--r-globalnav-flyout-item-number: 0;">
+							<ul class="globalnav-submenu-trigger-group">
+								<li class="globalnav-submenu-trigger-item">
+									<a href="/get-started/" data-topnav-flyout-trigger-compact="true" aria-label="Get Started" class="globalnav-link globalnav-submenu-trigger-link globalnav-link-getting-started">
+										<span class="globalnav-link-text-container">
+											<span class="globalnav-link-text">Get Started</span>
+										</span>
+										<span class="globalnav-link-chevron">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m8.1155 30.358a.6.6 0 1 1 -.831.8653l-7-6.7242a.6.6 0 0 1 -.0045-.8613l7-6.8569a.6.6 0 1 1 .84.8574l-6.5582 6.4238z"></path>
+											</svg>
+										</span>
+									</a>
+								</li>
+								<li class="globalnav-submenu-trigger-item">
+									<button id="globalnav-menubutton-link-getting-started" class="globalnav-submenu-trigger-button" aria-expanded="false" aria-controls="globalnav-submenu-link-getting-started" aria-label="Get Started menu" data-topnav-flyout-trigger-regular="true">
+										<span class="globalnav-image-regular globalnav-submenu-button-icon">
+											<svg height="10" viewBox="0 0 10 10" width="10" xmlns="http://www.w3.org/2000/svg">
+												<path d="m4.6725 6.635-2.655-2.667a.445.445 0 0 1 -.123-.304.4331.4331 0 0 1 .427-.439h.006a.447.447 0 0 1 .316.135l2.357 2.365 2.356-2.365a.458.458 0 0 1 .316-.135.433.433 0 0 1 .433.433v.006a.4189.4189 0 0 1 -.123.3l-2.655 2.671a.4451.4451 0 0 1 -.327.14.464.464 0 0 1 -.328-.14z"></path>
+											</svg>
+										</span>
+										<span class="globalnav-image-compact globalnav-submenu-button-icon">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m7.4382 24.0621-6.5581-6.4238c-.2368-.2319-.2407-.6118-.0088-.8486.2324-.2373.6123-.2407.8486-.0088l7 6.8569c.1157.1138.1807.2695.1802.4316-.001.1621-.0674.3174-.1846.4297l-7 6.7242c-.1162.1118-.2661.1675-.4155.1675-.1577 0-.3149-.062-.4326-.1846-.2295-.2388-.2222-.6187.0171-.8481l6.5537-6.2959z"></path>
+											</svg>
+										</span>
+									</button>
+								</li>
+							</ul>
+							<div id="globalnav-submenu-link-getting-started" class="globalnav-flyout globalnav-submenu" aria-labelledby="globalnav-menubutton-link-getting-started" style="--r-globalnav-flyout-item-total: 0; --r-globalnav-flyout-group-number: 0; --r-globalnav-flyout-height: auto; --r-globalnav-flyout-rate: 240ms;">
+								<div class="globalnav-flyout-scroll-container">
+									<div class="globalnav-flyout-content globalnav-submenu-content" style="--r-globalnav-flyout-elevated-group-count: 1; --r-globalnav-flyout-group-total: 2; --r-globalnav-flyout-item-total: 4;">
+										<div class="globalnav-submenu-group globalnav-submenu-group-elevated" style="--r-globalnav-flyout-group-number: 0;">
+
+											<h2 class="globalnav-submenu-header" id="apple-getting-started-heading" style="--r-globalnav-flyout-item-number: 1;">Explore Get Started</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="apple-getting-started-heading">
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 2;"><a href="/get-started/" class="globalnav-submenu-link">Overview</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 3;"><a href="/learn/" class="globalnav-submenu-link">Learn</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 4;"><a href="/programs/" class="globalnav-submenu-link">Apple Developer Program</a></li>
+											</ul>
+										</div>
+										<div class="globalnav-submenu-group" style="--r-globalnav-flyout-group-number: 1;">
+
+											<h2 class="globalnav-submenu-header" id="apple-learn-heading" style="--r-globalnav-flyout-item-number: 1;">Stay Updated</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="apple-learn-heading">
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 2;"><a href="/news/" class="globalnav-submenu-link">Latest News</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 3;"><a href="/hello/" class="globalnav-submenu-link">Hello Developer</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="
+  globalnav-item
+  globalnav-item-platforms
+  globalnav-item-menu
+  globalnav-item-submenu
+" style="--r-globalnav-flyout-item-number: 1;">
+							<ul class="globalnav-submenu-trigger-group">
+								<li class="globalnav-submenu-trigger-item">
+									<a href="/platforms/" aria-label="Platforms" class="globalnav-link globalnav-submenu-trigger-link globalnav-link-platforms">
+										<span class="globalnav-link-text-container">
+											<span class="globalnav-link-text">Platforms</span>
+										</span>
+										<span class="globalnav-link-chevron">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m8.1155 30.358a.6.6 0 1 1 -.831.8653l-7-6.7242a.6.6 0 0 1 -.0045-.8613l7-6.8569a.6.6 0 1 1 .84.8574l-6.5582 6.4238z"></path>
+											</svg>
+										</span>
+									</a>
+								</li>
+								<li class="globalnav-submenu-trigger-item">
+									<button id="globalnav-menubutton-link-platforms" class="globalnav-submenu-trigger-button" aria-expanded="false" aria-controls="globalnav-submenu-link-platforms" aria-label="Platforms menu">
+										<span class="globalnav-image-regular globalnav-submenu-button-icon">
+											<svg height="10" viewBox="0 0 10 10" width="10" xmlns="http://www.w3.org/2000/svg">
+												<path d="m4.6725 6.635-2.655-2.667a.445.445 0 0 1 -.123-.304.4331.4331 0 0 1 .427-.439h.006a.447.447 0 0 1 .316.135l2.357 2.365 2.356-2.365a.458.458 0 0 1 .316-.135.433.433 0 0 1 .433.433v.006a.4189.4189 0 0 1 -.123.3l-2.655 2.671a.4451.4451 0 0 1 -.327.14.464.464 0 0 1 -.328-.14z"></path>
+											</svg>
+										</span>
+										<span class="globalnav-image-compact globalnav-submenu-button-icon">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m7.4382 24.0621-6.5581-6.4238c-.2368-.2319-.2407-.6118-.0088-.8486.2324-.2373.6123-.2407.8486-.0088l7 6.8569c.1157.1138.1807.2695.1802.4316-.001.1621-.0674.3174-.1846.4297l-7 6.7242c-.1162.1118-.2661.1675-.4155.1675-.1577 0-.3149-.062-.4326-.1846-.2295-.2388-.2222-.6187.0171-.8481l6.5537-6.2959z"></path>
+											</svg>
+										</span>
+									</button>
+								</li>
+							</ul>
+							<div id="globalnav-submenu-link-platforms" class="globalnav-flyout globalnav-submenu" aria-labelledby="globalnav-menubutton-link-platforms" style="--r-globalnav-flyout-item-total: 0; --r-globalnav-flyout-group-number: 0; --r-globalnav-flyout-height: auto; --r-globalnav-flyout-rate: 240ms;">
+								<div class="globalnav-flyout-scroll-container">
+									<div class="globalnav-flyout-content globalnav-submenu-content" style="--r-globalnav-flyout-elevated-group-count: 1; --r-globalnav-flyout-group-total: 2; --r-globalnav-flyout-item-total: 9;">
+										<!-- Explore -->
+										<div class="globalnav-submenu-group globalnav-submenu-group-elevated" style="--r-globalnav-flyout-group-number: 0;">
+
+											<h2 class="globalnav-submenu-header" id="platforms-apple-heading" style="--r-globalnav-flyout-item-number: 1;">Explore Platforms</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="platforms-apple-heading">
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 2;"><a href="/platforms/" class="globalnav-submenu-link">Apple Platforms</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 3;"><a href="/ios/" class="globalnav-submenu-link">iOS</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 4;"><a href="/ipados/" class="globalnav-submenu-link">iPadOS</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 5;"><a href="/macos/" class="globalnav-submenu-link">macOS</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 6;"><a href="/tvos/" class="globalnav-submenu-link">tvOS</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 7;"><a href="/visionos/" class="globalnav-submenu-link">visionOS</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 8;"><a href="/watchos/" class="globalnav-submenu-link">watchOS</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 9;"><a href="/app-store/" class="globalnav-submenu-link">App Store</a></li>
+											</ul>
+										</div>
+										<!-- Featured -->
+										<div class="globalnav-submenu-group" style="--r-globalnav-flyout-group-number: 1;">
+
+											<h2 class="globalnav-submenu-header" id="platforms-learn-heading" style="--r-globalnav-flyout-item-number: 1;">Featured</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="platforms-learn-heading">
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 2;"><a href="/design/" class="globalnav-submenu-link">Design</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 3;"><a href="/distribute/" class="globalnav-submenu-link">Distribution</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 4;"><a href="/games/" class="globalnav-submenu-link">Games</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 5;"><a href="/accessories/" class="globalnav-submenu-link">Accessories</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 6;"><a href="/safari/" class="globalnav-submenu-link">Web</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 7;"><a href="/apple-home/" class="globalnav-submenu-link">Home</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 8;"><a href="/carplay/" class="globalnav-submenu-link">CarPlay</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="
+  globalnav-item
+  globalnav-item-technologies
+  globalnav-item-menu
+  globalnav-item-submenu
+" style="--r-globalnav-flyout-item-number: 2;">
+							<ul class="globalnav-submenu-trigger-group">
+								<li class="globalnav-submenu-trigger-item">
+									<a href="/technologies/" aria-label="Technologies" class="globalnav-link globalnav-submenu-trigger-link globalnav-link-technologies">
+										<span class="globalnav-link-text-container">
+											<span class="globalnav-link-text">Technologies</span>
+										</span>
+										<span class="globalnav-link-chevron">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m8.1155 30.358a.6.6 0 1 1 -.831.8653l-7-6.7242a.6.6 0 0 1 -.0045-.8613l7-6.8569a.6.6 0 1 1 .84.8574l-6.5582 6.4238z"></path>
+											</svg>
+										</span>
+									</a>
+								</li>
+								<li class="globalnav-submenu-trigger-item">
+									<button id="globalnav-menubutton-link-technologies" class="globalnav-submenu-trigger-button" aria-expanded="false" aria-controls="globalnav-submenu-link-technologies" aria-label="Technologies menu">
+										<span class="globalnav-image-regular globalnav-submenu-button-icon">
+											<svg height="10" viewBox="0 0 10 10" width="10" xmlns="http://www.w3.org/2000/svg">
+												<path d="m4.6725 6.635-2.655-2.667a.445.445 0 0 1 -.123-.304.4331.4331 0 0 1 .427-.439h.006a.447.447 0 0 1 .316.135l2.357 2.365 2.356-2.365a.458.458 0 0 1 .316-.135.433.433 0 0 1 .433.433v.006a.4189.4189 0 0 1 -.123.3l-2.655 2.671a.4451.4451 0 0 1 -.327.14.464.464 0 0 1 -.328-.14z"></path>
+											</svg>
+										</span>
+										<span class="globalnav-image-compact globalnav-submenu-button-icon">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m7.4382 24.0621-6.5581-6.4238c-.2368-.2319-.2407-.6118-.0088-.8486.2324-.2373.6123-.2407.8486-.0088l7 6.8569c.1157.1138.1807.2695.1802.4316-.001.1621-.0674.3174-.1846.4297l-7 6.7242c-.1162.1118-.2661.1675-.4155.1675-.1577 0-.3149-.062-.4326-.1846-.2295-.2388-.2222-.6187.0171-.8481l6.5537-6.2959z"></path>
+											</svg>
+										</span>
+									</button>
+								</li>
+							</ul>
+							<div id="globalnav-submenu-link-technologies" class="globalnav-flyout globalnav-submenu" aria-labelledby="globalnav-menubutton-link-technologies" style="--r-globalnav-flyout-item-total: 0; --r-globalnav-flyout-group-number: 0; --r-globalnav-flyout-height: auto; --r-globalnav-flyout-rate: 254ms;">
+								<div class="globalnav-flyout-scroll-container">
+									<div class="globalnav-flyout-content globalnav-submenu-content" style="--r-globalnav-flyout-elevated-group-count: 1; --r-globalnav-flyout-group-total: 2; --r-globalnav-flyout-item-total: 8;">
+										<!-- Explore -->
+										<div class="globalnav-submenu-group globalnav-submenu-group-elevated" style="--r-globalnav-flyout-group-number: 0;">
+
+											<h2 class="globalnav-submenu-header" id="technologies-learn-heading" style="--r-globalnav-flyout-item-number: 1;">Explore Technologies</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="technologies-learn-heading">
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 2;"><a href="/technologies/" class="globalnav-submenu-link">Overview</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 3;"><a href="/xcode/" class="globalnav-submenu-link">Xcode</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 4;"><a href="/swift/" class="globalnav-submenu-link">Swift</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 5;"><a href="/swiftui/" class="globalnav-submenu-link">SwiftUI</a></li>
+											</ul>
+										</div>
+										<!-- Featured -->
+										<div class="globalnav-submenu-group" style="--r-globalnav-flyout-group-number: 1;">
+
+											<h2 class="globalnav-submenu-header" id="technologies-featured-heading" style="--r-globalnav-flyout-item-number: 1;">Featured</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="technologies-featured-heading">
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 2;"><a href="/documentation/accessibility" class="globalnav-submenu-link">Accessibility</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 3;"><a href="/machine-learning/" class="globalnav-submenu-link">AI &amp; Machine Learning</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 4;"><a href="/documentation/appintents" class="globalnav-submenu-link">App Intents</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 5;"><a href="/apple-intelligence/" class="globalnav-submenu-link">Apple Intelligence</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 6;"><a href="/games/" class="globalnav-submenu-link">Games</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 7;"><a href="/security/" class="globalnav-submenu-link">Security</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 8;"><a href="/xcode-cloud/" class="globalnav-submenu-link">Xcode Cloud</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="
+  globalnav-item
+  globalnav-item-community
+  globalnav-item-menu
+  globalnav-item-submenu
+" style="--r-globalnav-flyout-item-number: 3;">
+							<ul class="globalnav-submenu-trigger-group">
+								<li class="globalnav-submenu-trigger-item">
+									<a href="/community/" aria-label="Community" class="globalnav-link globalnav-submenu-trigger-link globalnav-link-community">
+										<span class="globalnav-link-text-container">
+											<span class="globalnav-link-text">Community</span>
+										</span>
+										<span class="globalnav-link-chevron">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m8.1155 30.358a.6.6 0 1 1 -.831.8653l-7-6.7242a.6.6 0 0 1 -.0045-.8613l7-6.8569a.6.6 0 1 1 .84.8574l-6.5582 6.4238z"></path>
+											</svg>
+										</span>
+									</a>
+								</li>
+								<li class="globalnav-submenu-trigger-item">
+									<button id="globalnav-menubutton-link-community" class="globalnav-submenu-trigger-button" aria-expanded="false" aria-controls="globalnav-submenu-link-community" aria-label="Community menu">
+										<span class="globalnav-image-regular globalnav-submenu-button-icon">
+											<svg height="10" viewBox="0 0 10 10" width="10" xmlns="http://www.w3.org/2000/svg">
+												<path d="m4.6725 6.635-2.655-2.667a.445.445 0 0 1 -.123-.304.4331.4331 0 0 1 .427-.439h.006a.447.447 0 0 1 .316.135l2.357 2.365 2.356-2.365a.458.458 0 0 1 .316-.135.433.433 0 0 1 .433.433v.006a.4189.4189 0 0 1 -.123.3l-2.655 2.671a.4451.4451 0 0 1 -.327.14.464.464 0 0 1 -.328-.14z"></path>
+											</svg>
+										</span>
+										<span class="globalnav-image-compact globalnav-submenu-button-icon">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m7.4382 24.0621-6.5581-6.4238c-.2368-.2319-.2407-.6118-.0088-.8486.2324-.2373.6123-.2407.8486-.0088l7 6.8569c.1157.1138.1807.2695.1802.4316-.001.1621-.0674.3174-.1846.4297l-7 6.7242c-.1162.1118-.2661.1675-.4155.1675-.1577 0-.3149-.062-.4326-.1846-.2295-.2388-.2222-.6187.0171-.8481l6.5537-6.2959z"></path>
+											</svg>
+										</span>
+									</button>
+								</li>
+							</ul>
+							<div id="globalnav-submenu-link-community" class="globalnav-flyout globalnav-submenu" aria-labelledby="globalnav-menubutton-link-community" style="--r-globalnav-flyout-item-total: 0; --r-globalnav-flyout-group-number: 0; --r-globalnav-flyout-height: auto; --r-globalnav-flyout-rate: 240ms;">
+								<div class="globalnav-flyout-scroll-container">
+									<div class="globalnav-flyout-content globalnav-submenu-content" style="--r-globalnav-flyout-elevated-group-count: 1; --r-globalnav-flyout-group-total: 2; --r-globalnav-flyout-item-total: 7;">
+										<!-- Explore -->
+										<div class="globalnav-submenu-group globalnav-submenu-group-elevated" style="--r-globalnav-flyout-group-number: 0;">
+
+											<h2 class="globalnav-submenu-header" id="community-engage-heading" style="--r-globalnav-flyout-item-number: 1;">Explore Community</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="community-engage-heading">
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 2;"><a href="/community/" class="globalnav-submenu-link">Overview</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 3;"><a href="/events/" class="globalnav-submenu-link">Meet with Apple events</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 4;"><a href="/community/events/" class="globalnav-submenu-link">Community events</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 5;"><a href="/forums/" class="globalnav-submenu-link">Developer Forums</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 6;"><a href="https://opensource.apple.com" class="globalnav-submenu-link">Open Source</a></li>
+											</ul>
+										</div>
+										<!-- Featured -->
+										<div class="globalnav-submenu-group" style="--r-globalnav-flyout-group-number: 1;">
+
+											<h2 class="globalnav-submenu-header" id="community-contribute-heading" style="--r-globalnav-flyout-item-number: 1;">Featured</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="community-contribute-heading">
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 2;"><a href="/wwdc/" class="globalnav-submenu-link">WWDC</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 3;"><a href="/swift-student-challenge/" class="globalnav-submenu-link">Swift Student Challenge</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 4;"><a href="/developer-stories/" class="globalnav-submenu-link">Developer Stories</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 5;"><a href="/app-store/app-store-awards/" class="globalnav-submenu-link">App Store Awards</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 6;"><a href="/design/awards/" class="globalnav-submenu-link">Apple Design Awards</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 7;"><a href="/events/developer-centers/" class="globalnav-submenu-link">Apple Developer Centers</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="
+							    globalnav-item
+							    globalnav-item-documentation
+							    globalnav-item-menu
+							    globalnav-item-submenu
+							" style="--r-globalnav-flyout-item-number: 4;">
+							<ul class="globalnav-submenu-trigger-group">
+								<li class="globalnav-submenu-trigger-item">
+									<a href="/documentation/" aria-label="Documentation" class="globalnav-link globalnav-submenu-trigger-link globalnav-link-documentation">
+										<span class="globalnav-link-text-container">
+											<span class="globalnav-link-text">Documentation</span>
+										</span>
+										<span class="globalnav-link-chevron">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m8.1155 30.358a.6.6 0 1 1 -.831.8653l-7-6.7242a.6.6 0 0 1 -.0045-.8613l7-6.8569a.6.6 0 1 1 .84.8574l-6.5582 6.4238z"></path>
+											</svg>
+										</span>
+									</a>
+								</li>
+								<li class="globalnav-submenu-trigger-item">
+									<button id="globalnav-menubutton-link-documentation" class="globalnav-submenu-trigger-button" aria-expanded="false" aria-controls="globalnav-submenu-link-documentation" aria-label="Documentation menu">
+										<span class="globalnav-image-regular globalnav-submenu-button-icon">
+											<svg height="10" viewBox="0 0 10 10" width="10" xmlns="http://www.w3.org/2000/svg">
+												<path d="m4.6725 6.635-2.655-2.667a.445.445 0 0 1 -.123-.304.4331.4331 0 0 1 .427-.439h.006a.447.447 0 0 1 .316.135l2.357 2.365 2.356-2.365a.458.458 0 0 1 .316-.135.433.433 0 0 1 .433.433v.006a.4189.4189 0 0 1 -.123.3l-2.655 2.671a.4451.4451 0 0 1 -.327.14.464.464 0 0 1 -.328-.14z"></path>
+											</svg>
+										</span>
+										<span class="globalnav-image-compact globalnav-submenu-button-icon">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m7.4382 24.0621-6.5581-6.4238c-.2368-.2319-.2407-.6118-.0088-.8486.2324-.2373.6123-.2407.8486-.0088l7 6.8569c.1157.1138.1807.2695.1802.4316-.001.1621-.0674.3174-.1846.4297l-7 6.7242c-.1162.1118-.2661.1675-.4155.1675-.1577 0-.3149-.062-.4326-.1846-.2295-.2388-.2222-.6187.0171-.8481l6.5537-6.2959z"></path>
+											</svg>
+										</span>
+									</button>
+								</li>
+							</ul>
+							<div id="globalnav-submenu-link-documentation" class="globalnav-flyout globalnav-submenu" aria-labelledby="globalnav-menubutton-link-documentation" style="--r-globalnav-flyout-item-total: 0; --r-globalnav-flyout-group-number: 0; --r-globalnav-flyout-height: auto; --r-globalnav-flyout-rate: 240ms;">
+								<div class="globalnav-flyout-scroll-container">
+									<div class="globalnav-flyout-content globalnav-submenu-content" style="--r-globalnav-flyout-elevated-group-count: 1; --r-globalnav-flyout-group-total: 2; --r-globalnav-flyout-item-total: 9;">
+										<!-- Explore -->
+										<div class="globalnav-submenu-group globalnav-submenu-group-elevated" style="--r-globalnav-flyout-group-number: 0;">
+
+											<h2 class="globalnav-submenu-header" id="docs-explore" style="--r-globalnav-flyout-item-number: 1;">Explore Documentation</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="docs-explore">
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 2;"><a href="/documentation/" class="globalnav-submenu-link">Documentation Library</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 3;"><a href="/documentation/TechnologyOverviews" class="globalnav-submenu-link">Technology Overviews</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 4;"><a href="/documentation/SampleCode" class="globalnav-submenu-link">Sample Code</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 5;"><a href="/design/human-interface-guidelines/" class="globalnav-submenu-link">Human Interface Guidelines</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 6;"><a href="/videos/" class="globalnav-submenu-link">Videos</a></li>
+											</ul>
+										</div>
+										<!-- Release Notes -->
+										<div class="globalnav-submenu-group" style="--r-globalnav-flyout-group-number: 1;">
+
+											<h2 class="globalnav-submenu-header" id="docs-release-notes" style="--r-globalnav-flyout-item-number: 1;">Release Notes</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="docs-release-notes">
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 2;"><a href="/documentation/Updates" class="globalnav-submenu-link">Featured Updates</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 3;"><a href="/documentation/ios-ipados-release-notes" class="globalnav-submenu-link">iOS</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 4;"><a href="/documentation/ios-ipados-release-notes" class="globalnav-submenu-link">iPadOS</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 5;"><a href="/documentation/macos-release-notes" class="globalnav-submenu-link">macOS</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 6;"><a href="/documentation/watchos-release-notes" class="globalnav-submenu-link">watchOS</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 7;"><a href="/documentation/visionos-release-notes/" class="globalnav-submenu-link">visionOS</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 8;"><a href="/documentation/tvos-release-notes" class="globalnav-submenu-link">tvOS</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 9;"><a href="/documentation/Updates/xcode" class="globalnav-submenu-link">Xcode</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="
+  globalnav-item
+  globalnav-item-downloads
+  globalnav-item-menu
+  globalnav-item-submenu
+" style="--r-globalnav-flyout-item-number: 5;">
+							<ul class="globalnav-submenu-trigger-group">
+								<li class="globalnav-submenu-trigger-item">
+									<a href="/download/" aria-label="Downloads" class="globalnav-link globalnav-submenu-trigger-link globalnav-link-downloads">
+										<span class="globalnav-link-text-container">
+											<span class="globalnav-link-text">Downloads</span>
+										</span>
+										<span class="globalnav-link-chevron">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m8.1155 30.358a.6.6 0 1 1 -.831.8653l-7-6.7242a.6.6 0 0 1 -.0045-.8613l7-6.8569a.6.6 0 1 1 .84.8574l-6.5582 6.4238z"></path>
+											</svg>
+										</span>
+									</a>
+								</li>
+								<li class="globalnav-submenu-trigger-item">
+									<button id="globalnav-menubutton-link-downloads" class="globalnav-submenu-trigger-button" aria-expanded="false" aria-controls="globalnav-submenu-link-downloads" aria-label="Downloads menu">
+										<span class="globalnav-image-regular globalnav-submenu-button-icon">
+											<svg height="10" viewBox="0 0 10 10" width="10" xmlns="http://www.w3.org/2000/svg">
+												<path d="m4.6725 6.635-2.655-2.667a.445.445 0 0 1 -.123-.304.4331.4331 0 0 1 .427-.439h.006a.447.447 0 0 1 .316.135l2.357 2.365 2.356-2.365a.458.458 0 0 1 .316-.135.433.433 0 0 1 .433.433v.006a.4189.4189 0 0 1 -.123.3l-2.655 2.671a.4451.4451 0 0 1 -.327.14.464.464 0 0 1 -.328-.14z"></path>
+											</svg>
+										</span>
+										<span class="globalnav-image-compact globalnav-submenu-button-icon">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m7.4382 24.0621-6.5581-6.4238c-.2368-.2319-.2407-.6118-.0088-.8486.2324-.2373.6123-.2407.8486-.0088l7 6.8569c.1157.1138.1807.2695.1802.4316-.001.1621-.0674.3174-.1846.4297l-7 6.7242c-.1162.1118-.2661.1675-.4155.1675-.1577 0-.3149-.062-.4326-.1846-.2295-.2388-.2222-.6187.0171-.8481l6.5537-6.2959z"></path>
+											</svg>
+										</span>
+									</button>
+								</li>
+							</ul>
+							<div id="globalnav-submenu-link-downloads" class="globalnav-flyout globalnav-submenu" aria-labelledby="globalnav-menubutton-link-downloads" style="--r-globalnav-flyout-item-total: 0; --r-globalnav-flyout-group-number: 0; --r-globalnav-flyout-height: auto; --r-globalnav-flyout-rate: 240ms;">
+								<div class="globalnav-flyout-scroll-container">
+									<div class="globalnav-flyout-content globalnav-submenu-content" style="--r-globalnav-flyout-elevated-group-count: 1; --r-globalnav-flyout-group-total: 2; --r-globalnav-flyout-item-total: 6;">
+										<!-- Explore -->
+										<div class="globalnav-submenu-group globalnav-submenu-group-elevated" style="--r-globalnav-flyout-group-number: 0;">
+
+											<h2 class="globalnav-submenu-header" id="downloads-explore-heading" style="--r-globalnav-flyout-item-number: 1;">Explore Downloads</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="downloads-explore-heading">
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 2;"><a href="/download/" class="globalnav-submenu-link">All Downloads</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 3;"><a href="/download/os/" class="globalnav-submenu-link">Operating Systems</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 4;"><a href="/download/applications/" class="globalnav-submenu-link">Applications</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 5;"><a href="/design/resources/" class="globalnav-submenu-link">Design Resources</a></li>
+											</ul>
+										</div>
+										<!-- Featured -->
+										<div class="globalnav-submenu-group" style="--r-globalnav-flyout-group-number: 1;">
+
+											<h2 class="globalnav-submenu-header" id="downloads-featured-heading" style="--r-globalnav-flyout-item-number: 1;">Featured</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="downloads-featured-heading">
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 2;"><a href="/xcode/" class="globalnav-submenu-link">Xcode</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 3;"><a href="/testflight/" class="globalnav-submenu-link">TestFlight</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 4;"><a href="/fonts/" class="globalnav-submenu-link">Fonts</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 5;"><a href="/sf-symbols/" class="globalnav-submenu-link">SF Symbols</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 6;"><a href="/icon-composer/" class="globalnav-submenu-link">Icon Composer</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="
+  globalnav-item
+  globalnav-item-support
+  globalnav-item-menu
+  globalnav-item-submenu
+" style="--r-globalnav-flyout-item-number: 6;">
+							<ul class="globalnav-submenu-trigger-group">
+								<li class="globalnav-submenu-trigger-item">
+									<a href="/support/" aria-label="Support" class="globalnav-link globalnav-submenu-trigger-link globalnav-link-support">
+										<span class="globalnav-link-text-container">
+											<span class="globalnav-link-text">Support</span>
+										</span>
+										<span class="globalnav-link-chevron">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m8.1155 30.358a.6.6 0 1 1 -.831.8653l-7-6.7242a.6.6 0 0 1 -.0045-.8613l7-6.8569a.6.6 0 1 1 .84.8574l-6.5582 6.4238z"></path>
+											</svg>
+										</span>
+									</a>
+								</li>
+								<li class="globalnav-submenu-trigger-item">
+									<button id="globalnav-menubutton-link-support" class="globalnav-submenu-trigger-button" aria-expanded="false" aria-controls="globalnav-submenu-link-support" aria-label="Support menu">
+										<span class="globalnav-image-regular globalnav-submenu-button-icon">
+											<svg height="10" viewBox="0 0 10 10" width="10" xmlns="http://www.w3.org/2000/svg">
+												<path d="m4.6725 6.635-2.655-2.667a.445.445 0 0 1 -.123-.304.4331.4331 0 0 1 .427-.439h.006a.447.447 0 0 1 .316.135l2.357 2.365 2.356-2.365a.458.458 0 0 1 .316-.135.433.433 0 0 1 .433.433v.006a.4189.4189 0 0 1 -.123.3l-2.655 2.671a.4451.4451 0 0 1 -.327.14.464.464 0 0 1 -.328-.14z"></path>
+											</svg>
+										</span>
+										<span class="globalnav-image-compact globalnav-submenu-button-icon">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m7.4382 24.0621-6.5581-6.4238c-.2368-.2319-.2407-.6118-.0088-.8486.2324-.2373.6123-.2407.8486-.0088l7 6.8569c.1157.1138.1807.2695.1802.4316-.001.1621-.0674.3174-.1846.4297l-7 6.7242c-.1162.1118-.2661.1675-.4155.1675-.1577 0-.3149-.062-.4326-.1846-.2295-.2388-.2222-.6187.0171-.8481l6.5537-6.2959z"></path>
+											</svg>
+										</span>
+									</button>
+								</li>
+							</ul>
+							<div id="globalnav-submenu-link-support" class="globalnav-flyout globalnav-submenu" aria-labelledby="globalnav-menubutton-link-support" style="--r-globalnav-flyout-item-total: 0; --r-globalnav-flyout-group-number: 0; --r-globalnav-flyout-height: auto; --r-globalnav-flyout-rate: 240ms;">
+								<div class="globalnav-flyout-scroll-container">
+									<div class="globalnav-flyout-content globalnav-submenu-content" style="--r-globalnav-flyout-elevated-group-count: 1; --r-globalnav-flyout-group-total: 2; --r-globalnav-flyout-item-total: 7;">
+										<!-- Explore -->
+										<div class="globalnav-submenu-group globalnav-submenu-group-elevated" style="--r-globalnav-flyout-group-number: 0;">
+
+											<h2 class="globalnav-submenu-header" id="explore-support" style="--r-globalnav-flyout-item-number: 1;">Explore Support</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="explore-support">
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 2;"><a href="/support/" class="globalnav-submenu-link">Overview</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 3;"><a href="/help/" class="globalnav-submenu-link">Help Guides</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 4;"><a href="/forums/" class="globalnav-submenu-link">Developer Forums</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 5;"><a href="/feedback-assistant/" class="globalnav-submenu-link">Feedback Assistant</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 6;"><a href="/contact/" class="globalnav-submenu-link">Contact Us</a></li>
+											</ul>
+										</div>
+										<!-- Featured -->
+										<div class="globalnav-submenu-group" style="--r-globalnav-flyout-group-number: 1;">
+
+											<h2 class="globalnav-submenu-header" id="support-help" style="--r-globalnav-flyout-item-number: 1;">Featured</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="support-help">
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 2;"><a href="/help/account/" class="globalnav-submenu-link">Account Help</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 3;"><a href="/app-store/review/guidelines/" class="globalnav-submenu-link">App Review Guidelines</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 4;"><a href="/help/app-review/" class="globalnav-submenu-link">App Review Help</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 5;"><a href="/help/app-store-connect/" class="globalnav-submenu-link">App Store Connect Help</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 6;"><a href="/news/upcoming-requirements/" class="globalnav-submenu-link">Upcoming Requirements</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 7;"><a href="/support/terms/" class="globalnav-submenu-link">Agreements and Guidelines</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 8;"><a href="/system-status/" class="globalnav-submenu-link">System Status</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<!-- Search -->
+			<li data-topnav-flyout-label="Search" class="globalnav-item globalnav-search shift-0-1" data-globalnav-iconflyout-enabled="true">
+				<a role="button" id="globalnav-menubutton-link-search" href="/search/" data-topnav-flyout-trigger-regular="true" data-topnav-flyout-trigger-compact="true" aria-label="Search" class="globalnav-link globalnav-link-search">
+					<span class="globalnav-image-regular">
+						<svg xmlns="http://www.w3.org/2000/svg" width="15px" height="44px" viewBox="0 0 15 44">
+							<path d="M14.298,27.202l-3.87-3.87c0.701-0.929,1.122-2.081,1.122-3.332c0-3.06-2.489-5.55-5.55-5.55c-3.06,0-5.55,2.49-5.55,5.55 c0,3.061,2.49,5.55,5.55,5.55c1.251,0,2.403-0.421,3.332-1.122l3.87,3.87c0.151,0.151,0.35,0.228,0.548,0.228 s0.396-0.076,0.548-0.228C14.601,27.995,14.601,27.505,14.298,27.202z M1.55,20c0-2.454,1.997-4.45,4.45-4.45 c2.454,0,4.45,1.997,4.45,4.45S8.454,24.45,6,24.45C3.546,24.45,1.55,22.454,1.55,20z"></path>
+						</svg>
+					</span>
+					<span class="globalnav-image-compact">
+						<svg height="48" viewBox="0 0 17 48" width="17" xmlns="http://www.w3.org/2000/svg">
+							<path d="m16.2294 29.9556-4.1755-4.0821a6.4711 6.4711 0 1 0 -1.2839 1.2625l4.2005 4.1066a.9.9 0 1 0 1.2588-1.287zm-14.5294-8.0017a5.2455 5.2455 0 1 1 5.2455 5.2527 5.2549 5.2549 0 0 1 -5.2455-5.2527z"></path>
+						</svg>
+					</span>
+				</a>
+				<div id="globalnav-submenu-search" aria-labelledby="globalnav-menubutton-link-search" class="globalnav-flyout globalnav-submenu" style="--r-globalnav-flyout-item-total: 0; --r-globalnav-flyout-group-number: 0; --r-globalnav-flyout-height: 388px; --r-globalnav-flyout-rate: 240ms;">
+					<div class="globalnav-flyout-scroll-container">
+						<div class="globalnav-flyout-content globalnav-submenu-content">
+							<form action="/search/" method="get" class="globalnav-searchfield">
+								<div class="globalnav-searchfield-wrapper">
+									<input placeholder="Ask Apple Developer" name="q" aria-label="Ask Apple Developer" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" class="globalnav-searchfield-input">
+									<input id="globalnav-searchfield-src" type="hidden" name="src" value="globalnav">
+									<button aria-label="Clear search" tabindex="-1" type="button" class="globalnav-searchfield-reset" disabled="" aria-hidden="true">
+										<span class="globalnav-image-regular">
+											<svg height="14" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
+												<path d="m7 .0339a6.9661 6.9661 0 1 0 6.9661 6.9661 6.9661 6.9661 0 0 0 -6.9661-6.9661zm2.798 8.9867a.55.55 0 0 1 -.778.7774l-2.02-2.02-2.02 2.02a.55.55 0 0 1 -.7784-.7774l2.0206-2.0206-2.0204-2.02a.55.55 0 0 1 .7782-.7778l2.02 2.02 2.02-2.02a.55.55 0 0 1 .778.7778l-2.0203 2.02z"></path>
+											</svg>
+										</span>
+										<span class="globalnav-image-compact">
+											<svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+												<path d="m0 8a8.0474 8.0474 0 0 1 7.9922-8 8.0609 8.0609 0 0 1 8.0078 8 8.0541 8.0541 0 0 1 -8 8 8.0541 8.0541 0 0 1 -8-8zm5.6549 3.2863 2.3373-2.353 2.3451 2.353a.6935.6935 0 0 0 .4627.1961.6662.6662 0 0 0 .6667-.6667.6777.6777 0 0 0 -.1961-.4706l-2.3451-2.3373 2.3529-2.3607a.5943.5943 0 0 0 .1961-.4549.66.66 0 0 0 -.6667-.6589.6142.6142 0 0 0 -.447.1961l-2.3686 2.3606-2.353-2.3527a.6152.6152 0 0 0 -.447-.1883.6529.6529 0 0 0 -.6667.651.6264.6264 0 0 0 .1961.4549l2.3451 2.3529-2.3451 2.353a.61.61 0 0 0 -.1961.4549.6661.6661 0 0 0 .6667.6667.6589.6589 0 0 0 .4627-.1961z"></path>
+											</svg>
+										</span>
+									</button>
+									<button aria-label="Submit search" tabindex="-1" aria-hidden="true" type="submit" class="globalnav-searchfield-submit" disabled="">
+										<span class="globalnav-image-regular">
+											<svg height="32" viewBox="0 0 30 32" width="30" xmlns="http://www.w3.org/2000/svg">
+												<path d="m23.3291 23.3066-4.35-4.35c-.0105-.0105-.0247-.0136-.0355-.0235a6.8714 6.8714 0 1 0 -1.5736 1.4969c.0214.0256.03.0575.0542.0815l4.35 4.35a1.1 1.1 0 1 0 1.5557-1.5547zm-15.4507-8.582a5.6031 5.6031 0 1 1 5.603 5.61 5.613 5.613 0 0 1 -5.603-5.61z"></path>
+											</svg>
+										</span>
+										<span class="globalnav-image-compact">
+											<svg width="38" height="40" viewBox="0 0 38 40" xmlns="http://www.w3.org/2000/svg">
+												<path d="m28.6724 27.8633-5.07-5.07c-.0095-.0095-.0224-.0122-.032-.0213a7.9967 7.9967 0 1 0 -1.8711 1.7625c.0254.03.0357.0681.0642.0967l5.07 5.07a1.3 1.3 0 0 0 1.8389-1.8379zm-18.0035-10.0033a6.5447 6.5447 0 1 1 6.545 6.5449 6.5518 6.5518 0 0 1 -6.545-6.5449z"></path>
+											</svg>
+										</span>
+									</button>
+								</div>
+							</form>
+							<div class="globalnav-searchresults">
+								<div class="globalnav-searchresults-current">
+									<div class="globalnav-searchresults-container" style="--r-globalnav-flyout-group-number: 0;">
+
+										<h2 class="globalnav-searchresults-header" style="--r-globalnav-flyout-item-number: 0;">Quick Links</h2>
+										<ul class="globalnav-searchresults-list" role="list">
+											<li class="globalnav-searchresults-list-item" role="listitem" style="--r-globalnav-flyout-item-number: 1;">
+												<a class="globalnav-searchresults-list-link" href="/events/" data-query="no keyword" data-section="quicklinks" data-items="5" data-index="0" data-label="Events">
+													<span class="globalnav-searchresults-list-icon">
+														<span class="globalnav-image-regular globalnav-link-image">
+															<svg height="16" viewBox="0 0 9 16" width="9" xmlns="http://www.w3.org/2000/svg">
+																<path d="m8.6124 8.1035-2.99 2.99a.5.5 0 0 1 -.7071-.7071l2.1366-2.1364h-6.316a.5.5 0 0 1 0-1h6.316l-2.1368-2.1367a.5.5 0 0 1 .7071-.7071l2.99 2.99a.5.5 0 0 1 .0002.7073z"></path>
+															</svg>
+														</span>
+														<span class="globalnav-image-compact globalnav-link-image">
+															<svg height="25" viewBox="0 0 13 25" width="13" xmlns="http://www.w3.org/2000/svg">
+																<path d="m12.3577 13.4238-4.4444 4.4444a.6.6 0 0 1 -.8486-.8477l3.37-3.37h-9.3231a.65.65 0 0 1 0-1.3008h9.3232l-3.37-3.37a.6.6 0 0 1 .8486-.8477l4.4444 4.4444a.5989.5989 0 0 1 -.0001.8474z"></path>
+															</svg>
+														</span>
+													</span>
+													<span class="globalnav-searchresults-list-text">Events</span>
+												</a>
+											</li>
+											<li class="globalnav-searchresults-list-item" role="listitem" style="--r-globalnav-flyout-item-number: 2;">
+												<a class="globalnav-searchresults-list-link" href="/news/" data-query="no keyword" data-section="quicklinks" data-items="5" data-index="1" data-label="News">
+													<span class="globalnav-searchresults-list-icon">
+														<span class="globalnav-image-regular globalnav-link-image">
+															<svg height="16" viewBox="0 0 9 16" width="9" xmlns="http://www.w3.org/2000/svg">
+																<path d="m8.6124 8.1035-2.99 2.99a.5.5 0 0 1 -.7071-.7071l2.1366-2.1364h-6.316a.5.5 0 0 1 0-1h6.316l-2.1368-2.1367a.5.5 0 0 1 .7071-.7071l2.99 2.99a.5.5 0 0 1 .0002.7073z"></path>
+															</svg>
+														</span>
+														<span class="globalnav-image-compact globalnav-link-image">
+															<svg height="25" viewBox="0 0 13 25" width="13" xmlns="http://www.w3.org/2000/svg">
+																<path d="m12.3577 13.4238-4.4444 4.4444a.6.6 0 0 1 -.8486-.8477l3.37-3.37h-9.3231a.65.65 0 0 1 0-1.3008h9.3232l-3.37-3.37a.6.6 0 0 1 .8486-.8477l4.4444 4.4444a.5989.5989 0 0 1 -.0001.8474z"></path>
+															</svg>
+														</span>
+													</span>
+													<span class="globalnav-searchresults-list-text">News</span>
+												</a>
+											</li>
+											<li class="globalnav-searchresults-list-item" role="listitem" style="--r-globalnav-flyout-item-number: 3;">
+												<a class="globalnav-searchresults-list-link" href="/forums/" data-query="no keyword" data-section="quicklinks" data-items="5" data-index="2" data-label="Forums">
+													<span class="globalnav-searchresults-list-icon">
+														<span class="globalnav-image-regular globalnav-link-image">
+															<svg height="16" viewBox="0 0 9 16" width="9" xmlns="http://www.w3.org/2000/svg">
+																<path d="m8.6124 8.1035-2.99 2.99a.5.5 0 0 1 -.7071-.7071l2.1366-2.1364h-6.316a.5.5 0 0 1 0-1h6.316l-2.1368-2.1367a.5.5 0 0 1 .7071-.7071l2.99 2.99a.5.5 0 0 1 .0002.7073z"></path>
+															</svg>
+														</span>
+														<span class="globalnav-image-compact globalnav-link-image">
+															<svg height="25" viewBox="0 0 13 25" width="13" xmlns="http://www.w3.org/2000/svg">
+																<path d="m12.3577 13.4238-4.4444 4.4444a.6.6 0 0 1 -.8486-.8477l3.37-3.37h-9.3231a.65.65 0 0 1 0-1.3008h9.3232l-3.37-3.37a.6.6 0 0 1 .8486-.8477l4.4444 4.4444a.5989.5989 0 0 1 -.0001.8474z"></path>
+															</svg>
+														</span>
+													</span>
+													<span class="globalnav-searchresults-list-text">Forums</span>
+												</a>
+											</li>
+											<li class="globalnav-searchresults-list-item" role="listitem" style="--r-globalnav-flyout-item-number: 4;">
+												<a class="globalnav-searchresults-list-link" href="/documentation/samplecode/" data-query="no keyword" data-section="quicklinks" data-items="5" data-index="3" data-label="Sample Code">
+													<span class="globalnav-searchresults-list-icon">
+														<span class="globalnav-image-regular globalnav-link-image">
+															<svg height="16" viewBox="0 0 9 16" width="9" xmlns="http://www.w3.org/2000/svg">
+																<path d="m8.6124 8.1035-2.99 2.99a.5.5 0 0 1 -.7071-.7071l2.1366-2.1364h-6.316a.5.5 0 0 1 0-1h6.316l-2.1368-2.1367a.5.5 0 0 1 .7071-.7071l2.99 2.99a.5.5 0 0 1 .0002.7073z"></path>
+															</svg>
+														</span>
+														<span class="globalnav-image-compact globalnav-link-image">
+															<svg height="25" viewBox="0 0 13 25" width="13" xmlns="http://www.w3.org/2000/svg">
+																<path d="m12.3577 13.4238-4.4444 4.4444a.6.6 0 0 1 -.8486-.8477l3.37-3.37h-9.3231a.65.65 0 0 1 0-1.3008h9.3232l-3.37-3.37a.6.6 0 0 1 .8486-.8477l4.4444 4.4444a.5989.5989 0 0 1 -.0001.8474z"></path>
+															</svg>
+														</span>
+													</span>
+													<span class="globalnav-searchresults-list-text">Sample Code</span>
+												</a>
+											</li>
+											<li class="globalnav-searchresults-list-item" role="listitem" style="--r-globalnav-flyout-item-number: 5;">
+												<a class="globalnav-searchresults-list-link" href="/videos/" data-query="no keyword" data-section="quicklinks" data-items="5" data-index="4" data-label="Videos">
+													<span class="globalnav-searchresults-list-icon">
+														<span class="globalnav-image-regular globalnav-link-image">
+															<svg height="16" viewBox="0 0 9 16" width="9" xmlns="http://www.w3.org/2000/svg">
+																<path d="m8.6124 8.1035-2.99 2.99a.5.5 0 0 1 -.7071-.7071l2.1366-2.1364h-6.316a.5.5 0 0 1 0-1h6.316l-2.1368-2.1367a.5.5 0 0 1 .7071-.7071l2.99 2.99a.5.5 0 0 1 .0002.7073z"></path>
+															</svg>
+														</span>
+														<span class="globalnav-image-compact globalnav-link-image">
+															<svg height="25" viewBox="0 0 13 25" width="13" xmlns="http://www.w3.org/2000/svg">
+																<path d="m12.3577 13.4238-4.4444 4.4444a.6.6 0 0 1 -.8486-.8477l3.37-3.37h-9.3231a.65.65 0 0 1 0-1.3008h9.3232l-3.37-3.37a.6.6 0 0 1 .8486-.8477l4.4444 4.4444a.5989.5989 0 0 1 -.0001.8474z"></path>
+															</svg>
+														</span>
+													</span>
+													<span class="globalnav-searchresults-list-text">Videos</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<!-- Account -->
+			<li id="globalnav-account" class="globalnav-item globalnav-account">
+				<div class="globalnav-account-wrapper">
+					<a href="/account/" aria-label="Account" class="globalnav-link globalnav-link-account">
+						<span class="globalnav-image-regular globalnav-link-image" aria-hidden="true">
+							<svg width="17" height="47" viewBox="0 0 117.045 120" xmlns="http://www.w3.org/2000/svg" focusable="false" preserveAspectRatio="xMidYMid meet">
+								<path fill="currentColor" d="M58.496,109.742c27.503,0 49.825,-22.271 49.825,-49.774c0,-27.503 -22.322,-49.773 -49.825,-49.773c-27.451,0 -49.773,22.27 -49.773,49.773c0,27.503 22.322,49.774 49.773,49.774zM58.496,101.474c-22.945,0 -41.465,-18.561 -41.465,-41.506c0,-22.944 18.52,-41.506 41.465,-41.506c22.945,0 41.506,18.562 41.506,41.506c0,22.945 -18.561,41.506 -41.506,41.506zM91.931,92.156l-0.156,-0.549c-2.433,-7.174 -15.338,-15.037 -33.279,-15.037c-17.92,0 -30.773,7.852 -33.227,15.005l-0.156,0.581c8.825,8.692 23.891,13.762 33.394,13.762c9.575,0 24.525,-5.028 33.424,-13.762zM58.496,68.304c9.398,0.103 16.759,-7.924 16.759,-18.421c0,-9.875 -7.393,-18.048 -16.759,-18.048c-9.314,0 -16.769,8.173 -16.707,18.048c0.052,10.497 7.31,18.317 16.707,18.421z" />
+							</svg>
+						</span>
+						<span class="globalnav-image-compact globalnav-link-image" aria-hidden="true">
+							<svg width="20" height="51" viewBox="0 0 117.045 120" xmlns="http://www.w3.org/2000/svg" focusable="false" preserveAspectRatio="xMidYMid meet">
+								<path fill="currentColor" d="M58.496,109.742c27.503,0 49.825,-22.271 49.825,-49.774c0,-27.503 -22.322,-49.773 -49.825,-49.773c-27.451,0 -49.773,22.27 -49.773,49.773c0,27.503 22.322,49.774 49.773,49.774zM58.496,101.474c-22.945,0 -41.465,-18.561 -41.465,-41.506c0,-22.944 18.52,-41.506 41.465,-41.506c22.945,0 41.506,18.562 41.506,41.506c0,22.945 -18.561,41.506 -41.506,41.506zM91.931,92.156l-0.156,-0.549c-2.433,-7.174 -15.338,-15.037 -33.279,-15.037c-17.92,0 -30.773,7.852 -33.227,15.005l-0.156,0.581c8.825,8.692 23.891,13.762 33.394,13.762c9.575,0 24.525,-5.028 33.424,-13.762zM58.496,68.304c9.398,0.103 16.759,-7.924 16.759,-18.421c0,-9.875 -7.393,-18.048 -16.759,-18.048c-9.314,0 -16.769,8.173 -16.707,18.048c0.052,10.497 7.31,18.317 16.707,18.421z" />
+							</svg>
+						</span>
+					</a>
+				</div>
+			</li>
+		</ul>
+		<div class="globalnav-menutrigger">
+			<button id="globalnav-menutrigger-button" aria-controls="globalnav-list" aria-label="Menu" class="globalnav-menutrigger-button"><svg width="18" height="18" viewBox="0 0 18 18">
+					<polyline id="globalnav-menutrigger-bread-bottom" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" points="2 12, 16 12" class="globalnav-menutrigger-bread globalnav-menutrigger-bread-bottom">
+						<animate id="globalnav-anim-menutrigger-bread-bottom-open" attributeName="points" keyTimes="0;0.5;1" dur="0.24s" begin="indefinite" fill="freeze" calcMode="spline" keySplines="0.42, 0, 1, 1;0, 0, 0.58, 1" values=" 2 12, 16 12; 2 9, 16 9; 3.5 15, 15 3.5"></animate>
+						<animate id="globalnav-anim-menutrigger-bread-bottom-close" attributeName="points" keyTimes="0;0.5;1" dur="0.24s" begin="indefinite" fill="freeze" calcMode="spline" keySplines="0.42, 0, 1, 1;0, 0, 0.58, 1" values=" 3.5 15, 15 3.5; 2 9, 16 9; 2 12, 16 12"></animate>
+					</polyline>
+					<polyline id="globalnav-menutrigger-bread-top" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" points="2 5, 16 5" class="globalnav-menutrigger-bread globalnav-menutrigger-bread-top">
+						<animate id="globalnav-anim-menutrigger-bread-top-open" attributeName="points" keyTimes="0;0.5;1" dur="0.24s" begin="indefinite" fill="freeze" calcMode="spline" keySplines="0.42, 0, 1, 1;0, 0, 0.58, 1" values=" 2 5, 16 5; 2 9, 16 9; 3.5 3.5, 15 15"></animate>
+						<animate id="globalnav-anim-menutrigger-bread-top-close" attributeName="points" keyTimes="0;0.5;1" dur="0.24s" begin="indefinite" fill="freeze" calcMode="spline" keySplines="0.42, 0, 1, 1;0, 0, 0.58, 1" values=" 3.5 3.5, 15 15; 2 9, 16 9; 2 5, 16 5"></animate>
+					</polyline>
+				</svg>
+			</button>
+		</div>
+	</div>
+	<span style="visibility: hidden; position: absolute; top: 0px; z-index: -1;">&nbsp;</span>
+</nav>
+<!-- <div class="globalnav-placeholder"></div> -->
+<script src="/assets/scripts/ac-globalnav.built.js?35212621148"></script>
+	<!-- metrics -->
+<script>
+	/* RSID: */
+	var s_account="awdappledeveloper"
+</script>	
+<script src="/assets/metrics/scripts/analytics.js"></script>
+<script>
+	s_sections = [
+		{
+			"pattern": "^/documentation",
+			"channel": "www.documentation.developer"
+		},
+		{
+			"pattern": "^/library",
+			"channel": "www.documentation.developer"
+		},
+		{
+			"pattern": "^/tutorials",
+			"channel": "www.documentation.developer"
+		},	
+		{
+			"pattern": "human\\-interface\\-guidelines",
+			"channel": "www.hig.developer"
+		},
+		{
+			"pattern": "/testflight/",
+			"channel": "www.appstoreconnect.developer"
+		},
+		{
+			"pattern": "/app\\-store\\-connect/",
+			"channel": "www.appstoreconnect.developer"
+		},
+		{
+			"pattern": "/support/app\\-store\\-connect/",
+			"channel": "www.appstoreconnect.developer"
+		},
+		{
+			"pattern": "/help/app\\-store\\-connect/",
+			"channel": "www.appstoreconnect.developer"
+		},
+		{
+			"pattern": "/wwdc/",
+			"channel": "www.wwdc.developer"
+		},
+		{
+			"pattern": "/wwdc\\d{2}/",
+			"channel": "www.wwdc.developer"
+		},
+		{
+			"pattern": "/videos/",
+			"channel": "www.videos.developer"
+		},
+		{
+			"pattern": "^/account",
+			"channel": "www.account.developer"
+		},
+		{
+			"pattern": "downloads?",
+			"channel": "www.download.developer"
+		},
+		{
+			"pattern": "/localization/",
+			"channel": "www.appstore.developer"
+		},	
+		{
+			"pattern": "/app\\-store/",
+			"channel": "www.appstore.developer"
+		},
+		{
+			"pattern": "/in\\-app\\-purchase/",
+			"channel": "www.appstore.developer"
+		},
+		{
+			"pattern": "/cn/",
+			"channel": "www.cn.developer"
+		},
+		{
+			"pattern": "/jp/",
+			"channel": "www.jp.developer"
+		},
+		{
+			"pattern": "/kr/",
+			"channel": "www.kr.developer"
+		},
+		{
+			"pattern": "/de/",
+			"channel": "www.de.developer"
+		},
+		{
+			"pattern": "/la/",
+			"channel": "www.la.developer"
+		},
+		{
+			"pattern": "/fr/",
+			"channel": "www.fr.developer"
+		},
+		{
+			"pattern": "/it/",
+			"channel": "www.it.developer"
+		},
+		{
+			"pattern": "/br/",
+			"channel": "www.br.developer"
+		}
+	];
+	
+	s.pageName= AC && AC.Tracking && AC.Tracking.pageName();
+	s.channel="www.en.developer";
+	
+	s_sections.forEach((s_section) => {
+		var regex = new RegExp(s_section.pattern);
+		
+		if(location.pathname.search(regex) !== -1) {
+			s.channel=s_section.channel;
+		}
+	});
+	
+	/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+	var s_code=s.t();if(s_code)document.write(s_code)
+</script>
+<!-- /metrics -->
+
+	<link rel="stylesheet" property="stylesheet" href="/assets/styles/localnav.css" type="text/css" />
+<input type="checkbox" id="localnav-menustate" class="localnav-menustate"/>
+<nav id="localnav" class="localnav localnav-scrim" data-sticky role="navigation">
+	<div class="localnav-wrapper">
+		<div class="localnav-background"></div>
+		<div class="localnav-content">
+			<h2 class="localnav-title">
+				<a href="/videos/">Videos</a>
+			</h2>
+
+			<div class="localnav-menu">
+				<a href="#localnav-menustate" class="localnav-menucta-anchor localnav-menucta-anchor-open" id="localnav-menustate-open">
+					<span class="localnav-menucta-anchor-label">Open Menu</span>
+				</a>
+				<a href="#" class="localnav-menucta-anchor localnav-menucta-anchor-close" id="localnav-menustate-close">
+					<span class="localnav-menucta-anchor-label">Close Menu</span>
+				</a>
+				<div class="localnav-menu-tray">
+					<ul class="localnav-menu-items">
+						<li class="localnav-menu-item">
+							<a href="/videos/" class="localnav-menu-link">Collections</a>
+						</li>
+						<li class="localnav-menu-item">
+							<a href="/videos/all-videos/" class="localnav-menu-link">All Videos</a>
+						</li>
+						<li class="localnav-menu-item">
+							<a href="/videos/about/" class="localnav-menu-link">About</a>
+						</li>
+					</ul>
+				</div>
+				<div class="localnav-actions localnav-actions-center">
+					<div class="localnav-action localnav-action-menucta" aria-hidden="true">
+						<label for="localnav-menustate" class="localnav-menucta">
+							<span class="localnav-menucta-chevron"></span>
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
+<label id="localnav-curtain" for="localnav-menustate"></label>
+<script src="/assets/scripts/ac-localnav.built.js"></script>
+<script type="text/javascript" src="/assets/scripts/localnav.js"></script>
+	<main id="main" class="main " role="main">
+
+		<section class="padding-top-small">
+
+			<div class="section-content">
+								
+				<!-- video player -->
+				<section class="video-wrapper row">
+					<section class="column large-12 small-12  padding-top-small padding-bottom-small large-centered">
+												<div class="developer-video-player">
+							<div id="video-status-overlay" class="developer-video-overlay" style="display: none">
+								<div class="video-status-content">
+									<div id="video-status-text"></div>
+									<img class="video-status-icon" id="icon-backward" src="/assets/elements/icons/symbols/gobackward5.svg" style="display: none" />
+									<img class="video-status-icon" id="icon-forward" src="/assets/elements/icons/symbols/goforward5.svg" style="display: none" />
+								</div>
+							</div>
+							<video id="video" class="video large-centered" poster="https://devimages-cdn.apple.com/wwdc-services/images/BC742FC2-04CD-4DDA-9F29-C074010922E7/10673/10673_wide_900x506_2x.jpg" controls="" preload="none" src="https://devstreaming-cdn.apple.com/videos/meet-with-apple/2025/249/1/10379f4f-69df-474a-b6bb-112c27acf46b/cmaf.m3u8" data-id="meet-with-apple-249" data-locale="en" data-hero-source="https://devimages-cdn.apple.com/wwdc-services/images/BC742FC2-04CD-4DDA-9F29-C074010922E7/10673/10673_wide_900x506_2x.jpg"></video>
+						</div>
+						<div class="no-video-banner hidden">
+							<div class="no-video-copy">
+								<img src="https://devimages-cdn.apple.com/wwdc-services/images/BC742FC2-04CD-4DDA-9F29-C074010922E7/10673/10673_wide_900x506_2x.jpg" style="width:100%">
+							</div>
+							</span>
+						</div>
+
+											</section>
+				</section>
+
+			</section>
+
+		</section>
+
+		<section class="bg-light padding-top-small padding-bottom">
+
+			<div class="section-content">
+		
+			<!-- tab menu -->
+			<section class="tab-menu row divider-bottom">
+
+				<section class="column large-11 small-12  padding-top-small padding-bottom-small large-centered tab-menu-container">
+										 
+																				<ul class="tabs">
+						
+						<li class="tab"
+							data-supplement-id="details"
+							data-language-code="en"
+							data-video-id="meet-with-apple-249"
+													>
+							<a href="#">
+								<span class="smaller">
+									About
+								</span>
+							</a>
+						</li>
+						
+						
+												<li class="tab"
+							data-supplement-id="transcript"
+							data-language-code="en"
+							data-video-id="meet-with-apple-249"
+						>
+							<a href="#">
+								<span class="smaller">
+									Transcript
+								</span>
+							</a>
+						</li>
+						
+												
+					</ul>
+									</section>
+
+			</section>
+
+			<!-- supplements -->
+			<section class="row">
+
+				<section class="column large-11 small-12  large-centered no-padding-top no-padding-bottom">
+
+					<ul class="supplements hidden">
+
+						<!-- details -->
+						<li class="supplement details " data-supplement-id="details">
+							
+							<div class="badge-available-on-wrapper">
+																<h1>Explore game curation and featuring on the App Store</h1>
+							</div>
+
+							<p>Learn more about what the App Store editorial team considers when curating games to feature across the App Store and Apple Games app, including gameplay design, artistic and technical quality, and accessibility. Plus, find out how to use the Featuring Nominations tool in App Store Connect to submit your games, updates, and in-game events for editorial consideration.<br />
+<br />
+This session was originally presented as part of the Meet with Apple activity “Press Start: Game development on Apple platforms.” Watch the full video for more insights and related sessions.</p>
+
+							
+														<h2>Resources</h2>
+
+							<ul class="links small">
+																																					<li class="guide"><a href="https://developer.apple.com/app-store/discoverability/?cid=developer80" target="_blank">Discovery on the App Store and Mac App Store</a></li>
+																																							<li class="guide"><a href="https://developer.apple.com/app-store/getting-featured/?cid=developer80" target="_blank">Getting Featured on the App Store</a></li>
+																																							<li class="guide"><a href="https://appstore.com/promote" target="_blank">Tell us about your app or game</a></li>
+																											
+																	<li class="download">
+										<ul class="options">
+																						<li><a href="https://devstreaming-cdn.apple.com/videos/meet-with-apple/2025/249/1/10379f4f-69df-474a-b6bb-112c27acf46b/downloads/meet-with-apple-249_hd.mp4?dl=1">HD Video</a></li>
+																																	<li><a href="https://devstreaming-cdn.apple.com/videos/meet-with-apple/2025/249/1/10379f4f-69df-474a-b6bb-112c27acf46b/downloads/meet-with-apple-249_sd.mp4?dl=1">SD Video</a></li>
+																					</ul>
+									</li>
+																
+															</ul>
+							
+														<div class="divider-top margin-top-small padding-bottom-small"></div>
+							<h2>Related Videos</h2>
+														<h4>Meet with Apple</h4>
+								<ul class="links small">
+																			<li class="video">
+											<a href="/videos/play/meet-with-apple/248">Boost discoverability and engagement with the Apple Games app</a>
+										</li>
+																			<li class="video">
+											<a href="/videos/play/meet-with-apple/246">Unlock success with premium games on the App Store</a>
+										</li>
+																	</ul>
+														
+						</li>
+
+						<!-- transcript -->
+						<li class="supplement transcript" data-supplement-id="transcript" data-shortcut-base-url="/videos/play/meet-with-apple/249/">
+							<div class="grid grid-gutterless margin-bottom-small">
+								<div class="grid-item large-span-11 medium-span-11 small-span-11">
+									<div class="form-textbox form-textbox-with-lefticon form-textbox-with-righticon">
+										<input type="text" id="transcript-search-box" class="transcript-search searchbar form-textbox-input" aria-labelledby="textbox-label"  />
+										<span class="form-textbox-label" id="textbox-label" aria-hidden="true">Search this video…</span>
+										<div class="form-textbox-lefticon form-icons-focusable">
+											<span class="form-icons form-icons-search15"></span>
+										</div>
+									</div>
+								</div>
+								<div class="grid-item large-span-1 medium-span-1 small-span-1">									
+									<div style="font-size:34px" id="get-transcript">
+										<sf-symbol name="arrow.down.document" weight="light" scale="small" mode="hierarchical"></sf-symbol>
+									</div>
+
+								</div>
+							</div>
+
+							<section id="transcript-content">
+								<p><span class="sentence"><span data-start="6.0">Hi everyone, I’m Kelli. </span></span><span class="sentence"><span data-start="8.0">I'm a games editor on the App Store editorial team, </span></span><span class="sentence"><span data-start="11.0">and I describe myself as a lifelong player. </span></span><span class="sentence"><span data-start="13.0">And when I say lifelong, I mean my first Mac was a tan box </span></span><span class="sentence"><span data-start="16.0">with a floppy disk drive. </span></span><span class="sentence"><span data-start="17.0">So it's been a minute.</p><p></span></span><span class="sentence"><span data-start="19.0">Now, one of my favorite parts of what I do is getting the chance </span></span><span class="sentence"><span data-start="22.0">to help players find new favorite games. </span></span><span class="sentence"><span data-start="25.0">So if there is an opportunity </span></span><span class="sentence"><span data-start="26.0">for me to help make a connection between what you're making and all </span></span><span class="sentence"><span data-start="29.0">the people who are going to love it, I consider </span></span><span class="sentence"><span data-start="31.0">that doing my job well.</p><p></span></span><span class="sentence"><span data-start="34.0">Today, I'm going to share a bit more about how players discover </span></span><span class="sentence"><span data-start="37.0">your games through editorial, across the App Store and the games app. </span></span><span class="sentence"><span data-start="41.0">I'll take you through what editorial placements look like. </span></span><span class="sentence"><span data-start="45.0">Then I'm going to talk a bit about what we're looking for in games. </span></span><span class="sentence"><span data-start="49.0">And after that, I'm going to tell you how you can tell us about your latest projects.</p><p></span></span><span class="sentence"><span data-start="55.0">Okay. Let's get started. </span></span><span class="sentence"><span data-start="57.0">So there are three primary ways that people can discover your games </span></span><span class="sentence"><span data-start="60.0">on the App Store by browsing our curated tabs, </span></span><span class="sentence"><span data-start="64.0">by being referred from outside the store, and by using search.</p><p></span></span><span class="sentence"><span data-start="69.0">As a member of the editorial team, I'm going to focus on how we curate </span></span><span class="sentence"><span data-start="73.0">and how that curation shows up when people browse the App Store and the games app.</p><p></span></span><span class="sentence"><span data-start="79.0">Now we're very proud of our store. </span></span><span class="sentence"><span data-start="80.0">It's curated by hello again, real humans worldwide. </span></span><span class="sentence"><span data-start="85.0">Our editorial approach is to celebrate the best games that the App Store has </span></span><span class="sentence"><span data-start="88.0">to offer. Create a trusted place that's curated by experts, </span></span><span class="sentence"><span data-start="93.0">where players can find great new games for their devices, </span></span><span class="sentence"><span data-start="97.0">and then to make stories and collections that inform, </span></span><span class="sentence"><span data-start="101.0">help and inspire our players every day.</p><p></span></span><span class="sentence"><span data-start="106.0">The App Store, as you heard before, is available in 175 storefronts </span></span><span class="sentence"><span data-start="110.0">and more than 39 languages, </span></span><span class="sentence"><span data-start="112.0">and our editorial featuring is reflected across all of these markets. </span></span><span class="sentence"><span data-start="117.0">Our global editorial teams play everything that we feature </span></span><span class="sentence"><span data-start="121.0">once we found a game that we want to promote, we then decide how, </span></span><span class="sentence"><span data-start="125.0">where and when to highlight them on the store </span></span><span class="sentence"><span data-start="127.0">so that we can help shine a spotlight on your incredible work.</p><p></span></span><span class="sentence"><span data-start="131.0">And we do this across every platform and every app Store, from iPhone to iPad, </span></span><span class="sentence"><span data-start="137.0">Mac and Apple TV.</p><p></span></span><span class="sentence"><span data-start="140.0">Now, when people open up the App Store, the first thing they'll see is the today tab, </span></span><span class="sentence"><span data-start="145.0">which is updated daily to include the latest stories. </span></span><span class="sentence"><span data-start="148.0">You'll find a lot of types of coverage here, and we'll go into that in a moment.</p><p></span></span><span class="sentence"><span data-start="153.0">From there, visitors can tap to view the Games and Apps tabs, </span></span><span class="sentence"><span data-start="157.0">which have a higher density of content, </span></span><span class="sentence"><span data-start="159.0">encouraging broader discovery across the App Store catalog with more focus </span></span><span class="sentence"><span data-start="163.0">on collections and personalized recommendations.</p><p></span></span><span class="sentence"><span data-start="168.0">On today, Tab editorial takes many shapes, </span></span><span class="sentence"><span data-start="171.0">from tips about our favorite games to behind the scenes developer stories. </span></span><span class="sentence"><span data-start="176.0">To launch stories like this one we have up here about The Stanley Parable.</p><p></span></span><span class="sentence"><span data-start="181.0">We also put a lot of focus on in-game game event coverage </span></span><span class="sentence"><span data-start="184.0">and other opportunities for players to reengage with their favorite games. </span></span><span class="sentence"><span data-start="189.0">We want to showcase the biggest and best events happening on the store, </span></span><span class="sentence"><span data-start="193.0">while also personalizing the page so they see what's most relevant. </span></span><span class="sentence"><span data-start="197.0">This way, players are not only discovering new games they've never played before, </span></span><span class="sentence"><span data-start="201.0">but they're also able to keep up with what's </span></span><span class="sentence"><span data-start="202.0">inside their favorite games.</p><p></span></span><span class="sentence"><span data-start="206.0">Editorial also features curated collections. </span></span><span class="sentence"><span data-start="209.0">These showcase games that share a common theme. </span></span><span class="sentence"><span data-start="212.0">Some of those might be things like controller support or offline play, </span></span><span class="sentence"><span data-start="215.0">or what we're looking at here. Try before you buy, </span></span><span class="sentence"><span data-start="217.0">which includes games that can be downloaded for free </span></span><span class="sentence"><span data-start="220.0">with a one time purchase to unlock full access.</p><p></span></span><span class="sentence"><span data-start="225.0">Our collections cover everything from subgenres that suit different moods </span></span><span class="sentence"><span data-start="228.0">to specific features, themes, and styles of play.</p><p></span></span><span class="sentence"><span data-start="234.0">Moving one tab over on games tab, </span></span><span class="sentence"><span data-start="236.0">our visitors get a games only experience that showcases more of a broad content, </span></span><span class="sentence"><span data-start="242.0">and here there are plenty of opportunities to be featured in different ways. </span></span><span class="sentence"><span data-start="246.0">In the example we have up on the screen, I've highlighted some of the placements </span></span><span class="sentence"><span data-start="250.0">that include artwork, which we may request from you.</p><p></span></span><span class="sentence"><span data-start="254.0">You can also tap into categories that focus on more specialized interests. </span></span><span class="sentence"><span data-start="258.0">For example, not all of our players are interested in roguelikes, </span></span><span class="sentence"><span data-start="261.0">but if someone is looking for them, we want to make sure that they can find them.</p><p></span></span><span class="sentence"><span data-start="267.0">Just like today, GameStop includes collections where we publish things related </span></span><span class="sentence"><span data-start="271.0">to trends and cultural moments. </span></span><span class="sentence"><span data-start="273.0">Another example, let's say a popular superhero movie has just come out. </span></span><span class="sentence"><span data-start="277.0">We might have a superhero collection for players to interact with that content. </span></span><span class="sentence"><span data-start="282.0">Players can come to this tab to regularly find new games, updates, </span></span><span class="sentence"><span data-start="286.0">and relevant events.</p><p></span></span><span class="sentence"><span data-start="290.0">Your game may be considered for coverage BeatsX that we hit at regular intervals </span></span><span class="sentence"><span data-start="294.0">during the year. Got to catch my breath. </span></span><span class="sentence"><span data-start="297.0">Some are festive moments, </span></span><span class="sentence"><span data-start="299.0">like we just had Halloween or Valentine's Day, which is coming up. </span></span><span class="sentence"><span data-start="303.0">Others align with events that may be International Women's Day, Earth Day, </span></span><span class="sentence"><span data-start="307.0">Accessibility Awareness Day, and pride.</p><p></span></span><span class="sentence"><span data-start="311.0">This is when the stories behind your games can really shine. </span></span><span class="sentence"><span data-start="314.0">As we highlight relevant in-game events, do behind the scenes profiles, </span></span><span class="sentence"><span data-start="319.0">and also surface the games in related collections.</p><p></span></span><span class="sentence"><span data-start="323.0">In addition, our global editors will plan content based on events </span></span><span class="sentence"><span data-start="328.0">in their local markets. </span></span><span class="sentence"><span data-start="329.0">What you're seeing here are just a few examples of some of the things </span></span><span class="sentence"><span data-start="332.0">we've done in the past. </span></span><span class="sentence"><span data-start="333.0">Could be cultural moments, seasonal celebrations, </span></span><span class="sentence"><span data-start="336.0">or any other themes that we could highlight.</p><p></span></span><span class="sentence"><span data-start="340.0">I'll get into how we make sure that we know your game includes those features </span></span><span class="sentence"><span data-start="345.0">in a little while, but these are definitely moments that you can think about </span></span><span class="sentence"><span data-start="349.0">when you're trying to think about how your game may appear on the store.</p><p></span></span><span class="sentence"><span data-start="355.0">Our curation also appears on the games app. </span></span><span class="sentence"><span data-start="357.0">Misha just went over that app in detail, </span></span><span class="sentence"><span data-start="359.0">so I'm just going to quickly touch on where you'll see editorial content on the app. </span></span><span class="sentence"><span data-start="364.0">You're going to see a lot of the games that we've featured on the store pages, </span></span><span class="sentence"><span data-start="368.0">but with some additional considerations for Game Center features.</p><p></span></span><span class="sentence"><span data-start="373.0">On the home tab of the games app, </span></span><span class="sentence"><span data-start="375.0">you'll see curated games from collections from our editorial team.</p><p></span></span><span class="sentence"><span data-start="381.0">These are displayed alongside other personalized recommendations </span></span><span class="sentence"><span data-start="384.0">like Game center activity and events for games you're playing.</p><p></span></span><span class="sentence"><span data-start="389.0">On these pages, you may see stories to help customers understand the app </span></span><span class="sentence"><span data-start="393.0">or various pieces of curated content like single app cards, </span></span><span class="sentence"><span data-start="398.0">where we have a standalone piece of art </span></span><span class="sentence"><span data-start="400.0">or collections to get customers deeper into our catalog of games. </span></span><span class="sentence"><span data-start="405.0">And as Mischa mentioned before, if your game is utilizing Game Center features, </span></span><span class="sentence"><span data-start="409.0">there are more opportunities to find it placed in the games app.</p><p></span></span><span class="sentence"><span data-start="414.0">More straightforward categories like racing, </span></span><span class="sentence"><span data-start="416.0">action and indie are also available on home. </span></span><span class="sentence"><span data-start="419.0">They'll lead to fully curated destinations, </span></span><span class="sentence"><span data-start="422.0">and we're excited to showcase a lot </span></span><span class="sentence"><span data-start="423.0">of the best games that we found here. </span></span><span class="sentence"><span data-start="426.0">Those categories will also appear when our customers head over to search.</p><p></span></span><span class="sentence"><span data-start="432.0">Now that I've covered how editorial appears on the store, </span></span><span class="sentence"><span data-start="434.0">let's talk a little bit about how we make featuring decisions.</p><p></span></span><span class="sentence"><span data-start="439.0">When considering what to feature in general, </span></span><span class="sentence"><span data-start="441.0">our teams look for great games across all categories and business models. </span></span><span class="sentence"><span data-start="446.0">There's no checklist that we go through or specific requirements, </span></span><span class="sentence"><span data-start="449.0">but some of the factors that we consider are on the screen right now. </span></span><span class="sentence"><span data-start="453.0">Our editors may look at things like your gameplay design, your mechanics, </span></span><span class="sentence"><span data-start="456.0">your UI, the gameplay flow.</p><p></span></span><span class="sentence"><span data-start="459.0">We may also consider artistic considerations like your visual style, </span></span><span class="sentence"><span data-start="463.0">your animation and your sound design, </span></span><span class="sentence"><span data-start="465.0">or more technical aspects like your controls and overall performance on our devices. </span></span><span class="sentence"><span data-start="471.0">This could also include OS and device specific features. </span></span><span class="sentence"><span data-start="475.0">In-game localization and accessibility are also important considerations, </span></span><span class="sentence"><span data-start="480.0">as we try to ensure that our featuring can appeal </span></span><span class="sentence"><span data-start="482.0">to players around the world.</p><p></span></span><span class="sentence"><span data-start="485.0">I could probably create an entire new presentation, </span></span><span class="sentence"><span data-start="488.0">just talking about all these different facets of games. </span></span><span class="sentence"><span data-start="491.0">But what I'd like to do now is just spend a little bit of time </span></span><span class="sentence"><span data-start="493.0">going into detail on just a few </span></span><span class="sentence"><span data-start="495.0">and giving you some of the practical considerations that we look at as a team. </span></span><span class="sentence"><span data-start="500.0">I'll be going through examples in gameplay design, art and animation, </span></span><span class="sentence"><span data-start="504.0">storytelling and controls.</p><p></span></span><span class="sentence"><span data-start="508.0">So I'm going to start with a game called Afterplace. </span></span><span class="sentence"><span data-start="511.0">This is an adventure designed to be played with one hand in portrait mode, </span></span><span class="sentence"><span data-start="515.0">where you use swipes and moves and taps to attack.</p><p></span></span><span class="sentence"><span data-start="519.0">While the game feels easy to pick up and play, there's plenty of depth </span></span><span class="sentence"><span data-start="522.0">to really master challenging fights as you explore the world. </span></span><span class="sentence"><span data-start="526.0">Each character has a whole lot of really amusing dialog, </span></span><span class="sentence"><span data-start="530.0">and the cryptic map has a lot of well-placed secrets. </span></span><span class="sentence"><span data-start="534.0">Putting all of these features together, </span></span><span class="sentence"><span data-start="536.0">we were able to get into something that makes the world feel not </span></span><span class="sentence"><span data-start="539.0">only worth exploring, but replaying. </span></span><span class="sentence"><span data-start="542.0">And I've actually replayed this game maybe two and a half times, </span></span><span class="sentence"><span data-start="544.0">and I don't think I've found everything.</p><p></span></span><span class="sentence"><span data-start="547.0">Our team awarded the game Editor's Choice. </span></span><span class="sentence"><span data-start="549.0">It went on to win an Apple Design Award, </span></span><span class="sentence"><span data-start="552.0">and the game fits into a wide range of different collection types, </span></span><span class="sentence"><span data-start="556.0">so I could consider this for adventure games, indie games, great games on iPhone, </span></span><span class="sentence"><span data-start="562.0">or when the developer submits things like post game content </span></span><span class="sentence"><span data-start="565.0">or releases it on other devices, which this developer has. </span></span><span class="sentence"><span data-start="569.0">There are many other opportunities where I could feature, and he consistently </span></span><span class="sentence"><span data-start="573.0">kept us alerted about those updates.</p><p></span></span><span class="sentence"><span data-start="577.0">Next, let's take a look at art </span></span><span class="sentence"><span data-start="579.0">and animation with Ubisoft's Prince of Persia: The Lost Crown. </span></span><span class="sentence"><span data-start="584.0">Standout examples for art and animation can take many forms. </span></span><span class="sentence"><span data-start="587.0">Sometimes that's creative use of pixel art </span></span><span class="sentence"><span data-start="589.0">or more high production value games like the ones we're seeing here. </span></span><span class="sentence"><span data-start="593.0">This one launched not only on Mac, but what you're seeing on iPhone and on iPad. </span></span><span class="sentence"><span data-start="598.0">The developer brings us into a rich and detailed world with vibrant colors </span></span><span class="sentence"><span data-start="603.0">and a satisfying amount of comic book style flash.</p><p></span></span><span class="sentence"><span data-start="607.0">The side scrolling look is a nod to classic Prince of Persia games, </span></span><span class="sentence"><span data-start="611.0">while also bringing modern elements into this mythical setting. </span></span><span class="sentence"><span data-start="614.0">It looks great and it runs extremely well across all the platforms we played it on.</p><p></span></span><span class="sentence"><span data-start="620.0">A game with well crafted visuals may be considered </span></span><span class="sentence"><span data-start="622.0">when we're looking at collections of games with great graphics. </span></span><span class="sentence"><span data-start="626.0">Now, the visuals can be a high point, </span></span><span class="sentence"><span data-start="628.0">but it's definitely not the only thing that we consider. </span></span><span class="sentence"><span data-start="631.0">We're always looking for original ideas and overall high quality experiences.</p><p></span></span><span class="sentence"><span data-start="638.0">Which brings us to cyberpunk 2077. This is a game our team was happy came </span></span><span class="sentence"><span data-start="642.0">to Mac earlier this year and the game looks amazing. </span></span><span class="sentence"><span data-start="646.0">Absolutely, yes. But this is also a great example of storytelling. </span></span><span class="sentence"><span data-start="650.0">Cyberpunk's incredibly detailed world is filled with immersive stories </span></span><span class="sentence"><span data-start="654.0">and complex characters. </span></span><span class="sentence"><span data-start="656.0">The stories touch on themes like the blurred lines between man and technology, </span></span><span class="sentence"><span data-start="660.0">while also making the experience feel customizable </span></span><span class="sentence"><span data-start="663.0">and centered to how you choose </span></span><span class="sentence"><span data-start="664.0">to move through Night City. </span></span><span class="sentence"><span data-start="666.0">It does this with expertly voiced dialog </span></span><span class="sentence"><span data-start="668.0">and a wide array of choices that players can make </span></span><span class="sentence"><span data-start="671.0">to make the story feel like their own.</p><p></span></span><span class="sentence"><span data-start="675.0">Considering this point in a different way, </span></span><span class="sentence"><span data-start="678.0">never is a beautiful game from a small studio that definitely has a memorable </span></span><span class="sentence"><span data-start="682.0">and recognizable art style. </span></span><span class="sentence"><span data-start="684.0">And that art also goes a long way when it comes to storytelling. </span></span><span class="sentence"><span data-start="688.0">Never manages to do that with almost no spoken words. </span></span><span class="sentence"><span data-start="692.0">Its themes are driven home through rich color scapes, well-crafted sound, </span></span><span class="sentence"><span data-start="697.0">and really amazing hand-drawn animations. </span></span><span class="sentence"><span data-start="700.0">It tells a poignant story about love, loss, and growth that anybody can understand.</p><p></span></span><span class="sentence"><span data-start="708.0">And now, my last example. </span></span><span class="sentence"><span data-start="709.0">I'm sure everyone recognizes this game. </span></span><span class="sentence"><span data-start="712.0">We're going to take a look at Dead Cells, but specifically talk more about controls. </span></span><span class="sentence"><span data-start="716.0">When the team considers controls, we're not just looking at whether they function. </span></span><span class="sentence"><span data-start="720.0">We're looking at how well they function and how they feel to use in Dead Cells. </span></span><span class="sentence"><span data-start="725.0">Even with fast paced action, the controls remain responsive.</p><p></span></span><span class="sentence"><span data-start="730.0">The developers also included customizations to make the game feel more comfortable </span></span><span class="sentence"><span data-start="734.0">with touch controls, things like auto attacking functionalities. </span></span><span class="sentence"><span data-start="738.0">The game features a lot of accessibility considerations like minimizing screen shake, </span></span><span class="sentence"><span data-start="743.0">so we've actually featured this game in games that are accessible </span></span><span class="sentence"><span data-start="746.0">on Global Accessibility Awareness Day. </span></span><span class="sentence"><span data-start="749.0">Players have the ability to move button locations on the screen as well </span></span><span class="sentence"><span data-start="752.0">for more tailored input experiences.</p><p></span></span><span class="sentence"><span data-start="756.0">While we don't expect this level of customization </span></span><span class="sentence"><span data-start="758.0">and versatility in every game we review, </span></span><span class="sentence"><span data-start="761.0">these are just great examples of giving players tons of options </span></span><span class="sentence"><span data-start="764.0">to improve their experience. </span></span><span class="sentence"><span data-start="766.0">Again, there's no featuring checklist, </span></span><span class="sentence"><span data-start="768.0">and there is so much more that I wish I could cover right now. </span></span><span class="sentence"><span data-start="771.0">But if the game that you're making is incorporating any features like this, </span></span><span class="sentence"><span data-start="774.0">or features you think are important to tell us about, </span></span><span class="sentence"><span data-start="777.0">it's definitely something we're looking for when we plan promotions.</p><p></span></span><span class="sentence"><span data-start="782.0">At this point, I've covered a lot about featuring opportunities across the App Store </span></span><span class="sentence"><span data-start="787.0">and the games app. So how do you get that information to my team </span></span><span class="sentence"><span data-start="791.0">so that we can consider you for these placements.</p><p></span></span><span class="sentence"><span data-start="794.0">Our teams are always looking to feature new games in game events and preorders, </span></span><span class="sentence"><span data-start="800.0">and with the featuring nominations tool, </span></span><span class="sentence"><span data-start="801.0">which you can find through App Store Connect, you can submit that information </span></span><span class="sentence"><span data-start="805.0">directly to editorial team members all around the world. </span></span><span class="sentence"><span data-start="808.0">And we're checking these nominations every week. </span></span><span class="sentence"><span data-start="811.0">Using this tool, you can tell us about your game, </span></span><span class="sentence"><span data-start="814.0">launching big updates or interesting facts about your development </span></span><span class="sentence"><span data-start="817.0">or your game content. I'm going to give you a few helpful submission tips </span></span><span class="sentence"><span data-start="822.0">for the tool when you're planning to submit a nomination, </span></span><span class="sentence"><span data-start="826.0">especially if you're planning to submit for a new game, </span></span><span class="sentence"><span data-start="829.0">you should do so when you have a TestFlight build available, </span></span><span class="sentence"><span data-start="832.0">or a build in your system that you feel comfortable with an editor playing. </span></span><span class="sentence"><span data-start="838.0">Like I said earlier, we play all the games that we feature, </span></span><span class="sentence"><span data-start="841.0">so if we don't have a build that we can test, </span></span><span class="sentence"><span data-start="843.0">we won't be able to make that featuring decision </span></span><span class="sentence"><span data-start="846.0">and we don't feature games that we haven't played.</p><p></span></span><span class="sentence"><span data-start="849.0">If you're going to describe your content in our fields, it's best </span></span><span class="sentence"><span data-start="852.0">to keep those notes short, </span></span><span class="sentence"><span data-start="853.0">but there are other areas of the tool where you can add TestFlight links, </span></span><span class="sentence"><span data-start="857.0">other descriptions, roadmaps, </span></span><span class="sentence"><span data-start="859.0">anything you might think is helpful for us to get specific information.</p><p></span></span><span class="sentence"><span data-start="865.0">For timelines. You should ideally submit nominations at least three weeks in advance </span></span><span class="sentence"><span data-start="870.0">to give the editorial team time to review your content for consideration. </span></span><span class="sentence"><span data-start="875.0">Depending on how your game is highlighted, </span></span><span class="sentence"><span data-start="877.0">it can sometimes take an extended amount of time to plan featuring. </span></span><span class="sentence"><span data-start="881.0">So if I was going to plan featuring for your game in a collection, </span></span><span class="sentence"><span data-start="885.0">that might be something I could put up pretty quickly. But if I was going </span></span><span class="sentence"><span data-start="888.0">to plan a story for your game, that might take a little bit longer. </span></span><span class="sentence"><span data-start="892.0">For stories, it's best to give us about eight weeks. </span></span><span class="sentence"><span data-start="895.0">That might sound like a lot of time, </span></span><span class="sentence"><span data-start="897.0">but it gives us time to assess the game. If it's new, write and edit copy request, </span></span><span class="sentence"><span data-start="902.0">and then maybe prepare video for your artwork placements </span></span><span class="sentence"><span data-start="906.0">and then have the option to globally localize that coverage </span></span><span class="sentence"><span data-start="909.0">so it can be published more broadly.</p><p></span></span><span class="sentence"><span data-start="913.0">If your game has multiple unique updates on the way, </span></span><span class="sentence"><span data-start="916.0">please submit those as individual nominations. </span></span><span class="sentence"><span data-start="919.0">So if you know that you're going to be releasing new content in your game, </span></span><span class="sentence"><span data-start="923.0">and it's going to come out over a period of a few different dates, </span></span><span class="sentence"><span data-start="926.0">it's best to send those in as separate nominations for individual updates. </span></span><span class="sentence"><span data-start="931.0">And if your important dates change, not a big deal. </span></span><span class="sentence"><span data-start="934.0">You can go into the tool and you can adjust the dates. </span></span><span class="sentence"><span data-start="937.0">Keeping these things in mind will help ensure that the editor </span></span><span class="sentence"><span data-start="940.0">reading your nomination has the most accurate and up to date information </span></span><span class="sentence"><span data-start="944.0">when they plan for featuring.</p><p></span></span><span class="sentence"><span data-start="947.0">Most of the information that I've covered can be found on the Getting Featured </span></span><span class="sentence"><span data-start="951.0">on the App Store page on the Apple Developer website. </span></span><span class="sentence"><span data-start="955.0">This page explains some of the ways that we highlight content on our store, </span></span><span class="sentence"><span data-start="959.0">our featuring considerations, and has a link for the featuring nominations tool. </span></span><span class="sentence"><span data-start="964.0">That's it for me on editorial, and I thank you for spending the day with us. </span></span><span class="sentence"><span data-start="968.0">I’m going to pass it back to Charlyn.</span></span></p>
+							</section>
+						</li>
+
+						<!-- sample code -->
+						<li class="supplement sample-code" data-supplement-id="sample-code">
+							<section>
+								<ul class="no-bullet padding-top-small margin-bottom">
+									
+								</ul>
+							</section>
+						</li>
+
+						
+					</ul>
+
+				</section>
+
+			</section>
+			</div>
+
+		</section>
+
+		<input id="analytics-meta" type="hidden" data-event-name="Meet with Apple" 
+		data-event-id="meet-with-apple-249" 
+		data-session-id="249" 
+		data-video-name="Explore game curation and featuring on the App Store" 
+		data-session-response-id="">
+	</main>
+
+	<link rel="stylesheet" href="/assets/styles/footer.dist.css?34212621148">
+<footer data-aa-content-module="global-footer" id="footer" class="footer" role="contentinfo" aria-labelledby="footer-label">
+    <div class="footer-content">
+        <h2 class="footer-label" id="footer-label">Developer Footer</h2>
+	<developer-breadcrumbs>
+		<li class="footer-breadcrumbs-item"><a href="/videos/">Videos</a></li>
+		<li class="footer-breadcrumbs-item"><a href="/videos/meet-with-apple/">Meet with Apple</a></li>		<li class="footer-breadcrumbs-item">Explore game curation and featuring on the App Store</li>
+	</developer-breadcrumbs>
+	        <nav class="footer-directory" aria-label="Apple Developer Directory" role="navigation">
+	<!--googleoff: all-->
+	<div class="footer-directory-column">
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-platform" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-platform">
+				<h3 class="footer-directory-column-section-title">Platforms</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-platform" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/ios/">iOS</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/ipados/">iPadOS</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/macos/">macOS</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/tvos/">tvOS</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/visionos/">visionOS</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/watchos/">watchOS</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/app-store/">App Store</a></li>
+			</ul>
+		</div>
+
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-tools" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-tools">
+				<h3 class="footer-directory-column-section-title">Tools</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-tools" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/swift/">Swift</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/swiftui/">SwiftUI</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/swift-playground/">Swift Playground</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/testflight/">TestFlight</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/xcode/">Xcode</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/xcode-cloud/">Xcode Cloud</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/icon-composer/">Icon Composer</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/sf-symbols/">SF Symbols</a></li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class="footer-directory-column">
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-topics" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-topics">
+				<h3 class="footer-directory-column-section-title">Technologies</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-topics" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/documentation/accessibility/">Accessibility</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/accessories/">Accessories</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/machine-learning/">AI & Machine Learning</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/in-app-purchase/">Apple In-App Purchase</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/apple-intelligence/">Apple Intelligence</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/audio/">Audio &amp; Video</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/augmented-reality/">Augmented Reality</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/business/">Business</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/design/">Design</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/distribute/">Distribution</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/education/">Education</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/games/">Games</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/health-fitness/">Health &amp; Fitness</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/localization/">Localization</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/maps/">Maps &amp; Location</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/security/">Security</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/safari/">Safari &amp; Web</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="footer-directory-column">
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-resources" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-resources">
+				<h3 class="footer-directory-column-section-title">Resources</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-resources" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/documentation/">Documentation</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/download/">Downloads</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/documentation/samplecode/">Sample Code</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/videos/">Videos</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/library/archive/navigation/">Documentation Archive</a></li>
+			</ul>
+		</div>
+
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-support" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-support">
+				<h3 class="footer-directory-column-section-title">Support</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-support" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/help/">Help Guides & Articles</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/contact/">Contact Us</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/forums/">Forums</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/bug-reporting/">Feedback & Bug Reporting</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/system-status/">System Status</a></li>
+			</ul>
+		</div>
+
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-account" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-account">
+				<h3 class="footer-directory-column-section-title">Account</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-account" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/account/">Apple Developer</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://appstoreconnect.apple.com/">App Store Connect</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/account/ios/certificate/">Certificates, IDs, &amp; Profiles</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://feedbackassistant.apple.com/">Feedback Assistant</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="footer-directory-column">
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-programs" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-programs">
+				<h3 class="footer-directory-column-section-title">Programs</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-programs" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/programs/">Apple Developer Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/programs/enterprise/">Apple Developer Enterprise Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/app-store/small-business-program/">App Store Small Business Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://mfi.apple.com/">MFi Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/programs/mini-apps-partner/">Mini Apps Partner Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/programs/news-partner/">News Partner Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/programs/video-partner/">Video Partner Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/security-bounty/">Security Bounty Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/programs/security-research-device/">Security Research Device Program</a></li>
+			</ul>
+		</div>
+
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-events" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-events">
+				<h3 class="footer-directory-column-section-title">Events</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-events" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/events/">Meet with Apple</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/events/developer-centers/">Apple Developer Centers</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/app-store/app-store-awards/">App Store Awards</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/design/awards/">Apple Design Awards</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/academies/">Apple Developer Academies</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/wwdc/">WWDC</a></li>
+			</ul>
+		</div>
+	</div>
+	<!--googleon: all-->
+</nav>
+        <section class="footer-mini" vocab="http://schema.org/" typeof="Organization">
+	<div class="footer-mini-news">
+		<div class="copy">
+			<div class="footer-mini-legal-link">Read the <a href="/news/">latest news</a>.</div> <div class="footer-mini-legal-link">Get the <a href="https://apps.apple.com/us/app/apple-developer/id640199958">Apple Developer app</a>.</div> Follow us on <a href="https://space.bilibili.com/429911174">bilibili</a>, <a href="https://www.linkedin.com/showcase/appledeveloper/">LinkedIn</a>, <a href="https://mp.weixin.qq.com/s/slhQ1RBYUpJ71gwEUlwSTg">WeChat</a>, and <a href="https://www.youtube.com/@AppleDeveloper">YouTube</a>.
+		</div>
+		<div class="content">
+			<div class="color-scheme-toggle"
+				role="radiogroup"
+				tabindex="0"
+				aria-label="Select a color scheme preference">
+
+				<label data-color-scheme-option="light">
+
+					<input type="radio" value="light" autocomplete="off"
+						onchange="window.setPreferredColorScheme(event.target.value)" />
+
+					<div class="text">Light</div>
+
+				</label>
+
+				<label data-color-scheme-option="dark">
+
+					<input type="radio" value="dark" autocomplete="off"
+						onchange="window.setPreferredColorScheme(event.target.value)" />
+
+					<div class="text">Dark</div>
+
+				</label>
+
+				<label data-color-scheme-option="auto">
+
+					<input type="radio" value="auto" autocomplete="off"
+						onchange="window.setPreferredColorScheme(event.target.value)" />
+
+					<div class="text">Auto</div>
+
+				</label>
+
+			</div>
+			<script async src="/assets/scripts/color-scheme-toggle.js"></script>
+		</div>
+	</div>
+	<link rel="stylesheet" href="/assets/styles/language-dropdown.css?35212621148">
+	<div class="language-dropdown dropdown-container legacy-form hidden">
+		<select class="dropdown" aria-label="Language Dropdown"></select>
+		<span class="dropdown-icon icon icon-chevrondown" aria-hidden="true"></span>
+	</div>
+	<script src="/assets/scripts/language-dropdown.js?51212659264"></script>
+	<div class="footer-mini-legal">
+		<div class="footer-mini-legal-copyright">Copyright ©  2026 <a href="https://www.apple.com">Apple Inc.</a> All rights reserved.</div>
+		<div class="footer-mini-legal-links">
+			<a class="footer-mini-legal-link" href="https://www.apple.com/legal/internet-services/terms/site.html" class="first">Terms of Use</a>
+			<a class="footer-mini-legal-link" href="https://www.apple.com/legal/privacy/">Privacy Policy</a>
+			<a class="footer-mini-legal-link" href="/support/terms/">Agreements and Guidelines</a>
+		</div>
+	</div>
+</section>
+    </div>
+</footer>
+
+	<script src="/videos/scripts/collection/form-input.js?7"></script>
+	<script src="/assets/scripts/params.js"></script>
+	<script src="/assets/scripts/watchable.js"></script>
+	<script src="/assets/scripts/timeout.js"></script>
+	
+	<script src="/videos/scripts/play/play.js?37202648194"></script>
+	<script src="/videos/scripts/hls/rtc.min.js?18162640138"></script>
+	<script src="/videos/scripts/hls/hls.min.js?18162640138"></script>
+</body>
+</html>

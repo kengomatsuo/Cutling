@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <title>Snippety – Snippets Manager & Text Expander – macOS & iOS</title>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- SEO -->
+<meta name="description" content="Snippety is the most powerful text expander for Mac and iPhone: fill-in forms, conditional blocks, shell scripts, AI, a CLI, and Shortcuts actions. Native, private, no forced subscription." />
+<meta name="keywords" content="text expander, snippet expander, snippet manager, snippet manager macos, snippet manager ios, text expansion, mac text expander, iphone text expander, ios text expander, macos text expander, code snippets, text shortcuts, snippet tool, clipboard manager, snippet organizer, keyboard shortcuts, productivity app, text replacement, snippet tool, automation, conditional blocks, text expander cli, shortcuts automation" />
+<meta name="author" content="Wojciech Kulik" />
+<link rel="canonical" href="https://snippety.app" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Snippety – Snippets Manager &amp; Text Expander – macOS &amp; iOS" />
+<meta property="og:description" content="The most powerful text expander for Mac and iPhone. Fill-in forms, conditional blocks, shell scripts, AI, CLI, and Shortcuts, synced through your own iCloud." />
+<meta property="og:image" content="https://snippety.app/images/website.png" />
+<meta property="og:image:alt" content="Snippety — snippet manager and text expander for Mac and iPhone" />
+<meta property="og:image:width" content="2400" />
+<meta property="og:image:height" content="1260" />
+<meta property="og:url" content="https://snippety.app" />
+<meta property="og:site_name" content="Snippety" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@AppSnippety" />
+<meta name="twitter:title" content="Snippety – Snippets Manager &amp; Text Expander – macOS &amp; iOS" />
+<meta name="twitter:description" content="The most powerful text expander for Mac and iPhone. Fill-in forms, conditional blocks, shell scripts, AI, CLI, and Shortcuts, synced through your own iCloud." />
+<meta name="twitter:image" content="https://snippety.app/images/website.png" />
+<meta name="twitter:image:alt" content="Snippety — snippet manager and text expander for Mac and iPhone" />
+
+<!-- Site-wide structured data: Organization + WebSite -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://snippety.app/#organization","name":"Snippety","url":"https://snippety.app","logo":"https://snippety.app/images/snippety-icon.png","founder":{"@type":"Person","name":"Wojciech Kulik","url":"https://wojciechkulik.pl"},"sameAs":["https://x.com/AppSnippety","https://youtube.com/@AppSnippety","https://github.com/wojciech-kulik"]},{"@type":"WebSite","@id":"https://snippety.app/#website","name":"Snippety","url":"https://snippety.app","publisher":{"@id":"https://snippety.app/#organization"}}]}</script>
+  <!-- Fonts & Icons -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+  <!-- Icons & PWA -->
+<link rel="icon" href="/images/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon_new.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta name="theme-color" content="#212234" />
+
+<!-- Styles -->
+<link href="/css/modern.css?version=39" rel="stylesheet" />
+<link href="/css/cookies.css?version=39" rel="stylesheet" />
+  <!-- Analytics -->
+<script src="/js/analytics.js?version=54"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YC321HB3GJ"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-828487097"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="0add6138-9ffc-4df9-94e1-cd2cd9a93f31"></script>
+
+  <!-- Paddle -->
+  <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Snippety",
+    "operatingSystem": "macOS, iOS, iPadOS",
+    "applicationCategory": "ProductivityApplication",
+    "description": "Snippety is a text expander and snippet manager for Mac and iPhone. Expand keywords instantly with smart placeholders, iCloud sync, automation, and team collaboration.",
+    "url": "https://snippety.app",
+    "downloadUrl": "https://snippety.app/download",
+    "screenshot": "https://snippety.app/images/snippety-main-screen-opt.png",
+    "softwareVersion": "latest",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Free",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "description": "Basic features with limited snippets."
+      },
+      {
+        "@type": "Offer",
+        "name": "Pro Monthly",
+        "price": "2.99",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "description": "All Pro features, cancel anytime."
+      },
+      {
+        "@type": "Offer",
+        "name": "Pro Lifetime",
+        "price": "49.99",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "description": "All Pro features and all future updates, one-time purchase."
+      }
+    ],
+    "author": {
+      "@type": "Person",
+      "name": "Wojciech Kulik",
+      "url": "https://wojciechkulik.pl"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "1141",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+<nav>
+  <div class="container nav-container">
+    <a href="/" class="logo-link">
+      <img src="/images/logo2.png" alt="Snippety" class="logo">
+    </a>
+
+    <button class="mobile-toggle">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="nav-links">
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-toggle">PRODUCT <i class="fas fa-chevron-down"></i></span>
+        <div class="nav-dropdown-menu">
+          <a href="/#engine"><i class="fas fa-fw fa-pen-ruler"></i> Smart Snippets</a>
+          <a href="/#try-it"><i class="fas fa-fw fa-wand-magic-sparkles"></i> Try Text Expansion</a>
+          <a href="/#why-choose"><i class="fas fa-fw fa-award"></i> Why Snippety</a>
+          <a href="/#videos"><i class="fas fa-fw fa-circle-play"></i> Videos</a>
+          <a href="/#features"><i class="fas fa-fw fa-star"></i> Features</a>
+          <a href="/#mobile"><i class="fas fa-fw fa-mobile-screen"></i> Mobile</a>
+          <a href="/#reviews"><i class="fas fa-fw fa-comments"></i> Reviews</a>
+          <a href="/pricing"><i class="fas fa-fw fa-cart-shopping"></i> Buy</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-toggle">SOLUTIONS <i class="fas fa-chevron-down"></i></span>
+        <div class="nav-dropdown-menu">
+          <a href="/for-developers"><i class="fas fa-fw fa-code"></i> For Developers</a>
+          <a href="/for-customer-support"><i class="fas fa-fw fa-headset"></i> For Customer Support</a>
+          <a href="/for-sales"><i class="fas fa-fw fa-chart-line"></i> For Sales</a>
+          <a href="/for-recruiters"><i class="fas fa-fw fa-user-tie"></i> For Recruiters</a>
+          <a href="/for-chatgpt"><i class="fas fa-fw fa-robot"></i> For AI &amp; ChatGPT</a>
+          <a href="/for-lawyers"><i class="fas fa-fw fa-scale-balanced"></i> For Lawyers</a>
+          <a href="/for-doctors"><i class="fas fa-fw fa-stethoscope"></i> For Doctors</a>
+          <a href="/for-writers"><i class="fas fa-fw fa-pen-nib"></i> For Writers</a>
+        </div>
+      </div>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-toggle">COMPARE <i class="fas fa-chevron-down"></i></span>
+        <div class="nav-dropdown-menu">
+          <a href="/compare"><i class="fas fa-fw fa-table-list"></i> All apps compared</a>
+          <a href="/compare/alfred">vs Alfred</a>
+          <a href="/compare/atext">vs aText</a>
+          <a href="/compare/espanso">vs Espanso</a>
+          <a href="/compare/raycast">vs Raycast</a>
+          <a href="/compare/rocket-typist">vs Rocket Typist</a>
+          <a href="/compare/textexpander">vs TextExpander</a>
+          <a href="/compare/typinator">vs Typinator</a>
+        </div>
+      </div>
+      <a href="/pricing">PRICING</a>
+      <div class="nav-dropdown">
+        <span class="nav-dropdown-toggle">RESOURCES <i class="fas fa-chevron-down"></i></span>
+        <div class="nav-dropdown-menu">
+          <a href="/blog"><i class="fas fa-fw fa-newspaper"></i> Blog</a>
+          <a href="/help"><i class="fas fa-fw fa-book"></i> Documentation</a>
+          <a href="/help/release-notes/macos"><i class="fas fa-fw fa-gear"></i> Release Notes</a>
+          <a href="/faq"><i class="fas fa-fw fa-circle-question"></i> FAQ</a>
+        </div>
+      </div>
+      <a href="/download"
+        id="download-menu-button"
+        class="btn btn-primary" style="padding: 10px 24px; font-size: 0.9rem;">
+        Download
+      </a>
+    </div>
+  </div>
+</nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>The most powerful <span class="gradient-text">text expander</span><br>for Mac and iPhone</h1>
+        <p class="hero-sub">
+          Type a keyword and watch it expand into full text, fill-in forms, conditional logic, live dates,
+          shell scripts, and AI content. System-wide, in every app.
+        </p>
+
+        <div class="hero-cta">
+          <p class="hero-rating">
+            <span class="hero-stars">★★★★★</span> <strong>4.8</strong>
+          </p>
+          <p class="hero-rating-count">~1,100 ratings on the App Store</p>
+
+          <a href="/download" id="download-main-standalone" class="btn btn-primary">
+            <i class="fa fa-download"></i> Download for Mac
+          </a>
+          <a href="https://apps.apple.com/us/app/snippety-snippets-manager/id1530751461?platform=mac" id="download-main-appstore" class="btn btn-primary">
+            <i class="fab fa-apple"></i> Download on the App Store
+          </a>
+
+          <p class="hero-brew">
+            Also available via <a href="https://formulae.brew.sh/cask/snippety" target="_blank" rel="noopener noreferrer">Homebrew</a>
+          </p>
+        </div>
+
+        <div class="hero-image">
+          <img src="images/snippety-main-screen-opt.png" alt="Snippety Main Screen">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- The templating engine: the thing that actually sets Snippety apart -->
+  <section id="engine">
+    <div class="container">
+      <h2>Smart Snippets</h2>
+      <p class="large engine-lede">
+        Most text expanders paste static text. Snippety runs a real templating engine,
+        so one snippet adapts to every situation.
+      </p>
+
+      <div class="engine-split">
+        <div class="engine-pane">
+          <div class="engine-pane-head"><i class="fas fa-pen-ruler"></i> Your template</div>
+          <pre class="engine-code"><code>Hi <span class="tpl-ph">{@text|Name@}</span>,
+
+Thanks for reaching out about your <span class="tpl-ph">{@selectable|Plan|Free;Premium@}</span> plan.
+
+<span class="tpl-cond">{@if|Plan == Premium@}</span>
+Priority support. We'll reply today.
+<span class="tpl-cond">{@else@}</span>
+We'll reply by <span class="tpl-ph">{@calculated-date|+3d|dd.MM.yyyy|English@}</span>.
+<span class="tpl-cond">{@endif@}</span></code></pre>
+        </div>
+
+        <div class="engine-pane engine-pane--out">
+          <div class="engine-pane-head"><i class="fas fa-bolt"></i> What gets typed</div>
+          <pre class="engine-code engine-code--out"><code>Hi Alex,
+
+Thanks for reaching out about your Premium plan.
+
+Priority support. We'll reply today.</code></pre>
+          <p class="engine-out-note">
+            Pick <code>Free</code> instead and the same snippet writes the fallback line, with the date
+            calculated on the spot. No second snippet to maintain.
+          </p>
+        </div>
+      </div>
+
+      <p class="engine-caption">
+        <a href="/help/category/placeholders">See all 20 placeholders →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Try It Yourself -->
+  <section id="try-it">
+    <div class="container">
+      <h2>Try Text Expansion</h2>
+      <p class="large" style="text-align: center; max-width: 720px; margin-left: auto; margin-right: auto;">Type one of these keywords in the box below and watch it expand instantly, just like Snippety does system-wide.</p>
+
+      <div class="try-it-wrapper">
+        <div class="try-it-chip-row">
+          <span class="try-it-chips-label">Plain text</span>
+          <div class="try-it-chips">
+            <button type="button" class="try-it-chip" data-keyword=";email">;email</button>
+            <button type="button" class="try-it-chip" data-keyword=";sig">;sig</button>
+            <button type="button" class="try-it-chip" data-keyword=";addr">;addr</button>
+          </div>
+        </div>
+
+        <div class="try-it-chip-row">
+          <span class="try-it-chips-label try-it-chips-label--smart">Smart templates</span>
+          <div class="try-it-chips">
+            <button type="button" class="try-it-chip try-it-chip--smart" data-keyword=";due">;due</button>
+            <button type="button" class="try-it-chip try-it-chip--smart" data-keyword=";reply">;reply</button>
+          </div>
+        </div>
+
+        <div class="try-it-editor">
+          <textarea id="try-it-input" rows="6" spellcheck="false" autocomplete="off" autocapitalize="off"
+            placeholder="Start typing here… for example, type ;reply and watch the template ask for values."></textarea>
+          <button type="button" id="try-it-reset" class="try-it-reset" aria-label="Clear the text">
+            <i class="fas fa-rotate-left"></i> Clear
+          </button>
+        </div>
+
+        <!-- Fill-in form for the smart templates. Populated by js/app.js. -->
+        <div id="try-it-form" class="try-it-form" hidden></div>
+
+        <p class="try-it-hint">
+          <i class="fas fa-wand-magic-sparkles"></i>
+          <code>;due</code> calculates a real date. <code>;reply</code> asks for values and picks its own wording.
+          That's a conditional block.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Snippety -->
+  <section id="why-choose">
+    <div class="container">
+      <h2>Why Snippety?</h2>
+      <p class="large" style="text-align: center;">Deeper than the rest, without the subscription or the account.</p>
+
+      <div class="why-grid grid-collapse is-collapsed" id="why-grid" data-mobile-visible="4">
+        <div class="why-card why-card--featured">
+          <div class="why-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+          <div>
+            <h3 class="why-title">Deepest Templating Engine</h3>
+            <p class="why-desc">20 smart placeholders and <strong>conditional blocks that most competitors don't
+              offer</strong>. One snippet handles what other apps need five for.
+              <a href="/compare">See the full comparison →</a>
+            </p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-tag"></i></div>
+          <div>
+            <h3 class="why-title">Simple Pricing</h3>
+            <p class="why-desc">Start free. Then a low monthly plan or a one-time purchase with lifetime updates. No
+              forced subscriptions, no hidden fees.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fab fa-apple"></i></div>
+          <div>
+            <h3 class="why-title">100% Native App</h3>
+            <p class="why-desc">Built with native technologies. No web views, no Electron. Fast, lightweight, and truly
+              native macOS &amp; iOS app.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-terminal"></i></div>
+          <div>
+            <h3 class="why-title">Automate Everything</h3>
+            <p class="why-desc">Run shell scripts inside snippets, drive the app from a snippety
+              CLI, or wire it into Apple Shortcuts and Siri. Nothing else in this category does all three.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-robot"></i></div>
+          <div>
+            <h3 class="why-title">AI Where You Need It</h3>
+            <p class="why-desc">Generate, translate, and rewrite from inside a template or the editor. Use your own
+              model, including a local one, so nothing leaves your Mac.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-keyboard"></i></div>
+          <div>
+            <h3 class="why-title">Advanced iOS Companion</h3>
+            <p class="why-desc">A full-featured iOS app with a custom keyboard, so you can expand snippets wherever you
+              type, not a stripped-down viewer for your Mac library.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-lock"></i></div>
+          <div>
+            <h3 class="why-title">Private, No Account Ever</h3>
+            <p class="why-desc">No sign-up, no email, no login. Everything stays on your device or in your own iCloud,
+              so your snippets never touch our servers.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-palette"></i></div>
+          <div>
+            <h3 class="why-title">Matching Your Style</h3>
+            <p class="why-desc">Pick from 250 built-in themes with fully configurable colors, so Snippety looks exactly
+              the way you want.</p>
+          </div>
+        </div>
+        <div class="why-card">
+          <div class="why-icon"><i class="fas fa-clock-rotate-left"></i></div>
+          <div>
+            <h3 class="why-title">Proven, Maintained, Supported</h3>
+            <p class="why-desc">Trusted for over 6 years, updated constantly for the latest macOS
+              and iOS releases, and backed by fast, direct support from the developer.</p>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="grid-more" aria-controls="why-grid" aria-expanded="false"
+        data-more="Show all reasons" data-less="Show fewer">
+        <span class="grid-more-label">Show all reasons</span> <i class="fas fa-chevron-down"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- How it stacks up: the rows where Snippety is alone or nearly alone.
+       Keep these in sync with the full matrix in compare/index.php. -->
+    <section id="compare-band" class="compact">
+    <div class="container">
+      <h2>How It Stacks Up</h2>
+      <p class="large" style="text-align: center; max-width: 760px; margin: 0 auto;">
+        Every text expander expands text. These are the things most of them simply don't do.
+      </p>
+
+      <div class="hc-wrap">
+        <table class="hc-table">
+          <thead>
+            <tr>
+              <th scope="col">Feature</th>
+              <th scope="col" class="hc-col-snippety">Snippety</th>
+                            <th scope="col">TextExpander</th>
+                            <th scope="col">Typinator</th>
+                            <th scope="col">Raycast</th>
+                          </tr>
+          </thead>
+          <tbody>
+                        <tr>
+              <th scope="row">Conditional blocks</th>
+              <td class="hc-col-snippety"><i class="fas fa-check hc-yes" role="img" aria-label="Yes"></i></td>
+              <td><i class="fas fa-check hc-yes" role="img" aria-label="Yes"></i></td>
+              <td><i class="fas fa-xmark hc-no" role="img" aria-label="No"></i></td>
+              <td><i class="fas fa-xmark hc-no" role="img" aria-label="No"></i></td>
+            </tr>
+                        <tr>
+              <th scope="row">Shortcuts &amp; Siri actions</th>
+              <td class="hc-col-snippety"><i class="fas fa-check hc-yes" role="img" aria-label="Yes"></i></td>
+              <td><i class="fas fa-xmark hc-no" role="img" aria-label="No"></i></td>
+              <td><i class="fas fa-xmark hc-no" role="img" aria-label="No"></i></td>
+              <td><i class="fas fa-xmark hc-no" role="img" aria-label="No"></i></td>
+            </tr>
+                        <tr>
+              <th scope="row">Command-line interface</th>
+              <td class="hc-col-snippety"><i class="fas fa-check hc-yes" role="img" aria-label="Yes"></i></td>
+              <td><i class="fas fa-xmark hc-no" role="img" aria-label="No"></i></td>
+              <td><i class="fas fa-xmark hc-no" role="img" aria-label="No"></i></td>
+              <td><i class="fas fa-xmark hc-no" role="img" aria-label="No"></i></td>
+            </tr>
+                        <tr>
+              <th scope="row">Run shell scripts in snippets</th>
+              <td class="hc-col-snippety"><i class="fas fa-check hc-yes" role="img" aria-label="Yes"></i></td>
+              <td><i class="fas fa-circle-half-stroke hc-partial" role="img" aria-label="Partial"></i><span class="hc-note">Built-in scripting</span></td>
+              <td><i class="fas fa-check hc-yes" role="img" aria-label="Yes"></i></td>
+              <td><i class="fas fa-xmark hc-no" role="img" aria-label="No"></i></td>
+            </tr>
+                        <tr>
+              <th scope="row">Syntax highlighting for code</th>
+              <td class="hc-col-snippety"><i class="fas fa-check hc-yes" role="img" aria-label="Yes"></i><span class="hc-note">50+ languages</span></td>
+              <td><i class="fas fa-xmark hc-no" role="img" aria-label="No"></i></td>
+              <td><i class="fas fa-xmark hc-no" role="img" aria-label="No"></i></td>
+              <td><i class="fas fa-xmark hc-no" role="img" aria-label="No"></i></td>
+            </tr>
+                        <tr>
+              <th scope="row">One-time purchase option</th>
+              <td class="hc-col-snippety"><i class="fas fa-check hc-yes" role="img" aria-label="Yes"></i><span class="hc-note">Pro Lifetime</span></td>
+              <td><i class="fas fa-xmark hc-no" role="img" aria-label="No"></i></td>
+              <td><i class="fas fa-circle-half-stroke hc-partial" role="img" aria-label="Partial"></i><span class="hc-note">macOS only<br/>no major upgrades</span></td>
+              <td><i class="fas fa-xmark hc-no" role="img" aria-label="No"></i></td>
+            </tr>
+                      </tbody>
+        </table>
+      </div>
+
+      <p class="hc-footer">
+        <a href="/compare" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 8px;">
+          <i class="fas fa-table-columns"></i> Compare all 8 apps across 21 features
+        </a>
+      </p>
+
+      <p class="hc-migrate">
+        <i class="fas fa-right-left"></i>
+        Already using one of them? See the <a href="/help/migration">Migration guide</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Deep Dive Features (Alternating) -->
+  <section id="videos">
+    <div class="container">
+
+      <h2>See How It Works</h2>
+      <p class="large" style="text-align: center;">See Snippety in action through short videos</p>
+
+      <!-- Feature Tabs -->
+      <div class="feature-tabs">
+        <button class="feature-tab active" data-target="feat-templates">Templates</button>
+        <button class="feature-tab" data-target="feat-conditional-blocks">Conditional Blocks</button>
+        <button class="feature-tab" data-target="feat-expander">Expander</button>
+        <button class="feature-tab" data-target="feat-collaboration">Collaboration</button>
+        <button class="feature-tab" data-target="feat-keyboard">iOS Keyboard</button>
+      </div>
+
+      <!-- Feature Showcase -->
+      <div class="feature-showcase">
+
+        <!-- Templates -->
+        <div id="feat-templates" class="feature-content active">
+          <div class="feature-media">
+            <video loop muted playsinline autoplay src="images/templates_demo.mp4"></video>
+          </div>
+          <div class="feature-text">
+            <p>Snippety allows you to create smart templates with customizable placeholders. Works in every text field -
+              whether it's a browser, terminal, or application.</p>
+          </div>
+        </div>
+
+        <!-- Conditional Blocks -->
+        <div id="feat-conditional-blocks" class="feature-content">
+          <div class="feature-media">
+            <video loop muted playsinline autoplay src="images/conditional-blocks.mp4"></video>
+          </div>
+          <div class="feature-text">
+            <p>Use conditional blocks to create dynamic templates that adapt based on your input.</p>
+          </div>
+        </div>
+
+        <!-- Snippet Expander -->
+        <div id="feat-expander" class="feature-content">
+          <div class="feature-media">
+            <video loop muted playsinline autoplay src="images/onboarding_3.mp4"></video>
+          </div>
+          <div class="feature-text">
+            <p>Type a keyword like <code>:email</code> and watch it expand instantly. Snippety's text expander lets you boost your productivity without taking your hands off the keyboard.</p>
+          </div>
+        </div>
+
+        <!-- Collaboration -->
+        <div id="feat-collaboration" class="feature-content">
+          <div class="feature-media">
+            <video loop muted playsinline autoplay src="images/onboarding_6.mp4"></video>
+          </div>
+          <div class="feature-text">
+            <p>Easily share and build collections of snippets with your co-workers and friends. Everything securely
+              synced via iCloud, without any third-party servers.</p>
+          </div>
+        </div>
+
+        <!-- Snippety Keyboard -->
+        <div id="feat-keyboard" class="feature-content">
+          <div class="feature-media">
+            <video loop muted playsinline autoplay src="images/snippety_keyboard_2.mp4"></video>
+          </div>
+          <div class="feature-text">
+            <p>Snippety Keyboard lets you access your snippets wherever you type, everything seamlessly synced via
+              iCloud. Expand snippets by typing keywords or browsing your collections.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Grid -->
+  <section id="features">
+    <div class="container">
+      <h2>Powerful Features</h2>
+      <p class="large" style="text-align: center;">
+Snippety is a feature-rich text expander designed to save you time every day.<br/>
+      Click below to learn more.
+</p>
+
+      <div class="features-grid grid-collapse is-collapsed" id="features-grid" data-mobile-visible="4">
+        <a href="/help/macos/conditional-blocks" class="feature-card">
+          <i class="fas fa-code-fork feature-icon"></i>
+          <h3 class="feature-title">Conditional Blocks</h3>
+          <p class="feature-desc">One snippet, many outcomes. Show a priority line for Premium customers and a
+            standard one for everyone else, decided as the snippet expands.</p>
+        </a>
+        <a href="/help/macos/placeholders/overview" class="feature-card">
+          <i class="fas fa-wand-sparkles feature-icon"></i>
+          <h3 class="feature-title">Smart Placeholders</h3>
+          <p class="feature-desc">20 built-in placeholders: fill-in fields, dropdowns, calculated dates, clipboard and
+            file contents, references to other snippets, all filled in as you expand.</p>
+        </a>
+        <a href="/help/macos/app-rules" class="feature-card">
+          <i class="fas fa-window-restore feature-icon"></i>
+          <h3 class="feature-title">Per-App Snippets</h3>
+          <p class="feature-desc">App Rules show only your code snippets in your IDE and only your email ones in Mail,
+            so the right library is always in front of you.</p>
+        </a>
+        <a href="/help/macos/syntax-highlighting" class="feature-card">
+          <i class="fas fa-code feature-icon"></i>
+          <h3 class="feature-title">Syntax Highlighting</h3>
+          <p class="feature-desc">Store code the way you write it, highlighted across 50+ languages. The only expander
+            in this comparison that does.</p>
+        </a>
+        <a href="/help/macos/cli" class="feature-card">
+          <i class="fas fa-terminal feature-icon"></i>
+          <h3 class="feature-title">Real CLI</h3>
+          <p class="feature-desc">A snippety command that expands, searches, creates, and edits from the
+            terminal. Pipe a snippet into a commit message, or bind one to any hotkey.</p>
+        </a>
+        <a href="/help/macos/shortcuts-app" class="feature-card">
+          <i class="fas fa-bolt feature-icon"></i>
+          <h3 class="feature-title">Shortcuts &amp; Siri</h3>
+          <p class="feature-desc">20+ native Shortcuts actions, so your snippets can trigger, and be triggered by,
+            anything else on your Mac. Run them from Spotlight, the menu bar, or Siri.</p>
+        </a>
+        <a href="/help/macos/creating-template/simulating-keys" class="feature-card">
+          <i class="fas fa-robot feature-icon"></i>
+          <h3 class="feature-title">Scripts &amp; Automation</h3>
+          <p class="feature-desc">Run a shell script mid-snippet and drop its output straight in. Format the selected
+            JSON with jq, pull data from an API, or simulate keystrokes to fill a form.</p>
+        </a>
+        <a href="/help/macos/using-snippets/snippety-app" class="feature-card">
+          <i class="fas fa-search feature-icon"></i>
+          <h3 class="feature-title">Like Spotlight</h3>
+          <p class="feature-desc">Works in every text field. Press ⌘⇧Space and access your snippets from anywhere.</p>
+        </a>
+        <a href="/help/macos/sync/icloud-synchronization" class="feature-card">
+          <i class="fas fa-cloud feature-icon"></i>
+          <h3 class="feature-title">iCloud Sync</h3>
+          <p class="feature-desc">Your library follows you to every Apple device through your own iCloud, with no
+            third-party server in the middle.</p>
+        </a>
+        <a href="/help/macos/sync/icloud-collaboration" class="feature-card">
+          <i class="fas fa-users feature-icon"></i>
+          <h3 class="feature-title">Collaboration</h3>
+          <p class="feature-desc">Share snippets with your team or friends securely via iCloud. All of this with no
+            subscriptions or hidden fees!</p>
+        </a>
+        <a href="/help/macos/creating-template/rich-text" class="feature-card">
+          <i class="fas fa-highlighter feature-icon"></i>
+          <h3 class="feature-title">Text Formatting</h3>
+          <p class="feature-desc">Write in HTML, RTF, or Markdown and preview it before it lands, so formatted email
+            replies stay formatted.</p>
+        </a>
+        <a href="/help/macos/appearance/themes" class="feature-card">
+          <i class="fas fa-paintbrush feature-icon"></i>
+          <h3 class="feature-title">250 Themes</h3>
+          <p class="feature-desc">Pick what best fits your style and tweak it if needed. Choose from 250 built-in
+            themes.</p>
+        </a>
+      </div>
+
+      <button type="button" class="grid-more" aria-controls="features-grid" aria-expanded="false"
+        data-more="Show all features" data-less="Show fewer">
+        <span class="grid-more-label">Show all features</span> <i class="fas fa-chevron-down"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- Mobile Section -->
+  <section id="mobile" class="compact" style="background: rgba(40,40,60,0.2);">
+    <div class="container">
+      <h2>Snippety for Mobile</h2>
+      <p class="large" style="text-align: center;">Works great on iPhone, iPad, and Mac.<br>
+        One App Store purchase unlocks the app on all your devices with the same Apple ID.</p>
+
+      <div class="mobile-shot">
+        <img src="images/platforms.png" alt="Snippety running on iPhone, iPad, and Mac">
+      </div>
+
+      <!-- One tile, not a feature grid: the iPhone story is "the Mac engine,
+           unchanged", and a six-card list only repeated the sections above. -->
+      <div class="mobile-tile">
+        <div class="mobile-tile-head">
+          <span class="mobile-tile-icon"><i class="fas fa-keyboard"></i></span>
+          <h3>The Snippety Keyboard</h3>
+        </div>
+        <p class="mobile-tile-lede">
+          Everything you build on the Mac is already on your iPhone and iPad. The Snippety Keyboard expands your
+          snippets wherever you type, without opening the app, and it runs the very same templating engine: the same
+          <a href="/help/category/placeholders">20 placeholders</a>, the same fill-in forms, the same conditional
+          blocks. It all travels through your own iCloud, so there is nothing to set up and no account to create.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section id="reviews" class="compact">
+    <div class="container">
+      <h2>Loved by Users</h2>
+      <p class="large" style="text-align: center;">
+        <span style="color: #f59e0b;">★★★★★</span>
+        <strong>4.8</strong> from 1141 App Store ratings.
+      </p>
+      <div class="reviews-wrapper">
+        <div class="reviews-scroll">
+
+          <div class="review-card">
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="review-text">
+              "It's been a while since I've fell in love with an app so
+              quickly, but Snippety did. It's a little different than
+              what I'm use to, but the power and convenience made it
+              worth to me. After just one week I find myself using this
+              little app a lot and in new ways all the time. Keep up the
+              great work!"
+            </p>
+            <p class="review-author">Jerry Pena</p>
+          </div>
+
+          <div class="review-card">
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="review-text">
+                "I had AI do some research for me on the best text expander
+                option. I wanted pay once, not subscription. I wanted fast, Mac
+                native and good reviews. I wanted keywords with triggers and/or
+                hotkeys. I wanted clean, simple and without lots of bloat. AI
+                recommended Snippety and it couldn’t be better."
+            </p>
+            <p class="review-author">BWA_83</p>
+          </div>
+
+          <div class="review-card">
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="review-text">
+                "Snippety is such a hidden gem. I’ve used it every day for the
+                past 3 years. Calendar booking links, email snippets, chunks of
+                code - all of it is instantly accessible. Love this app!"
+            </p>
+            <p class="review-author">trekertrev</p>
+          </div>
+
+          <div class="review-card">
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="review-text">
+              "Really enjoying integrating Snippety into my daily
+              workflow. It hits the sweet spot between simplicity, ease
+              of use, and added power. Can't recommend this enough!"
+            </p>
+            <p class="review-author">danny_insanity</p>
+          </div>
+
+          <div class="review-card">
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="review-text">
+                "I'm a copywriter and salesman and everything I do is frameworked
+                and structured. This app makes life so easy and the fact its on
+                my computer, phone and tablet synched is awesome because I can
+                get things done much faster"
+            </p>
+            <p class="review-author">MikeMartinGB</p>
+          </div>
+
+          <div class="review-card">
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="review-text">
+              "Absolute No. 1 little helper, available across iPhone,
+              iPad and MacOS, synced via iCloud. My favorite tool when
+              it comes to quickly note down some code snippet."
+            </p>
+            <p class="review-author">ricp80</p>
+          </div>
+
+          <div class="review-card">
+            <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i></div>
+            <p class="review-text">
+              "This is really what I was looking for. I use it for many
+              text snippets. Like standard customer service e-mails and
+              other text snippets that I need every day. Before I had to
+              select/copy/paste from a text file every day. Thanks to
+              Snippety I really save a lot of time."
+            </p>
+            <p class="review-author">tiezkoz</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 32px;">
+        <a href="https://apps.apple.com/us/app/snippety-snippets-manager/id1530751461?see-all=reviews&amp;platform=mac"
+          target="_blank" rel="noopener noreferrer" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 8px;">
+          <i class="fab fa-apple"></i> See all reviews on the App Store
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="compact" style="text-align: center;" data-track-location="bottom-cta">
+    <div class="container">
+      <h2>Ready to Boost Your Productivity?</h2>
+      <p class="large" style="margin-bottom: 8px;">
+        Join ~1,100 people who rated Snippety 4.8 on the App Store.
+      </p>
+      <p class="large">Start free. Then pay monthly, or buy it once and own it.</p>
+      <div style="display: inline-grid; gap: 20px; justify-items: stretch; margin-top: 20px;">
+        <a href="/download" class="btn btn-primary" style="justify-content: center;">
+          <i class="fa fa-download"></i> Download for Mac — free to start
+        </a>
+        <button id="buy-standalone-button" class="btn-secondary" style="text-align: center;">
+          <i class="fas fa-shopping-cart"></i> Buy Snippety for macOS
+        </button>
+        <a href="https://youtube.com/@AppSnippety" class="btn-secondary" style="text-align: center;">
+          <i class="fab fa-youtube"></i> Check out Snippety on YouTube
+        </a>
+      </div>
+
+      <p class="cta-faq-link">
+        Still have questions? <a href="/faq">Read the FAQ</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+<footer>
+  <div class="container main-footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>About Snippety</h4>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">
+          Snippety is a text expander and snippet manager for Mac and iPhone, created with passion by Wojciech&nbsp;Kulik - an experienced developer
+          and the creator of multiple open-source projects and productivity apps.
+        </p>
+        <p>&nbsp;</p>
+        <p style="color: var(--text-muted); font-size: 0.9rem;" class="footer-links">
+          <a href="https://github.com/wojciech-kulik">GitHub</a> | <a href="https://wojciechkulik.pl">Blog</a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul class="footer-links">
+          <li><a href="/help"><i class="fas fa-fw fa-book"></i> Documentation</a></li>
+          <li><a href="/blog"><i class="fas fa-fw fa-newspaper"></i> Blog</a></li>
+          <li><a href="/faq"><i class="fas fa-fw fa-circle-question"></i> FAQ</a></li>
+          <li><a href="/help/release-notes/macos"><i class="fas fa-fw fa-gear"></i> Releases</a></li>
+          <li><a href="/privacy-policy"><i class="fas fa-fw fa-fingerprint"></i> Privacy Policy</a></li>
+          <li><a href="/terms-of-use"><i class="fas fa-fw fa-file-contract"></i> Terms of Use</a></li>
+          <li><a href="/refunds"><i class="fas fa-fw fa-rotate-left"></i> Refund Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <ul class="footer-links">
+          <li><a href="/for-developers"><i class="fas fa-fw fa-code"></i> For Developers</a></li>
+          <li><a href="/for-customer-support"><i class="fas fa-fw fa-headset"></i> For Customer Support</a></li>
+          <li><a href="/for-sales"><i class="fas fa-fw fa-chart-line"></i> For Sales</a></li>
+          <li><a href="/for-recruiters"><i class="fas fa-fw fa-user-tie"></i> For Recruiters</a></li>
+          <li><a href="/for-chatgpt"><i class="fas fa-fw fa-robot"></i> For AI &amp; ChatGPT</a></li>
+          <li><a href="/for-lawyers"><i class="fas fa-fw fa-scale-balanced"></i> For Lawyers</a></li>
+          <li><a href="/for-doctors"><i class="fas fa-fw fa-stethoscope"></i> For Doctors</a></li>
+          <li><a href="/for-writers"><i class="fas fa-fw fa-pen-nib"></i> For Writers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Compare</h4>
+        <ul class="footer-links">
+          <li><a href="/compare">All apps compared</a></li>
+          <li><a href="/compare/alfred">vs Alfred</a></li>
+          <li><a href="/compare/atext">vs aText</a></li>
+          <li><a href="/compare/espanso">vs Espanso</a></li>
+          <li><a href="/compare/raycast">vs Raycast</a></li>
+          <li><a href="/compare/rocket-typist">vs Rocket Typist</a></li>
+          <li><a href="/compare/textexpander">vs TextExpander</a></li>
+          <li><a href="/compare/typinator">vs Typinator</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Social</h4>
+        <ul class="footer-links">
+          <li><a href="https://x.com/AppSnippety"><i class="fab fa-fw fa-x-twitter"></i> X.com</a></li>
+          <li><a href="https://youtube.com/@AppSnippety"><i class="fab fa-fw fa-youtube"></i> YouTube</a></li>
+          <li id="contact-details"><a href="#" id="contact-reveal" role="button"><i class="fa fa-fw fa-envelope"></i> Contact us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p>&copy; 2020-2026 Wojciech Kulik. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+  <!-- Video Modal -->
+  <div id="video-modal" class="modal-overlay">
+    <div class="modal-content">
+      <button id="close-modal" aria-label="Close modal">&times;</button>
+      <video id="modal-video" controls autoplay></video>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/jquery.ihavecookies.min.js"></script>
+<script src="/js/timezone-country-map.js?version=54"></script>
+<script src="/js/cookies.js?version=54"></script>
+<script src="/js/app.js?version=54"></script>
+<script src="/js/umami-events.js?version=54"></script>
+<script>
+  (function () {
+    var trigger = document.querySelector('.pricing-note #contact-reveal');
+    var trigger2 = document.querySelector('.footer-links #contact-reveal');
+
+    if (trigger) {
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        var tail = document.getElementById('contact-reveal-tail');
+        if (!tail) return;
+
+        var address = ['contact', 'snippety.app'].join('@');
+        var link = document.createElement('a');
+        link.href = 'mailto:' + address;
+        link.textContent = address;
+
+        tail.textContent = ': ';
+        tail.appendChild(link);
+        tail.appendChild(document.createTextNode('.'));
+
+        // The reveal already happened — leave the label as plain text.
+        var label = document.createElement('span');
+        label.textContent = trigger.textContent;
+        trigger.replaceWith(label);
+
+        if (window.snippetyAnalytics) {
+          window.snippetyAnalytics.track('contact-email-revealed', { location: 'pricing' });
+        }
+      });
+    }
+
+    if (trigger2) {
+      trigger2.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        var contactDetails = document.getElementById('contact-details');
+        if (!contactDetails) return;
+
+        var address = ['contact', 'snippety.app'].join('@');
+        var link = document.createElement('a');
+        link.href = 'mailto:' + address;
+
+        const icon = document.createElement('i');
+        icon.className = 'fa fa-fw fa-envelope';
+
+        link.appendChild(icon);
+        link.appendChild(document.createTextNode(' '));
+        link.appendChild(document.createTextNode(address));
+
+        contactDetails.textContent = '';
+        contactDetails.appendChild(link);
+
+        if (window.snippetyAnalytics) {
+          window.snippetyAnalytics.track('contact-email-revealed', { location: 'footer' });
+        }
+      }, { once: true });
+    }
+  })();
+</script>
+  <script src="js/paddle.js"></script>
+</body>
+
+</html>

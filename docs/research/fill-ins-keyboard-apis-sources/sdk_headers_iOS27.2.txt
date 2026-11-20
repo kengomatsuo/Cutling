@@ -1,0 +1,172 @@
+# Excerpts from installed iPhoneOS27.2.sdk UIKit headers, read 2026-11-21 (xcrun --sdk iphoneos)
+## UIInputViewController.h
+#if (defined(USE_UIKIT_PUBLIC_HEADERS) && USE_UIKIT_PUBLIC_HEADERS) || !__has_include(<UIKitCore/UIInputViewController.h>)
+//
+//  UIInputViewController.h
+//  UIKit
+//
+//  Copyright (c) 2014-2018 Apple Inc. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIViewController.h>
+#import <UIKit/UIKitDefines.h>
+#import <UIKit/UIInputView.h>
+#import <UIKit/UITextInput.h>
+
+NS_HEADER_AUDIT_BEGIN(nullability, sendability)
+
+@class UILexicon;
+
+API_UNAVAILABLE(watchos) NS_SWIFT_UI_ACTOR
+@protocol UITextDocumentProxy <UIKeyInput>
+
+@property (nullable, nonatomic, readonly) NSString *documentContextBeforeInput;
+@property (nullable, nonatomic, readonly) NSString *documentContextAfterInput;
+@property (nullable, nonatomic, readonly) NSString *selectedText API_AVAILABLE(ios(11.0)) API_UNAVAILABLE(watchos);
+
+// An app can store UITextInputMode in its document context, when user switches to the document, the host will pass the inputMode as documentInputMode to the UIInputViewController,
+// which can switch to the inputMode and set primaryLanguage if it supports it.
+@property (nullable, nonatomic, readonly) UITextInputMode *documentInputMode API_AVAILABLE(ios(10.0)) API_UNAVAILABLE(watchos);
+
+@property (nonatomic, readonly, copy) NSUUID *documentIdentifier API_AVAILABLE(ios(11.0)) API_UNAVAILABLE(watchos);
+
+- (void)adjustTextPositionByCharacterOffset:(NSInteger)offset;
+
+// Setting marked text either replaces the existing marked text or, if none is present, inserts it in place of the current input location.
+- (void)setMarkedText:(NSString *)markedText selectedRange:(NSRange)selectedRange API_AVAILABLE(ios(13.0)) API_UNAVAILABLE(watchos);
+
+// Unmark the currently marked text.
+- (void)unmarkText API_AVAILABLE(ios(13.0)) API_UNAVAILABLE(watchos);
+
+@end
+
+UIKIT_EXTERN API_AVAILABLE(ios(8.0)) API_UNAVAILABLE(watchos) NS_SWIFT_UI_ACTOR
+@interface UIInputViewController : UIViewController <UITextInputDelegate>
+
+@property (nullable, nonatomic, strong) UIInputView *inputView;
+
+@property (nonatomic, readonly) id <UITextDocumentProxy> textDocumentProxy;
+
+// The primary language of the UIInputViewController.  A BCP 47 language identifier such as en-US
+// If specified, this will supersede any PrimaryLanguage in the Info.plist.
+@property (nullable, nonatomic, copy) NSString *primaryLanguage;
+
+// When this property is set to YES, the system dictation key, if provided, will be disabled. 
+@property (nonatomic) BOOL hasDictationKey;
+
+@property (nonatomic, readonly) BOOL hasFullAccess API_AVAILABLE(ios(11.0)) API_UNAVAILABLE(watchos);
+@property (nonatomic, readonly) BOOL needsInputModeSwitchKey API_AVAILABLE(ios(11.0)) API_UNAVAILABLE(watchos);
+
+- (void)dismissKeyboard;
+- (void)advanceToNextInputMode;
+
+// Launch inputMode list above the view when long pressing or swiping up from the view,
+// Advance to nextInputMode when short tapping on the view.
+// Example: [KeyboardButton addTarget:self action:@selector(handleInputModeListFromView:withEvent:) forControlEvents:UIControlEventAllTouchEvents].
+- (void)handleInputModeListFromView:(nonnull UIView *)view withEvent:(nonnull UIEvent *)event API_AVAILABLE(ios(10.0)) API_UNAVAILABLE(watchos);
+
+// This will not provide a complete repository of a language's vocabulary.
+// It is solely intended to supplement existing lexicons.
+- (void)requestSupplementaryLexiconWithCompletion:(void (^)(UILexicon *))completionHandler;
+
+@end
+
+NS_HEADER_AUDIT_END(nullability, sendability)
+
+#else
+#import <UIKitCore/UIInputViewController.h>
+#endif
+## UITextChecker.h
+#if (defined(USE_UIKIT_PUBLIC_HEADERS) && USE_UIKIT_PUBLIC_HEADERS) || !__has_include(<UIKitCore/UITextChecker.h>)
+//
+//  UITextChecker.h
+//  UIKit
+//
+//  Copyright (c) 2009-2018 Apple Inc. All rights reserved.
+//
+
+#import <UIKit/UIKitDefines.h>
+#import <Foundation/Foundation.h>
+
+/* A UITextChecker object is used by a client (e.g. a document in an application) to check a given NSString. Generally one UITextChecker instance should be created per document.  Multiple related pieces of text may share a single UITextChecker instance, if they are intended to share ignored words and other similar state.
+*/
+
+NS_HEADER_AUDIT_BEGIN(nullability, sendability)
+
+UIKIT_EXTERN API_AVAILABLE(ios(3.2)) API_UNAVAILABLE(watchos) NS_SWIFT_UI_ACTOR
+@interface UITextChecker : NSObject 
+
+/* Initiates a spell-check of a string.  Returns the range of the first misspelled word, or {NSNotFound, 0} if none is found.  Checking is limited to the range specified, and starts at the specified offset (which should lie within the range), but if wrapFlag is YES then it will check from the beginning of the range if no misspelling is found between startingOffset and the end of the range. */
+- (NSRange)rangeOfMisspelledWordInString:(NSString *)stringToCheck range:(NSRange)range startingAt:(NSInteger)startingOffset wrap:(BOOL)wrapFlag language:(NSString *)language;
+
+/* Returns an array of strings, in the order in which they should be presented, representing guesses for words that might have been intended in place of the misspelled word at the given range in the given string. */
+- (nullable NSArray<NSString *> *)guessesForWordRange:(NSRange)range inString:(NSString *)string language:(NSString *)language;
+
+/* Returns an array of strings, in the order in which they should be presented, representing complete words that the user might be trying to type when starting by typing the partial word at the given range in the given string. */
+- (nullable NSArray<NSString *> *)completionsForPartialWordRange:(NSRange)range inString:(NSString *)string language:(NSString *)language;
+
+/* Methods for dealing with ignored words. */
+- (void)ignoreWord:(NSString *)wordToIgnore;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ignoredWords;
+
+/* These allow clients to programmatically instruct the checker to learn and unlearn words, and to determine whether a word has been learned (and hence can potentially be unlearned). */
++ (void)learnWord:(NSString *)word;
++ (BOOL)hasLearnedWord:(NSString *)word;
++ (void)unlearnWord:(NSString *)word;
+
+/* Entries in the availableLanguages list are all available spellchecking languages in user preference order, usually language abbreviations such as en_US. */
+@property(class, nonatomic, readonly) NSArray<NSString *> *availableLanguages;
+
+/* Requests grammar checking in the background. The completion handler will be called when results are available, with an array of NSTextCheckingResult objects describing particular items found during checking and their individual ranges, sorted by range origin, then range end, then result type. The result type may be either NSTextCheckingTypeGrammar or NSTextCheckingTypeCorrection. If waitForAllResults is true, this will not return until all grammar analysis has been performed; otherwise, the request will include those grammar results that are available quickly. */
+- (void)requestGrammarCheckingOfString:(NSString *)stringToCheck range:(NSRange)range waitForAllResults:(BOOL)waitForAllResults completionHandler:(void (^ _Nullable)(NSArray<NSTextCheckingResult *> *results))completionHandler API_AVAILABLE(ios(27.0), tvos(27.0), macos(27.0), visionos(27.0));
+
+/* This method should be called to ignore a particular grammar issue. The sentence should be the portion of the text corresponding to the range of an NSTextCheckingResult of grammar type. The grammarRange should be the range within that sentence of an individual issue, taken from the NSGrammarRange entry of one of the grammarDetails of the same NSTextCheckingResult. */
+- (void)ignoreGrammarRange:(NSRange)grammarRange inSentence:(NSString *)sentence API_AVAILABLE(ios(27.0), tvos(27.0), macos(27.0), visionos(27.0));
+
+@end
+
+NS_HEADER_AUDIT_END(nullability, sendability)
+
+#else
+#import <UIKitCore/UITextChecker.h>
+#endif
+## UIAccessibilityConstants.h (grep)
+58:UIKIT_EXTERN const UIAccessibilityTraits UIAccessibilityTraitKeyboardKey API_AVAILABLE(watchos(2.0)) NS_SWIFT_NONISOLATED;
+129:UIKIT_EXTERN const UIAccessibilityNotifications UIAccessibilityScreenChangedNotification API_AVAILABLE(watchos(2.0)) NS_SWIFT_NONISOLATED;
+143:UIKIT_EXTERN const UIAccessibilityNotifications UIAccessibilityAnnouncementNotification API_AVAILABLE(ios(4.0), watchos(2.0)) NS_SWIFT_NONISOLATED;
+170: The userInfo dictionary contains UIAccessibilityAnnouncementKeyString and UIAccessibilityAnnouncementKeyWasSuccessful.
+172:UIKIT_EXTERN NSNotificationName const UIAccessibilityAnnouncementDidFinishNotification API_AVAILABLE(ios(6.0), watchos(2.0)) NS_SWIFT_NONISOLATED;
+175:UIKIT_EXTERN NSString *const UIAccessibilityAnnouncementKeyStringValue API_AVAILABLE(ios(6.0), watchos(2.0)) NS_SWIFT_NONISOLATED;
+178:UIKIT_EXTERN NSString *const UIAccessibilityAnnouncementKeyWasSuccessful API_AVAILABLE(ios(6.0), watchos(2.0)) NS_SWIFT_NONISOLATED;
+258:// The following constants can be used with either the accessibilityAnnouncementPriority property, or with the
+259:// UIAccessibilityAnnouncementPriority attributed key.
+261:// Announcements will interrupt other speech and cannot be interrupted once started.
+263:// Announcements will interrupt existing speech, but are interruptible if a new speech utterance is started.
+265:// Announcements are queued and spoken when other speech utterances have completed.
+298:UIKIT_EXTERN NSAttributedStringKey const UIAccessibilitySpeechAttributeQueueAnnouncement API_AVAILABLE(ios(11.0), watchos(4.0)) API_DEPRECATED_WITH_REPLACEMENT("UIAccessibilitySpeechAttributeAnnouncementPriority", ios(11.0, 17.0), visionos(1.0, 1.0)) NS_SWIFT_NONISOLATED;
+300:// Use with a UIAccessibilityAnnouncementPriority value to specify whether this announcement can be queued or interrupted.
+301:UIKIT_EXTERN NSAttributedStringKey const UIAccessibilitySpeechAttributeAnnouncementPriority API_AVAILABLE(ios(17.0), watchos(10.0)) NS_SWIFT_NONISOLATED;
+## UIAccessibility.h PostNotification
+@property (nullable, nonatomic, weak) id<UITextInput> accessibilityTextInputResponder API_AVAILABLE(ios(18.1), visionos(2.1)) API_UNAVAILABLE(watchos, tvos) NS_SWIFT_UI_ACTOR;
+@property (nullable, nonatomic, copy) AXUITextInputReturnBlock accessibilityTextInputResponderBlock API_AVAILABLE(ios(18.1), visionos(2.1)) API_UNAVAILABLE(watchos, tvos) NS_SWIFT_UI_ACTOR;
+
+@end
+
+/*
+ UIAccessibilityPostNotification
+ 
+ This function posts a notification to assistive applications.
+ Some notifications specify a required or optional argument.
+ Pass nil for the argument if the notification does not specify otherwise. 
+ See UIAccessibilityConstants.h for a list of notifications.
+ */
+UIKIT_EXTERN void UIAccessibilityPostNotification(UIAccessibilityNotifications notification, __nullable id argument) API_UNAVAILABLE(watchos) NS_SWIFT_UI_ACTOR;
+
+## NS_EXTENSION_UNAVAILABLE grep in UITextChecker/UIAccessibility/UIKeyCommand/UIPress/UIInputViewController headers
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITextChecker.h:0
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIAccessibility.h:0
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIInputViewController.h:0
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIAccessibilityConstants.h:0
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKeyCommand.h:0
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIPress.h:0

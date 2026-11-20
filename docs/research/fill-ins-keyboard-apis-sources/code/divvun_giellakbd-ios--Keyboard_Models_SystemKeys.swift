@@ -1,0 +1,88 @@
+// Source: https://github.com/divvun/giellakbd-ios/blob/e609ba112e05e522b836bf4d2925ad9cb4e7c51c/Keyboard/Models/SystemKeys.swift  fetched 2026-11-21
+import Foundation
+import UIKit
+
+final class SystemKeys {
+    /// Builds the bottom row of system keys.
+    /// - Parameter needsInputModeSwitchKey: The input view controller's `needsInputModeSwitchKey`.
+    ///   When `true` the system draws no globe for us (Touch ID iPhones, iPhone Duo, iPads), so the row must
+    ///   include one. Face ID iPhones and single-keyboard setups report `false`.
+    static func systemKeyRowsForCurrentDevice(spaceName: String,
+                                              returnName: String,
+                                              traits: UITraitCollection,
+                                              needsInputModeSwitchKey: Bool,
+                                              device: DeviceContext = .current) -> [KeyDefinition] {
+        var keys = [KeyDefinition]()
+
+        let shouldUseIPadLayout = device.shouldUseIPadLayout(traitCollection: traits)
+
+        // Left side of space bar
+        if needsInputModeSwitchKey {
+            if shouldUseIPadLayout && device.isLargeIPad {
+                keys.append(KeyDefinition(type: .keyboard, size: CGSize(width: 1.25, height: 1.0)))
+                keys.append(KeyDefinition(type: .symbols, size: CGSize(width: 1.25, height: 1.0)))
+            } else {
+                keys.append(KeyDefinition(type: .symbols, size: CGSize(width: 1.25, height: 1.0)))
+                keys.append(KeyDefinition(type: .keyboard, size: CGSize(width: 1.25, height: 1.0)))
+            }
+        } else if !shouldUseIPadLayout {
+            keys.append(KeyDefinition(type: .symbols, size: CGSize(width: 2.5, height: 1.0)))
+        } else {
+            keys.append(KeyDefinition(type: .symbols))
+        }
+        keys.append(KeyDefinition(type: .spacebar(name: spaceName), size: CGSize(width: 5.0, height: 1.0)))
+
+        // Right of spacebar
+        if shouldUseIPadLayout {
+            keys.append(KeyDefinition(type: .symbols, size: CGSize(width: 1.25, height: 1.0)))
+            keys.append(KeyDefinition(type: .keyboardMode, size: CGSize(width: 1.25, height: 1.0)))
+        } else {
+            keys.append(KeyDefinition(type: .returnkey(name: returnName), size: CGSize(width: 2.5, height: 1.0)))
+        }
+
+        return keys
+    }
+}
+
+extension Array where Element == [KeyDefinition] {
+    mutating func platformize(page: KeyboardPage,
+                              spaceName: String,
+                              returnName: String,
+                              traits: UITraitCollection,
+                              needsInputModeSwitchKey: Bool) {
+        append(SystemKeys.systemKeyRowsForCurrentDevice(spaceName: spaceName,
+                                                        returnName: returnName,
+                                                        traits: traits,
+                                                        needsInputModeSwitchKey: needsInputModeSwitchKey))
+    }
+
+    func splitAndBalanceSpacebar() -> [[KeyDefinition]] {
+        var copy = self
+        for (i, row) in copy.enumerated() {
+            var splitPoint = row.count / 2
+            var length: CGFloat = 0.0
+            for (keyIndex, key) in row.enumerated() {
+                length += key.size.width
+                if case .spacebar = key.type {
+                    let splitSpace = KeyDefinition(type: key.type,
+                                                   size: CGSize(width: key.size.width / 2.0,
+                                                                height: key.size.height))
+                    copy[i].remove(at: keyIndex)
+
+                    copy[i].insert(splitSpace, at: keyIndex)
+                    copy[i].insert(splitSpace, at: keyIndex)
+                    splitPoint = keyIndex + 1
+                }
+            }
+
+            while splitPoint != (copy[i].count / 2) {
+                if splitPoint > copy[i].count / 2 {
+                    copy[i].append(KeyDefinition(type: .spacer, size: CGSize(width: 0.0, height: 1.0)))
+                } else {
+                    copy[i].insert(KeyDefinition(type: .spacer, size: CGSize(width: 0.0, height: 1.0)), at: 0)
+                }
+            }
+        }
+        return copy
+    }
+}
