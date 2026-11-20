@@ -610,14 +610,17 @@ def write_en_only_pages(en_translation, locales, available_codes, price):
 
 
 def write_en_only_page(page, en_translation, locales, available_codes, price):
-    template = (TEMPLATES_DIR / page["slug"] / "index.html").read_text(encoding="utf-8")
+    """templates/<slug>/index.html holds the page's <main>; _en_only_frame.html gives every such page
+    the same head, nav and footer."""
+    template = (TEMPLATES_DIR / "_en_only_frame.html").read_text(encoding="utf-8").replace(
+        "{{PAGE_MAIN}}", (TEMPLATES_DIR / page["slug"] / "index.html").read_text(encoding="utf-8").rstrip())
     url = f"{SITE}/en-us/{page['slug']}/"
     title, description = page["title"], page["description"]
     usd = price[0] and price[1] == "USD"
     price_cell = (f"One-time purchase, ${price[0]} in the US store. No subscription or in-app purchases"
                   if usd else "One-time purchase. No subscription or in-app purchases")
     price_once = f"${price[0]}, paid once" if usd else "paid once"
-    template = fill_caps({"faq_a6": en_translation.get("faq_a6", ""), "page": template})["page"]
+    template = fill_caps({"faq_a6": en_translation.get("faq_a6", ""), "page": template})["page"].replace("{{SITE}}", SITE)
     ld = en_only_ld(page, url, template)
     tags = [f'<link rel="canonical" href="{url}">',
             f'<link rel="alternate" hreflang="en" href="{url}">',

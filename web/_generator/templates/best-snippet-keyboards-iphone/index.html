@@ -1,0 +1,105 @@
+<!--
+  English only. Facts read on 2026-11-20 from each App Store listing (price, in-app purchases, description,
+  privacy label, requirements, ratings) and the iTunes lookup API (last update dates):
+  Cutling:                 https://apps.apple.com/us/app/id6759476314 (price filled in at build time)
+  Paste Snippets Keyboard: https://apps.apple.com/us/app/id6803690665 (free, no purchases, iCloud sync in version notes)
+  TextDrop:                https://apps.apple.com/us/app/id6826123830 (25 free, Pro Lifetime $3.99, no Full Access)
+  SnippetKeys:             https://apps.apple.com/us/app/id1212930162 (Full version $0.99, no Full Access, updated 2018-03-03)
+  WordBoard:               https://apps.apple.com/us/app/id960167417 (6 free keys, $7.99/month, $49.99/year, Pro $99.99; release notes: Lifetime)
+  TypeShelf:               https://apps.apple.com/us/app/id6743344539 ($0.99/week, $3.99/month, $19.99/year, $29.99 lifetime)
+  TextExpander:            https://apps.apple.com/us/app/id6805960547 and https://textexpander.com/pricing (Free 5 active snippets, Pro $60/year, Business $120/year)
+  Text replacement:        https://support.apple.com/guide/iphone/use-text-replacements-iph6d01d862/ios
+-->
+    <main class="container container-compare">
+        <div class="page-header">
+            <h1>Snippet keyboards for iPhone and iPad you don't have to subscribe to</h1>
+            <p class="page-subtitle">Eight options, each read from its App Store listing on 20 November 2026.</p>
+        </div>
+
+        <div class="summary-box">
+            <p>I make Cutling, one of the eight, so every claim here is one you can check on the app's own listing. If you want a free keyboard with no limits, Paste Snippets Keyboard has nothing to buy at all. Cutling holds text and images, syncs them to an iPad and a Mac, and is {{CUTLING_PRICE_ONCE}}.</p>
+        </div>
+
+        <div class="section">
+            <h2>Which one for what</h2>
+            <ul>
+                <li>Free, with no limits and nothing to buy: Paste Snippets Keyboard.</li>
+                <li>If you won't grant any keyboard Full Access, TextDrop ($3.99 once, after 25 free snippets) and SnippetKeys ($0.99) work without it.</li>
+                <li>Cutling, at {{CUTLING_PRICE_ONCE}}, if you want images as well as text and the same cutlings on a Mac.</li>
+                <li>WordBoard has variables, GIFs and AI rewriting, and $99.99 buys it outright.</li>
+                <li>For saved customer replies with fill-in fields, TypeShelf, at $29.99 once.</li>
+                <li>A few short phrases need nothing more than text replacement, which is built into iOS.</li>
+                <li>TextExpander makes sense if you already use it on a computer. Its paid plans are subscriptions.</li>
+            </ul>
+        </div>
+
+        <div class="table-wrap">
+        <table class="compare">
+            <thead>
+                <tr>
+                    <th scope="col">App</th>
+                    <th scope="col">To own it</th>
+                    <th scope="col">Subscription</th>
+                    <th scope="col">Free version</th>
+                    <th scope="col">Images</th>
+                    <th scope="col">Full Access</th>
+                    <th scope="col">Sync</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><th scope="row">Cutling</th><td>{{CUTLING_PRICE_ONCE}}</td><td>None</td><td>None</td><td>Yes, up to {{MAX_IMAGE_CUTLINGS}}</td><td>Needed</td><td>Your iCloud, to iPad and Mac, optional</td></tr>
+                <tr><th scope="row">Paste Snippets Keyboard</th><td>Free</td><td>None</td><td>Everything, unlimited snippets</td><td>Not in its listing</td><td>Needed</td><td>iCloud, between iPhone and iPad</td></tr>
+                <tr><th scope="row">TextDrop</th><td>$3.99 once</td><td>None</td><td>Up to 25 snippets</td><td>Not in its listing</td><td>Not needed</td><td>None: offline, on the device</td></tr>
+                <tr><th scope="row">SnippetKeys</th><td>$0.99 once</td><td>None</td><td>Free download</td><td>Not in its listing</td><td>Not needed</td><td>None listed: stored on the phone</td></tr>
+                <tr><th scope="row">WordBoard</th><td>$99.99 once</td><td>$7.99 a month or $49.99 a year</td><td>6 keys</td><td>Yes, images and GIFs</td><td>Needed</td><td>Restores from an iCloud backup on a new phone</td></tr>
+                <tr><th scope="row">TypeShelf</th><td>$29.99 once</td><td>$0.99 a week, $3.99 a month or $19.99 a year</td><td>Free download, Premium optional</td><td>Yes</td><td>Needed</td><td>Not in its listing; import and export</td></tr>
+                <tr><th scope="row">TextExpander</th><td>Not sold outright</td><td>Pro $60 a year, Business $120 a year per user</td><td>5 active snippets, with an account</td><td>Not in its listing</td><td>Needed</td><td>Your TextExpander account</td></tr>
+                <tr><th scope="row">Text replacement</th><td>Free, built into iOS</td><td>None</td><td>Everything</td><td>No</td><td>Not needed</td><td>iCloud</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <div class="section">
+            <h2 data-item="{{SITE}}/en-us/">Cutling</h2>
+            <p>Cutling is {{CUTLING_PRICE_ONCE}}, with no in-app purchases. It holds up to {{MAX_TEXT_CUTLINGS}} text cutlings of 1,000 characters each and {{MAX_IMAGE_CUTLINGS}} images, each with its own icon and color. In an email field your email cutlings come first, formatting copied from Mail survives, and a temporary cutling can delete itself on a date you set. Sync runs through your own iCloud, if you turn it on. The purchase includes Cutling for Mac, where ⌘⇧V opens your cutlings and a history of what you copied.</p>
+            <p>Its keyboard needs Full Access, and there's no free version to try first. The privacy label says Data Not Collected.</p>
+            <div class="cta-row">
+                <a href="{{STORE_IOS}}" class="cta-button">{{cta_button}}</a>
+            </div>
+
+            <h2 data-item="https://apps.apple.com/us/app/id6803690665">Paste Snippets Keyboard</h2>
+            <p>Free, with no ads, no paid upgrades and unlimited snippets, according to its listing. A snippet can hold variables such as a date, a time or a multiple-choice option you pick as you insert it, and a recent update added iCloud sync between iPhone and iPad. The keyboard needs Full Access, and the listing doesn't mention images. It is new, with 6 ratings so far, and it comes from New Marketing Lab, which has nothing to do with the Paste clipboard app.</p>
+
+            <h2 data-item="https://apps.apple.com/us/app/id6826123830">TextDrop: Snippet Keyboard</h2>
+            <p>Free for up to 25 snippets, and $3.99 once unlocks unlimited snippets and categories. Its keyboard asks for no Full Access and the app has no internet access, per the listing, so snippets stay on the device and don't sync. It fills in the date and time as you insert. It has no ratings yet.</p>
+
+            <h2 data-item="https://apps.apple.com/us/app/id1212930162">SnippetKeys</h2>
+            <p>Free to download, with a $0.99 Full version purchase. Each snippet is one key that types the whole phrase, and you arrange keys in pages by dragging. The keyboard needs no Full Access and everything stays on the phone. Its last update was on 3 March 2018.</p>
+
+            <h2 data-item="https://apps.apple.com/us/app/id960167417">WordBoard: Text Expander</h2>
+            <p>Six keys are free. Pro, for unlimited keys, is $7.99 a month, $49.99 a year or $99.99 once. It has the longest feature list here: placeholders for the date and the clipboard, images and GIFs, hundreds of kaomoji, folders, and AI keys that rewrite and translate on devices with Apple Intelligence. It has about 5,600 ratings averaging 4.9. The keyboard needs Full Access.</p>
+
+            <h2 data-item="https://apps.apple.com/us/app/id6743344539">TypeShelf: Reply Keyboard</h2>
+            <p>Free to download, with an optional Premium at $29.99 once, or $0.99 a week, $3.99 a month or $19.99 a year. It is made for customer replies: fill-in fields ask for a name, an option or a date before a reply goes in, and it shows which replies you use most. It holds text and image snippets, and its keyboard needs Full Access.</p>
+
+            <h2 data-item="https://apps.apple.com/us/app/id6805960547">TextExpander</h2>
+            <p>The iPhone app is free, but it needs a TextExpander account and works from the snippet library in it. On textexpander.com the Free plan allows 5 active snippets, Pro is $60 a year and Business is $120 a year per user. Its keyboard is a full keyboard, with swipe typing and autocorrect, that expands your abbreviations as you type, and it needs Full Access. It ranks first when you search for a text expander for iPhone, and it is the one app here you can't own outright.</p>
+
+            <h2 data-item="https://support.apple.com/guide/iphone/use-text-replacements-iph6d01d862/ios">Text replacement, built into iOS</h2>
+            <p>Free and already on your iPhone. Pair a phrase with a shortcut under Keyboard Settings, Text Replacement, and Apple's keyboard swaps the shortcut for the phrase as you type. iCloud keeps the list on your other devices. There are no images and nothing to tap, and you have to remember each shortcut.</p>
+        </div>
+
+        <div class="section">
+            <h2>How this list was made</h2>
+            <p>I searched the App Store for snippet keyboards and text expanders and kept the ones you can use without a subscription, plus TextExpander, because people search for it by name. Prices, free limits, Full Access and sync come from each app's listing on 20 November 2026, and TextExpander's plans from its pricing page. The clipboard app Paste has a page of its own: <a href="{{LANG_PREFIX}}/paste-alternative/">a Paste alternative you pay for once</a>.</p>
+        </div>
+
+        <div class="section">
+            <h2>More from this site</h2>
+            <ul>
+                <li><a href="{{LANG_PREFIX}}/iphone-keyboard-address-bank-details/">Paste your address and bank details from the iPhone keyboard</a></li>
+                <li><a href="{{LANG_PREFIX}}/best-clipboard-managers-mac-iphone/">Clipboard managers for Mac that work with an iPhone</a></li>
+                <li><a href="{{LANG_PREFIX}}/compare/">Cutling, Paste, Clipboard++ and what iOS does on its own</a></li>
+            </ul>
+        </div>
+    </main>

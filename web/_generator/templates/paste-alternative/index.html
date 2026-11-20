@@ -1,0 +1,126 @@
+<!--
+  English only. Facts read on 2026-11-20 from:
+  Paste:      https://apps.apple.com/us/app/id967805235 (plans, privacy label, requirements, description)
+              https://pasteapp.io/pricing (plan prices in its JSON-LD, Family Plan up to six people billed annually, Team Plan on the website)
+  PastePal:   https://apps.apple.com/us/app/id1503446680 (Pro $7.99, Data Not Collected) and https://indiegoodies.com/pastepal (FAQ: paste needs the upgrade; universal purchase)
+  ClipBook:   https://clipbook.app/pricing/ and https://clipbook.app/compare/paste-alternative/ (no iPhone app, no iCloud sync, 5-day trial)
+  Maccy:      https://maccy.app/ and https://apps.apple.com/us/app/id1527619437 ($9.99)
+  Cutling:    the English site strings (translations/en-US.json); price filled in at build time.
+-->
+    <main class="container container-compare">
+        <div class="page-header">
+            <h1>A Paste alternative you pay for once</h1>
+            <p class="page-subtitle">Prices and features read from each app's App Store page and website on 20 November 2026.</p>
+        </div>
+
+        <div class="summary-box">
+            <p>Paste keeps everything you copy on your Mac, iPhone and iPad, and costs $3.99 a month, $29.99 a year or $89.99 for life. Cutling is {{CUTLING_PRICE_ONCE}}. It keeps the things you choose to save, like an address, an account number or a reply you send every day, in an iPhone keyboard and behind one shortcut on a Mac. If you want every copy on every device and searchable, Paste does that and Cutling doesn't.</p>
+        </div>
+
+        <div class="table-wrap">
+        <table class="compare compare-narrow">
+            <thead>
+                <tr>
+                    <th scope="col"><span class="sr-only">Feature</span></th>
+                    <th scope="col">Cutling</th>
+                    <th scope="col"><a href="https://apps.apple.com/us/app/id967805235" rel="noopener">Paste</a></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Price</th>
+                    <td>{{CUTLING_PRICE_ONCE}}, with no in-app purchases. The Mac app comes with it, and it is also a free direct download</td>
+                    <td>Free to download with a one-week trial, then $3.99 a month, $29.99 a year, $59.99 a year for a family of up to six, or $89.99 once</td>
+                </tr>
+                <tr>
+                    <th scope="row">What it keeps</th>
+                    <td>Text and images you save: up to {{MAX_TEXT_CUTLINGS}} text cutlings of 1,000 characters each and {{MAX_IMAGE_CUTLINGS}} images. On a Mac, also a history of what you copy</td>
+                    <td>Everything you copy, with no limit, on every device: text, links, images and files</td>
+                </tr>
+                <tr>
+                    <th scope="row">iPhone and iPad</th>
+                    <td>A keyboard with your saved cutlings. Tap one and it is typed in any app</td>
+                    <td>The Paste Keyboard, which brings your whole history into any app</td>
+                </tr>
+                <tr>
+                    <th scope="row">Mac</th>
+                    <td>Menu bar app. ⌘⇧V opens a picker where your pointer is, with your cutlings and what you copied earlier</td>
+                    <td>Opens with a shortcut in any app. ⌘1 to 9 pastes recent items, and Paste Stack pastes a queue in order</td>
+                </tr>
+                <tr>
+                    <th scope="row">Sync</th>
+                    <td>Saved cutlings, through your own iCloud, if you turn it on. The Mac history never leaves that Mac</td>
+                    <td>Your history, through iCloud, across Mac, iPhone and iPad</td>
+                </tr>
+                <tr>
+                    <th scope="row">Search</th>
+                    <td>Spotlight finds a cutling by name, and the keyboard suggests one as you type its name</td>
+                    <td>Everything you have copied, including text inside screenshots and photos</td>
+                </tr>
+                <tr>
+                    <th scope="row">Sharing</th>
+                    <td>None</td>
+                    <td>Shared Pinboards, with view or edit rights per person</td>
+                </tr>
+                <tr>
+                    <th scope="row">Passwords</th>
+                    <td>The Mac history skips anything a password manager marks as concealed</td>
+                    <td>Rules skip passwords and other sensitive content</td>
+                </tr>
+                <tr>
+                    <th scope="row">Privacy label</th>
+                    <td>Data Not Collected</td>
+                    <td>Data Linked to You: Identifiers. Data Not Linked to You: Purchases, Usage Data, Diagnostics</td>
+                </tr>
+                <tr>
+                    <th scope="row">Requires</th>
+                    <td>iOS 18, macOS 15</td>
+                    <td>iOS 26, macOS 14</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <div class="section">
+            <h2>Where Paste is better</h2>
+            <p>Paste is built to remember. It saves everything you copy without being asked, on every device, and its search reads the words inside screenshots and photos. If you often think "I copied that last week", Cutling won't find it on your iPhone, because on iPhone and iPad it holds only what you saved.</p>
+            <p>Paste also has Pinboards you can share with view or edit rights, a Team Plan sold on its website, Paste Stack for pasting several items in order, and on the Mac a connection to AI assistants such as Claude and Cursor through MCP, according to its listing. Cutling has none of these.</p>
+            <p>And if what you want is Paste without the subscription, Paste sells that too. Its Lifetime plan is $89.99 and covers Mac, iPhone and iPad.</p>
+        </div>
+
+        <div class="section">
+            <h2>Where Cutling fits</h2>
+            <p>You type the same few things again and again: a delivery address, the account number people pay you into, an email signature, the answer to a question customers ask every day. You want them in a keyboard, one tap away in Messages, Mail or a shop's checkout, and you don't want another subscription.</p>
+            <p>Two years of Paste's annual plan comes to $59.98. Cutling is {{CUTLING_PRICE_ONCE}}, and the Mac app comes with it.</p>
+            <p>On iPhone and iPad, Cutling doesn't watch what you copy. On a Mac it keeps a history you open with ⌘⇧V, and that history skips anything a password manager marks as concealed, so a copied password never lands in it. The App Store privacy label says Data Not Collected: there is no account, no analytics and no server of Cutling's own.</p>
+            <p>Image cutlings hold things like a payment QR code or a scan of your signature, and a temporary cutling can be given a date to delete itself.</p>
+        </div>
+
+        <div class="section">
+            <h2>Other Paste alternatives you pay for once</h2>
+            <ul>
+                <li><a href="https://apps.apple.com/us/app/id1503446680" rel="noopener">PastePal</a> is free to download, and its $7.99 Pro purchase unlocks pasting. One purchase covers Mac, iPhone and iPad, it keeps your history in step through iCloud, and it has an iPhone keyboard. If you want Paste's whole-history sync and pay once, look here first.</li>
+                <li><a href="https://clipbook.app/pricing/" rel="noopener">ClipBook</a> is $14.99 for one Mac, $24.99 for two or $49.99 for five, after a 5-day trial. It is Mac only: its own comparison with Paste lists no iPhone app and no iCloud sync.</li>
+                <li><a href="https://maccy.app/" rel="noopener">Maccy</a> is free and open source, or $9.99 on the Mac App Store if you want to support its developer. It is Mac only, and the history stays on that Mac.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Moving your Pinboards over</h2>
+            <p>The snippets on your Paste Pinboards are what Cutling is for. Copy one, tap Cutling in Control Center to start a cutling from what you copied, give it a name, and it is in the keyboard. Text from Mail keeps its bold, italics and links.</p>
+            <div class="cta-row">
+                <a href="{{STORE_IOS}}" class="cta-button">{{cta_button}}</a>
+                <a href="{{STORE_MAC}}" class="cta-button cta-secondary">{{mac_appstore_button}}</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>More comparisons</h2>
+            <ul>
+                <li><a href="{{LANG_PREFIX}}/best-clipboard-managers-mac-iphone/">Clipboard managers for Mac that work with an iPhone</a>: Paste, PastePal, Cutling, Raycast, Maccy and ClipBook</li>
+                <li><a href="{{LANG_PREFIX}}/best-snippet-keyboards-iphone/">Snippet keyboards for iPhone without a subscription</a></li>
+                <li><a href="{{LANG_PREFIX}}/iphone-keyboard-address-bank-details/">Paste your address and bank details from the iPhone keyboard</a></li>
+                <li><a href="{{LANG_PREFIX}}/compare/">Cutling, Paste, Clipboard++ and what iOS does on its own</a></li>
+            </ul>
+        </div>
+    </main>

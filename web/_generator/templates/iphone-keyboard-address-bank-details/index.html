@@ -1,0 +1,92 @@
+<!--
+  English only. Facts read on 2026-11-20 from:
+  Safari AutoFill:   https://support.apple.com/guide/iphone/fill-in-forms-iphccfb450b7/ios
+  Text replacement:  https://support.apple.com/guide/iphone/use-text-replacements-iph6d01d862/ios
+  Custom keyboard limits (secure fields, phone pads, apps that refuse custom keyboards, no network or shared
+  container by default): https://developer.apple.com/library/archive/documentation/General/Conceptual/ExtensibilityPG/CustomKeyboard.html
+  TextDrop:   https://apps.apple.com/us/app/id6826123830 (no Full Access)
+  SnippetKeys: https://apps.apple.com/us/app/id1212930162 (no Full Access)
+  Cutling:    the English site strings (translations/en-US.json) and the App Store privacy label; price filled in at build time.
+-->
+    <main class="container container-compare">
+        <div class="page-header">
+            <h1>Put your address, bank details and signature in your iPhone keyboard</h1>
+            <p class="page-subtitle">Steps checked against Apple's guides on 20 November 2026.</p>
+        </div>
+
+        <div class="summary-box">
+            <p>An iPhone can type your details for you in three ways. Safari AutoFill fills web forms from your contact card. Text replacement turns a short code into a longer phrase as you type. A snippet keyboard holds anything you save, bank details and images included, and types it in any app with one tap. Here is when the first two are enough, and how to set up the third.</p>
+        </div>
+
+        <div class="section">
+            <h2>What your iPhone already does</h2>
+            <h3>Safari AutoFill</h3>
+            <p>Go to Settings, Apps, Safari, AutoFill, turn on Use Contact Info, and choose your own card under My Info. Then, in a form on a website, tap a blank field and tap AutoFill Contact above the keyboard. It fills in what your contact card holds, and Apple's guide describes it for forms on webpages in Safari. It won't type your account number into a chat or put your signature at the end of an email.</p>
+            <h3>Text replacement</h3>
+            <p>Touch and hold the globe or emoji key, tap Keyboard Settings, then Text Replacement, and pair a phrase with a shortcut. Apple's own example types "On my way!" when you type "omw". It costs nothing, works as you type in Apple's keyboard, and iCloud can carry it to your other devices. You do have to remember every shortcut, and a phrase is only text.</p>
+            <p>For one or two short phrases, text replacement may be all you need.</p>
+        </div>
+
+        <div class="section">
+            <h2>Set up a keyboard that holds all of it</h2>
+            <ol>
+                <li>Get Cutling from the App Store. It is {{CUTLING_PRICE_ONCE}}, with no subscription and nothing to unlock later.</li>
+                <li>Open it and save each thing once as a cutling: your home address, your bank's name with the account number, your email signature. Copy the signature from Mail and paste it in, and its bold, italics and links stay. A payment QR code or a photo of your handwritten signature goes in as an image cutling.</li>
+                <li>Add the keyboard. Go to Settings, General, Keyboard, Keyboards, Add New Keyboard, and choose Cutling. Then tap Cutling in that list and turn on Allow Full Access.</li>
+                <li>In any app, switch to Cutling with the globe key and tap a cutling. It is typed where your cursor is, and the globe key takes you back to your usual keyboard.</li>
+            </ol>
+            <h3>Once it is set up</h3>
+            <ul>
+                <li>In an email field, your email cutlings come first.</li>
+                <li>Start typing a cutling's name and it shows up, ready to tap. The text replacements on your iPhone can come in too.</li>
+                <li>A booking reference you only need this week can get a date, and it deletes itself then. A cutling you delete by mistake waits in Recently Deleted for 30 days.</li>
+                <li>Turn on iCloud sync and the same cutlings are on your iPad, and on your Mac behind ⌘⇧V.</li>
+            </ul>
+            <p>You can keep up to {{MAX_TEXT_CUTLINGS}} text cutlings of 1,000 characters each and {{MAX_IMAGE_CUTLINGS}} images.</p>
+        </div>
+
+        <div class="section">
+            <h2>Why the keyboard asks for Full Access</h2>
+            <p>Apple seals off every custom keyboard: by default it has no network access and can't share storage with its own app. Full Access opens that storage, so the keyboard can read the cutlings you saved in the app. Cutling's App Store privacy label says Data Not Collected. There is no account, no analytics, no third-party code and no Cutling server, so your bank details stay on your iPhone, or in your own iCloud if you turn sync on.</p>
+            <p>If you would rather not grant Full Access to any keyboard, <a href="https://apps.apple.com/us/app/id6826123830" rel="noopener">TextDrop</a> and <a href="https://apps.apple.com/us/app/id1212930162" rel="noopener">SnippetKeys</a> say in their listings that theirs work without it. Neither listing mentions images. The others are in <a href="{{LANG_PREFIX}}/best-snippet-keyboards-iphone/">snippet keyboards for iPhone compared</a>.</p>
+        </div>
+
+        <div class="section">
+            <h2>Where no custom keyboard works</h2>
+            <p>iOS swaps in its own keyboard in password fields and in phone-number pads, then brings yours back in the next field. An app can also refuse every custom keyboard, and Apple names banking apps as an example. In those places, search for the cutling with Spotlight from the Home Screen, copy it, and paste.</p>
+            <p>Since no custom keyboard can type into a password field anyway, keep passwords in a password manager, which fills them for you.</p>
+        </div>
+
+        <div class="section">
+            <h2>Questions</h2>
+            <details class="faq-item">
+                <summary>Can I paste my address from the iPhone keyboard?</summary>
+                <div class="faq-answer"><p>Yes. Save it as a cutling, add the Cutling keyboard under Settings, General, Keyboard, Keyboards, and tap the address in any app. For web forms in Safari, AutoFill can also fill it in from your contact card.</p></div>
+            </details>
+            <details class="faq-item">
+                <summary>Is it safe to keep bank details in a keyboard app?</summary>
+                <div class="faq-answer"><p>Check the app's privacy label and whether it has a server. Cutling's label says Data Not Collected, it has no server, and your cutlings stay on the device or in your own iCloud. Full Access lets its keyboard read what you saved in the app.</p></div>
+            </details>
+            <details class="faq-item">
+                <summary>Why doesn't my snippet keyboard show up in some fields?</summary>
+                <div class="faq-answer"><p>iOS replaces every custom keyboard with its own in password fields and phone-number pads, and some apps, often banking apps, refuse custom keyboards altogether.</p></div>
+            </details>
+            <details class="faq-item">
+                <summary>Does it work on iPad and Mac?</summary>
+                <div class="faq-answer"><p>Yes. One purchase covers iPhone, iPad and Mac. With iCloud sync on, your cutlings are on each, and on a Mac you open them with ⌘⇧V.</p></div>
+            </details>
+            <div class="cta-row">
+                <a href="{{STORE_IOS}}" class="cta-button">{{cta_button}}</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>More from this site</h2>
+            <ul>
+                <li><a href="{{LANG_PREFIX}}/best-snippet-keyboards-iphone/">Snippet keyboards for iPhone without a subscription</a></li>
+                <li><a href="{{LANG_PREFIX}}/paste-alternative/">A Paste alternative you pay for once</a></li>
+                <li><a href="{{LANG_PREFIX}}/best-clipboard-managers-mac-iphone/">Clipboard managers for Mac that work with an iPhone</a></li>
+                <li><a href="{{LANG_PREFIX}}/faq/">Cutling's FAQ</a></li>
+            </ul>
+        </div>
+    </main>
