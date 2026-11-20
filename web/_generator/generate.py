@@ -19,6 +19,7 @@ import argparse
 import datetime
 import json
 import os
+import re
 import shutil
 import sys
 from pathlib import Path
@@ -49,6 +50,11 @@ DIRECTORY_BADGES = [
     '<a href="https://launchigniter.com/product/cutling?ref=badge-cutling" target="_blank"><img src="https://launchigniter.com/api/badge/cutling?theme=light" alt="Featured on LaunchIgniter" width="212" height="55" /></a>',
 ]
 
+# The snippet caps of the Cutling version live on the App Store, written into every locale's copy where it says
+# {{MAX_TEXT_CUTLINGS}} or {{MAX_IMAGE_CUTLINGS}}. They change on the day a release with new caps is live, never
+# before: CutlingStore.swift in the repo can be ahead of the store.
+LIVE_CAPS = {"MAX_TEXT_CUTLINGS": 100, "MAX_IMAGE_CUTLINGS": 25}
+
 TRANSLATION_ALIASES = {
     "no": "nb",
 }
@@ -78,19 +84,36 @@ def web_code(locale_code):
     return locale_code.lower()
 
 
+def fill_caps(translation):
+    """Writes LIVE_CAPS into a locale's copy, grouped the way that locale writes 1,000 (1,000, 1.000, 1 000 or 1000)."""
+    written = re.search(r"1(\D?)000", translation.get("faq_a6", ""))
+    separator = written.group(1) if written else ","
+    filled = {}
+    for key, value in translation.items():
+        if isinstance(value, str):
+            for token, cap in LIVE_CAPS.items():
+                value = value.replace("{{" + token + "}}", f"{cap:,}".replace(",", separator))
+        filled[key] = value
+    return filled
+
+
+def load_translation_file(path):
+    return fill_caps(load_json(path))
+
+
 def resolve_translation(locale_code):
     """Load a translation file and report whether it came from a fallback."""
     # Exact match (e.g. en-AU.json, zh-Hans.json)
     path = TRANSLATIONS_DIR / f"{locale_code}.json"
     if path.exists():
-        return load_json(path), "exact"
+        return load_translation_file(path), "exact"
 
     # Base language fallback (e.g. ar-SA -> ar, de-DE -> de)
     base = locale_code.split("-")[0]
     fallback = TRANSLATIONS_DIR / f"{base}.json"
     if fallback.exists():
         print(f"  Fallback: {locale_code} -> {base}")
-        return load_json(fallback), f"fallback:{base}"
+        return load_translation_file(fallback), f"fallback:{base}"
 
     # Alias fallback (e.g. no -> nb)
     alias = TRANSLATION_ALIASES.get(locale_code) or TRANSLATION_ALIASES.get(base)
@@ -98,7 +121,7 @@ def resolve_translation(locale_code):
         alias_path = TRANSLATIONS_DIR / f"{alias}.json"
         if alias_path.exists():
             print(f"  Alias: {locale_code} -> {alias}")
-            return load_json(alias_path), f"alias:{alias}"
+            return load_translation_file(alias_path), f"alias:{alias}"
 
     return None, None
 

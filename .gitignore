@@ -10,6 +10,8 @@ docs/*
 !docs/*.md
 # ASO research, measurements and probe scripts (docs/aso/data/README.md)
 !docs/aso/
+# Sourced research a decision rests on (docs/research/keyboard-memory-limits.md)
+!docs/research/
 dist/
 build/
 web/_generator/__pycache__/

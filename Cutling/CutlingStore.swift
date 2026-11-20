@@ -23,27 +23,43 @@ import SwiftUI
 #endif
 
 let appGroupID = "group.com.matsuokengo.Cutling"
-private let cutlingsKey = "savedCutlings"
-private let recentlyDeletedKey = "recentlyDeletedCutlings"
-private let historyKey = "cutlingHistory"
+
+/// A list the store keeps as a JSON file in the App Group container. iOS refuses an app's
+/// UserDefaults past about 4 MB, and 1,000 full-length text cutlings in CJK or emoji reach
+/// that alone, so the lists left UserDefaults; `legacyKey` is where they lived before.
+private enum StoredList: String {
+    case cutlings = "cutlings.json"
+    case recentlyDeleted = "recently-deleted.json"
+    case history = "history.json"
+
+    var legacyKey: String {
+        switch self {
+        case .cutlings: "savedCutlings"
+        case .recentlyDeleted: "recentlyDeletedCutlings"
+        case .history: "cutlingHistory"
+        }
+    }
+}
 
 // MARK: - Cutling Limits
 
-/// Limits are enforced to keep the keyboard extension under iOS's strict memory limit.
-/// - Text cutlings are lightweight (~1-5 KB each)
-/// - Image cutlings are heavier (~50-500 KB each, even with thumbnails)
+/// The caps keep the keyboard extension under the memory iOS gives keyboards: 77 MB of
+/// phys_footprint on every supported iPhone (com.apple.keyboard-service in the jetsam
+/// properties of iOS 18.0 and 27.2.1, docs/research/keyboard-memory-limits.md). The keyboard
+/// decodes every text cutling (up to about 4.3 KB of JSON each at full length), but shows
+/// images only as 200 px thumbnails in a bounded cache, so an image costs it little.
 extension CutlingStore {
-    /// Maximum number of image cutlings allowed (prevents memory crashes)
-    nonisolated static let maxImageCutlings = 25
+    /// Maximum number of image cutlings allowed
+    nonisolated static let maxImageCutlings = 100
 
     /// Maximum number of text cutlings allowed
-    nonisolated static let maxTextCutlings = 100
+    nonisolated static let maxTextCutlings = 1000
 
     /// Maximum character length for a single text cutling's value
     nonisolated static let maxTextLength = 1000
 
-    /// Total limit across both types (safety net)
-    nonisolated static let maxTotalCutlings = 125
+    /// Total limit across both types
+    nonisolated static let maxTotalCutlings = maxTextCutlings + maxImageCutlings
 
     /// Maximum number of clipboard history entries to retain (FIFO, device-local).
     nonisolated static let maxHistoryCutlings = 50
@@ -110,7 +126,8 @@ class CutlingStore: ObservableObject {
 
     private let defaults: UserDefaults
     let imagesDirectory: URL
-    private var cancellables = Set<AnyCancellable>()
+    /// Holds the StoredList files.
+    private let listsDirectory: URL
     
     // CRITICAL: Memory-efficient image cache with automatic eviction
     #if os(iOS)
@@ -142,25 +159,26 @@ class CutlingStore: ObservableObject {
         }
 
         // Use App Group container if available, otherwise fall back to Documents
+        let root: URL
         if snapshotDefaults != nil {
-            imagesDirectory = FileManager.default.temporaryDirectory
-                .appendingPathComponent("CutlingSnapshotImages", isDirectory: true)
+            root = FileManager.default.temporaryDirectory.appendingPathComponent("CutlingSnapshot", isDirectory: true)
         } else if let containerURL = FileManager.default.containerURL(
             forSecurityApplicationGroupIdentifier: appGroupID
         ) {
-            imagesDirectory = containerURL.appendingPathComponent("Images", isDirectory: true)
+            root = containerURL
         } else {
-            print("⚠️ App Group container not available, using Documents/Images")
-            let docs = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-            imagesDirectory = docs.appendingPathComponent("Images", isDirectory: true)
+            print("⚠️ App Group container not available, using Documents")
+            root = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         }
+        imagesDirectory = root.appendingPathComponent("Images", isDirectory: true)
+        listsDirectory = root.appendingPathComponent("Lists", isDirectory: true)
 
-        if !FileManager.default.fileExists(atPath: imagesDirectory.path) {
+        for directory in [imagesDirectory, listsDirectory] where !FileManager.default.fileExists(atPath: directory.path) {
             do {
-                try FileManager.default.createDirectory(at: imagesDirectory, withIntermediateDirectories: true)
-                print("✅ Created images directory: \(imagesDirectory.path)")
+                try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+                print("✅ Created directory: \(directory.path)")
             } catch {
-                print("❌ Failed to create images directory: \(error)")
+                print("❌ Failed to create directory: \(error)")
             }
         }
         
@@ -177,15 +195,6 @@ class CutlingStore: ObservableObject {
         #if os(macOS)
         loadHistory()
         #endif
-        
-        // Listen for changes from other processes (keyboard extension or main app)
-        NotificationCenter.default
-            .publisher(for: UserDefaults.didChangeNotification)
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] _ in
-                self?.loadIfChanged()
-            }
-            .store(in: &cancellables)
         
         // Listen for Darwin notifications (cross-process)
         setupDarwinNotification()
@@ -218,9 +227,33 @@ class CutlingStore: ObservableObject {
 
     private var lastLoadedData: Data?
 
+    /// Reads a stored list. The first read after the move copies the list out of UserDefaults
+    /// into its file and drops the old key, so the defaults domain shrinks back to settings.
+    private func read(_ list: StoredList) -> Data? {
+        let url = listsDirectory.appendingPathComponent(list.rawValue)
+        if let data = try? Data(contentsOf: url) { return data }
+        guard let legacy = defaults.data(forKey: list.legacyKey) else { return nil }
+        do {
+            try legacy.write(to: url, options: .atomic)
+            defaults.removeObject(forKey: list.legacyKey)
+        } catch {
+            print("❌ Failed to move \(list.legacyKey) to \(list.rawValue): \(error)")
+        }
+        return legacy
+    }
+
+    /// Replaces a stored list whole; readers in other processes see the old file or the new one, never part of one.
+    private func write(_ data: Data, to list: StoredList) {
+        do {
+            try data.write(to: listsDirectory.appendingPathComponent(list.rawValue), options: .atomic)
+        } catch {
+            print("❌ Failed to save \(list.rawValue): \(error)")
+        }
+    }
+
     private func loadIfChanged() {
-        guard let data = defaults.data(forKey: cutlingsKey) else {
-            // Key returned nil — do NOT clear in-memory cutlings.
+        guard let data = read(.cutlings) else {
+            // No file — do NOT clear in-memory cutlings.
             // This can happen transiently if the app group container is
             // briefly inaccessible. Wiping here would cause data loss.
             return
@@ -260,7 +293,7 @@ class CutlingStore: ObservableObject {
     // MARK: - CRUD
 
     func load() {
-        guard let data = defaults.data(forKey: cutlingsKey),
+        guard let data = read(.cutlings),
               let decoded = try? JSONDecoder().decode([Cutling].self, from: data)
         else { 
             lastLoadedData = nil
@@ -341,7 +374,7 @@ class CutlingStore: ObservableObject {
     func save() {
         guard let encoded = try? JSONEncoder().encode(cutlings) else { return }
         lastLoadedData = encoded
-        defaults.set(encoded, forKey: cutlingsKey)
+        write(encoded, to: .cutlings)
         
         // Notify other processes (keyboard extension or main app)
         CFNotificationCenterPostNotification(
@@ -586,7 +619,7 @@ class CutlingStore: ObservableObject {
     }
 
     private func loadRecentlyDeleted() {
-        guard let data = defaults.data(forKey: recentlyDeletedKey),
+        guard let data = read(.recentlyDeleted),
               let decoded = try? JSONDecoder().decode([DeletedCutling].self, from: data)
         else { return }
         recentlyDeleted = decoded
@@ -595,7 +628,7 @@ class CutlingStore: ObservableObject {
 
     private func saveRecentlyDeleted() {
         guard let encoded = try? JSONEncoder().encode(recentlyDeleted) else { return }
-        defaults.set(encoded, forKey: recentlyDeletedKey)
+        write(encoded, to: .recentlyDeleted)
     }
 
     /// Called by CloudKitSyncManager after moving remote deletions to recently deleted.
@@ -847,7 +880,7 @@ class CutlingStore: ObservableObject {
 
     #if os(macOS)
     private func loadHistory() {
-        guard let data = defaults.data(forKey: historyKey),
+        guard let data = read(.history),
               let decoded = try? JSONDecoder().decode([Cutling].self, from: data)
         else { return }
         historyCutlings = decoded
@@ -855,7 +888,7 @@ class CutlingStore: ObservableObject {
 
     private func saveHistory() {
         guard let encoded = try? JSONEncoder().encode(historyCutlings) else { return }
-        defaults.set(encoded, forKey: historyKey)
+        write(encoded, to: .history)
     }
 
     /// Append a text item captured from the system pasteboard to the history.

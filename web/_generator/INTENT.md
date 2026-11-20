@@ -96,9 +96,11 @@ meaning. Do not pad. If your language says something in fewer words, use fewer w
    official Apple form in your language where Apple has one (e.g. the App Store's own
    localized name), and otherwise leave it in Latin script.
 5. **Key names, HTML and code are never translated** — only the values.
-6. Numbers stay: 100, 25, 1,000, 590+, 30, 48, 13, 18, 15. Format them the way
+6. Numbers stay: 1,000, 590+, 30, 48, 13, 18, 15. Format them the way
    your language formats numbers (decimal and thousands separators, digit shapes if
-   your locale genuinely uses them in app UI).
+   your locale genuinely uses them in app UI). The snippet caps are written as the tokens
+   `{{MAX_TEXT_CUTLINGS}}` and `{{MAX_IMAGE_CUTLINGS}}`, copied exactly; the build fills in
+   the live app's caps (round hundreds), so write each sentence to read right with any of them.
 7. Dates: `March 8, 2026` and `July 1, 2026` — write them in your language's normal
    date form, same dates.
 
@@ -168,7 +170,7 @@ screenshot. Headings are sentence case. No exclamation marks.
 
 - `sec_save_title` — keep a thing once and stop retyping it.
 - `sec_save_text` — the kinds of things people keep (addresses, replies, account
-  numbers, code), the limits (100 text and 25 image cutlings), an icon and any colour of
+  numbers, code), the limits (`{{MAX_TEXT_CUTLINGS}}` text and `{{MAX_IMAGE_CUTLINGS}}` image cutlings), an icon and any colour of
   your choosing for each, and an end date after which a cutling clears itself.
 - `img_alt_main_view` — alt text: the app's main screen with saved cutlings.
 - `sec_format_title` — formatting travels with your text.
@@ -231,9 +233,9 @@ the files; nothing reads them.
 Eight cards, each a short title and one or two sentences. Titles are noun phrases and
 must stay short enough for a card heading.
 
-- `feature_text_snippets_title` / `_desc` — text snippets. Up to 100 text cutlings, each
+- `feature_text_snippets_title` / `_desc` — text snippets. Up to `{{MAX_TEXT_CUTLINGS}}` text cutlings, each
   up to 1,000 characters.
-- `feature_image_cutlings_title` / `_desc` — image cutlings. Up to 25 images for quick
+- `feature_image_cutlings_title` / `_desc` — image cutlings. Up to `{{MAX_IMAGE_CUTLINGS}}` images for quick
   access: QR codes, signatures, diagrams.
 - `feature_custom_keyboard_title` / `_desc` — the custom keyboard. Insert cutlings from
   inside any app without switching apps; one tap pastes.
@@ -294,7 +296,7 @@ calm and concrete.
   Apple ID. The developer has no access to synced data. It is optional and can be
   switched off in settings at any time.
 - `faq_q6` — are there limits on how many cutlings I can save?
-- `faq_a6` — up to 100 text cutlings and 25 image cutlings; text cutlings hold up to
+- `faq_a6` — up to `{{MAX_TEXT_CUTLINGS}}` text cutlings and `{{MAX_IMAGE_CUTLINGS}}` image cutlings; text cutlings hold up to
   1,000 characters each.
 - `faq_q7` — does Cutling work on Mac?
 - `faq_a7` — yes. On Mac it lives in the menu bar and can be called up anywhere with a

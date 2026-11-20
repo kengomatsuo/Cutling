@@ -33,16 +33,21 @@ REQUIRED_HREFS = {
     "terms_contact_text": "mailto:kenneth@matsuokengo.com",
 }
 
+# The live app's snippet caps, filled in by generate.py (LIVE_CAPS), so release day changes one number.
+CAP_TOKENS = ("{{MAX_TEXT_CUTLINGS}}", "{{MAX_IMAGE_CUTLINGS}}")
+
 # Substrings that must survive untranslated.
 MUST_CONTAIN = {
+    "sec_save_text": list(CAP_TOKENS),
+    "feature_text_snippets_desc": ["{{MAX_TEXT_CUTLINGS}}"],
+    "feature_image_cutlings_desc": ["{{MAX_IMAGE_CUTLINGS}}"],
+    "faq_a6": list(CAP_TOKENS),
     "support_contact_text": ["kenneth@matsuokengo.com"],
     "privacy_contact_text": ["kenneth@matsuokengo.com"],
     "terms_contact_text": ["kenneth@matsuokengo.com"],
     "footer_copyright": ["Kenneth Johannes Fang", "2026"],
     "download_ios_meta": ["18"],
     "download_mac_meta": ["15"],
-    "feature_text_snippets_desc": ["100"],
-    "feature_image_cutlings_desc": ["25"],
 }
 
 
@@ -88,7 +93,10 @@ def check(locale, en):
         if not isinstance(value, str):
             errors.append(f"{locale}.{key}: not a string")
             continue
-        if "{{" in value or "}}" in value:
+        bare = value
+        for token in CAP_TOKENS:
+            bare = bare.replace(token, "")
+        if "{{" in bare or "}}" in bare:
             errors.append(f"{locale}.{key}: leftover template placeholder")
 
         stripped = ENTITY.sub("", TAG.sub("", value))

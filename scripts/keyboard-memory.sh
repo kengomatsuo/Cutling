@@ -68,12 +68,11 @@ for size in "$@"; do
       -only-testing:CutlingUITests/KeyboardMemoryUITests/testKeyboardMemory \
       -resultBundlePath "$run/result.xcresult" >"$run/test.log" 2>&1 &
   test_pid=$!
-  ticks=0
+  started=$SECONDS; said=$SECONDS
   while kill -0 "$test_pid" 2>/dev/null; do
     sample >>"$run/samples.txt"; sleep 0.5
-    # The device queue ends a job whose log stays quiet for a minute.
-    ticks=$((ticks + 1))
-    if [ $((ticks % 60)) -eq 0 ]; then echo "  $size: $(tail -1 "$run/phases.txt" | cut -d' ' -f1) after $((ticks / 2)) s"; fi
+    # The device queue ends a job whose log stays quiet for a minute; a loaded Mac makes each sample slow, so count seconds, not samples.
+    if [ $((SECONDS - said)) -ge 20 ]; then said=$SECONDS; echo "  $size: $(tail -1 "$run/phases.txt" | cut -d' ' -f1) after $((SECONDS - started)) s"; fi
   done
   status=0; wait "$test_pid" || status=$?
 

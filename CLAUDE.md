@@ -28,6 +28,6 @@ Extensions share core files (`Cutling.swift`, `CutlingStore.swift`, UI component
 
 ## Cross-process state
 
-All targets share the **`group.com.matsuokengo.Cutling`** App Group: shared `UserDefaults` (single source of truth for cutling data) and shared image files. Any target that writes to the store posts the Darwin notification `"com.matsuokengo.Cutling.cutlingsChanged"`; the others reload on receipt.
+All targets share the **`group.com.matsuokengo.Cutling`** App Group: the cutling lists as JSON files in its container's `Lists/` folder (single source of truth; they left `UserDefaults`, which iOS caps at about 4 MB), shared image files in `Images/`, and shared `UserDefaults` for settings. Any target that writes to the store posts the Darwin notification `"com.matsuokengo.Cutling.cutlingsChanged"`; the others reload on receipt.
 
 Website, localization, data model and views, and store screenshots have path rules in `.claude/rules/`.
