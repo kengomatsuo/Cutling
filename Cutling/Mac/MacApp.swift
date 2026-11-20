@@ -98,6 +98,7 @@ final class CutlingAppDelegate: NSObject, NSApplicationDelegate {
         #if DEBUG
         // Screenshot runs: throwaway store, no sync, hotkey or clipboard capture
         if CutlingStore.isMacSnapshotMode {
+            SnapshotActiveWindows.install()
             store.seedForSnapshots()
             store.seedHistoryForSnapshots()
             // Promo sync shot: the cutling just saved on iPhone, at the top.
@@ -345,6 +346,30 @@ struct MacApp: App {
             return WindowPlacement(CGPoint(x: x, y: y), size: size)
         }
         .defaultLaunchBehavior(hasOnboarded ? .suppressed : .presented)
+    }
+}
+#endif
+
+#if DEBUG
+import ObjectiveC
+
+/// Screenshot runs: every window draws as the active, key window (coloured traffic
+/// lights, accent toggles, tabs and selection) while the app stays in the background,
+/// so fastlane/capture_mac_windows.py can shoot it with screencapture -l without ever
+/// taking the owner's keyboard focus. Debug builds in -SNAPSHOT_MODE only.
+enum SnapshotActiveWindows {
+    static func install() {
+        always(NSWindow.self, ["isKeyWindow", "isMainWindow", "hasKeyAppearance", "_hasKeyAppearance",
+                               "_hasActiveAppearance", "_hasActiveAppearanceIgnoringKeyFocus", "_hasActiveControls"])
+        always(NSApplication.self, ["isActive", "_isActiveApp"])
+    }
+
+    private static func always(_ cls: AnyClass, _ names: [String]) {
+        for name in names {
+            guard let method = class_getInstanceMethod(cls, Selector(name)) else { continue }
+            let yes: @convention(block) (AnyObject) -> Bool = { _ in true }
+            method_setImplementation(method, imp_implementationWithBlock(yes))
+        }
     }
 }
 #endif

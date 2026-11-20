@@ -109,7 +109,13 @@ struct MacPickerView: View {
         // Never hold keyboard focus: the owner may be typing elsewhere
         try? await Task.sleep(for: .seconds(1))
         NSApp.deactivate()
-        for window in NSApp.windows where window.isVisible { window.orderFrontRegardless() }
+        // Below the desktop picture: the window still draws, and screencapture -l still
+        // reads it, but it never covers the owner's work.
+        let belowDesktop = NSWindow.Level(rawValue: Int(CGWindowLevelForKey(.desktopWindow)) - 1)
+        for window in NSApp.windows where window.isVisible {
+            window.level = belowDesktop
+            window.orderFrontRegardless()
+        }
     }
     #endif
 
