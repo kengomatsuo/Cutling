@@ -24,7 +24,7 @@ set -euo pipefail
 udid="${1:?simulator udid, queue or build}"; shift
 repo="$(cd "$(dirname "$0")/.." && pwd)"
 build="$("$repo/build-dir.sh")/keyboard-memory"
-out="${MEMTEST_OUT:-$build/runs-$(date +%Y%m%d-%H%M%S)}"
+out="${MEMTEST_OUT:-${DEVICE_QUEUE_OUT:-$build/runs-$(date +%Y%m%d-%H%M%S)}}"
 mkdir -p "$out"
 
 if [ "$udid" = build ]; then
