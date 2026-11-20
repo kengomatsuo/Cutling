@@ -76,16 +76,17 @@ final class KeyboardMemoryUITests: XCTestCase {
         // Fling through the whole grid and back, so every card and thumbnail is built once. The first key's row
         // tops a grid at least 180 points tall on every screen shape.
         let first = cutlingKeyFrame(firstName, in: app) ?? .zero
+        // Each drag starts inside the grid and may end past it.
         let low = screenPoint(first.midX, first.minY + 140, in: app)
-        let high = screenPoint(first.midX, first.minY - 40, in: app)
+        let high = screenPoint(first.midX, first.minY + 10, in: app)
         mark("scroll_down")
         for _ in 0..<flings {
-            low.press(forDuration: 0.05, thenDragTo: high, withVelocity: .fast, thenHoldForDuration: 0)
+            low.press(forDuration: 0.05, thenDragTo: screenPoint(first.midX, first.minY - 40, in: app), withVelocity: .fast, thenHoldForDuration: 0)
         }
         sleep(2)
         mark("scroll_up")
         for _ in 0..<flings {
-            high.press(forDuration: 0.05, thenDragTo: low, withVelocity: .fast, thenHoldForDuration: 0)
+            high.press(forDuration: 0.05, thenDragTo: screenPoint(first.midX, first.minY + 190, in: app), withVelocity: .fast, thenHoldForDuration: 0)
         }
         sleep(2)
 

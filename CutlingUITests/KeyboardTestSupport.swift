@@ -186,10 +186,13 @@ extension XCTestCase {
             let globe = keyboardGlobe(in: app)
             XCTAssertTrue(globe.waitForExistence(timeout: 10), "No globe key (keys: \(app.keys.count))")
             globe.press(forDuration: 1.2)
-            let entry = app.descendants(matching: .any)
-                .matching(NSPredicate(format: "label == 'Cutling' AND elementType != %d", XCUIElement.ElementType.navigationBar.rawValue))
-                .allElementsBoundByIndex.last
-            if let entry, entry.exists, entry.isHittable { entry.tap() } else { globe.tap() }
+            // The list's row, not the app (whose own label is Cutling) or a bar: it opens over the keyboard, in the
+            // lower half. The simulator can hold many keyboards, so cycling with taps may take long.
+            let entry = onKeyboard(app.descendants(matching: .any).matching(NSPredicate(
+                format: "label BEGINSWITH 'Cutling' AND elementType != %d AND elementType != %d",
+                XCUIElement.ElementType.navigationBar.rawValue, XCUIElement.ElementType.application.rawValue
+            )), in: app)
+            if let entry, entry.isHittable { entry.tap() } else { globe.tap() }
             sleep(2)
         }
         // Each tap moves to the next keyboard; wait for each switch to land.
