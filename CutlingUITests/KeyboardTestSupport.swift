@@ -100,7 +100,9 @@ extension XCTestCase {
     @MainActor
     func keyboardGlobe(in app: XCUIApplication) -> XCUIElement {
         let label = NSPredicate(format: "label ==[c] 'Next keyboard' OR label ==[c] 'Papan Ketik Berikutnya' OR label ==[c] '次のキーボード'")
-        return app.descendants(matching: .any).matching(label).firstMatch
+        // Buttons and keys only: an any-type match found a non-key element whose press closed the keyboard.
+        return onKeyboard(app.buttons.matching(label), in: app) ?? onKeyboard(app.keys.matching(label), in: app)
+            ?? app.buttons["no globe key"]
     }
 
     /// A cutling's key on the Cutling keyboard, by the cutling's name. Its label is the name, then the text
