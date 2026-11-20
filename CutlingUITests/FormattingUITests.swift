@@ -55,6 +55,7 @@ final class FormattingUITests: XCTestCase {
         // Every tap types: a Formatted key types its text plain, like the others.
         key("Rich").tap()
         sleep(1)
+        shot("02b_after_rich_tap")
         expectValue(of: field, "Bold and link", "Formatted tap should type its text")
 
         key("Code").tap()

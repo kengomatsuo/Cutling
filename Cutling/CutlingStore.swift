@@ -659,7 +659,9 @@ class CutlingStore: ObservableObject {
     func loadImageData(named filename: String) -> Data? {
         let fileURL = imagesDirectory.appendingPathComponent(filename)
         do {
-            let data = try Data(contentsOf: fileURL)
+            // Mapped, so a large file's pages come from disk as they are read instead of all landing in
+            // memory at once: the keyboard copies image files whole and has 77 MB in all.
+            let data = try Data(contentsOf: fileURL, options: .mappedIfSafe)
             return data
         } catch {
             print("❌ Failed to load image \(filename): \(error)")
