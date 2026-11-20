@@ -6,6 +6,8 @@
 <a href="https://macpip.com/apps/cutling?ref=badge"><img src="https://macpip.com/badge/cutling.svg" alt="Listed on MacPip" height="48"></a>
 <a href="https://nativeshelf.com/cutling?ref=badge"><img src="https://nativeshelf.com/badge/dark.png?v=6" alt="Featured on NativeShelf" height="48"></a>
 <a href="https://ipip.fyi/apps/cutling?ref=badge"><img src="https://ipip.fyi/badge/cutling.svg" alt="Cutling on iPip" height="48"></a>
+<a href="https://postyourstartup.com/startup/cutling?ref=badge"><img src="https://postyourstartup.com/api/badge/cutling?theme=light" alt="Featured on PostYourStartup" height="48"></a>
+<a href="https://launchigniter.com/product/cutling?ref=badge-cutling"><img src="https://launchigniter.com/api/badge/cutling?theme=light" alt="Featured on LaunchIgniter" height="48"></a>
 </p>
 
 **Your clipboard, organized.**

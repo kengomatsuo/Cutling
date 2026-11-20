@@ -45,6 +45,8 @@ DIRECTORY_BADGES = [
     '<a href="https://macappindex.com/apps/cutling?ref=badge" target="_blank" title="Cutling on Mac App Index"><img src="https://macappindex.com/apps/cutling/badge.svg?theme=light&height=56" alt="Cutling on Mac App Index" width="224" height="56" /></a>',
     '<a href="https://macnative.io/apps/cutling?utm_source=macnative-badge&utm_medium=referral" target="_blank" rel="noopener"><img src="https://macnative.io/badge?kind=listed&theme=light&slug=cutling" alt="Listed on MacNative" width="212" height="58" /></a>',
     '<a href="https://ipip.fyi/apps/cutling?ref=badge"><img src="https://ipip.fyi/badge/cutling.svg" alt="Cutling on iPip" width="220" height="56"></a>',
+    '<a href="https://postyourstartup.com/startup/cutling?ref=badge" target="_blank"><img src="https://postyourstartup.com/api/badge/cutling?theme=light" alt="Featured on PostYourStartup" width="212" height="55" /></a>',
+    '<a href="https://launchigniter.com/product/cutling?ref=badge-cutling" target="_blank"><img src="https://launchigniter.com/api/badge/cutling?theme=light" alt="Featured on LaunchIgniter" width="212" height="55" /></a>',
 ]
 
 TRANSLATION_ALIASES = {
