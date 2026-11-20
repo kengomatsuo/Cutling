@@ -32,7 +32,7 @@ originSessionId: 7b3b13ec-cea4-497f-8624-63751b64c94b
 ## CutlingStore (@MainActor, ObservableObject)
 
 **Limits (nonisolated static let):**
-- `maxTextCutlings = 100`, `maxImageCutlings = 25`, `maxTotalCutlings = 125`
+- `maxTextCutlings = 1000`, `maxImageCutlings = 50`, `maxTotalCutlings = 1050`
 - `maxTextLength = 2000` characters
 
 **Persistence:**
