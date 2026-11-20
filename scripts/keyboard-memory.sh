@@ -39,7 +39,8 @@ fi
 # The Cutling keyboard only shows with the software keyboard up.
 defaults write com.apple.iphonesimulator ConnectHardwareKeyboard -bool false
 keyboard="Devices/$udid/.*CutlingKeyboard.appex/CutlingKeyboard"
-xctestrun="$(ls "$build"/DerivedData/Build/Products/*.xctestrun | head -1)"
+# The newest build's run file; an older one for another architecture set can sit beside it.
+xctestrun="$(ls -t "$build"/DerivedData/Build/Products/*.xctestrun | head -1)"
 
 # Max footprint and peak of the simulator's CutlingKeyboard processes, in MB.
 sample() {
@@ -64,7 +65,8 @@ for size in "$@"; do
   TEST_RUNNER_MEMTEST_TEXT="$text" TEST_RUNNER_MEMTEST_IMAGES="$images" \
   TEST_RUNNER_MEMTEST_LOG="$run/phases.txt" TEST_RUNNER_MEMTEST_SHOTS="$run/shots" \
   TEST_RUNNER_MEMTEST_FLINGS="${MEMTEST_FLINGS:-40}" \
-    xcodebuild test-without-building -xctestrun "$xctestrun" -destination "id=$udid" \
+    # Serial: parallel testing runs on a clone of the queue's simulator, which the queue forbids and this sampler never sees.
+    xcodebuild test-without-building -xctestrun "$xctestrun" -destination "id=$udid" -parallel-testing-enabled NO \
       -only-testing:CutlingUITests/KeyboardMemoryUITests/testKeyboardMemory \
       -resultBundlePath "$run/result.xcresult" >"$run/test.log" 2>&1 &
   test_pid=$!
