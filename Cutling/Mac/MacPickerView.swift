@@ -114,6 +114,12 @@ struct MacPickerView: View {
             })
             filling = (cutling, false)
             await parkWindowsForCapture()
+            // -SNAPSHOT_FILL_COPY: after the capture, finish the form as Return does, so a walk can paste the result.
+            if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_FILL_COPY") {
+                try? await Task.sleep(for: .seconds(4))
+                filling = nil
+                copyText(cutling, values: snapshotFillValues, plainOnly: false)
+            }
             return
         default:
             return
