@@ -8,6 +8,9 @@
 <a href="https://ipip.fyi/apps/cutling?ref=badge"><img src="https://ipip.fyi/badge/cutling.svg" alt="Cutling on iPip" height="48"></a>
 <a href="https://postyourstartup.com/startup/cutling?ref=badge"><img src="https://postyourstartup.com/api/badge/cutling?theme=light" alt="Featured on PostYourStartup" height="48"></a>
 <a href="https://launchigniter.com/product/cutling?ref=badge-cutling"><img src="https://launchigniter.com/api/badge/cutling?theme=light" alt="Featured on LaunchIgniter" height="48"></a>
+<a href="https://ailaun.ch/projects/cutling?utm_source=badge"><img src="https://ailaun.ch/ailaunch/images/badges/featured-on-light.svg" alt="Featured on AI Launch" height="48"></a>
+<a href="https://www.nxgntools.com/tools/cutling?utm_source=cutling"><img src="https://www.nxgntools.com/api/embed/cutling?type=FIND_US_ON" alt="Find us on NxGn Tools" height="48"></a>
+<a href="https://dodolaunch.com/p/cutling?ref=badge"><img src="https://dodolaunch.com/badge/cutling?theme=light" alt="Cutling on DodoLaunch" height="48"></a>
 </p>
 
 **Your clipboard, organized.**

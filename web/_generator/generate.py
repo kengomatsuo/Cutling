@@ -44,7 +44,7 @@ DEFAULT_LOCALE = "en-US"
 # Directory badges in every page footer. Each listing site checks for its own badge on the live site
 # to keep a free listing or launch, so one is never dropped without checking that site's rules.
 DIRECTORY_BADGES = [
-    '<a href="https://nativeshelf.com?ref=badge" target="_blank" title="Featured on NativeShelf.com"><img src="https://nativeshelf.com/badge/dark.png?v=6" alt="Featured on NativeShelf.com" width="232" height="68" /></a>',
+    '<a href="https://nativeshelf.com/cutling?ref=badge" target="_blank" title="Featured on NativeShelf.com"><img src="https://nativeshelf.com/badge/dark.png?v=6" alt="Featured on NativeShelf.com" width="232" height="68" /></a>',
     '<a href="https://macpip.com/apps/cutling?ref=badge"><img src="https://macpip.com/badge/cutling.svg" height="44" alt="Listed on MacPip"></a>',
     '<a href="https://macbase.app/apps/cutling?ref=badge" target="_blank" rel="noopener"><img src="https://macbase.app/badge/featured-on-macbase.svg" alt="Cutling is featured on MacBase" height="44" style="height:44px;width:auto"></a>',
     '<a href="https://macbrowse.com"><img src="https://macbrowse.com/badge/listed-light.svg" alt="Listed on Mac Browse" height="44"></a>',
@@ -53,6 +53,9 @@ DIRECTORY_BADGES = [
     '<a href="https://ipip.fyi/apps/cutling?ref=badge"><img src="https://ipip.fyi/badge/cutling.svg" alt="Cutling on iPip" width="220" height="56"></a>',
     '<a href="https://postyourstartup.com/startup/cutling?ref=badge" target="_blank"><img src="https://postyourstartup.com/api/badge/cutling?theme=light" alt="Featured on PostYourStartup" width="212" height="55" /></a>',
     '<a href="https://launchigniter.com/product/cutling?ref=badge-cutling" target="_blank"><img src="https://launchigniter.com/api/badge/cutling?theme=light" alt="Featured on LaunchIgniter" width="212" height="55" /></a>',
+    '<a href="https://ailaun.ch/projects/cutling?utm_source=badge" target="_blank" rel="noopener noreferrer"><img src="https://ailaun.ch/ailaunch/images/badges/featured-on-light.svg" alt="Featured on AI Launch" style="height:44px;width:auto"/></a>',
+    '<a href="https://www.nxgntools.com/tools/cutling?utm_source=cutling" target="_blank" rel="noopener" style="display: inline-block; width: auto;"><img src="https://www.nxgntools.com/api/embed/cutling?type=FIND_US_ON" alt="Find us on NxGn Tools" style="height: 48px; width: auto;" /></a>',
+    '<a href="https://dodolaunch.com/p/cutling?ref=badge" target="_blank"><img src="https://dodolaunch.com/badge/cutling?theme=light" alt="Cutling on DodoLaunch" width="200" height="54" /></a>',
 ]
 
 # The snippet caps of the Cutling version live on the App Store, written into every locale's copy where it says
@@ -247,6 +250,7 @@ def generate_page(template_content, translation, en_translation, locale_code, is
     html = html.replace("{{DIR_ATTR}}", ' dir="rtl"' if is_rtl else "")
     html = html.replace("{{LANGUAGE_PICKER}}", picker_html)
     html = html.replace("{{FILM}}", film_html(locale_code, translation, root))
+    html = html.replace("</head>", f'    <script src="{root}/store-source.js" defer></script>\n</head>', 1)
     html = html.replace("{{DIRECTORY_BADGES}}", '<div class="directory-badges">' + "".join(DIRECTORY_BADGES) + "</div>")
 
     for key in en_translation:
@@ -326,8 +330,48 @@ SITE = "https://cutling.matsuokengo.com"
 # IndexNow keys are public by design: <key>.txt at the site root proves ownership.
 INDEXNOW_KEY = "c27785c94a2066218caa0af8c11655f9"
 INDEXNOW_ENDPOINT = "https://api.indexnow.org/indexnow"
-# English-only pages: not translated, hreflang "en" and x-default only.
-EN_ONLY_PAGES = ["compare/"]
+# English-only pages: not translated, hreflang "en" and x-default only, each linked from every English
+# footer. One per search intent; each template is templates/<slug>/index.html, and every rival fact in
+# it names the page it was read from and the date (the HTML comment at the top of the template).
+# campaign is the App Store ct= of the page's buttons (30 characters at most, "-mac" added for the Mac).
+EN_ONLY_PAGES = [
+    {"slug": "compare", "link": "Compare", "campaign": "web-compare", "type": "WebPage",
+     "published": "2026-11-07", "crumb": "Compare",
+     "title": "Cutling vs Paste, Clipboard++ and iOS text replacement",
+     "description": ("How Cutling compares with Paste, Clipboard++, iOS text replacement and Universal Clipboard: "
+                     "price model, keyboard, Mac, sync and what each privacy label says.")},
+    {"slug": "paste-alternative", "link": "Paste alternative", "campaign": "web-paste-alt", "type": "Article",
+     "published": "2026-11-20", "crumb": "Paste alternative",
+     "title": "Paste alternative you pay for once: Cutling vs Paste",
+     "description": ("Paste costs $3.99 a month, $29.99 a year or $89.99 once. Cutling is a one-time purchase for "
+                     "iPhone, iPad and Mac. What each does, where Paste is better, and other one-time options.")},
+    {"slug": "iphone-keyboard-address-bank-details", "link": "Address and bank details keyboard",
+     "campaign": "web-keyboard-howto", "type": "Article", "published": "2026-11-20",
+     "crumb": "Address and bank details keyboard",
+     "title": "Paste your address and bank details from the iPhone keyboard",
+     "description": ("How to put your address, bank details and email signature one tap away in any iPhone app: "
+                     "what Safari AutoFill and text replacement cover, and a keyboard set up in four steps.")},
+    {"slug": "best-snippet-keyboards-iphone", "link": "Snippet keyboards compared",
+     "campaign": "web-snippet-keyboards", "type": "Article", "published": "2026-11-20",
+     "crumb": "Snippet keyboards compared",
+     "title": "Best snippet keyboards for iPhone without a subscription",
+     "description": ("Eight snippet keyboards and text expanders for iPhone and iPad you can use without "
+                     "subscribing, with prices, free limits, Full Access and sync read from each App Store listing.")},
+    {"slug": "best-clipboard-managers-mac-iphone", "link": "Mac clipboard managers",
+     "campaign": "web-mac-clipboards", "type": "Article", "published": "2026-11-20",
+     "crumb": "Mac clipboard managers",
+     "title": "Best clipboard managers for Mac that sync with iPhone",
+     "description": ("Paste, PastePal, Cutling, Raycast, Maccy and ClipBook: which keep your clipboard history "
+                     "or snippets in step with an iPhone, what each costs, and what macOS does on its own.")},
+]
+# Layout the English-only pages need beyond style.css: numbered steps, smaller tables, sub-headings.
+EN_ONLY_CSS = """<style>
+        .section ol { padding-inline-start: 22px; margin-bottom: 16px; }
+        .section ol li { font-size: 15px; color: var(--ink-2); margin-bottom: 8px; padding-inline-start: 4px; }
+        .section h3 { font-size: 16px; font-weight: 600; color: var(--ink); margin: 24px 0 8px; }
+        .compare.compare-narrow { min-width: 620px; }
+        .container-compare .faq-item { max-width: 640px; margin-inline: auto; }
+    </style>"""
 APP_ID = "6759476314"
 PROVIDER_TOKEN = "127609326"  # the developer account's pt=, the same on every campaign link
 
@@ -341,8 +385,15 @@ def store_url(campaign, mac=False):
 
 
 def page_campaign(template_rel):
-    """One campaign per page: web-home, web-download, web-mac, web-compare."""
-    return "web-" + (template_rel.removesuffix("index.html").strip("/") or "home")
+    """One campaign per page: web-home, web-download, web-mac; an English-only page names its own."""
+    slug = template_rel.removesuffix("index.html").strip("/")
+    page = next((p for p in EN_ONLY_PAGES if p["slug"] == slug), None)
+    return page["campaign"] if page else "web-" + (slug or "home")
+
+
+def en_only_links(indent):
+    """The footer links to every English-only page, one <li> each."""
+    return "\n".join(f'{indent}<li><a href="/en-us/{p["slug"]}/">{p["link"]}</a></li>' for p in EN_ONLY_PAGES)
 METADATA_DIR = REPO_ROOT / "fastlane" / "metadata"
 
 # hreflang takes ISO 639-1 language codes (Google: localized-versions). Filipino has
@@ -509,20 +560,63 @@ def git_date(*paths):
     return max(dates) if dates else None
 
 
+def faq_pairs(page_html):
+    """The question and answer of each <details class="faq-item"> on a page, as plain text."""
+    return [(plain(q), plain(a)) for q, a in re.findall(
+        r'<details class="faq-item">\s*<summary>(.*?)</summary>\s*<div class="faq-answer">(.*?)</div>\s*</details>',
+        page_html, re.S)]
+
+
+def item_list(page_html):
+    """Each <h2 data-item="url">Name</h2> of a list article, in page order, for its ItemList."""
+    return [{"@type": "ListItem", "position": n, "name": plain(name), "url": url}
+            for n, (url, name) in enumerate(re.findall(r'<h2 data-item="([^"]+)"[^>]*>(.*?)</h2>', page_html, re.S), 1)]
+
+
+def en_only_ld(page, url, template):
+    """The page's own schema.org nodes: WebPage or Article, its breadcrumb, and an ItemList or FAQPage
+    when the page carries ranked items or questions."""
+    modified = git_date(TEMPLATES_DIR / page["slug"] / "index.html") or datetime.date.today().isoformat()
+    main = {"@context": "https://schema.org", "@type": page["type"], "url": url, "inLanguage": "en",
+            "datePublished": page["published"], "dateModified": max(modified, page["published"])}
+    if page["type"] == "Article":
+        main.update({"headline": page["title"], "description": page["description"],
+                     "image": f"{SITE}/og.png", "mainEntityOfPage": url,
+                     "author": {"@type": "Person", "name": "Kenneth Johannes Fang", "url": f"{SITE}/en-us/"},
+                     "about": {"@type": "SoftwareApplication", "name": "Cutling", "url": f"{SITE}/en-us/",
+                               "applicationCategory": "UtilitiesApplication", "operatingSystem": "iOS, iPadOS, macOS"}})
+    else:
+        main["name"] = page["title"]
+    ld = [main, {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Cutling", "item": f"{SITE}/en-us/"},
+        {"@type": "ListItem", "position": 2, "name": page["crumb"], "item": url}]}]
+    items = item_list(template)
+    if items:
+        ld.append({"@context": "https://schema.org", "@type": "ItemList", "name": page["title"],
+                   "itemListOrder": "https://schema.org/ItemListUnordered", "itemListElement": items})
+    faqs = faq_pairs(template)
+    if faqs:
+        ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]})
+    return ld
+
+
 def write_en_only_pages(en_translation, locales, available_codes, price):
-    """/en-us/compare/: one English page, linked from the English footer, not part of the locale loop."""
-    template = (TEMPLATES_DIR / "compare" / "index.html").read_text(encoding="utf-8")
-    url = f"{SITE}/en-us/compare/"
-    title = "Cutling vs Paste, Clipboard++ and iOS text replacement"
-    description = ("How Cutling compares with Paste, Clipboard++, iOS text replacement and Universal Clipboard: "
-                   "price model, keyboard, Mac, sync and what each privacy label says.")
+    """Every page in EN_ONLY_PAGES at /en-us/<slug>/: English only, not part of the locale loop."""
+    for page in EN_ONLY_PAGES:
+        write_en_only_page(page, en_translation, locales, available_codes, price)
+
+
+def write_en_only_page(page, en_translation, locales, available_codes, price):
+    template = (TEMPLATES_DIR / page["slug"] / "index.html").read_text(encoding="utf-8")
+    url = f"{SITE}/en-us/{page['slug']}/"
+    title, description = page["title"], page["description"]
+    usd = price[0] and price[1] == "USD"
     price_cell = (f"One-time purchase, ${price[0]} in the US store. No subscription or in-app purchases"
-                  if price[0] and price[1] == "USD" else "One-time purchase. No subscription or in-app purchases")
-    ld = [{"@context": "https://schema.org", "@type": "WebPage", "name": title, "url": url, "inLanguage": "en",
-           "datePublished": "2026-11-07", "dateModified": "2026-11-07"},
-          {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
-              {"@type": "ListItem", "position": 1, "name": "Cutling", "item": f"{SITE}/en-us/"},
-              {"@type": "ListItem", "position": 2, "name": "Compare", "item": url}]}]
+                  if usd else "One-time purchase. No subscription or in-app purchases")
+    price_once = f"${price[0]}, paid once" if usd else "paid once"
+    template = fill_caps({"faq_a6": en_translation.get("faq_a6", ""), "page": template})["page"]
+    ld = en_only_ld(page, url, template)
     tags = [f'<link rel="canonical" href="{url}">',
             f'<link rel="alternate" hreflang="en" href="{url}">',
             f'<link rel="alternate" hreflang="x-default" href="{url}">',
@@ -536,16 +630,21 @@ def write_en_only_pages(en_translation, locales, available_codes, price):
             '<meta property="og:image:height" content="630">',
             '<meta name="twitter:card" content="summary_large_image">']
     tags += ['<script type="application/ld+json">' + json.dumps(x, ensure_ascii=False).replace("</", "<\\/") + "</script>" for x in ld]
-    template = template.replace("</head>", "    " + "\n    ".join(tags) + "\n</head>", 1).replace("{{CUTLING_PRICE_CELL}}", price_cell)
-    template = fill_caps({"faq_a6": en_translation.get("faq_a6", ""), "page": template})["page"]
+    tags.append(EN_ONLY_CSS)
+    template = (template.replace("</head>", "    " + "\n    ".join(tags) + "\n</head>", 1)
+                .replace("{{PAGE_TITLE}}", esc_attr(title))
+                .replace("{{CUTLING_PRICE_CELL}}", price_cell).replace("{{CUTLING_PRICE_ONCE}}", price_once)
+                .replace("{{EN_ONLY_LINKS}}", en_only_links("            ").lstrip()))
     root, prefix = compute_root(1, False), compute_lang_prefix(1)
     html = generate_page(template, en_translation, en_translation, DEFAULT_LOCALE, False, root, prefix,
                          build_language_picker(locales, available_codes, DEFAULT_LOCALE, root, "index.html"),
-                         "compare/index.html")
-    out = DOCS_DIR / "en-us" / "compare" / "index.html"
+                         f"{page['slug']}/index.html")
+    left = sorted(set(re.findall(r"\{\{[A-Za-z_]+\}\}", html)))
+    assert not left, f"{page['slug']}: placeholders left unfilled: {left}"
+    out = DOCS_DIR / "en-us" / page["slug"] / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding="utf-8")
-    print("  Generated en-us/compare/")
+    print(f"  Generated en-us/{page['slug']}/")
 
 
 def write_indexnow_key():
@@ -592,8 +691,8 @@ def write_sitemap_and_robots(locales, available_codes):
             lines.append("  </url>")
     today = datetime.date.today().isoformat()
     for page in EN_ONLY_PAGES:
-        url = f"{SITE}/en-us/{page}"
-        lines += ["  <url>", f"    <loc>{url}</loc>", f"    <lastmod>{git_date(TEMPLATES_DIR / page) or today}</lastmod>",
+        url = f"{SITE}/en-us/{page['slug']}/"
+        lines += ["  <url>", f"    <loc>{url}</loc>", f"    <lastmod>{git_date(TEMPLATES_DIR / page['slug']) or today}</lastmod>",
                   f'    <xhtml:link rel="alternate" hreflang="en" href="{url}"/>',
                   f'    <xhtml:link rel="alternate" hreflang="x-default" href="{url}"/>', "  </url>"]
     lines.append("</urlset>")
@@ -608,6 +707,11 @@ def write_ai_files(en_translation, available_codes, price):
                         len(available_codes), datetime.date.today().isoformat())
     ai_files.write(DOCS_DIR, SITE, fx, lambda rel: (DOCS_DIR / rel / "index.html", f"{SITE}/{rel}"))
     print("  Generated llms.txt, llms-full.txt, robots.txt, .well-known and English index.md pages")
+
+
+def write_store_source():
+    """store-source.js: gives the App Store buttons the visit's source as their campaign token (same file as Undirect's)."""
+    (DOCS_DIR / "store-source.js").write_text((TEMPLATES_DIR.parent / "store-source.js").read_text(encoding="utf-8"), encoding="utf-8")
 
 
 def write_lang_suggest(locales, available_codes):
@@ -694,7 +798,7 @@ def main():
             if is_default:
                 page_template = page_template.replace(
                     '</ul>\n        <p class="copyright">',
-                    '    <li><a href="/en-us/compare/">Compare</a></li>\n        </ul>\n        <p class="copyright">')
+                    "    " + en_only_links("            ").lstrip() + '\n        </ul>\n        <p class="copyright">')
             if template_rel == "index.html":
                 page_template = page_template.replace("{{page_title_home}}", esc_attr(home_title(code, translation)))
             elif template_rel in TITLE_KEYS:
@@ -738,6 +842,7 @@ def main():
         generate_root_redirect_pages()
         write_sitemap_and_robots(locales, available_codes)
         write_lang_suggest(locales, available_codes)
+        write_store_source()
         write_en_only_pages(en_translation, locales, available_codes, price)
         write_ai_files(en_translation, available_codes, price)
         write_indexnow_key()
