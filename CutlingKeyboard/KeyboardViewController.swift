@@ -1012,106 +1012,54 @@ struct KeyboardView: View {
         let suggested = matches + suggestedCutlings(from: liveCutlings).filter { !matchIDs.contains($0.id) }
         let suggestedIDs = Set(suggested.map(\.id))
         let remaining = liveCutlings.filter { !suggestedIDs.contains($0.id) }
-        let gridColumns = [GridItem(.adaptive(minimum: KeyStyle.cardMinWidth(for: horizontalSizeClass)), spacing: keySpacing)]
 
-        return ScrollViewReader { proxy in
-            ScrollView(.vertical, showsIndicators: false) {
-                if liveCutlings.isEmpty {
-                    VStack(spacing: 8) {
-                        Image(systemName: "rectangle.on.rectangle.slash")
-                            .font(.system(size: 28))
-                            .foregroundStyle(.secondary)
-                        Text("No Cutlings Yet", bundle: snapshotBundle)
-                            .font(.system(size: 15, weight: .semibold))
-                            .foregroundStyle(.secondary)
-                        Text("Open Cutling to add snippets", bundle: snapshotBundle)
-                            .font(.system(size: 12))
-                            .foregroundStyle(.tertiary)
-                    }
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .padding(.vertical, 16)
-                } else {
-                    LazyVStack(spacing: 0) {
-                        if !suggested.isEmpty {
-                            // Suggestions section header
-                            Text("Suggestions", bundle: snapshotBundle)
-                                .font(.system(size: 12, weight: .semibold))
-                                .foregroundStyle(.secondary)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.horizontal, KeyStyle.horizontalPadding + 4)
-                                .padding(.top, keySpacing)
-                                .padding(.bottom, 4)
-
-                            LazyVGrid(columns: gridColumns, spacing: keySpacing) {
-                                ForEach(suggested) { cutling in
-                                    CutlingKeyView(
-                                        cutling: cutling,
-                                        store: store,
-                                        isCopied: copiedID == cutling.id,
-                                        isExisted: existedID == cutling.id,
-                                        isBlocked: isBlockedByASCIIField(cutling),
-                                        copiedStyled: copiedStyledID == cutling.id,
-                                        onCopyStyled: copyStyledAction(for: cutling),
-                                        onTap: { handleTap(cutling, replacesWord: matchIDs.contains(cutling.id)) }
-                                    )
-                                    .id(cutling.id)
-                                    .transition(AsymmetricTransition(
-                                        insertion: .scale(0.8).combined(with: .opacity),
-                                        removal: .scale(0.8).combined(with: .opacity)
-                                    ))
-                                }
-                            }
-                            .padding(.horizontal, KeyStyle.horizontalPadding)
-
-                            // Divider between sections
-                            Rectangle()
-                                .fill(.secondary.opacity(0.2))
-                                .frame(height: 0.5)
-                                .padding(.horizontal, KeyStyle.horizontalPadding + 8)
-                                .padding(.vertical, keySpacing)
-                        }
-
-                        LazyVGrid(columns: gridColumns, spacing: keySpacing) {
-                            ForEach(remaining) { cutling in
-                                CutlingKeyView(
-                                    cutling: cutling,
-                                    store: store,
-                                    isCopied: copiedID == cutling.id,
-                                    isExisted: existedID == cutling.id,
-                                    isBlocked: isBlockedByASCIIField(cutling),
-                                    copiedStyled: copiedStyledID == cutling.id,
-                                    onCopyStyled: copyStyledAction(for: cutling),
-                                    onTap: { handleTap(cutling) }
-                                )
-                                .id(cutling.id)
-                                .transition(AsymmetricTransition(
-                                    insertion: .scale(0.8).combined(with: .opacity),
-                                    removal: .scale(0.8).combined(with: .opacity)
-                                ))
-                            }
-                        }
-                        .padding(.horizontal, KeyStyle.horizontalPadding)
-                        .padding(.top, suggested.isEmpty ? keySpacing : 0)
-                        .padding(.bottom, keySpacing)
-                    }
+        // Reused cells, not a lazy stack: a lazy stack keeps every key it has built, and the keyboard has 77 MB.
+        return Group {
+            if liveCutlings.isEmpty {
+                VStack(spacing: 8) {
+                    Image(systemName: "rectangle.on.rectangle.slash")
+                        .font(.system(size: 28))
+                        .foregroundStyle(.secondary)
+                    Text("No Cutlings Yet", bundle: snapshotBundle)
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(.secondary)
+                    Text("Open Cutling to add snippets", bundle: snapshotBundle)
+                        .font(.system(size: 12))
+                        .foregroundStyle(.tertiary)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .padding(.vertical, 16)
+            } else {
+                CutlingKeyGrid(
+                    sections: [
+                        CutlingKeySection(title: Text("Suggestions", bundle: snapshotBundle), cutlings: suggested, dividerAfter: true),
+                        CutlingKeySection(cutlings: remaining)
+                    ],
+                    cardHeight: KeyStyle.cardHeight(for: horizontalSizeClass),
+                    cardMinWidth: KeyStyle.cardMinWidth(for: horizontalSizeClass),
+                    spacing: keySpacing,
+                    horizontalPadding: KeyStyle.horizontalPadding,
+                    scrollTarget: existedID ?? newlyAddedID
+                ) { cutling in
+                    CutlingKeyView(
+                        cutling: cutling,
+                        store: store,
+                        isCopied: copiedID == cutling.id,
+                        isExisted: existedID == cutling.id,
+                        isBlocked: isBlockedByASCIIField(cutling),
+                        copiedStyled: copiedStyledID == cutling.id,
+                        onCopyStyled: copyStyledAction(for: cutling),
+                        onTap: { handleTap(cutling, replacesWord: matchIDs.contains(cutling.id)) }
+                    )
                 }
             }
-            .animation(.spring(duration: 0.4, bounce: 0.2), value: liveCutlings.map(\.id))
-            .animation(.spring(duration: 0.4, bounce: 0.2), value: suggested.map(\.id))
-            .onChange(of: existedID) { oldValue, newValue in
-                if let id = newValue {
-                    withAnimation(.easeInOut) {
-                        proxy.scrollTo(id, anchor: .center)
-                    }
-                }
-            }
-            .onChange(of: newlyAddedID) { oldValue, newValue in
-                if let id = newValue {
-                    withAnimation(.easeInOut) {
-                        proxy.scrollTo(id, anchor: .center)
-                    }
-                    newlyAddedID = nil
-                }
+        }
+        .onChange(of: newlyAddedID) { _, newValue in
+            // The grid scrolls to it on its next update; then it is spent.
+            guard newValue != nil else { return }
+            Task {
+                try? await Task.sleep(for: .seconds(0.6))
+                newlyAddedID = nil
             }
         }
         .background(Color.keyHitTest)

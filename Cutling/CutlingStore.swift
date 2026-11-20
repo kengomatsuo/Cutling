@@ -673,58 +673,55 @@ class CutlingStore: ObservableObject {
     /// This can reduce memory usage by 10-50x depending on original image size
     #if os(iOS)
     func loadThumbnail(named filename: String) -> UIImage? {
-        // Check cache first
         if let cached = thumbnailCache.object(forKey: filename as NSString) {
             return cached
         }
-        
+        // A square thumbnail kept on disk beside the image: the keyboard (77 MB in all) then reads a few
+        // kilobytes per key instead of decoding the original, and the first reader to need it writes it.
+        let thumbnailURL = thumbnailFileURL(for: filename)
+        if let source = CGImageSourceCreateWithURL(thumbnailURL as CFURL, nil),
+           let cgImage = CGImageSourceCreateImageAtIndex(source, 0, [kCGImageSourceShouldCacheImmediately: true] as CFDictionary) {
+            return cache(UIImage(cgImage: cgImage), as: filename)
+        }
+
         let fileURL = imagesDirectory.appendingPathComponent(filename)
-        
-        // Use ImageIO for efficient downsampling without loading full image into memory
-        guard let imageSource = CGImageSourceCreateWithURL(fileURL as CFURL, nil) else {
-            return nil
-        }
-        
-        // Get image properties to determine aspect ratio
-        guard let properties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as? [CFString: Any],
+        guard let imageSource = CGImageSourceCreateWithURL(fileURL as CFURL, nil),
+              let properties = CGImageSourceCopyPropertiesAtIndex(imageSource, 0, nil) as? [CFString: Any],
               let width = properties[kCGImagePropertyPixelWidth] as? CGFloat,
-              let height = properties[kCGImagePropertyPixelHeight] as? CGFloat else {
+              let height = properties[kCGImagePropertyPixelHeight] as? CGFloat,
+              min(width, height) > 0 else {
             return nil
         }
-        
-        // Calculate size to downsample to (larger dimension to ensure we can crop a square)
-        let maxDimension = max(width, height)
-        let minDimension = min(width, height)
-        let scale = maxThumbnailSize / minDimension
-        let downsampleSize = maxDimension * scale
-        
+        // Downsample so the short side is maxThumbnailSize, then crop the centre square.
+        let downsampleSize = max(width, height) * maxThumbnailSize / min(width, height)
         let options: [CFString: Any] = [
             kCGImageSourceCreateThumbnailFromImageAlways: true,
             kCGImageSourceCreateThumbnailWithTransform: true,
+            kCGImageSourceShouldCacheImmediately: true,
             kCGImageSourceThumbnailMaxPixelSize: downsampleSize
         ]
-        
-        guard let cgImage = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, options as CFDictionary) else {
+        guard let downsampled = CGImageSourceCreateThumbnailAtIndex(imageSource, 0, options as CFDictionary) else {
             return nil
         }
-        
-        // Crop to square from center
-        let imageWidth = CGFloat(cgImage.width)
-        let imageHeight = CGFloat(cgImage.height)
-        let squareSize = min(imageWidth, imageHeight)
-        let x = (imageWidth - squareSize) / 2
-        let y = (imageHeight - squareSize) / 2
-        
-        guard let croppedCGImage = cgImage.cropping(to: CGRect(x: x, y: y, width: squareSize, height: squareSize)) else {
-            return nil
+        // Drawn into its own bitmap: a cropped CGImage would keep the larger downsampled one alive.
+        let side = CGFloat(min(downsampled.width, downsampled.height))
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 1
+        let thumbnail = UIGraphicsImageRenderer(size: CGSize(width: side, height: side), format: format).image { _ in
+            UIImage(cgImage: downsampled).draw(at: CGPoint(x: -(CGFloat(downsampled.width) - side) / 2,
+                                                         y: -(CGFloat(downsampled.height) - side) / 2))
         }
-        
-        let thumbnail = UIImage(cgImage: croppedCGImage)
-        
-        // Cache it with cost based on pixel count
-        let cost = Int(thumbnail.size.width * thumbnail.size.height * thumbnail.scale * thumbnail.scale)
+        if let data = thumbnail.jpegData(compressionQuality: 0.8) {
+            try? FileManager.default.createDirectory(at: thumbnailURL.deletingLastPathComponent(), withIntermediateDirectories: true)
+            try? data.write(to: thumbnailURL, options: .atomic)
+        }
+        return cache(thumbnail, as: filename)
+    }
+
+    /// Caches a thumbnail at its real cost in bytes, so the cache's 10 MB limit holds.
+    private func cache(_ thumbnail: UIImage, as filename: String) -> UIImage {
+        let cost = thumbnail.cgImage.map { $0.bytesPerRow * $0.height } ?? 0
         thumbnailCache.setObject(thumbnail, forKey: filename as NSString, cost: cost)
-        
         return thumbnail
     }
     #endif
@@ -788,11 +785,17 @@ class CutlingStore: ObservableObject {
     func deleteImageFile(named filename: String) {
         let fileURL = imagesDirectory.appendingPathComponent(filename)
         try? FileManager.default.removeItem(at: fileURL)
+        try? FileManager.default.removeItem(at: thumbnailFileURL(for: filename))
         
         // Also remove from cache
         thumbnailCache.removeObject(forKey: filename as NSString)
     }
     
+    /// The image's square thumbnail on disk, in the shared container so every target reads the same one.
+    func thumbnailFileURL(for filename: String) -> URL {
+        imagesDirectory.appendingPathComponent("Thumbnails", isDirectory: true).appendingPathComponent(filename + ".jpg")
+    }
+
     /// Clear thumbnail cache to free memory if needed
     func clearThumbnailCache() {
         thumbnailCache.removeAllObjects()
