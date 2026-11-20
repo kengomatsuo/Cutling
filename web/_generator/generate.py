@@ -404,8 +404,10 @@ def head_tags(code, template_rel, translation, available_codes, locales, price):
     tags += [
         '<meta property="og:type" content="website">',
         f'<meta property="og:url" content="{page_url(code, template_rel)}">',
-        f'<meta property="og:image" content="{SITE}/icon.png">',
-        '<meta name="twitter:card" content="summary">',
+        f'<meta property="og:image" content="{SITE}/og.png">',
+        '<meta property="og:image:width" content="1200">',
+        '<meta property="og:image:height" content="630">',
+        '<meta name="twitter:card" content="summary_large_image">',
     ]
     if description:
         tags.append(f'<meta property="og:description" content="{esc_attr(description)}">')
@@ -470,8 +472,10 @@ def write_en_only_pages(en_translation, locales, available_codes, price):
             f'<meta property="og:title" content="{esc_attr(title)}">',
             f'<meta property="og:description" content="{esc_attr(description)}">',
             f'<meta property="og:url" content="{url}">',
-            f'<meta property="og:image" content="{SITE}/icon.png">',
-            '<meta name="twitter:card" content="summary">']
+            f'<meta property="og:image" content="{SITE}/og.png">',
+            '<meta property="og:image:width" content="1200">',
+            '<meta property="og:image:height" content="630">',
+            '<meta name="twitter:card" content="summary_large_image">']
     tags += ['<script type="application/ld+json">' + json.dumps(x, ensure_ascii=False).replace("</", "<\\/") + "</script>" for x in ld]
     template = template.replace("</head>", "    " + "\n    ".join(tags) + "\n</head>", 1).replace("{{CUTLING_PRICE_CELL}}", price_cell)
     root, prefix = compute_root(1, False), compute_lang_prefix(1)
