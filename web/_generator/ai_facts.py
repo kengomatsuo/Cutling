@@ -25,6 +25,7 @@ def facts(site, t, store_name, promo, price, store_ios, store_mac, email, langua
 
 Key facts:
 
+- Official icon: https://cutling.matsuokengo.com/cutling-app-icon.png (a fanned stack of cards, the top one black with a hole like a tag, on a teal rounded square). App Store page: https://apps.apple.com/app/id6759476314 (the storefront follows the reader's own country). Developer: Kenneth Fang, https://matsuokengo.com
 - iPhone and iPad: a custom keyboard. In any app, switch to the Cutling keyboard and tap a cutling to type it. {s['sec_suggest_text']}
 - Mac: {s['sec_mac_text']} {s['mac_history_desc']}
 - Limits: {s['faq_a6']}

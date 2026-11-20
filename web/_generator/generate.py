@@ -534,15 +534,21 @@ def head_tags(code, template_rel, translation, available_codes, locales, price):
     if is_home:
         app = {
             "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
+            # MobileApplication with a named icon file and screenshots, so image lookups
+            # tie Cutling to its own icon instead of a screenshot or another clipboard app's.
+            "@type": "MobileApplication",
             "name": store_text(code, "name") or "Cutling",
+            "alternateName": "Cutling",
             "applicationCategory": "UtilitiesApplication",
+            "applicationSubCategory": "Keyboard and clipboard manager",
             "operatingSystem": "iOS, iPadOS, macOS",
             "url": page_url(code, template_rel),
-            "image": f"{SITE}/icon.png",
+            "image": {"@type": "ImageObject", "url": f"{SITE}/cutling-app-icon.png", "width": 512, "height": 512,
+                      "caption": "Cutling app icon"},
+            "sameAs": [f"https://apps.apple.com/app/id{APP_ID}"],
             "installUrl": store_url("web-schema"),
             "inLanguage": code,
-            "author": {"@type": "Person", "name": "Kenneth Johannes Fang"},
+            "author": {"@type": "Person", "name": "Kenneth Fang", "url": "https://matsuokengo.com"},
         }
         if description:
             app["description"] = description
