@@ -9,6 +9,8 @@ Captions come from docs/aso/data/writers/*.json and writers-en.json.
 - Mac: the pages in fastlane/compose/mac (direction B, the app on a desktop) are filled
   with fastlane/screenshots_mac/raw/<loc>/0N_*.png and that locale's iPhone grid, and
   headless Chrome renders them to fastlane/screenshots_mac/<loc>/0N_*.png at 2880x1800.
+  Every Mac frame is light, as every Cutling listing image is: a set that flips appearance
+  reads as two apps, so a dark capture is retaken light, never mixed in.
 - Custom product pages: fastlane/screenshots_cpp/<page>/<loc>/<Device>-0N.png.
 """
 import glob
@@ -29,7 +31,7 @@ WRITERS = os.path.join(ROOT, "docs", "aso", "data")
 FRAMES = ["01_KeyboardInMessages", "02_MainGrid", "03_DetailView", "04_KeyboardGuide", "05_KeyboardSettings"]
 CAPTION_KEYS = ["f1", "f2", "f3", "f4", "f5"]
 DEVICES = {"iPhone 14 Pro Max": "iphone", "iPad Air 13-inch (M4)": "ipad"}
-MAC_FRAMES = ["01_Picker", "02_History", "03_Editor", "04_Dark", "05_Sync"]
+MAC_FRAMES = ["01_Picker", "02_History", "03_Editor", "04_Hotkey", "05_Sync"]
 MAC_PAGES = os.path.join(ROOT, "fastlane", "compose", "mac")
 MAC_PHONE = "iPhone 14 Pro Max-02_MainGrid.png"  # frame 5 shows the same cutlings on iPhone
 RTL = ("ar", "he", "fa", "ur")
