@@ -53,7 +53,9 @@ final class KeyboardMemoryUITests: XCTestCase {
         // The first launch seeds and registers the keyboard extension; the second finds the store filled.
         app.launch()
         let card = app.descendants(matching: .any).matching(identifier: "cutlingCard").firstMatch
-        XCTAssertTrue(card.waitForExistence(timeout: 120) || (textCount == "0" && imageCount == "0"), "Seeding did not finish")
+        // The seed renders a 12-megapixel photo on the main thread, which takes minutes on a loaded Mac;
+        // ending the app before it saves makes the second launch seed again from nothing.
+        XCTAssertTrue(card.waitForExistence(timeout: 600) || (textCount == "0" && imageCount == "0"), "Seeding did not finish")
         app.terminate()
         addCutlingKeyboardInSettings()
         app.launch()

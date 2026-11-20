@@ -224,12 +224,25 @@ extension CutlingStore {
         }
         var seeded: [Cutling] = []
         #if os(iOS)
+        // One photo is rendered and written; the rest are APFS clones of its file, which write no data,
+        // so seeding takes seconds on a loaded Mac while every cutling still has its own full-size file.
         if imageCount > 0, let photo = Self.memoryTestPhoto() {
+            var first: URL?
             for index in 0..<imageCount {
                 let id = UUID()
+                var filename: String?
+                if let first {
+                    let name = id.uuidString + ".png"
+                    if (try? FileManager.default.copyItem(at: first, to: imagesDirectory.appendingPathComponent(name))) != nil {
+                        filename = name
+                    }
+                } else {
+                    filename = saveImageData(photo, for: id)
+                    first = filename.map { imagesDirectory.appendingPathComponent($0) }
+                }
                 seeded.append(Cutling(
                     id: id, name: "Photo \(index + 1)", value: "", icon: "photo", kind: .image,
-                    imageFilename: saveImageData(photo, for: id), sortOrder: seeded.count
+                    imageFilename: filename, sortOrder: seeded.count
                 ))
             }
         }
