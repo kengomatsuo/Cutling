@@ -22,8 +22,13 @@ TEST_RUNNER_FORMAT_TEST_SHOTS="$out/shots" xcodebuild test-without-building -xct
   -parallel-testing-enabled NO -only-testing:"CutlingUITests/$name" -resultBundlePath "$out/result.xcresult" >"$out/test.log" 2>&1 &
 pid=$!; start=$SECONDS
 # The simulator's screen for the whole run, for a clip of what the test did.
-xcrun simctl io "$DEVICE_QUEUE_UDID" recordVideo --codec h264 --force "$out/run.mp4" >"$out/record.log" 2>&1 &
-rec=$!
+# A device with two screens (iPhone Duo) refuses without --display and lists them; take its primary.
+record() { xcrun simctl io "$DEVICE_QUEUE_UDID" recordVideo $display --codec h264 --force "$out/run.mp4" >"$out/record.log" 2>&1 & rec=$!; }
+display=""; record; sleep 2
+if ! kill -0 $rec 2>/dev/null; then
+  display="$(grep -E -- '--display=[0-9]+ +[A-Za-z]+ \(primary\)' "$out/record.log" | grep -oE -- '--display=[0-9]+' | head -1)"
+  [ -n "$display" ] && record
+fi
 while kill -0 $pid 2>/dev/null; do sleep 20; echo "$name: $((SECONDS - start)) s"; done
 wait $pid; status=$?
 kill -INT $rec 2>/dev/null; wait $rec 2>/dev/null

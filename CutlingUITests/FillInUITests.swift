@@ -121,7 +121,8 @@ final class FillInUITests: XCTestCase {
         app.launch()
         let card = app.descendants(matching: .any).matching(identifier: "cutlingCard").firstMatch
         XCTAssertTrue(card.waitForExistence(timeout: 30), "No cards")
-        card.tap()
+        // The card body: a plain tap() lands on the combined element's activation point, its ⋯ (Edit) button.
+        card.coordinate(withNormalizedOffset: CGVector(dx: 0.3, dy: 0.75)).tap()
         let field = app.textFields["fillInField"].firstMatch
         XCTAssertTrue(field.waitForExistence(timeout: 10), "No fill-in sheet")
         field.tap()
