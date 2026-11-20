@@ -107,11 +107,17 @@ def mac_jobs(locales, work):
 def render_mac(locales):
     work = tempfile.mkdtemp(prefix="cutling-mac-")
     todo = mac_jobs(locales, work)
-    jobs_path, results_path = os.path.join(work, "jobs.json"), os.path.join(work, "results.json")
-    json.dump(todo, open(jobs_path, "w"))
-    subprocess.run(["node", os.path.join(ROOT, "fastlane", "compose", "render_cdp.mjs"), jobs_path, results_path, "3"],
-                   check=True)
-    bad = [r for r in json.load(open(results_path)) if not r["ok"]]
+    # Three browsers side by side, one page at a time each: faster than one browser with three tabs.
+    procs, results = [], []
+    for i in range(3):
+        jobs_path, results_path = os.path.join(work, f"jobs-{i}.json"), os.path.join(work, f"results-{i}.json")
+        json.dump(todo[i::3], open(jobs_path, "w"))
+        procs.append((results_path, subprocess.Popen(
+            ["node", os.path.join(ROOT, "fastlane", "compose", "render_cdp.mjs"), jobs_path, results_path, "1"])))
+    for results_path, proc in procs:
+        proc.wait()
+        results += json.load(open(results_path))
+    bad = [r for r in results if not r["ok"]]
     for r in bad:
         print("FAIL", r["page"], r.get("error"), (r.get("boxes") or {}).get("fitFailures"), file=sys.stderr)
     print(f"mac: {len(todo) - len(bad)} rendered, {len(bad)} failed")
