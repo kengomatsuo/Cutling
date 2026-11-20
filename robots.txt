@@ -216,7 +216,7 @@ User-agent: ZanistaBot
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
-Agentmap: https://cutling.matsuokengo.com/.well-known/ard.json
+# Agentmap: https://cutling.matsuokengo.com/.well-known/ard.json (a comment: Lighthouse fails robots.txt on directives it does not know; agents also find it at that path and by rel="ard")
 Sitemap: https://cutling.matsuokengo.com/sitemap.xml
 
 # A summary for AI assistants: https://cutling.matsuokengo.com/llms.txt

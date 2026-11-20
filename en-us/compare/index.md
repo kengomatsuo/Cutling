@@ -26,3 +26,10 @@ You retype the same address, account number or signature, and you want it in a k
 On iPhone and iPad it does not remember what you copy. On Mac it keeps what you copy and skips anything a password manager marks as concealed, so a copied password never lands in the history. The questions people ask are on the [FAQ page](https://cutling.matsuokengo.com/en-us/faq/).
 
 [Download on the App Store](https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&ct=llms&mt=8)
+
+## More comparisons
+
+- [A Paste alternative you pay for once](https://cutling.matsuokengo.com/en-us/paste-alternative/): Cutling and Paste side by side, with PastePal, ClipBook and Maccy
+- [Snippet keyboards for iPhone without a subscription](https://cutling.matsuokengo.com/en-us/best-snippet-keyboards-iphone/): eight keyboards and text expanders with their prices and free limits
+- [Clipboard managers for Mac that work with an iPhone](https://cutling.matsuokengo.com/en-us/best-clipboard-managers-mac-iphone/): which ones sync the history, which sync only snippets
+- [Paste your address and bank details from the iPhone keyboard](https://cutling.matsuokengo.com/en-us/iphone-keyboard-address-bank-details/): what iOS does on its own, and a keyboard set up in four steps
