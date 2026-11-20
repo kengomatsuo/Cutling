@@ -19,6 +19,7 @@ Usage:
 import json
 import re
 import sys
+import threading
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -112,6 +113,46 @@ def restore_brand(text, locale):
     return text.replace(BRAND_SENTINEL, term)
 
 
+# Placeholder codes such as {date}, {cursor} or {Plan: Basic | Pro} are what the app
+# reads, so they go through untouched, the same way as the brand noun.
+_TOKEN = re.compile(r"\{[^{}\n]{1,120}\}")
+
+
+def protect_tokens(text):
+    tokens = _TOKEN.findall(text)
+    for i, token in enumerate(tokens):
+        text = text.replace(token, f"ZQXTOK{i}ZQX", 1)
+    return text, tokens
+
+
+def restore_tokens(text, tokens):
+    for i, token in enumerate(tokens):
+        text = re.sub(rf"\s?ZQXTOK{i}ZQX\s?", lambda m: m.group(0).replace(f"ZQXTOK{i}ZQX", token), text, count=1)
+    return text
+
+
+# Google's free endpoint allows about 5 requests a second; parallel locales went past
+# it and every language failed with "too many requests" while the run still said Done.
+_LOCK = threading.Lock()
+_LAST = [0.0]
+MIN_GAP = 0.3
+
+
+def polite_translate(translator, text):
+    for attempt in range(6):
+        with _LOCK:
+            wait = _LAST[0] + MIN_GAP - time.monotonic()
+            if wait > 0:
+                time.sleep(wait)
+            _LAST[0] = time.monotonic()
+        try:
+            return translator.translate(text)
+        except Exception as e:
+            if "too many requests" not in str(e).lower() or attempt == 5:
+                raise
+            time.sleep(2 * (attempt + 1))
+
+
 def translate_locale(locale, source_text, metadata_dir, filename="release_notes.txt"):
     target = google_code(locale)
     try:
@@ -127,7 +168,8 @@ def translate_locale(locale, source_text, metadata_dir, filename="release_notes.
             if not line.strip():
                 out_lines.append("")
                 continue
-            out_lines.append(restore_brand(translator.translate(protect_brand(line)), locale))
+            protected, tokens = protect_tokens(protect_brand(line))
+            out_lines.append(restore_brand(restore_tokens(polite_translate(translator, protected), tokens), locale))
         translated = "\n".join(out_lines)
         out_dir = metadata_dir / locale
         out_dir.mkdir(parents=True, exist_ok=True)
@@ -181,14 +223,19 @@ def main():
             pool.submit(translate_locale, locale, source_text, metadata_dir, filename): locale
             for locale in non_english
         }
+        failed = []
         for future in as_completed(futures):
             locale, ok, err = future.result()
             if ok:
                 print(f"  ✓ {locale}")
             else:
+                failed.append(locale)
                 print(f"  ✗ {locale}: {err}")
 
-    print(f"\nDone! Translated release notes to {len(non_english)} languages.")
+    print(f"\nTranslated {len(non_english) - len(failed)} of {len(non_english)} languages.")
+    if failed:
+        print("Failed: " + " ".join(sorted(failed)) + "  (rerun with these locale codes)")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
