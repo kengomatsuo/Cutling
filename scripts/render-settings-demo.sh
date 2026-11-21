@@ -30,7 +30,29 @@ for look in ${LOOKS:-light dark}; do
   size=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 "$dir/raw.mp4")
   w=${size%,*}; h=${size#*,}
   crop_w=$(python3 -c "print(int($w*$crop_w_frac)//2*2)"); crop_h=$(python3 -c "print(int($h*$crop_h_frac)//2*2)")
-  at() { python3 -c "print(round(float('$1') - $start, 3))"; }
+  # The recorder starts a moment after it says so, by a different amount each run. Measure it:
+  # seek around the Cutling tap and find when the switch's left half turns green (the white
+  # knob sits there while it is off), about 0.15 s after the tap lands.
+  read -r cx cy < <(awk '$1=="cutling"{print $3, $4}' "$dir/marks.txt")
+  tap0=$(python3 -c "print(float('$(awk '$1=="cutling"{print $2}' "$dir/marks.txt")') - $start)")
+  shift=$(python3 - "$dir/raw.mp4" "$tap0" "$(python3 -c "print(int($cx*$w) - 80)")" "$(python3 -c "print(int($cy*$h) - 12)")" <<'EOF'
+import subprocess, sys
+raw, tap, bx, by = sys.argv[1], float(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4])
+def green(t):
+    px = subprocess.run(["ffmpeg", "-v", "error", "-ss", f"{t:.3f}", "-i", raw, "-frames:v", "1",
+                         "-vf", f"crop=40:24:{bx}:{by}", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
+                        capture_output=True).stdout
+    if not px: return False
+    r = sum(px[0::3]) / (len(px) / 3); g = sum(px[1::3]) / (len(px) / 3)
+    return g - r > 80
+times = [tap - 6 + i * 0.1 for i in range(121)]
+seen = [green(t) for t in times]
+flips = [times[i] for i in range(1, len(times)) if seen[i] and not seen[i - 1]]
+# The flip nearest the tap; none means the clock already fits.
+print(round(min(flips, key=lambda f: abs(f - tap - 0.15)) - tap - 0.15, 3) if flips else 0)
+EOF
+)
+  at() { python3 -c "print(round(float('$1') - $start + $shift, 3))"; }
   begin=$(at "$(awk '$1=="begin"{print $2}' "$dir/marks.txt")")
   end=$(python3 -c "print($(at "$(awk '$1=="allow"{print $2}' "$dir/marks.txt")") + 2.0)")
   rm -rf "$work/frames"; mkdir -p "$work/frames"
@@ -53,5 +75,5 @@ for look in ${LOOKS:-light dark}; do
   filters="$filters;[$last]scale=$out_w:-2,format=yuv420p[out]"
   ffmpeg -v error -y "${inputs[@]}" -filter_complex "$filters" -map "[out]" -an -c:v libx264 -preset slow -crf 26 \
     -r "$fps" -movflags +faststart "$repo/Cutling/settings-demo-$look.mp4"
-  echo "$look: $(ffprobe -v error -show_entries format=duration -of csv=p=0 "$repo/Cutling/settings-demo-$look.mp4") s, $(wc -c <"$repo/Cutling/settings-demo-$look.mp4") bytes, aspect $(python3 -c "print(round($crop_w/$crop_h, 3))")"
+  echo "$look: clock shift ${shift}s, $(ffprobe -v error -show_entries format=duration -of csv=p=0 "$repo/Cutling/settings-demo-$look.mp4") s, $(wc -c <"$repo/Cutling/settings-demo-$look.mp4") bytes, aspect $(python3 -c "print(round($crop_w/$crop_h, 3))")"
 done
