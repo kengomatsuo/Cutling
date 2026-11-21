@@ -1,10 +1,15 @@
 <!doctype html><html><head><meta charset="utf-8"><style>
 *{margin:0;padding:0}html,body{width:1440px;height:900px;overflow:hidden}
+html.tall,html.tall body{width:100vw;height:100vh}
+html.tall .wide,html:not(.tall) .tall{display:none}
 .grain{position:absolute;inset:0;opacity:.10;mix-blend-mode:overlay;
  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
 </style></head><body>
 <!-- The B wallpaper: the ground is the brand colour itself, the waves its tints. One per palette, rendered once to wall-<palette>.png:
-     "Google Chrome" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=2 --window-size=1440,900 --screenshot=wall-red.png "file://$PWD/wall.html#red" -->
+     "Google Chrome" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=2 --window-size=1440,900 --screenshot=wall-red.png "file://$PWD/wall.html#red"
+     #red-tall draws the portrait version for the iPhone and iPad frames: calm brand ground over the top two fifths, where the
+     headline sits, and the waves under the floated UI. 1000x1500, so the iPhone crops its sides and the iPad its top and bottom:
+     "Google Chrome" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=2 --window-size=1000,1500 --screenshot=wall-red-tall.png "file://$PWD/wall.html#red-tall" -->
 <svg id="w" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%">
 <defs>
 <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" class="deep"/><stop offset=".55" class="mid"/><stop offset="1" class="base"/></linearGradient>
@@ -12,6 +17,7 @@
 <linearGradient id="g3" x1="0" y1="1" x2="1" y2="0"><stop offset="0" class="base"/><stop offset=".6" class="mid"/><stop offset="1" class="accent"/></linearGradient>
 <filter id="b1"><feGaussianBlur stdDeviation="18"/></filter><filter id="b2"><feGaussianBlur stdDeviation="3"/></filter><filter id="b3"><feGaussianBlur stdDeviation="60"/></filter>
 </defs>
+<g class="wide">
 <rect width="1440" height="900" class="basef"/>
 <ellipse cx="1100" cy="180" rx="700" ry="420" class="midf" opacity=".55" filter="url(#b3)"/>
 <path d="M-200 760 C 200 420, 620 980, 1000 560 S 1500 260, 1700 420 L 1700 1100 L -200 1100 Z" fill="url(#g1)" filter="url(#b2)"/>
@@ -19,12 +25,24 @@
 <path d="M-200 980 C 300 700, 760 1020, 1180 760 S 1560 600, 1700 700 L 1700 1100 L -200 1100 Z" fill="url(#g3)" opacity=".95" filter="url(#b2)"/>
 <path d="M-100 560 C 320 330, 650 770, 1060 410 S 1480 90, 1640 150" fill="none" class="lights" stroke-width="10" opacity=".55" filter="url(#b1)"/>
 <path d="M-100 820 C 330 640, 760 960, 1160 740" fill="none" class="lights" stroke-width="6" opacity=".4" filter="url(#b1)"/>
+</g>
+<g class="tall">
+<rect width="1000" height="1500" class="basef"/>
+<ellipse cx="760" cy="260" rx="620" ry="460" class="midf" opacity=".5" filter="url(#b3)"/>
+<path d="M-200 1080 C 150 820, 460 1240, 800 930 S 1120 640, 1250 760 L 1250 1700 L -200 1700 Z" fill="url(#g1)" filter="url(#b2)"/>
+<path d="M-200 860 C 200 600, 500 1010, 850 700 S 1130 400, 1250 440 L 1250 600 C 1060 600, 910 860, 700 960 S 220 930, -200 1130 Z" fill="url(#g2)" opacity=".9" filter="url(#b2)"/>
+<path d="M-200 1380 C 250 1160, 610 1430, 950 1220 S 1150 1110, 1250 1160 L 1250 1700 L -200 1700 Z" fill="url(#g3)" opacity=".95" filter="url(#b2)"/>
+<path d="M-100 900 C 260 660, 540 1050, 860 740 S 1120 470, 1220 500" fill="none" class="lights" stroke-width="9" opacity=".55" filter="url(#b1)"/>
+<path d="M-100 1150 C 300 980, 620 1300, 1000 1110" fill="none" class="lights" stroke-width="6" opacity=".4" filter="url(#b1)"/>
+</g>
 </svg><div class="grain"></div>
 <script>
 // base, deep, mid, accent, light
+const [pal,shape]=location.hash.slice(1).split("-");
+if(shape==="tall"){document.documentElement.classList.add("tall");document.getElementById("w").setAttribute("viewBox","0 0 1000 1500")}
 const P={
  red:["#E3192B","#A80F24","#FF4A3D","#FF7A5E","#FFE1D8"],
- green:["#1E9E83","#0F7A63","#2BC4A0","#7EEBCB","#E8FFF7"]}[location.hash.slice(1)];
+ green:["#1E9E83","#0F7A63","#2BC4A0","#7EEBCB","#E8FFF7"]}[pal];
 const [base,deep,mid,accent,light]=P;
 const css=`.base{stop-color:${base}}.deep{stop-color:${deep}}.mid{stop-color:${mid}}.accent{stop-color:${accent}}.light{stop-color:${light}}
 .basef{fill:${base}}.midf{fill:${mid}}.lights{stroke:${light}}`;

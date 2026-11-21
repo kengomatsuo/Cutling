@@ -1,0 +1,271 @@
+{
+ "name": "Cutling",
+ "icon": "../icon-512.png",
+ "wall": "../wall-green-tall.jpg",
+ "theme": "light",
+ "frames": [
+  {
+   "n": 1,
+   "key": "f1",
+   "cover": true,
+   "headline": "Save it once, paste it over and over",
+   "cards": {
+    "iphone": [
+     {
+      "src": "../cap/iphone-email-body.png",
+      "natural": 1320,
+      "crop": [
+       0,
+       200,
+       1320,
+       1080
+      ],
+      "w": 340,
+      "y": 458
+     },
+     {
+      "src": "../cap/iphone-email-body.png",
+      "natural": 1320,
+      "crop": [
+       0,
+       1760,
+       1320,
+       2390
+      ],
+      "w": 400,
+      "y": 694,
+      "z": 3
+     }
+    ],
+    "ipad": [
+     {
+      "src": "../cap/ipad-address-chat.png",
+      "natural": 2064,
+      "crop": [
+       0,
+       1610,
+       2064,
+       2560
+      ],
+      "w": 940,
+      "y": 640
+     }
+    ]
+   }
+  },
+  {
+   "n": 2,
+   "key": "f2",
+   "headline": "Your email, one tap away",
+   "cards": {
+    "iphone": [
+     {
+      "src": "../cap/iphone-email-to.png",
+      "natural": 1320,
+      "crop": [
+       0,
+       200,
+       1320,
+       700
+      ],
+      "w": 400,
+      "y": 360
+     },
+     {
+      "src": "../cap/iphone-email-to.png",
+      "natural": 1320,
+      "crop": [
+       0,
+       1700,
+       1320,
+       2390
+      ],
+      "w": 430,
+      "y": 540,
+      "z": 3
+     }
+    ]
+   }
+  },
+  {
+   "n": 3,
+   "key": "f3",
+   "headline": "Your address in one tap",
+   "cards": {
+    "iphone": [
+     {
+      "src": "../cap/iphone-address-chat.png",
+      "natural": 1320,
+      "crop": [
+       0,
+       170,
+       1320,
+       590
+      ],
+      "w": 360,
+      "y": 330
+     },
+     {
+      "src": "../cap/iphone-address-chat.png",
+      "natural": 1320,
+      "crop": [
+       0,
+       1500,
+       1320,
+       2200
+      ],
+      "w": 420,
+      "y": 460,
+      "z": 3
+     }
+    ]
+   }
+  },
+  {
+   "n": 4,
+   "key": "f4",
+   "headline": "Everything you type again and again",
+   "cards": {
+    "iphone": [
+     {
+      "src": "../cap/iphone-grid.png",
+      "natural": 1320,
+      "crop": [
+       0,
+       170,
+       1320,
+       2560
+      ],
+      "w": 330,
+      "y": 290
+     }
+    ],
+    "ipad": [
+     {
+      "src": "../cap/ipad-grid.png",
+      "natural": 2064,
+      "crop": [
+       0,
+       180,
+       2064,
+       960
+      ],
+      "w": 940,
+      "y": 360
+     },
+     {
+      "src": "../cap/ipad-keyboard.png",
+      "natural": 2064,
+      "crop": [
+       0,
+       1950,
+       2064,
+       2500
+      ],
+      "w": 820,
+      "y": 770,
+      "z": 3
+     }
+    ]
+   }
+  },
+  {
+   "n": 5,
+   "key": "f5",
+   "headline": "Copied something? Save it in one tap",
+   "cards": {
+    "iphone": [
+     {
+      "src": "../cap/iphone-keyboard.png",
+      "natural": 1320,
+      "crop": [
+       0,
+       1700,
+       1320,
+       2200
+      ],
+      "w": 420,
+      "y": 300,
+      "z": 3
+     },
+     {
+      "src": "../cap/iphone-new.png",
+      "natural": 1320,
+      "crop": [
+       0,
+       250,
+       1320,
+       2060
+      ],
+      "w": 300,
+      "y": 478
+     }
+    ],
+    "ipad": [
+     {
+      "src": "../cap/ipad-new.png",
+      "natural": 2064,
+      "crop": [
+       420,
+       700,
+       1660,
+       2080
+      ],
+      "w": 640,
+      "y": 340
+     },
+     {
+      "src": "../cap/ipad-keyboard.png",
+      "natural": 2064,
+      "crop": [
+       0,
+       1950,
+       2064,
+       2250
+      ],
+      "w": 900,
+      "y": 1080,
+      "z": 3
+     }
+    ]
+   }
+  },
+  {
+   "n": 6,
+   "key": "f6",
+   "headline": "Full clipboard history on your Mac",
+   "cards": {
+    "iphone": [
+     {
+      "src": "../cap/mac-history.png",
+      "natural": 720,
+      "crop": [
+       0,
+       0,
+       720,
+       1028
+      ],
+      "w": 360,
+      "y": 330,
+      "r": 22
+     }
+    ],
+    "ipad": [
+     {
+      "src": "../cap/mac-history.png",
+      "natural": 720,
+      "crop": [
+       0,
+       0,
+       720,
+       1028
+      ],
+      "w": 520,
+      "y": 380,
+      "r": 26
+     }
+    ]
+   }
+  }
+ ]
+}
