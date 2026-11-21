@@ -387,7 +387,7 @@ EN_ONLY_PAGES = [
      "published": "2026-11-20", "crumb": "Paste alternative",
      "title": "Paste alternative you pay for once: Cutling vs Paste",
      "description": ("Paste costs $3.99 a month, $29.99 a year or $89.99 once. Cutling is a one-time purchase for "
-                     "iPhone, iPad and Mac. What each does, where Paste is better, and other one-time options.")},
+                     "iPhone, iPad and Mac that puts what you type every day in your keyboard. Side by side, with other one-time options.")},
     {"slug": "iphone-keyboard-address-bank-details", "link": "Address and bank details keyboard",
      "campaign": "web-keyboard-howto", "type": "Article", "published": "2026-11-20",
      "crumb": "Address and bank details keyboard",
