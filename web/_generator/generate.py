@@ -82,6 +82,13 @@ DIRECTORY_BADGES = [
     '<a href="https://fastlaunch.dev/productivity/cutling" target="_blank" rel="noopener"><img src="https://fastlaunch.dev/badge/fastlaunch-badge-light.svg" alt="Featured on Fast Launch" width="188" height="56" /></a>',
     '<a href="https://lemonlaunch.dev/productivity/cutling" target="_blank" rel="noopener"><img src="https://lemonlaunch.dev/badge/lemonlaunch-badge-light.svg" alt="Featured on LemonLaunch" width="188" height="56" /></a>',
     '<a href="https://tool-list.dev/productivity/cutling" target="_blank" rel="noopener"><img src="https://tool-list.dev/badge/toolwall-badge-light.svg" alt="Featured on Tool List" width="188" height="56" /></a>',
+    '<a href="https://ailaunch.space/" target="_blank" rel="noopener noreferrer"><img src="https://ailaunch.space/assets/badges/featured.svg" alt="Featured on AILaunchSpace" width="225" height="61" /></a>',
+    '<a href="https://indielaunch.dev/?ref=badge" target="_blank" rel="noopener"><img src="https://indielaunch.dev/badges/indielaunch-light.svg" alt="Featured on IndieLaunch" width="200" height="54" /></a>',
+    '<a href="https://indielineup.com/product/cutling?ref=badge" rel="dofollow"><img src="https://indielineup.com/badge/cutling.svg" alt="Featured on IndieLineup" width="160" height="44"></a>',
+    '<a href="https://saaslineup.com/product/cutling?ref=badge" rel="dofollow"><img src="https://saaslineup.com/badge/cutling.svg" alt="Featured on SaaSLineup" width="160" height="44"></a>',
+    '<a href="https://themicrosaasdir.com/product/cutling?ref=badge" rel="dofollow"><img src="https://themicrosaasdir.com/badge/cutling.svg" alt="Featured on TheMicroSaaSDir" width="160" height="44"></a>',
+    '<a href="https://thesaasdir.com/product/cutling?ref=badge" rel="dofollow"><img src="https://thesaasdir.com/badge/cutling.svg" alt="Featured on TheSaaSDir" width="160" height="44"></a>',
+    '<a href="https://letslaunch.today/product/cutling" target="_blank"><img src="https://letslaunch.today/badge/cutling.svg" alt="Cutling on LetsLaunch" width="250" height="54" /></a>',
 ]
 BADGE_STRIP = ('<div class="listed-on"><p class="listed-on-label">Listed on</p><div class="directory-badges">'
                + "".join(DIRECTORY_BADGES) + "</div></div>")
