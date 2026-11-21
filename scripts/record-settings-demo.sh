@@ -20,7 +20,14 @@ for look in light dark; do
   # A buyer meets the switches off: no Cutling install and no keyboard entry left behind.
   xcrun simctl uninstall "$udid" com.matsuokengo.Cutling
   xcrun simctl ui "$udid" appearance "$look"
-  xcrun simctl io "$udid" recordVideo --codec h264 --force "$dir/raw.mp4" >"$dir/record.log" 2>&1 & rec=$!
+  # A device with two screens (iPhone Duo) refuses without --display and lists them; take the
+  # one named "(primary)", the screen XCUIScreen.main shoots and the marks are measured on.
+  record() { xcrun simctl io "$udid" recordVideo $display --codec h264 --force "$dir/raw.mp4" >"$dir/record.log" 2>&1 & rec=$!; }
+  display=""; record; sleep 2
+  if ! kill -0 $rec 2>/dev/null; then
+    display="$(grep -E -- '--display=[0-9]+ +[A-Za-z]+ \(primary\)' "$dir/record.log" | grep -oE -- '--display=[0-9]+' | head -1)"
+    [ -n "$display" ] && record
+  fi
   for _ in $(seq 50); do grep -q "Recording started" "$dir/record.log" && break; sleep 0.1; done
   python3 -c 'import time; print(f"{time.time():.3f}")' >"$dir/start.txt"
   TEST_RUNNER_FORMAT_TEST_SHOTS="$dir" "$repo/scripts/without-cutling-keyboard.sh" \
