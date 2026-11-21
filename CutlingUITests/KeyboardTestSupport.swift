@@ -59,8 +59,12 @@ extension XCTestCase {
             onGrid()
             let kbButton = app.buttons["keyboardToolbarButton"].firstMatch
             XCTAssertTrue(kbButton.waitForExistence(timeout: 5))
-            kbButton.tap()
             let guide = app.buttons["keyboardSetupGuide"].firstMatch
+            // A tap while a large seeded store is still loading can open nothing; tap again.
+            for _ in 0..<3 where !guide.exists {
+                kbButton.tap()
+                if guide.waitForExistence(timeout: 4) { break }
+            }
             if !guide.waitForExistence(timeout: 3) { app.swipeUp() }
             XCTAssertTrue(guide.waitForExistence(timeout: 5))
             // The sheet can still be animating in; retry until the guide opens.
