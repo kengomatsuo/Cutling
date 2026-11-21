@@ -1,14 +1,15 @@
 <!doctype html><html><head><meta charset="utf-8"><style>
 *{margin:0;padding:0}html,body{width:1440px;height:900px;overflow:hidden}
 html.tall,html.tall body{width:100vw;height:100vh}
-html.tall .wide,html:not(.tall) .tall{display:none}
+html.tall .wide,html:not(.tall) .tall,html:not(.top) .top{display:none}
 .grain{position:absolute;inset:0;opacity:.10;mix-blend-mode:overlay;
  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
 </style></head><body>
 <!-- The B wallpaper: the ground is the brand colour itself, the waves its tints. One per palette, rendered once to wall-<palette>.png:
      "Google Chrome" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=2 --window-size=1440,900 --screenshot=wall-red.png "file://$PWD/wall.html#red"
      #red-tall draws the portrait version for the iPhone and iPad frames: calm brand ground over the top two fifths, where the
-     headline sits, and the waves under the floated UI. 1000x1500, so the iPhone crops its sides and the iPad its top and bottom:
+     headline sits, and the waves under the floated UI. #<palette>-tall-top also runs the waves through the top corners, for a
+     set whose floated UI covers the lower waves (Cutling). 1000x1500, so the iPhone crops its sides and the iPad its top and bottom:
      "Google Chrome" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=2 --window-size=1000,1500 --screenshot=wall-red-tall.png "file://$PWD/wall.html#red-tall" -->
 <svg id="w" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;width:100%;height:100%">
 <defs>
@@ -34,15 +35,22 @@ html.tall .wide,html:not(.tall) .tall{display:none}
 <path d="M-200 1380 C 250 1160, 610 1430, 950 1220 S 1150 1110, 1250 1160 L 1250 1700 L -200 1700 Z" fill="url(#g3)" opacity=".95" filter="url(#b2)"/>
 <path d="M-100 900 C 260 660, 540 1050, 860 740 S 1120 470, 1220 500" fill="none" class="lights" stroke-width="9" opacity=".55" filter="url(#b1)"/>
 <path d="M-100 1150 C 300 980, 620 1300, 1000 1110" fill="none" class="lights" stroke-width="6" opacity=".4" filter="url(#b1)"/>
+<g class="top" transform="rotate(180 500 750)">
+<path d="M-200 1290 C 200 1080, 520 1420, 860 1180 S 1130 1010, 1250 1060 L 1250 1700 L -200 1700 Z" fill="url(#g2)" opacity=".75" filter="url(#b2)"/>
+<path d="M-200 1420 C 250 1240, 610 1480, 950 1320 S 1150 1230, 1250 1270 L 1250 1700 L -200 1700 Z" fill="url(#g1)" opacity=".8" filter="url(#b2)"/>
+<path d="M-100 1300 C 260 1100, 560 1420, 1000 1200" fill="none" class="lights" stroke-width="7" opacity=".5" filter="url(#b1)"/>
+</g>
 </g>
 </svg><div class="grain"></div>
 <script>
 // base, deep, mid, accent, light
-const [pal,shape]=location.hash.slice(1).split("-");
+const [pal,shape,more]=location.hash.slice(1).split("-");
+if(more==="top")document.documentElement.classList.add("top");
 if(shape==="tall"){document.documentElement.classList.add("tall");document.getElementById("w").setAttribute("viewBox","0 0 1000 1500")}
 const P={
  red:["#E3192B","#A80F24","#FF4A3D","#FF7A5E","#FFE1D8"],
- green:["#1E9E83","#0F7A63","#2BC4A0","#7EEBCB","#E8FFF7"]}[pal];
+ green:["#1E9E83","#0F7A63","#2BC4A0","#7EEBCB","#E8FFF7"],
+ mint:["#1E9E83","#0B6552","#2FC9A4","#8FF2D4","#F2FFFA"]}[pal];
 const [base,deep,mid,accent,light]=P;
 const css=`.base{stop-color:${base}}.deep{stop-color:${deep}}.mid{stop-color:${mid}}.accent{stop-color:${accent}}.light{stop-color:${light}}
 .basef{fill:${base}}.midf{fill:${mid}}.lights{stroke:${light}}`;
