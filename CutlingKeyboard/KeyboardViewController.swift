@@ -830,11 +830,14 @@ struct KeyboardView: View {
     /// The fill-in design mock on show (FillInMocks.swift), only in -FILLIN_TEST runs.
     private var mockOn: Bool { FillInMock.isOn }
     @State private var mockStep: FillInMock.Step?
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    /// The word typed before the cutling was tapped, which fills its first blank (type-first).
+    @State private var mockTyped: String?
 
-    /// Moves the fill-in mock to a step (nil: back to the grid) with the grid keys' spring.
+    /// Moves the fill-in mock to a step (nil: back to the grid) at once, as Apple's keyboard swaps layouts.
     private func setMockStep(_ step: FillInMock.Step?) {
-        withAnimation(FillInMock.animation(reduceMotion: reduceMotion)) { mockStep = step }
+        var instant = Transaction()
+        instant.disablesAnimations = true
+        withTransaction(instant) { mockStep = step }
     }
     
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
@@ -864,11 +867,9 @@ struct KeyboardView: View {
         VStack(spacing: keySpacing) {
             Group {
                 if let step = mockStep {
-                    FillInMockBar(step: step, keyHeight: keyHeight, onCancel: { setMockStep(nil) })
-                        .transition(.opacity)
+                    FillInMockBar(step: step, typed: mockTyped, keyHeight: keyHeight, onCancel: { setMockStep(nil) })
                 } else {
                     suggestionBar
-                        .transition(.opacity)
                 }
             }
                 .padding(.horizontal, KeyStyle.horizontalPadding)
@@ -877,10 +878,9 @@ struct KeyboardView: View {
 
             Group {
                 if let step = mockStep {
-                    FillInMockKeys(step: step, keyHeight: keyHeight, keySpacing: keySpacing,
+                    FillInMockKeys(step: step, typed: mockTyped, keyHeight: keyHeight, keySpacing: keySpacing,
                                    onYourKeyboard: onSwitchKeyboard,
                                    onPick: { setMockStep(step == .name ? .plan : nil) })
-                        .transition(FillInMock.keyTransition(reduceMotion: reduceMotion))
                 } else if let session = state.fill, let field = session.field {
                     FillInPanel(
                         session: session,
@@ -1127,8 +1127,6 @@ struct KeyboardView: View {
             Image(systemName: info.icon)
                 .font(.system(size: 18, weight: info.isAction ? .semibold : .light))
                 .foregroundStyle(info.isAction ? .white : .primary)
-                // During a fill-in the arrow turns into the checkmark the way SF Symbols replace.
-                .contentTransition(mockStep != nil && !reduceMotion ? .symbolEffect(.replace) : .identity)
                 .frame(width: 92, height: keyHeight)
                 .background(
                     info.isAction
@@ -1170,6 +1168,8 @@ struct KeyboardView: View {
     private func handleTap(_ cutling: Cutling, replacesWord: Bool = false) {
         guard !isBlockedByASCIIField(cutling) else { return }
         if mockOn, !cutling.fillInFields.isEmpty {
+            let typed = state.wordBeforeCursor.trimmingCharacters(in: .whitespaces)
+            mockTyped = typed.isEmpty ? nil : typed
             setMockStep(.name)
             return
         }
@@ -1428,7 +1428,8 @@ struct CutlingKeyView: View {
                                 .fill(Color(hex: 0x01be86).opacity(0.15))
                         )
                 }
-                if isCopied {
+                // The fill-in mock shows the card without the Inserted overlay, as Apple's keyboards confirm nothing (ASG101).
+                if isCopied && !FillInMock.isOn {
                     RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous)
                         .fill(.ultraThinMaterial)
                     Label {
