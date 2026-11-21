@@ -1465,6 +1465,8 @@ struct CutlingKeyView: View {
                 .foregroundStyle(.secondary)
                 .lineLimit(2)
                 .multilineTextAlignment(.leading)
+                // A Formatted cutling's link is drawn, not followed: a tap anywhere on the key types it.
+                .allowsHitTesting(false)
         }
         .padding(KeyStyle.cardPadding(for: horizontalSizeClass))
     }
