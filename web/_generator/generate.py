@@ -76,6 +76,7 @@ DIRECTORY_BADGES = [
     '<a href="https://dododirectory.com" target="_blank" rel="dofollow"><img src="https://dododirectory.com/badge-light.png" alt="Featured on DodoDirectory" width="200" height="54" /></a>',
     '<a href="https://sumodir.com" target="_blank" rel="dofollow"><img src="https://sumodir.com/badge.png" alt="Featured on SumoDir" width="200" height="54" /></a>',
     '<a href="https://easylaunch.dev/productivity/cutling" target="_blank" rel="noopener"><img src="https://easylaunch.dev/badge/easylaunch-badge-light.svg" alt="Featured on EasyLaunch" width="188" height="56" /></a>',
+    '<a href="https://wallof.tools/productivity/cutling" target="_blank" rel="noopener"><img src="https://wallof.tools/badge/toolwall-badge-light.svg" alt="Featured on Wall of Tools" width="188" height="56" /></a>',
 ]
 
 # The caps and features of the Cutling version live on the App Store: live.py, shared with ai_facts.py.
