@@ -69,6 +69,7 @@ DIRECTORY_BADGES = [
     '<a href="https://findly.tools/cutling?utm_source=cutling" target="_blank" rel="noopener noreferrer"><img src="https://findly.tools/badges/findly-tools-badge-light.svg" alt="Featured on Findly.tools" width="175" height="55" /></a>',
     '<a href="https://www.scrolllaunch.com/products/cutling?ref=badge" target="_blank" rel="noopener"><img src="https://www.scrolllaunch.com/api/badge/cutling?variant=launched&theme=light" alt="Cutling - Featured on ScrollLaunch" width="220" height="48" /></a>',
     '<a href="https://queststack.io/" title="Featured on QuestStack" target="_blank" rel="noopener"><img src="https://queststack.io/badge/queststack-ember.svg" alt="Featured on QuestStack" width="226" height="57" /></a>',
+    '<a href="https://bricklaun.ch/productivity/cutling" target="_blank" rel="noopener"><img src="https://bricklaun.ch/badge/brick-launch-badge-a-light.svg" alt="Featured on Brick Launch" width="140" height="54" /></a>',
 ]
 
 # The caps and features of the Cutling version live on the App Store: live.py, shared with ai_facts.py.
