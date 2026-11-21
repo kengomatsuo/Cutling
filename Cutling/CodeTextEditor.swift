@@ -37,27 +37,26 @@ struct EditorBarItem {
 }
 
 #if os(iOS)
-/// The fill-in buttons above the keyboard, scrolled sideways when they don't fit.
+/// The fill-in buttons above the keyboard, laid out like Notes' bar: icons spread across, each named for VoiceOver.
 struct EditorKeyboardBar: View {
     let items: [EditorBarItem]
 
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 8) {
-                ForEach(items, id: \.title) { item in
-                    Button(action: item.action) {
-                        Label(item.title, systemImage: item.icon)
-                            .font(.subheadline)
-                            .padding(.horizontal, 12)
-                            .padding(.vertical, 8)
-                            .background(.regularMaterial, in: Capsule())
-                    }
-                    .buttonStyle(.plain)
+        HStack(spacing: 0) {
+            ForEach(items, id: \.title) { item in
+                Button(action: item.action) {
+                    Label(item.title, systemImage: item.icon)
+                        .labelStyle(.iconOnly)
+                        .font(.system(size: 20))
+                        .frame(maxWidth: .infinity, minHeight: 44)
+                        .contentShape(Rectangle())
                 }
+                .buttonStyle(.borderless)
+                .tint(.primary)
             }
-            .padding(.horizontal, 10)
-            .frame(height: 48)
         }
+        .padding(.horizontal, 8)
+        .frame(height: 48)
         .accessibilityIdentifier("fillInKeyboardBar")
     }
 }

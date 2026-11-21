@@ -880,10 +880,10 @@ struct TextDetailView: View {
     /// What the menu and the keyboard bar insert, in that order. A fill-in field asks for its name first.
     private var placeholderChoices: [(title: String, icon: String, token: String?)] {
         [
-            (String(localized: "Fill-in Field"), "character.cursor.ibeam", nil),
+            (String(localized: "Fill-in Field"), "character.textbox", nil),
             (String(localized: "Today’s Date"), "calendar", Placeholders.marked("date")),
             (String(localized: "Time"), "clock", Placeholders.marked("time")),
-            (String(localized: "Cursor Position"), "cursorarrow.rays", Placeholders.marked("cursor")),
+            (String(localized: "Cursor Position"), "text.cursor", Placeholders.marked("cursor")),
             (String(localized: "Clipboard Text"), "doc.on.clipboard", Placeholders.marked("clipboard")),
         ]
     }

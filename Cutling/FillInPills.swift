@@ -75,9 +75,11 @@ enum FillInPills {
         #endif
         let attributes: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: ink(dark: dark)]
         let textSize = (title as NSString).size(withAttributes: attributes)
-        let size = CGSize(width: ceil(textSize.width) + 12, height: ceil(font.ascender - font.descender) + 2)
-        let rect = CGRect(origin: .zero, size: size)
-        let textOrigin = CGPoint(x: 6, y: (size.height - textSize.height) / 2)
+        // A 2 pt margin each side keeps a pill off the comma or word beside it, as Shortcuts spaces its variables.
+        let margin: CGFloat = 2
+        let size = CGSize(width: ceil(textSize.width) + 12 + 2 * margin, height: ceil(font.ascender - font.descender) + 2)
+        let rect = CGRect(x: margin, y: 0, width: size.width - 2 * margin, height: size.height)
+        let textOrigin = CGPoint(x: margin + 6, y: (size.height - textSize.height) / 2)
         #if os(iOS)
         let image = UIGraphicsImageRenderer(size: size).image { _ in
             green.withAlphaComponent(dark ? 0.22 : 0.15).setFill()
