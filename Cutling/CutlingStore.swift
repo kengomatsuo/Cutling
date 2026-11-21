@@ -59,8 +59,13 @@ extension CutlingStore {
     /// Maximum number of text cutlings allowed
     nonisolated static let maxTextCutlings = 5000
 
-    /// Maximum character length for a single text cutling's value
-    nonisolated static let maxTextLength = 1000
+    /// Maximum character length for a single text cutling's value.
+    nonisolated static let maxTextLength = 10_000
+
+    /// Characters across every text cutling together: the keyboard loads every value. On the iOS 27.2
+    /// simulator, 500 cutlings of 10,000 characters with 500 images peaked at 58.5 MB against the keyboard's
+    /// 77 MB, with previews drawing only their first 400 characters (Cutling.previewSource).
+    nonisolated static let maxTotalTextCharacters = 5_000_000
 
     /// Total limit across both types
     nonisolated static let maxTotalCutlings = maxTextCutlings + maxImageCutlings
@@ -85,7 +90,25 @@ class CutlingStore: ObservableObject {
     }
     #endif
 
-    @Published var cutlings: [Cutling] = []
+    @Published var cutlings: [Cutling] = [] {
+        didSet { cachedTextCharacters = nil }
+    }
+    private var cachedTextCharacters: Int?
+
+    /// Characters across every text cutling, counted once per change.
+    var totalTextCharacters: Int {
+        if let cached = cachedTextCharacters { return cached }
+        let total = cutlings.reduce(0) { $0 + ($1.kind == .text ? $1.value.count : 0) }
+        cachedTextCharacters = total
+        return total
+    }
+
+    /// How long a text cutling may be: the per-cutling cap, or less when the total across all of them is
+    /// nearly used. `id` leaves out the cutling being edited, whose own text is being replaced.
+    func textLimit(excluding id: UUID?) -> Int {
+        let own = id.flatMap { id in cutlings.first { $0.id == id } }.map { $0.kind == .text ? $0.value.count : 0 } ?? 0
+        return max(0, min(Self.maxTextLength, Self.maxTotalTextCharacters - (totalTextCharacters - own)))
+    }
     @Published var lastAddedCutlingID: UUID?
     /// Auto-captured clipboard history (Mac only). Device-local, not synced via CloudKit.
     @Published var historyCutlings: [Cutling] = []

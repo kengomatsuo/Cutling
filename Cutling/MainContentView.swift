@@ -1633,7 +1633,7 @@ struct MainContentView: View {
     /// A text draft that keeps formatting when it fits, else trimmed plain text.
     private func textDraft(plain: String, markdown: String?) -> NewCutlingDraft {
         if let markdown,
-           RichText.plainText(markdown).count <= CutlingStore.maxTextLength,
+           RichText.plainText(markdown).count <= store.textLimit(excluding: nil),
            markdown.count <= RichText.maxStoredLength {
             return NewCutlingDraft(kind: .text, text: markdown, format: .rich)
         }
@@ -1642,8 +1642,8 @@ struct MainContentView: View {
     }
 
     private func truncatedForCutling(_ text: String) -> (String, Bool) {
-        if text.count > CutlingStore.maxTextLength {
-            return (String(text.prefix(CutlingStore.maxTextLength)), true)
+        if text.count > store.textLimit(excluding: nil) {
+            return (String(text.prefix(store.textLimit(excluding: nil))), true)
         }
         return (text, false)
     }

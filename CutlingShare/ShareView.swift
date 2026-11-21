@@ -38,10 +38,10 @@ struct SharedItem: Identifiable {
     }
 
     /// Rich text is refused rather than cut mid-marker.
-    func fits(_ text: String) -> Bool {
+    @MainActor func fits(_ text: String) -> Bool {
         format == .rich
-            ? RichText.plainText(text).count <= CutlingStore.maxTextLength && text.count <= RichText.maxStoredLength
-            : text.count <= CutlingStore.maxTextLength
+            ? RichText.plainText(text).count <= CutlingStore.shared.textLimit(excluding: nil) && text.count <= RichText.maxStoredLength
+            : text.count <= CutlingStore.shared.textLimit(excluding: nil)
     }
 }
 
@@ -188,8 +188,8 @@ struct ShareView: View {
                     Text("Text")
                 } footer: {
                     let visible = item.visibleText(text)
-                    Text("\(visible.count) / \(CutlingStore.maxTextLength)")
-                        .foregroundStyle(visible.count > CutlingStore.maxTextLength - 500 ? .orange : .secondary)
+                    Text("\(visible.count) / \(CutlingStore.shared.textLimit(excluding: nil))")
+                        .foregroundStyle(visible.count > CutlingStore.shared.textLimit(excluding: nil) - 500 ? .orange : .secondary)
                         .font(.caption)
                 }
 
@@ -762,8 +762,8 @@ private struct SharedItemDetailView: View {
                     Text("Text")
                 } footer: {
                     let visible = item.visibleText(text)
-                    Text("\(visible.count) / \(CutlingStore.maxTextLength)")
-                        .foregroundStyle(visible.count > CutlingStore.maxTextLength - 500 ? .orange : .secondary)
+                    Text("\(visible.count) / \(CutlingStore.shared.textLimit(excluding: nil))")
+                        .foregroundStyle(visible.count > CutlingStore.shared.textLimit(excluding: nil) - 500 ? .orange : .secondary)
                         .font(.caption)
                 }
 

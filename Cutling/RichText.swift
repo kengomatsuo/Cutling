@@ -354,7 +354,24 @@ extension Cutling {
     /// (FillInPills.swift) so a preview reads like the cutling, never like its braces.
     var displayText: Text { displayText(pillSize: 13) }
 
+    /// How much of a value a preview draws: well past the few lines any card, key or list row shows.
+    /// Laying out a whole 10,000-character cutling in every visible card costs the keyboard megabytes
+    /// it doesn't have, and makes each card's spoken label the whole text.
+    static let previewLength = 400
+
+    /// The start of `value` a preview draws, never cut inside a fill-in's token.
+    static func previewSource(_ value: String) -> String {
+        guard value.count > previewLength else { return value }
+        var head = String(value.prefix(previewLength))
+        let open = "{\u{2060}"
+        if let start = head.range(of: open, options: .backwards), head[start.upperBound...].firstIndex(of: "}") == nil {
+            head = String(head[..<start.lowerBound])
+        }
+        return head
+    }
+
     func displayText(pillSize: CGFloat) -> Text {
+        let value = Self.previewSource(self.value)
         guard textFormat != .code else { return Text(value).monospaced() }
         let pieces = FillInPills.split(value)
         if pieces.count <= 1, case .text? = pieces.first { return styled(value) }

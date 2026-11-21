@@ -49,7 +49,7 @@ struct SaveTextToCutlingIntent: AppIntent {
         let value = isCode ? text.trimmingCharacters(in: .newlines) : trimmed
         let cutling = Cutling(
             name: String(trimmed.prefix(50)),
-            value: String(value.prefix(CutlingStore.maxTextLength)),
+            value: String(value.prefix(store.textLimit(excluding: nil))),
             icon: suggestion.icon,
             kind: .text,
             inputTypeTriggers: suggestion.triggers.isEmpty ? nil : Array(suggestion.triggers),

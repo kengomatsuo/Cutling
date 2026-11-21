@@ -1323,8 +1323,8 @@ struct KeyboardView: View {
 
     private func addTextFromClipboard(_ rawText: String) {
         // Truncate to character limit
-        let text = rawText.count > CutlingStore.maxTextLength
-            ? String(rawText.prefix(CutlingStore.maxTextLength))
+        let text = rawText.count > store.textLimit(excluding: nil)
+            ? String(rawText.prefix(store.textLimit(excluding: nil)))
             : rawText
 
         if let existing = store.findDuplicateText(value: text) {
@@ -1342,7 +1342,7 @@ struct KeyboardView: View {
         var value = text
         var format = TextFormat.suggested(for: text)
         if let markdown = CutlingPasteboard.formattedMarkdown(allowHTML: false),
-           RichText.plainText(markdown).count <= CutlingStore.maxTextLength,
+           RichText.plainText(markdown).count <= store.textLimit(excluding: nil),
            markdown.count <= RichText.maxStoredLength {
             value = markdown
             format = .rich
