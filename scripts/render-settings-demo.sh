@@ -16,7 +16,7 @@ set -euo pipefail
 src="${1:?folder holding light/ and dark/ from record-settings-demo.sh}"
 repo="$(cd "$(dirname "$0")/.." && pwd)"
 crop_h_frac=0.79   # the alert sits lowest, its buttons near 70% of the screen height
-crop_w_frac=0.88   # the queue's iPhone Duo keeps its clock and camera in a strip on the right
+crop_w_frac=0.85   # the queue's iPhone Duo keeps its clock and camera in a strip on the right
 fps=15
 out_w=700
 work="$(mktemp -d)"; trap 'rm -rf "$work"' EXIT

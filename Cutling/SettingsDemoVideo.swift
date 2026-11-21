@@ -63,7 +63,7 @@ struct SettingsDemoVideo: View {
     }
 
     /// Width over height of the rendered videos (scripts/render-settings-demo.sh crops them).
-    static let aspect: CGFloat = 0.766
+    static let aspect: CGFloat = 0.74
 }
 
 /// A muted, looping, control-free video that plays only while `playing` is true.

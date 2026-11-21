@@ -213,9 +213,6 @@ struct SetupFlowA: View {
                     SetupStepLine(number: 2, text: "Tap **Keyboards** and enable **Cutling**.")
                     SetupStepLine(number: 3, text: "Turn on **Allow Full Access** so the keyboard can copy images to your clipboard.")
                 }
-                Button("About Full Access") { showFullAccess = true }
-                    .font(.subheadline)
-                    .frame(maxWidth: .infinity)
             }
             .padding(.horizontal, 24)
             .padding(.top, 8)
@@ -223,9 +220,15 @@ struct SetupFlowA: View {
         .scrollBounceBehavior(.basedOnSize)
         .background(Color(.systemGroupedBackground))
         .safeAreaInset(edge: .bottom) {
-            AppleSheetButton(title: "Open Settings") { SetupLinks.openSettings() }
-                .padding(.horizontal, 36)
-                .padding(.bottom, 12)
+            // Apple sets a sheet's secondary action as a text link over its one button.
+            VStack(spacing: 12) {
+                Button("About Full Access") { showFullAccess = true }
+                    .font(.subheadline)
+                AppleSheetButton(title: "Open Settings") { SetupLinks.openSettings() }
+            }
+            .padding(.horizontal, 36)
+            .padding(.bottom, 12)
+            .background(Color(.systemGroupedBackground))
         }
     }
 
