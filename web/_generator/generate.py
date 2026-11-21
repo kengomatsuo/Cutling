@@ -66,6 +66,7 @@ DIRECTORY_BADGES = [
     '<a href="https://neeed.directory/products/cutling?utm_source=cutling" target="_blank" rel="noopener"><img src="https://neeed.directory/badges/neeed-badge-light.svg" alt="Featured on neeed.directory" width="139" height="20" /></a>',
     '<a href="https://productwatch.io/products/cutling?utm_source=badge" target="_blank"><img src="https://productwatch.io/backend/api/v1/badge/featured?productId=15e303a6-81c2-41a0-ada6-def70408f32a&darkMode=false" alt="Cutling on ProductWatch" style="max-width:250px;height:auto" /></a>',
     '<a href="https://startupfa.me/s/cutling?utm_source=cutling.matsuokengo.com" target="_blank"><img src="https://startupfa.me/badges/featured-badge-small.webp" alt="Cutling - Featured on Startup Fame" width="224" height="36" /></a>',
+    '<a href="https://findly.tools/cutling?utm_source=cutling" target="_blank" rel="noopener noreferrer"><img src="https://findly.tools/badges/findly-tools-badge-light.svg" alt="Featured on Findly.tools" width="175" height="55" /></a>',
 ]
 
 # The caps and features of the Cutling version live on the App Store: live.py, shared with ai_facts.py.
