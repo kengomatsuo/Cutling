@@ -228,10 +228,7 @@ final class FillInUITests: XCTestCase {
                 fieldButton.tap()
                 let nameField = app.alerts.textFields.firstMatch
                 if nameField.waitForExistence(timeout: 5) {
-                    nameField.tap()
-                    nameField.press(forDuration: 1.0)
-                    if app.menuItems["Select All"].waitForExistence(timeout: 2) { app.menuItems["Select All"].tap() }
-                    nameField.typeText("City")
+                    // The name starts as "Name"; Done keeps it (typing needs a letter keyboard the queue may not show).
                     shot("editor_new_field_alert")
                     app.alerts.buttons["Done"].tap()
                     sleep(1)

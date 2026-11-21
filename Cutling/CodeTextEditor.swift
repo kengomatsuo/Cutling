@@ -56,8 +56,23 @@ struct EditorKeyboardBar: View {
             }
         }
         .padding(.horizontal, 8)
-        .frame(height: 48)
+        .frame(height: 44)
+        .modifier(KeyboardBarBackground())
+        .padding(.horizontal, 12)
+        .padding(.vertical, 4)
         .accessibilityIdentifier("fillInKeyboardBar")
+    }
+}
+
+/// iOS 26 floats the keyboard and leaves the space above it see-through, so the bar carries its own
+/// glass capsule, as Notes' bar does; earlier systems get the bar material.
+private struct KeyboardBarBackground: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(iOS 26, *) {
+            content.glassEffect(.regular.interactive(), in: Capsule())
+        } else {
+            content.background(.bar, in: Capsule())
+        }
     }
 }
 
@@ -120,8 +135,9 @@ extension FormattedTextEditor: UIViewRepresentable {
             let host = UIHostingController(rootView: bar)
             host.view.backgroundColor = .clear
             host.sizingOptions = .intrinsicContentSize
-            let container = UIInputView(frame: CGRect(x: 0, y: 0, width: 0, height: 48), inputViewStyle: .keyboard)
+            let container = UIInputView(frame: CGRect(x: 0, y: 0, width: 0, height: 52), inputViewStyle: .default)
             container.allowsSelfSizing = true
+            container.backgroundColor = .clear
             host.view.translatesAutoresizingMaskIntoConstraints = false
             container.addSubview(host.view)
             NSLayoutConstraint.activate([
@@ -129,7 +145,7 @@ extension FormattedTextEditor: UIViewRepresentable {
                 host.view.trailingAnchor.constraint(equalTo: container.trailingAnchor),
                 host.view.topAnchor.constraint(equalTo: container.topAnchor),
                 host.view.bottomAnchor.constraint(equalTo: container.bottomAnchor),
-                host.view.heightAnchor.constraint(equalToConstant: 48),
+                host.view.heightAnchor.constraint(equalToConstant: 52),
             ])
             barHost = host
             view.inputAccessoryView = container
