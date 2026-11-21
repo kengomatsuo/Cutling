@@ -84,8 +84,7 @@ struct FillInMockCards: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
     private var cards: [Cutling] {
-        let label = step == .name ? "Name" : "Plan"
-        var out = [Cutling(name: "Your Keyboard", value: "Type the \(label.lowercased()) there, then come back", icon: "keyboard", sortOrder: 0)]
+        var out = [Cutling(name: "Your Keyboard", value: "Type it there", icon: "keyboard", sortOrder: 0)]
         if step == .name {
             out += [
                 Cutling(name: "Sarah", value: "Used before", icon: "clock.arrow.circlepath", sortOrder: 1),
