@@ -1,0 +1,179 @@
+== en_US  calendar=gregorian firstWeekday=1
+  date .numeric    : 11/21/2026
+  date .abbreviated: Nov 21, 2026
+  date .long       : November 21, 2026
+  date .complete   : Saturday, November 21, 2026
+  time .shortened  : 2:05 PM
+  time .standard   : 2:05:00 PM
+  weekday+day+month: Saturday, November 21
+  month+year       : November 2026
+  weekday short    : Sat
+  week of year     : 47
+  quarter          : Q4
+  relative -1d named/numeric: yesterday | 1 day ago
+  relative +1d named/numeric: tomorrow | in 1 day
+  relative +2d named/numeric: in 2 days | in 2 days
+  relative +3d named/numeric: in 3 days | in 3 days
+  relative +7d named/numeric: next week | in 1 week
+  relative +30d named/numeric: next month | in 1 month
+== en_GB  calendar=gregorian firstWeekday=2
+  date .numeric    : 21/11/2026
+  date .abbreviated: 21 Nov 2026
+  date .long       : 21 November 2026
+  date .complete   : Saturday, 21 November 2026
+  time .shortened  : 14:05
+  time .standard   : 14:05:00
+  weekday+day+month: Saturday 21 November
+  month+year       : November 2026
+  weekday short    : Sat
+  week of year     : 47
+  quarter          : Q4
+  relative -1d named/numeric: yesterday | 1 day ago
+  relative +1d named/numeric: tomorrow | in 1 day
+  relative +2d named/numeric: in 2 days | in 2 days
+  relative +3d named/numeric: in 3 days | in 3 days
+  relative +7d named/numeric: next week | in 1 week
+  relative +30d named/numeric: next month | in 1 month
+== de_DE  calendar=gregorian firstWeekday=2
+  date .numeric    : 21.11.2026
+  date .abbreviated: 21. Nov. 2026
+  date .long       : 21. November 2026
+  date .complete   : Samstag, 21. November 2026
+  time .shortened  : 14:05
+  time .standard   : 14:05:00
+  weekday+day+month: Samstag, 21. November
+  month+year       : November 2026
+  weekday short    : Sa
+  week of year     : 47
+  quarter          : Q4
+  relative -1d named/numeric: gestern | vor 1 Tag
+  relative +1d named/numeric: morgen | in 1 Tag
+  relative +2d named/numeric: übermorgen | in 2 Tagen
+  relative +3d named/numeric: in 3 Tagen | in 3 Tagen
+  relative +7d named/numeric: nächste Woche | in 1 Woche
+  relative +30d named/numeric: nächsten Monat | in 1 Monat
+== fr_FR  calendar=gregorian firstWeekday=2
+  date .numeric    : 21/11/2026
+  date .abbreviated: 21 nov. 2026
+  date .long       : 21 novembre 2026
+  date .complete   : samedi 21 novembre 2026
+  time .shortened  : 14:05
+  time .standard   : 14:05:00
+  weekday+day+month: samedi 21 novembre
+  month+year       : novembre 2026
+  weekday short    : sam.
+  week of year     : 47
+  quarter          : T4
+  relative -1d named/numeric: hier | il y a 1 jour
+  relative +1d named/numeric: demain | dans 1 jour
+  relative +2d named/numeric: après-demain | dans 2 jours
+  relative +3d named/numeric: dans 3 jours | dans 3 jours
+  relative +7d named/numeric: la semaine prochaine | dans 1 semaine
+  relative +30d named/numeric: le mois prochain | dans 1 mois
+== ja_JP  calendar=gregorian firstWeekday=1
+  date .numeric    : 2026/11/21
+  date .abbreviated: 2026年11月21日
+  date .long       : 2026年11月21日
+  date .complete   : 2026年11月21日 土曜日
+  time .shortened  : 14:05
+  time .standard   : 14:05:00
+  weekday+day+month: 11月21日 土曜日
+  month+year       : 2026年11月
+  weekday short    : 土
+  week of year     : 47
+  quarter          : Q4
+  relative -1d named/numeric: 昨日 | 1 日前
+  relative +1d named/numeric: 明日 | 1 日後
+  relative +2d named/numeric: 明後日 | 2 日後
+  relative +3d named/numeric: 3 日後 | 3 日後
+  relative +7d named/numeric: 来週 | 1 週間後
+  relative +30d named/numeric: 来月 | 1 か月後
+== id_ID  calendar=gregorian firstWeekday=1
+  date .numeric    : 21/11/2026
+  date .abbreviated: 21 Nov 2026
+  date .long       : 21 November 2026
+  date .complete   : Sabtu, 21 November 2026
+  time .shortened  : 14.05
+  time .standard   : 14.05.00
+  weekday+day+month: Sabtu, 21 November
+  month+year       : November 2026
+  weekday short    : Sab
+  week of year     : 47
+  quarter          : K4
+  relative -1d named/numeric: kemarin | 1 hari yang lalu
+  relative +1d named/numeric: besok | dalam 1 hari
+  relative +2d named/numeric: lusa | dalam 2 hari
+  relative +3d named/numeric: dalam 3 hari | dalam 3 hari
+  relative +7d named/numeric: minggu depan | dalam 1 minggu
+  relative +30d named/numeric: bulan depan | dalam 1 bulan
+== ar_SA  calendar=islamic-umalqura firstWeekday=1
+  date .numeric    : ١١ جمادى الآخرة، ١٤٤٨ هـ
+  date .abbreviated: ١١ جمادى الآخرة، ١٤٤٨ هـ
+  date .long       : ١١ جمادى الآخرة، ١٤٤٨ هـ
+  date .complete   : السبت، ١١ جمادى الآخرة، ١٤٤٨ هـ
+  time .shortened  : ٢:٠٥ م
+  time .standard   : ٢:٠٥:٠٠ م
+  weekday+day+month: السبت، ١١ جمادى الآخرة
+  month+year       : جمادى الآخرة، ١٤٤٨ هـ
+  weekday short    : سبت
+  week of year     : ٢٣
+  quarter          : الربع الثاني
+  relative -1d named/numeric: أمس | قبل يوم واحد
+  relative +1d named/numeric: غدًا | خلال يوم واحد
+  relative +2d named/numeric: بعد الغد | خلال يومين
+  relative +3d named/numeric: خلال ٣ أيام | خلال ٣ أيام
+  relative +7d named/numeric: الأسبوع القادم | خلال أسبوع واحد
+  relative +30d named/numeric: الشهر القادم | خلال شهر واحد
+== th_TH  calendar=buddhist firstWeekday=1
+  date .numeric    : 21/11/2569
+  date .abbreviated: 21 พ.ย. 2569
+  date .long       : 21 พฤศจิกายน 2569
+  date .complete   : วันเสาร์ที่ 21 พฤศจิกายน 2569
+  time .shortened  : 14:05
+  time .standard   : 14:05:00
+  weekday+day+month: วันเสาร์ที่ 21 พฤศจิกายน
+  month+year       : พฤศจิกายน 2569
+  weekday short    : เสาร์
+  week of year     : 47
+  quarter          : ไตรมาส 4
+  relative -1d named/numeric: เมื่อวาน | 1 วันที่ผ่านมา
+  relative +1d named/numeric: พรุ่งนี้ | ในอีก 1 วัน
+  relative +2d named/numeric: มะรืนนี้ | ในอีก 2 วัน
+  relative +3d named/numeric: ในอีก 3 วัน | ในอีก 3 วัน
+  relative +7d named/numeric: สัปดาห์หน้า | ในอีก 1 สัปดาห์
+  relative +30d named/numeric: เดือนหน้า | ในอีก 1 เดือน
+== fa_IR  calendar=persian firstWeekday=7
+  date .numeric    : ۱۴۰۵/۸/۳۰
+  date .abbreviated: ۳۰ آبان ۱۴۰۵
+  date .long       : ۳۰ آبان ۱۴۰۵
+  date .complete   : ۱۴۰۵ آبان ۳۰, شنبه
+  time .shortened  : ۱۴:۰۵
+  time .standard   : ۱۴:۰۵:۰۰
+  weekday+day+month: شنبه ۳۰ آبان
+  month+year       : ۱۴۰۵ آبان
+  weekday short    : شنبه
+  week of year     : ۳۶
+  quarter          : س‌م۳
+  relative -1d named/numeric: دیروز | ۱ روز پیش
+  relative +1d named/numeric: فردا | ۱ روز دیگر
+  relative +2d named/numeric: پس‌فردا | ۲ روز دیگر
+  relative +3d named/numeric: ۳ روز دیگر | ۳ روز دیگر
+  relative +7d named/numeric: هفتهٔ آینده | ۱ هفته بعد
+  relative +30d named/numeric: ماه آینده | ۱ ماه بعد
+
+== fixed-format styles (en_US)
+ISO8601 default   : 2026-11-21T07:05:00Z
+ISO8601 date only : 2026-11-21
+ISO8601 week date : 2026-W47-06
+Verbatim y-MM-dd  : 2026-11-21
+Interval          : Nov 21 – 25, 2026
+Interval de_DE    : 21.–25. November 2026
+HTTP              : Sat, 21 Nov 2026 07:05:00 GMT
+Anchored named +1d: tomorrow | days only: in 1 day
+Anchored named +2d: in 2 days | days only: in 2 days
+Anchored named +6d: in 6 days | days only: in 6 days
+Anchored named +7d: next week | days only: in 7 days
+Anchored named +13d: in 2 weeks | days only: in 13 days
+Anchored named +40d: next month | days only: in 40 days
+Template j:mm via DateFormatter de_DE: HH:mm
+Template yMMMd ja_JP: y年M月d日

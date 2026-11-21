@@ -1,0 +1,31 @@
+NOTE (added after the run): timings below were printed with Duration.UnitsFormatStyle in this Mac's region (Indonesia), which uses '.' as the thousands separator, so '17.808 ms' means 17,808 ms = 17.8 s, and '1.240 ms' means 1.24 s.
+availability: available
+prewarm() returned in 0.126096875 seconds
+ 1 MISS tomorrow [en_GB] -> nil  (rule: months 0 weeks 0 days 1 upcomingWeekday -)  17.808 ms
+ 2 MISS the day after tomorrow [en_GB] -> nil  (rule: months 0 weeks 1 days 2 upcomingWeekday -)  7.704 ms
+ 3 MISS in 3 days [en_GB] -> nil  (rule: months 0 weeks 0 days 3 upcomingWeekday -)  5.047 ms
+ 4 MISS two weeks from today [en_GB] -> Wed 2026-12-16  (rule: months 0 weeks 2 days 0 upcomingWeekday wednesday)  3.964 ms
+ 5 MISS this Friday [en_GB] -> Fri 2026-12-11  (rule: months 0 weeks 1 days 4 upcomingWeekday friday)  2.670 ms
+ 6 MISS next Friday [en_GB] -> Fri 2026-12-11  (rule: months 0 weeks 1 days 3 upcomingWeekday friday)  5.613 ms
+ 7 MISS Monday next week [en_GB] -> Mon 2026-12-07  (rule: months 0 weeks 1 days 0 upcomingWeekday monday)  3.260 ms
+ 8 MISS next week Thursday [en_GB] -> Thu 2026-12-10  (rule: months 0 weeks 1 days 1 upcomingWeekday thursday)  2.619 ms
+ 9 MISS the Friday after next [en_GB] -> Fri 2026-12-18  (rule: months 0 weeks 2 days 4 upcomingWeekday friday)  2.072 ms
+10 MISS end of the month [en_GB] -> Thu 2026-12-31  (rule: months 0 weeks 0 days 30 endOfMonth -)  1.700 ms
+11 MISS start of next month [en_GB] -> Mon 2026-12-21  (rule: months 1 weeks 0 days 0 startOfWeek -)  1.488 ms
+12 MISS last day of next month [en_GB] -> nil  (rule: months 1 weeks 0 days 1 lastWeekdayOfMonth -)  1.414 ms
+13 MISS first Monday of next month [en_GB] -> Mon 2027-01-04  (rule: months 1 weeks 1 days 0 firstWeekdayOfMonth monday)  1.444 ms
+14 MISS last Friday of the month [en_GB] -> nil  (rule: months 0 weeks 0 days 4 lastWeekdayOfMonth -)  1.303 ms
+15 OK   last working day of the month [en_GB] -> Mon 2026-11-30  (rule: months 0 weeks 0 days 1 lastWorkdayOfMonth -)  1.327 ms
+16 MISS in 2 months [en_GB] -> nil  (rule: months 2 weeks 0 days 0 upcomingWeekday -)  1.240 ms
+17 MISS end of the week [en_GB] -> Sun 2026-12-06  (rule: months 0 weeks 1 days 1 endOfWeek wednesday)  1.888 ms
+18 MISS nächsten Freitag [de_DE] -> Fri 2026-12-11  (rule: months 0 weeks 1 days 4 upcomingWeekday friday)  3.863 ms
+19 MISS Ende des Monats [de_DE] -> Thu 2026-12-31  (rule: months 0 weeks 1 days 15 endOfMonth -)  3.033 ms
+20 MISS in 3 Tagen [de_DE] -> nil  (rule: months 0 weeks 0 days 3 upcomingWeekday -)  2.286 ms
+21 MISS vendredi prochain [fr_FR] -> Fri 2026-12-11  (rule: months 0 weeks 1 days 4 upcomingWeekday friday)  2.350 ms
+22 MISS fin du mois [fr_FR] -> nil  (rule: months 0 weeks 1 days 15 lastWeekdayOfMonth -)  1.836 ms
+23 MISS fin de mes [es_ES] -> nil  (rule: months 0 weeks 1 days 7 lastWeekdayOfMonth -)  1.979 ms
+24 MISS 来週の金曜日 [ja_JP] -> Fri 2026-12-11  (rule: months 0 weeks 1 days 5 upcomingWeekday friday)  1.577 ms
+25 MISS 月末 [ja_JP] -> nil  (rule: months 0 weeks 1 days 14 lastWeekdayOfMonth -)  1.472 ms
+26 MISS akhir bulan [id_ID] -> Thu 2026-12-31  (rule: months 1 weeks 0 days 1 endOfMonth -)  1.296 ms
+27 MISS Jumat depan [id_ID] -> Fri 2026-12-11  (rule: months 0 weeks 1 days 4 upcomingWeekday friday)  1.473 ms
+correct 1 of 27 answered, 27 asked

@@ -1,0 +1,114 @@
+now: Sat 2026-11-21 13:03 Asia/Jakarta en_GB@rg=idzzzz
+== English
+  today                              -> "today" = Sat 2026-11-21 12:00
+  tomorrow                           -> "tomorrow" = Sun 2026-11-22 12:00
+  the day after tomorrow             -> "the day after tomorrow" = Mon 2026-11-23 12:00
+  yesterday                          -> "yesterday" = Fri 2026-11-20 12:00
+  in 3 days                          -> "in 3 days" = Tue 2026-11-24 12:00
+  3 days from now                    -> (no date found)
+  in two weeks                       -> "in two weeks" = Sat 2026-12-05 12:00
+  next week                          -> (no date found)
+  next Friday                        -> "next Friday" = Fri 2026-11-27 12:00
+  Friday                             -> "Friday" = Fri 2026-11-27 12:00
+  this Friday                        -> "this Friday" = Fri 2026-11-27 12:00
+  on Friday                          -> "Friday" = Fri 2026-11-27 12:00
+  Monday next week                   -> "Monday next week" = Mon 2026-11-23 12:00
+  next month                         -> (no date found)
+  end of the month                   -> (no date found)
+  end of month                       -> (no date found)
+  the last day of the month          -> (no date found)
+  end of the week                    -> (no date found)
+  start of next month                -> (no date found)
+  first Monday of next month         -> "Monday" = Mon 2026-11-23 12:00
+  in 2 months                        -> (no date found)
+  tomorrow at 5pm                    -> "tomorrow at 5pm" = Sun 2026-11-22 17:00
+  next Friday at noon                -> "next Friday at noon" = Fri 2026-11-27 12:00
+  December 5                         -> "December 5" = Sat 2026-12-05 12:00
+  5 Dec                              -> "5 Dec" = Sat 2026-12-05 12:00
+  12/05/2026                         -> "12/05/2026" = Tue 2026-05-12 12:00
+  2026-12-05                         -> "2026-12-05" = Sat 2026-12-05 12:00
+  Christmas                          -> (no date found)
+  New Year's Day                     -> (no date found)
+  tonight                            -> "tonight" = Sat 2026-11-21 19:00
+  this weekend                       -> (no date found)
+== German
+  morgen                             -> (no date found)
+  übermorgen                         -> (no date found)
+  in 3 Tagen                         -> (no date found)
+  nächsten Freitag                   -> (no date found)
+  Freitag                            -> (no date found)
+  nächste Woche                      -> (no date found)
+  Ende des Monats                    -> (no date found)
+  am 5. Dezember                     -> (no date found)
+== French
+  demain                             -> "demain" = Sun 2026-11-22 12:00
+  après-demain                       -> "après-demain" = Mon 2026-11-23 12:00
+  dans 3 jours                       -> "dans 3 jours" = Tue 2026-11-24 12:00
+  vendredi prochain                  -> "vendredi" = Fri 2026-11-27 12:00
+  vendredi                           -> "vendredi" = Fri 2026-11-27 12:00
+  la semaine prochaine               -> (no date found)
+  fin du mois                        -> (no date found)
+  le 5 décembre                      -> "5 décembre" = Sat 2026-12-05 12:00
+== Spanish
+  mañana                             -> (no date found)
+  pasado mañana                      -> (no date found)
+  en 3 días                          -> (no date found)
+  el próximo viernes                 -> (no date found)
+  viernes                            -> (no date found)
+  la próxima semana                  -> (no date found)
+  fin de mes                         -> (no date found)
+  5 de diciembre                     -> (no date found)
+== Japanese
+  明日                                 -> "明日" = Sun 2026-11-22 12:00
+  明後日                                -> "明後日" = Mon 2026-11-23 12:00
+  3日後                                -> "3日後" = Tue 2026-11-24 12:00
+  来週の金曜日                             -> "来週の金曜日" = Fri 2026-11-27 12:00
+  金曜日                                -> "金曜日" = Fri 2026-11-27 12:00
+  来週                                 -> (no date found)
+  月末                                 -> (no date found)
+  12月5日                              -> "12月5日" = Sat 2026-12-05 12:00
+== Indonesian
+  besok                              -> "besok" = Sun 2026-11-22 12:00
+  lusa                               -> "lusa" = Mon 2026-11-23 12:00
+  3 hari lagi                        -> (no date found)
+  Jumat depan                        -> "Jumat" = Fri 2026-11-27 12:00
+  Jumat                              -> "Jumat" = Fri 2026-11-27 12:00
+  minggu depan                       -> (no date found)
+  akhir bulan                        -> (no date found)
+  5 Desember                         -> "5 Desember" = Sat 2026-12-05 12:00
+== Chinese
+  明天                                 -> "明天" = Sun 2026-11-22 12:00
+  后天                                 -> "后天" = Mon 2026-11-23 12:00
+  3天后                                -> (no date found)
+  下周五                                -> "下周五" = Fri 2026-11-27 12:00
+  下个月                                -> (no date found)
+  月底                                 -> (no date found)
+  12月5日                              -> "12月5日" = Sat 2026-12-05 12:00
+== Korean
+  내일                                 -> "내일" = Sun 2026-11-22 12:00
+  모레                                 -> "모레" = Mon 2026-11-23 12:00
+  3일 후                               -> (no date found)
+  다음 주 금요일                           -> "다음 주 금요일" = Fri 2026-11-27 12:00
+  12월 5일                             -> "12월 5일" = Sat 2026-12-05 12:00
+== Arabic
+  غدا                                -> (no date found)
+  الجمعة القادمة                     -> (no date found)
+  بعد 3 أيام                         -> (no date found)
+
+== Calendar (en_US calendar, from the run time)
+  next Friday (nextDate weekday=6 .nextTime)     Fri 2026-11-27 00:00
+  next Saturday from a Saturday                  Sat 2026-11-28 00:00
+  previous Friday (direction .backward)          Fri 2026-11-20 00:00
+  start of this month                            Sun 2026-11-01 00:00
+  end of this month (interval.end - 1 day)       Mon 2026-11-30 00:00
+  start of next month                            Tue 2026-12-01 00:00
+  start of this week (en_US: Sunday)             Sun 2026-11-15 00:00
+  start of this week (en_GB: Monday)             Mon 2026-11-16 00:00
+  Monday next week (en_GB)                       Mon 2026-11-23 00:00
+  +1 month from Jan 31 (clamps)                  Sun 2027-02-28 00:00
+  3 working days later (isDateInWeekend)         Wed 2026-11-25 00:00
+  RecurrenceRule first Monday of a month         Mon 2026-12-07 00:00
+  RecurrenceRule last day of month               Mon 2026-11-30 00:00
+  RecurrenceRule last Friday of month            Fri 2026-11-27 00:00
+  RecurrenceRule last weekday of month (BYSETPOS Mon 2026-12-07 00:00
+  RecurrenceRule Codable JSON: {"end":{},"daysOfTheMonth":[],"weekdays":[{"weekday":"fri","n":-1}],"daysOfTheYear":[],"hours":[],"interval":1,"minutes":[],"seconds":[],"setPositions":[],"frequency":5,"months":[],"weeks":[],"repeatedTimePolicy":0,"calendar":{"firstWeekday":1,"current":0,"minimumDaysInFirstWeek":1,"identifier":"gregorian","locale":{"identifier":"en_US","current":0},"timeZone":{"identifier":"Asia\/Jakarta"}},"matchingPolicy":1}

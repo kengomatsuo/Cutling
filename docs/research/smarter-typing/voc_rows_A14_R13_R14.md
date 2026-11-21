@@ -1,0 +1,4 @@
+Source: ~/Repositories/undirect/docs/research/cutling-voice-of-customer.md rows A14, R13, R14, copied 2026-11-21 (local file, owner's research):
+| A14 | "found a bank account number ... prompt to paste it" | Clip Keyboard id1543660502 review (1 star, "Scam beware"), 2026-11-04 | a suggestion feature surfaced a bank number and felt like a scam | iPhone | Clip Keyboard | partly: Cutling also suggests by field (email field); a clear "suggestions run on device" line matters |
+| R13 | "all text is keylogged - including sensitive passwords and banking information" | r/ios/comments/1ig035s nb1rqee, 2025-08-28 | TextExpander "Suggested Snippet" showed a typed password | iPhone/Mac | stopped using TE | partly: Cutling does not watch typing on iOS; say so in plain words |
+| R14 | "doesn't log or transmit your keystrokes like TextExpander does" | 1ig035s p87sfrr, 2026-09-07 | switching for privacy | iPhone | Fast Reply | yes, if Cutling states it |

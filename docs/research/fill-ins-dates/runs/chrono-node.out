@@ -1,0 +1,62 @@
+== en
+  tomorrow                         -> "tomorrow" = 2026-11-26 Thu  known:[day,month,year]
+  the day after tomorrow           -> "the day after tomorrow" = 2026-11-27 Fri  known:[day,month,year,weekday]
+  in 3 days                        -> "in 3 days" = 2026-11-28 Sat  known:[day,month,year,weekday]
+  3 days from now                  -> "3 days from now" = 2026-11-28 Sat  known:[day,month,year,weekday]
+  two weeks from today             -> "two weeks" = 2026-12-09 Wed  known:[day,month,year]
+  this Friday                      -> "this Friday" = 2026-11-27 Fri  known:[weekday]
+  next Friday                      -> "next Friday" = 2026-12-04 Fri  known:[weekday]
+  Friday                           -> "Friday" = 2026-11-27 Fri  known:[weekday]
+  Monday next week                 -> "Monday next week" = 2026-11-30 Mon  known:[weekday]
+  next week Thursday               -> "next week" = 2026-12-02 Wed  known:[day,month,year]
+  the Friday after next            -> "Friday" = 2026-11-27 Fri  known:[weekday]
+  next week                        -> "next week" = 2026-12-02 Wed  known:[day,month,year]
+  next month                       -> "next month" = 2026-12-25 Fri  known:[month,year]
+  end of the month                 -> "end of the month" = 2026-11-30 Mon  known:[day,month,year]
+  end of month                     -> "end of month" = 2026-11-30 Mon  known:[day,month,year]
+  start of next month              -> "next month" = 2026-12-25 Fri  known:[month,year]
+  last day of next month           -> "last day of next month" = 2026-12-31 Thu  known:[month,year,day]
+  first Monday of next month       -> "Monday" = 2026-11-30 Mon  known:[weekday]
+  last Friday of the month         -> "last Friday" = 2026-11-27 Fri  known:[weekday]
+  last working day of the month    -> "the month" = 2026-12-25 Fri  known:[month,year]
+  in 2 months                      -> "in 2 months" = 2027-01-25 Mon  known:[month,year]
+  end of the week                  -> "the week" = 2026-12-02 Wed  known:[day,month,year]
+  this weekend                     -> "this weekend" = 2026-11-28 Sat  known:[weekday]
+  Christmas                        -> (none)
+  12/05/2026                       -> "12/05/2026" = 2026-12-05 Sat  known:[day,month,year]
+== en.GB
+  12/05/2026                       -> "12/05/2026" = 2026-05-12 Tue  known:[day,month,year]
+== de
+  morgen                           -> "morgen" = 2026-11-26 Thu  known:[day,month,year]
+  übermorgen                       -> "übermorgen" = 2026-11-27 Fri  known:[day,month,year]
+  in 3 Tagen                       -> "in 3 Tagen" = 2026-11-28 Sat  known:[day,month,year,weekday]
+  nächsten Freitag                 -> "nächsten Freitag" = 2026-12-04 Fri  known:[weekday]
+  Freitag                          -> "Freitag" = 2026-11-27 Fri  known:[weekday]
+  Ende des Monats                  -> (none)
+  am 5. Dezember                   -> "am 5. Dezember" = 2026-12-05 Sat  known:[month,day]
+== fr
+  demain                           -> "demain" = 2026-11-26 Thu  known:[day,month,year]
+  dans 3 jours                     -> "dans 3 jours" = 2026-11-28 Sat  known:[day,month,year,weekday]
+  vendredi prochain                -> "vendredi prochain" = 2026-12-04 Fri  known:[weekday]
+  fin du mois                      -> (none)
+  le 5 décembre                    -> "5 décembre" = 2026-12-05 Sat  known:[month,day]
+== es
+  mañana                           -> "mañana" = 2026-11-26 Thu  known:[day,month,year]
+  en 3 días                        -> "en 3 días" = 2026-11-28 Sat  known:[day,month,year,weekday]
+  el próximo viernes               -> "próximo viernes" = 2026-12-04 Fri  known:[weekday]
+  fin de mes                       -> (none)
+== ja
+  明日                               -> "明日" = 2026-11-26 Thu  known:[day,month,year]
+  3日後                              -> (none)
+  来週の金曜日                           -> "金曜日" = 2026-11-27 Fri  known:[weekday]
+  月末                               -> (none)
+== id
+  besok                            -> "besok" = 2026-11-26 Thu  known:[day,month,year]
+  lusa                             -> "lusa" = 2026-11-27 Fri  known:[day,month,year]
+  3 hari lagi                      -> "3 hari lagi" = 2026-11-28 Sat  known:[day,month,year,weekday]
+  Jumat depan                      -> "Jumat depan" = 2026-12-04 Fri  known:[weekday]
+  akhir bulan                      -> (none)
+== zh
+  明天                               -> "明天" = 2026-11-26 Thu  known:[day,month,year]
+  下周五                              -> "下周五" = 2026-12-04 Fri  known:[weekday,day,month,year]
+  月底                               -> (none)

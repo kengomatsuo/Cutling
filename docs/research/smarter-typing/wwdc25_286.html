@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+	<meta charset="utf-8" />
+<meta name="Author" content="Apple Inc." />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="icon" href="/favicon.ico" />
+<link rel="mask-icon" href="/apple-logo.svg" color="#333333">
+
+<link rel="stylesheet" href="/assets/styles/global.dist.css?19212626191" type="text/css" />
+<link rel="stylesheet" href="/assets/styles/dark-mode.css?34212621148" type="text/css" media="(prefers-color-scheme: dark)" data-color-scheme="dark" />
+<link rel="stylesheet" href="/assets/styles/localization.css?34212621148" type="text/css" />
+
+<script src="/assets/scripts/lib/jquery/jquery-3.6.0.min.js?35212621148"></script>
+<script src="/assets/scripts/settings.js?35212621148"></script>
+<script src="/assets/scripts/language-locales.js?50222638203"></script>
+<script src="/assets/scripts/DeveloperBreadcrumbs.js?35212621148"></script>
+<script src="/assets/metrics/scripts/analytics-module.js?35212621148"></script>
+
+<script async src="/assets/scripts/retinate.js?35212621148"></script>
+<script src="/assets/scripts/global-logout.js?35212621148"></script>
+
+<script async crossorigin src="https://sfss.cdn-apple.com/2.0.0-beta.2/sf-symbol.js?21062617325"></script>
+
+
+
+<template id="account-menu-authenticated-template">
+  <div
+    class="account-menu-user-header"
+    role="banner"
+    aria-label="User information"
+    data-aria-label="userInformation"
+  >
+    <div
+      class="account-menu-avatar"
+      data-slot="initial"
+      aria-hidden="true"
+    ></div>
+    <div class="account-menu-user-info">
+      <div class="account-menu-user-name" data-slot="name"></div>
+      <div class="account-menu-user-email" data-slot="email"></div>
+    </div>
+  </div>
+  <hr class="account-menu-divider" role="separator" />
+  <nav aria-label="Account actions" data-aria-label="accountActions">
+    <a href="/account" class="account-menu-link">
+      <span class="account-menu-link-icon-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 117.045 70.459" focusable="false" class="account-menu-link-icon" aria-hidden="true" style="width: 1.17045em; overflow: visible;">
+        <path fill="currentColor" d="M58.496 84.972C85.999 84.972 108.321 62.701 108.321 35.198C108.321 7.695 85.999-14.575 58.496-14.575C31.045-14.575 8.723 7.695 8.723 35.198C8.723 62.701 31.045 84.972 58.496 84.972ZM58.496 76.704C35.551 76.704 17.031 58.143 17.031 35.198C17.031 12.254 35.551-6.308 58.496-6.308C81.441-6.308 100.002 12.254 100.002 35.198C100.002 58.143 81.441 76.704 58.496 76.704ZM91.931 67.386L91.775 66.837C89.342 59.663 76.437 51.8 58.496 51.8C40.576 51.8 27.723 59.652 25.269 66.805L25.113 67.386C33.938 76.078 49.004 81.148 58.507 81.148C68.082 81.148 83.032 76.12 91.931 67.386ZM58.496 43.534C67.894 43.637 75.255 35.61 75.255 25.113C75.255 15.238 67.862 7.065 58.496 7.065C49.182 7.065 41.727 15.238 41.789 25.113C41.841 35.61 49.099 43.43 58.496 43.534Z"/>
+        </svg>
+      </span>
+      <span data-slot="accountOverview"><!-- Account --></span>
+    </a>
+    <a href="https://appstoreconnect.apple.com" class="account-menu-link">
+      <span class="account-menu-link-icon-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 114.927 70.459" focusable="false" class="account-menu-link-icon" aria-hidden="true" style="width: 1.14927em; overflow: visible;">
+        <defs>
+          <mask id="sf-app-badge-mask-0">
+            <rect x="-25" y="-25" width="164.927" height="120.459" fill="white"/>
+            <path d="M94.508 21.908C107.427 21.908 118.135 11.252 118.135-1.719C118.135-14.637 107.427-25.294 94.508-25.294C81.59-25.294 70.933-14.637 70.933-1.719C70.933 11.252 81.59 21.908 94.508 21.908Z" fill="black"/>
+          </mask>
+        </defs>
+        <path fill="currentColor" mask="url(#sf-app-badge-mask-0)" d="M39.031 80.204L75.902 80.204C84.459 80.204 91.145 77.713 95.537 73.321C100.084 68.877 102.472 62.18 102.472 53.633L102.472 16.825C102.472 8.279 100.095 1.592 95.537-2.862C91.083-7.316 84.459-9.745 75.902-9.745L39.031-9.745C30.475-9.745 23.736-7.254 19.344-2.862C14.849 1.582 12.461 8.279 12.461 16.825L12.461 53.633C12.461 62.18 14.838 68.867 19.344 73.321C23.757 77.734 30.475 80.204 39.031 80.204ZM39.031 72.35C32.941 72.35 28.223 70.626 25.125 67.591C21.987 64.442 20.314 59.776 20.314 53.633L20.314 16.825C20.314 10.683 21.987 6.017 25.125 2.868C28.171-0.115 32.941-1.891 39.031-1.891L75.902-1.891C81.941-1.891 86.7-0.167 89.797 2.868C92.946 6.017 94.619 10.683 94.619 16.825L94.619 53.633C94.619 59.776 92.946 64.442 89.797 67.591C86.752 70.574 81.941 72.35 75.902 72.35Z"/>
+        <path fill="currentColor" d="M94.508 15.282C103.767 15.282 111.458 7.643 111.458-1.667C111.458-10.936 103.767-18.565 94.508-18.565C85.25-18.565 77.61-10.936 77.61-1.667C77.61 7.643 85.25 15.282 94.508 15.282Z"/>
+        </svg>
+      </span>
+      <span data-slot="appStoreConnect"><!-- App Store Connect --></span>
+    </a>
+    <a href="/account/resources/" class="account-menu-link">
+      <span class="account-menu-link-icon-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128.282 70.459" focusable="false" class="account-menu-link-icon" aria-hidden="true" style="width: 1.28282em; overflow: visible;">
+        <path fill="currentColor" d="M34.577 77.349L45.175 77.349C46.163 77.349 46.88 77.608 47.607 78.336L55.151 85.817C61.313 92.021 66.975 91.969 73.137 85.817L80.681 78.336C81.409 77.608 82.126 77.349 83.165 77.349L93.712 77.349C102.405 77.349 106.47 73.325 106.47 64.59L106.47 53.991C106.47 53.004 106.792 52.287 107.509 51.549L114.939 44.015C121.142 37.853 121.091 32.192 114.939 25.967L107.509 18.486C106.792 17.758 106.47 16.989 106.47 15.991L106.47 5.455C106.47-3.239 102.457-7.366 93.712-7.366L83.165-7.366C82.126-7.366 81.409-7.626 80.681-8.353L73.137-15.772C66.965-21.997 61.313-22.007 55.141-15.772L47.607-8.353C46.89-7.636 46.163-7.366 45.175-7.366L34.577-7.366C25.831-7.366 21.818-3.342 21.818 5.455L21.818 15.991C21.818 16.989 21.548 17.758 20.831 18.486L13.349 25.967C7.146 32.192 7.198 37.853 13.349 44.015L20.831 51.549C21.548 52.287 21.818 53.004 21.818 53.991L21.818 64.59C21.818 73.284 25.831 77.349 34.577 77.349ZM34.577 69.599C30.256 69.599 29.568 68.911 29.568 64.59L29.568 51.431C29.568 49.926 29.091 48.795 28.063 47.768L18.81 38.555C15.745 35.45 15.745 34.585 18.81 31.427L28.063 22.277C29.091 21.198 29.568 20.056 29.568 18.603L29.568 5.455C29.568 1.009 30.193 0.436 34.577 0.436L47.725 0.436C49.23 0.436 50.371 0.01 51.399-1.121L60.601-10.323C63.707-13.428 64.582-13.428 67.688-10.323L76.889-1.121C77.969 0.01 79.11 0.436 80.564 0.436L93.712 0.436C98.033 0.436 98.731 1.071 98.731 5.455L98.731 18.603C98.731 20.056 99.208 21.198 100.277 22.277L109.489 31.427C112.595 34.585 112.595 35.45 109.489 38.555L100.277 47.768C99.208 48.795 98.731 49.926 98.731 51.431L98.731 64.59C98.731 68.911 98.033 69.599 93.712 69.599L80.564 69.599C79.11 69.599 77.969 70.024 76.889 71.103L67.688 80.357C64.582 83.411 63.707 83.411 60.601 80.357L51.399 71.103C50.371 70.024 49.23 69.599 47.725 69.599Z"/>
+        <path fill="currentColor" d="M58.849 58.158C60.475 58.158 61.832 57.391 62.776 55.89L85.125 20.782C85.653 19.819 86.296 18.721 86.296 17.643C86.296 15.478 84.337 14.079 82.317 14.079C81.063 14.079 79.799 14.805 78.918 16.265L58.631 48.77L49.02 36.306C47.881 34.742 46.793 34.348 45.466 34.348C43.301 34.348 41.695 36.036 41.695 38.223C41.695 39.269 42.089 40.316 42.804 41.259L54.663 55.89C55.917 57.505 57.201 58.158 58.849 58.158Z"/>
+        </svg>
+      </span>
+      <span data-slot="certificatesIDsProfiles"
+        ><!-- Certificates, IDs & Profiles --></span
+      >
+    </a>
+    <a href="/events/view/my-events" class="account-menu-link">
+      <span class="account-menu-link-icon-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 107.046 70.459" focusable="false" class="account-menu-link-icon" aria-hidden="true" style="width: 1.07046em; overflow: visible;">
+        <path fill="currentColor" d="M27.572 87.552L79.423 87.552C89.479 87.552 94.586 82.415 94.586 72.234L94.586-1.796C94.586-12.028 89.51-17.113 79.423-17.113L64.916-17.113C63.29-17.113 62.15-15.963 62.15-14.171C62.15-9.111 58.679-5.566 53.523-5.566C48.327-5.566 44.793-9.111 44.793-14.171C44.793-15.963 43.705-17.113 42.027-17.113L27.572-17.113C17.495-17.113 12.461-12.028 12.461-1.796L12.461 72.234C12.461 82.415 17.516 87.552 27.572 87.552ZM28.007 79.699C22.924 79.699 20.314 76.944 20.314 72.11L20.314-1.671C20.314-6.547 22.924-9.26 28.007-9.26L41.902-9.26L37.353-12.068C38.234-3.494 44.566 2.08 53.523 2.08C62.439 2.08 68.813-3.494 69.693-12.068L65.093-9.26L79.04-9.26C84.071-9.26 86.691-6.547 86.691-1.671L86.691 72.11C86.691 76.944 84.071 79.699 79.04 79.699Z"/>
+        <path fill="currentColor" d="M35.043 19.226L72.065 19.226C73.786 19.226 75.061 17.91 75.061 16.179C75.061 14.5 73.786 13.225 72.065 13.225L35.043 13.225C33.271 13.225 31.986 14.5 31.986 16.179C31.986 17.91 33.271 19.226 35.043 19.226Z"/>
+        <path fill="currentColor" d="M35.043 36.582L52.571 36.582C54.302 36.582 55.587 35.245 55.587 33.587C55.587 31.866 54.302 30.54 52.571 30.54L35.043 30.54C33.271 30.54 31.986 31.866 31.986 33.587C31.986 35.245 33.271 36.582 35.043 36.582Z"/>
+        </svg>
+      </span>
+      <span data-slot="viewEvents"><!-- Events --></span>
+    </a>
+    <a href="https://feedbackassistant.apple.com" class="account-menu-link">
+      <span class="account-menu-link-icon-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132.507 70.459" focusable="false" class="account-menu-link-icon" aria-hidden="true" style="width: 1.32507em; overflow: visible;">
+        <path fill="currentColor" d="M42.493 88.831C44.907 88.831 46.565 87.566 49.465 84.946L66.353 69.961L97.694 69.961C112.219 69.961 120.056 61.896 120.056 47.599L120.056 10.188C120.056-4.109 112.219-12.174 97.694-12.174L34.823-12.174C20.298-12.174 12.461-4.13 12.461 10.188L12.461 47.599C12.461 61.917 20.298 69.961 34.823 69.961L37.126 69.961L37.126 82.645C37.126 86.427 39.064 88.831 42.493 88.831ZM44.492 79.91L44.492 65.776C44.492 63.103 43.497 62.108 40.824 62.108L34.844 62.108C24.95 62.108 20.314 57.099 20.314 47.578L20.314 10.209C20.314 0.729 24.95-4.269 34.844-4.269L97.673-4.269C107.524-4.269 112.202 0.729 112.202 10.209L112.202 47.578C112.202 57.099 107.524 62.108 97.673 62.108L66.034 62.108C63.349 62.108 61.95 62.512 60.104 64.43Z"/>
+        <path fill="currentColor" d="M66.232 37.704C68.595 37.704 69.943 36.398 69.994 33.827L70.709 8.082C70.709 5.615 68.792 3.739 66.181 3.739C63.558 3.739 61.693 5.563 61.745 8.03L62.419 33.827C62.47 36.346 63.808 37.704 66.232 37.704ZM66.232 53.574C69.053 53.574 71.511 51.365 71.511 48.503C71.511 45.641 69.105 43.432 66.232 43.432C63.401 43.432 60.995 45.693 60.995 48.503C60.995 51.313 63.453 53.574 66.232 53.574Z"/>
+        </svg>
+      </span>
+      <span data-slot="feedbackAssistant"><!-- Feedback Assistant --></span>
+    </a>
+    <a href="/forums/" class="account-menu-link">
+      <span class="account-menu-link-icon-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 165.127 70.459" focusable="false" class="account-menu-link-icon" aria-hidden="true" style="width: 1.65127em; overflow: visible;">
+        <defs>
+          <mask id="sf-bubble-left-and-bubble-right-mask-0">
+            <rect x="-25" y="-25" width="215.127" height="120.459" fill="white"/>
+            <path d="M85.887 73.343L101.693 73.343L117.981 87.274C120.963 89.832 122.58 91.127 124.952 91.127C128.308 91.127 130.225 88.734 130.225 85.046L130.225 73.343L131.212 73.343C145.253 73.343 152.669 65.782 152.669 51.948L152.669 25.538C152.669 11.693 145.253 4.122 131.212 4.122L85.887 4.122C71.835 4.122 64.471 11.693 64.471 25.538L64.471 51.969C64.471 65.803 71.835 73.343 85.887 73.343Z" fill="black"/>
+          </mask>
+        </defs>
+        <path fill="currentColor" mask="url(#sf-bubble-left-and-bubble-right-mask-0)" d="M34.823 61.571L37.126 61.571L37.126 74.317C37.126 78.036 39.064 80.451 42.493 80.451C44.907 80.451 46.565 79.176 49.465 76.556L66.353 61.571L97.694 61.571C112.219 61.571 120.056 53.506 120.056 39.209L120.056 1.86C120.056-12.448 112.219-20.502 97.694-20.502L34.823-20.502C20.298-20.502 12.461-12.521 12.461 1.86L12.461 39.209C12.461 53.579 20.298 61.571 34.823 61.571ZM34.844 53.717C24.95 53.717 20.314 48.719 20.314 39.188L20.314 1.881C20.314-7.651 24.95-12.659 34.844-12.659L97.673-12.659C107.524-12.659 112.202-7.651 112.202 1.881L112.202 39.188C112.202 48.719 107.524 53.717 97.673 53.717L66.034 53.717C63.349 53.717 61.95 54.122 60.104 56.05L44.492 71.52L44.492 57.385C44.492 54.712 43.497 53.717 40.824 53.717Z"/>
+        <path fill="currentColor" d="M85.887 73.343L101.693 73.343L117.981 87.274C120.963 89.832 122.58 91.127 124.952 91.127C128.308 91.127 130.225 88.734 130.225 85.046L130.225 73.343L131.212 73.343C145.253 73.343 152.669 65.782 152.669 51.948L152.669 25.538C152.669 11.693 145.253 4.122 131.212 4.122L85.887 4.122C71.835 4.122 64.471 11.693 64.471 25.538L64.471 51.969C64.471 65.803 71.835 73.343 85.887 73.343ZM86.023 65.489C76.477 65.489 72.324 61.006 72.324 51.822L72.335 25.622C72.335 16.49 76.477 11.975 86.023 11.975L131.117 11.975C140.675 11.975 144.764 16.49 144.764 25.622L144.764 51.79C144.764 60.934 140.664 65.489 131.117 65.489L126.671 65.489C124.548 65.489 122.859 66.743 122.859 69.509L122.859 82.278L106.39 67.532C104.72 65.987 103.373 65.489 101.392 65.489Z"/>
+        </svg>
+      </span>
+      <span data-slot="forums"><!-- Forums --></span>
+    </a>
+  </nav>
+  <hr class="account-menu-divider" role="separator" />
+  <nav aria-label="Sign out" data-aria-label="signOut">
+    <a href="/logout/" class="account-menu-link">
+      <span class="account-menu-link-icon-container">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 138.282 70.459" focusable="false" class="account-menu-link-icon" aria-hidden="true" style="width: 1.38282em; overflow: visible;">
+        <defs>
+          <mask id="sf-rectangle-portrait-and-arrow-right-mask-0">
+            <rect x="-25" y="-25" width="188.282" height="120.459" fill="white"/>
+            <path d="M58.186 48.243L120.556 48.243C127.658 48.243 133.497 42.353 133.497 35.198C133.497 28.043 127.658 22.154 120.556 22.154L58.186 22.154C51.083 22.154 45.193 28.043 45.193 35.198C45.193 42.353 51.083 48.243 58.186 48.243Z" fill="black"/>
+          </mask>
+        </defs>
+        <path fill="currentColor" mask="url(#sf-rectangle-portrait-and-arrow-right-mask-0)" d="M32.893 87.552L74.164 87.552C87.266 87.552 94.586 80.285 94.586 67.12L94.586 3.318C94.586-9.794 87.266-17.113 74.164-17.113L32.893-17.113C19.791-17.113 12.461-9.794 12.461 3.318L12.461 67.12C12.461 80.285 19.791 87.552 32.893 87.552ZM32.882 79.699C24.847 79.699 20.314 75.156 20.314 67.12L20.314 3.308C20.314-4.717 24.847-9.26 32.882-9.26L74.175-9.26C82.2-9.26 86.691-4.717 86.691 3.308L86.691 67.12C86.691 75.156 82.2 79.699 74.175 79.699Z"/>
+        <path fill="currentColor" d="M54.363 35.198C54.363 37.271 56.103 39.073 58.186 39.073L107.808 39.073L120.98 38.494C122.783 38.39 124.275 37.001 124.275 35.198C124.275 33.396 122.783 32.007 120.98 31.903L107.808 31.323L58.186 31.323C56.103 31.323 54.363 33.126 54.363 35.198ZM102.999 18.645C102.999 19.578 103.393 20.614 104.159 21.329L112.206 28.858L118.971 35.198L112.206 41.528L104.159 49.057C103.393 49.772 102.999 50.756 102.999 51.689C102.999 53.74 104.439 55.284 106.46 55.284C107.485 55.284 108.252 54.849 109.019 54.082L124.515 38.027C125.489 37.053 125.821 36.183 125.821 35.198C125.821 34.214 125.489 33.344 124.515 32.37L109.019 16.304C108.252 15.537 107.485 15.102 106.46 15.102C104.439 15.102 102.999 16.584 102.999 18.645Z"/>
+        </svg>
+      </span>
+      <span data-slot="signOut"><!-- Sign out --></span>
+    </a>
+  </nav>
+</template>
+
+<link rel="stylesheet" href="/assets/includes/global-session-nav/session.css" type="text/css" />
+
+<script>
+  // Synchronously disables the account link before first paint so the user
+  // cannot navigate away before session.js registers its click listener.
+  (function () {
+    var accountLink = document.querySelector(".globalnav-link-account");
+
+    if (accountLink) {
+      var href = accountLink.getAttribute("href");
+
+      if (href) {
+        accountLink.dataset.pendingHref = href;
+        accountLink.removeAttribute("href");
+        accountLink.style.cursor = "default";
+      }
+    }
+  })();
+</script>
+
+<script type="module" src="/assets/includes/global-session-nav/session.js"></script>
+
+
+	<link rel="stylesheet" href="https://www.apple.com/wss/fonts?families=SF+Pro,v3|SF+Pro+Icons,v3">
+<link rel="stylesheet" href="https://www.apple.com/wss/fonts?family=SF+Mono&v=2" type="text/css" />
+<link rel="stylesheet" href="https://www.apple.com/wss/fonts?family=Apple+Icons&v=1" type="text/css" />
+
+	<title>Meet the Foundation Models framework - WWDC25 - Videos - Apple Developer</title>
+	<meta name="omni_page" content="Meet the Foundation Models framework - WWDC25 - Videos" />
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<link type="text/css" rel="stylesheet" href="/videos/styles/videos.css?3">
+	<link type="text/css" rel="stylesheet" href="/videos/styles/video-overlay.css?3">
+	<meta name="description" content="Learn how to tap into the on-device large language model behind Apple Intelligence! This high-level overview covers everything from...">
+
+	<meta property="og:url" content="https://developer.apple.com/videos/play/wwdc2025/286/" />
+	<meta property="og:title" content="Meet the Foundation Models framework - WWDC25 - Videos - Apple Developer" />
+	<meta property="og:description" content="Learn how to tap into the on-device large language model behind Apple Intelligence! This high-level overview covers everything from..." />
+	<meta property="og:site_name" content="Apple Developer" />
+	<meta property="og:type" content="website" />
+	<meta property="og:video" content="https://devstreaming-cdn.apple.com/videos/wwdc/2025/286/4/6f221dca-f35f-4dad-bfec-0ec0970849bb/cmaf.m3u8" /> 
+	<meta property="og:video_secure_url" content="https://devstreaming-cdn.apple.com/videos/wwdc/2025/286/4/6f221dca-f35f-4dad-bfec-0ec0970849bb/cmaf.m3u8" /> 
+	<meta property="og:video:type" content="vnd.apple.mpegURL" /> 
+	<meta property="og:video:width" content="1280" />
+	<meta property="og:video:height" content="720" />
+		<meta property="og:image" content="https://devimages-cdn.apple.com/wwdc-services/images/3055294D-836B-4513-B7B0-0BC5666246B0/9965/9965_wide_250x141_2x.jpg" />
+		<meta property="og:locale" content="en_US" />
+	<meta itemprop="datePublished" content="2025-06-09">
+	<meta itemprop="uploadDate" content="2025-06-09">	
+
+	<link rel="alternate" href="https://developer.apple.com/videos/play/wwdc2025/286/" hreflang="en">
+	<link rel="alternate" href="https://developer.apple.com/kr/videos/play/wwdc2025/286/" hreflang="ko-KR">
+	<link rel="alternate" href="https://developer.apple.com/cn/videos/play/wwdc2025/286/" hreflang="zh-CN">
+    <link rel="alternate" href="https://developer.apple.com/jp/videos/play/wwdc2025/286/" hreflang="ja-JP">
+	<link rel="alternate" href="https://developer.apple.com/la/videos/play/wwdc2025/286/" hreflang="es-lamr">
+	<link rel="alternate" href="https://developer.apple.com/fr/videos/play/wwdc2025/286/" hreflang="fr-FR">
+	<link rel="alternate" href="https://developer.apple.com/br/videos/play/wwdc2025/286/" hreflang="pt-BR">		
+    <link rel="canonical" href="https://developer.apple.com/videos/play/wwdc2025/286/" />
+
+</head>
+<body class="view-play"
+	>
+	
+	<script>
+	// Execute immediately to avoid UI flash
+	(function () {
+		// Prevent React dev mode from running this multiple times
+		if (window.__didRunColorThemeScript) {
+			return;
+		}
+
+		if (window.angular) {
+			return;
+		}
+
+		window.__didRunColorThemeScript = true;
+
+		const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+		const body = document.body;
+
+		// If theme-dark or theme-light is already applied, do nothing and lock it
+		if (body.classList.contains("theme-dark") || body.classList.contains("theme-light")) {
+
+			// Set the data-color-scheme attribute based on the existing theme
+			body.setAttribute('data-color-scheme', body.classList.contains("theme-dark") ? "dark" : "light");
+
+			// Prevent future modifications
+			window.__disableColorScheme = true;
+
+			// Hide the color picker immediately
+			const style = document.createElement('style');
+			style.textContent = '.color-scheme-toggle { display: none !important; }';
+			document.head.appendChild(style);
+
+			return;
+		}
+
+		// Otherwise, set theme normally based on user settings or system preference
+		if (window.Settings && window.Settings.preferredColorScheme) {
+			const colorTheme = (window.Settings.preferredColorScheme === 'auto') && !prefersDark ? 'light'
+				: (window.Settings.preferredColorScheme === 'light') ? 'light' : 'dark';
+			body.setAttribute('data-color-scheme', colorTheme);
+			colorTheme === "dark" ? body.classList.add("theme-dark") : body.classList.add("theme-light");
+		} else {
+			const colorTheme = prefersDark ? 'dark' : 'light';
+			body.setAttribute('data-color-scheme', colorTheme);
+			prefersDark ? body.classList.add("theme-dark") : body.classList.add("theme-light");
+		}
+	})();
+</script>
+
+<link rel="stylesheet" href="/assets/styles/suggest-lang.css?34212621148" type="text/css" />
+<div id="suggest-lang" class="ribbon hide" lang="en">
+	<div class="ribbon-content-wrapper">
+		<div class="ribbon-content row">
+			<div class="column large-12 large-centered">
+				<p><a href="#" id="suggest-link" class="ribbon-link more">View in English</a></p>
+				<button id="suggest-closer" class="icon icon-after icon-reset" aria-label="Dismiss language suggestion" tabindex="0"></button>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="/assets/scripts/suggest-lang.js?50222638203"></script>
+<link rel="stylesheet" href="/assets/styles/globalnav.css?01192605271" type="text/css" />
+<nav id="globalnav" lang="en-US" dir="ltr" aria-label="Global" class="globalnav js" style="--r-globalnav-text-zoom-scale: 1;" data-aa-content-module="global-header">
+	<div class="globalnav-content">
+		<div class="globalnav-item globalnav-menuback"><button aria-label="Main menu" class="globalnav-menuback-button"><span class="globalnav-chevron-icon"><svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+						<path d="m1.5618 24.0621 6.5581-6.4238c.2368-.2319.2407-.6118.0088-.8486-.2324-.2373-.6123-.2407-.8486-.0088l-7 6.8569c-.1157.1138-.1807.2695-.1802.4316.001.1621.0674.3174.1846.4297l7 6.7241c.1162.1118.2661.1675.4155.1675.1577 0 .3149-.062.4326-.1846.2295-.2388.2222-.6187-.0171-.8481z"></path>
+					</svg></span></button></div>
+		<ul id="globalnav-list" class="globalnav-list">
+			<li class="
+	globalnav-item
+	globalnav-item-apple
+	ac-gn-item
+	ac-gn-apple
+">
+				<a href="/" aria-label="Apple Developer" class="globalnav-link globalnav-link-apple ac-gn-link ac-gn-link-apple-developer" id="ac-gn-firstfocus-small">
+					<span class="ac-gn-link-text globalnav-link-text">Apple Developer</span>
+				</a>
+			</li>
+			<li class="globalnav-item globalnav-menu">
+				<div class="globalnav-flyout" style="--r-globalnav-flyout-item-total: 0; --r-globalnav-flyout-group-number: 0;">
+					<div class="globalnav-menu-list" style="--r-globalnav-flyout-item-total: 7;">
+						<div class="
+    globalnav-item
+    globalnav-item-getting-started
+    globalnav-item-menu
+    globalnav-item-submenu
+" style="--r-globalnav-flyout-item-number: 0;">
+							<ul class="globalnav-submenu-trigger-group">
+								<li class="globalnav-submenu-trigger-item">
+									<a href="/get-started/" data-topnav-flyout-trigger-compact="true" aria-label="Get Started" class="globalnav-link globalnav-submenu-trigger-link globalnav-link-getting-started">
+										<span class="globalnav-link-text-container">
+											<span class="globalnav-link-text">Get Started</span>
+										</span>
+										<span class="globalnav-link-chevron">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m8.1155 30.358a.6.6 0 1 1 -.831.8653l-7-6.7242a.6.6 0 0 1 -.0045-.8613l7-6.8569a.6.6 0 1 1 .84.8574l-6.5582 6.4238z"></path>
+											</svg>
+										</span>
+									</a>
+								</li>
+								<li class="globalnav-submenu-trigger-item">
+									<button id="globalnav-menubutton-link-getting-started" class="globalnav-submenu-trigger-button" aria-expanded="false" aria-controls="globalnav-submenu-link-getting-started" aria-label="Get Started menu" data-topnav-flyout-trigger-regular="true">
+										<span class="globalnav-image-regular globalnav-submenu-button-icon">
+											<svg height="10" viewBox="0 0 10 10" width="10" xmlns="http://www.w3.org/2000/svg">
+												<path d="m4.6725 6.635-2.655-2.667a.445.445 0 0 1 -.123-.304.4331.4331 0 0 1 .427-.439h.006a.447.447 0 0 1 .316.135l2.357 2.365 2.356-2.365a.458.458 0 0 1 .316-.135.433.433 0 0 1 .433.433v.006a.4189.4189 0 0 1 -.123.3l-2.655 2.671a.4451.4451 0 0 1 -.327.14.464.464 0 0 1 -.328-.14z"></path>
+											</svg>
+										</span>
+										<span class="globalnav-image-compact globalnav-submenu-button-icon">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m7.4382 24.0621-6.5581-6.4238c-.2368-.2319-.2407-.6118-.0088-.8486.2324-.2373.6123-.2407.8486-.0088l7 6.8569c.1157.1138.1807.2695.1802.4316-.001.1621-.0674.3174-.1846.4297l-7 6.7242c-.1162.1118-.2661.1675-.4155.1675-.1577 0-.3149-.062-.4326-.1846-.2295-.2388-.2222-.6187.0171-.8481l6.5537-6.2959z"></path>
+											</svg>
+										</span>
+									</button>
+								</li>
+							</ul>
+							<div id="globalnav-submenu-link-getting-started" class="globalnav-flyout globalnav-submenu" aria-labelledby="globalnav-menubutton-link-getting-started" style="--r-globalnav-flyout-item-total: 0; --r-globalnav-flyout-group-number: 0; --r-globalnav-flyout-height: auto; --r-globalnav-flyout-rate: 240ms;">
+								<div class="globalnav-flyout-scroll-container">
+									<div class="globalnav-flyout-content globalnav-submenu-content" style="--r-globalnav-flyout-elevated-group-count: 1; --r-globalnav-flyout-group-total: 2; --r-globalnav-flyout-item-total: 4;">
+										<div class="globalnav-submenu-group globalnav-submenu-group-elevated" style="--r-globalnav-flyout-group-number: 0;">
+
+											<h2 class="globalnav-submenu-header" id="apple-getting-started-heading" style="--r-globalnav-flyout-item-number: 1;">Explore Get Started</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="apple-getting-started-heading">
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 2;"><a href="/get-started/" class="globalnav-submenu-link">Overview</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 3;"><a href="/learn/" class="globalnav-submenu-link">Learn</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 4;"><a href="/programs/" class="globalnav-submenu-link">Apple Developer Program</a></li>
+											</ul>
+										</div>
+										<div class="globalnav-submenu-group" style="--r-globalnav-flyout-group-number: 1;">
+
+											<h2 class="globalnav-submenu-header" id="apple-learn-heading" style="--r-globalnav-flyout-item-number: 1;">Stay Updated</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="apple-learn-heading">
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 2;"><a href="/news/" class="globalnav-submenu-link">Latest News</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 3;"><a href="/hello/" class="globalnav-submenu-link">Hello Developer</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="
+  globalnav-item
+  globalnav-item-platforms
+  globalnav-item-menu
+  globalnav-item-submenu
+" style="--r-globalnav-flyout-item-number: 1;">
+							<ul class="globalnav-submenu-trigger-group">
+								<li class="globalnav-submenu-trigger-item">
+									<a href="/platforms/" aria-label="Platforms" class="globalnav-link globalnav-submenu-trigger-link globalnav-link-platforms">
+										<span class="globalnav-link-text-container">
+											<span class="globalnav-link-text">Platforms</span>
+										</span>
+										<span class="globalnav-link-chevron">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m8.1155 30.358a.6.6 0 1 1 -.831.8653l-7-6.7242a.6.6 0 0 1 -.0045-.8613l7-6.8569a.6.6 0 1 1 .84.8574l-6.5582 6.4238z"></path>
+											</svg>
+										</span>
+									</a>
+								</li>
+								<li class="globalnav-submenu-trigger-item">
+									<button id="globalnav-menubutton-link-platforms" class="globalnav-submenu-trigger-button" aria-expanded="false" aria-controls="globalnav-submenu-link-platforms" aria-label="Platforms menu">
+										<span class="globalnav-image-regular globalnav-submenu-button-icon">
+											<svg height="10" viewBox="0 0 10 10" width="10" xmlns="http://www.w3.org/2000/svg">
+												<path d="m4.6725 6.635-2.655-2.667a.445.445 0 0 1 -.123-.304.4331.4331 0 0 1 .427-.439h.006a.447.447 0 0 1 .316.135l2.357 2.365 2.356-2.365a.458.458 0 0 1 .316-.135.433.433 0 0 1 .433.433v.006a.4189.4189 0 0 1 -.123.3l-2.655 2.671a.4451.4451 0 0 1 -.327.14.464.464 0 0 1 -.328-.14z"></path>
+											</svg>
+										</span>
+										<span class="globalnav-image-compact globalnav-submenu-button-icon">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m7.4382 24.0621-6.5581-6.4238c-.2368-.2319-.2407-.6118-.0088-.8486.2324-.2373.6123-.2407.8486-.0088l7 6.8569c.1157.1138.1807.2695.1802.4316-.001.1621-.0674.3174-.1846.4297l-7 6.7242c-.1162.1118-.2661.1675-.4155.1675-.1577 0-.3149-.062-.4326-.1846-.2295-.2388-.2222-.6187.0171-.8481l6.5537-6.2959z"></path>
+											</svg>
+										</span>
+									</button>
+								</li>
+							</ul>
+							<div id="globalnav-submenu-link-platforms" class="globalnav-flyout globalnav-submenu" aria-labelledby="globalnav-menubutton-link-platforms" style="--r-globalnav-flyout-item-total: 0; --r-globalnav-flyout-group-number: 0; --r-globalnav-flyout-height: auto; --r-globalnav-flyout-rate: 240ms;">
+								<div class="globalnav-flyout-scroll-container">
+									<div class="globalnav-flyout-content globalnav-submenu-content" style="--r-globalnav-flyout-elevated-group-count: 1; --r-globalnav-flyout-group-total: 2; --r-globalnav-flyout-item-total: 9;">
+										<!-- Explore -->
+										<div class="globalnav-submenu-group globalnav-submenu-group-elevated" style="--r-globalnav-flyout-group-number: 0;">
+
+											<h2 class="globalnav-submenu-header" id="platforms-apple-heading" style="--r-globalnav-flyout-item-number: 1;">Explore Platforms</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="platforms-apple-heading">
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 2;"><a href="/platforms/" class="globalnav-submenu-link">Apple Platforms</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 3;"><a href="/ios/" class="globalnav-submenu-link">iOS</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 4;"><a href="/ipados/" class="globalnav-submenu-link">iPadOS</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 5;"><a href="/macos/" class="globalnav-submenu-link">macOS</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 6;"><a href="/tvos/" class="globalnav-submenu-link">tvOS</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 7;"><a href="/visionos/" class="globalnav-submenu-link">visionOS</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 8;"><a href="/watchos/" class="globalnav-submenu-link">watchOS</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 9;"><a href="/app-store/" class="globalnav-submenu-link">App Store</a></li>
+											</ul>
+										</div>
+										<!-- Featured -->
+										<div class="globalnav-submenu-group" style="--r-globalnav-flyout-group-number: 1;">
+
+											<h2 class="globalnav-submenu-header" id="platforms-learn-heading" style="--r-globalnav-flyout-item-number: 1;">Featured</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="platforms-learn-heading">
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 2;"><a href="/design/" class="globalnav-submenu-link">Design</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 3;"><a href="/distribute/" class="globalnav-submenu-link">Distribution</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 4;"><a href="/games/" class="globalnav-submenu-link">Games</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 5;"><a href="/accessories/" class="globalnav-submenu-link">Accessories</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 6;"><a href="/safari/" class="globalnav-submenu-link">Web</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 7;"><a href="/apple-home/" class="globalnav-submenu-link">Home</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 8;"><a href="/carplay/" class="globalnav-submenu-link">CarPlay</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="
+  globalnav-item
+  globalnav-item-technologies
+  globalnav-item-menu
+  globalnav-item-submenu
+" style="--r-globalnav-flyout-item-number: 2;">
+							<ul class="globalnav-submenu-trigger-group">
+								<li class="globalnav-submenu-trigger-item">
+									<a href="/technologies/" aria-label="Technologies" class="globalnav-link globalnav-submenu-trigger-link globalnav-link-technologies">
+										<span class="globalnav-link-text-container">
+											<span class="globalnav-link-text">Technologies</span>
+										</span>
+										<span class="globalnav-link-chevron">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m8.1155 30.358a.6.6 0 1 1 -.831.8653l-7-6.7242a.6.6 0 0 1 -.0045-.8613l7-6.8569a.6.6 0 1 1 .84.8574l-6.5582 6.4238z"></path>
+											</svg>
+										</span>
+									</a>
+								</li>
+								<li class="globalnav-submenu-trigger-item">
+									<button id="globalnav-menubutton-link-technologies" class="globalnav-submenu-trigger-button" aria-expanded="false" aria-controls="globalnav-submenu-link-technologies" aria-label="Technologies menu">
+										<span class="globalnav-image-regular globalnav-submenu-button-icon">
+											<svg height="10" viewBox="0 0 10 10" width="10" xmlns="http://www.w3.org/2000/svg">
+												<path d="m4.6725 6.635-2.655-2.667a.445.445 0 0 1 -.123-.304.4331.4331 0 0 1 .427-.439h.006a.447.447 0 0 1 .316.135l2.357 2.365 2.356-2.365a.458.458 0 0 1 .316-.135.433.433 0 0 1 .433.433v.006a.4189.4189 0 0 1 -.123.3l-2.655 2.671a.4451.4451 0 0 1 -.327.14.464.464 0 0 1 -.328-.14z"></path>
+											</svg>
+										</span>
+										<span class="globalnav-image-compact globalnav-submenu-button-icon">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m7.4382 24.0621-6.5581-6.4238c-.2368-.2319-.2407-.6118-.0088-.8486.2324-.2373.6123-.2407.8486-.0088l7 6.8569c.1157.1138.1807.2695.1802.4316-.001.1621-.0674.3174-.1846.4297l-7 6.7242c-.1162.1118-.2661.1675-.4155.1675-.1577 0-.3149-.062-.4326-.1846-.2295-.2388-.2222-.6187.0171-.8481l6.5537-6.2959z"></path>
+											</svg>
+										</span>
+									</button>
+								</li>
+							</ul>
+							<div id="globalnav-submenu-link-technologies" class="globalnav-flyout globalnav-submenu" aria-labelledby="globalnav-menubutton-link-technologies" style="--r-globalnav-flyout-item-total: 0; --r-globalnav-flyout-group-number: 0; --r-globalnav-flyout-height: auto; --r-globalnav-flyout-rate: 254ms;">
+								<div class="globalnav-flyout-scroll-container">
+									<div class="globalnav-flyout-content globalnav-submenu-content" style="--r-globalnav-flyout-elevated-group-count: 1; --r-globalnav-flyout-group-total: 2; --r-globalnav-flyout-item-total: 8;">
+										<!-- Explore -->
+										<div class="globalnav-submenu-group globalnav-submenu-group-elevated" style="--r-globalnav-flyout-group-number: 0;">
+
+											<h2 class="globalnav-submenu-header" id="technologies-learn-heading" style="--r-globalnav-flyout-item-number: 1;">Explore Technologies</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="technologies-learn-heading">
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 2;"><a href="/technologies/" class="globalnav-submenu-link">Overview</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 3;"><a href="/xcode/" class="globalnav-submenu-link">Xcode</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 4;"><a href="/swift/" class="globalnav-submenu-link">Swift</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 5;"><a href="/swiftui/" class="globalnav-submenu-link">SwiftUI</a></li>
+											</ul>
+										</div>
+										<!-- Featured -->
+										<div class="globalnav-submenu-group" style="--r-globalnav-flyout-group-number: 1;">
+
+											<h2 class="globalnav-submenu-header" id="technologies-featured-heading" style="--r-globalnav-flyout-item-number: 1;">Featured</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="technologies-featured-heading">
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 2;"><a href="/documentation/accessibility" class="globalnav-submenu-link">Accessibility</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 3;"><a href="/machine-learning/" class="globalnav-submenu-link">AI &amp; Machine Learning</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 4;"><a href="/documentation/appintents" class="globalnav-submenu-link">App Intents</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 5;"><a href="/apple-intelligence/" class="globalnav-submenu-link">Apple Intelligence</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 6;"><a href="/games/" class="globalnav-submenu-link">Games</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 7;"><a href="/security/" class="globalnav-submenu-link">Security</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 8;"><a href="/xcode-cloud/" class="globalnav-submenu-link">Xcode Cloud</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="
+  globalnav-item
+  globalnav-item-community
+  globalnav-item-menu
+  globalnav-item-submenu
+" style="--r-globalnav-flyout-item-number: 3;">
+							<ul class="globalnav-submenu-trigger-group">
+								<li class="globalnav-submenu-trigger-item">
+									<a href="/community/" aria-label="Community" class="globalnav-link globalnav-submenu-trigger-link globalnav-link-community">
+										<span class="globalnav-link-text-container">
+											<span class="globalnav-link-text">Community</span>
+										</span>
+										<span class="globalnav-link-chevron">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m8.1155 30.358a.6.6 0 1 1 -.831.8653l-7-6.7242a.6.6 0 0 1 -.0045-.8613l7-6.8569a.6.6 0 1 1 .84.8574l-6.5582 6.4238z"></path>
+											</svg>
+										</span>
+									</a>
+								</li>
+								<li class="globalnav-submenu-trigger-item">
+									<button id="globalnav-menubutton-link-community" class="globalnav-submenu-trigger-button" aria-expanded="false" aria-controls="globalnav-submenu-link-community" aria-label="Community menu">
+										<span class="globalnav-image-regular globalnav-submenu-button-icon">
+											<svg height="10" viewBox="0 0 10 10" width="10" xmlns="http://www.w3.org/2000/svg">
+												<path d="m4.6725 6.635-2.655-2.667a.445.445 0 0 1 -.123-.304.4331.4331 0 0 1 .427-.439h.006a.447.447 0 0 1 .316.135l2.357 2.365 2.356-2.365a.458.458 0 0 1 .316-.135.433.433 0 0 1 .433.433v.006a.4189.4189 0 0 1 -.123.3l-2.655 2.671a.4451.4451 0 0 1 -.327.14.464.464 0 0 1 -.328-.14z"></path>
+											</svg>
+										</span>
+										<span class="globalnav-image-compact globalnav-submenu-button-icon">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m7.4382 24.0621-6.5581-6.4238c-.2368-.2319-.2407-.6118-.0088-.8486.2324-.2373.6123-.2407.8486-.0088l7 6.8569c.1157.1138.1807.2695.1802.4316-.001.1621-.0674.3174-.1846.4297l-7 6.7242c-.1162.1118-.2661.1675-.4155.1675-.1577 0-.3149-.062-.4326-.1846-.2295-.2388-.2222-.6187.0171-.8481l6.5537-6.2959z"></path>
+											</svg>
+										</span>
+									</button>
+								</li>
+							</ul>
+							<div id="globalnav-submenu-link-community" class="globalnav-flyout globalnav-submenu" aria-labelledby="globalnav-menubutton-link-community" style="--r-globalnav-flyout-item-total: 0; --r-globalnav-flyout-group-number: 0; --r-globalnav-flyout-height: auto; --r-globalnav-flyout-rate: 240ms;">
+								<div class="globalnav-flyout-scroll-container">
+									<div class="globalnav-flyout-content globalnav-submenu-content" style="--r-globalnav-flyout-elevated-group-count: 1; --r-globalnav-flyout-group-total: 2; --r-globalnav-flyout-item-total: 7;">
+										<!-- Explore -->
+										<div class="globalnav-submenu-group globalnav-submenu-group-elevated" style="--r-globalnav-flyout-group-number: 0;">
+
+											<h2 class="globalnav-submenu-header" id="community-engage-heading" style="--r-globalnav-flyout-item-number: 1;">Explore Community</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="community-engage-heading">
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 2;"><a href="/community/" class="globalnav-submenu-link">Overview</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 3;"><a href="/events/" class="globalnav-submenu-link">Meet with Apple events</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 4;"><a href="/community/events/" class="globalnav-submenu-link">Community events</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 5;"><a href="/forums/" class="globalnav-submenu-link">Developer Forums</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 6;"><a href="https://opensource.apple.com" class="globalnav-submenu-link">Open Source</a></li>
+											</ul>
+										</div>
+										<!-- Featured -->
+										<div class="globalnav-submenu-group" style="--r-globalnav-flyout-group-number: 1;">
+
+											<h2 class="globalnav-submenu-header" id="community-contribute-heading" style="--r-globalnav-flyout-item-number: 1;">Featured</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="community-contribute-heading">
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 2;"><a href="/wwdc/" class="globalnav-submenu-link">WWDC</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 3;"><a href="/swift-student-challenge/" class="globalnav-submenu-link">Swift Student Challenge</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 4;"><a href="/developer-stories/" class="globalnav-submenu-link">Developer Stories</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 5;"><a href="/app-store/app-store-awards/" class="globalnav-submenu-link">App Store Awards</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 6;"><a href="/design/awards/" class="globalnav-submenu-link">Apple Design Awards</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 7;"><a href="/events/developer-centers/" class="globalnav-submenu-link">Apple Developer Centers</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="
+							    globalnav-item
+							    globalnav-item-documentation
+							    globalnav-item-menu
+							    globalnav-item-submenu
+							" style="--r-globalnav-flyout-item-number: 4;">
+							<ul class="globalnav-submenu-trigger-group">
+								<li class="globalnav-submenu-trigger-item">
+									<a href="/documentation/" aria-label="Documentation" class="globalnav-link globalnav-submenu-trigger-link globalnav-link-documentation">
+										<span class="globalnav-link-text-container">
+											<span class="globalnav-link-text">Documentation</span>
+										</span>
+										<span class="globalnav-link-chevron">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m8.1155 30.358a.6.6 0 1 1 -.831.8653l-7-6.7242a.6.6 0 0 1 -.0045-.8613l7-6.8569a.6.6 0 1 1 .84.8574l-6.5582 6.4238z"></path>
+											</svg>
+										</span>
+									</a>
+								</li>
+								<li class="globalnav-submenu-trigger-item">
+									<button id="globalnav-menubutton-link-documentation" class="globalnav-submenu-trigger-button" aria-expanded="false" aria-controls="globalnav-submenu-link-documentation" aria-label="Documentation menu">
+										<span class="globalnav-image-regular globalnav-submenu-button-icon">
+											<svg height="10" viewBox="0 0 10 10" width="10" xmlns="http://www.w3.org/2000/svg">
+												<path d="m4.6725 6.635-2.655-2.667a.445.445 0 0 1 -.123-.304.4331.4331 0 0 1 .427-.439h.006a.447.447 0 0 1 .316.135l2.357 2.365 2.356-2.365a.458.458 0 0 1 .316-.135.433.433 0 0 1 .433.433v.006a.4189.4189 0 0 1 -.123.3l-2.655 2.671a.4451.4451 0 0 1 -.327.14.464.464 0 0 1 -.328-.14z"></path>
+											</svg>
+										</span>
+										<span class="globalnav-image-compact globalnav-submenu-button-icon">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m7.4382 24.0621-6.5581-6.4238c-.2368-.2319-.2407-.6118-.0088-.8486.2324-.2373.6123-.2407.8486-.0088l7 6.8569c.1157.1138.1807.2695.1802.4316-.001.1621-.0674.3174-.1846.4297l-7 6.7242c-.1162.1118-.2661.1675-.4155.1675-.1577 0-.3149-.062-.4326-.1846-.2295-.2388-.2222-.6187.0171-.8481l6.5537-6.2959z"></path>
+											</svg>
+										</span>
+									</button>
+								</li>
+							</ul>
+							<div id="globalnav-submenu-link-documentation" class="globalnav-flyout globalnav-submenu" aria-labelledby="globalnav-menubutton-link-documentation" style="--r-globalnav-flyout-item-total: 0; --r-globalnav-flyout-group-number: 0; --r-globalnav-flyout-height: auto; --r-globalnav-flyout-rate: 240ms;">
+								<div class="globalnav-flyout-scroll-container">
+									<div class="globalnav-flyout-content globalnav-submenu-content" style="--r-globalnav-flyout-elevated-group-count: 1; --r-globalnav-flyout-group-total: 2; --r-globalnav-flyout-item-total: 9;">
+										<!-- Explore -->
+										<div class="globalnav-submenu-group globalnav-submenu-group-elevated" style="--r-globalnav-flyout-group-number: 0;">
+
+											<h2 class="globalnav-submenu-header" id="docs-explore" style="--r-globalnav-flyout-item-number: 1;">Explore Documentation</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="docs-explore">
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 2;"><a href="/documentation/" class="globalnav-submenu-link">Documentation Library</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 3;"><a href="/documentation/TechnologyOverviews" class="globalnav-submenu-link">Technology Overviews</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 4;"><a href="/documentation/SampleCode" class="globalnav-submenu-link">Sample Code</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 5;"><a href="/design/human-interface-guidelines/" class="globalnav-submenu-link">Human Interface Guidelines</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 6;"><a href="/videos/" class="globalnav-submenu-link">Videos</a></li>
+											</ul>
+										</div>
+										<!-- Release Notes -->
+										<div class="globalnav-submenu-group" style="--r-globalnav-flyout-group-number: 1;">
+
+											<h2 class="globalnav-submenu-header" id="docs-release-notes" style="--r-globalnav-flyout-item-number: 1;">Release Notes</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="docs-release-notes">
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 2;"><a href="/documentation/Updates" class="globalnav-submenu-link">Featured Updates</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 3;"><a href="/documentation/ios-ipados-release-notes" class="globalnav-submenu-link">iOS</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 4;"><a href="/documentation/ios-ipados-release-notes" class="globalnav-submenu-link">iPadOS</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 5;"><a href="/documentation/macos-release-notes" class="globalnav-submenu-link">macOS</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 6;"><a href="/documentation/watchos-release-notes" class="globalnav-submenu-link">watchOS</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 7;"><a href="/documentation/visionos-release-notes/" class="globalnav-submenu-link">visionOS</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 8;"><a href="/documentation/tvos-release-notes" class="globalnav-submenu-link">tvOS</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 9;"><a href="/documentation/Updates/xcode" class="globalnav-submenu-link">Xcode</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="
+  globalnav-item
+  globalnav-item-downloads
+  globalnav-item-menu
+  globalnav-item-submenu
+" style="--r-globalnav-flyout-item-number: 5;">
+							<ul class="globalnav-submenu-trigger-group">
+								<li class="globalnav-submenu-trigger-item">
+									<a href="/download/" aria-label="Downloads" class="globalnav-link globalnav-submenu-trigger-link globalnav-link-downloads">
+										<span class="globalnav-link-text-container">
+											<span class="globalnav-link-text">Downloads</span>
+										</span>
+										<span class="globalnav-link-chevron">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m8.1155 30.358a.6.6 0 1 1 -.831.8653l-7-6.7242a.6.6 0 0 1 -.0045-.8613l7-6.8569a.6.6 0 1 1 .84.8574l-6.5582 6.4238z"></path>
+											</svg>
+										</span>
+									</a>
+								</li>
+								<li class="globalnav-submenu-trigger-item">
+									<button id="globalnav-menubutton-link-downloads" class="globalnav-submenu-trigger-button" aria-expanded="false" aria-controls="globalnav-submenu-link-downloads" aria-label="Downloads menu">
+										<span class="globalnav-image-regular globalnav-submenu-button-icon">
+											<svg height="10" viewBox="0 0 10 10" width="10" xmlns="http://www.w3.org/2000/svg">
+												<path d="m4.6725 6.635-2.655-2.667a.445.445 0 0 1 -.123-.304.4331.4331 0 0 1 .427-.439h.006a.447.447 0 0 1 .316.135l2.357 2.365 2.356-2.365a.458.458 0 0 1 .316-.135.433.433 0 0 1 .433.433v.006a.4189.4189 0 0 1 -.123.3l-2.655 2.671a.4451.4451 0 0 1 -.327.14.464.464 0 0 1 -.328-.14z"></path>
+											</svg>
+										</span>
+										<span class="globalnav-image-compact globalnav-submenu-button-icon">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m7.4382 24.0621-6.5581-6.4238c-.2368-.2319-.2407-.6118-.0088-.8486.2324-.2373.6123-.2407.8486-.0088l7 6.8569c.1157.1138.1807.2695.1802.4316-.001.1621-.0674.3174-.1846.4297l-7 6.7242c-.1162.1118-.2661.1675-.4155.1675-.1577 0-.3149-.062-.4326-.1846-.2295-.2388-.2222-.6187.0171-.8481l6.5537-6.2959z"></path>
+											</svg>
+										</span>
+									</button>
+								</li>
+							</ul>
+							<div id="globalnav-submenu-link-downloads" class="globalnav-flyout globalnav-submenu" aria-labelledby="globalnav-menubutton-link-downloads" style="--r-globalnav-flyout-item-total: 0; --r-globalnav-flyout-group-number: 0; --r-globalnav-flyout-height: auto; --r-globalnav-flyout-rate: 240ms;">
+								<div class="globalnav-flyout-scroll-container">
+									<div class="globalnav-flyout-content globalnav-submenu-content" style="--r-globalnav-flyout-elevated-group-count: 1; --r-globalnav-flyout-group-total: 2; --r-globalnav-flyout-item-total: 6;">
+										<!-- Explore -->
+										<div class="globalnav-submenu-group globalnav-submenu-group-elevated" style="--r-globalnav-flyout-group-number: 0;">
+
+											<h2 class="globalnav-submenu-header" id="downloads-explore-heading" style="--r-globalnav-flyout-item-number: 1;">Explore Downloads</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="downloads-explore-heading">
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 2;"><a href="/download/" class="globalnav-submenu-link">All Downloads</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 3;"><a href="/download/os/" class="globalnav-submenu-link">Operating Systems</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 4;"><a href="/download/applications/" class="globalnav-submenu-link">Applications</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 5;"><a href="/design/resources/" class="globalnav-submenu-link">Design Resources</a></li>
+											</ul>
+										</div>
+										<!-- Featured -->
+										<div class="globalnav-submenu-group" style="--r-globalnav-flyout-group-number: 1;">
+
+											<h2 class="globalnav-submenu-header" id="downloads-featured-heading" style="--r-globalnav-flyout-item-number: 1;">Featured</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="downloads-featured-heading">
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 2;"><a href="/xcode/" class="globalnav-submenu-link">Xcode</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 3;"><a href="/testflight/" class="globalnav-submenu-link">TestFlight</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 4;"><a href="/fonts/" class="globalnav-submenu-link">Fonts</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 5;"><a href="/sf-symbols/" class="globalnav-submenu-link">SF Symbols</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 6;"><a href="/icon-composer/" class="globalnav-submenu-link">Icon Composer</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="
+  globalnav-item
+  globalnav-item-support
+  globalnav-item-menu
+  globalnav-item-submenu
+" style="--r-globalnav-flyout-item-number: 6;">
+							<ul class="globalnav-submenu-trigger-group">
+								<li class="globalnav-submenu-trigger-item">
+									<a href="/support/" aria-label="Support" class="globalnav-link globalnav-submenu-trigger-link globalnav-link-support">
+										<span class="globalnav-link-text-container">
+											<span class="globalnav-link-text">Support</span>
+										</span>
+										<span class="globalnav-link-chevron">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m8.1155 30.358a.6.6 0 1 1 -.831.8653l-7-6.7242a.6.6 0 0 1 -.0045-.8613l7-6.8569a.6.6 0 1 1 .84.8574l-6.5582 6.4238z"></path>
+											</svg>
+										</span>
+									</a>
+								</li>
+								<li class="globalnav-submenu-trigger-item">
+									<button id="globalnav-menubutton-link-support" class="globalnav-submenu-trigger-button" aria-expanded="false" aria-controls="globalnav-submenu-link-support" aria-label="Support menu">
+										<span class="globalnav-image-regular globalnav-submenu-button-icon">
+											<svg height="10" viewBox="0 0 10 10" width="10" xmlns="http://www.w3.org/2000/svg">
+												<path d="m4.6725 6.635-2.655-2.667a.445.445 0 0 1 -.123-.304.4331.4331 0 0 1 .427-.439h.006a.447.447 0 0 1 .316.135l2.357 2.365 2.356-2.365a.458.458 0 0 1 .316-.135.433.433 0 0 1 .433.433v.006a.4189.4189 0 0 1 -.123.3l-2.655 2.671a.4451.4451 0 0 1 -.327.14.464.464 0 0 1 -.328-.14z"></path>
+											</svg>
+										</span>
+										<span class="globalnav-image-compact globalnav-submenu-button-icon">
+											<svg height="48" viewBox="0 0 9 48" width="9" xmlns="http://www.w3.org/2000/svg">
+												<path d="m7.4382 24.0621-6.5581-6.4238c-.2368-.2319-.2407-.6118-.0088-.8486.2324-.2373.6123-.2407.8486-.0088l7 6.8569c.1157.1138.1807.2695.1802.4316-.001.1621-.0674.3174-.1846.4297l-7 6.7242c-.1162.1118-.2661.1675-.4155.1675-.1577 0-.3149-.062-.4326-.1846-.2295-.2388-.2222-.6187.0171-.8481l6.5537-6.2959z"></path>
+											</svg>
+										</span>
+									</button>
+								</li>
+							</ul>
+							<div id="globalnav-submenu-link-support" class="globalnav-flyout globalnav-submenu" aria-labelledby="globalnav-menubutton-link-support" style="--r-globalnav-flyout-item-total: 0; --r-globalnav-flyout-group-number: 0; --r-globalnav-flyout-height: auto; --r-globalnav-flyout-rate: 240ms;">
+								<div class="globalnav-flyout-scroll-container">
+									<div class="globalnav-flyout-content globalnav-submenu-content" style="--r-globalnav-flyout-elevated-group-count: 1; --r-globalnav-flyout-group-total: 2; --r-globalnav-flyout-item-total: 7;">
+										<!-- Explore -->
+										<div class="globalnav-submenu-group globalnav-submenu-group-elevated" style="--r-globalnav-flyout-group-number: 0;">
+
+											<h2 class="globalnav-submenu-header" id="explore-support" style="--r-globalnav-flyout-item-number: 1;">Explore Support</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="explore-support">
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 2;"><a href="/support/" class="globalnav-submenu-link">Overview</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 3;"><a href="/help/" class="globalnav-submenu-link">Help Guides</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 4;"><a href="/forums/" class="globalnav-submenu-link">Developer Forums</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 5;"><a href="/feedback-assistant/" class="globalnav-submenu-link">Feedback Assistant</a></li>
+												<li class="globalnav-submenu-list-item-elevated" style="--r-globalnav-flyout-item-number: 6;"><a href="/contact/" class="globalnav-submenu-link">Contact Us</a></li>
+											</ul>
+										</div>
+										<!-- Featured -->
+										<div class="globalnav-submenu-group" style="--r-globalnav-flyout-group-number: 1;">
+
+											<h2 class="globalnav-submenu-header" id="support-help" style="--r-globalnav-flyout-item-number: 1;">Featured</h2>
+											<ul class="globalnav-submenu-list" aria-labelledby="support-help">
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 2;"><a href="/help/account/" class="globalnav-submenu-link">Account Help</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 3;"><a href="/app-store/review/guidelines/" class="globalnav-submenu-link">App Review Guidelines</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 4;"><a href="/help/app-review/" class="globalnav-submenu-link">App Review Help</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 5;"><a href="/help/app-store-connect/" class="globalnav-submenu-link">App Store Connect Help</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 6;"><a href="/news/upcoming-requirements/" class="globalnav-submenu-link">Upcoming Requirements</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 7;"><a href="/support/terms/" class="globalnav-submenu-link">Agreements and Guidelines</a></li>
+												<li class="globalnav-submenu-list-item" style="--r-globalnav-flyout-item-number: 8;"><a href="/system-status/" class="globalnav-submenu-link">System Status</a></li>
+											</ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<!-- Search -->
+			<li data-topnav-flyout-label="Search" class="globalnav-item globalnav-search shift-0-1" data-globalnav-iconflyout-enabled="true">
+				<a role="button" id="globalnav-menubutton-link-search" href="/search/" data-topnav-flyout-trigger-regular="true" data-topnav-flyout-trigger-compact="true" aria-label="Search" class="globalnav-link globalnav-link-search">
+					<span class="globalnav-image-regular">
+						<svg xmlns="http://www.w3.org/2000/svg" width="15px" height="44px" viewBox="0 0 15 44">
+							<path d="M14.298,27.202l-3.87-3.87c0.701-0.929,1.122-2.081,1.122-3.332c0-3.06-2.489-5.55-5.55-5.55c-3.06,0-5.55,2.49-5.55,5.55 c0,3.061,2.49,5.55,5.55,5.55c1.251,0,2.403-0.421,3.332-1.122l3.87,3.87c0.151,0.151,0.35,0.228,0.548,0.228 s0.396-0.076,0.548-0.228C14.601,27.995,14.601,27.505,14.298,27.202z M1.55,20c0-2.454,1.997-4.45,4.45-4.45 c2.454,0,4.45,1.997,4.45,4.45S8.454,24.45,6,24.45C3.546,24.45,1.55,22.454,1.55,20z"></path>
+						</svg>
+					</span>
+					<span class="globalnav-image-compact">
+						<svg height="48" viewBox="0 0 17 48" width="17" xmlns="http://www.w3.org/2000/svg">
+							<path d="m16.2294 29.9556-4.1755-4.0821a6.4711 6.4711 0 1 0 -1.2839 1.2625l4.2005 4.1066a.9.9 0 1 0 1.2588-1.287zm-14.5294-8.0017a5.2455 5.2455 0 1 1 5.2455 5.2527 5.2549 5.2549 0 0 1 -5.2455-5.2527z"></path>
+						</svg>
+					</span>
+				</a>
+				<div id="globalnav-submenu-search" aria-labelledby="globalnav-menubutton-link-search" class="globalnav-flyout globalnav-submenu" style="--r-globalnav-flyout-item-total: 0; --r-globalnav-flyout-group-number: 0; --r-globalnav-flyout-height: 388px; --r-globalnav-flyout-rate: 240ms;">
+					<div class="globalnav-flyout-scroll-container">
+						<div class="globalnav-flyout-content globalnav-submenu-content">
+							<form action="/search/" method="get" class="globalnav-searchfield">
+								<div class="globalnav-searchfield-wrapper">
+									<input placeholder="Ask Apple Developer" name="q" aria-label="Ask Apple Developer" autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false" class="globalnav-searchfield-input">
+									<input id="globalnav-searchfield-src" type="hidden" name="src" value="globalnav">
+									<button aria-label="Clear search" tabindex="-1" type="button" class="globalnav-searchfield-reset" disabled="" aria-hidden="true">
+										<span class="globalnav-image-regular">
+											<svg height="14" viewBox="0 0 14 14" width="14" xmlns="http://www.w3.org/2000/svg">
+												<path d="m7 .0339a6.9661 6.9661 0 1 0 6.9661 6.9661 6.9661 6.9661 0 0 0 -6.9661-6.9661zm2.798 8.9867a.55.55 0 0 1 -.778.7774l-2.02-2.02-2.02 2.02a.55.55 0 0 1 -.7784-.7774l2.0206-2.0206-2.0204-2.02a.55.55 0 0 1 .7782-.7778l2.02 2.02 2.02-2.02a.55.55 0 0 1 .778.7778l-2.0203 2.02z"></path>
+											</svg>
+										</span>
+										<span class="globalnav-image-compact">
+											<svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+												<path d="m0 8a8.0474 8.0474 0 0 1 7.9922-8 8.0609 8.0609 0 0 1 8.0078 8 8.0541 8.0541 0 0 1 -8 8 8.0541 8.0541 0 0 1 -8-8zm5.6549 3.2863 2.3373-2.353 2.3451 2.353a.6935.6935 0 0 0 .4627.1961.6662.6662 0 0 0 .6667-.6667.6777.6777 0 0 0 -.1961-.4706l-2.3451-2.3373 2.3529-2.3607a.5943.5943 0 0 0 .1961-.4549.66.66 0 0 0 -.6667-.6589.6142.6142 0 0 0 -.447.1961l-2.3686 2.3606-2.353-2.3527a.6152.6152 0 0 0 -.447-.1883.6529.6529 0 0 0 -.6667.651.6264.6264 0 0 0 .1961.4549l2.3451 2.3529-2.3451 2.353a.61.61 0 0 0 -.1961.4549.6661.6661 0 0 0 .6667.6667.6589.6589 0 0 0 .4627-.1961z"></path>
+											</svg>
+										</span>
+									</button>
+									<button aria-label="Submit search" tabindex="-1" aria-hidden="true" type="submit" class="globalnav-searchfield-submit" disabled="">
+										<span class="globalnav-image-regular">
+											<svg height="32" viewBox="0 0 30 32" width="30" xmlns="http://www.w3.org/2000/svg">
+												<path d="m23.3291 23.3066-4.35-4.35c-.0105-.0105-.0247-.0136-.0355-.0235a6.8714 6.8714 0 1 0 -1.5736 1.4969c.0214.0256.03.0575.0542.0815l4.35 4.35a1.1 1.1 0 1 0 1.5557-1.5547zm-15.4507-8.582a5.6031 5.6031 0 1 1 5.603 5.61 5.613 5.613 0 0 1 -5.603-5.61z"></path>
+											</svg>
+										</span>
+										<span class="globalnav-image-compact">
+											<svg width="38" height="40" viewBox="0 0 38 40" xmlns="http://www.w3.org/2000/svg">
+												<path d="m28.6724 27.8633-5.07-5.07c-.0095-.0095-.0224-.0122-.032-.0213a7.9967 7.9967 0 1 0 -1.8711 1.7625c.0254.03.0357.0681.0642.0967l5.07 5.07a1.3 1.3 0 0 0 1.8389-1.8379zm-18.0035-10.0033a6.5447 6.5447 0 1 1 6.545 6.5449 6.5518 6.5518 0 0 1 -6.545-6.5449z"></path>
+											</svg>
+										</span>
+									</button>
+								</div>
+							</form>
+							<div class="globalnav-searchresults">
+								<div class="globalnav-searchresults-current">
+									<div class="globalnav-searchresults-container" style="--r-globalnav-flyout-group-number: 0;">
+
+										<h2 class="globalnav-searchresults-header" style="--r-globalnav-flyout-item-number: 0;">Quick Links</h2>
+										<ul class="globalnav-searchresults-list" role="list">
+											<li class="globalnav-searchresults-list-item" role="listitem" style="--r-globalnav-flyout-item-number: 1;">
+												<a class="globalnav-searchresults-list-link" href="/events/" data-query="no keyword" data-section="quicklinks" data-items="5" data-index="0" data-label="Events">
+													<span class="globalnav-searchresults-list-icon">
+														<span class="globalnav-image-regular globalnav-link-image">
+															<svg height="16" viewBox="0 0 9 16" width="9" xmlns="http://www.w3.org/2000/svg">
+																<path d="m8.6124 8.1035-2.99 2.99a.5.5 0 0 1 -.7071-.7071l2.1366-2.1364h-6.316a.5.5 0 0 1 0-1h6.316l-2.1368-2.1367a.5.5 0 0 1 .7071-.7071l2.99 2.99a.5.5 0 0 1 .0002.7073z"></path>
+															</svg>
+														</span>
+														<span class="globalnav-image-compact globalnav-link-image">
+															<svg height="25" viewBox="0 0 13 25" width="13" xmlns="http://www.w3.org/2000/svg">
+																<path d="m12.3577 13.4238-4.4444 4.4444a.6.6 0 0 1 -.8486-.8477l3.37-3.37h-9.3231a.65.65 0 0 1 0-1.3008h9.3232l-3.37-3.37a.6.6 0 0 1 .8486-.8477l4.4444 4.4444a.5989.5989 0 0 1 -.0001.8474z"></path>
+															</svg>
+														</span>
+													</span>
+													<span class="globalnav-searchresults-list-text">Events</span>
+												</a>
+											</li>
+											<li class="globalnav-searchresults-list-item" role="listitem" style="--r-globalnav-flyout-item-number: 2;">
+												<a class="globalnav-searchresults-list-link" href="/news/" data-query="no keyword" data-section="quicklinks" data-items="5" data-index="1" data-label="News">
+													<span class="globalnav-searchresults-list-icon">
+														<span class="globalnav-image-regular globalnav-link-image">
+															<svg height="16" viewBox="0 0 9 16" width="9" xmlns="http://www.w3.org/2000/svg">
+																<path d="m8.6124 8.1035-2.99 2.99a.5.5 0 0 1 -.7071-.7071l2.1366-2.1364h-6.316a.5.5 0 0 1 0-1h6.316l-2.1368-2.1367a.5.5 0 0 1 .7071-.7071l2.99 2.99a.5.5 0 0 1 .0002.7073z"></path>
+															</svg>
+														</span>
+														<span class="globalnav-image-compact globalnav-link-image">
+															<svg height="25" viewBox="0 0 13 25" width="13" xmlns="http://www.w3.org/2000/svg">
+																<path d="m12.3577 13.4238-4.4444 4.4444a.6.6 0 0 1 -.8486-.8477l3.37-3.37h-9.3231a.65.65 0 0 1 0-1.3008h9.3232l-3.37-3.37a.6.6 0 0 1 .8486-.8477l4.4444 4.4444a.5989.5989 0 0 1 -.0001.8474z"></path>
+															</svg>
+														</span>
+													</span>
+													<span class="globalnav-searchresults-list-text">News</span>
+												</a>
+											</li>
+											<li class="globalnav-searchresults-list-item" role="listitem" style="--r-globalnav-flyout-item-number: 3;">
+												<a class="globalnav-searchresults-list-link" href="/forums/" data-query="no keyword" data-section="quicklinks" data-items="5" data-index="2" data-label="Forums">
+													<span class="globalnav-searchresults-list-icon">
+														<span class="globalnav-image-regular globalnav-link-image">
+															<svg height="16" viewBox="0 0 9 16" width="9" xmlns="http://www.w3.org/2000/svg">
+																<path d="m8.6124 8.1035-2.99 2.99a.5.5 0 0 1 -.7071-.7071l2.1366-2.1364h-6.316a.5.5 0 0 1 0-1h6.316l-2.1368-2.1367a.5.5 0 0 1 .7071-.7071l2.99 2.99a.5.5 0 0 1 .0002.7073z"></path>
+															</svg>
+														</span>
+														<span class="globalnav-image-compact globalnav-link-image">
+															<svg height="25" viewBox="0 0 13 25" width="13" xmlns="http://www.w3.org/2000/svg">
+																<path d="m12.3577 13.4238-4.4444 4.4444a.6.6 0 0 1 -.8486-.8477l3.37-3.37h-9.3231a.65.65 0 0 1 0-1.3008h9.3232l-3.37-3.37a.6.6 0 0 1 .8486-.8477l4.4444 4.4444a.5989.5989 0 0 1 -.0001.8474z"></path>
+															</svg>
+														</span>
+													</span>
+													<span class="globalnav-searchresults-list-text">Forums</span>
+												</a>
+											</li>
+											<li class="globalnav-searchresults-list-item" role="listitem" style="--r-globalnav-flyout-item-number: 4;">
+												<a class="globalnav-searchresults-list-link" href="/documentation/samplecode/" data-query="no keyword" data-section="quicklinks" data-items="5" data-index="3" data-label="Sample Code">
+													<span class="globalnav-searchresults-list-icon">
+														<span class="globalnav-image-regular globalnav-link-image">
+															<svg height="16" viewBox="0 0 9 16" width="9" xmlns="http://www.w3.org/2000/svg">
+																<path d="m8.6124 8.1035-2.99 2.99a.5.5 0 0 1 -.7071-.7071l2.1366-2.1364h-6.316a.5.5 0 0 1 0-1h6.316l-2.1368-2.1367a.5.5 0 0 1 .7071-.7071l2.99 2.99a.5.5 0 0 1 .0002.7073z"></path>
+															</svg>
+														</span>
+														<span class="globalnav-image-compact globalnav-link-image">
+															<svg height="25" viewBox="0 0 13 25" width="13" xmlns="http://www.w3.org/2000/svg">
+																<path d="m12.3577 13.4238-4.4444 4.4444a.6.6 0 0 1 -.8486-.8477l3.37-3.37h-9.3231a.65.65 0 0 1 0-1.3008h9.3232l-3.37-3.37a.6.6 0 0 1 .8486-.8477l4.4444 4.4444a.5989.5989 0 0 1 -.0001.8474z"></path>
+															</svg>
+														</span>
+													</span>
+													<span class="globalnav-searchresults-list-text">Sample Code</span>
+												</a>
+											</li>
+											<li class="globalnav-searchresults-list-item" role="listitem" style="--r-globalnav-flyout-item-number: 5;">
+												<a class="globalnav-searchresults-list-link" href="/videos/" data-query="no keyword" data-section="quicklinks" data-items="5" data-index="4" data-label="Videos">
+													<span class="globalnav-searchresults-list-icon">
+														<span class="globalnav-image-regular globalnav-link-image">
+															<svg height="16" viewBox="0 0 9 16" width="9" xmlns="http://www.w3.org/2000/svg">
+																<path d="m8.6124 8.1035-2.99 2.99a.5.5 0 0 1 -.7071-.7071l2.1366-2.1364h-6.316a.5.5 0 0 1 0-1h6.316l-2.1368-2.1367a.5.5 0 0 1 .7071-.7071l2.99 2.99a.5.5 0 0 1 .0002.7073z"></path>
+															</svg>
+														</span>
+														<span class="globalnav-image-compact globalnav-link-image">
+															<svg height="25" viewBox="0 0 13 25" width="13" xmlns="http://www.w3.org/2000/svg">
+																<path d="m12.3577 13.4238-4.4444 4.4444a.6.6 0 0 1 -.8486-.8477l3.37-3.37h-9.3231a.65.65 0 0 1 0-1.3008h9.3232l-3.37-3.37a.6.6 0 0 1 .8486-.8477l4.4444 4.4444a.5989.5989 0 0 1 -.0001.8474z"></path>
+															</svg>
+														</span>
+													</span>
+													<span class="globalnav-searchresults-list-text">Videos</span>
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</li>
+			<!-- Account -->
+			<li id="globalnav-account" class="globalnav-item globalnav-account">
+				<div class="globalnav-account-wrapper">
+					<a href="/account/" aria-label="Account" class="globalnav-link globalnav-link-account">
+						<span class="globalnav-image-regular globalnav-link-image" aria-hidden="true">
+							<svg width="17" height="47" viewBox="0 0 117.045 120" xmlns="http://www.w3.org/2000/svg" focusable="false" preserveAspectRatio="xMidYMid meet">
+								<path fill="currentColor" d="M58.496,109.742c27.503,0 49.825,-22.271 49.825,-49.774c0,-27.503 -22.322,-49.773 -49.825,-49.773c-27.451,0 -49.773,22.27 -49.773,49.773c0,27.503 22.322,49.774 49.773,49.774zM58.496,101.474c-22.945,0 -41.465,-18.561 -41.465,-41.506c0,-22.944 18.52,-41.506 41.465,-41.506c22.945,0 41.506,18.562 41.506,41.506c0,22.945 -18.561,41.506 -41.506,41.506zM91.931,92.156l-0.156,-0.549c-2.433,-7.174 -15.338,-15.037 -33.279,-15.037c-17.92,0 -30.773,7.852 -33.227,15.005l-0.156,0.581c8.825,8.692 23.891,13.762 33.394,13.762c9.575,0 24.525,-5.028 33.424,-13.762zM58.496,68.304c9.398,0.103 16.759,-7.924 16.759,-18.421c0,-9.875 -7.393,-18.048 -16.759,-18.048c-9.314,0 -16.769,8.173 -16.707,18.048c0.052,10.497 7.31,18.317 16.707,18.421z" />
+							</svg>
+						</span>
+						<span class="globalnav-image-compact globalnav-link-image" aria-hidden="true">
+							<svg width="20" height="51" viewBox="0 0 117.045 120" xmlns="http://www.w3.org/2000/svg" focusable="false" preserveAspectRatio="xMidYMid meet">
+								<path fill="currentColor" d="M58.496,109.742c27.503,0 49.825,-22.271 49.825,-49.774c0,-27.503 -22.322,-49.773 -49.825,-49.773c-27.451,0 -49.773,22.27 -49.773,49.773c0,27.503 22.322,49.774 49.773,49.774zM58.496,101.474c-22.945,0 -41.465,-18.561 -41.465,-41.506c0,-22.944 18.52,-41.506 41.465,-41.506c22.945,0 41.506,18.562 41.506,41.506c0,22.945 -18.561,41.506 -41.506,41.506zM91.931,92.156l-0.156,-0.549c-2.433,-7.174 -15.338,-15.037 -33.279,-15.037c-17.92,0 -30.773,7.852 -33.227,15.005l-0.156,0.581c8.825,8.692 23.891,13.762 33.394,13.762c9.575,0 24.525,-5.028 33.424,-13.762zM58.496,68.304c9.398,0.103 16.759,-7.924 16.759,-18.421c0,-9.875 -7.393,-18.048 -16.759,-18.048c-9.314,0 -16.769,8.173 -16.707,18.048c0.052,10.497 7.31,18.317 16.707,18.421z" />
+							</svg>
+						</span>
+					</a>
+				</div>
+			</li>
+		</ul>
+		<div class="globalnav-menutrigger">
+			<button id="globalnav-menutrigger-button" aria-controls="globalnav-list" aria-label="Menu" class="globalnav-menutrigger-button"><svg width="18" height="18" viewBox="0 0 18 18">
+					<polyline id="globalnav-menutrigger-bread-bottom" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" points="2 12, 16 12" class="globalnav-menutrigger-bread globalnav-menutrigger-bread-bottom">
+						<animate id="globalnav-anim-menutrigger-bread-bottom-open" attributeName="points" keyTimes="0;0.5;1" dur="0.24s" begin="indefinite" fill="freeze" calcMode="spline" keySplines="0.42, 0, 1, 1;0, 0, 0.58, 1" values=" 2 12, 16 12; 2 9, 16 9; 3.5 15, 15 3.5"></animate>
+						<animate id="globalnav-anim-menutrigger-bread-bottom-close" attributeName="points" keyTimes="0;0.5;1" dur="0.24s" begin="indefinite" fill="freeze" calcMode="spline" keySplines="0.42, 0, 1, 1;0, 0, 0.58, 1" values=" 3.5 15, 15 3.5; 2 9, 16 9; 2 12, 16 12"></animate>
+					</polyline>
+					<polyline id="globalnav-menutrigger-bread-top" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" points="2 5, 16 5" class="globalnav-menutrigger-bread globalnav-menutrigger-bread-top">
+						<animate id="globalnav-anim-menutrigger-bread-top-open" attributeName="points" keyTimes="0;0.5;1" dur="0.24s" begin="indefinite" fill="freeze" calcMode="spline" keySplines="0.42, 0, 1, 1;0, 0, 0.58, 1" values=" 2 5, 16 5; 2 9, 16 9; 3.5 3.5, 15 15"></animate>
+						<animate id="globalnav-anim-menutrigger-bread-top-close" attributeName="points" keyTimes="0;0.5;1" dur="0.24s" begin="indefinite" fill="freeze" calcMode="spline" keySplines="0.42, 0, 1, 1;0, 0, 0.58, 1" values=" 3.5 3.5, 15 15; 2 9, 16 9; 2 5, 16 5"></animate>
+					</polyline>
+				</svg>
+			</button>
+		</div>
+	</div>
+	<span style="visibility: hidden; position: absolute; top: 0px; z-index: -1;">&nbsp;</span>
+</nav>
+<!-- <div class="globalnav-placeholder"></div> -->
+<script src="/assets/scripts/ac-globalnav.built.js?35212621148"></script>
+	<!-- metrics -->
+<script>
+	/* RSID: */
+	var s_account="awdappledeveloper"
+</script>	
+<script src="/assets/metrics/scripts/analytics.js"></script>
+<script>
+	s_sections = [
+		{
+			"pattern": "^/documentation",
+			"channel": "www.documentation.developer"
+		},
+		{
+			"pattern": "^/library",
+			"channel": "www.documentation.developer"
+		},
+		{
+			"pattern": "^/tutorials",
+			"channel": "www.documentation.developer"
+		},	
+		{
+			"pattern": "human\\-interface\\-guidelines",
+			"channel": "www.hig.developer"
+		},
+		{
+			"pattern": "/testflight/",
+			"channel": "www.appstoreconnect.developer"
+		},
+		{
+			"pattern": "/app\\-store\\-connect/",
+			"channel": "www.appstoreconnect.developer"
+		},
+		{
+			"pattern": "/support/app\\-store\\-connect/",
+			"channel": "www.appstoreconnect.developer"
+		},
+		{
+			"pattern": "/help/app\\-store\\-connect/",
+			"channel": "www.appstoreconnect.developer"
+		},
+		{
+			"pattern": "/wwdc/",
+			"channel": "www.wwdc.developer"
+		},
+		{
+			"pattern": "/wwdc\\d{2}/",
+			"channel": "www.wwdc.developer"
+		},
+		{
+			"pattern": "/videos/",
+			"channel": "www.videos.developer"
+		},
+		{
+			"pattern": "^/account",
+			"channel": "www.account.developer"
+		},
+		{
+			"pattern": "downloads?",
+			"channel": "www.download.developer"
+		},
+		{
+			"pattern": "/localization/",
+			"channel": "www.appstore.developer"
+		},	
+		{
+			"pattern": "/app\\-store/",
+			"channel": "www.appstore.developer"
+		},
+		{
+			"pattern": "/in\\-app\\-purchase/",
+			"channel": "www.appstore.developer"
+		},
+		{
+			"pattern": "/cn/",
+			"channel": "www.cn.developer"
+		},
+		{
+			"pattern": "/jp/",
+			"channel": "www.jp.developer"
+		},
+		{
+			"pattern": "/kr/",
+			"channel": "www.kr.developer"
+		},
+		{
+			"pattern": "/de/",
+			"channel": "www.de.developer"
+		},
+		{
+			"pattern": "/la/",
+			"channel": "www.la.developer"
+		},
+		{
+			"pattern": "/fr/",
+			"channel": "www.fr.developer"
+		},
+		{
+			"pattern": "/it/",
+			"channel": "www.it.developer"
+		},
+		{
+			"pattern": "/br/",
+			"channel": "www.br.developer"
+		}
+	];
+	
+	s.pageName= AC && AC.Tracking && AC.Tracking.pageName();
+	s.channel="www.en.developer";
+	
+	s_sections.forEach((s_section) => {
+		var regex = new RegExp(s_section.pattern);
+		
+		if(location.pathname.search(regex) !== -1) {
+			s.channel=s_section.channel;
+		}
+	});
+	
+	/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+	var s_code=s.t();if(s_code)document.write(s_code)
+</script>
+<!-- /metrics -->
+
+	<link rel="stylesheet" property="stylesheet" href="/assets/styles/localnav.css" type="text/css" />
+<input type="checkbox" id="localnav-menustate" class="localnav-menustate"/>
+<nav id="localnav" class="localnav localnav-scrim" data-sticky role="navigation">
+	<div class="localnav-wrapper">
+		<div class="localnav-background"></div>
+		<div class="localnav-content">
+			<h2 class="localnav-title">
+				<a href="/videos/">Videos</a>
+			</h2>
+
+			<div class="localnav-menu">
+				<a href="#localnav-menustate" class="localnav-menucta-anchor localnav-menucta-anchor-open" id="localnav-menustate-open">
+					<span class="localnav-menucta-anchor-label">Open Menu</span>
+				</a>
+				<a href="#" class="localnav-menucta-anchor localnav-menucta-anchor-close" id="localnav-menustate-close">
+					<span class="localnav-menucta-anchor-label">Close Menu</span>
+				</a>
+				<div class="localnav-menu-tray">
+					<ul class="localnav-menu-items">
+						<li class="localnav-menu-item">
+							<a href="/videos/" class="localnav-menu-link">Collections</a>
+						</li>
+						<li class="localnav-menu-item">
+							<a href="/videos/all-videos/" class="localnav-menu-link">All Videos</a>
+						</li>
+						<li class="localnav-menu-item">
+							<a href="/videos/about/" class="localnav-menu-link">About</a>
+						</li>
+					</ul>
+				</div>
+				<div class="localnav-actions localnav-actions-center">
+					<div class="localnav-action localnav-action-menucta" aria-hidden="true">
+						<label for="localnav-menustate" class="localnav-menucta">
+							<span class="localnav-menucta-chevron"></span>
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
+<label id="localnav-curtain" for="localnav-menustate"></label>
+<script src="/assets/scripts/ac-localnav.built.js"></script>
+<script type="text/javascript" src="/assets/scripts/localnav.js"></script>
+	<main id="main" class="main " role="main">
+
+		<section >
+
+			<div class="section-content">
+								<section class="row">
+					<section class="column large-12 small-12  padding-top-small large-centered no-padding-bottom">
+						<!-- back link -->
+						<p class="back-link smaller">
+														<a class="icon icon-before icon-chevronleft" href="/videos/">More Videos</a>
+													</p>
+					</section>
+				</section>
+								
+				<!-- video player -->
+				<section class="video-wrapper row">
+					<section class="column large-12 small-12  padding-top-small padding-bottom-small large-centered">
+												<div class="developer-video-player">
+							<div id="video-status-overlay" class="developer-video-overlay" style="display: none">
+								<div class="video-status-content">
+									<div id="video-status-text"></div>
+									<img class="video-status-icon" id="icon-backward" src="/assets/elements/icons/symbols/gobackward5.svg" style="display: none" />
+									<img class="video-status-icon" id="icon-forward" src="/assets/elements/icons/symbols/goforward5.svg" style="display: none" />
+								</div>
+							</div>
+							<video id="video" class="video large-centered" poster="https://devimages-cdn.apple.com/wwdc-services/images/3055294D-836B-4513-B7B0-0BC5666246B0/9965/9965_wide_900x506_2x.jpg" controls="" preload="none" src="https://devstreaming-cdn.apple.com/videos/wwdc/2025/286/4/6f221dca-f35f-4dad-bfec-0ec0970849bb/cmaf.m3u8" data-id="wwdc2025-286" data-locale="en" data-hero-source="https://devimages-cdn.apple.com/wwdc-services/images/3055294D-836B-4513-B7B0-0BC5666246B0/9965/9965_wide_900x506_2x.jpg"></video>
+						</div>
+						<div class="no-video-banner hidden">
+							<div class="no-video-copy">
+								<img src="https://devimages-cdn.apple.com/wwdc-services/images/3055294D-836B-4513-B7B0-0BC5666246B0/9965/9965_wide_900x506_2x.jpg" style="width:100%">
+							</div>
+							</span>
+						</div>
+
+											</section>
+				</section>
+
+			</section>
+
+		</section>
+
+		<section class="bg-light padding-top-small padding-bottom">
+
+			<div class="section-content">
+		
+			<!-- tab menu -->
+			<section class="tab-menu row divider-bottom">
+
+				<section class="column large-11 small-12  padding-top-small padding-bottom-small large-centered tab-menu-container">
+										 
+																 
+																					 
+																					 
+																					 
+																					 
+																					 
+																					 
+															<ul class="tabs">
+						
+						<li class="tab"
+							data-supplement-id="details"
+							data-language-code="en"
+							data-video-id="wwdc2025-286"
+													>
+							<a href="#">
+								<span class="smaller">
+									About
+								</span>
+							</a>
+						</li>
+						
+												<li class="tab"
+							data-supplement-id="summary"
+							data-language-code="en"
+							data-video-id="wwdc2025-286"
+						>
+							<a href="#">
+								<span class="smaller">
+									Summary
+								</span>
+							</a>
+						</li>
+						
+												<li class="tab"
+							data-supplement-id="transcript"
+							data-language-code="en"
+							data-video-id="wwdc2025-286"
+						>
+							<a href="#">
+								<span class="smaller">
+									Transcript
+								</span>
+							</a>
+						</li>
+						
+												<li class="tab"
+							data-supplement-id="sample-code"
+							data-language-code="en"
+							data-video-id="wwdc2025-286"
+						>
+							<a href="#">
+								<span class="smaller">
+									Code
+								</span>
+							</a>
+						</li>
+												
+					</ul>
+									</section>
+
+			</section>
+
+			<!-- supplements -->
+			<section class="row">
+
+				<section class="column large-11 small-12  large-centered no-padding-top no-padding-bottom">
+
+					<ul class="supplements hidden">
+
+						<!-- details -->
+						<li class="supplement details " data-supplement-id="details">
+							
+							<div class="badge-available-on-wrapper">
+																<h1>Meet the Foundation Models framework</h1>
+							</div>
+
+							<p>Learn how to tap into the on-device large language model behind Apple Intelligence! This high-level overview covers everything from guided generation for generating Swift data structures and streaming for responsive experiences, to tool calling for integrating data sources and sessions for context management. This session has no prerequisites.</p>
+
+															
+								<h2>Chapters</h2>
+								<ul class="no-bullet chapter-list">
+																	<li class="chapter-item" data-start-time="0">0:00 - <a class="jump-to-time" href="/videos/play/wwdc2025/286/?time=0" data-start-time="0" data-chapter-end-time="125" data-chapter-lenght="125" data-chapter-index="1">Introduction</a></li>
+																	<li class="chapter-item" data-start-time="125">2:05 - <a class="jump-to-time" href="/videos/play/wwdc2025/286/?time=125" data-start-time="125" data-chapter-end-time="320" data-chapter-lenght="195" data-chapter-index="2">The model</a></li>
+																	<li class="chapter-item" data-start-time="320">5:20 - <a class="jump-to-time" href="/videos/play/wwdc2025/286/?time=320" data-start-time="320" data-chapter-end-time="465" data-chapter-lenght="145" data-chapter-index="3">Guided generation</a></li>
+																	<li class="chapter-item" data-start-time="465">7:45 - <a class="jump-to-time" href="/videos/play/wwdc2025/286/?time=465" data-start-time="465" data-chapter-end-time="688" data-chapter-lenght="223" data-chapter-index="4">Snapshot streaming</a></li>
+																	<li class="chapter-item" data-start-time="688">11:28 - <a class="jump-to-time" href="/videos/play/wwdc2025/286/?time=688" data-start-time="688" data-chapter-end-time="971" data-chapter-lenght="283" data-chapter-index="5">Tool calling</a></li>
+																	<li class="chapter-item" data-start-time="971">16:11 - <a class="jump-to-time" href="/videos/play/wwdc2025/286/?time=971" data-start-time="971" data-chapter-end-time="1262" data-chapter-lenght="291" data-chapter-index="6">Stateful session</a></li>
+																	<li class="chapter-item" data-start-time="1262">21:02 - <a class="jump-to-time" href="/videos/play/wwdc2025/286/?time=1262" data-start-time="1262" data-chapter-end-time="1404" data-chapter-lenght="142" data-chapter-index="7">Developer experience</a></li>
+																</ul>
+							
+														<h2>Resources</h2>
+
+							<ul class="links small">
+																																					<li class="document"><a href="https://developer.apple.com/design/human-interface-guidelines/generative-ai" target="_blank">Human Interface Guidelines: Generative AI</a></li>
+																											
+																	<li class="download">
+										<ul class="options">
+																						<li><a href="https://devstreaming-cdn.apple.com/videos/wwdc/2025/286/4/6f221dca-f35f-4dad-bfec-0ec0970849bb/downloads/wwdc2025-286_hd.mp4?dl=1">HD Video</a></li>
+																																	<li><a href="https://devstreaming-cdn.apple.com/videos/wwdc/2025/286/4/6f221dca-f35f-4dad-bfec-0ec0970849bb/downloads/wwdc2025-286_sd.mp4?dl=1">SD Video</a></li>
+																					</ul>
+									</li>
+																
+															</ul>
+							
+														<div class="divider-top margin-top-small padding-bottom-small"></div>
+							<h2>Related Videos</h2>
+														<h4>WWDC25</h4>
+								<ul class="links small">
+																			<li class="video">
+											<a href="/videos/play/wwdc2025/259">Code-along: Bring on-device AI to your app using the Foundation Models framework</a>
+										</li>
+																			<li class="video">
+											<a href="/videos/play/wwdc2025/301">Deep dive into the Foundation Models framework</a>
+										</li>
+																			<li class="video">
+											<a href="/videos/play/wwdc2025/360">Discover machine learning & AI frameworks on Apple platforms</a>
+										</li>
+																			<li class="video">
+											<a href="/videos/play/wwdc2025/248">Explore prompt design & safety for on-device foundation models</a>
+										</li>
+																	</ul>
+														
+						</li>
+
+						<!-- transcript -->
+						<li class="supplement transcript" data-supplement-id="transcript" data-shortcut-base-url="/videos/play/wwdc2025/286/">
+							<div class="grid grid-gutterless margin-bottom-small">
+								<div class="grid-item large-span-11 medium-span-11 small-span-11">
+									<div class="form-textbox form-textbox-with-lefticon form-textbox-with-righticon">
+										<input type="text" id="transcript-search-box" class="transcript-search searchbar form-textbox-input" aria-labelledby="textbox-label"  />
+										<span class="form-textbox-label" id="textbox-label" aria-hidden="true">Search this video…</span>
+										<div class="form-textbox-lefticon form-icons-focusable">
+											<span class="form-icons form-icons-search15"></span>
+										</div>
+									</div>
+								</div>
+								<div class="grid-item large-span-1 medium-span-1 small-span-1">									
+									<div style="font-size:34px" id="get-transcript">
+										<sf-symbol name="arrow.down.document" weight="light" scale="small" mode="hierarchical"></sf-symbol>
+									</div>
+
+								</div>
+							</div>
+
+							<section id="transcript-content">
+								<p><span class="sentence"><span data-start="7.0">Hi, I’m Erik. </span></span><span class="sentence"><span data-start="8.0">And I’m Yifei. </span></span><span class="sentence"><span data-start="9.0">And today, we are so excited to get the privilege of introducing you to the new </span></span><span class="sentence"><span data-start="14.0">Foundation Models framework! </span></span><span class="sentence"><span data-start="17.0">The Foundation Models framework gives you access </span></span><span class="sentence"><span data-start="20.0">to the on-device Large Language Model </span></span><span class="sentence"><span data-start="23.0">that powers Apple Intelligence, with a convenient and powerful Swift API. </span></span><span class="sentence"><span data-start="28.0">It is available on macOS, iOS, iPadOS, and visionOS! </span></span><span class="sentence"><span data-start="34.0">You can use it to enhance existing features in your apps, </span></span><span class="sentence"><span data-start="37.0">like providing personalized search suggestions. </span></span><span class="sentence"><span data-start="40.0">Or you can create completely new features, </span></span><span class="sentence"><span data-start="42.0">like generating an itinerary in a travel app, </span></span><span class="sentence"><span data-start="45.0">all on-device. </span></span><span class="sentence"><span data-start="47.0">You can even use it to create dialog on-the-fly for characters in a game.</p><p></span></span><span class="sentence"><span data-start="53.0">It is optimized for generating content, summarizing text, </span></span><span class="sentence"><span data-start="57.0">analyzing user input and so much more.</p><p></span></span><span class="sentence"><span data-start="61.0">All of this runs on-device, </span></span><span class="sentence"><span data-start="63.0">so all data going into and out of the model stays private. </span></span><span class="sentence"><span data-start="68.0">That also means it can run offline! </span></span><span class="sentence"><span data-start="71.0">And it’s built into the operating system, so it won’t increase your app size. </span></span><span class="sentence"><span data-start="76.0">It’s a huge year, </span></span><span class="sentence"><span data-start="77.0">so to help you get the most out of the FoundationModels framework, </span></span><span class="sentence"><span data-start="81.0">we’ve prepared a series of videos. </span></span><span class="sentence"><span data-start="84.0">In this first video, we’ll be giving you a high level overview </span></span><span class="sentence"><span data-start="88.0">of the framework in its entirety. </span></span><span class="sentence"><span data-start="90.0">Starting with the details of the model.</p><p></span></span><span class="sentence"><span data-start="93.0">We will then introduce guided generation </span></span><span class="sentence"><span data-start="96.0">which allows you to get structured output in Swift, </span></span><span class="sentence"><span data-start="99.0">and the powerful streaming APIs that turn latency into delight.</p><p></span></span><span class="sentence"><span data-start="104.0">We will also talk about tool calling, which allows the model to autonomously </span></span><span class="sentence"><span data-start="109.0">execute code you define in your app.</p><p></span></span><span class="sentence"><span data-start="113.0">Finally, we will finish up </span></span><span class="sentence"><span data-start="114.0">with how we provide multi-turn support with stateful sessions, </span></span><span class="sentence"><span data-start="119.0">and how we seamlessly integrate the framework </span></span><span class="sentence"><span data-start="122.0">into the Apple developer ecosystem. </span></span><span class="sentence"><span data-start="124.0">The most important part of the framework, of course, is the model that powers it. </span></span><span class="sentence"><span data-start="130.0">And the best way to get started with prompting the model, </span></span><span class="sentence"><span data-start="133.0">is to jump into Xcode.</p><p></span></span><span class="sentence"><span data-start="135.0">Testing out a variety of prompts to find what works best </span></span><span class="sentence"><span data-start="138.0">is an important part of building with large language models, </span></span><span class="sentence"><span data-start="142.0">and the new Playgrounds feature in Xcode is the best way to do that. </span></span><span class="sentence"><span data-start="146.0">With just a few lines of code, </span></span><span class="sentence"><span data-start="148.0">you can immediately start prompting the on-device model. </span></span><span class="sentence"><span data-start="151.0">Here I’ll ask it to generate a title for a trip to Japan, </span></span><span class="sentence"><span data-start="155.0">and the model’s output will appear in the canvas on the right. </span></span><span class="sentence"><span data-start="160.0">Now, I want to see if this prompt works well for other destinations too. </span></span><span class="sentence"><span data-start="164.0">In a #Playground, you can access types defined in your app, </span></span><span class="sentence"><span data-start="168.0">so I’ll create a for loop over the landmarks featured in mine. </span></span><span class="sentence"><span data-start="172.0">Now Xcode will show me the model’s response for all of the landmarks.</p><p></span></span><span class="sentence"><span data-start="177.0">The on-device model we just used </span></span><span class="sentence"><span data-start="179.0">is a large language model with 3 billion parameters, </span></span><span class="sentence"><span data-start="183.0">each quantized to 2 bits. </span></span><span class="sentence"><span data-start="186.0">It is several orders of magnitude bigger than any other models </span></span><span class="sentence"><span data-start="190.0">that are part of the operating system.</p><p></span></span><span class="sentence"><span data-start="193.0">But even so, it’s important to keep in mind </span></span><span class="sentence"><span data-start="196.0">that the on-device model is a device-scale model. </span></span><span class="sentence"><span data-start="200.0">It is optimized for use cases like summarization, extraction, </span></span><span class="sentence"><span data-start="204.0">classification, and many more. </span></span><span class="sentence"><span data-start="207.0">It’s not designed for world knowledge or advanced reasoning, </span></span><span class="sentence"><span data-start="210.0">which are tasks you might typically use server-scale LLMs for.</p><p></span></span><span class="sentence"><span data-start="216.0">Device scale models require tasks to be broken down into smaller pieces. </span></span><span class="sentence"><span data-start="220.0">As you work with the model, </span></span><span class="sentence"><span data-start="222.0">you’ll develop an intuition for its strengths and weaknesses.</p><p></span></span><span class="sentence"><span data-start="227.0">For certain common use cases, such as content tagging, </span></span><span class="sentence"><span data-start="230.0">we also provide specialized adapters </span></span><span class="sentence"><span data-start="232.0">that maximize the model’s capability in specific domains.</p><p></span></span><span class="sentence"><span data-start="237.0">We will also continue to improve our models over time. </span></span><span class="sentence"><span data-start="241.0">Later in this video we’ll talk about how you can tell us how you use our models, </span></span><span class="sentence"><span data-start="245.0">which will help us to improve them in ways that matter to you.</p><p></span></span><span class="sentence"><span data-start="251.0">Now that we’ve taken a look at the model, </span></span><span class="sentence"><span data-start="253.0">the first stop on our journey is Guided Generation. </span></span><span class="sentence"><span data-start="256.0">Guided Generation is what makes it possible </span></span><span class="sentence"><span data-start="259.0">to build features like the ones you just saw, </span></span><span class="sentence"><span data-start="261.0">and it is the beating heart of the FoundationModels framework. </span></span><span class="sentence"><span data-start="265.0">Let’s take a look at a common problem </span></span><span class="sentence"><span data-start="267.0">and talk about how Guided Generation solves it.</p><p></span></span><span class="sentence"><span data-start="272.0">By default, language models produce unstructured, natural language as output. </span></span><span class="sentence"><span data-start="277.0">It’s easy for humans to read, but difficult to map onto views in your app.</p><p></span></span><span class="sentence"><span data-start="284.0">A common solution is to prompt the model to produce something that’s easy to parse, </span></span><span class="sentence"><span data-start="288.0">like JSON or CSV.</p><p></span></span><span class="sentence"><span data-start="291.0">However, that quickly turns into a game of whack-a-mole. </span></span><span class="sentence"><span data-start="296.0">You have to add increasingly specific instructions </span></span><span class="sentence"><span data-start="298.0">about what it it is and isn’t supposed to do… </span></span><span class="sentence"><span data-start="302.0">Often that doesn’t quite work… </span></span><span class="sentence"><span data-start="304.0">So you end up writing hacks to extract and patch the content. </span></span><span class="sentence"><span data-start="308.0">This isn’t reliable because the model is probabilistic </span></span><span class="sentence"><span data-start="312.0">and there is a non-zero chance of structural mistakes. </span></span><span class="sentence"><span data-start="316.0">Guided Generation offers a fundamental solution to this problem.</p><p></span></span><span class="sentence"><span data-start="321.0">When you import FoundationModels, </span></span><span class="sentence"><span data-start="323.0">you get access to two new macros, @Generable and @Guide. </span></span><span class="sentence"><span data-start="328.0">Generable let’s you describe a type that you want the model </span></span><span class="sentence"><span data-start="331.0">to generate an instance of.</p><p></span></span><span class="sentence"><span data-start="334.0">Additionally, Guides let you provide </span></span><span class="sentence"><span data-start="336.0">natural language descriptions of properties, </span></span><span class="sentence"><span data-start="339.0">and programmatically control the values </span></span><span class="sentence"><span data-start="342.0">that can be generated for those properties.</p><p></span></span><span class="sentence"><span data-start="345.0">Once you’ve defined a Generable type, </span></span><span class="sentence"><span data-start="348.0">you can make the model respond to prompts by generating an instance of your type. </span></span><span class="sentence"><span data-start="353.0">This is really powerful.</p><p></span></span><span class="sentence"><span data-start="356.0">Observe how our prompt no longer needs to specify the output format. </span></span><span class="sentence"><span data-start="360.0">The framework takes care of that for you.</p><p></span></span><span class="sentence"><span data-start="364.0">The most important part, of course, is that we now get back a rich Swift object </span></span><span class="sentence"><span data-start="370.0">that we can easily map onto an engaging view.</p><p></span></span><span class="sentence"><span data-start="374.0">Generable types can be constructed using primitives, like Strings, </span></span><span class="sentence"><span data-start="379.0">Integers, Doubles, Floats, and Decimals, and Booleans. </span></span><span class="sentence"><span data-start="386.0">Arrays are also generable. </span></span><span class="sentence"><span data-start="389.0">And Generable types can be composed as well. </span></span><span class="sentence"><span data-start="393.0">Generable even supports recursive types, </span></span><span class="sentence"><span data-start="396.0">which have powerful applications in domains like generative UIs.</p><p></span></span><span class="sentence"><span data-start="400.0">The most important thing to understand about Guided Generation </span></span><span class="sentence"><span data-start="405.0">is that it fundamentally guarantees structural correctness </span></span><span class="sentence"><span data-start="409.0">using a technique called constrained decoding.</p><p></span></span><span class="sentence"><span data-start="412.0">When using Guided Generation, your prompts can be simpler </span></span><span class="sentence"><span data-start="416.0">and focused on desired behavior instead of the format.</p><p></span></span><span class="sentence"><span data-start="420.0">Additionally, Guided Generation tends to improve model accuracy. </span></span><span class="sentence"><span data-start="425.0">And, it allows us to perform optimizations </span></span><span class="sentence"><span data-start="428.0">that speed up inference at the same time. </span></span><span class="sentence"><span data-start="432.0">This is all made possible by carefully coordinated integration </span></span><span class="sentence"><span data-start="435.0">of Apple operating systems, </span></span><span class="sentence"><span data-start="437.0">developer tools, and the training of our foundation models. </span></span><span class="sentence"><span data-start="441.0">There is still a lot more to cover about guided generation, </span></span><span class="sentence"><span data-start="444.0">like how to create dynamic schemas at runtime, </span></span><span class="sentence"><span data-start="447.0">so please check out our deep dive video for more details. </span></span><span class="sentence"><span data-start="451.0">So that wraps up Guided Generation — </span></span><span class="sentence"><span data-start="453.0">we’ve seen how Swift’s powerful type system augments natural language prompts </span></span><span class="sentence"><span data-start="457.0">to enable reliable structured output. </span></span><span class="sentence"><span data-start="460.0">Our next topic is streaming, </span></span><span class="sentence"><span data-start="463.0">and it all builds on top of the @Generable macro </span></span><span class="sentence"><span data-start="465.0">you’re already familiar with.</p><p></span></span><span class="sentence"><span data-start="468.0">If you’ve worked with large language models before, </span></span><span class="sentence"><span data-start="471.0">you may be aware that they generate text </span></span><span class="sentence"><span data-start="473.0">as short groups of characters called tokens.</p><p></span></span><span class="sentence"><span data-start="476.0">Typically when streaming output, tokens are delivered in what’s called a delta, </span></span><span class="sentence"><span data-start="481.0">but the FoundationModels framework actually takes a different approach, </span></span><span class="sentence"><span data-start="485.0">and I want to show you why.</p><p></span></span><span class="sentence"><span data-start="488.0">As deltas are produced, the responsibility for accumulating them </span></span><span class="sentence"><span data-start="492.0">usually falls on the developer.</p><p></span></span><span class="sentence"><span data-start="495.0">You append each delta as they come in. </span></span><span class="sentence"><span data-start="497.0">And the response grows as you do.</p><p></span></span><span class="sentence"><span data-start="500.0">But it gets tricky when the result has structure. </span></span><span class="sentence"><span data-start="503.0">If you want to show the greeting string after each delta, </span></span><span class="sentence"><span data-start="506.0">you have to parse it out of the accumulation, </span></span><span class="sentence"><span data-start="508.0">and that’s not trivial, especially for complicated structures. </span></span><span class="sentence"><span data-start="513.0">Delta streaming just isn’t the right formula </span></span><span class="sentence"><span data-start="516.0">when working with structured output.</p><p></span></span><span class="sentence"><span data-start="518.0">And as you’ve learned, </span></span><span class="sentence"><span data-start="520.0">structured output is at the very core of the FoundationModels framework, </span></span><span class="sentence"><span data-start="524.0">which is why we’ve developed a different approach. </span></span><span class="sentence"><span data-start="527.0">Instead of raw deltas, we stream snapshots.</p><p></span></span><span class="sentence"><span data-start="532.0">As the model produces deltas, the framework transforms them into snapshots. </span></span><span class="sentence"><span data-start="538.0">Snapshots represent partially generated responses. </span></span><span class="sentence"><span data-start="542.0">Their properties are all optional. </span></span><span class="sentence"><span data-start="545.0">And they get filled in as the model produces more of the response.</p><p></span></span><span class="sentence"><span data-start="549.0">Snapshots are a robust and convenient representation </span></span><span class="sentence"><span data-start="553.0">for streaming structured output.</p><p></span></span><span class="sentence"><span data-start="556.0">You’re already familiar with the @Generable macro, and as it turns out, </span></span><span class="sentence"><span data-start="560.0">it’s also where the definitions for partially generated types come from. </span></span><span class="sentence"><span data-start="565.0">If you expand the macro, </span></span><span class="sentence"><span data-start="567.0">you’ll discover it produces a type named `PartiallyGenerated`. </span></span><span class="sentence"><span data-start="570.0">It is effectively a mirror of the outer structure, </span></span><span class="sentence"><span data-start="573.0">except every property is optional.</p><p></span></span><span class="sentence"><span data-start="577.0">The partially generated type comes into play </span></span><span class="sentence"><span data-start="580.0">when you call the `streamResponse` method on your session.</p><p></span></span><span class="sentence"><span data-start="585.0">Stream response returns an async sequence. </span></span><span class="sentence"><span data-start="588.0">And the elements of that sequence are instances of a partially generated type. </span></span><span class="sentence"><span data-start="593.0">Each element in the sequence will contain an updated snapshot.</p><p></span></span><span class="sentence"><span data-start="602.0">These snapshots work great with declarative frameworks like SwiftUI. </span></span><span class="sentence"><span data-start="606.0">First, create state holding a partially generated type.</p><p></span></span><span class="sentence"><span data-start="611.0">Then, just iterate over a response stream, store its elements, </span></span><span class="sentence"><span data-start="616.0">and watch as your UI comes to life.</p><p></span></span><span class="sentence"><span data-start="625.0">To wrap up, let’s review some best practices for streaming.</p><p></span></span><span class="sentence"><span data-start="630.0">First, get creative with SwiftUI animations </span></span><span class="sentence"><span data-start="633.0">and transitions to hide latency. </span></span><span class="sentence"><span data-start="635.0">You have an opportunity turn a moment of waiting into one of delight. </span></span><span class="sentence"><span data-start="640.0">Second, you’ll need to think carefully about view identity in SwiftUI, </span></span><span class="sentence"><span data-start="645.0">especially when generating arrays. </span></span><span class="sentence"><span data-start="648.0">Finally, bear in mind that properties are generated </span></span><span class="sentence"><span data-start="651.0">in the order they are declared on your Swift struct. </span></span><span class="sentence"><span data-start="654.0">This matters both for animations and for the quality of the model’s output. </span></span><span class="sentence"><span data-start="660.0">For example, you may find that the model produces the best summaries </span></span><span class="sentence"><span data-start="664.0">when they’re the last property in the struct.</p><p></span></span><span class="sentence"><span data-start="668.0">There is a lot to unpack here, </span></span><span class="sentence"><span data-start="671.0">so make sure to check out our video on integrating Foundation Models </span></span><span class="sentence"><span data-start="674.0">into your app for more details. </span></span><span class="sentence"><span data-start="677.0">So that wraps up streaming with Foundation Models. </span></span><span class="sentence"><span data-start="680.0">Next up, Yifei is going to teach you all about tool calling! </span></span><span class="sentence"><span data-start="684.0">Thanks Erik! </span></span><span class="sentence"><span data-start="685.0">Tool calling is another one of our key features. </span></span><span class="sentence"><span data-start="689.0">It lets the model execute code you define in your app. </span></span><span class="sentence"><span data-start="693.0">This feature is especially important for getting the most out of our model, </span></span><span class="sentence"><span data-start="698.0">since tool calling gives the model many additional capabilities. </span></span><span class="sentence"><span data-start="702.0">It allows the model to identify </span></span><span class="sentence"><span data-start="704.0">that a task may require additional information or actions </span></span><span class="sentence"><span data-start="708.0">and autonomously make decisions about what tool to use and when, </span></span><span class="sentence"><span data-start="712.0">when it’s difficult to decide programmatically.</p><p></span></span><span class="sentence"><span data-start="716.0">The information you provide to the model can be world knowledge, </span></span><span class="sentence"><span data-start="720.0">recent events, or personal data. </span></span><span class="sentence"><span data-start="722.0">For example, in our travel app, </span></span><span class="sentence"><span data-start="724.0">it provides information about various locations from MapKit. </span></span><span class="sentence"><span data-start="729.0">This also gives the model the ability to cite sources of truth, </span></span><span class="sentence"><span data-start="733.0">which can suppress hallucinations and allow fact-checking the model output.</p><p></span></span><span class="sentence"><span data-start="739.0">Finally, it allows the model to take actions, </span></span><span class="sentence"><span data-start="742.0">whether it’s in your app, on the system, </span></span><span class="sentence"><span data-start="744.0">or in the real world.</p><p></span></span><span class="sentence"><span data-start="747.0">Integrating with various sources of information in your app </span></span><span class="sentence"><span data-start="750.0">is a winning strategy for building compelling experiences. </span></span><span class="sentence"><span data-start="755.0">Now that you know why tool calling is very useful, </span></span><span class="sentence"><span data-start="758.0">let’s take a look at how it works.</p><p></span></span><span class="sentence"><span data-start="761.0">On the left we have a transcript which records everything </span></span><span class="sentence"><span data-start="764.0">that has happened so far. </span></span><span class="sentence"><span data-start="766.0">If you’ve provided tools to the session, </span></span><span class="sentence"><span data-start="769.0">the session will present these tools to the model along with the instructions. </span></span><span class="sentence"><span data-start="774.0">Next comes the prompt, where we tell the model which destination we want to visit.</p><p></span></span><span class="sentence"><span data-start="781.0">Now, if the model deems that calling a tool can enhance the response, </span></span><span class="sentence"><span data-start="785.0">it will produce one or more tool calls. </span></span><span class="sentence"><span data-start="788.0">In this example, the model produces two tool calls — </span></span><span class="sentence"><span data-start="792.0">querying restaurants and hotels.</p><p></span></span><span class="sentence"><span data-start="795.0">At this phase, the FoundationModels framework </span></span><span class="sentence"><span data-start="798.0">will automatically call the code you wrote for these tools. </span></span><span class="sentence"><span data-start="802.0">The framework then automatically inserts the tool outputs back into the transcript. </span></span><span class="sentence"><span data-start="807.0">Finally, the model will incorporate the tool output </span></span><span class="sentence"><span data-start="811.0">along with everything else in the transcript </span></span><span class="sentence"><span data-start="813.0">to furnish the final response.</p><p></span></span><span class="sentence"><span data-start="817.0">Now that we have a high level understanding of tool calling, </span></span><span class="sentence"><span data-start="820.0">let’s define a tool.</p><p></span></span><span class="sentence"><span data-start="823.0">Here we’re defining a simple weather tool, which conforms to the Tool protocol. </span></span><span class="sentence"><span data-start="828.0">The weather tool has kind of emerged </span></span><span class="sentence"><span data-start="830.0">as the de-facto ‘hello world’ of tool calling, </span></span><span class="sentence"><span data-start="833.0">and it’s a great way to get started.</p><p></span></span><span class="sentence"><span data-start="837.0">The protocol first requires you to specify a name </span></span><span class="sentence"><span data-start="840.0">and a natural language description of the tool.</p><p></span></span><span class="sentence"><span data-start="844.0">The framework will automatically provide them for the model </span></span><span class="sentence"><span data-start="847.0">to help it understand when to call your tool.</p><p></span></span><span class="sentence"><span data-start="851.0">When the model calls your tool, it will run the call method you define.</p><p></span></span><span class="sentence"><span data-start="857.0">The argument to the call method can be any Generable type.</p><p></span></span><span class="sentence"><span data-start="862.0">The reason your arguments need to be generable is because tool calling is built </span></span><span class="sentence"><span data-start="867.0">on guided generation to ensure that the model </span></span><span class="sentence"><span data-start="870.0">will never produce invalid tool names or arguments.</p><p></span></span><span class="sentence"><span data-start="874.0">After defining your arguments type, </span></span><span class="sentence"><span data-start="876.0">you can now write anything you want in the body of your method. </span></span><span class="sentence"><span data-start="880.0">Here we’re using CoreLocation and WeatherKit </span></span><span class="sentence"><span data-start="883.0">to find the temperature of a given city. </span></span><span class="sentence"><span data-start="886.0">The output is represented using the ToolOutput type, </span></span><span class="sentence"><span data-start="889.0">which can be created from GeneratedContent to represent structured data. </span></span><span class="sentence"><span data-start="895.0">Or from a string if your tool’s output is natural language. </span></span><span class="sentence"><span data-start="898.0">Now that we have defined a tool, </span></span><span class="sentence"><span data-start="900.0">we have to ensure that the model has access to it.</p><p></span></span><span class="sentence"><span data-start="904.0">To do so, pass your tool into your session’s initializer. </span></span><span class="sentence"><span data-start="908.0">Tools must be attached at session initialization, </span></span><span class="sentence"><span data-start="912.0">and will be available to the model for the session’s lifetime.</p><p></span></span><span class="sentence"><span data-start="917.0">After creating a session with tools, </span></span><span class="sentence"><span data-start="920.0">all you need to do is prompt the model as you would normally. </span></span><span class="sentence"><span data-start="924.0">Tool calls will happen transparently and autonomously, </span></span><span class="sentence"><span data-start="928.0">and the model will incorporate the tools’ outputs into its final response. </span></span><span class="sentence"><span data-start="933.0">The examples I’ve shown here demonstrate </span></span><span class="sentence"><span data-start="935.0">how to define type-safe tools at compile time, </span></span><span class="sentence"><span data-start="938.0">which is great for the vast majority of use cases. </span></span><span class="sentence"><span data-start="942.0">But tools can also be dynamic in every way! </span></span><span class="sentence"><span data-start="945.0">For example, you can define the arguments and behaviors of a tool at runtime </span></span><span class="sentence"><span data-start="950.0">by using dynamic generation schemas. </span></span><span class="sentence"><span data-start="953.0">If you are curious about that, </span></span><span class="sentence"><span data-start="955.0">feel free to check out our deep dive video to learn more.</p><p></span></span><span class="sentence"><span data-start="959.0">That wraps up tool calling. </span></span><span class="sentence"><span data-start="961.0">We learned why tool calling is useful </span></span><span class="sentence"><span data-start="963.0">and how to implement tools to extend the model’s capabilities. </span></span><span class="sentence"><span data-start="967.0">Next, let’s talk about stateful sessions. </span></span><span class="sentence"><span data-start="970.0">You’ve seen the word session pop up in this video many times already. </span></span><span class="sentence"><span data-start="974.0">The Foundation Models framework is built around the notion of a stateful session. </span></span><span class="sentence"><span data-start="980.0">By default, when you create a session, </span></span><span class="sentence"><span data-start="982.0">you will be prompting the on-device general-purpose model. </span></span><span class="sentence"><span data-start="986.0">And you can provide custom instructions.</p><p></span></span><span class="sentence"><span data-start="989.0">Instructions are an opportunity for you to tell the model its role </span></span><span class="sentence"><span data-start="994.0">and provide guidance on how the model should respond. </span></span><span class="sentence"><span data-start="998.0">For example, you can specify things like style and verbosity.</p><p></span></span><span class="sentence"><span data-start="1003.0">Note that providing custom instructions is optional, </span></span><span class="sentence"><span data-start="1006.0">and reasonable default instructions will be used if you don’t specify any.</p><p></span></span><span class="sentence"><span data-start="1012.0">If you do choose to provide custom instructions, </span></span><span class="sentence"><span data-start="1015.0">it is important to understand the difference between instructions and prompts. </span></span><span class="sentence"><span data-start="1020.0">Instructions should come from you, the developer, </span></span><span class="sentence"><span data-start="1023.0">while prompts can come from the user. </span></span><span class="sentence"><span data-start="1026.0">This is because the model is trained to obey instructions over prompts. </span></span><span class="sentence"><span data-start="1031.0">This helps protect against prompt injection attacks, </span></span><span class="sentence"><span data-start="1034.0">but is by no means bullet proof.</p><p></span></span><span class="sentence"><span data-start="1037.0">As a general rule, instructions are mostly static, </span></span><span class="sentence"><span data-start="1040.0">and it’s best not to interpolate untrusted user input into the instructions.</p><p></span></span><span class="sentence"><span data-start="1047.0">So this is a basic primer on how to best form your instructions and prompts. </span></span><span class="sentence"><span data-start="1052.0">To discover even more best practices, </span></span><span class="sentence"><span data-start="1054.0">check out our video on prompt design and safety.</p><p></span></span><span class="sentence"><span data-start="1058.0">Now that you have initialized a session, let’s talk about multi-turn interactions! </span></span><span class="sentence"><span data-start="1064.0">When using the respond or streamResponse methods </span></span><span class="sentence"><span data-start="1067.0">we talked about earlier. </span></span><span class="sentence"><span data-start="1069.0">Each interaction with the model is retained as context in a transcript, </span></span><span class="sentence"><span data-start="1075.0">so the model will be able to refer to and understand past multi-turn interactions </span></span><span class="sentence"><span data-start="1081.0">within a single session. </span></span><span class="sentence"><span data-start="1083.0">For example, here the model is able to understand when we say “do another one”, </span></span><span class="sentence"><span data-start="1088.0">that we’re referring back to writing a haiku.</p><p></span></span><span class="sentence"><span data-start="1092.0">And the `transcript` property on the session object </span></span><span class="sentence"><span data-start="1095.0">will allow you to inspect previous interactions </span></span><span class="sentence"><span data-start="1099.0">or draw UI views to represent them.</p><p></span></span><span class="sentence"><span data-start="1102.0">One more important thing to know is that while the model is producing output, </span></span><span class="sentence"><span data-start="1107.0">its `isResponding` property will become `true`. </span></span><span class="sentence"><span data-start="1110.0">You may need to observe this property and make sure not to submit another prompt </span></span><span class="sentence"><span data-start="1116.0">until the model finishes responding. </span></span><span class="sentence"><span data-start="1118.0">Beyond the default model, </span></span><span class="sentence"><span data-start="1120.0">we are also providing additional built-in specialized use cases </span></span><span class="sentence"><span data-start="1124.0">that are backed by adapters.</p><p></span></span><span class="sentence"><span data-start="1126.0">If you find a built-in use case that fits your need, </span></span><span class="sentence"><span data-start="1129.0">you can pass it to SystemLanguageModel’s initializer. </span></span><span class="sentence"><span data-start="1134.0">To understand what built-in use cases are available </span></span><span class="sentence"><span data-start="1137.0">and how to best utilize them, </span></span><span class="sentence"><span data-start="1139.0">check out our documentation on the developer website. </span></span><span class="sentence"><span data-start="1143.0">One specialized adapter I want to talk more about today </span></span><span class="sentence"><span data-start="1146.0">is the content tagging adapter. </span></span><span class="sentence"><span data-start="1149.0">The content tagging adapter provides first class support for tag generation, </span></span><span class="sentence"><span data-start="1154.0">entity extraction, and topic detection. </span></span><span class="sentence"><span data-start="1157.0">By default, the adapter is trained to output topic tags, </span></span><span class="sentence"><span data-start="1161.0">and it integrates with guided generation out of the box. </span></span><span class="sentence"><span data-start="1165.0">So you can simply define a struct with our Generable macro, </span></span><span class="sentence"><span data-start="1169.0">and pass the user input to extract topics from it.</p><p></span></span><span class="sentence"><span data-start="1174.0">But there’s more! </span></span><span class="sentence"><span data-start="1175.0">By providing it with custom instructions and a custom Generable output type, </span></span><span class="sentence"><span data-start="1180.0">you can even use it to detect things like actions and emotions. </span></span><span class="sentence"><span data-start="1184.0">Before you create a session, you should also check for availability, </span></span><span class="sentence"><span data-start="1189.0">since the model can only run on Apple Intelligence-enabled devices </span></span><span class="sentence"><span data-start="1193.0">in supported regions. </span></span><span class="sentence"><span data-start="1195.0">To check if the model is currently available, </span></span><span class="sentence"><span data-start="1198.0">you can access the availability property on the SystemLanguageModel.</p><p></span></span><span class="sentence"><span data-start="1204.0">Availability is a two case enum that’s either available or unavailable. </span></span><span class="sentence"><span data-start="1209.0">If it’s unavailable, you also receive a reason </span></span><span class="sentence"><span data-start="1212.0">so you can adjust your UI accordingly.</p><p></span></span><span class="sentence"><span data-start="1217.0">Lastly, you could encounter errors when you are calling into the model.</p><p></span></span><span class="sentence"><span data-start="1222.0">These errors might include guardrail violation, unsupported language, </span></span><span class="sentence"><span data-start="1226.0">or context window exceeded. </span></span><span class="sentence"><span data-start="1228.0">To provide the best user experience, you should handle them appropriately, </span></span><span class="sentence"><span data-start="1233.0">and the deep-dive video will teach you more about them. </span></span><span class="sentence"><span data-start="1237.0">That’s it for multi-turn stateful sessions! </span></span><span class="sentence"><span data-start="1240.0">We learned how to create a session and use it, </span></span><span class="sentence"><span data-start="1243.0">as well as how our model keeps track of your context. </span></span><span class="sentence"><span data-start="1247.0">Now that you’ve seen all the cool features of the framework, </span></span><span class="sentence"><span data-start="1250.0">let’s talk about developer tooling and experience. </span></span><span class="sentence"><span data-start="1254.0">To start, you can go to any Swift file in your project </span></span><span class="sentence"><span data-start="1257.0">and use the new playground macro to prompt the model.</p><p></span></span><span class="sentence"><span data-start="1262.0">Playgrounds are powerful because they let you quickly iterate on your prompts </span></span><span class="sentence"><span data-start="1266.0">without having to rebuild and rerun your entire app.</p><p></span></span><span class="sentence"><span data-start="1270.0">In a playground, your code can access all the types in your project, </span></span><span class="sentence"><span data-start="1274.0">such as the generable types that are already powering your UI.</p><p></span></span><span class="sentence"><span data-start="1280.0">Next, we know that when it comes to building app experiences </span></span><span class="sentence"><span data-start="1284.0">powered by large language models, </span></span><span class="sentence"><span data-start="1286.0">it is important to understand all the latency under the hood, </span></span><span class="sentence"><span data-start="1290.0">because large language models take longer to run </span></span><span class="sentence"><span data-start="1293.0">compared to traditional ML models. </span></span><span class="sentence"><span data-start="1296.0">Understanding where latency goes can help you tweak the verbosity of your prompts, </span></span><span class="sentence"><span data-start="1301.0">or determine when to call useful APIs such as prewarming.</p><p></span></span><span class="sentence"><span data-start="1305.0">And our new Instruments app profiling template </span></span><span class="sentence"><span data-start="1308.0">is built exactly for that. </span></span><span class="sentence"><span data-start="1311.0">You can profile the latency of a model request, </span></span><span class="sentence"><span data-start="1314.0">observe areas of optimizations, and quantify improvements.</p><p></span></span><span class="sentence"><span data-start="1320.0">Now, as you develop your app, you may have feedback </span></span><span class="sentence"><span data-start="1323.0">that can help us improve our models and our APIs.</p><p></span></span><span class="sentence"><span data-start="1328.0">We encourage you to provide your feedback through Feedback Assistant. </span></span><span class="sentence"><span data-start="1333.0">We even provide an encodable feedback attachment data structure </span></span><span class="sentence"><span data-start="1337.0">that you can attach as a file to your feedback.</p><p></span></span><span class="sentence"><span data-start="1341.0">Finally, if you are an ML practitioner with a highly specialized use case </span></span><span class="sentence"><span data-start="1346.0">and a custom dataset, </span></span><span class="sentence"><span data-start="1348.0">you can also train your custom adapters using our adapter training toolkit. </span></span><span class="sentence"><span data-start="1353.0">But bear in mind, this comes with significant responsibilities </span></span><span class="sentence"><span data-start="1357.0">because you need to retrain it as Apple improves the model over time. </span></span><span class="sentence"><span data-start="1362.0">To learn more, you can visit the developer website. </span></span><span class="sentence"><span data-start="1366.0">Now that you’ve learned many of the cool features provided </span></span><span class="sentence"><span data-start="1369.0">by the new Foundation Models framework, </span></span><span class="sentence"><span data-start="1371.0">we can’t wait to see all the amazing things you build with it! </span></span><span class="sentence"><span data-start="1375.0">To discover even more about how you can integrate generative AI into your app, </span></span><span class="sentence"><span data-start="1379.0">how technologies like guided generation work under the hood, </span></span><span class="sentence"><span data-start="1383.0">and how you can create the best prompts, </span></span><span class="sentence"><span data-start="1386.0">we have a whole series of wonderful videos and articles for you.</p><p></span></span><span class="sentence"><span data-start="1391.0">Thank you so much for joining us today! </span></span><span class="sentence"><span data-start="1393.0">Happy generating!</span></span></p>
+							</section>
+						</li>
+
+						<!-- sample code -->
+						<li class="supplement sample-code" data-supplement-id="sample-code">
+							<section>
+								<ul class="no-bullet padding-top-small margin-bottom">
+																													<li class="sample-code-main-container">
+											<button class="btn-copy-code" data-text-copied="Code Copied" data-text-default="Copy Code">Copy Code</button>
+											<p>2:28 - <a class="jump-to-time-sample" href="/videos/play/wwdc2025/286/?time=148" data-start-time="148">Playground - Trip to Japan</a></p>
+											<pre class="code-source"><code><span class="syntax-keyword">import</span> FoundationModels
+<span class="syntax-keyword">import</span> Playgrounds
+
+#<span class="syntax-type">Playground</span> {
+    <span class="syntax-keyword">let</span> session <span class="syntax-operator">=</span> <span class="syntax-type">LanguageModelSession</span>()
+    <span class="syntax-keyword">let</span> response <span class="syntax-operator">=</span> <span class="syntax-keyword">try</span> <span class="syntax-keyword">await</span> session.respond(to: <span class="syntax-string">&quot;What&#x27;s a good name for a trip to Japan? Respond only with a title&quot;</span>)
+}</code></pre>
+										</li>
+																				<li class="sample-code-main-container">
+											<button class="btn-copy-code" data-text-copied="Code Copied" data-text-default="Copy Code">Copy Code</button>
+											<p>2:43 - <a class="jump-to-time-sample" href="/videos/play/wwdc2025/286/?time=163" data-start-time="163">Playground - Loop over landmarks</a></p>
+											<pre class="code-source"><code><span class="syntax-keyword">import</span> FoundationModels
+<span class="syntax-keyword">import</span> Playgrounds
+
+#<span class="syntax-type">Playground</span> {
+    <span class="syntax-keyword">let</span> session <span class="syntax-operator">=</span> <span class="syntax-type">LanguageModelSession</span>()
+    <span class="syntax-keyword">for</span> landmark <span class="syntax-keyword">in</span> <span class="syntax-type">ModelData</span>.shared.landmarks {
+        <span class="syntax-keyword">let</span> response <span class="syntax-operator">=</span> <span class="syntax-keyword">try</span> <span class="syntax-keyword">await</span> session.respond(to: <span class="syntax-string">&quot;What&#x27;s a good name for a trip to <span class="syntax-subst">\(landmark.name)</span>? Respond only with a title&quot;</span>)
+    }
+}</code></pre>
+										</li>
+																				<li class="sample-code-main-container">
+											<button class="btn-copy-code" data-text-copied="Code Copied" data-text-default="Copy Code">Copy Code</button>
+											<p>5:32 - <a class="jump-to-time-sample" href="/videos/play/wwdc2025/286/?time=332" data-start-time="332">Creating a Generable struct</a></p>
+											<pre class="code-source"><code><span class="syntax-comment">// Creating a Generable struct</span>
+
+<span class="syntax-meta">@Generable</span>
+<span class="syntax-keyword">struct</span> <span class="syntax-title class_">SearchSuggestions</span> {
+    <span class="syntax-meta">@Guide</span>(description: <span class="syntax-string">&quot;A list of suggested search terms&quot;</span>, .count(<span class="syntax-number">4</span>))
+    <span class="syntax-keyword">var</span> searchTerms: [<span class="syntax-type">String</span>]
+}</code></pre>
+										</li>
+																				<li class="sample-code-main-container">
+											<button class="btn-copy-code" data-text-copied="Code Copied" data-text-default="Copy Code">Copy Code</button>
+											<p>5:51 - <a class="jump-to-time-sample" href="/videos/play/wwdc2025/286/?time=351" data-start-time="351">Responding with a Generable type</a></p>
+											<pre class="code-source"><code><span class="syntax-comment">// Responding with a Generable type</span>
+
+<span class="syntax-keyword">let</span> prompt <span class="syntax-operator">=</span> <span class="syntax-string">&quot;&quot;&quot;
+    Generate a list of suggested search terms for an app about visiting famous landmarks.
+    &quot;&quot;&quot;</span>
+
+<span class="syntax-keyword">let</span> response <span class="syntax-operator">=</span> <span class="syntax-keyword">try</span> <span class="syntax-keyword">await</span> session.respond(
+    to: prompt,
+    generating: <span class="syntax-type">SearchSuggestions</span>.<span class="syntax-keyword">self</span>
+)
+
+<span class="syntax-built_in">print</span>(response.content)</code></pre>
+										</li>
+																				<li class="sample-code-main-container">
+											<button class="btn-copy-code" data-text-copied="Code Copied" data-text-default="Copy Code">Copy Code</button>
+											<p>6:18 - <a class="jump-to-time-sample" href="/videos/play/wwdc2025/286/?time=378" data-start-time="378">Composing Generable types</a></p>
+											<pre class="code-source"><code><span class="syntax-comment">// Composing Generable types</span>
+
+<span class="syntax-meta">@Generable</span> <span class="syntax-keyword">struct</span> <span class="syntax-title class_">Itinerary</span> {
+    <span class="syntax-keyword">var</span> destination: <span class="syntax-type">String</span>
+    <span class="syntax-keyword">var</span> days: <span class="syntax-type">Int</span>
+    <span class="syntax-keyword">var</span> budget: <span class="syntax-type">Float</span>
+    <span class="syntax-keyword">var</span> rating: <span class="syntax-type">Double</span>
+    <span class="syntax-keyword">var</span> requiresVisa: <span class="syntax-type">Bool</span>
+    <span class="syntax-keyword">var</span> activities: [<span class="syntax-type">String</span>]
+    <span class="syntax-keyword">var</span> emergencyContact: <span class="syntax-type">Person</span>
+    <span class="syntax-keyword">var</span> relatedItineraries: [<span class="syntax-type">Itinerary</span>]
+}</code></pre>
+										</li>
+																				<li class="sample-code-main-container">
+											<button class="btn-copy-code" data-text-copied="Code Copied" data-text-default="Copy Code">Copy Code</button>
+											<p>9:20 - <a class="jump-to-time-sample" href="/videos/play/wwdc2025/286/?time=560" data-start-time="560">PartiallyGenerated types</a></p>
+											<pre class="code-source"><code><span class="syntax-comment">// PartiallyGenerated types</span>
+
+<span class="syntax-meta">@Generable</span> <span class="syntax-keyword">struct</span> <span class="syntax-title class_">Itinerary</span> {
+    <span class="syntax-keyword">var</span> name: <span class="syntax-type">String</span>
+    <span class="syntax-keyword">var</span> days: [<span class="syntax-type">Day</span>]
+}</code></pre>
+										</li>
+																				<li class="sample-code-main-container">
+											<button class="btn-copy-code" data-text-copied="Code Copied" data-text-default="Copy Code">Copy Code</button>
+											<p>9:40 - <a class="jump-to-time-sample" href="/videos/play/wwdc2025/286/?time=580" data-start-time="580">Streaming partial generations</a></p>
+											<pre class="code-source"><code><span class="syntax-comment">// Streaming partial generations</span>
+
+<span class="syntax-keyword">let</span> stream <span class="syntax-operator">=</span> session.streamResponse(
+    to: <span class="syntax-string">&quot;Craft a 3-day itinerary to Mt. Fuji.&quot;</span>,
+    generating: <span class="syntax-type">Itinerary</span>.<span class="syntax-keyword">self</span>
+)
+
+<span class="syntax-keyword">for</span> <span class="syntax-keyword">try</span> <span class="syntax-keyword">await</span> partial <span class="syntax-keyword">in</span> stream {
+    <span class="syntax-built_in">print</span>(partial)
+}</code></pre>
+										</li>
+																				<li class="sample-code-main-container">
+											<button class="btn-copy-code" data-text-copied="Code Copied" data-text-default="Copy Code">Copy Code</button>
+											<p>10:05 - <a class="jump-to-time-sample" href="/videos/play/wwdc2025/286/?time=605" data-start-time="605">Streaming itinerary view</a></p>
+											<pre class="code-source"><code><span class="syntax-keyword">struct</span> <span class="syntax-title class_">ItineraryView</span>: <span class="syntax-title class_">View</span> {
+    <span class="syntax-keyword">let</span> session: <span class="syntax-type">LanguageModelSession</span>
+    <span class="syntax-keyword">let</span> dayCount: <span class="syntax-type">Int</span>
+    <span class="syntax-keyword">let</span> landmarkName: <span class="syntax-type">String</span>
+  
+    <span class="syntax-meta">@State</span>
+    <span class="syntax-keyword">private</span> <span class="syntax-keyword">var</span> itinerary: <span class="syntax-type">Itinerary</span>.<span class="syntax-type">PartiallyGenerated</span>?
+  
+    <span class="syntax-keyword">var</span> body: <span class="syntax-keyword">some</span> <span class="syntax-type">View</span> {
+        <span class="syntax-comment">//...</span>
+        <span class="syntax-type">Button</span>(<span class="syntax-string">&quot;Start&quot;</span>) {
+            <span class="syntax-type">Task</span> {
+                <span class="syntax-keyword">do</span> {
+                    <span class="syntax-keyword">let</span> prompt <span class="syntax-operator">=</span> <span class="syntax-string">&quot;&quot;&quot;
+                        Generate a <span class="syntax-subst">\(dayCount)</span> itinerary <span class="syntax-subst">\
+</span>                        to <span class="syntax-subst">\(landmarkName)</span>.
+                        &quot;&quot;&quot;</span>
+                  
+                    <span class="syntax-keyword">let</span> stream <span class="syntax-operator">=</span> session.streamResponse(
+                        to: prompt,
+                        generating: <span class="syntax-type">Itinerary</span>.<span class="syntax-keyword">self</span>
+                    )
+                  
+                    <span class="syntax-keyword">for</span> <span class="syntax-keyword">try</span> <span class="syntax-keyword">await</span> partial <span class="syntax-keyword">in</span> stream {
+                        <span class="syntax-keyword">self</span>.itinerary <span class="syntax-operator">=</span> partial
+                    }
+                } <span class="syntax-keyword">catch</span> {
+                    <span class="syntax-built_in">print</span>(error)  
+                }
+            }
+        }
+    }
+}</code></pre>
+										</li>
+																				<li class="sample-code-main-container">
+											<button class="btn-copy-code" data-text-copied="Code Copied" data-text-default="Copy Code">Copy Code</button>
+											<p>11:00 - <a class="jump-to-time-sample" href="/videos/play/wwdc2025/286/?time=660" data-start-time="660">Property order matters</a></p>
+											<pre class="code-source"><code><span class="syntax-meta">@Generable</span> <span class="syntax-keyword">struct</span> <span class="syntax-title class_">Itinerary</span> {
+  
+  <span class="syntax-meta">@Guide</span>(description: <span class="syntax-string">&quot;Plans for each day&quot;</span>)
+  <span class="syntax-keyword">var</span> days: [<span class="syntax-type">DayPlan</span>]
+  
+  <span class="syntax-meta">@Guide</span>(description: <span class="syntax-string">&quot;A brief summary of plans&quot;</span>)
+  <span class="syntax-keyword">var</span> summary: <span class="syntax-type">String</span>
+}</code></pre>
+										</li>
+																				<li class="sample-code-main-container">
+											<button class="btn-copy-code" data-text-copied="Code Copied" data-text-default="Copy Code">Copy Code</button>
+											<p>13:42 - <a class="jump-to-time-sample" href="/videos/play/wwdc2025/286/?time=822" data-start-time="822">Defining a tool</a></p>
+											<pre class="code-source"><code><span class="syntax-comment">// Defining a tool</span>
+<span class="syntax-keyword">import</span> WeatherKit
+<span class="syntax-keyword">import</span> CoreLocation
+<span class="syntax-keyword">import</span> FoundationModels
+
+<span class="syntax-keyword">struct</span> <span class="syntax-title class_">GetWeatherTool</span>: <span class="syntax-title class_">Tool</span> {
+    <span class="syntax-keyword">let</span> name <span class="syntax-operator">=</span> <span class="syntax-string">&quot;getWeather&quot;</span>
+    <span class="syntax-keyword">let</span> description <span class="syntax-operator">=</span> <span class="syntax-string">&quot;Retrieve the latest weather information for a city&quot;</span>
+
+    <span class="syntax-meta">@Generable</span>
+    <span class="syntax-keyword">struct</span> <span class="syntax-title class_">Arguments</span> {
+        <span class="syntax-meta">@Guide</span>(description: <span class="syntax-string">&quot;The city to fetch the weather for&quot;</span>)
+        <span class="syntax-keyword">var</span> city: <span class="syntax-type">String</span>
+    }
+
+    <span class="syntax-keyword">func</span> <span class="syntax-title function_">call</span>(<span class="syntax-params">arguments</span>: <span class="syntax-type">Arguments</span>) <span class="syntax-keyword">async</span> <span class="syntax-keyword">throws</span> -&gt; <span class="syntax-type">ToolOutput</span> {
+        <span class="syntax-keyword">let</span> places <span class="syntax-operator">=</span> <span class="syntax-keyword">try</span> <span class="syntax-keyword">await</span> <span class="syntax-type">CLGeocoder</span>().geocodeAddressString(arguments.city)
+        <span class="syntax-keyword">let</span> weather <span class="syntax-operator">=</span> <span class="syntax-keyword">try</span> <span class="syntax-keyword">await</span> <span class="syntax-type">WeatherService</span>.shared.weather(for: places.first<span class="syntax-operator">!</span>.location<span class="syntax-operator">!</span>)
+        <span class="syntax-keyword">let</span> temperature <span class="syntax-operator">=</span> weather.currentWeather.temperature.value
+
+        <span class="syntax-keyword">let</span> content <span class="syntax-operator">=</span> <span class="syntax-type">GeneratedContent</span>(properties: [<span class="syntax-string">&quot;temperature&quot;</span>: temperature])
+        <span class="syntax-keyword">let</span> output <span class="syntax-operator">=</span> <span class="syntax-type">ToolOutput</span>(content)
+
+        <span class="syntax-comment">// Or if your tool’s output is natural language:</span>
+        <span class="syntax-comment">// let output = ToolOutput(&quot;\(arguments.city)&#x27;s temperature is \(temperature) degrees.&quot;)</span>
+
+        <span class="syntax-keyword">return</span> output
+    }
+}</code></pre>
+										</li>
+																				<li class="sample-code-main-container">
+											<button class="btn-copy-code" data-text-copied="Code Copied" data-text-default="Copy Code">Copy Code</button>
+											<p>15:03 - <a class="jump-to-time-sample" href="/videos/play/wwdc2025/286/?time=903" data-start-time="903">Attaching tools to a session</a></p>
+											<pre class="code-source"><code><span class="syntax-comment">// Attaching tools to a session</span>
+
+<span class="syntax-keyword">let</span> session <span class="syntax-operator">=</span> <span class="syntax-type">LanguageModelSession</span>(
+    tools: [<span class="syntax-type">GetWeatherTool</span>()],
+    instructions: <span class="syntax-string">&quot;Help the user with weather forecasts.&quot;</span>
+)
+
+<span class="syntax-keyword">let</span> response <span class="syntax-operator">=</span> <span class="syntax-keyword">try</span> <span class="syntax-keyword">await</span> session.respond(
+    to: <span class="syntax-string">&quot;What is the temperature in Cupertino?&quot;</span>
+)
+
+<span class="syntax-built_in">print</span>(response.content)
+<span class="syntax-comment">// It’s 71˚F in Cupertino!</span></code></pre>
+										</li>
+																				<li class="sample-code-main-container">
+											<button class="btn-copy-code" data-text-copied="Code Copied" data-text-default="Copy Code">Copy Code</button>
+											<p>16:30 - <a class="jump-to-time-sample" href="/videos/play/wwdc2025/286/?time=990" data-start-time="990">Supplying custom instructions</a></p>
+											<pre class="code-source"><code><span class="syntax-comment">// Supplying custom instructions</span>
+
+<span class="syntax-keyword">let</span> session <span class="syntax-operator">=</span> <span class="syntax-type">LanguageModelSession</span>(
+    instructions: <span class="syntax-string">&quot;&quot;&quot;
+        You are a helpful assistant who always <span class="syntax-subst">\
+</span>        responds in rhyme.
+        &quot;&quot;&quot;</span>
+)</code></pre>
+										</li>
+																				<li class="sample-code-main-container">
+											<button class="btn-copy-code" data-text-copied="Code Copied" data-text-default="Copy Code">Copy Code</button>
+											<p>17:46 - <a class="jump-to-time-sample" href="/videos/play/wwdc2025/286/?time=1066" data-start-time="1066">Multi-turn interactions</a></p>
+											<pre class="code-source"><code><span class="syntax-comment">// Multi-turn interactions</span>
+
+<span class="syntax-keyword">let</span> session <span class="syntax-operator">=</span> <span class="syntax-type">LanguageModelSession</span>()
+
+<span class="syntax-keyword">let</span> firstHaiku <span class="syntax-operator">=</span> <span class="syntax-keyword">try</span> <span class="syntax-keyword">await</span> session.respond(to: <span class="syntax-string">&quot;Write a haiku about fishing&quot;</span>)
+<span class="syntax-built_in">print</span>(firstHaiku.content)
+<span class="syntax-comment">// Silent waters gleam,</span>
+<span class="syntax-comment">// Casting lines in morning mist—</span>
+<span class="syntax-comment">// Hope in every cast.</span>
+
+<span class="syntax-keyword">let</span> secondHaiku <span class="syntax-operator">=</span> <span class="syntax-keyword">try</span> <span class="syntax-keyword">await</span> session.respond(to: <span class="syntax-string">&quot;Do another one about golf&quot;</span>)
+<span class="syntax-built_in">print</span>(secondHaiku.content)
+<span class="syntax-comment">// Silent morning dew,</span>
+<span class="syntax-comment">// Caddies guide with gentle words—</span>
+<span class="syntax-comment">// Paths of patience tread.</span>
+
+<span class="syntax-built_in">print</span>(session.transcript) <span class="syntax-comment">// (Prompt) Write a haiku about fishing</span>
+<span class="syntax-comment">// (Response) Silent waters gleam...</span>
+<span class="syntax-comment">// (Prompt) Do another one about golf</span>
+<span class="syntax-comment">// (Response) Silent morning dew...</span></code></pre>
+										</li>
+																				<li class="sample-code-main-container">
+											<button class="btn-copy-code" data-text-copied="Code Copied" data-text-default="Copy Code">Copy Code</button>
+											<p>18:22 - <a class="jump-to-time-sample" href="/videos/play/wwdc2025/286/?time=1102" data-start-time="1102">Gate on isResponding</a></p>
+											<pre class="code-source"><code><span class="syntax-keyword">import</span> SwiftUI
+<span class="syntax-keyword">import</span> FoundationModels
+
+<span class="syntax-keyword">struct</span> <span class="syntax-title class_">HaikuView</span>: <span class="syntax-title class_">View</span> {
+
+    <span class="syntax-meta">@State</span>
+    <span class="syntax-keyword">private</span> <span class="syntax-keyword">var</span> session <span class="syntax-operator">=</span> <span class="syntax-type">LanguageModelSession</span>()
+
+    <span class="syntax-meta">@State</span>
+    <span class="syntax-keyword">private</span> <span class="syntax-keyword">var</span> haiku: <span class="syntax-type">String</span>?
+
+    <span class="syntax-keyword">var</span> body: <span class="syntax-keyword">some</span> <span class="syntax-type">View</span> {
+        <span class="syntax-keyword">if</span> <span class="syntax-keyword">let</span> haiku {
+            <span class="syntax-type">Text</span>(haiku)
+        }
+        <span class="syntax-type">Button</span>(<span class="syntax-string">&quot;Go!&quot;</span>) {
+            <span class="syntax-type">Task</span> {
+                haiku <span class="syntax-operator">=</span> <span class="syntax-keyword">try</span> <span class="syntax-keyword">await</span> session.respond(
+                    to: <span class="syntax-string">&quot;Write a haiku about something you haven&#x27;t yet&quot;</span>
+                ).content
+            }
+        }
+        <span class="syntax-comment">// Gate on `isResponding`</span>
+        .disabled(session.isResponding)
+    }
+}</code></pre>
+										</li>
+																				<li class="sample-code-main-container">
+											<button class="btn-copy-code" data-text-copied="Code Copied" data-text-default="Copy Code">Copy Code</button>
+											<p>18:39 - <a class="jump-to-time-sample" href="/videos/play/wwdc2025/286/?time=1119" data-start-time="1119">Using a built-in use case</a></p>
+											<pre class="code-source"><code><span class="syntax-comment">// Using a built-in use case</span>
+
+<span class="syntax-keyword">let</span> session <span class="syntax-operator">=</span> <span class="syntax-type">LanguageModelSession</span>(
+    model: <span class="syntax-type">SystemLanguageModel</span>(useCase: .contentTagging)
+)</code></pre>
+										</li>
+																				<li class="sample-code-main-container">
+											<button class="btn-copy-code" data-text-copied="Code Copied" data-text-default="Copy Code">Copy Code</button>
+											<p>19:19 - <a class="jump-to-time-sample" href="/videos/play/wwdc2025/286/?time=1159" data-start-time="1159">Content tagging use case - 1</a></p>
+											<pre class="code-source"><code><span class="syntax-comment">// Content tagging use case</span>
+
+<span class="syntax-meta">@Generable</span>
+<span class="syntax-keyword">struct</span> <span class="syntax-title class_">Result</span> {
+    <span class="syntax-keyword">let</span> topics: [<span class="syntax-type">String</span>]
+}
+
+<span class="syntax-keyword">let</span> session <span class="syntax-operator">=</span> <span class="syntax-type">LanguageModelSession</span>(model: <span class="syntax-type">SystemLanguageModel</span>(useCase: .contentTagging))
+<span class="syntax-keyword">let</span> response <span class="syntax-operator">=</span> <span class="syntax-keyword">try</span> <span class="syntax-keyword">await</span> session.respond(to: <span class="syntax-operator">...</span>, generating: <span class="syntax-type">Result</span>.<span class="syntax-keyword">self</span>)</code></pre>
+										</li>
+																				<li class="sample-code-main-container">
+											<button class="btn-copy-code" data-text-copied="Code Copied" data-text-default="Copy Code">Copy Code</button>
+											<p>19:35 - <a class="jump-to-time-sample" href="/videos/play/wwdc2025/286/?time=1175" data-start-time="1175">Content tagging use case - 2</a></p>
+											<pre class="code-source"><code><span class="syntax-comment">// Content tagging use case</span>
+
+<span class="syntax-meta">@Generable</span>
+<span class="syntax-keyword">struct</span> <span class="syntax-title class_">Top3ActionEmotionResult</span> {
+    <span class="syntax-meta">@Guide</span>(.maximumCount(<span class="syntax-number">3</span>))
+    <span class="syntax-keyword">let</span> actions: [<span class="syntax-type">String</span>]
+    <span class="syntax-meta">@Guide</span>(.maximumCount(<span class="syntax-number">3</span>))
+    <span class="syntax-keyword">let</span> emotions: [<span class="syntax-type">String</span>]
+}
+
+<span class="syntax-keyword">let</span> session <span class="syntax-operator">=</span> <span class="syntax-type">LanguageModelSession</span>(
+    model: <span class="syntax-type">SystemLanguageModel</span>(useCase: .contentTagging),
+    instructions: <span class="syntax-string">&quot;Tag the 3 most important actions and emotions in the given input text.&quot;</span>
+)
+<span class="syntax-keyword">let</span> response <span class="syntax-operator">=</span> <span class="syntax-keyword">try</span> <span class="syntax-keyword">await</span> session.respond(to: <span class="syntax-operator">...</span>, generating: <span class="syntax-type">Top3ActionEmotionResult</span>.<span class="syntax-keyword">self</span>)</code></pre>
+										</li>
+																				<li class="sample-code-main-container">
+											<button class="btn-copy-code" data-text-copied="Code Copied" data-text-default="Copy Code">Copy Code</button>
+											<p>19:56 - <a class="jump-to-time-sample" href="/videos/play/wwdc2025/286/?time=1196" data-start-time="1196">Availability checking</a></p>
+											<pre class="code-source"><code><span class="syntax-comment">// Availability checking</span>
+
+<span class="syntax-keyword">struct</span> <span class="syntax-title class_">AvailabilityExample</span>: <span class="syntax-title class_">View</span> {
+    <span class="syntax-keyword">private</span> <span class="syntax-keyword">let</span> model <span class="syntax-operator">=</span> <span class="syntax-type">SystemLanguageModel</span>.default
+
+    <span class="syntax-keyword">var</span> body: <span class="syntax-keyword">some</span> <span class="syntax-type">View</span> {
+        <span class="syntax-keyword">switch</span> model.availability {
+        <span class="syntax-keyword">case</span> .available:
+            <span class="syntax-type">Text</span>(<span class="syntax-string">&quot;Model is available&quot;</span>).foregroundStyle(.green)
+        <span class="syntax-keyword">case</span> .unavailable(<span class="syntax-keyword">let</span> reason):
+            <span class="syntax-type">Text</span>(<span class="syntax-string">&quot;Model is unavailable&quot;</span>).foregroundStyle(.red)
+            <span class="syntax-type">Text</span>(<span class="syntax-string">&quot;Reason: <span class="syntax-subst">\(reason)</span>&quot;</span>)
+        }
+    }
+}</code></pre>
+										</li>
+																				<li class="sample-code-main-container">
+											<button class="btn-copy-code" data-text-copied="Code Copied" data-text-default="Copy Code">Copy Code</button>
+											<p>22:13 - <a class="jump-to-time-sample" href="/videos/play/wwdc2025/286/?time=1333" data-start-time="1333">Encodable feedback attachment data structure</a></p>
+											<pre class="code-source"><code><span class="syntax-keyword">let</span> feedback <span class="syntax-operator">=</span> <span class="syntax-type">LanguageModelFeedbackAttachment</span>(
+  input: [
+    <span class="syntax-comment">// ...</span>
+  ],
+  output: [
+    <span class="syntax-comment">// ...</span>
+  ],
+  sentiment: .negative,
+  issues: [
+    <span class="syntax-type">LanguageModelFeedbackAttachment</span>.<span class="syntax-type">Issue</span>(
+      category: .incorrect,
+      explanation: <span class="syntax-string">&quot;...&quot;</span>
+    )
+  ],
+  desiredOutputExamples: [
+    [
+      <span class="syntax-comment">// ...</span>
+    ]
+  ]
+)
+<span class="syntax-keyword">let</span> data <span class="syntax-operator">=</span> <span class="syntax-keyword">try</span> <span class="syntax-type">JSONEncoder</span>().encode(feedback)</code></pre>
+										</li>
+																			
+								</ul>
+							</section>
+						</li>
+
+												<!-- summary -->
+						<li class="supplement summary margin-top-small" data-supplement-id="summary">
+							<section>
+								<ul class="no-bullet">
+																		<li>0:00 - <a class="jump-to-time" href="/videos/play/wwdc2025/286/?time=0" data-start-time="0" data-chapter-end-time="125" data-chapter-lenght="125" data-chapter-index="1">Introduction</a></li>
+										<li class="chapter-summary"><p>The Foundation Models framework provides you with access to an on-device Large Language Model for macOS, iOS, iPadOS, and visionOS. The framework enables you to create personalized and innovative features such as search suggestions, itineraries, and in-game dialog, all while prioritizing user privacy as data remains on-device and can operate offline. 
+
+The framework is optimized for content generation, text summarization, and user input analysis. To assist developers, Apple has prepared a series of videos that cover the framework's overview, guided generation, streaming APIs, tool calling, multi-turn support, and seamless integration into the Apple developer ecosystem.</p></li>																		<li>2:05 - <a class="jump-to-time" href="/videos/play/wwdc2025/286/?time=125" data-start-time="125" data-chapter-end-time="320" data-chapter-lenght="195" data-chapter-index="2">The model</a></li>
+										<li class="chapter-summary"><p>Xcode's new Playgrounds feature is the optimal starting point to experiment with prompting the on-device large language model. With just a few lines of code, you can test prompts and see the model's responses in real-time. 
+
+The on-device model, though impressive with 3 billion parameters, is optimized for specific tasks like summarization, extraction, and classification, and is not suitable for world knowledge or advanced reasoning. Break down tasks into smaller pieces to maximize its effectiveness.
+
+Guided Generation, a core component of the FoundationModels framework, addresses the challenge of integrating model output into apps. It enables you to build features more reliably by providing a structured approach to model generation, overcoming the limitations of relying on the model to produce easily parsable formats like JSON or CSV.</p></li>																		<li>5:20 - <a class="jump-to-time" href="/videos/play/wwdc2025/286/?time=320" data-start-time="320" data-chapter-end-time="465" data-chapter-lenght="145" data-chapter-index="3">Guided generation</a></li>
+										<li class="chapter-summary"><p>With the import of FoundationModels, two new macros, '@Generable' and '@Guide', are introduced. '@Generable' enables the description of types for model-generated instances, which can be constructed from primitives, arrays, and composed or recursive types. '@Guide' provides natural language descriptions of properties and controls generated values, ensuring structural correctness through constrained decoding. 
+
+This Guided Generation approach simplifies prompts, improves model accuracy, and speeds up inference. It allows you to receive rich Swift objects directly from the model, which can be easily mapped onto engaging views, all without needing to specify the output format in the prompt.</p></li>																		<li>7:45 - <a class="jump-to-time" href="/videos/play/wwdc2025/286/?time=465" data-start-time="465" data-chapter-end-time="688" data-chapter-lenght="223" data-chapter-index="4">Snapshot streaming</a></li>
+										<li class="chapter-summary"><p>The FoundationModels framework differs from traditional token-based delta streaming for large language models. Instead, it streams snapshots — partially generated responses with optional properties — which are more robust and convenient for handling structured output. 
+
+This approach leverages the '@Generable' macro, which produces a 'PartiallyGenerated' type mirroring the outer structure with optional properties. The 'streamResponse' method returns an async sequence of these partially generated types, enabling seamless integration with declarative frameworks like SwiftUI.
+
+Use SwiftUI animations and transitions to enhance user experience during streaming. Proper consideration of view identity and property declaration order is also crucial for optimal results.</p></li>																		<li>11:28 - <a class="jump-to-time" href="/videos/play/wwdc2025/286/?time=688" data-start-time="688" data-chapter-end-time="971" data-chapter-lenght="283" data-chapter-index="5">Tool calling</a></li>
+										<li class="chapter-summary"><p>Tool calling enables an AI model to execute custom code within an app, enhancing its capabilities. This feature allows the model to autonomously decide when to use external tools to retrieve information or perform actions, such as querying restaurants, hotels, or weather data, based on the context of the person's request. 
+
+The model can integrate with various sources of truth, like MapKit, to provide accurate and up-to-date information. This process involves the model generating tool calls, which are then automatically executed by the FoundationModels framework, and the results are inserted back into the conversation transcript for the model to use in formulating its final response.</p></li>																		<li>16:11 - <a class="jump-to-time" href="/videos/play/wwdc2025/286/?time=971" data-start-time="971" data-chapter-end-time="1262" data-chapter-lenght="291" data-chapter-index="6">Stateful session</a></li>
+										<li class="chapter-summary"><p>The Foundation Models framework enables stateful sessions with an on-device general-purpose model. You can provide custom instructions to guide the model's responses, specifying style and verbosity, though this is optional. You set your instructions, which are distinct from user prompts, and the model is trained to obey instructions over prompts to enhance security. 
+
+Within a session, the model retains context across multi-turn interactions, allowing it to understand and refer to previous prompts and responses. The transcript property can be used to inspect these interactions.
+
+The framework also offers built-in specialized use cases, such as the content-tagging adapter, which supports tag generation, entity extraction, and topic detection. Customize these adapters for specific needs.
+
+Before creating a session, check the model's availability because it can only run on Apple Intelligence-enabled devices in supported regions. Proper error handling is also essential to manage potential issues like guardrail violations, unsupported languages, or exceeded context windows.</p></li>																		<li>21:02 - <a class="jump-to-time" href="/videos/play/wwdc2025/286/?time=1262" data-start-time="1262" data-chapter-end-time="1404" data-chapter-lenght="142" data-chapter-index="7">Developer experience</a></li>
+										<li class="chapter-summary"><p>Playgrounds enable rapid iteration of prompts for large language models within an app project, allowing you to access all project types. The new Instruments app profiling template helps optimize latency by identifying areas for improvement in model requests and prompt verbosity. 
+
+You are encouraged to provide feedback through Feedback Assistant</p></li>																</ul>
+							</section>
+						</li>
+						
+					</ul>
+
+				</section>
+
+			</section>
+			</div>
+
+		</section>
+
+		<input id="analytics-meta" type="hidden" data-event-name="WWDC25" 
+		data-event-id="wwdc2025-286" 
+		data-session-id="286" 
+		data-video-name="Meet the Foundation Models framework" 
+		data-session-response-id="">
+	</main>
+
+	<link rel="stylesheet" href="/assets/styles/footer.dist.css?34212621148">
+<footer data-aa-content-module="global-footer" id="footer" class="footer" role="contentinfo" aria-labelledby="footer-label">
+    <div class="footer-content">
+        <h2 class="footer-label" id="footer-label">Developer Footer</h2>
+	<developer-breadcrumbs>
+		<li class="footer-breadcrumbs-item"><a href="/videos/">Videos</a></li>
+		<li class="footer-breadcrumbs-item"><a href="/videos/wwdc2025/">WWDC25</a></li>		<li class="footer-breadcrumbs-item">Meet the Foundation Models framework</li>
+	</developer-breadcrumbs>
+	        <nav class="footer-directory" aria-label="Apple Developer Directory" role="navigation">
+	<!--googleoff: all-->
+	<div class="footer-directory-column">
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-platform" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-platform">
+				<h3 class="footer-directory-column-section-title">Platforms</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-platform" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/ios/">iOS</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/ipados/">iPadOS</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/macos/">macOS</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/tvos/">tvOS</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/visionos/">visionOS</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/watchos/">watchOS</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/app-store/">App Store</a></li>
+			</ul>
+		</div>
+
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-tools" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-tools">
+				<h3 class="footer-directory-column-section-title">Tools</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-tools" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/swift/">Swift</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/swiftui/">SwiftUI</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/swift-playground/">Swift Playground</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/testflight/">TestFlight</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/xcode/">Xcode</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/xcode-cloud/">Xcode Cloud</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/icon-composer/">Icon Composer</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/sf-symbols/">SF Symbols</a></li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class="footer-directory-column">
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-topics" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-topics">
+				<h3 class="footer-directory-column-section-title">Technologies</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-topics" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/documentation/accessibility/">Accessibility</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/accessories/">Accessories</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/machine-learning/">AI & Machine Learning</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/in-app-purchase/">Apple In-App Purchase</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/apple-intelligence/">Apple Intelligence</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/audio/">Audio &amp; Video</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/augmented-reality/">Augmented Reality</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/business/">Business</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/design/">Design</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/distribute/">Distribution</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/education/">Education</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/games/">Games</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/health-fitness/">Health &amp; Fitness</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/localization/">Localization</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/maps/">Maps &amp; Location</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/security/">Security</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/safari/">Safari &amp; Web</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="footer-directory-column">
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-resources" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-resources">
+				<h3 class="footer-directory-column-section-title">Resources</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-resources" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/documentation/">Documentation</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/download/">Downloads</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/documentation/samplecode/">Sample Code</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/videos/">Videos</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/library/archive/navigation/">Documentation Archive</a></li>
+			</ul>
+		</div>
+
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-support" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-support">
+				<h3 class="footer-directory-column-section-title">Support</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-support" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/help/">Help Guides & Articles</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/contact/">Contact Us</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/forums/">Forums</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/bug-reporting/">Feedback & Bug Reporting</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/system-status/">System Status</a></li>
+			</ul>
+		</div>
+
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-account" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-account">
+				<h3 class="footer-directory-column-section-title">Account</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-account" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/account/">Apple Developer</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://appstoreconnect.apple.com/">App Store Connect</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/account/ios/certificate/">Certificates, IDs, &amp; Profiles</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://feedbackassistant.apple.com/">Feedback Assistant</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="footer-directory-column">
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-programs" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-programs">
+				<h3 class="footer-directory-column-section-title">Programs</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-programs" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/programs/">Apple Developer Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/programs/enterprise/">Apple Developer Enterprise Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/app-store/small-business-program/">App Store Small Business Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="https://mfi.apple.com/">MFi Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/programs/mini-apps-partner/">Mini Apps Partner Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/programs/news-partner/">News Partner Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/programs/video-partner/">Video Partner Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/security-bounty/">Security Bounty Program</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/programs/security-research-device/">Security Research Device Program</a></li>
+			</ul>
+		</div>
+
+		<input class="footer-directory-column-section-state" type="checkbox" id="footer-directory-column-section-state-events" />
+		<div class="footer-directory-column-section">
+			<label class="footer-directory-column-section-label" for="footer-directory-column-section-state-events">
+				<h3 class="footer-directory-column-section-title">Events</h3>
+			</label>
+			<a href="#footer-directory-column-section-state-events" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-open"> <span class="footer-directory-column-section-anchor-label">Open Menu</span> </a>
+			<a href="#" class="footer-directory-column-section-anchor footer-directory-column-section-anchor-close"> <span class="footer-directory-column-section-anchor-label">Close Menu</span> </a>
+			<ul class="footer-directory-column-section-list">
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/events/">Meet with Apple</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/events/developer-centers/">Apple Developer Centers</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/app-store/app-store-awards/">App Store Awards</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/design/awards/">Apple Design Awards</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/academies/">Apple Developer Academies</a></li>
+				<li class="footer-directory-column-section-item"><a class="footer-directory-column-section-link" href="/wwdc/">WWDC</a></li>
+			</ul>
+		</div>
+	</div>
+	<!--googleon: all-->
+</nav>
+        <section class="footer-mini" vocab="http://schema.org/" typeof="Organization">
+	<div class="footer-mini-news">
+		<div class="copy">
+			<div class="footer-mini-legal-link">Read the <a href="/news/">latest news</a>.</div> <div class="footer-mini-legal-link">Get the <a href="https://apps.apple.com/us/app/apple-developer/id640199958">Apple Developer app</a>.</div> Follow us on <a href="https://space.bilibili.com/429911174">bilibili</a>, <a href="https://www.linkedin.com/showcase/appledeveloper/">LinkedIn</a>, <a href="https://mp.weixin.qq.com/s/slhQ1RBYUpJ71gwEUlwSTg">WeChat</a>, and <a href="https://www.youtube.com/@AppleDeveloper">YouTube</a>.
+		</div>
+		<div class="content">
+			<div class="color-scheme-toggle"
+				role="radiogroup"
+				tabindex="0"
+				aria-label="Select a color scheme preference">
+
+				<label data-color-scheme-option="light">
+
+					<input type="radio" value="light" autocomplete="off"
+						onchange="window.setPreferredColorScheme(event.target.value)" />
+
+					<div class="text">Light</div>
+
+				</label>
+
+				<label data-color-scheme-option="dark">
+
+					<input type="radio" value="dark" autocomplete="off"
+						onchange="window.setPreferredColorScheme(event.target.value)" />
+
+					<div class="text">Dark</div>
+
+				</label>
+
+				<label data-color-scheme-option="auto">
+
+					<input type="radio" value="auto" autocomplete="off"
+						onchange="window.setPreferredColorScheme(event.target.value)" />
+
+					<div class="text">Auto</div>
+
+				</label>
+
+			</div>
+			<script async src="/assets/scripts/color-scheme-toggle.js"></script>
+		</div>
+	</div>
+	<link rel="stylesheet" href="/assets/styles/language-dropdown.css?35212621148">
+	<div class="language-dropdown dropdown-container legacy-form hidden">
+		<select class="dropdown" aria-label="Language Dropdown"></select>
+		<span class="dropdown-icon icon icon-chevrondown" aria-hidden="true"></span>
+	</div>
+	<script src="/assets/scripts/language-dropdown.js?51212659264"></script>
+	<div class="footer-mini-legal">
+		<div class="footer-mini-legal-copyright">Copyright ©  2026 <a href="https://www.apple.com">Apple Inc.</a> All rights reserved.</div>
+		<div class="footer-mini-legal-links">
+			<a class="footer-mini-legal-link" href="https://www.apple.com/legal/internet-services/terms/site.html" class="first">Terms of Use</a>
+			<a class="footer-mini-legal-link" href="https://www.apple.com/legal/privacy/">Privacy Policy</a>
+			<a class="footer-mini-legal-link" href="/support/terms/">Agreements and Guidelines</a>
+		</div>
+	</div>
+</section>
+    </div>
+</footer>
+
+	<script src="/videos/scripts/collection/form-input.js?7"></script>
+	<script src="/assets/scripts/params.js"></script>
+	<script src="/assets/scripts/watchable.js"></script>
+	<script src="/assets/scripts/timeout.js"></script>
+	
+	<script src="/videos/scripts/play/play.js?37202648194"></script>
+	<script src="/videos/scripts/hls/rtc.min.js?18162640138"></script>
+	<script src="/videos/scripts/hls/hls.min.js?18162640138"></script>
+</body>
+</html>

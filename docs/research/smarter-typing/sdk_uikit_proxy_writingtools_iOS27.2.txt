@@ -1,0 +1,33 @@
+# UITextDocumentProxy and WritingTools headers, iPhoneOS 27.2 SDK, read 2026-11-21
+@protocol UITextDocumentProxy <UIKeyInput>
+
+@property (nullable, nonatomic, readonly) NSString *documentContextBeforeInput;
+@property (nullable, nonatomic, readonly) NSString *documentContextAfterInput;
+@property (nullable, nonatomic, readonly) NSString *selectedText API_AVAILABLE(ios(11.0)) API_UNAVAILABLE(watchos);
+
+// An app can store UITextInputMode in its document context, when user switches to the document, the host will pass the inputMode as documentInputMode to the UIInputViewController,
+// which can switch to the inputMode and set primaryLanguage if it supports it.
+@property (nullable, nonatomic, readonly) UITextInputMode *documentInputMode API_AVAILABLE(ios(10.0)) API_UNAVAILABLE(watchos);
+
+@property (nonatomic, readonly, copy) NSUUID *documentIdentifier API_AVAILABLE(ios(11.0)) API_UNAVAILABLE(watchos);
+
+- (void)adjustTextPositionByCharacterOffset:(NSInteger)offset;
+
+// Setting marked text either replaces the existing marked text or, if none is present, inserts it in place of the current input location.
+- (void)setMarkedText:(NSString *)markedText selectedRange:(NSRange)selectedRange API_AVAILABLE(ios(13.0)) API_UNAVAILABLE(watchos);
+
+// Unmark the currently marked text.
+- (void)unmarkText API_AVAILABLE(ios(13.0)) API_UNAVAILABLE(watchos);
+
+@end
+--- files naming WritingTools:
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/NSAttributedString.h
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIBarButtonItem.h
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKitCore.h
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITextInput.h
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIWritingToolsCoordinator.h
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIResponder.h
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIWritingToolsCoordinatorAnimationParameters.h
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITextInputTraits.h
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UITextView.h
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS27.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIWritingToolsCoordinatorContext.h

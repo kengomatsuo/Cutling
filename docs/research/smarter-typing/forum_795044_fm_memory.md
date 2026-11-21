@@ -1,0 +1,3 @@
+Source: https://developer.apple.com/forums/thread/795044 , read in Chrome get_page_text 2026-11-21. "Memory Attribution for Foundation Models in iOS 26", asked Jul 2025 by GGFF.
+Question: do model weights, KV cache and inference buffers count toward the app's Jetsam limit; can two 4096-token inferences run at once.
+Accepted answer, Apple Frameworks Engineer, Jul 2025: "The on-device foundation model and the inference resources are managed centrally by the operating system and shared by all Apple Intelligence system features, so the increase to your app's memory usage will be very minimal." Multiple sessions are supported; parallel requests "will actually end up running serially on the Apple Neural Engine".

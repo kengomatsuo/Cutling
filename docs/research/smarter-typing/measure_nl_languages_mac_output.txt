@@ -1,0 +1,10 @@
+sentence langs: ["en", "zh-Hans"]
+word langs: ["en", "zh-Hans"]
+sentence revisions en: 1 1 indexes
+id ["Language", "Script", "TokenType"]
+es ["Language", "Script", "TokenType"]
+ja ["Language", "Script", "TokenType"]
+fr ["Language", "Script", "TokenType"]
+contextual embeddings en: ["5C45D94E-BAB4-4927-94B6-8B5745C46289 dim 512 maxSeq 256 langs [\"cs\", \"da\", \"de\", \"en\", \"es\", \"fi\", \"fr\", \"hr\", \"hu\", \"id\", \"it\", \"nb\", \"nl\", \"pl\", \"pt\", \"ro\", \"sk\", \"sv\", \"tr\", \"vi\"] hasAssets true"]
+all contextual: []
+langrec id [__C.NLLanguage(_rawValue: vi): 1.2350996314580698e-07, __C.NLLanguage(_rawValue: id): 0.9999996423721313]

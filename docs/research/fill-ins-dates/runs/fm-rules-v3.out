@@ -1,0 +1,28 @@
+ 1 OK   tomorrow [en_GB] -> Thu 2026-11-26  (inDays 1 friday)  9.05 s
+ 2 OK   the day after tomorrow [en_GB] -> Fri 2026-11-27  (inDays 2 wednesday)  1.70 s
+ 3 OK   in 3 days [en_GB] -> Sat 2026-11-28  (inDays 3 -)  1.86 s
+ 4 MISS two weeks from today [en_GB] -> Fri 2026-11-27  (inDays 2 friday)  1.26 s
+ 5 OK   this Friday [en_GB] -> Fri 2026-11-27  (weekday 0 friday)  1.61 s
+ 6 MISS next Friday [en_GB] -> Wed 2026-12-02  (inWeeks 1 friday)  1.56 s
+ 7 OK   Monday next week [en_GB] -> Mon 2026-11-30  (weekday 1 monday)  1.51 s
+ 8 OK   next week Thursday [en_GB] -> Thu 2026-12-03  (weekday 1 thursday)  1.51 s
+ 9 MISS the Friday after next [en_GB] -> Fri 2026-11-27  (inDays 2 friday)  1.90 s
+10 MISS end of the month [en_GB] -> Thu 2026-12-31  (endOfMonth 1 -)  3.57 s
+11 MISS start of next month [en_GB] -> Thu 2026-12-31  (endOfMonth 1 sunday)  2.13 s
+12 OK   last day of next month [en_GB] -> Thu 2026-12-31  (endOfMonth 1 sunday)  1.87 s
+13 OK   first Monday of next month [en_GB] -> Mon 2026-12-07  (firstWeekdayOfMonth 1 monday)  1.90 s
+14 MISS last Friday of the month [en_GB] -> Fri 2026-12-25  (lastWeekdayOfMonth 1 friday)  1.90 s
+15 MISS last working day of the month [en_GB] -> Thu 2026-12-31  (lastWorkdayOfMonth 1 -)  1.81 s
+16 OK   in 2 months [en_GB] -> Mon 2027-01-25  (inMonths 2 -)  2.93 s
+17 MISS end of the week [en_GB] -> Sun 2026-12-06  (endOfWeek 1 -)  2.57 s
+18 OK   nächsten Freitag [de_DE] -> Fri 2026-12-04  (weekday 1 friday)  1.97 s
+19 MISS Ende des Monats [de_DE] -> Thu 2026-12-31  (endOfMonth 1 monday)  2.78 s
+20 OK   in 3 Tagen [de_DE] -> Sat 2026-11-28  (inDays 3 -)  1.88 s
+21 OK   vendredi prochain [fr_FR] -> Fri 2026-12-04  (weekday 1 friday)  3.23 s
+22 MISS fin du mois [fr_FR] -> Thu 2026-12-31  (endOfMonth 1 sunday)  4.86 s
+23 MISS fin de mes [es_ES] -> Thu 2026-12-31  (endOfMonth 1 -)  4.51 s
+24 OK   来週の金曜日 [ja_JP] -> Fri 2026-12-04  (weekday 1 friday)  2.71 s
+25 MISS 月末 [ja_JP] -> Thu 2026-12-31  (endOfMonth 1 sunday)  2.30 s
+26 MISS akhir bulan [id_ID] -> Thu 2026-12-31  (endOfMonth 1 -)  1.88 s
+27 OK   Jumat depan [id_ID] -> Fri 2026-12-04  (weekday 1 friday)  3.03 s
+correct 14 of 27; time per phrase: first 9.05 s, median 1.90 s, max 9.05 s
