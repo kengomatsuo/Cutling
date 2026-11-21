@@ -68,18 +68,45 @@ final class KeyboardState: ObservableObject {
 // MARK: - Keyboard Sound
 
 /// Plays the correct system sound for each key type, matching the native iOS keyboard.
+/// Apple's own keyboard sounds: the files the system keyboard plays (iOS 27.2 runtime,
+/// /System/Library/Audio/UISounds), read from the system at run time and never bundled.
+/// The older key_press_* system sound IDs are the fallback if a file is ever missing.
 enum KeyboardSound {
-    case standard   // regular character keys (1123)
-    case delete     // backspace / delete (1155)
-    case modifier   // space, return, shift, etc. (1156)
+    case standard   // character keys: keyboard_press_normal
+    case delete     // backspace: keyboard_press_delete
+    case modifier   // space, return, shift, globe: keyboard_press_clear
 
-    var soundID: SystemSoundID {
+    private var file: String {
+        switch self {
+        case .standard: "keyboard_press_normal"
+        case .delete:   "keyboard_press_delete"
+        case .modifier: "keyboard_press_clear"
+        }
+    }
+
+    private var fallbackID: SystemSoundID {
         switch self {
         case .standard: 1123
         case .delete:   1155
         case .modifier: 1156
         }
     }
+
+    /// Each file's sound, created once; a file that can't be read is left out.
+    private static let loaded: [String: SystemSoundID] = {
+        var ids: [String: SystemSoundID] = [:]
+        for file in ["keyboard_press_normal", "keyboard_press_delete", "keyboard_press_clear"] {
+            let url = URL(fileURLWithPath: "/System/Library/Audio/UISounds/\(file).caf")
+            var id: SystemSoundID = 0
+            if FileManager.default.fileExists(atPath: url.path),
+               AudioServicesCreateSystemSoundID(url as CFURL, &id) == kAudioServicesNoError {
+                ids[file] = id
+            }
+        }
+        return ids
+    }()
+
+    var soundID: SystemSoundID { Self.loaded[file] ?? fallbackID }
 
     func play() {
         AudioServicesPlaySystemSound(soundID)
