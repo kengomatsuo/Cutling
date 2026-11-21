@@ -90,6 +90,8 @@ DIRECTORY_BADGES = [
     '<a href="https://thesaasdir.com/product/cutling?ref=badge" rel="dofollow"><img src="https://thesaasdir.com/badge/cutling.svg" alt="Featured on TheSaaSDir" width="160" height="44"></a>',
     '<a href="https://letslaunch.today/product/cutling" target="_blank"><img src="https://letslaunch.today/badge/cutling.svg" alt="Cutling on LetsLaunch" width="250" height="54" /></a>',
     '<a href="https://toolcurio.com" target="_blank" rel="dofollow"><img src="https://toolcurio.com/badge-light.png" alt="Featured on Toolcurio" width="200" height="54" /></a>',
+    '<a href="https://postmake.io" target="_blank" rel="noopener"><img src="https://postmake.io/postmake_badge_light.png" alt="Featured on the Postmake directory" width="190" height="60" /></a>',
+    '<a href="https://hotools.com/" title="HoTools - Online Tools Directory">HoTools</a>',
 ]
 BADGE_STRIP = ('<div class="listed-on"><p class="listed-on-label">Listed on</p><div class="directory-badges">'
                + "".join(DIRECTORY_BADGES) + "</div></div>")
