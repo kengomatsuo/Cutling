@@ -283,6 +283,7 @@ struct KeyboardSetupView: View {
     // MARK: - Page 3: Test
 
     private var testPage: some View {
+        ScrollViewReader { proxy in
         Form {
             Section {
                 VStack(spacing: 12) {
@@ -315,6 +316,7 @@ struct KeyboardSetupView: View {
                         .submitLabel(.done)
                         .onSubmit { testFieldFocused = false }
                 }
+                .id("keyboardTestField")
                 .listRowBackground(testPageSectionBackground)
             }
 
@@ -342,6 +344,11 @@ struct KeyboardSetupView: View {
         }
         .scrollContentBackground(.hidden)
         .scrollDismissesKeyboard(.interactively)
+        // Keeps the field in view above the keyboard on short screens (iPhone SE, landscape).
+        .onChange(of: testFieldFocused) { _, focused in
+            if focused { proxy.scrollTo("keyboardTestField", anchor: .center) }
+        }
+        }
         .accessibilityIdentifier("testPage")
         #if DEBUG
         .onAppear {
@@ -352,10 +359,12 @@ struct KeyboardSetupView: View {
             }
         }
         #endif
+        // While the test field has the keyboard, Continue steps aside so it never sits over the field;
+        // it can't be used then anyway (it waits for the keyboard test), and it returns with the keyboard down.
         .continueButtonBar {
-            continueButton(next: .howToUse, canContinue: snapshotOr(allDone))
-                .padding(.bottom, testFieldFocused ? 12 : 0)
-                .animation(.smooth(duration: 0.25), value: testFieldFocused)
+            if !testFieldFocused {
+                continueButton(next: .howToUse, canContinue: snapshotOr(allDone))
+            }
         }
     }
 
