@@ -144,6 +144,10 @@ enum WhatsNewKind {
     case update
     case welcomeBack
 
+    /// Names the rows below. Change it in the release whose rows change, and every existing
+    /// user sees What's New once on that release.
+    static let releaseID = "2026-11 fill-ins and room for more"
+
     /// Rows for changes people can see in this version, the biggest first. The fill-ins row
     /// shows only while `FillIns.isOn`.
     /// The numbers come from the store's own limits, so the sheet can never promise more

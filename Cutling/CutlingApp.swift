@@ -114,10 +114,13 @@ struct CutlingApp: App {
     @State private var pendingOpenCutlingID: UUID?
     @State private var copiedCutlingName: String?
     @State private var showWhatsNew = false
-
-    /// Releases with new content shown via the "What's New" sheet. Bump this
-    /// on every release where you update `WhatsNewView`'s feature list.
-    private let whatsNewVersion = "1.5"
+    #if os(iOS)
+    @State private var whatsNewKind: WhatsNewKind = .update
+    #endif
+    /// The `WhatsNewKind.releaseID` this person last saw a sheet for.
+    @AppStorage("lastWhatsNewSeen") private var lastWhatsNewSeen = ""
+    /// When the app was last in front, to greet someone back after a long absence.
+    @AppStorage("lastActiveDate") private var lastActiveDate: Double = 0
 
     #if os(iOS)
     private static let bgSyncTaskID = "com.matsuokengo.Cutling.sync"
@@ -286,6 +289,8 @@ struct CutlingApp: App {
                     }
                     #if os(iOS)
                     if newPhase == .background {
+                        // The last time Cutling was used, read on the next launch for Welcome Back.
+                        lastActiveDate = Date().timeIntervalSince1970
                         // Push any pending local changes to iCloud before the
                         // process is (likely) suspended or force-quit, so a
                         // just-created cutling isn't stranded on-device.
@@ -328,15 +333,7 @@ struct CutlingApp: App {
                     #endif
                 }
                 .sheet(isPresented: $showWhatsNew) {
-                    #if DEBUG
-                    if let kind = SetupMock.whatsNew {
-                        WhatsNewSheet(kind: kind)
-                    } else {
-                        WhatsNewView()
-                    }
-                    #else
-                    WhatsNewView()
-                    #endif
+                    WhatsNewSheet(kind: whatsNewKind)
                 }
                 #endif
                 .alert(
@@ -524,42 +521,44 @@ struct CutlingApp: App {
     // MARK: - What's New
 
     #if os(iOS)
-    /// Decides whether to present the "What's New" sheet for this launch.
+    /// Decides whether this launch shows What's New or Welcome Back.
     ///
-    /// Shown only to **existing** users whose previously-opened version was
-    /// below `whatsNewVersion`. Fresh installs and already-caught-up users
-    /// silently advance `lastVersionOpened` without seeing the sheet.
-    ///
-    /// `lastVersionOpened` is advanced *here* (not on `.onAppear`) so a
-    /// deferral leaves it untouched: the next launch retries with the same
-    /// `previousVersion` instead of silently consuming the upgrade window.
+    /// Existing users see What's New once per `WhatsNewKind.releaseID`; anyone away 30 days or
+    /// more sees Welcome Back instead (Duolingo counts a user as returning after 30 days away,
+    /// docs/research/onboarding/README.md). A fresh install sees neither: its release counts
+    /// as seen. While the setup guide has the sheet slot, nothing is marked seen, so the next
+    /// launch tries again.
     private func evaluateWhatsNew(previousVersion: String, willShowOnboarding: Bool) {
+        let lastActive = lastActiveDate
+        lastActiveDate = Date().timeIntervalSince1970
+        lastVersionOpened = currentAppVersion
         #if DEBUG
         if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") {
-            lastVersionOpened = currentAppVersion
+            lastWhatsNewSeen = WhatsNewKind.releaseID
             return
         }
-        if SetupMock.whatsNew != nil {
+        if let kind = SetupMock.whatsNew {
+            whatsNewKind = kind
             showWhatsNew = true
             return
         }
         #endif
-
-        let target = AppVersion(whatsNewVersion)
-        let crossedThreshold =
-            !previousVersion.isEmpty && AppVersion(previousVersion) < target
-
-        guard crossedThreshold else {
-            lastVersionOpened = currentAppVersion
+        let isNewInstall = previousVersion.isEmpty && lastWhatsNewSeen.isEmpty
+        if isNewInstall {
+            lastWhatsNewSeen = WhatsNewKind.releaseID
             return
         }
-
-        // Onboarding wins the single sheet slot. Leave `lastVersionOpened`
-        // unchanged so the next launch retries What's New.
         if willShowOnboarding { return }
-
+        let away = lastActive > 0 && Date().timeIntervalSince1970 - lastActive >= 30 * 24 * 60 * 60
+        if away {
+            whatsNewKind = .welcomeBack
+        } else if lastWhatsNewSeen != WhatsNewKind.releaseID {
+            whatsNewKind = .update
+        } else {
+            return
+        }
+        lastWhatsNewSeen = WhatsNewKind.releaseID
         showWhatsNew = true
-        lastVersionOpened = currentAppVersion
     }
 
     private func syncTipSetupParameters() {
