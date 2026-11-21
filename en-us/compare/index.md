@@ -1,8 +1,8 @@
-# Cutling compared with Paste, Clipboard++ and iOS's own tools
+# Cutling vs Paste, Clipboard++ and iOS's own tools
 
-Read on 7 November 2026 from each app's US App Store page and Apple's support pages.
+Your address, bank details and the replies you send every day, one tap away in the keyboard. Paid once, with nothing collected.
 
-Cutling keeps the few things you retype all the time, like an address or a bank number, one tap away in a keyboard. Paste does much more and costs more. The built-in tools cost nothing and cover part of the job.
+Cutling is built for the things you type again and again. Save them once and they sit in a keyboard you switch to in any app on iPhone and iPad, and behind ⌘⇧V on a Mac. Paste and Clipboard++ are built around a history of everything you copy; iOS's own tools cover a few short phrases.
 
 | Feature | Cutling | [Paste](https://apps.apple.com/us/app/paste-limitless-clipboard/id967805235) | [Clipboard++](https://apps.apple.com/us/app/clipboard/id854707788) | [Text replacement](https://support.apple.com/guide/iphone/use-text-replacements-iph6d01d862/ios) | [Universal Clipboard](https://support.apple.com/en-us/102430) |
 |---|---|---|---|---|---|
@@ -13,17 +13,21 @@ Cutling keeps the few things you retype all the time, like an address or a bank 
 | Sync | Optional, through your own iCloud | iCloud sync across Mac, iPhone and iPad | iCloud sync is a paid in-app purchase | Through iCloud, if you turn it on | Between nearby devices on the same Apple Account with Wi-Fi, Bluetooth and Handoff on |
 | Tracking, per its privacy label | Data Not Collected | Data Linked to You: Identifiers. Data Not Linked to You: Purchases, Usage Data, Diagnostics. No tracking listed | Data Not Collected | Not an app, so no label | Not an app, so no label |
 
-## Where the others are better
+## Why a keyboard of saved text
 
-Paste keeps everything you copy without being asked and lets you search it, including text inside screenshots, according to its listing. On iPhone and iPad, Cutling holds only what you save, up to 100 text cutlings and 25 image cutlings, and its Mac history stays on that Mac. If you want every copy on every device in one searchable history, Paste is the tool, and it has a team feature Cutling does not.
+A history is good at finding something you copied once. The things you type every week, an address, an account number, a signature, a reply, are better saved on purpose, named, and one tap away where you type. Each cutling gets one of 12 colours and an icon, so on the keyboard you find it by colour before you read. In an email field your email cutlings come first, images like a payment QR code paste like text, and a temporary cutling can delete itself on a date you pick.
 
-Text replacement and Universal Clipboard cost nothing and need no install. If your reusable text is a handful of short phrases, text replacement may be all you need. Clipboard++ costs nothing to start, and you pay only for the extras you use.
+On a Mac you get the same cutlings behind ⌘⇧V, plus a history of what you copy that skips anything a password manager marks as concealed, so a copied password never lands in it.
 
-## Where Cutling fits
+## Which one fits
 
-You retype the same address, account number or signature, and you want it in a keyboard one tap away, without a subscription. You pay once, and the privacy label lists no data collected. Cutling runs without accounts, analytics or a server of its own, and syncing is optional.
+- You retype the same details and want them in your keyboard on iPhone, iPad and Mac, without a subscription: Cutling.
+- You want every copy on every device in one searchable history, and a subscription is fine: Paste.
+- You only need a handful of short phrases: iOS text replacement, which is free and already on your phone. It keeps working in Apple's keyboard alongside Cutling.
 
-On iPhone and iPad it does not remember what you copy. On Mac it keeps what you copy and skips anything a password manager marks as concealed, so a copied password never lands in the history. The questions people ask are on the [FAQ page](https://cutling.matsuokengo.com/en-us/faq/).
+## Paid once, nothing collected
+
+Cutling is $4.99, paid once, with no subscription and no in-app purchases, and the Mac app comes with it. Its App Store privacy label says Data Not Collected: no account, no analytics and no server of its own. Sync is optional and runs through your own iCloud. The keyboard asks for Full Access only so it can read the cutlings the app saved and copy an image for you. Questions people ask are on the [FAQ page](https://cutling.matsuokengo.com/en-us/faq/).
 
 [Download on the App Store](https://apps.apple.com/app/apple-store/id6759476314?pt=127609326&ct=llms&mt=8)
 
@@ -33,3 +37,5 @@ On iPhone and iPad it does not remember what you copy. On Mac it keeps what you 
 - [Snippet keyboards for iPhone without a subscription](https://cutling.matsuokengo.com/en-us/best-snippet-keyboards-iphone/): eight keyboards and text expanders with their prices and free limits
 - [Clipboard managers for Mac that work with an iPhone](https://cutling.matsuokengo.com/en-us/best-clipboard-managers-mac-iphone/): which ones sync the history, which sync only snippets
 - [Paste your address and bank details from the iPhone keyboard](https://cutling.matsuokengo.com/en-us/iphone-keyboard-address-bank-details/): what iOS does on its own, and a keyboard set up in four steps
+
+Facts about the other apps come from each app's US App Store page and Apple's support pages, read on 7 November 2026.
