@@ -273,12 +273,12 @@ struct CardView: View {
     /// for clarity at each context-menu action).
     private func markContextMenuDiscovered() {}
 
-    /// The preview's pills match its subheadline text.
+    /// The preview's pills, a little smaller than its subheadline text so a pill fits the line beside it.
     private static var subheadlineSize: CGFloat {
         #if os(iOS)
-        UIFont.preferredFont(forTextStyle: .subheadline).pointSize
+        UIFont.preferredFont(forTextStyle: .subheadline).pointSize - 2
         #else
-        NSFont.preferredFont(forTextStyle: .subheadline).pointSize
+        NSFont.preferredFont(forTextStyle: .subheadline).pointSize - 2
         #endif
     }
 
