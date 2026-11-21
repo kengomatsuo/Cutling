@@ -350,12 +350,27 @@ enum CutlingPasteboard {
 import SwiftUI
 
 extension Cutling {
-    /// The value as display text, styled by format.
-    var displayText: Text {
+    /// The value as display text, styled by format, each fill-in drawn as the editor's pill
+    /// (FillInPills.swift) so a preview reads like the cutling, never like its braces.
+    var displayText: Text { displayText(pillSize: 13) }
+
+    func displayText(pillSize: CGFloat) -> Text {
+        guard textFormat != .code else { return Text(value).monospaced() }
+        let pieces = FillInPills.split(value)
+        if pieces.count <= 1, case .text? = pieces.first { return styled(value) }
+        return pieces.reduce(Text(verbatim: "")) { text, piece in
+            switch piece {
+            case .text(let run): text + styled(run)
+            case .token(let token): text + FillInPills.inline(token, size: pillSize)
+            }
+        }
+    }
+
+    private func styled(_ run: String) -> Text {
         switch textFormat {
-        case .plain: Text(value)
-        case .rich: Text(RichText.attributed(value))
-        case .code: Text(value).monospaced()
+        case .plain: Text(run)
+        case .rich: Text(RichText.attributed(run))
+        case .code: Text(run).monospaced()
         }
     }
 }

@@ -273,6 +273,15 @@ struct CardView: View {
     /// for clarity at each context-menu action).
     private func markContextMenuDiscovered() {}
 
+    /// The preview's pills match its subheadline text.
+    private static var subheadlineSize: CGFloat {
+        #if os(iOS)
+        UIFont.preferredFont(forTextStyle: .subheadline).pointSize
+        #else
+        NSFont.preferredFont(forTextStyle: .subheadline).pointSize
+        #endif
+    }
+
     private func handleTap() {
         // During the walkthrough, tap-to-copy is off; only the ⋯ button is live.
         guard cardInteractive else { return }
@@ -302,7 +311,7 @@ struct CardView: View {
             Text(item.name)
                 .font(.headline)
                 .lineLimit(1)
-            item.displayText
+            item.displayText(pillSize: Self.subheadlineSize)
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
                 .lineLimit(3)

@@ -12,6 +12,7 @@
 //
 
 import Foundation
+import SwiftUI
 #if os(iOS)
 import UIKit
 typealias PillFont = UIFont
@@ -127,6 +128,50 @@ enum FillInPills {
             out.replaceCharacters(in: range, with: NSAttributedString(string: token, attributes: attributes))
         }
         return out
+    }
+
+    enum Piece {
+        case text(String)
+        case token(String)
+    }
+
+    /// `text` cut into plain runs and the marked tokens between them.
+    static func split(_ text: String) -> [Piece] {
+        let ns = text as NSString
+        var pieces: [Piece] = []
+        var last = 0
+        for match in tokenPattern.matches(in: text, range: NSRange(location: 0, length: ns.length)) {
+            if match.range.location > last { pieces.append(.text(ns.substring(with: NSRange(location: last, length: match.range.location - last)))) }
+            pieces.append(.token(ns.substring(with: match.range)))
+            last = match.range.location + match.range.length
+        }
+        if last < ns.length { pieces.append(.text(ns.substring(from: last))) }
+        return pieces
+    }
+
+    nonisolated(unsafe) private static let inlineCache = NSCache<NSString, PillImage>()
+
+    /// One token as an inline pill for a SwiftUI preview (cards, lists, the keyboard); the cursor spot shows nothing.
+    static func inline(_ token: String, size: CGFloat) -> Text {
+        let body = token.dropFirst(2).dropLast().trimmingCharacters(in: .whitespaces).lowercased()
+        if body == "cursor" { return Text(verbatim: "") }
+        let font = PillFont.systemFont(ofSize: size)
+        #if os(iOS)
+        let dark = UITraitCollection.current.userInterfaceStyle == .dark
+        #else
+        let dark = NSApp?.effectiveAppearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
+        #endif
+        let key = "\(token)|\(size)|\(dark)" as NSString
+        let image = inlineCache.object(forKey: key) ?? {
+            let made = Self.image(title(of: token), font: font).0
+            inlineCache.setObject(made, forKey: key)
+            return made
+        }()
+        #if os(iOS)
+        return Text(Image(uiImage: image)).baselineOffset(font.descender - 1)
+        #else
+        return Text(Image(nsImage: image)).baselineOffset(font.descender - 1)
+        #endif
     }
 
     /// Whether `text` holds a token not yet drawn as a pill (just inserted or pasted).

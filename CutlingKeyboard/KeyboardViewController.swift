@@ -1508,7 +1508,7 @@ struct CutlingKeyView: View {
                     .font(.system(size: KeyStyle.titleSize(for: horizontalSizeClass), weight: .semibold))
                     .lineLimit(1)
             }
-            cutling.displayText
+            cutling.displayText(pillSize: KeyStyle.bodySize(for: horizontalSizeClass))
                 .font(.system(size: KeyStyle.bodySize(for: horizontalSizeClass)))
                 .foregroundStyle(.secondary)
                 .lineLimit(2)
