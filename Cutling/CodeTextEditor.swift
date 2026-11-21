@@ -106,13 +106,14 @@ extension FormattedTextEditor: UIViewRepresentable {
                 return
             }
             let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 0, height: 44))
-            var buttons: [UIBarButtonItem] = []
+            // Side by side, centred: iOS 26 draws adjacent items as one glass group, as Notes' bar is.
+            var buttons: [UIBarButtonItem] = [.flexibleSpace()]
             for item in items {
-                if !buttons.isEmpty { buttons.append(.flexibleSpace()) }
                 let button = UIBarButtonItem(image: UIImage(systemName: item.icon), primaryAction: UIAction(title: item.title) { _ in item.action() })
                 button.accessibilityLabel = item.title
                 buttons.append(button)
             }
+            buttons.append(.flexibleSpace())
             toolbar.items = buttons
             toolbar.sizeToFit()
             toolbar.accessibilityIdentifier = "fillInKeyboardBar"
