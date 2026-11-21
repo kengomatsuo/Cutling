@@ -911,7 +911,8 @@ struct TextDetailView: View {
         let label = fieldDraftLabel.trimmingCharacters(in: .whitespacesAndNewlines)
             .filter { $0 != "{" && $0 != "}" && $0 != ":" && $0 != "|" && $0 != "\n" }
         guard !label.isEmpty else { return }
-        let choices = fieldDraftChoices.split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) }.filter { !$0.isEmpty }
+        // The comma each keyboard types: Latin, Arabic ، and the full-width and ideographic ones.
+        let choices = fieldDraftChoices.split(whereSeparator: { ",،，、".contains($0) }).map { $0.trimmingCharacters(in: .whitespaces) }.filter { !$0.isEmpty }
         insertPlaceholder(Placeholders.marked(choices.isEmpty ? label : "\(label): " + choices.joined(separator: " | ")))
     }
 
