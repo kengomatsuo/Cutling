@@ -22,7 +22,7 @@ enum CodeDetector {
 
     /// The text with Cutling's own fill-in and date braces read as words, so `{Name}` and `{date}` never make prose look like code.
     static func withoutPlaceholders(_ text: String) -> String {
-        let template = Placeholders(text)
+        let template = Placeholders(text, marked: true)
         guard template.hasTokens else { return text }
         return template.chunks(.now(values: nil, clipboard: "")).map { chunk -> String in
             switch chunk {

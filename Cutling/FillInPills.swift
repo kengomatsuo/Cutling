@@ -1,0 +1,141 @@
+//
+//  FillInPills.swift
+//  Cutling
+//
+//  Fill-ins and date stamps show as pills in the editor, the way Shortcuts shows variables:
+//  each `{⁠…}` Cutling inserted (marked with Placeholders.marker) is drawn as one tinted pill the
+//  cursor steps over and Delete removes whole. Braces a person types carry no marker and stay
+//  text. The stored text is unchanged: pills turn back into their tokens before it is saved.
+//  Full account: docs/fill-ins.md
+//
+//  Copyright (c) 2026 Kenneth Johannes Fang. All rights reserved.
+//
+
+import Foundation
+#if os(iOS)
+import UIKit
+typealias PillFont = UIFont
+typealias PillColor = UIColor
+typealias PillImage = UIImage
+#elseif os(macOS)
+import AppKit
+typealias PillFont = NSFont
+typealias PillColor = NSColor
+typealias PillImage = NSImage
+#endif
+
+/// One pill in the editor; `token` is the text it stands for.
+final class FillInAttachment: NSTextAttachment {
+    let token: String
+
+    init(token: String, font: PillFont) {
+        self.token = token
+        super.init(data: nil, ofType: nil)
+        let title = FillInPills.title(of: token)
+        let (image, size) = FillInPills.image(title, font: font)
+        self.image = image
+        bounds = CGRect(x: 0, y: font.descender - 1, width: size.width, height: size.height)
+        #if os(iOS)
+        accessibilityLabel = title
+        #endif
+    }
+
+    required init?(coder: NSCoder) { nil }
+}
+
+enum FillInPills {
+    private static let green = PillColor(red: 0, green: 190 / 255, blue: 134 / 255, alpha: 1)
+    /// Text dark enough to read on the pill's tint (4.5:1 or more), lighter in dark mode.
+    private static func ink(dark: Bool) -> PillColor {
+        dark ? PillColor(red: 90 / 255, green: 225 / 255, blue: 170 / 255, alpha: 1)
+             : PillColor(red: 0, green: 115 / 255, blue: 80 / 255, alpha: 1)
+    }
+    private static let tokenPattern = try! NSRegularExpression(pattern: "\\{\u{2060}[^{}\\n\\r]*\\}")
+
+    /// What a pill reads: the blank's label (with ▾ for a choice), or the stamp's name.
+    static func title(of token: String) -> String {
+        let body = token.dropFirst(2).dropLast().trimmingCharacters(in: .whitespaces)
+        let head = body.split(whereSeparator: { $0 == ":" || $0 == " " }).first.map(String.init)?.lowercased() ?? ""
+        switch head {
+        case "date", "datetime", "day": return String(localized: "Today’s Date")
+        case "time": return String(localized: "Time")
+        case "cursor": return String(localized: "Cursor Position")
+        case "clipboard": return String(localized: "Clipboard Text")
+        default:
+            let label = body.split(separator: ":", maxSplits: 1).first.map { $0.trimmingCharacters(in: .whitespaces) } ?? body
+            return body.contains("|") ? label + " ▾" : label
+        }
+    }
+
+    static func image(_ title: String, font: PillFont) -> (PillImage, CGSize) {
+        #if os(iOS)
+        let dark = UITraitCollection.current.userInterfaceStyle == .dark
+        #else
+        let dark = NSApp?.effectiveAppearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
+        #endif
+        let attributes: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: ink(dark: dark)]
+        let textSize = (title as NSString).size(withAttributes: attributes)
+        let size = CGSize(width: ceil(textSize.width) + 12, height: ceil(font.ascender - font.descender) + 2)
+        let rect = CGRect(origin: .zero, size: size)
+        let textOrigin = CGPoint(x: 6, y: (size.height - textSize.height) / 2)
+        #if os(iOS)
+        let image = UIGraphicsImageRenderer(size: size).image { _ in
+            green.withAlphaComponent(dark ? 0.22 : 0.15).setFill()
+            UIBezierPath(roundedRect: rect, cornerRadius: 6).fill()
+            (title as NSString).draw(at: textOrigin, withAttributes: attributes)
+        }
+        #else
+        let image = NSImage(size: size, flipped: true) { _ in
+            green.withAlphaComponent(dark ? 0.22 : 0.15).setFill()
+            NSBezierPath(roundedRect: rect, xRadius: 6, yRadius: 6).fill()
+            (title as NSString).draw(at: textOrigin, withAttributes: attributes)
+            return true
+        }
+        #endif
+        return (image, size)
+    }
+
+    /// `text` with every marked token drawn as a pill in the font around it.
+    static func pilled(_ text: NSAttributedString, font: PillFont) -> NSAttributedString {
+        let matches = tokenPattern.matches(in: text.string, range: NSRange(location: 0, length: (text.string as NSString).length))
+        guard !matches.isEmpty else { return text }
+        let out = NSMutableAttributedString(attributedString: text)
+        for match in matches.reversed() {
+            let token = (text.string as NSString).substring(with: match.range)
+            var attributes = text.attributes(at: match.range.location, effectiveRange: nil)
+            let localFont = attributes[.font] as? PillFont ?? font
+            attributes[.attachment] = FillInAttachment(token: token, font: localFont)
+            out.replaceCharacters(in: match.range, with: NSAttributedString(string: "\u{FFFC}", attributes: attributes))
+        }
+        return out
+    }
+
+    /// `text` with every pill turned back into its token, to be read as Markdown or plain text.
+    static func expanded(_ text: NSAttributedString) -> NSAttributedString {
+        let out = NSMutableAttributedString(attributedString: text)
+        var pills: [(NSRange, String)] = []
+        text.enumerateAttribute(.attachment, in: NSRange(location: 0, length: text.length)) { value, range, _ in
+            if let pill = value as? FillInAttachment { pills.append((range, pill.token)) }
+        }
+        for (range, token) in pills.reversed() {
+            var attributes = text.attributes(at: range.location, effectiveRange: nil)
+            attributes[.attachment] = nil
+            out.replaceCharacters(in: range, with: NSAttributedString(string: token, attributes: attributes))
+        }
+        return out
+    }
+
+    /// Whether `text` holds a token not yet drawn as a pill (just inserted or pasted).
+    static func hasRawToken(_ text: String) -> Bool {
+        tokenPattern.firstMatch(in: text, range: NSRange(location: 0, length: (text as NSString).length)) != nil
+    }
+
+    /// Where a cursor at `location` in `text` lands once its tokens become one-character pills.
+    static func location(afterPilling text: String, at location: Int) -> Int {
+        var shift = 0
+        for match in tokenPattern.matches(in: text, range: NSRange(location: 0, length: min(location, (text as NSString).length))) {
+            shift += match.range.length - 1
+        }
+        return location - shift
+    }
+}

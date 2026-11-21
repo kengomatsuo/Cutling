@@ -93,10 +93,19 @@ struct Placeholders: Sendable {
 
     let pieces: [Piece]
 
+    /// The invisible character (WORD JOINER) after the opening brace of a fill-in Cutling inserted, `{⁠Name}`.
+    /// With `marked`, only such braces are fill-ins, so braces a person types (LaTeX, "Hello {name}") stay text.
+    static let marker: Character = "\u{2060}"
+
+    /// A fill-in or stamp as Cutling stores it: `{`, the marker, the body, `}`.
+    static func marked(_ body: String) -> String { "{\(marker)\(body)}" }
+
     /// Parses `source`. `markdown` keeps backslash escapes for the Markdown
     /// parser and reads labels through them; plain text turns `\{` into `{`.
-    init(_ source: String, markdown: Bool = false) {
-        pieces = Self.parse(source, markdown: markdown)
+    /// `marked` reads only braces that carry `marker` (Cutling's own storage); without it every brace counts,
+    /// as Raycast and Alfred write theirs.
+    init(_ source: String, markdown: Bool = false, marked: Bool = false) {
+        pieces = Self.parse(source, markdown: markdown, marked: marked)
     }
 
     // MARK: Questions
@@ -223,7 +232,7 @@ struct Placeholders: Sendable {
     static let maxTokenLength = 120
     static let maxLabelLength = 40
 
-    private static func parse(_ source: String, markdown: Bool) -> [Piece] {
+    private static func parse(_ source: String, markdown: Bool, marked: Bool) -> [Piece] {
         var pieces: [Piece] = []
         var literal = ""
         func flush() {
@@ -241,7 +250,8 @@ struct Placeholders: Sendable {
                 continue
             }
             if ch == "{", let close = closingBrace(in: source, from: i),
-               let piece = token(String(source[source.index(after: i)..<close]), markdown: markdown) {
+               let bodyStart = Self.bodyStart(in: source, brace: i, close: close, marked: marked),
+               let piece = token(String(source[bodyStart..<close]), markdown: markdown) {
                 flush()
                 if case .field = piece {
                     pieces.append(.field(fieldOf(piece), source: String(source[i...close])))
@@ -256,6 +266,14 @@ struct Placeholders: Sendable {
         }
         flush()
         return pieces
+    }
+
+    /// Where a token's body begins: after the brace, and after the marker when only marked braces count.
+    private static func bodyStart(in source: String, brace: String.Index, close: String.Index, marked: Bool) -> String.Index? {
+        let start = source.index(after: brace)
+        guard marked else { return start }
+        guard start < close, source[start] == marker else { return nil }
+        return source.index(after: start)
     }
 
     private static func fieldOf(_ piece: Piece) -> Field {

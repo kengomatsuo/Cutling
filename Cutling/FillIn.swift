@@ -25,7 +25,7 @@ extension Cutling {
     /// The placeholders a cutling carries, or nil. Code is typed byte for byte, so it carries none.
     var placeholders: Placeholders? {
         guard FillIns.isOn, kind == .text, textFormat != .code else { return nil }
-        let template = Placeholders(plainValue)
+        let template = Placeholders(plainValue, marked: true)
         return template.hasTokens ? template : nil
     }
 
@@ -35,11 +35,16 @@ extension Cutling {
     /// A copy whose text is finished: stamps dated, fields filled, the clipboard read in.
     /// Rich cutlings keep their formatting and get their inserted text escaped.
     func filled(_ context: Placeholders.Context) -> (cutling: Cutling, charactersAfterCursor: Int?) {
-        guard FillIns.isOn, kind == .text, textFormat != .code else { return (self, nil) }
+        guard FillIns.isOn, kind == .text, textFormat != .code else {
+            // Without fill-ins the template is typed as written, less Cutling's invisible markers.
+            var copy = self
+            copy.value = value.replacingOccurrences(of: String(Placeholders.marker), with: "")
+            return (copy, nil)
+        }
         var copy = self
         copy.format = textFormat
         if textFormat == .rich {
-            let template = Placeholders(value, markdown: true)
+            let template = Placeholders(value, markdown: true, marked: true)
             guard template.hasTokens else { return (self, nil) }
             let rendered = template.render(context, escape: RichText.escape)
             guard let after = rendered.charactersAfterCursor else {
@@ -55,7 +60,7 @@ extension Cutling {
             copy.value = rendered.text
             return (copy, afterInPlain)
         }
-        let template = Placeholders(value)
+        let template = Placeholders(value, marked: true)
         guard template.hasTokens else { return (self, nil) }
         let rendered = template.render(context)
         copy.value = rendered.text

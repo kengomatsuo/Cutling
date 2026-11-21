@@ -94,8 +94,9 @@ extension CutlingStore {
     /// and one with only a stamp. Saved values and any half-typed keyboard session are cleared.
     func seedForFillInTests() {
         cutlings = [
-            Cutling(name: "Reply", value: "Hi {Name}, your {Plan: Basic | Pro} order ships {date:yyyy-MM-dd}.{cursor} Thanks!", icon: "envelope", sortOrder: 0),
-            Cutling(name: "Stamp", value: "Today: {date:yyyy-MM-dd}", icon: "calendar", sortOrder: 1),
+            // Fill-ins as the editor's menu inserts them: each brace carries Placeholders.marker.
+            Cutling(name: "Reply", value: "Hi {\u{2060}Name}, your {\u{2060}Plan: Basic | Pro} order ships {\u{2060}date:yyyy-MM-dd}.{\u{2060}cursor} Thanks!", icon: "envelope", sortOrder: 0),
+            Cutling(name: "Stamp", value: "Today: {\u{2060}date:yyyy-MM-dd}", icon: "calendar", sortOrder: 1),
         ]
         save()
         let group = UserDefaults(suiteName: "group.com.matsuokengo.Cutling")

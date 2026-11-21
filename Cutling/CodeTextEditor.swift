@@ -92,7 +92,7 @@ extension FormattedTextEditor: UIViewRepresentable {
                 view.textColor = .label
                 view.text = text
             } else {
-                view.attributedText = FormattedTextEditor.rendered(text, format: format, size: bodySize)
+                view.attributedText = FillInPills.pilled(FormattedTextEditor.rendered(text, format: format, size: bodySize), font: .systemFont(ofSize: bodySize))
                 view.typingAttributes = [.font: UIFont.systemFont(ofSize: bodySize), .foregroundColor: UIColor.label]
             }
         }
@@ -104,14 +104,22 @@ extension FormattedTextEditor: UIViewRepresentable {
             }
             // Leave composing (marked) text alone, or CJK input breaks.
             guard view.markedTextRange == nil else { return }
-            let markdown = RichText.markdown(from: view.attributedText, trimTrailingNewlines: false)
+            // Pills (FillInPills.swift) are read back as their tokens.
+            let source = FillInPills.expanded(view.attributedText)
+            let markdown = RichText.markdown(from: source, trimTrailingNewlines: false)
             let format: TextFormat = markdown == nil ? .plain : .rich
-            let text = markdown ?? view.text ?? ""
+            let text = markdown ?? source.string
+            let font = UIFont.systemFont(ofSize: bodySize)
             // Pasted fonts and colours are dropped by drawing the kept styles again.
             let normal = FormattedTextEditor.rendered(text, format: format, size: bodySize)
-            if normal.string == view.attributedText.string, !normal.isEqual(to: view.attributedText) {
+            if FillInPills.hasRawToken(view.attributedText.string) {
+                // A fill-in just inserted or pasted becomes a pill, the cursor kept after it.
+                let location = FillInPills.location(afterPilling: view.attributedText.string, at: view.selectedRange.location)
+                view.attributedText = FillInPills.pilled(normal, font: font)
+                view.selectedRange = NSRange(location: location, length: 0)
+            } else if normal.string == source.string, !normal.isEqual(to: source) {
                 let selection = view.selectedRange
-                view.attributedText = normal
+                view.attributedText = FillInPills.pilled(normal, font: font)
                 view.selectedRange = selection
             }
             report(text, format: format)
@@ -185,7 +193,7 @@ extension FormattedTextEditor: NSViewRepresentable {
                 view.font = .monospacedSystemFont(ofSize: bodySize, weight: .regular)
                 view.textColor = .textColor
             } else {
-                view.textStorage?.setAttributedString(FormattedTextEditor.rendered(text, format: format, size: bodySize))
+                view.textStorage?.setAttributedString(FillInPills.pilled(FormattedTextEditor.rendered(text, format: format, size: bodySize), font: .systemFont(ofSize: bodySize)))
                 view.typingAttributes = [.font: NSFont.systemFont(ofSize: bodySize), .foregroundColor: NSColor.textColor]
             }
         }
@@ -197,13 +205,21 @@ extension FormattedTextEditor: NSViewRepresentable {
                 return
             }
             guard !view.hasMarkedText(), let storage = view.textStorage else { return }
-            let markdown = RichText.markdown(from: storage, trimTrailingNewlines: false)
+            // Pills (FillInPills.swift) are read back as their tokens.
+            let source = FillInPills.expanded(storage)
+            let markdown = RichText.markdown(from: source, trimTrailingNewlines: false)
             let format: TextFormat = markdown == nil ? .plain : .rich
-            let text = markdown ?? view.string
+            let text = markdown ?? source.string
+            let font = NSFont.systemFont(ofSize: bodySize)
             let normal = FormattedTextEditor.rendered(text, format: format, size: bodySize)
-            if normal.string == storage.string, !normal.isEqual(to: storage) {
+            if FillInPills.hasRawToken(storage.string) {
+                // A fill-in just inserted or pasted becomes a pill, the cursor kept after it.
+                let location = FillInPills.location(afterPilling: storage.string, at: view.selectedRange().location)
+                storage.setAttributedString(FillInPills.pilled(normal, font: font))
+                view.setSelectedRange(NSRange(location: location, length: 0))
+            } else if normal.string == source.string, !normal.isEqual(to: source) {
                 let selection = view.selectedRanges
-                storage.setAttributedString(normal)
+                storage.setAttributedString(FillInPills.pilled(normal, font: font))
                 view.selectedRanges = selection
             }
             report(text, format: format)

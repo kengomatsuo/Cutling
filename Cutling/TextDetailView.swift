@@ -116,7 +116,9 @@ struct TextDetailView: View {
         _format = State(initialValue: item?.textFormat ?? initialFormat ?? .plain)
         // Cutlings saved before formats existed still get detected.
         _userPickedFormat = State(initialValue: item?.format != nil || initialFormat != nil)
-        _usesNativeEditor = State(initialValue: (item?.textFormat ?? initialFormat ?? .plain) != .plain)
+        // The native editor draws fill-ins as pills (FillInPills.swift); the plain one would show their braces.
+        _usesNativeEditor = State(initialValue: (item?.textFormat ?? initialFormat ?? .plain) != .plain
+            || (item?.value.contains(Placeholders.marker) ?? false))
     }
 
     /// The text a reader sees; Rich markers don't count toward the limit.
@@ -853,12 +855,12 @@ struct TextDetailView: View {
         Menu {
             Section("Filled in each time you use it") {
                 Button("Fill-in Field", systemImage: "character.cursor.ibeam") {
-                    insertPlaceholder("{\(String(localized: "Name"))}")
+                    insertPlaceholder(Placeholders.marked(String(localized: "Name")))
                 }
-                Button("Today’s Date", systemImage: "calendar") { insertPlaceholder("{date}") }
-                Button("Time", systemImage: "clock") { insertPlaceholder("{time}") }
-                Button("Cursor Position", systemImage: "cursorarrow.rays") { insertPlaceholder("{cursor}") }
-                Button("Clipboard Text", systemImage: "doc.on.clipboard") { insertPlaceholder("{clipboard}") }
+                Button("Today’s Date", systemImage: "calendar") { insertPlaceholder(Placeholders.marked("date")) }
+                Button("Time", systemImage: "clock") { insertPlaceholder(Placeholders.marked("time")) }
+                Button("Cursor Position", systemImage: "cursorarrow.rays") { insertPlaceholder(Placeholders.marked("cursor")) }
+                Button("Clipboard Text", systemImage: "doc.on.clipboard") { insertPlaceholder(Placeholders.marked("clipboard")) }
             }
         } label: {
             Label("Add Fill-in or Date", systemImage: "curlybraces")

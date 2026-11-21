@@ -92,4 +92,14 @@ check("raycast date", rc.render(ctx).text, "friendly 2026-11-22")
 check("raycast offsets", render(#"{date offset="+2y +5M" format="yyyy-MM"}"#), "2029-04")
 check("raycast locale", render(#"{day locale="fr-FR"}"#), "vendredi")
 
+// Marked mode: only braces Cutling inserted (with the invisible marker) are fill-ins.
+let typedBraces = Placeholders("\\textbf{bold} and Hello {name}", marked: true)
+check("marked: typed braces stay text", typedBraces.render(ctx).text, "\\textbf{bold} and Hello {name}")
+check("marked: typed braces have no fields", typedBraces.hasTokens, false)
+let markedReply = Placeholders("Hi {\u{2060}Name}, {\u{2060}date:yyyy-MM-dd}", marked: true)
+var markedValues = ctx; markedValues.values = ["name": "Sarah"]
+check("marked: inserted fill-in", markedReply.render(markedValues).text, "Hi Sarah, 2026-11-20")
+check("marked: fields", markedReply.fields.map(\.label).joined(separator: ","), "Name")
+check("marked helper", Placeholders.marked("date"), "{\u{2060}date}")
+
 print(fails == 0 ? "ALL PASS" : "\(fails) FAILED"); exit(fails == 0 ? 0 : 1)
