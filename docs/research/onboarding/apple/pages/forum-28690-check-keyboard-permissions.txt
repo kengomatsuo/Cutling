@@ -1,0 +1,5 @@
+source: https://developer.apple.com/forums/thread/28690 (read in Chrome get_page_text; curl returns a 138-byte block page), fetched 2026-11-21
+Check keyboard permissions from the container app. UIKit, created Dec 2015, 4 replies, last Jan 2021.
+Question (Dec 2015): the app needs to test whether the user granted "Allow Full Access" to its keyboard extension, from the app side, to send the user to keyboard settings or alert them. Two tricks (UIPasteboard class check; reading the app-group container directory) work only from the keyboard side; from the containing app both always return true.
+Suggested answer in thread: the keyboard extension writes a hasFullAccess flag into shared app-group UserDefaults and the app reads it. Poster's own caveats: it works only after the keyboard has been used once, and it goes stale if the user switches Full Access off in Settings until the keyboard is used again.
+No Apple reply; replies from other users Dec 2015, Sep 2017, Jan 2021.

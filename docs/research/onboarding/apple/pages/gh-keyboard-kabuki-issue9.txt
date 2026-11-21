@@ -1,0 +1,43 @@
+source: https://github.com/jmlivingston/keyboard-kabuki/issues/9 (gh api), fetched 2026-11-21. Author's own device test; not Apple. UNSURE until reproduced.
+created 2026-10-28T23:30:27Z updated 2026-10-29T01:05:28Z state closed
+Run the on-device checks the research left open
+## Question
+
+Research couldn't settle several facts without a real iPhone. They need a stub keyboard extension, signed with a free Personal Team, on a device running iOS 26 (and iOS 18 if one is available). Record each result. This is HITL: the user's iPhone is needed.
+
+- [ ] Personal Team signing with an App Group installs, and the keyboard reads a value from the App Group with Full Access off ([free account research](https://github.com/jmlivingston/keyboard-kabuki/issues/4))
+- [ ] The App Group value (the saved Language Tint) survives the 7-day re-install
+- [ ] Do keyboard extensions count toward the 3-apps-per-device limit?
+- [ ] `UIImpactFeedbackGenerator` / `UISelectionFeedbackGenerator` fire from the keyboard with Full Access off. If so, do they follow Settings › Sounds & Haptics › Keyboard Feedback? ([clicks and haptics research](https://github.com/jmlivingston/keyboard-kabuki/issues/3))
+- [ ] `UITextInputMode.activeInputModes` in the app: does it list our keyboard and its `primaryLanguage`, and does it update after returning from Settings? Does a custom tag like `fr-FR-x-kabuki` come back unchanged, and what does Settings display for it? ([keyboard-added research](https://github.com/jmlivingston/keyboard-kabuki/issues/5))
+- [ ] Does the app's own Settings page show a Keyboards row?
+- [ ] Apple's French AZERTY keyboard: the numbers and symbols pages key by key, with their long-presses; what tapping `´` does and where the apostrophe is; the popup direction on right-side keys; and the return key label in send and search fields on iOS 26 ([French layout research](https://github.com/jmlivingston/keyboard-kabuki/issues/2))
+- [ ] When the app changes the Language Tint, does the keyboard pick it up the next time it appears (re-read the App Group in `viewWillAppear`)? Can it ever update while already open without Full Access? ([Language Tint screen](https://github.com/jmlivingston/keyboard-kabuki/issues/7))
+
+--- 2026-10-29T01:05:27Z jmlivingston
+## Resolution
+
+Done on the user's **iPhone 14 Pro running iOS 27.0.1**. The test app and keyboard (Full Access off, `PrimaryLanguage = fr-FR-x-kabuki`) are on the throwaway branch [`task/on-device-checks`](https://github.com/jmlivingston/keyboard-kabuki/tree/task/on-device-checks). Screenshots were shared in the session.
+
+**Signing and App Group**
+- ✅ The user is on the **paid Apple Developer Program** (expires April 2027), not a free account. Builds last until the membership expires, so the **7-day reinstall** and **3-apps-per-device** checks no longer apply and were dropped. The App Group had to be ticked once per target in Xcode's Signing & Capabilities. `xcodebuild -allowProvisioningUpdates` won't register it on its own. The phone needed pairing and Developer Mode.
+- ✅ **The keyboard reads the App Group with Full Access off.** It showed "App Group defaults: ok, container: ok" and read the tint the app wrote (#FFC2C2).
+- ✅ **Tint changes show up live while the keyboard is open** (polling the App Group once a second; "changes seen while open: 2"), and also on the next appearance. This is better than the "next time it appears" assumed in the Language Tint screen decision.
+
+**Haptics and click**
+- ❌ **No haptics and no input click** from the keyboard with Full Access off: `UIImpactFeedbackGenerator`, `UISelectionFeedbackGenerator`, `UINotificationFeedbackGenerator` and `playInputClick` were all silent, even with Settings › Sounds & Haptics › Keyboard Feedback › Haptic and Sound on. The keyboard's buttons did work (it typed "a"), and Apple's keyboard gives both on the same phone.
+
+**Detecting and enabling the keyboard**
+- `activeInputModes` lists our keyboard, but its `primaryLanguage` comes back as **`fr-FR`**: the `-x-kabuki` tag is dropped. Settings shows it as "Kabuki Diagnostic — App / French". **A custom language tag can't tell our keyboard apart from Apple's French.**
+- ✅ `openSettingsURLString` opens the app's own Settings page, which has a **Keyboards** row (Siri, Search, Cellular Data, Keyboards). Inside it is a **toggle for the keyboard**, and **no "Allow Full Access" toggle** because we don't request it. So the app can send users one button + two taps from turning the keyboard on.
+- iOS shows "When using one of these keyboards, the keyboard can access all the data you type" on both Keyboards screens, even with Full Access off.
+
+**Apple's French (France) keyboard on iOS 27.0.1**
+- **Return key:** glyphs, not words. Default shows ⏎, search a blue 🔍, send a blue ↑.
+- **123 page:** `1 2 3 4 5 6 7 8 9 0` / `- / : ; ( ) $ & @ "` / `#+= . , ? ! ’ ⌫` / `ABC · space (FR) · ⏎`. The currency key is $, likely following the US region.
+- **#+= page:** `[ ] { } # % ^ * + =` / `_ \ | ~ < > € £ ¥ •` / `123 . , ? ! ’ ⌫` / `ABC · space · ⏎`. It's identical to the English & Spanish page.
+- **The key after N depends on what's been typed:** it shows **´** at the start of a word (long-press `¨ ^ ` ´`) and **’** right after a letter. Tapping ´ inserts a standalone `´`; it is **not a dead key**: ´ then e gives `´e`, not é.
+- **Long-press o** opens **to the left**, reading `º ō ø õ ó ò œ ô o ö` left to right with plain o next to the key. That's a different order from the research data.
+- Apple shows a prediction bar (Je / Tu / C'est). Ours won't, per the privacy rule.
+- **Not captured:** long-press pop-ups on the 123 page, and the u/n pop-ups.
+

@@ -1,0 +1,52 @@
+// https://github.com/SvenTiigi/WhatsNewKit/blob/6157c77e8be9b3d2310bc680681b61a8d9e290ac/Sources/View/WhatsNewView+FeaturesPadding.swift  (MIT licence, fetched 2026-11-21)
+import SwiftUI
+
+// MARK: - WhatsNewView+FeaturesPadding
+
+extension WhatsNewView {
+    
+    /// The WhatsNewView FeaturesPadding ViewModifier
+    struct FeaturesPadding {
+        
+        #if os(iOS) || os(visionOS)
+        /// The Horizontal SizeClass
+        @Environment(\.horizontalSizeClass)
+        private var horizontalSizeClass
+
+        /// The Vertical SizeClass
+        @Environment(\.verticalSizeClass)
+        private var verticalSizeClass
+        #endif
+        
+    }
+    
+}
+
+// MARK: - ViewModifier
+
+extension WhatsNewView.FeaturesPadding: ViewModifier {
+    
+    /// Gets the current body of the caller.
+    /// - Parameter content: The Content
+    func body(
+        content: Content
+    ) -> some View {
+        #if os(macOS)
+        content.padding(.horizontal)
+        #else
+        if self.horizontalSizeClass == .regular {
+            content.padding(
+                .init(
+                    top: 0,
+                    leading: 100,
+                    bottom: 0,
+                    trailing: 100
+                )
+            )
+        } else {
+            content
+        }
+        #endif
+    }
+    
+}

@@ -1,0 +1,3 @@
+source: dev-hasfullaccess.json from developer.apple.com tutorials/data (doc://com.apple.uikit/documentation/UIKit/UIInputViewController/hasFullAccess), fetched 2026-11-21
+A Boolean value that indicates whether the keyboard has full access.
+var hasFullAccess: Bool { get }

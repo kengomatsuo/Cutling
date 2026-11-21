@@ -1,0 +1,25 @@
+source: https://docs.keyboardkit.com/documentation/keyboardkit/status-article (DocC data JSON flattened; JSON saved as kk-status-article.json), fetched 2026-11-21
+This article describes the KeyboardKit status engine.
+
+## Overview
+KeyboardKit has ways to check the system status of any keyboard extension, like if it’s enabled in System Settings, if it has Full Access, if it’s actively being used, etc.
+
+## Context
+KeyboardKit has a  class with observable state, that can be used to observe the status of your keyboard.
+struct MyView: View {
+
+    @StateObject private var status = KeyboardStatusContext(bundleId: "com.myapp.*")
+
+    var body: some View {
+        VStack {
+            Text("Enabled: \(status.isKeyboardEnabled.description)")
+            Text("Active: \(status.isKeyboardActive.description)")
+            Text("Full Access: \(status.isFullAccessEnabled.description)")
+        }
+    }
+} 
+Tge  implements the  protocol, and has properties like KeyboardStatusContext/isFullAccessEnabled, , and , and functions like .
+Unlike other contexts, the  is not injected into the keyboard extension view environment, but it is injected in the main app when using the  wrapper.
+
+## Views
+KeyboardKit has status-specific views, that can be used to display various keyboard status-related values:

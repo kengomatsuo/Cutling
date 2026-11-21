@@ -1,0 +1,22 @@
+https://support.microsoft.com/en-us/swiftkey-keyboard/why-does-my-microsoft-swiftkey-keyboard-need-full-access-in-ios fetched 2026-11-21 (text extract)
+Why does my Microsoft SwiftKey Keyboard need Full Access in iOS?
+				Applies ToSwiftKey 
+		Granting Full Access to Microsoft SwiftKey does not mean everything you type is transferred, despite a warning message that shows when you allow the permission.
+No language data or words you type will ever be transferred while using your Microsoft SwiftKey Keyboard unless you specifically create a Microsoft SwiftKey Account.
+On iOS, Microsoft SwiftKey’s keyboard extension requires Full Access in order to share data with the “container” app on your device, i.e. the Microsoft SwiftKey app on your home screen. This is because we house key components of Microsoft SwiftKey in the container app, and need to obtain your permission for the keyboard extension to access these components.
+For more information on how to grant Full Access please read our article on this.
+What is Full Access?
+Granting an iOS keyboard extension Full Access is the permission that allows it to share data with its broader “container” app and gain network access. We request this permission in order to provide you with a full Microsoft SwiftKey feature-set and simplify how settings are managed.
+Do you transmit anything I type?
+Your Microsoft SwiftKey Keyboard does not “transmit anything you type,” as Apple’s warning message may lead you to think. That warning message (which is displayed before a user allows Full Access) is there to make sure you are aware of what is technically possible before making a decision about whether to trust the developer of a keyboard extension. We hope this article gives you the confidence that Microsoft SwiftKey has taken measures to protect both your privacy and security.
+What exactly is Full Access used for?
+We require Full Access because your Microsoft SwiftKey Keyboard stores language models, personalized learning and keyboard preferences outside the keyboard extensions framework on your device. Without this permission, the keyboard extension would not be able to read or write to these files.
+Architecting Microsoft SwiftKey for iOS in this way allows us to make sure the keyboard is both as user friendly and powerful as possible. It allows you to manage your settings in a clear and simple way from the app on your home screen, have access to a library of frequently updated language models, have further customization of the keyboard with themes, and ensure all of this is presented within a reasonably-sized app.
+To give you added peace of mind, you can delete learned language data from your device (or your Microsoft SwiftKey Account) at any time.
+By having Full Access, we’re also able to seamlessly improve both language predictions and our feature-set in the future; for example, we can roll out new or improved languages without disrupting your typing by requiring the app to be updated. In order to keep up with how quickly language evolves, we update our language models from time to time.
+Microsoft SwiftKey Account
+By creating a Microsoft SwiftKey Account, your Microsoft SwiftKey Keyboard learns from your typing. Your predictions are securely backed up to our servers and synced across other devices that you opt in with. 
+You can read more about the benefits of a Microsoft SwiftKey Account here.
+Privacy
+We take user privacy very seriously, and all of the data that we handle is strictly guarded by our Privacy Policy. You can read it here:
+Privacy Policy

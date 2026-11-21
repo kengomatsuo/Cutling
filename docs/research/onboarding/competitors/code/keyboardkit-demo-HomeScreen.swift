@@ -1,0 +1,84 @@
+// https://github.com/KeyboardKit/KeyboardKit/blob/fa34c40404496338162651b807f1203ab3ff7050/Demo/Demo/HomeScreen.swift  fetched 2026-11-21
+//
+//  HomeScreen.swift
+//  KeyboardKit
+//
+//  Created by Daniel Saidi on 2021-02-11.
+//  Copyright © 2021-2026 Kankoda. All rights reserved.
+//
+
+import KeyboardKit
+import SwiftUI
+
+/// This is the main demo app screen.
+///
+/// This view uses a the KeyboardKit `HomeScreen` to present
+/// keyboard status and settings links with some adjustments.
+///
+/// See the ``DemoApp`` for demo-specific information on why
+/// the keyboard settings aren't synced with the keyboard by
+/// default, and how you can enable this.
+struct HomeScreen: View {
+
+    let app = KeyboardApp.keyboardKitDemo
+
+    @State var text = ""
+    @State var textEmail = ""
+    @State var textMultiline = ""
+    @State var textNumberPad = ""
+    @State var textURL = ""
+    @State var textWebSearch = ""
+
+    @Environment(\.openURL) var openURL
+
+    @EnvironmentObject var dictationContext: DictationContext
+    @EnvironmentObject var keyboardContext: KeyboardContext
+
+    var body: some View {
+        NavigationView {
+            KeyboardAppHomeScreen(
+                app: app,
+                appIcon: Image(.icon),
+                header: {
+                    Text(.homeScreenAppGroupWarning)
+                        .listRowBackground(Color.yellow)
+                        .multilineTextAlignment(.center)
+                },
+                footer: {
+                    Section(.sectionTextFields) {
+                        TextField(.textFieldPlain, text: $text)
+                            .keyboardType(.default)
+                        TextField(.textFieldEmail, text: $textEmail)
+                            .keyboardType(.emailAddress)
+                        TextField(.textFieldNumberPad, text: $textNumberPad)
+                            .keyboardType(.numberPad)
+                        TextField(.textFieldUrl, text: $textURL)
+                            .keyboardType(.URL)
+                            .autocapitalization(.none)
+                        TextField(.textFieldWebSearch, text: $textWebSearch)
+                            .keyboardType(.webSearch)
+                        TextField(.textFieldMultiline, text: $textMultiline, axis: .vertical)
+                            .lineLimit(4, reservesSpace: true)
+                            .keyboardType(.default)
+                    }
+                }
+            )
+            .navigationTitle(app.name)
+        }
+        .keyboardAppHomeScreenStyle(.init(
+            appIconSize: 120,
+            appIconCornerRadius: 27
+        ))
+//        .keyboardAppHomeScreenVisibility(.init(
+//            settingsSectionFonts: true,
+//            settingsSectionThemes: true,
+//            settingsSectionExperiments: true,
+//        ))
+        .navigationViewStyle(.stack)
+    }
+}
+
+#Preview {
+    
+    HomeScreen()
+}

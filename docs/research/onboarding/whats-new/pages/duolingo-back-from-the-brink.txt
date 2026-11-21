@@ -1,0 +1,115 @@
+SOURCE https://blog.duolingo.com/back-from-the-brink-what-duolingo-learned-about-its-resurrected-users fetched 2026-11-21 (page text)
+ 
+ Duolingo Blog 
+ SUBJECTS
+ SUBJECTS
+ Language
+ Chess
+ Math
+ Music
+ INSIDE DUOLINGO
+ Announcements
+ Design
+ Engineering
+ Product
+ Life at Duolingo
+ SITE LANGUAGE 
+ Deutsch
+ English
+ Español
+ Français
+ Português
+ 日本語
+ 한국어
+ !!el).forEach(el => {
+ el.value = '';
+ el.dispatchEvent(new Event('input', { bubbles: true }));
+ })
+ "
+ role="button"
+ tabindex="-1"
+>
+ August 30, 2017 
+ Conor Walsh 
+ Back from the brink: What Duolingo learned about its resurrected users
+ Here’s what we know—and what we’re doing for returning learners!
+ August 30, 2017 
+ Conor Walsh 
+ Have you ever quit using an app only, months later, to think, “I should really start that again?” We’ve all done it! We call this behavior resurrection , and it’s an important part of the user lifecycle.
+ At Duolingo, we’re trying to build the best language learning experience for our millions of users. We experiment and build experiences around the buckets of data our users generate for us every day. So, once we started thinking about these resurrected users who quit Duolingo and come back later, we realized there was a lot we didn’t understand. We decided to get to the bottom of things.
+ What is a resurrected user?
+ First, we’ll break down what we mean by a resurrected user. The term, a common piece of tech jargon , refers to users who have been away from an app for an extended period of time but then come back, for whatever reason, to start using an app once again. In our case, we started off with a working definition of resurrection: a user of Duolingo has been inactive on the app for 30 days or more and then returns.
+ Why 30 days, you ask? In our estimation, a month or so away from the app is a major disruption to your language-learning journey. After a month, the new words and grammar structures you’ve been practicing start to atrophy, and it gets harder and harder to be functional in the target language. Basically, coming back after a month is almost like coming back to the app for the first time. You’re starting in a place very different from where you left off. In the future, we hope to refine this definition even further to best reflect exactly when users resurrect and how they behave before and after a resurrection event.
+ The heatmap above shows a classic example of resurrection. A user uses Duolingo regularly before leaving the app for an extended period of dormancy. They finally come back over 30 days later (the right-most colored block).
+ How did we measure resurrection?
+ In order to understand resurrection, we started with a deceptively simple question: how many of these users did we actually have? As mentioned, we decided to look at all users who were 30 days or more inactive. We queried our (massive) database of user behavior and interaction, and – with the help of the Analytics and Learning Teams – constructed queries to measure how many of our users had been inactive for 30 days or more on any given day. We also needed to exclude users who had created accounts with Duolingo after the day in question, as we didn’t want to conflate their not being on Duolingo yet with being inactive.
+ Because we weren’t automatically tracking this metric, we manually calculated the rates of resurrection every day for the past couple of months to see what trends emerged. Then we looked at their retention over seven and fourteen day intervals. From this, we were able to establish our benchmarks around resurrection for Duolingo users, and a new metric was born. Luckily, since then we have been able to automate the process and the resurrection metric has been added to our internal metrics dashboard. Not bad for a couple of weeks!
+ What does resurrection mean for Duolingo?
+ Our key learning has been that far more of our daily users are resurrected than we had expected. On a given day, roughly 5% of our users resurrect after 30 or more days away. That’s a ton of people! And, after a user resurrects, they’re roughly 20% less likely than a new user to be retained (that is, to still be using the app) seven and fourteen days after they come back. We’re constantly exploring ways to bring users to Duolingo and to keep them engaged and learning. Resurrection tells us that we should also pay attention to returning users and their unique needs.
+ What are some next steps for resurrection?
+ With that in mind, we’ve taken a couple of steps to craft a unique experience for resurrecting users. First, we’re experimenting with how we reach our inactive language learners. New emails and notifications help us bring users back. We noticed, for example, that the day we sent a newsletter announcing the launch of our Japanese course, resurrected users spiked from 5% of DAUs to 8%. Second, we’re looking at new trends to determine when a user is most likely to go inactive. With this data, we can take steps to retain users before they leave us (and eliminate the need to resurrect). Lastly, we’re planning to enhance the experience for users who do resurrect.
+ Right now, coming back to Duolingo after being away for a long time can be intimidating and a little bit scary. You’ve lost your streak and a lot of your language skills have weakened. We’re building a special experience to re-onboard our resurrected users, which we believe is unique for digital education experiences.
+ Looking at user resurrection highlights some of the strengths of Duolingo and its team. We considered a new problem, found answers in the data, automated our tracking so we can measure our progress, and took steps to improve based on what we’ve learned. Just another normal day here in Pittsburgh!
+ TAGS
+ Product
+ Internship
+ Life at Duolingo
+ SHARE ARTICLE
+ RELATED ARTICLES
+ RELATED ARTICLES
+ About us
+ Courses 
+ Mission 
+ Approach 
+ Efficacy 
+ Team 
+ Research 
+ Careers 
+ Brand guidelines 
+ Press 
+ Investors 
+ Contact us 
+ Products
+ Duolingo 
+ Duolingo English Test 
+ Duolingo for Business 
+ Super Duolingo 
+ Store 
+ Apps 
+ Duolingo Apps 
+ Duolingo for Desktop 
+ Duolingo for Android 
+ Duolingo for iOS 
+ Help and support
+ Duolingo FAQs 
+ Duolingo English Test FAQs 
+ Status 
+ Privacy and terms
+ Community guidelines 
+ Terms 
+ Privacy 
+ Respecting your "do not sell my personal information" rights 
+ Social
+ Blog 
+ Instagram 
+ Facebook 
+ YouTube 
+ TikTok 
+ LinkedIn 
+ X 
+ Site language:
+ Deutsch 
+ English 
+ Español 
+ Français 
+ Português 
+ 日本語 
+ 한국어 
+ ©2026 Duolingo. All rights reserved.
+ About us 
+ Press 
+ Careers 
+ Help and support 
+ Privacy and terms 
+ ©2026 Duolingo. All rights reserved.
+

@@ -1,0 +1,2574 @@
+SOURCE https://culturedcode.com/things/releasenotes/ fetched 2026-11-21 (page text)
+ 
+ Mac Release Notes - Things Support 
+ Things 
+ Features 
+ Support 
+ Blog 
+ Search support articles 
+ Mac Release Notes
+ Things updates improve the stability and performance of the app, and are recommended for all users. How to update to the latest version .
+ Show release notes for:
+ Mac 
+ iPad 
+ iPhone 
+ Watch 
+ Vision 
+ Things for Mac 3.24.2
+ November 5, 2026 
+ Requires macOS 13.3 or later
+ Restored Today as the preselected date in the Add Deadline dialog for an expanded to-do.
+ Restored the correct selection behavior in a list when collapsing a to-do after editing it.
+ Improved the handling of undo in checklists.
+ Increased the spacing between a project’s title and notes.
+ Refined the size and spacing of disclosure triangles in the Tags window.
+ Fixed a bug on macOS 27 where you couldn’t click to place the cursor on the final empty line of a text field.
+ Fixed a bug where checklist text could reappear or merge incorrectly when splitting or deleting an item.
+ Fixed a bug where a dialog such as Get Info in one window could block menu commands in other windows.
+ Fixed a bug where toolbar buttons didn’t shrink correctly in narrow windows.
+ Fixed the handling of the Complete and Cancel keyboard shortcuts in a project’s notes with Markdown checklists.
+ Fixed the size of the selection highlight in the Tags window at larger font sizes.
+ Fixed the background color of unselected tags while dragging.
+ Fixed a rare crash that could occur on macOS 27 when editing text.
+ Fixed several crashes that could occur when dragging and dropping.
+ Fixed a crash that could occur when repeatedly deleting checklist items with ⌘ Cmd Delete .
+ Fixed a crash that could occur when scrolling a to-do out of view while editing it.
+ Things for Mac 3.24.1
+ September 30, 2026 
+ Requires macOS 13.3 or later
+ Added “Ask Siri” to the context menu when Control-clicking a to-do or project in a list.
+ Improved the appearance of results in the new Siri.
+ Refined the spacing of the notes and checklist in an expanded to-do.
+ Improved the performance of Quick Find.
+ Improved the performance when selecting a to-do in Apple Shortcuts.
+ Improved the timing of the haptic feedback when completing a checklist item.
+ Tweaked the layout of the title bar in the Tags window on macOS 26 and later.
+ Restored the behavior where deleting all checklist items leaves an empty item ready for typing.
+ Fixed a bug where Control-clicking a to-do’s checkbox didn’t show its context menu.
+ Fixed a bug where Cmd+click on a checklist item’s reorder handle didn’t add the item to the selection.
+ Fixed a bug where pasting a single line of text into a checklist also pasted the blank lines around it.
+ Fixed a bug where dropping an email could create a to-do with missing spaces in its title.
+ Fixed a bug where adding many tags to a project or area could make them overlap its notes.
+ Fixed the wording of the repeat rule for a project that repeats after completion.
+ Fixed a crash that could occur when deleting a project via Apple Shortcuts.
+ Fixed a crash that could occur when clicking the ••• button in a tag list while editing an expanded to-do.
+ Fixed a crash that could occur when dragging a project into another project.
+ Things for Mac 3.24
+ September 14, 2026 
+ Requires macOS 13.3 or later
+ Full support for macOS 27 Golden Gate.
+ Full integration with Siri AI.
+ Full integration with Spotlight.
+ Improved snoozing options for notifications, with more suitable durations, and a Tomorrow option.
+ A new extra-tall widget to see longer lists.
+ Fixed a bug where revealing a to-do could select it without scrolling it into view.
+ Fixed a bug where the Show Substitutions command opened the Spelling and Grammar panel instead of the Substitutions panel.
+ Fixed a bug where Ctrl+Cmd+Space wouldn’t open the emoji picker in Quick Entry when Things wasn’t in the foreground.
+ Fixed the layout of the toolbar when resizing the sidebar.
+ Fixed the availability and state of several standard commands in the Edit menu and its submenus.
+ Various other compatibility improvements for the new OS.
+ Things for Mac 3.23.4
+ September 6, 2026 
+ Requires macOS 13.3 or later
+ Restored support for Cmd+Delete in Quick Entry’s checklists.
+ Increased the draggable area along the top edge of the Quick Entry window.
+ Fixed a bug where the clickable area of a to-do’s or project’s When button could extend too far to the left in a very wide window.
+ Fixed the behavior of Cmd+Delete in the fields at the top of a project or area.
+ Things for Mac 3.23.3
+ September 2, 2026 
+ Requires macOS 13.3 or later
+ Restored support for using the Cut command on selected checklist items.
+ Restored the Cmd+Delete shortcut for deleting the checklist item you’re editing.
+ Restored the “Open in New Windows” option when Control-clicking multiple projects at once.
+ Improved handling of the Tab and Escape keys when typing with international input methods.
+ Fixed a bug where pasting a line that contained only a Markdown checkbox into a checklist created an item titled “- [ ]” instead of an empty row.
+ Fixed a bug where a to-do title could be cut off if it had many tags.
+ Fixed a crash that could occur when changing the tag filter while editing a to-do.
+ Things for Mac 3.23.2
+ August 28, 2026 
+ Requires macOS 13.3 or later
+ Restored arrow key navigation between the title and notes fields in an expanded to-do.
+ Fixed a bug where tag suggestions were listed in the wrong order in an expanded to-do.
+ Fixed a bug where a deadline due today wasn’t shown in red in an expanded to-do.
+ Fixed a bug that could prevent setting an end date for a repeating to-do.
+ Fixed a crash that could occur when dragging content into a to-do’s notes.
+ Fixed a crash that could occur when clicking the ••• button in a project or area while editing an expanded to-do.
+ Fixed a crash that could occur when using the URL scheme’s “add” command with checklist items and Quick Entry.
+ Things for Mac 3.23.1
+ August 24, 2026 
+ Requires macOS 13.3 or later
+ Fixed a bug where text could be cut off in widgets.
+ Fixed a bug on macOS 15 and earlier where a button’s hover state wasn’t cleared when the pointer disappeared while typing.
+ Fixed a bug where some images could appear blurry at certain font sizes.
+ Fixed a rare crash that could occur on macOS 14 and 15 when moving between the title and notes fields after typing with an input method.
+ Things for Mac 3.23
+ August 21, 2026 
+ Requires macOS 13.3 or later
+ Added support for completing a repeating to-do early: it now shows a normal checkbox, just like any other to-do.
+ Added support for rescheduling a repeating to-do – just bump it to a new date:
+ If it repeats on a fixed schedule, Things asks whether to make a one-time exception, or update the rule going forward.
+ If it repeats after completion, it simply moves to the new date.
+ Made a number of other refinements to repeating to-dos:
+ Refreshed the look of the setup dialog, which now makes it easier to pick the next recurrence date.
+ Added a small gray repeat icon to a copy of a repeating to-do, to distinguish it from a regular one.
+ Added support for starting a repeating project early: as soon as you edit its to-dos, Things offers to create the next copy of the project ahead of time.
+ Added support for creating the next copy of a repeating to-do ahead of time: Control-click the to-do and choose Repeat → Create Next Copy.
+ Added support for pausing, resuming, and stopping multiple repeating to-dos at once.
+ Unified the display and editing of to-dos – both in lists and when expanded – so Mac and iOS now share the same code.
+ The deadline in an expanded to-do is now a button with a menu instead of a regular field.
+ The When dialog now shows “No Results” for searches with no match.
+ Added haptic feedback from the Trackpad when completing a to-do or checklist item.
+ Added the standard Cmd+: shortcut for Show Spelling and Grammar, and Cmd+; for Check Spelling.
+ Fixed a bug where you couldn’t create a to-do in a tag list if that tag had children.
+ Fixed a bug where a newly created to-do wasn’t selected after pasting text from another app.
+ Fixed a bug where toolbar buttons could become misaligned after collapsing or expanding to-dos.
+ Fixed a bug where the selection wasn’t cleared when switching between lists.
+ Fixed a bug where you couldn’t always complete a checklist item.
+ Fixed a bug where reverse-tabbing in Quick Entry could get stuck in the Move dialog when Full Keyboard Access was enabled.
+ Fixed a bug where search results could show items with a strikethrough even though they weren’t canceled.
+ Fixed a bug where the yellow search highlight could persist in other views after leaving search.
+ Fixed a bug where the cursor wouldn’t move to the When field in Quick Entry when pressing Cmd+S.
+ Fixed a bug where Cmd+Delete in a checklist item deleted the whole line instead of just from the start of the line to the cursor.
+ Fixed a bug where Opt+Delete in tag text deleted a single character instead of a whole word.
+ Fixed a bug where the wrong ••• menu could appear when using the tag filter bar.
+ Fixed a bug where clicking to the left of a checklist would scroll it to the top.
+ Fixed a bug where clicking in a project’s notes would scroll the project to the top.
+ Fixed a bug with dragging and dropping external content into the Inbox.
+ Fixed a crash that could occur when quickly pasting text into a checklist.
+ Fixed a crash that could occur when removing a project’s Today assignment while the When dialog was open.
+ Things now requires macOS 13.3 or later.
+ Things for Mac 3.22.14
+ August 14, 2026 
+ Requires macOS 10.15 or later
+ Fixed a crash that could occur when completing or canceling a repeating to-do that had corrupted data.
+ Things for Mac 3.22.13
+ August 3, 2026 
+ Requires macOS 10.15 or later
+ Preparatory release for upcoming enhancements to Repeating To-Dos.
+ Fixed some issues that could occur when a device syncs with an account for the first time.
+ Things for Mac 3.22.12
+ July 16, 2026 
+ Requires macOS 10.15 or later
+ One minor tweak under the hood.
+ Things for Mac 3.22.11
+ March 25, 2026 
+ Requires macOS 10.15 or later
+ Fixed a layout glitch for link buttons in Settings.
+ Fixed a bug where generated URL scheme tokens had insufficient entropy.
+ Fixed a rare crash.
+ Things for Mac 3.22.10
+ February 23, 2026 
+ Requires macOS 10.15 or later
+ Added Quick Entry Autofill support for the Helium browser.
+ Restored support for Cmd+Return in Quick Entry.
+ Fixed a bug that prevented importing data from Todoist.
+ Fixed a crash that could occur when pausing or stopping a repeating to-do.
+ Many other improvements under the hood.
+ Things for Mac 3.22.9
+ January 14, 2026 
+ Requires macOS 10.15 or later
+ Fixed a crash that could occur on launch when legacy Spotlight metadata from Things 2 was present.
+ Things for Mac 3.22.8
+ January 14, 2026 
+ Requires macOS 10.15 or later
+ Added Quick Entry Autofill support for the Dia web browser.
+ Restored the correct color for text selection and the cursor in text fields.
+ Tweaked the vertical alignment of items in the sidebar (e.g. the count badge).
+ Fixed text alignment glitches in search fields.
+ Fixed a crash that could occur when interacting with the When popover in certain scenarios.
+ Fixed the Todoist login for data import.
+ Things for Mac 3.22.7
+ October 31, 2025 
+ Requires macOS 10.15 or later
+ Added Quick Entry Autofill support for the ChatGPT Atlas browser.
+ Added a workaround for a macOS 26.1 bug where Apple Mail provided malformed links via Quick Entry Autofill.
+ Things for Mac 3.22.6
+ October 23, 2025 
+ Requires macOS 10.15 or later
+ Changed the logic that determines when to show the done button in the When popover.
+ Fixed a bug where, if the text was set to a particular size, it could appear cut off in the sidebar.
+ Fixed a crash that occured when an item copied from a repeating project was pasted into into a time-based list (e.g. Today).
+ Fixed some memory issues that were introduced in the 3.22 update.
+ Things for Mac 3.22.5
+ September 30, 2025 
+ Requires macOS 10.15 or later
+ Fixed crashes that could occur in dark mode on macOS 12 and earlier.
+ Things for Mac 3.22.4
+ September 29, 2025 
+ Requires macOS 10.15 or later
+ Improved the handling of several keyboard shortcuts in the search field.
+ Improved the presentation of scroll bars in certain scenarios.
+ Restored the Shift+Cmd+R shortcut for Repeat > Reschedule.
+ Fixed the animation of some buttons when clicked.
+ Fixed filtering by inherited tags in the Repeating list.
+ Fixed a bug that caused bright window edges in dark mode.
+ Fixed a bug where, in some cases, the wrong light/dark appearance was used for main windows.
+ Updated the Todoist importer to use a new authentication mechanism.
+ Things for Mac 3.22.3
+ September 20, 2025 
+ Requires macOS 10.15 or later
+ Tweaked the appearance of the When date popover in expanded to-dos.
+ Fixed a bug that caused some list titles to be cut off in Chinese localizations.
+ Fixed a bug where the Run Things URL action in Apple Shortcuts would perform changes twice.
+ Things for Mac 3.22.2
+ September 17, 2025 
+ Requires macOS 10.15 or later
+ Fixed a crash that could occur when attempting to convert to-dos or projects into repeaters while their content was in edit mode.
+ Added some missing icons for the Edit menu’s submenus.
+ Things for Mac 3.22.1
+ September 16, 2025 
+ Requires macOS 10.15 or later
+ Fixed an issue where Select All could also select project headings in some cases.
+ Fixed an issue where completing a to-do could fail if the search field was focused.
+ Fixed an issue that prevented File → Close All from closing non-focused windows.
+ Fixed a crash that occurred when filtering the All Projects list by tags.
+ Adjusted the Todoist import screen.
+ Things for Mac 3.22
+ September 15, 2025 
+ Requires macOS 10.15 or later
+ Full compatibility with macOS 26 Tahoe.
+ Introduced Things’ new app icon.
+ Updated the interface throughout: a touch of glass in the sidebar that lets a hint of color shine through; increased curvature of windows, to-dos, dialogs, and controls; and wider spacing that feels a bit more relaxed.
+ Added support for app icon & widget styles (Default, Dark, Tinted, or Clear).
+ Added control buttons for the Control Center and Menu Bar: New To-Do and List (you choose a list).
+ Added Spotlight integration for creating to-dos: invoke Spotlight (⌘ Space), type “Create To-Do”, press Return, then enter your title; the new to-do is created in the Inbox.
+ Added Quick Entry support for the new Comet browser.
+ Things for Mac 3.21.15
+ August 11, 2025 
+ Requires macOS 10.15 or later
+ Restored support for Cmd+Left Arrow/Right Arrow keyboard shortcuts.
+ Improved handling of left-to-right layout for calendar events.
+ Fixed the formatting of dates for Repeating To-Dos in the Upcoming list.
+ Fixed an issue that could prevent Things from coming to the foreground at launch.
+ Fixed an issue that prevented accessing the window collection via AppleScript.
+ Things for Mac 3.21.14
+ July 18, 2025 
+ Requires macOS 10.15 or later
+ Fixed incorrect spacing between a project’s title and deadline in the sidebar.
+ Fixed a bug where the “Hide Later Items” button could fail to work in some scenarios.
+ Fixed a bug that caused Things to remain in Stage Manager’s strip after all its windows were closed.
+ Fixed a bug where the “Create To-Do with Quick Entry” Shortcuts action failed to show Quick Entry if Things wasn’t running.
+ Fixed a bug where the Things URL “duplicate” parameter was not being respected.
+ Fixed a crash that would occur when attempting to share a list while it was filtered by “No Tag”.
+ Fixed a crash that would occur, on macOS 12 or earlier, when attempting to restore a minimized window by clicking Things’ icon in the Dock.
+ Things for Mac 3.21.13
+ July 10, 2025 
+ Requires macOS 10.15 or later
+ Added support for DEVONthink 4 in Quick Entry with Autofill.
+ Restored the Log Completed command in context menus.
+ Fixed a bug where, in certain scenarios, Things could steal focus when switching between spaces (desktops).
+ Fixed a bug where sync could become temporarily blocked if the app’s first-ever sync was interrupted.
+ Fixed a crash that could occur when stopping a Repeating To-Do.
+ Fixed a crash that could occur when handling certain URL scheme commands.
+ Things for Mac 3.21.12
+ July 1, 2025 
+ Requires macOS 10.15 or later
+ Improved handling of left-to-right text in to-do titles.
+ Fixed a bug where Things would still show in Stage Manager’s strip after all of its windows were closed.
+ Fixed a crash that would occur when attempting to share the Someday list.
+ Many other improvements under the hood.
+ Things for Mac 3.21.11
+ April 29, 2025 
+ Requires macOS 10.15 or later
+ Fixed a crash that could occur for users of the PopClip app.
+ Things for Mac 3.21.10
+ April 24, 2025 
+ Requires macOS 10.15 or later
+ Fixed a crash that could occur when displaying a repeating to-do that was created in an earlier version of Things. (Not completely fixed in previous build.)
+ Things for Mac 3.21.9
+ April 17, 2025 
+ Requires macOS 10.15 or later
+ Fixed a crash that could occur when displaying a repeating to-do that was created in an earlier version of Things.
+ Things for Mac 3.21.8
+ April 15, 2025 
+ Requires macOS 10.15 or later
+ Fixed a crash that could occur when accessing Someday items via AppleScript.
+ Fixed crashes that could occur for some users when displaying events from Calendar.
+ Things for Mac 3.21.7
+ April 6, 2025 
+ Requires macOS 10.15 or later
+ Fixed a bug where a tag inherited from a parent area or project could erroneously affect filtering inside a project.
+ Things for Mac 3.21.6
+ April 3, 2025 
+ Requires macOS 10.15 or later
+ Fixed a bug where icons could appear slightly blurry in a few places.
+ Fixed a bug where headings created via Apple Shortcuts would be out of order.
+ Fixed a bug where to-dos would be incorrectly positioned when toggling them between Today and This Evening.
+ Fixed a bug where an expanded to-do would appear dimmed in the “moved out of the Inbox” section.
+ Fixed a bug where the window title bar would appear transparent when mousing over it in Full Screen mode.
+ Fixed a bug where Things Cloud connectivity would be displayed incorrectly.
+ Fixed a bug in the Print feature where Upcoming’s section headers would not appear.
+ Fixed a bug in the Print feature where checklist items would be rendered incorrectly.
+ Fixed a bug in the Print feature where inherited tags would be included in the printout.
+ Fixed some Markdown rendering glitches that could occur when using code blocks.
+ Fixed some UI glitches in the Repeating Task setup for some languages.
+ Many more fixes and improvements under the hood.
+ Things for Mac 3.21.5
+ February 4, 2025 
+ Requires macOS 10.15 or later
+ Fixed a bug where entering a relative date for a deadline didn’t work as expected.
+ Fixed a bug that prevented setting a to-do’s status to open via AppleScript.
+ Fixed a bug that prevented importing data from Todoist.
+ Things for Mac 3.21.4
+ December 18, 2024 
+ Requires macOS 10.15 or later
+ When setting a keyboard shortcut for Quick Entry, Things now enforces a new system restriction (if using Shift in a shortcut, there must also be at least one other modifier key).
+ Fixed a bug that caused blurriness in the banner that displays information about new updates.
+ Fixed a bug that prevented the Scripts menu bar icon from updating its color when the system’s appearance mode changed.
+ Fixed a crash that could occur when attempting to close a window that was full screen.
+ Things for Mac 3.21.3
+ November 12, 2024 
+ Requires macOS 10.15 or later
+ Improved error handling in some scenarios.
+ Things for Mac 3.21.2
+ October 16, 2024 
+ Requires macOS 10.15 or later
+ Preparations for the upcoming release of macOS 15’s Writing Tools feature.
+ Introduced a workaround for a macOS 15 issue that made links to files unclickable for some users.
+ Fixed some communication issues between Things and Things Helper (which is used for Quick Entry with Autofill).
+ Fixed a Things Cloud “server unavailable” error message in settings.
+ Many other changes under the hood.
+ Things for Mac 3.21.1
+ September 17, 2024 
+ Requires macOS 10.15 or later
+ Fixed a bug where calendar events with titles containing line breaks would not be rendered correctly.
+ Things for Mac 3.21
+ September 16, 2024 
+ Requires macOS 10.15 or later
+ Full compatibility with macOS 15 Sequoia.
+ Added support for Apple Intelligence’s new Writing Tools. This feature will not be available until Apple Intelligence rolls out in the coming months (and won’t be available in all regions or on all devices). See Apple’s website for the latest information.
+ Adjusted the app to work well with Sequoia’s new Window Tiling feature. Things’ windows will stay constrained to your chosen tile size, even if you’ve disabled “Preserve window width when resizing sidebar” in Things’ settings.
+ Tweaked the widget’s + button for clearer distinction of where it will save to if your desktop’s appearance is set to Monochrome.
+ Added support for hitting Shift Return in text to insert a “line separator” character (like Ctrl Return on macOS versions earlier than Sequoia). This allows you to hit return in a bulleted list for a new line, without creating a new bullet.
+ Added support for the Shift Cmd T shortcut when the cursor is in an area’s title.
+ Added the Tags command when Control-clicking an area heading in the Anytime and Someday lists (also in Today when grouping is enabled in Things’ settings).
+ Fixed a crash that could occur when pasting an empty string into a list.
+ Fixed some issues that could cause Things Helper to crash.
+ Things for Mac 3.20.9
+ August 19, 2024 
+ Requires macOS 10.15 or later
+ Fixed an issue that could cause a row’s background color to display incorrectly. (Issues persist.)
+ Fixed a crash that could occur when launching Things via link, widget, or notification.
+ Fixed a crash that could occur when unhiding Things.
+ Things for Mac 3.20.8
+ July 2, 2024 
+ Requires macOS 10.15 or later
+ Fixed the appearance of the reminder time field in repeating to-dos’ settings.
+ Fixed a bug that prevented dragging projects in the sidebar onto When lists.
+ Fixed a bug that prevented the color of the title bar’s Quick Find button from updating when the window was backgrounded.
+ Fixed a bug that prevented import from Todoist for some users.
+ Things for Mac 3.20.7
+ June 12, 2024 
+ Requires macOS 10.15 or later
+ Things now requires macOS 10.15 Catalina or later.
+ Added Tags and Deadline menu options when Control-clicking a project in the sidebar.
+ Improved reloading of widgets in some scenarios.
+ Improved selection behavior when moving or scheduling items in a list.
+ Tweaked projects’ progress rings.
+ Updated Things Cloud’s login screens.
+ Fixed the misalignment of “New Tag” labels in the Tags window.
+ Fixed a bug which caused the + button to disappear from monochrome widgets.
+ Fixed a bug where dragging a mixed selection of active and inactive projects onto the sidebar would show incorrect drop targets.
+ Fixed a crash that could occur when a change was made to a particularly large database.
+ Many other improvements under the hood.
+ Things for Mac 3.20.6
+ May 8, 2024 
+ Requires macOS 10.13 or later
+ Fixed a bug that displayed diagnostic items in the menu bar for some users.
+ Things for Mac 3.20.5
+ April 17, 2024 
+ Requires macOS 10.13 or later
+ Fixed a bug with the Find & Replace function inside a to-do’s notes.
+ Fixed a bug with the appearance of a heading’s ••• popover inside a project.
+ Things for Mac 3.20.4
+ April 10, 2024 
+ Requires macOS 10.13 or later
+ Added support for Apple Push Notifications. (Things already supports this on other devices. Unlike those devices, your Mac requires that Things be open to receive pushes.)
+ Fixed a bug that could cause projects to become reordered if the Today list was in grouped mode.
+ Fixed a bug that caused a tag-filtered list to become unfiltered when navigating back using the left arrow key.
+ Fixed a bug that caused “later items” to be hidden when navigating back to the All Projects list via the left arrow key.
+ Fixed a bug that could cause the Quick Entry window to appear partly off screen or incorrectly sized.
+ Fixed a bug that could cause the Quick Entry window to appear broken after connecting/disconnecting an external display.
+ Fixed a bug that prevented text edit settings in checklists from being kept up-to-date with the rest of the app.
+ Implemented a workaround for a text rendering issue on macOS 14.3 and later.
+ Improved Todoist import and added support for project sections.
+ Many other fixes and improvements under the hood.
+ Things for Mac 3.20.3
+ March 18, 2024 
+ Requires macOS 10.13 or later
+ Fixed issues with Apple Shortcuts actions on macOS 13 Ventura.
+ Things for Mac 3.20.2
+ March 12, 2024 
+ Requires macOS 10.13 or later
+ Fixed a bug that prevented Quick Entry’s Autofill feature from getting content from tabs in a Safari tab group on macOS 14.4.
+ Fixed some performance issues that could affect text editing.
+ Things for Mac 3.20.1
+ February 27, 2024 
+ Requires macOS 10.13 or later
+ Fixed crashes on macOS 10.14 Mojave and 10.15 Catalina.
+ Things for Mac 3.20.0
+ February 26, 2024 
+ Requires macOS 10.13 or later
+ Added several text-editing items to the Edit menu: Substitutions, Transformations, and Speech.
+ Added Quick Entry with Autofill support for the NetNewsWire app (RSS reader).
+ Made date detection diacritic-insensitive to avoid conversion to bullets when the date is at the start of a line.
+ Fixed a bug that could prevent the “Back to Today” button from showing in date pickers.
+ Fixed several issues when dragging content on a secondary display.
+ Fixed some graphical glitches when dragging checklist items in an expanded to-do.
+ Fixed a crash that could occur when interacting with the legacy Today Widget.
+ Fixed a crash that could occur when launching Things on macOS 10.13 High Sierra.
+ Many other internal improvements.
+ Things for Mac 3.19.6
+ January 4, 2024 
+ Requires macOS 10.13 or later
+ Improved the layout of the Tags window when the app’s Text Size is set to larger sizes.
+ Fixed an issue with the preselection of the current date in the Deadline popover.
+ Fixed an issue that could prevent shadows from appearing behind some dialogs while in Dark Mode.
+ Fixed the line wrapping for the banner that announces new features.
+ Things for Mac 3.19.5
+ December 19, 2023 
+ Requires macOS 10.13 or later
+ Improvements for Widgets:
+ Added a new setting on the backside of Widgets for disabling their interactivity (i.e. you can now disable the checkbox). PLEASE NOTE : You may need to delete and re-add a widget for the new option to appear.
+ Further improved the layout of Widgets, including tightening the layout to show more to-dos (in some cases) if the checkbox is disabled.
+ Improvements for Quick Entry with Autofill:
+ Added support for more apps: Obsidian, Missive, Drafts, Keyboard Maestro, DEVONagent, HoudahSpot, and Agenda (version 18.3.1 or higher). Note that you may also need to update those apps for the feature to work.
+ Improved support for DEVONthink.
+ List header icons have been added to the Later Projects and Search lists.
+ Added an alarm icon for repeating to-dos which have a reminder time set.
+ Fixed an AppleScript bug that prevented importing content from OmniFocus.
+ Things for Mac 3.19.4
+ December 4, 2023 
+ Requires macOS 10.13 or later
+ Added new keyboard shortcuts when clicking to expand or collapse areas in the sidebar:
+ Cmd+click: Expand or collapse all areas at once.
+ Cmd+Opt+click: Expand clicked area and collapse others (i.e., focus on just one area).
+ Restored support for Force Touch when dragging an item into a project or area in the sidebar (press again while dragging to enter the list).
+ Enforce consistent use of the Gregorian calendar system.
+ Fixed some graphical glitches when expanding to-dos.
+ Fixed some superfluous animations when adding a new project from within an area.
+ Fixed some superfluous animations with projects’ progress rings in the sidebar.
+ Fixed a crash that occurred when dragging a mixed selection of repeating and non-repeating projects onto the sidebar.
+ Things for Mac 3.19.3
+ November 10, 2023 
+ Requires macOS 10.13 or later
+ Improved performance.
+ Fixed a bug where, when to-dos were moved into a repeating project, they would keep their existing dates and completion status.
+ Fixed a crash that occurred when switching between light and dark appearance while a popover menu was displayed.
+ Internal improvements and refactorings.
+ Things for Mac 3.19.2
+ November 3, 2023 
+ Requires macOS 10.13 or later
+ Improved performance.
+ Improved pasting collections of rich links (URL+title) into a list or a to-do’s notes.
+ Added a mechanism to open a new Things window if you hit Cmd F while no window is open.
+ Built a workaround for a macOS issue that prevented Things Cloud password changes from being updated in the system Keychain.
+ Fixed a glitch where interface elements could overlap in the Tags window.
+ Fixed a bug that prevented the When button’s hover state from updating correctly.
+ Fixed a bug that prevented the When popover from appearing when dragging a project onto Upcoming in some isolated scenarios.
+ Fixed a bug where dragged content could disappear when dragging across displays in some multi-display configurations.
+ Fixed a crash that could occur when starting to drag some content.
+ Fixed a crash that could occur if items were imported rapidly from Apple Reminders to Things’ Inbox.
+ Fixed a crash that could occur if Things was launched while the macOS appearance setting was switching.
+ Fixed a crash that occurred when using AppleScript to query to-dos in the Tomorrow list.
+ Things for Mac 3.19.1
+ September 26, 2023 
+ Requires macOS 10.13 or later
+ Tweaked the layout of widgets.
+ Fixed a visual glitch in window control buttons while sharing a Things window over FaceTime.
+ Fixed a crash that could occur when launching the app on macOS 11.
+ Things for Mac 3.19
+ September 26, 2023 
+ Requires macOS 10.13 or later
+ Full support for macOS 14 Sonoma.
+ Updated Things’ widgets:
+ You can now place Things’ widgets on your desktop.
+ Choose from a variety of widget sizes, including two new extra-large ones.
+ Small, Medium, and Large widgets are now interactive (same for widgets in Notification Center), which means you can complete to-dos directly in them.
+ Improved dialogs for requesting access to Calendar and Reminders data.
+ Fixed potential crashes on macOS Big Sur and earlier versions.
+ Things for Mac 3.18.3
+ September 18, 2023 
+ Requires macOS 10.13 or later
+ Improved performance.
+ Fixed broken image tinting on macOS 10.13 High Sierra.
+ Removed superfluous sidebar animations on macOS 10.13 High Sierra and 10.14 Mojave.
+ Things for Mac 3.18.2
+ September 7, 2023 
+ Requires macOS 10.13 or later
+ Fixed a crash that could occur on launch for users who hadn’t opened the app for a long time.
+ Things for Mac 3.18.1
+ September 6, 2023 
+ Requires macOS 10.13 or later
+ Fixed a layout issue which could affect buttons at the bottom of an expanded to-do.
+ Fixed a bug which could prevent windows from being resized to their minimum width when the sidebar was collapsed.
+ Fixed a bug where projects’ headings were not dimmed when completed or canceled via keyboard shortcut.
+ Fixed a bug with the What’s New notification banner’s text size.
+ Prevented the Copy Link command from erroneously showing in the Share menu when sharing a project’s heading.
+ Things for Mac 3.18
+ September 6, 2023 
+ Requires macOS 10.13 or later
+ Added support for changing the text size:
+ Added the new setting in Things → Settings → General .
+ Switched all icons to scalable vector graphics.
+ Adjusted layouts throughout the app to support scaling.
+ Moved Things’ Appearance setting to Things → Settings → General (previously in the View menu).
+ Restored the ability to drag projects in the sidebar into the Trash.
+ Disabled the ⌘ Cmd G & ⇧ Shift ⌘ Cmd G “Find in Text” shortcuts if no Find session has been started.
+ Fixed a bug that prevented URLs from appearing blue inside a Markdown quote.
+ Fixed an overscroll glitch that could occur while a to-do was expanded.
+ Fixed a crash that occurred when showing/hiding later items in areas via keyboard shortcut ⇧ Shift ⌘ Cmd E .
+ Things for Mac 3.17.8
+ August 3, 2023 
+ Requires macOS 10.13 or later
+ Fixed a bug that prevented data migration from Todoist.
+ Things for Mac 3.17.7
+ April 23, 2023 
+ Requires macOS 10.13 or later
+ Fixed a bug in date handling that could lead to a crash.
+ Worked around a crash scenario that could arise when editing a project’s notes while the “check spelling while typing” setting was enabled on macOS 10.13 or 10.14.
+ Things for Mac 3.17.6
+ April 18, 2023 
+ Requires macOS 10.13 or later
+ Fixed a bug with creating or reconfiguring repeating to-dos with deadlines.
+ Things for Mac 3.17.5
+ April 13, 2023 
+ Requires macOS 10.13 or later
+ Fixed a crash that may sometimes occur when expanding instances of repeating to-dos.
+ Fixed some crashes that could occur on macOS 11 and earlier when loading certain lists.
+ Fixed some crashes that could occur when querying via AppleScript.
+ Things for Mac 3.17.4
+ April 11, 2023 
+ Requires macOS 10.13 or later
+ Improved performance when editing long to-do notes.
+ Improved scroll positioning when collapsing a to-do with long notes, keeping it in view.
+ Updated the URL scheme’s “update” command to support the “heading-id” parameter.
+ Made the behavior of the 🌐 / fn + ← / → keyboard shortcuts consistent with the OS: scrolling to the top/bottom of the view.
+ Restored support for dragging a project from the sidebar into a list that’s open in the right pane (Today, Upcoming, an area).
+ Fixed a bug that could prevent some popover menus from disappearing when switching between lists.
+ Fixed a bug that prevented filtering a list by a tag’s keyboard shortcut if that tag was visible in the filter bar but not directly applied to any of the to-dos.
+ Fixed a bug that caused the wrong buttons to appear in the toolbar when cycling through multiple windows.
+ Fixed a bug that caused the toolbar’s dimming to be in the wrong state when cycling through multiple windows.
+ Fixed a bug where the app could crash after deleting an area from the sidebar.
+ Fixed several drag & drop glitches in the sidebar.
+ Fixed some issues with notifications on macOS 10.13 High Sierra.
+ Fixed a crash that could occur at midnight when the Upcoming list was being updated for the new day.
+ AppleScript: A new window opened via “make new window” will now use the state of an existing window’s sidebar to determine if its sidebar should be shown or hidden.
+ AppleScript: Fixed a problematic edge case when retrieving projects via their UUID.
+ Many other internal improvements.
+ Things for Mac 3.17.3
+ February 13, 2023 
+ Requires macOS 10.13 or later
+ Fixed a bug that prevented moving to-dos from This Evening to Today by typing in the When popover.
+ Fixed a bug where tooltips in the toolbar wouldn’t show the correct keyboard shortcuts if the user changed them from the defaults.
+ Fixed an AppleScript bug that prevented retrieval of logged items by name.
+ Things for Mac 3.17.2
+ February 6, 2023 
+ Requires macOS 10.13 or later
+ Added Quick Entry with Autofill support for the Bike outliner app.
+ Fixed a bug where selection in the list could jump unexpectedly after postponing a to-do via the sidebar’s Upcoming picker.
+ Fixed a crash that could occur when pasting rich links into lists, to-do notes, and checklist items.
+ Fixed a crash that would sometimes occur when collapsing a to-do by double-clicking on another item in the list.
+ Fixed a crash that would occur when using AppleScript to query Things for items while an item’s Repeating To-Do editor was visible.
+ Things for Mac 3.17.1
+ January 27, 2023 
+ Requires macOS 10.13 or later
+ Improvements for Apple Shortcuts:
+ Added a new Parent ID property for items that directly exposes their parent’s ID. This can be used e.g. in the Find action.
+ Fixed a bug where the Find action would include Today items when filtering by Anytime.
+ Things for Mac 3.17
+ January 26, 2023 
+ Requires macOS 10.13 or later
+ Major upgrade for Things’ integration with Apple Shortcuts:
+ Rebuilt existing actions with the new App Intents framework:
+ Create To-Do 
+ Open List 
+ Show Items 
+ Run Things URL 
+ Added nine new actions:
+ Create To-Do with Quick Entry 
+ Create Project 
+ Create Heading 
+ Find Items 
+ Get Items 
+ Get Selected Items 
+ Edit Items 
+ Duplicate Items 
+ Delete Items 
+ Added a “New To-Do” command when Control-clicking the app icon in the dock.
+ Improved support for dragging and pasting third-party content (emails, files, website links) into a to-do’s checklist items.
+ Set a 50 pt max width limit for a collapsed to-do’s “When” button.
+ Disabled the “Convert to Project” command in a repeating to-do’s ••• menu.
+ Fixed several minor issues when setting hotkeys for tags in the Tag management window.
+ Fixed a bug where, when archiving a heading, the app would erroneously ask whether to complete an already-completed-but-still-expanded to-do.
+ Fixed a bug where, when necessary for to-do insertion, the “# more items” section in Anytime would not expand.
+ Fixed a bug where, when clicking a link to a completed to-do, a project’s logged items section would not expand to reveal it.
+ Fixed a crash that would occur when adding a tag via the autocomplete menu and then pressing the Up/Down arrow key.
+ Improved how AppleScript handles the selected to-dos property when queried inside a project: if no to-dos are selected/present the project itself is returned.
+ Updated the German localizations related to sharing content out of Things.
+ Things for Mac 3.16.3
+ January 4, 2023 
+ Requires macOS 10.13 or later
+ Worked around a macOS Ventura bug that could cause Things’ windows to vanish in some scenarios while dragging them.
+ Updated the authentication method for importing via the Todoist API.
+ Things for Mac 3.16.2
+ November 10, 2022 
+ Requires macOS 10.13 or later
+ Restored support for dragging & dropping projects onto Upcoming in the sidebar.
+ Tweaked some behaviors when filtering a project by tag.
+ Tweaked what actions are available in a project when both to-dos and headings are selected.
+ Improved detection of contexts where the “New Heading with Selection” command is available.
+ Added a missing separator between the Logbook and orphaned projects when Quick Find is invoked via ⇧ Shift ⌘ Cmd O .
+ Fixed an issue where, when using Stage Manager, an alert displayed in Things would force another app’s window to be removed from the current set.
+ Fixed a bug that caused a “Login Item Added” notification to appear every time the user logged in to macOS.
+ Fixed a bug that prevented project details in the sidebar from updating.
+ Fixed a bug that prevented a tag filter from being dismissed when revealing a to-do.
+ Fixed a bug that prevented the Share command from working from a tag list’s ••• menu.
+ Fixed a bug that prevented transition between tag-filtered states when clicking to-dos in different widgets.
+ Fixed a bug where completed to-dos could continue to show in widgets and on the watch if Logging was set to Manual or Daily.
+ Added support for project headings when sharing on older versions of macOS.
+ Unified alert styles used for certain commands on macOS versions older than Big Sur.
+ Added Quick Entry Autofill support for the MailMate app.
+ Many smaller internal improvements.
+ Things for Mac 3.16.1
+ October 25, 2022 
+ Requires macOS 10.13 or later
+ Fixed a crash that could sometimes occur when dragging to-dos out of lists.
+ Things for Mac 3.16
+ October 24, 2022 
+ Requires macOS 10.13 or later
+ Full compatibility with macOS 13 Ventura.
+ Fine-tuned window layouts, animations, and performance for Stage Manager.
+ Added support for opening all links within a text selection at once via Opt+Cmd+Return.
+ Added support for including a project’s headings when selecting to-dos.
+ Added support for jumping from an area’s Title to Tags via Cmd+Shift+T.
+ Improved performance when pasting into a list that’s filtered by tag.
+ Improved performance for when displaying and pasting very long checklists.
+ Fixed some broken animations.
+ Fixed various UI problems that could occur when attempting to undo changes inside a to-do.
+ Fixed some theming issues in the Things Cloud’s change password dialog.
+ Fixed problems with scrolling when navigating from a to-do’s notes into a long checklist via arrow keys.
+ Fixed incorrect cursor placement when hitting Cmd+down arrow to navigate from the bottom of a to-do’s notes to the end a checklist.
+ Fixed a bug where collapsing the sidebar via two-finger swipe could trigger a horizontal scroll.
+ Fixed a bug where stale auto-complete suggestions could appear in the Tags field when navigating with Cmd+arrow keys.
+ Fixed a bug in Quick Entry where keyboard focus could break after interacting with the When popover while Things was inactive.
+ Fixed a bug where, when Quick Entry was invoked from a space with no Things windows, macOS could unexpectedly navigate to a space that did.
+ Fixed several bugs that prevented the UI in projects or areas from updating correctly.
+ Adjusted query handling to return all Logbook to-dos when requested via AppleScript.
+ Blocked moving repeating to-dos to built-in source lists via AppleScript.
+ Fixed crashes when in full-screen mode on macOS 10.15 Catalina.
+ Updated the Todoist importer to API v9, which fixed some bugs.
+ Things for Mac 3.15.21
+ September 14, 2022 
+ Requires macOS 10.13 or later
+ Fixed a bug where holding down the Option key when clicking a checkbox failed to cancel a to-do.
+ Fixed a bug where completing one to-do while editing another would unexpectedly complete the to-do being edited.
+ Fixed a bug where commands to edit/remove links would appear in contextual menus of links detected inside a to-do’s checklist.
+ Fixed a bug where a window’s contents wouldn’t be restored if the app was relaunched while the Preferences window was open.
+ Fixed a bug where swiping with two fingers to collapse the sidebar could trigger the window’s main contents to scroll horizontally.
+ Fixed a crash that occured when changing the Next Actions Steps via Anytime’s View menu.
+ Things for Mac 3.15.20
+ September 4, 2022 
+ Requires macOS 10.13 or later
+ Quick Entry:
+ Fixed issues that could occur when using multiple displays.
+ Autofill: Added support for the Arc web browser.
+ Autofill: Improved support for DEVONthink 3.
+ Fixed a bug that could prevent dismissal of the When popover.
+ Fixed a bug that prevented some nested tags from appearing in the tag filter bar.
+ Fixed a bug that could break keyboard input after setting a Deadline in an expanded to-do.
+ Fixed a bug that prevented the show/hide later items toggle from updating properly in the Quick Find popover.
+ Fixed a bug that could break the drag handle and scrollbar after expanding/collapsing the sidebar.
+ Fixed a bug where Control-click menu commands could appear disabled while the app was inactive.
+ Fixed a bug where certain menu commands weren’t appropriately disabled after including a project’s headings in a selection, or making a mixed selection of repeating and non-repeating items.
+ Fixed a crash that could occur when adding a tag to an area via keyboard shortcut.
+ Fixed a crash that could occur when a project’s notes were truncated.
+ Things for Mac 3.15.19
+ July 30, 2022 
+ Requires macOS 10.13 or later
+ Fixed a scrolling problem that could occur after changing a to-do’s parent list while Today was in grouped mode.
+ Fixed a bug that could cause the When button/field to stop responding to clicks.
+ Fixed a bug that prevented Return keystrokes immediately after dragging a to-do onto the Upcoming list in the sidebar.
+ Fixed a bug that prevented Quick Entry from appearing properly on an upcoming OS version.
+ Fixed various crashes that could occur if keys were struck immediately after dimissing the Quick Entry popover.
+ Fixed various crashes that could occur when performing operations on a multi-selection in the sidebar.
+ Things for Mac 3.15.18
+ July 24, 2022 
+ Requires macOS 10.13 or later
+ Improved the behavior of keyboard shortcuts for When and Deadline on macOS 11 and earlier.
+ Fixed a bug where, after adding a tag inside a to-do, the cursor would jump to the title field.
+ Fixed a crash that occurred when attempting to resume a paused repeating to-do while it was expanded.
+ Things for Mac 3.15.17
+ July 19, 2022 
+ Requires macOS 10.13 or later
+ Improved performance.
+ Added explicit confirmation prompts when removing reminders in situations where their removal had previously been implicit.
+ Added support for back navigation (left arrow) after clicking project/area headers in the Anytime and Someday lists.
+ Improved back navigation (left arrow) after revealing a to-do via Cmd+L.
+ Fixed a bug where, when revealing a repeating to-do from Quick Find, an area’s “later items” section would not automatically expand.
+ Fixed a bug where, if a to-do was previously in This Evening, setting a reminder on it could move it back to This Evening.
+ Fixed a bug with the AppleScript edit command.
+ Fixed a crash that could occur when adding a new to-do above the “Show # more items” button in the Anytime list.
+ Fixed a crash that could occur when moving the last to-do under a heading downward via keyboard.
+ Fixed several compatibility issues with an upcoming OS release.
+ Fixed a localization error in Simplified Chinese.
+ Various other improvements under the hood.
+ Things for Mac 3.15.16
+ April 19, 2022 
+ Requires macOS 10.13 or later
+ Enhanced the Add to Things share extension (e.g. in Safari): it can now grab a webpage’s title and text selection.
+ Improved performance when duplicating to-dos and projects.
+ Improved pasteboard content clean-up when pasting into lists.
+ Fixed a bug where back-arrow navigation could fail after entering a project via Return/Enter.
+ Fixed a bug where, in a rare circumstance, an orphaned heading could be created as a result of a sync merge.
+ Fixed a bug where default tags could get out of sync.
+ Fixed a crash that could occur if Things tried to sync while a repeating to-do was being configured.
+ Fixed a crash that could occur when copying or dragging a to-do with no title.
+ Fixed a crash that occurred in the popover management system.
+ Various internal model improvements.
+ Things for Mac 3.15.15
+ March 26, 2022 
+ Requires macOS 10.13 or later
+ Fixed some issues and crashes that occurred when creating Repeating To-Dos via the New Repeating To-Do command.
+ Restored the Complete/Cancel context menu commands for projects in the sidebar.
+ Prevented erroneous scheduling of Repeating To-Dos via AppleScript.
+ Things for Mac 3.15.14
+ March 17, 2022 
+ Requires macOS 10.13 or later
+ Improved handling of line separator characters in bullet lists.
+ Improved scrolling selected items into view in some scenarios.
+ Unified the sort order of tags in the Tags popup menu (Cmd+Shift+T) and the tag auto-completion menu.
+ Restored the previous Someday list behavior: to-dos from active projects are now expanded by default for new Things users.
+ Fixed some on-hover focus issues with the reminder time field.
+ Fixed incorrect placement of the drop target when dragging projects not assigned to areas in the sidebar.
+ Fixed some visual glitches when dragging sidebar items while in Dark Mode.
+ Fixed a bug where clicking a Things URL would fail to reveal a window if it was on a different macOS space.
+ Fixed a bug that prevented navigation to an area when invoking the Show in Area/Go to Area commands on items in the Logbook.
+ Fixed a problem with sync scheduling when the app was deactivated.
+ Disabled date-related keyboard shortcuts for to-dos inside repeating projects.
+ Various model improvements under the hood.
+ Things for Mac 3.15.13
+ February 21, 2022 
+ Requires macOS 10.13 or later
+ Added support for Type Travel when a project’s When/Repeat fields have “hidden” focus.
+ Added support for selecting the “Show/Hide later items” toggles via keyboard inside areas.
+ Restored the old behavior for revealing a to-do after clicking a notification: it’s now revealed in Today instead of its parent list.
+ Improved performance when pasting many rows into a checklist.
+ Improved compatibility with macOS Monterey’s keyboard shortcuts for entering full screen mode.
+ Tweaked the rules for scheduling items via the Ctrl+[ keyboard shortcut: if an item has a Deadline date but no When date, a When date will be set relative to the Deadline date.
+ Sped up dismissal of the Quick Entry window so that focus is returned to the foreground app more quickly.
+ Fixed some bugs where a list’s layout wouldn’t update correctly if a to-do’s location in the list changed after collapsing it.
+ Fixed a bug that prevented the Return key from selecting a date after expanding the When popover’s calendar view.
+ Fixed a bug that prevented a to-do from being revealed from Quick Find search results if it was inside a collapsed view in its parent list.
+ Fixed a bug that could cause the grammar check tooltip to vanish shortly after appearing.
+ Fixed a bug where checklist items could remain selected after clicking into a to-do’s notes field.
+ Fixed a bug where the cursor wasn’t passed to the Find in Text field if it was invoked via shortcut while the window toolbar was hidden.
+ Fixed a crash that occured if the Trash was emptied while one of its to-dos was expanded.
+ Fixed a crash that occured when double-clicking the When field if a reminder time had been set.
+ Fixed a crash that could occur when triggering commands while all Things windows were minimized.
+ Fixed several crashes that could occur during drag and drop.
+ Various model and sync improvements under the hood.
+ Things for Mac 3.15.12
+ February 2, 2022 
+ Requires macOS 10.13 or later
+ Fixed an AppleScript issue that could prevent importing data to Things.
+ Fixed a bug that allowed the When field to show for to-dos that were inside a repeating project.
+ Things for Mac 3.15.11
+ January 25, 2022 
+ Requires macOS 10.13 or later
+ Fixed a bug where the Logged Projects list would also display to-dos.
+ Fixed a bug where the sidebar wouldn’t immediately reflect changes after deleting an area.
+ Fixed a crash that could occur when manually logging completed items on older versions of macOS.
+ Things for Mac 3.15.10
+ January 24, 2022 
+ Requires macOS 10.13 or later
+ Markdown improvements:
+ Added support for headings within quotes.
+ Improved behavior when formatting links.
+ Improved behavior when applying a bullet list via shortcut.
+ Fixed some issues with the behavior of multi-line spans on indented lines.
+ Added an “Open in New Windows” option when Control-clicking multiple projects at once.
+ Added support to undo the manual logging of completed items.
+ Restored support for using function keys in shortcuts for Quick Entry and Quick Entry with Autofill.
+ Removed Inbox from the Move dialog when moving repeating items.
+ Fixed a problem with incorrect sorting in the Tomorrow list.
+ Fixed some UI glitches when collapsing to-dos.
+ Fixed some UI glitches in Dark Mode.
+ Optimized performance of initial syncs with Things Cloud.
+ Various codebase improvements under the hood.
+ Things for Mac 3.15.9
+ December 1, 2021 
+ Requires macOS 10.13 or later
+ Improved UI performance.
+ Improved launch performance.
+ Improved selection handling when interacting with items in search results.
+ Restored the ability to search for dates after dragging an item onto the Upcoming list.
+ Added the option to convert a heading (with its to-dos) into its own project (tap the heading’s ••• menu).
+ Removed superfluous animations when converting a to-do or heading into a project.
+ Removed superfluous animations when creating a project while viewing an area.
+ Fixed a bug that prevented to-do completion via keyboard shortcut in the Quick Entry window.
+ Fixed a bug where the Quick Find popover could display incorrect contents.
+ Fixed a bug where, in some scenarios, the Calendar Events banner would not appear in the Upcoming list.
+ Fixed a bug where the Inbox could erroneously display a red badge when it contained no items with deadlines.
+ Fixed a bug where the selection state wouldn’t update after scheduling an item from inside the Anytime or Someday lists.
+ Fixed a bug where, if a tag’s title was modified via the Tags window, the change wasn’t immediately reflected in the tag filter bar.
+ Fixed a crash that could occur on launch if AppleScript collections are requested from Things before it’s running.
+ Things for Mac 3.15.8
+ November 19, 2021 
+ Requires macOS 10.13 or later
+ Improved drag & drop behavior in the Tomorrow list.
+ Restored the ability to drag a to-do onto the Trash list in the sidebar.
+ Restored the ability to move tasks to the Trash list using AppleScript.
+ Fixed a bug where a list’s Later section wasn’t automatically expanded to reveal to-dos when necessary.
+ Fixed a bug where the Someday list’s Active Projects section wasn’t automatically expanded to reveal projects when necessary.
+ Fixed a bug that caused the tag filter bar to appear in the wrong location in the Tomorrow list.
+ Fixed a bug that caused the yellow “new in Today” dot to appear on items when viewed in other lists.
+ Fixed a bug where the contents of the Trash list could be missing in some circumstances.
+ Fixed a bug where context menu overlays weren’t removed when converting to-dos into projects.
+ Fixed a bug where context menu overlays weren’t removed when switching between lists.
+ Fixed a crash when trying to invoke certain commands while the When popover was open.
+ Fixed a crash when editing a to-do in multiple windows at the same time.
+ Fixed a crash when adding a new tag in an empty Tags window.
+ Fixed a crash when pasting content into text fields.
+ Things for Mac 3.15.7
+ November 13, 2021 
+ Requires macOS 10.13 or later
+ The Clear button will now show in the When popover for mixed selections.
+ The Enter key on extended keyboard layouts will now match the behavior of the Return key.
+ Improved selection behavior when bumping the start date of a multi-selected group of to-dos into the past via Ctrl+[ in Today.
+ Improved selection behavior when marking a multi-selected group of to-dos with yellow “new in Today” dots as Today via Cmd+T to remove the dots.
+ Various smaller improvements for selection handling.
+ Prevented dropping into lists where items are tag-filtered out of view if the dropped to-dos have inherited tags that won’t be stripped when dropping.
+ Restored the correct sort-order for items in the Trash: most recently deleted items appear at the top.
+ Fixed a bug where a tag filter wasn’t cleared when switching between lists.
+ Fixed a bug where tags could be erroneously added to to-dos when reordering or dragging them into tag-filtered lists.
+ Fixed a bug where setting a reminder on a to-do in Today could unintentionally cause it to appear in This Evening if it was in This Evening on a prior day.
+ Fixed a bug where it could be impossible to set a reminder on a to-do that appeared in Today because of a deadline and still has its yellow “new in Today” dot.
+ Fixed a bug where the interface wouldn’t update after dimissing a context menu that had been opened via Control+click.
+ Fixed a bug where to-dos created via external launchers (Alfred, LaunchBar, etc.) wouldn’t land at the default location of target lists.
+ Fixed a bug with the handling of Repeating Projects that were dragged onto areas in the sidebar.
+ Fixed a bug that prevented the to-do count from being hidden for empty projects in the Logbook.
+ Fixed some issues with the ordering of active projects in Someday.
+ Fixed some issues with the behavior of drag & drop in the Later Projects list.
+ Fixed some glitches with placeholder strings when switching focus between search fields and tag views.
+ Fixed a crash that could occur when trying to drag content above the tag filter bar in lists that contained tagged to-dos.
+ Fixed a crash that could occur when invoking the Share option from an area’s ••• menu.
+ Things for Mac 3.15.6
+ November 10, 2021 
+ Requires macOS 10.13 or later
+ Improved behavior of the Clear button in When popover; it now behaves the same as Cmd+R does on the keyboard.
+ Improved handling of start date adjustments via keyboard shortcut when a deadline date is also present.
+ Restored the ability to drag an active project onto a contact list in the sidebar.
+ Fixed some bugs with detecting Markdown highlights that encapsulated URLs.
+ Fixed a bug with the visual alignment of dates in Upcoming.
+ Fixed a bug where incorrect month ranges could be shown in Upcoming.
+ Fixed a bug where to-dos added via Quick Entry would not land at the top of the Inbox.
+ Fixed a bug where inactive projects would be reactivated when dragged onto Areas in the sidebar.
+ Fixed a bug where the selection state would be lost if a selected item was removed from the Tomorrow list.
+ Fixed a bug where the tag filter bar could become inaccessible after removing tags from to-dos in a filtered view.
+ Fixed a bug in the Deadlines list where the year of a to-do’s deadline would be shown even in a section that already showed the year.
+ Fixed a crash that could occur when dragging Repeating To-Dos into the sidebar.
+ Fixed a crash that could occur when attempting to copy a tag while editing it.
+ Fixed a crash that could occur when attempting to share a project while editing it.
+ Fixed a sporadic crash that could occur when updating certain menus.
+ Improved model performance.
+ Things for Mac 3.15.5
+ November 1, 2021 
+ Requires macOS 10.13 or later
+ Restored Ctrl-based shortcuts within expanded to-dos on pre-Monterey versions of macOS.
+ Restored support for dragging projects onto lists in the sidebar (Today, Upcoming, etc.).
+ Prevented dragging project headings onto non-project lists in the sidebar.
+ Fixed a bug where a completed to-do would be marked incomplete if moved to a different list or heading.
+ Fixed a bug where a to-do would not be marked incomplete when moved to the Inbox if it had been completed but not yet logged.
+ Fixed a crash that could occur when inserting a new to-do while editing the title of a project or area.
+ Added workarounds for sporadic crashes caused by move animations on macOS 12 Monterey.
+ Things for Mac 3.15.4
+ October 29, 2021 
+ Requires macOS 10.13 or later
+ Fixed a bug which could prevent some to-dos with a future deadline from appearing in Upcoming.
+ Things for Mac 3.15.3
+ October 28, 2021 
+ Requires macOS 10.13 or later
+ Restored Ctrl-based shortcuts for adjusting start and deadline dates within the Quick Entry window on pre-Monterey versions of macOS.
+ Restored support for dragging to-dos and projects out of the Trash.
+ Fixed a bug where the selection state would be lost if a selected item was removed from a list.
+ Fixed a bug that caused an item’s parent list to show as a subtitle even when the item was under a heading with the same label.
+ Fixed a bug that could prevent a to-do with a deadline from appearing in Today/Upcoming after its start date was changed.
+ Things for Mac 3.15.2
+ October 27, 2021 
+ Requires macOS 10.13 or later
+ Added support for dragging a heading above to-dos at the top of a project to make them children of the heading.
+ Added support for toggling tags on/off inside the Tags popover menu via Option+Space.
+ Improved bulk-tagging: when applying tags to a group that includes items already tagged, the tag is not toggled off for those items on the first keystroke.
+ Fixed some crashes that could occur when dragging/sharing to-dos.
+ Things for Mac 3.15.1
+ October 25, 2021 
+ Requires macOS 10.13 or later
+ Added support for replacing text with an empty string via Find & Replace.
+ Switched to using the standard macOS behavior for dragging text within text views (move the text when dragging within a text view, copy it when dragging from one text view to another).
+ Fixed a bug that caused incorrect month labels to be displayed in the Logbook.
+ Fixed a bug that prevented dragging tags from the Tag window onto to-dos.
+ Fixed a bug with dragging items onto contacts in sidebar.
+ Fixed a bug with the reording of to-dos in Anytime after changing a to-do’s start date.
+ Fixed a bug with drag & drop of repeating to-dos in the Tomorrow and Upcoming lists.
+ Improved handling of drag & drop in some edge cases.
+ Improved process for undoing the application of new tags via the Tag popover.
+ Fixed a crash that could occur when hitting return while a newline was selected.
+ Fixed a crash that could occur when navigating to Preferences from the Quick Find search results.
+ Things for Mac 3.15
+ October 25, 2021 
+ Requires macOS 10.13 or later
+ Full support for macOS 12 Monterey.
+ Apple Shortcuts integration.
+ Major performance improvements in lists.
+ Keyboard shortcuts improvements:
+ Support for non-US keyboard layouts.
+ Unification of shortcuts that differed on Mac & iPad.
+ Widget customization: You can now choose which list the “+” button saves to.
+ Time-Sensitive notifications: Things’ notifications always get through, even in a Focus mode, so you never miss anything important.
+ Quick Note integration: After viewing one of your lists in Things you can link to it from Apple Notes via the “Add Link” button.
+ Import from Reminders: the new Tags are now imported (if a tag doesn’t exist in Things, it will be created).
+ System Services: To-dos and list contents are now passed to the Services menu as text.
+ Many fixes:
+ Improved the ordering of logged to-dos in projects.
+ Fixed a bug where to-dos duplicated in Today could appear in an unexpected order.
+ Fixed a bug that prevented moving a scheduled to-do to a different heading via keyboard.
+ Fixed a bug where the interface wouldn’t immediately reflect changes to tag hierarchy.
+ Fixed a bug where tag search results could be out of order.
+ Fixed a bug where some lists might not immediately reflect changes after trashing a project.
+ Fixed a bug where the “Show # more” label would include items in the count which had been tag-filtered out of view.
+ Fixed a bug where Anytime sections could appear empty when filtering by tag.
+ Fixed a bug where, if Today was in grouped mode, moving a to-do up out of This Evening could remove its relation to its parent list.
+ Fixed a bug where incorrect section headers could appear in the Logbook.
+ Fixed a bug where marking a project incomplete wouldn’t restore completed to-dos from the Logbook.
+ Fixed a bug where pasting would fail for items copied from the Logbook.
+ Fixed a bug where empty Today/month sections could appear in the Logbook when filtered by tag.
+ Fixed a bug where the “Show More Items” button would display incorrectly in the Logbook.
+ Fixed a bug where an incorrect warning could be shown when setting a date + reminder.
+ Fixed a bug where a to-do could incorrectly remain highlighted after hitting Escape in the When popover.
+ Fixed a bug which prevented removing reminders when multiple to-dos were selected.
+ Fixed a bug where to-dos’ dates could change when dropping to-dos under a heading that had other dated to-dos.
+ Fixed a bug where to-dos below a heading would continue to appear independently in the Logook even after their parent project had been logged.
+ Fixed a bug where the order of sections in Today (when Today is grouped) would not change after reordering lists in the sidebar.
+ Fixed a bug where the tag filter bar’s “•••” button could appear activated when it wasn’t.
+ Fixed some bugs related to dragging & dropping content onto Things’ app icon in the dock.
+ Fixed some crashes that could occur during drag & drop.
+ Fixed a crash that could occur when reordering a multi-selection of to-dos.
+ Fixed a crash that could occur when filtering the Upcoming list by a tag then creating a new to-do beneath a repeating to-do.
+ Added a missing translation for the “Open New Window” tooltip.
+ Things for Mac 3.14.4
+ September 8, 2021 
+ Requires macOS 10.13 or later
+ Fixed a crash that could occur when typing certain characters in notes.
+ Things for Mac 3.14.3
+ September 6, 2021 
+ Requires macOS 10.13 or later
+ Fixed some glitches that could occur when editing lists’ titles in the sidebar.
+ Fixed a problem with the color of placeholder text for newly-created lists in the sidebar.
+ Fixed a bug that caused error messages to appear in the output when printing the Upcoming list.
+ Things for Mac 3.14.2
+ August 19, 2021 
+ Requires macOS 10.13 or later
+ Find in Text now supports Cmd+G and Cmd+Shift+G to find the next and previous matches, respectively.
+ Applying the numbered list shortcut (Cmd+Opt+L) to a list that isn’t ordered correctly will now re-order it (rather than remove the numbers).
+ Hashes can now be used to “close” a Markdown heading (e.g. “### Test ###”).
+ Improved compatibility with iPadOS 15.
+ Improved support for numbered lists in certain languages in iPadOS 15.
+ Improved handling of pasted RTF bullets.
+ Fixed a bug where some placeholder text in notes and checklist items was laid out incorrectly.
+ Many more changes under the hood.
+ Things for Mac 3.14.1
+ August 12, 2021 
+ Requires macOS 10.13 or later
+ Fixed a UI glitch when removing the currently edited row after filtering a list.
+ Fixed a crash that occured when handling text checking results in text views.
+ Fixed some issues with retrieving Inbox contents via AppleScript.
+ Things for Mac 3.14
+ August 11, 2021 
+ Requires macOS 10.13 or later
+ Added support for Bullet Lists:
+ Supported bullet characters are: -, *, +, or •
+ Text that wraps to a new line is neatly indented for better readability.
+ Return now inserts a new bullet. Return again escapes the list.
+ Added support for nesting lists. Simply insert spaces before a bullet to indent it, or use the keyboard shortcut: Cmd+]
+ Copy/paste automatically removes accidental “double bullets”.
+ Support for pasting bullets from “Rich Text” editors.
+ Added support for Markdown:
+ Things detects a wide range of commonly-used syntax and renders it in a unique blend of proportional and fixed-width fonts (SF Pro & SF Mono).
+ Supported syntax includes *italics*, **bold**, # headings, `code` etc.
+ Added many keyboard shortcuts for applying the Markdown syntax.
+ Find & Replace:
+ Added a new search function for Find & Replace within a to-do’s note.
+ Added a keyboard shortcut: Shift+Cmd+F
+ Things Cloud “Fractus”:
+ Instead of syncing an entire note, Things now only syncs the smaller edits. This improves the speed & efficiency of sync, and allows for smarter conflict resolution.
+ Changed the Log Completed shortcut from Cmd+L to Shift+Cmd+Y.
+ Things for Mac 3.13.14
+ July 22, 2021 
+ Requires macOS 10.13 or later
+ Improved memory management.
+ Fixed some issues when referencing lists via AppleScript.
+ Fixed some issues that could occur when the date/time zone changes.
+ Fixed a crash that could occur in some cases when pasting content into a checklist.
+ Things for Mac 3.13.13
+ June 18, 2021 
+ Requires macOS 10.13 or later
+ Fixed some AppleScript API bugs for querying projects, areas, tags and contacts.
+ Things for Mac 3.13.12
+ June 14, 2021 
+ Requires macOS 10.13 or later
+ Added sections for Logbook and Trash in the search results view.
+ Fixed an incorrect color in the Things Cloud password prompt.
+ Fixed several issues when printing from search results.
+ Fixed a bug that prevented deadline dates from updating in the sidebar when changed.
+ Fixed a crash that occurred when pasting content into checklists.
+ Fixed a crash that occurred when editing tags in the Tags window.
+ Fixed a crash that occurred when removing a tag from a to-do while the list was filtered by that tag.
+ Fixed a bug that sometimes prevented to-dos from appearing in Today.
+ Fixed a bug that prevented some users from changing the shortcut for Quick Entry with Autofill.
+ Fixed a bug that prevented autocomplete for tags with umlauts.
+ Improved app launch performance.
+ Things for Mac 3.13.11
+ April 28, 2021 
+ Requires macOS 10.13 or later
+ Made the global search UI more responsive and added a spinner while search is underway.
+ Improved the UI for setting the Quick Entry shortcut in Preferences.
+ Improved searching for tags that contain diacritic characters.
+ Stopped showing the “New Tag” suggestion when a tag search returns an exact match.
+ Fixed a bug that caused repeating items’ templates to show in the Deadlines list.
+ Fixed a bug that prevented repeating items’ instances from showing in the Deadlines widget.
+ Fixed a bug that could prevent the search bar’s text from updating correctly in some cases.
+ Fixed a bug where the wrong option could be pre-selected when completing a project or heading with incomplete to-dos.
+ Fixed a bug where a project’s to-dos could continue showing in the Logbook independently after the project itself was logged.
+ Fixed a bug where the New Heading and New Heading with Selection menu options weren’t disabled when not applicable.
+ Fixed a crash that could occur when interacting with long popovers.
+ Updated the contents of the tutorial project.
+ Improved Russian translations.
+ Things for Mac 3.13.10
+ March 29, 2021 
+ Requires macOS 10.13 or later
+ Added support for Cmd+click on a Quick Find result to open it in a new window.
+ Added support for the macOS “add period with double-space” shortcut.
+ Fixed a bug where projects’ glyphs could be invisible in the Move popover.
+ Fixed a bug where Reminders with dates were not captured in the “moved out of the Inbox” section during import.
+ Fixed a bug where a project’s deadline countdown wouldn’t update at midnight.
+ Fixed a bug that could sometimes cause due/overdue items to be removed from Today when changing their deadline date.
+ Improved the alignment of window controls while in full screen mode on macOS Big Sur.
+ Improved the Italian and Simplified Chinese translations.
+ Things for Mac 3.13.9
+ February 23, 2021 
+ Requires macOS 10.13 or later
+ Added support for creating a new tag from the Tags popover (hit Cmd+Shift+T on a selected task, then type your new tag).
+ Added support for opening a new window by Cmd+clicking a project or area heading when Today is grouped (enable grouping in Things > Preferences > General).
+ Decreased the font size in macOS Big Sur widgets.
+ Improved the reliability of the Things Cloud connection.
+ Fixed a bug that used the wrong date format for start dates that were 6 days ahead.
+ Fixed a bug that could cause checklist or tag content to be invisible after editing a to-do.
+ Fixed a bug that could cause the wrong options to be pre-selected when completing a project or project heading that contained incomplete to-dos.
+ Fixed a crash that could occur when creating to-dos inside a Repeating Project.
+ Fixed a crash that could occur when deleting items in the sidebar.
+ Fixed a crash that could occur when deleting tags.
+ Fixed some memory issues.
+ Things for Mac 3.13.8
+ January 7, 2021 
+ Requires macOS 10.13 or later
+ Added support for “fuzzy” tag search.
+ Added support for Cmd+click in checklists to open links in the background.
+ Added Quick Entry with Autofill support for Keep It app.
+ Added Quick Entry with Autofill support for canary builds of the Microsoft Edge browser.
+ Improved the behavior when dragging to-dos with different start dates across headings.
+ Fixed an issue with the text selection color when Things’ light/dark mode differs from the System’s light/dark mode.
+ Fixed an issue where a to-do’s parent list label could appear in the wrong light/dark theme color.
+ Fixed an issue where the selection in a list could jump to a different to-do when completed items were manually moved to the Logbook.
+ Fixed a bug where to-dos (or the Quick Entry popover) could lose focus while tabbing quickly between fields.
+ Fixed a bug that caused Things to launch when dismissing a notification.
+ Fixed some sporadic crashes that could occur on macOS Big Sur when launching the app by clicking a widget.
+ Fixed some sporadic crashes when dragging to-dos if the action necessitated a change in the tag filter’s visibility.
+ Fixed a crash that could occur in the Inbox when hitting Ctrl+[ or ] inside a to-do’s expanded When field.
+ Fixed some Italian translations.
+ Updated the crash reporting SDK.
+ Things for Mac 3.13.7
+ December 17, 2020 
+ Requires macOS 10.13 or later
+ Fixed a localization issue in Things Cloud’s settings which could cause crashes for Italian users.
+ Things for Mac 3.13.6
+ December 7, 2020 
+ Requires macOS 10.13 or later
+ Tweaked the colors of text fields in Preferences while in Dark Mode.
+ Fixed a problem that prevented Things’ action extension from working.
+ Fixed a crash when pasting content while a to-do is selected under a project’s heading.
+ Fixed a problem where windows could be shrunk below the minimum height.
+ Improved crash reporting.
+ Things for Mac 3.13.5
+ November 26, 2020 
+ Requires macOS 10.13 or later
+ Tweaked the appearance of notifications to better match the system.
+ Made dates visible in the small Deadlines widget.
+ Fixed some issues that could prevent widgets from updating their content in some scenarios.
+ Fixed a problem with pasting content into a project’s heading.
+ Fixed the slight blurring of icons in the Preferences window on macOS Big Sur.
+ Things for Mac 3.13.4
+ November 19, 2020 
+ Requires macOS 10.13 or later
+ Disabled the alert prompting to enable Things URLs when opening Things via widget.
+ Added missing translations for the widget configuration interface.
+ Added Quick Entry with Autofill support for Google Chrome’s dev & beta versions.
+ Tweaked the format for sharing multiple to-dos as text.
+ Fixed layout issues with the What’s New banner.
+ Fixed a crash that could occur when setting a start date for a to-do in the Logbook.
+ Things for Mac 3.13.3
+ November 13, 2020 
+ Requires macOS 10.13 or later
+ Re-enabled crash reporting via AppCenter.
+ Things for Mac 3.13.2
+ November 12, 2020 
+ Requires macOS 10.13 or later
+ Full support for the new Apple M1 chip.
+ Full compatibility for macOS 11 Big Sur.
+ Remodeled the app icon.
+ Adapted the window layout.
+ Designed new icons for Preferences panes.
+ Designed a new Things Cloud switch.
+ Many other small interface tweaks.
+ All-new widgets for viewing to-do lists in the Notification Center.
+ Rich notifications.
+ Variable snooze durations (10 min, 30 min, 1 hour).
+ A new option to mark complete directly from the alert.
+ Added Quick Entry support for Airmail app.
+ Added support for assigning tags via drag & drop inside the Upcoming list.
+ Added support for seamless navigation between title & notes fields via Left-arrow and Right-arrow keys.
+ Added support for Cmd+click to open a Things URL in a new window.
+ Added support for Cmd+double-click to open a project in a new window.
+ Added support for Cmd+Return to open a project in a new window.
+ Tweaked the icon for Someday items in Quick Find.
+ Improved full keyboard navigation for alerts and project/heading completion dialogs.
+ Improved navigation from Quick Find to reveal Today items in the Today list instead of their parent list.
+ Improved the Select-All (⌘+A) behavior in grouped lists (e.g., Today grouped by project/area, Upcoming grouped by date, etc.).
+ Improved handling of Control-clicks inside checklist items.
+ Improved error handling when managing a Things Cloud account.
+ A list’s tag-filtered state is now cleared if the app is opened from a URL that does not pass a tag parameter.
+ Hid to-do counts for childless projects in the Logbook.
+ Fixed an issue that could prevent drag & drop at the top of the Today list.
+ Fixed an issue with pasting text into tag-filtered lists.
+ Fixed an issue where an incorrect date could be set when using the keyboard shortcut to bump a to-do forward by 1 week.
+ Fixed an issue where Quick Entry could create an empty todo when Today was set as the default destination.
+ Fixed an issue where a project’s progress graph could show in the wrong color after moving from Someday to Today.
+ Fixed an issue where tag auto-completion menus wouldn’t always show their full content.
+ Fixed an issue where slim windows could be restored to an incorrect size.
+ Fixed some graphical glitches that could occur when switching between light and dark modes.
+ Fixed some graphical issues in dark mode.
+ Fixed some crashes.
+ Various translation improvements for non-English languages.
+ Things for Mac 3.13.1
+ November 9, 2020 
+ Requires macOS 10.13 or later
+ Changed the database’s storage format.
+ Fixed crashes on macOS 10.13 and 10.14.
+ Things for Mac 3.13
+ September 17, 2020 
+ Requires macOS 10.13 or later
+ Upgraded the sync schema for compatibility with new features introduced in 3.13 for iPad, iPhone, and Apple Watch.
+ Improved the way project and to-do notes are synced. (As a result, you can also write much longer notes.)
+ Things for Mac 3.12.6
+ August 4, 2020 
+ Requires macOS 10.13 or later
+ Moved the database file to a new location (now at ~/Library/Group Containers/JLMPQHK86H.com.culturedcode.ThingsMac/ ).
+ Increased the clickable area of items in the sidebar.
+ Improved the formatting of years in Japanese.
+ Fixed some crashes that could occur when hitting ⌘ Cmd + [ or ] in Quick Entry while the When popover was visible.
+ Updated the crash reporter.
+ Some sync improvements.
+ Things for Mac 3.12.5
+ June 29, 2020 
+ Requires macOS 10.13 or later
+ Changed the default shortcut for marking an item complete: it’s now Cmd+K (the old Cmd+. still works).
+ Changed the default shortcut for marking an item canceled: it’s now Cmd+Opt+K (the old Cmd+Opt+. still works).
+ Added support for the Cmd+. shortcut from iPadOS to dismiss dialogs (Quick Find, Move, etc.).
+ Disabled the Shift+Return and Ctrl+Return shortcuts inside titles, notes, and checklists. Use Command+Return to collapse to-dos instead.
+ Changed the Empty Trash confirmation button label from “OK” to “Empty Trash”.
+ Fixed an interface glitch that could occur when adding a deadline in an expanded to-do.
+ Fixed a bug where, when pasting a to-do that was copied from under an archived project heading, that archived heading would become active again.
+ Fixed a bug where the Inbox’s badge would be incorrect due to Apple Reminders that were awaiting import.
+ Things for Mac 3.12.4
+ June 3, 2020 
+ Requires macOS 10.13 or later
+ Added Quick Entry Autofill support for the Vivaldi web browser.
+ Empty rows are now removed when pasting multi-line text into checklists.
+ Reminders awaiting import in Things’ Inbox are now included in the app icon’s badge count (if that preference is enabled).
+ Fixed some issues with background colors for selected text.
+ Fixed some issues with clicking to reveal recurring calendar events for some locale configurations.
+ Fixed a bug where an alarm time could be set unexpectedly after interacting with a to-do’s When popover.
+ Fixed a crash that could occur when trying to edit a project’s settings across mutliple windows.
+ Fixed some crashes that could occur in Quick Find.
+ Updated translations for non-English languages.
+ Removed the Wunderlist importer.
+ Updated the crash reporter.
+ Things for Mac 3.12.3
+ April 27, 2020 
+ Requires macOS 10.13 or later
+ Improved launch performance for users without Apple calendars/reminders integration enabled.
+ Added Quick Entry with Autofill support for the beta version of the MS Edge web browser.
+ Adjusted the date formats used in the When and Deadline fields of expanded to-dos.
+ Fixed an issue where to-dos dragged into the Today list would always land at the top.
+ Fixed some issues when running System Events scripts from Things’ scripts menu.
+ Fixed an issue with pasting links copied from the Twitter app.
+ Fixed an issue that caused a long checklist to scroll when clicked.
+ Fixed an issue where a pasted rich-text URL would appear twice if the page’s title was also the same URL.
+ Fixed an issue where selection could be lost while selecting a group via Shift+Up Arrow in a project.
+ Fixed a crash caused by missing fonts on some Macs.
+ Things for Mac 3.12.2
+ March 24, 2020 
+ Requires macOS 10.13 or later
+ General performance improvements and memory fixes.
+ Things for Mac 3.12.1
+ March 19, 2020 
+ Requires macOS 10.13 or later
+ Improved suggestions when searching for dates in the When and Deadline popovers.
+ Fixed a glitch in the Quick Entry window.
+ Fixed a problem where canceled projects showed as completed in the Logbook.
+ Fixed a problem with popovers’ shadows when switching between light and dark modes.
+ Fixed some sync merge issues for to-do titles and notes.
+ Fixed crashes that occurred when stopping repeating to-dos.
+ Improved translations for French and Japanese.
+ Things for Mac 3.12
+ March 10, 2020 
+ Requires macOS 10.13 or later
+ You can now edit the Tags or Deadlines of collapsed to-dos (even multiple to-dos at once) by hitting Cmd+Shift+T or D.
+ Added Quick Entry with Autofill support for the Microsoft Edge browser.
+ Improved some edge cases when pasting content into lists.
+ Fixed a crash that could occur in the Things Cloud setup dialog.
+ Fixed the behavior of keystrokes (Return, Escape) for confirmation alerts with more than two buttons.
+ Many smaller internal improvements.
+ Things for Mac 3.11.2
+ January 20, 2020 
+ Requires macOS 10.13 or later
+ Things now ignores the Calendar app’s “start week on” setting; instead, use the system-wide “first day of week” setting in Preferences > Language & Region.
+ Changes to a project’s deadline are now saved immediately.
+ Adjusted the spacing between Someday to-dos and projects inside areas.
+ Fixed a crash that could occur when filtering a list by tag while a to-do is expanded.
+ Fixed a crash that could occur when creating a new repeating to-do inside the Upcoming list while that list is filtered by tag.
+ Improved handling of the Shift+Return keystroke in the tag field of an expanded to-do.
+ Improved handling of pasted links copied over from iOS via Universal Clipboard.
+ Improved reporting of runtime exceptions.
+ Things for Mac 3.11.1
+ January 8, 2020 
+ Requires macOS 10.13 or later
+ Added support for pasting text as new to-dos under a selected project heading.
+ The Touch Bar will now display buttons for all alerts.
+ Improved Cmd+Up/Down arrow navigation in the Quick Find and Move popovers.
+ Made the Show Logged Projects toggle, in the All Projects list, keyboard selectable.
+ Restored printing page headers and footers via File > Print.
+ Fixed date formatting in the Get Info dialog.
+ Fixed the appearance of the Empty Trash and Log Now buttons in dark mode.
+ Fixed visual glitches when toggling the toolbar on/off while a to-do was expanded.
+ Fixed an issue where to-dos could lose their parent heading after being moved in the Anytime or Someday lists.
+ Fixed an issue where Things windows could auto-deminiaturize in some scenarios (like date changes).
+ Fixed an issue where the Inbox’s badge count wasn’t updated properly if logging was not set to immediately.
+ Fixed an issue where the number of Later Projects in the sidebar wouldn’t update properly.
+ Fixed several memory issues.
+ Things for Mac 3.11
+ December 16, 2019 
+ Requires macOS 10.13 or later
+ Things 3.11 delivers a big update for the Quick Find feature with new ways to navigate the app and quickly view important data.
+ New list: search for “Deadlines” – all your upcoming (or passed!) deadlines, neatly sorted.
+ New list: search for “Repeating” – all your repeating to-dos in one, convenient place.
+ New list: search for “Tomorrow” – a nice focused list to plan tomorrow, today.
+ New list: search for “All Projects” – an overview of all your big goals.
+ New list: search for “Logged Projects” – an overview of your past achievements.
+ New option: search for “Settings” (or “Preferences”) to quickly get there. No more digging for that Settings button!
+ Recents: invoke Quick Find and you’ll now see all the lists you’ve recently viewed; makes switching between lists even quicker!
+ Navigation: you can now search for projects’ headings and quickly navigate to them.
+ See the exact date and time when a to-do or project was created or completed. Go to Items > Get Info .
+ When typing a date on systems set to a 12-hour clock, the parser now chooses AM/PM more intelligently (and offers both options in some cases).
+ The following prefixes are now recognized as bullets and stripped out when pasting text into to-do lists or checklists: • , * , - [ ] 
+ Added support for Cmd+click on links to open them in background.
+ Inside Areas, new projects can now be inserted with a New Project button in the toolbar and TouchBar.
+ Several bug fixes relating to drag and drop.
+ Improved handling of changes to lists.
+ Improvements for background execution.
+ Other small bug fixes and improvements.
+ Things for Mac 3.10.1
+ November 5, 2019 
+ Requires macOS 10.13 or later
+ Changed the format that notes are stored in (as a result, you may notice a change to the way URLs and file links are presented visually).
+ Unified the logic for ordering search results in Quick Find across all devices.
+ Changed the behavior for “Open New Window”: it will now open the default list, rather than the list that is currently open.
+ Already-delivered reminder notifications are now removed for a to-do if its parent project gets trashed.
+ Fixed an issue where a reminder notification wouldn’t be cleared when the reminder time is rescheduled via another device.
+ Fixed an issue where Today’s badge count wasn’t updated after completing/canceling items if logging was set to daily or manually.
+ Fixed an issue where duplicate copies of the default tags would be created after a fresh install.
+ Fixed an issue where the visible-or-not state of the sidebar would be lost when the app was restarted.
+ Fixed an issue where Things URLs for showing a Contact list wouldn’t work.
+ Fixed an issue where the incorrect color was shown for tag glyphs in Quick Find results.
+ Fixed an issue where the Reminders Inbox feature would erroneously add a reminder time of midnight for tasks with a date but no time set.
+ Fixed an issue where, if Quick Entry was dismissed via hotkey while a popover menu was open, mouse interactions could break for the entire app.
+ Things for Mac 3.10
+ October 8, 2019 
+ Requires macOS 10.13 or later
+ Full compatibility with macOS 10.15 Catalina.
+ Added support for the new system Dark Mode scheduling; the app will now go dark at sunset when the Mac does.
+ Added a new Reminders Import feature for users who want to migrate their entire Reminders database over to Things.
+ Reworked the Reminders app integration for adding to-dos to Things’ Inbox; renamed it as “Reminders Inbox” in Settings.
+ Dropped support for macOS 10.11 & 10.12.
+ Things for Mac 3.9.2
+ September 2, 2019 
+ Requires macOS 10.11 or later
+ Minor sync adjustments.
+ Things for Mac 3.9.1
+ May 22, 2019 
+ Requires macOS 10.11 or later
+ Some improvements for date formats.
+ Added Quick Entry with Autofill support for DEVONthink 3.
+ Added a sync trigger when revealing a minimized window (or opening a new one if no windows are present).
+ Fixed an issue where the Today Widget preference for opening Things wasn’t in sync with the app and didn’t work.
+ Things for Mac 3.9
+ May 13, 2019 
+ Requires macOS 10.11 or later
+ Things 3.9 is the culmination of months of work, with broad refactorings, architectural changes, and optimizations. These changes are all under the hood. In addition, we’ve made the following minor user-facing changes:
+ Tweaked date formats throughout the app and app extensions.
+ Added Quick Entry with Autofill support for the Opera web browser.
+ Made behavior of the Cmd+(Opt+)K and Cmd+(Opt+). shortcuts match the iPad app.
+ Improved how Things URLs with the search parameter are handled.
+ Fixed a visual glitch with the search field’s clear button while running Things in Light Mode.
+ Fixed a bug where the UI might not update properly when moving to-dos to different days in the Upcoming list.
+ Fixed a bug where adding a to-do’s first tag via Cmd+Shift+T could break sometimes.
+ Fixed some issues with several keyboard shortcuts when using the Russian input source.
+ Fixed an AppleScript issue where a list’s to-dos would include list headers in a result.
+ Things for Mac 3.8.5
+ April 15, 2019 
+ Requires macOS 10.11 or later
+ Fixed some UI glitches when using keyboard shortcuts in Quick Entry’s date picker.
+ Fixed a UI glitch where the drop target indicator wouldn’t disappear after cancelling a drag from another app.
+ Fixed a bug that prohibited inserting spaces while editing tags in the Tags window.
+ Fixed an issue with Japanese and Chinese input methods when editing tags in the Tags window.
+ Fixed a crash that could occur when expanding a completed item as it was being logged.
+ Fixed a crash that could occur when collapsing one to-do and quickly clicking to select another.
+ Things for Mac 3.8.4
+ March 28, 2019 
+ Requires macOS 10.11 or later
+ General performance improvements.
+ Things for Mac 3.8.3
+ March 26, 2019 
+ Requires macOS 10.11 or later
+ Fixed a crash that could occur when removing a to-do’s date.
+ Things for Mac 3.8.2
+ March 19, 2019 
+ Requires macOS 10.11 or later
+ Added Quick Entry support for the Brave web browser.
+ Added support for tagging/untagging an area via keyboard shortcut while editing its title or tags in the right pane.
+ Added support for Cmd+Return in all tag fields.
+ Enabled the Cmd+Ctrl+T shortcut to reveal the tag management window while using Quick Entry.
+ Switched to light scrollbars while in Dark Mode.
+ Improved handling of dragged or pasted URLs with titles.
+ Changed how links to files and folders are formatted in the notes of projects and to-dos: we now show the full path.
+ Changed how clicks on file and folder links are handled: rather than opening them directly, the target is revealed in Finder.
+ Fixed an issue where an empty list’s watermark image might not appear while in Light Mode.
+ Fixed an issue where changes could be lost when quitting the app while editing a to-do.
+ Fixed an issue where a gray strip could appear across the top of the window while while editing a to-do in full screen mode.
+ Fixed an issue where an off-color strip could appear across the window while in Dark Mode.
+ Fixed a bug where reminders could stop working in some very rare circumstances.
+ Fixed a crash that could occur when dragging to-dos between windows.
+ Fixed some performance issues with Calendar Events.
+ Things for Mac 3.8.1
+ January 31, 2019
+ Requires macOS 10.11 or later 
+ A checklist item’s contents now remain visible while dragging it around.
+ Fixed an issue where trying to expand a to-do after dragging it would expand a different to-do.
+ Fixed an issue where the Quick Entry window would be dismissed (or an expanded to-do would be collapsed) if you hit the Esc key while a popover menu was still visible.
+ Fixed an issue where Handoff wouldn’t work between Mac (App Store version) and iOS.
+ Fixed an issue where pasting a single line of text into a to-do would strip out any leading or trailing spaces.
+ Fixed an issue where an item couldn’t be revealed (from a notification, the Today Widget, or Quick Find) if the list was already filtered by a tag that hid that item from view; the list will now become unfiltered to reveal it.
+ Added a work-around for an issue with DEVONThink that affected pasting rich-text contents from that app into Things.
+ Fixed an issue where the Today Widget wouldn’t work in beta builds.
+ Fixed an issue where x-success callbacks weren’t called after adding a to-do via Quick Entry.
+ Fixed some sporadic crashes that could occur when switching between other apps and Things.
+ Augmented the sync triggers while editing a to-do; changes will now also be synced when your Mac is about to sleep.
+ Augmented the sync triggers while editing a project or area; changes will now also be synced when your Mac is about to sleep, you switch away to another app, or if your last interaction with Things was more than ~60 seconds ago.
+ Things for Mac 3.8
+ December 12, 2018
+ Requires macOS 10.11 or later 
+ Added an extra View menu option to run Things in Light appearance even when the operating system was set to Dark.
+ Fixed a visual issue when displaying errors in the Calendar Events and Reminders preference panes while the appearance was set to Dark.
+ Fixed a visual issue where an incorrect background color could be displayed for to-dos or project headings when switching between Light and Dark appearances.
+ Fixed an issue where the recurrence rule description could be incorrect for repeating to-dos which had already ended, or would be ending after a certain number of repetitions.
+ Fixed some issues that could occur with text when changing selection in popover menus.
+ Fixed the translation of “deadline” for the French localization.
+ Fixed a crash that could occur when expanding to-dos with broken file links.
+ Fixed a few other minor crash scenarios.
+ Things for Mac 3.7.4
+ November 28, 2018 
+ Requires macOS 10.11 or later
+ Someday items from active projects are now expanded by default and the expansion state is now preserved.
+ Implemented a workaround for a font rendering issue that affected some users on macOS Mojave.
+ Improved the validation of email addresses when creating new Things Cloud accounts.
+ Improved how we restore the selection state after acting on multiple list items.
+ Improved Dark Mode visibility of the plus button for adding days on weekly/monthly repeating to-dos.
+ Updated localizations for the Autofill setting in the Quick Entry preferences pane.
+ Restored filtering by parent tags via keyboard shortcuts.
+ Fixed a selection issue in the tag filter bar when filtering by child tags via keyboard shortcuts.
+ Fixed an issue where an incorrect deadline date could be included when copying a repeating to-do as text.
+ Fixed an issue where hyperlinks could “disappear” when switching between Light and Dark modes.
+ Fixed a crash that could occur when deleting an area.
+ Fixed various memory issues.
+ Things for Mac 3.7.3
+ October 23, 2018 
+ Requires macOS 10.11 or later
+ Added a workaround for performance issues some users were seeing on Mojave after making changes to calendar events.
+ Fixed an issue where the cursor in Quick Entry could vanish after setting a date.
+ Fixed a crash that could sometimes occur when editing tags.
+ Improved some localizations.
+ Things for Mac 3.7.2
+ October 17, 2018 
+ Requires macOS 10.11 or later
+ Improved how colors are used for text selections when a window becomes inactive.
+ Tweaked the algorithm for increasing contrast of calendar colors against the background.
+ Implemented scrolling to reveal active controls while editing long to-dos that go offscreen.
+ Fixed an issue with the appearance of some confirmation alerts after switching between Light and Dark Mode.
+ Fixed the appearance of popup menu rows after switching between Light and Dark Mode.
+ Fixed some glitches in dialogs when Things was in Dark Mode while Mojave was in Light Mode.
+ Fixed an issue where the deadline date picker would not expand on Cmd+Shift+D after it got expanded and then hidden with the Esc key.
+ Fixed an issue where, if grouping in Today was enabled, a list name would disappear from an Inbox to-do after it was assigned and then marked Today.
+ Fixed an issue where Things would consume 2-3% of CPU power, even when in the background.
+ Fixed a small issue where Cmd+Return would not always close an expanded to-do (or Quick Entry).
+ Fixed the appearance of contact icons for to-dos assigned to contacts.
+ Things for Mac 3.7
+ September 23, 2018 
+ Requires macOS 10.11 or later
+ Full support for macOS Mojave.
+ Things’ appearance now automatically adapts to your environment in Mojave with a beautiful new Dark Mode.
+ Dark Mode is also an option when Mojave is in Light Mode. Go to View > Appearance to enable it.
+ We’ve also brought Dark Mode to Things on previous versions of macOS (El Capitan and later).
+ Support for the ‘clipboard’ parameter in the URL scheme.
+ Bug fixes and other improvements.
+ Things for Mac 3.6.2
+ September 18, 2018 
+ Requires macOS 10.11 or later
+ Maintain Handoff compatibility with Things 3.7 on iOS
+ Update the UI for Things Cloud login screen
+ Things for Mac 3.6.1
+ August 6, 2018 
+ Requires macOS 10.11 or later
+ Fixed a crash on macOS Mojave beta.
+ Things for Mac 3.6
+ May 28, 2018 
+ Requires macOS 10.11 or later
+ Cmd+K to complete a to-do/checklist item (and Cmd+Opt+K to cancel).
+ The shortcut for tag management has been changed from Cmd+Shift+T to Cmd+Control+T.
+ Cmd+Shift+T now brings up a popover to set tags (while inside an expanded to-do).
+ Cmd+Shift+D now brings up a popover to set a deadline (while inside an expanded to-do).
+ Cmd+Shift+C now adds a checklist item (while inside an expanded to-do).
+ Fixed an issue where reordering to-dos in the Today list wasn’t possible while filtered by tag.
+ Fixed an issue where dragging to-dos into a project’s notes would not work.
+ Fixed an issue where changes to the Group in Today setting in General Preferences wasn’t syncing.
+ Fixed a crash that could occur when trying to create a new repeating to-do inside a project or area.
+ Things for Mac 3.5.1
+ April 27, 2018 
+ Requires macOS 10.11 or later
+ Tweaked the appearance of completion dates for older to-dos inside projects.
+ Fixed an issue where repeating task templates could create unwanted duplicates.
+ Fixed an issue where Someday to-dos/projects would not be affected by tag filtering inside projects/areas.
+ Fixed a crash that could occur when rearranging multiple areas in the sidebar.
+ Fixed a crash that could occur when trying to use the Share sub-menu for the “x later projects” entry in the sidebar.
+ Fixed some other minor crash scenarios.
+ Things for Mac 3.5
+ April 18, 2018 
+ Requires macOS 10.11 or later
+ AREAS — Now Collapsable! Without a doubt, collapsable areas has been one of our most requested features. If your project list is super long – or if you just don’t want to see work projects on the weekend – collapse your areas to hide them.
+ TAGGING. We’ve made app-wide tag searches broader. When you search for a tag, you won’t just see items with that tag, but also items with its nested tags. A feature from Things 2 has also made a comeback: you can once again filter by “No Tag”.
+ INPUT/OUTPUT — Copy & Paste Magic: 
+ Paste text from other apps into Things to create new to-dos (multiple lines of text will create multiple to-dos).
+ Paste multiple lines of text into the title field of a to-do; the first line is the title, the rest goes into the notes.
+ Copy to-dos, headings, or projects and paste them into other apps.
+ Copy to-dos, projects, or headings and paste them into other lists within Things.
+ Drag text into a Things window to create new to-dos (you can also drag files from Finder, people from Contacts, emails from Mail, etc.).
+ Move items to other lists by hitting Cmd+C and then using the new “Move Here” shortcut: Cmd+Option+V.
+ THINGS URLs — Update Existing Items. We were extremely pleased with the launch of Things URLs, which allow you to create data in Things from outside the app. One of the main feature requests we’ve received is to provide a way to also make changes to items that already exist. This is now possible, thanks to our new update commands. See our documentation for more info.
+ TODAY WIDGET. The Today Widget now shows inline icons for checklists & reminders, a moon for items in This Evening, and progress pies for projects.
+ PERFORMANCE: 
+ Some people have projects with thousands of to-dos. Whoa! Those projects should load faster now.
+ We’ve sped up the generation of new repeating to-do instances.
+ LINKS. Links are now consistently detected everywhere: in to-do titles, notes, and checklists.
+ SETTINGS. Options in the MacBook Pro’s Touch Bar can now be customized.
+ DATE HANDLING. Full completion dates are now displayed in the Logbook, and we improved how multi-day events are displayed.
+ AND MORE: 
+ Headings in projects can now be duplicated.
+ Improved layout when in full-screen mode.
+ Fixed a bug that could affect the system alert volume.
+ Fixed a crash when duplicating items that were new in Today.
+ Fixed two other crashes.
+ Things for Mac 3.4.2
+ April 3, 2018 
+ Requires macOS 10.11 or later
+ Bug fixes & stability improvements.
+ Things for Mac 3.4.1
+ March 6, 2018 
+ Requires macOS 10.11 or later
+ Bug fixes & stability improvements.
+ Things for Mac 3.4
+ February 21, 2018 
+ Requires macOS 10.11 or later
+ This release introduced the Things URL Scheme, which enabled three new features:
+ LINKING TO THINGS: Things now supports a special kind of link (or URL) that starts with “things:”. These links can be used to quickly jump to a to-do or list in Things from other apps.
+ POWERFUL AUTOMATION : Things’ links can also be used to execute a broad range of powerful commands from outside of the app – to create to-dos, show tag filters, perform searches, and so on.
+ HANDOVER FROM OTHER APPS: Other apps can now easily send data into Things. Other developers wanting to export data to Things can easily do so with our open source Swift library.
+ This release also enabled diacritic-insensitive search.
+ Things for Mac 3.3
+ December 12, 2017 
+ Requires macOS 10.11 or later
+ Introduced a new feature: Mail to Things – a powerful new way to create to-dos from other apps, services, and platforms. Enable the feature in Things Cloud’s settings.
+ Fixed a bug where users weren't notified when trying to create a new Things Cloud account with an address that was already being used for Things Cloud.
+ Fixed a crash in the preferences window.
+ Things for Mac 3.2.2
+ November 13, 2017 
+ Requires macOS 10.11 or later
+ Added support for more keys to trigger Quick Find.
+ Added support for creating new to-dos or project headings (via keyboard shortcuts or toolbar button) while editing a project or area.
+ Improved the display of links to Postbox messages in to-dos’ notes.
+ Improved the formatting of links to DEVONthink Pro items.
+ Fixed a UI problem for weekly repeating to-dos in the Russian localization.
+ Things for Mac 3.2.1
+ October 18, 2017 
+ Requires macOS 10.11 or later
+ Improvements for link detection in to-dos’ notes.
+ Added support for linking to Evernote items via Quick Entry with Autofill.
+ We now use plain-text links inserted via Quick Entry with Autofill, or by dragging into the notes field/dock icon.
+ Some tweaks for the German localization.
+ Fixed an issue where windows would maximize when the title bar was double-clicked, even though a different behavior was set in System Preferences.
+ Fixed an issue on macOS 10.13 High Sierra where the label for the When button inside to-dos wouldn’t update properly sometimes.
+ Fixed a glitch on macOS 10.13 High Sierra with Things Cloud’s on/off switch.
+ Fixed a sporadic issue where rescheduling to-dos might not work.
+ Fixed a sporadic crash that could occur while editing a to-do’s notes.
+ Fixed a sporadic crash that could occur on app launch.
+ Fixed a memory leak.
+ Things for Mac 3.2
+ September 22, 2017 
+ Requires macOS 10.11 or later
+ Full compatibility with macOS 10.13 High Sierra.
+ Renamed the Siri preferences pane to Reminders, and modified its content.
+ Minor tweak to the contents of the tutorial project.
+ Fixed an issue where, if a to-do or heading was currently being edited, Cmd+N would insert a new to-do at the wrong place in a list.
+ Fixed a crash that could occur when deleting a tag that was selected in the tag filter bar.
+ Fixed a crash that could occur when collapsing to-dos after editing them.
+ Things for Mac 3.1.5
+ September 11, 2017 
+ Requires macOS 10.11 or later
+ We now support opening new windows via AppleScript on macOS.
+ Made some improvements for the Todoist importer.
+ Made some improvements to the natural language date parser for the Chinese localization.
+ Fixed an issue which prevented setting a to-do’s start date to the same date as its deadline.
+ Fixed an issue that could sometimes cause the Where button inside to-dos to display an incorrect state.
+ Fixed an issue where dragging a Someday item with a deadline wouldn’t work correctly.
+ Fixed an issue where repeating to-dos might have a distant future deadline after the repeating template was stopped.
+ Things for Mac 3.1.4
+ August 28, 2017 
+ Requires macOS 10.11 or later
+ Removed some superfluous animations that could appear when switching between lists.
+ Fixed some issues that could cause the app to become unresponsive on macOS 10.11.
+ Fixed an issue where trashing a project that contained a repeating to-do with a reminder would not cancel the reminder’s notification.
+ Fixed an issue where making a to-do repeat with a reminder time would not trigger reminder notifications until the app had been relaunched.
+ Fixed an edge case where joining two checklist items could result in data loss.
+ Fixed an edge case where the app could crash sometimes after several clicks within a list.
+ Fixed an edge case where the app could crash sometimes if no Things Cloud password was present in the system keychain.
+ Things for Mac 3.1.3
+ August 21, 2017 
+ Requires macOS 10.11 or later
+ Improved the display of deadlines for overdue projects in the sidebar.
+ Improved natural language date parsing for Traditional and Simplified Chinese localizations.
+ Fixed a crash that could occur in the Russian localization.
+ Fixed a crash that could occur when trying to insert a new to-do while editing another one.
+ Fixed a crash that occurred when trying to delete a project via its ellipsis menu while editing it.
+ Fixed some issues with data migration from Things 2 → 3.
+ macOS 10.11: Fixed a hang scenario in the Jump Start popover menu.
+ macOS 10.13: Fixed row height issues when opening a list in a new window.
+ macOS 10.13: Fixed a glitch in the Jump Start and Deadline date pickers.
+ macOS 10.13: Added a workaround for Apple Mail and Quick Entry with Autofill.
+ Things for Mac 3.1.2
+ August 1, 2017
+ Added support for moving repeating to-dos under project headings via the Quick Move popover (headings within repeating projects are excluded from search results).
+ Cleaned up localizations and tweaked the UI layout for German and Traditional Chinese.
+ Restored the Repeat command in the ellipsis menu of expanded to-dos.
+ Removed an obsolete “enter license” link from the Trial Expired dialog.
+ Fixed several graphical issues with shadows on macOS 10.13 High Sierra beta.
+ Fixed an issue where the Quick Entry window wouldn’t appear when using Autofill in an unsupported app.
+ Fixed an issue where Things would not react when a Things Cloud account’s contents had been replaced by another client.
+ Fixed AppleScript issues when querying the to-dos collection of Anytime and Someday lists.
+ Fixed AppleScript issues when retrieving collections of projects as property dictionaries.
+ Fixed a crash that was occurring when entering projects (Russian localization only).
+ Fixed a crash scenario in the sync engine.
+ Things for Mac 3.1.1
+ July 26, 2017
+ Restored the Repeat command in the ellipsis button for expanded to-dos.
+ Updated the contents of the onboarding tutorial project.
+ Updated the acknowledgments information in the About window.
+ Disabled the File → New Repeating To-Do command inside repeating projects.
+ Disabled the Items → Make Repeating command in Quick Entry pane.
+ We now include the No Project/No Area options in Quick Move search results.
+ We now hide the placeholder text as soon as you enter any character in the notes field of a new project.
+ Improvements for Japanese in the Natural Language Date Parser.
+ Improved how we handle the creation of repeating projects from projects that contain repeating to-dos.
+ AppleScript API: re-enabled “to dos of a tag”.
+ AppleScript API: fixed windows handling.
+ Fixed some layout issues and incorrect string translations in German and Chinese.
+ Fixed a sync-related crash scenario.
+ Things for Mac 3.1.0
+ July 3, 2017
+ Added support for repeating to-dos inside projects.
+ Upgraded the sync schema to support repeating to-dos inside projects. All devices must be upgraded to the latest version to continue syncing.
+ Various improvements for the Natural Language Date Parser (including support for Japanese).
+ Added a new warning that items will be deleted from Reminders when importing from Reminders for the first time.
+ Fixed an issue when opening file links added to a to-do’s notes via Quick Entry with Autofill.
+ Fixed a crash on macOS 10.11 when switching to a project which had a deadline set.
+ Fixed a crash on macOS 10.13 when closing windows.
+ Things for Mac 3.0.3
+ June 3, 2017
+ Added a new Todoist importer – go to File > Import.
+ Fixed an issue that prevented the OmniFocus import script from importing deferred projects.
+ We now hide Calendar events that have been declined.
+ Improved the user experience when expanding a to-do below an already-expanded to-do.
+ We now block the setting of reserved keys as shortcuts in the tag management window.
+ Improved performance when dragging an email into a to-do’s notes to create a link.
+ Fixed an issue where the File menu command for “New Heading with Selection” didn’t work (hold down Option to see it).
+ Fixed an issue where the main window could appear inactive when the Jump Start or Quick Entry popovers were visible.
+ Fixed some AppleScript issues.
+ Fixed several crashes.
+ Things for Mac 3.0.2
+ May 20, 2017
+ Fixed several scenarios where the app could crash.
+ Fixed an issue that was preventing the OmniFocus import script from importing deferred projects.
+ A few tweaks for the German and Japanese localizations.
+ Things for Mac 3.0.1
+ May 18, 2017
+ Minor post-launch fixes.
+ Things for Mac 3.0.0
+ May 18, 2017 
+ Requires macOS 10.11 or later
+ The first release of Things 3 for Mac, including these headline features:
+ ALL-NEW DESIGN: How it looks, how it works, and how it feels – Things has been completely redesigned, with more clarity, improved workflows, better structure, and delightful animations. It’s a to-do list like no other.
+ PROJECT HEADINGS: It’s so much easier to handle your projects now that you can break them up with headings. Use them to create categories, milestones, or whatever you need – just give each one a name and drag your to-dos underneath. Instantly you’ve got a nice, clean structure for your list, and the plan becomes perfectly clear.
+ CHECKLISTS: Some things take several steps to complete but don’t require a full-blown project. Now you can use Checklists to break down the finer details of a to-do. Use them for shopping lists, when packing your bag for a trip, or to detail a process at work so you won’t miss a critical step.
+ CALENDAR INTEGRATION: Display calendar events alongside your to-dos and stay on top of your schedule. They will show at the top of your Today list, and for each day in Upcoming, where you plan the week ahead.
+ PLAN YOUR DAY – WITH TODAY AND THIS EVENING: Once you’ve made your plan, the Today list is your go-to place for all daily activities. Calendar events now display at the top, giving an outline of your schedule. Your to-dos follow, with a discrete section at the bottom called This Evening for things you’ll get to later in the day.
+ PLAN YOUR WEEK – WITH UPCOMING: Plan your week ahead with the new Upcoming list. It shows everything on your agenda for the coming days: scheduled to-dos, repeating to-dos, deadlines, and calendar events. A quick peek at this list is all it takes to stay on top of your schedule.
+ JUMP START: Working with dates is super easy with the new Jump Start popover. Use it to quickly put to-dos in your Today list, schedule them for later, or put them on hold in Someday.
+ NATURAL LANGUAGE RECOGNITION: The When Selector has a magical ingredient: Natural Language Recognition. It smartly detects what you’re typing to work out what you mean... “Tom(orrow)”, “Sat(urday)”, “in fou(r days)”, “Au(gust 1)”. As you can see, it jumps to all the right conclusions.
+ REMINDERS: One of Things’ most-requested features is now here: time-based reminders! You can add a reminder by typing (natural language recognition), or just speak to Siri. For those to-dos you absolutely cannot miss, reminders will give you peace of mind.
+ TYPE TRAVEL: Search and navigation in Things is now extremely fast, with Type Travel. All you need to do is start typing – the name of a list, to-do, or tag – and instantly you’re taken there. It’s magic!
+ APP-WIDE TAG FILTERS: Just start typing the name of any tag to pull up an app-wide filter. It shows all items with that tag across all your projects and areas. It’s a fantastically versatile way to view your to-dos.
+ THE NEW SIDEBAR: Projects in the sidebar are now nested under areas to keep everything tidy. Each one has a new progress indicator to show you how close you are to achieving your goal.
+ SLIM MODE: Collapse your sidebar with a two-finger swipe to cut out distractions and focus on your work. This is great when you’re working in Split View, or if you just need more room on your screen.
+ MULTIPLE WINDOWS: You can now open multiple projects in their own windows and drag to-dos back and forth between them to organize with ease. Or use them across multiple displays, desktop spaces, or split views – whatever suits your personal workflow.
+ And much more... see what’s new .
+ Things for Mac 2.8.12
+ April 24, 2017 
+ Requires macOS 10.9 or later
+ The last release of Things 2.
+ Fixed a small localization issue for Spanish users.
+ Things for Mac 2.8.11
+ March 31, 2017
+ Minor fix for a server endpoint.
+ Things for Mac 2.8.10
+ March 15, 2017
+ Removed some code deprecated by Apple.
+ Things for Mac 2.8.9
+ February 17, 2017
+ Improved stability and bug fixes.
+ Things for Mac 2.8.8
+ September 29, 2016
+ Minor adjustment for Things Cloud connection timeouts.
+ Things for Mac 2.8.7
+ September 16, 2016
+ Full compatibility with macOS 10.12 Sierra.
+ Updated the Today Widget for Sierra’s new aesthetic.
+ Fixed a bug (in the direct download version) where sync could stop working after manually checking for updates.
+ Things for Mac 2.8.4
+ May 3, 2016
+ Updated Sparkle to the latest version in the non-App Store build.
+ Fixed a small bug in the Things Cloud preference pane.
+ A few other small fixes.
+ Things for Mac 2.8.3
+ December 4, 2015
+ The font-size in the sidebar can now be increased (View > Font Size).
+ Fixed a bug where the trash’s badge count wouldn’t update until it was clicked.
+ Fixed an issue that caused inactive/suspended areas to show in the Quick Entry drop-down.
+ Fixed an issue where lists’ titles in the sidebar could disappear from view in some cases.
+ Things for Mac 2.8.2
+ October 26, 2015
+ Fixed an issue where, in some cases, a link wasn’t being created when dragging an iCloud email into a to-do’s notes.
+ Fixed a conflict that could occur with keyboard shortcuts while in Split View.
+ Things for Mac 2.8.1
+ October 15, 2015
+ Fixed an issue with creating or editing weekly repeating to-dos.
+ Things for Mac 2.8
+ September 30, 2015 
+ Requires OS X 10.9 or later
+ Full compatibility with OS X 10.11 El Capitan.
+ New! Support for El Capitan’s new Split View mode – click and hold the green zoom button to move Things into the left or right pane.
+ New! Support for spring-loading lists in the sidebar via Force click – drag a to-do over a list in the sidebar, click deeper to open that list, and then position the to-do exactly where you’d like. (This feature requires El Capitan and a Mac with a Force Touch trackpad.)
+ Adjustments for El Capitan’s new San Francisco font.
+ Fixed an issue where Daily Review items that were previously edited on an iOS device could reappear in the Mac’s Daily Review after a sync.
+ Improved handling of emails dragged into Things from Mail on El Capitan.
+ Various smaller tweaks and fixes for El Capitan.
+ The app now requires OS X 10.9 or later.
+ Things for Mac 2.5.5
+ July 14, 2015 
+ Requires OS X 10.7 or later
+ Optimized the initial sync process for improved speed and lower memory consumption.
+ Things for Mac 2.5.4
+ April 17, 2015
+ Updated Things’ icon in the License dialog.
+ Added a “Rate Things...” option to the Things menu.
+ Things for Mac 2.5.3
+ February 18, 2015
+ Updated the app icon.
+ Fixed a bug where Things Cloud would repeatedly ask for a user’s password if the entry was deleted from their OS X Keychain.
+ Fixed a bug where Things could crash when attempting to parse certain date-related commands from third-party app launchers (Alfred, QuickSilver, LaunchBar, or custom AppleScript).
+ Things for Mac 2.5.2
+ January 14, 2015
+ Improved stability and bug fixes.
+ Things for Mac 2.5.1
+ December 1, 2014
+ Added a new preference for the Today Widget (in General prefs pane and also in the widget itself) to allow Things to be automatically launched.
+ Fixed an issue where Quick Entry with Autofill would not work properly with Apple Mail on OS X Yosemite.
+ Fixed an issue where non-English sidebar headings could appear truncated unnecessarily on OS X Yosemite.
+ Fixed an issue where Handoff would not work for inactive projects previously viewed on an iOS device.
+ Fixed an issue where Handoff would not work for projects/areas previously viewed on an iOS device if the corresponding sidebar sections are collapsed on Mac.
+ Fixed an issue where collapsing or expanding a section in the sidebar would crash the app in OS X 10.7 and 10.8.
+ Added missing localizations for the ‘x items’ label in the Schedule dialog.
+ Things for Mac 2.5
+ October 16, 2014
+ Mac App Store:
+ Full compatibility with OS X Yosemite.
+ Today widget in notification center (Yosemite only).
+ Share and action extensions (Yosemite only).
+ Handoff support (Yosemite only). Works with iPhone today; coming to iPad soon.
+ Visual polish and refinements.
+ The first sync now hides the app window, showing only a progress indicator.
+ Provided a more descriptive text for the dialog during this new initial sync process.
+ Cleaned up contents of the Help menu.
+ Other minor stability improvements and bug fixes.
+ Traditional License:
+ Full compatibility with OS X Yosemite.
+ Today widget in notification center (Yosemite only).
+ Share and action extensions (Yosemite only).
+ Handoff support (Yosemite only). Works with iPhone today; coming to iPad soon.
+ Visual polish and refinements.
+ The first sync now hides the app window, showing only a progress indicator.
+ Provided a more descriptive text for the dialog during this new initial sync process.
+ Improved error handling for issues occuring during an initial Things Cloud sync.
+ Fixed an issue where changing font size while editing a project’s notes could cause data loss.
+ Fixed blurriness of project icons in the File dialog on non-Retina displays.
+ Cleaned up contents of the Help menu.
+ Other minor stability improvements and bug fixes.
+ Things for Mac 2.2.6
+ May 13, 2014
+ Fixed a bug that could cause logged projects to become unlogged when re-downloading a database.
+ Things for Mac 2.2.5
+ December 19, 2013
+ Improved how database files are handled and backed up on OS X Mavericks.
+ Things for Mac 2.2.4
+ November 14, 2013 (Direct Download) December 10, 2013 (Mac App Store)
+ Fixed a bug which could cause Things to become unresponsive for some users on OS X Mavericks.
+ Things for Mac 2.2.3
+ November 3, 2013 (Direct Download) November 5, 2013 (Mac App Store)
+ Fixed a bug with Daylight Savings Time which can cause weekly repeating tasks to show in Daily Review a day early.
+ Fixed a bug where repeating tasks created on the Mac would show up on iOS with an end date of Dec 31, 4000.
+ Things for Mac 2.2.2
+ October 24, 2013
+ Compatibility for OS X Mavericks.
+ Improved stability and bug fixes.
+ Things for Mac 2.2.1
+ May 6, 2013
+ Fixed an issue where future dates weren’t calculated properly in the repeating task creation dialog.
+ Fixed an issue where due dates of items in Today were rolled back by one day if the export to iCal feature was enabled.
+ Fixed an issue where OS X locale settings were not being respected by date pickers on 10.6 and 10.7.5.
+ Updated a troubleshooting link to point at a new support page.
+ Things for Mac 2.2
+ April 17, 2013
+ Major performance improvements across the app.
+ More robust handling of dates when traveling between time zones.
+ Downloading to-dos from Things Cloud is now even faster.
+ Added new Things Cloud update trigger: when returning to an idle Mac, Things will automatically update with Things Cloud.
+ Enabled Spelling & Grammar correction by default in the titles and notes of to-dos and Projects.
+ Enabled Smart Links by default in the notes of to-dos and Projects.
+ Indented badge pills in the source list to better accommodate the scroll bar.
+ Improved Things’ handling of email messages dragged and dropped onto the dock icon or notes field.
+ Improved cloud indicator for when the Mac is offline or Things Cloud cannot be reached.
+ Improved behavior of contextual menus in text fields.
+ Improved formatting of dates in the Logbook.
+ Fixed an issue where to-dos would be extracted from a Project when it was moved to the trash.
+ Fixed an issue where to-dos dragged and dropped from the inbox wouldn’t appear at the correct position in the destination list: the top of an Area, the bottom of a Project.
+ Fixed an issue where to-dos created via AppleScript could appear out of order.
+ Fixed an issue where items in Scheduled or the Daily Review could show up in an apparently random order (for humans).
+ Fixed an issue that could cause a Project’s notes to disappear for some users.
+ Fixed an issue that could cause Things to crash when creating tags with certain characters.
+ Updated HockeyApp framework.
+ Things for Mac 2.1.1
+ January 23, 2013
+ Reminders Parity with iOS: Added an arrow to items to indicate that they are location-based to-dos.
+ Reminders Parity with iOS: Added an import-all button in the top right corner of the white box.
+ Improved search functionality to include fuzzy search results for characters with diacritics (e.g., ü, à, ê, ç, ñ, etc.).
+ Fixed an issue where items from repeating projects were not grouped under the 'Scheduled' heading when performing a search.
+ Fixed an issue with Reminders & Siri that could cause excessive memory usage.
+ Fixed an issue where the application could crash when expanding or collapsing the active projects list in the sidebar.
+ Fixed an issue that could cause to-dos in a project to move to the top of the project's list when added to Today.
+ Fixed an issue where the inbox badge wouldn't be updated when marking an inbox to-do complete.
+ Fixed an issue where the due date button would show a non-retina graphic when depressed if the OS X general appearance was set to graphite.
+ Fixed a graphical issue when displaying a Reminders error in an empty Inbox.
+ Improved performance when scrolling the sidebar when it contains many Projects & Areas.
+ Improved the handling of Things Cloud error messages in some scenarios.
+ Improved the crash reporter.
+ Some localization improvements for German, French, Japanese and Russian.
+ Things for Mac 2.1
+ September 29, 2012
+ Improvements for Reminders & Siri integration, offering more control over which types of Reminders show (for parity with concurrent 2.1 updates for Things on iOS).
+ Removed functionality to export to Reminders.app.
+ Updated some graphics for the MacBook Pro with Retina display.
+ Fixed an issue where interacting with an item in the Daily Review list could cause the keyboard shortcuts to stop working.
+ Fixed an issue where dragging a Today item assigned to a project to the top of the Today list would remove the project association.
+ Fixed an issue where the application could crash when displaying tags with no title.
+ Fixed an issue where the >> indicator wouldn't show when the window's horizontal width was decreased enough to cut off the viewable tags.
+ The Today list now utilizes the 'Next Actions Steps' setting when 'Group by Project and Area of Responsibility' is enabled in general preferences.
+ The right-arrow key now works as expected on Projects in Today.
+ Links to Entourage 2008 emails use the email subject again (as previously in Things Mac 1.5).
+ Overdue items are now properly included when printing a selection.
+ Canceling the removal of the Things Helper (Quick Entry with Autofill) now works as intended.
+ 'Could not connect to server' warnings are now suppressed when necessary.
+ Improved error handling when clicking links to missing files/folders from the notes field.
+ Improved handling of errors when opening databases.
+ Items from repeating projects are now included in search results.
+ Performance improvements for displaying large lists of items, especially in areas.
+ Localization improvements.
+ Things for Mac 2.0.1
+ August 12, 2012
+ Added Local Push for automatically triggering Things Cloud updates on your other devices (requires an internet connection and works only when all devices are connected to the same router/local network).
+ Fixed an issue some users experienced where the application could crash while migrating their database from Things 1 to Things 2.
+ Fixed an issue where, in some cases, due items might not display properly in the Daily Review.
+ Things for Mac 2.0
+ August 9, 2012
+ Things Cloud support.
+ Compatibility for OS X Mountain Lion.
+ Sandbox compliance for enhanced OS X security.
+ The all new Daily Review.
+ Redesigned Reminders integration to make import & export simpler.
+ Retina Graphics for the new MacBook Pro.
+ Full-screen mode.
+ Reduced window chrome and new monochrome toolbar buttons.
+ Visual refinements for the Tags & Quick Entry windows.
+ Newly implemented SQLite data storage (was previously XML).
+ Re-engineered core for great Things Cloud performance.
+ Things Cloud replaces the old Bonjour WiFi Sync.
+ This update requires OS X 10.6 or later.
+ Many other improvements.
+ Things for Mac 1.5.6
+ August 9, 2012
+ This build is only for users who would like to continue using Bonjour Sync instead of Things Cloud. It will not continue to receive updates.
+ Things for Mac 1.5.5
+ May 14, 2012
+ Versions of Things Mac distributed outside of the Mac App Store are now Gatekeeper-ready (in preparation for OS X Mountain Lion).
+ Fixed a bug where the app could crash in some circumstances if 'make repeating' was utilized from the gear menu inside a task, while the due date picker was open.
+ Things for Mac 1.5.4
+ November 7, 2011 (Direct Download) 
+ November 18, 2011 (Mac App Store)
+ Fixed a bug in Things' interaction with iCal Reminders/iCloud causing the generation of blank tasks for some users.
+ Things for Mac 1.5.3
+ November 3, 2011
+ iCal sync improvements for better iCloud compatibility: calendars that do not support tasks (reminders) are now hidden from view in Things preferences.
+ Things for Mac 1.5.2
+ October 27, 2011
+ Localization improvements for non-English languages.
+ Fixed an issue which resulted in the presentation of a dark box around the save button in the Quick Entry window.
+ Fixed an issue where the Quick Entry calendar pop-out wouldn't show while fullscreen in another app.
+ Fixed an issue which resulted in the date not showing at the top of pages when printing.
+ Things for Mac 1.5.1
+ August 25, 2011
+ Things Mac is now 64-bit (Lion & Snow Leopard).
+ Enhancements for the main window buttons & various other minor UI refinements (Lion).
+ Bugfix: resolved an issue causing inconsistent sync between iOS devices, and also blank titles in some cases.
+ Bugfix: resolved an issue which prevented the pasting of http s URLs into the notes field.
+ Bugfix: resolved a UI issue which caused incorrect spacing in the sidebar between iChat icons and People labels (Snow Leopard).
+ Things for Mac 1.5.0
+ July 20, 2011 (non-MAS)
+ Improved compatibility with other releases of Things Mac.
+ Things for Mac 1.5.0
+ July 20, 2011 (MAS)
+ Fixed an issue where tasks without title information could appear on iOS devices after synchronizing.
+ Improved Mac OS X 10.7 Lion compatibility.
+ Things for Mac 1.4.8
+ July 15, 2011 (non-MAS)
+ Fixed an issue where tasks without title information could appear on iOS devices after synchronizing.
+ Preliminary Mac OS X 10.7 Lion compatibility.
+ Things for Mac 1.4.7
+ May 9, 2011
+ Bugfix: Improved compatibility between the Mac App Store version and the version available from our website.
+ Things for Mac 1.4.6
+ April 12, 2011
+ Feature: AppleScripts can now be run from within Things - more details will be published later.
+ Bugfix: An initial sync with long preparation time could lead to a 'connection loss' warning on iOS devices.
+ Bugfix: Quickly backgrounding and reactivating TT/TP caused sync to stop working.
+ Bugfix: Fixed a bug where deleting a task within a search result would bounce the user to the Inbox.
+ Things for Mac 1.4.5
+ March 24, 2011
+ Feature: Things URI scheme is now supported on the Mac version (previously iOS-only).
+ Enhancement: Task modification date is now accessible by AppleScript.
+ Bugfix: Fixed a bug where items in Today, Projects and Tags could get randomly reordered after sync.
+ Bugfix: Fixed a bug where completing a task within a search result would bounce the user to the Inbox.
+ Bugfix: Fixed a bug where repeating task templates in Scheduled would not be properly grouped by repetition pattern.
+ Bugfix: The File dialog, and the project list in the Quick Entry dialog, would not reflect the sort order of active projects in the sidebar - both are now fixed.
+ Bugfix: Fixed a bug where, in some cases, the repeating tasks dialog would not properly refresh the dates preview.
+ Bugfix: Fixed a bug which caused the recurrence rule for iCal events to create only one instance per day.
+ Bugfix: Fixed an issue where Things could crash when editing notes on Mac OS 10.4.
+ Things for Mac 1.4.4
+ February 3, 2011
+ Repeating Tasks: Complete re-write of the Repeating Tasks engine.
+ Repeating Tasks: Support for syncing repeating tasks with Things on iOS devices.
+ Repeating Tasks: Repeating tasks with due dates can now be generated zero days before due.
+ Repeating Tasks: Items Scheduled for the last week of the year are now handled correctly.
+ Repeating Tasks: Improved robustness of repeating projects.
+ Repeating Tasks: Dialog can now be submitted by pressing Enter.
+ Bugfix: Fixed a bug where checked items would erroneously move to the top of the list.
+ Bugfix: Fixed a bug where the date picker would not get reset properly after closing it.
+ Bugfix: Fixed a bug where monthly update checks would not trigger correctly.
+ Things for Mac 1.4.3
+ October 26, 2010
+ Quick Entry: a new preference allows either Inbox or Today to be chosen as the default destination
+ Tasks now show their creation date and last modified date in the action menu
+ Projects and Areas can now be sorted alphabetically in the sidebar by ctrl-clicking a Project or Area
+ Font-size changes in the main view will now also affect the Tags window
+ Enabling the option "Group to-dos in the Today list by project or area" in preferences now shows a notification that this feature is not supported on iOS devices
+ Enhanced readability of mail subjects with non-ASCII characters
+ Added a progress bar for the "Preparing" phase of the sync process
+ Fixed an issue where using Quick Entry in conjunction with OS X Spaces could make the keyboard unresponsive
+ Fixed an issue where the shortcut for emptying the Trash would delete the currently selected task
+ Fixed an issue where tasks in the Logbook would erroneously make the "Show in Logbook" button visible on the toolbar
+ Fixed an issue where tasks were not sorted by completion date in the Logbook
+ Fixed an issue where logged tasks were not sorted by completion date in the Project view
+ Things for Mac 1.4.2
+ September 9, 2010
+ Quick Entry: Fixed a bug that prevented the Projects dropdown from displaying Today's projects.
+ Keyboard: Reordering projects in the Projects list or inside Areas using the keyboard works again.
+ Things for Mac 1.4.1
+ September 2nd, 2010
+ Fixed a bug that prevented the Quick Entry window from opening on older systems.
+ Things for Mac 1.4
+ September 1st, 2010
+ Sync: Speed has been improved tremendously, resulting in sync being up to 10x faster.
+ Font Sizes: Users can now select different font sizes to increase readability on hi-res displays.
+ Projects: Projects belonging to different Areas can now be arbitrarily reordered in the sidebar.
+ Quick Entry: Area and Project can now be selected when creating a new to-do via the Quick Entry dialog.
+ Improved the layout and design of the print style sheet.
+ Fixed an issue where dragging repeating projects to Active Projects occasionally resulted in data inconsistencies.
+ Improved performance when bulk-removing delegates.
+ Things for Mac 1.3.5
+ August 12, 2010
+ Fixed an issue that caused Things to crash in some cases when rescheduling a scheduled to-do in Today.
+ Fixed 3 additional issues that would make Things crash in specific situations.
+ Fixed an issue where double clicking a to-do would open the wrong item in the details view.
+ Tags window: Separated background & highlight drawing of outline view. Fixed drawing bug when scrolling in the tags window.
+ Fixed an issue where iCal calendars were not visible for Custom iCal Sync in Preferences.
+ Fixed an issue where reordering to-dos in Today would not work when filtered by tag.
+ Localization: Fixed an issue where the English localization would get displayed with scheduled tasks in Projects.
+ The Teammates dialog now has a minimum size to prevent it from becoming unusable when resizing it.
+ The UI does now update when undoing the delegating of a to-do.
+ Fixed an issue in Areas where the wrong toolbar icons were being displayed for selected to-dos.
+ Fixed an issue where tabbing into the Tags field of a Project's header would delete all existing tags for this project.
+ Fixed an issue where Daylight Savings Time would interfere with the timestamp of the last maintenance date.
+ When dragging an email with an empty subject onto the Notes field, the empty subject will now be replaced with a '(missing subject)' placeholder.
+ Fixed an issue where in some cases to-dos could not be created within projects after performing a search.
+ Things for Mac 1.3.4
+ June 24, 2010
+ Logged items from deleted areas are now preserved in the Logbook.
+ Things now displays a confirmation dialog before deleting a non-empty area.
+ Added our own crash reporter. Users can send crash reports directly to Cultured Code now.
+ Fixed an issue where an empty project title would prevent any items from being shown in 'Next'.
+ Fixed an issue where moving project to-dos using the keyboard in the Next or Today lists would result in the user interface switching to project view.
+ Fixed an issue where moving a project to an area removed the Today status of all to-dos in the project.
+ Fixed an issue where creating a new to-do via the menu command File > New To Do could take an unusual length of time.
+ Things now auto-saves before entering read-only mode.
+ Fixed an issue where date strings in the Scheduled list overlapped other UI elements for some languages.
+ Fixed an issue where Things would not select the corresponding item when opening a Things to-do search result in the Finder if Things wasn't already running.
+ Things Helper. Fixed an issue where the Things Helper application would prevent some systems from entering sleep mode.
+ Things Helper. Fixed an issue where missing executable permissions on the Things Helper application would result in Things crashing.
+ Localization. Japanese localization fixes.
+ Localization. French localization fixes.
+ Things for Mac 1.3.3
+ April 2nd, 2010
+ Fixed an issue that for some users resulted in Things 1.3.2 displaying a blank screen after launch.
+ Things for Mac 1.3.2
+ April 2nd, 2010
+ Multiple mobile device syncing. Things can now sync simultaneously with your iPhone and/or iPad via your local network.
+ iPhone preference pane has been renamed to Devices.
+ Things for Mac 1.3.1
+ March 16, 2010
+ Fixed a crash related to mixed projects that only occurred under Japanese language settings.
+ Things for Mac 1.3
+ March 12, 2010
+ Mixed projects. A project can now contain active, inactive, and scheduled to-dos simultaneously.
+ Minor localization improvements.
+ Fixed a bug that could result in Things launching with a blank interface.
+ Fixed a bug where multiple Help menus could be displayed.
+ Things for Mac 1.2.11
+ February 23, 2010
+ Improved validation of license codes.
+ Localization. French localization fixes.
+ Things for Mac 1.2.10
+ January 27, 2010
+ Fixed a bug that resulted in items unexpectedly appearing in the Inbox after syncing.
+ Things for Mac 1.2.9
+ January 21, 2010
+ Fixed a regression related to the Today list sync conflict issue.
+ Fixed an issue where items completed between 12/27/2009 and 12/31/2009 were shown in the Logbook as completed in 2010.
+ Added support for emptying the Trash immediately. Hold down the option key while choosing the "Empty Trash..." menu command.
+ Fixed an issue where the title of a to-do could have multiple lines when entered via Quicksilver.
+ Additional fixes for the issue where Things sometimes started with an empty window and remained unresponsive for some time.
+ Fixed a bug that could result in missing search results when searching for tags that contain subtags.
+ Localization. Added missing translations for Tags window.
+ Localization. Japanese localization fixes.
+ Localization. French localization fixes.
+ Things for Mac 1.2.8
+ December 23, 2009
+ Fixed a sync conflict bug with the Today list. Note: Things for iPhone 1.3.12 is required for this fix to work, and is available on the App Store.
+ Fixed an issue where file links containing a combination of Unicode characters and spaces were duplicated each time when opening the corresponding to-do.
+ In some situations, Things would crash when launching Things 1.2.5 with a 1.2.6 database.
+ Minor localization improvements.
+ Fixed an issue where Things sometimes started with an empty window and remained unresponsive.
+ Fixed an issue where Quick Entry dialog shortcuts would get recreated even though the shortcuts were removed by the user.
+ Things for Mac 1.2.7 (Retail Version)
+ December 15, 2009
+ Retail version only: Updated texts in the Welcome screen and licensing dialogs to be more suitable for the retail version.
+ Things for Mac 1.2.6
+ December 9, 2009
+ Things now monitors whether it is launched from outside the Applications folder, in which case it offers to move itself to the Applications folder.
+ Added Quick Entry autofill support for Microsoft Entourage.
+ Performance. Things now launches faster in situations where many to-dos are created in or moved to the Today list (e.g. when to-dos are repeated, activate, or become due).
+ Performance. Creation of projects is faster for libraries that contain many active projects.
+ Performance. Various smaller performance improvements.
+ iCal sync. Things now uses a background application to collect changes occurring in systemwide to-dos even when it is not running. This allowed us to complete a workaround for an Apple Mail iCal sync issue.
+ Bug fix. Previously the search field lost focus when an entered search term was deleted. This is fixed now.
+ Bug fix. The action pop-up button (lower-left of main window) now uses more appropriate menu items when a teammate is selected.
+ Bug fix. iCal Sync. The mail-link which is automatically added to to-dos created in Apple Mail now has a "Show in Mail" title (instead of the technical URL that had been previously displayed).
+ Bug fix. The size of the "File..." sheet is now remembered between launches.
+ Bug fix. In some situations Things crashed when emptying Trash. This is fixed now.
+ Bug fix. Fixed a problem where certain links from iCal syncing did not work properly.
+ Bug fix. Disabling automatic checking for updates now works correctly.
+ Bug fix. The database upgrade dialog no longer appears when launching Things for the first time.
+ Bug fix. Fixed an issue with editing due dates and schedule dates using the keyboard.
+ Bug fix. Fixed an issue when dragging and dropping e-mail messages to the notes field when using a Chinese environment.
+ Bug fix. Fixed handling of double-clicks performed on Things' main window when in the background. The selection in the detail list now gets updated properly before editing.
+ Bug fix. Fixed an issue when invoking Quick Entry crashed the entire application.
+ Localization. Japanese localization fixes.
+ Localization. Spanish localization fixes.
+ Complete overhaul of French localization including a localized version of the Help Book.
+ Fixed a bug that in some rare cases crashed the application when invoking the Quick Entry dialog.
+ Fixed a bug that caused the File dialog to freeze in some circumstances.
+ Removed a German string that inadvertently found its way into the English localization.
+ Added acknowledgement for the keyboard shortcut recorder we are using in preferences.
+ Things for Mac 1.2.5
+ October 8, 2009
+ Fixed a bug that caused the Quick Entry hotkeys to only function after opening the Preferences.
+ Things for Mac 1.2.4
+ October 7, 2009
+ Simplified dialog for filing to-dos into projects and areas.
+ When entering tags in the corresponding field of a to-do, in addition to autocompletion, it is now also possible to use tag shortcuts.
+ Repeating to-dos. In addition to "last", also added "31st" as an option to specify the last day of a month.
+ iCal sync. Partial fix for an issue where Mail.app created duplicate items in Things.
+ Toolbar. In the Projects list, the Next toolbar item is no longer shown when no projects are selected. Instead the Active/Inactive item is shown.
+ Toolbar. Titles of toolbar items that did not fit into the toolbar, were not always displayed correctly in the >> overflow menu. This is fixed.
+ Toolbar. When removing an item from the Today list by clicking the "Not Today" toolbar item, the toolbar item's title no longer incorrectly changes to "Today".
+ Drag & Drop. It is now possible to drag RSS feeds from Apple Mail into a to-do's notes section.
+ Drag & Drop. When dragging cards from Address Book to the Things dock icon, the corresponding link in the new to-do's notes section is now created correctly (does not work on Snow Leopard yet).
+ Drag & Drop. When dragging a file to a to-do's notes section, we no longer add a "+" badge to the dragged image. Instead the arrow badge is shown to indicate that only a link (alias) to the file is generated.
+ Quick Entry. Autofill now also works with RSS feeds in Apple Mail.
+ Quick Entry. Tasks entered using the Quick Entry dialog are now saved to disk immediately.
+ Plug-ins. Fixed an issue related to adding to-dos to an area using plug-ins in third party apps.
+ Status line (bottom of main window). The item count is now displayed correctly when filtering by tags in the Someday list.
+ Adding teammates. Display Name and Preferred Email Address are now updated when clicking a person entry in the embedded Address Book. Previously double-clicking was necessary.
+ Quick Look now displays file links in the notes field of a to-do correctly.
+ When automatic downloading of Things software updates in the background is enabled, version information is now displayed correctly in the corresponding dialog window.
+ Preferences. Re-setting already defined keyboard shortcuts now works as expected.
+ AppleScript. Added "with autofill" parameter to "show quick entry panel" command.
+ Localization. Added support for localized release notes.
+ Localization. Fixes for German.
+ Localization. Changed default hotkeys for Quick Entry on Japanese systems to Shift+Ctrl+S (Empty) and Shift+Ctrl+A (Autofill).
+ Things for Mac 1.2.3
+ September 15, 2009
+ Fixed a bug that caused the Quick Entry hotkeys to be set to 'a' if they were disabled in previous versions.
+ Things for Mac 1.2.2
+ September 14, 2009
+ General Preferences. The hotkeys for the Quick Entry dialog can now be enabled or disabled independently.
+ General Preferences. Added an option to disable Spotlight indexing of Things items.
+ Quick Entry Autofill now works in Microsoft Word 2008 and Mailplane.
+ Links to Address Book entries can now be created by dragging and dropping Address Book cards into the notes of a to-do.
+ Dragging and dropping multiple emails into the notes of a to-do now correctly creates links to all messages.
+ The Help menu now contains a link to the keyboard shortcuts page.
+ Bug fix. On Snow Leopard, the blue selection indicator is now removed after dragging an item on a project in the sidebar.
+ Bug fix. When invoking the Quick Entry dialog with the autofill shortcut, the System alert volume would sometimes be set to zero. This is fixed.
+ Bug fix: A due date is no longer added to a to-do if only (Shift-,) is pressed, as opposed to (Control-Shift-,).
+ Bug fix. The Quick Entry dialog would not appear when invoking the hotkeys while the Things preferences window was open. This is fixed.
+ Bug fix. Having Firefox installed inside a Parallels Windows virtual machine no longer interferes with the Quick Entry autofill feature.
+ Bug fix. When using the Japanese Hiragana input method, the text entered in a title no longer disappears when reaching the end of the line.
+ Bug fix. When using the Japanese Kotoeri input method, pressing return in the Quick Entry dialog no longer dismisses the dialog.
+ The default hotkeys for the Quick Entry dialog on Japanese systems no longer interfere with the Mac OS X hotkeys for switching input methods.
+ Fixed a bug where Things would crash when upgrading from an version of Things prior to 1.0.4.
+ Application Launcher Plugins. Typing ">+0" to specify a due date of today in the Things plugins for LaunchBar, Quicksilver, or Google Quick Search Box is now handled correctly.
+ Minor localization fixes for Japanese, French, Spanish, and Russian.
+ Things for Mac 1.2.1
+ September 1st, 2009
+ Quick Entry: Added autofill support for Firefox 3.x.
+ Fixed French and Russian localization glitches.
+ Updated Helpbook to reflect new keyboard shortcuts.
+ Quick Entry: Autofill no longer crashes Things on Japanese systems with Romaji/Hiragana/Katakana input methods.
+ Quick Entry: Autofill no longer creates links when viewing Top Sites or the Bookmarks page in Safari.
+ Bug fix: Due dates are now correctly recognized when specifying them via LaunchBar on 10.5.
+ Bug fix: Links to files would get duplicated if the file name contained both Hiragana and Latin characters. This is fixed.
+ Bug fix: The due date is no longer decreased by 7 days if only (Shift-,) is pressed, as opposed to (Control-Shift-,)
+ Things for Mac 1.2
+ August 27, 2009
+ Mac OS X 10.6 Snow Leopard compatibility.
+ Quick Entry dialog autofill. Quick Entry can now automatically grab and populate content from apps like Safari, Mail, and the Finder.
+ Added many Keyboard Shortcuts . Navigate Things entirely with your keyboard.
+ Spotlight integration. Search for your tasks using Mac OS X Spotlight.
+ Added localizations for French, Spanish, and Russian.
+ Performance. Reduced the amount of time it takes to process recurring tasks during daily maintenance.
+ Quick Look integration. Quickly view the content of your tasks right from Spotlight search results in the Finder.
+ Tags. Tag shortcuts are no longer automatically created when creating a new tag.
+ Help Book. Updated the indices for the Things Help book in all localizations.
+ Bug fix. The due date no longer gets set when tabbing through the due date field.
+ Quick Entry: Fixed issues where the Quick Entry dialog could become unresponsive when trying to save a to-do and subsequently dismissing the Quick Entry dialog.
+ Quick Entry: Fixed a bug where pressing Return in the tags and notes field was saving the to-do instead of creating a new line.
+ Fixed a bug in the Quick Entry dialog that prevented Return/Enter keys from working correctly when the keyboard focus was outside the to-do.
+ Bug fix: Drag and dropping text into the title field now removes the default text "New To Do".
+ Bug fix: Quick Entry dialog was not saving an entered to-do when invoking the Quick Entry dialog again.
+ Preferences. Fixed a bug where the Quick Entry hotkey preferences change mode stayed active when closing/reopening the Things preferences.
+ Fixed a bug in the German localization where Today, Next, names of teammates, etc. could be temporarily renamed.
+ Changed the date format for year from ISO year-week calendar to calendar year to fix an issue where the ISO calendar differed from the calendar year.
+ Fixed an issue where Things did not work properly with Japanese calendar settings.
+ Fixed an issue where indices wouldn't get updated when adding to-dos to projects.
+ Bug fix. The upgrade progress indicator did not show progress when launching Things.
+ Bug fix. Pausing/Resuming a repeating to-do would re-schedule the repeating to-do.
+ Improved the behavior of Show in List / Show in Today / Show in Project.
+ iGTD users can now import their tasks into Things.
+ Things for Mac 1.1.3
+ July 1st, 2009
+ Added Japanese localization.
+ Fixed an issue with repeating to-dos where repeating dates were calculated incorrectly when specifying, "Repeat yearly every 2nd Sunday in May", etc.
+ Fixed problem that in some rare situations could result in repeating task templates to lose their repeating status and show a due date of 4000 or 4001.
+ Email links in project notes are now saved.
+ Fixed an issue where dragging a to-do from the Next list was not possible when view was filtered by due date.
+ Due items now remain in the Today list if you detach their project from an area.
+ Fixed an issue in the Quick Entry dialog where values entered in "Show in Today" were not saved.
+ Regression in Quick Entry dialog. Added button (again) to select tags from drop-down list.
+ Project notes are now included in the print view.
+ Fixed an issue where the menu item "Move to Next" was not disabled for repeating to-dos.
+ AppleScript. Fixed a bug where Things crashes when in edit mode while launching an AppleScript.
+ Fixed an issue where area and project headers would show up multiple times in the Next list.
+ Preferences. The hotkey option for the Quick Entry dialog is now disabled when unchecked.
+ Fixed crash when syncing after deleting the library on the Mac (only when tags in areas were present on the iPhone).
+ Help Book. Updated index and keyboard shortcuts.
+ AppleScript. Fixed an issue where "delete every area" did not delete the last area.
+ Things for Mac 1.1.2
+ May 11, 2009
+ Fixed a crasher on Snow Leopard related to entering due dates.
+ Regression. Certain network conditions made the sync progress window appear even when there was no sync session in progress. This is fixed now.
+ Things for Mac 1.1.1
+ May 5, 2009
+ Regression. Fixed display bug that occurred when entering long notes or titles in lists containing only a few to-dos.
+ Regresson. Fixed a bug that prevented text to be copied into the Quick Entry dialog.
+ Things for Mac 1.1
+ May 4, 2009
+ Added AppleScript support.
+ People. New model for working with delegated to-dos. Delegated to-dos retain their focus and are visible both under the teammate as well as in the focus they have been moved into.
+ People. When updating from Things 1.0.4, delegated items will appear in the Next or Projects list.
+ Added support for Area sync for Things for iPhone.
+ When an overdue to-dos is set to Not Today, it will stay in the Next list until the next day. Previously overdue to-dos were moved back to Today upon restarting Things or syncing.
+ Changed keyboard shortcut for the "Move to Someday" menu command from Cmd-S to Cmd-Y.
+ Changed keyboard shortcut for the "File..." menu command from Cmd-Right Arrow to Shift-Cmd-F.
+ Updated the software auto-update mechanism (we are now using Sparkle 1.5b6).
+ New support URLs instead of the previous built-in window.
+ Preferences. Updated and re-worked the UI of the iPhone Preferences pane.
+ Changed computation of badge count in sidebar and dock icon for better compatibility with Things touch.
+ Significantly improved the reliability of Wifi sync.
+ Added warning message when delegating a to-do from a project that has already been delegated.
+ Bug fix. Global search now finds to-dos from inactive projects.
+ Bug fix. The "Show in Project" command now also works when the Active Projects group is collapsed in the sidebar.
+ Bug fix. The drop targets for drags to the top or bottom of a list are larger now and drop indicators are fully drawn. 
+ Bug fix. Creating new to-dos in the Trash is now prevented.
+ Bug fix. Tag hierarchies are now being handled correctly (would previously hang when setting parent tags).
+ Bug fix. Quick Entry HUD no longer requires clicking the Things dock icon twice to see Things' main window.
+ Bug fix. Wrong button style in trial-expiration dialog (on Mac OS X 10.4 Tiger).
+ Bug fix. Repeating projects without a due date no longer display a wrong due date of 01.01.4001.
+ Bug fix. Disabled non-functional "Toggle Someday" menu command for tasks in a project.
+ Localization. German and English now use the same keyboard shortcuts in the View > Go To menu.
+ Things for Mac 1.0.4
+ February 16, 2009
+ iPhone sync. Improved reliability of iPhone sync for canceled projects.
+ iPhone sync. Improved reliability of iPhone sync in situations where tasks in a completed project have been unchecked.
+ iPhone sync. Fixed various situations that led to empty todos in the iPhone's Inbox.
+ Adding a new task to a completed project uncompletes the project.
+ Adding a new task to a logged project sets the new task to logged.
+ Marking a task in a completed project as uncompleted also marks the project uncompleted.
+ Uncompleted projects can no longer be dragged to the Logbook.
+ Repeating tasks can no longer be moved into projects using the File dialog.
+ When dragging items from the Trash to an area, they no longer stay in the Trash, but are made active instead.
+ Things for Mac 1.0.3
+ February 6, 2009
+ Regression. Reodering tags in the Tags window no longer crashes the app.
+ iPhone sync. Removed a bug that sometimes causes Things to crash during sync.
+ iPhone sync. Removed a bug that led to area headings appearing in the Inbox on the desktop after moving items to the Inbox on the iPhone.
+ Things for Mac 1.0.2
+ February 5, 2009
+ The order of projects and areas in the Next list is now consistent with the ordering in the sidebar.
+ Drag and drop of projects and areas in the sidebar is now immediately reflected throughout the entire UI.
+ Changes made to tags and changes made in the Tags HUD are now immediately reflected throughout the entire UI.
+ Fine tuned the Inbox and Area icons.
+ Added a link to the Things FAQ under the Help menu.
+ Setting multiple projects to inactive at once is now also possible when both active and inactive projects are selected.
+ License dialog. Name is no longer pre-populated from the Address Book since this caused confusion.
+ Preferences. Pressing the escape key in the iCal preference pane no longer dismisses changes without a warning.
+ Fixed a bug where the date chooser would not disappear after editing the due date of a project.
+ Bug fix. When the Things window is minimized, clicking on the Dock icon now maximizes the window.
+ Bug fix. Deleting items via Edit > Delete is now possible.
+ Bug fix. Moving items to other sources does no longer cause some of the remaining items to become selected.
+ Bug fix. The "Show in" toolbar button in the Logbook is now working for items that belong to a project.
+ Bug fix. After creating a new area, pressing the space bar to create new todos is now possible.
+ Bug fix. When clicking on an area header in Next, the corresponding area is now selected in the sidebar.
+ Bug fix. Tags can no longer be accidentally assigned by pressing shortcuts while editing a to-do.
+ Corrected typos in the Help Book.
+ Corrected typos in the German localization.
+ Things for Mac 1.0.1
+ January 17, 2009
+ Added setting to switch between the grouped and new style Today list.
+ Bug fix. Reordering items in the Today list (new style) no longer changes the order in projects.
+ Bug fix. Moving multiple items to the Today or other lists no longer reverses their order.
+ Wording in Projects list is now "xx more inactive or scheduled".
+ Fixed a rare bug that resulted in displaying a "Failed to save. Unknown store type, format, or version." error message.
+ German localization. Translated labels and menu commands that were overlooked in v1.0.
+ German localization. Keyboard shortcut for Tags window is working again.
+ German localization. Keyboard shortcut for Find is now also working in German localization.
+ Things for Mac 1.0 Final Release
+ January 6, 2009
+ Added an Apple Help Book.
+ Changed keyboard shortcut for opening the Tags window to Cmd-Shift-T.
+ Changed keyboard shortcut for the Toggle Today menu command to Cmd-T. The title of the menu item now reads "Today" or "Not Today" as appropriate.
+ Combined menu commands for moving items to the Someday and Next list into a single toggle command with keyboard shortcut Cmd-S. The title of the menu item adapts to the current selection and also reflects the difference between single to-do items and projects.
+ Changed keyboard shortcut for scheduling items to Cmd-R. The menu item's title now reflects whether an item is rescheduled or scheduled for the first time.
+ Added menu commands for filing items and marking items complete.
+ Added keyboard shortcuts for logging completed items (Cmd-L), making items repeating (Cmd-Alt-R), and marking items (un)completed (Cmd-.).
+ Changed keyboard shortcuts for the Go To commands to Cmd-0, Cmd-1, etc. (note the missing shift key modifier).
+ Removed expiration date.
+ Added a trial period reminder to the main window's title bar.
+ Bug fix. The search field now scrolls when entering more text than it can hold.
+ Refinement. When resizing the main window, the Logbook and Trash items in the sidebar now move immediately instead of jumping after resizing is complete.
+ German localization. Translated two previously neglected dialogs.
+ Things for Mac 1.0 Release Candidate 3
+ January 3rd, 2009
+ Regression. The Things 1.0 release candidate refused to start on Macs with a G3 processor. This is fixed.
+ Bug fix. Manage areas dialog. It is now possible to enter tags that didn't exist previously.
+ Bug fix. When having many tags assigned to a project, they are no longer clipped in the project header.
+ Notes that were added to an area item in earlier versions are now recovered and stored in an automatically generated to-do item inside the area.
+ New sidebar icon for Inbox.
+ Tweaked size of iCal preference pane.
+ Things for Mac 1.0 Release Candidate 2
+ December 30, 2008
+ Regression. Areas containing a scheduled item weren't ordered correctly. This is fixed.
+ Changed expiration date to Jan 15th.
+ Corrected a typo in the German localization.
+ Things for Mac 1.0 Release Candidate
+ December 29, 2008
+ New icons!
+ Added a (beautiful!) way to add and view license codes.
+ To-dos in the Today list can now be reordered across project and area boundaries. Consequently, the project and area headings are gone.
+ In flat lists like Today or when filtering by due date or searching, the project's title and due date are displayed in the to-do item itself.
+ In flat lists, tags inherited from a project or area are displayed in gray within the to-do item itself.
+ The "Show in List" toolbar button is now displayed in all flat lists (not only while searching).
+ Sidebar. Moved the Projects list to the Focus group. Previously, users new to Things often overlooked the Projects overview.
+ Sidebar. Removed an unnecessary level of indentation by grouping projects and areas under collapsable headings.
+ Sidebar. Titles of projects and areas can now be edited directly in the sidebar.
+ Sidebar. It is now possible to reorder projects and areas in the sidebar.
+ Sidebar. Projects can now be organized directly by dragging them in the sidebar to, e.g., a Focus list or an Area.
+ Sidebar. Added contextual (Control-click) menus.
+ Areas. In the main pane of the Things window, areas no longer appear as objects in their own right. Specifically, the Areas list is gone, and areas can now be managed using a dedicated "Manage Areas" dialog. Since projects and single to-dos still appear as objects, there is now a clear distinction between areas as containers and to-dos/projects as the contained items.
+ Areas. Areas no longer display a header. This leaves more space to the contained items and further helps to distinguish areas from projects.
+ Project header. Tags now get their own line to prevents multiple tags from being clipped.
+ Project header. Added a notes field, so it is no longer necessary to go to the Projects list to review a project's notes.
+ Project header. New design to make the new extended header to appear lighter.
+ Project header. Changed wording from "Reminder" to "Show in Today" to more clearly communicate what the function does.
+ Starting to edit a project item now always switches to the project view.
+ Adapted the appearance of items in editing mode to the new style used in project headers.
+ Added a "Make Repeating..." menu command to the Item menu.
+ iPhone sync. The ordering of the Today list now syncs correctly with Things on the iPhone. (This requires Things for the iPhone version 1.3 for best results. With version 1.2, you should not reorder Today items on both devices simultaneously.)
+ iPhone sync. Added support for syncing tags with Things for iPhone version 1.3. Version 1.3 has already been submitted and will be available on the App Store after the usual review process by Apple (which could take a week or perhaps longer).
+ Removed "Show due items in Today list" option in Preferences.
+ Compatibility. Due dates and activation dates (Scheduled list) are now evaluated at midnight instead of 4:00am. This improves compatibility with the iPhone version. In a later release we will add a preference to set a custom time of the day (or rather night :)).
+ Performance. Improved performance when resizing the main window.
+ Crash. Removed a bug that sometimes cause Things on the iPhone to crash during sync.
+ Bug fix. The due date filter button now displays correctly on Tiger.
+ Bug fix. Fixed a bug that prevented due dates from being saved in repeating to-do templates when starting the edit session by using the action gear in some situations.
+ Bug fix. Fixed a bug that resulted in the contents of the sidebar to be shifted and partially clipped.
+ Bug fix. Fixed a bug that resulted in previously completed/logged items to be moved to the Today list after iPhone sync (this fix specifically pertains to items with a due date).
+ Bug fix. Fixed a bug that prevented Reminders (now renamed to "Show in Today") to be synced to the iPhone.
+ Bug fix. Fixed a bug that resulted in the wrong to-do being marked as completed when clicking on a checkbox while another to-do was in editing mode.
+ Bug fix. The filter bar no longer appears for lists that contain a single item with multiple tags.
+ Bug fix. The due date filter button no longer appears for lists that contain a single item with a due date.
+ Bug fix. Changes made in project headers no longer get lost when clicking the New To Do button. 
+ Bug fix. The "Empty Trash" toolbar button is now disabled when Trash is already empty.
+ Things for Mac 0.9.6.1
+ December 5, 2008
+ When the contents of an Area of Responsibility is displayed in the main view, the "New Project" menu command now inserts the new project into the this Area instead of the general projects list.
+ You can now use Command-F to move keyboard focus to the search field. The only exception is when editing the note section of a to-do. In that case the standard find panel is shown.
+ Improved reliability of "https" URL detection.
+ The "Item>Move To" menu command didn't reflect the new ordering in the sidebar. This is fixed now.
+ Schedule Dialog, regression. When re-scheduling a to-do it was no longer possible to move the date to the past. This is fixed.
+ Schedule Dialog. The title of the action popup button now also updates when clicking into the date picker.
+ The state of toolbar buttons now update correctly when the selection changes due to applying an operation that removes an item from the current list.
+ iCal Sync. Syncing priorities now also works with the German localization.
+ Minor improvements to the German localization.
+ iPhone sync. Increased robustness and reliability of device discovery under unusual network conditions.
+ iPhone sync. Added "Sync now" menu command and button (Preferences).
+ iPhone sync. Added facility to debug sync/network problems. Clicking on the "Sync Now" button in Preferences while holding down the option/alt key copies a sync report to the clipboard.
+ iPhone sync. The progress window now has a cancel button and remembers its previous position.
+ iPhone sync. Fixed a Things touch crash related to syncing unmodified duplicated to-dos.
+ iPhone sync. Canceling and re-opening the set-up assistant sometimes led to devices no longer being discovered. This is fixed.
+ iPhone sync. Canceling the set-up assistant but still entering the code on the iPhone no longer crashes Things.
+ iPhone sync. When initiating sync from the mobile device, Things no longer moves all of its windows to the front. Sync process is still shown, but hidden immediately after sync has finished.
+ Things for Mac 0.9.6
+ November 1, 2008
+ Global search. The search field now operates on the entire Things database. Previously, searches were limited to the currently selected list.
+ For global searching, a "Show in List" button has been added to the toolbar (only visible when searching) which will display the currently selected search result in its original list.
+ Added a graphite version to the due date filter button. This setting automatically adapts to the Appearance setting for System Preferences.
+ Regression. On Tiger, automatic logging and the activation of start and due dates were broken. This is fixed.
+ Things for Mac 0.9.5.1
+ October 12, 2008
+ Extended expiration date to match the Things 1.0 release in January 2009 at Macworld (see blog post ).
+ Minor refinements.
+ Things for Mac 0.9.5
+ October 12, 2008
+ Added ability to filter and sort by due date.
+ Regression. 'Projects' item in the source list indicates the number of due projects (again).
+ iPhone sync no longer causes delegated tasks that become due to be removed from the person's list.
+ When scheduling items, the date can no longer be set to today inadvertently.
+ Empty projects or areas can no longer be dragged to the Inbox.
+ Larger font size for notes.
+ Interface refinements (capitalization, ellipses, checkmarks in Windows menu, etc.)
+ Fixed oversights in German localization
+ Things for Mac 0.9.4.1
+ September 29, 2008
+ Added German localization
+ iPhone Sync. Fixed an issue that resulted in to-dos not being shown under their respective projects.
+ Better reliability of "Duplicate" command and recurring task copies
+ Things for Mac 0.9.4
+ Support for iPhone sync.
+ In the list associated with an area, to-dos can now be dragged onto projects.
+ Things now automatically keeps backups (backups are stored in <home>/Library/Application Support/Cultured Code/Things)
+ Slightly improved status text when viewing a single project
+ Warning dialog if user attempts to open a library that was created with a newer version of Things
+ Things for Mac 0.9.3.2
+ Improved support for Asian input methods (Japanese, Chinese, etc.)
+ Fixed a bug in the natural language processing of due dates
+ Changed the expiration date to Oct 15th
+ Things for Mac 0.9.3.1
+ Alt-clicking on checkbox marks an item as Canceled.
+ Toggling the Today flag now also works on mixed selections.
+ Alt-Backspace shortcut for marking items as Canceled.
+ Added "Log Completed" tool to project view.
+ Tags window. Fixed a bug that prevented children of tags to be reordered (regression due to optimizations introduced in a previous Leopard update).
+ Fixed a bug that prevented children of inactive projects to be updated correctly when the project was moved to "Next".
+ Changed spelling of "Cancelled" to American English.
+ Canceling due items now works correctly.
+ Sidebar counts no longer include canceled items.
+ Canceled tasks will no longer be synced with the system/iCal.
+ In the morning the dock count was only updated after making Things the active application. This is fixed.
+ Things for Mac 0.9.3
+ Dock badge and corresponding preference settings (Leopard only).
+ To Do items now can have a "Cancelled" status.
+ Warning when attempting to check off a project that still contains incomplete items.
+ More compact design of the Today and Next lists.
+ The preferences window can no longer be inadvertently resized. Doing so previously broke the window's layout.
+ iCal sync. To Do items generated by repeating task templates are no longer ignored.
+ iCal sync now honors the "Move completed items to Logbook: Immediately" setting in other applications as well.
+ iCal sync. When specifying a tag x in the "Only items having any of the following tags" field, items that carried a child tag of x were not synced. This is fixed.
+ Validation of "Items" menu commands is more accurate now.
+ Emptying the trash when the Trash list is selected no longer crashes Things (regression in 0.9.2.1)
+ Fixed a regression that prevented delegated tasks in projects to be reordered.
+ Logging projects that still contain incomplete items no longer breaks the ordering in Next and Today (regression).
+ Things for Mac 0.9.2.1
+ Fixes crashers, in particular one related to iCal sync.
+ Things for Mac 0.9.2
+ Support for Leopard's system-wide to-do service.
+ Adding a new item in Things while another one is still open. The item that was already open is now properly closed and the newly created one enters editing mode.
+ Things for Mac 0.9.1.2
+ Corrected expiration date.
+ Things for Mac 0.9.1.1
+ Printing. Long project titles and tags no longer overlap.
+ Removed debugging code that resulted in Things using excessive amounts of memory.
+ Printing. Added headers and footers.
+ Printing. Long dates no longer overlap.
+ The print document window is now automatically closed when saving a PDF.
+ Printing should now work on versions of Tiger prior to 10.4.11 (using earlier versions is not recommended though).
+ Things for Mac 0.9.1
+ Native printing
+ Repeating items. Fixed a bug that resulted in "after completion" option not working properly.
+ Repeating items. Resuming a previously paused item no longer crashes Things.
+ Quitting Things before closing an edited item no longer results in loosing the most recent changes.
+ The Things library is written to disk more often now (after each edit).
+ Things for Mac 0.9.0.3
+ Repeating tasks on Tiger. Fixed a bug that resulted in upcoming dates to be computed incorrectly for the weekly setting when the number of weeks was bigger than one.
+ Fixed regression of Leopard style email links introduced in 0.9. Dragging emails to notes should now work again from all mailboxes including Notes.
+ Italian date format. Fixed a parsing problem that was caused by the fact that "mar" is short for both a month and a weekday name.
+ Completed items in the trash are no longer logged.
+ The "Move to Today" action is always preselected when scheduling an item that is marked Today.
+ Quick Entry Dialog. When choosing the Scheduled list, the Postpone dialog now shows the correct title.
+ The count displayed in project items now reads "1 item" instead of "1 items".
+ Things for Mac 0.9.0.2
+ Disabled reporting of minor errors until we have a more efficient way of communicating them.
+ Minor cosmetic changes.
+ Things for Mac 0.9.0.1
+ Items in Areas of Responsibility can be made repeating by using the action gear menu (visible in edit mode).
+ Scheduled items can me made repeating by using the drop down menu left of the items.
+ Pull down menu next to postponed items in Scheduled now displays the absolute date as its first item.
+ Descriptions of repeating items now correctly use 21st, 22nd, 23rd instead of 21th etc.
+ Action gear drop down menu now shows a message when user attemps to make a to-do repeating which is contained in a project (future versions of Things will support this option).
+ Replaced "Postponed" title with "Scheduled" in "Go To" menu command.
+ Make Repeating: "After completion" option now works correctly when item was completed already.
+ The Error Report dialog now offers to try to resume instead of quitting Things regardless.
+ Fixed a crash in situations where the target of a file link was deleted or unavailable.
+ Fixed a crash related to unnamed items.
+ Fixed a crash on systems where the Helvetica font was disabled or deinstalled.
+ Fixed a crash that occurred while attempting to manipulate a newly created item with the mouse while the item was still in editing mode.
+ Things for Mac 0.9
+ Recurring Tasks
+ Added a "Choose Things Library" dialog that can be invoked by holding the option/alt key while opening Things.
+ Better error handling. Things will now catch more unexpected errors and also offers a convenient way to send reports via email.
+ To-dos and projects can now be duplicated via the menu command in the Edit menu.
+ Renamed "Postponed" to "Scheduled"
+ The Scheduled list now uses headings to groups items like "Next week", "April", etc.
+ The Scheduled list now uses relative dates
+ The Scheduled list now re-sorts instantly when changing a date.
+ Added a "Move to Today"-option for postponed to-dos.
+ The add tag button menu is now hierarchically structured. 
+ The add tag button now also works when the tag field does not have keyboard focus.
+ Hi-res application icon
+ Project and area items now indicate if they contain due items.
+ More informative description for a project's item count at bottom of the main window.
+ Double clicking no longer creates new to-dos (too often new to-do items were accidentally created)
+ Quick Entry dialog. Things is no longer inadvertently un-hidden when tags are entered.
+ By clicking into the main window while Things is not active, to-dos can no longer be checked off. Previously it could happen that the wrong to-do was marked completed.
+ When the Quick Entry dialog was brought up, the notes field sometimes had a wrong height. This is fixed.
+ Fixed the drop shadow problem on Mac OS X 10.5.2
+ Fixed a bug that sometimes resulted in reminders not to be saved correctly.
+ Fixed Bugs related to dragging Apple Mail messages to notes (Leopard only). Dragging now works from every mailbox and special characters are displayed correctly.
+ Fixed "Notes is not valid" error. This is in fact a workaround for a bug in Mac OS X 10.4.
+ Fixed memory leaks and improved performance.
+ Things for Mac 0.8.7
+ Improved stability and reliability (in particular related to removing teammates)
+ Project due dates are now also shown in Next and Today lists.
+ French date format. Corrected problems with setting due dates.
+ Ordering of items in the "Move To" and "Where" menus were inconsistent with the side bar. This is fixed.
+ The mini calendar now honours the user's "Start week on" iCal setting.
+ Todos correctly display their due date even past midnight (due and postponed dates are not supposed to activate before 4:00 am in the morning)
+ In addition to the backspace key, the delete key can now also be used to remove items.
+ Inbox no longer counts completed todos.
+ When dragging items to a text document, the resulting text no longer uses wiki/html syntax.
+ Things for Mac 0.8.6
+ This version is our first public preview
+ The Quick Entry dialog now marks due items Today immediately (this applies to active items in general)
+ Fixed a bug related to some date formats that contained minus signs.
+ Fixed problems that occurred when either CMD+5, CMD+6, CMD+8, or CMD+9 was used in the Quick Entry dialog (Tiger only).
+ Sometimes the tag window didn't update properly when the user rearranged tags. This is fixed.
+ Things now uses an expiration date of April 15, 2008 (v0.8.6 is our first public release).
+ Things for Mac 0.8.5
+ Option to automatically mark due items Today.
+ Quick Entry dialog. Todos can now be saved to projects and areas of responsibility.
+ "Todos > Move To" menu.
+ Keyboard shortcuts from the "Move To" menu can also be used in the Quick Entry dialog.
+ Revised Undo/Redo
+ "Check Spelling While Typing" now remembers setting across launches.
+ Larger drop target for todos dragged to the bottom of a list.
+ Double clicking into the empty space below a list now creates a new todo.
+ Toolbar button and action menu item for emptying the trash.
+ Hot key for Quick Entry dialog now works as a toggle.
+ Several visual improvements for Leopard users
+ Performance improvements
+ Fixed a serious bug related to deleting items using the action menu below the side bar.
+ Previously the mini calendar did not commit changes when the user clicked outside the calendar. This is fixed.
+ Removed the animation from navigating projects and areas.
+ Changed style for displaying projects and areas in lists.
+ Areas List. The number of items contained in an area is now computed correctly. Previously, logged items were also counted.
+ Area. The tag bar no longer displays tags that are only contained in already logged items from the area.
+ Things for Mac 0.8.4
+ Added a dialog to assist users who ran into Apple's (Tiger-only) Core Data bug.
+ Things for Mac 0.8.3
+ Implemented a workaround for a serious Tiger specific bug in Apple's Core Data framework. Notes containing hashes '#' were garbled in ways that could even lead to Things archives becoming corrupted.
+ Disabled Undo. Undo is likely to cause instabilities. We will re-enable undo once we identified and corrected the problems.
+ Users are prevented from accidentally entering empty tags. Running this update also fixes archives that contain such tags. Previously, empty tags could even lead to Things becoming unusable.
+ Fixed a bug that could result in embedded help texts not being centered.
+ When the Quick Entry dialog was invoked in a space different from the main window, the mini calendar was not displayed. This is fixed.
+ Using the Keyboard shortcuts CMD+0, CMD+1, etc. (see the View menu) now also opens the main window if it has been closed previously.
+ Really :) fixed the bug that prevented mail links from being created for certain messages.
+ Things for Mac 0.8.2
+ Lists can now be navigated using keyboard shortcuts (Inbox Cmd-0, Today Cmd-1, etc.) or the "View" menu.
+ Added dialogs to give feedback in situations where user tries to initiate unimplemented operations.
+ Added an introductory start-up screen for new users.
+ Added help texts that are displayed instead of an empty list.
+ Fixed a critical bug where replacing a tag's title in the tag window led to Things becoming completely unresponsive.
+ Fixed a critical bug where successively invoking the Quick Entry Dialog using services could lead to previous titles being overridden by later ones.
+ Fixed a bug that could result in edits being lost when clicking outside of a to-do to close it.
+ Fixed a bug that could result in edits made in the header section of either projects or areas to be lost when the user switched to another list.
+ Fixed a bug that prevented mail links from being created for certain messages.
+ Things no longer crashes when the user's preferred date format does not contain the year component.
+ The tag field no longer changes case while entering new tags. If, for example, a tag "Bob" already exists, it is now easier to create a new tag "blog" without the tag field changing "b" into "B" while typing.
+ URLs pasted into the notes field are now formatted correctly.
+ Tag bar. Multiple tags can now also be selected using the command key.
+ Things for Mac 0.8.1
+ Added a dialog for sending feedback.
+ Natural language input for due dates.
+ Added a mini calendar for due dates.
+ Files can now be dragged to the notes section of to-dos. The file itself is not copied to the Things archive, only references are stored.
+ Email messages can be dragged to the notes section of to-dos (requires Apple Mail 3.1). Clicking on the corresponding link will open the message in the user's default email client.
+ Web addresses dragged from, e.g., Safari's address field, are now displayed using the web page's title.
+ Dragging files or web addresses onto Things' application icon opens the Quick Entry window with corresponding links added to the notes section.
+ Changed default hot key to CTRL+Space.
+ Pressing the hot key no longer brings the main window to front.
+ Pressing the hot key twice no longer crashes Things.
+ Fixed Tag autocompletion in Quick Entry dialog (only affected users on Leopard).
+ When the Tags field has keyboard focus, the down arrow key opens the add tag popup menu.
+ Disabled "New Tag" warning dialog.
+ When editing to-dos, holding the "esc" key no longer aborts editing, but save changes instead. (This is particularly useful when keyboard focus is in the notes section.)
+ Cmd-Tab no longer re-opens the main window.
+ Fixed service menu commands.
+ Preferences. The hot key field no longer gets keyboard focus when the preference dialog is opened.
+ Preferences. The "Move completed items to archive: Immediately" setting now works correctly.
+ Fixed a rare but serious bug, where Things stopped saving to the archive when an internal database error was encountered.
+ Badges in the side bar no longer become partially hidden.
+ To-dos no longer lose the Today property when filed under a project or area of responsibility.
+ Things for Mac 0.8b
+ Fixed a compatibility problem that prevented drag & drop on Leopard systems from working correctly.
+ Fixed a bug that resulted in notes attached to projects or areas to be deleted.
+ Application doesn't quit anymore when main window is closed.
+ Things for Mac 0.8a
+ Version 0.8 was our first release.
+ Compatibility with Mac OS X 10.5 Leopard.
+ Didn’t find what you were looking for?
+ Contact Us 
+ Footer
+ Products
+ Things for Mac 
+ Things for iPhone 
+ Things for Watch 
+ Things for iPad 
+ Things for Vision 
+ Support
+ Help 
+ Contact 
+ Getting Productive 
+ News
+ Blog 
+ Newsletter 
+ Status Board 
+ Company
+ About Us 
+ Jobs 2 --> 
+ Privacy Policy 
+ Terms 
+ Press 
+ Cultured Code 
+

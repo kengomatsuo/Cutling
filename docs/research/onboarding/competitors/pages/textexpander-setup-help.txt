@@ -1,0 +1,9 @@
+https://textexpander.com/learn/using/textexpander-for-iphone-ipad/how-to-set-up-textexpander-for-iphone-ipad fetched 2026-11-21 (Chrome get_page_text; page says Last updated September 4, 2026; key lines kept)
+Needs iOS 18+ and a TextExpander account (sign up free at textexpander.com).
+Flow: install from App Store, open app, sign in (SSO option for organisations).
+Add the keyboard: Settings > General > Keyboard > Keyboards > Add New Keyboard > TextExpander > tap TextExpander in the list > turn on Allow Full Access > tap Allow.
+Important note: Full Access lets TextExpander read the signed-in snippet library and expand snippets; with it off the keyboard still types normally but snippets wait.
+Switch: in any app tap a text field, tap the globe or keyboard switcher until TextExpander appears, type an abbreviation to expand a snippet.
+Then: suggestion strip, search from keyboard, fill-ins, swipe typing, emoji search.
+Tip: drag TextExpander lower in the keyboard list (Edit) so Apple's keyboard stays first.
+Troubleshooting: "My snippets aren't expanding" (use TextExpander keyboard, Full Access on, signed in) and "I don't see the keyboard" (restart device).

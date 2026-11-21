@@ -1,0 +1,20 @@
+source: https://github.com/jmlivingston/keyboard-kabuki/issues/5 (gh api), fetched 2026-11-21
+created 2026-10-28T23:20:01Z updated 2026-10-28T23:26:02Z state closed
+Can the app tell whether the French Kabuki Keyboard has been added?
+## Question
+
+Can the containing app detect, without Full Access and without private API, whether the user has added the French Kabuki Keyboard in Settings › General › Keyboard › Keyboards? Possible routes include `UITextInputMode.activeInputModes`, the keyboard writing a flag (it can't write to the App Group without Full Access), or anything else documented. If not, what can the setup screen reliably show instead? Can the app open the right Settings page directly (`UIApplication.openSettingsURLString` lands in the app's own settings)? Use primary sources.
+--- 2026-10-28T23:26:01Z jmlivingston
+## Resolution: not reliably, so the setup screen should guide the user rather than detect
+
+- **No public API identifies our keyboard.** `UITextInputMode.activeInputModes` is public, but each mode exposes only `primaryLanguage`. A `fr-FR` Kabuki Keyboard looks the same as Apple's French keyboard.
+- **The identifying data is private.** `identifier`, `isDisplayed`, and the `AppleKeyboards` user-defaults key are all undocumented. KeyboardKit reads them through KVC, but App Review 2.5.1 rules that out for us, and the privacy manifest's UserDefaults reasons forbid reading data the system wrote.
+- **The keyboard can't send a flag back.** Without Full Access it has read-only access to the App Group, and keyboard extensions can't call `NSExtensionContext.open`.
+- **`activeInputModes` is a Required Reason API.** Using it needs reason `3EC4.1` ("custom keyboard app … determine the keyboards that are active"), and the data must stay on the device.
+- **It still gives a reliable negative.** "No French keyboard active" means ours isn't added. A positive result is only a hint.
+- **Settings deep link:** `openSettingsURLString` opens the app's own Settings page. No public URL opens General › Keyboard, and `prefs:` schemes are private. Whether the app's page shows a "Keyboards" toggle row is undocumented, so it needs a device test.
+- **Recommended setup screen:** HIG-style instructions, an "Open Settings" button, a "Try it here" field that watches `textInputMode.primaryLanguage` for a soft hint, and a manual "I've added it" button.
+- **New open question:** could the French Kabuki Keyboard use a unique BCP 47 tag (for example `fr-FR-x-kabuki`) to make public-API detection near-certain? Trade-offs are autocorrect and spell-check language, and what Settings displays. Needs a device test.
+
+Full findings, with sources and documented / inferred / unverified tags: https://github.com/jmlivingston/keyboard-kabuki/blob/research/detect-keyboard-added/docs/research/detect-keyboard-added.md
+

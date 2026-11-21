@@ -1,0 +1,15 @@
+// https://github.com/discourse/discourse/blob/ba3bd0d0d47622cf8a9d216d1d935cf93aaec41d/app/jobs/regular/update_top_redirection.rb  (GPL-2.0, fetched 2026-11-21; Ruby, server side)
+# frozen_string_literal: true
+
+module Jobs
+  class UpdateTopRedirection < ::Jobs::Base
+    def execute(args)
+      return if args[:user_id].blank? || args[:redirected_at].blank?
+
+      UserOption
+        .where(user_id: args[:user_id])
+        .limit(1)
+        .update_all(last_redirected_to_top_at: args[:redirected_at])
+    end
+  end
+end

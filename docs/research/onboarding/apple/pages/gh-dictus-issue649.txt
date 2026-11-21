@@ -1,0 +1,358 @@
+source: https://github.com/getdictus/dictus-ios/issues/649 (gh api), fetched 2026-11-21
+created 2026-10-04T18:03:21Z updated 2026-10-24T13:06:00Z state closed
+Rebuild onboarding for 2.0.0: redesign, Smart Modes, voice notes, and guided setup videos
+> **One issue for the whole onboarding.** It replaces #450 (onboarding v2), #494 (teach the Smart Modes during the trial) and #451 (Apple Intelligence readiness on the polish step), which are closed in favour of this one.
+>
+> **Decided by Pierre on 2026-10-04: this gates 2.0.0, before #279.** The 2.0.0 App Store listing (#643) sends new users straight into onboarding. With the reverse trial live, onboarding is where they have to discover what Pro does. If they don't, the 14 days run out unused.
+>
+> **Grilled with Pierre on 2026-10-05. The decisions below are the spec.** Budget: about two weeks; Pierre takes it out of the 2.0.0 gate himself if it overruns.
+
+## Current flow (`DictusApp/Onboarding/`, ~2 000 lines)
+
+`WelcomePage` → `MicPermissionPage` → `KeyboardSetupPage` → `PolishTogglePage` (only when `PolishAvailability.isToggleVisible`) → `ModelDownloadPage` → `GlobeKeyTutorialPage` → `OnboardingSuccessView`. Then the trial announcement sheet (#593) is raised automatically for a new user (`ProTrialCoordinator.onboardingCompleted()`). The animations are drawn in SwiftUI; there is no video and no AVKit anywhere in the app. `UIBackgroundModes` already contains `audio`.
+
+Two defects found while grilling, fixed by PR A:
+- The keyboard language defaults to `fr` for everyone (`SharedKeys.language`), so an English or German user starts on a French AZERTY keyboard.
+- The recommended model depends on the device only (`ModelInfo.recommendedIdentifier`), never on the language, so a Chinese speaker is recommended Parakeet, which does not speak Chinese.
+
+## Decisions
+
+**The journey**
+
+1. The order (**revised 2026-10-06** after the competitor review, see the comment of that day):
+   1. Animated intro, three scenes (decision 15; story revised 2026-10-07 in #667: walking, metro without network, the keyboard in Notes)
+   2. Language and keyboard. **The model download starts when this screen is confirmed.**
+   3. Keyboard in iOS Settings, with a Picture in Picture video
+   4. Apple Intelligence, only if it is not ready
+   5. Feature videos (decision 9). **The Smart Modes video is followed directly by the pick of three Smart Modes** (decision 16, moved there on 2026-10-07), then voice notes, vocabulary, history
+   6. Wait for the model, only if it is still downloading or compiling
+   7. Microphone (decision 17)
+   8. First dictation through the globe key, in three states: before the field is tapped (a looping drawing of the globe long-press), Apple's keyboard open (a banner above it), Dictus's keyboard open (a banner pointing at the mic). The app cannot draw over the system keyboard, so every hint sits above it.
+   9. How to stop Dictus from the Dynamic Island (decision 19)
+   10. Completion
+   11. The trial announcement, unchanged and automatic
+2. **The polish page leaves onboarding.** Polish stays off by default (already the default) and is discovered in Settings. Existing users who turned it on keep it. Why: Parakeet is already clean, polish adds seconds to every dictation, and a new user judges Dictus on speed.
+
+**Language and model**
+
+3. **The language screen** is prefilled with the iPhone's language, so for most users it takes one tap. The keyboard language and its default layout follow it (`SupportedLanguage.defaultLayout`), and the layout can be changed on the same screen (AZERTY / QWERTY / QWERTZ). If the spoken language has no Dictus keyboard (Chinese, for example), a second line asks for the keyboard language among the supported ones, and the transcription language is set explicitly (#226). The screen says this can be changed later. Several languages are set up in Settings, not here.
+4. **One model, no choice in onboarding.** The recommendation becomes a rule on **language + device**, in DictusCore with unit tests:
+   - a language Parakeet v3 covers, on a device with 6 GB or more → Parakeet;
+   - any other language → the best Whisper the device runs reliably (check which variant before choosing; the turbo has a history, #144);
+   - pre-A14 devices → today's rule.
+
+   The screen says the model is the best one for the user's language and iPhone, and can be changed in Models. Why: offered a choice, users take the lightest model instead of the best one.
+5. **The download runs on any network, without asking.** The size is shown in small type and blocks nothing. Why: "wait for Wi-Fi" is a lost user.
+6. The download must survive the user leaving for Settings, and iOS killing the app when Full Access changes. It runs on a background `URLSession` (`BackgroundModelDownloadService`) that resumes after an interruption (#449). **The compile must not start while the app is in the background** (#472). Device validation covers that kill.
+
+**Apple Intelligence step**
+
+7. It is shown only on a capable device where Apple Intelligence is not ready.
+   - It gives the exact Settings path. There is no public deep link to the Apple Intelligence page, private `App-Prefs:` URLs get rejected, so the only link is `openSettingsURLString` plus the written path.
+   - It warns that **the Siri language must match the device language**, which Apple's support page still requires on iOS 27.
+   - It re-checks `availability` when the app comes back. It promises no duration: Apple's model is up to 8 GB and can take from minutes to hours.
+   - It can always be skipped.
+   - Reported Apple bug: turning Apple Intelligence off can read as `modelNotReady`, so the copy must not depend strictly on the reason.
+
+**Feature videos**
+
+8. One video per screen with **Next**, plus a discreet **Skip** that jumps the whole sequence. Next is never blocked by a video, only by the model. No live Smart Mode demo: Apple Intelligence is often not ready during onboarding.
+9. The order:
+   1. Smart Modes
+   2. Voice notes. The video ends with **adding Dictus to the share sheet's favourites** (Share → More → Edit → +). No API exists to do this for the user.
+   3. Vocabulary
+   4. History with search (#621)
+
+**Picture in Picture**
+
+10. One day of spike. **The PiP content is a checklist drawn in code, not a recorded video** (revised 2026-10-06): Wispr Flow's floating guide over Settings is a dark card listing the steps ("Keyboards → turn on Full Access → Allow → come back"). The checklist is rendered frame by frame into an `AVSampleBufferDisplayLayer` (`AVPictureInPictureController.ContentSource(sampleBufferDisplayLayer:playbackDelegate:)`, iOS 15+). It plays inline, and tapping **Open Settings** sends it into PiP (`canStartPictureInPictureAutomaticallyFromInline`).
+    - Apple requires PiP to start from a user action, never programmatically; that tap is the action.
+    - The PiP stops by itself when Full Access is detected, as Wispr Flow's does.
+    - The spike also measures whether the app, backgrounded under PiP, can tick each line as it is done. If not, the checklist stays static.
+    - It uses a silent `.playback` session with `.mixWithOthers`, and is checked against the recording session.
+    - If it does not hold, the fallback is the same checklist animation played in the app, plus the existing detection of the return from Settings.
+
+**Reuse**
+
+11. **What's new for existing users:** at the first launch of 2.0.0, they see the same feature-video sequence once, without the setup steps, then the existing trial announcement (the `.existingUser` kind). It needs a "last version seen" key, which does not exist yet.
+12. ~~**The same videos sit on the Pro hub cards (#216).**~~ One feature-video component, used in three places: the onboarding, What's new and ~~the hub~~ the Pro feature screens.
+    - *Amended 2026-10-22 (Pierre's decision, #686 / PR #743): the scenes are not in the hub cards. The hub stays as it was (#216); each Pro feature screen has a "How it works" card whose "See the demo" link opens the onboarding scene in a sheet.*
+
+**Design and production**
+
+13. **Mock-ups first, in Pencil, before implementation.** The direction was chosen on 2026-10-06 from Pierre's recordings of three competitor onboardings (Wispr Flow, Superwhisper, Typeless), which stay out of the public repo:
+    - **It follows the system appearance, like the rest of the app** (revised 2026-10-06, was forced light). Light is the app's own grouped grey background (`#F2F2F7`) with white cards, exactly like every other screen of the app (revised 2026-10-06 after capturing the real app: the "pure white" this line used to assume does not exist in the app); dark is the app's dark (`#0A1628`). Both cost nothing extra because every animation is drawn in code (decision 14). Mock-ups show both.
+    - Superwhisper's visual language, on the app's own colours: large Liquid Glass buttons, large iPhone mock-ups that are cropped (never shown whole) and animated.
+    - **The onboarding shell is new; the app's screens are not redesigned** (decided 2026-10-06). A screen that exists elsewhere in the app (model preparation, the keyboard and its Smart Mode fan, the voice-note reader, Vocabulary, History) is shown as it is today. An onboarding-specific variant is allowed, named as such and approved by Pierre. Only iOS system UI (Settings, the Picture in Picture card, the Dynamic Island, the Lock Screen, the globe menu) is drawn.
+    - The first dictation through the globe key keeps its mechanics; only its look is reworked.
+14. **Motion design in code, not recorded videos** (revised 2026-10-06, replaces the 12 Screen Studio clips). Superwhisper's onboarding has no recordings: its screens are drawn mock-ups (a keyboard of grey blocks, fake toggles, a fake Settings page, a Dynamic Island) animated inside the screen, which is why the screen and the mock-up read as one interface.
+    - Every "video" in this issue (keyboard Settings, Apple Intelligence, Smart Modes, voice notes with favourites, vocabulary, history) is a looping SwiftUI animation of drawn mock-ups, 10 to 20 s, silent.
+    - Colours come from the app's palette, so light and dark come free; the text inside the mock-ups is localized, so FR and EN come free too.
+    - A Screen Studio recording is the fallback only for a scene that cannot be drawn, recorded in light mode.
+    - The cost moves from Pierre's recording time to implementation: about half a day to a day per scene, six to eight scenes. It is the heaviest item of PR B and C; Pierre takes it out of the 2.0.0 gate if the two-week budget overruns (as stated at the top).
+    - "Feature video" in decisions 8, 9, 11 and 12 now means one of these animated scenes; the shared component (decision 12) plays animated scenes, not files.
+
+**Added 2026-10-06, after the competitor review**
+
+15. **An animated intro replaces the static Welcome**, two or three scenes in the spirit of Wispr Flow's opening carousel: the hand-drawn marker-style woman from the App Store screenshots (#643) walks, dictates, then the hand-drawn Dictus keyboard appears briefly. The art already exists and is drawn in code: the walking woman (`assets/appstore/art/v1x-B/`, merged into #643's branch) and the drawn keyboard (`assets/appstore/art/v10-A/heroSpeak10.ts`, branch `chore/643-hero-a`). The scenes are exported as short looping videos, **one light and one dark render** (the art is code, so the second render costs nothing), and played in the app, so no animation dependency is added. No text baked in.
+16. **A "pick your three Smart Modes" step, right after the Smart Modes feature video** (moved on 2026-10-07; it first sat right after the language screen, which asked for a choice before the user had seen what a Smart Mode does). It still falls within the download time. The keyboard's long-press fan holds three modes (`SmartModeCatalogue.maximumPinnedModes`) and the catalogue has more: Structured, List, Message, Summary, and Translate to English, French, Spanish, German (the four `SupportedLanguage` targets, as today). One large card per mode with a one-line explanation; the translation target equal to the language chosen on the language screen is not offered. The choice is written to the pinned list (`SmartModeStore`) and replaces the seed (`defaultPinnedIdentifiers`). Skipping keeps the seed. Hidden on a device that can never run Smart Modes, like the rest of the Pro steps.
+17. **The microphone permission moves to just before the first dictation.** It is the moment the user understands why it is needed, and no step before it uses the mic. It keeps a pre-permission screen that says why, so the system popup never appears in the middle of the first recording. `OnboardingStep` persists by raw value, so reordering does not break an onboarding resumed after iOS kills the app.
+18. **Refused from the competitors:** account creation (Wispr Flow, Typeless: Dictus has no account, and says so); a hard paywall with prices at the end (Superwhisper, Typeless); setting up the Action Button through Shortcuts (Superwhisper: too heavy for what it gives); a notifications step (Wispr Flow, Typeless).
+
+19. **Show how to stop Dictus from the Dynamic Island, right after the first dictation** (added 2026-10-06, from Superwhisper's tutorial). Many users ask how to turn off the standby (the orange mic indicator). The control already exists: the power button in the expanded standby Live Activity (`StopStandbyIntent`, `DictusLiveActivity.swift`), also on the Lock Screen view. Nobody finds it, so the onboarding shows it.
+    - Placed right after the first dictation, which is the moment the standby island appears for real.
+    - A looping animation drawn in SwiftUI, not a recorded video: compact island → long press → expanded island with the power button → tap → the island goes away. One sentence of localized text with it.
+    - **Dynamic Island devices only.** There is no public API to detect one, so the rule is a table on the model identifier (`DeviceCapabilities` already reads it), in DictusCore with unit tests. It lists the known models **without** an island (notch and Home-button iPhones, iPhone 16e) and treats any unknown identifier as having one, so a future iPhone is covered. Check every recent model against Apple's spec pages before writing the table.
+    - Without an island, the same step shows the Lock Screen version of the button instead.
+    - ~~It is also part of What's new for existing users (decision 11), since they are the ones asking.~~
+    - *Amended 2026-10-22: no longer in What's new. Decided on 2026-10-14 after testing PR #741 (#685, commit 56bf6bb0): stopping the standby from the island has existed since the first version, so it is a reminder for new users in the onboarding, not news for existing ones.*
+
+## Delivery
+
+- **PR A, no design. Ready for an agent now.** Language screen; the language + device model rule with tests; download started from the language screen; polish page removed. It uses today's visual style; PR B re-skins it.
+- **PR B:** the new visual shell from the approved mock-ups (light and dark), the animated-scene component, the animated intro, the Smart Mode pick step, the microphone moved before the first dictation, the Dynamic Island stop tutorial, the PiP spike and its fallback.
+- **PR C:** the video sequence, the Apple Intelligence step, What's new, and the videos on the hub cards. **It needs #216 (PR #614 and #615) merged first.**
+
+## Acceptance
+
+- [ ] An English-, German- or Spanish-language iPhone finishes onboarding on its own language's keyboard and layout
+- [ ] A Chinese-language iPhone is recommended a Whisper model, not Parakeet
+- [ ] The download starts on the language screen and survives leaving for Settings and iOS killing the app
+- [ ] No polish page in onboarding
+- [ ] The Apple Intelligence step appears only when needed, and re-checks on return
+- [ ] The video sequence works, Skip and Next are never blocked by a video
+- [ ] The checklist PiP over Settings works and stops on Full Access, or the fallback ships and the spike's result is written here
+- [ ] Existing users see What's new once, then the trial announcement
+- [ ] ~~Hub cards play the same videos~~ The Pro feature screens open the same scenes in a sheet ("See the demo") *(amended 2026-10-22, #686 / PR #743)*
+- [ ] On a device that can never run Smart Modes: no Pro step and no trial (#593, decision 2)
+- [ ] No paywall and no price in onboarding~~; respects `PremiumFlags.paywallVisible` (#279)~~ *(amended 2026-10-22: the onboarding has no price and no StoreKit, and 2.0.0 ships with `paywallVisible = true` (#279), so no gate on the flag is needed; no code change)*
+- [ ] The onboarding follows the system appearance, on the app's own light grey and dark backgrounds
+- [ ] No recorded video except a documented fallback; every scene is drawn in code
+- [ ] The intro plays the drawn character and keyboard scenes
+- [ ] The Smart Mode pick writes the three pinned modes; skipping keeps the seed; hidden where Smart Modes can never run
+- [ ] The microphone is asked right before the first dictation, after a screen that says why
+- [ ] After the first dictation, a Dynamic Island iPhone shows how to stop the standby from the island; another iPhone shows the Lock Screen button~~; existing users see it in What's new~~ *(amended 2026-10-22: dropped from What's new on 2026-10-14, #685 / commit 56bf6bb0)*
+- [ ] FR and EN
+- [ ] Device validation on a small supported iPhone and on a recent Pro iPhone
+
+## Out of scope
+
+- Measuring drop-off per step (no analytics pipeline). If wanted, it goes to 2.1.
+- The keyboard declared as French in iOS Settings: #653.
+- Exporting the debug log before onboarding completes: #368.
+
+## Replaces
+
+#450, #494, #451. Related: #593 (reverse trial), #620 / #637 / #639 (voice notes), #621 (history search), #216 (Pro hub), #643 (listing), #279 (paywall flag), #226 (transcription language), #653.
+
+
+
+
+
+
+--- 2026-10-06T11:11:40Z Pivii
+Reusable art for the onboarding's first screen (Pierre, 2026-10-06): the App Store work in #643 produced a hand-drawn Dictus character and marker-style iPhones, drawn in code with anidoodle (`koi` marker comic style), so they are reproducible and can be animated.
+
+- Woman sitting on a giant iPhone whose screen shows the Dictus keyboard recording: branch `chore/643-hero-a`, source `assets/appstore/art/v10-A/heroSpeak10.ts`.
+- Woman walking with a tote bag, iPhone held up, her voice flowing into the keyboard: the slide 1 hero on PR #645 (branch `chore/643-hero-b`).
+
+Pierre's intent is to animate this character on the first onboarding screen. Start from these sources rather than drawing a new character.
+--- 2026-10-06T12:39:45Z Pivii
+Carry-forward from #635 (PR #657, merged): on pre-A14 devices (`DeviceCapabilities.supportsKeyboardDictation == false`) onboarding currently shows a chip notice on `KeyboardSetupPage` (keyboard dictation unavailable on this device, in-app dictation works) and rewords the globe tutorial to a typing prompt, because the keyboard mic is disabled there. The rebuilt onboarding has to keep both.
+--- 2026-10-06T13:32:40Z Pivii
+Decided by Pierre on 2026-10-06 while reviewing PR #654: for a spoken language without a Dictus keyboard (Chinese, for example), the transcription language is set to **auto-detect**, not an explicit code. #226 reserves explicit codes for the keyboard languages, and auto-detect is the path #226 validated in Mandarin. This amends decision 3 ("set explicitly").
+--- 2026-10-06T15:22:06Z Pivii
+**PR A shipped**: PR #654 merged into develop as 94c16595 on 2026-10-06. Device-validated by Pierre on build 1d94df2d (iPhone 15 Pro Max, iOS 27.0.1) in French, English and Chinese:
+- language screen prefilled from the iPhone language; keyboard and layout follow it (English → QWERTY);
+- Chinese → Whisper Turbo recommended, transcription in auto-detect, Mandarin dictation detected `zh`;
+- download started from the language screen, survived iOS killing the app on Full Access (resumed at 2 % and 22 %) and a force-quit, over 3G / 4G / Wi-Fi;
+- compile deferred while backgrounded (`deferredUntilForeground`, 92 s wait), then 205 s for Turbo, under the 300 s budget;
+- no polish page; the model-wait page advances on its own once the model is ready.
+
+Not observable in this build: the trial announcement, because `PremiumFlags.paywallVisible` is false; that check moved to #279.
+
+Next for this issue: the competitor analysis (Pierre's recordings), then Pencil mock-ups, then PR B and PR C.
+--- 2026-10-06T17:24:30Z Pivii
+## Competitor onboarding review (2026-10-06)
+
+Pierre recorded the onboardings of Wispr Flow, Superwhisper and Typeless on his iPhone. The recordings stay out of the repo. The decisions they produced are written into the body (revised decisions 1, 13 and 14, new 15 to 18). This comment keeps the reasoning.
+
+**Wispr Flow (~130 s, ~18 screens).** The reference for pacing.
+- Kept: the opening carousel of full-bleed animations, which becomes our drawn-character intro (decision 15); the floating guidance over Settings, which confirms the PiP plan (decision 10); a real first dictation through the globe key, which we already have.
+- Refused: a required account; notifications and a desktop upsell after the climax.
+
+**Superwhisper (~124 s).** The reference for the look.
+- Kept: white and grey, large Liquid Glass buttons, large cropped iPhone mock-ups that animate; and an early question about which modes the user wants, which becomes the Smart Mode pick (decision 16). The keyboard fan holds three modes and the catalogue has eight, so the user has to choose them somewhere.
+- Refused: setting up the Action Button through Shortcuts. It avoids opening the app for the first keyboard dictation, but most of the two minutes go there.
+- Also refused: a hard paywall with a monthly price.
+
+**Typeless (~56 s).** Not retained.
+- The first screen is a login.
+- The privacy screen has two tabs.
+- There is no real dictation.
+- It ends on a hard paywall with three prices.
+
+**Microphone order.** Wispr asks for the mic at the test dictation, where the reason is obvious. Dictus downloads first and nothing before the first dictation needs the mic, so the request moves there (decision 17).
+
+**What sets Dictus apart, to say out loud:** no account, no price during onboarding (reverse trial #593), everything on the device.
+
+Side note: `DictusApp/Settings.bundle/Root.plist` already shows the three keyboard steps inside iOS Settings, as Superwhisper and Typeless do. Its text is French only and has lost its accents ("acces", "Reglages", "Vie privee").
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+--- 2026-10-06T17:28:52Z Pivii
+Added decision 19 (2026-10-06): after the first dictation, show how to stop Dictus from the Dynamic Island, taken from Superwhisper's onboarding. Their tutorial is a looping drawn island: compact → expanded with a power button → tap → gone. Our standby Live Activity already has that power button (`StopStandbyIntent`); users ask for it because they never find it.
+
+Also checked: Superwhisper's onboarding follows the system appearance (it has a dark version). Ours stays forced light (decision 13): following the system would double the 12 clips and the intro art.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+--- 2026-10-06T18:04:51Z Pivii
+Revised 2026-10-06 with Pierre (decisions 10, 13, 14, 15):
+- **Motion design in code replaces the 12 Screen Studio clips.** Superwhisper's onboarding turned out to be drawn, animated mock-ups, not recordings, and that is what makes it feel like one interface.
+- **The onboarding follows the system appearance.** Light is the app's pure white; dark is the app's dark. Drawing everything in code makes both free, which removes the reason for forcing light.
+- **The PiP shows a checklist drawn in code, not a video**, like Wispr Flow's floating guide over Settings.
+- **The intro art is rendered twice, light and dark.**
+
+Cost: about half a day to a day per animated scene, six to eight scenes.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+--- 2026-10-06T21:23:36Z Pivii
+Decision 13 revised on 2026-10-06, after capturing the real app on a simulator (develop):
+
+- **Light background = the app's grouped grey `#F2F2F7` with white cards, not pure white.** Every screen of the app, the current onboarding included, uses that grey. A pure-white onboarding would have been the one white screen in the app.
+- **The onboarding shell is new; the app's own screens are shown as they are.** The first mock-up pass had redrawn the Smart Mode fan, Vocabulary, History and the model preparation screen from imagination. They are now redrawn from the real app. Model preparation keeps its real layout as a named onboarding variant: one line changes, because "Stay on this page, do not leave the app" is no longer true once the download survives leaving the app (decision 6).
+- Smart Modes stay **blue**; no purple.
+
+The intro animation is split out to #667.
+--- 2026-10-06T22:11:33Z Pivii
+## Translate needs a language download: where it lands in the onboarding (from #648)
+
+#648 (Translate renders the spoken draft word by word) is moving Translate off the Apple FM prompt onto Apple's Translation framework (`TranslationSession`, `.highFidelity`). Device-measured on 2026-10-06: it runs in the keyboard (4.2 s, ~22 MB) and fixes the worst meaning errors. Details on #648.
+
+What this changes for decision 16 (pick your three Smart Modes):
+- The framework only translates a language pair **already installed** on the iPhone. Downloading one shows a system prompt, so it must start from DictusApp, never the keyboard.
+- When the user pins a `Translate to …` mode in the pick step, that is the moment to start the download of *chosen language → target*, the same way the model download starts from the language screen. It falls within the time the model is downloading.
+- Skipping, or pinning no Translate mode, downloads nothing. A user who adds a Translate mode later gets the same download from Settings (handled in #648's step 3).
+- Until the pair is installed, Translate keeps working on the current Apple FM path, so nothing in the onboarding blocks on it.
+
+This adds no screen: it is one call behind the pick step. #648's step 3 owns the download component; this issue only calls it.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+--- 2026-10-06T22:20:36Z Pivii
+Follow-up to the Translate download comment above (#648), decided with Pierre on 2026-10-07 and drawn in the mock-ups as state **06b** of the pick step:
+
+- **One prompt, when the user taps Continue** on the pick step and at least one `Translate to …` mode is pinned. Never one prompt per chip.
+- **Dictus warns first, then iOS asks.** A Dictus sheet comes before Apple's `prepareTranslation()` confirmation. It says what the download brings (a more faithful translation, offline), names the pair and its size, and offers **Download** or **Later**. **Later** blocks nothing: Translate keeps the Apple FM path, and Settings offers the download afterwards (#648 step 3).
+- **Size: about 105 to 110 MB for French → English, to confirm on a device.** Read in Apple's translation catalogue on the Mac (`com_apple_MobileAsset_SpeechTranslationAssets7`). It is the catalogue the translation daemon actually uses: `translationd`'s own `LastOfflineAssetCatalogUpdate` (2025-09-14 12:11:54) is the catalogue's `lastTimeChecked`, and through it the Mac reports fr → en, fr → es and fr → de as `installed`. English, Spanish, German, French, Italian, Portuguese and Dutch form **one model family**: about 110 MB in full, 51 to 57 MB per language half. A second target in the same family therefore costs little more. Not measurable on a simulator: the iOS 27 simulator answers `unsupported` for fr → en. Still to confirm on a device: the iOS sizes, and whether `.highFidelity` adds anything on top (it uses the Apple Intelligence model, which the user may already have).
+
+--- 2026-10-08T12:12:58Z Pivii
+Layout note for PR B (intro carousel), from reviewing the #667 previews in the mock-ups: the headline + subtitle block must have the **same fixed height on all three intro pages** (sized for the longest subtitle, scene B's 3 lines, top-aligned), so the art area and the headline sit at the same position on every page and the carousel does not jump when swiping.
+--- 2026-10-09T15:09:31Z Pivii
+## Correction to my 2026-10-07 comment: Translate needs no language download
+
+That comment said pinning a `Translate to …` mode in the pick step (decision 16) should start a language-pair download. It should not.
+
+- Translate now runs on Apple's Translation framework with the `.highFidelity` strategy (#648, PR #672). Apple's documentation states that its models are already present when Apple Intelligence is enabled, so no language download is required.
+- Measured: all 64 pairs report `installed` in `.highFidelity` on the Mac, and on the iPhone they stay `installed` even after deleting every language in the Translate app.
+- Translate already requires Apple Intelligence, so in shipping conditions there is never anything to download. The download component and the "language not installed" notice were removed from PR #672 on 2026-10-09.
+
+For the onboarding, the Smart Mode pick step only writes the pinned list. It has nothing to download.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+--- 2026-10-09T20:03:36Z Pivii
+## Picture in Picture spike (#682): works on device. It holds over Settings, ticks in the background, and goes away on Full Access
+
+**Update 2026-10-10, second device test** (iPhone 15 Pro Max, build c62186aa, rev confirmed in the log):
+- **Stop on Full Access measured.** iOS kills the app on Allow, and the PiP goes with it. The app relaunches on the keyboard step in `mode=complete` with `onboardingKeyboardDetected`.
+- The source layer hidden behind the drawn phone is accepted: `pipPossible value=true`, then `pipStarted`.
+- `keyboardAddedSeen background=true` fired 13 s after Settings opened.
+
+Follow-ups in 89045aab:
+- The window shows all three steps at once (Full Access and Allow merged into one line).
+- The relaunch after the kill no longer tries to borrow the audio session (it failed with `OSStatus 560557684`).
+
+**Conclusion: the PiP path ships; the inline fallback stays for devices or moments where PiP is not possible.**
+
+**Update 2026-10-10: measured on device** (iPhone 15 Pro Max, build 893d9bdb):
+- The PiP window starts from the Open Settings tap and **holds over Settings**.
+- It **ticks in the background**: lines 1 and 2 went green and line 3 became current while the Full Access alert was open.
+- Still to confirm: the window ending by itself on the Full Access kill.
+
+Pierre then amended the brief (comment on #682), shipped in c62186aa:
+- The app shows no checklist on the PiP path; the source layer is hidden behind the drawn phone.
+- The PiP content is now wide and short, so it no longer covers the alert's Allow / Don't Allow buttons.
+
+Whether iOS accepts the covered source layer is the next device check.
+
+---
+
+*Original comment (simulator-only findings):*
+
+PR: branch `feature/682-pip-settings-checklist`. Both paths ship; which one a user sees is decided at runtime. **The conclusion "PiP works" or "PiP does not hold" cannot be drawn yet: it needs a physical iPhone.**
+
+**Measured on a simulator (Xcode 27.0, iOS 27.0 iPhone 17 and iOS 26.5 iPhone 17 Pro):**
+- `AVPictureInPictureController.isPictureInPictureSupported()` returns **false** on both runtimes. So the simulator cannot show the PiP window at all, and it runs the fallback.
+- **The fallback works end to end:** the checklist card plays inline in time with the drawn Settings loop. Open Settings opens Settings (`fallback reason=unsupported`). On return without the keyboard, line 1 is the current one (`returnedFromSettings ... keyboardAdded=false`). Once the keyboard is added, the existing detection fires and every line is ticked. Checked in FR light and EN dark.
+- **The PiP frame path renders.** I forced the sample-buffer layer on in a temporary build that was not committed. The same card drew through `AVSampleBufferDisplayLayer` with no frame or renderer failures.
+- **The audio session borrow and give-back work, and recording keeps its session.** With the engine idle, the page took `.playback` + `.mixWithOthers` (`borrowedPlayback`). On Continue it gave the session back through the engine's own configuration (`restoredEngineSession`, then `audioSessionConfigured category=playAndRecord`).
+- The same temporary build found a real trap. On a device without PiP, the controller's initializer returns a nil object, and observing it aborts the app. The controller is now only built where PiP is supported.
+
+**What the app can and cannot observe (this answers "ticks or static"):**
+- The app can see one thing: whether the Dictus keyboard has been added (`UITextInputMode.activeInputModes`). Under PiP, the backgrounded app polls it once a second, and finding it ticks lines 1 and 2 and lights line 3.
+- The app cannot see the Keyboards tap, and no app API exposes Full Access.
+- "PiP stops once Full Access is detected" therefore means **iOS terminating the app when Full Access changes** (the TCC kill the onboarding already survives), which takes the window with it. Coming back to the app also stops it.
+- Whether the polling actually ticks in the background, or the list is stale until the app is in front (in which case the checklist stays static under PiP), is **not measured: device only.**
+
+**Audio coexistence:** the session is borrowed only while the engine is not running. A running engine's `.playAndRecord` session is left untouched. `UnifiedAudioEngine.configureAudioSession()` now re-asserts `.playAndRecord` whenever the category is not its own, so a dictation always wins over the borrowed session. Known cost: switching to `.playback` empties the input route, so the first engine start afterwards takes the #515 rebuild path (bounded wait plus engine rebuild).
+
+**Pending on device:** PiP starting from the tap; ticking in the background; PiP ending on the Full Access kill; music from another app continuing; a dictation during and after the trip. Every probe line is under `component=onboardingChecklist` in `dictus_debug.log`. The steps are in the PR.
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+--- 2026-10-22T08:48:25Z Pivii
+## Acceptance audit on `develop` 7605b45c (2026-10-22)
+
+**12 OK, 4 partial, 3 device-only, 0 KO.** No checkbox ticked and the issue stays open: ticking and closing are Pierre's.
+
+Method: code read of each criterion (file:line below), DictusCore tests (244 passed, 0 failed), and a headless simulator walk-through of the whole onboarding on an iPhone 17 (FR light, EN dark) plus an iPhone SE 3 for the no-island variant. Nothing was committed.
+
+| # | Criterion | Verdict | Evidence | Note |
+|---|---|---|---|---|
+| 1 | EN / DE / ES finish on their own keyboard and layout | OK | `SpokenLanguage.swift:191` (`prefilled`), `:238` (`apply`); `testEnglishIPhoneGetsEnglishQwerty`, `…GermanQwertz`, `…SpanishQwerty` | After Continue in EN, the App Group holds `language=en`, `keyboardLayout=qwerty`, `spokenLanguage=en`; DE gets QWERTZ, ES QWERTY. Not checked: the keyboard drawn in a real host app. |
+| 2 | A Chinese iPhone gets Whisper, not Parakeet | OK | `ModelInfo.swift:705`; `testChineseIsNeverRecommendedParakeet` (12/12) | Simulator shows "Turbo model, ~645 MB" with an English keyboard. The Small branch (< 6 GB RAM) cannot run on a simulator. |
+| 3 | Download starts on the language screen, survives Settings and the kill | device-only | `OnboardingView.swift:349-388`; `BackgroundModelDownloadService.swift:115` (background session); `ModelManager.swift:225` | Validated by Pierre on device (PR #654). On the simulator Parakeet (483 MB) downloaded in the background session to `modelDownloadCompleted`. |
+| 4 | No polish page | OK | `OnboardingStep.swift:29-85` (14 cases, no polish); `OnboardingStepTests` 50/50 | 12 visible steps, no polish. |
+| 5 | Apple Intelligence step only when needed, re-checks on return | device-only (code OK) | `AppleIntelligenceOnboarding.swift:28`; `OnboardingView.swift:286`; `AppleIntelligencePage.swift:121` (`scenePhase`); 10/10 tests | The simulator reports capable but not ready, so the step shows. The re-check on return needs a device. |
+| 6 | Scene sequence: Skip and Next never blocked by a video | OK | `OnboardingScenePage.swift:76`; `OnboardingView.swift:217-241`; `testSkippingTheScenesJumpsTheWholeSequence` | Log `onboardingSceneSequenceSkipped from=smartModesScene to=modelPreparation`; Next enabled on every scene. |
+| 7 | Checklist PiP over Settings, or the fallback | device-only (both paths ship) | `SettingsChecklistPlayer.swift:179`, `:534` | Spike validated on device on 2026-10-10, result written on this issue. The simulator takes the inline fallback (`pipSupported=false … instanceID=inline`). |
+| 8 | Existing users see What's new once, then the trial announcement | OK | `WhatsNew.swift`; `WhatsNewView.swift:78-92`; `MainTabView.swift:151`; `WhatsNewTests` 14/14 | 4 pages, then Home; not shown again on relaunch. The trial announcement cannot be observed while `paywallVisible=false`; checked with #279. |
+| 9 | ~~Hub cards play the same videos~~ (amended) | partial → amended | `FeatureSceneCard.swift:79`; `ProFeatureSceneSheet.swift:58-98` | Scenes open in a "See the demo" sheet from each Pro feature screen (#686, PR #743). Criterion and decision 12 amended today. |
+| 10 | No Pro step and no trial where Smart Modes can never run | OK | `SmartModeAvailability.swift:315`; `OnboardingStep.swift:130`, `:174`; `ProStatusManager.swift:208`; `testADeviceThatCanNeverRunSmartModes…` | Tests only: an incapable device cannot be forced on the simulator. |
+| 11 | No paywall and no price; respects `paywallVisible` | partial → amended | No StoreKit and no price in `DictusApp/Onboarding/`; `PremiumFlags.swift:27` | No onboarding step reads the flag. Amended today: 2.0.0 ships with `paywallVisible = true` (#279), so no code change. |
+| 12 | Follows the system appearance, app's light grey and dark backgrounds | OK | `DictusColors.swift:37` | Measured pixels: `#F2F2F7` light, `#0A1628` dark. |
+| 13 | No recorded video except a documented fallback | OK | 6 MP4s in `assets/onboarding/intro/` rendered from `render.mjs` and `src/*.ts` (decision 15); `IntroVideoView.swift:128` | No filmed video; every other scene is SwiftUI. |
+| 14 | The intro plays the drawn character and keyboard | OK | `OnboardingIntroScene` (walking, metro, keyboard); `OnboardingIntroSceneTests` 8/8 | |
+| 15 | Pick writes the three pinned modes; Skip keeps the seed; hidden where impossible | OK | `SmartModePick.swift:128`; `SmartModePickTests` 20/20 | After a pick `smartModePinned=(notes, summary, message)`; after Skip nothing is written. 1 or 2 modes are enough to continue, and Skip also skips the three scenes after it (`skipSceneSequence`, by design). |
+| 16 | Microphone asked right before the first dictation, after a screen that says why | OK | `testOrderPutsTheMicrophoneRightBeforeTheFirstDictation`; `MicPermissionPage.swift:28` | Step 10 microphone, step 11 first dictation. The system prompt itself was not triggered. |
+| 17 | Stop the standby: island / Lock Screen / ~~What's new~~ | partial → amended | `DeviceCapabilities+DynamicIsland.swift`; `StopStandbyScene.swift:26`; `DeviceCapabilitiesDynamicIslandTests` 7/7; `StopStandbySceneScriptTests` 16/16 | Island variant on iPhone 17 and Lock Screen variant on SE 3 both correct. Dropped from What's new on 2026-10-14 (#685, commit 56bf6bb0); criterion and decision 19 amended today. |
+| 18 | FR and EN | OK | 161 onboarding keys, none missing `fr` or `en`, none `new` / `needs_review` / `stale` | See the localisation finding below. |
+| 19 | Device validation on a small iPhone and a recent Pro iPhone | partial, device-only | Device validations cited so far are all on an iPhone 15 Pro Max (#654, #675, #681-#683, #706) | No small physical iPhone pass yet; the simulated SE 3 run does not count as one. |
+
+### Amended today in the issue body
+- **Criterion 9 / decision 12:** the scenes open in a sheet from the Pro feature screens, not in the hub cards (Pierre's decision, #686 / PR #743).
+- **Criterion 11:** the onboarding has no price and no StoreKit, and 2.0.0 ships with `paywallVisible = true` (#279). No code change.
+- **Criterion 17 / decision 19:** stopping the standby is no longer in What's new (decided 2026-10-14, #685 / commit 56bf6bb0).
+
+Each change is marked "amended 2026-10-22", and the original wording is struck through, not deleted.
+
+### What remains
+- Criteria **3, 5 and 7**, plus the **small-iPhone pass (19)**, go into the iPhone device batch together with #279.
+
+### Open findings (issues to come)
+- **Localisation:** the drawn scenes show English text on a French device ("Where are you?", "On my way…", "Hi / Hey / Hello" suggestions, "Great meeting this morning"), and the intro MP4s are not localised. No recorded decision says this is intended.
+- **Polish on iPhone SE:** on the SE 3 language screen, the recommended-model line falls below the fold and needs a scroll.
+
+--- 2026-10-24T13:05:59Z Pivii
+Closing: all 13 sub-issues (#675–#686) are closed (#684 not planned). Delivered by PRs #654, #670, #688, #695–#699, #705, #710, #716–#722, #731, #740, #741, #743, #764, #779, #780. Remaining device checks (criterion 5: Apple Intelligence re-check on return to the app; criterion 19: small physical iPhone) move to the #279 iPhone batch.

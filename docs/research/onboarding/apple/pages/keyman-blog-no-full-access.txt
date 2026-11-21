@@ -1,0 +1,64 @@
+source: https://blog.keyman.com/2014/12/keyman-for-iphone-and-ipad-no-longer-requires-allow-full-access/ (curl), fetched 2026-11-21
+In response to your feedback, we have improved Keyman for iPhone and iPad: we no longer require the Allow Full Access option to be switched on.
+
+Some background
+
+What is Allow Full Access? This is an option in iOS that gives Keyman (and other third party keyboards) access to the Internet while you type, meaning that in theory a third party keyboard app could send your keystrokes to a remote server. Now Keyman does not do this, but switching the option on means that in theory it could. Obviously this is a privacy and security issue, and a number of our users were unhappy that we required this option to be switched on.
+
+So why did we require "Allow Full Access" to be switched on? Well, without this option switched on, the Keyman system keyboard was not even able to get access to the specific Keyman keyboards that you had installed, even though they were on your iPhone or iPad already. Without the option switched on, Keyman could only present its default keyboard when run as the system keyboard.
+
+We never did log any of your keystrokes — and never would — but even the possibility was enough to make some people understandably uncomfortable. And if you are unhappy, then we are unhappy. So we wanted to find a solution.
+
+And I'm happy to announce that we have! With Keyman Pro 2.0.6, now available in the App Store, we have resolved this! For normal use, Keyman no longer requires the Allow Full Access option to be switched on. Read on, because there is one step you will have to make in order to take advantage of this.
+
+The wrinkle
+
+Here is the wrinkle: you will need to switch on "Allow Full Access" just once, for a moment, to transfer the keyboards you have selected in the Keyman Pro app, into the Keyman system keyboard. You don't even have to type anything: you just have to pop up the Keyman keyboard and close it again. That's all we need.
+
+If you ever add another Keyman keyboard, or if your Keyman keyboards are updated, or even if you remove a Keyman keyboard, you will need to briefly switch on "Allow Full Access" again to transfer your keyboards and settings through to the system keyboard.
+
+The walk-through
+
+Can I walk you through the entire process?
+
+Get Ready
+
+First, make sure you have version Keyman Pro 2.0.6 or later installed. You can check this in the App Store Updates tab on your device, or within Keyman as follows:
+
+Touch the (i) icon in the Keyman Pro app.
+
+The version is shown in the title of the Keyman information screen. If the version is not shown, it is earlier than 2.0.6.
+
+Install your keyboards
+
+Make sure you have the keyboards you want to use in the System Keyboard installed in the Keyman Pro app, before you continue.
+
+Jump Through The Hoops
+
+Now, open Settings on your iPhone or iPad and select General.
+
+Select Keyboard.
+
+Select Keyboards.
+
+Select Add New Keyboard….
+
+Select Keyman.
+
+Now, select Keyman — Keyman.
+
+Switch on Allow Full Access.
+
+Select Allow on the Big Scary Privacy Warning. Remember, it's only for a moment, and then you'll be switching this option off again.
+
+Allow Full Access will now be on for Keyman.
+
+Click your Home button, and open an app which uses the keyboard. I'm using Notes.
+
+In your app, tab the Globe Icon until a Keyman keyboard becomes visible.
+
+That's it. You don't need to type anything.
+
+Now, go back to Settings (double-tap your Home button to get there quickly), and flick that Allow Full Access option off again.
+
+And now Keyman no longer has full access, but will still have the keyboards you installed. You get your privacy and your language keyboards! We wish that there were fewer steps, but hey, at least it's possible now!

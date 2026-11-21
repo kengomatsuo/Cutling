@@ -1,0 +1,48 @@
+source: https://github.com/jim-at-jibba/react-native-active-keyboards/issues/2, fetched 2026-11-21
+created 2023-04-12T11:41:29Z
+Crashes on iOS launch when user has never added a keyboard to their device
+Hi there! While implementing this library recently we discovered a bug.
+
+If an iOS user has never added a keyboard, the `AppleKeyboards` entry this library looks for will be nil. This situation can be quite common for single language users as emoji keyboards are no longer manually added.
+
+The `constantsToExport` implementation assumes that `AppleKeyboards` will always be an array and tries to set it in the `initialExtensions` dictionary.
+
+```objc
+@{ @"initialExtensions": [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] objectForKey:@"AppleKeyboards"]}
+```
+
+Setting nil in a dictionary is not allowed, which results in this crash:
+
+```
+[__NSPlaceholderDictionary initWithObjects:forKeys:count:]: attempt to insert nil object from objects[0]'
+```
+
+We fixed this by simply deleting `constantsToExport` in a patch as we didn't need to use it.
+
+The `keyboardEnabled` remapped method does work correctly, as on the iOS side it either returns an array or nil, which is then checked and handled properly on the JS side.
+
+Here is the patch:
+```diff
+diff --git a/node_modules/react-native-active-keyboards/ios/RNReactNativeActiveKeyboards.m b/node_modules/react-native-active-keyboards/ios/RNReactNativeActiveKeyboards.m
+index be11cb9..989b76b 100644
+--- a/node_modules/react-native-active-keyboards/ios/RNReactNativeActiveKeyboards.m
++++ b/node_modules/react-native-active-keyboards/ios/RNReactNativeActiveKeyboards.m
+@@ -9,11 +9,6 @@
+ }
+ RCT_EXPORT_MODULE()
+ 
+-- (NSDictionary *)constantsToExport
+-{
+-    return @{ @"initialExtensions": [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] objectForKey:@"AppleKeyboards"]};
+-}
+-
+ RCT_REMAP_METHOD(keyboardEnabled,
+                  findEventsWithResolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject)
+```
+
+I know this is very fringe considering the age and size of the library, but still reporting here in case it might help someone else!
+--- 2023-04-17T20:13:27Z
+Hey,
+
+Thanks! I did not think this library was used. I have not looked at in in a very long time.

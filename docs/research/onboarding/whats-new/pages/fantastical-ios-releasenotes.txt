@@ -1,0 +1,2234 @@
+SOURCE https://flexibits.com/fantastical-ios/releasenotes fetched 2026-11-21 (page text)
+
+ Flexibits | Fantastical for iOS | Release Notes 
+ Skip to main 
+ Black Friday Sale!
+ Save 20% Now
+ Redeem
+ Try for Free 
+ Fantastical
+ Cardhop
+ Pricing 
+ Support 
+ Blog 
+ Try for Free 
+ Sign In 
+ Sign In 
+ Try for Free 
+ Fantastical Release Notes 
+ Mac 
+ iOS 
+ Windows 
+ Googlebook 
+ Fantastical 4.2.4 October 23, 2026 
+ Added support for iPhone Duo
+ Improved duration handling for Todoist tasks created with the natural language parser
+ Fixed an issue where creating a task in Todoist would add an extra alarm
+ Fixed an issue where calendar mirroring could trigger rate limiting from the calendar service
+ Various fixes and improvements
+ Fantastical 4.2.3 October 13, 2026 
+ Added support for iPhone Duo
+ Added support for Microsoft 365 calendars shared with your whole organization rather than with you directly
+ Improved support for syncing with Microsoft Graph GCC High
+ Improved searching for invitee email addresses
+ Fixed an issue where importing an .ics file that cancels an event would show an error even though the import succeeded
+ Fixed a crash that could occur in some cases when using emojis in calendar set titles
+ Fixed an issue where calendar items with multiple categories didn't use the first enabled category to determine their color
+ Fixed a rare crash when resizing events in Day/Week View
+ Fixed an issue where additional time zones could cover events in Day/Week View when the window is narrow
+ Fixed an issue where a Live Activity could show a mirrored copy of an event instead of the original
+ Fixed an issue where opening Fantastical from an Apple Watch complication before pairing could show an empty screen instead of the pairing prompt
+ Fixed an issue where the Up Next widget showed an event twice when it ended on the following day
+ Fixed an issue that prevented setting a location for calendar sets and travel time
+ Fixed an issue where the Today's Date complication on Apple Watch would sometimes leave out the day of the week
+ Fixed an issue where the MCP server didn't respect the "Show mirrored events" setting
+ Various fixes and improvements
+ Fantastical 4.2.2 October 1, 2026 
+ Improved detection of when repetition ends for events in emails and images
+ Improved search to deliver results more quickly
+ Improved search by retaining the selected search scope
+ Improved the reliability of background push updates
+ Improved syncing of Graph accounts
+ Improved persistence of the "Show Completed" toggle in the Tasks view
+ Updated Fantastical to use new Canadian time zones for Microsoft 365 accounts
+ Fixed an issue where mirrored events could be copied at the wrong time
+ Fixed Meet With account discovery to probe accounts in the order shown in Accounts settings
+ Fixed mirrored events not updating when the original event was changed on an Exchange or Microsoft 365 account
+ Fixed the event list not scrolling in certain situations
+ Fixed time zone information to account for the change in Alberta, Canada
+ Fixed an issue where you couldn't create recurring tasks on Microsoft 365 accounts
+ Various fixes and improvements
+ Fantastical 4.2.1 September 22, 2026 
+ Improved support for IceWarp accounts
+ Fixed a crash when encountering invalid location data
+ Fixed a crash on launch on iOS 17
+ Fixed an issue where creating events using the URL scheme would not validate the provided event availability
+ Various fixes and improvements
+ Fantastical 4.2 September 14, 2026 
+ Added support for Siri AI to work with Fantastical calendars
+ Added the ability to set invitee options on Microsoft 365 events
+ Added the ability to ignore an invite notification for all events in a series
+ Improved search to handle different punctuation variants
+ Improved de-duplication of recent locations
+ Improved the reliability of Calendar Mirroring when using calendars from your device's accounts
+ Improved Calendar Mirroring and Openings so canceled events are no longer included
+ Improved moving timed tasks off Todoist so the due date no longer changes unexpectedly
+ Improved email ingest by adding support for tasks
+ Improved MCP results so mirrored events are no longer included
+ Fixed an issue where the event list would reset to the top after scrolling
+ Fixed an issue where removing a reminder time would also remove the reminder location
+ Fixed an issue where removing a reminder location would also remove the reminder due date
+ Fixed an issue where moving certain tasks to Todoist would lose the reminder time
+ Fixed an issue where the color of delegated calendars on Microsoft 365 accounts could not be edited
+ Fixed an issue where days with an all-day event wouldn't show up in Up Next
+ Fixed an issue where deleting specific instances of certain repeating events on Google accounts would fail
+ Fixed a crash when selecting a recent location
+ Fixed an issue where repeating events would be mirrored as separate individual events when using local calendars
+ Fixed an issue where toggling an item to all day would clear urgent alerts
+ Fixed an issue where travel time could not be added to invitations
+ Fixed an issue where a location couldn't be edited after changing other fields
+ Fixed a crash that could occur when searching for people to add as a delegate on a Microsoft 365 account
+ Fixed an issue where changing the recurrence of a task would also change its due date
+ Fixed an issue where the URL field wouldn't appear
+ Fixed an issue preventing adding new delegates to graph or exchange calendars
+ Various fixes and improvements
+ Fantastical 4.1.19 September 1, 2026 
+ Added the option to extract events from images
+ Improved readability of Week view on iPhone when there are overlapping events
+ Improved the UI for adding or editing event locations
+ Fixed a sync error when deleting or declining an already-removed Outlook event
+ Fixed an issue where all-day events would not mirror to some calendars
+ Fixed a rare freeze when adding a new item
+ Fixed an issue where Fantastical might open the wrong location in Maps
+ Fixed an issue where event notes containing links would be incorrectly formatted
+ Fixed an issue where tapping on the notes field would move focus to the title field
+ Various fixes and improvements
+ Fantastical 4.1.18 August 14, 2026 
+ Added support for Google Labels
+ Added the ability to complete tasks using VoiceOver actions (swipe up with one finger)
+ Improved search to find items by partial word matches
+ Improved performance when loading events at launch or when changing dates
+ Improved the performance of the parser autocomplete popups
+ Improved alarm handling when switching calendars or toggling All Day
+ Fixed proposal response time selections being lost while responding
+ Fixed an issue where calendars from Microsoft 365 accounts could disappear when Microsoft 365 is overloaded
+ Fixed some tasks showing the wrong alert time in search results
+ Fixed an issue that could cause duplicate mirrored events when mirrored events were hidden
+ Fixed an issue where existing Exchange calendar events couldn't be modified or deleted using MCP or Siri
+ Fixed an issue where saving an event required tapping Done twice when a date picker was open
+ Fixed a crash when syncing events from Microsoft 365 that were using the America/Edmonton time zone
+ Fixed a crash when adding new Todoist accounts
+ Fixed the custom color of an event being lost when moving it to another calendar of the same account
+ Fixed a rare issue where a multi-day all-day event would collapse to a single hour when turning off All-Day
+ Fixed an issue where opening locations from Fantastical in Citymapper would only show the coordinates in some cases
+ Fixed an issue where events created using the natural language parser would sometimes have the wrong end date
+ Fixed task titles being read twice by VoiceOver in lists
+ Various fixes and improvements
+ Fantastical 4.1.17 July 21, 2026 
+ Added emoji to templates
+ Added emoji badges to notifications
+ Added a Get Directions action to the event menu
+ Added a setting to control the visibility of events created using Calendar Mirroring
+ Improved Day and Week views to support displaying multiple additional time zones
+ Improved sync reliability for shared iCloud calendars
+ Improved birthday and anniversary notifications so dismissing one on a device also dismisses it on your other devices
+ Improved detection of conference call URLs that don't start with https
+ Improved Fantastical's MCP server, which is now included and can be used by any AI app that supports MCP
+ Fixed the appearance of some calendar colors in dark mode
+ Fixed some issues that could cause tasks to show up on the wrong day in month view
+ Fixed an issue where Zoho accounts could not be added
+ Fixed a task checkbox misalignment in landscape mode
+ Fixed an issue where some shared calendars weren't syncing all events with Graph
+ Fixed Room availability for Graph accounts
+ Fixed an issue where Meet With wouldn't load more than 500 events for a person on Google
+ Fixed an issue preventing Calendar Mirroring from working for non-premium users
+ Fixed an issue where Fantastical might make too many Zoom API requests and exceed the API limit
+ Fixed an issue where moving a recurring event past its recurrence end date with drag and drop could make it disappear
+ Various fixes and improvements
+ Fantastical 4.1.16 June 26, 2026 
+ Avoid meeting conflicts! Fantastical will automatically copy events from one calendar to another based on rules you define. Set up mirroring rules in Fantastical’s settings
+ Meet With! Quickly check the schedules of other people in your organization, making it easier to decide when to meet with others
+ Added the ability to filter by calendars or calendar sets to the Fantastical Connector for Claude (MCP)
+ Improved error messaging when importing an invalid ICS file
+ Fixed an issue where Zoom meetings created with a UTC timezone could show up at the wrong time
+ Fixed Microsoft 365 room search being case-sensitive
+ Fixed an issue where opening a location from Fantastical would not use the right address in rare cases
+ Fixed an issue preventing some emojis from being used for tagging events
+ Various fixes and improvements
+ Fantastical 4.1.14 June 9, 2026 
+ Added support for combining events from Reclaim.ai on Microsoft 365 accounts added with Graph
+ Added a setting to show/hide emoji badges
+ Added an Open in Todoist button to the task details for Todoist tasks
+ Added support for honoring the Day Starts At setting when turning an all day event to timed
+ Added support for re-ordering Openings Meeting Templates
+ Added a cycling option for travel time
+ Improved navigating to the previous occurrence of an event when the series has exception dates
+ Improved error handling when syncing Microsoft Graph accounts
+ Improved search to immediately display results from Fantastical before results from EventKit are available
+ Fixed an issue where selecting a calendar that doesn't support floating timezones wouldn't update the form to reflect the default timezone
+ Fixed a crash that would happen when editing a detached event and choosing to save "future events"
+ Fixed a crash when long tapping on an event in the list
+ Fixed a crash in the alert configuration
+ Fixed an issue where the Action widget set to Open Fantastical would open to a date in the past
+ Fixed Microsoft 365 accounts not working when an external browser is required to sign in
+ Fixed a crash when using an already existing account to sign up
+ Fixed an issue where VoiceOver would incorrectly read the Fastmail account type when adding a new account
+ Fixed an issue where deleting an instance of a recurring Microsoft Graph event would fail showing the "Couldn't get identifier for instance of graph event" error
+ Fixed an issue where events in the America/Bahia_Banderas timezone were shifted by 3 hours
+ Fixed an issue where Todoist tasks could become out of date
+ Fixed searching for text after html tags
+ Fixed an issue where categories on Microsoft 365 accounts were not sorted by name
+ Fixed editing a template for a repeating event
+ Fixed an issue where renaming all instances of a Google Calendar event as a non-organizer would revert after sync
+ Fixed an issue where timed events ending at midnight would become a day longer when turned into all day events
+ Fixed an issue where the calendar week number would overlap with the blue today pill in Month view
+ Fixed editing all future events on Graph accounts in certain cases
+ Fixed an issue where Fantastical would not always parse event durations correctly
+ Fixed an issue with editing recurring all-day events on Microsoft Graph calendars across different time zones
+ Fixed an issue where duplicating an Openings Meeting Template would not show the editor
+ Fixed an issue where certain Microsoft 365 accounts would stop syncing in Fantastical
+ Fixed a crash that would happen when saving events to Microsoft 365/Exchange targeting the Vancouver timezone
+ Fixed an issue where the event title may be parsed incorrectly in some cases
+ Fixed an issue where you could save a private event to an account that doesn't support the "private" visibility
+ Fixed an issue where changing the event's calendar wouldn't reset categories if the new calendar didn't support them
+ Fixed an issue preventing some emojis from being used for tagging events
+ Various fixes and improvements
+ Fantastical 4.1.13 May 19, 2026 
+ Added support for combining events from Reclaim.ai on Microsoft 365 accounts added with Graph
+ Added a setting to show/hide emoji badges
+ Added an Open in Todoist button to the task details for Todoist tasks
+ Added support for honoring the Day Starts At setting when turning an all day event to timed
+ Improved navigating to the previous occurrence of an event when the series has exception dates
+ Improved error handling when syncing Microsoft Graph accounts
+ Fixed an issue where selecting a calendar that doesn't support floating timezones wouldn't update the form to reflect the default timezone
+ Fixed a crash that would happen when editing a detached event and choosing to save "future events"
+ Fixed a crash when long tapping on an event in the list
+ Fixed a crash in the alert configuration
+ Fixed an issue where the Action widget set to Open Fantastical would open to a date in the past
+ Fixed Microsoft 365 accounts not working when an external browser is required to sign in
+ Fixed a crash when using an already existing account to sign up
+ Fixed an issue where VoiceOver would incorrectly read the Fastmail account type when adding a new account
+ Fixed an issue where deleting an instance of a recurring Microsoft Graph event would fail showing the "Couldn't get identifier for instance of graph event" error
+ Fixed an issue where events in the America/Bahia_Banderas timezone were shifted by 3 hours
+ Fixed an issue where Todoist tasks could become out of date
+ Fixed searching for text after html tags
+ Fixed an issue where categories on Microsoft 365 accounts were not sorted by name
+ Fixed editing a template for a repeating event
+ Fixed an issue where renaming all instances of a Google Calendar event as a non-organizer would revert after sync
+ Fixed an issue where timed events ending at midnight would become a day longer when turned into all day events
+ Fixed an issue where the calendar week number would overlap with the blue today pill in Month view
+ Various fixes and improvements
+ Fantastical 4.1.12 April 21, 2026 
+ Added the ability to tag any event with emoji
+ Improved which conference event's Join button is shown when multiple overlapping events are happening at the same time
+ The sidebar's width is retained across app launches on iPad
+ Fixed an issue where events created with a Microsoft Teams conference would offer to join two meetings
+ Fixed an issue where new events created on Apple Watch would use the wrong default calendar
+ Fixed an issue where editing a recurring event as an attendee could create a duplicate event series
+ Fixed an issue where removing Microsoft 365 accounts wouldn't work
+ Fixed an issue where SOGo calendars were not showing up in Fantastical
+ Fixed an issue where urgent alarms set on a template were not applied when creating an event from that template
+ Fixed invitee response statuses not appearing in event details
+ Fixed invitations responded to with Maybe not appearing dimmed when Dim Items on Previous Days is enabled
+ Fixed a bug that could cause calendars to not match across devices for things like Proposals and Openings
+ Fixed an issue that caused Todoist reminder times to reset to "time of event"
+ Various fixes and improvements
+ Fantastical 4.1.11 March 31, 2026 
+ Added support for triggering an alarm from tasks and events
+ Month view now separates months and highlights the selected one more prominently
+ Added support for using both timed and all-day events in a recurring series
+ Added a menu bar menu item to hide and unhide events: Edit > Hide
+ Google Tasks assigned from Google Docs will appear in Fantastical
+ Improved the reliability of configuring alerts
+ Improved support for finding conferences rooms for Microsoft 365 users that have more 100 rooms in their organization
+ Fixed an issue where events from forwarded emails would sometimes have the wrong duration
+ Fixed an issue where the checkbox for tasks would be missing or misaligned
+ Fixed an issue where Fantastical would become unresponsive when syncing Todoist accounts
+ Fixed times when using 24-hour time appearing as 8 instead of 8:00 in some locales
+ Fixed an issue that prevented syncing of completed tasks for Todoist
+ Fixed an issue that prevented widgets from updating correctly after modify calendar sets
+ Fixed adding repeat end rules to Google events being unreliable
+ Fixed some UI issues when configuring RSVP Fantastical links
+ Fixed an issue where Zoom AI companion summaries wouldn't be started automatically
+ Fixed the delete confirmation getting squished when long-swiping
+ Fixed an issue where the day preview of an invitation would show earlier events at the wrong time
+ Various fixes and improvements
+ Fantastical 4.1.9 March 3, 2026 
+ Microsoft Teams meetings can now be added to events that aren't on a Microsoft 365 account. Enable "Allow creating Microsoft Teams meetings on other accounts" in the Microsoft 365 account settings
+ Added support for categories to delegated calendars on Microsoft Graph accounts
+ Added support for Deadlines on Todoist tasks
+ Added support for Granola.ai meeting links
+ Event notifications now show when all invitees have declined
+ Improved background reliability of the Apple Watch app on watchOS 11 and later
+ Fixed an issue where you could not save events by sharing text to Fantastical
+ Fixed an issue where the end time wouldn't visibly update when changing the start time in the meeting proposal view
+ Fixed an issue where events created with a Microsoft Teams conference would offer to join two meetings
+ Fixed editing a recurring event's start date not updating the recurrence end date if the start date is after the recurrence end date
+ Fixed a rare issue where Fantastical would restore the wrong date at launch
+ Fixed tasks disappearing immediately when completed in the Tasks view
+ Fixed an issue where moving an event between calendars on a Microsoft Graph account was not working
+ Fixed an issue where a deleted all-day event might incorrectly show on Microsoft Graph accounts
+ Various fixes and improvements
+ Fantastical 4.1.8 February 10, 2026 
+ Microsoft Graph is now preferred over Exchange Web Services for newly-added Microsoft 365 accounts
+ In Day and Week View the title showing the currently selected date updates as you scroll
+ Improved Month view when showing 5 weeks per month and the currently visible month has 6 weeks in it
+ Improved the accessibility of the Up Next complications on Apple Watch
+ Improved the appearance of the hover effect in Month view on iPadOS
+ Improved detection of conference links that are wrapped in brackets or parentheses
+ Improved handling of conferences when multiple conferences of the same type are detected
+ Proposals can now be toggled all day once they've been created
+ Fixed an issue where notifications for Openings requests would be removed from the lock screen too quickly
+ Fixed an issue causing some of the lock screen widgets to show an inaccurate time until the next event
+ Fixed an issue where editing an event with Microsoft Graph may result in an "Id is malformed" error
+ Fixed an issue where events created by Forward Emails to Fantastical could be added to an unexpected calendar
+ Fixed an issue where certain Zoom meetings couldn't get deleted
+ Fixed an issue where the Today's Schedule complication on Apple Watch failed to display all-day tasks
+ Fixed an issue where a single instance of a recurring event could not be edited in some cases
+ Fixed "Hide tasks assigned to nobody" for Todoist tasks
+ Fixed an issue where task notifications weren’t cleared when due dates changed
+ Fixed a rare issue causing errors when updating Zoom meetings
+ Fixed an issue where the full list of events would not be displayed in Month View after tapping on one of the events of said list
+ Fixed an issue where a calendar set might not use the correct default calendar in some cases
+ Fixed an issue that could cause shortcuts to fail if Fantastical hadn't been run recently
+ Fixed an issue where the bottom toolbar buttons were not visible on the iPad when the window was small
+ Various fixes and improvements
+ Fantastical 4.1.6 January 7, 2026 
+ Added the option to skip events that already started when displaying the schedule for today using the 'Show Schedule' intent
+ Added the option to hide all-day items when displaying the schedule for a day using the 'Show Schedule' intent
+ Improved counting calendars used for determining Openings availability to avoid confusion
+ Improved the wording of the Openings availability window when showing time slots of Meeting Templates that have fixed booking periods
+ Improved reliability of push updates with Microsoft Graph accounts
+ Searching for an invitee email address will sort that contact to the top of the list
+ Fixed some issues with changing the recurrence rule on repeating events
+ Fixed an issue that could cause views to become hidden when using Reduce Transparency
+ Fixed an issue where an error message in the Openings meeting templates list doesn't update correctly when an account is enabled or disabled
+ Fixed an issue where the list of events and tasks could jump back to the top of the day unexpectedly
+ Fixed an issue causing Fantastical to crash on iOS 26 for some users
+ Fixed an issue that could cause Fantastical to lock up on launch
+ Fixed a crash that could occur in rare cases when using Microsoft Graph
+ Fixed an issue where events created from templates wouldn't appear for some users
+ Fixed an issue where task checkboxes would be misaligned in week view
+ Fixed an issue where creating a template from a task with a location-based reminder wouldn't work
+ Fixed an issue using an Apple Pencil to write a new event on iPad
+ Fixed an issue where the Show Relative Dates setting on Apple Watch was not being respected
+ Fixed visual glitches in Month and Quarter views when dragging Fantastical as a window on iPad
+ Fixed an issue that prevented configuring Calendar Sets for widgets on visionOS
+ Fixed an issue where you would not get prompted to save changes to this event only
+ Fixed an issue where some UI didn't adapt correctly to dark mode when setting a location alarm
+ Fixed an issue where locations could not be removed for some users
+ Fixed an issue where deleting All Future Events on a repeating Google event would cause previously deleted occurrences to come back
+ Fixed a crash when sharing events on visionOS
+ Fixed a bug that caused new Proposal times to be immediately marked as Declined
+ Fixed an issue where the weather view could not be dismissed for some users
+ Fixed an issue where categories for Graph accounts did only show up after the second sync after migration from Exchange
+ Fixed an issue where the calendar layout could be incorrect after unlocking the device following rotation
+ Fixed an issue that incorrectly allowed delegates using Microsoft Graph to edit private events when private item editing was disabled
+ Various fixes and improvements
+ Fantastical 4.1.4 December 2, 2025 
+ Added support for events to show up in the smart stack on Apple Watch
+ Added an option to migrate Exchange-based Microsoft 365 accounts to Microsoft Graph
+ Checking availability on Google accounts will now show event titles if available
+ Improved the look and feel of invitee availabilities
+ Improved Openings availability view to reduce confusion about why some slots were marked as busy with no event being displayed as conflict
+ Improved date handling in the parser for events that reference holidays by name
+ Hiding or showing a calendar on an inactive calendar set will now make that calendar set active
+ All-day Proposals (in pending state) now have the availability set to free, matching regular events
+ Improved support for BigBlueButton conference URLs
+ Improved the buttons appearance when the accessibility setting to show button shapes is enabled
+ Improved error handling when creating Proposals
+ VoiceOver now disambiguates invitees by reading the email address if a contact has multiple email addresses
+ Fixed an issue syncing Meetup accounts
+ Fixed an issue where accounts that need to sign in again could show errors too frequently
+ Fixed an issue preventing adding delegates to exchange accounts
+ Fixed an issue that caused the last instance of a repeating event to not show up in the widgets
+ Fixed a visual glitch happening when scrolling to a different month in the Calendar view
+ Fixed a rare issue where searching for contacts didn't return any results from system contacts
+ Fixed an issue where the Australian Eastern Standard Timezone would get incorrectly changed to the Tasmania Standard Timezone
+ Fixed an issue where tapping on a day in Month view would not display the events in a popover
+ Fixed an issue where a selected task would not be readable in Month view
+ Fixed an issue where some items would fail to sync and would continue to show an error.
+ Various fixes and improvements
+ Fantastical 4.1.3 October 21, 2025 
+ Improved handling of large notes when editing events and tasks
+ Improved sync reliability with iCloud accounts
+ The app now counts notifications as well when the application badge is set to display the number of pending invitations (matching macOS' behavior)
+ Fixed an issue where the event list could become blank when using "Reduce Transparency"
+ Fixed an issue where the top edge of Month View and Quarter View could get blurred in some circumstances
+ Fixed an issue where only the first 9 Calendar Sets would be displayed in the iPad menu bar
+ Fixed an issue where the join button text was not readable in clear widgets
+ Fixed an issue with moving events between certain calendars
+ Fixed Microsoft Teams meetings not getting created sometimes
+ Fixed parsing long proposal sentences
+ Fixed a gap at the top of search results on iOS 26
+ Fixed an issue where toggling new item mode would not work when invoked via keyboard shortcut (⌘K)
+ Fixed an issue where week end highlights would not show up in calendar view right after launch
+ Fixed an issue where the compact month would vend too many items to accessibility clients
+ Fixed an issue where Go to Date shortcut would crash on the iPad
+ Fixed the invitation response buttons cutting off on smaller phones.
+ Updated Meetup API support
+ Various fixes and improvements
+ Fantastical 4.1.1 September 18, 2025 
+ Fantastical has a beautifully updated Liquid Glass design on iOS 26 and iPad 26
+ Fantastical's natural language parser now uses Apple Intelligence to recognize events and tasks from complex sentences (requires Apple Intelligence and iOS 26)
+ Added full support for resizable windows on iPadOS 26
+ Added support for widgets on visionOS 26
+ Improved accessibility support for VoiceOver users
+ Fixed an issue that prevented attaching new photos to iCloud events
+ Fixed an issue where events on Microsoft Graph calendars might not show up
+ Fixed declining Google events
+ Fixed an issue where it wouldn't be possible to accept invitations on Google Calendar for some events
+ Fixed an issue that made selected dates in widgets unreadable
+ Fixed an issue where launching the app into Week view would some times display the all day section not aligned to the timed event section
+ Fixed two issues with creating events from a URL
+ Fixed an issue where the button for creating events would not be visible on visionOS
+ Fixed an issue where the parser text field would not wrap long sentences correctly
+ Fixed an issue where go to specific date would crash the app for VoiceOver users
+ Fixed an issue where the app would crash when removing alarms from events
+ Fixed an issue where the toolbar buttons could be pushed on screen for long calendar set names
+ Various fixes and improvements
+ Fantastical 4.0.18 August 11, 2025 
+ Fixed edge cases with ignoring invitations
+ Fixed an issue where alerts wouldn't appear for some Google events
+ Fixed creating Zoom meetings from templates
+ Fixed an issue that prevented some invitees from being properly sorted
+ Various fixes and improvements
+ Fantastical 4.0.17 July 22, 2025 
+ Added animation when duplicating an item
+ Improved sync reliability with Google accounts when adding alerts
+ Fixed an issue where Day View would jump to a future date when navigating events using VoiceOver
+ Fixed slow application launches that could lead to crashes
+ Fixed responding to a single instance of a repeating event on Graph accounts
+ Various fixes and improvements
+ Fantastical 4.0.16 July 2, 2025 
+ Added support for custom weekly repeating tasks with Todoist
+ Invitee auto-complete now prioritizes contacts that you have previously invited
+ Ignoring invitations now syncs across devices
+ Diagnostics & Troubleshooting better handles the case when Fantastical has only write access to local calendars
+ Searching for Google rooms by floor number is now easier
+ Improved reliability of syncing Microsoft 365 accounts the first time
+ Improved reliability of UpNext Timeline complication
+ Google Workspace rooms in your main office building will be shown first in search results
+ Fixed setting an event to repeat on the last day of the month
+ Fixed an issue with using the swipe menu in the event list that would end up scrolling to the top of the day
+ Fixed an issue where importing ics files into Fantastical would cause server errors due to invalid characters
+ Fixed context menu actions not working from the more popover in Month view
+ Fixed an issue with adding Google Meet calls to a single event in a repeating series
+ Fixed an issue where creating a public Proposal would some times show a misleading error message
+ Fixed an issue where deleting certain recurring Google events would fail for some users
+ Fixed an issue that could cause RSVP events on Microsoft calendars to report a missing backing event
+ Fixed an issue where Apple Contacts weren't showing up in auto-complete suggestions
+ Various fixes and improvements
+ Fantastical 4.0.14 June 4, 2025 
+ Workaround for a Microsoft 365 server error with personal accounts
+ Fixed a crash for some users when attempting to edit the calendar list
+ Fixed a crash that could occur when receiving unexpected data from a CalDAV server
+ Fixed a crash that could occur with events that have a Zoom URL in the location with no notes
+ Fixed an issue with some birthdays not showing up
+ Fixed an issue that caused some users to receive incorrect alerts for events with "Time to Leave" enabled
+ Fixed an issue where forwarded emails won't respect the default calendar for some users
+ Various fixes and improvements
+ Fantastical 4.0.13 May 27, 2025 
+ Forward Emails to Fantastical! Forward emails to [email protected] from an email address associated with your Flexibits Account and Fantastical will automagically detect events from them. Learn more at flexibits.com/fantastical/forwardemails .
+ Activating Up Next in the list will scroll past long events that have already started
+ Fantastical now detects duplicate Zoom meeting URLs and only offers to join a single meeting
+ Autocomplete suggestions when creating new events or tasks are now wider if there is space
+ Fantastical is now smarter about dismissing Proposals notifications
+ Fixed location alarms for Todoist tasks on iOS
+ Fixed an issue that caused the watch's UI to flicker when changing calendar sets
+ Fixed a rare crash happening when handling location data for Graph events
+ Fixed an issue where custom colors would not work when an account was first added
+ Various fixes and improvements
+ Fantastical 4.0.12 May 13, 2025 
+ Added support for Roam conferences
+ Improved reliability of UpNext Timeline complication
+ Improved handling of Zoom meeting passcodes when they're not part of the URL
+ Tapping on a date in full screen Month or Quarter view on iPad will now show items on that day larger
+ Fixed invitee search showing overlapping search results
+ Fixed an issue that changed the watch's UI to flicker when changing calendar sets
+ Fixed an issue completing all-day repeating tasks on certain CalDAV servers
+ Various fixes and improvements
+ Fantastical 4.0.10 April 29, 2025 
+ Added an Ignore All Invitations option to the notifications section
+ Added support for iCloud attendee comments
+ Improved sync reliability with some custom CalDAV servers
+ Fixed a potential crash when receiving invalid data from Microsoft 365
+ Importing ics files on iPad using drag and drop now jumps to the date of the imported event
+ Fixed a crash when acting on a group of notifications
+ Fixed an issue that caused slow performance and high memory usage when editing recurring events
+ Fixed a crash when tapping on multiple day events in month view on iPad
+ Fixed an issue where displaying certain settings would make the view smaller
+ Various fixes and improvements
+ Fantastical 4.0.8 April 8, 2025 
+ Shows custom Flexibits Account avatars inside of Fantastical
+ AccuWeather MinuteCast is now shown in time to leave notifications when available
+ Improved OmniFocus drag and drop support
+ Fixed an issue with adjusting recurring events
+ Fixed an issue that could crash the app while editing an event in Free Mode
+ Fixed an issue with tasks from Microsoft Graph wrongly appearing to be at midnight in the day and week view time label
+ Fixed an issue where delegated calendars from Microsoft 365 would disappear briefly
+ Fixed a rare hang when adding a new item
+ Fixed an issue where editing the visibility of recurring events did not show the correct dialog options
+ Various fixes and improvements
+ Fantastical 4.0.7 March 17, 2025 
+ Added new options to collectively handle groups of notifications or invitations
+ Added the ability to specify relative alarms
+ Up Next widget will prioritize showing events from tomorrow over all-day events after the configured end of day
+ Adding a Todoist account will now load completed tasks from the last year
+ The accessibility label of the parser text field is now updated to avoid confusion whenever the item type is changed
+ Improved the accessibility for the Up Next complication on watchOS
+ Fixed an issue where removing a date alert from a task would also remove the location alert that was set
+ Fixed an issue where task durations would get picked up as distance, offering physical conversions
+ Fixed an issue where notifications for Microsoft 365 tasks could say 12:00 AM even though they appear at the correct time
+ Fixed an issue where searching for invitees would cause Fantastical to crash for some users
+ Fixed an issue where activating overlapping calendar items in day view using VoiceOver would display the details of the wrong calendar item
+ Fixed an issue where changing the calendar and color of a Google event at the same time would not always sync
+ Fixed an issue where Fantastical would not update the travel time for certain events
+ Fixed removing Teams meetings from events
+ Fixed Focus Filters not changing calendar sets
+ Fixed an issue where alerts couldn't be added to exchange accounts
+ Various fixes and improvements
+ Fantastical 4.0.5 February 11, 2025 
+ Added actions in Shortcuts to search for events and tasks
+ The Show Calendar shortcut can be configured to skip today's past events
+ The Flexibits Account encryption key is now stored more securely using iCloud Keychain
+ Improved handling of alarms when using templates
+ Fixed repeating tasks on Exchange accounts
+ Fixed an issue with locations having a trailing newline on Graph accounts
+ Fixed an issue where the sign in screen would display with the wrong theme configuration
+ Fixed an issue where VO would skip overdue tasks in month view
+ Fixed an issue that prevented RSVP meeting attendees from being manually removed
+ Fixed an issue where Migration Assistant wouldn't display some information of the Flexibits Account
+ Fixed a crash when long tapping items in the event list
+ Fixed an issue that preventing changes to meetings with an attached Webex conference
+ Fixed an issue where ICS files containing GEO property with too many fractional digits would fail to be parsed
+ Fixed an issue where the Show Schedule AppIntent would not prompt for the specific date
+ Various fixes and improvements
+ Fantastical 4.0.4 January 13, 2025 
+ Improved VoiceOver support for interactive widgets
+ Fixed a crash when running a second app in Slide Over with Migration Assistant visible
+ Fixed an issue where uploading attachments with iCloud would fail for some users
+ Fixed an issue users with Microsoft 365 accounts added via Graph would receive sporadic errors
+ Fixed an issue where adding a task in the Tasks view would sometimes cancel unexpectedly
+ Fixed an issue with events with a Teams meeting added using the MS Teams app
+ Fixed an crash when trying to sync a task with no title
+ Fixed an issue where the navigation bar would be transparent when importing an ICS file
+ Fixed an issue with locations having duplicate addresses on Graph accounts
+ Fixed an issue where Fantastical would perform too many unnecessary Zoom API requests which would affect syncing
+ Fixed an issue where Fantastical's snapshot in the Application Switcher wouldn't update when the system theme changed
+ Fixed an issue where Fantastical would crash when making changes in the Openings Editor for some users
+ Various fixes and improvements
+ Fantastical 4.0.3 December 12, 2024 
+ Added the ability to include guests when signing up for an Fantastical RSVP invitation
+ Improved performance when adding attendees using the parser
+ Fixed an issue where the Task List would not updated due changes via sync for some users
+ Fixed syncing locations over Exchange
+ Fixed undoing the completion of a recurring reminder
+ Fixed an issue where creating public proposals would incorrectly display an error
+ Fixed an issue with disappearing phone numbers for Zoom events on Google calendars
+ Fixed an issue where the Migration Assistant would crash for some users
+ Fixed an issue where Fantastical failed to update special Google events (i.e, Out of Office, Focus Time, Events from Gmail, and Google Scheduled Appointments)
+ Fixed an issue where Birthdays from Google Contacts could incorrectly show up in the main Google calendar
+ Various fixes and improvements
+ Fantastical 4.0.1 November 19, 2024 
+ Added support for Signal Call Links
+ Added a new directions button on the UpNext and List views in the watch app
+ Todoist users with team projects can elect to self-assign tasks as they are created
+ Fixed an issue that prevented the Create Event Control Center widget from opening the app
+ Fixed an issue with iCloud calendars disappearing intermittently
+ Fixed an issue where "Start Week View On" setting was not always respected
+ Fixed a crash on watchOS for some users
+ Fixed searching for contacts by email
+ Fixed an issue where completed, timed tasks on Graph accounts would lose their timed component
+ Fixed an issue where changing an event from all-day to timed would default to the wrong times
+ Fixed an issue where some events would be skipped in week view when using VoiceOver
+ Fixed a rare issue where week view would initially display a date from the previous month instead of today
+ Fixed an issue preventing the modification an existing task on Microsoft Graph to be repeating
+ Fixed poor readability for some events on lock screen Up Next widget
+ Various fixes and improvements
+ Fantastical 4.0 October 29, 2024 
+ Fantastical for Windows is here! Visit our website for more details
+ New "Create Task" widget available in Control Center
+ Added support for Miro conference calls
+ Fixed an issue where Fantastical would incorrectly report errors when using Microsoft 365 via Graph
+ Fixed an issue that prevented users from being able to enable/disable their Google account
+ "Create Event" control center widget no longer defaults to including today's date
+ Fixed a bug that could allow RSVP events to look like they repeated even though that isn't supported
+ Various fixes and improvements
+ Fantastical 3.9.2 October 9, 2024 
+ The "Today Schedule" complication no longer requires "Up Next, Events, and Tasks" to be enabled in watch settings
+ The "Today Schedule" complication now shows upcoming timed-tasks
+ Added travel time to Live Activity on Apple Watch
+ Improved the responsiveness of the tasks view
+ Improved VoiceOver support when displaying error popups
+ Event notes can now be shared using custom VoiceOver actions
+ Improved VoiceOver support when going to specific dates and navigating around in Month view
+ Event notes are not broken up by paragraphs anymore when VoiceOver is turned on
+ Fixed an issue where Openings co-hosts would not be invited to events
+ Fixed an issue for some users where Fantastical would incorrectly report sporadic errors when using Exchange or Office365 accounts
+ RSVP events with a physical location now correctly show a map in the event details
+ Fixed an issue that prevented complications from opening the event details when tapped
+ Fixed an issue on the watch that caused some items to overlapping incorrectly on in the UpNext view
+ Fixed an issue where Week view would display the wrong month name at the top
+ Fixed an issue where deleting a Zoom account didn't work
+ Fixed an issue where an iCloud account could be shown greyed out in the account list, although it was already added
+ Fixed an issue where Fantastical would not recognize timezones in Chile
+ Fixed an issue where the slideover and splitscreen on iPad could fail to transition
+ Fixed an issue with duplicate Google invitations
+ Fixed an issue where the Live Activity shown in the Dynamic Island might continue showing after the end of an event
+ Fixed URL detection for links with a dollar sign
+ Fixed an issue where Fantastical would incorrectly delete all the events in a series when the user deleted a cancelled event in some instances
+ Fixed an issue with yearly events taking a long time to open
+ Fixed checkbox alignment in the Day view
+ Fixed an issue where auto complete menus wouldn't be selectable when creating events with VoiceOver turned on
+ Various fixes and improvements
+ Fantastical 3.9.1 September 20, 2024 
+ Dark and tinted versions for all app icons (requires iOS 18)
+ New control widgets for launching Fantastical directly from Control Center, the Action button, and the lock screen (requires iOS 18)
+ Live Activities now appear on your Apple Watch (requires watchOS 11)
+ Added a new “Today’s Schedule” complication (requires watchOS 11)
+ Quickly jump to the next or previous event in a recurring series
+ Added a new way to switch between task lists by tapping on the task header
+ You can now change your Openings username from Fantastical
+ Openings settings have been consolidated into a single screen
+ Support for combining OneCal blocking events with the original event
+ Event details on Apple Watch now include individual attendee statuses
+ Fixed an issue that caused small text in Date complication on watchOS 11
+ Fixed a potential crash when syncing personal Microsoft 365 accounts
+ Editing an out of office event on Google no longer warns that the changes will not sync
+ Fixed an issue where the some Teams links with password parameters weren’t fully recognized.
+ Fixed a rare issue where tasks would appear to not get saved
+ Fixed an issue that caused Fantastical to incorrectly report a Graph API error when interacting with detached events
+ Fixed an issue that caused the List view in watchOS to flash briefly for some users
+ Fixed an issue that caused a crash for some users when toggling “Show Completed” tasks
+ Fixed an issue that caused Goodtime.io links to incorrectly match as Skype for Business conference calls
+ Fixed a rare issue where Fantastical would crash when encountering bad data coming from an Exchange account
+ Fixed an issue causing the Up Next widget to always show events as happening "In 2 days"
+ Fixed an issue where the checkboxes for tasks were not correctly aligned in some scenarios
+ Various fixes and improvements
+ Fantastical 3.8.23 August 14, 2024 
+ Added support for Focusmate session URLs
+ The Remaining Items complications can be used in more complication configurations
+ Removing attendees from an event in a short succession is now more reliable
+ Resize handles are now hidden during a drag and drop
+ Refreshed the design of the Flexibits Account management page in Settings
+ Improved the reliability of watch complications when changing time zones
+ Conference call info for RSVP invitations will only be available to attendees after registration
+ Dismissing notifications Exchange invitation replies will now sync across online devices
+ Fixed an issue where you were able to remove attendees from an event you've been invited to
+ Fixed an issue where too many notifications would appear when people reply to an invitation on Exchange
+ Fixed an issue that prevented some users from seeing all their task calendars when using Office365 with the Graph API
+ Fixed an issue where starting the dragging of an item would prevent scrolling to a different day to conclude the drop
+ Fixed a bug where Zoom URLs were not correctly included in RSVP Invitations
+ Fixed search not finding daily repeating events +6 months in the future
+ Fixed an issue that caused the items on the Up Next Timeline complication to clip for some users
+ Fixed an issue with setting tasks to be all day on Microsoft Graph
+ Fixed an issue with moving timed tasks on Microsoft Graph for certain timezones
+ Fixed an issue where RSVP invitations would incorrect indicate a missing backing event on Microsoft calendars
+ Fixed an issue where the Calendar Set button would get smaller and eventually disappear when some notifications are available
+ Fixed an issue where alarms couldn't be set for some events
+ Various fixes and improvements
+ Fantastical 3.8.20 July 17, 2024 
+ RSVP! Invite others to your event with control over response types, number of participants, and registration deadlines
+ Diagnostics & Troubleshooting! Quickly identify and fix problems such as configuration and service issues in the Help section
+ Improved combining events that contain Microsoft Teams meetings
+ Improved the performance of scrolling the event list on the watch app
+ Improved legibility in the UpNext corner complication on the watch app when using certain colors
+ Fixed an issue where adding attachment to Microsoft 365 events wouldn't show when the upload has finished
+ Fixed an issue in the tasks view where a change in task list name wouldn't be reflected
+ Fixed an issue that prevent authenticating with a Meetup account
+ Fixed an issue where HTML could appear in notes for some Microsoft 365 accounts
+ Fixed an issue where the incorrect times would be displayed when responding to a proposal
+ Fixed a crash that could happen when trying to sign in to your Flexibits Account from Migration Assistant
+ Fixed random hanging for some users when sending updates to a paired Apple Watch
+ Fixed a crash when tapping on a task header to scroll to the top of an empty list
+ Various fixes and improvements
+ Fantastical 3.8.19 June 24, 2024 
+ A full resync of Todoist accounts will now include completed tasks
+ Added a scroll to the top interaction to the tasks view header
+ Improved the animation of the tasks view on initial launch
+ Improved VoiceOver support on the calendar item editor
+ Improved accessibility support for the Openings Editor
+ Made it easier to view and copy your account encryption key
+ Emailing all attendees for an event will now default to using BCC
+ Fixed an issue where timed tasks would not sync correctly to CalDAV servers
+ Fixed Exchange timezone mappings in Central Asia
+ Fixed an issue where reminders were not picking up their calendar colour
+ Fixed an issue that showed invitations from birthday and holiday calendars
+ Fixed an issue where overdue tasks with duration would not be visible
+ Fixed an issue where showing weather for the current location wouldn't update when moving to a new location
+ Various fixes and improvements
+ Fantastical 3.8.18 June 4, 2024 
+ Added support for durations for Todoist Premium users
+ Improve handling of delegated calendars when using Microsoft Graph
+ Improved performance of updated Tasks view
+ Editing all future events on an Exchange account will now preserve past modified instances more accurately
+ Fixed an issue that prevented the UpNext complication from displaying the event title for some users
+ Fixed an issue with undoing proposed time changes
+ Fixed a crash that could happen when declining an Openings appointment
+ Fixed a visual issue with multiline calendar items in the list view
+ Fixed a rare crash when selecting a location
+ Fixed birthdays and anniversaries getting counted as conflicts when receiving a Fantastical Proposal
+ Editing all future events on a Microsoft 365 account will now preserve past modified instances more accurately
+ Fixed deleting invitations not including the cancellation message on some Microsoft 365 accounts
+ Various fixes and improvements
+ Fantastical 3.8.16 May 7, 2024 
+ Updated Tasks view allows you to quickly focus on a single list
+ Improved reliability of syncing to watch
+ Fixed an issue that caused duplication when moving events to delegated calendars using Microsoft 365/Exchange
+ Fixed an issue where Openings appointments targeting calendars on Microsoft 365 would get immediately deleted upon resolving
+ Fixed an issue that prevented the UpNext complication (watchOS) from updating at the end of an event
+ Fixed a crash when completing tasks on watch
+ Fixed an issue where Exchange events could have the wrong time if the time zone definition is out of date
+ Fixed a crash on iPad when pressing the button to share the user's public Openings page
+ Fixed an issue where the wrong view was selected in the view switcher menu after force quitting the app with Tasks not enabled
+ Fixed an animation glitch when quickly reversing the transition between views
+ Fixed an issue where duplicating an event on Exchange with no Internet connection would delete the copy
+ Fixed a potential error when modifying all future events of a recurring event on Microsoft 365
+ Fixed an issue where items created via Shortcuts would sometimes not produce the properly response
+ Fixed an issue where editing all future instances of an event on Exchange could leave behind one too many events
+ Fixed an issue in on the watch that prevented the List Shows setting from working correctly for some users when an event spanning multiple days was included in the schedule
+ Fixed an issue where creating Microsoft Teams meetings on delegated Microsoft 365 calendars might fail
+ Fixed an issue where it wasn't possible to respond to an invitation to a group on Microsoft 365 accounts
+ Fixed an issue where non editable calendar on Microsoft Graph would lose the color customization
+ Various fixes and improvements
+ Fantastical 3.8.15 April 16, 2024 
+ Fixed an issue that caused Fantastical to crash on launch for some users
+ Fixed an issue where Openings appointments targeting calendars on Microsoft 365 would get immediately deleted upon resolving
+ Various fixes and improvements
+ Fantastical 3.8.14 April 9, 2024 
+ Added a section linking to the user's Fantastical Openings public page
+ Condensed some Fantastical Openings settings for better clarity
+ Fixed an issue where widgets wouldn't update when completing tasks from notifications
+ Fixed an issue where you could incorrectly add travel time to events on a Zoho calendar
+ Fixed an issue where all-day events could jump by a day when time zone override is enabled
+ Fixed an issue that caused tasks using Microsoft Graph to appear incorrectly on the watch app
+ Fixed a problem with Google occasionally re-syncing everything
+ Fixed an issue that would not show response messages from invitees if there were large numbers of attendees in the meeting
+ Fixed invitations sent to a group not showing a notification for some Microsoft 365 accounts
+ Fixed an issue that caused drag and drop to failed when importing tasks from OmniFocus 4
+ Fixed Microsoft 365 accounts incorrectly re-requesting admin authorization when needing to sign in again
+ Fixed an issue that caused duplication when completing recurring tasks on MS Graph
+ Fixed a regression where some slots where offered for Openings ignoring events coming from a subscription
+ Multi-day timed events are no longer shown in widgets if all-day events are hidden
+ Various fixes and improvements
+ Fantastical 3.8.13 March 19, 2024 
+ Added support for multiple hosts in the Openings editor (requires Flexibits Premium for Teams)
+ Added a prompt to alert you to a change in a local copy of an event
+ Mothers day in the UK now recognised as happening in March instead of May
+ Improved responsiveness of syncing in the background for the watch app
+ Improved performance for the Get Attendees shortcut
+ Improved the visibility of the "Go To Today After Adding Items" setting
+ Fixed an issue where the Openings Editor would allow to set a date interval outside of the supported range
+ Fixed an issue that could cause event colors to show up incorrectly in the widgets
+ Fixed device rotation on devices running iOS 15
+ Fixed an issue with events in the Africa/Casablanca timezone syncing from Exchange Servers
+ Fixed an issue that caused notifications for some users to erroneously disappear after displaying
+ Fixed pointer interactions in the week view on the iPad
+ Fixed an issue where all-day events on Exchange accounts could end a day early when in the middle of a Daylight Saving Time change
+ Fixed a problem with timezone offsets for exchange accounts
+ Fixed searching for cities in a specific state when choosing a weather location
+ Fixed rapid changes to Microsoft 365 events causing temporary visual glitches
+ Fixed an issue with deleting attachments from Google events
+ Various fixes and improvements
+ Fantastical 3.8.11 February 13, 2024 
+ Fantastical Openings meeting templates can now be marked to be visible on your personal page
+ Improve the legibility of certain colors in the watch app
+ Improved Zoom account reliability
+ Improved detection of some types of Microsoft Teams conference URLs
+ Improved sync reliability with Microsoft accounts
+ Fixed an issue where extra tap sounds would be played in Week view on Apple Vision Pro
+ Fixed an issue that caused notes from Microsoft 365 to display HTML tags
+ Fixed an issue where searching for events with ampersands wouldn't show matches when using the mini window
+ Fixed an issue with editing recurring events only showing the "Save for this Event" option
+ Fixed an issue when trying to preview EML files (or other unsupported file types) attached to events
+ Fixed an issue where changing birthday and anniversary alerts wouldn't take effect immediately
+ Fixed an issue that caused notifications for some events and tasks to clear incorrectly
+ Fixed an issue where birthday notifications wouldn't appear if event notifications were disabled
+ Fixed an issue where tasks wouldn't updated quickly on some Microsoft 365 accounts
+ Fixed an issue that cause the Up Next widgets to not countdown correctly during the hour before an event
+ Fixed an issue where the meeting template list was displayed with the wrong color in dark mode
+ Fixed an issue that caused Todoist project from losing their "Ignore Alarms" setting in Fantastical for some users
+ Fixed an issue that would cause the Event List widgets to overflow their bounds
+ Various fixes and improvements
+ Fantastical 3.8.10 January 23, 2024 
+ Live Activities are now supported on iPad
+ Break time in Fantastical Openings Meeting Templates now allows separate values for the before and after options
+ Improved adding and editing meeting options for Openings
+ Improved the Openings availability overview by including information about which devices an event is on
+ Made improvements to the Show Schedule App Intent
+ Improved URL detection for Zoom URLs
+ Improve URL detection for Jitsi Meet
+ Fixed a visual anomaly when selecting all-day items in the week view
+ Fixed an issue that caused the Remaining Items widget on Apple Watch to report an incorrect number for some users
+ Fixed an issue where widgets wouldn't update when the time zone changes
+ Removed Mirror App appearance setting from widgets to help improve widget reliability
+ Fixed an issue where clients would overwrite proposals with old invitee data
+ Fixed an issue where the Up Next widget would be clipped for events with long titles
+ Fixed an issue where the tasks icon was still visible in the iPad's navigation bar with reminders turned off
+ Fixed an issue with recurring events in the openings availability view
+ Fixed an issue with timed tasks on Exchange
+ Fixed an issue with HTML code showing up in notes
+ Fixed a rare crash in landscape mode
+ Various fixes and improvements
+ Fantastical 3.8.9 December 7, 2023 
+ Fantastical now speaks both European and Brazilian Portuguese!
+ When creating an event on iPad you can now navigate autocomplete lists using the connected hardware keyboard
+ Added visibility editing for SOGo servers
+ Improved Voice Over support in the widgets
+ Improved rotation handling on the iPhone
+ Improved search results when searching for interesting calendars
+ Improved UpNext view in the watch app to better handle packed schedules
+ Improved the reliability of the UpNext Timeline complication
+ The new event drafts toolbar remains visible in landscape
+ Matching events from interesting calendars will combine
+ Sharing an all-day event will now include alerts
+ Fixed an issue that prevented Voice Over users from completing tasks or joining a meeting from the widgets
+ Fixed a bug that prevented the Up Next widget from immediately clearing the last event of the day
+ Fixed a rare crash when accepting invitations on an iPad
+ Fixed a visual anomaly when deleting an item in the list view
+ Fixed an issue where Zoom could ask to sign in again when not connected to the internet
+ Fixed an issue where all-day events that start before 2001 could be off by a day on Exchange
+ Fixed an issue where adding an ICS subscription would continue to fail
+ Fixed an issue that caused unexpected truncation of the UpNext complication for some watch users
+ Fixed an issue that sometimes caused the Watch app List to show old events
+ Various fixes and improvements
+ Fantastical 3.8.8 November 7, 2023 
+ Added ability to duplicate Openings templates
+ New option to see events from tomorrow morning in Watch App Up Next
+ Added support for WhatsApp call links
+ Larger display of Weather in Watch App Up Next
+ Improved responsiveness of tasks in interactive widgets
+ Improved display of interesting sport calendars to make it easier to find the correct calendar
+ Improved layout of task details to allow for long task titles
+ Improved detection of Jitsi Meet conferences
+ iCloud password prompts now include a Learn More button linking to our tutorial about iCloud App-Specific Password
+ Fixed an issue that caused title for upcoming items on Infograph watch face to be omitted
+ Fixed an issue that prevented some Siri Shortcuts from working correctly
+ Fixed an issue that affected widgets when using the "Mirror App" appearance setting
+ Fixed an issue with the Fantastical theme in some widgets
+ Fixed an issue with some widgets having a solid colored border on iOS 16
+ Fixed an issue with inviting groups
+ Fixed an issue where moving an event to a MSGraph account would drop attendees
+ Fixed an issue where rotating the item editor back to portrait would leave it too wide
+ Fixed a rare issue where an Exchange event could be synced to the server too frequently
+ Fixed a display issue with live activities on devices without Always on Display
+ Fixed a crash on Exchange when creating a new event and quickly moving it to a different calendar
+ Fixed attempting to add a CalDAV account with an invalid URL not showing a clear error
+ Fixed a crash that could occur when creating a recurring event with custom interval
+ Various fixes and improvements
+ Fantastical 3.8.6 October 23, 2023 
+ Double month calendar widget is back!
+ Improved watch app background sync reliability
+ Improved stability when searching for invitees
+ Improved the appearance of the onboarding in dark mode
+ Improved Watch App Sync Error Handling
+ Larger display of Weather in Watch App Up Next
+ Event detail in the watch app now includes the location
+ Up Next watch widget doesn't count in-progress but almost over events in it's other items count anymore
+ Fixed an issue where dragging an all day event to become a timed event does not set availability correctly
+ Fixed an issue with recurring tasks getting marked complete when closing and reopening the app
+ Fixed issue with remaining tasks widget showing an incorrect count
+ Fixed an issue where Sign in with Apple and Sign in with Google would not work reliably in certain circumstances
+ Fixed an issue that prevented the watch complications from honor the user setting for tapping the complication
+ Fixed an issue where the search bar could be obscured on iOS 17.1
+ Fixed an issue that prevented multi-day events from displaying in watch complications
+ Fixed a crash when jumping to today in the mini window
+ Fixed snooze not working from notifications in some situations
+ Fixed an issue that prevented widgets from aligning with other widgets on the iPad lock screen
+ Fixed an issue that caused empty days to not show on the Event List widgets
+ Various fixes and improvements
+ Fantastical 3.8.5 October 16, 2023 
+ The Up Next complication now displays the date when used on the Infograph watch face
+ Improved the visibility of proposal responses in dark mode
+ Fixed Tapping Up Next and Up Next Timeline complication navigating to recurring events
+ Fixed an issue where clicking on overdue tasks in widgets would go to the wrong day
+ Various fixes and improvements
+ Fantastical 3.8.4 September 28, 2023 
+ The Calendar widget is now interactive! (requires iOS 17)
+ Improved reliability for watch complications
+ Improved sync with CalDAV servers that incorrectly send calendars that no longer exist
+ More complications now honor the relative time setting in the app
+ Fixed an issue that prevented the item title from appearing in the Infograph watch face
+ Fixed a crash that would occur during the onboarding process
+ Resolved flickering in the Apple Watch List view
+ Improved searching for time zones when cities start with “St.”
+ Fixed an issue where setting the language specifically for Fantastical was not working for all use cases
+ Fixed an issue where Google Workspace resources wouldn’t sync consistently
+ Fixed an issue that caused the Up Next widget to not respect settings from the watch app
+ Fixed an issue where the Migration Assistant would not detect a new device
+ Fantastical 3.8.2 September 21, 2023 
+ Redesigned Apple Watch app
+ Added support for widgets in the Smart Stack (requires watchOS 10)
+ StandBy widgets! (requires iOS 17)
+ “Event List + Calendar” widgets are now interactive! Tap on a date and see your schedule directly from the widget! (requires iOS 17)
+ Complete tasks directly from your home screen widgets! (requires iOS 17)
+ Widgets on your iPad lock screen! (requires iPadOS 17)
+ Added support for location options when booking a meeting with Openings (conference calls, call-in, and in-person options)
+ Live Activities now work up to eight hours ahead
+ Added support for Google Rooms
+ Enabling travel time will automatically set the start location to the previous event, if possible
+ Improved Zoom URL detection for Germany-based conference calls
+ Fixed an issue that prevented widgets from updating when Item Indicators were enabled
+ Fixed an issue when duplicating locations
+ Fixed an issue where the app would crash when getting directions for an event
+ Fixed a crash when launching Fantastical on iOS 15
+ Fixed a crash when using watchOS 8
+ Fixed a crash when running some Shortcuts actions
+ Added the Today's Date + Weekday to the corner complications
+ Fixed a crash during sync on watchOS 9
+ Fixed an issue that caused the remaining task complication from honoring user settings
+ Fixed an issue that caused certain watch complications to truncate incorrectly
+ Various fixes and improvements
+ Note: Apple Watch app now requires watchOS 8.5
+ Fantastical 3.7.21 August 28, 2023 
+ Migration Assistant helps users signing in to their account when they migrate to a new device
+ Added support for multiple Fantastical complications of the same size on a single watch face
+ Various fixes and improvements
+ Fantastical 3.7.20 August 22, 2023 
+ Providing more information about missing guests when viewing invitations where the host doesn't allow guests to see each others
+ Duplicating an event with no alarms will not add default alarms
+ Fixed an issue where availabilities roughly 100 days in the future were not processed correctly for Openings
+ Fixed going to today in month view on the iPad
+ Fixed an issue where the location of in Day or Week view could appear with strikethrough incorrectly
+ Fixed event list sometimes jumping up or down when new events are synced
+ Various fixes and improvements
+ Fantastical 3.7.19 August 21, 2023 
+ Providing more information about missing guests when viewing invitations where the host doesn't allow guests to see each others
+ Duplicating an event with no alarms will not add default alarms
+ Fixed an issue where availabilities roughly 100 days in the future were not processed correctly for Openings
+ Fixed going to today in month view on the iPad
+ Fixed an issue where the location of in Day or Week view could appear with strikethrough incorrectly
+ Fixed event list sometimes jumping up or down when new events are synced
+ Various fixes and improvements
+ Fantastical 3.7.18 July 26, 2023 
+ Added support for Markdown syntax in Fantastical Openings templates
+ Improved how notes with HTML are displayed on the watch
+ Create From Input shortcut action can now be used to create tasks without a due date
+ Titles are now more readable in month view when using a large text size on iPad
+ Improved reliability of syncing with Apple Watch
+ Fixed an issue where Todoist sync would get stuck when trying to archive/delete projects
+ Fixed an issue with events appearing with incorrect color in dark mode
+ Fixed a crash when syncing Exchange accounts
+ Fixed an issue with searching for locations from Contacts on iOS
+ Fixed an issue with specific recurrence rules in Microsoft Graph
+ Various fixes and improvements
+ Fantastical 3.7.17 July 24, 2023 
+ Added support for Markdown syntax in Fantastical Openings templates
+ Improved how notes with HTML are displayed on the watch
+ Create From Input shortcut action can now be used to create tasks without a due date
+ Titles are now more readable in month view when using a large text size on iPad
+ Improved reliability of syncing with Apple Watch
+ Fixed an issue where Todoist sync would get stuck when trying to archive/delete projects
+ Fixed an issue with events appearing with incorrect color in dark mode
+ Fixed a crash when syncing Exchange accounts
+ Fixed an issue with searching for locations from Contacts on iOS
+ Fixed an issue with specific recurrence rules in Microsoft Graph
+ Various fixes and improvements
+ Fantastical 3.7.16 July 10, 2023 
+ Added support for scheduling Skype Calls in Fantastical
+ Year view is now fully accessible via VoiceOver
+ Live Activities are updated with push notifications making them more responsive
+ Openings can now be scheduled up to 180 days in the future
+ Quarter view now provides an overview of the days when VoiceOver is enabled
+ Go to Today and Go to Date… will now move focus to that date when VoiceOver is enabled to streamline accessibly navigation
+ Improved reliability when finding and filtering events using Shortcuts
+ Improved support for increase contrast accessibility setting in Day, Week, Month, and Quarter views
+ Interesting calendars are now accessible when using VoiceOver
+ Improved support for connecting to US government and 21Vianet instances of Microsoft 365
+ When opening the parser after a long tap on a calendar day, the first letter is now capitalized
+ Fixed Microsoft 365 accounts not syncing consistently for some users
+ Fixed an issue where an event could shift when changing the time zone to or from floating
+ Fixed an issue that prevented Fantastical from changing guest permissions for Google Calendar events correctly for some users
+ Fixed an issue that prevent birthday and anniversary titles from showing up on the watch app for some users
+ Fixed an issue where Zoom wouldn't sync in some situations
+ Fixed an issue where the address would appear twice in locations
+ Fixed travel time in Live Activities
+ Fixed an issue where timezone offset was not being parsed correctly on some Exchange server
+ Various fixes and improvements
+ Fantastical 3.7.15 June 12, 2023 
+ You can now open a task in Todoist's native app from the task context menu
+ Live Activities can be started from the notification menu
+ Improved first run and on-boarding experience
+ Tasks using "[90m]" in title to show custom duration can now be resized
+ Renamed Office 365 to Microsoft 365
+ Users can now choose whether or not they want to show completed tasks in the classic Today widget
+ Fixed an issue that would cause proposal times to show too many conflicts
+ Fixed an issue where Exchange events could appear off by an hour if the Exchange server's time zone definitions haven't been updated
+ Fixed detached repeating events appearing incorrectly on personal Microsoft 365 accounts
+ Fixed dragging the location pin for location selection
+ Fixed an issue that prevented the landscape week view from showing correctly on 4.7" iPhones (i.e, SE & 8)
+ Fixed an issue that prevented hidden events and tasks from syncing
+ Fixed an issue with recent locations in the event editor
+ Fixed an issue that caused Fantastical's watch app to show incorrect tasks
+ Fixed an issue deleting instances of recurring events in time zones that no longer have daylight saving time
+ Fixed an issue where displaying the details of an event would have no obvious way to getting out of it
+ Fixed an issue where arrows in the availability screen were using a misleading color
+ Fixed an issue where modifying an event with multiple time zones could cause a sync error
+ Fixed an issue where the Day and Week views could show too many hours when the option to only show day start and end hours was enabled
+ Various fixes and improvements
+ Fantastical 3.7.14 May 25, 2023 
+ Fixed an issue causing some shortcuts to not be available
+ Improved invitee search for personal Microsoft 365 accounts
+ Creating a template from an Exchange event with "working elsewhere" availability will now save the availability correctly
+ Fixed an issue where VoiceOver would not read parsed tokens (contact, calendar, location) when using natural language input
+ Various fixes and improvements
+ Fantastical 3.7.13 May 15, 2023 
+ Added support for including a conference call when configuring a Meeting Proposal
+ Added support for finding Events and Tasks in Shortcuts
+ Added Hopin Session to the list of the supported conferences
+ Adding [90m] to the end of a task's title will make the task appear 90 minutes long in Day and Week view (you can use any number to set the task duration)
+ Disable default alerts when creating events with the parser with a sentence such as "My new event tomorrow 5pm alert off" (or "alert none")
+ Performance improvements to the list, Month, and Quarter view
+ Speed improvements for searching for invitees
+ Improved reliability of watch sync when completing a task on the watch
+ Fixed an issue editing recurring events in time zones that no longer have daylight saving time
+ Fixed an issue where declined proposals would remain in your calendar
+ Fixed a crash when responding to event invitations on iPad for some users
+ Fixed a crash on iPad when sharing Fantastical Openings meeting templates
+ Enabling "Detect Clipboard Content" can no longer cause continual permission prompts
+ Fixed an issue where relative dates appeared truncated in the Apple Watch complication in French
+ Fixed an issue that prevented some users from being able to make changes to their Calendar Sets
+ Fixed an issue where changing the due date of a task that's due within the next hour wouldn't work
+ Fixed an issue where editing all instances of a recurring event was incorrectly allowed when changing the date or time of a recurring event
+ Fixed events with newlines in the title appearing incorrectly in the widgets
+ Fixed an issue where empty days in the Day Ticker were not being read by VoiceOver
+ Fixed an issue that prevented tasks from appear in Fantastical's watch app for some users
+ Various fixes and improvements
+ Fantastical 3.7.12 April 14, 2023 
+ Fantastical Openings can now be configured to request or require a phone number when meetings are booked
+ Added ability to limit the number of guests allowed when using Fantastical Openings
+ Added a setting to choose how tasks are sorted (by Priority & Due Date, Due Date, or Title)
+ Added the possibility to see the event organizer's response message
+ Added support for detecting PracticeBetter meetings
+ Watch app now supports dynamic font size
+ Fixed an issue where Zoom/Webex options would be visible in the Openings Editor even if they couldn't be set
+ Fixed an issue where the organizer was incorrectly shown as having accepted the event, even though the organizer had declined it
+ Fixed a crash when trying to hide an event from search results on an iPad
+ Fixed a delay between opening the search view and the keyboard appearing
+ Fixed an issue that caused tasks without a due date to appear as overdue in the watch app
+ Fixed an issue where splitting a recurring event series would result in one extra event being created
+ Fixed a crash on iPad when changing an event with an attachement to a different account
+ Fixed an issue where certain types of delegated calendars wouldn't appear on Exchange accounts
+ Fixed an issue where connecting to a server with an invalid SSL certificate would ask repeatedly after disallowing the connection
+ Fixed a crash that could happen when toggling a Google Account
+ Fixed an issue where adding some personal Microsoft 365 accounts wouldn't work
+ Fixed free/busy lookups not working on some Office 365 accounts
+ Fixed an issue that prevented some Microsoft calendars from being used for Openings Availability
+ Fixed an issue that prevented travel time from being calculated correctly
+ Various fixes and improvements
+ Fantastical 3.7.8 March 6, 2023 
+ Added a new "Always Ask" option for opening event locations
+ Added support for opening event locations in Uber and Lyft apps
+ Added an option to choose all instances of a recurring event series even when not editing the first instance of the series
+ Shows all-day event availability in iOS event ticker
+ Added support for urldefense.com v3 meeting URLs
+ Meetup groups that you manage will now appear correctly
+ Improved support for adding personal Microsoft 365 accounts
+ Improved syncing to two Apple Watches from one iPhone
+ Improved searching for items with symbols and pronunciation marks
+ Improved Live Activity localization
+ Improved push notifications for personal Office 365 accounts
+ Improved reliability on Apple Watch
+ The Fantastical Openings Availability view now includes hidden items
+ Shows item titles instead of "1 more item" in widgets
+ The button opening the directions to an event's location is now correctly read out by VoiceOver
+ Fixed an issue in Live Activity that prevented them from starting automatically
+ Fixed an issue where Fantastical would try to sync with deleted Todoist accounts
+ Fixed an issue that resulted in some servers constantly rejecting changes to a detached event in a series
+ Fixed an issue where searching for an invitee by email was not working properly
+ Fixed an issue where a deleted instance of a recurring event on a Google calendar could reappear
+ Fixed an issue travel time would be recalculated repeatedly if there was no valid route found
+ Fixed an issue that was preventing the directions button from showing in widgets for upcoming events
+ Fixed No Events Today appearing briefly when launching Fantastical
+ Fixed a crash that could happen after canceling the creation of a new meeting proposal
+ Fixed an issue where weekly recurring events wouldn't appear correctly on personal Microsoft 365 accounts
+ Fixed a crash that could occur when trying to contact an event inviteeFixed an issue where the current time in the second time line could be an hour off during daylight saving time transitions
+ Various fixes and improvements
+ Fantastical 3.7.7 February 6, 2023 
+ Live Activities and Dynamic Island for upcoming events on iPhone 14 Pro! Start a live activity for events that are coming up in the next hour from an event’s notification or details. You can also automatically start live activities for upcoming events in Fantastical’s Alerts & Notifications settings
+ Webex meetings can now be scheduled in the Personal Room
+ Added support for personal Microsoft Teams conferences
+ Long file names of attachments are now fully visible
+ Improved detection and recovery when encountering a corrupt database
+ Improved handling of Todoist sync errors
+ Fixed an issue where dragged events in the Day View would sometimes have wrong start time if moved between days
+ Fixed an issue were events deleted on a Google calendar could reappear
+ Fixed a crash when encountering an invalid time zone on Exchange
+ Fixed an issue where reinstalling the Apple Watch app would get stuck until the app was relaunched
+ Fixed an error that could appear when tapping on a notification for a recently scheduled Openings appointment
+ Fixed an issue where notifications for Openings appointments would disappear too soon if a conference call was automatically added
+ Fixed an issue where the event list would be empty after the device was rotated to landscape
+ Fixed undesired event highlight during day/week view scrolling
+ Fixed a crash that would happen when moving an event using drag and drop
+ Fixed an issue where syncing to Todoist could generate more requests than necessary
+ Fixed an issue that caused the keyboard to block content for some users when editing notes
+ Fixed an issue where Exchange accounts could hang syncing when encountering unexpected server issues
+ Various fixes and improvements
+ Fantastical 3.7.6 January 17, 2023 
+ Added Call and Message options to event details in the Apple Watch app
+ Selecting a calendar in the parser with /calendarname will now match based on the account name (for example "New event 5pm tomorrow /homeic" will select the Home calendar on the iCloud account)
+ Added a setting to control if all-day tasks are shown in Apple Watch complications
+ Added support for Slack Huddle links
+ Added support for SecureVideo links
+ Improved support for recognizing MS Teams links
+ Improved the way VoiceOver describes repeating tasks
+ Improved VoiceOver support for Fantastical Proposals
+ Improved VoiceOver support for the weather view
+ Improved VoiceOver navigation when using Day and Week views
+ Improve resizing events in week and day view on iOS
+ Improved support for Dynamic Type in Day and Week views
+ Improved the way repeating events are handled on CalDAV accounts
+ Fixed multiple reclaim.ai events on different calendars sometimes not merging correctly
+ Fixed an issue that prevented Fantastical Openings bookings from being created with default video conference settings
+ Fixed an issue where events created in the Detroit time zone would appear in the Indiana time zone on Exchange
+ Fixed an issue that prevented attachments from being uploaded to Google Drive for some users
+ Fixed an issue that prevented users from creating recurring events when using Show Calendars from iOS
+ Fixed an issue that could show the wrong date when editing an all-day event
+ Fixed an issue where notifications for all-day proposal responses would incorrectly show a time
+ Fixed an issue that caused labels on Todoist to sync incorrectly
+ The first hour in Day and Week view is no longer truncated when Only Show Day Start And End Hours is enabled
+ Fixed an issue where the keyboard was dismissed after each keystroke when editing the custom URL of an Openings meeting template
+ Fixed an issue that prevented weather from updating correct in widgets for some users
+ Fixed an issue where the Quarter view wouldn't display data for the full quarter
+ Fixed invitation notifications not showing the event date and time on Apple Watch
+ Error messages during Zoom sync are shown less frequently
+ Various fixes and improvements
+ Fantastical 3.7.5 December 9, 2022 
+ Fixed an issue that prevented task dates from showing up in Fantastical for some users
+ Fixed a bug that prevented proposals from being able to create for some users
+ Various fixes and improvements
+ Fantastical 3.7.4 December 6, 2022 
+ Added an option to hide Todoist tasks on shared lists that aren’t assigned to anybody
+ Improved VoiceOver navigation when adding or editing a calendar event
+ Improved accessibility support for the Openings editor
+ General improvements for VoiceOver for dates and events
+ Tapping and holding on the month when in landscape on iPhone will now go to that date
+ Hours in Day and Week view now respect the text size in Settings
+ Events that don’t fit in month view are now displayed in a popover for better ease of use and improved accessibility
+ Added a Copy Link action to the context menu for Openings templates
+ Improved the localization for birthdays and anniversaries in Spanish and Italian so the name comes before the age or anniversary number
+ Improved detection of Exchange servers that support hybrid modern auth through Office 365
+ Improved error handling when an OAuth token fails to refresh for an unexpected reason
+ Added back the missing “Manage Account” button from the Flexibits Account settings page
+ Fixes and improvements when proposing new times when responding to event invitations
+ Fixed an issue that incorrectly required some notifications to have to be cleared multiple times
+ Fixed an issue where hidden items would still show up in the widgets
+ Fixed an issue that prevented users on iOS from importing ICS files
+ Fixed an issue where the event list would randomly jump across years when navigating with VoiceOver
+ Fixed an issue where location couldn’t be set for reminders
+ Fixed an issue where events with long titles with the same start time could overlap incorrectly in Day and Week view
+ Fixed hiding or showing items sometimes not updating the user interface immediately
+ Fixed an issue with Openings templates that resulted in the wrong schedule being offered when the template was not using the system timezone
+ Fixed an issue with Openings templates that resulted in the wrong schedule being offered when it contained blocks extending past midnight
+ Fixed an issue where editing a single instance of a recurring event would modify the entire series
+ Fixed an issue where Openings or Proposals would get stuck if they’re targeting a calendar on a disabled account
+ Fixed an issue where meeting proposals could be unintentionally declined
+ Various fixes and improvements
+ Fantastical 3.7.3 November 4, 2022 
+ Added support for syncing custom colors with Fastmail
+ Added support for Beacon and Gong conferences
+ Improved support for Apple Watch Ultra
+ Disallow selecting an empty calendar set for sync with watch
+ Changing the category of a recurring Exchange event and clicking Cancel no longer changes the category anyway
+ Fixed an issue that would cause the wrong date to be shown in widgets
+ Fixed starting events at 10am causing the event to jump to 10pm when the day starts setting is 11pm or 12pm
+ Fixed an issue that crashed when performing a database migration for some users
+ Fixed an issue that would cause the wrong date to be shown in widgets
+ Fixed an issue where importing ics files for invitation replies or cancellations sometimes wouldn't work correctly
+ Fixed an issue that prevented subscribing to Facebook upcoming events calendars
+ Fixed a crash when unhiding an event that was hidden a long time ago
+ Fixed a crash when unhiding a recurring event
+ Various fixes and improvements
+ Fantastical 3.7.2 October 24, 2022 
+ Fantastical Action widget can now be placed above the clock on the lock screen
+ Restored Meetup functionality and improved support for online events
+ Added support for adding Fastmail accounts with OAuth
+ Improved the visual appearance and usability of the Openings editor
+ Improved the reliability of the Up Next Lock Screen widgets
+ Improved loading calendar subscriptions from some servers
+ All-day events on calendars with a dark color are now easier to read on the Apple Watch
+ Higher priority tasks are now shown at the top in the task list
+ Fixed appearance of small complications in Modular watch face on watchOS 9
+ Fixed an issue where the state of hidden items was not properly syncing between devices
+ Fixed an issue where Openings availability blocks on Saturdays were being moved to Sundays
+ Fixed an issue that prevented attendee comments from updating for some users using Google Calendar
+ Fixed an issue that prevented alerts from being copied when duplicating or pasting events
+ Fixed a crash when importing ICS files for some users
+ Fixed an issue where the app would crash when using QuickPath keyboard
+ Fixed an issue that prevented users from being able to select calendar suggestions when using dictation on iOS 16
+ Fixed an issue that prevented some users from being able to display event or task options tapping on an item in the week and day view
+ Fixed a crash when setting the end time for a repeating event
+ Fixed an issue that prevented the cursor from appearing the in the correct position when editing text for some users on iOS 16
+ Various fixes and improvements
+ Fantastical 3.7.1 September 21, 2022 
+ Added support for meetings from chorus.ai
+ Fantastical Openings editor is now localized
+ App Shortcuts are now localized
+ Improved the reliability of time to leave alerts
+ Fixed an issue that could prevent calendar sets from automatically changing based on time
+ Fixed an issue where incoming event proposals wouldn't update the notifications section immediately
+ Fixed an issue where disabling a calendar in a set would disable other calendars with the exact same name and color on other accounts
+ Fixed an issue where the weather popover couldn't be dismissed on iPad
+ Fixed an issue where renaming a calendar set could get undone a few seconds later
+ Fixed an issue where a floating time zone would appear as an option for accounts that did not support it
+ Fixed an issue that prevented some calendars from being subscribed to
+ Fixed an issue where adding an attachment to an event on Google could show two attachments
+ Various fixes and improvements
+ Fantastical 3.7 September 12, 2022 
+ Focus Filters for iOS 16! Filter your calendar sets when activating a Focus
+ Lock screen widgets for iOS 16! See upcoming events and a calendar on the lock screen
+ App Shortcuts for iOS 16! Using Fantastical's shortcuts is now even quicker and easier
+ Added a custom keyboard to allow fast entry of Fantastical Openings meeting template links
+ Added ability to create and edit Fantastical Openings meeting templates directly in the app
+ Hidden events are now stored per-user, so multiple people using Fantastical with a shared calendar now have separate hidden items
+ Improved support for dynamic type in Day, Week and Month views
+ Fixed an issue when interacting and viewing the details of recurring events for some users using iCloud accounts
+ Fixed an issue where changing time zones could cause temporary visual issues
+ Various fixes and improvements
+ Fantastical 3.6.10 August 30, 2022 
+ Improved German localization
+ Improved Zoom conference URL detection
+ Fixed a memory leak when Fantastical is open for a long time
+ Fixed a crash that could occur while setting travel time for a new event
+ Various fixes and improvements
+ NOTE: This will be the last version of Fantastical that supports iOS 13 or iOS 14. If you are currently using one of these versions, please upgrade to iOS 15 or newer to continue receiving updates. If you are unable to upgrade, your Flexibits Premium subscription will continue to work, but you will not receive new features or bug fixes.
+ Fantastical 3.6.8 August 11, 2022 
+ Tasks in the watch app are now sorted correctly
+ Improved layout while adding new event with larger font sizes
+ Improved Around.co video conference detection
+ Improved sync reliability when receiving push updates in the background
+ Improved accessibility in the Openings Availability view
+ Fixed an issue where some user settings were not getting saved properly
+ Fixed an issue where instances of recurring events could appear twice in the watch app
+ Fixed an issue that prevent some users from being able to add a location to events and tasks
+ Fixed an issue where moving an invitation between calendars would show an error
+ Fixed an issue where Google shared calendars could erroneously appear to be deleted by users without access permissions
+ Various fixes and improvements
+ Fantastical 3.6.7 July 19, 2022 
+ Fixed an issue where text couldn’t be entered into the parser window for some users
+ Various fixes and improvements
+ Fantastical 3.6.6 July 8, 2022 
+ Improved navigation in the Month View when using VoiceOver
+ Fixed an issue where proposals could incorrectly be created without a timezone
+ Fixed an issue where changes were allowed to the category or color of a read-only calendar item
+ Fixed an issue that prevented location-based Reminders from being created correctly
+ Fixed an issue where Openings would fail to add a Zoom meeting if logged in on more devices than allowed by Zoom
+ Fixed a crash that would happen in background while clearing delivered notifications
+ Fixed an issue that caused Fantastical to crash when configuring Zoom meeting options on iOS
+ Various fixes and improvements
+ Fantastical 3.6.5 June 7, 2022 
+ Added support for automatic video conference creation for Openings appointments (Zoom, Webex, Google Meet, Microsoft Teams)
+ Added support for required break time between Openings appointments
+ Add support for Butter as a conference type
+ Added detailed view of time slot availability for Openings
+ Events in the Watch Event list now dim when they are in the past
+ Improved login detection with larksuite.com accounts
+ Fixed a crash when using Latvian language
+ Fixed a crash when using an external keyboard to add time zones on an iPad
+ Fixed drag-and-drop of event in Week view
+ Fixed an issue where event details would disappear unexpectedly when using a cursor on iPad
+ Fixed an issue that prevented drafts from being accessible for some users on iPad
+ Fixed an issue where events set to show as “Working elsewhere” were displayed as “Busy” instead
+ Fixed an issue where birthdays from Microsoft Exchange contacts would show up a day late
+ Various fixes and improvements
+ Fantastical 3.6.4 April 12, 2022 
+ Added support for Zoom, Google Meet, Microsoft Teams, and Webex conference calls in event templates
+ Added a “Clear All” option to the in-app notifications list using tap and hold
+ Added support for guest permissions settings when using Google accounts
+ Added support for editing duplicated events and tasks
+ Improved layout and colors for Quarter View
+ Improved support for reminders and events in widgets when using iCloud calendars
+ Improved support for dynamic type sizes
+ Improved support for VooV links
+ Changed the default app icon. Previous default icon is available as a custom app icon
+ Fixed a crash that could occur when switching between Week and Day views
+ Fixed an issue where “Time To Leave” notifications were not getting dismissed on other devices
+ Fixed an issue that prevented some Google events from being editable
+ Fixed an issue where duplicate events wouldn’t combine when on subscribed calendars
+ Fixed an issue where removing a calendar would cause proposals to be inaccessible
+ Fixed issues related to scheduling Webex meetings
+ Fixed an issue that caused some Zoom URLs to be incorrect
+ Various fixes and improvements
+ Fantastical 3.6.3 March 4, 2022 
+ Anniversaries are now shown in Quarter view
+ Interacting with proposal invitees in Invitee tab is now easier
+ Contact avatars are now used in more places
+ Improved accessibility of Openings meeting templates
+ Fixed an issue where Zoom meetings could unexpectedly get removed from events
+ Fixed an issue where the event list was incorrectly blank
+ Various fixes and improvements
+ Fantastical 3.6.2 March 3, 2022 
+ Anniversaries are now shown in Quarter view
+ Interacting with proposal invitees in Invitee tab is now easier
+ Contact avatars are now used in more places
+ Improved accessibility of Openings meeting templates
+ Fixed an issue where Zoom meetings could unexpectedly get removed from events
+ Fixed an issue where the event list was incorrectly blank
+ Various fixes and improvements
+ Fantastical 3.6.1 February 15, 2022 
+ Added the ability to enable or disable Meeting Templates from within the app
+ Improved visibility for events where all invitees have declined the meeting
+ Improved URL detection for GoToMeeting
+ Fixed an issue where starting a Flexibits Premium trial wouldn't immediately enable some premium features
+ Fantastical 3.6 February 8, 2022 
+ Fantastical Openings! Use Fantastical Openings to create and share your Fantastical link so others can request meetings that work with your schedule
+ Fantastical Proposals! It's now even easier to see everyone's response at a glance in a proposal
+ Quarter view! View 3 months at a time to quickly do long-range planning
+ Up Next toggle! Tap the month and year to jump to today, then tap again to jump to your next upcoming event
+ The selected day is now always shown in the list, even if there are no events on that day
+ Calendar account names now sync between devices
+ Added support for creating and editing recurring tasks on Todoist
+ Fixed Exchange category colors not matching Office 365 on the web
+ Fixed an issue where incompatible alerts would be synced to Google and fail
+ Fixed an issue deleting an event with an ongoing Zoom meeting
+ Fixed an issue where some links in notes could crash
+ Fixed an issue where birthdays on leap years were shown incorrectly on Apple Watch
+ Various improvements and bug fixes
+ Fantastical 3.5.3 January 18, 2022 
+ Fixed an issue where widgets wouldn't work on iOS 14
+ Fantastical 3.5.2 January 13, 2022 
+ Added support for Workplace Rooms, 3CX, and MiTeam Meetings conferences
+ Added support for scheduling Zoom meetings on behalf of other users
+ Added support for notes in Todoist tasks
+ Added option to snooze until start time to event notifications
+ Added an add event button to Apple Watch app (instead of force press)
+ Added a delete event button to Apple Watch app (instead of force press)
+ Improved detection of Around conferences
+ The selected day is now always shown in the list, even if there are no events on that day
+ Improved support for detecting links to apps that use custom URL schemes
+ Show a warning when trying to create a propose with duplicate times
+ Fixed an issue where adding items with the Apple Watch app wouldn't parse alerts correctly
+ Fixed an issue where opening Fantastical after it has been in the background for a while wouldn't recenter the list correctly
+ Various improvements and bug fixes
+ Fantastical 3.5.1 December 3, 2021 
+ Upcoming events wth a location now show a button to get directions in the list
+ Parser now supports setting multiple alerts for an event (e.g. "My event at 5pm alert 10 min alert 1 hour")
+ Task priority is now shown in Day and Week views
+ Added support for creating and deleting Google calendars and task lists from within Fantastical
+ Added support for the swipe keyboard on Apple Watch Series 7
+ Added support for inviting a group of contacts to an event
+ Fixed an issue where all-day events could be off by a day in certain time zones on Exchange accounts
+ Fixed an issue where responding to a recurring invitation on Exchange could send too many response emails
+ Fixed an issue where removing Zoom alternative hosts would show an error
+ Fixed an issue where starting weekday wasn't correct in the date picker on iOS 15
+ Fixed an issue where searching for some emoji wouldn't find matches
+ Various improvements and bug fixes
+ Fantastical 3.5 October 25, 2021 
+ Webex integration: Add your Webex account to attach Webex meetings directly to events using Fantastical!
+ Added option to create public meeting proposals that can be shared with many people through a URL
+ Added option to hide other invitees from meeting proposals until the event has been created
+ Added option to set guest permissions on Google events (whether invitees can see other guests, invite others, or modify the event)
+ Tap and hold on an event notification to get directions or join a conference call
+ Fixed an issue where modifying all future recurring events on Exchange could result in an extra event appearing
+ Fixed an issue where moving a task between Google Tasks lists would show a duplicate
+ Fixed an issue where events deleted from a shared iCloud calendar on another device wouldn't be removed
+ Fixed an issue where search results would disappear sometimes
+ Fixed an issue where editing or deleting certain repeating events would show an error
+ Fixed using arrow keys to navigate with a keyboard on iPadOS 15
+ Various improvements and bug fixes
+ Fantastical 3.4.5 September 27, 2021 
+ Fixed an issue where editing or deleting certain repeating events would show an error
+ Fantastical 3.4.4 September 20, 2021 
+ Support for iOS 15, iPadOS 15 and watchOS 8
+ Added support for privacy-sensitive widgets on iOS 15
+ Added extra large widgets on iPadOS 15
+ Added support for Quick Notes on iPadOS 15
+ Event and task notifications appear as time-sensitive on iOS 15
+ Added option to automatically add Microsoft Teams meetings to new events
+ Added option to specify alternative hosts for Zoom meetings (requires a paid Zoom account)
+ Added support for detecting DialPad meetings (previous UberConference)
+ Fixed an issue importing some ics files with invalid data
+ Fixed an issue where changing the time zone of an event created from the parser could cause the end time change
+ Fixed an issue where creating a new event from a template wouldn't include the alerts
+ Fixed RingCentral conference URLs with passwords not being detected correctly
+ Various improvements and bug fixes
+ Fantastical 3.4.3 August 10, 2021 
+ It's now easier to see who has replied to each proposed time in meeting proposals
+ Fixed an issue where accepting a proposed time on an Exchange event could leave behind a duplicate event
+ Fixed an issue where downloading attachments could take longer than expected
+ Fixed an issue where all-day tasks would appear as overdue on Apple Watch
+ Fixed an issue where the ring for the today's due tasks complication wouldn't show progress on Apple Watch
+ Fixed an issue where Add Task List incorrectly allowed you to try to add a task list to a Google account
+ Various improvements and bug fixes
+ Fantastical 3.4.2 July 14, 2021 
+ Added support for Working Elsewhere availability for Exchange events
+ The mute upon entry option from Zoom's account settings now applies to new Zoom meetings
+ Fixed an issue where combining identical events didn't work in some situations
+ Fixed an issue adding attachments to Google events
+ Fixed an issue where downloading Exchange attachments wouldn't complete
+ Fixed an issue where check availability wasn't shown on some CalDAV servers
+ Fixed an issue where editing events on servers that contain invalid time zone data would cause the event times to shift
+ Fixed an issue where events that end at midnight could appear incorrectly in some situations
+ Fixed an issue where repeating events in certain time zones could appear one day too late on the Apple Watch
+ Fixed a potential hang when editing dates and times on iPad
+ Various fixes and improvements
+ Fantastical 3.4.1 June 28, 2021 
+ Updated to newer method of searching contacts on Google Contacts. You will need to reauthorize your Google accounts to be able to search Google Contacts.
+ Added support for Vowel meetings
+ Added an option to set a custom date for week numbers to start from
+ Events that are from midnight to midnight will now appear in the all-day section of Day and Week view if the "Show multi-day events in all-day section" option is enabled
+ Fixed an issue where the day of the week could appear twice in the widgets when using certain languages
+ Fixed an issue where changing calendar sets wouldn't update the default calendar or task list when creating new items
+ Fixed an issue uploading attachments to certain CalDAV servers
+ Various improvements and bug fixes
+ Fantastical 3.4 May 25, 2021 
+ Invite with Cardhop: Use Cardhop to quickly invite people or groups to a new event in Fantastical
+ Flexibits Premium: one subscription, two apps. Get premium features for Fantastical and Cardhop when you subscribe
+ Fixed an issue where sync could get stuck on unstable network connections
+ Fixed an issue where duplicating an event with a Zoom meeting attached wouldn't duplicate the notes correctly
+ Various improvements and bug fixes
+ Fantastical 3.3.10 May 5, 2021 
+ Updated appearance when adding a Google Meet, Microsoft Teams meeting, or Zoom conference
+ Fixed an issue hiding a single instance of a recurring event
+ Fixed an issue where creating a Zoom meeting in a different time zone wouldn't set the time in Zoom correctly
+ Fixed a potential crash when editing Zoom meeting options
+ Fixed an issue where changing an event from all-day to timed would shift the time of the event incorrectly on Google
+ Various fixes and improvements
+ Fantastical 3.3.9 April 27, 2021 
+ Added support for CoScreen screen sharing URLs
+ Added support Microsoft Teams Gov conference URLs
+ URL field is now hidden on Google events because Google Calendar doesn't support it correctly
+ A warning is now shown when trying to edit a repeating task on Todoist
+ Fixed an issue where completing meeting proposals on iCloud wouldn't send an event invitation
+ Fixed an issue where creating an Exchange event with invitees and attachments wouldn't send an invitation email
+ Fixed an issue where attachments on Google Calendar would be named Untitled
+ Fixed an issue where the Up Next widget wouldn't show the correct event when there's an event spanning multiple days
+ Fixed an issue where existing Fantastical while editing an event could incorrectly create a new reminder
+ Fixed an issue where the notifications button would be invisible
+ Fixed an issue where removing an alert from a repeating Exchange event wouldn't sync the removed alert to other devices
+ Various fixes and improvements
+ Fantastical 3.3.7 March 24, 2021 
+ Sync errors are now shown more prominently
+ Added support for huddle net2phone conference URLs
+ Added support for Riverside.fm conference URLs
+ Fixed an issue where adding Exchange accounts with a separate email address and username wouldn't work
+ Fixed an issue where invitations sometimes couldn't be moved to other calendars
+ Fixed an issue where recurring events set to a fixed UTC offset would incorrectly get adjusted for Daylight Savings Time
+ Various fixes and improvements
+ Fantastical 3.3.6 March 4, 2021 
+ Fixed an issue where viewing attachments didn't work
+ Fixed an issue where invitees with emails containing trailing spaces wouldn't work
+ Fixed a crash when merging event conflicts that contained nonstandard alarms
+ Various fixes and improvements
+ Fantastical 3.3.5 February 23, 2021 
+ Added an option to show dots, a heat map, or no event indicators in the month view of widgets
+ Added an option to enable a waiting room when creating Zoom meetings
+ Added support for Gather.town conferences
+ Invitees are now sorted by acceptance state and name
+ Improvements to conference call detection
+ Fixed an issue where the due date of tasks from Reminders might not match what is shown in the Reminders app
+ Fixed replying to a single instance of recurring Exchange events incorrectly notifying the organizer about all instances of the event
+ Fixed an issue where entering sentences in Spanish might not recognize the text as Spanish 
+ Fixed an issue showing events in some Brazilian time zones
+ Fixed a crash in locations where the sun doesn't rise or set for part of the year
+ Various fixes and improvements
+ Fantastical 3.3.4 January 4, 2021 
+ Added an option to choose the email that meeting proposals are sent from (add additional emails to your Flexibits Account at hub.flexibits.com)
+ Added an option to resend meeting proposal emails to specific users
+ Added support for detecting Dialpad Meetings (formerly UberConference) links
+ Search is now smart quote insensitive (e.g. ' will match ‘ and ’)
+ Fixed size of date pickers when using the extra large accessibility text sizes
+ Fixed an issue sending WhatsApp messages to people from birthday events
+ Fixed an issue where travel time wouldn't show suggestions when an explicit location hadn't been selected
+ Fixed an issue where travel time and alerts wouldn't work correctly together on Exchange accounts
+ Various fixes and improvements
+ Fantastical 3.3.3 December 9, 2020 
+ Added support for combining events from Reclaim (reclaim.ai)
+ Added option to disable Microsoft Teams integration when adding an Office 365 account
+ Priority of tasks is now shown in the widgets
+ Up Next widget now includes birthdays and anniversaries set to include all-day events
+ Events that are shorter than 4 hours are now shown more clearly in the DayTicker
+ Fixed an issue where the widget that shows the next two months wouldn't work
+ Fixed an issue where downloading an attachment on Exchange could get stuck or wouldn't show the download progress
+ Fixed an issue where signing in to a different Flexibits Account sometimes wouldn't work 
+ Fixed WhatsApp action sometimes not working in the birthday and anniversary view
+ Fixed creating templates from events not preserving alarms
+ Fixed a crash that could occur when modifying Interesting Calendars on another device
+ Various fixes and improvements
+ Fantastical 3.3.2 December 9, 2020 
+ Fantastical 3.3.2 was replaced by Fantastical 3.3.3
+ Fantastical 3.3.1 November 20, 2020 
+ Added support for TheraNest Appointments
+ Fixed a crash when removing an interesting calendar from another device
+ Fixed an issue where using a template event with travel time wouldn't include the travel time in the new event
+ Various fixes and improvements
+ Fantastical 3.3 November 12, 2020 
+ IMPORTANT: There are changes to some widgets that require your attention!
+ The small event list widget will disappear when you update! Don't panic, just re-add it. 
+ The Show Tasks and Show Events widget settings will be reset. If you have either of these settings turned off, edit your widget settings and choose new settings.
+ In better news, there are fun new widget options!
+ New “Event List + Date” widget
+ New “Quick Action” widget
+ Customizable quick action button in the Event List widgets
+ Manual theme control for all widgets (including a pure black option)
+ All-day events and tasks can be turned off in Event List widgets
+ Up Next widget will always show a countdown until the next timed event
+ Up Next widget can be limited to only show events occurring today
+ Combined events now appear with stripes for each calendar
+ Event List widgets will show more events in some cases
+ And also:
+ Sunrise and sunset times are now shown in the weather forecast
+ Severe weather alerts are now shown in the list, widgets, and weather forecast
+ Added support for adding Microsoft Teams meetings to events on Office 365 (requires reauthenticating your Office 365 account)
+ Added option to automatically add Google Meet conferences to new invitations on Google accounts
+ Added support for detecting Skype, Doxy, SimplePractice, and BlueJeans Events URLs
+ Added a Wind Down shortcut to show your schedule for tomorrow when you're getting ready to sleep
+ Minor performance improvements during app launch and when there are changes to events
+ Fixed an issue where responding to a single instance of a recurring event wouldn't work in some situations
+ Fixed an issue where alerts for repeating events would show the wrong date in the notification
+ Fixed an issue where creating an invitation with a Google Meet conference would send two emails to the invitees
+ Fixed an issue where checking availability could show events off by an hour
+ Various fixes and improvements
+ Fantastical 3.2.3 November 2, 2020 
+ Anniversaries are now shown in the month view with a separate icon
+ Improved launch time in some situations
+ Fixed an issue where adding Outlook.com accounts would fail after signing in
+ Fixed an issue where responding to a single instance of a recurring event wouldn't work in some situations
+ Fixed an issue where notifications for recurring events could show the wrong date
+ Various fixes and improvements
+ Fantastical 3.2.2 October 14, 2020 
+ Added support for Vonage meetings and Hopin sessions
+ Improved support for Exchange hybrid modern auth
+ Improved performance and efficiency of background sync
+ Redesigned custom snooze options when tapping and holding on a notification
+ Sending emails now uses the default mail app on iOS 14 when possible
+ Double-tap on the time picker to switch between 1 and 5 minute increments
+ Fixed an issue where using Fantastical could stutter when making changes to multiple tasks at once
+ Fixed an issue where the list could unexpectedly jump to the start of the day
+ Fixed calendar week numbers sometimes being off by one in the widget
+ Fixed an issue where reopening Fantastical sometimes changes the date
+ Fixed a flicker in the list during app launch
+ Fixed Zoom meetings getting removed incorrectly when associated with some iCloud events
+ Fixed Zoom meetings getting removed incorrectly when deleting a single instance of a recurring event
+ Fixed a hang when trying to refresh Zoom meetings that no longer exist on Zoom
+ Various fixes and improvements
+ Fantastical 3.2.1 September 29, 2020 
+ Added support for detecting Google Meet live streams and Hopin links
+ A password is no longer automatically added to Zoom PMI meetings if set in the Zoom account settings
+ Responding to a recurring event will now more consistently ask if you want to respond to just one instance or the entire series
+ The time picker is now shown before the date picker
+ Fixed an issue where making changes to a date or time could cause the picker to hide too soon
+ Fixed an issue where the widgets could incorrectly show future events as happening today 
+ Fixed an issue where weather sometimes wouldn't appear in the widget
+ Fixed an issue where info could appear truncated in the widget
+ Fixed an issue where syncing lots of changes on iCloud, Google, and CalDAV accounts could drop some changes
+ Fixed changing time zone override not updating the widgets immediately
+ Fixed a crash when trying to add an invalid file as an attachment to an event on Google Calendar
+ Fixed a potential crash when loading weather forecasts
+ Various fixes and improvements
+ Fantastical 3.2 September 23, 2020 
+ Widgets for iOS 14! 12 new and customizable widgets to view the date, weather, calendar, upcoming events, and tasks right on your home screen.
+ Support for Scribble on iPadOS 14
+ Support for new date and time pickers on iOS 14
+ Recurring events are now shown more prominently when viewing hidden items
+ Short back-to-back events are now less likely to overlap in Day and Week views
+ Fixed an issue where sync to Google could get stuck in some situations
+ Fixed an issue where sync errors on Zoom accounts sometimes wouldn't be shown
+ Fixed an issue where notifications for recurring events could disappear suddenly
+ Fixed an issue where deleting an event in the Apple Watch app wouldn't sync to the phone 
+ Various fixes and improvements
+ Fantastical 3.1.6 September 11, 2020 
+ Added support for RingCentral Video, Around, and Blackboard conference calls
+ Added an option to automatically add default alerts when accepting an invitation
+ Alerts are no longer shown for hidden items
+ Fixed a potential crash when creating new tasks
+ Fixed an issue where URLs could get removed from newly created events on Google Calendar 
+ Fixed an issue where changing the color of an invitation on Google Calendar wouldn't stick in some cases
+ Fixed an issue adding Office 365 accounts when the account name contains certain non-Latin characters
+ Fixed adding an attendee to a repeating event on Exchange causing all attendees to get notified of changes
+ Fixed responding to all instances of a repeating Exchange invitation not responding to the modified instances of the invitation
+ Various fixes and improvements
+ Fantastical 3.1.5 August 25, 2020 
+ Added support for Circuit, Vidyo, and StarLeaf conference calls
+ Improved search speed when searching through many items from Reminders
+ Can now drag and drop to change the order of templates
+ Fixed Zoom one-tap mobile numbers not being created correctly if a telephone password is specified
+ Fixed an issue where rescheduling an event on another device wouldn't hide the notification for the event
+ Fixed an issue creating Exchange events in the Lisbon time zone
+ Fixed an issue when dragging a Todoist task from timed to all-day in Day or Week view
+ Various fixes and improvements
+ Fantastical 3.1.4 July 31, 2020 
+ Added option to hide all instances of a repeating event
+ Added option to Zoom accounts to insert Zoom meeting URLs in the location
+ Minor performance improvements in Day and Week views
+ Fixed an issue that could cause the today widget to show Unable to Load
+ Fixed some Siri Shortcuts not working
+ Fixed an issue where invitations from Exchange servers could appear as free instead of busy 
+ Fixed Show Contact not working from birthdays and anniversaries
+ Fixed an issue where Todoist tasks wouldn't sync if changes were made while offline
+ Fixed a case where Exchange sync could hang if there are hundreds of thousands of emails in the inbox
+ Fixed a case where Exchange invitations wouldn't be matched correctly if the Exchange account is using an email alias
+ Various fixes and improvements
+ Fantastical 3.1.3 July 23, 2020 
+ Hidden read-only events will now sync across devices
+ New option to manage hidden items in the calendar sets menu
+ Anniversary events are now shown more nicely with quick options to message, call, or email the contact
+ Added support for showing contact images from Gravatar when viewing invitees
+ Exchange events with Tentative and Out of Office availability can now be saved as templates 
+ Creating a template from an event will no longer save Zoom or Google Meet meeting info in the template
+ Improvements to conference call detection
+ Duplicate alarms for the same event on multiple calendars are no longer shown as separate notifications
+ Improvements when handling unexpected event data on CalDAV and Exchange
+ Fixed moving an event across calendars while also making changes to the event details not saving the changes
+ Fixed an issue where creating a recurring event with an end date on Exchange would sometimes end the recurrence one day early
+ Fixed an issue where Exchange categories would not appear if the Exchange server sent invalid category settings
+ Fixed Zoom meeting info not being included in the notes in some situations
+ Various fixes and improvements
+ Fantastical 3.1.1 June 26, 2020 
+ Added support for BigBlueButton, Chime, Highfive, Lifesize, VooV, Whereby, and ZoomGov conference calls
+ Improved detection for certain types of Zoom, GoToMeeting, and BlueJeans links
+ Conference calls are now detected inside Microsoft ATP safe links
+ Better handling when moving an item with attachments across accounts
+ Added Join button to Day and Week view when an event with a conference call is coming up soon
+ Various fixes and improvements
+ Fantastical 3.1 June 16, 2020 
+ Added option to have calendar sets activate at a specific time: Have your Work calendar set activate in the morning and your Home calendar set activate in the evening!
+ Added conference call link detection for Zoom, Webex, Microsoft Teams, GoToMeeting, RingCentral Meetings, BlueJeans, and Skype for Business
+ Upcoming events with a conference call will show a Join button in the list, Day, and Week view
+ Events with a conference call now show a badge in the list
+ Updated iMessage stickers and added some fun new stickers!
+ Creating a Zoom meeting now respects the Personal Meeting ID default setting for Zoom accounts
+ Performance improvements in some situations if Reminders isn’t behaving properly on your device
+ Upcoming canceled events in the Apple Watch complication are no longer shown
+ Canceled events are now shown with strikethrough on the Apple Watch app
+ Added option to Apple Watch settings to allow prioritizing overdue tasks over upcoming items 
+ Added DuckDuckGo as a default browser option
+ Fixed moving an invitation from one calendar to another on the same Google account
+ Fixed an issue toggling all-day on a task from Reminders
+ Fixed an issue creating Zoom meetings if certain password restrictions are set on the Zoom account
+ Fixed an issue creating Zoom PMI meetings using the PMI password that was set on the Zoom account
+ Fixed an issue where due dates on Google Tasks could be off by a day
+ Fixed an issue where combining events wouldn’t combine them based on the order of accounts 
+ Fixed duplicating all-day events not creating an all-day task
+ Fixed an issue where snoozing a task could cause the due date to change
+ Fixed tasks assigned to yourself in Todoist getting hidden incorrectly
+ Fixed not being able to hide single instances of read-only recurring events
+ Fixed not being able to add a Google Meet call to a single instance of a recurring event 
+ Fixed an issue where editing a recurring Google Calendar event could cause it to lose its custom color
+ Fixed an issue where swiping to delete or choose options for an event in the list could cause the swipe actions to disappear randomly
+ Fixed an issue where the Today widget would show Unable to Load or respond slowly in some situations
+ Fixed an issue creating custom yearly recurring events
+ Fixed an issue where all-day events wouldn’t receive default alerts when tapping and holding to create an event in month view
+ Fixed an issue where weather icons wouldn’t appear in month view on some iPhone screen sizes 
+ Various fixes and improvements
+ Fantastical 3.0.13 May 5, 2020 
+ Minor performance improvements in some situations
+ Improved handling of overdue tasks on Apple Watch
+ Day of the week is now shown in the list on 38mm Apple Watch
+ Fixed weather location not updating automatically on Apple Watch app in some situations
+ Fixed an issue where snoozing events from notifications might not work in some situations 
+ Fixed an issue where task due dates could appear incorrectly when the system calendar is set to Japanese
+ Fixed an issue where recurring event invitations could show too many copies in the notifications section
+ Various fixes and improvements
+ Fantastical 3.0.12 April 25, 2020 
+ Can now create all-day tasks for Reminders, CalDAV, and Exchange!
+ Added a setting to choose what time notifications for all-day tasks appear
+ Zoom meetings now automatically have a password set for the meeting to increase meeting security
+ Can now mark invitees as optional by editing invitees, swiping on an invitee, and tapping Make Optional
+ Improved URL detection in Todoist tasks
+ The Upcoming Item shortcut now returns the color of the calendar, notes, and URL of the item so that the information can be passed in to other shortcuts
+ Improved quickly swiping between days when the list is set to show only one or two days at a time
+ Fixed a potential crash on app launch
+ Fixed an issue where notifications for recurring events might not appear
+ Fixed an issue where the UI could jump to the wrong date in certain situations on iPad
+ Fixed an issue where adding a task from the share sheet in another app could cause the task to not sync to other devices
+ Various fixes and improvements
+ Fantastical 3.0.11 April 20, 2020 
+ Added a new Apple Watch complication style to show additional event details on the Infograph Modular watch face
+ Apple Watch complication updates more quickly
+ More events and tasks are now shown in the Apple Watch app
+ Adding an event from the Apple Watch app will now add default alerts to the event
+ Todoist tasks with URLs in the title will now show the URL separately
+ Added an option to hide Todoist tasks that are assigned to other people
+ Can now add accounts for servers that have untrusted SSL certificates
+ Fixed an issue where some notifications would not appear when Fantastical was in the background
+ Fixed an issue where the Apple Watch app could stop syncing temporarily
+ Fixed an issue moving events with Zoom meetings that had long notes
+ Fixed an issue syncing all-day tasks on Exchange
+ Fixed an issue where Office 365 accounts could unnecessarily prompt for reauthorization
+ Fixed a potential crash when rescheduling certain repeating events
+ Various fixes and improvements
+ Fantastical 3.0.10 April 2, 2020 
+ Fixed a crash when managing some account settings
+ Fantastical 3.0.9 April 1, 2020 
+ Cursor support on iPadOS 13.4
+ A preview of surrounding events and tasks is now shown when viewing incoming invitations 
+ Weather is now shown on days that have no events when showing one or two days at a time in the list
+ Day and Week view can now show more hours at once
+ Tightened spacing in Month view to make more text visible
+ Event and task notifications now appear when Fantastical is active
+ Tapping date headers in the list of events in the watch app now shows the weather forecast 
+ Improved sync responsiveness between iPhone and Apple Watch
+ Fixed an issue where the Apple Watch could get stuck syncing and would stop updating
+ Fixed an issue where Office 365 accounts wouldn't prompt for reauthorization if the login expires
+ Fixed an issue where the prompt to request G Suite sync access could cause some events to not be synced
+ Fixed an issue where long events could appear at the wrong time when the option to only show hours from day start to end is enabled
+ Fixed an issue where all-day tasks wouldn't appear correctly in Month view
+ Fixed a crash when trying to send changes to Todoist while offline
+ Various fixes and improvements
+ Fantastical 3.0.8 March 13, 2020 
+ Added support for Exchange public folders
+ Added option to disable weather in the Apple Watch app
+ Added option to disable Up Next in the Apple Watch app
+ Improved launch performance in some situations when Calendars from iOS is enabled
+ Fixed an issue where the Apple Watch app wouldn't sync immediately for Fantastical 2 users when uninstalling and reinstalling the app
+ Fixed an issue where changing the primary email address of the Flexibits Account wouldn't be reflected in the app
+ Fixed an issue where creating Todoist tasks wouldn't save reminders
+ Fixed an issue where syncing in the background might not finish correctly
+ Fixed an issue with favorite time zones where the same time zone could appear multiple times but for different cities
+ Fixed an issue where some completed Google Tasks might not appear
+ Various fixes and improvements
+ Fantastical 3.0.7 March 1, 2020 
+ New keyboard shortcuts:
+ Command-1/2/3/4 change between Day/Week/Month/Year views
+ Control-1/2/3/4/etc change the current calendar set
+ Arrow keys change the selected date
+ Up and down arrow keys move between autocomplete suggestions when using the parser
+ Hidden calendars are now marked more clearly when autocompleting calendars in the parser 
+ Added Siri Shortcut to open Fantastical on a specific date
+ Added an option to send a cancelation message when deleting an Exchange invitation
+ Improved handling of failed logins to the Flexibits Account when using Sign in with Apple or Sign in with Google
+ Notes for Zoom conference calls update more quickly when updating Zoom options
+ Combined events are no longer double counted in the app badge count
+ Tasks appear more consistently in the watch complication
+ Improvements to syncing between iPhone and Apple Watch
+ The Only Show Day Start And End Hours now applies to both the Day and Week views
+ Fixed an issue where the Today widget would show an Unable to Load error for some people 
+ Fixed an issue where Time Zone Override wasn't immediately activated at launch for some people
+ Minor performance improvements loading large numbers of events and tasks
+ Various fixes and improvements
+ Fantastical 3.0.6 February 15, 2020 
+ Fixed an issue where syncing to the watch would make the app respond slowly
+ Various fixes and improvements
+ Fantastical 3.0.5 February 13, 2020 
+ The titles of Exchange events are now more visible when checking availability
+ Fixed an issue where tasks that will be due soon did not appear in the Apple Watch
+ Fixed an issue where invitees couldn't be selected on an iPad
+ Fixed an issue where a Zoom conference invitation would be sent multiple times
+ Fixed an issue where Zoom conferences would incorrectly appear with a Google Hangouts button 
+ Fixed an issue where deleting a single instance of a recurring event on Google didn't work in some situations
+ Fixed some potential crashes
+ Various fixes and improvements
+ Fantastical 3.0.4 February 8, 2020 
+ Add an option to hide tasks in the Day, Week, and Month views
+ Completed tasks will now be hidden automatically after 10 seconds
+ Fixed an issue where notifications would not appear for some users
+ Fixed an issue where deleting a single instance of a recurring event on Google didn't work in some situations
+ Fixed an issue where accepting an invitation on Exchange wouldn't change the status from Tentative to Busy
+ Fixed an issue editing some geofenced tasks
+ Fixed an issue where some new accounts could get stuck waiting for email verification
+ Fixed an issue where rotating to Week view and back could cause the selected date to not be visible
+ Fixed an issue adding accounts requiring two-factor authentication on iPad
+ Fixed some potential crashes
+ Various fixes and improvements
+ Fantastical 3.0.3 February 4, 2020 
+ Attaching a Zoom meeting to an Exchange event now updates the event notes with the Zoom meeting info
+ Sharing to Fantastical from Apple Maps and OmniFocus shares data more accurately
+ Fixed responding to Meetup events
+ Fixed floating time zone events appearing incorrectly when using time zone override
+ Fixed truncated text on 38mm Apple Watch
+ Fixed weather appearing blurred on Apple Watch for Fantastical 2 users
+ Fixed some event and task cards not appearing on Siri watch face
+ Fixed not being able to delete geofence from a reminder
+ Fixed an issue saving events with locations to some Exchange calendars
+ Fixed an issue where Save For This Event Only wouldn't appear when editing some certain repeating events
+ Fixed an issue where the text input would jump to the end when editing an event or task's title
+ Various fixes and improvements
+ Fantastical 3.0 January 29, 2020 
+ Welcome to the new Fantastical!
+ Fantastical 2.11.5 January 6, 2020 
+ Fixed an issue opening locations with ampersands in Google Maps
+ Fixed an issue using Move to change the due date of reminders on iOS 13
+ Fixed an issue using TextExpander fill-ins on iOS 13
+ Various fixes and improvements
+ Fantastical 2.11.4 November 16, 2019 
+ Added support for opening maps in Magic Earth
+ Fixed an issue where completing a recurring reminder wouldn't update the list correctly on iOS 13
+ Fixed an issue where some Exchange tasks wouldn't sync correctly on iOS 13
+ Fixed a potential crash when dismissing search
+ Fixed an issue where opening Fantastical would sometimes show settings immediately
+ Various fixes and improvements
+ Fantastical 2.11.3 October 12, 2019 
+ Various fixes and improvements
+ Fantastical 2.11.2 October 5, 2019 
+ Fixes for iOS 13 dark mode
+ All-day reminders are now shown as all-day instead of due at midnight
+ Various fixes and improvements
+ Fantastical 2.11.1 September 22, 2019 
+ Various fixes and improvements
+ Fantastical 2.11 September 19, 2019 
+ Support for iOS 13
+ Dark mode
+ Input and output parameters for Siri Shortcuts
+ Fantastical 2.10.8 August 27, 2019 
+ Fixed an issue where the time zone could get lost when rescheduling reminders
+ Internal performance improvements to the parser
+ Various fixes and improvements
+ Fantastical 2.10.7 May 22, 2019 
+ Fixed a potential crash when searching locations
+ Various fixes and improvements
+ Fantastical 2.10.6 May 8, 2019 
+ Fixed an issue where choosing location suggestions in cities with overlapping addresses could pick the wrong address
+ Month names on Apple Watch complications are shown as two letters instead of three letters in some situations to avoid getting truncated
+ Various fixes and improvements
+ Fantastical 2.10.5 February 27, 2019 
+ Fixed an issue where selecting Current Location when editing an event's location would show an error
+ Improved right-to-left language support when entering notes
+ Various fixes and improvements
+ Fantastical 2.10.4 February 16, 2019 
+ Various fixes and improvements
+ Fantastical 2.10.3 December 18, 2018 
+ Added option to open maps in Transit
+ Added support for Hebrew and Islamic birthdays
+ Infograph complication now shows nothing when there are no events or reminders for the day 
+ Siri Shortcut for today and tomorrow's schedule now speaks a summary and the next upcoming event or reminder
+ Various fixes and improvements
+ Fantastical 2.10.2 October 28, 2018 
+ Added Siri shortcut to create a new event or reminder with the contents of the clipboard 
+ Various fixes and improvements
+ Fantastical 2.10.1 October 8, 2018 
+ Various fixes and improvements
+ Fantastical 2.10 October 3, 2018 
+ Full support for iOS 12 and watchOS 5
+ Support for Siri Shortcuts: Quickly add new events, view upcoming events and reminders, and view calendars or reminder lists with Siri Shortcuts
+ Updated interactive notifications: Snooze alerts for events and reminders directly from iOS notifications
+ Support for Infograph watch faces
+ Support for Siri watch face
+ Fantastical 2 now requires iOS 11 or later and watchOS 4 or later
+ Various fixes and improvements
+ Fantastical 2.9.10 August 14, 2018 
+ Various fixes and improvements
+ Fantastical 2.9.9 July 14, 2018 
+ Fixed some minor visual issues
+ Various fixes and improvements
+ Fantastical 2.9.8 May 19, 2018 
+ Fixed an issue where editing a location sometimes wouldn't save on iOS 11.3
+ Fixed an issue when modifying alerts for a repeating invitation
+ Fixed choosing a different event time when there are conflicts with invitees
+ Fixed an issue where the search results would not update correctly
+ Fixed Chinese birthday display in some situations
+ Various fixes and improvements
+ Fantastical 2.9.7 April 6, 2018 
+ Fixed the Today widget not working consistently on some devices
+ Fixed an issue where the watch app could crash when viewing some birthdays
+ Various fixes and improvements
+ Fantastical 2.9.6 March 1, 2018 
+ Added option to open locations in Yandex.Maps
+ Improved opening locations in Waze
+ Fixed an issue where a period (.) could appear in the title when using the numeric keyboard 
+ Various fixes and improvements
+ Fantastical 2.9.5 February 6, 2018 
+ Various fixes and improvements
+ Fantastical 2.9.4 January 26, 2018 
+ Various fixes and improvements
+ Fantastical 2.9.3 December 8, 2017 
+ Improvements for iPhone X
+ Added Scribble support when adding events and reminders on Apple Watch
+ Various fixes and improvements
+ Fantastical 2.9.2 November 1, 2017 
+ Ready for iPhone X
+ Various fixes and improvements
+ Fantastical 2.9.1 October 4, 2017 
+ Fixed an issue when viewing some events with notes that were created on iOS 11
+ Various fixes and improvements
+ Fantastical 2.9 September 25, 2017 
+ Updated for iOS 11
+ Drag and drop events and reminders from the list onto the DayTicker or calendar
+ Various fixes and improvements
+ Fantastical 2.8.7 August 29, 2017 
+ Extra keyboard row appears again on smaller screens
+ Added 1 week before, 2 weeks before, and 1 month before alert options when setting alerts for timed events
+ Alerts for declined events are no longer shown
+ Various fixes and improvements
+ Fantastical 2.8.6 July 12, 2017 
+ Fixed watch app not loading on watchOS 3.1
+ Various fixes and improvements
+ Fantastical 2.8.5 July 7, 2017 
+ Various fixes and improvements
+ Fantastical 2.8.4 May 5, 2017 
+ Added option to share events using the iOS share sheet
+ Added support for Brave browser
+ Apple Watch: Added option to count down to upcoming events and reminders
+ Apple Watch: Added option to show just upcoming events or reminders due today in the small complication
+ Various fixes and improvements
+ Fantastical 2.8.3 February 21, 2017 
+ Apple Watch: Force Touch on an event with a location to get directions to the location
+ Apple Watch: Added option for small complication to show the number of remaining events or reminders today
+ Swipe left or right in the list when showing one or two days at a time to go to the next or previous day
+ Fixed an issue where the app badge wouldn't clear after the last event of the day
+ Fixed a rare crash after adding a new event or reminder
+ Various fixes and improvements
+ Fantastical 2.8.2 February 6, 2017 
+ Fixed App Icon Badge not updating automatically in some situations
+ Fixed for some notifications incorrectly disappearing after being shown
+ Fantastical 2.8.1 February 2, 2017 
+ Fixed an issue when searching
+ Fantastical 2.8 February 1, 2017 
+ Fantastical now requires iOS 10
+ Stickers! Express yourself in iMessage with Fantastical's sticker pack
+ Rich notifications allow you to quickly see more details about upcoming events and reminders 
+ New haptic feedback on iPhone 7
+ Improved support for Dynamic Type
+ Improved reliability of Apple Watch app
+ Fantastical now only uses your location when the app is open, instead of always (it was never actually used always, but the privacy setting now reflects actual usage)
+ Fixed a potential crash when using a third-party keyboard
+ Various fixes and improvements
+ Fantastical 2.7.5 October 31, 2016 
+ Various fixes and improvements
+ Fantastical 2.7.4 October 28, 2016 
+ Various fixes and improvements
+ Fantastical 2.7.3 October 20, 2016 
+ Fixed incorrect Chinese birthday ages for some contacts
+ Fixed widget appearing blank if Timeline setting is disabled
+ Fixed widget sometimes not showing when there were additional events on a day
+ Various fixes and improvements
+ Fantastical 2.7.2 October 3, 2016 
+ Various fixes and improvements
+ Fantastical 2.7.1 September 27, 2016 
+ Overdue reminders are now shown more prominently in the Today widget
+ Added option to hide the calendar in the Today widget on iOS 10
+ Improved readability of Today widget on iOS 10
+ Fixed Today widget layout sometimes appearing incorrectly on iOS 9
+ Various fixes and improvements
+ Fantastical 2.7 September 16, 2016 
+ Fantastical for iPhone now requires iOS 9 or iOS 10
+ Updated Today widget that shows your schedule at a glance and can be expanded to show more details
+ Added option to show only some calendars and reminder lists in the Watch app
+ Added option to show all-day events in the Watch complication
+ New launcher style for Watch complication to quickly open Fantastical from a watch face
+ Faster Watch complication updates on watchOS 3
+ Numeric keyboard row now appears more consistently with third-party keyboards
+ New 3D Touch gestures: 3D Touch on the red header to go to a different date, 3D Touch on a date picker to jump to today
+ Improved support for when receiving shared items from OmniFocus
+ Improved keyboard shortcuts when using a Bluetooth keyboard
+ Various fixes and improvements
+ Fantastical 2.6.5 August 9, 2016 
+ Fixed a potential crash when sharing to Fantastical
+ Fixed a potential problem typing new events with third-party keyboards
+ Fixed not being able to swipe to delete canceled Exchange events
+ Various fixes and improvements
+ Fantastical 3.3.8 April 20, 2021 
+ Added option to open links in Fantastical without switching to another app
+ Added option to email all invitees of an event (tap on the mail icon of an invitee)
+ Added additional custom repeat options for monthly and yearly events
+ Added option to show events and reminders for just today and tomorrow on Apple Watch
+ Fixed an issue where notifications could appear incorrectly if there are multiple birthdays 
+ Fixed an issue where typing into very long notes could cause the insertion point to jump around
+ Reminders are now sorted so higher priority reminders are shown first
+ Apple Watch app improvements
+ Various fixes and improvements
+ Fantastical 2.6.3 March 14, 2016 
+ Various fixes and improvements
+ Fantastical 2.6.2 February 29, 2016 
+ Can now tap and hold on an event in the week view to move, duplicate, or delete it
+ Fixed an issue where some birthdays could appear with the incorrect age
+ Fixed an issue where the app header would disappear when sharing a contact from an invitation
+ Fixed the time shifting incorrectly when changing an event to floating time zone
+ Fixed an issue where multiple notifications at the same time would not appear correctly on an Apple Watch
+ Fixed an issue where dictating repeating events from the Apple Watch app did not save the repeating rule
+ Various fixes and improvements
+ Fantastical 2.6.1 January 26, 2016 
+ Swipe on an invitation in the pending invitations section to ignore the invitation without sending a response
+ Added option to show the selected day and next day in the list
+ Added support for Chinese lunar birthdays
+ Apple Watch complication now includes overdue reminders when showing the number of remaining items
+ Fixed a crash when viewing event invitations
+ Fantastical 2.6 January 10, 2016 
+ Improved Time Travel with the Apple Watch complication
+ Fixed an issue where the Today widget would sometimes not appear
+ Accessibility fixes
+ Various fixes and improvements
+ Fantastical 2.5.3 December 11, 2015 
+ Large Apple Watch complication now shows if there are two upcoming events at the same time 
+ Show only the current date with the small Apple Watch complication (instead of the current date and weekday)
+ Tapping and holding in the week view now reschedules events more reliably (iPhone 6s and 6s Plus only)
+ Added support for opening links in Firefox
+ Fixed a crash when using search on iOS 8
+ Fixed an issue where reminders could appear duplicated in the Apple Watch app when completing them
+ Fantastical 2.5.2 November 16, 2015 
+ Added Peek and Pop to preview events and reminders for iPhone 6s
+ Added customization settings for Fantastical's Apple Watch complication to show the current date or the next upcoming event or reminder
+ Search now more clearly shows when there are no matches
+ Today widget now respects system text size setting
+ Fixed an issue where opening a location in Google Maps would sometimes not show the correct result
+ Fixed an issue where completed reminders would appear for too long on Apple Watch
+ Fixed not being able to change the repeat rule for some events
+ Various fixes and improvements
+ Fantastical 2.5.1 October 15, 2015 
+ Apple Watch complication now updates more consistently
+ Fixed an issue where your Apple Watch could vibrate unexpectedly
+ Fixed not being able to hide some calendars on the Apple Watch
+ Additional Apple Watch fixes and improvements
+ Using /calendarname to choose a calendar now searches account names if there are no matching calendars
+ Various fixes and improvements
+ Fantastical 2.5 October 7, 2015 
+ 3D Touch! Press firmly on the Fantastical app icon for quick actions
+ Fantastical's Apple Watch app now includes complications, a "go to date" option, plus improved speed and stability thanks to a native app (requires watchOS 2)
+ Additional iOS 9 fixes and improvements
+ Improved design for week view
+ Tap and hold on locations or URLs to choose an app to open them in (e.g. Google Maps or Apple Maps)
+ Multiple invitation notifications are now shown separately instead of grouped into a single notification
+ Improved highlight weekends for countries that have weekends on Friday and Saturday
+ Fixed hang when adding new events with VoiceOver
+ Fixed location and phone data detectors not appearing in event titles
+ Various fixes and improvements
+ Fantastical 2.4.2 September 10, 2015 
+ Various fixes and improvements
+ Fantastical 2.4.1 August 18, 2015 
+ Various fixes and improvements
+ Fantastical 2.4 July 29, 2015 
+ Drafts! While adding a new event or reminder, swipe down on the red header and it will save as a draft. Now you can browse your schedule, add another new event or reminder, or resume your draft at any time!
+ Full support for Japanese, including natural language event and reminder creation
+ Accessibility improvements
+ Time zone override setting is now respected for Apple Watch app
+ Snooze notification improvements for Apple Watch app
+ Various fixes and improvements
+ Fantastical 2.3.1 June 13, 2015 
+ Various fixes and improvements
+ Fantastical 2.3 June 3, 2015 
+ Introducing Fantastical 2 for Apple Watch. It's Fantastical, on your wrist!
+ Various fixes and improvements
+ Fantastical 2.2.7 May 19, 2015 
+ Fixed past events in the Today widget not dimming
+ Fixed issue when editing custom repeat settings
+ Better handling of snoozed recurring Reminders
+ Various fixes and improvements
+ Fantastical 2.2.6 April 13, 2015 
+ Events and reminders are now separate in Today Widget settings
+ Fixed a crash that could occur when using notifications
+ Various fixes and improvements
+ Fantastical 2.2.5 March 25, 2015 
+ Added Handoff support (with Fantastical 2 for Mac and Fantastical 2 for iPad)
+ Added option to set an alert for 12 hours before an event
+ Fixed a problem where the badge count and notifications would sometimes not appear
+ Fixed a problem where opening locations in Google Maps wouldn't work with certain region settings
+ Various fixes and improvements
+ Fantastical 2.2.4 February 20, 2015 
+ Fixed an issue where Fantastical could crash when using overdue recurring reminders
+ Fixed an issue where long notes would appear clipped when viewing an event
+ Various fixes and improvements
+ Fantastical 2.2.3 January 29, 2015 
+ Improved search to reduce the chance of unexpected matches
+ Added support for Opera Mini
+ Fixed a problem when editing detached recurring events
+ Fixed an issue where alerts could disappear from the lock screen
+ Various fixes and improvements
+ Fantastical 2.2.2 December 5, 2014 
+ Added the ability to change days in the Today widget when only the Events & Reminders option is enabled
+ Search now allows matching partial fragments of titles (e.g. “bday” will find Birthday)
+ Better handling of latitude and longitude coordinates for event locations
+ Fixed an issue when snoozing alerts on Exchange
+ Various fixes and improvements
+ Fantastical 2.2.1 November 2, 2014 
+ Fixed a problem when creating reminders with due dates from the app extension
+ Default calendar setting is now respected in the app extension
+ Various fixes and improvements
+ Fantastical 2.2 October 22, 2014 
+ View your calendar and event list in Notification Center with Fantastical's Today widget 
+ Quickly create events or reminders from selected text in extension-enabled apps with Fantastical's app extension
+ Interactive notifications let you quickly snooze an alert or complete a reminder
+ Enhanced landscape view shows your event list when using iPhone 6 Plus
+ Fantastical 2 now requires iOS 8
+ Various fixes and improvements
+ Fantastical 2.1.4 September 27, 2014 
+ Additional iOS 8 improvements
+ Fixed a crash with iOS 7
+ Fixed a crash when using TextExpander
+ Fantastical 2.1.3 September 24, 2014 
+ Native display support for iPhone 6 and iPhone 6 Plus
+ Fixed an issue when editing invitees from existing events
+ Fixed a hang when creating reminders with a geofence
+ Various fixes and improvements
+ Fantastical 2.1.2 September 15, 2014 
+ Added an option to disable the numeric keyboard (only for 4" screens)
+ Fixed certain URLs not opening in the browser correctly
+ Improved iOS 8 compatibility
+ Improved conference call passcode detection
+ Various fixes and improvements
+ Fantastical 2.1.1 August 12, 2014 
+ List now shows reminders that have an alert time but not a due date (mainly for Exchange tasks)
+ Reminders view can now be opened directly with the URL handler (fantastical2://show?view=reminders)
+ Added Dolphin Browser as a default browser option
+ Fixed snooze options sometimes not appearing if Fantastical was not running in the background
+ Fixed a hang when editing a reminder's due date on iOS 8
+ Fixed a potential crash on iOS 8 when accepting invitations
+ Fixed an autocapitalization bug on iOS 8
+ Fixed birthday alert times not saving correctly
+ Fixed birthday alerts being incorrect when the alert is set before the birthday
+ Various fixes and improvements
+ Fantastical 2.1 July 23, 2014 
+ Snooze! Open a Fantastical event or reminder notification to see snooze options
+ Search and add locations or contacts’ addresses when creating new events (tap the arrow in the location field)
+ New event invitation notifications and app icon badge option
+ Upcoming birthday notifications
+ Setting to hide the event details location map
+ Event preview when duplicating and moving items
+ Keyboard shortcuts when using an external keyboard (open Settings > Help > Tips and Tricks for more info)
+ Improved calendar colors in the week view
+ Improved appearance for timed events that span multiple days in the week view
+ Various fixes and improvements
+ Fantastical 2.0.7 May 21, 2014 
+ Improved week view layout when showing many overlapping events
+ Fixed a problem where alerts for reminders didn't update when using Move or Duplicate
+ Fixed a problem where posting to Facebook from a birthday wouldn't work
+ Fixed a problem where events in the week view could temporarily appear with the wrong color 
+ Various fixes and improvements
+ Fantastical 2.0.6 March 28, 2014 
+ Fixed additional iOS 7.1 compatibility issues 
+ Various fixes and improvements
+ Fantastical 2.0.5 March 11, 2014 
+ New Fantastical notification sounds for events and reminders
+ Added support for opening links in 1Password and Mercury web browsers
+ Added an option to send text messages in WhatsApp when sending messages from birthdays
+ Added support for creating events with floating time zones
+ Added an option for the app icon badge to show the current calendar week
+ Added swipe to delete for unwanted locations from the reminder geofence location list
+ Added support to tap on URLs and phone numbers in the title of events
+ Reminders with both a geofence and due date no longer trigger a notification until the day of the reminder is due
+ Visual update to week view to make events and event invitations easier to read
+ Improvements to conference call code detection
+ Improvements to accessibility
+ Improvements to search speed
+ Fixed a problem where duplicate notifications would sometimes appear
+ Various fixes and improvements
+ Fantastical 2.0.4 January 3, 2014 
+ Tapping and holding any back button now jumps back to the top view
+ Typing "task" or "todo" when creating a new item now keeps auto-capitalization enabled
+ Added support for Bold Text accessibility option
+ Improved reliability of App Icon Badge
+ Various fixes and improvements
+ Fantastical 2.0.3 December 10, 2013 
+ TextExpander support now requires TextExpander 2.3 or later
+ Added option to open maps in Waze
+ Fixed problems when editing recurring events with Google Calendar
+ Fixed an issue where future events wouldn't load if lots of reminders exist
+ Various bug fixes and improvements
+ Fantastical 2.0.2 November 26, 2013 
+ Improved location matching and search results for event details and when setting geofences for reminders
+ Added yet another App Icon Badge option: All Overdue Reminders (the same behavior as Apple’s Reminders app)
+ Fixed AM/PM incorrectly appearing in some places when using 24-hour time
+ Fixed invitees section appearing too small on 4" screens
+ Various fixes and improvements
+ Fantastical 2.0.1 November 17, 2013 
+ Fantastical 2 notifications now have a sound
+ Additional App Icon Badge options: Today's Remaining Events, Today's Due Reminders, and Incomplete Reminders
+ Adding a phone number as a location shows a call button in event details
+ Double-tapping a date picker switches between showing every minute and every five minutes 
+ Added a "reminder" and "due" parameter to the URL handler. Example: fantastical2://parse?sentence=Buy%20milk&reminder=1&due=yyyy-MM-dd%20HH:mm
+ Additional parser improvements
+ Performance improvements for iPhone 4
+ Updated time zone database
+ Fixed a display issue with certain Asian languages
+ Fixed Dynamic Type not respecting large type settings from Accessibility
+ Fixed an issue where calendar colors could appear too dark or too light
+ Fixed an issue when editing events with a custom time zone
+ Fixed addresses in notes not opening in Google Maps when they should
+ Various fixes and improvements
+ Fantastical 2.0 October 30, 2013 
+ Initial release.
+ Fantastical 1.1.6 September 23, 2013 
+ Minor interface fixes when using iOS 7
+ Fantastical 1.1.5 September 16, 2013 
+ Minor interface fixes when using iOS 7
+ Various minor fixes and improvements
+ Fantastical 1.1.4 July 18, 2013 
+ Stability improvements
+ Fantastical 1.1.3 July 9, 2013 
+ Added a URL handler for searching. Example: fantastical://search?query=meeting or fantastical-x-callback://x-callback-url/search?query=meeting. Optional scope parameter can be title, location, invitees, or all.
+ Fixed a problem where you couldn't edit an alert that fires on a particular date after creating it
+ Fixed a problem where the ticker could appear out of position if you try scrolling the ticker and event list at the same time
+ Fixed a bug where the new event animation would appear incorrectly when specifying a different time zone
+ Fixed a bug where the event list could unexpectedly jump to the beginning of the day
+ Can now duplicate events to the same date
+ Various minor fixes and improvements
+ Fantastical 1.1.2 May 13, 2013 
+ Can now duplicate events from read-only calendars to writeable calendars
+ Added 45 minutes to the default event duration settings
+ Canceled events now appear crossed out in the event list
+ Fixed a problem where some events would appear incorrectly when changing time zones
+ Fixed a bug where an all-day event's alert wouldn't get set correctly on Exchange calendars 
+ Various other improvements and bug fixes
+ Fantastical 1.1.1 March 23, 2013 
+ Added a new setting to show only one day at a time in the event list
+ Added x-callback-url support (see our FAQ page for more info)
+ Improved handling of invitations for recurring events
+ No longer allowed to add multiple alerts to Exchange events since Exchange doesn't support it
+ Fixed a bug where the times of new events could get ignored when time zone support was disabled
+ Fixed days in the DayTicker from appearing with extra characters in some languages
+ Fixed a bug where location text could get colored incorrectly sometimes
+ Various other improvements and fixes
+ Fantastical 1.1 March 7, 2013 
+ Multiple alerts when creating events
+ Time zone support
+ Duplicate or move events (tap and hold an event in the event list)
+ Go to a specific date (tap and hold the red title bar)
+ Event list is now scrollable when using the calendar
+ Today's timed events dim after the event has ended
+ Copied text containing event info can automatically be made into an event
+ Added setting to highlight weekends
+ Added setting to show empty days on the DayTicker
+ Added setting to display the number of today's remaining events or date on the app icon badge
+ State restoration (iOS 6 only)
+ A staggering number of other improvements, parser enhancements, and bug fixes
+ Fantastical 1.0.4 January 30, 2013 
+ Fixed multiple crashes
+ Fixed a problem where birthday events incorrectly appeared as all-day events
+ Fixed a problem where certain days incorrectly showed no events
+ Fixed a situation where the parser could ignore the time when entering a sentence
+ Various other bug fixes and improvements
+ Fantastical 1.0.3 January 21, 2013 
+ Specify the calendar for new events by adding "calendar [calendar name]" (e.g. "Lunch tomorrow at 1pm calendar home")
+ Improved handling when changing a new event's end date
+ Improved date handling when switching between all-day and timed events
+ "Unavailable" availability status now appears as "Out of office" when using Exchange
+ When creating a new event, tapping Show Details before entering a sentence now defaults to a timed event
+ Various other bug fixes and improvements
+ Fantastical 1.0.2 December 19, 2012 
+ Availability setting for all-day events now defaults to Free
+ Fixed a problem where today's date would sometimes appear on the DayTicker incorrectly
+ Fixed a crash when using certain characters to create a new event
+ Fixed a crash when creating a new event on iOS 5.1.1
+ Fantastical 1.0.1 December 11, 2012 
+ Added default alarms
+ Added Facebook badges to Facebook events
+ Improved performance when scrolling the DayTicker
+ Fixed crashes and other issues when loading very large numbers of events
+ Fixed minor locale problems with days of the week and dates (Japanese, Korean, and German in particular)
+ Various fixes and improvements
+ Fantastical 1.0 November 29, 2012 
+ Initial release
+ Have a comment, suggestion, or problem? We’re here to help.
+ Contact Us
+ Flexibits
+ About Us 
+ Blog 
+ Affiliate 
+ Jobs 
+ Products
+ Fantastical 
+ Scheduling 
+ Cardhop 
+ Flexibits Premium 
+ Account
+ Manage 
+ Sign Up 
+ Privacy FAQ 
+ Trust Center 
+ Contact
+ Support 
+ Status 
+ Mailing List 
+ Copyright © 2011-2026 Flexibits Inc.
+ Terms of Service 
+ Privacy 
+ CA Privacy Notice 
+ Your Privacy Choices 
+ We use cookies and other technologies to analyze traffic and credit partners who have
+ referred you to our website. With your consent, information such as cookies or click IDs
+ are stored on your device. If you sign up, information may be transferred to our
+ advertising partners. Your consent can be withdrawn at any time. You can read more about
+ how we use cookies at our privacy policy .
+ Deny 
+ Accept 
+

@@ -1,0 +1,2060 @@
+SOURCE https://culturedcode.com/things/ipad/help/releasenotes/ fetched 2026-11-21 (page text)
+ 
+ iPad Release Notes - Things Support 
+ Things 
+ Features 
+ Support 
+ Blog 
+ Search support articles 
+ iPad Release Notes
+ Things updates improve the stability and performance of the app, and are recommended for all users. How to update to the latest version .
+ Show release notes for:
+ Mac 
+ iPad 
+ iPhone 
+ Watch 
+ Vision 
+ Things for iPad 3.25.3
+ November 19, 2026 
+ Requires iPadOS 16.4 or later
+ Improved performance when loading large lists, including Today, Upcoming, Anytime, Inbox, Trash, projects, and areas.
+ Improved recognition of dates typed in the When field.
+ Tweaked the layout of the tags dialog and secondary text in dialog rows.
+ Fixed a bug where rescheduling a repeating to-do to a date already in its schedule would change its repeat rule.
+ Fixed a bug where Things could take several seconds to open on a new day if you had a large Upcoming list and many repeating to-dos.
+ Fixed a bug where adding or moving a to-do could cause excessive sync activity.
+ Fixed a bug where dropping items from other apps into Things could stop working.
+ Fixed a bug where a faint image of a dialog could remain on screen when swiping back immediately after closing it.
+ Fixed a bug where Things showed an alert instead of calling the x-error callback when a Things URL couldn’t be parsed.
+ Improved the German localization.
+ Many other improvements under the hood.
+ Things for iPad 3.25.2
+ November 2, 2026 
+ Requires iPadOS 16.4 or later
+ Improved UI performance.
+ Fixed a bug where the When field of an expanded repeating to-do wouldn’t update correctly after changing its date via keyboard shortcuts.
+ Things for iPad 3.25.1
+ October 22, 2026 
+ Requires iPadOS 16.4 or later
+ Bug fixes and stability improvements.
+ Things for iPad 3.25
+ October 21, 2026 
+ Requires iPadOS 16.4 or later
+ Made it easier to move a window: you can now drag it from the top of the sidebar or a list, even when you’ve scrolled down.
+ Various other fixes and improvements under the hood.
+ Things for iPad 3.24.3
+ October 19, 2026 
+ Requires iPadOS 16.4 or later
+ Improved the expanded view of a reminder notification: it now shows the full to-do, including its notes, checklist, tags, and dates.
+ Restored the handle for showing and hiding the sidebar on iPadOS 26 and later, replacing the sidebar button in the navigation bar.
+ Tweaked the scaling of certain controls at larger text sizes.
+ Tweaked the animations when navigating into and out of a list.
+ Tweaked how a list scrolls to keep the cursor in view when typing.
+ Fixed a bug where dragging the + button to create a heading could open a gap of the wrong size.
+ Fixed a bug where the separator lines in the sidebar could be misaligned.
+ Many other improvements under the hood.
+ Things for iPad 3.24.2
+ September 22, 2026 
+ Requires iPadOS 16.4 or later
+ Tweaked the appearance of to-dos shown by Siri on iPadOS 27.
+ Improved performance when loading lists, using Quick Find, and selecting to-dos in Apple Shortcuts.
+ Fixed a bug where dragging a to-do onto a list in the sidebar didn’t work on iPadOS 27.
+ Fixed a bug where a newly created tag could appear in an arbitrary position in the tags dialog.
+ Fixed a bug where the description of a repeating project’s recurrence rule referred to a to-do instead of a project.
+ Fixed a bug on iPadOS 18 and earlier where the source list didn’t appear completely black when using the “Black” appearance.
+ Fixed a grammatical error in the Italian localization of the Repeat dialog.
+ Improved the Russian localization for a deadline that has “1 day left”.
+ Fixed a crash that could occur when deleting a project through Apple Shortcuts.
+ Many other improvements under the hood.
+ Things for iPad 3.24.1
+ September 14, 2026 
+ Requires iPadOS 16.4 or later
+ Improved the padding within expanded notifications on iPadOS 26 and later.
+ Fixed a grammatical error in the French localization.
+ Fixed a crash that could occur on iPadOS 17 and earlier when turning on Things Cloud.
+ Things for iPad 3.24
+ September 14, 2026 
+ Requires iPadOS 16.4 or later
+ Full support for iPadOS 27.
+ Full integration with Siri AI.
+ Full integration with Spotlight.
+ Improved snoozing options for notifications, with more suitable durations, and a Tomorrow option.
+ A new extra-tall widget to see longer lists.
+ Various other compatibility improvements for the new OS.
+ Things for iPad 3.23.1
+ August 27, 2026 
+ Requires iPadOS 16.4 or later
+ Removed the parent list’s label from each row in the Repeating list.
+ Fixed a bug where Get Info didn’t work for project headers.
+ Fixed a bug where text could appear at a slightly incorrect size when using a non-default text size.
+ Fixed an animation glitch that could occur when dragging and dropping on the latest OS beta.
+ Fixed a minor issue with the Japanese localization.
+ Things for iPad 3.23
+ August 19, 2026 
+ Requires iPadOS 16.4 or later
+ Added support for completing a repeating to-do early: it now shows a normal checkbox, just like any other to-do.
+ Added support for rescheduling a repeating to-do – just bump it to a new date:
+ If it repeats on a fixed schedule, Things asks whether to make a one-time exception, or update the rule going forward.
+ If it repeats after completion, it simply moves to the new date.
+ Made a number of other refinements to repeating to-dos:
+ Refreshed the look of the setup dialog, which now makes it easier to pick the next recurrence date.
+ Added a small gray repeat icon to a copy of a repeating to-do, to distinguish it from a regular one.
+ Added support for starting a repeating project early: as soon as you edit its to-dos, Things offers to create the next copy of the project ahead of time.
+ Added support for creating the next copy of a repeating to-do ahead of time: expand the to-do, tap its repeat rule, then tap Create Next Copy .
+ Added support for pausing, resuming, and stopping multiple repeating to-dos at once.
+ Unified the display and editing of to-dos – both in lists and when expanded – so Mac and iOS now share the same code.
+ Repeating templates now appear in the Deadlines list (search for “deadlines” to view this list).
+ The Repeat command is now available in the Items menu.
+ You can now set a “Start Early” value of up to 100 days for an after-completion repeating to-do.
+ Fixed a bug where a repeating to-do shown in Upcoming for a given date might not actually be created on that date.
+ Fixed a bug where an after-completion repeating to-do could appear in the wrong place in Upcoming, or show as “Waiting” when it should have been scheduled.
+ Fixed a bug where the Starts and Ends fields in the Repeat dialog could use different date formats.
+ Fixed a bug where repeating templates couldn’t be reordered in area lists.
+ Fixed a bug where you couldn’t create a to-do in a tag list if that tag had children.
+ Fixed a bug where enabling Mail to Things in Settings didn’t work.
+ Fixed a bug that allowed unreasonable “Start Early” values for after-completion repeating to-dos when set to a frequency other than days.
+ Fixed several localization issues in the description of a repeating to-do’s recurrence rule.
+ Things now requires iPadOS 16.4 or later.
+ Things for iPad 3.22.12
+ August 13, 2026 
+ Requires iPadOS 15 or later
+ Fixed a crash that could occur when completing or canceling a repeating to-do that had corrupted data.
+ Things for iPad 3.22.11
+ August 3, 2026 
+ Requires iPadOS 15 or later
+ Preparatory release for upcoming enhancements to Repeating To-Dos.
+ Things for iPad 3.22.10
+ July 16, 2026 
+ Requires iPadOS 15 or later
+ One minor tweak under the hood.
+ Things for iPad 3.22.9
+ March 25, 2026 
+ Requires iPadOS 15 or later
+ Fixed a bug where generated URL scheme tokens had insufficient entropy.
+ Fixed a rare crash.
+ Things for iPad 3.22.8
+ February 25, 2026 
+ Requires iPadOS 15 or later
+ Fixed a bug where selected items would no longer appear selected after scrolling them out of view then back into view.
+ Fixed a bug where the cursor could become invisible when editing text.
+ Fixed a bug that prevented importing data from Todoist.
+ Things for iPad 3.22.7
+ February 18, 2026 
+ Requires iPadOS 15 or later
+ Improved the performance when dragging items.
+ Improved the performance when processing list changes while filtering by tag.
+ Increased the spacing at the bottom of lists to accommodate easier dragging of the + button.
+ Fixed a bug where navigation bar buttons had an incorrect shape when hovered with a mouse/trackpad pointer.
+ Fixed a crash that could occur when importing from Todoist.
+ Many other improvements under the hood.
+ Things for iPad 3.22.6
+ December 11, 2025 
+ Requires iPadOS 15 or later
+ Fixed a crash that could occur when dragging & dropping emails from Mail.app into Things on iPadOS 18 or earlier.
+ Things for iPad 3.22.5
+ December 8, 2025 
+ Requires iPadOS 15 or later
+ Adjusted images that contain the Things logo.
+ Restored icon animation during onboarding.
+ Fixed a bug where the Someday widget would display the wrong list icon.
+ Fixed a bug that could prevent canceling the When dialog after removing the reminder time.
+ Fixed a bug where, if a tag was applied to only some to-dos within a selection, the tags dialog wouldn’t let you apply that tag to the entire selection.
+ Fixed a bug where the navigation bar in Settings would not update correctly when changing the theme.
+ Fixed a memory leak that could occur when resizing a window.
+ Many other improvements under the hood.
+ Things for iPad 3.22.4
+ October 15, 2025 
+ Requires iPadOS 15 or later
+ Improved the layout of text in expanded to-dos.
+ Improved the fade effect when list contents were obscured by system UI elements.
+ Adjusted the navigation bar button styles of many dialogs on iPadOS 26.
+ Fixed a bug where some buttons didn’t have the correct border appearance.
+ Fixed a bug where scroll indicators would be cut-off by the rounded corners of the window/device.
+ Fixed a bug where the expanded to-do toolbar would disappear while presenting the Delete confirmation.
+ Fixed a bug where sharing from Apple Maps into Things didn’t work correctly.
+ Fixed a bug where, if editing text, Cmd+LeftArrow would navigate back rather than move the cursor to the beginning of the line.
+ Fixed a crash that would occur when copying and pasting a to-do from a repeating project into another list (e.g. Today).
+ Improved the Todoist importer (now requires iOS 17.4 or later).
+ Things for iPad 3.22.3
+ September 22, 2025 
+ Requires iPadOS 15 or later
+ Restored the previous icon design on iPadOS 18 and earlier.
+ Restored missing padding on the right side of expanded to-dos.
+ Restored missing fade behind navigation bars and toolbars in dialogs.
+ Restored mouse pointer effects for buttons that have background effects.
+ Fixed a bug where the Run Things URL action in Apple Shortcuts would perform changes twice.
+ Fixed a crash that could occur when hovering the search bar with a mouse pointer or Apple Pencil while the bar isn’t being edited.
+ Fixed a crash that could occur on older betas of iPadOS 26.
+ Things for iPad 3.22.2
+ September 15, 2025 
+ Requires iPadOS 15 or later
+ Fixed a display glitch for button backgrounds.
+ Things for iPad 3.22.1
+ September 15, 2025 
+ Requires iPadOS 15 or later
+ Attempt to fix app icon presentation in the App Store.
+ Things for iPad 3.22
+ September 15, 2025 
+ Requires iPadOS 15 or later
+ Full compatibility with iPadOS 26.
+ Introduced Things’ new app icon.
+ Updated the interface throughout: a touch of glass in the sidebar that lets a hint of color shine through; increased curvature of windows, to-dos, dialogs, and controls; wider spacing that feels a bit more relaxed; and glassy buttons that respond to touch with a subtle glow and scale.
+ Adapted the interface for the new iPadOS windowing system.
+ Added support for the new iPadOS Menu Bar, providing easy access to Things’ many powerful controls and keyboard shortcuts.
+ Added support for the new Clear style for the app icon & widgets.
+ Things for iPad 3.21.20
+ July 21, 2025 
+ Requires iPadOS 15 or later
+ Improved the handling of Markdown syntax when pasting from other apps.
+ Fixed a bug where a Things URL’s duplicate parameter was not respected.
+ Fixed a bug that could prevent enabling Things Cloud for a very large database.
+ Many other changes under the hood.
+ Things for iPad 3.21.19
+ July 2, 2025 
+ Requires iPadOS 15 or later
+ Fixed a bug where text could become corrupted by pasting an emoji, leading to a crash.
+ Things for iPad 3.21.18
+ June 25, 2025 
+ Requires iPadOS 15 or later
+ Improved compatibility with iPadOS 26.
+ Improved handling of Markdown when pasting text that contains bullets.
+ Fixed a bug that made Quick Find slow to return search results.
+ Things for iPad 3.21.17
+ June 4, 2025 
+ Requires iPadOS 15 or later
+ Improved performance when logging into Things Cloud.
+ Fixed a bug where Voice Control was prevented from entering text in some places.
+ Fixed a crash that could occur in some situations when entering Search.
+ Fixed a crash that could occur when making changes while in Search results.
+ Many other improvements under the hood.
+ Things for iPad 3.21.16
+ April 29, 2025 
+ Requires iPadOS 15 or later
+ Fixed a crash that occured when dismissing the Tags popover after editing a tag.
+ Fixed some crashes that could occur when using a mouse/trackpad.
+ Things for iPad 3.21.15
+ April 24, 2025 
+ Requires iPadOS 15 or later
+ Fixed a crash that could occur when displaying a repeating to-do that was created in an earlier version of Things. (Not completely fixed in previous build.)
+ Things for iPad 3.21.14
+ April 16, 2025 
+ Requires iPadOS 15 or later
+ Fixed a crash that could occur when displaying a repeating to-do that was created in an earlier version of Things.
+ Things for iPad 3.21.13
+ April 6, 2025 
+ Requires iPadOS 15 or later
+ Fixed a bug where a tag inherited from a parent area or project could erroneously affect filtering inside a project.
+ Fixed a crash that could occur in some situations when expanding a to-do.
+ Things for iPad 3.21.12
+ March 25, 2025 
+ Requires iPadOS 15 or later
+ Fixed a bug where switching lists while editing text could cause changes to be lost.
+ Fixed a crash that could result from changing an area’s tags.
+ Things for iPad 3.21.11
+ March 20, 2025 
+ Requires iPadOS 15 or later
+ Fixed a bug where tag filtering in areas would not exclude tags applied to the area itself.
+ Things for iPad 3.21.10
+ March 17, 2025 
+ Requires iPadOS 15 or later
+ Added a setting to move the Plus Button slightly upwards, making it easier to use when Stage Manager is enabled and Things is in full screen.
+ Added support for navigating to the left/right edges of the numeric date picker via Opt+Left/Right.
+ Improved the selection behavior after performing an action on a to-do (now more closely matches the Mac behavior).
+ Fixed some Markdown rendering glitches when using code blocks.
+ Fixed a bug that prevented filtering by “No Tag” in search results.
+ Fixed a bug that put to-dos in the wrong order after duplicating a selection that included a heading.
+ Fixed a bug where some graphics could appear slightly blurry in some cases.
+ Fixed a bug where a to-do’s cell could appear stretched as it was dismissed.
+ Fixed a bug where a to-do’s cell could have a glitchy animation when scrolling.
+ Fixed a bug where a to-do was not placed at the top when moved between Today and This Evening.
+ Fixed a bug where some key strokes (e.g. “#”) would fail to trigger Type Travel.
+ Fixed a bug where the app could consume too much memory when using multiple windows.
+ Fixed a bug where selection in the sidebar would be dismissed when switching away from the app.
+ Fixed a bug where, when holding down Cmd to reveal the keyboard shortcuts menu, the incorrect label was shown for some shortcuts.
+ Fixed a bug where pressing Shift+Up/Down in an expanded to-do would move the selection to the text field above or below, rather than enlarging the current selection.
+ Fixed a bug where, when using Apple Pencil to reveal the Tags window inside a to-do, it would go straight into search mode.
+ Fixed a crash that could occur when scribbling with Apple Pencil on a list’s non-editable header.
+ Fixed a crash that could occur when focus was passed to a text field while interactions were occurring elsewhere in the interface.
+ Fixed a crash that could occur when reordering repeating items in an area.
+ Many other fixes and improvements under the hood.
+ Things for iPad 3.21.9
+ February 4, 2025 
+ Requires iPadOS 15 or later
+ Fixed a bug that prevented importing data from Todoist.
+ Things for iPad 3.21.8
+ January 14, 2025 
+ Requires iPadOS 15 or later
+ Fixed a bug where an item from Anytime didn’t display a yellow dot after being moved into Today by the arrival of a deadline.
+ Things for iPad 3.21.7
+ January 10, 2025 
+ Requires iPadOS 15 or later
+ Fixed a bug which could prevent an item’s modification date from updating.
+ Things for iPad 3.21.6
+ December 11, 2024 
+ Requires iPadOS 15 or later
+ Improved haptic feedback when dragging a to-do.
+ Added support for dismissing the keyboard when editing a reminder time by tapping outside the time popup.
+ Fixed a bug where the selection in the sidebar would not be properly cleared when starting to edit text in a list’s title or notes.
+ Fixed a bug where, in some very specific scenarios, notes could take longer to get in sync.
+ Fixed a crash that could occur when dismissing a newly created to-do via the Esc key.
+ Fixed a crash that could occur when navigating to another list from a list that had unsaved changes in its title or notes fields.
+ Fixed a crash that could occur when re-entering the password after it had been changed on another device.
+ Many other fixes and improvements under the hood.
+ Things for iPad 3.21.5
+ October 10, 2024 
+ Requires iPadOS 15 or later
+ Tweaked the behavior of the selection state to more closely match the behavior on Mac.
+ Fixed a bug where dragging and releasing a project’s first logged to-do could cause it to be marked incomplete.
+ Fixed a crash that could potentially occur after the contents of the list were changed.
+ Various other changes under the hood.
+ Things for iPad 3.21.3
+ September 20, 2024 
+ Requires iPadOS 15 or later
+ Fixed a bug where recently typed text could be lost when tabbing out of a field.
+ Things for iPad 3.21.2
+ September 17, 2024 
+ Requires iPadOS 15 or later
+ Fixed a bug where, when creating a new to-do in the popover view, the last entered checklist item would be lost if the cursor was in that row when tapping Save.
+ Things for iPad 3.21.1
+ September 16, 2024 
+ Requires iPadOS 15 or later
+ Slightly tweaked the app icon for the Tinted appearance mode.
+ Fixed a bug where calendar events with titles containing line breaks would not be rendered correctly.
+ Fixed a bug where the title of a to-do would not be selected after creating it by dropping from another app.
+ Things for iPad 3.21
+ September 16, 2024 
+ Requires iPadOS 15 or later
+ Full compatibility with iPadOS 18.
+ Added control buttons for the Control Center:
+ Create To-Do: Opens Things to a new to-do, ready to type.
+ List: Quickly jumps into any list in Things, such as Today, your Errands tag, or a project.
+ Added support for the new Dark and Tinted Home Screen appearance modes:
+ Things has a beautiful new dark app icon.
+ Things’ app icon and widgets also adapt to your color of choice in the new Tinted Mode.
+ Added keyboard language recall for our multilingual users: If you write one of your to-dos in a different language, Things will now remember and switch the keyboard back to that language when you next edit the to-do.
+ Laid the groundwork for integration with Apple Intelligence (these features will not be available until Apple Intelligence rolls out in the coming months, and won’t be available in all regions or on all devices; see Apple’s website for the latest information):
+ Four commands for conversing with the enhanced Siri.
+ Support for Writing Tools.
+ Things for iPad 3.20.12
+ September 2, 2024 
+ Requires iPadOS 15 or later
+ Improved performance of lists.
+ Changed behavior in multi-select mode: tapping in an empty space no longer clears the selection.
+ Fixed the behavior of auto-shift in bullet lists on iOS 18.
+ Fixed a bug that allowed the scrollbar to sometimes interfere with dragging to reorder checklist items.
+ Fixed a bug where a link wasn’t correctly formatted when dropping an email into an expanded to-do.
+ Fixed a crash that could occur when editing a to-do’s repetition settings after making changes to its title or notes.
+ Reduced memory usage when logging in to Things Cloud.
+ Many other small fixes and improvements under the hood.
+ Things for iPad 3.20.11
+ June 24, 2024 
+ Requires iPadOS 15 or later
+ Fixed a bug that could make searches slow.
+ Things for iPad 3.20.10
+ June 24, 2024 
+ Requires iPadOS 15 or later
+ Fixed a bug that broke auto-capitalization after bullets and Markdown headings on iPadOS 18 beta.
+ Fixed a bug that prevented import from Todoist for some users.
+ Things for iPad 3.20.9
+ June 12, 2024 
+ Requires iPadOS 15 or later
+ Things now requires iPadOS 15 or later.
+ Tweaked projects’ progress rings.
+ Updated Things Cloud’s login screens.
+ Fixed some glitches that could occur when using a trackpad/mouse.
+ Fixed a crash that could occur when a change was made to a particularly large database.
+ Fixed crashes that could occur in certain scenarios when creating to-dos in projects.
+ Added some missing localizations.
+ Many other improvements under the hood.
+ Things for iPad 3.20.8
+ April 11, 2024 
+ Requires iPadOS 12.1 or later
+ Fixed a bug where tapping or clicking a URL would sometimes fail to open the link.
+ Things for iPad 3.20.7
+ April 4, 2024 
+ Requires iPadOS 12.1 or later
+ Fixed some bugs when tapping on notes to start editing text or to open a link.
+ Fixed a bug that caused incorrect spacing between rows while dragging areas.
+ Fixed a bug that caused the reminder time in expanded to-dos and projects to be incorrectly styled.
+ Fixed a bug where cell colors would be incorrect when using a narrow window.
+ Fixed a bug where tapping on a to-do created via Siri would not reveal the to-do in Things.
+ Fixed a bug where, when copying and pasting a repeating to-do that generates deadlines, the pasted item would be assigned an arbitrary deadline.
+ Things for iPad 3.20.6
+ March 20, 2024 
+ Requires iPadOS 12.1 or later
+ Improved handling of user-defaults settings migrations.
+ Added a setting for users to revert to the correct Things Cloud endpoint.
+ Things for iPad 3.20.5
+ March 19, 2024 
+ Requires iPadOS 12.1 or later
+ Fixed an issue that could cause Things to connect to the wrong Things Cloud endpoint when creating a new account.
+ Things for iPad 3.20.4
+ March 18, 2024 
+ Requires iPadOS 12.1 or later
+ Fixed an animation glitch during onboarding.
+ Fixed an animation glitch that could occur when going in/out of select mode.
+ Fixed a bug where certain fonts were incorrectly sized in dialogs.
+ Fixed a bug where checklist items could sometimes be duplicated when hitting Return.
+ Improved the localization in Traditional Chinese.
+ Improved Todoist import and added support for project sections.
+ Things for iPad 3.20.3
+ February 16, 2024 
+ Requires iPadOS 12.1 or later
+ Made date detection diacritic-insensitive to avoid conversion to bullets when the date is at the start of a line.
+ Fixed a crash that could occur when attempting to show Things’ share sheet in more than one app at a time.
+ Updated some localizations.
+ Various changes under the hood to align with Things for Vision Pro.
+ Things for iPad 3.19.8
+ December 22, 2023 
+ Requires iPadOS 12.1 or later
+ Fixed a bug on iPadOS 16 that caused the New List menu to erroneously offer New To-Do as an option instead of New Area.
+ Things for iPad 3.19.7
+ December 20, 2023 
+ Requires iPadOS 12.1 or later
+ Improved stability and bug fixes.
+ Things for iPad 3.19.6
+ December 19, 2023 
+ Requires iPadOS 12.1 or later
+ Improvements for Widgets:
+ Added a new setting on the backside of Widgets for disabling their interactivity (i.e. you can now disable the checkbox). PLEASE NOTE : Widgets must be deleted and re-added for the new option to appear.
+ Further improved the layout of Widgets, including tightening the layout to show more to-dos (in some cases) if the checkbox is disabled.
+ Improvements for keyboard and trackpad:
+ Added new controls for expanding/collapsing areas in the sidebar: Hold down Cmd when clicking the > or ∨ button to expand or collapse all at once. Hold down Opt+Cmd when clicking the > button to expand only this area and collapse all the others (i.e. focus on this one area).
+ Added support for toggling the visibility of later items in areas and projects with Cmd+Shift+E.
+ Added support for using keyboard shortcuts to modify an item’s date while the When popover is showing (Ctrl+] to bump to tomorrow, for example) or when the Deadline popover is showing (Ctrl+. to bump to tomorrow, for example). Go to Settings > Help to learn more shortcuts.
+ Fixed some issues with pasting links from certain apps.
+ Fixed a bug that allowed using a keyboard shortcut to toggle tag filtering for a tag that was not present in the list.
+ Fixed a bug where the first day in Upcoming would show as the name of the weekday rather than “Tomorrow”.
+ Fixed a bug where the Later Projects list header icon was not displayed correctly.
+ Fixed a bug where the backward navigation gesture could conflict with a long press on a checkbox, leaving the complete/cancel menu visible after going back.
+ Fixed a bug where the Quick Action icons were missing when long-pressing the app’s icon.
+ Fixed a crash that could occur when deleting checklist items via the slide-to-type keyboard.
+ Fixed some French localization bugs in the Logbook.
+ Many other fixes and improvements under the hood.
+ Things for iPad 3.19.5
+ November 13, 2023 
+ Requires iPadOS 12.1 or later
+ Fixed a bug where, when to-dos were moved into a repeating project, they would keep their existing dates and completion status.
+ Fixed a crash that occurred when Things automatically cleaned up empty to-dos at the bottom of a list.
+ Fixed some crashes that could occur when updating lists that were not currently displayed.
+ Things for iPad 3.19.4
+ November 1, 2023 
+ Requires iPadOS 12.1 or later
+ Fixed a bug in widgets where tapping a to-do or the + button would not work as expected on iOS 16 or earlier.
+ Fixed a crash that could occur when editing the schedule of an item that repeats yearly.
+ Things for iPad 3.19.3
+ September 26, 2023 
+ Requires iPadOS 12.1 or later
+ Tightened up the layout of widgets to fit one more to-do in some configurations.
+ Optimized the performance of widgets to consume less memory and update faster.
+ Slightly increased the text size for Calendar Events in the Today, Tomorrow, and Upcoming lists.
+ Added a button to disable the permissions request for Calendar/Reminders data.
+ Fixed some interface glitches that could occur when denying access to Calendar/Reminders data.
+ Fixed the slight misalignment of the button for revealing later dates in the When popover.
+ Fixed a bug that prevented mouse hover effects in the When popover if a hardware keyboard wasn’t attached.
+ Things for iPad 3.19.2
+ September 21, 2023 
+ Requires iPadOS 12.1 or later
+ Fixed an issue affecting the size of checkboxes in widgets on iPadOS 17.
+ Fixed some crashes that could occur when syncing on iPadOS 12.
+ Built a hack to prevent an Apple Shortcuts bug on iPadOS 17 from filtering for the wrong parent list.
+ Things for iPad 3.19.1
+ September 18, 2023 
+ Requires iPadOS 12.1 or later
+ Fixed a bug that caused Shift Cmd M to show the More menu rather than the Move dialog.
+ Fixed a bug with the in-app notification dialog.
+ Things for iPad 3.19
+ September 18, 2023 
+ Requires iPadOS 12.1 or later
+ Full compatibility with iPadOS 17.
+ Updated widgets to support interactivity, making it possible to complete to-dos right on the Home Screen:
+ Tap a to-do’s checkbox to mark it complete.
+ Tap a to-do’s title to reveal it in Things.
+ Added widgets for the iPad’s new Lock Screen, including one which is interactive.
+ Added a new “Add To-Do” shortcut in Spotlight (suggested when searching for “Things” or “to-do” etc.).
+ Added support for scrolling to the top or bottom of lists with Option ↑ or ↓ .
+ Improved dragging of Things’ windows when Stage Manager is enabled.
+ Various small quality-of-life improvements for Apple Shortcuts.
+ Things for iPad 3.18.1
+ September 11, 2023 
+ Requires iPadOS 12.1 or later
+ Fixed the misalignment of placeholder text in text fields.
+ Fixed a bug where labels could extend beyond the edge of the Settings popover at larger text sizes.
+ Fixed a bug that caused notifications’ action icons to appear black when in dark mode.
+ Things for iPad 3.18
+ September 6, 2023 
+ Requires iPadOS 12.1 or later
+ Added support for changing the text size:
+ Change your device’s system-wide Dynamic Type setting.
+ Or override the system-wide setting by choosing a custom size in Things → Settings → Appearance .
+ Switched all icons to scalable vector graphics.
+ Adjusted the layouts throughout the app to support scaling.
+ Things for iPad 3.17.11
+ August 23, 2023 
+ Requires iPadOS 12.1 or later
+ Added support for keyboard shortcuts when creating a to-do via the Share Sheet.
+ Added support for searching for a list when creating a to-do via the Share Sheet.
+ Fixed some layout glitches when creating a to-do via the Share Sheet.
+ Many other changes under the hood.
+ Things for iPad 3.17.10
+ July 27, 2023 
+ Requires iPadOS 12.1 or later
+ Fixed a bug that could cause This Evening’s icon to appear red in the date picker.
+ Things for iPad 3.17.9
+ July 24, 2023 
+ Requires iPadOS 12.1 or later
+ Fixed a bug that prevented interaction with checklist items in some situations.
+ Fixed slowness when loading long lists, such as the Logbook.
+ Things for iPad 3.17.8
+ July 21, 2023 
+ Requires iPadOS 12.1 or later
+ Fixed a bug where keyboard focus in Quick Entry would not behave properly.
+ Fixed a bug where, when sharing from Safari to Things on an upcoming version of iOS, the share sheet would not be populated.
+ Fixed a bug where import from Todoist could fail in some cases.
+ Many other changes under the hood.
+ Things for iPad 3.17.7
+ May 19, 2023 
+ Requires iPadOS 12.1 or later
+ Fixed a bug where incorrect results could be returned when searching for a tag.
+ Things for iPad 3.17.6
+ May 16, 2023 
+ Requires iPadOS 12.1 or later
+ Improved the behavior of the selection state in the Search popover menu.
+ Fixed a bug that prevented pasting multiple lines of text into a to-do’s notes on iPadOS 15.
+ Fixed a bug where dismissing a to-do created accidentally with the keyboard didn’t work consistently.
+ Fixed a bug where the app would reveal the wrong to-do when opening the Upcoming list from a widget.
+ Fixed a glitch that would occur when tapping an expanded to-do’s checkbox inside a repeating project.
+ Many other changes under the hood.
+ Things for iPad 3.17.5
+ April 18, 2023 
+ Requires iPadOS 12.1 or later
+ Fixed a crash when launching the app on iPadOS 13.
+ Things for iPad 3.17.4
+ April 12, 2023 
+ Requires iPadOS 12.1 or later
+ Fixed some crashes that could occur on iOS 14 and earlier when loading certain lists.
+ Fixed a crash that may sometimes occur when expanding instances of repeating to-dos.
+ Things for iPad 3.17.3
+ April 11, 2023 
+ Requires iPadOS 12.1 or later
+ Added support for Cmd+Right Arrow to navigate into a selected project (and that selection is also now persisted if you navigate back out).
+ Added support for removing an accidentally-created new to-do by hitting Escape (Cmd+. on iPads).
+ Made the Quick Entry popover visually consistent by displaying the destination list in the same way as on the Mac.
+ Fixed a bug which allowed dictation to enter new lines inside a single checklist item.
+ Fixed a bug where tags could appear out of order when attempting to filter a widget.
+ Fixed a bug that caused some glyphs in the small widget to appear in an off color.
+ Fixed a bug that prevented changing a to-do from This Evening to Today via the URL scheme.
+ Fixed a bug that could prevent notifications from firing for users with non-Gregorian calendars.
+ Fixed a bug where copying and pasting a logged to-do would reactivate the parent of the copied to-do.
+ Fixed a bug where the “Done” button would vanish if you held down the Cmd key while editing a list’s title.
+ Fixed a bug where hitting Cmd+/ quickly would result in the sidebar snapping, rather than animating back and forth.
+ Fixed a bug that prevented a project or area’s title field from being correctly revealed when tabbing to it from the bottom of a long list.
+ Fixed a bug in the Logbook where extra space could sometimes appear between the completion date and a to-do’s title.
+ Fixed a bug when logging in to the Todoist importer using Google Sign-In.
+ Improved some localizations in Spanish and Simplified Chinese.
+ Many other improvements under the hood.
+ Things for iPad 3.17.2
+ February 13, 2023 
+ Requires iPadOS 12.1 or later
+ Fixed a bug that prevented moving to-dos from This Evening to Today by typing in the When popover.
+ Things for iPad 3.17.1
+ January 27, 2023 
+ Requires iPadOS 12.1 or later
+ Improvements for Apple Shortcuts:
+ Added a new Parent ID property for items that directly exposes their parent’s ID. This can be used e.g. in the Find action.
+ Fixed a bug that prevented the Get Selected Items action from working while the Share Sheet or a context menu was showing.
+ Fixed a bug where the Find action would include Today items when filtering by Anytime.
+ Things for iPad 3.17
+ January 26, 2023 
+ Requires iPadOS 12.1 or later
+ Major upgrade for Things’ integration with Apple Shortcuts:
+ Rebuilt existing actions with the new App Intents framework:
+ Create To-Do 
+ Open List 
+ Show Items 
+ Run Things URL 
+ Added nine new actions:
+ Create To-Do with Quick Entry 
+ Create Project 
+ Create Heading 
+ Find Items 
+ Get Items 
+ Get Selected Items 
+ Edit Items 
+ Duplicate Items 
+ Delete Items 
+ Improved accessibility for “related links” in expanded to-dos.
+ Changed behavior when duplicating items: the creation and modification dates are now reset to the current date/time.
+ Fixed a bug where the Quick Find glyph would erroneously appear when dragging downward in some contexts.
+ Fixed a bug that prevented the caret glyph from appearing on the + button in the source list.
+ Updated the German localizations related to sharing content out of Things.
+ Things for iPad 3.16.6
+ January 3, 2023 
+ Requires iPadOS 12.1 or later
+ Updated the authentication method for importing via the Todoist API.
+ Things for iPad 3.16.5
+ November 15, 2022 
+ Requires iPadOS 12.1 or later
+ Added new ways to open new windows:
+ Hold down Cmd when hitting Return on a selected project, area, or in-built list.
+ Hold down Cmd when hitting Return on a project, area, to-do, tag, or in-built list in the Quick Find popover.
+ Improved selection behavior in projects with headings:
+ Cmd+A now works like the Mac – the first keystroke selects the immediate heading’s group, the second extends selection to the entire list.
+ When the project is filtered by tag, its headings are now greyed out and excluded from selection.
+ Tweaked what actions are available when both to-dos and headings are selected.
+ Added support for Shift+Cmd+O to open lists.
+ Fixed a crash that occured when attempting to move a checklist’s last item downwards via keyboard shortcut.
+ Fixed a crash that could sometimes occur when updating lists, such as when deleting projects.
+ Fixed a bug that prevented import from Todoist in some cases.
+ Things for iPad 3.16.4
+ October 24, 2022 
+ Requires iPadOS 12.1 or later
+ Full compatibility with iPadOS 16.
+ Fine-tuned window layouts, animations, and performance for Stage Manager.
+ Added support for tapping a block of calendar events in Today, Tomorrow, or Upcoming to open the relevant day in Apple Calendar.
+ Added support for iPadOS 16’s new pop-up menu style when Control-clicking in a notes field, which makes Things’ Markdown formatting much easier to get at.
+ Fixed some animation glitches when dropping the + button into a list on iPadOS 16.
+ Fixed some animation glitches when dropping in content from other apps on iPadOS 16.
+ Fixed a bug where tapping into an expanded to-do on iPadOS 16 wouldn’t always scroll to reveal the text being edited.
+ Fixed a bug where a change to the widget theme in Settings wouldn’t be applied until the next reboot.
+ Fixed a bug that prevented the Logged Projects list from being opened via Things URL.
+ Fixed a bug that prevented the Later Items toggle from working in the Move dialog when sharing to Things from another app.
+ Fixed a bug where text wouldn’t be visible in some repeating dialog screens.
+ Fixed a bug that prevented recurring to-dos from Todoist from being imported.
+ Things for iPad 3.15.20
+ August 3, 2022 
+ Requires iPadOS 12.1 or later
+ Simplified the process for integrating and syncing commands received from Siri and Shortcuts.
+ Fixed a bug where selection handles might not appear when selecting text on iOS 15 and earlier.
+ Fixed a crash that could occur when scrolling to reveal a newly-created project or area in the sources list.
+ Fixed a crash that could occur when tapping the button for a to-do’s parent list.
+ Things for iPad 3.15.19
+ July 11, 2022 
+ Requires iPadOS 12.1 or later
+ Improved performance when entering text.
+ Improved support for the three-finger tap used to invoke undo, copy, and paste.
+ Tweaked the options displayed when long-pressing a checkbox.
+ Fixed a glitch that could occur when pulling down to reveal Quick Find.
+ Fixed a bug that could prevent animation when a to-do was completed.
+ Fixed a bug where drag and drop in the sidebar would cause an expanded to-do to collapse.
+ Fixed a bug where, if a to-do with a deadline was reordered in the Tomorrow list, a start date could be erroneously assigned.
+ Fixed a bug where, if a to-do was previously in This Evening, setting a reminder on it could move it back to This Evening.
+ Fixed a crash that could occur in some scenarios when creating projects or headings via a list’s tool menu.
+ Fixed a crash that could occur in some scenarios when updating lists.
+ Fixed several compatibility issues with the upcoming iOS & iPadOS 16 releases.
+ Things for iPad 3.15.18
+ June 13, 2022 
+ Requires iPadOS 12.1 or later
+ Improved performance when processing changes.
+ Improved the ordering of to-dos when their appearance in a list results from setting a deadline.
+ Improved the behavior of keyboard selection after moving or scheduling to-dos (it’s now more like the Mac).
+ Added explicit confirmation prompts when removing reminders in situations where their removal had previously been implicit.
+ Deferred saving changes made in the tags window until tapping Done.
+ Fixed a bug where completing a repeating to-do via a notification could fail.
+ Fixed a bug that prevented the tags popover from being dismissed after choosing a tag to filter by.
+ Fixed a bug where, when revealing a repeating to-do via Quick Find, an area’s “later items” section would not automatically expand.
+ Fixed a typo in the alert displayed when Things detects that the database has been replaced from another device.
+ Fixed some animation glitches that could occur when launching the app.
+ Fixed a grammatical error in the German localization.
+ Various other improvements under the hood.
+ Things for iPad 3.15.17
+ April 26, 2022 
+ Requires iPadOS 12.1 or later
+ Fixed a bug where Quick Find would return results for a previously deleted heading.
+ Fixed a bug where certain changes to tags weren’t synced to other devices.
+ Improved performance when duplicating to-dos.
+ Improvements for databases imported from Things 2.
+ Many other improvements under the hood.
+ Things for iPad 3.15.16
+ March 16, 2022 
+ Requires iPadOS 12.1 or later
+ Added accessibility support for reordering tasks while VoiceOver is enabled.
+ Improved handling of line separator characters in bullet lists.
+ Various other improvements under the hood.
+ Things for iPad 3.15.15
+ February 16, 2022 
+ Requires iPadOS 12.1 or later
+ Fixed a tag-related crash that could occur on launch for some users.
+ Things for iPad 3.15.14
+ February 15, 2022 
+ Requires iPadOS 12.1 or later
+ Apple Pencil:
+ Added support for scribbling new to-dos between lists in Anytime.
+ Added support for scribbling new to-dos in a project’s open space when logged items are hidden.
+ Markdown:
+ Added support for headings within a quote.
+ Improved behavior when applying the List command.
+ Improved behavior when applying the Link command on existing links.
+ Fixed the behavior of certain commands on indented lines.
+ Tweaked the rules for scheduling items via the Ctrl+[ keyboard shortcut.
+ Improved the accessibility when setting reminders via the When popover.
+ Improved the contents generated when exporting a list via Share.
+ Improved sync performance.
+ Fixed a bug where the tag filter bar wouldn’t immediately update if a tag was renamed.
+ Fixed a bug where it could be impossible to schedule a to-do for “This Evening” via natural language.
+ Fixed a bug where, when adding a time via the When popover, the default time would be in the past.
+ Fixed a bug where, when users in time zones west of UTC typed dates in natural language, incorrect results would be shown.
+ Fixed a bug where swiping a to-do under a heading in a repeating project could reveal the When popover.
+ Fixed a bug where the Inbox would be shown as a Move destination for repeating to-dos.
+ Fixed a crash that could occur if a to-do was moved from a repeating project to the Inbox.
+ Fixed a crash that could sometimes occur when reordering to-dos in Today.
+ Various other improvements under the hood.
+ Things for iPad 3.15.13
+ January 7, 2022 
+ Requires iPadOS 12.1 or later
+ General performance improvements in lists.
+ Big performance improvements when logging into Things Cloud; in particular for users with many repeating to-dos.
+ Big performance improvements when deleting many to-dos at once, or large projects containing many to-dos.
+ Fixed a bug where creating to-dos via keyboard in Upcoming could fail if the selected item was a repeating template in the Waiting state.
+ Fixed a visual glitch that could occur when using the tab key to indent a code block.
+ Small tweaks for the Italian translation.
+ Various smaller improvements under the hood.
+ Things for iPad 3.15.12
+ December 10, 2021 
+ Requires iPadOS 12.1 or later
+ Fixed a bug where the launch screen would show for longer than it should on the first launch of the day.
+ Fixed a bug where the order of the Tomorrow list wouldn’t match the Upcoming list if it included to-dos with deadlines.
+ Fixed a bug where the on-screen keyboard could unexpectedly change from numbers to text while typing in the notes field.
+ Fixed a bug where the Move popover would incorrectly display a separator line at the top when moving headings.
+ Fixed a bug where, when expanding a to-do in search results, the to-do wouldn’t steal keyboard focus from the search field.
+ Fixed a bug that prevented the When dialog from displaying a selection in the full-screen date picker.
+ Fixed a crash that could occur on launch for iOS 15 users with a very large number of repeating to-dos.
+ Improved state restoration after a user force-quits Things from the app switcher.
+ Things for iPad 3.15.11
+ November 17, 2021 
+ Requires iPadOS 12.1 or later
+ The Clear button will now show in the When popover for mixed selections.
+ Fixed a bug where setting a reminder on a to-do in Today could unintentionally cause it to appear in This Evening if it was in This Evening on a prior day.
+ Fixed a bug where it could be impossible to set a reminder on a to-do that appeared in Today because of a deadline and still has its yellow “new in Today” dot.
+ Fixed a bug where tags could be erroneously added to to-dos when reordering or dragging them into tag-filtered lists.
+ Fixed a bug where drag & drop feedback would be misleading when dragging items into a list that is filtering out to-dos.
+ Fixed a bug where the order of Upcoming items could be incorrect in Tag lists, Contact lists, and search results.
+ Fixed a bug where, when pasting multiple lines of text into a project’s title, the extra lines wouldn’t cascade into the notes field.
+ Fixed a bug where, when pasting multiple lines of text into a project’s title, the extra lines weren’t stripped out.
+ Fixed some issues with the ordering of active projects in Someday.
+ Fixed some issues with the behavior of drag & drop in the Later Projects list.
+ Various other changes under the hood.
+ Things for iPad 3.15.10
+ November 10, 2021 
+ Requires iPadOS 12.1 or later
+ Improved performance when animating changes in lists.
+ Improved performance when opening a project with many logged to-dos.
+ Updated the Settings screens for Siri and Shortcuts.
+ Fixed a bug where, when deleting an archived heading in a project, to-dos under the heading could appear at an unexpected location in the list.
+ Fixed a bug where dragging a new heading to the top of a project with no headings didn’t work as expected.
+ Fixed a bug with the visual alignment of dates in the Upcoming list.
+ Fixed a few bugs related to highlighting links in notes.
+ Fixed a potential crash when parsing Markdown syntax in certain notes.
+ Many smaller improvements under the hood.
+ Things for iPad 3.15.9
+ November 2, 2021 
+ Requires iPadOS 12.1 or later
+ Fixed a bug where a completed to-do would be erroneously marked canceled when canceling its parent project.
+ Fixed a bug where a canceled to-do would be erroneously marked complete when completing its parent project.
+ Fixed a bug where a completed to-do would be marked incomplete if moved to a different list or heading.
+ Fixed a bug where a to-do would not be marked incomplete when moved to the Inbox if it had been completed but not yet logged.
+ Fixed a crash that could occur in Quick Find on iOS 14.4 and earlier.
+ Things for iPad 3.15.8
+ October 29, 2021 
+ Requires iPadOS 12.1 or later
+ Fixed a bug which could prevent some to-dos with a future deadline from appearing in Upcoming.
+ Things for iPad 3.15.7
+ October 28, 2021 
+ Requires iPadOS 12.1 or later
+ Fixed a bug that could prevent a to-do with a deadline from appearing in Today/Upcoming after its start date was changed.
+ Things for iPad 3.15.6
+ October 25, 2021 
+ Requires iPadOS 12.1 or later
+ Improved the ordering of logged items inside projects.
+ Fixed a bug that prevented reordering repeating to-dos in the Tomorrow list.
+ Fixed a bug where switching a to-do from Today to This Evening would also change its position in the Anytime list.
+ Fixed a bug where to-dos that had moved into Today would retain their yellow dot after a reminder had been set.
+ Fixed a bug where, in some cases, hitting “Clear” in the When popover would move a to-do to the Inbox instead of Anytime.
+ Fixed a bug where, when creating a new heading at the bottom of a list via the “+” button, the last to-do could move under the newly-created heading.
+ Fixed a crash that could sometimes occur when hitting Return in the notes field.
+ Things for iPad 3.15.5
+ October 25, 2021 
+ Requires iPadOS 12.1 or later
+ Major performance improvements in lists.
+ Keyboard shortcuts improvements:
+ Support for non-US keyboard layouts.
+ Unification of shortcuts that differed on Mac & iPad.
+ Many fixes:
+ Made the behavior of Cmd+R consistent with the Mac.
+ Made the behavior of “Show/Hide Later Items” toggles in Quick Find and Move popovers consistent with the Mac.
+ Added support for inserting to-dos into a tag-filtered list via the “+” button or keyboard shortcuts.
+ Fixed a bug where, when pasting a to-do into a tag-filtered list, the new to-do would not have that tag applied.
+ Fixed a bug where Anytime sections could appear empty when filtering by tag.
+ Fixed a bug where the “Show # more” label would include items in the count which had been tag-filtered out of view.
+ Fixed a bug where the interface wouldn’t immediately reflect changes to tag hierarchy.
+ Fixed a bug where some lists wouldn’t immediately reflect changes after trashing a project.
+ Fixed a bug where, when duplicating a to-do in Today, the new to-do could appear in the wrong position in the list.
+ Fixed a bug where, when setting a reminder on a to-do that was previously in This Evening, it would move back to This Evening again.
+ Fixed a bug where, if Today was in grouped mode, moving a to-do up out of This Evening could remove its relation to its parent list.
+ Fixed a bug where Someday items with Deadlines couldn’t be reordered in some lists.
+ Fixed a bug that prevented moving a scheduled to-do to a different heading via keyboard.
+ Fixed a bug where the Calendar permissions banner would appear when it shouldn’t.
+ Improved the ordering of logged to-dos in projects.
+ Things for iPad 3.15.4
+ October 14, 2021 
+ Requires iPadOS 12.1 or later
+ Fixed some crashes that could occur while viewing Settings.
+ Fixed a crash that could occur on launch if the first-ever sync with Things Cloud was previously interrupted.
+ Things for iPad 3.15.3
+ October 12, 2021 
+ Requires iPadOS 12.1 or later
+ Tweaked the positioning of the “+” button.
+ Improved the auto-correct behavior when typing dashes in a URL.
+ Improved the behavior when entering newlines in a bulleted list.
+ Fixed crashes that could occur for users on older iPadOS 15 betas.
+ Various smaller improvements under the hood.
+ Things for iPad 3.15.2
+ October 4, 2021 
+ Requires iPadOS 12.1 or later
+ Improved the appearance of notifications on iOS 15.
+ Improved support for ProMotion displays on iOS 15.
+ Improved the refresh of widgets for changes made via the Share extension, Siri, or the Shortcuts app.
+ Fixed a bug where notes would be title-cased when using dictation.
+ Fixed a bug where the Shortcuts editor would not save the URL in the “Run Things URL” action on iOS 15.
+ Fixed a bug where dictation would insert newlines in checklists, rather than creating multiple checklist items.
+ Fixed a bug where Cmd+L to reveal a project would crash the app if the project was just created via the Move dialog.
+ Many smaller improvements under the hood.
+ Things for iPad 3.15.1
+ September 21, 2021 
+ Requires iPadOS 12.1 or later
+ Fixed a bug that prevented Time Sensitive notifications from working on iPhone.
+ Things for iPad 3.15
+ September 20, 2021 
+ Requires iPadOS 12.1 or later
+ Compatibility with iPadOS 15.
+ Two new extra-large widgets for iPad.
+ Widget customization options:
+ Change the widget theme (color) independently of the system; additionally you can choose a brand new Black theme.
+ Change the + button’s behavior: Save to Inbox, Save to Current List, or disable it.
+ Support for Announce Notifications.
+ Support for Time-Sensitive Notications.
+ Support for running Shortcuts actions universally across iPhone and iPad.
+ Support for a new keyboard shortcut: with a to-do selected, hit Control + Return to bring up a context menu.
+ Support for the iPad’s new Quick Note feature; invoke Quick Note while viewing a list in Things and you’ll see an option to link to that list.
+ Improved demonstration of Split View’s focus state: certain elements in Things will dim when it doesn’t have focus, and brighten when it does.
+ If your device is locked and you swipe right to reveal your widgets, your to-dos are now redacted for privacy.
+ Things for iPad 3.14.2
+ September 2, 2021 
+ Requires iPadOS 12.1 or later
+ Fixed a bug that could prevent the editing of checklist items.
+ Fixed a bug that could cause undo to fail in some cases.
+ Things for iPad 3.14.1
+ August 19, 2021 
+ Requires iPadOS 12.1 or later
+ Find in Text now supports Cmd+G and Cmd+Shift+G to find the next and previous matches, respectively.
+ Applying the numbered list shortcut (Cmd+Opt+L) to a list that isn’t ordered correctly will now re-order it (rather than remove the numbers).
+ Hashes can now be used to “close” a Markdown heading (e.g. “### Test ###”).
+ Improved compatibility with iPadOS 15.
+ Improved support for numbered lists in certain languages in iPadOS 15.
+ Improved handling of pasted RTF bullets.
+ Fixed a bug where some placeholder text in notes and checklist items was laid out incorrectly.
+ Many more changes under the hood.
+ Things for iPad 3.14
+ August 11, 2021 
+ Requires iPadOS 12.1 or later
+ Added support for Bullet Lists:
+ Supported bullet characters are: -, *, +, or •
+ Text that wraps to a new line is neatly indented for better readability.
+ Return now inserts a new bullet. Return again escapes the list.
+ Added support for nesting lists. Simply insert spaces before a bullet to indent it, or use the keyboard shortcut: Cmd+]
+ Copy/paste automatically removes accidental “double bullets”.
+ Support for pasting bullets from “Rich Text” editors.
+ Added support for Markdown:
+ Things detects a wide range of commonly-used syntax and renders it in a unique blend of proportional and fixed-width fonts (SF Pro & SF Mono).
+ Supported syntax includes *italics*, **bold**, # headings, `code` etc.
+ Added many keyboard shortcuts for applying the Markdown syntax.
+ Added a style selector; double-tap a word, then tap Aa and choose a style from the popover.
+ Find & Replace:
+ Added a new search function for Find & Replace within a to-do’s note.
+ Added a keyboard shortcut: Shift+Cmd+F
+ Added the option to the ••• menu in an open to-do.
+ Things Cloud “Fractus”:
+ Instead of syncing an entire note, Things now only syncs the smaller edits. This improves the speed & efficiency of sync, and allows for smarter conflict resolution.
+ Changed the Log Completed shortcut from Cmd+L to Shift+Cmd+Y.
+ Things for iPad 3.13.16
+ July 5, 2021 
+ Requires iPadOS 12.1 or later
+ Improved data migration for older Things 2 databases.
+ Things for iPad 3.13.15
+ June 25, 2021 
+ Requires iPadOS 12.1 or later
+ Fixed a crash that would occur on iPadOS 15 when holding down the Cmd key.
+ Things for iPad 3.13.14
+ June 22, 2021 
+ Requires iPadOS 12.1 or later
+ Added a Logbook heading in search results.
+ Improved performance after receiving changes from Things Cloud.
+ Fixed a bug where repeating to-dos with reminders wouldn’t show the bell icon.
+ Fixed a bug where the prompt to enable Calendar events in the Upcoming list wouldn’t disappear when declined.
+ Fixed a bug where using a keyboard to move to-dos between headings in a project might not work if the to-do is also in Today.
+ Fixed a bug that prevented copying a project via the sidebar.
+ Fixed some crashes related to Calendar Events.
+ Things for iPad 3.13.13
+ May 18, 2021 
+ Requires iPadOS 12.1 or later
+ Fixed a bug where calendar events wouldn’t update correctly at midnight.
+ Fixed some animation glitches in the dialogs used to select and manage tags.
+ Various improvements to the way tags are stored in the database.
+ Things for iPad 3.13.12
+ May 3, 2021 
+ Requires iPadOS 12.1 or later
+ Fixed a bug where items could appear out of order in the Deadlines and Someday widgets.
+ Fixed a bug that prevented repeating items’ instances from showing in the Deadlines widget.
+ Fixed a crash that could occur when deleting multiple items from search results.
+ Fixed some glitches and crashes that could occur in the settings for Calendar Events and Reminders Inbox.
+ Improved syncing changes to Things Cloud.
+ Updated the contents of the tutorial project.
+ Various other changes under the hood.
+ Things for iPad 3.13.11
+ March 16, 2021 
+ Requires iPadOS 12.1 or later
+ Fixed a crash that could occur on launch for some users.
+ Things for iPad 3.13.10
+ March 15, 2021 
+ Requires iPadOS 12.1 or later
+ Improved performance when displaying lists via Siri.
+ Fixed a bug where, when asking Siri to show a list, the displayed order of to-dos wouldn’t match the order in the app.
+ Fixed a bug where, when asking Siri to show a list, checkboxes weren’t visible for to completed or canceled to-dos.
+ Fixed a bug where items in the Logbook wouldn’t display the correct subtitle or use the correct date format.
+ Fixed a bug that prevented “shake to undo” from working correctly.
+ Fixed a bug that prevented some tags from being shown in the tag popover when filtering a list.
+ Fixed a bug that caused to-dos to appear incorrectly in widgets filtered by multiple tags.
+ Fixed a bug that could prevent sub-heading to-dos from showing when filtering by tag.
+ Fixed a bug that could cause a crash when loading the Deadlines list.
+ Fixed a bug that could cause crashes when searching.
+ Made the Deadlines list permanently visible in the Shortcuts app’s “Show List” action.
+ Various other improvements under the hood.
+ Things for iPad 3.13.9
+ February 23, 2021 
+ Requires iPadOS 12.1 or later
+ Improved the performance of widgets.
+ Improved the performance of the tags popover.
+ Improved the method for syncing changes to Things Cloud.
+ Fixed a bug where the order of sections in the Deadlines list could be incorrect sometimes.
+ Fixed a bug where the wrong date format would be used for to-dos with start dates exactly 6 days in the future.
+ Fixed a bug where logged to-dos would appear individually in the Logbook even when their parent project was also logged.
+ Fixed some crashes that could occur when receiving changes from Things Cloud while viewing the Logbook.
+ Fixed some translations in the Simplified Chinese translation.
+ Various other changes and improvements under the hood.
+ Things for iPad 3.13.8
+ January 5, 2021 
+ Requires iPadOS 12.1 or later
+ Added support for the “reveal in area” shortcut when editing a project’s title or notes (Cmd+Shift+L).
+ Added support for the “create heading from selection” shortcut (Cmd+Opt+Shift+N).
+ Improved the performance of search.
+ Improved the haptic feedback when tapping to-dos while in selection mode.
+ Improved the layout when presenting the Terms of Service while creating a Things Cloud account.
+ Fixed some glitches that could occur when dragging to-dos towards the edge of the screen.
+ Fixed a bug that prevented projects from being displayed when asking Siri to show lists.
+ Fixed a crash that could occur when tapping on the repeating button at the top of a project.
+ Fixed some crashes that could occur when the app was running in the background.
+ Fixed a crash that could occur when syncing for the first time.
+ Various improvements to the database.
+ Things for iPad 3.13.7
+ December 10, 2020 
+ Requires iPadOS 12.1 or later
+ Improved crash reporting.
+ Things for iPad 3.13.6
+ November 10, 2020 
+ Requires iPadOS 12.1 or later
+ After updating, you might see an authorization request to allow Things to use the local network. Things uses the network to notify your other devices that they should pull changes from the cloud, which makes sync faster.
+ Haptics will now be triggered when you complete a project.
+ Fixed a bug where tags would be incorrectly applied to a to-do when reordering a list while it’s filtered by tag.
+ Improved a few localizations for the very short date format (used in the widgets, for example).
+ Many internal changes.
+ Things for iPad 3.13.5
+ October 21, 2020 
+ Requires iPadOS 12.1 or later
+ Widgets
+ The small widget now shows more information about your to-dos.
+ The medium widget no longer shows list subtitles so that more to-dos can be shown.
+ Deadlines is now a visible choice when configuring a widget (before you had to search for it).
+ Fixed a bug where too many to-dos were sometimes shown in the small widget.
+ Fixed a bug where repeating to-dos could show the wrong deadline date.
+ Fixed a bug where the keyboard wasn’t automatically shown after tapping the + button if Things wasn’t already running.
+ Canceled to-dos now show strikethrough, as on the Mac.
+ Tweaked the icon for Someday items in Quick Find.
+ Changed some deadline date formats to be more compact on smaller iPhones and the iPad sidebar.
+ Fixed a bug where an incorrect date could be set when using the keyboard shortcut to bump a to-do forward by 1 week.
+ Fixed a bug where a Today star could incorrectly show next to a to-do’s When in some situations.
+ Fixed some glitches when navigating between notes and checklist fields using the arrow keys on an external keyboard.
+ Fixed a crash that occurred when creating a new heading while a logged heading is selected.
+ Fixed a crash that could occur when accepting auto-corrections in some scenarios.
+ Things for iPad 3.13.4
+ September 30, 2020 
+ Requires iPadOS 12.1 or later
+ Widgets: Improved some icons.
+ Widgets: Tweaked the formatting of deadline dates.
+ Widgets: Made it so that empty lists appear less often in a widget stack.
+ Widgets: Fixed an issue where a reminder’s bell icon continued showing after its time has passed.
+ Widgets: Fixed an issue with the order of to-dos in a tag list.
+ Fixed some visual glitches when using Siri to interact with Things on iPadOS 14.
+ Fixed a bug which could lead to excessive memory consumption in some situations.
+ Things for iPad 3.13.3
+ September 22, 2020 
+ Requires iPadOS 12.1 or later
+ Fixed a bug where the widgets may not display long lists correctly.
+ Things for iPad 3.13.2
+ September 18, 2020 
+ Requires iPadOS 12.1 or later
+ Fixed a bug where the Inbox widget could show to-dos that had been marked incomplete.
+ Fixed a bug where actions in Apple Shortcuts couldn’t locate lists that had been previously defined.
+ Things for iPad 3.13.1
+ September 18, 2020 
+ Requires iPadOS 12.1 or later
+ Fixed an issue where a widget could incorrectly show no content.
+ Things for iPad 3.13
+ September 17, 2020 
+ Requires iPadOS 12.1 or later
+ New features and full compatibility for iPadOS 14.
+ WIDGETS: Things’ beautiful new Widgets live on your Home screen, right next to your app icons, where they can display any list you want. Quickly glance at what you’re doing Today, see what’s Upcoming on your schedule, stay on top of your most urgent project, view tag-filtered lists – the possibilities are endless!
+ SCRIBBLE: You can now scribble on your iPad’s screen and Things will convert your handwriting into text! Use your Apple Pencil to write out a list of to-dos or jot down some notes – just open Things and start scribbling. Scribble in an open space to insert a to-do, or scribble into a field where you would normally type (notes, checklist, etc.).
+ Upgraded Things Cloud’s sync schema to support the new features.
+ Improved the way project and to-do notes are synced. (As a result, you can also write much longer notes.)
+ In the Shortcuts app, you can now select one of your tags in the “Show List” action.
+ Things for iPad 3.12.8
+ July 29, 2020 
+ Requires iPadOS 12.1 or later
+ Fixed a bug with dragging & dropping items into lists in the sidebar.
+ Things for iPad 3.12.7
+ July 23, 2020 
+ Requires iPadOS 12.1 or later
+ Added mouse cursor magnetism and hover effects for the OK button in the Inbox’s "Moved out of the Inbox" section.
+ Improved the handling of spaces in the search field.
+ Fixed a bug in search results which prevented the “Load More” button from working.
+ Fixed a bug where the order of This Evening to-dos in the Today widget could be incorrect.
+ Fixed a crash that could occur when opening to-dos that contain malformed email links.
+ Fixed a bug that disabled the Duplicate action inside a heading’s “•••” menu.
+ Various other small internal fixes.
+ Things for iPad 3.12.6
+ June 26, 2020 
+ Requires iPadOS 12.1 or later
+ Fixed an issue where hitting Cmd+K in an incomplete project’s title would prompt for deletion rather than completion.
+ Things for iPad 3.12.5
+ May 27, 2020 
+ Requires iPadOS 12.1 or later
+ Improved the consistency of content and behavior of menus throughout the app.
+ Fixed a bug where copying multiple to-dos wouldn’t work.
+ Fixed a bug that made it impossible to dismiss auto-correction suggestions.
+ Fixed a bug where, when revealing the keyboard in a dialog, the scroll position of the list behind it could be affected.
+ Fixed an issue where, when using the keyboard arrows to reorder to-dos in a list, the view wouldn’t scroll to follow the selection.
+ Fixed some issues with the Simplified Chinese translation.
+ Fixed a crash that could occur when pasting to-dos.
+ Various other small fixes and internal changes.
+ Things for iPad 3.12.4
+ May 11, 2020 
+ Requires iPadOS 12.1 or later
+ Control-click menus: added new options to Share and Convert (to project).
+ Control-click menus: tweaked the animations, the layout, and the order of the options.
+ Slightly tweaked the layout of the New To-Do popover window.
+ Fixed an issue where, when attracting the cursor, the tags field was "too magnetic" in an expanded to-do.
+ Fixed some issues that could occur when a list changed while a project heading’s menu was showing.
+ Fixed a bug where dragging on the circles to select multiple items could inadvertently select unintended items.
+ Fixed a bug where dropping the Magic Plus button under a collapsed area wouldn’t expand it to accept the drop.
+ Fixed a bug where the Today extension could sometimes show partial contents (often just the tip of the "+" button).
+ Various other internal changes and minor improvements.
+ Things for iPad 3.12.3
+ April 27, 2020 
+ Requires iPadOS 12.1 or later
+ Improved button labels for the Wunderlist importer.
+ Fixed some visual glitches that could occur when completing to-dos.
+ Fixed some visual glitches that could occur when scrolling in the Today widget using a trackpad or mouse.
+ Fixed an issue where to-dos dragged into the Today list would always land at the top.
+ Fixed an issue where the date in the When popover wouldn’t highlight under the mouse pointer if a keyboard wasn’t also attached.
+ Fixed a bug which allow a When list (e.g. Upcoming) to be dragged with a mouse, which crashed the app.
+ Things for iPad 3.12.2
+ April 20, 2020 
+ Requires iPadOS 12.1 or later
+ Added full support for the iPad’s new trackpad cursor! (Requires iPadOS 13.4 or later)
+ Clickable elements now properly support the new hover state to indicate where your cursor is.
+ New context menus. To access them, Control-click a to-do, project, area, or URL.
+ The new context menus contain an option to open a list in a new window (Split View).
+ Using a trackpad, you can now swipe right with two fingers to invoke the When popover, or left to enter selection mode.
+ You can now dismiss selection mode by clicking in an open space.
+ Added support for Opt-click to cancel to-dos, checklists, and projects.
+ In Split View, the window that doesn’t have focus now properly dims a multi-selected group (highlights them in grey instead of blue).
+ Fixed some issues with Things’ toolbar being visually obscured by other on-screen elements, for example by the keyboard’s shortcuts bar.
+ Fixed an issue where the Shift key could mysteriously become stuck down (this fix requires iPadOS 13.4 or later).
+ Fixed an issue where completed to-dos could be resurrected when marking a project incomplete via keyboard shortcut.
+ Made it easier to tap the checkbox of expanded to-dos.
+ Fixed some animation glitches during the onboarding sequence.
+ Fixed a typo in the German translation.
+ Things for iPad 3.12.1
+ March 27, 2020 
+ Requires iPadOS 12.1 or later
+ Fixed a bug where stray separators (“—”) could appear in empty titles or notes after syncing.
+ Other small fixes and performance improvements.
+ Things for iPad 3.12
+ March 10, 2020 
+ Requires iPadOS 12.1 or later
+ Improved how text is displayed inside a to-do.
+ Simplified the application architecture.
+ Improved translations for some languages.
+ Things for iPad 3.11.5
+ February 21, 2020 
+ Requires iPadOS 12.1 or later
+ Fixed a crash that could occur when using the Magic Plus button.
+ Things for iPad 3.11.4
+ February 17, 2020 
+ Requires iOS 12.1 or later
+ Fixed a few crashes related to using Things in slide-over and split-view.
+ Fixed bug where the app’s custom UI wouldn’t show when interacting with Siri.
+ Things for iPad 3.11.3
+ January 24, 2020 
+ Requires iOS 12.1 or later
+ Fixed a crash that could occur when converting a to-do into a project.
+ Fixed a crash that could occur when stopping a repeating to-do.
+ Things for iPad 3.11.2
+ January 22, 2020 
+ Requires iPadOS 12 or later
+ iPad with external keyboard:
+ Cmd+Shift+L will now highlight an item on reveal.
+ Toggles in the All Projects list are now navigable via keyboard.
+ Fixed issues with spacing in the Upcoming section inside areas.
+ Fixed an animation glitch when making changes in lists on iPadOS 13.
+ Fixed a bug where the user’s preferred first day of the week wasn’t respected by the natural language date parser.
+ Fixed a bug where No Tags could incorrectly show up as an option when filtering a list.
+ Fixed a bug where the app could crash when there was no network connectivity or in Airplane Mode.
+ Improved localizations for Simplified Chinese.
+ Other smaller bug fixes and improvements related to sync and UI.
+ Things for iPad 3.11.1
+ January 9, 2020 
+ Requires iOS 12 or later
+ Fixed a bug where copying a link to a list could result in the wrong URL being copied.
+ Fixed a bug where pasting multiple lines of text into a project’s empty notes field wouldn’t resize the layout correctly.
+ Fixed a bug where tapping a project in the Today extension wouldn’t flash it yellow on reveal in the Today list.
+ Fixed a bug where the iPad sidebar’s expand/collapse handle wouldn’t un-highlight in some situations.
+ Fixed the spacing around the source list (particularly noticeable on devices without rounded corners).
+ Fixed some glitches when dismissing popovers.
+ Fixed a few accessibility bugs:
+ Improved accessibility for accessing Quick Find through the navigation bar.
+ Fixed a VoiceOver crash when scrolling the source list.
+ Fixed issues with using VoiceOver to access Quick Find in the source list.
+ Fixed an issue where source list views would be “dimmed” in the source list in VoiceOver mode.
+ Things for iPad 3.11
+ December 16, 2019 
+ Requires iOS 12 or later
+ Things 3.11 delivers a big update for the Quick Find feature with new ways to navigate the app and quickly view important data.
+ New lists are now available by searching in Quick Find:
+ “Deadlines” – all your upcoming (or passed!) deadlines, neatly sorted.
+ “Repeating” – all your repeating to-dos in one, convenient place.
+ “Tomorrow” – a nice focused list to plan tomorrow, today.
+ “All Projects” – an overview of all your big goals.
+ “Logged Projects” – an overview of your past achievements.
+ Navigation via Quick Find:
+ You no longer need to scroll to the top of a long list; just tap the list’s title to invoke Quick Find.
+ You can now search for projects’ headings and quickly navigate to them.
+ Recents: invoke Quick Find and you’ll now see all the lists you’ve recently viewed; makes switching between lists even quicker!
+ In Quick Find, you can now search for “Settings” (or “Preferences”) to quickly get there. No more digging for that Settings button!
+ See the exact date and time when a to-do or project was created or completed. Tap ••• > Share > Get Info .
+ When typing a date on systems set to a 12-hour clock, the parser now chooses AM/PM more intelligently (and offers both options in some cases).
+ The following prefixes are now recognized as bullets and stripped out when pasting text into to-do lists or checklists: • , * , - [ ] 
+ Increased the sidebar width on larger iPad Pros to accommodate those longer project titles.
+ Several bug fixes relating to drag and drop.
+ Improved handling of changes to lists.
+ Improvements for background execution.
+ Other small bug fixes and improvements.
+ Things for iPad 3.10.10
+ December 1, 2019 
+ Requires iOS 12 or later
+ Minor hotfix.
+ Things for iPad 3.10.9
+ November 25, 2019 
+ Requires iOS 12 or later
+ Fixed an issue which prevented to-dos’ notes from displaying on Apple Watch.
+ Things for iPad 3.10.8
+ November 19, 2019 
+ Requires iOS 12 or later
+ Fixed the layout of the + button’s popover on smaller screens.
+ Fixed some layout issues with headings in projects.
+ Fixed the positioning of to-dos created through keyboard shortcuts when Today is grouped by list.
+ Fixed some glitches when performing actions while in selection mode.
+ Fixed some crashes that could occur when updating lists.
+ Fixed some crashes that could occur when changes were received for to-dos that were expanded.
+ Improved accessibility for collapsed to-dos.
+ Many other smaller bug fixes and improvements.
+ Things for iPad 3.10.7
+ November 5, 2019 
+ Requires iOS 12 or later
+ Changed the format that notes are stored in (as a result, you may notice a change to the way URLs and file links are presented visually).
+ Fixed an issue where the app would stop responding on launch for some users.
+ Fixed an issue where selecting a project in the sidebar would result in a black screen if that project was already displayed.
+ Fixed an issue where physical keyboards were not detected properly in iPadOS 13.
+ Things for iPad 3.10.6
+ October 31, 2019 
+ Requires iOS 12 or later
+ Fixed an issue where the Share Extension’s Save button could be hidden by the keyboard.
+ Things for iPad 3.10.5
+ October 25, 2019 
+ Requires iOS 12 or later
+ Improved the removal of old notifications from Notification Center in more situations.
+ Fixed a bug where Settings > About > Device Info wouldn’t work on iPadOS 13.
+ Fixed a bug with printing from the share sheet while in Dark Mode on iPadOS 13.
+ Fixed a bug where dialogs could become stuck on screen after stopping a repeating project.
+ Fixed a bug where items from Reminders with an “all day” date would be imported into Things with a reminder time at midnight.
+ Fixed a bug where the app could hang on launch in some situations.
+ Fixed some bugs showing contact lists.
+ Fixed some animation glitches in the Today Extension.
+ Fixed a crash that could occur when dragging a heading to a secondary window.
+ Things for iPad 3.10.4
+ October 17, 2019 
+ Requires iOS 12 or later
+ Fixed a crash that could occur on launch.
+ Things for iPad 3.10.3
+ October 15, 2019 
+ Requires iOS 12 or later
+ Fixed an issue where an incorrect date could be assigned when creating to-dos via the Shortcuts app.
+ Fixed an issue where, while a list was filtered by a tag, a to-do’s other tags could be removed if you dragged it to another position in the list.
+ Things for iPad 3.10.2
+ September 30, 2019 
+ Requires iOS 12 or later
+ Improved stability.
+ Improved accessibility support.
+ Improved state restoration after the app has been force-quit.
+ Fixed a bug where the app would still show a “Done” button after editing a project or area header and dismissing the keyboard.
+ Fixed a bug that caused the search field to show by default in the tags popover.
+ Things for iPad 3.10.1
+ September 23, 2019 
+ Requires iOS 12 or later
+ Full compabitility with iPadOS 13.
+ Added support for multiple windows.
+ Tweaked the Today Widgets UI for the iPad Home screen.
+ Added full Siri Shortcuts support for iPadOS 13’s new Shortcuts app, and four new Things Actions: Add To-Do, Show To-Do, Show List, and Run Things URL.
+ Added support for iPadOS 13’s new system-wide Dark Mode. Things will now go dark at sunset when the iPad does.
+ Added support for iPadOS 13’s new system-wide gestures for working with text.
+ Added a new Reminders Import feature for users who want to migrate their entire Reminders database over to Things.
+ Reworked the Reminders app integration for adding to-dos to Things’ Inbox; renamed it as “Reminders Inbox” in Settings.
+ Converted Things’ Action Extension into a Share Extension, updated the UI, and added the option to target a list.
+ Improved accessibility support for Voice Over and Voice Control.
+ Things for iPad 3.9.8
+ September 18, 2019 
+ Requires iOS 12 or later
+ Fixed a sync issue for devices running iPadOS 13.
+ Dropped support for iOS 10 & 11.
+ Things for iPad 3.9.7
+ September 2, 2019 
+ Requires iOS 10.2 or later
+ Minor sync adjustments.
+ Things for iPad 3.9.6
+ July 6, 2019 
+ Requires iOS 10.2 or later
+ Fixed a bug where the app could freeze after showing the welcome screen.
+ Things for iPad 3.9.5
+ July 5, 2019 
+ Requires iOS 10.2 or later
+ Fixed a bug where the app could freeze after showing the welcome screen.
+ Things for iPad 3.9.4
+ July 1, 2019 
+ Requires iOS 10.2 or later
+ Fixed a problem where the text in notes could be too small.
+ Fixed a bug where Things could freeze when resuming from the background in some cases.
+ Fixed a bug where changes from the Action and Today Extensions were not being updated in the main app quickly.
+ Things for iPad 3.9.3
+ June 14, 2019 
+ Requires iOS 10.2 or later
+ Fixed a problem that prevented animation when completing checklist items.
+ Fixed an animation glitch when showing popovers.
+ Fixed an issue with text selection after dragging an item into Things from another app.
+ Fixed an issue with the alignment of start dates in the Upcoming list.
+ Fixed a problem with the formatting of years in deadlines.
+ Fixed some errors in the Simplified Chinese localization.
+ Things for iPad 3.9.2
+ May 22, 2019 
+ Requires iOS 10.2 or later
+ Some improvements for date formats.
+ Fixed an issue where a to-do wouldn’t flash yellow when being revealed from a notification or search.
+ Fixed an issue on iPad where, when dragging an email or other item into Things, the new to-do’s title wasn’t automatically selected.
+ Things for iPad 3.9.1
+ May 17, 2019 
+ Requires iOS 10.2 or later
+ Fixed an issue where, when creating a new tag, it wasn’t immediately applied to your to-do.
+ Fixed an issue where, when tapping “Show Events” in the Upcoming list, calendar events wouldn’t show.
+ Things for iPad 3.9
+ May 13, 2019 
+ Requires iOS 10.2 or later
+ Things 3.9 is the culmination of months of work, with broad refactorings, architectural changes, and optimizations. These changes are all under the hood. In addition, we’ve made the following minor user-facing changes:
+ The app is significantly faster to launch, and also when opening a to-do, or tapping + to create a new to-do.
+ The layout of collapsed to-dos is improved, particularly for smaller iPhones, so that more of the title is visible.
+ Usability of the popover for setting dates has been improved to provide more clarity, especially when also setting reminders.
+ Made return key behavior in checklists consistent with the Mac.
+ Minor improvements for non-Gregorian calendars.
+ Things for iPad 3.8.7
+ March 25, 2019 
+ Requires iOS 10.2 or later
+ Fixed a bug that miscalculated the date for a repeating to-do’s next instance if the repeating pattern was created on iOS and was set for the last day of the month or year.
+ Things for iPad 3.8.6
+ 11 March 2019 
+ Requires iOS 10.2 or later
+ Things now requires iOS 10.2 or later.
+ Adjusted the appearance of the Today extension to better match the rest of the app.
+ Improved the Russian localization.
+ Fixed a bug where the Ctrl+Space shortcut for external keyboards couldn’t be disabled.
+ Fixed a bug that could cause to-dos to get stuck in the Today widget.
+ Fixed a potential hang that could occur when displaying Calendar events.
+ Fixed a problem with the order of to-dos added to Upcoming via the JSON URL scheme.
+ Fixed various bugs with tag management, including a bug where, while reordering child tags, you might be kicked back to the main tag management view.
+ Various other minor bug fixes and improvements.
+ Things for iPad 3.8.5
+ January 29, 2019 
+ Requires iOS 10 or later
+ Fixed an issue with the Shortcuts builder in the Siri & Shortcuts settings.
+ Things for iPad 3.8.4
+ January 17, 2019 
+ Requires iOS 10 or later
+ Fixed a bug caused areas to load slowly.
+ Things for iPad 3.8.3
+ January 16, 2019 
+ Requires iOS 10 or later
+ Added support for dark mode when sharing to Things via the Action Extension.
+ Fixed a graphical glitch that could appear when swiping back to a previous list.
+ Fixed a graphical glitch that could appear for to-dos that had been moved out of the Inbox in dark mode.
+ Fixed a bug where a to-do would not flash yellow in some cases when being revealed from a notification or the Today widget.
+ Fixed a bug that could occur when applying tags via keyboard shortcuts in multi-select mode.
+ Fixed a bug where creating a new tag didn’t immediately apply it to the to-do.
+ Fixed a bug which sometimes allowed too much CPU to be consumed when viewing repeating to-dos with reminders.
+ Fixed an accessibility issue that could occur when adjusting some repeating to-do settings.
+ We now prevent scrolling the list while the Settings popover is visible in the foreground.
+ We now prevent the creation of tags with blank or duplicate titles.
+ Things for iPad 3.8.2
+ December 20, 2018 
+ Requires iOS 10 or later
+ Fixed a crash that could occur when adjusting deadlines.
+ Fixed an issue with the Russian localization.
+ Things for iPad 3.8.1
+ December 14, 2018 
+ Requires iOS 10 or later
+ Minor tweaks for the new dark appearances.
+ Improved contrast for calendar events in dark appearances.
+ Things for iPad 3.8
+ December 12, 2018 
+ Requires iOS 10 or later
+ Added a new Dark appearance setting for iOS. Choose between Light, Dark, and Black, or have it switch automatically based on display brightness.
+ Things for iPad 3.7.5
+ November 7, 2018 
+ Requires iOS 10 or later
+ Fixed a bug where some interface elements would be shown as red on some devices.
+ Things for iPad 3.7.4
+ November 5, 2018 
+ Requires iOS 10 or later
+ Layout compatibility for the new iPad Pro.
+ Fixed a bug where showing certain calendar events would cause the app to consume too many resources.
+ Fixed a performance problem rescheduling to-dos.
+ Many smaller bug fixes.
+ Things for iPad 3.7.3
+ September 28, 2018 
+ Requires iOS 10 or later
+ Fixed some issues with editing a to-do’s title and notes using Chinese/Japanese/Korean input methods.
+ Fixed a bug where deleting the search text was not possible if an external keyboard was connected to the iPad.
+ Things for iPad 3.7.2
+ September 24, 2018 
+ Requires iOS 10 or later
+ Fixed a crash in specific cases related to Siri integration.
+ Fixed selection issues in the When dialog.
+ Fixed the search URL command not working properly when the app isn’t running.
+ Fixed an issue where you could have a dragged to-do “stuck” on screen in specific situations.
+ Fixed an issue where tapping “OK” in a task list would scroll to reveal the current selection.
+ Fixed an issue where to-dos would collapse when attempting to reorder checklist items.
+ Fixed some localization issues.
+ Things for iPad 3.7.1
+ September 18, 2018 
+ Requires iOS 10 or later
+ A minor hotfix.
+ Things for iPad 3.7
+ September 17, 2018 
+ Requires iOS 10 or later
+ SIRI SHORTCUTS: On iOS 12, you can use the new Siri Shortcuts feature. Siri will determine common actions you perform inside of Things and suggest them as shortcuts on your Lock screen, like “Show Today” or “Add To-Do”. But you can also build your own shortcuts in Things’ settings and record a voice trigger for them. Here are a few examples of what shortcuts can do:
+ Build your own Quick Entry – Record shortcuts for different things you enter often, like Errands or Movies you want to watch. Every time you invoke these shortcuts (e.g. “Hey Siri, add an errand”), Things opens to reveal a new to-do, with all the relevant details pre-filled, like tags, the list it should go to, etc. – all that’s left for you to do is enter the title and hit save.
+ Ready-made to-dos – Create shortcuts for adding to-dos that are always exactly the same, like a packing list, or your favorite recipe. When you invoke the shortcut, Things adds it in the background.
+ Quick access to lists – Record shortcuts to open particular lists, like Today, Upcoming, a project you’re working on, your Work area, and so on. You can also specify a tag that the list should be filtered by when it opens.
+ Build Workflows – Any shortcut can also be used in Apple’s new Shortcuts app, which allows you to combine multiple shortcuts from different apps into one workflow.
+ DYNAMIC NOTIFICATIONS: When you get a notification, tap the Snooze button and you’ll notice that you now have granular control over the duration of the snooze: 10 minutes, 30 minutes, 1 hour.
+ PASSWORD AUTOFILL: Things supports iOS 12’s new Password AutoFill feature. It creates a strong password for you, keeps it safe, and automatically enters it for you when you log in on a new device. All of this now works with Things Cloud.
+ Things for iPad 3.6.2
+ August 8, 2018 
+ Requires iOS 10 or later
+ Added keyboard settings (Settings > General > Keyboard) to allow users to disable shortcuts that clash with some external keyboards.
+ Fixed some texts in the tutorial project.
+ Fixed some typos in non-English languages.
+ Fixed a visual glitch where changes made in the Today Widget would appear to be “undone” if the app hadn’t been run in the meantime.
+ Fixed an issue where some nested tags wouldn’t show up in project headers.
+ Fixed an issue where the “This Evening” header’s moon icon could overlap the text in some situations.
+ Fixed an issue where some dialogs wouldn’t wrap correctly in some languages.
+ Fixed an issue where start dates could be removed when dragging multiple scheduled items to a different heading.
+ Fixed an issue where it could become impossible to access certain dates in the When popover using the keyboard.
+ Fixed a few crashes and glitches that could occur while the keyboard was being revealed as one to-do expanded while another to-do was being logged.
+ Fixed a crash that could occur when dragging templates in areas.
+ Things for iPad 3.6.1
+ June 26, 2018 
+ Requires iOS 10 or later
+ Added support for entering the checklist field simply by typing while the button has keyboard focus.
+ Cmd+F in the Move and Tags popovers will now scroll to reveal the search field when necessary.
+ Cmd+. (Escape) is now supported in more popovers.
+ Added support for keyboard navigation in the New List popover.
+ More graceful handling of calendars without titles (works around an iOS 11.4 bug related to the built-in Holiday calendar).
+ Fixed some issues with scrolling while selecting items.
+ Fixed an issue where a to-do moved out of the Inbox wouldn’t show the title of its destination list.
+ Fixed the “Load more” button at the bottom of search results.
+ Fixed some visual glitches while rotating the device and revealing/hiding the sidebar.
+ Fixed an issue where multi-selection was lost when moving items from This Evening to Today via Cmd+Up.
+ Fixed an issue where the Undo history was lost when the app was temporarily backgrounded or the device was locked.
+ Fixed an issue where the “Complete” option was accidentally shown for multi-selected repeating templates.
+ Fixed an issue where the keyboard button could disappear when going from the notes field into the checklist field, or the checklist button could disappear when switching back from notes.
+ Fixed a crash that could occur when creating a new to-do with Cmd+N while another to-do was expanded.
+ Fixed a crash that could occur when converting a to-do with a checklist into a project.
+ Fixed a crash that could occur when expanding a system text replacement that included hard returns/multiple lines of text.
+ Improved Chinese localizations.
+ Things for iPad 3.6
+ May 28, 2018 
+ Requires iOS 10 or later
+ MAKE A SELECTION: Attach your keyboard, open Things, and tap the down arrow; you’ll see the first to-do selected. If you want to select more than one, just hold down Shift as you tap the arrows.
+ USE POWERFUL SHORTCUTS: Once you’ve made a selection, you can do all sorts of things – like set a date (Cmd+S), move it to a list (Cmd+Shift+M), move it down the list (Cmd+Down), and much more. See Things’ settings for a full list.
+ EDIT TO-DOS: You can also edit everything inside a to-do from your keyboard: just hit Enter to open a to-do, then tab around the fields. When a field is selected, just start typing to enter it.
+ ACCESS POPOVERS: All popovers are fully accessible from the keyboard (When, Deadline, Tags, etc.). Open a popover, such as Cmd+S, then use the arrow keys to move your selection around. Better yet, just start typing.
+ TYPE TRAVEL: Getting around the app is a breeze with Type Travel: just start typing where you want to go and instantly you’re transported there. It’s magic.
+ You can now drag & drop into Things’ sidebar to move items.
+ You can now apply tags and deadlines to multiple to-dos at once (select a group then tap ••• ).
+ You can now duplicate a multi-selected group of to-dos.
+ We’ve added support for app-wide undo and redo.
+ Things for iPad 3.5.2
+ April 27, 2018 
+ Requires iOS 10 or later
+ Tweaked the appearance of completion dates for older to-dos inside projects.
+ Fixed an issue where repeating task templates could create unwanted duplicates.
+ Fixed an issue where the headings pop-over wouldn’t show if tapped while editing the heading.
+ Fixed a crash that could occur when showing “When” for repeating projects.
+ Fixed some other minor crash scenarios.
+ Things for iPad 3.5.1
+ April 18, 2018 
+ Requires iOS 10 or later
+ Fixed a crash in the New To-Do pop-over.
+ Fixed an issue where the Cancel option wouldn’t appear when long-pressing the checkbox.
+ Fixed an issue where the URL Scheme Enabled confirmation message would appear when opening Things from the Today Widget on iOS 10.
+ Fixed a crash when showing the share sheet on iOS 10.
+ Things for iPad 3.5
+ April 18, 2018 
+ Requires iOS 10 or later
+ AREAS — Now Collapsable! Without a doubt, collapsable areas has been one of our most requested features. If your project list is super long – or if you just don’t want to see work projects on the weekend – collapse your areas to hide them.
+ TAGGING: 
+ We’ve made the tags window searchable. Sweet! Just pull down and start typing to find the tag you want.
+ We’ve made app-wide tag searches broader. When you search for a tag, you won’t just see items with that tag, but also items with its nested tags.
+ A feature from Things 2 has also made a comeback: you can once again filter by “No Tag”.
+ INPUT/OUTPUT — Copy & Paste Magic: 
+ Paste text from other apps into Things to create new to-dos (multiple lines of text will create multiple to-dos). (On iOS, you’ll find the new paste option in the top right corner under the (v) menu.)
+ Paste multiple lines of text into the title field of a to-do; the first line is the title, the rest goes into the notes.
+ THINGS URLs — Update Existing Items. We were extremely pleased with the launch of Things URLs, which allow you to create data in Things from outside the app. One of the main feature requests we’ve received is to provide a way to also make changes to items that already exist. This is now possible, thanks to our new update commands. See our documentation for more info.
+ TODAY WIDGET. The Today Widget now shows inline icons for checklists & reminders, a moon for items in This Evening, and progress pies for projects.
+ PERFORMANCE: 
+ Some people have projects with thousands of to-dos. Whoa! Those projects should load faster now.
+ We’ve sped up the generation of new repeating to-do instances.
+ LINKS. Links are now consistently detected everywhere: in to-do titles, notes, and checklists.
+ SETTINGS: 
+ Redesigned settings on iOS for more clarity.
+ A new setting on iOS: Today > Group by List.
+ DATE HANDLING. Full completion dates are now displayed in the Logbook, and we improved how multi-day events are displayed.
+ Things for iPad 3.4.3
+ April 3, 2018 
+ Requires iOS 10 or later
+ Improvements for the Quick Entry pop-over.
+ Improvements for the When pop-over.
+ Things for iPad 3.4.2
+ March 6, 2018 
+ Requires iOS 10 or later
+ Minor hotfix.
+ Things for iPad 3.4.1
+ March 6, 2018 
+ Requires iOS 10 or later
+ Toggles now expand to correctly reveal hidden tasks when showing tasks via the URL scheme.
+ Fixed slowness in the tags dialog.
+ Fixed case/diacritic insensitive search for the contents of checklist items.
+ Fixed crashes when dropping content from other apps into an expanded to-do.
+ Fixed a crash when importing data from Todoist.
+ Fixed a crash on iOS 10 when showing the Share Sheet for a list.
+ Improved stability and other bug fixes.
+ Things for iPad 3.4
+ February 21, 2018 
+ Requires iOS 10 or later
+ This release introduced the Things URL Scheme, which enabled three new features:
+ LINKING TO THINGS: Things now supports a special kind of link (or URL) that starts with “things:”. These links can be used to quickly jump to a to-do or list in Things from other apps.
+ POWERFUL AUTOMATION : Things’ links can also be used to execute a broad range of powerful commands from outside of the app – to create to-dos, show tag filters, perform searches, and so on.
+ HANDOVER FROM OTHER APPS: Other apps can now easily send data into Things. Other developers wanting to export data to Things can easily do so with our open source Swift library.
+ This release also enabled diacritic-insensitive search.
+ Things for iPad 3.3.2
+ January 25, 2018 
+ Requires iOS 10 or later
+ Added support for creating projects via Siri.
+ Fixed a bug where Quick Find wouldn't appear in some situations when using an external keyboard.
+ Things for iPad 3.3.1
+ January 12, 2018 
+ Requires iOS 10 or later
+ Fixed some bugs related to the Magic Plus button.
+ Fixed an issue with tapping into the notes field from Quick Entry.
+ Other minor bug fixes and improvements.
+ Things for iPad 3.3
+ December 12, 2017 
+ Requires iOS 10 or later
+ Introduced a new feature: Mail to Things – a powerful new way to create to-dos from other apps, services, and platforms. Enable the feature in Things Cloud’s settings.
+ Fixed a bug that could result in some emails not being correctly added to Things via drag and drop.
+ Fixed a bug that prevented text from being pasted into Things if it contained an empty line.
+ Fixed a crash in the Things Cloud settings.
+ Things for iPad 3.2.5
+ November 16, 2017 
+ Requires iOS 10.11 or later
+ Fixed a bug that could cause Siri to show an incorrect UI for Things.
+ Fixed a bug where textual changes made via the suggestion bar might be ignored.
+ Fixed a bug that prevented text selection after creating an area in the sources list.
+ Fixed a bug where the order of a multi-selected group of projects and to-dos could get jumbled while moving them.
+ Fixed a bug where multiple toolbars could appear layered on top of each other in some situations.
+ Fixed a bug that could cause a to-do’s alarm time to be stuck on screen when resizing the app on iPad.
+ Fixed an issue where the UI might not update correctly when setting a start date.
+ Fixed an issue where the multi-select toolbar might have an incorrect layout for some combinations of language and display resolution.
+ Fixed some visual glitches with the multi-select toolbar when using an external keyboard.
+ Fixed the Italian localization of the “Clear” button.
+ Fixed some bugs with text editing and selection.
+ Things for iPad 3.2.4
+ November 3, 2017 
+ Requires iOS 10 or later
+ Improved support for external keyboards.
+ Minor fixes for the German localization.
+ Other bug fixes and stability improvements.
+ Things for iPad 3.2.3
+ October 18, 2017 
+ Requires iOS 10 or later
+ Improved the handling of email messages dropped into Things.
+ Improved the drop of multiple items in a list; we now create multiple to-dos.
+ Improved the Action Extension for sharing to-dos into Things; for example, a website’s title is now injected into a to-do’s title, rather than its notes.
+ Modernized the notifications architecture and fixed related bugs.
+ Fixed some issues with the parsing of message links.
+ Fixed some bugs related to background app activity.
+ Things for iPad 3.2.2
+ September 24, 2017 
+ Requires iOS 10 or later
+ Improved the parsing of links to email messages.
+ Fixed a crash that could occur when changing a to-do’s start date.
+ Fixed some bugs related to Siri integration.
+ Things for iPad 3.2.1
+ September 19, 2017 
+ Requires iOS 10 or later
+ Improved the experience of tapping on links in notes.
+ Fixed some bugs related to text editing in iOS 11.
+ Things for iPad 3.2
+ September 18, 2017 
+ Requires iOS 10.0 or later
+ Full compatibility with iOS 11.
+ Direct Siri integration via SiriKit.
+ Drag & Drop integration with other apps.
+ Support for third-party app links.
+ Various other fixes and stability improvements.
+ Things for iPad 3.1.5
+ August 31, 2017 
+ Requires iOS 10.0 or later
+ Fixed some bugs related to text editing.
+ Fixed a bug where push notifications might not be sent to a device after a fresh install.
+ Things for iPad 3.1.4
+ August 21, 2017 
+ Requires iOS 10.0 or later
+ Improved performance in some cases for very large databases.
+ Improved the natural language date parsing for some languages.
+ Fixed a crash that could occur when importing data from Things 2
+ Things for iPad 3.1.3
+ July 31, 2017 
+ Requires iOS 10.0 or later
+ Various improvements for the Traditional Chinese localization.
+ Fixed a rare crash that could occur when syncing.
+ Things for iPad 3.1.2
+ July 28, 2017 
+ Requires iOS 10.0 or later
+ Refactored parts of the account management code.
+ Hid the project watermark for projects with notes.
+ Fixed a crash in iOS 11 beta.
+ Things for iPad 3.1.1
+ July 17, 2017 
+ Requires iOS 10.0 or later
+ Various improvements for the Traditional Chinese localization.
+ Refactored parts of the account management code.
+ Fixed a crash when running on iOS 11 beta 3.
+ Other minor bug fixes and stability improvements.
+ Things for iPad 3.1.0
+ July 3, 2017 
+ Requires iOS 10.0 or later
+ Added support for repeating to-dos inside projects.
+ Upgraded the sync schema to support repeating to-dos inside projects. All devices must be upgraded to the latest version to continue syncing.
+ We now use the official iOS app review prompt.
+ Some improvements for the Natural Language Date Parser (including support for Japanese).
+ Added a new warning that items will be deleted from Reminders when importing from Reminders for the first time.
+ Added a notification for users running the iPhone app on their iPad.
+ Tweaked the onboarding video for new installs.
+ Tweaked the database migration logic.
+ Fixed a crash that could be caused by projects with no titles.
+ Fixed some glitches related to dragging checklist items.
+ Fixed some glitches with right-to-left languages (we now force left-to-right in those cases, which isn’t ideal, but better than the previous experience).
+ Fixed an issue where the list tools menu (top right) could extend offscreen for some languages where labels didn’t fit.
+ Fixed an issue with the deadline text shown next to repeating to-do templates in the Upcoming list, and when sharing.
+ Fixed an issue that could prevent the configured reoccurrence rule from being applied to a project when making it repeat.
+ Fixed an issue that caused overlapping text in the Reminders import header.
+ Fixed a bug where to-dos could disappear when moving them under a heading in a repeating project.
+ Fixed a potential crash in the Wunderlist importer.
+ Localization improvements.
+ Things for iPad 3.0.3
+ June 6, 2017 
+ Requires iOS 10.0 or later
+ Built a new Todoist importer – go to Settings > Help > Import.
+ Fixed some issues with the Wunderlist importer.
+ Fixed various localization issues, particularly with Traditional Chinese.
+ Fixed some issues when editing project titles with Chinese/Japanese/Korean keyboards.
+ Fixed some crashes that were occurring in the Upcoming list.
+ Improved handling of declined/canceled calendar events.
+ Minor sync improvements.
+ Things for iPad 3.0.2
+ May 18, 2017
+ Fixed a crash that could occur when logging into Things Cloud from a device with the Traditional Chinese localization.
+ Fixed a crash that would occur when setting a start date on a logged project via the ellipsis menu.
+ Things for iPad 3.0.1
+ May 18, 2017
+ Minor post-launch fixes.
+ Things for iPad 3.0.0
+ May 18, 2017 
+ Requires iOS 10.0 or later
+ The first release of Things 3 for iPad, including these headline features:
+ ALL-NEW DESIGN: How it looks, how it works, and how it feels – Things has been completely redesigned, with more clarity, improved workflows, better structure, and delightful animations. It’s a to-do list like no other.
+ PROJECT HEADINGS: It’s so much easier to handle your projects now that you can break them up with headings. Use them to create categories, milestones, or whatever you need – just give each one a name and drag your to-dos underneath. Instantly you’ve got a nice, clean structure for your list, and the plan becomes perfectly clear.
+ CHECKLISTS: Some things take several steps to complete but don’t require a full-blown project. Now you can use Checklists to break down the finer details of a to-do. Use them for shopping lists, when packing your bag for a trip, or to detail a process at work so you won’t miss a critical step.
+ DESKTOP-CLASS LIST EDITING: Editing your lists on iOS now comes with lots of power, and no friction. Swipe to-dos to multi-select them, then edit them all at once: set their date, move them to another list, or tap and drag the group together.
+ MAGIC PLUS BUTTON: Finally, a versatile way to insert a to-do right where you want it! Just drag the magical button with your finger and let go. You can also drag it toward the left margin in a project to create a Heading, or drop a new item to your inbox from any other list.
+ CALENDAR INTEGRATION: Display calendar events alongside your to-dos and stay on top of your schedule. They will show at the top of your Today list, and for each day in Upcoming, where you plan the week ahead.
+ JUMP START: Working with dates is super easy with the new Jump Start popover. Simply swipe on any to-do to bring it up, then quickly choose when you want to start: Today, a later date, or put it on hold in Someday.
+ NATURAL LANGUAGE RECOGNITION: The Jump Start popover has a magical ingredient: Natural Language Recognition. It smartly detects what you’re typing to work out what you mean... “Tom(orrow)”, “Sat(urday)”, “in fou(r days)”, “Au(gust 1)”. As you can see, it jumps to all the right conclusions.
+ PLAN YOUR DAY – WITH TODAY AND THIS EVENING: Once you’ve made your plan, the Today list is your go-to place for all daily activities. Calendar events now display at the top, giving an outline of your schedule. Your to-dos follow, with a discrete section at the bottom called This Evening for things you’ll get to later in the day.
+ PLAN YOUR WEEK – WITH UPCOMING: Plan your week ahead with the new Upcoming list. It shows everything on your agenda for the coming days: scheduled to-dos, repeating to-dos, deadlines, and calendar events. A quick peek at this list is all it takes to stay on top of your schedule.
+ REMINDERS: One of Things’ most-requested features is now here: time-based reminders! You can add a reminder by typing (natural language recognition), or just speak to Siri. For those to-dos you absolutely cannot miss, reminders will give you peace of mind.
+ QUICK FIND: Search and navigation in Things is now extremely fast, with Quick Find. All you need to do is swipe down in any list and start typing – the name of a project, to-do, or tag – and instantly you’re taken there. It’s magic!
+ APP-WIDE TAG FILTERS: Just search for the name of any tag to pull up an app-wide filter. It shows all items with that tag across all your projects and areas. It’s a fantastically versatile way to view your to-dos.
+ THE NEW SOURCE LIST: Projects in the source list are now nested under areas to keep everything tidy. Each one has a new progress indicator to show you how close you are to achieving your goal.
+ And much more... see what’s new .
+ Things for iPad 2.8.10
+ January 16, 2017 
+ Requires iOS 8.0 or later
+ Fixed a crash when creating a new to-do with VoiceOver.
+ Things for iPad 2.8.9
+ November 23, 2016
+ Sync improvements.
+ Minor stability improvements and bug fixes.
+ Things for iPad 2.8.8
+ September 29, 2016
+ Fixed a crash that was predominantly effecting 32-bit architectures.
+ Things for iPad 2.8.7
+ September 13, 2016
+ Full compatibility with iOS 10.
+ Updated the Today Widget for the new design.
+ We now pause the creation of Repeating Task instances if none of the previous five were completed.
+ Fixed a bug where, during the password reset process, email addresses with the “+” symbol weren’t being handled properly.
+ Things for iPad 2.8.6
+ April 25, 2016
+ Fixed an issue where the Things Cloud switch would appear to be off after restoring from an iCloud backup.
+ Minor improvements for sync.
+ Things for iPad 2.8.5
+ March 15, 2016 
+ Fixed a sync bug.
+ Things for iPad 2.8.4
+ February 26, 2016
+ Improved stability and bug fixes.
+ Things for iPad 2.8.3
+ February 1, 2016
+ Implemented a proxy service for Chinese users behind the Great Firewall.
+ Other general Things Cloud improvements.
+ Fixed the app icon for iPad Pro.
+ Fixed a problem with the checkbox animation in the Today Widget.
+ Fixed a bug where the delete button could appear in the wrong position sometimes.
+ Fixed a bug that could cause a crash while the app was running in the background.
+ Fixed a bug that could prevent database uploads in rare cases.
+ Fixed a networking crash.
+ Things for iPad 2.8.2
+ November 19, 2015
+ Ready for iPad Pro.
+ Fixed a bug where, after canceling the Move screen, popovers couldn’t be dismissed by tapping outside of them.
+ Fixed a bug where the Today Extension could crash in some situations.
+ Fixed some localizations.
+ Things for iPad 2.8.1
+ September 30, 2015
+ Fixed a bug where the app could take a long time to compute badge counts and notifications when backgrounding, possibly preventing sync with Things Cloud or extensions.
+ Things for iPad 2.8
+ September 17, 2015 
+ Requires iOS 8.0 or later
+ Full compatibility with iOS 9.
+ New! Multi-tasking with Slide Over and Split View.
+ New! Support for keyboard shortcuts.
+ Adjustments for iOS 9’s new San Francisco font.
+ Fixed a bug where, if Things Cloud was turned off, immediate logging wouldn’t work for to-dos completed in the Today widget.
+ General stability improvements.
+ The app now requires iOS 8 or later.
+ (New features require iOS 9. Slide Over requires iPad Pro, iPad Air 1, iPad mini 2, or later. Split View requires iPad Pro, iPad Air 2, iPad mini 4, or later.)
+ Things for iPad 2.7.5
+ July 14, 2015 
+ Requires iOS 6.0 or later
+ Optimized the initial sync process for improved speed and lower memory consumption.
+ Fixed a crash with Local Notifications in iOS 7 or earlier.
+ Fixed a crash while initializing and generating repeating tasks.
+ Other minor adjustments and fixes.
+ Things for iPad 2.7.3
+ May 22, 2015
+ Bug fixes and stability improvements.
+ Things for iPad 2.7.2
+ April 29, 2015
+ Bug fixes and stability improvements.
+ Things for iPad 2.7.1
+ April 9, 2015
+ Fixed a bug that caused slowness on launch for users who had many entries in the Logbook.
+ Things for iPad 2.7
+ March 26, 2015
+ Fixed a French typo that appeared when the Logbook was empty.
+ Things for iPad 2.6.3
+ February 26, 2015
+ Fixed a bug where logging on app launch would not work correctly.
+ Fixed a bug where entering the task details of a task while filtering the Next list by due date could cause a crash (could also happen on app launch).
+ Things for iPad 2.6.2
+ February 13, 2015
+ Fixed a bug where the “Updated” label in the Today Widget wasn’t updated correctly.
+ Fixed a bug where the Today Widget wasn’t showing the correct status for Things Cloud.
+ Fixed a bug where buttons would not be readable in some situations if the “Button Shapes” was turned on in iOS Accessibility settings.
+ Fixed a bug where the app could get into a sync loop when set to log items on app launch.
+ Fixed a bug where the app could crash when completing to-dos in Next while filtered by due date.
+ Things for iPad 2.6.1
+ February 4, 2015
+ Made sending changes from the Today Widget to Things Cloud faster.
+ Slight adjustments to the design of the Today Widget.
+ Adjusted the layout and font size of the “Last Updated” text in the Today Widget.
+ Changed the Today Widget’s behavior to avoid going into Safe Mode when an iOS bug in Notification Center was encountered.
+ Fixed a bug where the “Last Updated” text in the Today Widget wasn’t displayed correctly in German.
+ Fixed a bug where the app wouldn’t always be updated after making changes in the Today Widget.
+ Fixed a bug where the Today Widget could crash due to excessive memory usage.
+ Fixed a bug where to-dos in the Today Widget would disappear without a delay when checking them off while the app is running.
+ Fixed a bug where the contents of items in the Today Widget would not be updated while the Today Widget was shown.
+ Fixed a bug where an extension-triggered file-lock problem could cause the main app to freeze.
+ Fixed a bug where the app could be incorrectly suspended or killed while going into the background.
+ Fixed a bug where changing the Things Cloud password on a secondary device could cause Things to go into an endless dialogue loop.
+ Fixed a bug where the app would not correctly handle concurrent requests to launch in the background.
+ Fixed a bug where Background Refresh could clear out daily notifications from a device’s lock screen.
+ Fixed a bug where the keyboard would deactivate after tapping the Forgot Password button if either the email or password fields already had focus.
+ Fixed a rare bug where task details could be overridden in certain situations when syncing with another device.
+ Fixed a bug where, in some situations, popovers could be laid out incorrectly show if the app was launched from the Today Widget.
+ Fixed a bug where the app would not show the Quick Entry popover when launched from the Today Widget if the app had been sent to the background while in “Star” or “Move” mode.
+ Fixed a bug where the app would crash when changing the logging interval to “Immediately” if any completed tasks were visible on screen.
+ Fixed a bug where text could be cut off in the notes field.
+ Other minor adjustments.
+ Things for iPad 2.6
+ January 15, 2015
+ Introducing a new Today Widget for Notification Center that provides quick access to the to-dos you’re working on today. To enable this feature, swipe down from the top of the screen to show Notification Center, tap “Edit” at the bottom of the list and add Things.
+ Some improvements for the URI scheme .
+ Improved stability and bug fixes.
+ Things for iPad 2.5
+ November 13, 2014
+ This release for iPad delivers numerous great enhancements, including:
+ Visual refresh of the interface.
+ New app icon.
+ New “Add to Things” extension for adding to-dos to Things’ inbox from other apps (e.g. Safari, Notes, etc.). Requires iOS 8.
+ Handoff support (works with Mac and iPhone).
+ Background app refresh.
+ New sharing option to send to-dos or projects out to other apps (or a printer).
+ Links to emails on the Mac are now supported in the notes field on iPad.
+ Tweaked some animations.
+ Fixed blurry text in the Settings on non-retina devices.
+ Fixed a crash on iOS 6 when entering a project from anywhere other than the list of projects.
+ Fixed an issue where the wrong background color could show in some places while configuring a repeating task.
+ Fixed an issue where cells containing tags weren’t wrapping to a new line when editing an Area.
+ Fixed a bug where the Edit button would be incorrectly enabled in some situations.
+ Dropped support for iOS 5 (users can still download the latest iOS 5 version of Things from the App Store).
+ Things for iPad 2.3.1
+ October 1, 2014
+ Compiled for 64-bit ARM.
+ Fixed a bug where instances of repeating tasks wouldn’t include notes specified in the template.
+ Removed TextExpander support for technical reasons.
+ Improved performance.
+ Other minor bug fixes.
+ Things for iPad 2.3
+ September 9, 2014
+ Improved compatibility with iOS 8.
+ Improved stability and bug fixes.
+ Things for iPad 2.2.5
+ January 29, 2014
+ Improved stability and bug fixes.
+ Things for iPad 2.2.3
+ November 3, 2013
+ Fixed a bug with Daylight Savings Time which can cause weekly repeating tasks to show in Daily Review a day early.
+ Fixed a bug where repeating tasks created on the Mac would show up on iOS with an end date of Dec 31, 4000.
+ Improved performance and memory usage when creating repeating tasks. Users who have 50 or more repeating tasks should no longer see crashes.
+ Improved performance when quickly switching in and out of Things.
+ Things for iPad 2.2.2
+ October 2, 2013
+ Fixed a bug with the layout of the progress bar while performing an initial update with Things Cloud.
+ Other minor fixes.
+ Things for iPad 2.2.1
+ September 17, 2013
+ Improved compatibility with iOS 7.
+ Slightly tweaked the corner-radius of the app icon for iOS 7.
+ Improved stability and bug fixes.
+ Things for iPad 2.2
+ April 17, 2013
+ More robust handling of dates when traveling between time zones.
+ Downloading to-dos from Things Cloud is now even faster.
+ Fixed an issue where items in Scheduled or the Daily Review could show up in an apparently random order (for humans).
+ Fixed an issue where text could exceed the boundary of a cell in the task info view.
+ Fixed an issue where, in various circumstances, tapping outside the info popover would dismiss it, and in some cases, lose the entered information.
+ Fixed an issue where line breaks sent to Things on iOS via the URI scheme weren’t stripped out, and weren’t displayed properly in Things for Mac.
+ Fixed an issue where repeating projects could be displayed with a “Jan 4001” due date in the Projects focus.
+ Fixed an issue where repeating projects showed up in a different order when a new instance was created on iOS.
+ Fixed an issue where tapping the status bar no longer scrolled the Date Picker to the current date.
+ Fixed an issue where dates in the task cells were not correctly respecting Region settings.
+ Fixed an issue where the list of days in a repeating task didn’t respect the default setting for any day except Sunday.
+ Fixed an issue where changing Region settings did not update weekday names.
+ Fixed an issue where the first repeating task instance wasn’t immediately shown in Scheduled when generated during the creation of a new repeating task template.
+ Fixed an issue where the highlight on the Send Email button faded out before the email sheet was shown.
+ Fixed an issue where the order of tags in a project’s detail view differed from their order in the tag settings.
+ Fixed an issue where the list of projects in the move dialog did not match the order in the Projects focus.
+ Fixed an issue where completion dates in the Logbook were grammatically incorrect in Finnish.
+ Fixed an issue where a spinner continued to show underneath the Delete Account confirmation message after the account deletion had completed.
+ Fixed an issue where projects in the grid view sometimes showed incorrect due dates.
+ Fixed an interface glitch when choosing recurrence rules involving February.
+ Fixed a crash that occurred when editing the recurrence rule of a yearly repeating task.
+ Fixed a crash that occurred when deleting an instance of a newly created repeating task.
+ Improved the handling of escaped characters imported to the title or notes field of a new to-do via the URI scheme.
+ Increased the height of the sources list and info popovers in some cases to better accommodate default elements.
+ Added a “more” ellipsis to the tag field of a project if the number of tags exceeded the horizontal width of the screen.
+ Rephrased a Things Cloud login error message that said “email address or password are not correct” when only the password was wrong.
+ We now show the Things Cloud settings when relaunching the app if it crashed while updating with Things Cloud for the first time on the previous run.
+ We now block the generation of repeating task instances when relaunching the app if it crashed while updating with Things Cloud for the first time on the previous run.
+ We now use regular weekday names (Monday, Tuesday, etc.) for scheduled or due dates occurring within a week.
+ We now use regular weekday names (Monday, Tuesday, etc.) for due dates on projects in the grid view and in a project’s header.
+ Things can now be opened via the URI scheme without having to add a new task (i.e., by simply using things:).
+ Improved the format of due dates for some regions.
+ Search is no longer diacritic sensitive.
+ Updated Hockey SDK to version 3.0.
+ Things for iPad 2.1.2
+ December 4, 2012
+ Tapping the version number in "About Things" now displays the app's build number.
+ Fixed an issue where some to-dos in the Today list couldn't be reordered after using the Daily Review.
+ Fixed a graphical glitch with the Scrolling Date Picker on iPads with retina displays.
+ Fixed an issue where, when attempting to move some to-dos in the Today list, the app could display the details for a different to-do.
+ Fixed an issue where the Scrolling Date Picker couldn't be dismissed in some situations.
+ Fixed an issue where tapping the status bar while using the Scrolling Date Picker wouldn't return to today.
+ Fixed an issue where the selected date was no longer visible in the Scrolling Date Picker after rotating the device.
+ Fixed an issue that caused logged Projects to show an incorrect number of contained to-dos.
+ Fixed an issue that affected the order of a project's contents when emailing it.
+ Enhanced the formatting of to-dos and projects when emailing them.
+ Improved the display of dates throughout the app when the Region Format is set to Finland.
+ Some localization improvements for German, French and Japanese.
+ Improved accessibility when using VoiceOver.
+ Things for iPad 2.1.1
+ October 16, 2012
+ Fixed a minor layout issue with the "Tags" text in the task details view.
+ Fixed an issue where the incorrect project title could be shown on tasks in the daily review.
+ Fixed an issue where the selection of a task in the reminders list was lost in some situations.
+ Fixed an issue where the titles of the months in the date picker were incorrectly capitalised in Russian.
+ Fixed an issue where tapping the repeating icon in a repeating task cell did not select the row and show the task details.
+ Fixed an issue where tapping and holding the repeating task icon in a repeating task cell would show the menu to cancel and complete the task even though repeating tasks cannot be completed or cancelled.
+ Fixed a layout issue where tab characters inside a task's notes could cause layout problems when changing to and from edit mode.
+ Revised text in some localizations.
+ Things for iPad 2.1
+ October 3, 2012
+ iOS 6 compatibility.
+ New Reminders & Siri integration: Speak a reminder to Siri and have it display instantly in your Things Inbox where you can easily import it. (Requires iOS 6) 
+ Fixed an issue when reordering projects where a booklet's shadow would become more bold while animating into place in the grid.
+ Fixed a graphical issue where a triangular crease would appear between the source list and to-do list in landscape orientation.
+ Fixed a graphical issue with the topmost cell when creating a new repeating task.
+ Fixed an issue where long notes could overlap the tags & due date fields in one circumstance.
+ Fixed an issue where all projects would show as "Due" despite having no due date.
+ Fixed several issues with Daily Review which could lead to a crash.
+ Improved the behaviour of the notes field.
+ Things for iPad 2.0.2
+ August 29, 2012
+ Fixed an issue which could cause the application to crash for some users.
+ Things for iPad 2.0.1
+ August 24, 2012
+ Added Local Push for automatically triggering Things Cloud updates on your other devices (requires an internet connection and works only when all devices are connected to the same router/local network).
+ Fixes a bug where the app could crash in some circumstances when the Daily Review list was updated.
+ Fixed an issue for Japanese users where the day would not be displayed in the Scheduled focus.
+ Things for iPad 2.0
+ August 9, 2012
+ Things Cloud support.
+ The all new Daily Review.
+ A new custom-designed scrolling Date Picker.
+ The option to cancel to-dos.
+ The preference to log completed items immediately.
+ The ability to show whole Projects in Today.
+ Improved accessibility when using VoiceOver.
+ Re-engineered core for great Things Cloud performance.
+ Things Cloud replaces the old Bonjour WiFi Sync.
+ This update requires iOS 5 or later.
+ Things for iPad 1.5.7
+ July 10, 2012
+ Improved stability and bug fixes.
+ Things for iPad 1.5.6
+ June 21, 2012
+ Bug fixes.
+ Things for iPad 1.5.5
+ May 23, 2012
+ Bug fixes.
+ Things for iPad 1.5.4
+ March 28, 2012
+ Retina graphics for the new iPad.
+ Things for iPad 1.5.3
+ February 28, 2012
+ iOS 5 compatibility improvements.
+ Things for iPad 1.5.2
+ February 2, 2012
+ iOS 5 compatibility improvements.
+ Things for iPad 1.5.1
+ October 26, 2011
+ iOS 5 compatibility improvements.
+ Fixed an issue causing crashes on iOS 3.
+ Things for iPad 1.5
+ October 18, 2011
+ iOS 5 compatibility.
+ Things for iPad 1.4.4
+ July 11, 2011
+ Bugfix: In certain situations the project view would not be properly refreshed after sync.
+ Things for iPad 1.4.3
+ April 12, 2011
+ Bugfix: An initial sync with long preparation time could lead to a 'connection loss' warning on iOS devices.
+ Bugfix: Quickly backgrounding and reactivating TT/TP caused sync to stop working.
+ Bugfix: Date-picker for due dates and scheduled dates could be rendered unusable with Asian regional settings.
+ Bugfix: Changing the scheduled date for a non-project task could erroneously display a warning.
+ Bugfix: Child tasks for repeating projects could lose that project association when a new instance of the project was created.
+ Bugfix: Weekday names were not properly displayed when using Swedish regional settings.
+ Things for iPad 1.4.2
+ March 24, 2011
+ Enhancement: Implemented a new Safe Mode to handle crashes on application launch more gracefully.
+ Bugfix: Fixed a bug where Things could crash during the sync process.
+ Bugfix: Fixed a bug where Things could crash when reactivating the application from the background.
+ Bugfix: Fixed a bug where items in Today, Projects and Tags could get randomly reordered after sync.
+ Bugfix: Fixed a bug which caused Things to crash when navigating in/out of Projects.
+ Bugfix: Marking a repeating task instance complete could have a noticeable lag - this is now fixed.
+ Things for iPad 1.4.1
+ February 10, 2011
+ Email addresses inside notes are now tappable.
+ Fixes for various sync related crashes.
+ Fixed a bug where the first sync after un update to 1.7 would not send changes to the Mac.
+ Things for iPad 1.4
+ February 3, 2011
+ Feature: Repeating tasks can now be created / edited / deleted on the iPad.
+ Feature: Added support for a custom things: URI scheme.
+ Bugfix: Disclosure indicators are now shown when managing tags.
+ Bugfix: Fixed an issue where it was possible to create tag duplicates when using auto-completion.
+ Bugfix: Fixed an issue where editing a tag did not refresh the UI.
+ Bugfix: Fixed an issue where the Edit button was erroneously resized while using drag & drop.
+ Bugfix: Fixed an issue where the Edit button was active on an empty list.
+ Bugfix: Fixed an issue where a Spelling suggestion was lost when changing device orientation.
+ Localizations: Fixed a glitch in the French localization.
+ Localizations: Fixed a glitch where Swedish weekdays were not displayed properly.
+ Things for iPad 1.3.2
+ December 14, 2010
+ URLs in notes are now active and can be tapped (will launch Safari).
+ Fixed a bug where filtering by tags was not working properly when Things was restored from the background (iOS4 only).
+ Fixed a bug where the date-picker would not work when using Asian region settings.
+ Fixed a bug where creating a scheduled task in an Area would not work.
+ Fixed a bug where auto-logging (on launch) would not move items to the Logbook properly.
+ Cleaned up animations
+ Things for iPad 1.3.1
+ November 27, 2010
+ Fixed a bug where Things would crash when opening a project.
+ Fixed a bug where a floating project folder would become stuck if a second project were tapped before the first animation completed.
+ Fixed a bug where the title and due date of a project were missing on the front cover of a project folder during the opening animation.
+ Things for iPad 1.3
+ November 18, 2010
+ Local notifications. (iOS 4.2) The application badge now always updates at midnight to show the correct number. Additionally, if turned on in the preferences, an alert is shown every day tasks become due or their scheduled day arrives.
+ Multitasking support. (iOS 4.2)
+ When switching between apps, Things returns to the exact location where it was left.
+ After a sync is initiated when the app is active, it can complete in the background.
+ Things for iPad 1.2.2
+ October 26, 2010
+ Fixed a bug where projects would get reordered during sync.
+ Things for iPad 1.2.1
+ September 17, 2010
+ Completed to-dos can now be logged manually from within the Logbook.
+ Automatic logging can now be disabled in the Settings.
+ When syncing with the Mac, changes are now sent in chunks, further improving sync speed.
+ Bug Fix: Fixed a crash that could occur while adding a task in Today.
+ Bug Fix: Due items could previously not be moved from Today to Next.
+ Bug Fix: Searching for an apostrophe would previously crash the app.
+ Bug Fix: Fixed a bug where the sort order of child tags would change incorrectly during sync.
+ Bug Fix: Tasks inserted into a Project are now appended at the bottom.
+ 3 more bug fixes.
+ Things for iPad 1.2
+ August 9, 2010
+ Added Search
+ TextExpander Support. (TextExpander has to be installed on the device.)
+ Major code overhaul for task entry. Specifically:
+ The title field when entering tasks is much more responsive.
+ Autocompletion across line-wraps now works.
+ The text insertion point no longer jumps when typing fast.
+ The loupe is not flickering anymore.
+ No more problems with Japanese text entry.
+ The items under Settings > General now have explanation texts and icons.
+ Bug fix. Projects without a title now still display a header in Next.
+ Bug fix. When tapping the move button in the toolbar, the "Edit" button on the left no longer transforms into a "Done" button before fading out.
+ Bug fix. When the move dialog was shown, accidentally tapping outside would dismiss it. This is now fixed: you have to tap either Done or Cancel.
+ Bug fix. The app no longer crashes when filtering by due date while the list of todos is still scrolling.
+ Bug fix. When editing a Tag title and placing the cursor at the beginning of the title, the "Done" button is no longer disabled.
+ Bug fix. When a project becomes due, its todos were added to Today in the wrong order. This is now fixed.
+ Things for iPad 1.1
+ July 1, 2010
+ Added ability to create and manage Areas of Responsibility.
+ Added support for creating mixed projects: the focus of to-dos in projects can now be set to active, inactive, or scheduled independently of the project's focus.
+ Improved move and create dialogs: the focus and project/area of a to-do can now both be set independently.
+ Improved Settings dialog.
+ Refined application icon.
+ Fixed a bug where Tag changes on the Mac wouldn't get synced correctly to the iPad version.
+ Bug fix. When checking off a task in Today, the badge count in the source list is now updated correctly.
+ Bug fix. The app no longer crashes when assigning a due date of today to a todo in Next, then switching to Today and checking off the todo.
+ Bug fix. When a project becomes due, its todos are added to Today in the wrong order. This is now fixed.
+ Bug fix. Switching to a different source while marking items to be shown in Today now applies all the changes before changing the source.
+ Bug fix. When entering text in Japanese, Things now presents a bigger input field to prevent bugs related to line wrapping. A more fundamental fix will be included in the next release.
+ Bug fix. When editing a Tag title and placing the cursor at the beginning of the title, the "Done" button is no longer disabled.
+ 3 smaller bug fixes.
+ Russian localization update.
+ Small localization improvements.
+ Things for iPad 1.0.1
+ April 14, 2010
+ Fixed a crash related to canceled projects.
+ Fixed a bug where tapping and holding the "arrow button" for Inactive Projects would cause Things for iPad to crash.
+ In some situations, Things for iPad would crash when moving a task into another list. This is now fixed.
+ Fixed inconsistency when syncing between Things for iPad and Things Mac in the count of due items in different lists.
+ Fixed an issue where the cursor would jump to the wrong position when deleting text in a multi-line task title.
+ Fixed some drawing issues for tags with very long titles.
+ Fixed a bug where new tags didn't appear immediately.
+ Fixed UI problem where closing a due date filter resulted in some drawing issues right below the toolbar.
+ Text within the filter bar now uses all of the available space.
+ Fixed animation glitches for Inactive Projects.
+ Localization improvements.
+ Improved stability and other bug fixes.
+ Things for iPad 1.0
+ April 3, 2010
+ First release of Things for iPad.
+ Didn’t find what you were looking for?
+ Contact Us 
+ Footer
+ Products
+ Things for Mac 
+ Things for iPhone 
+ Things for Watch 
+ Things for iPad 
+ Things for Vision 
+ Support
+ Help 
+ Contact 
+ Getting Productive 
+ News
+ Blog 
+ Newsletter 
+ Status Board 
+ Company
+ About Us 
+ Jobs 2 --> 
+ Privacy Policy 
+ Terms 
+ Press 
+ Cultured Code 
+
