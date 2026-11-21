@@ -231,6 +231,7 @@ struct SetupGuide: View {
             // Apple sets a sheet's secondary action as a text link over its one button.
             Button("About Full Access") { showFullAccess = true }
                 .font(.subheadline)
+                .accessibilityIdentifier("aboutFullAccess")
         }
     }
 
