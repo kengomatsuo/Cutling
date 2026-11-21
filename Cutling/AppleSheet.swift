@@ -145,12 +145,18 @@ enum WhatsNewKind {
     case welcomeBack
 
     /// Rows for changes people can see in this version. Fill-ins stay out while `FillIns.isOn` is off.
-    static let newRows: [AppleSheetRow] = [
-        AppleSheetRow(symbol: "square.stack.3d.up.fill", title: "Room for 1,000",
-                      detail: "Save up to 1,000 texts and 50 images."),
+    /// The numbers come from the store's own limits, so the sheet can never promise more
+    /// room than `CutlingStore` allows.
+    static var newRows: [AppleSheetRow] {
+        let texts = CutlingStore.maxTextCutlings.formatted()
+        let images = CutlingStore.maxImageCutlings.formatted()
+        return [
+        AppleSheetRow(symbol: "square.stack.3d.up.fill", title: "Room for \(texts)",
+                      detail: "Save up to \(texts) texts and \(images) images."),
         AppleSheetRow(symbol: "hand.tap.fill", title: "Every Key Types",
                       detail: "Tap a formatted cutling and it types like the rest. Touch and hold it to copy the formatting."),
-    ]
+        ]
+    }
 
     static let basicsRows: [AppleSheetRow] = [
         AppleSheetRow(symbol: "globe", title: "Switch to Cutling",
