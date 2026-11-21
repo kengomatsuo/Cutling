@@ -212,3 +212,79 @@ Fit is the alert rendered on the iOS 27.2 simulator (iPhone Duo, cover display) 
 | pt, pt-BR | `Valores possíveis (opcional)` | An optional field for the possible values this fill-in field can take, such as a list of options. | `Você pode digitar vários valores separados por vírgula.` | You can type several values separated [masc. plural, agrees with 'valores'] by comma [singular, no article, the usual Brazilian phrasing] | 169 / fits, 2 | 1 | ok |  |
 | pt-PT | `Valores possíveis (opcional)` | An optional field for the possible values this fill-in field can take, such as a list of options. | `Pode escrever vários valores separados por vírgulas.` | [You, polite form implied by the verb] can write several values separated [masc. plural] by commas [plural, the usual European phrasing] | 169 / fits, 2 | 1 | ok |  |
 | fr, fr-FR, fr-CA | `Liste de choix (facultatif)` | A list of choices goes here, and the field is optional. | `Séparez les choix de la liste par une virgule.` | Separate [imperative, vous] the choices of the list by a comma. | 151 / fits, 2 | 2 | ok | Round 2 (round 1's Valeurs au choix also read as any values you like). vous follows the fill-in tip (Ajoutez). |
+
+## The editor's menu button (board ASG124)
+
+The label of the editor's menu button that opens the fill-ins menu (iPhone, iPad and Mac), in `Cutling/<locale>.lproj/Localizable.strings`, written and checked back on 2026-11-21. It replaces `"Add Fill-in or Date"` in `placeholderMenu` (`Cutling/TextDetailView.swift`), since the menu now holds the blank, its choices, the date, the time, the cursor, the clipboard and more kinds behind its last item, not only blanks and dates. The old key stays in every file.
+
+| Brief key | `.strings` key | Where |
+|---|---|---|
+| A1 `menu` (remade) | `"Add Fill-in"` | label of the menu button with the curly-braces icon, under Paste from Clipboard |
+
+What the writers were told it must say: tapping it lets the person add a fill-in to the snippet's text; it names what the menu adds with the locale's existing word for a blank or fill-in and says nothing about a date; it starts from the locale's old label, keeps its verb and its word for the blank, and drops the date part (a label that named no date stays when it still fits); it follows the locale's button-label convention; at most about 28 Latin, Cyrillic or Greek characters, 14 CJK, 22 Indic, Thai, Arabic or Hebrew.
+
+Made as the strings above: one writer per batch of up to four languages (14 batches, each a separate `claude -p` process with no tools) got that brief, the language and the locale's existing words on that screen (the old label, the menu's heading and items, the row above, another button, the tip title), never an English string. A separate reader per batch of about seven languages (8 batches), told where the button sits and shown the menu it opens in the same language but not what the label should say, wrote a literal rendering, what a native user expects the button to do, whether it reads as opening the whole menu or adding one item, and whether it is natural. Lines flagged for anything besides scope went to fresh writers with the reader's point: hi, bn, pa and or in round 2, since the bare blank word read as inserting empty space; sw, fil and vi in rounds 2 and 3, over Title Case and readings as "add space", "vacancies" or a gap. Each new line was read again by a fresh reader. Round is the round whose line ships.
+
+Scope is the reader's answer. Where a locale's word for the blank is also item 1's noun (field, поле, campo, champ, रिक्त स्थान, 入力項目), 32 of 54 readers took the label as adding item 1 only, not as opening a menu of kinds. The card asked for each locale's existing blank word, so those lines keep it; Check "scope" means nothing else was wrong. The four locales whose old label said placeholder (de, nl, da, nb) were all read as covering the whole menu. English `Add Fill-in` beside `Fill-in Field` shares its noun the same way.
+
+Width pt is the label at 17 pt regular, the iOS form row's body font, measured with the system font on macOS, with the old label's width in brackets. Three labels are wider than their old ones (hi, bn, or); the widest, Odia's 207 pt, is narrower than the old Filipino and Malayalam labels (237 pt) that already showed in the same row. On the Mac the button is fixed-size at 13 pt, where the widest new label is 162 pt and the widest old one was 188 pt. No locale was rendered on a device or simulator.
+
+Readers' asides about other strings on that screen, outside this card: Serbian's row above, `Nalepi iz privremene memorije`, is Latin script among Cyrillic; zh-Hant's row above says 剪貼板 where Taiwan's iOS says 剪貼簿; Malayalam spells clipboard ക്ലിപ്ബോർഡ് in the row above and ക്ലിപ്പ്ബോർഡ് in the menu.
+
+| Locale | Label | Read back as | Scope | Width pt (old) | Round | Check | Note |
+|---|---|---|---|---|---|---|---|
+| en, en-AU, en-CA, en-GB, en-IN | `Add Fill-in` |  |  | 77 (137) | given | given | Given in the card; not back-checked. |
+| de, de-DE | `Platzhalter einfügen` | Placeholder [singular or plural, same form] insert [infinitive] | whole menu | 152 (152) | 1 | ok | Old label kept: it named no date, and its reader took Platzhalter as covering every item. |
+| nl, nl-NL | `Voeg plaatshouder in` | Join [imperative, split from the separable verb 'invoegen'] place-holder in | whole menu | 161 (161) | 1 | ok | Old label kept, as de. |
+| da | `Indsæt pladsholder` | Insert/paste [imperative] place-holder [singular, indefinite] | whole menu | 147 (147) | 1 | ok | Old label kept, as de. |
+| sv | `Infoga fält` | Insert [imperative] field [singular or plural, same form] | item 1 | 76 (165) | 1 | scope | Reader: an everyday reader takes fält as item 1's box; only Word users count a date as a fält. |
+| nb | `Sett inn plassholder` | Put [imperative] in place-holder [singular, indefinite] | whole menu | 151 (151) | 1 | ok | Old label kept, as de. |
+| fi | `Lisää kenttä` | Add [imperative] field [singular, nominative total object] | item 1 | 91 (206) | 1 | scope | Reader: a date or the cursor spot is not a kenttä to a normal reader. |
+| et | `Lisa väli` | Add [imperative, 2nd person singular] field [singular, nominative total object] | item 1 | 60 (155) | 1 | scope | As fi. |
+| lt | `Įterpti lauką` | Insert [infinitive] field [accusative singular] | whole menu | 89 (165) | 1 | ok | Reader: same noun as item 1, a weak fit for the cursor position. |
+| lv | `Ievietot lauku` | Insert [infinitive] field [accusative singular] | whole menu | 101 (189) | 1 | ok | Reader: same noun as item 1, so it points a little toward it. |
+| pl | `Wstaw pole` | Insert [imperative, 2nd singular] field [accusative singular] | whole menu | 88 (154) | 1 | ok | Reader: as in Word's Wstaw pole; points a little toward item 1. |
+| cs | `Vložit pole` | Insert [infinitive] field(s) [accusative; singular and plural are the same form] | whole menu | 80 (175) | 1 | ok | Reader: pole reads as singular or plural, which helps it cover the group. |
+| sk | `Vložiť pole` | Insert [infinitive] field [accusative singular] | whole menu | 80 (179) | 1 | ok | Reader: points a little toward item 1. |
+| sl, sl-SI | `Vstavi polje` | Insert [imperative, 2nd singular] field [accusative singular] | whole menu | 86 (160) | 1 | ok | Reader: as in Word's Vstavi polje; points a little toward item 1. |
+| hr | `Umetni polje` | Insert [imperative, 2nd singular] field [accusative singular] | whole menu | 96 (164) | 1 | ok | Reader: points a little toward item 1. |
+| sr | `Додај поље` | Add [imperative] field | item 1 | 92 (178) | 1 | scope | All Cyrillic. Reader also flagged the row above, Nalepi iz privremene memorije, as Latin script, outside this card. |
+| bg | `Добави поле` | Add [imperative] field | item 1 | 102 (176) | 1 | scope | Reader: a date, the time, the cursor or the clipboard is not a поле to an ordinary user. |
+| ru | `Добавить поле` | Add [infinitive] field | item 1 | 119 (193) | 1 | scope | As bg. |
+| uk | `Додати поле` | Add [infinitive] field | item 1 | 102 (175) | 1 | scope | As bg. |
+| el | `Προσθήκη πεδίου` | Addition [verbal noun] of-field [genitive singular] | item 1 | 136 (173) | 1 | scope | The old label was a verbless noun phrase, the tip title's own words (Πεδία και ημερομηνίες), so the writer made it an action noun like the row above, Επικόλληση από πρόχειρο. |
+| ro | `Adaugă un câmp` | Add [imperative, 2nd person singular] a field | item 1 | 128 (197) | 1 | scope | Old label's words kept; reader finds the un slightly wordier than Adaugă câmp. |
+| hu | `Mező beszúrása` | Field insertion [verbal noun] | item 1 | 125 (218) | 1 | scope | Reader: outside Word habits, mező promises only item 1. |
+| tr | `Alan Ekle` | Field Add [imperative, 2sg] | whole menu | 69 (150) | 1 | ok | Title Case follows the old label and the row above (Panodan Yapıştır). |
+| he | `הוסף שדה` | add [imperative, masc. sg.] field | whole menu | 74 (141) | 1 | ok | Reader: cursor position fits the word least well. |
+| ar, ar-SA | `إدراج حقل` | inserting [verbal noun] (of) field [indefinite] | whole menu | 68 (120) | 1 | ok | Reader: cursor position is a stretch for حقل. |
+| fa | `افزودن فیلد` | adding [infinitive] -of field | whole menu | 77 (127) | 1 | ok | Reader: cursor position fits فیلد loosely. |
+| ur, ur-PK | `خانہ شامل کریں` | box/cell included do [polite imperative] | item 1 | 108 (158) | 1 | scope | Reader: خانہ is a concrete box, item 1's own noun. |
+| hi | `भरने के लिए रिक्त स्थान डालें` | filling for blank space put-in [polite imperative] | item 1 | 175 (150) | 2 | scope | Round 2 adds भरने के लिए (to fill), since round 1's bare रिक्त स्थान डालें read as inserting a space. Reader calls it long for a button; 175 pt fits. |
+| mr, mr-IN | `भरायची जागा घाला` | to-be-filled [gerundive, fem.] place put [imperative, polite pl.] | item 1 | 117 (196) | 1 | scope | Reader: it is item 1 word for word plus the verb. |
+| bn, bn-BD | `পূরণের জন্য শূন্যস্থান বসান` | filling-of for blank-space place [polite imperative, apni form] | item 1 | 176 (157) | 2 | scope | Round 2 adds পূরণের জন্য (for filling), as hi. Reader calls it long for a button. |
+| gu, gu-IN | `ભરવાની જગ્યા ઉમેરો` | to-fill [infinitive, genitive feminine] place add [imperative, polite/plural તમે form] | item 1 | 135 (195) | 1 | scope | Reader: it is item 1 word for word plus the verb. |
+| pa, pa-IN | `ਭਰਨ ਲਈ ਖਾਲੀ ਥਾਂ ਜੋੜੋ` | filling for empty place add [imperative, tusi form] | item 1 | 142 (142) | 2 | scope | Round 2 is item 1's full phrase plus the verb, since round 1's bare ਖਾਲੀ ਥਾਂ ਜੋੜੋ read as adding empty space. |
+| or, or-IN | `ପୂରଣ ପାଇଁ ଶୂନ୍ୟସ୍ଥାନ ଯୋଡ଼ନ୍ତୁ` | filling for blank-space add [polite imperative] | item 1 | 207 (197) | 2 | scope | Round 2 is item 1's full phrase plus the verb, as pa. Reader calls ପୂରଣ ପାଇଁ slightly clipped; it is item 1's existing wording. Widest label, 207 pt. |
+| ta, ta-IN | `புலத்தைச் சேர்` | field-[accusative] add [imperative, informal singular] | whole menu | 107 (213) | 1 | ok | Reader: புலம் is slightly formal. |
+| te, te-IN | `ఫీల్డ్ జోడించు` | field [English loanword] add [imperative, informal singular] | whole menu | 95 (165) | 1 | ok |  |
+| kn, kn-IN | `ಫೀಲ್ಡ್ ಸೇರಿಸಿ` | field [English loanword] add [imperative, polite/plural] | whole menu | 90 (206) | 1 | ok |  |
+| ml, ml-IN | `ഫീൽഡ് ചേർക്കുക` | field add[-uka form: the infinitive used as the polite command] | item 1 | 134 (237) | 1 | scope | Reader also noted the row above spells clipboard ക്ലിപ്ബോർഡ് and the menu ക്ലിപ്പ്ബോർഡ്, outside this card. |
+| th | `แทรกช่องกรอก` | insert slot/box fill-in[verb] | item 1 | 107 (166) | 1 | scope |  |
+| vi | `Chèn chỗ trống cần điền` | Insert[bare verb, command] place empty need fill-in | item 1 | 187 (209) | 3 | scope | Round 3: sentence case and item 1's full phrase. Round 1's Title Case (the old label's) read as an English habit; round 2's bare chỗ trống read as a gap. |
+| id | `Sisipkan Isian` | Insert[imperative, -kan] Fill-in[noun: isi 'fill' + -an, 'thing filled in'] | whole menu | 102 (204) | 1 | ok | Title Case follows the old label and the row above (Tempel dari Papan Klip). Reader: Isian shares its root with the heading's Terisi. |
+| ms | `Sisipkan Medan` | Insert[imperative, -kan] Field | item 1 | 120 (207) | 1 | scope | Reader calls Medan stiff; it is the app's word (item 1 Medan untuk Diisi). |
+| fil | `Magdagdag ng patlang` | To-add[actor-focus mag- infinitive, used as a command] [marker 'a'] blank/space | item 1 | 176 (237) | 3 | see note | UNSURE. Round 3 is the old label without o petsa. Round 3's reader: patlang alone can read as an empty space; round 1's reader wanted the row above's object focus (Idagdag ang patlang); round 2's reader found ang odd for a new blank. Item 1's full phrase, Magdagdag ng patlang na pupunan, would end the gap reading. |
+| sw | `Chomeka nafasi ya kujaza` | Insert[imperative] space/slot of to-fill[infinitive] | item 1 | 196 (198) | 3 | scope | Round 3. Round 1's Ongeza Nafasi ya Kujaza read as add space or make room, in English-style Title Case; round 2's verbless Nafasi za kujaza read as job vacancies. Chomeka is the usual Swahili word for insert; sentence case as the app's Ongeza kutoka Ubao wa Kunakili. Reader: ya kujaza mostly settles the space reading. |
+| ja | `入力項目を挿入` | input-item [object particle を] insert [verbal noun, used as a command] | item 1 | 110 (157) | 1 | scope | Reader: it repeats item 1 word for word. |
+| ko | `입력란 삽입` | input-field insertion [Sino-Korean verbal noun] | item 1 | 78 (112) | 1 | scope | Reader: 입력란 differs from item 1's 칸 (직접 입력하는 칸); the old label and the tip title say 입력란. |
+| zh-Hans | `插入填写项` | insert [verb] fill-in [verb] item [noun] | item 1 | 78 (126) | 1 | scope | Reader: it repeats item 1 exactly. |
+| zh-Hant | `插入填寫欄位` | insert [verb] fill-in [verb] field [noun] | item 1 | 94 (141) | 1 | scope | Reader: it repeats item 1 exactly. Reader also noted the row above says 剪貼板 where Taiwan's iOS says 剪貼簿, outside this card. |
+| it | `Inserisci campo` | Insert [imperative, 2nd sg] field [no article] | whole menu | 119 (119) | 1 | ok | Old label kept: it named no date. |
+| ca | `Insereix un camp` | Insert [imperative, 2nd sg] a field | whole menu | 129 (129) | 1 | ok | Old label kept, as it. |
+| es, es-ES | `Insertar campo` | Insert [infinitive] field [no article] | whole menu | 115 (115) | 1 | ok | Old label kept, as it. es-ES shares the line (its item 1 says rellenar) and was not read on its own. |
+| es-MX | `Insertar campo` | Insert [infinitive] field | item 1 | 115 (115) | 1 | scope | Old label kept. Reader: campo points to item 1, Campo para llenar. |
+| pt, pt-BR | `Inserir campo` | Insert [infinitive] field | item 1 | 104 (104) | 1 | scope | Old label kept. Reader: campo points to item 1. |
+| pt-PT | `Inserir campo` | Insert [infinitive] field | item 1 | 104 (104) | 1 | scope | Old label kept, as pt. |
+| fr, fr-FR | `Insérer un champ` | Insert [infinitive] a field | item 1 | 132 (226) | 1 | scope | Reader: un champ points to item 1, Champ à remplir. |
+| fr-CA | `Insérer un champ` | Insert [infinitive] a field | item 1 | 132 (226) | 1 | scope | As fr. |
