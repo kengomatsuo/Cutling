@@ -83,6 +83,8 @@ DIRECTORY_BADGES = [
     '<a href="https://lemonlaunch.dev/productivity/cutling" target="_blank" rel="noopener"><img src="https://lemonlaunch.dev/badge/lemonlaunch-badge-light.svg" alt="Featured on LemonLaunch" width="188" height="56" /></a>',
     '<a href="https://tool-list.dev/productivity/cutling" target="_blank" rel="noopener"><img src="https://tool-list.dev/badge/toolwall-badge-light.svg" alt="Featured on Tool List" width="188" height="56" /></a>',
 ]
+BADGE_STRIP = ('<div class="listed-on"><p class="listed-on-label">Listed on</p><div class="directory-badges">'
+               + "".join(DIRECTORY_BADGES) + "</div></div>")
 
 # The caps and features of the Cutling version live on the App Store: live.py, shared with ai_facts.py.
 
@@ -292,7 +294,7 @@ def generate_page(template_content, translation, en_translation, locale_code, is
     html = html.replace("{{LANGUAGE_PICKER}}", picker_html)
     html = html.replace("{{FILM}}", film_html(locale_code, translation, root))
     html = html.replace("</head>", f'    <script src="{root}/store-source.js" defer></script>\n</head>', 1)
-    html = html.replace("{{DIRECTORY_BADGES}}", lazy('<div class="directory-badges">' + "".join(DIRECTORY_BADGES) + "</div>"))
+    html = html.replace("{{DIRECTORY_BADGES}}", "")
 
     for key in en_translation:
         if key.startswith("_"):
@@ -876,8 +878,10 @@ def main():
             # first visitors get content. Their canonical points at /en-us/, and
             # lang-suggest.js offers the visitor's language instead of redirecting.
             if is_default and not specific_web_locales:
+                # Directory badges keep each free followed link; the directories check the homepage only.
+                root_template = page_template.replace("{{DIRECTORY_BADGES}}", BADGE_STRIP) if template_rel == "index.html" else page_template
                 root_html = generate_page(
-                    page_template, translation, en_translation, code, is_rtl,
+                    root_template, translation, en_translation, code, is_rtl,
                     compute_root(template_depth, True), compute_lang_prefix(template_depth),
                     build_language_picker(locales, available_codes, code,
                                           compute_root(template_depth, True), template_rel),
