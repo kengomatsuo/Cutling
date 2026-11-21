@@ -217,6 +217,8 @@ struct CutlingApp: App {
                     let willShowOnboarding: Bool = {
                         #if DEBUG
                         if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") { return false }
+                        // Direction B has no setup sheet: its card sits on the grid.
+                        if SetupMock.direction == .b { return false }
                         #endif
                         return !hasCompletedSetup
                     }()
@@ -315,10 +317,26 @@ struct CutlingApp: App {
                     syncTipSetupParameters()
                 }
                 .sheet(isPresented: $showOnboarding) {
+                    #if DEBUG
+                    switch SetupMock.direction {
+                    case .a: SetupFlowA()
+                    case .c: SetupFlowC()
+                    default: KeyboardSetupView()
+                    }
+                    #else
                     KeyboardSetupView()
+                    #endif
                 }
                 .sheet(isPresented: $showWhatsNew) {
+                    #if DEBUG
+                    if let kind = SetupMock.whatsNew {
+                        WhatsNewSheet(kind: kind)
+                    } else {
+                        WhatsNewView()
+                    }
+                    #else
                     WhatsNewView()
+                    #endif
                 }
                 #endif
                 .alert(
@@ -519,6 +537,10 @@ struct CutlingApp: App {
         #if DEBUG
         if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") {
             lastVersionOpened = currentAppVersion
+            return
+        }
+        if SetupMock.whatsNew != nil {
+            showWhatsNew = true
             return
         }
         #endif

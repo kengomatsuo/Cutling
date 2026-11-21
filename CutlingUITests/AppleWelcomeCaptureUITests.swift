@@ -17,28 +17,22 @@ import XCTest
 
 final class AppleWelcomeCaptureUITests: XCTestCase {
 
+    // Only apps the iOS 27.2 simulator has (simctl listapps, 2026-11-21); launching a missing one ends the test.
     private let apps: [(name: String, bundle: String)] = [
         ("photos", "com.apple.mobileslideshow"),
         ("reminders", "com.apple.reminders"),
         ("calendar", "com.apple.mobilecal"),
         ("maps", "com.apple.Maps"),
         ("passwords", "com.apple.Passwords"),
-        ("freeform", "com.apple.freeform"),
-        ("journal", "com.apple.journal"),
+        ("preview", "com.apple.Preview"),
         ("shortcuts", "com.apple.shortcuts"),
         ("news", "com.apple.news"),
         ("health", "com.apple.Health"),
+        ("fitness", "com.apple.Fitness"),
         ("wallet", "com.apple.Passbook"),
         ("files", "com.apple.DocumentsApp"),
-        ("preview", "com.apple.Preview"),
-        ("games", "com.apple.games"),
-        ("tips", "com.apple.tips"),
-        ("notes", "com.apple.mobilenotes"),
-        ("messages", "com.apple.MobileSMS"),
         ("contacts", "com.apple.MobileAddressBook"),
-        ("translate", "com.apple.Translate"),
-        ("weather", "com.apple.weather"),
-        ("clock", "com.apple.mobiletimer"),
+        ("messages", "com.apple.MobileSMS"),
         ("safari", "com.apple.mobilesafari"),
     ]
 

@@ -62,12 +62,14 @@ final class OnboardingCaptureUITests: XCTestCase {
         openSettings.tap()
         let settings = XCUIApplication(bundleIdentifier: "com.apple.Preferences")
         XCTAssertTrue(settings.wait(for: .runningForeground, timeout: 10))
-        sleep(2)
+        // Settings draws the app's page a few seconds after it comes forward.
+        let keyboardsRow = settings.cells.staticTexts["Keyboards"].firstMatch
+        let found = keyboardsRow.waitForExistence(timeout: 15)
+        sleep(1)
         shot("settings_app_page")
 
         // On the app's own Settings page: Keyboards, then the Cutling and Full Access switches.
-        let keyboardsRow = settings.cells.staticTexts["Keyboards"].firstMatch
-        if keyboardsRow.waitForExistence(timeout: 3) {
+        if found {
             keyboardsRow.tap()
             sleep(2)
             shot("settings_keyboards_page")
