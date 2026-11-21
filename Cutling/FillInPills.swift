@@ -161,9 +161,11 @@ enum FillInPills {
         #else
         let dark = NSApp?.effectiveAppearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
         #endif
-        let key = "\(token)|\(size)|\(dark)" as NSString
+        // A date or time reads as today's value, short enough for a one-line preview; a blank keeps its name.
+        let shown = previewValue(of: token) ?? title(of: token)
+        let key = "\(token)|\(shown)|\(size)|\(dark)" as NSString
         let image = inlineCache.object(forKey: key) ?? {
-            let made = Self.image(title(of: token), font: font).0
+            let made = Self.image(shown, font: font).0
             inlineCache.setObject(made, forKey: key)
             return made
         }()
@@ -172,6 +174,15 @@ enum FillInPills {
         #else
         return Text(Image(nsImage: image)).baselineOffset(font.descender - 1)
         #endif
+    }
+
+    /// Today's value of a date or time stamp, as the cutling would type it now; nil for anything else.
+    static func previewValue(of token: String) -> String? {
+        let body = token.dropFirst(2).dropLast().trimmingCharacters(in: .whitespaces).lowercased()
+        guard ["date", "time", "datetime", "day"].contains(where: { body == $0 || body.hasPrefix($0 + ":") || body.hasPrefix($0 + " ") }) else { return nil }
+        let context = Placeholders.Context(values: nil, now: Date(), locale: .autoupdatingCurrent, timeZone: .autoupdatingCurrent, clipboard: nil)
+        let value = Placeholders(token, marked: true).render(context).text
+        return value.isEmpty || value == token ? nil : value
     }
 
     /// Whether `text` holds a token not yet drawn as a pill (just inserted or pasted).

@@ -190,6 +190,8 @@ final class FillInUITests: XCTestCase {
             screenPoint(f.midX, f.midY, in: app).tap()
             sleep(2)
         }
+        sleep(2)
+        shot("keyboard_grid_previews")
         tap("Reply")
         tap("Next")
         tap("Insert")
