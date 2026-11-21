@@ -62,6 +62,7 @@ DIRECTORY_BADGES = [
     '<a href="https://alternativeto.net/software/cutling/about/?utm_source=badge&utm_medium=referral" target="_blank"><img src="https://alternativeto.net/static/badges/badge-compact-color.svg" alt="Cutling | AlternativeTo" width="173" height="56" style="width:173px;height:56px" /></a>',
     '<a href="https://indieappcatalog.com/app/5527"><img src="https://indieappcatalog.com/badge/listed-on-indie-app-catalog-black.svg" alt="Listed on Indie App Catalog" width="183" height="40"></a>',
     '<a href="https://twelve.tools" target="_blank"><img src="https://twelve.tools/badge1-light.svg" alt="Featured on Twelve Tools" width="148" height="40"></a>',
+    '<a href="https://hauntboard.com/products/cutling" target="_blank"><img src="https://hauntboard.com/badges/cutling.svg?style=found&theme=light" alt="Found on Hauntboard" width="245" height="54" /></a>',
 ]
 
 # The caps and features of the Cutling version live on the App Store: live.py, shared with ai_facts.py.
