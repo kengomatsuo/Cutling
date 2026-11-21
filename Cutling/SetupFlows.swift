@@ -86,6 +86,9 @@ struct FullAccessSheet: View {
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
+        // In the guide's own frame (the same bar and title place as its pages), as it opens
+        // from the Add the Keyboard page.
+        NavigationStack {
         AppleSheet(
             title: "About Full Access",
             subtitle: "Cutling types your text without it.",
@@ -97,8 +100,12 @@ struct FullAccessSheet: View {
                 AppleSheetRow(symbol: "exclamationmark.shield", title: "Apple's Warning",
                               detail: "iOS shows the same warning for every keyboard that asks, whatever it does."),
             ],
-            buttonTitle: "Done"
+            buttonTitle: "Done",
+            topPadding: setupPageTopPadding
         ) { dismiss() }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarVisibility(.visible, for: .navigationBar)
+        }
     }
 }
 
