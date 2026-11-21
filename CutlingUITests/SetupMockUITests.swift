@@ -31,9 +31,10 @@ class SetupMockTestCase: XCTestCase {
         }
     }
 
-    @MainActor func launch(_ direction: String) -> XCUIApplication {
+    @MainActor func launch(_ direction: String, dark: Bool = false) -> XCUIApplication {
         let app = XCUIApplication()
-        app.launchArguments += ["-ONBOARDING_MOCK", direction, "-hasSeenInteractiveTutorial", "YES"]
+        app.launchArguments += ["-ONBOARDING_MOCK", direction, "-hasSeenInteractiveTutorial", "YES",
+                                "-SNAPSHOT_DARK", dark ? "YES" : "NO"]
         app.launch()
         sleep(3)
         return app
@@ -89,12 +90,22 @@ class SetupMockTestCase: XCTestCase {
 }
 
 final class SetupMockAUITests: SetupMockTestCase {
-    @MainActor func testDirectionA() throws {
-        let app = launch("A")
+    @MainActor func testDirectionA() throws { try walkA(dark: false) }
+}
+
+final class SetupMockADarkUITests: SetupMockTestCase {
+    @MainActor func testDirectionADark() throws { try walkA(dark: true) }
+}
+
+extension SetupMockTestCase {
+    @MainActor func walkA(dark: Bool) throws {
+        let app = launch("A", dark: dark)
         shot("A_welcome")
         app.buttons["sheetPrimaryButton"].firstMatch.tap()
         sleep(2)
         shot("A_add_keyboard")
+        sleep(10)
+        shot("A_add_keyboard_video_later")
         let about = app.buttons["About Full Access"].firstMatch
         if about.waitForExistence(timeout: 3) {
             about.tap()
