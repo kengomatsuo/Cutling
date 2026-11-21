@@ -1,0 +1,23 @@
+// https://github.com/tangem/tangem-app-ios/blob/96e8aec2d0ba74287d64877e97f18f82c5f3f3af/Tangem/Common/Video/LoopingVideoBackgroundView.swift
+//
+//  LoopingVideoBackgroundView.swift
+//  TangemApp
+//
+//  Created by [REDACTED_AUTHOR]
+//  Copyright © 2026 Tangem AG. All rights reserved.
+//
+
+import SwiftUI
+import TangemUI
+
+struct LoopingVideoBackgroundView: View {
+    @ObservedObject var viewModel: LoopingVideoBackgroundViewModel
+    var fitsWithBlurredBackdropWhenWide = false
+
+    var body: some View {
+        VideoPlayerView(player: viewModel.player, fitsWithBlurredBackdropWhenWide: fitsWithBlurredBackdropWhenWide)
+            .background(Color.black)
+            .onAppear { viewModel.play() }
+            .onDisappear { viewModel.stop() }
+    }
+}

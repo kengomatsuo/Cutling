@@ -1,0 +1,15 @@
+// https://github.com/tangem/tangem-app-ios/blob/96e8aec2d0ba74287d64877e97f18f82c5f3f3af/Tangem/Common/Video/LoopingVideoBackgroundProvider.swift
+//
+//  LoopingVideoBackgroundProvider.swift
+//  TangemApp
+//
+//  Created by [REDACTED_AUTHOR]
+//  Copyright © 2026 Tangem AG. All rights reserved.
+//
+
+import Foundation
+
+protocol LoopingVideoBackgroundProvider {
+    func videoURL() -> URL?
+    func handleMissingAsset()
+}
