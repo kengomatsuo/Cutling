@@ -9,7 +9,7 @@ paths:
 
 # App code
 
-**Data model.** `Cutling` struct (`Cutling.swift`): id (UUID), name, value (text), icon (SF Symbol name), color, expiration, inputTypeTriggers, kind (.text | .image). `CutlingStore` (`CutlingStore.swift`): `@MainActor @Observable` class, single source of truth. Persists the lists as JSON files in the App Group container's `Lists/` (moved once out of `UserDefaults`, which iOS caps at about 4 MB) + image files. Enforces limits: 1,000 text, 50 image, 1,050 total, set under the keyboard's 77 MB memory limit (1,000 text and 50 photos peak at 69 MB in the simulator; 100 photos reach 95 MB); 1,000 char max per text cutling (`CutlingStore.maxTextLength`). Soft-delete: `DeletedCutling` with 30-day retention, recoverable from `RecentlyDeletedView`.
+**Data model.** `Cutling` struct (`Cutling.swift`): id (UUID), name, value (text), icon (SF Symbol name), color, expiration, inputTypeTriggers, kind (.text | .image). `CutlingStore` (`CutlingStore.swift`): `@MainActor @Observable` class, single source of truth. Persists the lists as JSON files in the App Group container's `Lists/` (moved once out of `UserDefaults`, which iOS caps at about 4 MB) + image files. Enforces limits: 5,000 text, 500 image, 5,500 total, set under the keyboard's 77 MB memory limit (measured peaks in `CutlingStore.swift`; the keyboard grid reuses cells and reads disk thumbnails, so photos cost almost nothing and text about 2.3 MB per 1,000); 1,000 char max per text cutling (`CutlingStore.maxTextLength`). Soft-delete: `DeletedCutling` with 30-day retention, recoverable from `RecentlyDeletedView`.
 
 **Patterns.**
 - SwiftUI + `@Observable` throughout the main app; the keyboard extension uses `UIHostingController` to embed SwiftUI.

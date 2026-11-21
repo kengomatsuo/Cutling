@@ -46,16 +46,18 @@ private enum StoredList: String {
 /// The caps keep the keyboard extension under the memory iOS gives keyboards: 77 MB of
 /// phys_footprint on every supported iPhone (com.apple.keyboard-service in the jetsam
 /// properties of iOS 18.0 and 27.2.1, docs/research/keyboard-memory-limits.md). The keyboard
-/// decodes every text cutling (up to about 4.3 KB of JSON each at full length). Measured in the
-/// iOS 27.2 simulator with every text at full length and 12 MP photos, scrolling the whole grid
-/// (scripts/keyboard-memory.sh): 1,000 text alone peaks at 53 MB, with 25 photos 66 MB, with 50
-/// photos 69 MB, and with 100 photos 95 MB, past the limit. Images stop at 50.
+/// holds every text cutling in memory, about 2.3 MB per 1,000 at full length; photos cost
+/// almost nothing, since its grid reuses cells and draws 300 px thumbnails kept on disk.
+/// Measured in the iOS 27.2 simulator with every text at full length and 12 MP photos,
+/// scrolling the whole grid and copying a photo (scripts/keyboard-memory.sh): 1,000 text with
+/// 500 photos peaks at 51 MB, 10,000 text at 65 MB, 10,000 text with 500 photos at 72 MB,
+/// too close to the limit. 5,000 text with 500 photos peaks at 59 MB.
 extension CutlingStore {
     /// Maximum number of image cutlings allowed
-    nonisolated static let maxImageCutlings = 50
+    nonisolated static let maxImageCutlings = 500
 
     /// Maximum number of text cutlings allowed
-    nonisolated static let maxTextCutlings = 1000
+    nonisolated static let maxTextCutlings = 5000
 
     /// Maximum character length for a single text cutling's value
     nonisolated static let maxTextLength = 1000
