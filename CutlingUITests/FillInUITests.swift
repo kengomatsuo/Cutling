@@ -134,8 +134,11 @@ final class FillInUITests: XCTestCase {
         app.launch()
         let card = app.descendants(matching: .any).matching(identifier: "cutlingCard").firstMatch
         XCTAssertTrue(card.waitForExistence(timeout: 30), "No cards")
-        // The card body: a plain tap() lands on the combined element's activation point, its ⋯ (Edit) button.
-        card.coordinate(withNormalizedOffset: CGVector(dx: 0.3, dy: 0.75)).tap()
+        // Copy from the card's menu: a tap's point on the combined card can land on its ⋯ Edit button.
+        card.press(forDuration: 1.2)
+        let copy = app.buttons["Copy"].firstMatch
+        XCTAssertTrue(copy.waitForExistence(timeout: 5), "No Copy in the card's menu")
+        copy.tap()
         let field = app.textFields["fillInField"].firstMatch
         XCTAssertTrue(field.waitForExistence(timeout: 10), "No fill-in sheet")
         field.tap()
@@ -211,6 +214,9 @@ final class FillInUITests: XCTestCase {
         // While writing, the same menu sits on the bar above the keyboard.
         let text = app.textViews.firstMatch
         if text.waitForExistence(timeout: 5) {
+            // The one-time tip may be up; its close button first, so the tap reaches the text.
+            let closeTip = app.buttons["Close"].firstMatch
+            if closeTip.waitForExistence(timeout: 2) { closeTip.tap(); sleep(1) }
             text.tap()
             sleep(2)
             shot("editor_keyboard_bar")
