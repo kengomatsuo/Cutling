@@ -172,14 +172,21 @@ struct SetupFlowA: View {
                 welcomeSeen = true
                 path.append(status.keyboardAdded ? .tryIt : .add)
             }
+            // One bar on every page, so every title starts at the same height.
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarVisibility(.visible, for: .navigationBar)
             .navigationDestination(for: Page.self) { page in
-                switch page {
-                case .add: addPage
-                case .tryIt: tryPage
-                case .whatYouCanDo: SetupWhatYouCanDoPage { path.append(.icloud) }
-                case .icloud: SetupICloudPage { path.append(.done) }
-                case .done: SetupDonePage { finish() }
+                Group {
+                    switch page {
+                    case .add: addPage
+                    case .tryIt: tryPage
+                    case .whatYouCanDo: SetupWhatYouCanDoPage { path.append(.icloud) }
+                    case .icloud: SetupICloudPage { path.append(.done) }
+                    case .done: SetupDonePage { finish() }
+                    }
                 }
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbarVisibility(.visible, for: .navigationBar)
             }
         }
         .interactiveDismissDisabled()
