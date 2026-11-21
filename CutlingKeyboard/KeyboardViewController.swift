@@ -830,6 +830,12 @@ struct KeyboardView: View {
     /// The fill-in design mock on show (FillInMocks.swift), only in -FILLIN_TEST runs.
     private var mockOn: Bool { FillInMock.isOn }
     @State private var mockStep: FillInMock.Step?
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
+    /// Moves the fill-in mock to a step (nil: back to the grid) with the grid keys' spring.
+    private func setMockStep(_ step: FillInMock.Step?) {
+        withAnimation(FillInMock.animation(reduceMotion: reduceMotion)) { mockStep = step }
+    }
     
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.verticalSizeClass) private var verticalSizeClass
@@ -858,9 +864,11 @@ struct KeyboardView: View {
         VStack(spacing: keySpacing) {
             Group {
                 if let step = mockStep {
-                    FillInMockBar(step: step, keyHeight: keyHeight, onCancel: { mockStep = nil })
+                    FillInMockBar(step: step, keyHeight: keyHeight, onCancel: { setMockStep(nil) })
+                        .transition(.opacity)
                 } else {
                     suggestionBar
+                        .transition(.opacity)
                 }
             }
                 .padding(.horizontal, KeyStyle.horizontalPadding)
@@ -869,9 +877,10 @@ struct KeyboardView: View {
 
             Group {
                 if let step = mockStep {
-                    FillInMockCards(step: step, store: store, keySpacing: keySpacing,
-                                    onYourKeyboard: onSwitchKeyboard,
-                                    onPick: { mockStep = step == .name ? .plan : nil })
+                    FillInMockKeys(step: step, keyHeight: keyHeight, keySpacing: keySpacing,
+                                   onYourKeyboard: onSwitchKeyboard,
+                                   onPick: { setMockStep(step == .name ? .plan : nil) })
+                        .transition(FillInMock.keyTransition(reduceMotion: reduceMotion))
                 } else if let session = state.fill, let field = session.field {
                     FillInPanel(
                         session: session,
@@ -1118,6 +1127,8 @@ struct KeyboardView: View {
             Image(systemName: info.icon)
                 .font(.system(size: 18, weight: info.isAction ? .semibold : .light))
                 .foregroundStyle(info.isAction ? .white : .primary)
+                // During a fill-in the arrow turns into the checkmark the way SF Symbols replace.
+                .contentTransition(mockStep != nil && !reduceMotion ? .symbolEffect(.replace) : .identity)
                 .frame(width: 92, height: keyHeight)
                 .background(
                     info.isAction
@@ -1126,7 +1137,7 @@ struct KeyboardView: View {
                     in: RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous)
                 )
                 .instantPress(sound: .modifier) {
-                    if let step = mockStep { mockStep = step == .name ? .plan : nil } else { onInsertText("\n") }
+                    if let step = mockStep { setMockStep(step == .name ? .plan : nil) } else { onInsertText("\n") }
                 }
                 .animation(.easeInOut(duration: 0.15), value: state.returnKeyType)
         }
@@ -1159,7 +1170,7 @@ struct KeyboardView: View {
     private func handleTap(_ cutling: Cutling, replacesWord: Bool = false) {
         guard !isBlockedByASCIIField(cutling) else { return }
         if mockOn, !cutling.fillInFields.isEmpty {
-            mockStep = .name
+            setMockStep(.name)
             return
         }
         switch cutling.kind {
