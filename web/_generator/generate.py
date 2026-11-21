@@ -89,6 +89,7 @@ DIRECTORY_BADGES = [
     '<a href="https://themicrosaasdir.com/product/cutling?ref=badge" rel="dofollow"><img src="https://themicrosaasdir.com/badge/cutling.svg" alt="Featured on TheMicroSaaSDir" width="160" height="44"></a>',
     '<a href="https://thesaasdir.com/product/cutling?ref=badge" rel="dofollow"><img src="https://thesaasdir.com/badge/cutling.svg" alt="Featured on TheSaaSDir" width="160" height="44"></a>',
     '<a href="https://letslaunch.today/product/cutling" target="_blank"><img src="https://letslaunch.today/badge/cutling.svg" alt="Cutling on LetsLaunch" width="250" height="54" /></a>',
+    '<a href="https://toolcurio.com" target="_blank" rel="dofollow"><img src="https://toolcurio.com/badge-light.png" alt="Featured on Toolcurio" width="200" height="54" /></a>',
 ]
 BADGE_STRIP = ('<div class="listed-on"><p class="listed-on-label">Listed on</p><div class="directory-badges">'
                + "".join(DIRECTORY_BADGES) + "</div></div>")
