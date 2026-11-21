@@ -2,10 +2,10 @@
 //  SetupMockUITests.swift
 //  CutlingUITests
 //
-//  Walks each onboarding direction (A, B, C in Cutling/SetupFlows.swift) and the new What's
-//  New and Welcome Back sheets from a fresh install, through Settings and the first insert,
-//  and saves a shot at every screen for the owner's pick. One class per direction, so each
-//  runs on a fresh install and keeps its own screen recording:
+//  Walks the setup guide (Cutling/SetupFlows.swift) in light and dark from a fresh install,
+//  through Settings and the first insert to the grid, and the What's New and Welcome Back
+//  sheets, saving a shot at every screen. One class per look, so each runs on a fresh install
+//  and keeps its own screen recording:
 //
 //    xcrun simctl uninstall $UDID com.matsuokengo.Cutling; scripts/ui-test.sh SetupMockAUITests
 //
@@ -33,8 +33,7 @@ class SetupMockTestCase: XCTestCase {
 
     @MainActor func launch(_ direction: String, dark: Bool = false) -> XCUIApplication {
         let app = XCUIApplication()
-        app.launchArguments += ["-ONBOARDING_MOCK", direction, "-hasSeenInteractiveTutorial", "YES",
-                                "-SNAPSHOT_DARK", dark ? "YES" : "NO"]
+        app.launchArguments += ["-hasSeenInteractiveTutorial", "YES", "-SNAPSHOT_DARK", dark ? "YES" : "NO"]
         app.launch()
         sleep(3)
         return app
@@ -135,58 +134,6 @@ extension SetupMockTestCase {
         app.buttons["continueButton"].firstMatch.tap()
         sleep(2)
         shot("A_grid")
-    }
-}
-
-final class SetupMockBUITests: SetupMockTestCase {
-    @MainActor func testDirectionB() throws {
-        let app = launch("B")
-        shot("B_grid_with_card")
-        let info = app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'Full Access'")).firstMatch
-        if info.waitForExistence(timeout: 3) {
-            info.tap()
-            sleep(2)
-            shot("B_about_full_access")
-            app.buttons["sheetPrimaryButton"].firstMatch.tap()
-            sleep(1)
-        }
-        app.buttons["Open"].firstMatch.tap()
-        walkSettings("B")
-        app.activate()
-        sleep(3)
-        shot("B_back_from_settings")
-        app.buttons["Try"].firstMatch.tap()
-        sleep(2)
-        typeStarterCutling(app, "B")
-        app.buttons["Done"].firstMatch.tap()
-        sleep(2)
-        shot("B_grid_done")
-    }
-}
-
-final class SetupMockCUITests: SetupMockTestCase {
-    @MainActor func testDirectionC() throws {
-        let app = launch("C")
-        shot("C_checklist")
-        let info = app.buttons["About Full Access"].firstMatch
-        if info.waitForExistence(timeout: 3) {
-            info.tap()
-            sleep(2)
-            shot("C_about_full_access")
-            app.buttons["sheetPrimaryButton"].firstMatch.tap()
-            sleep(1)
-        }
-        app.buttons["Open Settings"].firstMatch.tap()
-        walkSettings("C")
-        app.activate()
-        sleep(3)
-        shot("C_back_from_settings")
-        let field = app.textFields["keyboardTestField"].firstMatch
-        if field.waitForExistence(timeout: 5), !app.keyboards.firstMatch.exists { field.tap() }
-        typeStarterCutling(app, "C")
-        app.buttons["setupDone"].firstMatch.tap()
-        sleep(2)
-        shot("C_grid")
     }
 }
 

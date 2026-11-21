@@ -2,15 +2,11 @@
 //  SetupFlows.swift
 //  Cutling
 //
-//  Three ways to take a new buyer from first launch to typing with the Cutling keyboard,
-//  built for the owner to pick from (docs/research/onboarding/directions.md):
-//    A  three short pages: Welcome, Add the Keyboard, Try It (Grammarly's steps, Wispr's
-//       picture of Settings, Apple's welcome sheet)
-//    B  no wizard: a Finish Setting Up card on the grid (Apple Games' Home card,
-//       TypeWhisper's setup row, hex's "Finish setup")
-//    C  one sheet with three numbered steps that tick themselves (Dictus' checklist)
-//  All three keep Full Access optional, since a keyboard without it still reads the app's
-//  shared container and types text (App Review 4.4.1; apple/notes.md rows 3-4).
+//  The setup guide the owner picked (direction A of docs/research/onboarding/directions.md):
+//  Welcome, Add the Keyboard with the real Settings video, Try It on the real keyboard, then
+//  the guide's own What You Can Do, Sync Across Devices and You're All Set (SetupPages.swift).
+//  Full Access stays optional, since a keyboard without it still reads the app's shared
+//  container and types text (App Review 4.4.1; docs/research/onboarding/apple/notes.md rows 3-4).
 //
 //  Copyright (c) 2026 Kenneth Johannes Fang. All rights reserved.
 //
@@ -146,7 +142,7 @@ private func typedACutling(_ text: String, store: CutlingStore) -> Bool {
 
 // MARK: - A: three short pages
 
-struct SetupFlowA: View {
+struct SetupGuide: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.scenePhase) private var scenePhase
     @EnvironmentObject private var store: CutlingStore
@@ -255,211 +251,11 @@ struct SetupFlowA: View {
     }
 }
 
-// MARK: - B: setup on the grid
-
-/// Sits at the top of the grid until the keyboard is added and has typed once; never a
-/// sheet in the way of the app (Apple Games' welcome card, TypeWhisper's setup row).
-struct SetupCard: View {
-    @Environment(\.scenePhase) private var scenePhase
-    @EnvironmentObject private var store: CutlingStore
-    @State private var status = KeyboardStatus()
-    @State private var showFullAccess = false
-    @State private var showTry = false
-    @AppStorage("setupTried") private var tried = false
-    @AppStorage("hasCompletedSetup") private var hasCompletedSetup = false
-
-    var body: some View {
-        if !hasCompletedSetup {
-            VStack(alignment: .leading, spacing: 0) {
-                VStack(alignment: .leading, spacing: 2) {
-                    Text("Finish Setting Up Cutling").font(.headline)
-                    Text("Two steps, then Cutling types in any app.")
-                        .font(.subheadline).foregroundStyle(.secondary)
-                }
-                .padding(16)
-                Divider().padding(.leading, 56)
-                stepRow(number: 1, done: status.keyboardAdded, title: "Add the Keyboard",
-                        detail: "Settings › Apps › Cutling › Keyboards", action: SetupLinks.openSettings,
-                        actionTitle: "Open")
-                Divider().padding(.leading, 56)
-                stepRow(number: 2, done: tried, title: "Try It",
-                        detail: "Type with Cutling once", action: { showTry = true }, actionTitle: "Try")
-                Divider().padding(.leading, 56)
-                Button { showFullAccess = true } label: {
-                    HStack(spacing: 14) {
-                        Image(systemName: status.fullAccess ? "checkmark.circle.fill" : "photo.on.rectangle")
-                            .foregroundStyle(status.fullAccess ? Color.green : Color.secondary)
-                            .frame(width: 26)
-                        Text(status.fullAccess ? "Full Access is on" : "Images and clipboard need Full Access")
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                        Spacer()
-                        Image(systemName: "info.circle").foregroundStyle(.tint)
-                    }
-                    .padding(16)
-                }
-                .buttonStyle(.plain)
-            }
-            .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 22, style: .continuous))
-            .padding(.horizontal)
-            .padding(.bottom, 12)
-            .sheet(isPresented: $showFullAccess) { FullAccessSheet() }
-            .sheet(isPresented: $showTry) { TrySheet(tried: $tried) }
-            .onAppear { StarterCutling.addIfEmpty(to: store); status.startPolling() }
-            .onDisappear { status.stopPolling() }
-            .onChange(of: scenePhase) { _, phase in if phase == .active { status.refresh() } }
-            .onChange(of: tried) { _, done in if done && status.keyboardAdded { hasCompletedSetup = true } }
-            .accessibilityIdentifier("setupCard")
-        }
-    }
-
-    private func stepRow(number: Int, done: Bool, title: LocalizedStringKey, detail: LocalizedStringKey,
-                         action: @escaping () -> Void, actionTitle: LocalizedStringKey) -> some View {
-        HStack(spacing: 14) {
-            HStack(spacing: 14) {
-                StepBadge(number: number, done: done)
-                VStack(alignment: .leading, spacing: 1) {
-                    Text(title).font(.body.weight(.medium))
-                    Text(detail).font(.footnote).foregroundStyle(.secondary)
-                }
-            }
-            .accessibilityElement(children: .combine)
-            .accessibilityValue(done ? Text("Done") : Text("Not done"))
-            Spacer(minLength: 8)
-            if !done {
-                Button(actionTitle, action: action)
-                    .buttonStyle(.bordered)
-                    .buttonBorderShape(.capsule)
-                    .fontWeight(.semibold)
-            }
-        }
-        .padding(.horizontal, 16)
-        .padding(.vertical, 12)
-    }
-}
-
-/// B's try step as its own small sheet over the grid.
-private struct TrySheet: View {
-    @Binding var tried: Bool
-    @Environment(\.dismiss) private var dismiss
-    @EnvironmentObject private var store: CutlingStore
-    @State private var text = ""
-
-    var body: some View {
-        let worked = typedACutling(text, store: store)
-        NavigationStack {
-            VStack(alignment: .leading, spacing: 20) {
-                TryField(text: $text, worked: worked)
-                Spacer()
-            }
-            .padding(20)
-            .background(Color(.systemGroupedBackground))
-            .navigationTitle("Try It")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") { dismiss() }.fontWeight(.semibold)
-                }
-            }
-            .onChange(of: worked) { _, ok in if ok { tried = true } }
-        }
-        .presentationDetents([.medium, .large])
-    }
-}
-
-// MARK: - C: one live checklist
-
-struct SetupFlowC: View {
-    @Environment(\.dismiss) private var dismiss
-    @Environment(\.scenePhase) private var scenePhase
-    @EnvironmentObject private var store: CutlingStore
-    @State private var status = KeyboardStatus()
-    @State private var tryText = ""
-    @State private var showFullAccess = false
-
-    var body: some View {
-        let worked = typedACutling(tryText, store: store)
-        NavigationStack {
-            Form {
-                Section {
-                    AppleSheetHeader(title: "Set Up Cutling", subtitle: "Each step ticks itself when it's done.")
-                        .listRowBackground(Color.clear)
-                        .listRowInsets(EdgeInsets(top: 0, leading: 4, bottom: 8, trailing: 4))
-                }
-                Section {
-                    checkRow(number: 1, done: status.keyboardAdded, title: "Add the Cutling keyboard",
-                             detail: "Settings › Apps › Cutling › Keyboards") {
-                        if !status.keyboardAdded {
-                            Button("Open") { SetupLinks.openSettings() }
-                                .accessibilityLabel("Open Settings")
-                                .buttonStyle(.bordered).buttonBorderShape(.capsule).fontWeight(.semibold)
-                        }
-                    }
-                    checkRow(number: 2, done: status.fullAccess, title: "Allow Full Access",
-                             detail: "Optional, for images and clipboard") {
-                        Button { showFullAccess = true } label: { Image(systemName: "info.circle") }
-                            .buttonStyle(.borderless)
-                            .accessibilityLabel("About Full Access")
-                    }
-                    VStack(alignment: .leading, spacing: 12) {
-                        checkRow(number: 3, done: worked, title: "Try it", detail: nil) { EmptyView() }
-                        if status.keyboardAdded {
-                            TryField(text: $tryText, worked: worked)
-                        }
-                    }
-                }
-            }
-            // Done sits in the navigation bar, not over the keyboard: a bottom button rides up
-            // with the keyboard and covers the try field on short screens and in landscape.
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Done") {
-                        UserDefaults.standard.set(true, forKey: "hasCompletedSetup")
-                        dismiss()
-                    }
-                    .fontWeight(.semibold)
-                    .accessibilityIdentifier("setupDone")
-                }
-            }
-        }
-        .interactiveDismissDisabled()
-        .sheet(isPresented: $showFullAccess) { FullAccessSheet() }
-        .onAppear { StarterCutling.addIfEmpty(to: store); status.startPolling() }
-        .onDisappear { status.stopPolling() }
-        .onChange(of: scenePhase) { _, phase in if phase == .active { status.refresh() } }
-    }
-
-    private func checkRow<Trailing: View>(number: Int, done: Bool, title: LocalizedStringKey, detail: LocalizedStringKey?,
-                                          @ViewBuilder trailing: () -> Trailing) -> some View {
-        HStack(spacing: 14) {
-            HStack(spacing: 14) {
-                StepBadge(number: number, done: done)
-                VStack(alignment: .leading, spacing: 1) {
-                    Text(title).font(.body.weight(.medium))
-                    if let detail { Text(detail).font(.footnote).foregroundStyle(.secondary) }
-                }
-            }
-            .accessibilityElement(children: .combine)
-            .accessibilityValue(done ? Text("Done") : Text("Not done"))
-            Spacer(minLength: 8)
-            trailing()
-        }
-        .padding(.vertical, 4)
-    }
-}
-
 // MARK: - Mock switch (DEBUG)
 
 #if DEBUG
-/// `-ONBOARDING_MOCK A|B|C` runs that direction on launch; `-WHATSNEW_MOCK new|back` shows
-/// the What's New or Welcome Back sheet. For the owner's pick; nothing here ships.
+/// `-WHATSNEW_MOCK new|back` shows the What's New or Welcome Back sheet on launch, for shots.
 enum SetupMock {
-    enum Direction: String { case a = "A", b = "B", c = "C" }
-
-    static var direction: Direction? {
-        UserDefaults.standard.string(forKey: "ONBOARDING_MOCK").flatMap { Direction(rawValue: $0.uppercased()) }
-    }
-
     static var whatsNew: WhatsNewKind? {
         switch UserDefaults.standard.string(forKey: "WHATSNEW_MOCK") {
         case "new": return .update

@@ -182,13 +182,13 @@ struct CutlingApp: App {
                     #if DEBUG
                     if ProcessInfo.processInfo.arguments.contains("-MEMORY_TEST") {
                         store.seedForMemoryTest()
-                        UserDefaults.standard.removeObject(forKey: "keyboardSetupPage")
+                        UserDefaults.standard.removeObject(forKey: "setupWelcomeSeen")
                     } else if ProcessInfo.processInfo.arguments.contains("-FORMAT_TEST") {
                         store.seedForFormatTests()
-                        UserDefaults.standard.removeObject(forKey: "keyboardSetupPage")
+                        UserDefaults.standard.removeObject(forKey: "setupWelcomeSeen")
                     } else if ProcessInfo.processInfo.arguments.contains("-FILLIN_TEST") {
                         store.seedForFillInTests()
-                        UserDefaults.standard.removeObject(forKey: "keyboardSetupPage")
+                        UserDefaults.standard.removeObject(forKey: "setupWelcomeSeen")
                     } else if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") {
                         if ProcessInfo.processInfo.arguments.contains("-PROMO_MODE") {
                             store.seedForPromo()
@@ -197,7 +197,7 @@ struct CutlingApp: App {
                         }
                         // The UI test grants Full Access in Settings before launch
                         UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(true, forKey: "hasFullAccess")
-                        UserDefaults.standard.removeObject(forKey: "keyboardSetupPage")
+                        UserDefaults.standard.removeObject(forKey: "setupWelcomeSeen")
                         if let lang = Locale.preferredLanguages.first {
                             UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(lang, forKey: "snapshotLanguage")
                         }
@@ -220,8 +220,6 @@ struct CutlingApp: App {
                     let willShowOnboarding: Bool = {
                         #if DEBUG
                         if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") { return false }
-                        // Direction B has no setup sheet: its card sits on the grid.
-                        if SetupMock.direction == .b { return false }
                         #endif
                         return !hasCompletedSetup
                     }()
@@ -322,15 +320,7 @@ struct CutlingApp: App {
                     syncTipSetupParameters()
                 }
                 .sheet(isPresented: $showOnboarding) {
-                    #if DEBUG
-                    switch SetupMock.direction {
-                    case .a: SetupFlowA().environmentObject(store)
-                    case .c: SetupFlowC().environmentObject(store)
-                    default: KeyboardSetupView()
-                    }
-                    #else
-                    KeyboardSetupView()
-                    #endif
+                    KeyboardSetupView().environmentObject(store)
                 }
                 .sheet(isPresented: $showWhatsNew) {
                     WhatsNewSheet(kind: whatsNewKind)

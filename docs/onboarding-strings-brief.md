@@ -95,7 +95,7 @@ Apple's iOS 27 "What's New in Calendar" layout. Shown once after an update, or a
 
 ## How writers hand back
 
-One JSON file per language at `docs/onboarding-strings/<language>.json`:
+One JSON file per language at `docs/research/onboarding/strings/<language>.json`:
 `{"folders": ["de", "de-DE"], "strings": {"W1": "...", ...}, "back": {"W1": "literal back-translation", ...}, "notes": "register and grammar choices"}`.
 Keys are the IDs above (W1-W7, A1-A6, F2-F8, T1-T5, T7-T8, N1-N12, N14-N16). Keep `%@` where the table
 shows it (N6 one number; N7 two numbers, written `%1$@` and `%2$@` when the order changes; T4 the

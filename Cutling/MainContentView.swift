@@ -841,9 +841,6 @@ struct MainContentView: View {
         ScrollView {
             #if os(iOS)
             gridTipBanner
-            #if DEBUG
-            if SetupMock.direction == .b { SetupCard() }
-            #endif
             #endif
             if filtered.isEmpty {
                 Group {
