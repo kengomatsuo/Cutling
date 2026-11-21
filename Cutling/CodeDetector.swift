@@ -20,8 +20,22 @@ enum CodeDetector {
         var language: String?
     }
 
+    /// The text with Cutling's own fill-in and date braces read as words, so `{Name}` and `{date}` never make prose look like code.
+    static func withoutPlaceholders(_ text: String) -> String {
+        let template = Placeholders(text)
+        guard template.hasTokens else { return text }
+        return template.chunks(.now(values: nil, clipboard: "")).map { chunk -> String in
+            switch chunk {
+            case .text(let piece): return piece
+            case .field(let field): return field.label
+            case .cursor: return ""
+            }
+        }.joined()
+    }
+
     /// true or false when the rules are sure, nil when they aren't.
-    static func ruleVerdict(_ text: String) -> Bool? {
+    static func ruleVerdict(_ input: String) -> Bool? {
+        let text = withoutPlaceholders(input)
         let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard trimmed.count >= 3 else { return false }
         if TextFormat.looksLikeCode(text) || isJSON(trimmed) || isMarkup(trimmed) { return true }
@@ -45,8 +59,9 @@ enum CodeDetector {
         text.range(of: #"<([A-Za-z][A-Za-z0-9-]*)\b[^>]*>[\s\S]*</\1>"#, options: .regularExpression) != nil
     }
 
-    static func detect(_ text: String) async -> Verdict {
-        let rule = ruleVerdict(text)
+    static func detect(_ input: String) async -> Verdict {
+        let rule = ruleVerdict(input)
+        let text = withoutPlaceholders(input)
         if rule == false { return Verdict(isCode: false) }
         #if canImport(FoundationModels)
         if #available(iOS 26.0, macOS 26.0, *), SystemLanguageModel.default.isAvailable,

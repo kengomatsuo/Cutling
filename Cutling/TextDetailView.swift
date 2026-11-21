@@ -380,6 +380,16 @@ struct TextDetailView: View {
                 textEditor
                     .frame(minHeight: 120, maxHeight: 450)
                     #if os(iOS)
+                    // While writing, Add Fill-in or Date sits on the bar above the keyboard, as Shortcuts'
+                    // variables and Snippety's placeholder button do (docs/research/fill-ins-editor/README.md).
+                    .toolbar {
+                        if format != .code, FillIns.isOn {
+                            ToolbarItemGroup(placement: .keyboard) {
+                                placeholderMenu
+                                Spacer()
+                            }
+                        }
+                    }
                     .id("tutorialTextSection")
                     .popoverTip(editorTextTip, arrowEdge: .top)
                     #endif
@@ -410,17 +420,27 @@ struct TextDetailView: View {
                         }
                     }
 
-                Button {
-                    pasteFromClipboard()
-                } label: {
-                    Label("Paste from Clipboard", systemImage: "doc.on.clipboard")
+                #if os(macOS)
+                // On the Mac both sit in one row right under the text, where every Mac snippet editor keeps its insert control.
+                HStack {
+                    pasteButton
+                    if format != .code, FillIns.isOn {
+                        placeholderMenu
+                            .menuStyle(.button)
+                            .buttonStyle(.bordered)
+                            .menuIndicator(.visible)
+                            .tint(.primary)
+                            .fixedSize()
+                    }
+                    Spacer()
                 }
-                .foregroundStyle(.primary)
-                .disabled(!canPaste)
+                #else
+                pasteButton
 
                 if format != .code, FillIns.isOn {
                     placeholderMenu
                 }
+                #endif
             } header: {
                 Text("Text")
             } footer: {
@@ -815,6 +835,16 @@ struct TextDetailView: View {
                 .focused($focusedField, equals: .value)
                 .scrollContentBackground(.hidden)
         }
+    }
+
+    private var pasteButton: some View {
+        Button {
+            pasteFromClipboard()
+        } label: {
+            Label("Paste from Clipboard", systemImage: "doc.on.clipboard")
+        }
+        .foregroundStyle(.primary)
+        .disabled(!canPaste)
     }
 
     /// Fill-ins, date stamps, the cursor spot and the clipboard, typed at the cursor.

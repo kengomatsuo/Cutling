@@ -163,6 +163,14 @@ final class FillInUITests: XCTestCase {
         let menu = app.descendants(matching: .any)["addPlaceholderMenu"].firstMatch
         XCTAssertTrue(menu.waitForExistence(timeout: 10), "No Add Fill-in or Date menu in the editor")
         shot("editor_text_section")
+        // While writing, the same menu sits on the bar above the keyboard.
+        let text = app.textViews.firstMatch
+        if text.waitForExistence(timeout: 5) {
+            text.tap()
+            sleep(2)
+            shot("editor_keyboard_bar")
+            XCTAssertGreaterThan(app.descendants(matching: .any).matching(identifier: "addPlaceholderMenu").count, 1, "No Add Fill-in or Date on the keyboard bar")
+        }
         menu.tap()
         sleep(1)
         shot("editor_menu_open")
