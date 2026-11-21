@@ -65,10 +65,22 @@ final class FillInUITests: XCTestCase {
             }
             XCTAssertNotNil(frame, "No \(name) button on the Cutling keyboard (buttons: \(cutlingKeys(in: app)?.map(\.label) ?? []))")
             let f = frame ?? .zero
+            // Reading the screen stalls the keyboard for a moment; a pause keeps the filmed press clean.
+            sleep(1)
             return screenPoint(f.midX, f.midY, in: app)
         }
 
+        // The first time Cutling's keyboard reports Full Access, the setup guide closes the keyboard
+        // (KeyboardSetupView.refreshStatus); open the test field once more.
+        continueAfterFailure = true
         switchToCutlingKeyboard(in: app, showing: "Reply")
+        continueAfterFailure = false
+        if !cutlingKeyboardIsUp(in: app, showing: "Reply") {
+            app.terminate()
+            app.launch()
+            _ = openKeyboardTestField(in: app)
+            switchToCutlingKeyboard(in: app, showing: "Reply")
+        }
         XCTAssertTrue(cutlingKeyboardIsUp(in: app, showing: "Reply"), "Cutling keyboard did not come up")
         shot("01_keyboard")
 
