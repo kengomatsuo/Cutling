@@ -42,6 +42,9 @@ launch to the grid, before the tutorial. Defects seen in the shots:
 - What's New in Calendar (`apple_calendar.png`): large bold title left-aligned, a grey one-line subtitle,
   one row (app-coloured symbol, bold title, grey line), one full-width capsule Continue in the app's tint.
   Apple ships a What's New sheet with a single row when that is all that changed.
+- What's New in Shortcuts (`apple_shortcuts.png`): the same layout with three rows (blue symbols, bold title, two-line grey detail) and one blue Continue, Apple's second post-update sheet on the iOS 27 simulator.
+- Welcome to Apple News (`apple_news.png`) and Welcome to Health (`apple_health.png`): "Welcome to" in the app's tint over the name, or an illustration above a title, rows or a paragraph, one Continue.
+- On a fresh install the iOS 27.2 simulator opened Settings at its root, not at Cutling's page, when the guide called `openSettingsURLString` (`cutling-today/run2/03_settings_app_page.png`); a device may differ (UNSURE), so the Settings path is written out on every setup screen.
 - Welcome to Reminders (`apple_reminders.png`): the same layout with four rows and multicolour symbols.
 - Passwords (`apple_passwords_2.png`): a one-screen explanation before a system ask, one Continue.
 - Reminders' own route to Settings (`apple_reminders_2.png`): an alert "Enable iCloud Syncing?" with Not Now and Go to Settings.
