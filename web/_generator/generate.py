@@ -81,6 +81,7 @@ DIRECTORY_BADGES = [
     '<a href="https://skylaun.ch/productivity/cutling" target="_blank" rel="noopener"><img src="https://skylaun.ch/badge/skylaunch-badge-light.svg" alt="Featured on Sky Launch" width="188" height="56" /></a>',
     '<a href="https://fastlaunch.dev/productivity/cutling" target="_blank" rel="noopener"><img src="https://fastlaunch.dev/badge/fastlaunch-badge-light.svg" alt="Featured on Fast Launch" width="188" height="56" /></a>',
     '<a href="https://lemonlaunch.dev/productivity/cutling" target="_blank" rel="noopener"><img src="https://lemonlaunch.dev/badge/lemonlaunch-badge-light.svg" alt="Featured on LemonLaunch" width="188" height="56" /></a>',
+    '<a href="https://tool-list.dev/productivity/cutling" target="_blank" rel="noopener"><img src="https://tool-list.dev/badge/toolwall-badge-light.svg" alt="Featured on Tool List" width="188" height="56" /></a>',
 ]
 
 # The caps and features of the Cutling version live on the App Store: live.py, shared with ai_facts.py.
