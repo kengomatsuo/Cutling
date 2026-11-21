@@ -328,11 +328,15 @@ struct SetupCard: View {
     private func stepRow(number: Int, done: Bool, title: LocalizedStringKey, detail: LocalizedStringKey,
                          action: @escaping () -> Void, actionTitle: LocalizedStringKey) -> some View {
         HStack(spacing: 14) {
-            StepBadge(number: number, done: done)
-            VStack(alignment: .leading, spacing: 1) {
-                Text(title).font(.body.weight(.medium))
-                Text(detail).font(.footnote).foregroundStyle(.secondary)
+            HStack(spacing: 14) {
+                StepBadge(number: number, done: done)
+                VStack(alignment: .leading, spacing: 1) {
+                    Text(title).font(.body.weight(.medium))
+                    Text(detail).font(.footnote).foregroundStyle(.secondary)
+                }
             }
+            .accessibilityElement(children: .combine)
+            .accessibilityValue(done ? Text("Done") : Text("Not done"))
             Spacer(minLength: 8)
             if !done {
                 Button(actionTitle, action: action)
@@ -343,7 +347,6 @@ struct SetupCard: View {
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 12)
-        .accessibilityElement(children: .combine)
     }
 }
 
@@ -440,17 +443,19 @@ struct SetupFlowC: View {
     private func checkRow<Trailing: View>(number: Int, done: Bool, title: LocalizedStringKey, detail: LocalizedStringKey?,
                                           @ViewBuilder trailing: () -> Trailing) -> some View {
         HStack(spacing: 14) {
-            StepBadge(number: number, done: done)
-            VStack(alignment: .leading, spacing: 1) {
-                Text(title).font(.body.weight(.medium))
-                if let detail { Text(detail).font(.footnote).foregroundStyle(.secondary) }
+            HStack(spacing: 14) {
+                StepBadge(number: number, done: done)
+                VStack(alignment: .leading, spacing: 1) {
+                    Text(title).font(.body.weight(.medium))
+                    if let detail { Text(detail).font(.footnote).foregroundStyle(.secondary) }
+                }
             }
+            .accessibilityElement(children: .combine)
+            .accessibilityValue(done ? Text("Done") : Text("Not done"))
             Spacer(minLength: 8)
             trailing()
         }
         .padding(.vertical, 4)
-        .accessibilityElement(children: .combine)
-        .accessibilityValue(done ? Text("Done") : Text("Not done"))
     }
 }
 

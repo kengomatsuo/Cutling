@@ -72,8 +72,10 @@ struct AppleSheetHeader: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
+            // Apple's iOS 27 sheets set the title near .title, not .largeTitle: "What's New in
+            // Calendar" fits one line (apple/shots/sim/apple_calendar.png).
             Text(title)
-                .font(.largeTitle.bold())
+                .font(.title.bold())
                 .accessibilityAddTraits(.isHeader)
             if let subtitle {
                 Text(subtitle)
@@ -170,8 +172,9 @@ struct WhatsNewSheet: View {
             AppleSheet(title: "What's New in Cutling", subtitle: "More room, and every key types.",
                        rows: WhatsNewKind.newRows) { dismiss() }
         case .welcomeBack:
+            // At most four rows, as Apple's sheets keep them (Reminders has four).
             AppleSheet(title: "Welcome Back to Cutling",
-                       rows: WhatsNewKind.basicsRows + WhatsNewKind.newRows) { dismiss() }
+                       rows: WhatsNewKind.basicsRows + WhatsNewKind.newRows.prefix(1)) { dismiss() }
         }
     }
 }

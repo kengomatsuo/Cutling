@@ -319,8 +319,8 @@ struct CutlingApp: App {
                 .sheet(isPresented: $showOnboarding) {
                     #if DEBUG
                     switch SetupMock.direction {
-                    case .a: SetupFlowA()
-                    case .c: SetupFlowC()
+                    case .a: SetupFlowA().environmentObject(store)
+                    case .c: SetupFlowC().environmentObject(store)
                     default: KeyboardSetupView()
                     }
                     #else
