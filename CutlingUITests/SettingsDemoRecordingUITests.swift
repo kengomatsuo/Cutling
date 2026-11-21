@@ -47,6 +47,11 @@ final class SettingsDemoRecordingUITests: XCTestCase {
         settings.launch()
         XCTAssertTrue(settings.wait(for: .runningForeground, timeout: 10))
         let apps = settings.cells.staticTexts["Apps"].firstMatch
+        // Settings reopens on the page it was last left on; step back to its first page.
+        for _ in 0..<6 where !apps.waitForExistence(timeout: 2) {
+            let back = settings.navigationBars.buttons.firstMatch
+            if back.exists { back.tap(); sleep(1) } else { settings.swipeDown(); break }
+        }
         if !apps.waitForExistence(timeout: 5) { settings.swipeUp() }
         apps.tap()
         sleep(2)

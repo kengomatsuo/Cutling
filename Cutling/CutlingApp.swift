@@ -542,6 +542,12 @@ struct CutlingApp: App {
             showWhatsNew = true
             return
         }
+        // UI test seeds start on the grid with no sheet over it, whatever the release ID.
+        let testSeeds: Set<String> = ["-FILLIN_TEST", "-FILLIN_MOCK", "-FORMAT_TEST", "-MEMORY_TEST", "-PROMO_MODE", "-UITEST"]
+        if ProcessInfo.processInfo.arguments.contains(where: testSeeds.contains) {
+            lastWhatsNewSeen = WhatsNewKind.releaseID
+            return
+        }
         #endif
         let isNewInstall = previousVersion.isEmpty && lastWhatsNewSeen.isEmpty
         if isNewInstall {

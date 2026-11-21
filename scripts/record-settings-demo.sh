@@ -15,7 +15,7 @@ build="${UI_TEST_BUILD:-$("$repo/build-dir.sh")/keyboard-memory}"
 xctestrun="$(ls -t "$build"/DerivedData/Build/Products/*.xctestrun | head -1)"
 out="${DEVICE_QUEUE_OUT:?}/settings-demo"
 look_before="$(xcrun simctl ui "$udid" appearance 2>/dev/null || echo light)"
-for look in light dark; do
+for look in ${LOOKS:-light dark}; do
   dir="$out/$look"; mkdir -p "$dir"
   # A buyer meets the switches off: no Cutling install and no keyboard entry left behind.
   xcrun simctl uninstall "$udid" com.matsuokengo.Cutling
@@ -23,7 +23,9 @@ for look in light dark; do
   # A device with two screens (iPhone Duo) refuses without --display and lists them; take the
   # one named "(primary)", the screen XCUIScreen.main shoots and the marks are measured on.
   record() { xcrun simctl io "$udid" recordVideo $display --codec h264 --force "$dir/raw.mp4" >"$dir/record.log" 2>&1 & rec=$!; }
-  display=""; record; sleep 2
+  # Wait for either answer: recording, or the two-screen refusal (slower while the look changes).
+  display=""; record
+  for _ in $(seq 100); do grep -q "Recording started" "$dir/record.log" && break; kill -0 $rec 2>/dev/null || break; sleep 0.1; done
   if ! kill -0 $rec 2>/dev/null; then
     display="$(grep -E -- '--display=[0-9]+ +[A-Za-z]+ \(primary\)' "$dir/record.log" | grep -oE -- '--display=[0-9]+' | head -1)"
     [ -n "$display" ] && record
