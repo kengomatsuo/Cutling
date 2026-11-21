@@ -75,8 +75,8 @@ enum FillInPills {
         #endif
         let attributes: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: ink(dark: dark)]
         let textSize = (title as NSString).size(withAttributes: attributes)
-        // A 2 pt margin each side keeps a pill off the comma or word beside it, as Shortcuts spaces its variables.
-        let margin: CGFloat = 2
+        // No margin: a pill sits right against the words beside it; line spacing keeps wrapped lines apart.
+        let margin: CGFloat = 0
         // Full line height; the editor's line spacing keeps pills on wrapped lines apart.
         let lineHeight = font.ascender - font.descender
         let size = CGSize(width: ceil(textSize.width) + 12 + 2 * margin, height: ceil(lineHeight) + 2)
