@@ -34,7 +34,8 @@ final class FillInAttachment: NSTextAttachment {
         let title = FillInPills.title(of: token)
         let (image, size) = FillInPills.image(title, font: font)
         self.image = image
-        bounds = CGRect(x: 0, y: font.descender - 1, width: size.width, height: size.height)
+        // Centred on the text: the pill's middle sits at the middle of the letters.
+        bounds = CGRect(x: 0, y: font.descender + 2, width: size.width, height: size.height)
         #if os(iOS)
         accessibilityLabel = title
         #endif
@@ -77,7 +78,9 @@ enum FillInPills {
         let textSize = (title as NSString).size(withAttributes: attributes)
         // A 2 pt margin each side keeps a pill off the comma or word beside it, as Shortcuts spaces its variables.
         let margin: CGFloat = 2
-        let size = CGSize(width: ceil(textSize.width) + 12 + 2 * margin, height: ceil(font.ascender - font.descender) + 2)
+        // Shorter than the line, so pills on two wrapped lines keep a gap between them.
+        let lineHeight = font.ascender - font.descender
+        let size = CGSize(width: ceil(textSize.width) + 12 + 2 * margin, height: ceil(lineHeight) - 4)
         let rect = CGRect(x: margin, y: 0, width: size.width - 2 * margin, height: size.height)
         let textOrigin = CGPoint(x: margin + 6, y: (size.height - textSize.height) / 2)
         #if os(iOS)

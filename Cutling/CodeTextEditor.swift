@@ -27,6 +27,20 @@ struct FormattedTextEditor {
     }
 
     fileprivate static let codeFontSizeDelta: CGFloat = -2
+
+    /// Room between lines, so pills on wrapped lines never meet (FillInPills.swift).
+    fileprivate static let lines: NSParagraphStyle = {
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 4
+        return style
+    }()
+
+    /// What the view shows: the rendered text with its pills and line spacing.
+    fileprivate static func display(_ rendered: NSAttributedString, font: PillFont) -> NSAttributedString {
+        let out = NSMutableAttributedString(attributedString: FillInPills.pilled(rendered, font: font))
+        out.addAttribute(.paragraphStyle, value: lines, range: NSRange(location: 0, length: out.length))
+        return out
+    }
 }
 
 /// One button on the editor's keyboard bar.
@@ -37,45 +51,6 @@ struct EditorBarItem {
 }
 
 #if os(iOS)
-/// The fill-in buttons above the keyboard, laid out like Notes' bar: icons spread across, each named for VoiceOver.
-struct EditorKeyboardBar: View {
-    let items: [EditorBarItem]
-
-    var body: some View {
-        HStack(spacing: 0) {
-            ForEach(items, id: \.title) { item in
-                Button(action: item.action) {
-                    Label(item.title, systemImage: item.icon)
-                        .labelStyle(.iconOnly)
-                        .font(.system(size: 20))
-                        .frame(maxWidth: .infinity, minHeight: 44)
-                        .contentShape(Rectangle())
-                }
-                .buttonStyle(.borderless)
-                .tint(.primary)
-            }
-        }
-        .padding(.horizontal, 8)
-        .frame(height: 44)
-        .modifier(KeyboardBarBackground())
-        .padding(.horizontal, 12)
-        .padding(.vertical, 4)
-        .accessibilityIdentifier("fillInKeyboardBar")
-    }
-}
-
-/// iOS 26 floats the keyboard and leaves the space above it see-through, so the bar carries its own
-/// glass capsule, as Notes' bar does; earlier systems get the bar material.
-private struct KeyboardBarBackground: ViewModifier {
-    func body(content: Content) -> some View {
-        if #available(iOS 26, *) {
-            content.glassEffect(.regular.interactive(), in: Capsule())
-        } else {
-            content.background(.bar, in: Capsule())
-        }
-    }
-}
-
 extension FormattedTextEditor: UIViewRepresentable {
     func makeUIView(context: Context) -> UITextView {
         let view = UITextView()
@@ -119,36 +94,29 @@ extension FormattedTextEditor: UIViewRepresentable {
 
         private var bodySize: CGFloat { UIFont.preferredFont(forTextStyle: .body).pointSize }
         private var barItems: [EditorBarItem] = []
-        private var barHost: UIHostingController<EditorKeyboardBar>?
 
-        /// The bar above the keyboard, as SwiftUI's keyboard toolbar never reaches a UIKit text view.
+        /// The bar above the keyboard: a system UIToolbar as the text view's input accessory, as Notes has,
+        /// which iOS draws itself (glass on iOS 26). SwiftUI's keyboard toolbar never reaches a UIKit text view.
         func setBar(_ items: [EditorBarItem], on view: UITextView) {
             guard items.map(\.title) != barItems.map(\.title) else { return }
             barItems = items
             guard !items.isEmpty else {
                 view.inputAccessoryView = nil
-                barHost = nil
                 view.reloadInputViews()
                 return
             }
-            let bar = EditorKeyboardBar(items: items)
-            let host = UIHostingController(rootView: bar)
-            host.view.backgroundColor = .clear
-            host.sizingOptions = .intrinsicContentSize
-            let container = UIInputView(frame: CGRect(x: 0, y: 0, width: 0, height: 52), inputViewStyle: .default)
-            container.allowsSelfSizing = true
-            container.backgroundColor = .clear
-            host.view.translatesAutoresizingMaskIntoConstraints = false
-            container.addSubview(host.view)
-            NSLayoutConstraint.activate([
-                host.view.leadingAnchor.constraint(equalTo: container.leadingAnchor),
-                host.view.trailingAnchor.constraint(equalTo: container.trailingAnchor),
-                host.view.topAnchor.constraint(equalTo: container.topAnchor),
-                host.view.bottomAnchor.constraint(equalTo: container.bottomAnchor),
-                host.view.heightAnchor.constraint(equalToConstant: 52),
-            ])
-            barHost = host
-            view.inputAccessoryView = container
+            let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 0, height: 44))
+            var buttons: [UIBarButtonItem] = []
+            for item in items {
+                if !buttons.isEmpty { buttons.append(.flexibleSpace()) }
+                let button = UIBarButtonItem(image: UIImage(systemName: item.icon), primaryAction: UIAction(title: item.title) { _ in item.action() })
+                button.accessibilityLabel = item.title
+                buttons.append(button)
+            }
+            toolbar.items = buttons
+            toolbar.sizeToFit()
+            toolbar.accessibilityIdentifier = "fillInKeyboardBar"
+            view.inputAccessoryView = toolbar
             view.reloadInputViews()
         }
 
@@ -175,8 +143,8 @@ extension FormattedTextEditor: UIViewRepresentable {
                 view.textColor = .label
                 view.text = text
             } else {
-                view.attributedText = FillInPills.pilled(FormattedTextEditor.rendered(text, format: format, size: bodySize), font: .systemFont(ofSize: bodySize))
-                view.typingAttributes = [.font: UIFont.systemFont(ofSize: bodySize), .foregroundColor: UIColor.label]
+                view.attributedText = FormattedTextEditor.display(FormattedTextEditor.rendered(text, format: format, size: bodySize), font: .systemFont(ofSize: bodySize))
+                view.typingAttributes = [.font: UIFont.systemFont(ofSize: bodySize), .foregroundColor: UIColor.label, .paragraphStyle: FormattedTextEditor.lines]
             }
         }
 
@@ -195,14 +163,15 @@ extension FormattedTextEditor: UIViewRepresentable {
             let font = UIFont.systemFont(ofSize: bodySize)
             // Pasted fonts and colours are dropped by drawing the kept styles again.
             let normal = FormattedTextEditor.rendered(text, format: format, size: bodySize)
+            let shown = FormattedTextEditor.display(normal, font: font)
             if FillInPills.hasRawToken(view.attributedText.string) {
                 // A fill-in just inserted or pasted becomes a pill, the cursor kept after it.
                 let location = FillInPills.location(afterPilling: view.attributedText.string, at: view.selectedRange.location)
-                view.attributedText = FillInPills.pilled(normal, font: font)
+                view.attributedText = shown
                 view.selectedRange = NSRange(location: location, length: 0)
-            } else if normal.string == source.string, !normal.isEqual(to: source) {
+            } else if normal.string == source.string, !FillInPills.expanded(shown).isEqual(to: source) {
                 let selection = view.selectedRange
-                view.attributedText = FillInPills.pilled(normal, font: font)
+                view.attributedText = shown
                 view.selectedRange = selection
             }
             report(text, format: format)
@@ -276,8 +245,8 @@ extension FormattedTextEditor: NSViewRepresentable {
                 view.font = .monospacedSystemFont(ofSize: bodySize, weight: .regular)
                 view.textColor = .textColor
             } else {
-                view.textStorage?.setAttributedString(FillInPills.pilled(FormattedTextEditor.rendered(text, format: format, size: bodySize), font: .systemFont(ofSize: bodySize)))
-                view.typingAttributes = [.font: NSFont.systemFont(ofSize: bodySize), .foregroundColor: NSColor.textColor]
+                view.textStorage?.setAttributedString(FormattedTextEditor.display(FormattedTextEditor.rendered(text, format: format, size: bodySize), font: .systemFont(ofSize: bodySize)))
+                view.typingAttributes = [.font: NSFont.systemFont(ofSize: bodySize), .foregroundColor: NSColor.textColor, .paragraphStyle: FormattedTextEditor.lines]
             }
         }
 
@@ -295,14 +264,15 @@ extension FormattedTextEditor: NSViewRepresentable {
             let text = markdown ?? source.string
             let font = NSFont.systemFont(ofSize: bodySize)
             let normal = FormattedTextEditor.rendered(text, format: format, size: bodySize)
+            let shown = FormattedTextEditor.display(normal, font: font)
             if FillInPills.hasRawToken(storage.string) {
                 // A fill-in just inserted or pasted becomes a pill, the cursor kept after it.
                 let location = FillInPills.location(afterPilling: storage.string, at: view.selectedRange().location)
-                storage.setAttributedString(FillInPills.pilled(normal, font: font))
+                storage.setAttributedString(shown)
                 view.setSelectedRange(NSRange(location: location, length: 0))
-            } else if normal.string == source.string, !normal.isEqual(to: source) {
+            } else if normal.string == source.string, !FillInPills.expanded(shown).isEqual(to: source) {
                 let selection = view.selectedRanges
-                storage.setAttributedString(FillInPills.pilled(normal, font: font))
+                storage.setAttributedString(shown)
                 view.selectedRanges = selection
             }
             report(text, format: format)
