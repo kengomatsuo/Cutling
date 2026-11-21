@@ -29,7 +29,7 @@ struct Placeholders: Sendable {
     struct Stamp: Equatable, Sendable {
         enum Kind: String, Sendable { case date, time, datetime, day }
         enum Style: Equatable, Sendable { case standard, short, medium, long, full, pattern(String) }
-        let kind: Kind
+        var kind: Kind
         var offset: [Offset] = []
         var style: Style = .standard
         /// A BCP 47 tag from Raycast's `locale=`; nil follows the user's.

@@ -3,5 +3,5 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 out=$(mktemp -d)
-swiftc -o "$out/placeholder-tests" ../../Cutling/Placeholders.swift main.swift
+swiftc -o "$out/placeholder-tests" ../../Cutling/Placeholders.swift ../../Cutling/FillInEdit.swift main.swift
 "$out/placeholder-tests"

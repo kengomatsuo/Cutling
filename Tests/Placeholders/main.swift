@@ -102,4 +102,31 @@ check("marked: inserted fill-in", markedReply.render(markedValues).text, "Hi Sar
 check("marked: fields", markedReply.fields.map(\.label).joined(separator: ","), "Name")
 check("marked helper", Placeholders.marked("date"), "{\u{2060}date}")
 
+// Editing a pill: a marked token read into a model and written back (FillInEdit.swift).
+func edit(_ body: String) -> FillInEdit? { FillInEdit(token: Placeholders.marked(body)) }
+check("edit: blank", edit("Name"), .blank(label: "Name", choices: []))
+check("edit: blank with default", edit("City: Jakarta"), .blank(label: "City", choices: ["Jakarta"]))
+check("edit: choice", edit("Plan: Basic | Pro | Team"), .blank(label: "Plan", choices: ["Basic", "Pro", "Team"]))
+check("edit: raycast argument reads as a blank", edit(#"argument name="Tone" default="warm" options="warm, formal""#), .blank(label: "Tone", choices: ["warm", "formal"]))
+check("edit: date", edit("date"), .stamp(Placeholders.Stamp(kind: .date)))
+check("edit: date offset and style", edit("date +1d:long"), .stamp(Placeholders.Stamp(kind: .date, offset: [.init(amount: 1, unit: .day)], style: .long)))
+check("edit: pattern", edit("date:yyyy-MM-dd"), .stamp(Placeholders.Stamp(kind: .date, style: .pattern("yyyy-MM-dd"))))
+check("edit: cursor has nothing to edit", edit("cursor"), nil)
+check("edit: clipboard has nothing to edit", edit("clipboard"), nil)
+check("edit: a locale is not edited", edit(#"day locale="fr-FR""#), nil)
+check("edit: text is not a pill", FillInEdit(token: "hello"), nil)
+check("write: blank", FillInEdit.blank(label: "Name", choices: []).token, Placeholders.marked("Name"))
+check("write: choice", FillInEdit.blank(label: "Plan", choices: ["Basic", "Pro"]).token, Placeholders.marked("Plan: Basic | Pro"))
+check("write: label loses syntax characters", FillInEdit.blank(label: " {A:b|c}\n", choices: [" x ", ""]).token, Placeholders.marked("Abc: x"))
+check("write: empty label is refused", FillInEdit.blank(label: "{}", choices: []).isValid, false)
+check("write: a keyword label is refused", FillInEdit.blank(label: "Date", choices: []).isValid, false)
+check("write: a normal label is valid", FillInEdit.blank(label: "Name", choices: []).isValid, true)
+check("write: date", FillInEdit.stamp(.init(kind: .date)).token, Placeholders.marked("date"))
+check("write: offsets and style", FillInEdit.stamp(.init(kind: .datetime, offset: [.init(amount: -3, unit: .day), .init(amount: 1, unit: .month)], style: .short)).token, Placeholders.marked("datetime -3d +1M:short"))
+check("write: time in minutes", FillInEdit.stamp(.init(kind: .time, offset: [.init(amount: 30, unit: .minute)])).token, Placeholders.marked("time +30m"))
+check("write: pattern", FillInEdit.stamp(.init(kind: .date, style: .pattern("HH:mm"))).token, Placeholders.marked("date:HH:mm"))
+for body in ["Name", "Plan: A | B", "date", "day", "time +2h", "date +1y +2d:long", "date -1w:yyyy-MM-dd", "datetime:full", "City: Jakarta"] {
+    check("round trip \(body)", edit(body)?.token, Placeholders.marked(body))
+}
+
 print(fails == 0 ? "ALL PASS" : "\(fails) FAILED"); exit(fails == 0 ? 0 : 1)

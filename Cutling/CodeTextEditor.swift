@@ -21,6 +21,20 @@ struct FormattedTextEditor {
     var insertion: Binding<String?> = .constant(nil)
     /// Buttons on the bar above the keyboard (iPhone, iPad) that type their token at the cursor.
     var keyboardBar: [EditorBarItem] = []
+    /// A pill was tapped: its token and where it sits (iPhone, iPad).
+    var onEditPill: ((String, NSRange) -> Void)? = nil
+    /// A pill's new token, to be typed over the old one (iPhone, iPad).
+    var replacement: Binding<PillReplacement?> = .constant(nil)
+    /// Whether the Format panel stands in for the keyboard (iPhone, iPad).
+    var formatPanel: Binding<Bool> = .constant(false)
+    /// Opens with the keyboard up (iPhone, iPad).
+    var autofocus = false
+    /// Whether the text is being edited: the cursor is in it, with a software keyboard or a hardware one (iPhone, iPad).
+    var editing: Binding<Bool> = .constant(false)
+    #if os(iOS)
+    /// The styles at the cursor and the way to toggle one, for a Format panel drawn outside the editor (iPad's popover).
+    var styles: EditorStyles? = nil
+    #endif
 
     fileprivate static func rendered(_ text: String, format: TextFormat, size: CGFloat) -> NSAttributedString {
         RichText.nsAttributed(format == .rich ? text : RichText.escape(text), size: size, editorColors: true)
@@ -47,10 +61,93 @@ struct FormattedTextEditor {
 struct EditorBarItem {
     let title: String
     let icon: String
+    /// Rows the button opens as a menu growing from it, in sections, as Notes' attachment button does; empty for a plain button.
+    var menu: [[EditorBarItem]] = []
     let action: () -> Void
 }
 
+/// The token that takes a pill's place, found by the pill's range when it was tapped.
+struct PillReplacement: Equatable {
+    let range: NSRange
+    let token: String
+}
+
 #if os(iOS)
+/// The editor's bar above the keyboard, drawn to Notes' own on iOS 27 (docs/research/editor-notes/owner-recording):
+/// one glass capsule 48 pt tall, 10 pt in from each side and 10 pt above the keyboard, its buttons a fixed
+/// step apart and scrolling sideways, so one more is always cut off at the edge.
+struct EditorKeyboardBar: View {
+    let items: [EditorBarItem]
+    static let barHeight: CGFloat = 48
+    /// Capsule height plus the gap above the keyboard.
+    static let height: CGFloat = barHeight + 10
+    /// Notes' buttons sit about 70 pt apart, the first 30 pt in from the capsule's edge.
+    static let step: CGFloat = 70
+
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 0) {
+                ForEach(items, id: \.title) { item in
+                    EditorBarButton(item: item)
+                        .frame(width: Self.step, height: Self.barHeight)
+                }
+            }
+            .padding(.leading, -5)
+        }
+        .frame(height: Self.barHeight)
+        .clipShape(Capsule())
+        .modifier(EditorBarGlass())
+        .padding(.horizontal, 10)
+        .padding(.bottom, 10)
+        .accessibilityElement(children: .contain)
+        .accessibilityIdentifier("fillInKeyboardBar")
+    }
+}
+
+/// One button of the editor's bars: a symbol in the label colour, at the size Notes draws its own.
+struct EditorBarButton: View {
+    let item: EditorBarItem
+
+    private var symbol: some View {
+        Image(systemName: item.icon)
+            .font(.system(size: 20, weight: .medium))
+            .foregroundStyle(Color.primary)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .contentShape(Rectangle())
+    }
+
+    var body: some View {
+        Group {
+            if item.menu.isEmpty {
+                Button(action: item.action) { symbol }
+            } else {
+                Menu {
+                    ForEach(Array(item.menu.enumerated()), id: \.offset) { _, section in
+                        Section {
+                            ForEach(section, id: \.title) { row in
+                                Button(row.title, systemImage: row.icon, action: row.action)
+                            }
+                        }
+                    }
+                } label: { symbol }
+            }
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(item.title)
+    }
+}
+
+/// Notes' bar is a glass capsule on iOS 26 and later; earlier systems get the bar material.
+struct EditorBarGlass: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(iOS 26, *) {
+            content.glassEffect(.regular.interactive(), in: Capsule())
+        } else {
+            content.background(.bar, in: Capsule())
+        }
+    }
+}
+
 extension FormattedTextEditor: UIViewRepresentable {
     func makeUIView(context: Context) -> UITextView {
         let view = UITextView()
@@ -62,6 +159,11 @@ extension FormattedTextEditor: UIViewRepresentable {
         context.coordinator.configure(view, for: format)
         context.coordinator.load(view, text: text, format: format)
         context.coordinator.setBar(keyboardBar, on: view)
+        context.coordinator.styles.toggle = { [weak coordinator = context.coordinator, weak view] style in
+            guard let coordinator, let view else { return }
+            coordinator.toggle(style, in: view)
+        }
+        if autofocus { DispatchQueue.main.async { view.becomeFirstResponder() } }
         return view
     }
 
@@ -70,15 +172,31 @@ extension FormattedTextEditor: UIViewRepresentable {
         coordinator.parent = self
         if coordinator.configuredFormat != format { coordinator.configure(view, for: format) }
         coordinator.setBar(keyboardBar, on: view)
+        coordinator.setPanel(open: formatPanel.wrappedValue, on: view)
         // Only outside changes (paste button, undo, format switch) reload the view.
         if text != coordinator.lastText || format != coordinator.lastFormat {
             coordinator.load(view, text: text, format: format)
         }
-        if let pending = insertion.wrappedValue {
+        // The binding is cleared a turn later, and this runs again before then: each token is typed once.
+        if let pending = insertion.wrappedValue, !coordinator.typing {
+            coordinator.typing = true
+            // On the page a fill-in picked with the keyboard down starts typing, as Notes' bottom bar does.
+            if autofocus, !view.isFirstResponder { view.becomeFirstResponder() }
             // Typed like a key press, so undo, the delegate and the binding all see it.
             view.insertText(pending)
             coordinator.textViewDidChange(view)
-            DispatchQueue.main.async { insertion.wrappedValue = nil }
+            DispatchQueue.main.async {
+                insertion.wrappedValue = nil
+                coordinator.typing = false
+            }
+        }
+        if let swap = replacement.wrappedValue, !coordinator.replacing {
+            coordinator.replacing = true
+            coordinator.replacePill(in: view, with: swap)
+            DispatchQueue.main.async {
+                replacement.wrappedValue = nil
+                coordinator.replacing = false
+            }
         }
     }
 
@@ -89,36 +207,54 @@ extension FormattedTextEditor: UIViewRepresentable {
         var lastText = ""
         var lastFormat: TextFormat = .plain
         var configuredFormat: TextFormat?
+        /// An insertion or a pill's replacement is typed and its binding not yet cleared.
+        var typing = false
+        var replacing = false
 
         init(parent: FormattedTextEditor) { self.parent = parent }
 
         private var bodySize: CGFloat { UIFont.preferredFont(forTextStyle: .body).pointSize }
         private var barItems: [EditorBarItem] = []
+        private var barHost: UIHostingController<EditorKeyboardBar>?
+        private var barContainer: UIView?
+        private let ownStyles = EditorStyles()
+        var styles: EditorStyles { parent.styles ?? ownStyles }
+        private var panelHost: UIHostingController<FormatPanel>?
 
-        /// The bar above the keyboard: a system UIToolbar as the text view's input accessory, as Notes has,
-        /// which iOS draws itself (glass on iOS 26). SwiftUI's keyboard toolbar never reaches a UIKit text view.
+        /// The bar above the keyboard (`EditorKeyboardBar`). SwiftUI's keyboard toolbar never reaches a UIKit text view,
+        /// so the bar is the text view's input accessory and comes and goes with the keyboard.
         func setBar(_ items: [EditorBarItem], on view: UITextView) {
-            guard items.map(\.title) != barItems.map(\.title) else { return }
+            let sameButtons = items.map(\.title) == barItems.map(\.title)
             barItems = items
             guard !items.isEmpty else {
+                guard barContainer != nil else { return }
+                barHost = nil
+                barContainer = nil
                 view.inputAccessoryView = nil
                 view.reloadInputViews()
                 return
             }
-            let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 0, height: 44))
-            // Side by side, centred: iOS 26 draws adjacent items as one glass group, as Notes' bar is.
-            var buttons: [UIBarButtonItem] = [.flexibleSpace()]
-            for item in items {
-                let button = UIBarButtonItem(image: UIImage(systemName: item.icon), primaryAction: UIAction(title: item.title) { _ in item.action() })
-                button.accessibilityLabel = item.title
-                buttons.append(button)
+            // The same buttons: left as they are, so typing never redraws the bar or moves the keyboard.
+            if sameButtons, barHost != nil { return }
+            let host = UIHostingController(rootView: EditorKeyboardBar(items: items))
+            host.view.backgroundColor = .clear
+            let container = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: EditorKeyboardBar.height))
+            container.backgroundColor = .clear
+            host.view.translatesAutoresizingMaskIntoConstraints = false
+            container.addSubview(host.view)
+            NSLayoutConstraint.activate([
+                host.view.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+                host.view.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+                host.view.topAnchor.constraint(equalTo: container.topAnchor),
+                host.view.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+            ])
+            barHost = host
+            barContainer = container
+            // The Format panel stands alone, as in Notes: no bar above it.
+            if view.inputView == nil {
+                view.inputAccessoryView = container
+                view.reloadInputViews()
             }
-            buttons.append(.flexibleSpace())
-            toolbar.items = buttons
-            toolbar.sizeToFit()
-            toolbar.accessibilityIdentifier = "fillInKeyboardBar"
-            view.inputAccessoryView = toolbar
-            view.reloadInputViews()
         }
 
         func configure(_ view: UITextView, for format: TextFormat) {
@@ -147,6 +283,171 @@ extension FormattedTextEditor: UIViewRepresentable {
                 view.attributedText = FormattedTextEditor.display(FormattedTextEditor.rendered(text, format: format, size: bodySize), font: .systemFont(ofSize: bodySize))
                 view.typingAttributes = [.font: UIFont.systemFont(ofSize: bodySize), .foregroundColor: UIColor.label, .paragraphStyle: FormattedTextEditor.lines]
             }
+        }
+
+        // MARK: Pills
+
+        /// A tap on a pill opens its editor (iOS 17 text items); other items keep their default.
+        func textView(_ textView: UITextView, primaryActionFor textItem: UITextItem, defaultAction: UIAction) -> UIAction? {
+            guard case .textAttachment(let attachment) = textItem.content, let pill = attachment as? FillInAttachment,
+                  let edit = parent.onEditPill, FillInEdit(token: pill.token) != nil else { return defaultAction }
+            let range = textItem.range
+            return UIAction { _ in edit(pill.token, range) }
+        }
+
+        /// Types `swap.token` over the pill at `swap.range`; the token then draws as a pill again.
+        func replacePill(in view: UITextView, with swap: PillReplacement) {
+            guard swap.range.upperBound <= view.textStorage.length else { return }
+            view.selectedRange = swap.range
+            // The selection's own attributes carry the old pill's attachment; the new token must not.
+            var typing = view.typingAttributes
+            typing[.attachment] = nil
+            view.typingAttributes = typing
+            view.insertText(swap.token)
+            textViewDidChange(view)
+        }
+
+        // MARK: Format panel
+
+        /// The Format panel takes the keyboard's place and the bar leaves with the keyboard; closing it brings both back.
+        func setPanel(open: Bool, on view: UITextView) {
+            if open, view.inputView == nil {
+                refreshStyles(view)
+                let host = UIHostingController(rootView: FormatPanel(styles: styles, close: { [weak self] in self?.parent.formatPanel.wrappedValue = false }))
+                host.view.backgroundColor = .clear
+                host.safeAreaRegions = []
+                host.view.translatesAutoresizingMaskIntoConstraints = false
+                // A plain view, not a keyboard-style UIInputView: that style draws the keyboard's grey tray around the
+                // card, where Notes shows its Format card floating alone over the note.
+                let panel = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: FormatPanel.height))
+                // The page's own background, so the system's keyboard backdrop behind an input view never shows
+                // as a grey tray around the card.
+                panel.backgroundColor = .systemBackground
+                panel.addSubview(host.view)
+                NSLayoutConstraint.activate([
+                    host.view.topAnchor.constraint(equalTo: panel.topAnchor),
+                    host.view.leadingAnchor.constraint(equalTo: panel.leadingAnchor),
+                    host.view.trailingAnchor.constraint(equalTo: panel.trailingAnchor),
+                    host.view.bottomAnchor.constraint(equalTo: panel.bottomAnchor),
+                    panel.heightAnchor.constraint(equalToConstant: FormatPanel.height),
+                ])
+                panelHost = host
+                view.inputView = panel
+                view.inputAccessoryView = nil
+                view.reloadInputViews()
+            } else if !open, view.inputView != nil {
+                view.inputView = nil
+                view.inputAccessoryView = barContainer
+                panelHost = nil
+                view.reloadInputViews()
+            }
+        }
+
+        func textViewDidBeginEditing(_ view: UITextView) {
+            DispatchQueue.main.async { self.parent.editing.wrappedValue = true }
+        }
+
+        func textViewDidEndEditing(_ view: UITextView) {
+            DispatchQueue.main.async { self.parent.editing.wrappedValue = false }
+            if parent.formatPanel.wrappedValue { DispatchQueue.main.async { self.parent.formatPanel.wrappedValue = false } }
+        }
+
+        func textViewDidChangeSelection(_ view: UITextView) { refreshStyles(view) }
+
+        private func currentAttributes(_ view: UITextView) -> [NSAttributedString.Key: Any] {
+            let range = view.selectedRange
+            if range.length > 0, range.upperBound <= view.textStorage.length { return view.textStorage.attributes(at: range.location, effectiveRange: nil) }
+            return view.typingAttributes
+        }
+
+        private func refreshStyles(_ view: UITextView) {
+            let attributes = currentAttributes(view)
+            var active: Set<EditorStyle> = []
+            if let font = attributes[.font] as? UIFont {
+                let traits = font.fontDescriptor.symbolicTraits
+                if traits.contains(.traitBold) { active.insert(.bold) }
+                if traits.contains(.traitItalic) { active.insert(.italic) }
+                if traits.contains(.traitMonoSpace) { active.insert(.monospace) }
+            }
+            if let strike = attributes[.strikethroughStyle] as? Int, strike != 0 { active.insert(.strikethrough) }
+            if attributes[.link] != nil { active.insert(.link) }
+            if styles.active != active { styles.active = active }
+        }
+
+        func toggle(_ style: EditorStyle, in view: UITextView) {
+            let turnOn = !styles.active.contains(style)
+            switch style {
+            case .bold: view.toggleBoldface(nil)
+            case .italic: view.toggleItalics(nil)
+            case .strikethrough:
+                change(view) { $0[.strikethroughStyle] = turnOn ? NSUnderlineStyle.single.rawValue : nil }
+            case .monospace:
+                change(view) { attributes in
+                    guard let font = attributes[.font] as? UIFont else { return }
+                    let traits = font.fontDescriptor.symbolicTraits
+                    let weight: UIFont.Weight = traits.contains(.traitBold) ? .bold : .regular
+                    var made = turnOn ? UIFont.monospacedSystemFont(ofSize: font.pointSize, weight: weight) : UIFont.systemFont(ofSize: font.pointSize, weight: weight)
+                    if traits.contains(.traitItalic), let italic = made.fontDescriptor.withSymbolicTraits(made.fontDescriptor.symbolicTraits.union(.traitItalic)) {
+                        made = UIFont(descriptor: italic, size: font.pointSize)
+                    }
+                    attributes[.font] = made
+                }
+            case .link:
+                if turnOn { askForLink(in: view) } else { change(view) { $0[.link] = nil } }
+            }
+            textViewDidChange(view)
+            refreshStyles(view)
+        }
+
+        /// Sets or clears an attribute on the selection, or on what is typed next when nothing is selected.
+        private func change(_ view: UITextView, _ edit: (inout [NSAttributedString.Key: Any]) -> Void) {
+            let range = view.selectedRange
+            if range.length == 0 {
+                var attributes = view.typingAttributes
+                edit(&attributes)
+                view.typingAttributes = attributes
+                return
+            }
+            let storage = view.textStorage
+            storage.beginEditing()
+            storage.enumerateAttributes(in: range) { attributes, run, _ in
+                var made = attributes
+                edit(&made)
+                storage.setAttributes(made, range: run)
+            }
+            storage.endEditing()
+        }
+
+        /// Notes asks for the address in a sheet; an alert with one field does the same here.
+        private func askForLink(in view: UITextView) {
+            let range = view.selectedRange
+            let alert = UIAlertController(title: String(localized: "Add Link"), message: nil, preferredStyle: .alert)
+            alert.addTextField { field in
+                field.placeholder = "https://"
+                field.keyboardType = .URL
+                field.autocapitalizationType = .none
+                field.autocorrectionType = .no
+            }
+            alert.addAction(UIAlertAction(title: String(localized: "Cancel"), style: .cancel))
+            alert.addAction(UIAlertAction(title: String(localized: "Add"), style: .default) { [weak self, weak view] _ in
+                guard let self, let view, var text = alert.textFields?.first?.text?.trimmingCharacters(in: .whitespaces), !text.isEmpty else { return }
+                if !text.contains("://") { text = "https://" + text }
+                guard let url = URL(string: text) else { return }
+                if range.length == 0 {
+                    // Nothing selected: the address itself becomes the linked text.
+                    view.selectedRange = range
+                    view.insertText(url.absoluteString)
+                    view.selectedRange = NSRange(location: range.location, length: (url.absoluteString as NSString).length)
+                } else {
+                    view.selectedRange = range
+                }
+                self.change(view) { $0[.link] = url }
+                self.textViewDidChange(view)
+                self.refreshStyles(view)
+            })
+            var top = view.window?.rootViewController
+            while let next = top?.presentedViewController { top = next }
+            top?.present(alert, animated: true)
         }
 
         func textViewDidChange(_ view: UITextView) {

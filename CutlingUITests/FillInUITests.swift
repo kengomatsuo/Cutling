@@ -213,47 +213,35 @@ final class FillInUITests: XCTestCase {
         XCTAssertTrue(text.contains("your Basic order ships"), "Field reads: \(text)")
     }
 
-    /// The editor's Add Fill-in or Date menu, where a person puts blanks and dates into a cutling.
+    /// The editor's way to variables: on iPhone and iPad the Text section's "Variables & Formatting" row
+    /// opens the full Text page, whose bar above the keyboard holds the variables (TextPageUITests walks it).
     @MainActor
-    func testEditorMenuOffersFillIns() throws {
+    func testEditorRowOpensTextPage() throws {
         let app = XCUIApplication()
         app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST", "-hasCompletedSetup", "YES", "-hasSeenInteractiveTutorial", "YES"]
         app.launch()
         let card = app.descendants(matching: .any).matching(identifier: "cutlingCard").firstMatch
         XCTAssertTrue(card.waitForExistence(timeout: 30), "No cards")
-        // tap() lands on the card's ⋯ Edit button.
-        card.tap()
-        let menu = app.descendants(matching: .any)["addPlaceholderMenu"].firstMatch
-        XCTAssertTrue(menu.waitForExistence(timeout: 10), "No Add Fill-in or Date menu in the editor")
-        shot("editor_text_section")
-        // While writing, the same menu sits on the bar above the keyboard.
-        let text = app.textViews.firstMatch
-        if text.waitForExistence(timeout: 5) {
-            // The one-time tip may be up; its close button first, so the tap reaches the text.
-            let closeTip = app.buttons["Close"].firstMatch
-            if closeTip.waitForExistence(timeout: 2) { closeTip.tap(); sleep(1) }
-            text.tap()
-            sleep(2)
-            shot("editor_keyboard_bar")
-            XCTAssertTrue(app.descendants(matching: .any)["fillInKeyboardBar"].firstMatch.exists, "No fill-in buttons on the keyboard bar")
-            // A new blank from the bar asks for its name, then shows as a pill.
-            let fieldButton = app.buttons["Fill-in Field"].firstMatch
-            if fieldButton.exists {
-                fieldButton.tap()
-                let nameField = app.alerts.textFields.firstMatch
-                if nameField.waitForExistence(timeout: 5) {
-                    // The name starts as "Name"; Done keeps it (typing needs a letter keyboard the queue may not show).
-                    shot("editor_new_field_alert")
-                    app.alerts.buttons["Done"].tap()
-                    sleep(1)
-                    shot("editor_new_field_pill")
-                }
-            }
+        // The card's menu, not a tap: on iPad a tap copies the cutling and asks for its fill-ins.
+        let edit = app.buttons.matching(NSPredicate(format: "identifier == 'editButton' OR label == 'Edit'")).firstMatch
+        for _ in 0..<3 where !edit.exists {
+            card.press(forDuration: 1.6)
+            _ = edit.waitForExistence(timeout: 8)
         }
-        menu.tap()
-        sleep(1)
-        shot("editor_menu_open")
-        XCTAssertTrue(app.buttons["Fill-in Field"].firstMatch.waitForExistence(timeout: 5), "Menu has no Fill-in Field item")
+        XCTAssertTrue(edit.exists, "The card's menu has no Edit")
+        edit.tap()
+        let row = app.descendants(matching: .any)["textPageRow"].firstMatch
+        XCTAssertTrue(row.waitForExistence(timeout: 10), "No Variables & Formatting row in the editor")
+        shot("editor_text_section")
+        // The one-time tip may be up; its close button first, so the tap reaches the row.
+        let closeTip = app.buttons["Close"].firstMatch
+        if closeTip.waitForExistence(timeout: 2) { closeTip.tap(); sleep(1) }
+        row.tap()
+        XCTAssertTrue(app.descendants(matching: .any)["textPage"].firstMatch.waitForExistence(timeout: 10), "The row did not open the Text page")
+        sleep(2)
+        shot("editor_text_page")
+        XCTAssertTrue(app.descendants(matching: .any)["fillInKeyboardBar"].firstMatch.exists
+                      || app.descendants(matching: .any)["textPageTools"].firstMatch.exists, "No variables on the Text page's bars")
     }
 
     /// With the fill-ins switch off, as in shipped builds until the redesign is approved, a card
@@ -273,6 +261,7 @@ final class FillInUITests: XCTestCase {
         XCTAssertTrue(app.buttons["Paste from Clipboard"].firstMatch.waitForExistence(timeout: 10), "Editor's Text section did not load")
         shot("switch_off_editor")
         XCTAssertFalse(app.descendants(matching: .any)["addPlaceholderMenu"].exists, "Editor shows the fill-in menu with the switch off")
+        XCTAssertFalse(app.descendants(matching: .any)["fillInKeyboardBar"].exists, "Editor shows the variables bar with the switch off")
     }
 
     @MainActor

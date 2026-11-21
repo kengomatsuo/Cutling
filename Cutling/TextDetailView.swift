@@ -21,6 +21,8 @@ struct TextDetailView: View {
     @Environment(\.undoManager) var undoManager
     @Environment(\.scenePhase) var scenePhase
     @EnvironmentObject var store: CutlingStore
+    /// This cutling's room: 10,000 characters, or what is left of the 5,000,000 across all cutlings.
+    private var textLimit: Int { store.textLimit(excluding: existingItem?.id) }
 
     let existingItem: Cutling?
     let presentedAsSheet: Bool
@@ -69,6 +71,10 @@ struct TextDetailView: View {
     @State private var fieldDraftLabel = ""
     @State private var fieldDraftChoices = ""
     @State private var placeholderInsertion: String?
+    @State private var showTextPage = false
+    @State private var showFillInPicker = false
+    @State private var pillEdit: PillEditRequest?
+    @State private var pillReplacement: PillReplacement?
 
     /// Lets the Name field's Return key move focus to the Text field.
     private enum Field: Hashable { case name, value }
@@ -387,6 +393,9 @@ struct TextDetailView: View {
             Section {
                 textEditor
                     .frame(minHeight: 120, maxHeight: 450)
+                    .fillInSheets(picker: $showFillInPicker, editing: $pillEdit,
+                                  insert: { insertPlaceholder($0) },
+                                  replace: { pillReplacement = PillReplacement(range: $0, token: $1) })
                     // A new fill-in field: its name, and choices when it has some.
                     .alert("Fill-in Field", isPresented: $askingFieldName) {
                         TextField("Name", text: $fieldDraftLabel)
@@ -421,13 +430,13 @@ struct TextDetailView: View {
                     .onChange(of: value) { oldValue, newValue in
                         if format == .rich {
                             // Cutting Markdown mid-marker would garble it, so refuse the edit.
-                            if RichText.plainText(newValue).count > CutlingStore.maxTextLength
+                            if RichText.plainText(newValue).count > textLimit
                                 || newValue.count > RichText.maxStoredLength {
                                 value = oldValue
                                 return
                             }
-                        } else if newValue.count > CutlingStore.maxTextLength {
-                            value = String(newValue.prefix(CutlingStore.maxTextLength))
+                        } else if newValue.count > textLimit {
+                            value = String(newValue.prefix(textLimit))
                         }
                         if wasTruncated && newValue != oldValue {
                             wasTruncated = false
@@ -462,9 +471,11 @@ struct TextDetailView: View {
                 #else
                 pasteButton
 
-                if format != .code, FillIns.isOn {
-                    placeholderMenu
-                        .popoverTip(fillInTip, arrowEdge: .bottom)
+                // The one way to variables and formatting: the text as a full page (TextPageView.swift), where its bars hold them.
+                // The form has no menu of its own, as Notes keeps every tool in the note's bars.
+                if format != .code {
+                    textPageRow
+                        .popoverTip(FillIns.isOn ? fillInTip : nil, arrowEdge: .bottom)
                         .task { await FillInTip.openedTextEditor.donate() }
                 }
                 #endif
@@ -475,13 +486,13 @@ struct TextDetailView: View {
                     if wasTruncated {
                         HStack(spacing: 4) {
                             Image(systemName: "scissors")
-                            Text("Trimmed to fit \(CutlingStore.maxTextLength) characters")
+                            Text("Trimmed to fit \(textLimit) characters")
                         }
                         .foregroundStyle(.orange)
                     }
                     HStack {
-                        Text("\(visibleText.count) / \(CutlingStore.maxTextLength)")
-                            .foregroundStyle(visibleText.count > CutlingStore.maxTextLength - 500 ? .orange : .secondary)
+                        Text("\(visibleText.count) / \(textLimit)")
+                            .foregroundStyle(visibleText.count > textLimit - 500 ? .orange : .secondary)
                         Spacer()
                         formatChip
                     }
@@ -513,6 +524,10 @@ struct TextDetailView: View {
         .accessibilityIdentifier("detailView")
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
+        .navigationDestination(isPresented: $showTextPage) {
+            TextPageView(text: undoHandler.binding($value, actionName: String(localized: "Change Text")),
+                         format: $format, count: visibleText.count, limit: textLimit)
+        }
         #endif
         .sheet(isPresented: $showIconPicker, onDismiss: { userDidPickIcon = true }) {
             IconPickerView(selectedIcon: undoHandler.binding($icon, actionName: String(localized: "Change Icon")))
@@ -857,13 +872,37 @@ struct TextDetailView: View {
         let text = undoHandler.binding($value, actionName: String(localized: "Change Text"))
         if usesNativeEditor || format != .plain {
             FormattedTextEditor(text: text, format: $format, insertion: $placeholderInsertion,
-                                keyboardBar: format != .code && FillIns.isOn ? keyboardBarItems : [])
+                                keyboardBar: format != .code && FillIns.isOn ? keyboardBarItems : [],
+                                onEditPill: { token, range in
+                                    if let edit = FillInEdit(token: token) { pillEdit = PillEditRequest(edit: edit, range: range) }
+                                },
+                                replacement: $pillReplacement)
         } else {
             TextEditor(text: text)
                 .focused($focusedField, equals: .value)
                 .scrollContentBackground(.hidden)
         }
     }
+
+    #if os(iOS)
+    /// A Settings-style row that pushes the Text page, drawn as the form's Change Icon row is.
+    private var textPageRow: some View {
+        Button {
+            showTextPage = true
+        } label: {
+            HStack {
+                Label("Variables & Formatting", systemImage: "curlybraces")
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.caption)
+                    .foregroundStyle(.tertiary)
+            }
+            .contentShape(Rectangle())
+        }
+        .foregroundStyle(.primary)
+        .accessibilityIdentifier("textPageRow")
+    }
+    #endif
 
     private var pasteButton: some View {
         Button {
@@ -880,7 +919,7 @@ struct TextDetailView: View {
     /// What the menu and the keyboard bar insert, in that order. A fill-in field asks for its name first.
     private var placeholderChoices: [(title: String, icon: String, token: String?)] {
         [
-            (String(localized: "Fill-in Field"), "character.textbox", nil),
+            (String(localized: "Ask Each Time"), "character.textbox", nil),
             (String(localized: "Today’s Date"), "calendar", Placeholders.marked("date")),
             (String(localized: "Time"), "clock", Placeholders.marked("time")),
             (String(localized: "Cursor Position"), "text.cursor", Placeholders.marked("cursor")),
@@ -900,9 +939,14 @@ struct TextDetailView: View {
         if let token {
             insertPlaceholder(token)
         } else {
+            #if os(iOS)
+            // The same editor a tapped pill opens.
+            pillEdit = .newBlank()
+            #else
             fieldDraftLabel = String(localized: "Name")
             fieldDraftChoices = ""
             askingFieldName = true
+            #endif
         }
     }
 
@@ -922,9 +966,11 @@ struct TextDetailView: View {
                 ForEach(placeholderChoices, id: \.title) { choice in
                     Button(choice.title, systemImage: choice.icon) { choose(choice.token) }
                 }
+                Button("All Variables", systemImage: "ellipsis") { showFillInPicker = true }
+                    .accessibilityIdentifier("moreFillIns")
             }
         } label: {
-            Label("Add Fill-in or Date", systemImage: "curlybraces")
+            Label("Add Variable", systemImage: "curlybraces")
         }
         .foregroundStyle(.primary)
         .accessibilityIdentifier("addPlaceholderMenu")
@@ -1036,7 +1082,7 @@ struct TextDetailView: View {
         // Formatted sources become Formatted unless the user chose another format.
         if !userPickedFormat || format == .rich,
            let markdown = clipboard.markdown,
-           RichText.plainText(markdown).count <= CutlingStore.maxTextLength,
+           RichText.plainText(markdown).count <= textLimit,
            markdown.count <= RichText.maxStoredLength {
             isPasting = true
             canPaste = false
