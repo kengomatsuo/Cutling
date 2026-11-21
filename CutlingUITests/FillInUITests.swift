@@ -14,6 +14,11 @@
 
 import XCTest
 
+/// Marks the current What's New sheet as seen so it doesn't cover the grid (Cutling/AppleSheet.swift, WhatsNewKind.releaseID).
+enum WhatsNewSkip {
+    static let releaseID = "2026-11 fill-ins and room for more"
+}
+
 final class FillInUITests: XCTestCase {
 
     override func setUpWithError() throws {
@@ -34,7 +39,7 @@ final class FillInUITests: XCTestCase {
     @MainActor
     func testKeyboardFillsBlanksAndStamps() throws {
         let app = XCUIApplication()
-        app.launchArguments += ["-FILLIN_TEST"]
+        app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST"]
         app.launch()
         app.terminate()
         addCutlingKeyboardInSettings()
@@ -130,7 +135,7 @@ final class FillInUITests: XCTestCase {
     func testAppSheetFillsBeforeCopying() throws {
         let app = XCUIApplication()
         // Setup and the tutorial count as done, so nothing opens over the grid.
-        app.launchArguments += ["-FILLIN_TEST", "-hasCompletedSetup", "YES", "-hasSeenInteractiveTutorial", "YES"]
+        app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST", "-hasCompletedSetup", "YES", "-hasSeenInteractiveTutorial", "YES"]
         app.launch()
         let card = app.descendants(matching: .any).matching(identifier: "cutlingCard").firstMatch
         XCTAssertTrue(card.waitForExistence(timeout: 30), "No cards")
@@ -158,7 +163,7 @@ final class FillInUITests: XCTestCase {
     @MainActor
     func testReturnKeyInsertsOnLastBlank() throws {
         let app = XCUIApplication()
-        app.launchArguments += ["-FILLIN_TEST"]
+        app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST"]
         app.launch()
         app.terminate()
         addCutlingKeyboardInSettings()
@@ -203,7 +208,7 @@ final class FillInUITests: XCTestCase {
     @MainActor
     func testEditorMenuOffersFillIns() throws {
         let app = XCUIApplication()
-        app.launchArguments += ["-FILLIN_TEST", "-hasCompletedSetup", "YES", "-hasSeenInteractiveTutorial", "YES"]
+        app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST", "-hasCompletedSetup", "YES", "-hasSeenInteractiveTutorial", "YES"]
         app.launch()
         let card = app.descendants(matching: .any).matching(identifier: "cutlingCard").firstMatch
         XCTAssertTrue(card.waitForExistence(timeout: 30), "No cards")
@@ -247,7 +252,7 @@ final class FillInUITests: XCTestCase {
     @MainActor
     func testSwitchOffAppKeepsBracesAsWritten() throws {
         let app = XCUIApplication()
-        app.launchArguments += ["-FILLIN_TEST", "-FILLIN_OFF", "-hasCompletedSetup", "YES", "-hasSeenInteractiveTutorial", "YES"]
+        app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST", "-FILLIN_OFF", "-hasCompletedSetup", "YES", "-hasSeenInteractiveTutorial", "YES"]
         app.launch()
         let card = app.descendants(matching: .any).matching(identifier: "cutlingCard").firstMatch
         XCTAssertTrue(card.waitForExistence(timeout: 30), "No cards")
@@ -264,7 +269,7 @@ final class FillInUITests: XCTestCase {
     @MainActor
     func testSwitchOffKeyboardTypesBracesAsWritten() throws {
         let app = XCUIApplication()
-        app.launchArguments += ["-FILLIN_TEST", "-FILLIN_OFF"]
+        app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST", "-FILLIN_OFF"]
         app.launch()
         app.terminate()
         addCutlingKeyboardInSettings()
@@ -297,7 +302,7 @@ final class FillInUITests: XCTestCase {
     @MainActor
     func testKeyboardFillsBlanksInSafari() throws {
         let app = XCUIApplication()
-        app.launchArguments += ["-FILLIN_TEST"]
+        app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST"]
         app.launch()
         app.terminate()
         addCutlingKeyboardInSettings()

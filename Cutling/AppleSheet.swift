@@ -156,7 +156,7 @@ enum WhatsNewKind {
         let texts = CutlingStore.maxTextCutlings.formatted()
         let images = CutlingStore.maxImageCutlings.formatted()
         let fillIns = AppleSheetRow(symbol: "rectangle.and.pencil.and.ellipsis", title: "Blanks and Dates",
-                                    detail: "Write {Name} or {date} in a cutling, and fill it in each time you type it.")
+                                    detail: "Add a blank or today’s date from the editor, and fill the blank in each time you type the cutling.")
         return (FillIns.isOn ? [fillIns] : []) + [
         AppleSheetRow(symbol: "square.stack.3d.up.fill", title: "Room for \(texts)",
                       detail: "Save up to \(texts) texts and \(images) images."),
