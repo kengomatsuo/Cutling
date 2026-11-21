@@ -186,6 +186,9 @@ struct SetupFlowA: View {
     @State private var path: [Page] = []
     @State private var tryText = ""
     @State private var showFullAccess = false
+    // iOS relaunches Cutling when Allow Full Access is switched in Settings (seen in the
+    // setup recordings), so the step the buyer reached outlives the process.
+    @AppStorage("setupWelcomeSeen") private var welcomeSeen = false
 
     enum Page: Hashable { case add, tryIt }
 
@@ -201,7 +204,10 @@ struct SetupFlowA: View {
                     AppleSheetRow(symbol: "lock.fill", title: "Stays on Your iPhone",
                                   detail: "No account, no internet. Your cutlings sync only through your own iCloud."),
                 ]
-            ) { path.append(status.keyboardAdded ? .tryIt : .add) }
+            ) {
+                welcomeSeen = true
+                path.append(status.keyboardAdded ? .tryIt : .add)
+            }
             .navigationDestination(for: Page.self) { page in
                 switch page {
                 case .add: addPage
@@ -211,7 +217,16 @@ struct SetupFlowA: View {
         }
         .interactiveDismissDisabled()
         .sheet(isPresented: $showFullAccess) { FullAccessSheet() }
-        .onAppear { StarterCutling.addIfEmpty(to: store); status.startPolling() }
+        .onAppear {
+            StarterCutling.addIfEmpty(to: store)
+            status.startPolling()
+            // Back after a relaunch: straight to the step the buyer was on, with no push.
+            if welcomeSeen, path.isEmpty {
+                var restore = Transaction()
+                restore.disablesAnimations = true
+                withTransaction(restore) { path = status.keyboardAdded ? [.tryIt] : [.add] }
+            }
+        }
         .onDisappear { status.stopPolling() }
         .onChange(of: scenePhase) { _, phase in if phase == .active { status.refresh() } }
         .onChange(of: status.keyboardAdded) { _, added in
@@ -402,7 +417,8 @@ struct SetupFlowC: View {
                     checkRow(number: 1, done: status.keyboardAdded, title: "Add the Cutling keyboard",
                              detail: "Settings › Apps › Cutling › Keyboards") {
                         if !status.keyboardAdded {
-                            Button("Open Settings") { SetupLinks.openSettings() }
+                            Button("Open") { SetupLinks.openSettings() }
+                                .accessibilityLabel("Open Settings")
                                 .buttonStyle(.bordered).buttonBorderShape(.capsule).fontWeight(.semibold)
                         }
                     }
