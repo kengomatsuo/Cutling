@@ -150,6 +150,51 @@ final class FillInUITests: XCTestCase {
         XCTAssertFalse(field.exists, "Sheet should close after Copy")
     }
 
+    /// The return key: Next on each blank, then the checkmark inserts the finished text.
+    @MainActor
+    func testReturnKeyInsertsOnLastBlank() throws {
+        let app = XCUIApplication()
+        app.launchArguments += ["-FILLIN_TEST"]
+        app.launch()
+        app.terminate()
+        addCutlingKeyboardInSettings()
+        app.launch()
+        let field = openKeyboardTestField(in: app)
+        continueAfterFailure = true
+        switchToCutlingKeyboard(in: app, showing: "Reply")
+        if !cutlingKeyboardIsUp(in: app, showing: "Reply") {
+            app.terminate()
+            app.launch()
+            _ = openKeyboardTestField(in: app)
+            switchToCutlingKeyboard(in: app, showing: "Reply")
+        }
+        func tap(_ name: String) {
+            var frame: CGRect?
+            for _ in 0..<10 {
+                frame = cutlingKeyFrame(name, in: app)
+                if frame != nil { break }
+                usleep(500_000)
+            }
+            XCTAssertNotNil(frame, "No \(name) key (keys: \(cutlingKeys(in: app)?.map(\.label) ?? []))")
+            guard let f = frame else { return }
+            sleep(2)
+            screenPoint(f.midX, f.midY, in: app).tap()
+            sleep(2)
+        }
+        tap("Reply")
+        tap("Next")
+        tap("Insert")
+        var text = (field.value as? String) ?? ""
+        if !text.contains("your Basic order ships") {
+            print("RETURN-KEY: first checkmark tap did nothing; field reads: \(text)")
+            shot("return_key_first_tap_missed")
+            tap("Insert")
+            text = (field.value as? String) ?? ""
+            print("RETURN-KEY: after a second tap: \(text)")
+        }
+        XCTAssertTrue(text.contains("your Basic order ships"), "Field reads: \(text)")
+    }
+
     /// The editor's Add Fill-in or Date menu, where a person puts blanks and dates into a cutling.
     @MainActor
     func testEditorMenuOffersFillIns() throws {
