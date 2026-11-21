@@ -1,0 +1,35 @@
+## NSHost.h (macOS 27.2 SDK)
+12: * If you’re using `NSHost` to resolve DNS names so that you can connect to a
+13: * service, switch to a connect-by-name API, for example, `nw_connection`.
+22:/// The ``NSHost`` class provides methods to access the network name and address information for a host. Instances of the ``NSHost`` class represent individual _hosts_ on a network. Use ``NSHost`` 
+24:/// To create an ``NSHost`` object, use the ``current()``, ``init(address:)``, or ``init(name:)`` class methods (don't use `alloc` and `init`). These methods use available network administration se
+26:/// An ``NSHost`` object contains all of the network addresses and names discovered for a given host by the network administration services. Each ``NSHost`` object may contain several addresses and
+33:API_DEPRECATED("Use Network framework instead, see deprecation notice in <Foundation/NSHost.h>", macos(10.0, API_TO_BE_DEPRECATED)) API_UNAVAILABLE(ios, watchos, tvos)
+36:    NSArray 	*names;
+37:    NSArray 	*addresses;
+69:/// One of the hostnames associated with the receiver.
+74:/// All of the hostnames associated with the receiver.
+NSHost.h
+## CGWindow kCGWindowName
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGWindow.h-116-   CFString. */
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGWindow.h-117-
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGWindow.h:118:CG_EXTERN const CFStringRef  kCGWindowName
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGWindow.h-119-    API_AVAILABLE(macos(10.5));
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGWindow.h-120-
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGWindow.h-121-/* If present, true if the window is ordered 
+## IOPowerSources
+196: *              Possible return value from <code>@link IOPSGetProvidingPowerSourceType@/link</code>
+205: *              Possible return value from <code>@link IOPSGetProvidingPowerSourceType@/link</code>
+212: *              Possible return value from <code>@link IOPSGetProvidingPowerSourceType@/link</code>
+240: *              <code>@link IOPSCopyPowerSourcesInfo @/link></code>
+262:/*! @function   IOPSCopyPowerSourcesInfo
+273:CFTypeRef IOPSCopyPowerSourcesInfo(void);
+## ScreenCaptureKit/CGPreflightScreenCaptureAccess
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGWindow.h:295: @fun
+/Users/hafang/Repositories/_mac/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CGWindow.h:300:CG_EX
+## NSDataDetector types (iOS) NSTextCheckingType
+26:    NSTextCheckingTypeDate                  = 1ULL << 3,            // date/time detection
+28:    NSTextCheckingTypeAddress               = 1ULL << 4,            // address detection
+30:    NSTextCheckingTypeLink                  = 1ULL << 5,            // link detection
+42:    NSTextCheckingTypePhoneNumber API_AVAILABLE(macos(10.7), ios(4.0), watchos(2.0), tvos(9.0))        = 1ULL << 11,           // phone number detection
+44:    NSTextCheckingTypeTransitInformation API_AVAILABLE(macos(10.7), ios(4.0), watchos(2.0), tvos(9.0)) = 1ULL << 12            // transit (e.g. flight) info detection

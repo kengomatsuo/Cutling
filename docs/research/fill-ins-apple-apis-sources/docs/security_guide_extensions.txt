@@ -1,0 +1,282 @@
+
+Supporting extensions in iOS, iPadOS, macOS, and visionOS - Apple Support
+Apple
+Store
+Mac
+iPad
+iPhone
+Watch
+Vision
+AirPods
+Home
+Entertainment
+Accessories
+Support
+0
++
+Apple Platform Security
+          Search this guide
+              Clear Search
+Table of Contents
+Apple Platform Security
+Welcome
+Intro to Apple platform security
+Hardware security and biometrics
+Hardware security overview
+Apple SoC security
+The Secure Enclave
+Optic ID, Face ID, and Touch ID
+Biometric security
+Magic Keyboard with Touch ID
+Optic ID, Face ID, Touch ID, passcodes, and passwords
+Optic ID matching security
+Facial matching security
+Uses for Optic ID, Face ID, and Touch ID
+Secure intent and connections to the Secure Enclave
+Hardware microphone disconnect
+Mac on-screen camera indicator light
+Express Cards with power reserve
+System security
+System security overview
+Secure boot
+Boot process for iPad and iPhone devices
+Memory safe iBoot implementation
+Mac computers with Apple silicon
+Boot process
+Boot modes
+Paired recoveryOS restrictions
+Startup Disk security policy control
+LocalPolicy signing-key creation and management
+Contents of a LocalPolicy file for a Mac with Apple silicon
+Intel-based Mac computers
+Boot process
+Boot modes
+Startup Security Utility
+Firmware password protection
+recoveryOS and diagnostics environments
+Signed system volume security
+Secure software updates
+Background Security Improvements
+Operating system integrity
+Device pairing and connection security
+Physical pairing model security
+Activating data connections securely
+Verifying accessories
+Automatically unlock Apple devices
+BlastDoor for Messages and IDS
+Lockdown Mode security
+Overview of additional macOS system security capabilities
+Additional macOS system security capabilities
+System Integrity Protection
+Trust caches
+Peripheral processor security
+Rosetta 2 on a Mac with Apple silicon
+Direct memory access protections
+Securely extending the kernel
+Option ROM security
+UEFI firmware security in an Intel-based Mac
+System security for watchOS
+Random number generation
+Communicating emergency information using satellites
+Apple Security Research Device
+Encryption and Data Protection
+Encryption and Data Protection overview
+Quantum-secure cryptography with Apple devices
+Passcodes and passwords
+Data Protection
+Data Protection overview
+Data Protection
+Data Protection classes
+Keybags for Data Protection
+Protecting keys in alternate boot modes
+Protecting user data in the face of attack
+Sealed Key Protection (SKP)
+Role of Apple File System
+Keychain data protection
+FileVault
+Volume encryption with FileVault
+Managing FileVault
+How Apple protects users’ personal data
+Protecting app access to user data
+Protecting access to user’s health data
+Digital signing and encryption
+App security
+App security overview
+App code signing process
+App security in iOS, iPadOS, and visionOS
+Intro to app security for iOS, iPadOS, and visionOS
+About App Store security
+Security of runtime process
+App protection and app groups
+App security in macOS
+Intro to app security for macOS
+App code signing process
+Gatekeeper and runtime protection
+Protecting against malware
+Terminal and script protections
+Controlling app access to files
+Supporting extensions
+Secure features in the Notes app
+Secure features in the Shortcuts app
+Services security
+Services security overview
+Apple Accounts and Managed Apple Accounts
+Apple Account security
+Managed Apple Account security
+iCloud
+iCloud security overview
+iCloud encryption
+Advanced Data Protection for iCloud
+iCloud Backup security
+Search on iCloud.com security
+iCloud Private Relay security
+Account recovery contact security
+Legacy Contact security
+Passcode and password management
+Passcode security overview
+Sign in with Apple security
+Automatic strong passwords
+Password AutoFill security
+App access to saved passwords
+Password security recommendations
+Password Monitoring
+Sending passwords
+Credential provider extensions
+iCloud Keychain
+iCloud Keychain security overview
+Secure keychain syncing
+Secure iCloud Keychain recovery
+Escrow security for iCloud Keychain 
+Apple Pay
+Apple Pay security overview
+Apple Pay component security
+How Apple Pay keeps users’ purchases protected
+Credit, debit, and prepaid cards
+Card provisioning security overview
+Adding credit or debit cards to Apple Pay
+Payment authorization with Apple Pay
+Paying with cards using Apple Pay
+Contactless passes in Apple Pay
+Rendering cards unusable with Apple Pay
+Apple Card security
+Apple Cash security
+Tap to Pay on iPhone
+Using Apple Wallet
+Access using Apple Wallet
+Access key types
+Car key security
+Car key security
+Car key transactions
+Adding transit and eMoney cards to Apple Wallet
+IDs in Apple Wallet
+IDs in Apple Wallet
+Security of IDs in Apple Wallet
+iMessage
+iMessage security overview
+How iMessage sends and receives messages
+Check In security
+Secure iMessage name and photo sharing
+Secure Apple Messages for Business
+FaceTime security
+SharePlay security
+Nearby sharing security
+Find My
+Find My security
+Locating missing devices
+Continuity
+Continuity security overview
+Handoff security
+iPhone cellular call relay security
+iPhone Text Message Forwarding security
+Instant Hotspot security
+Network security
+Network security overview
+TLS security
+IPv6 security
+VPN security
+Wi-Fi security and privacy
+Security features when connecting to wireless networks
+Wi-Fi security with Apple devices
+Privacy features when connecting to wireless networks
+Wi-Fi privacy with Apple devices
+Bluetooth security
+Ultra Wideband security in iOS
+Single Sign-on security
+AirDrop security
+Wi-Fi password sharing security
+Firewall security in macOS
+Developer kit security
+Developer kit security overview
+ARKit security
+DriverKit security
+EnergyKit data security
+HomeKit security
+Communication security
+Data security
+Securing routers with HomeKit
+Camera security
+Security with Apple TV
+NFC & SE Platform security
+ReplayKit security
+SiriKit security
+WidgetKit security
+Secure device management
+Secure device management overview
+Device management
+Device management security overview
+Managed Device Attestation
+Attestation process security
+Configuration enforcement
+Automated Device Enrollment
+Activation Lock security
+Managed Lost Mode and remote wipe
+Shared iPad security
+Apple Configurator security
+Screen Time security
+Glossary
+Document revision history
+Copyright and trademarks
+Supporting extensions in iOS, iPadOS, macOS, and visionOS
+iOS, iPadOS, macOS, and visionOS allow apps to provide functionality to other apps by providing extensions. Extensions are special-purpose signed executable binaries packaged within an app. During installation, the system automatically detects extensions and makes them available to other apps using a matching system.
+Extension points
+A system area that supports extensions is called an 
+extension point
+. Each extension point provides APIs and enforces policies for that area. The system determines which extensions are available based on extension point–specific matching rules. The system automatically launches extension processes as needed and manages their lifetime. Entitlements can be used to restrict extension availability to particular system apps. For example, a Today view widget appears only in Notification Center, and a sharing extension is available only from the Sharing pane. Examples of extension points are Today widgets, Share, Actions, Photo Editing, File Provider, and Custom Keyboard.
+How extensions communicate
+Extensions run in their own address space. Communication between the extension and the app from which it was activated uses interprocess communications mediated by the system framework. They don’t have access to each other’s files or memory spaces. Extensions are designed to be isolated from each other, from their containing apps, and from the apps that use them. They are sandboxed like any other third-party app and have a container separate from the containing app’s container. However, they share the same access to privacy controls as the container app. If a user grants an app access to Contacts, this grant is extended to the extensions that are embedded within the app but not to the extensions activated by the app.
+How custom keyboards are used
+Custom keyboards are a special type of extension, one that’s enabled by the user for the entire system. After a keyboard extension is enabled, it’s used for any text field except the passcode input and any secure text view. To restrict the transfer of user data, custom keyboards run by default in a very restrictive sandbox that blocks access to the network, to services that perform network operations on behalf of a process, and to APIs that would allow the extension to exfiltrate typing data. Developers of custom keyboards can request that their extension have Open Access, which lets the system run the extension in the default sandbox after getting consent from the user.
+Device management and extensions
+For devices enrolled in a 
+device management service
+, document and keyboard extensions obey Managed Open In rules. For example, the device management service can help prevent users from exporting a document from a managed app to an unmanaged Document Provider, or help prevent them from using an unmanaged keyboard with a managed app. Additionally, app developers can prevent the use of third-party keyboard extensions within their app.
+Published Date: December 19, 2024
+See also
+Secure device management overview
+Device management security overview
+Download this guide as a PDF
+Previous
+Controlling app access to files
+Next
+Secure features in the Notes app
+Helpful?
+                    Yes
+                    No
+Character limit:
+250
+Please don’t include any personal information in your comment.
+Maximum character limit is 250.
+                    Submit
+        Thanks for your feedback.
+Apple Footer
+
+Apple
+Support
+Apple Platform Security
+Supporting extensions in iOS, iPadOS, macOS, and visionOS
+United States
+Copyright © 2026 Apple Inc. All rights reserved.
+Privacy Policy
+Terms of Use
+Sales and Refunds
+Site Map

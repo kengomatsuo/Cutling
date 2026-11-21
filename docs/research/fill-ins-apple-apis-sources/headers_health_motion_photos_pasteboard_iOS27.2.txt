@@ -1,0 +1,99 @@
+## HealthKit
+/HealthKit.framework/Headers/HKHealthStore.h:41: @method        isHealthDataAvailable
+/HealthKit.framework/Headers/HKHealthStore.h:44:                supported will result in errors with the HKE
+/HealthKit.framework/Headers/HKHealthStore.h:47:+ (BOOL)isHealthDataAvailable;
+/HealthKit.framework/Headers/HKHealthStore.h:60: @method        authorizationStatusForType:
+/HealthKit.framework/Headers/HKHealthStore.h:63:- (HKAuthorizationStatus)authorizationStatusForType:(HKObjec
+/HealthKit.framework/Headers/HKHealthStore.h:66: @method        requestAuthorizationToShareTypes:readTypes:c
+/HealthKit.framework/Headers/HKHealthStore.h:82:- (void)requestAuthorizationToShareTypes:(nullable NSSet<HKS
+/HealthKit.framework/Headers/HKHealthStore.h:108:                the same collections of types are passed to
+/HealthKit.framework/Headers/HKHealthStore.h:117: @method        handleAuthorizationForExtensionWithCompleti
+/HealthKit.framework/Headers/HKHealthStore.h:119: @discussion    When an app extension calls requestAuthoriz
+/HealthKit.framework/Headers/HKHealthStore.h:128:- (void)handleAuthorizationForExtensionWithCompletion:(void
+/HealthKit.framework/Headers/HKHealthStore.h:380: @method        enableBackgroundDeliveryForType:frequency:w
+115-
+116-/*!
+117: @method        handleAuthorizationForExtensionWithCompletion:
+118- @abstract      Prompts the user to authorize the application for reading and saving objects.
+119- @discussion    When an app extension calls requestAuthorizationToShareTypes:readTypes:completion:, the parent application
+120-                is responsible for calling this method to prompt the user to authorize the app and its extensions for the
+121-                types that the extension requested access to.
+--
+126-                whether the application was granted authorization.
+127- */
+128:- (void)handleAuthorizationForExtensionWithCompletion:(void (^ NS_SWIFT_SENDABLE)(BOOL success, NSError * _Nullable error))completion NS_SWIFT_ASYNC_THROWS_ON_FALSE(1) API_AVAILABLE(ios(9.0), macCatalyst(13.0), macos(13.0)) API_UNAVAILABLE(watchos) NS_EXTE
+129-
+130-/*!
+131- @method        earliestPermittedSampleDate
+132- @abstract      Samples prior to the earliestPermittedSampleDate cannot be saved or queried.
+## CoreMotion
+23:COREMOTION_EXPORT API_AVAILABLE(ios(8.0)) API_UNAVAILABLE(visionos)
+96:@property(readonly, nonatomic, nullable) NSNumber *currentPace COREMOTION_EXPORT API_AVAILABLE(ios(9.0));
+111:@property(readonly, nonatomic, nullable) NSNumber *currentCadence COREMOTION_EXPORT API_AVAILABLE(ios(9.0));
+131:@property(readonly, nonatomic, nullable) NSNumber *averageActivePace COREMOTION_EXPORT API_AVAILABLE(ios(10.0));
+144:} API_AVAILABLE(ios(10.0), watchos(3.0));
+152:COREMOTION_EXPORT API_AVAILABLE(ios(10.0), watchos(3.0))
+180:typedef void (^CMPedometerHandler)(CMPedometerData * __nullable pedometerData, NSError * __nullable error) API_UNAVAILABLE(visionos);
+189:typedef void (^CMPedometerEventHandler)(CMPedometerEvent * __nullable pedometerEvent, NSError * __nullable error) COREMOTION_EXPORT API_AVAILABLE(ios(10.0), watchos(3.0)) API_UNAVAILABLE(visionos);
+200: *      (See queryPedometerDataFromDate:toDate:withHandler:)
+207:COREMOTION_EXPORT API_AVAILABLE(ios(8.0)) API_UNAVAILABLE(visionos)
+211: *  isStepCountingAvailable
+216:+ (BOOL)isStepCountingAvailable;
+243:+ (BOOL)isPaceAvailable COREMOTION_EXPORT API_AVAILABLE(ios(9.0));
+252:+ (BOOL)isCadenceAvailable COREMOTION_EXPORT API_AVAILABLE(ios(9.0)) API_UNAVAILABLE(macos);
+48: *  isActivityAvailable
+53:+ (BOOL)isActivityAvailable;
+56: *  authorizationStatus
+61:+ (CMAuthorizationStatus)authorizationStatus COREMOTION_EXPORT API_AVAILABLE(ios(11.0), watchos(4.0)) API_UNAVAILABLE(macos);
+64: * queryActivityStartingFrom:to:toQueue:withHandler:
+76:- (void)queryActivityStartingFromDate:(NSDate *)start
+96: *      queryActivityStartingFromDate:toDate:toQueue:withHandler: to get
+## Photos
+28:    PHAuthorizationStatusLimited API_AVAILABLE(ios(14)), // User has authorized this application for limited photo library access. Add PHPhotoLibraryPreventAutomaticLimitedAccessAlert = YES to the application's Info.plist to pr
+31:typedef NS_ENUM(NSInteger, PHAccessLevel) {
+32:    PHAccessLevelAddOnly = 1,
+33:    PHAccessLevelReadWrite = 2,
+73:+ (PHAuthorizationStatus)authorizationStatusForAccessLevel:(PHAccessLevel)accessLevel API_AVAILABLE(macosx(11), ios(14), tvos(14));
+74:+ (void)requestAuthorizationForAccessLevel:(PHAccessLevel)accessLevel handler:(void(^)(PHAuthorizationStatus status))handler API_AVAILABLE(macosx(11), ios(14), tvos(14)) NS_SWIFT_ASYNC(2);
+76:/// Deprecated and replaced by authorizationStatusForAccessLevel:, will return \c PHAuthorizationStatusAuthorized if the user has chosen limited photo library access
+77:+ (PHAuthorizationStatus)authorizationStatus API_DEPRECATED_WITH_REPLACEMENT("+authorizationStatusForAccessLevel:", ios(8, API_TO_BE_DEPRECATED), macos(10.13, API_TO_BE_DEPRECATED), tvos(10, API_TO_BE_DEPRECATED));
+78:+ (void)requestAuthorization:(void(^)(PHAuthorizationStatus status))handler API_DEPRECATED_WITH_REPLACEMENT("+requestAuthorizationForAccessLevel:handler:", ios(8, API_TO_BE_DEPRECATED), macos(10.13, API_TO_BE_DEPRECATED), tvos(
+158:/// Requires read-write photo library authorization (``PHAccessLevel/PHAccessLevelReadWrite``).
+30:// If set to PHAssetSourceTypeNone the asset source types included in the fetch results are inferred from the type of query performed (see PHAsset fetchAssetsWithOptions:)
+34:@property (nonatomic, assign, readwrite) NSUInteger fetchLimit API_AVAILABLE(ios(9));
+## PhotosUI picker
+31:} NS_SWIFT_SENDABLE API_AVAILABLE(ios(14), macos(13)) API_UNAVAILABLE(watchos) API_UNAVAILABLE(tvos);
+40:    PHPickerConfigurationSelectionContinuous API_AVAILABLE(ios(17), macos(14)) API_UNAVAILABLE(watchos) = 2,
+42:    PHPickerConfigurationSelectionContinuousAndOrdered API_AVAILABLE(ios(17), macos(14)) API_UNAVAILABLE(watchos) = 3,
+43:} NS_SWIFT_SENDABLE API_AVAILABLE(ios(15), macos(13)) API_UNAVAILABLE(watchos) API_UNAVAILABLE(tvos);
+48:    PHPickerModeDefault API_AVAILABLE(ios(17), macos(14)) API_UNAVAILABLE(watchos) = 0,
+PHContentEditingController.h PHLivePhotoView.h PhotosUI.h PHPhotoLibrary+PhotosUISupport.h PHPicker.h PHSharedAlbumCreationViewController.h PHSharedAlbumCustomizationViewController.h PHSharedAlbumPostingViewController.h ## UIPasteboard
+19:typedef NSString * UIPasteboardDetectionPattern NS_TYPED_ENUM API_AVAILABLE(ios(14.0)) API_UNAVAILABLE(tvos, watchos);
+22:UIKIT_EXTERN UIPasteboardDetectionPattern const UIPasteboardDetectionPatternProbableWebURL API_AVAILABLE(ios(14.0)) API_UNAVAILABLE(tvos, watchos);
+25:UIKIT_EXTERN UIPasteboardDetectionPattern const UIPasteboardDetectionPatternProbableWebSearch API_AVAILABLE(ios(14.0)) API_UNAVAILABLE(tvos, watchos);
+28:UIKIT_EXTERN UIPasteboardDetectionPattern const UIPasteboardDetectionPatternNumber API_AVAILABLE(ios(14.0)) API_UNAVAILABLE(tvos, watchos);
+31:UIKIT_EXTERN UIPasteboardDetectionPattern const UIPasteboardDetectionPatternLink NS_REFINED_FOR_SWIFT API_AVAILABLE(ios(15.0)) API_UNAVAILABLE(tvos, watchos);
+33:UIKIT_EXTERN UIPasteboardDetectionPattern const UIPasteboardDetectionPatternPhoneNumber NS_REFINED_FOR_SWIFT API_AVAILABLE(ios(15.0)) API_UNAVAILABLE(tvos, watchos);
+35:UIKIT_EXTERN UIPasteboardDetectionPattern const UIPasteboardDetectionPatternEmailAddress NS_REFINED_FOR_SWIFT API_AVAILABLE(ios(15.0)) API_UNAVAILABLE(tvos, watchos);
+37:UIKIT_EXTERN UIPasteboardDetectionPattern const UIPasteboardDetectionPatternPostalAddress NS_REFINED_FOR_SWIFT API_AVAILABLE(ios(15.0)) API_UNAVAILABLE(tvos, watchos);
+39:UIKIT_EXTERN UIPasteboardDetectionPattern const UIPasteboardDetectionPatternCalendarEvent NS_REFINED_FOR_SWIFT API_AVAILABLE(ios(15.0)) API_UNAVAILABLE(tvos, watchos);
+41:UIKIT_EXTERN UIPasteboardDetectionPattern const UIPasteboardDetectionPatternShipmentTrackingNumber NS_REFINED_FOR_SWIFT API_AVAILABLE(ios(15.0)) API_UNAVAILABLE(tvos, watchos);
+43:UIKIT_EXTERN UIPasteboardDetectionPattern const UIPasteboardDetectionPatternFlightNumber NS_REFINED_FOR_SWIFT API_AVAILABLE(ios(15.0)) API_UNAVAILABLE(tvos, watchos);
+45:UIKIT_EXTERN UIPasteboardDetectionPattern const UIPasteboardDetectionPatternMoneyAmount  NS_REFINED_FOR_SWIFT API_AVAILABLE(ios(15.0)) API_UNAVAILABLE(tvos, watchos);
+63:@property(readonly,nonatomic) NSInteger changeCount;
+122:@property (nonatomic, readonly) BOOL hasStrings API_UNAVAILABLE(tvos) API_UNAVAILABLE(watchos) API_AVAILABLE(ios(10.0));
+123:@property (nonatomic, readonly) BOOL hasURLs API_UNAVAILABLE(tvos) API_UNAVAILABLE(watchos) API_AVAILABLE(ios(10.0));
+124:@property (nonatomic, readonly) BOOL hasImages API_UNAVAILABLE(tvos) API_UNAVAILABLE(watchos) API_AVAILABLE(ios(10.0));
+125:@property (nonatomic, readonly) BOOL hasColors API_UNAVAILABLE(tvos) API_UNAVAILABLE(watchos) API_AVAILABLE(ios(10.0));
+133:- (void)detectPatternsForPatterns:(NSSet<UIPasteboardDetectionPattern> *)patterns
+135:                                           NSError * _Nullable))completionHandler NS_REFINED_FOR_SWIFT API_AVAILABLE(ios(14.0));
+143:- (void)detectPatternsForPatterns:(NSSet<UIPasteboardDetectionPattern> *)patterns
+146:                                           NSError * _Nullable))completionHandler NS_REFINED_FOR_SWIFT API_AVAILABLE(ios(14.0));
+152:- (void)detectValuesForPatterns:(NSSet<UIPasteboardDetectionPattern> *)patterns
+154:                                         NSError * _Nullable))completionHandler NS_REFINED_FOR_SWIFT API_AVAILABLE(ios(14.0));
+162:- (void)detectValuesForPatterns:(NSSet<UIPasteboardDetectionPattern> *)patterns
+165:                                         NSError * _Nullable))completionHandler NS_REFINED_FOR_SWIFT API_AVAILABLE(ios(14.0));
+## UIPasteControl / allowedPasteTypes
+/UIKit.framework/Headers/UIPasteControl.h:18:@pr
+/UIKit.framework/Headers/UIPasteControl.h:38:@in
+/UIKit.framework/Headers/UIPasteControl.h:40:@pr

@@ -1,0 +1,56 @@
+## AXAttributeConstants (macOS 27.2 SDK)
+## NSPasteboardAccessBehavior
+43-
+44-typedef NSString * NSPasteboardName NS_TYPED_EXTENSIBLE_ENUM;
+45-APPKIT_EXTERN NSPasteboardName NSPasteboardNameGeneral API_AVAILABLE(macos(10.13));
+46-APPKIT_EXTERN NSPasteboardName NSPasteboardNameFont API_AVAILABLE(macos(10.13));
+47-APPKIT_EXTERN NSPasteboardName NSPasteboardNameRuler API_AVAILABLE(macos(10.13));
+48-APPKIT_EXTERN NSPasteboardName NSPasteboardNameFind API_AVAILABLE(macos(10.13));
+49-APPKIT_EXTERN NSPasteboardName NSPasteboardNameDrag API_AVAILABLE(macos(10.13));
+50-
+51-
+52-/* Behavior in case of programmatic pasteboard access */
+53-
+54-/// A value indicating pasteboard access behavior.
+55:typedef NS_ENUM(NSInteger, NSPasteboardAccessBehavior) {
+56-    
+57-    /// The default behavior for the General pasteboard is to ask upon programmatic access. All other pasteboards default to always allow access.
+58-    /// If an app has never triggered a pasteboard access alert, its General pasteboard will report `.default` behavior. Such an app is not shown in the corresponding System Settings pane.
+59-    /// Once programmatic pasteboard access triggers the first pasteboard access alert, the state automatically changes to `.ask`. At this point the app starts being shown in System Settings, where the user can toggle the behavior between `.ask`, `.alwaysAl
+60:    NSPasteboardAccessBehaviorDefault = 0,
+61-    
+62-    /// The system will notify the user and ask for permission before granting pasteboard access. However, access that is both user originated and paste related will always be allowed, and will not result in a notification. The app is listed in the correspo
+63:    NSPasteboardAccessBehaviorAsk = 1,
+64-    
+65-    /// The system will automatically allow all pasteboard access, without notifying the user.  The app is listed in the corresponding System Settings pane.
+66:    NSPasteboardAccessBehaviorAlwaysAllow = 2,
+67-    
+68-    /// The system will automatically deny all pasteboard access, without notifying the user. However, access that is both user originated and paste related will always be allowed, and will not result in a notification. The app is listed in the correspondin
+69:    NSPasteboardAccessBehaviorAlwaysDeny = 3
+--
+158-
+159-@property (class, readonly, strong) NSPasteboard *generalPasteboard;
+160-+ (NSPasteboard *)pasteboardWithName:(NSPasteboardName)name;
+161-+ (NSPasteboard *)pasteboardWithUniqueName;
+162-
+163-@property (readonly, copy) NSPasteboardName name;
+164-
+165-@property (readonly) NSInteger changeCount;
+166-
+167-- (oneway void)releaseGlobally;
+168-
+169-/// The current pasteboard access behavior. The user can customize this behavior per-app in System Settings for any app that has triggered a pasteboard access alert in the past.
+## NSFullUserName
+/// - Parameter filterTypes: An array of `NSString` objects containing filename extensions. The extensions should not include the dot (`.`) character.
+/// - Returns: An array containing all the pathname elements in the receiving array that have filename extensions from the `filterTypes` array.
+- (NSArray<NSString *> *)pathsMatchingExtensions:(NSArray<NSString *> *)filterTypes;
+
+@end
+
+#if !0
+/// Returns the logon name of the current user.
+FOUNDATION_EXPORT NSString *NSUserName(void);
+/// Returns a string containing the full name of the current user.
+FOUNDATION_EXPORT NSString *NSFullUserName(void);
+
+/// Returns the path to either the user's or application's home directory, depending on the platform.

@@ -1,0 +1,32 @@
+## CoreLocation: extension-unavailable markers
+## Contacts: extension-unavailable markers
+## ContactsUI: extension-unavailable markers
+## EventKit: extension-unavailable markers
+## EventKitUI: extension-unavailable markers
+/EventKitUI.framework/Headers/EKEventEditViewController.h:45:NS_EXTENSION_UNAVAILABLE_IO
+/EventKitUI.framework/Headers/EKEventEditViewController.h:86:NS_EXTENSION_UNAVAILABLE_IO
+/EventKitUI.framework/Headers/EKEventViewController.h:36:NS_EXTENSION_UNAVAILABLE_IOS("E
+/EventKitUI.framework/Headers/EKEventViewController.h:73:NS_EXTENSION_UNAVAILABLE_IOS("E
+## HealthKit: extension-unavailable markers
+/HealthKit.framework/Headers/HKHealthStore.h:128:- (void)handleAuthorizationForExtension
+## CoreMotion: extension-unavailable markers
+## MediaPlayer: extension-unavailable markers
+## Photos: extension-unavailable markers
+## PhotosUI: extension-unavailable markers
+## MapKit: extension-unavailable markers
+## NetworkExtension: extension-unavailable markers
+## CoreTelephony: extension-unavailable markers
+## PassKit: extension-unavailable markers
+/PassKit.framework/Headers/PKPassLibrary.h:51:+ (PKSuppressionRequestToken)requestAutoma
+/PassKit.framework/Headers/PKPassLibrary.h:52:+ (void)endAutomaticPassPresentationSuppre
+/PassKit.framework/Headers/PKPassLibrary.h:53:+ (BOOL)isSuppressingAutomaticPassPresenta
+## Translation: extension-unavailable markers
+## Vision: extension-unavailable markers
+## NaturalLanguage: extension-unavailable markers
+## Intents: extension-unavailable markers
+/Intents.framework/Headers/INUserContext.h:18:- (void)becomeCurrent NS_EXTENSION_UNAVAIL
+/Intents.framework/Headers/INCancelWorkoutIntentResponse.h:18:    INCancelWorkoutIntentR
+/Intents.framework/Headers/INResumeWorkoutIntentResponse.h:18:    INResumeWorkoutIntentR
+/Intents.framework/Headers/INStartWorkoutIntentResponse.h:19:    INStartWorkoutIntentRes
+/Intents.framework/Headers/INEndWorkoutIntentResponse.h:18:    INEndWorkoutIntentRespons
+/Intents.framework/Headers/INPauseWorkoutIntentResponse.h:18:    INPauseWorkoutIntentRes

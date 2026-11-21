@@ -1,0 +1,53 @@
+## iOS CNContactStore.h Me/limited
+47:    CNAuthorizationStatusLimited NS_ENUM_AVAILABLE_IOS(18_0),
+74:+ (CNAuthorizationStatus)authorizationStatusForEntityType:(CNEntityType)entityType;
+79: * @discussion Users are able to grant or deny access to contact data on a per-application basis. To request access to contact data, call requestAccessForEntityType:completionHandler:. This will not block the application while the user is being as
+86:- (void)requestAccessForEntityType:(CNEntityType)entityType completionHandler:(void (^)(BOOL granted, NSError *__nullable error))completionHandler;
+126:- (nullable CNContact *)unifiedMeContactWithKeysToFetch:(NSArray<id<CNKeyDescriptor>> *)keys error:(NSError **)error NS_AVAILABLE(10_11, NA) __WATCHOS_PROHIBITED;
+## macOS CNContactStore.h unifiedMeContact
+126:- (nullable CNContact *)unifiedMeContactWithKeysToFetch:(NSArray<id<CNKeyDescriptor>> *)keys error:(NSError **)error NS_AVAILABLE(10_11, NA) __WATCHOS_PROHIBITED;
+## CNContact.h keys
+136:CONTACTS_EXTERN NSString * const CNContactIdentifierKey                      NS_AVAILABLE(10_11, 9_0);
+139:CONTACTS_EXTERN NSString * const CNContactNamePrefixKey                      NS_AVAILABLE(10_11, 9_0);
+140:CONTACTS_EXTERN NSString * const CNContactGivenNameKey                       NS_AVAILABLE(10_11, 9_0);
+141:CONTACTS_EXTERN NSString * const CNContactMiddleNameKey                      NS_AVAILABLE(10_11, 9_0);
+142:CONTACTS_EXTERN NSString * const CNContactFamilyNameKey                      NS_AVAILABLE(10_11, 9_0);
+143:CONTACTS_EXTERN NSString * const CNContactPreviousFamilyNameKey              NS_AVAILABLE(10_11, 9_0);
+144:CONTACTS_EXTERN NSString * const CNContactNameSuffixKey                      NS_AVAILABLE(10_11, 9_0);
+145:CONTACTS_EXTERN NSString * const CNContactNicknameKey                        NS_AVAILABLE(10_11, 9_0);
+146:CONTACTS_EXTERN NSString * const CNContactOrganizationNameKey                NS_AVAILABLE(10_11, 9_0);
+147:CONTACTS_EXTERN NSString * const CNContactDepartmentNameKey                  NS_AVAILABLE(10_11, 9_0);
+148:CONTACTS_EXTERN NSString * const CNContactJobTitleKey                        NS_AVAILABLE(10_11, 9_0);
+149:CONTACTS_EXTERN NSString * const CNContactPhoneticGivenNameKey               NS_AVAILABLE(10_11, 9_0);
+150:CONTACTS_EXTERN NSString * const CNContactPhoneticMiddleNameKey              NS_AVAILABLE(10_11, 9_0);
+151:CONTACTS_EXTERN NSString * const CNContactPhoneticFamilyNameKey              NS_AVAILABLE(10_11, 9_0);
+152:CONTACTS_EXTERN NSString * const CNContactPhoneticOrganizationNameKey        NS_AVAILABLE(10_12, 10_0);
+153:CONTACTS_EXTERN NSString * const CNContactBirthdayKey                        NS_AVAILABLE(10_11, 9_0);
+154:CONTACTS_EXTERN NSString * const CNContactNonGregorianBirthdayKey            NS_AVAILABLE(10_11, 9_0);
+155:CONTACTS_EXTERN NSString * const CNContactNoteKey                            NS_AVAILABLE(10_11, 9_0);
+156:CONTACTS_EXTERN NSString * const CNContactImageDataKey                       NS_AVAILABLE(10_11, 9_0);
+157:CONTACTS_EXTERN NSString * const CNContactThumbnailImageDataKey              NS_AVAILABLE(10_11, 9_0);
+158:CONTACTS_EXTERN NSString * const CNContactImageDataAvailableKey              NS_AVAILABLE(10_12, 9_0);
+159:CONTACTS_EXTERN NSString * const CNContactTypeKey                            NS_AVAILABLE(10_11, 9_0);
+160:CONTACTS_EXTERN NSString * const CNContactPhoneNumbersKey                    NS_AVAILABLE(10_11, 9_0);
+161:CONTACTS_EXTERN NSString * const CNContactEmailAddressesKey                  NS_AVAILABLE(10_11, 9_0);
+162:CONTACTS_EXTERN NSString * const CNContactPostalAddressesKey                 NS_AVAILABLE(10_11, 9_0);
+163:CONTACTS_EXTERN NSString * const CNContactDatesKey                           NS_AVAILABLE(10_11, 9_0);
+164:CONTACTS_EXTERN NSString * const CNContactUrlAddressesKey                    NS_AVAILABLE(10_11, 9_0);
+165:CONTACTS_EXTERN NSString * const CNContactRelationsKey                       NS_AVAILABLE(10_11, 9_0);
+166:CONTACTS_EXTERN NSString * const CNContactSocialProfilesKey                  NS_AVAILABLE(10_11, 9_0);
+167:CONTACTS_EXTERN NSString * const CNContactInstantMessageAddressesKey         NS_AVAILABLE(10_11, 9_0);
+## CNContactProperty / CNContactPickerViewController
+24:NS_CLASS_AVAILABLE_IOS(9_0) API_DEPRECATED("Unavailable on tvOS", tvos(1.0, 18.0))
+25:@interface CNContactPickerViewController : UIViewController
+31:@property (nonatomic, copy, nullable) NSArray<NSString*> *displayedPropertyKeys;
+36:@property (nonatomic, weak, nullable) id <CNContactPickerDelegate> delegate;
+42:@property (nonatomic, copy, nullable) NSPredicate *predicateForEnablingContact; // e.g. emailAddresses.@count > 0
+50:@property (nonatomic, copy, nullable) NSPredicate *predicateForSelectionOfContact; // e.g. emailAddresses.@count == 1
+59:@property (nonatomic, copy, nullable) NSPredicate *predicateForSelectionOfProperty; // e.g. (key == 'emailAddresses') AND (value LIKE '*@apple.com')
+64:NS_AVAILABLE_IOS(9_0) API_DEPRECATED("Unavailable on tvOS", tvos(1.0, 18.0))
+## ContactAccessButton
+/ContactsUI.framework/Modules/ContactsUI.swiftmodule/arm64e-apple-ios.swiftinterface:34:@_Concurre
+/ContactsUI.framework/Modules/ContactsUI.swiftmodule/arm64e-apple-ios.swiftinterface:51:    public
+/ContactsUI.framework/Modules/ContactsUI.swiftmodule/arm64e-apple-ios.swiftinterface:63:  public t
+## Contacts notes entitlement

@@ -1,0 +1,110 @@
+## WeatherKit swiftinterface (iOS)
+24:public struct WeatherAvailability {
+56:public struct MinuteWeather {
+59:  public var precipitationChance: Swift::Double
+75:public struct DayWeather {
+77:  public var condition: WeatherKit::WeatherCondition
+78:  public var symbolName: Swift::String
+90:  public var precipitationChance: Swift::Double
+115:  public var uvIndex: WeatherKit::UVIndex
+120:  public var wind: WeatherKit::Wind
+286:public struct HourWeather {
+291:  public var condition: WeatherKit::WeatherCondition
+292:  public var symbolName: Swift::String
+294:  public var humidity: Swift::Double
+297:  public var precipitationChance: Swift::Double
+303:  public var temperature: Foundation::Measurement<Foundation::UnitTemperature>
+304:  public var apparentTemperature: Foundation::Measurement<Foundation::UnitTemperature>
+305:  public var uvIndex: WeatherKit::UVIndex
+307:  public var wind: WeatherKit::Wind
+356:public struct SunEvents {
+360:  public var sunrise: Foundation::Date?
+362:  public var sunset: Foundation::Date?
+513:public struct WeatherQuery<T> {
+578:public struct MoonEvents {
+696:  public var weatherAlerts: [WeatherKit::WeatherAlert]?
+697:  public var availability: WeatherKit::WeatherAvailability
+783:public struct Forecast<Element> : Swift::RandomAccessCollection, Swift::Codable, Swift::Equatable where Element : Swift::Decodable, Element : Swift::Encodable, Element : Swift::Equatable, Element 
+1000:final public class WeatherService : @unchecked Swift::Sendable {
+1002:  final public var attribution: WeatherKit::WeatherAttribution {
+1006:  final public func weather(for location: _LocationEssentials::CLLocation) async throws -> WeatherKit::Weather
+1007:  @preconcurrency final public func weather<T>(for location: _LocationEssentials::CLLocation, including dataSet: WeatherKit::WeatherQuery<T>) async throws -> T where T : Swift::Sendable
+1008:  @preconcurrency final public func weather<T1, T2>(for location: _LocationEssentials::CLLocation, including dataSet1: WeatherKit::WeatherQuery<T1>, _ dataSet2: WeatherKit::WeatherQuery<T2>) asyn
+1009:  @preconcurrency final public func weather<T1, T2, T3>(for location: _LocationEssentials::CLLocation, including dataSet1: WeatherKit::WeatherQuery<T1>, _ dataSet2: WeatherKit::WeatherQuery<T2>, 
+1010:  @preconcurrency final public func weather<T1, T2, T3, T4>(for location: _LocationEssentials::CLLocation, including dataSet1: WeatherKit::WeatherQuery<T1>, _ dataSet2: WeatherKit::WeatherQuery<T
+1011:  @preconcurrency final public func weather<T1, T2, T3, T4, T5>(for location: _LocationEssentials::CLLocation, including dataSet1: WeatherKit::WeatherQuery<T1>, _ dataSet2: WeatherKit::WeatherQue
+1012:  @preconcurrency final public func weather<T1, T2, T3, T4, T5, T6>(for location: _LocationEssentials::CLLocation, including dataSet1: WeatherKit::WeatherQuery<T1>, _ dataSet2: WeatherKit::Weathe
+1014:  @preconcurrency final public func weather<each T>(for location: _LocationEssentials::CLLocation, including dataSet: repeat WeatherKit::WeatherQuery<each T>) async throws -> (repeat each T) wher
+1150:  public var symbolName: Swift::String {
+1181:public struct CurrentWeather {
+1186:  public var condition: WeatherKit::WeatherCondition
+1187:  public var symbolName: Swift::String
+13:@available(iOS 18.0, macOS 15.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, *)
+23:@available(iOS 16.0, macOS 13.0, tvOS 16.0, watchOS 9.0, *)
+40:@available(iOS 16.0, macOS 13.0, tvOS 16.0, watchOS 9.0, *)
+## INFocusStatusCenter.h
+/Intents.framework/Headers/INFocusStatusCenter.h:18:} API_AVAILABLE(ios(15.0), macos(12.0), watchos(8.0)) AP
+/Intents.framework/Headers/INFocusStatusCenter.h:20:API_AVAILABLE(ios(15.0), macos(12.0), watchos(8.0))
+/Intents.framework/Headers/INFocusStatusCenter.h:21:API_UNAVAILABLE(tvos)
+/Intents.framework/Headers/INFocusStatusCenter.h:24:@property (nonatomic, strong, readonly, class) INFocusSt
+/Intents.framework/Headers/INFocusStatusCenter.h:25:@property (nonatomic, readonly) INFocusStatus *focusStat
+/Intents.framework/Headers/INFocusStatusCenter.h:26:@property (nonatomic, readonly) INFocusStatusAuthorizati
+/Intents.framework/Headers/INFocusStatusCenter.h:28:- (void)requestAuthorizationWithCompletionHandler:(void 
+/Intents.framework/Headers/INFocusStatus.h:12:API_AVAILABLE(ios(15.0), macos(12.0), watchos(8.0))
+/Intents.framework/Headers/INFocusStatus.h:13:API_UNAVAILABLE(tvos)
+/Intents.framework/Headers/INFocusStatus.h:18:- (instancetype)initWithIsFocused:(nullable NSNumber *)isFocus
+/Intents.framework/Headers/INFocusStatus.h:20:@property (readonly, copy, nullable, NS_NONATOMIC_IOSONLY) NSN
+## NEHotspotNetwork.h
+27:} API_AVAILABLE(ios(15.0), watchos(8.0), macCatalyst(15.0)) API_UNAVAILABLE(macos, tvos);
+32: * @discussion This file declares the NEHotspotNetwork API. The NEHotspotNetwork API is used to find SSID and BSSID of the current Wi-Fi network.
+38: *   The NEHotspotNetwork class provides a class method to get the SSID and BSSID of
+43:API_AVAILABLE(ios(9.0), watchos(7.0), macCatalyst(14.0)) API_UNAVAILABLE(macos, tvos)
+47: * @property SSID
+48: * @discussion The SSID of the Wi-Fi network.
+50:@property (readonly) NSString * SSID
+51:API_AVAILABLE(ios(9.0), watchos(7.0), macCatalyst(14.0)) API_UNAVAILABLE(macos, tvos);
+54: * @property BSSID
+55: * @discussion The BSSID of the Wi-Fi network.
+57:@property (readonly) NSString * BSSID
+58:API_AVAILABLE(ios(9.0), watchos(7.0), macCatalyst(14.0)) API_UNAVAILABLE(macos, tvos);
+61: * @property securityType
+64:@property (readonly) NEHotspotNetworkSecurityType securityType
+65:API_AVAILABLE(ios(15.0), watchos(8.0), macCatalyst(15.0)) API_UNAVAILABLE(macos, tvos);
+68: * @method fetchCurrentWithCompletionHandler:completionHandler:
+69: * @discussion This method returns SSID, BSSID and security type of the current Wi-Fi network when the
+80: *   SSID, BSSID and security type values, when the block is passed non-nil object.This block is executed on application's
+83:+ (void)fetchCurrentWithCompletionHandler:(void (^)(NEHotspotNetwork * __nullable currentNetwork))completionHandler API_AVAILABLE(ios(14.0), watchos(7.0), macCatalyst(14.0)) API_UNAVAILABLE(macos, tvos);
+## NWPathMonitor / NWPath interface types
+597:  case wifiAware(Swift::Int32)
+724:    case other
+725:    case wifi
+726:    case cellular
+727:    case wiredEthernet
+728:    case loopback
+771:    case wifi(Network::NWInterface.Network::RadioType.Network::WiFi)
+805:    case cellularDenied
+806:    case wifiDenied
+833:  public let isExpensive: Swift::Bool
+835:  public var isConstrained: Swift::Bool {
+844:  public let supportsDNS: Swift::Bool
+## CoreTelephony CTCarrier
+16:CORETELEPHONY_CLASS_DEPRECATED(4_0, 16_0, "Deprecated with no replacement")
+25:@property (nonatomic, readonly, retain, nullable) NSString *carrierName
+26:API_UNAVAILABLE(macos, tvos)
+27:API_DEPRECATED("Deprecated; returns '--' at some point in the future", ios(4.0, 16.0), watchos(3.0, 9.0))
+37:@property (nonatomic, readonly, retain, nullable) NSString *mobileCountryCode
+38:API_UNAVAILABLE(macos, tvos)
+39:API_DEPRECATED("Deprecated; returns '65535' at some point in the future", ios(4.0, 16.0), watchos(3.0, 9.0))
+50:@property (nonatomic, readonly, retain, nullable) NSString *mobileNetworkCode
+51:API_UNAVAILABLE(macos, tvos)
+52:API_DEPRECATED("Deprecated; returns '65535' at some point in the future", ios(4.0, 16.0), watchos(3.0, 9.0))
+65:@property (nonatomic, readonly, retain, nullable) NSString* isoCountryCode
+66:API_UNAVAILABLE(macos, tvos)
+22: *     technology has changed.  This NSString should be used as the key in serviceCurrentRadioAccessTechnology to get the
+67: *  dataServiceIdentifierDidChange:
+74:- (void)dataServiceIdentifierDidChange:(NSString *)identifier;
+88: * dataServiceIdentifier
+93: @property(readonly, copy, nullable) NSString *dataServiceIdentifier API_AVAILABLE(ios(13.0), watchos(6.0)) API_UNAVAILABLE(macos, tvos);
+140: * serviceCurrentRadioAccessTechnology
+146:@property (nonatomic, readonly, retain, nullable) NSDictionary<NSString *, NSString *> * serviceCurrentRadioAccessTechnology API_AVAILABLE(ios(12.0), watchos(5.0)) API_UNAVAILABLE(macos, tvos);
+155:@property (nonatomic, readonly, retain, nullable) NSString* currentRadioAccessTechnology API_DEPRECATED_WITH_REPLACEMENT("serviceCurrentRadioAccessTechnology", ios(7.0, 12.0)) API_UNAVAILABLE(maco

@@ -1,0 +1,112 @@
+## AppKit NSWorkspace.h
+34:@property (readonly, strong) NSNotificationCenter *notificationCenter;
+144:@property (nullable, readonly, strong) NSRunningApplication *frontmostApplication API_AVAILABLE(macos(10.7));
+147:@property (nullable, readonly, strong) NSRunningApplication *menuBarOwningApplication API_AVAILABLE(macos(10.7));
+294:APPKIT_EXTERN NSNotificationName const NSWorkspaceDidActivateApplicationNotification API_AVAILABLE(macos(10.6));
+339:APPKIT_EXTERN NSNotificationName const NSWorkspaceActiveSpaceDidChangeNotification API_AVAILABLE(macos(10.6));
+429:/* Get an NSDictionary representing the currently frontmost app, with the above keys.  The NSWorkspaceApplicationKey is also provided.  On Mac OS X 10.7 and later, use -frontmostApplication. */
+430:- (nullable NSDictionary *)activeApplication API_DEPRECATED("Use -[NSWorkspace frontmostApplication] instead.", macos(10.0,10.11));
+439:/* Gets an array of NSDictionaries with the above keys.  In addition, the NSWorkspaceApplicationKey is provided, and vends an instance of NSRunningApplication.  This method does not return applications that are UIEle
+## NSRunningApplication
+67:@property (readonly, getter=isTerminated) BOOL terminated;
+72:@property (readonly, getter=isFinishedLaunching) BOOL finishedLaunching;
+76:@property (readonly, getter=isHidden) BOOL hidden;
+80:@property (readonly, getter=isActive) BOOL active;
+84:@property (readonly) BOOL ownsMenuBar API_AVAILABLE(macos(10.7));
+88:@property (readonly) NSApplicationActivationPolicy activationPolicy;
+92:@property (nullable, readonly, copy) NSString *localizedName;
+95:@property (nullable, readonly, copy) NSString *bundleIdentifier;
+98:@property (nullable, readonly, copy) NSURL *bundleURL;
+101:@property (nullable, readonly, copy) NSURL *executableURL;
+107:@property (readonly) pid_t processIdentifier;
+112:@property (nullable, readonly, copy) NSDate *launchDate;
+115:@property (nullable, readonly, strong) NSImage *icon;
+118:@property (readonly) NSInteger executableArchitecture;
+## AX attributes
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+/ApplicationServices.framework/Frameworks/HIServices
+49: @deprecated  In OS X 10.9 and later. Use AXIsProcessTrustedWithOptions instead.
+55: @function AXIsProcessTrustedWithOptions
+64:extern Boolean AXIsProcessTrustedWithOptions (CFDictionaryRef __nullable options) CF_AVAILABLE_MAC(10_9);
+## CoreWLAN CWInterface ssid
+40:@property(readonly, nullable) NSString *interfaceName NS_AVAILABLE_MAC(10_7);
+54:- (BOOL)powerOn NS_AVAILABLE_MAC(10_7);
+68:- (nullable NSSet<CWChannel *> *)supportedWLANChannels NS_AVAILABLE_MAC(10_7);
+79:- (nullable CWChannel *)wlanChannel NS_AVAILABLE_MAC(10_7);
+90:- (CWPHYMode)activePHYMode NS_AVAILABLE_MAC(10_7);
+103: * SSID information is not available unless Location Services is enabled and the user has authorized the calling app to use location services.
+108:- (nullable NSString *)ssid NS_AVAILABLE_MAC(10_6);
+120: * SSID information is not available unless Location Services is enabled and the user has authorized the calling app to use location services.
+125:- (nullable NSData *)ssidData NS_AVAILABLE_MAC(10_7);
+138: * BSSID information is not available unless Location Services is enabled and the user has authorized the calling app to use location services.
+143:- (nullable NSString *)bssid NS_AVAILABLE_MAC(10_6);
+154:- (NSInteger)rssiValue NS_AVAILABLE_MAC(10_7);
+## NSUserName/FullUserName
+/Foundation.framework/Headers/NSPathUtilities.h:168:
+/Foundation.framework/Headers/NSPathUtilities.h:170:
+## macOS IOPS
+IOPowerSources.h
+IOPSKeys.h
+IOUPSPlugIn.h
+/IOKit.frame
+/IOKit.frame
+/IOKit.frame
+/IOKit.frame
+## NSScreen/Appearance
+27:// This is not the correct way to determine the 'system' appearance. Use a view's, window's, or the app's effectiveAppearance.
+90:@property (readonly, strong) NSAppearance *effectiveAppearance API_AVAILABLE(macos(10.9));
+## NSSharingService / Scripting (OSAKit, ScriptingBridge)
+Automator.framework
+CoreWLAN.framework
+OSAKit.framework
+ScriptingBridge.framework
+## NSPasteboard
+133:/* Options for prepareForNewContentsWithOptions: */
+141: These options can be used for both the -readObjectsForClasses:options: and -canReadObjectForClasses:options: methods, unless otherwise specified.  The currently available options allow for customization of how NSURLs are read
+165:@property (readonly) NSInteger changeCount;
+170:@property (readonly, assign) NSPasteboardAccessBehavior accessBehavior API_AVAILABLE(macos(15.4));
+172:/* Prepares the pasteboard for new contents, clearing the existing contents of the pasteboard. This is the first step in providing data on the pasteboard. Any options specified will persist until prepareForNewContentsWithOptio
+174:- (NSInteger)prepareForNewContentsWithOptions:(NSPasteboardContentsOptions)options API_AVAILABLE(macos(10.12));
+176:/* Prepares the pasteboard for new contents, clearing the existing contents of the pasteboard.  This is equivalent to calling prepareForNewContentsWithOptions: with no options.  Returns the change count of the pasteboard.
+210:- (BOOL)canReadObjectForClasses:(NSArray<Class> *)classArray options:(nullable NSDictionary<NSPasteboardReadingOptionKey, id> *)options API_AVAILABLE(macos(10.6));
+252:///  detectPatternsForPatterns:[NSSet setWithArray:@[NSPasteboardDetectionPatternEmailAddress,
+276:- (void)detectPatternsForPatterns:(NSSet<NSPasteboardDetectionPattern> *)patterns

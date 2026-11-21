@@ -1,0 +1,207 @@
+
+Use x-callback-url with Shortcuts on iPhone or iPad - Apple Support
+Apple
+Store
+Mac
+iPad
+iPhone
+Watch
+Vision
+AirPods
+Home
+Entertainment
+Accessories
+Support
+0
++
+Shortcuts User Guide
+ iOS 27  
+ iOS 26 
+ iOS 18 
+ iOS 17 
+ iOS 16 
+ iOS 15 
+ iOS 14 
+ 3.5 
+ 3.2 
+ 3.1 
+ 3.0 
+ 2.2  
+ 2.1  
+ Shortcuts 2.0 
+		  Select version:
+					iOS 27 
+					iOS 26
+					iOS 18
+					iOS 17
+					iOS 16
+					iOS 15
+					iOS 14
+					3.5
+					3.2
+					3.1
+					3.0
+					2.2 
+					2.1 
+					Shortcuts 2.0
+Modifying this control will update this page automatically
+          Search this guide
+              Clear Search
+Table of Contents
+Shortcuts User Guide
+Welcome
+Shortcuts basics
+Intro to Shortcuts
+Discover shortcuts in the Gallery
+Run shortcuts
+Run a shortcut from the app
+Run shortcuts with Siri
+Run shortcuts from Control Center
+Run shortcuts with the Action button
+Run shortcuts with Apple Pencil Pro
+Run app shortcuts
+Run shortcuts from the Home Screen widget
+Run shortcuts from the Search screen
+Add a shortcut to the Home Screen
+Run a shortcut from another app
+Run shortcuts from Apple Watch
+Run shortcuts by tapping the back of your iPhone
+Adjust privacy settings
+How shortcuts work
+Intro to how shortcuts work
+The flow of content
+Action connections
+Control the flow of actions
+Shortcut completion
+The Content Graph engine
+Use Apple Intelligence in Shortcuts
+Create custom shortcuts
+Create a custom shortcut
+Ideas for custom shortcuts
+Work with actions in Shortcuts
+Navigate the action list
+Order of actions
+Get actions
+Transform actions
+Share actions
+Test your actions
+About actions in complicated shortcuts
+Edit shortcuts
+Intro to editing shortcuts
+Organize shortcuts in folders
+Change the layout
+Reorder shortcuts
+Rename shortcuts
+Modify shortcut icons
+Duplicate shortcuts
+Delete shortcuts
+Sync shortcuts
+Share shortcuts
+Add import questions to shared shortcuts
+Add a shortcut to Reminders using Siri
+Automations
+Intro to automation shortcuts
+Add automations
+Advanced shortcuts
+Use variables
+Intro to variables
+Variable types
+Use variables
+Adjust variables
+Use list actions
+Use the Choose from Menu action
+Use If actions
+Use Repeat actions
+Use Find and Filter actions
+Intro to Find and Filter actions
+Add filter parameters
+Show prompts in a shortcut 
+Intro to using prompts
+Use the Ask for Input action
+Use the Ask Each Time variable
+Use the Show Alert action 
+Use the Show Notification action
+Input types
+Limit the input for a shortcut
+Receive onscreen items
+Advanced Shortcuts settings
+Run JavaScript on a webpage
+Intro to the Run JavaScript on Webpage action
+Use the Run JavaScript on Webpage action
+Use URL schemes
+Intro to URL schemes 
+Open, create, and run a shortcut
+Run a shortcut from a URL
+Open or search the Gallery from a URL
+Use x-callback-url
+Use another app’s URL scheme
+Use Web APIs in Shortcuts
+Intro to web APIs
+Get started with web APIs
+What’s an API?
+Request your first API
+Work with JSON
+Intro to using JSON
+Parsing JSON
+Handling lists
+Get Dictionary Value action
+Create contacts
+Further exploration with APIs
+API limitations
+Format Date timestamps
+Dictionaries
+Date and time formatting
+About date and time formatting 
+Date and time formats
+Dates as written language
+Technical standards
+Custom date formats
+Copyright and trademarks
+Use x-callback-url with Shortcuts on iPhone or iPad
+Shortcuts supports 
+x-callback-url
+, allowing the calling app to receive a response (a callback) when a particular interaction has completed. You can run shortcuts from an x-callback-url using the same parameters as discussed in 
+Run a shortcut using a URL scheme on iPhone or iPad
+. For example:
+shortcuts://x-callback-url/run-shortcut?name=Calculate%20Tip&input=text&text=24.99&x-success=...&x-cancel=...
+Per the x-callback-url standard, the following additional parameters can be provided:
+x-success (optional):
+ A URL that opens when the interaction is successful—for example, after a shortcut is imported or finished running. If a shortcut is run, a parameter named result is appended to the URL and contains the textual output of the shortcut.
+x-cancel (optional):
+ A URL that opens when the interaction is canceled by the user.
+x-error (optional):
+ A URL that opens when the interaction fails because an error occurred. A parameter named errorMessage is appended to the URL and contains a description of the error.
+With 
+x-success
+, you can provide a URL that opens after the shortcut successfully finishes running. This could be used in conjunction with a multistep checklist of tasks, wherein you open the x-callback-url to run a shortcut, return to the list, and move on to the next task via URL.
+With 
+x-cancel
+, you can provide a contingency URL to launch if the shortcut stops before it finishes running. Because the shortcut did not complete, no output from the shortcut is provided.
+With 
+x-error
+, you can provide a contingency URL to launch if the shortcut encounters an error while running and fails to finish. In this case, you can kick off a different URL to handle the issue.
+Previous
+Open or search the Gallery from a URL
+Next
+Use another app’s URL scheme
+Helpful?
+                    Yes
+                    No
+Character limit:
+250
+Please don’t include any personal information in your comment.
+Maximum character limit is 250.
+                    Submit
+        Thanks for your feedback.
+Apple Footer
+
+Apple
+Support
+Shortcuts User Guide
+Use x-callback-url with Shortcuts on iPhone or iPad
+United States
+Copyright © 2026 Apple Inc. All rights reserved.
+Privacy Policy
+Terms of Use
+Sales and Refunds
+Site Map

@@ -1,0 +1,32 @@
+## iOS MusicKit: SystemMusicPlayer / recently played / authorization
+157-@available(iOS 16.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, macOS 14.0, macCatalyst 17.0, *)
+158:public struct MusicLibraryRequest<MusicItemType> where MusicItemType : MusicKit::MusicLibraryRequestable {
+2717-@available(iOS 16.0, macOS 13.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
+2719-@available(iOS 16.0, macOS 13.0, tvOS 16.0, watchOS 9.0, visionOS 1.0, *)
+2720:public struct MusicRecentlyPlayedRequest<MusicItemType> where MusicItemType : MusicKit::MusicRecentlyPlayedRequestable, MusicItemType : Swift::Decodable {
+3251-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 15.0, tvOS 15.0, visionOS 1.0, *)
+3252-@available(watchOS, unavailable)
+3253-@available(macOS, unavailable)
+3254:public class SystemMusicPlayer : MusicKit::MusicPlayer {
+3293-    @available(iOS 16.4, tvOS 16.4, visionOS 1.0, macOS 14.0, *)
+3295:    public var currentEntry: MusicKit::MusicPlayer.MusicKit::Queue.MusicKit::Entry? {
+3650-@available(iOS 15.0, macOS 12.0, tvOS 15.0, watchOS 8.0, visionOS 1.0, *)
+3651:public struct MusicSubscription : Swift::Equatable, Swift::Hashable, Swift::Sendable, Swift::CustomStringConvertible {
+## macOS MusicKit
+arm64e-apple-ios-macabi.swiftdoc
+arm64e-apple-ios-macabi.swiftinterface
+arm64e-apple-macos.swiftdoc
+arm64e-apple-macos.swiftinterface
+x86_64-apple-ios-macabi.swiftdoc
+x86_64-apple-ios-macabi.swiftinterface
+x86_64-apple-macos.swiftdoc
+x86_64-apple-macos.swiftinterface
+3251-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @available(iOS 15.0, tvOS 15.0, visionOS 1.0, *)
+3252-@available(watchOS, unavailable)
+3253-@available(macOS, unavailable)
+3254:public class SystemMusicPlayer : MusicKit::MusicPlayer {
+--
+3292-    required public init(album: MusicKit::Album, startingAt startTrack: MusicKit::Track)
+3293-    @available(iOS 16.4, tvOS 16.4, visionOS 1.0, macOS 14.0, *)
+3294-    required public init(playlist: MusicKit::Playlist, startingAt startPlaylistEntry: MusicKit::Playlist.MusicKit::Entry)
+3295:    public var currentEntry: MusicKit::MusicPlayer.MusicKit::Queue.MusicKit::Entry? {

@@ -1,0 +1,148 @@
+## Contacts ios(27)
+## ContactsUI ios(27)
+## EventKit ios(27)
+## CoreLocation ios(27)
+	CLLiveUpdateConfigurationMaritime API_AVAILABLE(ios(27.0), macos(27.0), watchos(27.0), tvos(27.0), visionos(27.0)),  // Configuration tuned for vehicular maritime use cases
+    CLActivityTypeMaritime API_AVAILABLE(ios(27.0), macos(27.0), tvos(27.0), watchos(27.0), visionos(27.0)),
+@property(retain, nonatomic, nullable) id<CLBodyIdentifiable> headingBody API_AVAILABLE(ios(27.0), macos(27.0), watchos(27.0)) API_UNAVAILABLE(tvos, visionos);
+API_AVAILABLE(ios(27.0), macos(27.0), watchos(27.0), tvos(27.0), visionos(27.0))
+## MapKit ios(27)
+MK_EXTERN MKPointOfInterestCategory const MKPointOfInterestCategoryAirportTerminal API_AVAILABLE(ios(27.0), visionos(27.0), macos(27.0), tvos(27.0), watchos(27.0));
+MK_EXTERN MKPointOfInterestCategory const MKPointOfInterestCategoryAutomotiveDealership API_AVAILABLE(ios(27.0), visionos(27.0), macos(27.0), tvos(27.0), watchos(27.0));
+MK_EXTERN MKPointOfInterestCategory const MKPointOfInterestCategoryCommercialVehicleDealership API_AVAILABLE(ios(27.0), visionos(27.0), macos(27.0), tvos(27.0), watchos(27.0));
+MK_EXTERN MKPointOfInterestCategory const MKPointOfInterestCategoryInformationBooth API_AVAILABLE(ios(27.0), visionos(27.0), macos(27.0), tvos(27.0), watchos(27.0));
+MK_EXTERN MKPointOfInterestCategory const MKPointOfInterestCategoryMotorbikeDealership API_AVAILABLE(ios(27.0), visionos(27.0), macos(27.0), tvos(27.0), watchos(27.0));
+MK_EXTERN MKPointOfInterestCategory const MKPointOfInterestCategoryPicnicArea API_AVAILABLE(ios(27.0), visionos(27.0), macos(27.0), tvos(27.0), watchos(27.0));
+MK_EXTERN MKPointOfInterestCategory const MKPointOfInterestCategoryRangerStation API_AVAILABLE(ios(27.0), visionos(27.0), macos(27.0), tvos(27.0), watchos(27.0));
+MK_EXTERN MKPointOfInterestCategory const MKPointOfInterestCategoryRestArea API_AVAILABLE(ios(27.0), visionos(27.0), macos(27.0), tvos(27.0), watchos(27.0));
+MK_EXTERN MKPointOfInterestCategory const MKPointOfInterestCategoryScenicView API_AVAILABLE(ios(27.0), visionos(27.0), macos(27.0), tvos(27.0), watchos(27.0));
+MK_EXTERN MKPointOfInterestCategory const MKPointOfInterestCategoryTicketOffice API_AVAILABLE(ios(27.0), visionos(27.0), macos(27.0), tvos(27.0), watchos(27.0));
+MK_EXTERN MKPointOfInterestCategory const MKPointOfInterestCategoryVisitorCenter API_AVAILABLE(ios(27.0), visionos(27.0), macos(27.0), tvos(27.0), watchos(27.0));
+## Foundation ios(27)
+  @available(macOS 27, iOS 27, tvOS 27, watchOS 27, visionOS 27, *)
+  @backDeployed(before: macOS 27.2, iOS 27.2, tvOS 27.2, watchOS 27.2, visionOS 27.2)
+@_hasMissingDesignatedInitializers @available(macOS 27, iOS 27, tvOS 27, watchOS 27, visionOS 27, *)
+@available(macOS 27, iOS 27, tvOS 27, watchOS 27, visionOS 27, *)
+## Intents ios(27)
+## HealthKit ios(27)
+                                     completion:(void(^ NS_SWIFT_SENDABLE)(NSDictionary<HKObjectType *, NSDate *> * _Nullable earliestDates, NSError * _Nullable error))completion API_AVAILABLE(ios(27.0), watcho
+    HKHeartRateRecoveryTestTypeStepTest API_AVAILABLE(ios(27.2), watchos(27.2), macCatalyst(27.2), macos(27.2)),
+- (void)workoutBuilder:(HKLiveWorkoutBuilder *)workoutBuilder didUpdateWorkoutZone:(HKLiveWorkoutZoneUpdate *)zoneUpdate API_AVAILABLE(ios(27.0), watchos(27.0)) API_UNAVAILABLE(visionos);
+} API_AVAILABLE(ios(27.0), watchos(27.0), macCatalyst(27.0), macos(27.0), visionos(27.0));
+@available(iOS 27.0, watchOS 27.0, *)
+@available(iOS 27.0, watchOS 27.0, macCatalyst 27.0, macOS 27.0, visionOS 27.0, *)
+API_AVAILABLE(ios(27.0), watchos(27.0)) API_UNAVAILABLE(visionos)
+HK_EXTERN HKCategoryTypeIdentifier const HKCategoryTypeIdentifierBleedingAfterMenopause API_AVAILABLE(ios(27.0), watchos(27.0), macCatalyst(27.0), macos(27.0), visionos(27.0));            // HKCategoryValueVagi
+HK_EXTERN HKCategoryTypeIdentifier const HKCategoryTypeIdentifierMenopausalState API_AVAILABLE(ios(27.0), watchos(27.0), macCatalyst(27.0), macos(27.0), visionos(27.0));                   // HKCategoryValueMeno
+HK_EXTERN HKQuantityTypeIdentifier const HKQuantityTypeIdentifierHeartRateVariabilityRMSSD API_AVAILABLE(ios(27.0), watchos(27.0), macCatalyst(27.0), macos(27.0), visionos(27.0));         // ms, Discrete (Arith
+## CoreMotion ios(27)
+@property (class, nonatomic, readonly) CMAuthorizationStatus authorizationStatus COREMOTION_EXPORT API_AVAILABLE(ios(27.2), watchos(27.2), visionos(27.2)) API_UNAVAILABLE(macos, tvos);
+@property(readonly, nonatomic) double headingAccuracy COREMOTION_EXPORT API_AVAILABLE(ios(27.0));
+@property(retain, nonatomic, nullable) id<CMBodyIdentifiable> deviceMotionBody COREMOTION_EXPORT API_AVAILABLE(ios(27.0), watchos(27.0), visionos(27.0)) API_UNAVAILABLE(macos, tvos);
+COREMOTION_EXPORT API_AVAILABLE(ios(27.0), macos(27.0), watchos(27.0), tvos(27.0), visionos(27.0))
+COREMOTION_EXPORT API_AVAILABLE(ios(27), watchos(27), macos(27), visionos(27)) API_UNAVAILABLE(tvos)
+## Photos ios(27)
+    PHCollectionListSubtypeRootFolder           API_AVAILABLE(macos(27), ios(27), tvos(27), visionos(27)) = 101,
+  @available(iOS 27, tvOS 27, macOS 27, visionOS 27, *)
+- (BOOL)disableUploadJobExtensionWithError:(NSError **)error API_AVAILABLE(ios(27.0), macCatalyst(27.0), macos(27.0)) API_UNAVAILABLE(tvos, visionos, watchos);
+- (BOOL)enableUploadJobExtensionWithOptions:(nullable PHAssetResourceUploadJobOptions *)options error:(NSError **)error API_AVAILABLE(ios(27.0), macCatalyst(27.0), macos(27.0)) API_UNAVAILABLE(tvos, visionos, w
+- (BOOL)setUploadJobExtensionOptions:(PHAssetResourceUploadJobOptions *)options error:(NSError **)error API_AVAILABLE(ios(27.0), macCatalyst(27.0), macos(27.0)) API_UNAVAILABLE(tvos, visionos, watchos);
+- (NSDictionary <PHCloudIdentifier *, PHLocalIdentifierMapping *> *)localIdentifierMappingsForSyncedCloudIdentifiers:(NSArray<PHCloudIdentifier *> *)cloudIdentifiers API_AVAILABLE(macos(27), ios(27), tvos(27), 
+- (void)addKeyword:(NSString *)keyword API_AVAILABLE(macos(27), ios(27), tvos(27), visionos(27));
+- (void)registerPersistentChangesObserver:(id<PHPhotoLibraryPersistentChangesObserver>)observer API_AVAILABLE(macos(27), ios(27), tvos(27), visionos(27));
+- (void)removeKeyword:(NSString *)keyword API_AVAILABLE(macos(27), ios(27), tvos(27), visionos(27));
+- (void)revertAssetContentToOriginalResourceChoice:(PHOriginalResourceChoice)choice API_AVAILABLE(macos(27), ios(27), tvos(27), visionos(27));
+- (void)setLivePhotoVideoPlaybackEnabled:(BOOL)enabled API_AVAILABLE(macos(27), ios(27), tvos(27), visionos(27));
+- (void)unregisterPersistentChangesObserver:(id<PHPhotoLibraryPersistentChangesObserver>)observer API_AVAILABLE(macos(27), ios(27), tvos(27), visionos(27));
+} NS_SWIFT_NAME(PHAsset.Rating) API_AVAILABLE(macos(27), ios(27), tvos(27), visionos(27));
+} NS_SWIFT_NAME(PHAssetResourceUploadJob.Action) API_AVAILABLE(ios(26.1), macCatalyst(27.0), macos(27.0)) API_UNAVAILABLE(tvos, visionos, watchos);
+## PhotosUI ios(27)
+    @available(iOS 27, macOS 27, visionOS 27, *)
+  @available(iOS 27, macOS 27, visionOS 27, *)
+- (instancetype)initWithPhotoSearchSuggestion:(UIPhotoSearchSuggestion *)suggestion API_AVAILABLE(ios(27)) API_UNAVAILABLE(macCatalyst, macos, visionos);
+- (instancetype)initWithString:(NSString *)string API_AVAILABLE(ios(27), macos(27), visionos(27));
+} API_AVAILABLE(ios(27), macos(27), visionos(27)) API_UNAVAILABLE(watchos, tvos);
+@available(iOS 27.0, macOS 27.0, visionOS 27.0, *)
+@property (nonatomic, copy, nullable) PHPickerSearchText *searchText API_AVAILABLE(ios(27), macos(27), visionos(27));
+@property (nonatomic) PHPickerMetadataOptions metadataOptions API_AVAILABLE(ios(27), macos(27), visionos(27));
+API_AVAILABLE_BEGIN(ios(27), macos(27), visionos(27))
+API_AVAILABLE_END // ios(27), macos(27), visionos(27)
+API_AVAILABLE(ios(27), macos(27), visionos(27))
+## Translation ios(27)
+## NaturalLanguage ios(27)
+## Vision ios(27)
+    @available(macOS 27.0, iOS 27.0, tvOS 27.0, visionOS 27.0, *)
+    @available(macOS 27.0, iOS 27.0, tvOS 27.0, watchOS 27.0, visionOS 27.0, *)
+    VNErrorResourceCorrupted API_AVAILABLE(macos(27.0), ios(27.0), tvos(27.0), visionos(27.0), watchos(27.0)),
+    VNErrorResourceUnavailable API_AVAILABLE(macos(27.0), ios(27.0), tvos(27.0), visionos(27.0), watchos(27.0)),
+  @available(macOS 27.0, iOS 27.0, tvOS 27.0, visionOS 27.0, *)
+  @available(macOS 27.0, iOS 27.0, tvOS 27.0, visionOS 27.0, watchOS 27.0, *)
+@available(macOS 27.0, iOS 27.0, tvOS 27.0, visionOS 27.0, *)
+@available(macOS 27.0, iOS 27.0, tvOS 27.0, visionOS 27.0, watchOS 27.0, *)
+## UIKit ios(27)
+    @available(iOS 27.1, tvOS 27.1, visionOS 27.1, *)
+    @available(iOS 27.2, tvOS 27.2, visionOS 27.2, *)
+    API_AVAILABLE(ios(27.0)) API_UNAVAILABLE(visionos) API_UNAVAILABLE(watchos, tvos);
+    API_AVAILABLE(ios(27.1), tvos(27.1), visionos(27.1))
+    API_AVAILABLE(ios(27.1), tvos(27.1), visionos(27.1)) API_UNAVAILABLE(watchos);
+    API_AVAILABLE(ios(27.2), tvos(27.2), visionos(27.2)) API_UNAVAILABLE(watchos)
+    NS_REFINED_FOR_SWIFT API_AVAILABLE(ios(27.1), tvos(27.1), visionos(27.1)) API_UNAVAILABLE(watchos);
+    UIBarButtonItemAxisBehaviorHorizontalOnly API_AVAILABLE(ios(27.1)) API_UNAVAILABLE(visionos) API_UNAVAILABLE(watchos, tvos) = 1,
+    UIBarButtonItemAxisBehaviorVerticalPreferred API_AVAILABLE(ios(27.1)) API_UNAVAILABLE(visionos) API_UNAVAILABLE(watchos, tvos) = 2,
+    UIBarMinimizationBehaviorNever API_AVAILABLE(ios(27.0)) API_UNAVAILABLE(visionos) API_UNAVAILABLE(watchos, tvos),
+    UIBarMinimizationBehaviorOnScrollDown API_AVAILABLE(ios(27.0)) API_UNAVAILABLE(visionos) API_UNAVAILABLE(watchos, tvos),
+    UIBarMinimizationBehaviorOnScrollUp API_AVAILABLE(ios(27.0)) API_UNAVAILABLE(visionos) API_UNAVAILABLE(watchos, tvos),
+    UIBarMinimizationRestorationBehaviorAtScrollEdge API_AVAILABLE(ios(27.0)) API_UNAVAILABLE(visionos) API_UNAVAILABLE(watchos, tvos),
+    UIBarMinimizationSafeAreaAdjustmentDisabled API_AVAILABLE(ios(27.0)) API_UNAVAILABLE(visionos) API_UNAVAILABLE(watchos, tvos),
+## MediaPlayer ios(27)
+## WeatherKit ios(27)
+## DataDetection ios(27)
+@available(iOS 27.0, macOS 27.0, watchOS 27.0, tvOS 27.0, visionOS 27.0, *)
+## PassKit ios(27)
+- (nullable instancetype)initWithPassesArchiveAtFileURL:(NSURL *)passesArchiveFileURL NS_SWIFT_NAME(init(passesArchiveAt:)) API_AVAILABLE(ios(27.0), visionos(27.0)) API_UNAVAILABLE(watchos);
+- (nullable instancetype)initWithPassesArchiveData:(NSData *)passesArchiveData API_AVAILABLE(ios(27.0), visionos(27.0)) API_UNAVAILABLE(watchos);
+- (nullable instancetype)initWithPassesData:(NSArray<NSData *> *)passesData API_AVAILABLE(ios(27.0), visionos(27.0)) API_UNAVAILABLE(watchos);
+- (void)addPassesFromArchiveAtFileURL:(NSURL *)passesArchiveFileURL completionHandler:(void (^ NS_SWIFT_SENDABLE)(PKPassLibraryAddPassesStatus))completionHandler NS_SWIFT_NAME(addPasses(fromArchiveAt:completion
+- (void)addPassesFromArchiveWithData:(NSData *)passesArchiveData completionHandler:(void (^ NS_SWIFT_SENDABLE)(PKPassLibraryAddPassesStatus))completionHandler NS_SWIFT_NAME(addPasses(fromArchiveData:completion:
+- (void)addPassesWithData:(NSArray<NSData *> *)passesData completionHandler:(void (^ NS_SWIFT_SENDABLE)(PKPassLibraryAddPassesStatus))completionHandler NS_SWIFT_NAME(addPasses(data:completion:)) API_AVAILABLE(i
+@property (class, nonatomic, readonly) PKIdentityElement *nameElement API_AVAILABLE(ios(27.0));
+@property (nonatomic, copy) NSArray<NSData *> *issuerIdentifiers API_AVAILABLE(ios(27.0), visionos(27.0));
+@property (nonatomic, copy) NSArray<NSString *> *unsupportedPrimaryAccountIdentifiers API_AVAILABLE(ios(27.0), watchos(27.0), visionos(27.0));
+@property (nonatomic, copy) NSArray<NSString *> *unsupportedPrimaryAccountIdentifiers API_AVAILABLE(macos(27.0), ios(27.0), watchos(27.0), visionos(27.0));
+@property (nonatomic, readonly, getter=isProvisioningAvailable) BOOL provisioningAvailable API_AVAILABLE(macos(27.0), ios(27.0), watchos(27.0));
+extern PKPaymentNetwork const PKPaymentNetworkElcard API_AVAILABLE(macos(27.0), ios(27.0), watchos(27.0));
+extern PKPaymentNetwork const PKPaymentNetworkHumo API_AVAILABLE(macos(27.0), ios(27.0), watchos(27.0));
+extern PKPaymentNetwork const PKPaymentNetworkMaal API_AVAILABLE(macos(27.0), ios(27.0), watchos(27.0));
+## CoreSpotlight ios(27)
+  @available(macOS 27.0, iOS 27.0, visionOS 27.0, *)
+- (void)searchableItemsForIdentifiers:(NSArray <NSString *> *)identifiers protectionClass:(NSFileProtectionType)protectionClass searchableItemsHandler:(void (^)(NSArray<CSSearchableItem *> *items))searchableIte
+@available(macOS 27.0, iOS 27.0, visionOS 27.0, *)
+@property (nonatomic, readonly) NSFileProtectionType protectionClass API_AVAILABLE(macos(27.0), ios(27.0), visionos(27.0)) API_UNAVAILABLE(tvos, watchos);
+API_AVAILABLE(macos(27.0), ios(27.0), visionos(27.0))
+## Speech ios(27)
+## FoundationModels ios(27)
+    @available(iOS 27.0, macOS 27.0, visionOS 27.0, watchOS 27.0, *)
+    @available(iOS 27.2, macOS 27.2, visionOS 27.2, watchOS 27.2, *)
+    @available(macOS 27.0, iOS 27.0, watchOS 27.0, visionOS 27.0, *)
+    @available(macOS 27.2, iOS 27.2, watchOS 27.2, visionOS 27.2, *)
+    if #available(iOS 27.0, macOS 27.0, visionOS 27.0, *) {
+    if #available(iOS 27.0, macOS 27.0, visionOS 27.0, tvOS 27.0, watchOS 27.0, *) {
+  @available(iOS 27.0, macOS 27.0, visionOS 27.0, *)
+  @available(iOS 27.0, macOS 27.0, visionOS 27.0, watchOS 27.0, *)
+  @available(iOS 27.2, macOS 27.2, visionOS 27.2, watchOS 27.2, *)
+  @available(macOS 27.0, iOS 27.0, watchOS 27.0, visionOS 27.0, *)
+  @backDeployed(before: iOS 27.0, macOS 27.0, visionOS 27.0)
+@_hasMissingDesignatedInitializers @available(iOS 27.0, macOS 27.0, visionOS 27.0, watchOS 27.0, *)
+@available(iOS 27.0, macOS 27.0, visionOS 27.0, *)
+@available(iOS 27.0, macOS 27.0, visionOS 27.0, watchOS 27.0, *)
+## AppIntents ios(27)
+      @available(macOS 27.0, iOS 27.0, visionOS 27.0, *)
+  @available(iOS 27.0, *)
+  @available(macOS 27.0, iOS 27.0, visionOS 27.0, *)
+@available(iOS 27.0, *)
+@available(iOS 27.0, macOS 27.0, visionOS 27.0, *)
+@available(iOS 27.0, macOS 27.0, visionOS 27.0, tvOS 27.0, watchOS 27.0, *)
+@available(macOS 27.0, iOS 27.0, visionOS 27.0, *)
+## ContactProvider ios(27)
+## JournalingSuggestions ios(27)
+## RelevanceKit ios(27)

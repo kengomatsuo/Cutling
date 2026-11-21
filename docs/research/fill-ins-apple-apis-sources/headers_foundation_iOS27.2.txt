@@ -1,0 +1,115 @@
+## NSCalendar.h identifiers
+27:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierGregorian  API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0)); // the common calendar in Europe, the Western Hemisphere, and elsewhere
+29:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierBuddhist            API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
+31:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierChinese             API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
+33:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierCoptic              API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
+35:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierEthiopicAmeteMihret API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
+37:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierEthiopicAmeteAlem   API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
+39:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierHebrew              API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
+41:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierISO8601             API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
+43:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierIndian              API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
+45:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierIslamic             API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
+47:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierIslamicCivil        API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
+49:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierJapanese            API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
+51:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierPersian             API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
+53:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierRepublicOfChina     API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
+57:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierIslamicTabular      API_AVAILABLE(macos(10.10), ios(8.0), watchos(2.0), tvos(9.0));
+61:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierIslamicUmmAlQura    API_AVAILABLE(macos(10.10), ios(8.0), watchos(2.0), tvos(9.0));
+62:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierBangla              API_AVAILABLE(macos(26.0), ios(26.0), watchos(26.0), tvos(26.0), visionos(26.0));
+63:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierGujarati            API_AVAILABLE(macos(26.0), ios(26.0), watchos(26.0), tvos(26.0), visionos(26.0));
+64:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierKannada             API_AVAILABLE(macos(26.0), ios(26.0), watchos(26.0), tvos(26.0), visionos(26.0));
+65:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierMalayalam           API_AVAILABLE(macos(26.0), ios(26.0), watchos(26.0), tvos(26.0), visionos(26.0));
+66:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierMarathi             API_AVAILABLE(macos(26.0), ios(26.0), watchos(26.0), tvos(26.0), visionos(26.0));
+67:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierOdia                API_AVAILABLE(macos(26.0), ios(26.0), watchos(26.0), tvos(26.0), visionos(26.0));
+68:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierTamil               API_AVAILABLE(macos(26.0), ios(26.0), watchos(26.0), tvos(26.0), visionos(26.0));
+69:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierTelugu              API_AVAILABLE(macos(26.0), ios(26.0), watchos(26.0), tvos(26.0), visionos(26.0));
+70:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierVikram              API_AVAILABLE(macos(26.0), ios(26.0), watchos(26.0), tvos(26.0), visionos(26.0));
+71:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierDangi               API_AVAILABLE(macos(26.0), ios(26.0), watchos(26.0), tvos(26.0), visionos(26.0));
+72:FOUNDATION_EXPORT NSCalendarIdentifier const NSCalendarIdentifierVietnamese          API_AVAILABLE(macos(26.0), ios(26.0), watchos(26.0), tvos(26.0), visionos(26.0));
+## NSCalendar.h unit/holiday/weekend
+107:        NSCalendarUnitWeekday            = kCFCalendarUnitWeekday,
+111:        NSCalendarUnitWeekdayOrdinal     = kCFCalendarUnitWeekdayOrdinal,
+116:        /// > Important: The `NSCalendarUnitQuarter` unit is largely unimplemented, and is not recommended for use.
+117:        NSCalendarUnitQuarter            API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0)) = kCFCalendarUnitQuarter,
+125:        NSCalendarUnitNanosecond         API_AVAILABLE(macos(10.7), ios(5.0), watchos(2.0), tvos(9.0)) = (1 << 15),
+126:        NSCalendarUnitDayOfYear          API_AVAILABLE(macos(15.0), ios(18.0), watchos(11.0), tvos(18.0)) = kCFCalendarUnitDayOfYear,
+165:        /// @deprecated Use `NSCalendarUnitWeekday` instead.
+166:        NSWeekdayCalendarUnit API_DEPRECATED_WITH_REPLACEMENT("NSCalendarUnitWeekday", macos(10.4, 10.10), ios(2.0, 8.0), watchos(2.0, 2.0), tvos(9.0, 9.0)) = NSCalendarUnitWeekday,
+170:        /// @deprecated Use `NSCalendarUnitWeekdayOrdinal` instead.
+171:        NSWeekdayOrdinalCalendarUnit API_DEPRECATED_WITH_REPLACEMENT("NSCalendarUnitWeekdayOrdinal", macos(10.4, 10.10), ios(2.0, 8.0), watchos(2.0, 2.0), tvos(9.0, 9.0)) = NSCalendarUnitWeekdayOrdinal,
+## NSLocale.h keys
+98:@property (readonly, copy) NSString *localeIdentifier;  // same as NSLocaleIdentifier
+256:FOUNDATION_EXPORT NSLocaleKey const NSLocaleIdentifier;		// NSString
+258:FOUNDATION_EXPORT NSLocaleKey const NSLocaleLanguageCode;	// NSString
+260:FOUNDATION_EXPORT NSLocaleKey const NSLocaleCountryCode;		// NSString
+262:FOUNDATION_EXPORT NSLocaleKey const NSLocaleScriptCode;		// NSString
+264:FOUNDATION_EXPORT NSLocaleKey const NSLocaleVariantCode;		// NSString
+266:FOUNDATION_EXPORT NSLocaleKey const NSLocaleExemplarCharacterSet;// NSCharacterSet
+268:FOUNDATION_EXPORT NSLocaleKey const NSLocaleCalendar;		// NSCalendar
+270:FOUNDATION_EXPORT NSLocaleKey const NSLocaleCollationIdentifier; // NSString
+272:FOUNDATION_EXPORT NSLocaleKey const NSLocaleUsesMetricSystem;	// NSNumber boolean
+274:FOUNDATION_EXPORT NSLocaleKey const NSLocaleMeasurementSystem;	// NSString
+276:FOUNDATION_EXPORT NSLocaleKey const NSLocaleDecimalSeparator;	// NSString
+278:FOUNDATION_EXPORT NSLocaleKey const NSLocaleGroupingSeparator;	// NSString
+280:FOUNDATION_EXPORT NSLocaleKey const NSLocaleCurrencySymbol;      // NSString
+282:FOUNDATION_EXPORT NSLocaleKey const NSLocaleCurrencyCode;	// NSString
+286:FOUNDATION_EXPORT NSLocaleKey const NSLocaleQuotationBeginDelimiterKey API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));	// NSString
+288:FOUNDATION_EXPORT NSLocaleKey const NSLocaleQuotationEndDelimiterKey API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));	// NSString
+290:FOUNDATION_EXPORT NSLocaleKey const NSLocaleAlternateQuotationBeginDelimiterKey API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));	// NSString
+292:FOUNDATION_EXPORT NSLocaleKey const NSLocaleAlternateQuotationEndDelimiterKey API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));	// NSString
+## NSLocale.h props
+98:@property (readonly, copy) NSString *localeIdentifier;  // same as NSLocaleIdentifier
+103:@property (readonly, copy) NSString *languageCode API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+108:@property (readonly, copy) NSString *languageIdentifier API_AVAILABLE(macosx(14.0), ios(17.0), watchos(10.0), tvos(17.0));
+111:@property (nullable, readonly, copy) NSString *countryCode API_DEPRECATED_WITH_REPLACEMENT("regionCode", macos(10.12, API_TO_BE_DEPRECATED), ios(10.0, API_TO_BE_DEPRECATED), watchos(3.0, API_TO_BE_DEPRECATED), tvos(10.0, API_TO_BE_DEPRECATED));
+119:@property (nullable, readonly, copy) NSString *regionCode API_AVAILABLE(macosx(14.0), ios(17.0), watchos(10.0), tvos(17.0));
+122:@property (nullable, readonly, copy) NSString *scriptCode API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+127:@property (nullable, readonly, copy) NSString *variantCode API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+132:@property (readonly, copy) NSCharacterSet *exemplarCharacterSet API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+135:@property (readonly, copy) NSString *calendarIdentifier API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+140:@property (nullable, readonly, copy) NSString *collationIdentifier API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+145:@property (readonly) BOOL usesMetricSystem API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+148:@property (readonly, copy) NSString *decimalSeparator API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+151:@property (readonly, copy) NSString *groupingSeparator API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+154:@property (readonly, copy) NSString *currencySymbol API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+157:@property (nullable, readonly, copy) NSString *currencyCode API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+162:@property (readonly, copy) NSString *collatorIdentifier API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+167:@property (readonly, copy) NSString *quotationBeginDelimiter API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+170:@property (readonly, copy) NSString *quotationEndDelimiter API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+173:@property (readonly, copy) NSString *alternateQuotationBeginDelimiter API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+176:@property (readonly, copy) NSString *alternateQuotationEndDelimiter API_AVAILABLE(macosx(10.12), ios(10.0), watchos(3.0), tvos(10.0));
+183:@property (class, readonly, strong) NSLocale *autoupdatingCurrentLocale API_AVAILABLE(macos(10.5), ios(2.0), watchos(2.0), tvos(9.0)); // generally you should use this property
+186:@property (class, readonly, copy) NSLocale *currentLocale;	// an object representing the user's current locale
+188:@property (class, readonly, copy) NSLocale *systemLocale;	// the default generic root locale with little localization
+200:@property (class, readonly, copy) NSArray<NSString *> *availableLocaleIdentifiers;
+202:@property (class, readonly, copy) NSArray<NSString *> *ISOLanguageCodes;
+204:@property (class, readonly, copy) NSArray<NSString *> *ISOCountryCodes;
+206:@property (class, readonly, copy) NSArray<NSString *> *ISOCurrencyCodes;
+208:@property (class, readonly, copy) NSArray<NSString *> *commonISOCurrencyCodes API_AVAILABLE(macos(10.5), ios(2.0), watchos(2.0), tvos(9.0));
+211:@property (class, readonly, copy) NSArray<NSString *> *preferredLanguages API_AVAILABLE(macos(10.5), ios(2.0), watchos(2.0), tvos(9.0)); // note that this list does not indicate what language the app is actually running in; the NSBundle.mainBundle object determines that at launch and knows that information
+## NSPersonNameComponents
+125:@property (copy, nullable) NSString *namePrefix;
+128:@property (copy, nullable) NSString *givenName;
+131:@property (copy, nullable) NSString *middleName;
+134:@property (copy, nullable) NSString *familyName;
+137:@property (copy, nullable) NSString *nameSuffix;
+140:@property (copy, nullable) NSString *nickname;
+145:@property (copy, nullable) NSPersonNameComponents *phoneticRepresentation;
+## NSTermOfAddress/Morphology/Inflection
+/Foundation.framework/Headers/NSMorphology.h:123:@interface NSMorphology: NSObject <NSCopying, NSSecureCoding>
+/Foundation.framework/Headers/NSMorphology.h:143:@interface NSMorphologyPronoun : NSObject <NSCopying, NSSecureCoding>
+/Foundation.framework/Headers/NSMorphology.h:157:@class NSMorphologyCustomPronoun;
+/Foundation.framework/Headers/NSMorphology.h:160:@interface NSMorphology (NSCustomPronouns)
+/Foundation.framework/Headers/NSMorphology.h:175:@interface NSMorphologyCustomPronoun: NSObject <NSCopying, NSSecureCoding>
+/Foundation.framework/Headers/NSMorphology.h:203:@interface NSMorphology (NSMorphologyUserSettings)
+/Foundation.framework/Headers/NSMorphology.h:210:@property (class, readonly) NSMorphology *userMorphology
+/Foundation.framework/Headers/NSInflectionRule.h:7:@class NSMorphology;
+/Foundation.framework/Headers/NSInflectionRule.h:14:@interface NSInflectionRule: NSObject <NSCopying, NSSecureCoding>
+/Foundation.framework/Headers/NSInflectionRule.h:16:- (id)init NS_UNAVAILABLE; // This class is abstract. Use +automaticRule, or instantiate a subclass instead.
+/Foundation.framework/Headers/NSInflectionRule.h:19:@property (class, readonly) NSInflectionRule *automaticRule;
+/Foundation.framework/Headers/NSInflectionRule.h:26:@interface NSInflectionRuleExplicit: NSInflectionRule
+/Foundation.framework/Headers/NSInflectionRule.h:38:@interface NSInflectionRule (NSInflectionAvailability)
+/Foundation.framework/Headers/NSInflectionRule.h:45:@property (class, readonly) BOOL canInflectPreferredLocalization
+/Foundation.framework/Headers/NSTermOfAddress.h:18:@interface NSTermOfAddress : NSObject <NSCopying, NSSecureCoding>
+## NSUnit classes
+NSUnitConverter NSUnitConverterLinear NSUnitAcceleration NSUnitAngle NSUnitArea NSUnitConcentrationMass NSUnitDispersion NSUnitDuration NSUnitElectricCharge NSUnitElectricCurrent NSUnitElectricPotentialDifference NSUnitElectricResistance NSUnitEnergy NSUnitFrequency NSUnitFuelEfficiency NSUnitInformationStorage NSUnitLength NSUnitIlluminance NSUnitMass NSUnitPower NSUnitPressure NSUnitSpeed NSUnitTemperature NSUnitVolume 

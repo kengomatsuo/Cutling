@@ -1,0 +1,116 @@
+## CLGeocoder.h
+23:API_DEPRECATED("Use MapKit", ios(5.0, 26.0), macos(10.8, 26.0))
+24:@interface CLGeocoder : NSObject
+32:// reverse geocode requests
+33:- (void)reverseGeocodeLocation:(CLLocation *)location completionHandler:(CLGeocodeCompletionHandler)completionHandler API_DEPRECATED("Use MKReverseGeocodingRequest", ios(5.0, 26.0), macos(10.8, 26.0));
+34:- (void)reverseGeocodeLocation:(CLLocation *)location preferredLocale:(nullable NSLocale *)locale completionHandler:(CLGeocodeCompletionHandler)completionHandler API_DEPRECATED("Use MKReverseGeocodingRequest", ios(11.0, 26.0), macos(10.13, 26.0), watchos(4.0, 26.0), tvos(11.0, 26.0));
+36:// forward geocode requests
+37:// geocodeAddressDictionary:completionHandler: takes an address dictionary as defined by the AddressBook framework.
+40:- (void)geocodeAddressDictionary:(NSDictionary *)addressDictionary completionHandler:(CLGeocodeCompletionHandler)completionHandler API_DEPRECATED("Use MKReverseGeocodingRequest", macos(10.8, 10.13), ios(5.0, 11.0), watchos(1.0, 4.0)) API_UNAVAILABLE(visionos);
+41:- (void)geocodeAddressString:(NSString *)addressString inRegion:(nullable CLRegion *)region completionHandler:(CLGeocodeCompletionHandler)completionHandler API_UNAVAILABLE(visionos);
+42:- (void)geocodeAddressString:(NSString *)addressString inRegion:(nullable CLRegion *)region preferredLocale:(nullable NSLocale *)locale completionHandler:(CLGeocodeCompletionHandler)completionHandler API_DEPRECATED("Use MKGeocodingRequest", macos(10.13, 26.0), ios(11.0, 26.0), watchos(4.0, 26.0),
+43:- (void)geocodeAddressString:(NSString *)addressString inRegionCenteredAt:(CLLocationCoordinate2D)centroid inRegionRadius:(CLLocationDistance)radius preferredLocale:(nullable NSLocale *)locale completionHandler:(CLGeocodeCompletionHandler)completionHandler API_DEPRECATED("Use MKGeocodingRequest",
+44:- (void)geocodeAddressString:(NSString *)addressString completionHandler:(CLGeocodeCompletionHandler)completionHandler API_DEPRECATED("Use MKGeocodingRequest", ios(5.0, 26.0), macos(10.8, 26.0));
+46:- (void)cancelGeocode API_DEPRECATED("Use MKGeocodingRequest", ios(5.0, 26.0), macos(10.8, 26.0));
+50:@interface CLGeocoder (ContactsAdditions)
+51:- (void)geocodePostalAddress:(CNPostalAddress *)postalAddress completionHandler:(CLGeocodeCompletionHandler)completionHandler API_DEPRECATED("Use MKReverseGeocodingRequest", ios(11.0, 26.0), macos(10.13, 26.0), watchos(4.0, 26.0)) API_UNAVAILABLE(tvos);
+52:- (void)geocodePostalAddress:(CNPostalAddress *)postalAddress preferredLocale:(nullable NSLocale *)locale completionHandler:(CLGeocodeCompletionHandler)completionHandler API_DEPRECATED("Use MKReverseGeocodingRequest", macos(10.13, 26.0), ios(11.0, 26.0), watchos(4.0, 26.0)) API_UNAVAILABLE(tvos);
+## CLPlacemark.h
+51:@property (nonatomic, readonly, copy, nullable) CLLocation *location;
+59:@property (nonatomic, readonly, copy, nullable) CLRegion *region API_UNAVAILABLE(visionos);
+67:@property (nonatomic, readonly, copy, nullable) NSTimeZone *timeZone NS_AVAILABLE(10_11,9_0);
+76:@property (nonatomic, readonly, copy, nullable) NSDictionary *addressDictionary API_DEPRECATED("Use @properties", macos(10.8, 10.13), ios(5.0, 11.0), watchos(1.0, 4.0)) API_UNAVAILABLE(visionos);
+79:@property (nonatomic, readonly, copy, nullable) NSString *name; // eg. Apple Inc.
+80:@property (nonatomic, readonly, copy, nullable) NSString *thoroughfare; // street name, eg. Infinite Loop
+81:@property (nonatomic, readonly, copy, nullable) NSString *subThoroughfare; // eg. 1
+82:@property (nonatomic, readonly, copy, nullable) NSString *locality; // city, eg. Cupertino
+83:@property (nonatomic, readonly, copy, nullable) NSString *subLocality; // neighborhood, common name, eg. Mission District
+84:@property (nonatomic, readonly, copy, nullable) NSString *administrativeArea; // state, eg. CA
+85:@property (nonatomic, readonly, copy, nullable) NSString *subAdministrativeArea; // county, eg. Santa Clara
+86:@property (nonatomic, readonly, copy, nullable) NSString *postalCode; // zip code, eg. 95014
+87:@property (nonatomic, readonly, copy, nullable) NSString *ISOcountryCode; // eg. US
+88:@property (nonatomic, readonly, copy, nullable) NSString *country; // eg. United States
+89:@property (nonatomic, readonly, copy, nullable) NSString *inlandWater; // eg. Lake Tahoe
+90:@property (nonatomic, readonly, copy, nullable) NSString *ocean; // eg. Pacific Ocean
+91:@property (nonatomic, readonly, copy, nullable) NSArray<NSString *> *areasOfInterest; // eg. Golden Gate Park
+95:@property (nonatomic, nullable, readonly) CNPostalAddress *postalAddress API_DEPRECATED("Use either GeoToolbox.PlaceDescriptor or MapKit", macos(10.13, API_TO_BE_DEPRECATED), ios(11.0, API_TO_BE_DE
+## MKReverseGeocodingRequest / MKGeocodingRequest
+MKAddress.h
+MKAddressFilter.h
+MKAddressRepresentations.h
+MKDirections.h
+MKDirectionsRequest.h
+MKDirectionsResponse.h
+MKDirectionsTypes.h
+MKGeocodingRequest.h
+MKLocalPointsOfInterestRequest.h
+MKLocalSearch.h
+MKLocalSearchCompleter.h
+MKLocalSearchRequest.h
+MKLocalSearchResponse.h
+MKLookAroundScene.h
+MKLookAroundSceneRequest.h
+MKLookAroundSnapshot.h
+MKLookAroundSnapshotOptions.h
+MKLookAroundSnapshotter.h
+MKLookAroundViewController.h
+MKMapItem.h
+MKMapItemAnnotation.h
+MKMapItemDetailViewController.h
+MKMapItemIdentifier.h
+MKMapItemRequest.h
+MKReverseGeocoder.h
+MKReverseGeocodingRequest.h
+NSUserActivity+MKMapItem.h
+/MapKit.framework/Headers/MKReverseGeocodingRequest.h:13:API_AVAILABLE(ios(26.0), visionos(26.0), macos(26.0), tvos(26.0), watchos(26.0))
+/MapKit.framework/Headers/MKReverseGeocodingRequest.h:14:@interface MKReverseGeocodingRequest : NSObject
+/MapKit.framework/Headers/MKReverseGeocodingRequest.h:16:@property (nonatomic, readonly, getter=isCancelled) BOOL cancelled;
+/MapKit.framework/Headers/MKReverseGeocodingRequest.h:17:@property (nonatomic, readonly, getter=isLoading) BOOL loading;
+/MapKit.framework/Headers/MKReverseGeocodingRequest.h:19:@property (nonatomic, readonly, copy) CLLocation *location;
+/MapKit.framework/Headers/MKReverseGeocodingRequest.h:20:@property (nonatomic, nullable, strong) NSLocale *preferredLocale;
+/MapKit.framework/Headers/MKAddress.h:12:API_AVAILABLE(ios(26.0), visionos(26.0), macos(26.0), tvos(26.0), watchos(26.0))
+/MapKit.framework/Headers/MKAddress.h:13:@interface MKAddress : NSObject
+/MapKit.framework/Headers/MKAddress.h:20:@property (nonatomic, readonly, copy) NSString *fullAddress;
+/MapKit.framework/Headers/MKAddress.h:21:@property (nonatomic, readonly, copy, nullable) NSString *shortAddress;
+/MapKit.framework/Headers/MKAddressRepresentations.h:21:} NS_SWIFT_NAME(MKAddressRepresentations.ContextStyle) API_AVAILABLE(ios(26.0), visionos(26.
+/MapKit.framework/Headers/MKAddressRepresentations.h:24:API_AVAILABLE(ios(26.0), visionos(26.0), macos(26.0), tvos(26.0), watchos(26.0))
+/MapKit.framework/Headers/MKAddressRepresentations.h:25:@interface MKAddressRepresentations : NSObject
+/MapKit.framework/Headers/MKAddressRepresentations.h:36:@property (nonatomic, readonly, copy, nullable) NSString *cityName;
+/MapKit.framework/Headers/MKAddressRepresentations.h:39:@property (nonatomic, readonly, copy, nullable) NSString *cityWithContext;
+/MapKit.framework/Headers/MKAddressRepresentations.h:45:@property (nonatomic, readonly, copy, nullable) NSString *regionName;
+/MapKit.framework/Headers/MKAddressRepresentations.h:48:@property (nonatomic, readonly, copy, nullable) NSString *regionCode NS_REFINED_FOR_SWIFT;
+## CLLocationManager.h select
+13:#import <CoreLocation/CLLocationUpdater.h>
+64:	kCLAuthorizationStatusAuthorizedAlways API_AVAILABLE(macos(10.12), ios(8.0)) API_UNAVAILABLE(visionos),
+73:	kCLAuthorizationStatusAuthorizedWhenInUse API_AVAILABLE(ios(8.0)) API_UNAVAILABLE(macos),
+79:	kCLAuthorizationStatusAuthorized API_DEPRECATED("Use kCLAuthorizationStatusAuthorizedAlways", ios(2.0, 8.0)) API_AVAILABLE(macos(10.6)) API_UNAVAILABLE(watchos, tvos, visionos) = kCLAuthorizationStatusAuthorizedAlways
+172:+ (BOOL)headingAvailable API_AVAILABLE(ios(4.0), macos(10.7), watchos(2.0)) API_UNAVAILABLE(tvos);
+180:+ (BOOL)significantLocationChangeMonitoringAvailable API_AVAILABLE(ios(4.0), macos(10.7)) API_UNAVAILABLE(watchos, tvos);
+189:+ (BOOL)isMonitoringAvailableForClass:(Class)regionClass API_AVAILABLE(ios(7.0), macos(10.10)) API_UNAVAILABLE(watchos, tvos);
+197:+ (BOOL)regionMonitoringAvailable API_DEPRECATED_WITH_REPLACEMENT("+isMonitoringAvailableForClass:", ios(4.0, 7.0), macos(10.8, 10.10)) API_UNAVAILABLE(watchos, tvos);
+203: *      Deprecated. Use +isMonitoringAvailableForClass: and -authorizationStatus instead.
+205:+ (BOOL)regionMonitoringEnabled API_DEPRECATED("Use +isMonitoringAvailableForClass: and -authorizationStatus instead", ios(4.0, 6.0), macos(10.8, 10.10)) API_UNAVAILABLE(watchos, tvos);
+214:+ (BOOL)isRangingAvailable API_AVAILABLE(ios(7.0), macos(10.15)) API_UNAVAILABLE(watchos, tvos);
+217: *  authorizationStatus
+222:@property (nonatomic, readonly) CLAuthorizationStatus authorizationStatus API_AVAILABLE(ios(14.0), macos(11.0), watchos(7.0), tvos(14.0));
+224: *  authorizationStatus
+227: *      Deprecated.  Use the instance property authorizationStatus instead.
+229:+ (CLAuthorizationStatus)authorizationStatus API_DEPRECATED_WITH_REPLACEMENT("-authorizationStatus", ios(4.2, 14.0), macos(10.7, 11.0), watchos(1.0, 7.0), tvos(9.0, 14.0));
+232: *  accuracyAuthorization
+238: *      Note that this property should generally be interpreted in the context of the authorizationStatus
+239: *      property.  For example, if authorizationStatus == kCLAuthorizationStatusNotDetermined then accurate
+240: *      location information cannot be received even when accuracyAuthorization is
+243:@property (nonatomic, readonly) CLAccuracyAuthorization accuracyAuthorization API_AVAILABLE(ios(14.0), macos(11.0), watchos(7.0), tvos(14.0));
+251: *      If the calling application has authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse,
+255: *      If the calling application has authorizationStatus == kCLAuthorizationStatusAuthorizedAlways,
+258:@property (nonatomic, readonly, getter=isAuthorizedForWidgetUpdates) BOOL authorizedForWidgetUpdates API_AVAILABLE(ios(14.0), macos(11.0)) API_UNAVAILABLE(watchos, tvos);
+268:@property(readonly, nonatomic) BOOL locationServicesEnabled API_DEPRECATED_WITH_REPLACEMENT("+locationServicesEnabled", ios(2.0, 4.0), macos(10.15, 10.15)) API_UNAVAILABLE(watchos, tvos, visionos);
+280:@property(copy, nonatomic, nullable) NSString *purpose API_DEPRECATED("Set the purpose string in Info.plist using key NSLocationUsageDescription", ios(3.2, 6.0), macos(10.7, 11.0)) API_UNAVAILABLE(watchos, tvos, visionos);
+290:@property(assign, nonatomic) CLActivityType activityType API_AVAILABLE(ios(6.0), macos(10.15), watchos(4.0)) API_UNAVAILABLE(tvos);
+322:@property(assign, nonatomic) BOOL pausesLocationUpdatesAutomatically API_AVAILABLE(ios(6.0), macos(10.15)) API_UNAVAILABLE(watchos, tvos);
+345: *      See -requestWhenInUseAuthorization and -requestAlwaysAuthorization for
+348:@property(assign, nonatomic) BOOL allowsBackgroundLocationUpdates API_AVAILABLE(ios(9.0), macos(10.15), watchos(4.0)) API_UNAVAILABLE(tvos, visionos);
+## CLLocation.h props
+## CLLocationUI
+CLLocationButton.h
+CoreLocationUI.h

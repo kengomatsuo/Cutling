@@ -1,0 +1,32 @@
+## UITextInput.h UITextDocumentProxy
+## UITextContentType names (UITextInputTraits.h)
+UITextContentTypeAddressCity  UITextContentTypeAddressCityAndState  UITextContentTypeAddressState  UITextContentTypeBirthdate  UITextContentTypeBirthdateDay  UITextContentTypeBirthdateMonth  UITextContentTypeBirthdateYear  UITextContentTypeCellularEID  UITextContentTypeCellularIMEI  UITextContentTypeCellularNAL  UITextContentTypeCountryName  UITextContentTypeCreditCardExpiration  UITextContentTypeCreditCardExpirationMonth  UITextContentTypeCreditCardExpirationYear  UITextContentTypeCreditCardFamilyName  UITextContentTypeCreditCardGivenName  UITextContentTypeCreditCardMiddleName  UITextContentTypeCreditCardName  UITextContentTypeCreditCardNumber  UITextContentTypeCreditCardSecurityCode  UITextContentTypeCreditCardType  UITextContentTypeDateTime  UITextContentTypeEmailAddress  UITextContentTypeFamilyName  UITextContentTypeFlightNumber  UITextContentTypeFullStreetAddress  UITextContentTypeGivenName  UITextContentTypeJobTitle  UITextContentTypeLocation  UITextContentTypeMiddleName  UITextContentTypeName  UITextContentTypeNamePrefix  UITextContentTypeNameSuffix  UITextContentTypeNewPassword  UITextContentTypeNickname  UITextContentTypeOneTimeCode  UITextContentTypeOrganizationName  UITextContentTypePassword  UITextContentTypePostalCode  UITextContentTypeShipmentTrackingNumber  UITextContentTypeSublocality  UITextContentTypeTelephoneNumber  UITextContentTypeURL  UITextContentTypeUsername  22-@property (nullable, nonatomic, readonly) NSString *documentContextBeforeInput;
+23-@property (nullable, nonatomic, readonly) NSString *documentContextAfterInput;
+24-@property (nullable, nonatomic, readonly) NSString *selectedText API_AVAILABLE(ios(11.0)) API_UNAVAILABLE(watchos);
+26-// An app can store UITextInputMode in its document context, when user switches to the document, the host will pass the inputMode as documentInputMode to the UIInputViewController,
+27-// which can switch to the inputMode and set primaryLanguage if it supports it.
+28-@property (nullable, nonatomic, readonly) UITextInputMode *documentInputMode API_AVAILABLE(ios(10.0)) API_UNAVAILABLE(watchos);
+30-@property (nonatomic, readonly, copy) NSUUID *documentIdentifier API_AVAILABLE(ios(11.0)) API_UNAVAILABLE(watchos);
+32-- (void)adjustTextPositionByCharacterOffset:(NSInteger)offset;
+34-// Setting marked text either replaces the existing marked text or, if none is present, inserts it in place of the current input location.
+35-- (void)setMarkedText:(NSString *)markedText selectedRange:(NSRange)selectedRange API_AVAILABLE(ios(13.0)) API_UNAVAILABLE(watchos);
+37-// Unmark the currently marked text.
+38-- (void)unmarkText API_AVAILABLE(ios(13.0)) API_UNAVAILABLE(watchos);
+42-UIKIT_EXTERN API_AVAILABLE(ios(8.0)) API_UNAVAILABLE(watchos) NS_SWIFT_UI_ACTOR
+45-@property (nullable, nonatomic, strong) UIInputView *inputView;
+47-@property (nonatomic, readonly) id <UITextDocumentProxy> textDocumentProxy;
+49-// The primary language of the UIInputViewController.  A BCP 47 language identifier such as en-US
+50-// If specified, this will supersede any PrimaryLanguage in the Info.plist.
+51-@property (nullable, nonatomic, copy) NSString *primaryLanguage;
+53-// When this property is set to YES, the system dictation key, if provided, will be disabled. 
+54-@property (nonatomic) BOOL hasDictationKey;
+56-@property (nonatomic, readonly) BOOL hasFullAccess API_AVAILABLE(ios(11.0)) API_UNAVAILABLE(watchos);
+57-@property (nonatomic, readonly) BOOL needsInputModeSwitchKey API_AVAILABLE(ios(11.0)) API_UNAVAILABLE(watchos);
+59-- (void)dismissKeyboard;
+60-- (void)advanceToNextInputMode;
+62-// Launch inputMode list above the view when long pressing or swiping up from the view,
+63-// Advance to nextInputMode when short tapping on the view.
+64-// Example: [KeyboardButton addTarget:self action:@selector(handleInputModeListFromView:withEvent:) forControlEvents:UIControlEventAllTouchEvents].
+65-- (void)handleInputModeListFromView:(nonnull UIView *)view withEvent:(nonnull UIEvent *)event API_AVAILABLE(ios(10.0)) API_UNAVAILABLE(watchos);
+67-// This will not provide a complete repository of a language's vocabulary.
+68-// It is solely intended to supplement existing lexicons.

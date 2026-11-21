@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+  <title>App Extension Programming Guide: Handling Common Scenarios</title>
+  <link rel="stylesheet" type="text/css" href="../../../../Resources/1282/CSS/style-1.6.3.css" />
+  <link rel="stylesheet" type="text/css" href="../../../../Resources/1282/CSS/feedback-1.6.3.css" />
+  <meta charset='utf-8'> 
+<meta id="j-version" name="j-version" content="" />
+<meta id="build" name="build" content="c1e4c7a89af8f899a21cfa81fc33ba42" />
+<meta id="document-version" name="document-version" content="4.4.3" />
+<meta id="book-assignments" name="book-assignments" content="{Type/Guide}, {Topic/General}" />
+<meta scheme="apple_ref" id="identifier" name="identifier" content="//apple_ref/doc/uid/TP40014214" />
+<meta id="chapterId" name="chapterId" content="TP40014214-CH21">
+<meta id="book-title" name="book-title" content="App Extension Programming Guide" />
+<meta id="book-resource-type" name="book-resource-type" content="Guide" />
+<meta id="book-root" name="book-root" content="./" />
+<meta id="book-json" name="book-json" content="book.json">
+<meta id="date" name="date" content="2017-10-19" />
+<meta id="description" name="description" content="Describes how to develop an app extension, which is an executable that adds functionality to other apps." />
+<meta id="IndexTitle" name="IndexTitle" content="" />
+<meta id="resources-uri" name="resources-uri" content="../../../../Resources/1282">
+<link id="book-index-page" rel="Start" title="" type="text/html" href="./index.html">
+<!-- , next_chapter: next_chapter, previous_chapter: previous_chapter -->
+<link id="next-page" rel="Next" type="text/html" href="">
+<link id="previous-page" rel="Prev" type="text/html" href="">
+<meta id="devcenter" name="devcenter" content="<!-- DEVCENTER_NAME -->" />
+<meta id="devcenter-url" name="devcenter-url" content="<!-- DEVCENTER_URL -->" />
+<meta id="reflib" name="reflib" content="<!-- REFLIB_NAME -->" />
+
+<meta id="xcode-display" name="xcode-display" content="render" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta id="platforms" name="platforms" content="OS X,iOS,tvOS,watchOS">
+</head>
+
+  <body id="conceptual_flow_with_tasks" class="jazz">
+    
+    <header id="ios_header" class="hideOnPrint hideInXcode">
+  <div class="content-wrapper">
+    <p class="header-text">
+    	<a href="../../../../navigation/">Documentation Archive
+ 		</a>
+ </p>
+    <p id="wwdr"><img id="apple_logo" src="../../../../Resources/1282/Images/apple2.png" height="14px" width="12px" aria-hidden="true" /><a href="https://developer.apple.com">Developer</a></p>
+  </div>
+</header>
+
+    <section id="valence">
+  <div class="content-wrapper">
+    <p id="hierarchial_navigation">
+      <span id="book_title">App Extension Programming Guide</span>
+    </p>
+    <form id="search" class="hideInXcode" method="get" action="/search/index.php" accept-charset="utf-8" autocomplete="off">
+  <input type="search" id="ssi_SearchField" placeholder="Search Documentation Archive" name="q" autocomplete="off" tabindex="2" />
+</form>
+
+      
+   
+   
+
+
+
+    <img id="shortstack" src="../../../../Resources/1282/Images/shortstack_2x.png"/>
+  </div>
+</section>
+    <div class="content-wrapper">
+      <nav id="navigator" class="book-parts hideInXcode" role="navigation">
+    <ul class="nav-parts">
+        <li data-id="//apple_ref/doc/uid/TP40014214-CH4-SW1"
+            class="part-name nav-part-active open-part">
+            <a href="index.html#//apple_ref/doc/uid/TP40014214-CH20-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH20-SW1">App Extension Essentials</a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="index.html#//apple_ref/doc/uid/TP40014214-CH20-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH20-SW1">App Extensions Increase Your Impact</a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="ExtensionOverview.html#//apple_ref/doc/uid/TP40014214-CH2-SW2" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH2-SW2">Understand How an App Extension Works</a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="ExtensionCreation.html#//apple_ref/doc/uid/TP40014214-CH5-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH5-SW1">Creating an App Extension</a>
+              </li>
+              <li class="nav-chapter nav-current-chapter">
+              	<a href="#//apple_ref/doc/uid/TP40014214-CH21-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH21-SW1">Handling Common Scenarios</a>
+              </li>
+          </ul>
+        </li>
+        <li data-id="//apple_ref/doc/uid/TP40014214-CH14-SW1"
+            class="part-name">
+            <a href="Action.html#//apple_ref/doc/uid/TP40014214-CH13-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH13-SW1">App Extension Types</a>
+          <ul class="nav-chapters">
+              <li class="nav-chapter">
+              	<a href="Action.html#//apple_ref/doc/uid/TP40014214-CH13-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH13-SW1">Action</a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="AudioUnit.html#//apple_ref/doc/uid/TP40014214-CH22-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH22-SW1">Audio Unit</a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="ContentBlocker.html#//apple_ref/doc/uid/TP40014214-CH26-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH26-SW1">Content Blocker</a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="CustomKeyboard.html#//apple_ref/doc/uid/TP40014214-CH16-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH16-SW1">Custom Keyboard</a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="FileProvider.html#//apple_ref/doc/uid/TP40014214-CH18-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH18-SW1">Document Provider</a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Finder.html#//apple_ref/doc/uid/TP40014214-CH15-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH15-SW1">Finder Sync</a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Photos.html#//apple_ref/doc/uid/TP40014214-CH17-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH17-SW1">Photo Editing</a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Share.html#//apple_ref/doc/uid/TP40014214-CH12-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH12-SW1">Share</a>
+              </li>
+              <li class="nav-chapter">
+              	<a href="Today.html#//apple_ref/doc/uid/TP40014214-CH11-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH11-SW1">Today</a>
+              </li>
+          </ul>
+        </li>
+        <li data-id="revision-history"
+            class="part-name">
+          <a href="RevisionHistory.html#//apple_ref/doc/uid/TP40014214-CH99-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH99-SW1">Revision History</a>
+          <ul class="nav-chapters">
+            <li class="nav-chapter">
+              <a href="RevisionHistory.html#//apple_ref/doc/uid/TP40014214-CH99-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH99-SW1">Document Revision History</a>
+            </li>
+          </ul>
+        </li>
+    </ul>
+</nav>
+
+      <menu id="bashful" type="toolbar">
+  <div class="shield"></div>
+  <menuitem id="jump_to" class="menu-bar-item closed">
+  <span>On This Page</span>
+  <div class="chevron">
+    <div class="chevy chevron-left"></div>
+    <div class="chevy chevron-right"></div>
+  </div>
+  <menu type="list" class="details">
+      <ul class="list-bullet">
+          <li class="item">
+            <a href="#//apple_ref/doc/uid/TP40014214-CH21-SW5">Using an Embedded Framework to Share Code</a>
+          </li>
+          <li class="item">
+            <a href="#//apple_ref/doc/uid/TP40014214-CH21-SW6">Sharing Data with Your Containing App</a>
+          </li>
+          <li class="item">
+            <a href="#//apple_ref/doc/uid/TP40014214-CH21-SW12">Accessing a Webpage</a>
+          </li>
+          <li class="item">
+            <a href="#//apple_ref/doc/uid/TP40014214-CH21-SW2">Performing Uploads and Downloads</a>
+          </li>
+          <li class="item">
+            <a href="#//apple_ref/doc/uid/TP40014214-CH21-SW8">Declaring Supported Data Types for a Share or Action Extension</a>
+          </li>
+          <li class="item">
+            <a href="#//apple_ref/doc/uid/TP40014214-CH21-SW3">Deploying a Containing App to Older Versions of iOS</a>
+          </li>
+      </ul>
+  </menu>
+</menuitem>
+
+</menu>
+<div class="pixel-line"></div>
+<div class="rubber-band-gap"></div>
+<article class="chapter">
+  <a name="//apple_ref/doc/uid/TP40014214-CH21"></a><a name="//apple_ref/doc/uid/TP40014214-CH21-SW1"></a>
+
+  <h2 class='chapter-name'>Handling Common Scenarios</h2>
+
+
+  
+  	<section class="section">
+  		<p class="para">
+  
+</p>
+<p class="para">
+  As you write custom code that performs your app extension’s task, you may need to handle some scenarios that are common to many types of extensions. Use the code and recommendations in this chapter to help you implement your solutions.
+</p>
+
+		</section> 
+
+
+  <section class="section">
+  <a name="//apple_ref/doc/uid/TP40014214-CH21-SW5"></a>
+  <h3 class="section-name" tabindex="0">Using an Embedded Framework to Share Code</h3>
+  <p class="para">
+  
+</p><p class="para">
+  You can create an embedded framework to share code between your app extension and its containing app. For example, if you develop an image filter for use in your Photo Editing extension as well as in its containing app, put the filter’s code in a framework and embed the framework in both targets.
+</p><p class="para">
+  
+</p><p class="para">
+  Make sure your embedded framework does not contain APIs unavailable to app extensions, as described in <span class="x-name"><a href="ExtensionOverview.html#//apple_ref/doc/uid/TP40014214-CH2-SW6" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH2-SW6">Some APIs Are Unavailable to App Extensions</a></span>. If you have a custom framework that does contain such APIs, you can safely link to it from your containing app but cannot share that code with the app’s contained extensions. The App Store rejects any app extension that links to such frameworks or that otherwise uses unavailable APIs.
+</p><p class="para">
+  To configure an app extension target to use an embedded framework, set the target’s “Require Only App-Extension-Safe API” build setting to Yes. If you don’t, Xcode reminds you to do so by displaying the warning <em>“linking against dylib not safe for use in application extensions”</em>.
+</p><div class="important clear">
+  <a name="//apple_ref/doc/uid/TP40014214-CH21-DontLinkElementID_6"></a>
+  <aside class="aside">
+    <p class="aside-title">Important
+    </p>
+    <p class="para">A containing app that links to an embedded framework must include the arm64 (iOS) or x86_64 (OS X) architecture build setting or it will be rejected by the App Store. (As described in <span class="x-name"><a href="ExtensionCreation.html#//apple_ref/doc/uid/TP40014214-CH5-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH5-SW1">Creating an App Extension</a></span>, all app extensions must include the appropriate 64-bit architecture build setting.)
+    </p>
+    
+  </aside>
+</div><p class="para">
+  When configuring your Xcode project, you must choose “Frameworks” as the destination for your embedded framework in the Copy Files build phase.
+</p><div class="important clear">
+  <a name="//apple_ref/doc/uid/TP40014214-CH21-DontLinkElementID_7"></a>
+  <aside class="aside">
+    <p class="aside-title">Important
+    </p>
+    <p class="para">Always choose “Frameworks” as your Copy Files build phase destination. If you instead choose the “SharedFramework” destination, the App Store will reject your submission.
+    </p>
+    
+  </aside>
+</div><p class="para">
+  You can make a containing app available to users running iOS 7 or earlier, but then must take precautions to safely link embedded frameworks when running in iOS 8 or later. Read <span class="x-name"><a href="#//apple_ref/doc/uid/TP40014214-CH21-SW3" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH21-SW3">Deploying a Containing App to Older Versions of iOS</a></span> for details.
+</p><p class="para">
+  For more on creating and using embedded frameworks, watch the WWDC 2014 video “Building Modern Frameworks,” available at <a href="https://developer.apple.com/videos/wwdc/2014/#416">https://developer.apple.com/videos/wwdc/2014</a>.
+</p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014214-CH21-SW6"></a>
+  <h3 class="section-name" tabindex="0">Sharing Data with Your Containing App</h3>
+  <p class="para">
+  
+</p><p class="para">
+  
+</p><p class="para">
+  Even though an app extension bundle is nested within its containing app’s bundle, the running app extension and containing app have no direct access to each other’s containers.
+</p><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014214-CH21-SW10"></a>
+  <aside class="aside">
+    <p class="aside-title">Background
+    </p>
+    	<p class="para">To learn about containers, read <a href="../../../FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html#//apple_ref/doc/uid/TP40010672-CH2-SW12" data-renderer-version="1" target="_self">About the iOS File System</a> in <em class="u-book"><a href="../../../FileManagement/Conceptual/FileSystemProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40010672" data-renderer-version="1" target="_self">File System Programming Guide</a></em>.
+    	</p>
+    
+  </aside>
+</div><p class="para">
+  You can, however, enable data sharing. For example, you might want to allow your app extension and its containing app to share a single large set of data, such as prerendered assets. 
+</p><p class="para">
+  To enable data sharing, use Xcode or the Developer portal to enable app groups for the containing app and its contained app extensions. Next, register the app group in the portal and specify the app group to use in the containing app. To learn about working with app groups, see <a href="../../../Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW19" data-renderer-version="1" target="_self">Adding an App to an App Group</a>.
+</p><p class="para">
+  After you enable app groups, an app extension and its containing app can both use the <code class="code-voice u-api"><a href="../../../LegacyTechnologies/WebObjects/WebObjects_3.5/Reference/Frameworks/ObjC/Foundation/Classes/NSUserDefaults/Description.html#//apple_ref/occ/cl/NSUserDefaults" data-renderer-version="1">NSUserDefaults</a></code> API to share access to user preferences. To enable this sharing, use the <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/foundation/userdefaults/1409957-init" class="urlLink">initWithSuiteName:</a></code> method to instantiate a new <code class="code-voice u-api-no-link">NSUserDefaults</code> object, passing in the identifier of the shared group. For example, a Share extension might update the user’s most recently used sharing account, using code like this:
+</p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="">
+        <ol class="code-lines">
+            <li><code class="code-voice">// Create and share access to an NSUserDefaults object</code></li>
+            <li><code class="code-voice">NSUserDefaults *mySharedDefaults = [[NSUserDefaults alloc] initWithSuiteName: @&quot;com.example.domain.MyShareExtension&quot;];</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice">// Use the shared user defaults object to update the user&#39;s account</code></li>
+            <li><code class="code-voice">[mySharedDefaults setObject:theAccountName forKey:@&quot;lastAccountName&quot;];</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para">
+  <span class="x-name-no-link">Figure 4-1</span>shows how an extension and its containing app can use a shared container to share data.
+</p><p class="para">
+  
+</p><figure class="figure">
+  <a name="//apple_ref/doc/uid/TP40014214-CH21-SW11"></a>
+  <span class="caption"><strong class="caption-number">Figure 4-1</strong>An app extension’s container is distinct from its containing app’s container</span>
+  <img src="Art/app_extensions_container_restrictions_2x.png" alt="image: ../Art/app_extensions_container_restrictions_2x.png" width="588" height="255" />
+</figure><p class="para">
+  
+</p><div class="important clear">
+  <a name="//apple_ref/doc/uid/TP40014214-CH21-DontLinkElementID_8"></a>
+  <aside class="aside">
+    <p class="aside-title">Important
+    </p>
+    <p class="para">You must set up a shared container if your app extension uses the <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/foundation/urlsession" class="urlLink">NSURLSession</a></code> class to perform a background upload or download, so that both the extension and its containing app can access the transferred data. To learn how to perform an upload or download in the background, see <span class="x-name"><a href="#//apple_ref/doc/uid/TP40014214-CH21-SW2" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH21-SW2">Performing Uploads and Downloads</a></span>.
+    </p>
+    
+  </aside>
+</div><p class="para">
+  When you set up a shared container, the containing app—and each contained app extension that you allow to participate in data sharing—have read and write access to the shared container. To avoid data corruption, you must synchronize data accesses. 
+</p><p class="para">
+  Use Core Data, SQLite, or Posix locks to help coordinate data access in a shared container.
+</p><p class="para">
+  
+</p><p class="para">
+  
+</p><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014214-CH21-SW14"></a>
+  <aside class="aside">
+    <p class="aside-title">Version Note
+    </p>
+    	<p class="para">In iOS 8.2 and later, you can alternatively employ the <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/uikit/uidocument" class="urlLink">UIDocument</a></code> class to coordinate shared data access.
+    	</p>
+    <p class="para">
+  In iOS 9 and later, you can employ the <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/foundation/nsfilecoordinator" class="urlLink">NSFileCoordinator</a></code> class directly for shared data access, but if you do this you <em>must</em> remove your <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/foundation/nsfilepresenter" class="urlLink">NSFilePresenter</a></code> objects when your app extension transitions into the background.
+</p>
+
+  </aside>
+</div><p class="para">
+  
+</p><p class="para">
+  
+</p><p class="para">
+  
+</p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014214-CH21-SW12"></a>
+  <h3 class="section-name" tabindex="0">Accessing a Webpage</h3>
+  <p class="para">
+  In Share extensions (on both platforms) and Action extensions (iOS only), you can give users access to web content by asking Safari to run a JavaScript file and return the results to the extension. You can also use the JavaScript file to access a webpage before your extension runs (on both platforms), or to access or modify the webpage after your extension completes its task (iOS only). For example, a Share extension can help users share content from a webpage, or an Action extension in iOS might display a translation of the user’s current webpage.
+</p><p class="para">
+  To add webpage access and manipulation to your app extension, perform the following steps:
+</p><ul class="list-bullet">
+  <li class="item"><p class="para">
+  Create a JavaScript file that includes a global object named <code class="code-voice">ExtensionPreprocessingJS</code>. Assign a new instance of your custom JavaScript class to this object.
+</p>
+</li><li class="item"><p class="para">
+  In the <code class="code-voice">NSExtensionActivationRule</code> dictionary in your app extension’s <code class="code-voice">Info.plist</code> file, give the <code class="code-voice">NSExtensionActivationSupportsWebPageWithMaxCount</code> key a nonzero value. (To learn more about the activation rule dictionary, see <span class="x-name"><a href="#//apple_ref/doc/uid/TP40014214-CH21-SW8" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH21-SW8">Declaring Supported Data Types for a Share or Action Extension</a></span>.)
+</p>
+</li><li class="item"><p class="para">
+  When your app extension starts, use the <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/foundation/nsitemprovider" class="urlLink">NSItemProvider</a></code> class to get the results returned by the execution of the JavaScript file.
+</p>
+</li><li class="item"><p class="para">
+  In an iOS app extension, pass values to the JavaScript file if you want Safari to modify the webpage when your extension completes its task. (You use the <code class="code-voice u-api-no-link">NSItemProvider</code> class in this step, too.)
+</p>
+</li>
+</ul><p class="para">
+  To tell Safari that your app extension includes a JavaScript file, add the <code class="code-voice">NSExtensionJavaScriptPreprocessingFile</code> key to the <code class="code-voice">NSExtensionAttributes</code> dictionary. The value of the key should be the file that you want Safari to load before your extension starts. For example:
+</p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="">
+        <ol class="code-lines">
+            <li><code class="code-voice">&lt;key&gt;NSExtensionAttributes&lt;/key&gt;</code></li>
+            <li><code class="code-voice">        &lt;dict&gt;</code></li>
+            <li><code class="code-voice">            &lt;key&gt;NSExtensionJavaScriptPreprocessingFile&lt;/key&gt;</code></li>
+            <li><code class="code-voice">            &lt;string&gt;MyJavaScriptFile&lt;/string&gt; &lt;!-- Do not include the &quot;.js&quot; filename extension --&gt;</code></li>
+            <li><code class="code-voice">        &lt;/dict&gt;</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para">
+  On both platforms, your custom JavaScript class can define a <code class="code-voice">run()</code> function that Safari invokes as soon as it loads the JavaScript file. In the <code class="code-voice">run()</code> function, Safari provides an argument named <code class="code-voice">completionFunction</code>, with which you can pass results to your app extension in the form of a key-value object.
+</p><p class="para">
+  In iOS, you can also define a <code class="code-voice">finalize()</code> function that Safari invokes when your app extension calls <code class="code-voice">completeRequestReturningItems:completion:</code> at the end of its task. A <code class="code-voice">finalize()</code> function can use items your extension passes in <code class="code-voice">completeRequestReturningItems:completion:</code> to change the webpage as desired. 
+</p><p class="para">
+  For example, if your iOS app extension needs the base URI of a webpage when it starts and it changes the background color of the webpage when it stops, you might write JavaScript code like that shown in <span class="x-name-no-link">Listing 4-1</span>.
+</p><section class="code-listing">
+  <a name="//apple_ref/doc/uid/TP40014214-CH21-SW13"></a>
+    <span class="caption"><strong class="caption-number">Listing 4-1</strong>Example <code class="code-voice">run()</code> and <code class="code-voice">finalize()</code> functions</span>
+  <div class="code-sample">
+      <div class="">
+        <ol class="code-lines">
+            <li><code class="code-voice">var MyExtensionJavaScriptClass = function() {};</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice">MyExtensionJavaScriptClass.prototype = {</code></li>
+            <li><code class="code-voice">    run: function(arguments) {</code></li>
+            <li><code class="code-voice">    // Pass the baseURI of the webpage to the extension.</code></li>
+            <li><code class="code-voice">        arguments.completionFunction({&quot;baseURI&quot;: document.baseURI});</code></li>
+            <li><code class="code-voice">    },</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice">// Note that the finalize function is only available in iOS.</code></li>
+            <li><code class="code-voice">    finalize: function(arguments) {</code></li>
+            <li><code class="code-voice">        // arguments contains the value the extension provides in [NSExtensionContext completeRequestReturningItems:completion:].</code></li>
+            <li><code class="code-voice">    // In this example, the extension provides a color as a returning item.</code></li>
+            <li><code class="code-voice">    document.body.style.backgroundColor = arguments[&quot;bgColor&quot;];</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">};</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice">// The JavaScript file must contain a global object named &quot;ExtensionPreprocessingJS&quot;.</code></li>
+            <li><code class="code-voice">var ExtensionPreprocessingJS = new MyExtensionJavaScriptClass;</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para">
+  On both platforms, you need to write code to handle the values that get passed back from your <code class="code-voice">run()</code> function. To get the dictionary of results, specify the <code class="code-voice">kUTTypePropertyList</code> type identifier in the <code class="code-voice u-api-no-link">NSItemProvider</code> method <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/foundation/nsitemprovider/1403900-loaditemfortypeidentifier" class="urlLink">loadItemForTypeIdentifier:options:completionHandler:</a></code>. In the dictionary, use the <code class="code-voice">NSExtensionJavaScriptPreprocessingResultsKey</code> key to get the result item. For example, to get the base URI passed in the <code class="code-voice">run()</code> function in <span class="x-name"><a href="#//apple_ref/doc/uid/TP40014214-CH21-SW13" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH21-SW13">Listing 4-1</a></span>, you might use code like this:
+</p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="">
+        <ol class="code-lines">
+            <li><code class="code-voice">[imageProvider loadItemForTypeIdentifier:kUTTypePropertyList options:nil completionHandler:^(NSDictionary *item, NSError *error) {</code></li>
+            <li><code class="code-voice">    NSDictionary *results = (NSDictionary *)item;</code></li>
+            <li><code class="code-voice">        NSString *baseURI = [[results objectForKey:NSExtensionJavaScriptPreprocessingResultsKey] objectForKey:@&quot;baseURI&quot;];</code></li>
+            <li><code class="code-voice">    }];</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para">
+  To pass a value to the <code class="code-voice">finalize()</code> function when your iOS app extension finishes its task, use the <code class="code-voice u-api-no-link">NSItemProvider</code>  <code class="code-voice u-api-no-link">initWithItem:typeIdentifier:</code> method to pack the value in the dictionary for the <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/foundation/nsextensionjavascriptfinalizeargumentkey" class="urlLink">NSExtensionJavaScriptFinalizeArgumentKey</a></code> key. For example, to specify red for the background color used in the <code class="code-voice">finalize()</code> function in <span class="x-name"><a href="#//apple_ref/doc/uid/TP40014214-CH21-SW13" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH21-SW13">Listing 4-1</a></span>, your extension might use code like this:
+</p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="">
+        <ol class="code-lines">
+            <li><code class="code-voice"> NSExtensionItem *extensionItem = [[NSExtensionItem alloc] init];</code></li>
+            <li><code class="code-voice">    extensionItem.attachments = @[[[NSItemProvider alloc] initWithItem: @{NSExtensionJavaScriptFinalizeArgumentKey: @{@&quot;bgColor&quot;:@&quot;red&quot;}} typeIdentifier:(NSString *)kUTTypePropertyList]];</code></li>
+            <li><code class="code-voice">    [[self extensionContext] completeRequestReturningItems:@[extensionItem] completion:nil];</code></li>
+        </ol>
+      </div>
+  </div>
+</section>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014214-CH21-SW2"></a>
+  <h3 class="section-name" tabindex="0">Performing Uploads and Downloads</h3>
+  <p class="para">
+  
+</p><p class="para">
+  
+</p><p class="para">
+  Users tend to return to the host app immediately after they finish their task in your app extension. If the task involves a potentially lengthy upload or download, you need to ensure that it can finish after your extension gets terminated. To perform an upload or download, use the <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/foundation/urlsession" class="urlLink">NSURLSession</a></code> class to create a URL session and initiate a background upload or download task.
+</p><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014214-CH21-SW7"></a>
+  <aside class="aside">
+    <p class="aside-title">Note
+    </p>
+    	<p class="para">Recall that other types of background tasks, such as supporting VoIP or playing background audio, are not available to app extensions. For more information, see <span class="x-name"><a href="ExtensionCreation.html#//apple_ref/doc/uid/TP40014214-CH5-SW3" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH5-SW3">Respond to the Host App’s Request</a></span>.
+    	</p>
+    
+  </aside>
+</div><p class="para">
+  After your app extension initiates the upload or download task, the extension can complete the host app’s request and be terminated without affecting the outcome of the task. To learn more about how an extension handles the request from a host app, see <span class="x-name"><a href="ExtensionCreation.html#//apple_ref/doc/uid/TP40014214-CH5-SW3" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH5-SW3">Respond to the Host App’s Request</a></span>. In iOS, if your extension isn’t running when a background task completes, the system launches your containing app in the background and calls the <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622941-application" class="urlLink">application:handleEventsForBackgroundURLSession:completionHandler:</a></code> app delegate method.
+</p><div class="important clear">
+  <a name="//apple_ref/doc/uid/TP40014214-CH21-DontLinkElementID_9"></a>
+  <aside class="aside">
+    <p class="aside-title">Important
+    </p>
+    <p class="para">If your app extension initiates a background <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/foundation/urlsession" class="urlLink">NSURLSession</a></code> task, you must also set up a shared container that both the extension and its containing app can access. Use the <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/foundation/nsurlsessionconfiguration/1409450-sharedcontaineridentifier" class="urlLink">sharedContainerIdentifier</a></code> property of the <code class="code-voice u-api-no-link">NSURLSessionConfiguration</code> class to specify an identifier for the shared container so that you can access it later.
+    </p>
+    <p class="para">
+  Refer to <span class="x-name"><a href="#//apple_ref/doc/uid/TP40014214-CH21-SW6" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH21-SW6">Sharing Data with Your Containing App</a></span> for guidance on setting up a shared container.
+</p>
+
+  </aside>
+</div><p class="para">
+  <span class="x-name-no-link">Listing 4-2</span> shows one way to configure a URL session and use it to initiate a download.
+</p><section class="code-listing">
+  <a name="//apple_ref/doc/uid/TP40014214-CH21-SW4"></a>
+    <span class="caption"><strong class="caption-number">Listing 4-2</strong>An example of configuring an <code class="code-voice">NSURLSession</code> object and starting a download</span>
+  <div class="code-sample">
+      <div class="">
+        <ol class="code-lines">
+            <li><code class="code-voice">   NSURLSession *mySession = [self configureMySession];</code></li>
+            <li><code class="code-voice">   NSURL *url = [NSURL URLWithString:@&quot;http://www.example.com/LargeFile.zip&quot;];</code></li>
+            <li><code class="code-voice">   NSURLSessionTask *myTask = [mySession downloadTaskWithURL:url];</code></li>
+            <li><code class="code-voice">   [myTask resume];</code></li>
+            <li><code class="code-voice"> </code></li>
+            <li><code class="code-voice">- (NSURLSession *) configureMySession {</code></li>
+            <li><code class="code-voice">    if (!mySession) {</code></li>
+            <li><code class="code-voice">        NSURLSessionConfiguration* config = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:@“com.mycompany.myapp.backgroundsession”];</code></li>
+            <li><code class="code-voice">// To access the shared container you set up, use the sharedContainerIdentifier property on your configuration object.</code></li>
+            <li><code class="code-voice">config.sharedContainerIdentifier = @“com.mycompany.myappgroupidentifier”;</code></li>
+            <li><code class="code-voice">        mySession = [NSURLSession sessionWithConfiguration:config delegate:self delegateQueue:nil];</code></li>
+            <li><code class="code-voice">    }</code></li>
+            <li><code class="code-voice">    return mySession;</code></li>
+            <li><code class="code-voice">}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para">
+  
+</p><p class="para">
+  Because only one process can use a background session at a time, you need to create a different background session for the containing app and each of its app extensions. (Each background session should have a unique identifier.) It’s recommended that your containing app only use a background session that was created by one of its extensions when the app is launched in the background to handle events for that extension. If you need to perform other network-related tasks in your containing app, create different URL sessions for them.
+</p><p class="para">
+  If you need to complete the host app’s request before you initiate a background URL session, make sure that the code that creates and uses the session is efficient. After your app extension calls <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/foundation/nsextensioncontext/1411301-completerequest" class="urlLink">completeRequestReturningItems:completionHandler:</a></code> to tell the host app that its request is complete, the system can terminate your extension at any time.
+</p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014214-CH21-SW8"></a>
+  <h3 class="section-name" tabindex="0">Declaring Supported Data Types for a Share or Action Extension</h3>
+  <p class="para">
+  In your Share or Action extension, it’s likely that you can work with some types of data but not others. To ensure that a host app offers your extension only when the user has selected data of a type that you support, add the <code class="code-voice">NSExtensionActivationRule</code> key to your extension’s <code class="code-voice">Info.plist</code> property list file. You can also use this key to specify a maximum number of items of each type that your extension can handle. 
+</p><p class="para">
+  When your extension runs, the system compares the <code class="code-voice">NSExtensionActivationRule</code> key’s values with the information in an extension item’s <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/foundation/nsextensionitem/1416690-attachments" class="urlLink">attachments</a></code> property. For a complete list of keys you can use with this key, see <a href="../../Reference/InfoPlistKeyReference/Articles/AppExtensionKeys.html#//apple_ref/doc/uid/TP40014212-SW2" data-renderer-version="1" target="_self">Action Extension Keys</a>.
+</p><p class="para">
+  For example, to declare that your Share extension can support up to ten images, one movie, and one webpage URL, you might use the following dictionary for the value of the <code class="code-voice">NSExtensionAttributes</code> key:
+</p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="">
+        <ol class="code-lines">
+            <li><code class="code-voice">&lt;key&gt;NSExtensionAttributes&lt;/key&gt;</code></li>
+            <li><code class="code-voice">    &lt;dict&gt;</code></li>
+            <li><code class="code-voice">        &lt;key&gt;NSExtensionActivationRule&lt;/key&gt;</code></li>
+            <li><code class="code-voice">        &lt;dict&gt;</code></li>
+            <li><code class="code-voice">            &lt;key&gt;NSExtensionActivationSupportsImageWithMaxCount&lt;/key&gt;</code></li>
+            <li><code class="code-voice">            &lt;integer&gt;10&lt;/integer&gt;</code></li>
+            <li><code class="code-voice">            &lt;key&gt;NSExtensionActivationSupportsMovieWithMaxCount&lt;/key&gt;</code></li>
+            <li><code class="code-voice">            &lt;integer&gt;1&lt;/integer&gt;</code></li>
+            <li><code class="code-voice">            &lt;key&gt;NSExtensionActivationSupportsWebURLWithMaxCount&lt;/key&gt;</code></li>
+            <li><code class="code-voice">            &lt;integer&gt;1&lt;/integer&gt;</code></li>
+            <li><code class="code-voice">        &lt;/dict&gt;</code></li>
+            <li><code class="code-voice">    &lt;/dict&gt;</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para">
+  If you don’t support a particular data type,  use <code class="code-voice">0</code> for the value of the corresponding key or remove the key from your <code class="code-voice">NSExtensionActivationRule</code> dictionary.
+</p><div class="note">
+  <a name="//apple_ref/doc/uid/TP40014214-CH21-SW9"></a>
+  <aside class="aside">
+    <p class="aside-title">Note
+    </p>
+    	<p class="para">If your Share or iOS Action extension needs to access a webpage, you must include the <code class="code-voice">NSExtensionActivationSupportsWebPageWithMaxCount</code> key with a nonzero value. (To learn how to use JavaScript to access a webpage from your extension, see <span class="x-name"><a href="#//apple_ref/doc/uid/TP40014214-CH21-SW12" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH21-SW12">Accessing a Webpage</a></span>.)
+    	</p>
+    
+  </aside>
+</div><p class="para">
+  The keys in the <code class="code-voice">NSExtensionActivationRule</code> dictionary are sufficient to meet the filtering needs of typical app extensions. If you need to do more complex or more specific filtering, such as distinguishing between <code class="code-voice">public.url</code> and <code class="code-voice">public.image</code>, you can create a predicate statement. Then, use the bare string that represents the predicate as the value of the <code class="code-voice">NSExtensionActivationRule</code> key. (At runtime, the system compiles this string into an <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/foundation/nspredicate" class="urlLink">NSPredicate</a></code> object.)
+</p><p class="para">
+  For example, an app extension item&#39;s <code class="code-voice u-api-no-link">attachments</code> property can specify a PDF file like this:
+</p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="">
+        <ol class="code-lines">
+            <li><code class="code-voice">{extensionItems = ({</code></li>
+            <li><code class="code-voice">    attachments = ({</code></li>
+            <li><code class="code-voice">        registeredTypeIdentifiers = (</code></li>
+            <li><code class="code-voice">            &quot;com.adobe.pdf&quot;,</code></li>
+            <li><code class="code-voice">            &quot;public.file-url&quot;</code></li>
+            <li><code class="code-voice">        );</code></li>
+            <li><code class="code-voice">    });</code></li>
+            <li><code class="code-voice">})}</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para">
+  To specify that your app extension can handle exactly one PDF file, you might create a predicate string like this:
+</p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="">
+        <ol class="code-lines">
+            <li><code class="code-voice">SUBQUERY (</code></li>
+            <li><code class="code-voice">    extensionItems,</code></li>
+            <li><code class="code-voice">    $extensionItem,</code></li>
+            <li><code class="code-voice">    SUBQUERY (</code></li>
+            <li><code class="code-voice">        $extensionItem.attachments,</code></li>
+            <li><code class="code-voice">        $attachment,</code></li>
+            <li><code class="code-voice">        ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;com.adobe.pdf&quot;</code></li>
+            <li><code class="code-voice">    ).@count == $extensionItem.attachments.@count</code></li>
+            <li><code class="code-voice">).@count == 1</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para">
+  Here is an example of a more complex predicate statement:
+</p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="">
+        <ol class="code-lines">
+            <li><code class="code-voice">SUBQUERY (</code></li>
+            <li><code class="code-voice">    extensionItems,</code></li>
+            <li><code class="code-voice">    $extensionItem,</code></li>
+            <li><code class="code-voice">    SUBQUERY (</code></li>
+            <li><code class="code-voice">        $extensionItem.attachments,</code></li>
+            <li><code class="code-voice">        $attachment,</code></li>
+            <li><code class="code-voice">        ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;org.appextension.action-one&quot; ||</code></li>
+            <li><code class="code-voice">        ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;org.appextension.action-two&quot;</code></li>
+            <li><code class="code-voice">    ).@count == $extensionItem.attachments.@count</code></li>
+            <li><code class="code-voice">).@count == 1</code></li>
+        </ol>
+      </div>
+  </div>
+</section><p class="para">
+  This statement iterates over an array of <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/foundation/nsextensionitem" class="urlLink">NSExtensionItem</a></code> objects, and secondarily over the <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/foundation/nsextensionitem/1416690-attachments" class="urlLink">attachments</a></code> array in each extension item. For each attachment, the predicate evaluates the uniform type identifier (UTI) for each representation in the attachment. When an attachment representation UTI conforms to any of of two different specified UTIs (which you see on the right-hand side of each <code class="code-voice">UTI-CONFORMS-TO</code> operator), collect that UTI for the final comparison test. The final line returns <code class="code-voice">TRUE</code> if the app extension was given exactly one extension item attachment with a supported UTI.
+</p><p class="para">
+  During development only, you can use the <code class="code-voice">TRUEPREDICATE</code> constant (which always evaluates to <code class="code-voice">true</code>) as a stub predicate statement, to test your code path before you implement your predicate statement.
+</p><div class="important clear">
+  <a name="//apple_ref/doc/uid/TP40014214-CH21-DontLinkElementID_10"></a>
+  <aside class="aside">
+    <p class="aside-title">Important
+    </p>
+    <p class="para">Before you submit your containing app to the App Store, be sure to replace all uses of <code class="code-voice">TRUEPREDICATE</code> stub predicates with functional predicate statements or with <code class="code-voice">NSExtensionActivationRule</code> keys. If any app extensions in your containing app include the string <code class="code-voice">TRUEPREDICATE</code>, the app will be rejected.
+    </p>
+    
+  </aside>
+</div><p class="para">
+  To learn more about the syntax of predicate statements, see <a href="../../../Cocoa/Conceptual/Predicates/Articles/pSyntax.html#//apple_ref/doc/uid/TP40001795" data-renderer-version="1" target="_self">Predicate Format String Syntax</a> in <em class="u-book"><a href="../../../Cocoa/Conceptual/Predicates/AdditionalChapters/Introduction.html#//apple_ref/doc/uid/TP40001789" data-renderer-version="1" target="_self">Predicate Programming Guide</a></em>.
+</p>
+  
+</section>
+<section class="section">
+  <a name="//apple_ref/doc/uid/TP40014214-CH21-SW3"></a>
+  <h3 class="section-name" tabindex="0">Deploying a Containing App to Older Versions of iOS</h3>
+  <p class="para">
+  
+</p><p class="para">
+  
+</p><p class="para">
+  
+</p><p class="para">
+  
+</p><p class="para">
+  
+</p><p class="para">
+  
+</p><p class="para">
+  
+</p><p class="para">
+  
+</p><p class="para">
+  If you link to an embedded framework from your containing app, you can still deploy it to versions of iOS older than 8.0, even though embedded frameworks are not available in those versions.
+</p><p class="para">
+  The mechanism that lets you do this is the <a href="x-man-page://dlopen">dlopen</a> command, which you use to conditionally link and load a framework bundle. You employ this command as an alternative to the build-time linking you can specify in the Xcode General or Build Phases target editor. The main idea is to link embedded frameworks into your containing app only when running in iOS 8.0 or newer. 
+</p><p class="para">
+  You must use Objective-C, not Swift, in your code statements that conditionally load a framework bundle. The rest of your app can be written in either language, and the embedded framework itself can likewise be written in either language.
+</p><p class="para">
+  After calling <code class="code-voice">dlopen</code>, access the embedded framework classes using the following type of statement:
+</p><section class="code-listing">
+  
+  <div class="code-sample">
+      <div class="">
+        <ol class="code-lines">
+            <li><code class="code-voice">MyLoadedClass *loadedClass = [[NSClassFromString (@&quot;MyClass&quot;) alloc] init];</code></li>
+        </ol>
+      </div>
+  </div>
+</section><div class="important clear">
+  <a name="//apple_ref/doc/uid/TP40014214-CH21-DontLinkElementID_11"></a>
+  <aside class="aside">
+    <p class="aside-title">Important
+    </p>
+    <p class="para">If your containing app target links to an embedded framework, it must include the arm64 architecture or it will be rejected by the App Store.
+    </p>
+    
+  </aside>
+</div><p class="para">
+  <strong>To set up an app extension Xcode project to take advantage of conditional linking</strong>
+</p><ol class="list-number">
+  <li class="item"><p class="para">
+  For each of your contained app extensions, set the deployment target to be iOS 8.0 or later, as usual.
+</p>
+<p class="para">
+  Do this in the “Deployment info” section of the General tab in the Xcode target editor.
+</p>
+</li><li class="item"><p class="para">
+  For your containing app, set the deployment target to be the oldest version of iOS that you want to support.
+</p>
+</li><li class="item"><p class="para">
+  In your containing app, conditionalize calls to the <code class="code-voice">dlopen</code> command within a runtime check for the iOS version by using the <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/uikit/uidevice/1620043-systemversion" class="urlLink">systemVersion</a></code> method.
+</p>
+<p class="para">
+  Call the <code class="code-voice">dlopen</code> command only if your containing app is running in iOS 8.0 or later. Be sure to use Objective-C, not Swift, when making this call.
+</p>
+<p class="para">
+  
+</p>
+</li>
+</ol><p class="para">
+  Certain iOS APIs use embedded frameworks via the <code class="code-voice">dlopen</code> command. You must conditionalize your use of these APIs just as you do when calling <code class="code-voice">dlopen</code> directly. These APIs are from the <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/corefoundation/cfbundle" class="urlLink">CFBundleRef</a></code> opaque type:
+</p><ul class="list-bullet">
+  <li class="item"><p class="para">
+  <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/corefoundation/1537143-cfbundlegetfunctionpointerfornam" class="urlLink">CFBundleGetFunctionPointerForName</a></code>
+</p>
+</li><li class="item"><p class="para">
+  <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/corefoundation/1537109-cfbundlegetfunctionpointersforna" class="urlLink">CFBundleGetFunctionPointersforNames</a></code>
+</p>
+</li>
+</ul><p class="para">
+  And from the <code class="code-voice u-api"><a href="../../../LegacyTechnologies/WebObjects/WebObjects_3.5/Reference/Frameworks/ObjC/Foundation/Classes/NSBundle/Description.html#//apple_ref/occ/cl/NSBundle" data-renderer-version="1">NSBundle</a></code> class:
+</p><ul class="list-bullet">
+  <li class="item"><p class="para">
+  <code class="code-voice u-api"><a href="../../../LegacyTechnologies/WebObjects/WebObjects_3.5/Reference/Frameworks/ObjC/Foundation/Classes/NSBundle/Description.html#//apple_ref/occ/instm/NSBundle/load" data-renderer-version="1">load</a></code>
+</p>
+</li><li class="item"><p class="para">
+  <code class="code-voice u-api"><a href="https://developer.apple.com/documentation/foundation/nsbundle/1411819-loadandreturnerror" class="urlLink">loadAndReturnError:</a></code>
+</p>
+</li><li class="item"><p class="para">
+  <code class="code-voice u-api"><a href="../../../LegacyTechnologies/WebObjects/WebObjects_3.5/Reference/Frameworks/ObjC/Foundation/Classes/NSBundle/Description.html#//apple_ref/occ/instm/NSBundle/classNamed:" data-renderer-version="1">classNamed:</a></code>
+</p>
+</li>
+</ul><p class="para">
+  In a containing app you are deploying to versions of iOS older than 8.0, call these APIs only within a runtime check that ensures you are running in iOS 8.0 or newer, and call these APIs using Objective-C. 
+</p><p class="para">
+  
+</p>
+  
+</section>
+
+  	
+ 	<section id="next_previous" class="">
+    		<p class="previous-link"><a href="ExtensionCreation.html#//apple_ref/doc/uid/TP40014214-CH5-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH5-SW1">Creating an App Extension</a></p>
+  			<p class="next-link"><a href="Action.html#//apple_ref/doc/uid/TP40014214-CH13-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH13-SW1">Action</a></p>
+
+    <p class="copyright">Copyright &#x00a9; 2018 Apple Inc. All rights reserved. 
+  <a class="link" href="http://www.apple.com/legal/terms/site.html" target="_blank" rel="external">Terms of Use</a> | 
+  <a class="link" href="http://www.apple.com/privacy/" target="_blank" rel="external">Privacy Policy</a> | 
+  <a href="RevisionHistory.html#//apple_ref/doc/uid/TP40014214-CH99-SW1" data-renderer-version="2" data-id="//apple_ref/doc/uid/TP40014214-CH99-SW1">Updated: 2017-10-19</a>
+</p>
+  </section>
+</article>
+
+    </div>
+    <div id='big_button'></div>
+    <footer id="footer">
+  <script src="../../../../Resources/1282/JavaScript/devpubs-1.6.3.js" type="text/javascript" charset="utf-8"></script>
+  <div id="_omniture_top">
+<!-- SiteCatalyst code version: H.8. Copyright 1997-2006 Omniture, Inc. -->
+<script type="text/javascript">
+/* RSID: */
+var s_account="awdappledeveloper"
+</script>
+
+<script type="text/javascript" src="https://developer.apple.com/assets/metrics/scripts/analytics.js"></script>
+<script type="text/javascript">
+s.channel="www.documentationarchive.developer"
+
+/************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+var s_code=s.t();if(s_code)document.write(s_code)</script>
+<!-- End SiteCatalyst code version: H.8. -->
+</div>
+
+</footer>
+
+    
+  </body>
+    <div id="blackout">
+    <div id="preload"></div>
+</div>
+<div id="modal" aria-hidden="true">
+    <div id="closebox" tabindex="0" aria-label="Close feedback form" role="button"></div>
+    <div id="sending" class="hidden">
+        <h2 tabindex="0">Sending feedback&hellip;</h2>
+        <div id="sending_img"></div>
+    </div>
+    <div id="error" class="hidden">
+        <h2 tabindex="0">We&rsquo;re sorry, an error has occurred.</h2>
+        <p>Please try submitting your feedback later.</p>
+        <div id="error_icon"></div>
+    </div>
+    <div id="success" class="hidden">
+        <h2 tabindex="0">Thank you for providing feedback!</h2>
+        <p>Your input helps improve our developer documentation.</p>
+        <div id="thank_you_icon"></div>
+    </div>
+    
+    <form id="feedback" action="#" method="post">
+        <div class="left-leaf">
+            <h2 id="helpful_title" data-asterisk="a1" tabindex="0">How helpful is this document?</h2>     
+            <sup id="a1" class="asterisk" aria-hidden="true">*</sup>
+
+            <div id="star_group" role="radiogroup" aria-required="true">
+                <label> 
+                    <input class="radio" type="radio" name="helped" value="1" /> 
+                    Very helpful
+                </label>
+                <label> 
+                    <input class="radio" type="radio" name="helped" value="2" /> 
+                    Somewhat helpful
+                </label>
+                <label>
+                    <input class="radio" type="radio" name="helped" value="3" /> 
+                    Not helpful
+                </label>
+            </div>
+        </div>
+        <div class="right-leaf">
+            <h2>How can we improve this document?</h2>
+            <div id="improve" class="checkboxes">
+                <label>
+                    <input type="checkbox" name="typo" /> 
+                    Fix typos or links
+                </label>
+                <label>
+                    <input type="checkbox" name="infoIncorrect" /> 
+                    Fix incorrect information
+                </label>
+                <label>
+                    <input type="checkbox" name="needs_examples" /> 
+                    Add or update code samples
+                </label>
+                <label>
+                    <input type="checkbox" name="needs_art" /> 
+                    Add or update illustrations
+                </label>
+                <label>
+                    <input type="checkbox" name="missingInfo" /> 
+                    Add information about...
+                </label>
+            </div>
+        </div>
+
+        <textarea id="comment" name="problem" cols="70" rows="8" placeholder="Please tell us more about your experience with this document" data-asterisk="a2" required></textarea>
+        <sup id="a2" class="asterisk" aria-hidden="true">*</sup>
+
+        <p class="fineprint">
+            <em aria-hidden="true"><span>*</span> Required information</em>
+        </p> 
+
+        <input id="submit" type="button" value="Send" />
+
+        <section id="legal">
+            <p>
+                To submit a product bug or enhancement request, please visit the 
+                <a href="https://developer.apple.com/bugreporter/" target="_blank">Bug Reporter</a> 
+                page.
+            </p>
+            <p>
+                Please read <a href="http://www.apple.com/legal/policies/ideas.html" target="_blank">Apple's Unsolicited Idea Submission Policy</a> 
+                before you send us your feedback.
+            </p> 
+        </section>
+    </form>
+</div>
+
+</div>
+</html>

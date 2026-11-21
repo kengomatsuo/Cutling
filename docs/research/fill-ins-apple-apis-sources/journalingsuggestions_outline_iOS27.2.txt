@@ -1,0 +1,64 @@
+## JournalingSuggestions swiftinterface outline (iOS 27.2 SDK)
+17:@available(iOS 17.2, *)
+20:@available(iOS 17.2, *)
+23:@available(iOS 17.2, *)
+27:@available(iOS 17.2, *)
+28:@available(macOS, unavailable)
+29:@available(tvOS, unavailable)
+30:@available(visionOS, unavailable)
+31:@available(watchOS, unavailable)
+34:  public struct Workout : JournalingSuggestions::JournalingSuggestionAsset {
+59:  public struct WorkoutGroup : JournalingSuggestions::JournalingSuggestionAsset {
+72:  public struct Contact : JournalingSuggestions::JournalingSuggestionAsset {
+82:  public struct Location : JournalingSuggestions::JournalingSuggestionAsset {
+98:  public struct LocationGroup : JournalingSuggestions::JournalingSuggestionAsset {
+107:  public struct Song : JournalingSuggestions::JournalingSuggestionAsset {
+120:  public struct Podcast : JournalingSuggestions::JournalingSuggestionAsset {
+132:  public struct GenericMedia : JournalingSuggestions::JournalingSuggestionAsset {
+145:  public struct Photo : JournalingSuggestions::JournalingSuggestionAsset {
+155:  public struct Video : JournalingSuggestions::JournalingSuggestionAsset {
+165:  public struct LivePhoto : JournalingSuggestions::JournalingSuggestionAsset {
+176:  public struct MotionActivity : JournalingSuggestions::JournalingSuggestionAsset {
+202:  public struct StateOfMind : JournalingSuggestions::JournalingSuggestionAsset {
+214:  public struct Reflection : JournalingSuggestions::JournalingSuggestionAsset {
+224:  public struct EventPoster : JournalingSuggestions::JournalingSuggestionAsset {
+237:  public struct ItemContent : Swift::Identifiable {
+257:@available(iOS 17.2, *)
+262:@available(iOS 17.2, *)
+263:@_Concurrency::MainActor @preconcurrency public struct JournalingSuggestionsPicker<Label> : SwiftUICore::View where Label : SwiftUICore::View {
+271:@available(iOS 26.0, *)
+272:@available(macOS, unavailable)
+273:@available(tvOS, unavailable)
+274:@available(visionOS, unavailable)
+275:@available(watchOS, unavailable)
+280:@available(iOS 26.0, *)
+281:@available(macOS, unavailable)
+282:@available(tvOS, unavailable)
+283:@available(visionOS, unavailable)
+284:@available(watchOS, unavailable)
+285:public class JournalingSuggestionsConfiguration {
+291:  public enum NotificationSchedule {
+306:  public var notificationSchedule: JournalingSuggestions::JournalingSuggestionsConfiguration.JournalingSuggestions::NotificationSchedule? {
+312:@available(iOS 17.2, *)
+317:@available(iOS 17.2, *)
+322:@available(iOS 26.0, *)
+323:@available(macOS, unavailable)
+324:@available(tvOS, unavailable)
+325:@available(visionOS, unavailable)
+326:@available(watchOS, unavailable)
+331:@available(iOS 26.0, *)
+332:@available(macOS, unavailable)
+333:@available(tvOS, unavailable)
+334:@available(visionOS, unavailable)
+335:@available(watchOS, unavailable)
+338:@available(iOS 17.2, *)
+340:@available(iOS 26.0, *)
+341:@available(macOS, unavailable)
+342:@available(tvOS, unavailable)
+343:@available(visionOS, unavailable)
+344:@available(watchOS, unavailable)
+346:@available(iOS 26.0, *)
+347:@available(macOS, unavailable)
+348:@available(tvOS, unavailable)
+349:@available(visionOS, unavailable)
+350:@available(watchOS, unavailable)

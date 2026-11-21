@@ -1,0 +1,71 @@
+## Translation swiftinterface
+25:  public var supportedLanguages: [Foundation::Locale.Foundation::Language] {
+32:  public func status(from source: Foundation::Locale.Foundation::Language, to target: Foundation::Locale.Foundation::Language?) async -> Translation::LanguageAvailability.Translation::Status
+33:  public func status(for text: Swift::String, to target: Foundation::Locale.Foundation::Language?) async throws -> Translation::LanguageAvailability.Translation::Status
+93-@available(watchOS, unavailable)
+94-@available(visionOS, unavailable)
+95:public class TranslationSession {
+102-  @available(iOS 26.0, macOS 26.0, *)
+103:  public var isReady: Swift::Bool {
+164:  public struct Configuration : Swift::Equatable {
+176-    public static func == (lhs: Translation::TranslationSession.Translation::Configuration, rhs: Translation::TranslationSession.Translation::Configuration) -> Swift::Bool
+178:  public func translate(_ string: Swift::String) async throws -> Translation::TranslationSession.Translation::Response
+179-  @available(iOS 26.4, macOS 26.4, macCatalyst 26.4, *)
+180:  public func translate(_ string: Foundation::AttributedString) async throws -> Translation::TranslationSession.Translation::Response
+181:  public func translate(batch: [Translation::TranslationSession.Translation::Request]) -> Translation::TranslationSession.Translation::BatchResponse
+182-  public func translations(from batch: [Translation::TranslationSession.Translation::Request]) async throws -> [Translation::TranslationSession.Translation::Response]
+183:  public func prepareTranslation() async throws
+## NaturalLanguage headers
+NaturalLanguage.h NLContextualEmbedding.h NLEmbedding.h NLGazetteer.h NLLanguage.h NLLanguageRecognizer.h NLModel.h NLScript.h NLTagger.h NLTagScheme.h NLTokenizer.h /NaturalLanguage.framework/Headers/NLLanguageRec
+/NaturalLanguage.framework/Headers/NLLanguageRec
+/NaturalLanguage.framework/Headers/NLLanguageRec
+/NaturalLanguage.framework/Headers/NLLanguageRec
+/NaturalLanguage.framework/Headers/NLLanguageRec
+/NaturalLanguage.framework/Headers/NLLanguageRec
+/NaturalLanguage.framework/Headers/NLLanguageRec
+/NaturalLanguage.framework/Headers/NLLanguageRec
+/NaturalLanguage.framework/Headers/NLLanguageRec
+/NaturalLanguage.framework/Headers/NLLanguageRec
+/NaturalLanguage.framework/Headers/NLTagger.h:23
+/NaturalLanguage.framework/Headers/NLTagger.h:32
+/NaturalLanguage.framework/Headers/NLTagger.h:34
+/NaturalLanguage.framework/Headers/NLTagger.h:38
+/NaturalLanguage.framework/Headers/NLTagger.h:42
+/NaturalLanguage.framework/Headers/NLTagger.h:46
+/NaturalLanguage.framework/Headers/NLTagger.h:50
+/NaturalLanguage.framework/Headers/NLTagger.h:52
+/NaturalLanguage.framework/Headers/NLTagger.h:54
+/NaturalLanguage.framework/Headers/NLTagger.h:58
+## Vision text recognition
+2://  VNRecognizeTextRequest.h
+15: @brief    Text recognition level options to favor speed over recognition accuracy. The VNRequestTextRecognitionLevelAccurate is the default option used by VNRecognizeTextRequest.
+30:API_AVAILABLE(macos(10.15), ios(13.0), tvos(13.0))
+31:@interface VNRecognizeTextRequest : VNImageBasedRequest <VNRequestProgressProviding>
+47:- (nullable NSArray<NSString *> *)supportedRecognitionLanguagesAndReturnError:(NSError**)error API_AVAILABLE(macos(12.0), ios(15.0), tvos(15.0));
+72: @brief Language detection will try to automatically identify the script/langauge during the detection and use the appropiate model for recognition and language correction. This can be particularly
+74:@property (readwrite, nonatomic, assign) BOOL automaticallyDetectsLanguage API_AVAILABLE(macos(13.0), ios(16.0), tvos(16.0));
+91: @brief VNRecognizeTextRequestRevision1 only supports English
+580:  case recognizeText(Vision::RecognizeTextRequest, [Vision::RecognizedTextObservation])
+2191:public struct RecognizeTextRequest : Vision::ImageProcessingRequest {
+2195:    public static func < (a: Vision::RecognizeTextRequest.Vision::Revision, b: Vision::RecognizeTextRequest.Vision::Revision) -> Swift::Bool
+## Vision DetectBarcodes/document
+599-@available(macOS 26.0, iOS 26.0, tvOS 26.0, visionOS 26.0, *)
+600:public struct RecognizeDocumentsRequest : Vision::ImageProcessingRequest {
+2190-@available(macOS 15.0, iOS 18.0, tvOS 18.0, visionOS 2.0, *)
+2191:public struct RecognizeTextRequest : Vision::ImageProcessingRequest {
+2866-@available(macOS 15.0, iOS 18.0, tvOS 18.0, visionOS 2.0, watchOS 27.0, *)
+2867:public struct DetectBarcodesRequest : Vision::ImageProcessingRequest {
+## FoundationModels
+60:  final public var isAvailable: Swift::Bool {
+81-@available(tvOS, unavailable)
+83:  public enum UnavailableReason : Swift::Equatable, Swift::Sendable {
+259-@available(watchOS, unavailable)
+260-@available(tvOS, unavailable)
+261:final public class SystemLanguageModel : Swift::Sendable {
+271:  final public var isAvailable: Swift::Bool {
+364-  @available(watchOS, unavailable)
+365-  @available(tvOS, unavailable)
+366:  public enum UnavailableReason : Swift::Equatable, Swift::Sendable {
+1981-@_hasMissingDesignatedInitializers @available(iOS 26.0, macOS 26.0, visionOS 26.0, watchOS 27.0, *)
+1982-@available(tvOS, unavailable)
+1983:final public class LanguageModelSession {

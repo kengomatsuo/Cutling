@@ -1,0 +1,94 @@
+## NowPlaying.swiftinterface
+13:@available(iOS 27, macOS 27, watchOS 27, tvOS 27, visionOS 27, *)
+14:public struct MediaCommand {
+15:  public func enabled(_ isEnabled: Swift::Bool) -> NowPlaying::MediaCommand
+16:  public enum FeedbackStatus : Swift::CaseIterable, Swift::Sendable {
+21:    @available(macOS 27, iOS 27, tvOS 27, watchOS 27, visionOS 27, *)
+26:    public func hash(into hasher: inout Swift::Hasher)
+27:    public var hashValue: Swift::Int {
+31:  public enum RepeatMode : Swift::CaseIterable, Swift::Sendable {
+36:    @available(macOS 27, iOS 27, tvOS 27, watchOS 27, visionOS 27, *)
+41:    public func hash(into hasher: inout Swift::Hasher)
+42:    public var hashValue: Swift::Int {
+46:  public enum ShuffleMode : Swift::CaseIterable, Swift::Sendable {
+51:    @available(macOS 27, iOS 27, tvOS 27, watchOS 27, visionOS 27, *)
+56:    public func hash(into hasher: inout Swift::Hasher)
+57:    public var hashValue: Swift::Int {
+77:@available(iOS 27, macOS 27, watchOS 27, tvOS 27, visionOS 27, *)
+78:public struct MediaPlaybackSnapshot : Swift::Sendable {
+79:  public enum PlaybackState : Swift::Sendable {
+86:  public init(state: NowPlaying::MediaPlaybackSnapshot.NowPlaying::PlaybackState, defaultPlaybackRate: Swift::Float = 1.0, elapsedTime: Foundation::TimeInterval? = nil, timestamp: Foundation::Date? = nil)
+88:@available(iOS 27, macOS 27, watchOS 27, tvOS 27, visionOS 27, *)
+92:@available(iOS 27, macOS 27, watchOS 27, tvOS 27, visionOS 27, *)
+96:@available(iOS 27, macOS 27, watchOS 27, tvOS 27, visionOS 27, *)
+97:public enum MediaSessionError : Swift::Error {
+102:  public func hash(into hasher: inout Swift::Hasher)
+103:  public var hashValue: Swift::Int {
+107:@available(iOS 27, macOS 27, watchOS 27, tvOS 27, visionOS 27, *)
+108:@available(iOSApplicationExtension, unavailable)
+117:  @available(iOS 27, *)
+118:  @available(iOSApplicationExtension, unavailable)
+119:  @available(tvOS, unavailable)
+120:  @available(watchOS, unavailable)
+121:  @available(macOS, unavailable)
+122:  @available(visionOS, unavailable)
+128:  @available(iOS 27, *)
+129:  @available(iOSApplicationExtension, unavailable)
+130:  @available(tvOS, unavailable)
+131:  @available(watchOS, unavailable)
+132:  @available(macOS, unavailable)
+133:  @available(visionOS, unavailable)
+136:  @available(macOS 27, iOS 27, tvOS 27, watchOS 27, visionOS 27, *)
+137:  @available(iOSApplicationExtension, unavailable)
+140:@available(iOS 27, macOS 27, watchOS 27, tvOS 27, visionOS 27, *)
+141:@available(iOSApplicationExtension, unavailable)
+144:@available(iOS 27, macOS 27, watchOS 27, tvOS 27, visionOS 27, *)
+151:@available(iOS 27, iOSApplicationExtension 27, *)
+152:@available(macCatalyst, unavailable)
+153:@available(tvOS, unavailable)
+154:@available(watchOS, unavailable)
+155:@available(macOS, unavailable)
+156:@available(visionOS, unavailable)
+157:public protocol RemoteMediaSessionAttributes : Swift::Decodable, Swift::Encodable {
+160:@available(iOS 27, *)
+161:@available(macCatalyst, unavailable)
+162:@available(tvOS, unavailable)
+163:@available(watchOS, unavailable)
+164:@available(macOS, unavailable)
+165:@available(visionOS, unavailable)
+166:public enum RemoteMediaSessionError : Swift::Error {
+170:  public func hash(into hasher: inout Swift::Hasher)
+171:  public var hashValue: Swift::Int {
+## MPMusicPlayerController nowPlayingItem
+27:} MP_API(ios(3.0), tvos(14.0)) API_UNAVAILABLE(watchos, macos);
+34:} MP_API(ios(3.0), tvos(14.0)) API_UNAVAILABLE(watchos, macos);
+41:} MP_API(ios(3.0), tvos(14.0)) API_UNAVAILABLE(watchos, macos);
+56:API_UNAVAILABLE(watchos, macos)
+59:/// Playing items with applicationMusicPlayer does not affect Music's playback state.
+60:@property (class, nonatomic, readonly) MPMusicPlayerController *applicationMusicPlayer;
+62:/// Similar to applicationMusicPlayer, but allows direct manipulation of the queue.
+65:/// Playing media items with the systemMusicPlayer will replace the user's current Music state.
+66:@property (class, nonatomic, readonly) MPMusicPlayerController<MPSystemMusicPlayerController> *systemMusicPlayer;
+83:    API_UNAVAILABLE(tvos);
+86:// Setting the nowPlayingItem to an item in the current queue will begin playback at that item.
+87:@property (nonatomic, copy, nullable) MPMediaItem *nowPlayingItem;
+94:- (void)setQueueWithQuery:(MPMediaQuery *)query API_UNAVAILABLE(tvos);
+95:- (void)setQueueWithItemCollection:(MPMediaItemCollection *)itemCollection API_UNAVAILABLE(tvos);
+127:    MP_DEPRECATED_WITH_REPLACEMENT("systemMusicPlayer", ios(3.0, 8.0))
+## MPMediaLibrary auth
+31:} MP_API(ios(9.3)) API_UNAVAILABLE(tvos, watchos, macos);
+34:API_UNAVAILABLE(tvos, watchos, macos)
+52:+ (MPMediaLibraryAuthorizationStatus)authorizationStatus MP_API(ios(9.3));
+53:+ (void)requestAuthorization:(void (^)(MPMediaLibraryAuthorizationStatus status))completionHandler MP_API(ios(9.3));
+74:MP_EXTERN NSString * const MPMediaLibraryDidChangeNotification API_UNAVAILABLE(tvos, watchos, macos);
+## MPMediaItem props
+56:MP_EXTERN NSString * const MPMediaItemPropertyTitle                                                                     // filterable
+60:MP_EXTERN NSString * const MPMediaItemPropertyAlbumTitle
+68:MP_EXTERN NSString * const MPMediaItemPropertyArtist                                                                    // filterable
+72:MP_EXTERN NSString * const MPMediaItemPropertyArtistPersistentID                                                        // filterable
+100:MP_EXTERN NSString * const MPMediaItemPropertyPlaybackDuration
+180:MP_EXTERN NSString * const MPMediaItemPropertyLastPlayedDate
+## MPNowPlayingInfoCenter
+63:@property (nonatomic, copy, nullable) NSDictionary<NSString *, id> *nowPlayingInfo;
+70:@property (nonatomic) MPNowPlayingPlaybackState playbackState MP_API(macos(10.12.2), ios(13.0), macCatalyst(13.0));
+76:@property (class, nonatomic, readonly) NSArray<NSString *> *supportedAnimatedArtworkKeys MP_API(ios(19.0), tvos(19.0), macos(16.0), watchos(12.0), visionos(3.0));
