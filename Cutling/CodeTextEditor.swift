@@ -61,8 +61,6 @@ struct FormattedTextEditor {
 struct EditorBarItem {
     let title: String
     let icon: String
-    /// Rows the button opens as a menu growing from it, in sections, as Notes' attachment button does; empty for a plain button.
-    var menu: [[EditorBarItem]] = []
     let action: () -> Void
 }
 
@@ -117,23 +115,9 @@ struct EditorBarButton: View {
     }
 
     var body: some View {
-        Group {
-            if item.menu.isEmpty {
-                Button(action: item.action) { symbol }
-            } else {
-                Menu {
-                    ForEach(Array(item.menu.enumerated()), id: \.offset) { _, section in
-                        Section {
-                            ForEach(section, id: \.title) { row in
-                                Button(row.title, systemImage: row.icon, action: row.action)
-                            }
-                        }
-                    }
-                } label: { symbol }
-            }
-        }
-        .buttonStyle(.plain)
-        .accessibilityLabel(item.title)
+        Button(action: item.action) { symbol }
+            .buttonStyle(.plain)
+            .accessibilityLabel(item.title)
     }
 }
 

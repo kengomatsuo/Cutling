@@ -3,7 +3,7 @@
 //  CutlingUITests
 //
 //  Opens a cutling's text as its own page from the form, then walks it as a person would: the keyboard's bar,
-//  the Aa Format panel and back, the fill-in menu and picker, a new blank, a pill's editor, and Done putting the
+//  the Aa Format panel and back, the Variables picker, a new blank, a pill's editor, and Done putting the
 //  keyboard down. Light and dark; one screenshot of each state in $FORMAT_TEST_SHOTS as textpage_<what>_<light|dark>.png.
 //
 //  Copyright (c) 2026 Kenneth Johannes Fang. All rights reserved.
@@ -61,9 +61,9 @@ final class TextPageUITests: XCTestCase {
         XCTAssertTrue(edit.exists, "The card's menu has no Edit")
         edit.tap()
 
-        // The form: the text box, Paste, and the row that opens the text as a page.
+        // The form: its text box shows the text and opens it as a page.
         let row = any(app, "textPageRow")
-        XCTAssertTrue(row.waitForExistence(timeout: 10), "No Variables & Formatting row under the form's text box")
+        XCTAssertTrue(row.waitForExistence(timeout: 10), "The form's text box is not the way into the page")
         let closeTip = app.buttons["Close"].firstMatch
         if closeTip.waitForExistence(timeout: 2) { closeTip.tap(); sleep(1) }
         shot("1_form", dark: dark)
@@ -98,14 +98,9 @@ final class TextPageUITests: XCTestCase {
         }
         sleep(1)
 
-        // The variables button opens a menu growing from it; its last row opens the picker.
+        // The variables button opens the whole picker at once.
         let pillsBefore = pills(app)
-        app.buttons["Add Variable"].firstMatch.tap()
-        let more = app.buttons["All Variables"].firstMatch
-        XCTAssertTrue(more.waitForExistence(timeout: 5), "The variables button opened no menu")
-        sleep(1)
-        shot("4_fill_in_menu", dark: dark)
-        more.tap()
+        app.buttons["Variables"].firstMatch.tap()
         XCTAssertTrue(any(app, "fillInPicker").waitForExistence(timeout: 5), "No picker")
         sleep(1)
         shot("5_picker", dark: dark)
@@ -155,7 +150,7 @@ final class TextPageUITests: XCTestCase {
         sleep(2)
         XCTAssertFalse(bar.exists, "The keyboard's bar stayed after Done")
         XCTAssertFalse(done.exists, "The Done check stayed with the keyboard down")
-        XCTAssertTrue(app.buttons["Add Variable"].firstMatch.waitForExistence(timeout: 5), "No bar at the bottom with the keyboard down")
+        XCTAssertTrue(app.buttons["Variables"].firstMatch.waitForExistence(timeout: 5), "No bar at the bottom with the keyboard down")
         shot("10_keyboard_down", dark: dark)
         app.terminate()
     }

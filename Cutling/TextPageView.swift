@@ -44,18 +44,9 @@ struct TextPageView: View {
         EditorBarItem(title: String(localized: "Ask Each Time"), icon: "character.textbox") { editing = .newBlank() }
     }
     private var today: EditorBarItem { stamp(String(localized: "Today’s Date"), "calendar", "date") }
-    private var picker: EditorBarItem {
-        EditorBarItem(title: String(localized: "All Variables"), icon: "ellipsis") { showsPicker = true }
-    }
-
-    /// The fill-ins as a menu growing from its button, the way Notes' attachment button lists what it can attach.
-    private var fillInMenu: EditorBarItem {
-        EditorBarItem(title: String(localized: "Add Variable"), icon: "curlybraces", menu: [
-            [blank, EditorBarItem(title: String(localized: "Choice"), icon: "filemenu.and.selection") { editing = .newChoice() }],
-            [today, stamp(String(localized: "Time"), "clock", "time")],
-            // Short enough to show whole between the top bar and the keyboard on a small iPhone.
-            [picker],
-        ]) {}
+    /// Every variable, in the searchable picker. The bar's own buttons are the three used most; a menu here only repeated them.
+    private var allVariables: EditorBarItem {
+        EditorBarItem(title: String(localized: "Variables"), icon: "curlybraces") { showsPicker = true }
     }
 
     private var wide: Bool { sizeClass == .regular }
@@ -65,13 +56,13 @@ struct TextPageView: View {
         guard format != .code, !wide else { return [] }
         let aa = EditorBarItem(title: String(localized: "Format"), icon: "textformat") { formatOpen = true }
         guard FillIns.isOn else { return [aa] }
-        return [aa, blank, today, fillInMenu, stamp(String(localized: "Clipboard Text"), "doc.on.clipboard", "clipboard"),
+        return [aa, blank, today, allVariables, stamp(String(localized: "Clipboard Text"), "doc.on.clipboard", "clipboard"),
                 stamp(String(localized: "Time"), "clock", "time"), stamp(String(localized: "Cursor Position"), "text.cursor", "cursor")]
     }
 
     /// iPad's top bar, beside Aa, where Notes on iPad keeps checklist, table and attachment.
     private var restingBar: [EditorBarItem] {
-        format != .code && FillIns.isOn ? [blank, fillInMenu, today] : []
+        format != .code && FillIns.isOn ? [blank, allVariables, today] : []
     }
 
     /// At the bottom left with the keyboard down, where Notes keeps checklist, attachment and markup in one capsule.
@@ -162,7 +153,7 @@ struct TextPageView: View {
                         ToolbarItem(placement: .bottomBar) { Spacer() }
                     }
                     ToolbarItem(placement: .bottomBar) {
-                        EditorBarButton(item: fillInMenu)
+                        EditorBarButton(item: allVariables)
                             .frame(width: 44, height: 44)
                     }
                 }

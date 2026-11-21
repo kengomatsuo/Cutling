@@ -84,7 +84,6 @@ struct TextDetailView: View {
     private let editorNameTip = EditorNameTip()
     private let editorTextTip = EditorTextTip()
     #if os(iOS)
-    private let fillInTip = FillInTip()
     #endif
     private let editorSaveTip = EditorSaveTip()
     private let editorBackTip = EditorBackTip()
@@ -391,8 +390,7 @@ struct TextDetailView: View {
             }
             SensitiveContentWarning(types: sensitiveContentTypes)
             Section {
-                textEditor
-                    .frame(minHeight: 120, maxHeight: 450)
+                textBox
                     .fillInSheets(picker: $showFillInPicker, editing: $pillEdit,
                                   insert: { insertPlaceholder($0) },
                                   replace: { pillReplacement = PillReplacement(range: $0, token: $1) })
@@ -470,14 +468,6 @@ struct TextDetailView: View {
                 }
                 #else
                 pasteButton
-
-                // The one way to variables and formatting: the text as a full page (TextPageView.swift), where its bars hold them.
-                // The form has no menu of its own, as Notes keeps every tool in the note's bars.
-                if format != .code {
-                    textPageRow
-                        .popoverTip(FillIns.isOn ? fillInTip : nil, arrowEdge: .bottom)
-                        .task { await FillInTip.openedTextEditor.donate() }
-                }
                 #endif
             } header: {
                 Text("Text")
@@ -690,6 +680,8 @@ struct TextDetailView: View {
     private func handleNameSubmit() {
         focusedField = .value
         #if os(iOS)
+        // Nothing written yet: Return goes on to the text, which is its own page.
+        if value.isEmpty, !TutorialCoordinator.shared.isActive { showTextPage = true }
         if !isEditing, !name.isEmpty {
             TutorialCoordinator.shared.advance(from: .createName)
         }
@@ -884,23 +876,56 @@ struct TextDetailView: View {
         }
     }
 
-    #if os(iOS)
-    /// A Settings-style row that pushes the Text page, drawn as the form's Change Icon row is.
-    private var textPageRow: some View {
-        Button {
-            showTextPage = true
-        } label: {
-            HStack {
-                Label("Variables & Formatting", systemImage: "curlybraces")
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .font(.caption)
-                    .foregroundStyle(.tertiary)
+    /// The form's text. On iPhone and iPad the box is the way in: it shows the text as it reads and a tap opens it as a
+    /// full page (TextPageView.swift), the way Settings shows Mail's signature in a row and edits it on the next page
+    /// (docs/research/editor-notes/entry/README.md). The walkthrough and the Mac type in the box itself.
+    @ViewBuilder
+    private var textBox: some View {
+        #if os(iOS)
+        if TutorialCoordinator.shared.isActive {
+            textEditor
+                .frame(minHeight: 120, maxHeight: 450)
+        } else {
+            Button {
+                showTextPage = true
+            } label: {
+                HStack(spacing: 12) {
+                    Group {
+                        if value.isEmpty {
+                            Text("Text").foregroundStyle(.tertiary)
+                        } else {
+                            textPreview.lineLimit(8)
+                        }
+                    }
+                    .multilineTextAlignment(.leading)
+                    .frame(maxWidth: .infinity, minHeight: 66, alignment: .topLeading)
+                    Image(systemName: "chevron.right")
+                        .font(.caption)
+                        .foregroundStyle(.tertiary)
+                }
+                .contentShape(Rectangle())
             }
-            .contentShape(Rectangle())
+            .foregroundStyle(.primary)
+            .accessibilityIdentifier("textPageRow")
         }
-        .foregroundStyle(.primary)
-        .accessibilityIdentifier("textPageRow")
+        #else
+        textEditor
+            .frame(minHeight: 120, maxHeight: 450)
+        #endif
+    }
+
+    #if os(iOS)
+    /// The text as a card previews it: pills drawn, styles kept, only its start laid out.
+    private var textPreview: Text {
+        let source = Cutling.previewSource(value)
+        guard format != .code else { return Text(verbatim: source).monospaced() }
+        let size = UIFont.preferredFont(forTextStyle: .body).pointSize
+        return FillInPills.split(source).reduce(Text(verbatim: "")) { text, piece in
+            switch piece {
+            case .text(let run): text + (format == .rich ? Text(RichText.attributed(run)) : Text(verbatim: run))
+            case .token(let token): text + FillInPills.inline(token, size: size)
+            }
+        }
     }
     #endif
 
