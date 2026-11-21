@@ -36,7 +36,7 @@ a link to the Full Access sheet, and one button that opens Settings.
 |---|---|---|---|
 | A1 | title | add the keyboard | 26 |
 | A2 | subtitle | turn on Cutling in Settings, then come back to this app | 60 |
-| A3 | link | about Full Access (opens an explanation) | 26 |
+| A3 | link, and the title of the sheet it opens (one string serves both) | about Full Access | 26 |
 | A4 | button | open Settings (uses the locale's own name for the Settings app) | 24 |
 | A5 | VoiceOver label of the video | a video of the Settings steps: tap Keyboards, turn on Cutling, turn on Allow Full Access and tap Allow | spoken |
 | A6 | VoiceOver label of the play button (shown when videos don't play by themselves) | play the Settings steps | 30 |
@@ -47,7 +47,6 @@ Same layout as the welcome sheet; a Done button closes it.
 
 | Key | Role | Must say | Budget |
 |---|---|---|---|
-| F1 | title | about Full Access | 26 |
 | F2 | subtitle | Cutling types your text without it | 50 |
 | F3 | row title | images and clipboard | 26 |
 | F4 | row line | Full Access lets the keyboard copy a saved image and add what you copied | 90 |
@@ -67,9 +66,10 @@ A text field with the keyboard up; the person switches to Cutling and taps the s
 | T3 | field placeholder | tap here | 18 |
 | T4 | instruction (a globe icon sits where "%@" is) | touch and hold the globe key below, choose Cutling, then tap Try Me (Try Me is T7's name) | 90 |
 | T5 | success line | Cutling typed it, the person is set | 40 |
-| T6 | bar button | next (go on to the next page) | 12 |
 | T7 | starter cutling's name (seed data) | an invitation to try this cutling | 14 |
 | T8 | starter cutling's text (seed data) | a sentence the person sees typed by Cutling, as if they wrote it: Cutling typed this for me | 40 |
+
+Rows N11, N12, N14, N15 and N16 sit under the Welcome Back title; its "tap to type" row reuses W2.
 
 ## What's New and Welcome Back
 
@@ -89,7 +89,15 @@ Apple's iOS 27 "What's New in Calendar" layout. Shown once after an update, or a
 | N10 | title | welcome back to Cutling | 30 |
 | N11 | row title | switch to Cutling | 24 |
 | N12 | row line | touch and hold the globe key on your keyboard, then choose Cutling | 80 |
-| N13 | row title | tap to type | 20 |
 | N14 | row line | tap a cutling and it is typed where you are writing | 70 |
 | N15 | row title | save from anywhere | 24 |
 | N16 | row line | share text, links or images to Cutling from any app | 70 |
+
+## How writers hand back
+
+One JSON file per language at `docs/onboarding-strings/<language>.json`:
+`{"folders": ["de", "de-DE"], "strings": {"W1": "...", ...}, "back": {"W1": "literal back-translation", ...}, "notes": "register and grammar choices"}`.
+Keys are the IDs above (W1-W7, A1-A6, F2-F8, T1-T5, T7-T8, N1-N12, N14-N16). Keep `%@` where the table
+shows it (N6 one number; N7 two numbers, written `%1$@` and `%2$@` when the order changes; T4 the
+globe icon). If the locale's `Localizable.strings` already holds a string that says exactly the same
+thing (N1 "What's New in Cutling", N15 "Save from Anywhere", the Settings app's name), reuse it.
