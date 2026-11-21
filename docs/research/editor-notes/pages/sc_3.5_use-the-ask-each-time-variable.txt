@@ -1,0 +1,171 @@
+https://support.apple.com/guide/shortcuts/use-the-ask-each-time-variable-apd8b28e2166/3.5/ios/14.0
+
+
+	Use the Ask Each Time variable in a shortcut  - Apple Support
+					 iOS 27  
+					 iOS 26 
+					 iOS 18 
+					 iOS 17 
+					 iOS 16 
+					 iOS 15 
+					 iOS 14 
+					 3.5 
+					 3.2 
+					 3.1 
+					 3.0 
+					 2.2  
+					 2.1  
+					 Shortcuts 2.0 
+		  Select version:
+					iOS 27 
+					iOS 26
+					iOS 18
+					iOS 17
+					iOS 16
+					iOS 15
+					iOS 14
+					3.5
+					3.2
+					3.1
+					3.0
+					2.2 
+					2.1 
+					Shortcuts 2.0
+      Modifying this control will update this page automatically
+          Search this guide
+              Clear Search
+    Table of Contents
+    Shortcuts User Guide
+            Welcome
+            Shortcuts basics
+            Shortcuts at a glance
+            Discover useful shortcuts
+            Discover shortcuts in the Gallery
+            Enable shared shortcuts
+            Run shortcuts
+            Run a shortcut from the app
+            Run shortcuts with Siri
+            Run suggested shortcuts
+            Set up and run shortcuts in Today View
+            Run shortcuts from the Search screen
+            Run shortcuts from other apps
+            Launch a shortcut from another app
+            Run a shortcut from the Home screen
+            How shortcuts work
+            Intro to how shortcuts work
+            The flow of content
+            Action connections
+            Control the flow of actions
+            The Content Graph engine
+            Completing a shortcut run
+            Create custom shortcuts
+            Create a custom shortcut
+            Ideas for custom shortcuts
+            Work with actions in Shortcuts
+            Navigate the action list
+            Order of actions
+            Get actions
+            Transform actions
+            Share actions
+            Test your actions
+            About actions in Today View
+            Edit shortcuts
+            Intro to editing shortcuts
+            Organize shortcuts
+            Rename shortcuts
+            Modify shortcut icons
+            Duplicate shortcuts
+            Delete shortcuts
+            Sync shortcuts
+            Share shortcuts
+            Add import questions before sharing
+            Add a shortcut to Reminders using Siri
+            Personal automation
+            Intro to personal automation
+            Create a new personal automation
+            Enable or disable a personal automation
+            Delete a personal automation
+            Personal automation triggers
+            Events triggers
+            Travel triggers
+            Settings triggers
+            Home automation
+            Intro to home automation
+            Create a new home automation
+            Enable or disable a home automation
+            Delete a home automation
+            Home automation triggers
+            Advanced shortcuts
+            Use variables
+            What are variables?
+            Variable types
+            Use variables
+            Adjust variables
+            Use list actions
+            Use the Choose from Menu action
+            Use If actions
+            Use Repeat actions
+            Use Find and Filter actions
+            Intro to Find and Filter actions
+            Add filter parameters
+            Show prompts in a shortcut 
+            Intro to using prompts
+            Use the Ask for Input action
+            Use the Ask Each Time variable
+            Use the Show Alert action 
+            Use the Show Notification action
+            Share sheet input types
+            Run JavaScript on a webpage
+            Intro to the Run JavaScript on Webpage action
+            Use the Run JavaScript on Webpage action
+            Use URL schemes
+            Intro to URL schemes 
+            Open, create, and run a shortcut
+            Run a shortcut from a URL
+            Open or search the Gallery from a URL
+            Use x-callback-url
+            Use another app’s URL scheme
+            Use Web APIs in Shortcuts
+            Intro to web APIs
+            Get started with web APIs
+            What’s an API?
+            Sign up for an API
+            Request your first API
+            Work with JSON
+            Intro to using JSON
+            Parsing JSON
+            Get Dictionary Value action
+            Handling lists
+            Show data as an alert
+            Further exploration with APIs
+            Challenge yourself in Shortcuts
+            API limitations
+            Format Date timestamps
+            Dictionaries
+            Date and time formatting
+            About date and time formatting 
+            Date and time formats
+            Dates as written language
+            Technical standards
+            Custom date formats
+			 [IMG: ] Use the Ask Each Time variable in a shortcut 
+The Ask Each Time variable allows you to adjust the parameters of an action at runtime. Using the Ask Each Time variable, you can wait to decide how an action should operate until the shortcut is run.
+As your shortcut runs, each action is completed until the shortcut reaches an action that contains an Ask Each Time variable. At that point, the shortcut pauses, prompting you to update the action’s parameters. Once you tap Done, the shortcut continues its run.
+ [IMG: Ask Each Time variable pausing the shortcut to request manually entered data.] To add the Ask Each Time variable to a parameter, tap the empty space in the action’s parameter row, then tap Ask Each Time. Now, each time the shortcut runs, you’re asked to confirm your option for that parameter. 
+To insert an Ask Each Time variable in actions with text fields, tap the text field, then tap Ask Each Time (in the Variables bar that appears above the keyboard).
+To insert an Ask Each Time variable to a repeat action, touch and hold the repeat parameter, then tap Ask Each time.
+ [IMG: Ask Each Time variable token in the Date field of the Log Health Sample action.] Using the Ask Each Time variable on a parameter can be helpful for adjusting options on the fly, such as the Value in the Log Health Sample action. 
+ [IMG: Ask Each Time variable token during a Repeat action.] 
+                Helpful?
+                    Yes
+                    No
+                            Character limit:
+                            250
+                Please don’t include any personal information in your comment.
+                    Maximum character limit is 250.
+                    Submit
+        Thanks for your feedback.
+            Apple Footer
+                United States
+                Copyright © 2026 Apple Inc. All rights reserved.
+                 Privacy Policy Terms of Use                    Sales and Refunds Site Map

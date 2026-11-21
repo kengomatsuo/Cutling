@@ -1,0 +1,178 @@
+https://support.apple.com/guide/shortcuts/custom-date-formats-apd8d9b19184/10.0/ios/27
+
+
+	Custom date formats in Shortcuts on iPhone or iPad - Apple Support
+					 iOS 27  
+					 iOS 26 
+					 iOS 18 
+					 iOS 17 
+					 iOS 16 
+					 iOS 15 
+					 iOS 14 
+					 3.5 
+					 3.2 
+					 3.1 
+					 3.0 
+					 2.2  
+					 2.1  
+					 Shortcuts 2.0 
+		  Select version:
+					iOS 27 
+					iOS 26
+					iOS 18
+					iOS 17
+					iOS 16
+					iOS 15
+					iOS 14
+					3.5
+					3.2
+					3.1
+					3.0
+					2.2 
+					2.1 
+					Shortcuts 2.0
+      Modifying this control will update this page automatically
+          Search this guide
+              Clear Search
+    Table of Contents
+    Shortcuts User Guide
+            Welcome
+            Shortcuts basics
+            Intro to Shortcuts
+            Discover shortcuts in the Gallery
+            Run shortcuts
+            Run a shortcut from the app
+            Run shortcuts with Siri
+            Run shortcuts from Control Center
+            Run shortcuts with the Action button
+            Run shortcuts with Apple Pencil Pro
+            Run app shortcuts
+            Run shortcuts from the Home Screen widget
+            Run shortcuts from the Search screen
+            Add a shortcut to the Home Screen
+            Run a shortcut from another app
+            Run shortcuts from Apple Watch
+            Run shortcuts by tapping the back of your iPhone
+            Adjust privacy settings
+            How shortcuts work
+            Intro to how shortcuts work
+            The flow of content
+            Action connections
+            Control the flow of actions
+            Shortcut completion
+            The Content Graph engine
+            Use Apple Intelligence in Shortcuts
+            Create custom shortcuts
+            Create a custom shortcut
+            Ideas for custom shortcuts
+            Work with actions in Shortcuts
+            Navigate the action list
+            Order of actions
+            Get actions
+            Transform actions
+            Share actions
+            Test your actions
+            About actions in complicated shortcuts
+            Edit shortcuts
+            Intro to editing shortcuts
+            Organize shortcuts in folders
+            Change the layout
+            Reorder shortcuts
+            Rename shortcuts
+            Modify shortcut icons
+            Duplicate shortcuts
+            Delete shortcuts
+            Sync shortcuts
+            Share shortcuts
+            Add import questions to shared shortcuts
+            Add a shortcut to Reminders using Siri
+            Automations
+            Intro to automation shortcuts
+            Add automations
+            Advanced shortcuts
+            Use variables
+            Intro to variables
+            Variable types
+            Use variables
+            Adjust variables
+            Use list actions
+            Use the Choose from Menu action
+            Use If actions
+            Use Repeat actions
+            Use Find and Filter actions
+            Intro to Find and Filter actions
+            Add filter parameters
+            Show prompts in a shortcut 
+            Intro to using prompts
+            Use the Ask for Input action
+            Use the Ask Each Time variable
+            Use the Show Alert action 
+            Use the Show Notification action
+            Input types
+            Limit the input for a shortcut
+            Receive onscreen items
+            Advanced Shortcuts settings
+            Run JavaScript on a webpage
+            Intro to the Run JavaScript on Webpage action
+            Use the Run JavaScript on Webpage action
+            Use URL schemes
+            Intro to URL schemes 
+            Open, create, and run a shortcut
+            Run a shortcut from a URL
+            Open or search the Gallery from a URL
+            Use x-callback-url
+            Use another app’s URL scheme
+            Use Web APIs in Shortcuts
+            Intro to web APIs
+            Get started with web APIs
+            What’s an API?
+            Request your first API
+            Work with JSON
+            Intro to using JSON
+            Parsing JSON
+            Handling lists
+            Get Dictionary Value action
+            Create contacts
+            Further exploration with APIs
+            API limitations
+            Format Date timestamps
+            Dictionaries
+            Date and time formatting
+            About date and time formatting 
+            Date and time formats
+            Dates as written language
+            Technical standards
+            Custom date formats
+            Copyright and trademarks
+			Custom date formats in Shortcuts on iPhone or iPad
+Despite all of the predefined date formatting options, you may want to craft a format specific to your needs. You can create a custom date format by choosing Custom in the Format Date action. An additional Format String text field is displayed, allowing you to enter a format string that consists of a pattern of special characters.
+Note: For custom format strings, Shortcuts uses the patterns defined by the Unicode Technical Standard #35. For more information, see Date Format Patterns.
+The following table lists a summary of example format strings and their results.
+Pattern
+Result
+yyyy.MM.dd G 'at' HH:mm:ss zzz
+1996.07.10 AD at 15:08:56 PDT
+EEE, MMM d, ''yy
+Wed, July 10, '96
+h:mm a
+12:08 PM
+hh 'o''clock' a, zzzz
+12 o'clock PM, Pacific Daylight Time
+K:mm a, z
+0:00 PM, PST
+Tip: Custom patterns can include special characters like . or / in between the date characters. You can also include custom text in the custom patterns by placing single quotes around the string (see the word 'at' in the first table entry, above).
+You can see the complete set of custom date format characters in the Date Field Symbol Table included in this shortcut, or you can view the full Unicode #35 standard.
+See alsoIntro to how shortcuts work on iPhone and iPad
+                Helpful?
+                    Yes
+                    No
+                            Character limit:
+                            250
+                Please don’t include any personal information in your comment.
+                    Maximum character limit is 250.
+                    Submit
+        Thanks for your feedback.
+            Apple Footer
+                United States
+                Copyright © 2026 Apple Inc. All rights reserved.
+                 Privacy Policy Terms of Use                    Sales and Refunds Site Map

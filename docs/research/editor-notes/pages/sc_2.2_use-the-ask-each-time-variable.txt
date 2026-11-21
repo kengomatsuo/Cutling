@@ -1,0 +1,160 @@
+https://support.apple.com/guide/shortcuts/use-the-ask-each-time-variable-apd8b28e2166/2.2/ios/12.0
+
+
+	Use the Ask When Run variable in a shortcut  - Apple Support
+					 iOS 27  
+					 iOS 26 
+					 iOS 18 
+					 iOS 17 
+					 iOS 16 
+					 iOS 15 
+					 iOS 14 
+					 3.5 
+					 3.2 
+					 3.1 
+					 3.0 
+					 2.2  
+					 2.1  
+					 Shortcuts 2.0 
+		  Select version:
+					iOS 27 
+					iOS 26
+					iOS 18
+					iOS 17
+					iOS 16
+					iOS 15
+					iOS 14
+					3.5
+					3.2
+					3.1
+					3.0
+					2.2 
+					2.1 
+					Shortcuts 2.0
+      Modifying this control will update this page automatically
+          Search this guide
+              Clear Search
+    Table of Contents
+    Shortcuts User Guide
+            Welcome
+            Shortcuts basics
+            Shortcuts at a glance
+            Discover shortcuts in the Gallery
+            Run a shortcut
+            How shortcuts work
+            How shortcuts work
+            The flow of content
+            Action connections
+            Control the flow of actions
+            The Content Graph engine
+            Completing a shortcut run
+            Identify opportunities for automation
+            Create and use shortcuts
+            Create a new shortcut
+            Customize a shortcut
+            Work with actions in Shortcuts
+            Navigate the action list
+            About shortcut actions
+            Order of actions
+            Get actions
+            Transform actions
+            Share actions
+            Test your actions
+            Use shortcuts with Siri
+            About Siri and shortcuts
+            Run shortcuts with Siri
+            Use suggested shortcuts
+            Manage shortcuts added to Siri
+            Run shortcuts in iOS Today View
+            Set up and run shortcuts in Today View
+            Actions that work well in Today View
+            Actions that open the Shortcuts app
+            Run shortcuts from iOS Search
+            Run shortcuts from other apps
+            Set up and run shortcuts from another app
+            About input types
+            Run shortcuts from the iOS Home screen
+            Manage shortcuts
+            Overview
+            Organize shortcuts
+            Rename shortcuts
+            Duplicate shortcuts
+            Delete shortcuts
+            Sync shortcuts
+            Share shortcuts
+            Add import questions before sharing
+            Add a shortcut to Reminders using Siri
+            Advanced shortcuts
+            Use variables
+            Variables overview
+            Variable types
+            Use variables
+            Adjust variables
+            Use list actions
+            Use the Choose from Menu action
+            Use If actions
+            Use Repeat actions
+            Use Find and Filter actions
+            About Find and Filter actions
+            Add filter parameters
+            Show prompts in a shortcut 
+            About using prompts
+            Use the Ask for Input action
+            Use the Ask When Run variable
+            Use the Show Alert action 
+            Use the Show Notification action
+            Action Extension input types
+            Run JavaScript on a webpage
+            About the Run JavaScript on Webpage action
+            Use the Run JavaScript on Webpage action
+            Use URL schemes
+            About URL schemes 
+            Open, create, and run a shortcut
+            Run a shortcut from a URL
+            Import a shortcut from a URL
+            Open or search the Gallery from a URL
+            Use x-callback-url
+            Use another app’s URL scheme
+            Use web APIs in Shortcuts
+            About web APIs
+            Get started with web APIs
+            What’s an API?
+            Sign up for an API
+            Request your first API
+            Work with JSON
+            About using JSON
+            Parsing JSON
+            Get Dictionary Value action
+            Handling lists
+            Show data as an alert
+            Further exploration with APIs
+            Challenge yourself in Shortcuts
+            API limitations
+            Format Date timestamps
+            Dictionaries
+            Date and time formatting
+            About date and time formatting 
+            Date and time formats
+            Dates as written language
+            Technical standards
+            Custom date formats
+            Frequently asked questions
+			 [IMG: ] Use the Ask When Run variable in a shortcut 
+The Ask When Run variable allows you to adjust the parameters of an action at runtime. Using the Ask When Run variable, you can wait to decide how an action should operate until the shortcut is run.
+As your shortcut runs, each action is completed until the shortcut reaches an action that contains an Ask When Run variable. At that point, the shortcut pauses, prompting you to update the action’s parameters. Once you tap Done, the shortcut continues its run.
+ [IMG: Ask When Run variable pausing the shortcut to request manually entered data.] To add the Ask When Run variable to a parameter, tap the empty space in the action’s parameter row, then tap Ask When Run. Now, each time the shortcut runs, you’re asked to confirm your option for that parameter. To insert an Ask When Run variable in actions with text fields, tap the text field, then tap Ask When Run (in the Variables bar that appears above the keyboard).
+ [IMG: Ask When Run variable token in the Date field of the Log Health Sample action.] Using the Ask When Run variable on a parameter can be helpful for adjusting options on the fly, such as the option to Show Compose Sheet in the Send Email action.
+ [IMG: Ask When Run variable token in the Show Compose Sheet field of the Send Email action.] 
+                Helpful?
+                    Yes
+                    No
+                            Character limit:
+                            250
+                Please don’t include any personal information in your comment.
+                    Maximum character limit is 250.
+                    Submit
+        Thanks for your feedback.
+            Apple Footer
+                United States
+                Copyright © 2026 Apple Inc. All rights reserved.
+                 Privacy Policy Terms of Use                    Sales and Refunds Site Map

@@ -1,0 +1,165 @@
+https://support.apple.com/guide/shortcuts/intro-to-variables-apdb5506f698/10.0/ios/27
+
+
+	Intro to variables in Shortcuts on iPhone or iPad - Apple Support
+					 iOS 27  
+					 iOS 26 
+					 iOS 18 
+					 iOS 17 
+					 iOS 16 
+					 iOS 15 
+					 iOS 14 
+					 3.5 
+					 3.2 
+					 3.1 
+					 3.0 
+					 2.2  
+					 2.1  
+					 Shortcuts 2.0 
+		  Select version:
+					iOS 27 
+					iOS 26
+					iOS 18
+					iOS 17
+					iOS 16
+					iOS 15
+					iOS 14
+					3.5
+					3.2
+					3.1
+					3.0
+					2.2 
+					2.1 
+					Shortcuts 2.0
+      Modifying this control will update this page automatically
+          Search this guide
+              Clear Search
+    Table of Contents
+    Shortcuts User Guide
+            Welcome
+            Shortcuts basics
+            Intro to Shortcuts
+            Discover shortcuts in the Gallery
+            Run shortcuts
+            Run a shortcut from the app
+            Run shortcuts with Siri
+            Run shortcuts from Control Center
+            Run shortcuts with the Action button
+            Run shortcuts with Apple Pencil Pro
+            Run app shortcuts
+            Run shortcuts from the Home Screen widget
+            Run shortcuts from the Search screen
+            Add a shortcut to the Home Screen
+            Run a shortcut from another app
+            Run shortcuts from Apple Watch
+            Run shortcuts by tapping the back of your iPhone
+            Adjust privacy settings
+            How shortcuts work
+            Intro to how shortcuts work
+            The flow of content
+            Action connections
+            Control the flow of actions
+            Shortcut completion
+            The Content Graph engine
+            Use Apple Intelligence in Shortcuts
+            Create custom shortcuts
+            Create a custom shortcut
+            Ideas for custom shortcuts
+            Work with actions in Shortcuts
+            Navigate the action list
+            Order of actions
+            Get actions
+            Transform actions
+            Share actions
+            Test your actions
+            About actions in complicated shortcuts
+            Edit shortcuts
+            Intro to editing shortcuts
+            Organize shortcuts in folders
+            Change the layout
+            Reorder shortcuts
+            Rename shortcuts
+            Modify shortcut icons
+            Duplicate shortcuts
+            Delete shortcuts
+            Sync shortcuts
+            Share shortcuts
+            Add import questions to shared shortcuts
+            Add a shortcut to Reminders using Siri
+            Automations
+            Intro to automation shortcuts
+            Add automations
+            Advanced shortcuts
+            Use variables
+            Intro to variables
+            Variable types
+            Use variables
+            Adjust variables
+            Use list actions
+            Use the Choose from Menu action
+            Use If actions
+            Use Repeat actions
+            Use Find and Filter actions
+            Intro to Find and Filter actions
+            Add filter parameters
+            Show prompts in a shortcut 
+            Intro to using prompts
+            Use the Ask for Input action
+            Use the Ask Each Time variable
+            Use the Show Alert action 
+            Use the Show Notification action
+            Input types
+            Limit the input for a shortcut
+            Receive onscreen items
+            Advanced Shortcuts settings
+            Run JavaScript on a webpage
+            Intro to the Run JavaScript on Webpage action
+            Use the Run JavaScript on Webpage action
+            Use URL schemes
+            Intro to URL schemes 
+            Open, create, and run a shortcut
+            Run a shortcut from a URL
+            Open or search the Gallery from a URL
+            Use x-callback-url
+            Use another app’s URL scheme
+            Use Web APIs in Shortcuts
+            Intro to web APIs
+            Get started with web APIs
+            What’s an API?
+            Request your first API
+            Work with JSON
+            Intro to using JSON
+            Parsing JSON
+            Handling lists
+            Get Dictionary Value action
+            Create contacts
+            Further exploration with APIs
+            API limitations
+            Format Date timestamps
+            Dictionaries
+            Date and time formatting
+            About date and time formatting 
+            Date and time formats
+            Dates as written language
+            Technical standards
+            Custom date formats
+            Copyright and trademarks
+			Intro to variables in Shortcuts on iPhone or iPad
+A variable is a container used to label and store content such as text, images, a webpage, or a dictionary of data.
+When you create a shortcut using variables, actions in the shortcut aren’t required to follow a direct linear path of inputs and outputs—content can weave in and out of the shortcut at different points. For instance, the shortcut can store content at a certain point, perform an entirely independent set of actions, and then grab the original content in subsequent steps.
+Using variables is the most powerful way to expand the capability of your shortcuts, allowing you to set up dynamic templates for content that autofill each time you use the shortcut. When a shortcut runs through its sequence of actions, it looks for any variables, retrieves the appropriate content for each variable, and then places the content inline, producing consistent results.
+In Shortcuts, variables are represented by blue pill-shaped tokens labeled with the name of the variable, such as Ask Each Time, Clipboard, or Current Date. You place variables throughout the shortcut to mark where you want to set and retrieve content each time the shortcut is run.
+See alsoIntro to how shortcuts work on iPhone and iPad
+                Helpful?
+                    Yes
+                    No
+                            Character limit:
+                            250
+                Please don’t include any personal information in your comment.
+                    Maximum character limit is 250.
+                    Submit
+        Thanks for your feedback.
+            Apple Footer
+                United States
+                Copyright © 2026 Apple Inc. All rights reserved.
+                 Privacy Policy Terms of Use                    Sales and Refunds Site Map

@@ -1,0 +1,212 @@
+https://support.apple.com/guide/shortcuts/use-variables-apdd02c2780c/4.0/ios/15.0
+
+
+	Use variables in Shortcuts - Apple Support
+					 iOS 27  
+					 iOS 26 
+					 iOS 18 
+					 iOS 17 
+					 iOS 16 
+					 iOS 15 
+					 iOS 14 
+					 3.5 
+					 3.2 
+					 3.1 
+					 3.0 
+					 2.2  
+					 2.1  
+					 Shortcuts 2.0 
+		  Select version:
+					iOS 27 
+					iOS 26
+					iOS 18
+					iOS 17
+					iOS 16
+					iOS 15
+					iOS 14
+					3.5
+					3.2
+					3.1
+					3.0
+					2.2 
+					2.1 
+					Shortcuts 2.0
+      Modifying this control will update this page automatically
+          Search this guide
+              Clear Search
+    Table of Contents
+    Shortcuts User Guide
+            Welcome
+            Shortcuts basics
+            Shortcuts at a glance
+            Discover useful shortcuts
+            Discover shortcuts in the Gallery
+            Enable shared shortcuts
+            Run shortcuts
+            Run a shortcut from the app
+            Run shortcuts with Siri
+            Run suggested shortcuts
+            Run shortcuts from the Home Screen widget
+            Run shortcuts from the Search screen
+            Run a shortcut from the Home Screen
+            Run shortcuts in sleep mode
+            Launch a shortcut from another app
+            Run shortcuts from Apple Watch
+            How shortcuts work
+            Intro to how shortcuts work
+            The flow of content
+            Action connections
+            Control the flow of actions
+            The Content Graph engine
+            Completing a shortcut run
+            Create custom shortcuts
+            Create a custom shortcut
+            Ideas for custom shortcuts
+            Work with actions in Shortcuts
+            Navigate the action list
+            Order of actions
+            Get actions
+            Transform actions
+            Share actions
+            Test your actions
+            About actions in complicated shortcuts
+            Edit shortcuts
+            Intro to editing shortcuts
+            Organize shortcuts
+            Reorder shortcuts
+            Rename shortcuts
+            Change shortcut icons
+            Duplicate shortcuts
+            Delete shortcuts
+            Sync shortcuts
+            Share shortcuts
+            Add import questions before sharing
+            Add a shortcut to Reminders using Siri
+            Personal automation
+            Intro to personal automation
+            Create a new personal automation
+            Enable or disable a personal automation
+            Delete a personal automation
+            Personal automation triggers
+            Event triggers
+            Travel triggers
+            Communication Triggers
+            Setting triggers
+            Home automation
+            Intro to home automation
+            Create a new home automation
+            Enable or disable a home automation
+            Delete a home automation
+            Home automation triggers
+            Advanced shortcuts
+            Use variables
+            What are variables?
+            Variable types
+            Use variables
+            Adjust variables
+            Use list actions
+            Use the Choose from Menu action
+            Use If actions
+            Use Repeat actions
+            Use Find and Filter actions
+            Intro to Find and Filter actions
+            Add filter parameters
+            Show prompts in a shortcut 
+            Intro to using prompts
+            Use the Ask for Input action
+            Use the Ask Each Time variable
+            Use the Show Alert action 
+            Use the Show Notification action
+            Share sheet input types
+            Run JavaScript on a webpage
+            Intro to the Run JavaScript on Webpage action
+            Use the Run JavaScript on Webpage action
+            Use URL schemes
+            Intro to URL schemes 
+            Open, create, and run a shortcut
+            Run a shortcut from a URL
+            Open or search the Gallery from a URL
+            Use x-callback-url
+            Use another app’s URL scheme
+            Use Web APIs in Shortcuts
+            Intro to web APIs
+            Get started with web APIs
+            What’s an API?
+            Sign up for an API
+            Request your first API
+            Work with JSON
+            Intro to using JSON
+            Parsing JSON
+            Get Dictionary Value action
+            Handling lists
+            Show data as an alert
+            Further exploration with APIs
+            Challenge yourself in Shortcuts
+            API limitations
+            Format Date timestamps
+            Dictionaries
+            Date and time formatting
+            About date and time formatting 
+            Date and time formats
+            Dates as written language
+            Technical standards
+            Custom date formats
+			 [IMG: ] Use variables in Shortcuts
+In Shortcuts, you can:
+Place a variable in a text field: For example, you can place a variable in the text field of an email shortcut, letting you choose a specific salutation (such as “Dear Sir” or “Dear Madam”) when you run the shortcut.
+Use a variable to replace an action’s parameter (a setting inside an action): You can embed a variable in an action. For example, you can place an Ask Each Time variable in the Repeat parameter of a Play Music action, letting you choose whether or not to repeat a song when you run the shortcut.
+Variables are represented by small, pill-shaped tokens.
+Add a variable to a text field
+In My Shortcuts  [IMG: ] , tap  [IMG: ]  on the shortcut you want to modify, then tap any text field in an action.
+Note: Not all actions contain text fields.
+The Variables bar and keyboard are displayed.
+Tap Variables.
+The Variables bar expands, displaying the  [IMG: ]  Select Magic Variable button and all of the manual or Magic Variables made available by previous actions.
+ [IMG: Expanded Variables bar.] 
+Tap  [IMG: ]  Select Magic Variable.
+The shortcut editor displays an alternate view showing each action’s output as an available variable, ready for selection.
+ [IMG: Selectable variables shortcut editor.] 
+Tap the variable that you want to add to the text field.
+The variable is placed inline in the text field (at the original insertion point). This is where the stored data will be placed when the shortcut is run.
+ [IMG: Variable token added to shortcut.] You can continue to use the Variables bar to access Magic Variables that you may want to add.
+Optional: To add a special variable, tap Done, tap a text field, tap Variables, then tap one of the following special variables that appear as tokens:
+Ask Each Time: Prompts you to enter text in its place when the shortcut is run.
+Clipboard: Inserts what you’ve most recently copied at the time the shortcut runs.
+Current Date: Inserts today’s date and time, formatted to your preference.
+Shortcut Input: Grabs the input that was passed into the beginning of the shortcut (applicable for shortcuts that are set to run in another app).
+Note: You may need to swipe left to see all of the special variables.
+ [IMG: Special variables.] The special variable is placed inline in the text field (at the original insertion point).
+Remove a variable
+In My Shortcuts  [IMG: ] , tap  [IMG: ]  on the shortcut you want to modify.
+Do one of the following:
+In a text field: Position the cursor in front of the variable in the text field, then tap  [IMG: ]  in the onscreen keyboard.
+In an action’s parameter: Tap the variable token to select it, then tap Clear.
+Pass the contents of a variable as input into another action
+In My Shortcuts  [IMG: ] , tap  [IMG: ]  on the shortcut you want to modify.
+Do one of the following:
+In a text field: Position the cursor where you want to place a variable, then tap  [IMG: ] .
+In an action’s parameter: Tap the variable token to select it, then tap Select Magic Variable.
+Select a magic variable from the within the action list.
+When the shortcut is run, the content of the variable is retrieved and passed as input into the selected action.
+Replace a parameter with a variable
+You can replace an action’s parameter (a setting inside an action) with a variable to dynamically switch between the settings of an action while a shortcut is running.
+Important: For parameters with on/off switches, use a 1 or 0 to set the button as active or inactive, respectively.
+In My Shortcuts  [IMG: ] , tap  [IMG: ]  on the shortcut you want to modify.
+In the shortcut editor, tap any parameter name, then choose a replacement variable from the list that appears.
+Note: You may need to tap and hold some parameters to replace them with a variable.
+ [IMG: Shortcut containing a Play Music action.] In this example, the Ask Each Time variable replaces the Repeat parameter in the Play Music action.
+ [IMG: Ask Each Time variable replacing the Repeat parameters in the Play Music action in the shortcut editor.] When the shortcut runs, you’re prompted to choose a Repeat parameter.
+ [IMG: Running shortcut showing prompt to choose a Repeat parameter.] 
+                Helpful?
+                    Yes
+                    No
+                            Character limit:
+                            250
+                Please don’t include any personal information in your comment.
+                    Maximum character limit is 250.
+                    Submit
+        Thanks for your feedback.
+            Apple Footer
+                United States
+                Copyright © 2026 Apple Inc. All rights reserved.
+                 Privacy Policy Terms of Use                    Sales and Refunds Site Map

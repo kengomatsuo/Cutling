@@ -1,0 +1,206 @@
+https://support.apple.com/guide/shortcuts/input-types-apd7644168e1/10.0/ios/27
+
+
+	Understanding input types in Shortcuts on iPhone or iPad - Apple Support
+					 iOS 27  
+					 iOS 26 
+					 iOS 18 
+					 iOS 17 
+					 iOS 16 
+					 iOS 15 
+					 iOS 14 
+					 3.5 
+					 3.2 
+					 3.1 
+					 3.0 
+					 2.2  
+					 2.1  
+					 Shortcuts 2.0 
+		  Select version:
+					iOS 27 
+					iOS 26
+					iOS 18
+					iOS 17
+					iOS 16
+					iOS 15
+					iOS 14
+					3.5
+					3.2
+					3.1
+					3.0
+					2.2 
+					2.1 
+					Shortcuts 2.0
+      Modifying this control will update this page automatically
+          Search this guide
+              Clear Search
+    Table of Contents
+    Shortcuts User Guide
+            Welcome
+            Shortcuts basics
+            Intro to Shortcuts
+            Discover shortcuts in the Gallery
+            Run shortcuts
+            Run a shortcut from the app
+            Run shortcuts with Siri
+            Run shortcuts from Control Center
+            Run shortcuts with the Action button
+            Run shortcuts with Apple Pencil Pro
+            Run app shortcuts
+            Run shortcuts from the Home Screen widget
+            Run shortcuts from the Search screen
+            Add a shortcut to the Home Screen
+            Run a shortcut from another app
+            Run shortcuts from Apple Watch
+            Run shortcuts by tapping the back of your iPhone
+            Adjust privacy settings
+            How shortcuts work
+            Intro to how shortcuts work
+            The flow of content
+            Action connections
+            Control the flow of actions
+            Shortcut completion
+            The Content Graph engine
+            Use Apple Intelligence in Shortcuts
+            Create custom shortcuts
+            Create a custom shortcut
+            Ideas for custom shortcuts
+            Work with actions in Shortcuts
+            Navigate the action list
+            Order of actions
+            Get actions
+            Transform actions
+            Share actions
+            Test your actions
+            About actions in complicated shortcuts
+            Edit shortcuts
+            Intro to editing shortcuts
+            Organize shortcuts in folders
+            Change the layout
+            Reorder shortcuts
+            Rename shortcuts
+            Modify shortcut icons
+            Duplicate shortcuts
+            Delete shortcuts
+            Sync shortcuts
+            Share shortcuts
+            Add import questions to shared shortcuts
+            Add a shortcut to Reminders using Siri
+            Automations
+            Intro to automation shortcuts
+            Add automations
+            Advanced shortcuts
+            Use variables
+            Intro to variables
+            Variable types
+            Use variables
+            Adjust variables
+            Use list actions
+            Use the Choose from Menu action
+            Use If actions
+            Use Repeat actions
+            Use Find and Filter actions
+            Intro to Find and Filter actions
+            Add filter parameters
+            Show prompts in a shortcut 
+            Intro to using prompts
+            Use the Ask for Input action
+            Use the Ask Each Time variable
+            Use the Show Alert action 
+            Use the Show Notification action
+            Input types
+            Limit the input for a shortcut
+            Receive onscreen items
+            Advanced Shortcuts settings
+            Run JavaScript on a webpage
+            Intro to the Run JavaScript on Webpage action
+            Use the Run JavaScript on Webpage action
+            Use URL schemes
+            Intro to URL schemes 
+            Open, create, and run a shortcut
+            Run a shortcut from a URL
+            Open or search the Gallery from a URL
+            Use x-callback-url
+            Use another app’s URL scheme
+            Use Web APIs in Shortcuts
+            Intro to web APIs
+            Get started with web APIs
+            What’s an API?
+            Request your first API
+            Work with JSON
+            Intro to using JSON
+            Parsing JSON
+            Handling lists
+            Get Dictionary Value action
+            Create contacts
+            Further exploration with APIs
+            API limitations
+            Format Date timestamps
+            Dictionaries
+            Date and time formatting
+            About date and time formatting 
+            Date and time formats
+            Dates as written language
+            Technical standards
+            Custom date formats
+            Copyright and trademarks
+			Understanding input types in Shortcuts on iPhone or iPad
+If you’ve set your shortcut to launch from another app, you can open the shortcut from other apps. When run from other apps, the shortcut receives input—such as a URL or an image—from the app. The input from the host app is passed into the first action of your shortcut.
+You can specify which input types the shortcut can accept. The default input type is Any, which allows the shortcut to appear in any app.
+When you change input types, the shortcut appears only in apps that share the specified type of content. For example, a shortcut that accepts only URLs appears when you run the shortcut from Safari, but does not appear when you run the shortcut from Photos. Shortcuts that don’t work with the current app are hidden.
+Tip: Specify an input type for each of your shortcuts so that your share sheet is organized when opened.
+Note: At times, shortcuts may appear in unexpected places—for example, a shortcut that accepts images appears when sharing a webpage in Safari (because webpages can contain images).
+The following table lists supported input types.
+Input type
+Definition
+Images
+Image files, including images from apps and on the web, as well as photos shared from the Photos app
+Media
+Video and audio files
+Files
+Any file, including documents, images, PDFs, zips, and more
+Folder
+A folder
+PDFs
+PDF files
+Text
+Plain text with no applied formatting
+Rich text
+Text with formatting applied, including HTML from webpages and content in text editors, such as Microsoft Word
+Safari webpages
+Pages shared from the Safari app or from the Safari View Controller in third-party apps
+URLs
+Any URL, whether a web link (such as http://) or another scheme (such as facetime://)
+Articles
+Articles identified when a web URL is passed as input, including details such as title, author, published date, body, excerpt, number of words, and main image URL
+Maps links
+Links to locations or directions from Maps or other navigation apps
+Locations
+Street addresses (automatically identified in text by Shortcuts) or locations shared from the Maps app
+Contacts
+Contact cards shared from the Contacts app, or vCard files
+Email addresses
+Email addresses (automatically identified in text by Shortcuts)
+Phone numbers
+Telephone numbers (automatically identified in text by Shortcuts)
+Dates
+Dates and times (To run a shortcut with a date as input, in any app, touch and hold an underlined date, such as “tomorrow at 4 PM,” tap Share, then tap Run Shortcut.)
+App Store apps
+Apps shared from the App Store
+iTunes products
+Items shared from the iTunes Store app
+Tip: To explore what an app passes into Shortcuts, set up a shortcut that accepts Anything and includes only a View Content Graph action. When the shortcut is run from the app, the content items that the Content Graph can identify are displayed.
+Not all apps, services, and content are available in all countries or regions.
+                Helpful?
+                    Yes
+                    No
+                            Character limit:
+                            250
+                Please don’t include any personal information in your comment.
+                    Maximum character limit is 250.
+                    Submit
+        Thanks for your feedback.
+            Apple Footer
+                United States
+                Copyright © 2026 Apple Inc. All rights reserved.
+                 Privacy Policy Terms of Use                    Sales and Refunds Site Map

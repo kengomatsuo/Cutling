@@ -1,0 +1,193 @@
+https://support.apple.com/guide/shortcuts/adjust-variables-apda36b9018b/2.2/ios/12.0
+
+
+	Adjust variables in Shortcuts - Apple Support
+					 iOS 27  
+					 iOS 26 
+					 iOS 18 
+					 iOS 17 
+					 iOS 16 
+					 iOS 15 
+					 iOS 14 
+					 3.5 
+					 3.2 
+					 3.1 
+					 3.0 
+					 2.2  
+					 2.1  
+					 Shortcuts 2.0 
+		  Select version:
+					iOS 27 
+					iOS 26
+					iOS 18
+					iOS 17
+					iOS 16
+					iOS 15
+					iOS 14
+					3.5
+					3.2
+					3.1
+					3.0
+					2.2 
+					2.1 
+					Shortcuts 2.0
+      Modifying this control will update this page automatically
+          Search this guide
+              Clear Search
+    Table of Contents
+    Shortcuts User Guide
+            Welcome
+            Shortcuts basics
+            Shortcuts at a glance
+            Discover shortcuts in the Gallery
+            Run a shortcut
+            How shortcuts work
+            How shortcuts work
+            The flow of content
+            Action connections
+            Control the flow of actions
+            The Content Graph engine
+            Completing a shortcut run
+            Identify opportunities for automation
+            Create and use shortcuts
+            Create a new shortcut
+            Customize a shortcut
+            Work with actions in Shortcuts
+            Navigate the action list
+            About shortcut actions
+            Order of actions
+            Get actions
+            Transform actions
+            Share actions
+            Test your actions
+            Use shortcuts with Siri
+            About Siri and shortcuts
+            Run shortcuts with Siri
+            Use suggested shortcuts
+            Manage shortcuts added to Siri
+            Run shortcuts in iOS Today View
+            Set up and run shortcuts in Today View
+            Actions that work well in Today View
+            Actions that open the Shortcuts app
+            Run shortcuts from iOS Search
+            Run shortcuts from other apps
+            Set up and run shortcuts from another app
+            About input types
+            Run shortcuts from the iOS Home screen
+            Manage shortcuts
+            Overview
+            Organize shortcuts
+            Rename shortcuts
+            Duplicate shortcuts
+            Delete shortcuts
+            Sync shortcuts
+            Share shortcuts
+            Add import questions before sharing
+            Add a shortcut to Reminders using Siri
+            Advanced shortcuts
+            Use variables
+            Variables overview
+            Variable types
+            Use variables
+            Adjust variables
+            Use list actions
+            Use the Choose from Menu action
+            Use If actions
+            Use Repeat actions
+            Use Find and Filter actions
+            About Find and Filter actions
+            Add filter parameters
+            Show prompts in a shortcut 
+            About using prompts
+            Use the Ask for Input action
+            Use the Ask When Run variable
+            Use the Show Alert action 
+            Use the Show Notification action
+            Action Extension input types
+            Run JavaScript on a webpage
+            About the Run JavaScript on Webpage action
+            Use the Run JavaScript on Webpage action
+            Use URL schemes
+            About URL schemes 
+            Open, create, and run a shortcut
+            Run a shortcut from a URL
+            Import a shortcut from a URL
+            Open or search the Gallery from a URL
+            Use x-callback-url
+            Use another app’s URL scheme
+            Use web APIs in Shortcuts
+            About web APIs
+            Get started with web APIs
+            What’s an API?
+            Sign up for an API
+            Request your first API
+            Work with JSON
+            About using JSON
+            Parsing JSON
+            Get Dictionary Value action
+            Handling lists
+            Show data as an alert
+            Further exploration with APIs
+            Challenge yourself in Shortcuts
+            API limitations
+            Format Date timestamps
+            Dictionaries
+            Date and time formatting
+            About date and time formatting 
+            Date and time formats
+            Dates as written language
+            Technical standards
+            Custom date formats
+            Frequently asked questions
+			 [IMG: ] Adjust variables in Shortcuts
+The variable editor appears at the bottom of the shortcut editor, allowing you to access controls to set the content type, choose which details of the content to extract, rename the variable, or reveal the action that generated the variable.
+Change a variable’s content type
+Shortcuts automatically detects the type of content stored in a variable and uses that content as the variable’s default content type. You can force the variable to change content types.
+In the Shortcuts app Library  [IMG: ] , tap  [IMG: ]  on the shortcut you want to modify.
+In the shortcut editor, tap a variable token.
+The variable editor appears at the bottom of the screen. Below the name of the variable, a highlighted button named “as [variable type] >” indicates the content type used by the variable. For example, the Article from Webpage variable displays “as Article >” as its variable type.
+ [IMG: Selected variable, available for editing in the shortcut editor.] 
+Tap “as [variable type] >” and then tap a new content type for the variable in the list that appears.
+Note: If you choose a custom content type, Shortcuts uses its Content Graph technology to convert the content of the variable to the selected variable type. For example, if you have a variable that stores a URL, you can change its content type from URL to Article. Shortcuts will automatically fetch details about the article at that URL.
+Choose a variable’s content details
+In the Shortcuts app Library  [IMG: ] , tap  [IMG: ]  on the shortcut you want to modify.
+In the shortcut editor, tap a variable token.
+The variable editor appears. The properties offered by the specific content type are listed below the variable’s title and content type. This list represents all of the available metadata associated with your content, allowing you to choose which property to use as the output of the variable.
+For example, an Image variable offers properties such as Width, Height, Date Taken, Location, and Camera Make. Each content type offers its own set of properties.
+ [IMG: Variable editor.] Each content type has a default property that’s automatically extracted if nothing else is chosen.
+Tap a property in the list.
+The variable token is updated to indicate your preference.
+ [IMG: Get property selected from variable editor.] 
+Tip: You can manually grab properties from any action’s output by using the Get Details actions, such as Get Details of Safari Webpage or Get Details of Images. Browsing these actions is also a helpful way to explore which details you can extract for each content type.
+Rename a variable
+In the Shortcuts app Library  [IMG: ] , tap  [IMG: ]  on the shortcut you want to modify.
+In the shortcut editor, tap a variable token.
+The variable editor appears.
+Tap  [IMG: ]  Rename, tap  [IMG: ] , then enter the new name for the variable.
+ [IMG: Rename Magic Variable dialog.] 
+Tap OK.
+All instances of the variable are renamed.
+Reveal the action that generated a variable
+In longer shortcuts that contain multiple variables, you can use the  [IMG: ]  Reveal Action button to show the original action that produced a variable.
+In the Shortcuts app Library  [IMG: ] , tap  [IMG: ]  on the shortcut you want to modify.
+In the shortcut editor, tap a variable token.
+The variable editor appears.
+Tap  [IMG: ]  Reveal Action.
+The shortcut editor scrolls up and highlights the source action of the variable.
+ [IMG: Reveal Action in shortcut editor.] 
+Once you’ve grasped how to add, place, and adjust variables, you’ll begin to see how variables make your shortcuts much more dynamic. You can reuse content multiple times, easily extract particular details from the content, and place that content anywhere in your shortcut.
+Variables let you make shortcuts that are capable of adapting to a variety of situations, adjusting content on the fly while still yielding the results you want.
+Tip: If you’re just getting started with variables, it may be helpful to experiment with an existing shortcut that includes variables. Add a shortcut from the Gallery  [IMG: ] , then reorder the actions or add new variables to see how the shortcut is affected.
+                Helpful?
+                    Yes
+                    No
+                            Character limit:
+                            250
+                Please don’t include any personal information in your comment.
+                    Maximum character limit is 250.
+                    Submit
+        Thanks for your feedback.
+            Apple Footer
+                United States
+                Copyright © 2026 Apple Inc. All rights reserved.
+                 Privacy Policy Terms of Use                    Sales and Refunds Site Map
