@@ -161,7 +161,7 @@ final class SetupMockCUITests: SetupMockTestCase {
         let field = app.textFields["setupTryField"].firstMatch
         if field.waitForExistence(timeout: 5), !app.keyboards.firstMatch.exists { field.tap() }
         typeStarterCutling(app, "C")
-        app.buttons["sheetPrimaryButton"].firstMatch.tap()
+        app.buttons["setupDone"].firstMatch.tap()
         sleep(2)
         shot("C_grid")
     }

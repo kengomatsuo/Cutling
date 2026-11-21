@@ -417,13 +417,17 @@ struct SetupFlowC: View {
                     }
                 }
             }
-            .safeAreaInset(edge: .bottom) {
-                AppleSheetButton(title: "Done") {
-                    UserDefaults.standard.set(true, forKey: "hasCompletedSetup")
-                    dismiss()
+            // Done sits in the navigation bar, not over the keyboard: a bottom button rides up
+            // with the keyboard and covers the try field on short screens and in landscape.
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Done") {
+                        UserDefaults.standard.set(true, forKey: "hasCompletedSetup")
+                        dismiss()
+                    }
+                    .fontWeight(.semibold)
+                    .accessibilityIdentifier("setupDone")
                 }
-                .padding(.horizontal, 36)
-                .padding(.bottom, 12)
             }
         }
         .interactiveDismissDisabled()
