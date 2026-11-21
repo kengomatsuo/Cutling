@@ -150,6 +150,25 @@ final class FillInUITests: XCTestCase {
         XCTAssertFalse(field.exists, "Sheet should close after Copy")
     }
 
+    /// The editor's Add Fill-in or Date menu, where a person puts blanks and dates into a cutling.
+    @MainActor
+    func testEditorMenuOffersFillIns() throws {
+        let app = XCUIApplication()
+        app.launchArguments += ["-FILLIN_TEST", "-hasCompletedSetup", "YES", "-hasSeenInteractiveTutorial", "YES"]
+        app.launch()
+        let card = app.descendants(matching: .any).matching(identifier: "cutlingCard").firstMatch
+        XCTAssertTrue(card.waitForExistence(timeout: 30), "No cards")
+        // tap() lands on the card's ⋯ Edit button.
+        card.tap()
+        let menu = app.descendants(matching: .any)["addPlaceholderMenu"].firstMatch
+        XCTAssertTrue(menu.waitForExistence(timeout: 10), "No Add Fill-in or Date menu in the editor")
+        shot("editor_text_section")
+        menu.tap()
+        sleep(1)
+        shot("editor_menu_open")
+        XCTAssertTrue(app.buttons["Fill-in Field"].firstMatch.waitForExistence(timeout: 5), "Menu has no Fill-in Field item")
+    }
+
     /// With the fill-ins switch off, as in shipped builds until the redesign is approved, a card
     /// with blanks copies at once with its braces as written and the editor offers no fill-in menu.
     @MainActor

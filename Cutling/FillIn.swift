@@ -12,13 +12,12 @@
 
 import Foundation
 
-/// Whether placeholders are replaced at all. Off in every shipped build until the redesigned
-/// fill-in screens are approved: braces are then typed, copied and pasted as written, as before
-/// fill-ins existed. Only the `-FILLIN_TEST` seed turns it on, in the App Group so the keyboard sees it.
+/// Whether placeholders are replaced at all: on, unless the App Group key `fillInsOff` is set, which only
+/// the `-FILLIN_OFF` test seed does, to check that braces are then typed, copied and pasted as written.
 enum FillIns {
-    static let defaultsKey = "fillInsOn"
+    static let offKey = "fillInsOff"
     static var isOn: Bool {
-        UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.bool(forKey: defaultsKey) ?? false
+        !(UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.bool(forKey: offKey) ?? false)
     }
 }
 
