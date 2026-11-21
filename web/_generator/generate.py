@@ -92,6 +92,8 @@ DIRECTORY_BADGES = [
     '<a href="https://toolcurio.com" target="_blank" rel="dofollow"><img src="https://toolcurio.com/badge-light.png" alt="Featured on Toolcurio" width="200" height="54" /></a>',
     '<a href="https://postmake.io" target="_blank" rel="noopener"><img src="https://postmake.io/postmake_badge_light.png" alt="Featured on the Postmake directory" width="190" height="60" /></a>',
     '<a href="https://hotools.com/" title="HoTools - Online Tools Directory">HoTools</a>',
+    '<a href="https://webspot.app" target="_blank" rel="noopener noreferrer"><img src="https://webspot.app/featured-light.svg" alt="Featured on Webspot" style="height:54px;width:auto" /></a>',
+    '<a href="https://gets.tools" target="_blank" rel="noopener noreferrer"><img src="https://gets.tools/badge/badge_light.svg" alt="Featured on Gets.Tools" width="200" height="54" /></a>',
 ]
 BADGE_STRIP = ('<div class="listed-on"><p class="listed-on-label">Listed on</p><div class="directory-badges">'
                + "".join(DIRECTORY_BADGES) + "</div></div>")
