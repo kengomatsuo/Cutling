@@ -28,10 +28,10 @@ struct FormattedTextEditor {
 
     fileprivate static let codeFontSizeDelta: CGFloat = -2
 
-    /// Room between lines, so pills on wrapped lines never meet (FillInPills.swift).
+    /// Just enough room between lines that pills on wrapped lines almost meet but never touch (FillInPills.swift).
     fileprivate static let lines: NSParagraphStyle = {
         let style = NSMutableParagraphStyle()
-        style.lineSpacing = 7
+        style.lineSpacing = 3
         return style
     }()
 
