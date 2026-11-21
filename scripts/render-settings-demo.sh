@@ -30,44 +30,49 @@ for look in ${LOOKS:-light dark}; do
   size=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of csv=p=0 "$dir/raw.mp4")
   w=${size%,*}; h=${size#*,}
   crop_w=$(python3 -c "print(int($w*$crop_w_frac)//2*2)"); crop_h=$(python3 -c "print(int($h*$crop_h_frac)//2*2)")
-  # The recorder starts a moment after it says so, by a different amount each run. Measure it:
-  # seek around the Cutling tap and find when the switch's left half turns green (the white
-  # knob sits there while it is off), about 0.15 s after the tap lands.
+  # Every recorded frame with its own time: simctl writes a frame only when the screen changes,
+  # so a frame stands until the next one. (Seeking lands on the next change, and decoding
+  # through an fps filter drifts seconds off the test's clock; this does neither.)
+  rm -rf "$work/raw" "$work/frames"; mkdir -p "$work/raw" "$work/frames"
+  ffprobe -v error -select_streams v -show_entries frame=pts_time -of csv=p=0 "$dir/raw.mp4" | tr -d ',' >"$work/pts.txt"
+  ffmpeg -v error -i "$dir/raw.mp4" -fps_mode passthrough -vf "crop=$crop_w:$crop_h:0:0" "$work/raw/%05d.png"
   read -r cx cy < <(awk '$1=="cutling"{print $3, $4}' "$dir/marks.txt")
-  tap0=$(python3 -c "print(float('$(awk '$1=="cutling"{print $2}' "$dir/marks.txt")') - $start)")
-  shift=$(python3 - "$dir/raw.mp4" "$tap0" "$(python3 -c "print(int($cx*$w) - 80)")" "$(python3 -c "print(int($cy*$h) - 12)")" <<'EOF'
+  # The recorder starts a moment after it says so, by a different amount each run. Measure it
+  # from the Cutling switch going from off (white knob on its left half) to on (green), about
+  # 0.15 s after the tap.
+  shift=$(python3 - "$work" "$(python3 -c "print(float('$(awk '$1=="cutling"{print $2}' "$dir/marks.txt")') - $start)")" \
+    "$(python3 -c "print(int($cx*$w) - 80)")" "$(python3 -c "print(int($cy*$h) - 12)")" <<'EOF'
 import subprocess, sys
-raw, tap, bx, by = sys.argv[1], float(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4])
-def state(t):
-    px = subprocess.run(["ffmpeg", "-v", "error", "-ss", f"{t:.3f}", "-i", raw, "-frames:v", "1",
-                         "-vf", f"crop=40:24:{bx}:{by}", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
-                        capture_output=True).stdout
-    if not px: return None
-    r = sum(px[0::3]) / (len(px) / 3); g = sum(px[1::3]) / (len(px) / 3)
-    if g - r > 80: return "on"        # the green track
-    if g - r < 20 and g > 150: return "off"   # the white knob, in light and dark
-    return None                       # anything else: another page, or the alert's dimming
-times = [tap - 6 + i * 0.1 for i in range(121)]
-seen = [state(t) for t in times]
-# On, where the last clear state before it was off: the switch turning on, not the green
-# coming back from under the alert's dimming.
+work, tap, bx, by = sys.argv[1], float(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4])
+pts = [float(l) for l in open(f"{work}/pts.txt") if l.strip()]
+def state(i):
+    out = subprocess.run(["magick", f"{work}/raw/{i + 1:05d}.png", "-crop", f"40x24+{bx}+{by}", "-scale", "1x1!",
+                          "-format", "%[fx:int(255*r)] %[fx:int(255*g)]", "info:"], capture_output=True, text=True).stdout
+    r, g = map(int, out.split())
+    if g - r > 80: return "on"
+    if g - r < 20 and g > 150: return "off"
+    return None
 flips, last = [], None
-for t, st in zip(times, seen):
+for i, t in enumerate(pts):
+    if abs(t - tap) > 8: continue
+    st = state(i)
     if st == "on" and last == "off": flips.append(t)
     if st: last = st
-# The flip nearest the tap; none means the clock already fits.
 print(round(min(flips, key=lambda f: abs(f - tap - 0.15)) - tap - 0.15, 3) if flips else 0)
 EOF
 )
   at() { python3 -c "print(round(float('$1') - $start + $shift, 3))"; }
   begin=$(at "$(awk '$1=="begin"{print $2}' "$dir/marks.txt")")
   end=$(python3 -c "print($(at "$(awk '$1=="allow"{print $2}' "$dir/marks.txt")") + 2.0)")
-  rm -rf "$work/frames"; mkdir -p "$work/frames"
-  n=$(python3 -c "print(int(($end - $begin) * $fps))")
-  for i in $(seq 0 $((n - 1))); do
-    ffmpeg -v error -y -ss "$(python3 -c "print($begin + $i / $fps)")" -i "$dir/raw.mp4" -frames:v 1 \
-      -vf "crop=$crop_w:$crop_h:0:0" "$work/frames/$(printf %05d "$i").png"
-  done
+  # A steady 15 fps: each output frame is the last recorded frame at or before its time.
+  python3 - "$work" "$begin" "$end" "$fps" <<'EOF'
+import bisect, os, shutil, sys
+work, begin, end, fps = sys.argv[1], float(sys.argv[2]), float(sys.argv[3]), int(sys.argv[4])
+pts = [float(l) for l in open(f"{work}/pts.txt") if l.strip()]
+for k in range(int((end - begin) * fps)):
+    i = max(0, bisect.bisect_right(pts, begin + k / fps) - 1)
+    shutil.copy(f"{work}/raw/{i + 1:05d}.png", f"{work}/frames/{k:05d}.png")
+EOF
   # One overlay per tap, on the joined frames' own clock (0 = begin), from 0.6 s before it
   # lands to 0.25 s after.
   filters="[0:v]null[base]"; inputs=(-framerate "$fps" -i "$work/frames/%05d.png"); last="base"; k=1
