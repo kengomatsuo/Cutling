@@ -23,7 +23,8 @@ struct SetupWhatYouCanDoPage: View {
 
     var body: some View {
         AppleSheetPage(title: "What You Can Do", topPadding: setupPageTopPadding, buttonTitle: "Continue",
-                       buttonID: "continueButton", requiresReadingToEnd: true, action: onContinue) {
+                       buttonID: "continueButton", requiresReadingToEnd: true, scrollID: "howToUsePage",
+                       action: onContinue) {
             VStack(alignment: .leading, spacing: 26) {
                 AppleSheetRows(rows: [
                     AppleSheetRow(symbol: "globe", title: "Switch to Cutling Keyboard",
@@ -64,7 +65,6 @@ struct SetupWhatYouCanDoPage: View {
                 .accessibilityElement(children: .combine)
             }
         }
-        .accessibilityIdentifier("howToUsePage")
     }
 }
 

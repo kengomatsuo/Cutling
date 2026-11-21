@@ -35,6 +35,9 @@ struct AppleSheetPage<Content: View, Footer: View>: View {
     var buttonID = "sheetPrimaryButton"
     /// Keeps the button off until the page has been scrolled to its end.
     var requiresReadingToEnd = false
+    /// Accessibility identifier of the scrolling area, for UI tests (not the whole page, which
+    /// would override the button's own).
+    var scrollID: String? = nil
     let action: () -> Void
     let content: Content
     let footer: Footer
@@ -42,8 +45,9 @@ struct AppleSheetPage<Content: View, Footer: View>: View {
 
     init(title: LocalizedStringKey, subtitle: LocalizedStringKey? = nil, topPadding: CGFloat = 56,
          buttonTitle: LocalizedStringKey, buttonEnabled: Bool = true, buttonID: String = "sheetPrimaryButton",
-         requiresReadingToEnd: Bool = false, action: @escaping () -> Void,
+         requiresReadingToEnd: Bool = false, scrollID: String? = nil, action: @escaping () -> Void,
          @ViewBuilder content: () -> Content, @ViewBuilder footer: () -> Footer) {
+        self.scrollID = scrollID
         self.title = title
         self.subtitle = subtitle
         self.topPadding = topPadding
@@ -58,7 +62,7 @@ struct AppleSheetPage<Content: View, Footer: View>: View {
 
     private var snapshotMode: Bool { ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") }
 
-    var body: some View {
+    private var scroll: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
                 AppleSheetHeader(title: title, subtitle: subtitle)
@@ -71,6 +75,15 @@ struct AppleSheetPage<Content: View, Footer: View>: View {
             .padding(.bottom, 24)
         }
         .scrollBounceBehavior(.basedOnSize)
+    }
+
+    /// The scroll area, named for UI tests only when the page asks.
+    @ViewBuilder private var namedScroll: some View {
+        if let scrollID { scroll.accessibilityIdentifier(scrollID) } else { scroll }
+    }
+
+    var body: some View {
+        namedScroll
         .onScrollGeometryChange(for: Bool.self) { geo in
             geo.contentOffset.y + geo.containerSize.height >= geo.contentSize.height - 1
         } action: { _, atEnd in
@@ -93,10 +106,11 @@ struct AppleSheetPage<Content: View, Footer: View>: View {
 extension AppleSheetPage where Footer == EmptyView {
     init(title: LocalizedStringKey, subtitle: LocalizedStringKey? = nil, topPadding: CGFloat = 56,
          buttonTitle: LocalizedStringKey, buttonEnabled: Bool = true, buttonID: String = "sheetPrimaryButton",
-         requiresReadingToEnd: Bool = false, action: @escaping () -> Void, @ViewBuilder content: () -> Content) {
+         requiresReadingToEnd: Bool = false, scrollID: String? = nil, action: @escaping () -> Void,
+         @ViewBuilder content: () -> Content) {
         self.init(title: title, subtitle: subtitle, topPadding: topPadding, buttonTitle: buttonTitle,
                   buttonEnabled: buttonEnabled, buttonID: buttonID, requiresReadingToEnd: requiresReadingToEnd,
-                  action: action, content: content, footer: { EmptyView() })
+                  scrollID: scrollID, action: action, content: content, footer: { EmptyView() })
     }
 }
 
