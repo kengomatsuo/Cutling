@@ -41,60 +41,21 @@ enum StarterCutling {
     }
 }
 
-/// Apple's grouped Settings rows on Cutling's page, drawn as the buyer will meet them,
-/// with the number of each touch (Wispr's "Set up in Settings", Grammarly's step 2).
-/// VoiceOver reads it as one sentence, not as controls that do nothing.
-struct SettingsPicture: View {
+/// One numbered line of the setup steps, as the shipped guide draws them.
+struct SetupStepLine: View {
+    let number: Int
+    let text: LocalizedStringKey
+
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Settings › Apps › Cutling")
-                .font(.footnote)
-                .foregroundStyle(.secondary)
-                .padding(.leading, 16)
-            VStack(spacing: 0) {
-                pictureRow(number: 1, symbol: "keyboard", title: "Keyboards", trailing: .chevron)
-                Divider().padding(.leading, 56)
-                pictureRow(number: 2, symbol: nil, title: "Cutling", trailing: .toggle)
-                Divider().padding(.leading, 56)
-                pictureRow(number: 3, symbol: nil, title: "Allow Full Access", trailing: .toggle, note: "Optional")
-            }
-            .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 26, style: .continuous))
+        HStack(alignment: .top, spacing: 12) {
+            Text(verbatim: "\(number)")
+                .font(.caption.bold())
+                .foregroundStyle(.white)
+                .frame(width: 24, height: 24)
+                .background(Color.accentColor, in: Circle())
+                .accessibilityHidden(true)
+            Text(text).font(.subheadline)
         }
-        .accessibilityElement(children: .ignore)
-        .accessibilityLabel("In Settings, open Keyboards, turn on Cutling, and if you like, Allow Full Access.")
-    }
-
-    private enum Trailing { case chevron, toggle }
-
-    private func pictureRow(number: Int, symbol: String?, title: LocalizedStringKey, trailing: Trailing,
-                            note: LocalizedStringKey? = nil) -> some View {
-        HStack(spacing: 12) {
-            StepBadge(number: number, done: false)
-            if let symbol {
-                Image(systemName: symbol)
-                    .font(.footnote.weight(.semibold))
-                    .foregroundStyle(.white)
-                    .frame(width: 28, height: 28)
-                    .background(Color(.systemGray), in: RoundedRectangle(cornerRadius: 7, style: .continuous))
-            }
-            VStack(alignment: .leading, spacing: 1) {
-                Text(title)
-                if let note {
-                    Text(note).font(.caption).foregroundStyle(.secondary)
-                }
-            }
-            Spacer(minLength: 8)
-            switch trailing {
-            case .chevron:
-                Image(systemName: "chevron.forward")
-                    .font(.footnote.weight(.semibold))
-                    .foregroundStyle(.tertiary)
-            case .toggle:
-                Toggle("", isOn: .constant(true)).labelsHidden().allowsHitTesting(false)
-            }
-        }
-        .padding(.horizontal, 16)
-        .frame(minHeight: 52)
     }
 }
 
@@ -242,7 +203,15 @@ struct SetupFlowA: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 28) {
                 AppleSheetHeader(title: "Add the Keyboard", subtitle: "Turn on Cutling in Settings, then come back.")
-                SettingsPicture()
+                SettingsDemoVideo()
+                    .frame(maxHeight: 360)
+                    .frame(maxWidth: .infinity)
+                // The guide's own steps, in every language, for anyone the video doesn't reach.
+                VStack(alignment: .leading, spacing: 12) {
+                    SetupStepLine(number: 1, text: "Open Cutling in your device's **Settings** app.")
+                    SetupStepLine(number: 2, text: "Tap **Keyboards** and enable **Cutling**.")
+                    SetupStepLine(number: 3, text: "Turn on **Allow Full Access** so the keyboard can copy images to your clipboard.")
+                }
                 Button("About Full Access") { showFullAccess = true }
                     .font(.subheadline)
                     .frame(maxWidth: .infinity)
