@@ -19,6 +19,8 @@ struct FormattedTextEditor {
     @Binding var format: TextFormat
     /// Text to type at the cursor, such as a placeholder from the editor's menu; cleared once typed.
     var insertion: Binding<String?> = .constant(nil)
+    /// Buttons on the bar above the keyboard (iPhone, iPad) that type their token at the cursor.
+    var keyboardBar: [EditorBarItem] = []
 
     fileprivate static func rendered(_ text: String, format: TextFormat, size: CGFloat) -> NSAttributedString {
         RichText.nsAttributed(format == .rich ? text : RichText.escape(text), size: size, editorColors: true)
@@ -27,7 +29,39 @@ struct FormattedTextEditor {
     fileprivate static let codeFontSizeDelta: CGFloat = -2
 }
 
+/// One button on the editor's keyboard bar.
+struct EditorBarItem {
+    let title: String
+    let icon: String
+    let action: () -> Void
+}
+
 #if os(iOS)
+/// The fill-in buttons above the keyboard, scrolled sideways when they don't fit.
+struct EditorKeyboardBar: View {
+    let items: [EditorBarItem]
+
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 8) {
+                ForEach(items, id: \.title) { item in
+                    Button(action: item.action) {
+                        Label(item.title, systemImage: item.icon)
+                            .font(.subheadline)
+                            .padding(.horizontal, 12)
+                            .padding(.vertical, 8)
+                            .background(.regularMaterial, in: Capsule())
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            .padding(.horizontal, 10)
+            .frame(height: 48)
+        }
+        .accessibilityIdentifier("fillInKeyboardBar")
+    }
+}
+
 extension FormattedTextEditor: UIViewRepresentable {
     func makeUIView(context: Context) -> UITextView {
         let view = UITextView()
@@ -38,6 +72,7 @@ extension FormattedTextEditor: UIViewRepresentable {
         view.adjustsFontForContentSizeCategory = true
         context.coordinator.configure(view, for: format)
         context.coordinator.load(view, text: text, format: format)
+        context.coordinator.setBar(keyboardBar, on: view)
         return view
     }
 
@@ -45,6 +80,7 @@ extension FormattedTextEditor: UIViewRepresentable {
         let coordinator = context.coordinator
         coordinator.parent = self
         if coordinator.configuredFormat != format { coordinator.configure(view, for: format) }
+        coordinator.setBar(keyboardBar, on: view)
         // Only outside changes (paste button, undo, format switch) reload the view.
         if text != coordinator.lastText || format != coordinator.lastFormat {
             coordinator.load(view, text: text, format: format)
@@ -68,6 +104,38 @@ extension FormattedTextEditor: UIViewRepresentable {
         init(parent: FormattedTextEditor) { self.parent = parent }
 
         private var bodySize: CGFloat { UIFont.preferredFont(forTextStyle: .body).pointSize }
+        private var barItems: [EditorBarItem] = []
+        private var barHost: UIHostingController<EditorKeyboardBar>?
+
+        /// The bar above the keyboard, as SwiftUI's keyboard toolbar never reaches a UIKit text view.
+        func setBar(_ items: [EditorBarItem], on view: UITextView) {
+            guard items.map(\.title) != barItems.map(\.title) else { return }
+            barItems = items
+            guard !items.isEmpty else {
+                view.inputAccessoryView = nil
+                barHost = nil
+                view.reloadInputViews()
+                return
+            }
+            let bar = EditorKeyboardBar(items: items)
+            let host = UIHostingController(rootView: bar)
+            host.view.backgroundColor = .clear
+            host.sizingOptions = .intrinsicContentSize
+            let container = UIInputView(frame: CGRect(x: 0, y: 0, width: 0, height: 48), inputViewStyle: .keyboard)
+            container.allowsSelfSizing = true
+            host.view.translatesAutoresizingMaskIntoConstraints = false
+            container.addSubview(host.view)
+            NSLayoutConstraint.activate([
+                host.view.leadingAnchor.constraint(equalTo: container.leadingAnchor),
+                host.view.trailingAnchor.constraint(equalTo: container.trailingAnchor),
+                host.view.topAnchor.constraint(equalTo: container.topAnchor),
+                host.view.bottomAnchor.constraint(equalTo: container.bottomAnchor),
+                host.view.heightAnchor.constraint(equalToConstant: 48),
+            ])
+            barHost = host
+            view.inputAccessoryView = container
+            view.reloadInputViews()
+        }
 
         func configure(_ view: UITextView, for format: TextFormat) {
             configuredFormat = format

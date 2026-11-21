@@ -143,14 +143,15 @@ final class FillInUITests: XCTestCase {
         XCTAssertTrue(field.waitForExistence(timeout: 10), "No fill-in sheet")
         field.tap()
         field.typeText("Sarah")
-        app.buttons["Pro"].firstMatch.tap()
         sleep(1)
         shot("app_sheet")
         let preview = app.staticTexts["fillInPreview"].firstMatch
-        XCTAssertTrue((preview.label).contains("Hi Sarah, your Pro order ships"), "Preview reads: \(preview.label)")
-        app.buttons["fillInDone"].firstMatch.tap()
-        sleep(1)
-        XCTAssertFalse(field.exists, "Sheet should close after Copy")
+        XCTAssertTrue(preview.label.contains("Hi Sarah, your"), "Preview reads: \(preview.label)")
+        // A choice on the last blank finishes: the sheet copies and closes.
+        app.buttons["Pro"].firstMatch.tap()
+        sleep(2)
+        XCTAssertFalse(field.exists, "Sheet should close after the last choice")
+        shot("app_sheet_copied")
     }
 
     /// The return key: Next on each blank, then the checkmark inserts the finished text.
@@ -221,6 +222,22 @@ final class FillInUITests: XCTestCase {
             sleep(2)
             shot("editor_keyboard_bar")
             XCTAssertTrue(app.descendants(matching: .any)["fillInKeyboardBar"].firstMatch.exists, "No fill-in buttons on the keyboard bar")
+            // A new blank from the bar asks for its name, then shows as a pill.
+            let fieldButton = app.buttons["Fill-in Field"].firstMatch
+            if fieldButton.exists {
+                fieldButton.tap()
+                let nameField = app.alerts.textFields.firstMatch
+                if nameField.waitForExistence(timeout: 5) {
+                    nameField.tap()
+                    nameField.press(forDuration: 1.0)
+                    if app.menuItems["Select All"].waitForExistence(timeout: 2) { app.menuItems["Select All"].tap() }
+                    nameField.typeText("City")
+                    shot("editor_new_field_alert")
+                    app.alerts.buttons["Done"].tap()
+                    sleep(1)
+                    shot("editor_new_field_pill")
+                }
+            }
         }
         menu.tap()
         sleep(1)

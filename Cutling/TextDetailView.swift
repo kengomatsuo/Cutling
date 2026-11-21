@@ -65,6 +65,9 @@ struct TextDetailView: View {
     @AppStorage("autoDetectInputTypes") private var autoDetectInputTypes = true
     @State private var undoHandler = UndoHandler()
     /// A placeholder picked from the menu, waiting to be typed at the cursor.
+    @State private var askingFieldName = false
+    @State private var fieldDraftLabel = ""
+    @State private var fieldDraftChoices = ""
     @State private var placeholderInsertion: String?
 
     /// Lets the Name field's Return key move focus to the Text field.
@@ -384,6 +387,15 @@ struct TextDetailView: View {
             Section {
                 textEditor
                     .frame(minHeight: 120, maxHeight: 450)
+                    // A new fill-in field: its name, and choices when it has some.
+                    .alert("Fill-in Field", isPresented: $askingFieldName) {
+                        TextField("Name", text: $fieldDraftLabel)
+                        TextField("Choices (optional)", text: $fieldDraftChoices)
+                        Button("Cancel", role: .cancel) {}
+                        Button("Done") { insertDraftField() }
+                    } message: {
+                        Text("Separate choices with commas.")
+                    }
                     #if os(iOS)
                     // While writing, the fill-ins sit as buttons on the bar above the keyboard, as Shortcuts
                     // shows Clipboard and Current Date there (docs/research/fill-ins-editor/README.md).
@@ -392,8 +404,8 @@ struct TextDetailView: View {
                             ToolbarItem(placement: .keyboard) {
                                 ScrollView(.horizontal, showsIndicators: false) {
                                     HStack(spacing: 16) {
-                                        ForEach(placeholderChoices, id: \.token) { choice in
-                                            Button(choice.title, systemImage: choice.icon) { insertPlaceholder(choice.token) }
+                                        ForEach(placeholderChoices, id: \.title) { choice in
+                                            Button(choice.title, systemImage: choice.icon) { choose(choice.token) }
                                                 .labelStyle(.titleAndIcon)
                                         }
                                     }
@@ -844,7 +856,8 @@ struct TextDetailView: View {
     private var textEditor: some View {
         let text = undoHandler.binding($value, actionName: String(localized: "Change Text"))
         if usesNativeEditor || format != .plain {
-            FormattedTextEditor(text: text, format: $format, insertion: $placeholderInsertion)
+            FormattedTextEditor(text: text, format: $format, insertion: $placeholderInsertion,
+                                keyboardBar: format != .code && FillIns.isOn ? keyboardBarItems : [])
         } else {
             TextEditor(text: text)
                 .focused($focusedField, equals: .value)
@@ -864,22 +877,49 @@ struct TextDetailView: View {
 
     /// Fill-ins, date stamps, the cursor spot and the clipboard, typed at the cursor.
     /// Code is pasted byte for byte, so it gets none. Syntax: docs/fill-ins.md
-    /// What the menu and the keyboard bar insert, in that order.
-    private var placeholderChoices: [(title: LocalizedStringKey, icon: String, token: String)] {
+    /// What the menu and the keyboard bar insert, in that order. A fill-in field asks for its name first.
+    private var placeholderChoices: [(title: String, icon: String, token: String?)] {
         [
-            ("Fill-in Field", "character.cursor.ibeam", Placeholders.marked(String(localized: "Name"))),
-            ("Today’s Date", "calendar", Placeholders.marked("date")),
-            ("Time", "clock", Placeholders.marked("time")),
-            ("Cursor Position", "cursorarrow.rays", Placeholders.marked("cursor")),
-            ("Clipboard Text", "doc.on.clipboard", Placeholders.marked("clipboard")),
+            (String(localized: "Fill-in Field"), "character.cursor.ibeam", nil),
+            (String(localized: "Today’s Date"), "calendar", Placeholders.marked("date")),
+            (String(localized: "Time"), "clock", Placeholders.marked("time")),
+            (String(localized: "Cursor Position"), "cursorarrow.rays", Placeholders.marked("cursor")),
+            (String(localized: "Clipboard Text"), "doc.on.clipboard", Placeholders.marked("clipboard")),
         ]
+    }
+
+    /// The keyboard bar's buttons for the native editor (CodeTextEditor.swift).
+    private var keyboardBarItems: [EditorBarItem] {
+        placeholderChoices.map { choice in
+            EditorBarItem(title: choice.title, icon: choice.icon) { choose(choice.token) }
+        }
+    }
+
+    /// A stamp goes in at once; a fill-in field first asks for its name and choices.
+    private func choose(_ token: String?) {
+        if let token {
+            insertPlaceholder(token)
+        } else {
+            fieldDraftLabel = String(localized: "Name")
+            fieldDraftChoices = ""
+            askingFieldName = true
+        }
+    }
+
+    /// `{⁠Label}`, or `{⁠Label: A | B}` when choices were given.
+    private func insertDraftField() {
+        let label = fieldDraftLabel.trimmingCharacters(in: .whitespacesAndNewlines)
+            .filter { $0 != "{" && $0 != "}" && $0 != ":" && $0 != "|" && $0 != "\n" }
+        guard !label.isEmpty else { return }
+        let choices = fieldDraftChoices.split(separator: ",").map { $0.trimmingCharacters(in: .whitespaces) }.filter { !$0.isEmpty }
+        insertPlaceholder(Placeholders.marked(choices.isEmpty ? label : "\(label): " + choices.joined(separator: " | ")))
     }
 
     private var placeholderMenu: some View {
         Menu {
             Section("Filled in each time you use it") {
-                ForEach(placeholderChoices, id: \.token) { choice in
-                    Button(choice.title, systemImage: choice.icon) { insertPlaceholder(choice.token) }
+                ForEach(placeholderChoices, id: \.title) { choice in
+                    Button(choice.title, systemImage: choice.icon) { choose(choice.token) }
                 }
             }
         } label: {
