@@ -44,7 +44,8 @@
   "N12": "Przytrzymaj klawisz globusa na klawiaturze i wybierz Cutling",
   "N14": "Stuknij cutling, a wpisze się tam, gdzie piszesz",
   "N15": "Zapisz z dowolnego miejsca",
-  "N16": "Udostępnij tekst, linki lub obrazy do Cutling z dowolnej aplikacji"
+  "N16": "Udostępnij tekst, linki lub obrazy do Cutling z dowolnej aplikacji",
+  "TU1": "Podczas pisania stuknij { }, by zostawić puste pole do uzupełniania za każdym razem, albo Dalej, by pominąć"
  },
  "back": {
   "W1": "Welcome to Cutling",
@@ -88,7 +89,8 @@
   "N12": "Touch and hold the globe key on the keyboard, then choose Cutling",
   "N14": "Tap a cutling and it is typed where you are writing",
   "N15": "Save from Anywhere",
-  "N16": "Share text, links or images to Cutling from any app"
+  "N16": "Share text, links or images to Cutling from any app",
+  "TU1": "While writing, tap { } to leave a blank to fill in each time, or Next to skip"
  },
  "notes": "Imperative singular, no pronoun, 'stuknij' as in the app's strings. N1 and N15 reused from the .strings; N15 is 26 characters against a budget of 24. 'Cutling' is left undeclined in W1, N10 and T2, declined elsewhere as in N1. iOS names (Klawiatury, Zezwól na pełny dostęp, Ustawienia) taken from the app's step strings, not checked against iOS 27."
 }

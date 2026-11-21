@@ -44,7 +44,8 @@
   "N12": "Κράτα πατημένο το πλήκτρο με την υδρόγειο στο πληκτρολόγιο και διάλεξε Cutling",
   "N14": "Πάτα ένα cutling και γράφεται εκεί που γράφεις",
   "N15": "Αποθηκεύστε από οπουδήποτε",
-  "N16": "Μοιράσου κείμενο, συνδέσμους ή εικόνες στο Cutling από κάθε εφαρμογή"
+  "N16": "Μοιράσου κείμενο, συνδέσμους ή εικόνες στο Cutling από κάθε εφαρμογή",
+  "TU1": "Όσο γράφεις, πάτα { } για να αφήσεις κενό που συμπληρώνεις κάθε φορά, ή πάτα Επόμενο για να το προσπεράσεις"
  },
  "back": {
   "W1": "Welcome to Cutling",
@@ -88,7 +89,8 @@
   "N12": "Hold the key with the globe on the keyboard and choose Cutling",
   "N14": "Tap a cutling and it is typed where you write",
   "N15": "Save from anywhere",
-  "N16": "Share text, links or images to Cutling from any app"
+  "N16": "Share text, links or images to Cutling from any app",
+  "TU1": "While you write, tap { } to leave a blank that you fill in every time, or tap Next to skip it"
  },
  "notes": "Singular informal (sou) like most existing el strings; N1 and N15 reused from Localizable.strings (N15 is formal plural there). Cutling kept Latin and uncurved as in the locale. Settings names: Πληκτρολόγια, 'Να επιτρέπεται η πλήρης πρόσβαση' (from memory of iOS el, not checked). A3 shortened to fit 26. N3/N8 'every key types' read as every cutling types."
 }

@@ -44,7 +44,8 @@
     "N12": "Држи тастер глобуса на тастатури, па изабери Катлинг",
     "N14": "Додирни катлинг и откуцаће се где пишеш",
     "N15": "Сачувајте са било ког места",
-    "N16": "Дели текст, везе или слике у Катлинг из било које апликације"
+    "N16": "Дели текст, везе или слике у Катлинг из било које апликације",
+    "TU1": "Док куцаш, додирни { } да оставиш празнину коју попуњаваш сваки пут, или додирни Даље за прескакање"
   },
   "back": {
     "W1": "Welcome to Cutling",
@@ -88,7 +89,8 @@
     "N12": "Hold the globe key on the keyboard, then choose Cutling",
     "N14": "Tap a cutling and it will be typed where you write",
     "N15": "Save from anywhere",
-    "N16": "Share text, links or images to Cutling from any app"
+    "N16": "Share text, links or images to Cutling from any app",
+    "TU1": "While you type, tap { } to leave a blank that you fill in each time, or tap Next to skip"
   },
   "notes": "Cyrillic, ekavian, informal ti, matching the locale's existing setup strings. Reused: Добродошли у Катлинг, Шта је ново у Катлингу, Сачувајте са било ког места, Подешавања, Пуни приступ, Дозволи потпуни приступ, привремена меморија. F3 is 27 characters against 26 (the locale's word for clipboard is long); N15 is the existing 27-character string against 24. The locale's 'Done' is in Latin script (Gotovo) in sr Localizable.strings, a defect in that file; not used here."
 }

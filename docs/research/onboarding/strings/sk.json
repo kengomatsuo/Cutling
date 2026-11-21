@@ -44,7 +44,8 @@
   "N12": "Podrž kláves s glóbusom na klávesnici a vyber Cutling",
   "N14": "Klepni na cutling a napíše sa tam, kde píšeš",
   "N15": "Ukladajte odkiaľkoľvek",
-  "N16": "Zdieľaj text, odkazy či obrázky do Cutlingu z akejkoľvek aplikácie"
+  "N16": "Zdieľaj text, odkazy či obrázky do Cutlingu z akejkoľvek aplikácie",
+  "TU1": "Pri písaní klepni na { } a nechaj prázdne pole, ktoré vyplníš zakaždým, alebo klepni na Ďalej a preskoč to"
  },
  "back": {
   "W1": "Welcome to Cutling",
@@ -88,7 +89,8 @@
   "N12": "Touch and hold the globe key on the keyboard, then choose Cutling",
   "N14": "Tap a cutling and it is typed where you are writing",
   "N15": "Save from Anywhere",
-  "N16": "Share text, links or images to Cutling from any app"
+  "N16": "Share text, links or images to Cutling from any app",
+  "TU1": "While writing, tap { } and leave a blank that you fill in each time, or tap Next and skip it"
  },
  "notes": "Informal ty (klepni), as in the newest strings. N1 and N15 reused from the .strings; N15 is in vy form while the rest is ty. Settings names (Klávesnice, Povoliť plný prístup, Nastavenia) taken from the app's step strings, not checked against iOS 27. Cutling declined in W1, T2, N10 as in N1."
 }

@@ -44,7 +44,8 @@
   "N12": "กดปุ่มลูกโลกบนคีย์บอร์ดค้างไว้ แล้วเลือกคัตลิง",
   "N14": "แตะคัตลิง แล้วระบบพิมพ์ลงตรงที่คุณเขียนอยู่",
   "N15": "บันทึกจากที่ใดก็ได้",
-  "N16": "แชร์ข้อความ ลิงก์ หรือภาพมาที่คัตลิงจากแอปไหนก็ได้"
+  "N16": "แชร์ข้อความ ลิงก์ หรือภาพมาที่คัตลิงจากแอปไหนก็ได้",
+  "TU1": "ระหว่างพิมพ์ แตะปุ่มวงเล็บปีกกาเพื่อเว้นช่องว่างไว้กรอกทุกครั้งที่ใช้คัตลิง หรือแตะถัดไปเพื่อข้าม"
  },
  "notes": "Uses locale's คัตลิง, คีย์บอร์ด, การตั้งค่า, อนุญาตการเข้าถึงเต็มรูปแบบ, คลิปบอร์ด. N1 and N15 reused from Localizable.strings. Polite register without ครับ/ค่ะ. T4 and T7 share ลองฉันสิ. Character counts of Thai strings are estimates; W2, A3 and N6 are near budget.",
  "back": {
@@ -89,6 +90,7 @@
   "N12": "Touch and hold the globe key on the keyboard, then choose Cutling",
   "N14": "Tap a cutling and it is typed where you are writing",
   "N15": "Save from Anywhere",
-  "N16": "Share text, links or images to Cutling from any app"
+  "N16": "Share text, links or images to Cutling from any app",
+  "TU1": "While typing, tap the curly-brace button to leave a blank to fill in every time you use the cutling, or tap Next to skip"
  }
 }

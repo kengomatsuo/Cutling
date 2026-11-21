@@ -37,6 +37,7 @@ KEYS = {
     "N12": "Touch and hold the globe key on your keyboard, then choose Cutling.",
     "N14": "Tap a cutling and it's typed where you're writing.", "N15": "Save from Anywhere",
     "N16": "Share text, links or images to Cutling from any app.",
+    "TU1": "While you type the text, tap the braces button to leave a blank you fill in each time. Or tap Next.",
 }
 
 def check_keys():

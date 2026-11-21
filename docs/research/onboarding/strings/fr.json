@@ -45,7 +45,8 @@
     "N12": "Maintiens la touche globe de ton clavier, puis choisis Cutling",
     "N14": "Touche un cutling et il s’écrit là où tu écris",
     "N15": "Enregistre depuis n’importe où",
-    "N16": "Partage des textes, liens ou images vers Cutling depuis toute app"
+    "N16": "Partage des textes, liens ou images vers Cutling depuis toute app",
+    "TU1": "Pendant que tu écris, touche { } pour laisser un champ à remplir à chaque fois, ou touche Suivant pour passer."
   },
   "back": {
     "W1": "Welcome to Cutling",
@@ -89,7 +90,8 @@
     "N12": "Hold the globe key on your keyboard, then choose Cutling",
     "N14": "Tap a cutling and it is typed where you write",
     "N15": "Save from anywhere",
-    "N16": "Share texts, links or images to Cutling from any app"
+    "N16": "Share texts, links or images to Cutling from any app",
+    "TU1": "While you write, tap { } to leave a field to fill in every time, or tap Next to skip."
   },
   "notes": "Tutoiement, as in the locale's existing setup strings. Reused: Bienvenue dans Cutling (W1), Nouveautés de Cutling (N1), Enregistre depuis n’importe où (N15, 30 characters, over the 24 budget), Réglages, Claviers, Autoriser l’accès complet, Accès complet. Title case follows French sentence case. N8 is shortened to fit 24 (the English 'every key types' does not fit literally). A3 'Sur l’accès complet' stands for 'About Full Access' to stay in 26. T4 keeps %@ for the globe icon; the key is called 'touche' with the icon."
 }

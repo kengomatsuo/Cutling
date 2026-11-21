@@ -44,7 +44,8 @@
     "N12": "Drži tipku globusa na tipkovnici, pa odaberi Cutling",
     "N14": "Dodirni cutling i upisat će se gdje pišeš",
     "N15": "Spremajte odasvud",
-    "N16": "Dijeli tekst, poveznice ili slike u Cutling iz bilo koje aplikacije"
+    "N16": "Dijeli tekst, poveznice ili slike u Cutling iz bilo koje aplikacije",
+    "TU1": "Dok pišeš, dodirni { } da ostaviš prazninu koju popunjavaš svaki put, ili dodirni Dalje za preskakanje"
   },
   "back": {
     "W1": "Welcome to Cutling",
@@ -88,7 +89,8 @@
     "N12": "Hold the globe key on the keyboard, then choose Cutling",
     "N14": "Tap a cutling and it will be typed where you write",
     "N15": "Save from anywhere",
-    "N16": "Share text, links or images to Cutling from any app"
+    "N16": "Share text, links or images to Cutling from any app",
+    "TU1": "While you write, tap { } to leave a blank that you fill in each time, or tap Next to skip"
   },
   "notes": "Informal ti, matching the existing setup strings. Reused: Dobrodošli u Cutling, Što je novo u Cutlingu, Spremajte odasvud (the existing formal plural, as the brief says to reuse), Postavke, Puni pristup / Dopusti potpuni pristup (as in the existing step strings), međuspremnik. Unsure: the locale's existing 'Dopusti potpuni pristup' differs from its 'Puni pristup' label, I used each where it already appears; iOS's own Croatian Settings wording not checkable here."
 }

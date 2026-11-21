@@ -44,7 +44,8 @@
   "N12": "Klavyendeki küre tuşuna basılı tut, sonra Cutling'i seç",
   "N14": "Bir cutling'e dokun, yazdığın yere yazılır",
   "N15": "Her Yerden Kaydet",
-  "N16": "Metin, bağlantı veya görseli herhangi bir uygulamadan Cutling'e paylaş"
+  "N16": "Metin, bağlantı veya görseli herhangi bir uygulamadan Cutling'e paylaş",
+  "TU1": "Yazarken küme parantezi düğmesine dokun: her seferinde dolduracağın bir boşluk kalır. Atlamak için İleri'ye dokun"
  },
  "back": {
   "W1": "Welcome to Cutling (formal)",
@@ -88,7 +89,8 @@
   "N12": "Hold the globe key on your keyboard, then choose Cutling",
   "N14": "Tap a cutling, it is typed where you write",
   "N15": "Save from Everywhere",
-  "N16": "Share text, link or image to Cutling from any app"
+  "N16": "Share text, link or image to Cutling from any app",
+  "TU1": "While typing, tap the curly-brace button: a blank remains that you fill in each time. To skip, tap Next"
  },
  "notes": "Informal sen-form, as most existing tr strings; W1 reuses the existing formal 'Hoş Geldiniz' string unchanged. N1 and N15 reused. Titles in title case, row titles in sentence case. Settings names: Klavyeler, Tam Erişime İzin Ver (as already in the locale file). N3/N8 'every key types' read as every cutling types."
 }

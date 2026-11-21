@@ -44,7 +44,8 @@
   "N12": "Palaikyk gaublio klavišą klaviatūroje, tada pasirink Cutling",
   "N14": "Bakstelėk cutlingą ir jis įvedamas ten, kur rašai",
   "N15": "Išsaugokite iš bet kur",
-  "N16": "Siųsk tekstą, nuorodas ar vaizdus į Cutling iš bet kurios programėlės"
+  "N16": "Siųsk tekstą, nuorodas ar vaizdus į Cutling iš bet kurios programėlės",
+  "TU1": "Rašydamas bakstelėk { }, kad paliktum tuščią vietą užpildyti kaskart, arba bakstelėk Toliau, kad praleistum"
  },
  "back": {
   "W1": "Welcome to Cutling",
@@ -88,7 +89,8 @@
   "N12": "Touch and hold the globe key on the keyboard, then choose Cutling",
   "N14": "Tap a cutling and it is typed where you are writing",
   "N15": "Save from Anywhere",
-  "N16": "Share text, links or images to Cutling from any app"
+  "N16": "Share text, links or images to Cutling from any app",
+  "TU1": "While writing, tap { } to leave a blank to fill in each time, or tap Next to skip"
  },
  "notes": "Informal ty (bakstelek) as in the newest strings; titles W1/N10 use plural sveiki to avoid gender. N1 and N15 reused from the .strings (N15 is in vy form, the rest of the new strings in ty). Settings names: Nustatymai, Klaviatūros, Leisti pilną prieigą taken from the app's own step strings, not checked against iOS 27. N8/N3 read 'key' as keyboard key. F2 'jos' = prieigos."
 }

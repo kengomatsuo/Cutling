@@ -45,7 +45,8 @@
     "N12": "Pridrži tipko z globusom na tipkovnici in izberi Cutling",
     "N14": "Tapni cutling in vnese se tja, kjer pišeš",
     "N15": "Shrani od koderkoli",
-    "N16": "V Cutling deli besedilo, povezave ali slike iz katere koli aplikacije"
+    "N16": "V Cutling deli besedilo, povezave ali slike iz katere koli aplikacije",
+    "TU1": "Med pisanjem tapni { }, da pustiš prazno mesto, ki ga izpolniš ob vsakem vnosu, ali tapni Naprej za preskok"
   },
   "back": {
     "W1": "Welcome to Cutling",
@@ -89,7 +90,8 @@
     "N12": "Hold the globe key on the keyboard and choose Cutling",
     "N14": "Tap a cutling and it is typed where you are writing",
     "N15": "Save from anywhere",
-    "N16": "Share text, links or images into Cutling from any app"
+    "N16": "Share text, links or images into Cutling from any app",
+    "TU1": "While writing tap { } to leave a blank that you fill in at each entry, or tap Next to skip"
   },
   "notes": "Informal ti, matching the locale's existing setup strings. Reused: Dobrodošli v Cutlingu, Kaj je novega v Cutlingu, Shrani od koderkoli, Nastavitve, Polni dostop, odložišče, Cutling declined as a noun (Cutlingi, cutlingov). Unsure: 'tapni' kept from the locale; N10 reuses the formal 'Dobrodošli' form of the existing welcome string. sl-SI is identical to sl in Localizable.strings."
 }
