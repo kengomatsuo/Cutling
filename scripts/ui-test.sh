@@ -18,6 +18,9 @@ xctestrun="$(ls -t "$build"/DerivedData/Build/Products/*.xctestrun | head -1)"
 out="${DEVICE_QUEUE_OUT:?run as a device-queue job}/$name"; mkdir -p "$out/shots"
 # The Cutling keyboard only shows with the software keyboard up.
 defaults write com.apple.iphonesimulator ConnectHardwareKeyboard -bool false
+# Inside iOS too: once another job has attached a hardware keyboard, iOS minimises the software keyboard
+# below the screen unless this is off (a focused field then shows no keyboard at all).
+xcrun simctl spawn "${DEVICE_QUEUE_UDID:?}" defaults write com.apple.Preferences AutomaticMinimizationEnabled -bool NO
 # Serial: parallel testing runs on clones of the queue's simulator, and the device queue allows no clones.
 TEST_RUNNER_FORMAT_TEST_SHOTS="$out/shots" xcodebuild test-without-building -xctestrun "$xctestrun" -destination "id=${DEVICE_QUEUE_UDID:?}" \
   -parallel-testing-enabled NO "${only[@]}" -resultBundlePath "$out/result.xcresult" >"$out/test.log" 2>&1 &
