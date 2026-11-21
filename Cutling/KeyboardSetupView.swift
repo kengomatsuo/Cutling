@@ -42,11 +42,8 @@ struct KeyboardSetupView: View {
     @State private var fullAccessDetected = false
     @State private var checkTimer: Timer?
     @State private var testText = ""
-    @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
     @AppStorage("hasCompletedSetup") private var hasCompletedSetup = false
     @FocusState private var testFieldFocused: Bool
-    @State private var howToUseReadyToContinue = false
-    @State private var doneIconAppeared = false
 
     private var allDone: Bool { keyboardDetected && fullAccessDetected }
 
@@ -374,168 +371,21 @@ struct KeyboardSetupView: View {
             : Color(.systemGroupedBackground)
     }
 
-    // MARK: - Page 4: What You Can Do
+    // MARK: - Pages 4-6, shared with the remade guide (SetupPages.swift)
 
     private var howToUsePage: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
-                Spacer().frame(height: 8)
-
-                Text("What You Can Do")
-                    .font(.title2.bold())
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding(.horizontal)
-
-                tipRow(
-                    icon: "globe",
-                    title: "Switch to Cutling Keyboard",
-                    detail: "While typing in any app, tap or hold the 🌐 globe key at the bottom-left of your keyboard, then select Cutling"
-                )
-
-                tipRow(
-                    icon: "text.cursor",
-                    title: "Insert Text Instantly",
-                    detail: "Tap any text cutling and it will be typed into your current text field immediately"
-                )
-
-                tipRow(
-                    icon: "photo",
-                    title: "Copy Images",
-                    detail: "Tap an image cutling to copy it to your clipboard, then paste it into the app you're using (usually by tapping and holding, then selecting Paste). Apple currently does not support directly pasting an image on this app."
-                )
-
-                tipRow(
-                    icon: "doc.on.clipboard",
-                    title: "Add from Clipboard",
-                    detail: "Copy any text, then tap the 'Add from Clipboard' button in the Cutling keyboard to save it as a new cutling"
-                )
-
-                tipRow(
-                    icon: "square.and.arrow.up",
-                    title: "Save from Anywhere",
-                    detail: "Send text, links, or images to Cutling straight from any app's Share Sheet or the Action extension."
-                )
-
-                Divider()
-                    .padding(.horizontal)
-
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Storage Limits")
-                        .font(.subheadline.weight(.semibold))
-                        .foregroundStyle(.secondary)
-
-                    HStack(spacing: 8) {
-                        Image(systemName: "doc.text")
-                            .foregroundStyle(.secondary)
-                            .frame(width: 20)
-                        Text("Up to **\(CutlingStore.maxTextCutlings) text** cutlings")
-                            .font(.subheadline)
-                    }
-
-                    HStack(spacing: 8) {
-                        Image(systemName: "photo")
-                            .foregroundStyle(.secondary)
-                            .frame(width: 20)
-                        Text("Up to **\(CutlingStore.maxImageCutlings) image** cutlings")
-                            .font(.subheadline)
-                    }
-
-                }
-                .padding(.horizontal)
-
-                HStack(spacing: 8) {
-                    Image(systemName: "exclamationmark.triangle.fill")
-                        .foregroundStyle(.orange)
-                        .frame(width: 20)
-                    Text("**Not for sensitive data.** Avoid storing passwords, card numbers, private keys or tokens.")
-                        .font(.subheadline)
-                }
-                .padding(.horizontal)
-
-                Spacer().frame(height: 16)
-            }
-            .padding(.horizontal)
-        }
-        .accessibilityIdentifier("howToUsePage")
-        .onScrollGeometryChange(for: Bool.self) { geo in
-            geo.contentOffset.y + geo.containerSize.height >= geo.contentSize.height - 1
-        } action: { _, isAtBottom in
-            guard isAtBottom, !howToUseReadyToContinue else { return }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                withAnimation(.smooth(duration: 0.25)) {
-                    howToUseReadyToContinue = true
-                }
-            }
-        }
-        .continueButtonBar {
-            continueButton(next: .icloud, canContinue: snapshotOr(howToUseReadyToContinue))
+        SetupWhatYouCanDoPage {
+            testFieldFocused = false
+            path.append(.icloud)
         }
     }
-
-    // MARK: - Page 5: iCloud
 
     private var icloudPage: some View {
-        ScrollView {
-            VStack(spacing: 20) {
-                Spacer().frame(height: 24)
-
-                Image(systemName: "icloud")
-                    .font(.system(size: 56))
-                    .foregroundStyle(Color.accentColor)
-
-                Text("Sync Across Devices")
-                    .font(.title2.bold())
-
-                Text("Turn on iCloud Sync to keep your cutlings up to date on every device signed in to your Apple Account.")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, 32)
-
-                Toggle(isOn: $iCloudSyncEnabled) {
-                    Label("Enable iCloud Sync", systemImage: "arrow.triangle.2.circlepath.icloud")
-                }
-                .padding(.horizontal, 32)
-                .onChange(of: iCloudSyncEnabled) { _, enabled in
-                    UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(enabled, forKey: "iCloudSyncEnabled")
-                }
-
-                Spacer()
-            }
-        }
-        .frame(maxWidth: .infinity)
-        .continueButtonBar {
-            continueButton(next: .done, canContinue: true)
-        }
+        SetupICloudPage { path.append(.done) }
     }
 
-    // MARK: - Page 6: Done
-
     private var donePage: some View {
-        VStack(spacing: 20) {
-            Spacer()
-
-            Image(systemName: "checkmark.seal.fill")
-                .font(.system(size: 56))
-                .foregroundStyle(.green)
-                .symbolEffect(.bounce, options: .nonRepeating, value: doneIconAppeared)
-                .onAppear { doneIconAppeared = true }
-
-            Text("You're All Set!")
-                .font(.title2.bold())
-
-            Text("Your Cutling keyboard is ready! While typing anywhere, tap the 🌐 globe icon on your keyboard to switch to Cutling.")
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 32)
-
-            Spacer()
-        }
-        .frame(maxWidth: .infinity)
-        .continueButtonBar {
-            continueButton(next: nil, canContinue: snapshotOr(allDone))
-        }
+        SetupDonePage(canFinish: snapshotOr(allDone)) { finish() }
     }
 
     // MARK: - Helper Views
@@ -552,22 +402,6 @@ struct KeyboardSetupView: View {
         }
     }
 
-    private func tipRow(icon: String, title: LocalizedStringKey, detail: LocalizedStringKey) -> some View {
-        HStack(alignment: .top, spacing: 12) {
-            Image(systemName: icon)
-                .foregroundStyle(Color.accentColor)
-                .font(.title3)
-                .frame(width: 28)
-            VStack(alignment: .leading, spacing: 4) {
-                Text(title)
-                    .font(.subheadline.weight(.medium))
-                Text(detail)
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-            }
-        }
-        .padding(.horizontal)
-    }
 
     private func snapshotOr(_ value: Bool) -> Bool {
         #if DEBUG

@@ -190,7 +190,8 @@ struct SetupFlowA: View {
     // setup recordings), so the step the buyer reached outlives the process.
     @AppStorage("setupWelcomeSeen") private var welcomeSeen = false
 
-    enum Page: Hashable { case add, tryIt }
+    /// Add, Try It, then the guide's own closing pages, which the owner keeps.
+    enum Page: Hashable { case add, tryIt, whatYouCanDo, icloud, done }
 
     var body: some View {
         NavigationStack(path: $path) {
@@ -212,6 +213,9 @@ struct SetupFlowA: View {
                 switch page {
                 case .add: addPage
                 case .tryIt: tryPage
+                case .whatYouCanDo: SetupWhatYouCanDoPage { path.append(.icloud) }
+                case .icloud: SetupICloudPage { path.append(.done) }
+                case .done: SetupDonePage { finish() }
                 }
             }
         }
@@ -269,9 +273,10 @@ struct SetupFlowA: View {
         .background(Color(.systemGroupedBackground))
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
-                Button("Done") { finish() }
+                // In the bar, not over the keyboard, so it never covers the field.
+                Button("Next") { path.append(.whatYouCanDo) }
                     .fontWeight(.semibold)
-                    .accessibilityIdentifier("setupDone")
+                    .accessibilityIdentifier("setupNext")
             }
         }
     }

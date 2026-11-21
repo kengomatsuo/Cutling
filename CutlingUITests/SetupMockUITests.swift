@@ -109,7 +109,19 @@ final class SetupMockAUITests: SetupMockTestCase {
         sleep(3)
         shot("A_back_from_settings")
         typeStarterCutling(app, "A")
-        app.buttons["setupDone"].firstMatch.tap()
+        app.buttons["setupNext"].firstMatch.tap()
+        sleep(2)
+        shot("A_what_you_can_do")
+        let page = app.descendants(matching: .any).matching(identifier: "howToUsePage").firstMatch
+        for _ in 0..<4 { page.swipeUp(); usleep(400_000) }
+        sleep(2)
+        app.buttons["continueButton"].firstMatch.tap()
+        sleep(2)
+        shot("A_icloud")
+        app.buttons["continueButton"].firstMatch.tap()
+        sleep(2)
+        shot("A_all_set")
+        app.buttons["continueButton"].firstMatch.tap()
         sleep(2)
         shot("A_grid")
     }
