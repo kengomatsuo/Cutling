@@ -65,8 +65,8 @@ final class FillInUITests: XCTestCase {
             }
             XCTAssertNotNil(frame, "No \(name) button on the Cutling keyboard (buttons: \(cutlingKeys(in: app)?.map(\.label) ?? []))")
             let f = frame ?? .zero
-            // Reading the screen stalls the keyboard for a moment; a pause keeps the filmed press clean.
-            sleep(1)
+            // Reading the screen stalls the keyboard for a moment; a tap sooner can be lost (testReturnKeyInsertsOnLastBlank).
+            sleep(2)
             return screenPoint(f.midX, f.midY, in: app)
         }
 
