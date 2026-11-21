@@ -1150,6 +1150,8 @@ struct KeyboardView: View {
                         : AnyShapeStyle(KeyStyle.keyColor),
                     in: RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous)
                 )
+                // VoiceOver reads the return key as a button, and during a fill-in as Next or Insert.
+                .accessibilityAddTraits(.isButton)
                 .accessibilityLabel(ifPresent: state.fill.flatMap { $0.field == nil ? nil : Text($0.isLast ? "Insert" : "Next", bundle: snapshotBundle) })
                 .instantPress(sound: .modifier) {
                     if state.fill?.field != nil { onFillNext() } else { onInsertText("\n") }
