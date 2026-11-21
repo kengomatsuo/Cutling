@@ -31,7 +31,7 @@ struct FormattedTextEditor {
     /// Room between lines, so pills on wrapped lines never meet (FillInPills.swift).
     fileprivate static let lines: NSParagraphStyle = {
         let style = NSMutableParagraphStyle()
-        style.lineSpacing = 4
+        style.lineSpacing = 7
         return style
     }()
 
