@@ -227,13 +227,16 @@ class CutlingStore: ObservableObject {
 
     // MARK: - Real-Time Sync
 
-    private var lastLoadedData: Data?
+    /// The digest of the list file last loaded or saved, to skip reloading an unchanged file.
+    /// A digest, not the file: holding 10,000 snippets' JSON cost the keyboard 14 MB of its 77.
+    private var lastLoadedDigest: SHA256.Digest?
 
     /// Reads a stored list. The first read after the move copies the list out of UserDefaults
     /// into its file and drops the old key, so the defaults domain shrinks back to settings.
     private func read(_ list: StoredList) -> Data? {
         let url = listsDirectory.appendingPathComponent(list.rawValue)
-        if let data = try? Data(contentsOf: url) { return data }
+        // Mapped: the file's pages stay clean and outside the process's footprint.
+        if let data = try? Data(contentsOf: url, options: .alwaysMapped) { return data }
         guard let legacy = defaults.data(forKey: list.legacyKey) else { return nil }
         do {
             try legacy.write(to: url, options: .atomic)
@@ -261,8 +264,9 @@ class CutlingStore: ObservableObject {
             return
         }
 
-        if data != lastLoadedData {
-            lastLoadedData = data
+        let digest = SHA256.hash(data: data)
+        if digest != lastLoadedDigest {
+            lastLoadedDigest = digest
             if let decoded = try? JSONDecoder().decode([Cutling].self, from: data) {
                 let deduped = Self.deduplicatedByID(decoded)
                 self.cutlings = deduped
@@ -298,10 +302,10 @@ class CutlingStore: ObservableObject {
         guard let data = read(.cutlings),
               let decoded = try? JSONDecoder().decode([Cutling].self, from: data)
         else { 
-            lastLoadedData = nil
+            lastLoadedDigest = nil
             return 
         }
-        lastLoadedData = data
+        lastLoadedDigest = SHA256.hash(data: data)
         let deduped = Self.deduplicatedByID(decoded)
         cutlings = deduped
         purgeExpired()
@@ -375,7 +379,7 @@ class CutlingStore: ObservableObject {
 
     func save() {
         guard let encoded = try? JSONEncoder().encode(cutlings) else { return }
-        lastLoadedData = encoded
+        lastLoadedDigest = SHA256.hash(data: encoded)
         write(encoded, to: .cutlings)
         
         // Notify other processes (keyboard extension or main app)
