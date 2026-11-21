@@ -55,9 +55,18 @@ struct TextPageView: View {
     private var keyboardBar: [EditorBarItem] {
         guard format != .code, !wide else { return [] }
         let aa = EditorBarItem(title: String(localized: "Format"), icon: "textformat") { formatOpen = true }
-        guard FillIns.isOn else { return [aa] }
-        return [aa, blank, today, allVariables, stamp(String(localized: "Clipboard Text"), "doc.on.clipboard", "clipboard"),
-                stamp(String(localized: "Time"), "clock", "time"), stamp(String(localized: "Cursor Position"), "text.cursor", "cursor")]
+        // Notes' order: Aa, its four inserts, then the styles inline (B I U S, highlight, link, lists).
+        // Here the inserts are the variables, and the styles are the five a cutling stores.
+        let inserts = FillIns.isOn ? [blank, today, allVariables, stamp(String(localized: "Clipboard Text"), "doc.on.clipboard", "clipboard")] : []
+        func style(_ title: String, _ icon: String, _ style: EditorStyle) -> EditorBarItem {
+            EditorBarItem(title: title, icon: icon, style: style) {}
+        }
+        return [aa] + inserts + [
+            style(String(localized: "Bold"), "bold", .bold), style(String(localized: "Italic"), "italic", .italic),
+            style(String(localized: "Strikethrough"), "strikethrough", .strikethrough),
+            style(String(localized: "Monospace"), "chevron.left.forwardslash.chevron.right", .monospace),
+            style(String(localized: "Add Link"), "link", .link),
+        ]
     }
 
     /// iPad's top bar, beside Aa, where Notes on iPad keeps checklist, table and attachment.

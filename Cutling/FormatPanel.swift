@@ -114,6 +114,67 @@ private struct PanelCard: ViewModifier {
     }
 }
 
+/// Where a link goes and what it reads, laid out as Notes' Add Link sheet: close at the left, the check at the right,
+/// "Link To" and, with nothing selected, an optional "Name".
+struct LinkSheet: View {
+    @Environment(\.dismiss) private var dismiss
+    let asksName: Bool
+    let onAdd: (URL, String) -> Void
+    @State private var address = ""
+    @State private var name = ""
+    @FocusState private var inAddress: Bool
+
+    private var url: URL? {
+        var text = address.trimmingCharacters(in: .whitespaces)
+        guard !text.isEmpty else { return nil }
+        if !text.contains("://") { text = "https://" + text }
+        return URL(string: text)
+    }
+
+    var body: some View {
+        NavigationStack {
+            Form {
+                Section("Link To") {
+                    TextField("URL", text: $address)
+                        .keyboardType(.URL)
+                        .textInputAutocapitalization(.never)
+                        .autocorrectionDisabled()
+                        .focused($inAddress)
+                        .accessibilityIdentifier("linkAddress")
+                }
+                if asksName {
+                    Section("Name") {
+                        TextField("Optional", text: $name)
+                    }
+                }
+            }
+            .navigationTitle("Add Link")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button { dismiss() } label: {
+                        if #available(iOS 26, *) { Image(systemName: "xmark") } else { Text("Cancel") }
+                    }
+                    .accessibilityLabel("Cancel")
+                    .accessibilityIdentifier("linkCancel")
+                }
+                ToolbarItem(placement: .confirmationAction) {
+                    Button {
+                        if let url { onAdd(url, name.trimmingCharacters(in: .whitespaces)) }
+                        dismiss()
+                    } label: {
+                        if #available(iOS 26, *) { Image(systemName: "checkmark") } else { Text("Done") }
+                    }
+                    .disabled(url == nil)
+                    .accessibilityIdentifier("linkDone")
+                }
+            }
+            .onAppear { inAddress = true }
+        }
+        .accessibilityIdentifier("linkSheet")
+    }
+}
+
 /// Apple's press: the surface darkens while held, with no scale and no fade in or out.
 struct FlatPressStyle<S: Shape>: ButtonStyle {
     let shape: S

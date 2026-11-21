@@ -29,3 +29,19 @@ Looked at and not used: Apple Support "Share a note on your iPhone" (https://www
 ## iPad
 
 No footage. Apple's stills (`../shots/ipad-notes-*.png`) show the tools in the top bar's centre (Aa, checklist, table, attachment) and nothing above the keyboard; what the bar does as the iPad keyboard comes and goes is not known.
+
+## The owner's second recording: dark mode, 58 s (2026-11-21 22:04)
+
+Source: `~/Downloads/ScreenRecording_11-21-2026 22-04-02_1.MP4` (1180x2556, about 60 fps), the owner's iPhone, iOS 27; full-size frames in `../owner-recording/dark_<t>s.png`. Read here from: `owner-dark-bar-scrolled-30s-57s.jpg` (the bar's strip every 1.5 s, at half size), `owner-dark-bar-scrolling-28.6s-30.2s.jpg` (ten frames a second while the bar is dragged), `owner-dark-format-12s-menu-28s-link-40s-43s.png` (four whole frames).
+
+**The bar is one long strip, not one page.** Dragged sideways it moves freely with the finger (28.6-30.2 s: Aa slides out at the left as B and I slide in at the right) and rests wherever it is let go. Its buttons, in order: Aa, checklist, table, attachment, markup; then bold, italic, underline, strikethrough, highlight, link; then outdent, indent, move up, move down, block quote, list. The inserts sit about 70 pt apart; the style glyphs, narrower, about 57 pt apart; the last group about 63 pt.
+
+**A style that is on is a filled circle.** At 36 s, B stands on a circle in the app's tint (yellow), nearly as tall as the bar (about 42 of 48 pt), its glyph white; the others stay plain. At 55.5 s block quote is filled the same way. Nothing else marks the state.
+
+**A button with choices opens a menu above the bar.** At 52-54 s the list button's menu (Bulleted, Dashed, Numbered: icon, then label) stands above the bar's right end, with the same dark glass and large corners; the bar stays where it is. At 28 s the attachment menu (Scan Text, Scan Documents, Take Photo or Video, Choose Photo or Video, a rule, Record Audio, Attach File) stands above the keyboard at the right and the bar is not drawn while it is open. How either menu opens and closes, frame by frame, was not read in this pass.
+
+**Format panel, dark (12 s).** The keyboard and the bar are gone; a card stands at the bottom, about 9 pt in from each side, large corners, a shade lighter than the page: "Format" at the left, a round close button at the right; a row of style chips (Title, Heading, Subheading, Body, scrolling, the current one filled in the tint); a joined group B I U S beside a joined pen and colour dot; a joined group of three lists beside outdent and indent and a block-quote button. The check stays at the top right while it is open.
+
+**Add Link (40.5-43 s).** A sheet covers the note to the top, the keyboard up: a round close button at the left, "Add Link" in the middle, a round check at the right, grey until something is entered. "Link To" above a tall field reading "Enter a URL or note title"; a row "Link to Section — None"; "Name" above a field reading "Optional".
+
+**Keyboard down (0.5 s) and up (5 s).** As in the first recording, in dark: a capsule of three and a round compose button at the bottom; with the keyboard up, the full bar 10 pt above it and the check in the tint.

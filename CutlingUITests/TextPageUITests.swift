@@ -98,6 +98,26 @@ final class TextPageUITests: XCTestCase {
         }
         sleep(1)
 
+        // Further along the same bar, as in Notes: the styles. One that is on is filled; the link asks in a sheet.
+        if !wide {
+            bar.swipeLeft()
+            let bold = app.buttons["Bold"].firstMatch
+            XCTAssertTrue(bold.waitForExistence(timeout: 5), "No Bold on the bar after the variables")
+            bold.tap()
+            sleep(1)
+            XCTAssertTrue(bold.isSelected, "Bold does not show as on after a tap")
+            shot("4_bar_styles", dark: dark)
+            bold.tap()
+            app.buttons["Add Link"].firstMatch.tap()
+            XCTAssertTrue(any(app, "linkAddress").waitForExistence(timeout: 5), "The link button opened no Add Link sheet")
+            sleep(1)
+            shot("4_link_sheet", dark: dark)
+            app.buttons["linkCancel"].firstMatch.tap()
+            XCTAssertTrue(bar.waitForExistence(timeout: 10), "Closing Add Link did not bring the bar back")
+            bar.swipeRight()
+            sleep(1)
+        }
+
         // The variables button opens the whole picker at once.
         let pillsBefore = pills(app)
         app.buttons["Variables"].firstMatch.tap()

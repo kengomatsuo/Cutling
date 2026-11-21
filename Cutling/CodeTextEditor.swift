@@ -61,6 +61,10 @@ struct FormattedTextEditor {
 struct EditorBarItem {
     let title: String
     let icon: String
+    #if os(iOS)
+    /// A formatting button: it toggles this style at the cursor and shows filled while the style is on, as Notes' B does.
+    var style: EditorStyle? = nil
+    #endif
     let action: () -> Void
 }
 
@@ -76,21 +80,32 @@ struct PillReplacement: Equatable {
 /// step apart and scrolling sideways, so one more is always cut off at the edge.
 struct EditorKeyboardBar: View {
     let items: [EditorBarItem]
+    /// Which styles are on at the cursor; a formatting button reads it and toggles through it.
+    let styles: EditorStyles
     static let barHeight: CGFloat = 48
     /// Capsule height plus the gap above the keyboard.
     static let height: CGFloat = barHeight + 10
-    /// Notes' buttons sit about 70 pt apart, the first 30 pt in from the capsule's edge.
+    /// Notes' insert buttons sit about 70 pt apart, the first 30 pt in from the capsule's edge;
+    /// its formatting glyphs, further along the same bar, about 58 pt apart.
     static let step: CGFloat = 70
+    static let styleStep: CGFloat = 58
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 0) {
                 ForEach(items, id: \.title) { item in
-                    EditorBarButton(item: item)
-                        .frame(width: Self.step, height: Self.barHeight)
+                    if let style = item.style {
+                        EditorBarButton(item: EditorBarItem(title: item.title, icon: item.icon) { styles.toggle(style) },
+                                        active: styles.active.contains(style))
+                            .frame(width: Self.styleStep, height: Self.barHeight)
+                    } else {
+                        EditorBarButton(item: item)
+                            .frame(width: Self.step, height: Self.barHeight)
+                    }
                 }
             }
             .padding(.leading, -5)
+            .padding(.trailing, 4)
         }
         .frame(height: Self.barHeight)
         .clipShape(Capsule())
@@ -103,21 +118,24 @@ struct EditorKeyboardBar: View {
 }
 
 /// One button of the editor's bars: a symbol in the label colour, at the size Notes draws its own.
+/// A style that is on stands on a filled circle in the app's tint, its glyph white, as Notes fills B.
 struct EditorBarButton: View {
     let item: EditorBarItem
-
-    private var symbol: some View {
-        Image(systemName: item.icon)
-            .font(.system(size: 20, weight: .medium))
-            .foregroundStyle(Color.primary)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .contentShape(Rectangle())
-    }
+    var active = false
 
     var body: some View {
-        Button(action: item.action) { symbol }
-            .buttonStyle(.plain)
-            .accessibilityLabel(item.title)
+        Button(action: item.action) {
+            Image(systemName: item.icon)
+                .font(.system(size: 20, weight: .medium))
+                .foregroundStyle(active ? Color.white : Color.primary)
+                .frame(width: 42, height: 42)
+                .background(active ? Color.accentColor : Color.clear, in: Circle())
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(item.title)
+        .accessibilityAddTraits(active ? .isSelected : [])
     }
 }
 
@@ -220,7 +238,7 @@ extension FormattedTextEditor: UIViewRepresentable {
             }
             // The same buttons: left as they are, so typing never redraws the bar or moves the keyboard.
             if sameButtons, barHost != nil { return }
-            let host = UIHostingController(rootView: EditorKeyboardBar(items: items))
+            let host = UIHostingController(rootView: EditorKeyboardBar(items: items, styles: styles))
             host.view.backgroundColor = .clear
             let container = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: EditorKeyboardBar.height))
             container.backgroundColor = .clear
@@ -402,26 +420,17 @@ extension FormattedTextEditor: UIViewRepresentable {
             storage.endEditing()
         }
 
-        /// Notes asks for the address in a sheet; an alert with one field does the same here.
+        /// Notes asks in an Add Link sheet (Link To, Name); so does this.
         private func askForLink(in view: UITextView) {
             let range = view.selectedRange
-            let alert = UIAlertController(title: String(localized: "Add Link"), message: nil, preferredStyle: .alert)
-            alert.addTextField { field in
-                field.placeholder = "https://"
-                field.keyboardType = .URL
-                field.autocapitalizationType = .none
-                field.autocorrectionType = .no
-            }
-            alert.addAction(UIAlertAction(title: String(localized: "Cancel"), style: .cancel))
-            alert.addAction(UIAlertAction(title: String(localized: "Add"), style: .default) { [weak self, weak view] _ in
-                guard let self, let view, var text = alert.textFields?.first?.text?.trimmingCharacters(in: .whitespaces), !text.isEmpty else { return }
-                if !text.contains("://") { text = "https://" + text }
-                guard let url = URL(string: text) else { return }
+            let sheet = UIHostingController(rootView: LinkSheet(asksName: range.length == 0) { [weak self, weak view] url, name in
+                guard let self, let view else { return }
                 if range.length == 0 {
-                    // Nothing selected: the address itself becomes the linked text.
+                    // Nothing selected: the name, or the address itself, becomes the linked text.
+                    let shown = name.isEmpty ? url.absoluteString : name
                     view.selectedRange = range
-                    view.insertText(url.absoluteString)
-                    view.selectedRange = NSRange(location: range.location, length: (url.absoluteString as NSString).length)
+                    view.insertText(shown)
+                    view.selectedRange = NSRange(location: range.location, length: (shown as NSString).length)
                 } else {
                     view.selectedRange = range
                 }
@@ -431,7 +440,7 @@ extension FormattedTextEditor: UIViewRepresentable {
             })
             var top = view.window?.rootViewController
             while let next = top?.presentedViewController { top = next }
-            top?.present(alert, animated: true)
+            top?.present(sheet, animated: true)
         }
 
         func textViewDidChange(_ view: UITextView) {
