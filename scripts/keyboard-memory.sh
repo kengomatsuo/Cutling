@@ -40,7 +40,10 @@ fi
 defaults write com.apple.iphonesimulator ConnectHardwareKeyboard -bool false
 # Inside iOS too: with a hardware keyboard seen (another job can attach one), iOS minimises the software
 # keyboard below the screen unless this is off.
-xcrun simctl spawn "$udid" defaults write com.apple.Preferences AutomaticMinimizationEnabled -bool NO
+# iOS 27 keeps these in com.apple.keyboard.preferences, not com.apple.Preferences: XCUITest's typeText arrives as
+# hardware key events, which set HardwareKeyboardLastSeen, and with minimisation on every later field shows no keyboard.
+xcrun simctl spawn "$udid" defaults write com.apple.keyboard.preferences AutomaticMinimizationEnabled -bool NO
+xcrun simctl spawn "$udid" defaults write com.apple.keyboard.preferences HardwareKeyboardLastSeen -bool NO
 keyboard="Devices/$udid/.*CutlingKeyboard.appex/CutlingKeyboard"
 # The newest build's run file; an older one for another architecture set can sit beside it.
 xctestrun="$(ls -t "$build"/DerivedData/Build/Products/*.xctestrun | head -1)"
