@@ -21,47 +21,112 @@ struct AppleSheetRow: Identifiable {
     var id: String { symbol }
 }
 
-struct AppleSheet<Footer: View>: View {
+/// One page in Apple's sheet layout: title (and grey subtitle) at the top left, the page's
+/// content, and one full-width button at the bottom with an optional link over it. Every page
+/// of the setup guide and every sheet uses it, so title, background, rows and button sit in
+/// the same place on each.
+struct AppleSheetPage<Content: View, Footer: View>: View {
     let title: LocalizedStringKey
     var subtitle: LocalizedStringKey? = nil
-    let rows: [AppleSheetRow]
+    /// 56 for a sheet of its own; 8 inside a navigation stack, whose bar gives the rest.
+    var topPadding: CGFloat = 56
     let buttonTitle: LocalizedStringKey
+    var buttonEnabled = true
+    var buttonID = "sheetPrimaryButton"
+    /// Keeps the button off until the page has been scrolled to its end.
+    var requiresReadingToEnd = false
     let action: () -> Void
-    @ViewBuilder var footer: Footer
+    let content: Content
+    let footer: Footer
+    @State private var readToEnd = false
+
+    init(title: LocalizedStringKey, subtitle: LocalizedStringKey? = nil, topPadding: CGFloat = 56,
+         buttonTitle: LocalizedStringKey, buttonEnabled: Bool = true, buttonID: String = "sheetPrimaryButton",
+         requiresReadingToEnd: Bool = false, action: @escaping () -> Void,
+         @ViewBuilder content: () -> Content, @ViewBuilder footer: () -> Footer) {
+        self.title = title
+        self.subtitle = subtitle
+        self.topPadding = topPadding
+        self.buttonTitle = buttonTitle
+        self.buttonEnabled = buttonEnabled
+        self.buttonID = buttonID
+        self.requiresReadingToEnd = requiresReadingToEnd
+        self.action = action
+        self.content = content()
+        self.footer = footer()
+    }
+
+    private var snapshotMode: Bool { ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") }
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
                 AppleSheetHeader(title: title, subtitle: subtitle)
-                    .padding(.bottom, 30)
-                VStack(alignment: .leading, spacing: 26) {
-                    ForEach(rows) { row in
-                        AppleSheetRowView(row: row)
-                    }
-                }
+                    .padding(.bottom, 28)
+                content
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal, 36)
-            .padding(.top, 56)
+            .padding(.top, topPadding)
             .padding(.bottom, 24)
         }
         .scrollBounceBehavior(.basedOnSize)
+        .onScrollGeometryChange(for: Bool.self) { geo in
+            geo.contentOffset.y + geo.containerSize.height >= geo.contentSize.height - 1
+        } action: { _, atEnd in
+            if atEnd, requiresReadingToEnd, !readToEnd { readToEnd = true }
+        }
         .safeAreaInset(edge: .bottom) {
-            VStack(spacing: 14) {
+            VStack(spacing: 12) {
                 footer
-                AppleSheetButton(title: buttonTitle, action: action)
+                AppleSheetButton(title: buttonTitle, id: buttonID, action: action)
+                    .disabled(!buttonEnabled || (requiresReadingToEnd && !readToEnd && !snapshotMode))
             }
             .padding(.horizontal, 36)
             .padding(.bottom, 12)
-            .background(.background)
+            .background(Color(.systemBackground))
+        }
+        .background(Color(.systemBackground))
+    }
+}
+
+extension AppleSheetPage where Footer == EmptyView {
+    init(title: LocalizedStringKey, subtitle: LocalizedStringKey? = nil, topPadding: CGFloat = 56,
+         buttonTitle: LocalizedStringKey, buttonEnabled: Bool = true, buttonID: String = "sheetPrimaryButton",
+         requiresReadingToEnd: Bool = false, action: @escaping () -> Void, @ViewBuilder content: () -> Content) {
+        self.init(title: title, subtitle: subtitle, topPadding: topPadding, buttonTitle: buttonTitle,
+                  buttonEnabled: buttonEnabled, buttonID: buttonID, requiresReadingToEnd: requiresReadingToEnd,
+                  action: action, content: content, footer: { EmptyView() })
+    }
+}
+
+/// A page of icon rows, Apple's "Welcome to" and "What's New" sheet.
+struct AppleSheet: View {
+    let title: LocalizedStringKey
+    var subtitle: LocalizedStringKey? = nil
+    let rows: [AppleSheetRow]
+    var buttonTitle: LocalizedStringKey = "Continue"
+    var topPadding: CGFloat = 56
+    var buttonID = "sheetPrimaryButton"
+    let action: () -> Void
+
+    var body: some View {
+        AppleSheetPage(title: title, subtitle: subtitle, topPadding: topPadding, buttonTitle: buttonTitle,
+                       buttonID: buttonID, action: action) {
+            AppleSheetRows(rows: rows)
         }
     }
 }
 
-extension AppleSheet where Footer == EmptyView {
-    init(title: LocalizedStringKey, subtitle: LocalizedStringKey? = nil, rows: [AppleSheetRow],
-         buttonTitle: LocalizedStringKey = "Continue", action: @escaping () -> Void) {
-        self.init(title: title, subtitle: subtitle, rows: rows, buttonTitle: buttonTitle, action: action) { EmptyView() }
+struct AppleSheetRows: View {
+    let rows: [AppleSheetRow]
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 26) {
+            ForEach(rows) { row in
+                AppleSheetRowView(row: row)
+            }
+        }
     }
 }
 
@@ -111,6 +176,7 @@ struct AppleSheetRowView: View {
 /// The one full-width button at the bottom of a sheet, in Cutling's prominent style.
 struct AppleSheetButton: View {
     let title: LocalizedStringKey
+    var id = "sheetPrimaryButton"
     let action: () -> Void
 
     var body: some View {
@@ -121,7 +187,7 @@ struct AppleSheetButton: View {
                 .padding(.vertical, 10)
         }
         .modifier(ProminentCapsuleButton())
-        .accessibilityIdentifier("sheetPrimaryButton")
+        .accessibilityIdentifier(id)
     }
 }
 

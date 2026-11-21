@@ -117,7 +117,7 @@ struct TryField: View {
                 .lineLimit(2...4)
                 .padding(14)
                 .background(Color(.secondarySystemGroupedBackground), in: RoundedRectangle(cornerRadius: 16, style: .continuous))
-                .accessibilityIdentifier("setupTryField")
+                .accessibilityIdentifier("keyboardTestField")
             if worked {
                 Label("Cutling typed it. You're set.", systemImage: "checkmark.circle.fill")
                     .font(.subheadline.weight(.semibold))
@@ -165,7 +165,9 @@ struct SetupFlowA: View {
                                   detail: "Copy a saved image with one tap and paste it anywhere."),
                     AppleSheetRow(symbol: "lock.fill", title: "Stays on Your iPhone",
                                   detail: "No account, no internet. Your cutlings sync only through your own iCloud."),
-                ]
+                ],
+                topPadding: setupPageTopPadding,
+                buttonID: "continueButton"
             ) {
                 welcomeSeen = true
                 path.append(status.keyboardAdded ? .tryIt : .add)
@@ -200,9 +202,10 @@ struct SetupFlowA: View {
     }
 
     private var addPage: some View {
-        ScrollView {
+        AppleSheetPage(title: "Add the Keyboard", subtitle: "Turn on Cutling in Settings, then come back.",
+                       topPadding: setupPageTopPadding, buttonTitle: "Open Settings", buttonID: "openSettingsButton",
+                       action: SetupLinks.openSettings) {
             VStack(alignment: .leading, spacing: 16) {
-                AppleSheetHeader(title: "Add the Keyboard", subtitle: "Turn on Cutling in Settings, then come back.")
                 // Short enough that the steps under it sit above the button down to a 678-point-tall screen.
                 SettingsDemoVideo()
                     .frame(maxHeight: 210)
@@ -214,43 +217,21 @@ struct SetupFlowA: View {
                     SetupStepLine(number: 3, text: "Turn on **Allow Full Access** so the keyboard can copy images to your clipboard.")
                 }
             }
-            .padding(.horizontal, 24)
-            .padding(.top, 8)
-        }
-        .scrollBounceBehavior(.basedOnSize)
-        .background(Color(.systemGroupedBackground))
-        .safeAreaInset(edge: .bottom) {
+        } footer: {
             // Apple sets a sheet's secondary action as a text link over its one button.
-            VStack(spacing: 12) {
-                Button("About Full Access") { showFullAccess = true }
-                    .font(.subheadline)
-                AppleSheetButton(title: "Open Settings") { SetupLinks.openSettings() }
-            }
-            .padding(.horizontal, 36)
-            .padding(.bottom, 12)
-            .background(Color(.systemGroupedBackground))
+            Button("About Full Access") { showFullAccess = true }
+                .font(.subheadline)
         }
     }
 
     private var tryPage: some View {
-        let worked = typedACutling(tryText, store: store)
-        return ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
-                AppleSheetHeader(title: "Try It", subtitle: "Type with Cutling here.")
-                TryField(text: $tryText, worked: worked)
-            }
-            .padding(.horizontal, 24)
-            .padding(.top, 8)
-        }
-        .scrollBounceBehavior(.basedOnSize)
-        .background(Color(.systemGroupedBackground))
-        .toolbar {
-            ToolbarItem(placement: .confirmationAction) {
-                // In the bar, not over the keyboard, so it never covers the field.
-                Button("Next") { path.append(.whatYouCanDo) }
-                    .fontWeight(.semibold)
-                    .accessibilityIdentifier("setupNext")
-            }
+        // The keyboard stays up here; the page is short, so the button above the keyboard
+        // never covers the field.
+        AppleSheetPage(title: "Try It", subtitle: "Type with Cutling here.", topPadding: setupPageTopPadding,
+                       buttonTitle: "Continue", buttonID: "continueButton") {
+            path.append(.whatYouCanDo)
+        } content: {
+            TryField(text: $tryText, worked: typedACutling(tryText, store: store))
         }
     }
 

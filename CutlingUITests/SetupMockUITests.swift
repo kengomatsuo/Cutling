@@ -101,7 +101,7 @@ extension SetupMockTestCase {
     @MainActor func walkA(dark: Bool) throws {
         let app = launch("A", dark: dark)
         shot("A_welcome")
-        app.buttons["sheetPrimaryButton"].firstMatch.tap()
+        app.buttons["continueButton"].firstMatch.tap()
         sleep(2)
         shot("A_add_keyboard")
         sleep(10)
@@ -120,7 +120,7 @@ extension SetupMockTestCase {
         sleep(3)
         shot("A_back_from_settings")
         typeStarterCutling(app, "A")
-        app.buttons["setupNext"].firstMatch.tap()
+        app.buttons["continueButton"].firstMatch.tap()
         sleep(2)
         shot("A_what_you_can_do")
         let page = app.descendants(matching: .any).matching(identifier: "howToUsePage").firstMatch
@@ -181,7 +181,7 @@ final class SetupMockCUITests: SetupMockTestCase {
         app.activate()
         sleep(3)
         shot("C_back_from_settings")
-        let field = app.textFields["setupTryField"].firstMatch
+        let field = app.textFields["keyboardTestField"].firstMatch
         if field.waitForExistence(timeout: 5), !app.keyboards.firstMatch.exists { field.tap() }
         typeStarterCutling(app, "C")
         app.buttons["setupDone"].firstMatch.tap()
