@@ -4,16 +4,17 @@ What each new on-screen string for fill-ins and date stamps must mean. Every loc
 
 Background a writer needs: Cutling is an app that keeps snippets of text (addresses, replies, signatures) and types them into any app through its own iPhone keyboard, or pastes them on a Mac. A snippet can now hold **blanks** (a person's name, an order number) that the person fills each time they use it, and **stamps** that turn into today's date or the current time. The register is the app speaking plainly to its user, short, friendly, no exclamation marks.
 
-## iPhone keyboard: the fill-in panel
+## iPhone and iPad keyboard: the fill-in screen (board ASG91)
 
-The person tapped a snippet in Cutling's keyboard. Cutling typed the snippet up to its first blank and now shows a panel in place of the snippet grid. The panel shows the blank's name in large type (for example "Name"), a small grey line under it, a row of one-tap values (clipboard, values used before), and a green button on the right.
+The person tapped a snippet with blanks in Cutling's keyboard. Nothing is typed yet. The keyboard's top bar shows the snippet's whole sentence on one line with the blank it waits for in green (for example "Hi Name, your order ships today." with "Name" green) and an ✕ on the right. Below is one wide key across the keyboard, green text beside a keyboard icon, then smaller keys holding values for this blank (its choices, values used before, the clipboard key). The bottom row keeps the globe, delete, space and a green return key. Cutling has no letter keys of its own, so any value the person types is typed on their own regular keyboard, straight into the app's text field.
 
 | Key | Role | What it must say | Budget |
 |---|---|---|---|
-| K1 `progress` | small grey counter, top right | which blank this is out of how many, with two numbers, e.g. "1 of 2". Format string with two integers, written `%lld` twice in order (current, total). | 10 chars |
-| K2 `hint` | small grey line under the blank's name, beside a globe icon | tells the person to type the value with their usual keyboard (they switch with the globe key and type it straight into the app's text field; Cutling waits). An instruction, not a sentence about Cutling. | 32 chars |
+| K3 `own-keyboard` | label of the wide key | Tapping it switches to the person's own regular keyboard (the one they normally type letters on, in their language) so they type the blank's value there and then come back to Cutling with the globe key. Names that action as a button label in the locale's own button convention (capitals, verb form). Must not read as switching to Cutling's keyboard or to "the next keyboard". | one line on the narrowest iPhone: about 30 Latin characters, 15 CJK, 22 Indic, Thai or Arabic-script characters |
+| K4 `insert` | VoiceOver label of the green return key while the last blank waits | Pressing it puts the finished text, every blank filled, into the app's text field. A verb, in the form the locale uses for a key's spoken label. Must differ from the locale's word on the clipboard key (which only fills the blank), because both keys can be on screen. | 15 chars |
+| K5 `announce` | VoiceOver announcement when a blank comes up | The blank's own label, then which blank this is out of how many. Three variables: the label as the person wrote it (e.g. "Name", "Order number"), this blank's number (1) and the number of blanks (2). Spoken, so short, like the position VoiceOver reads in a list. Positional specifiers (`%1$@ %2$lld %3$lld`) where the locale's order differs from label, number, total. | spoken; about 25 chars plus the label |
 
-The panel's other controls reuse words the locale already has: the clipboard chip uses its "Paste", the green button its "Next" (more blanks follow) or "Done" (last blank: types the rest), and the ✕ button's spoken label its "Cancel".
+The screen's other controls reuse words the locale already has: the clipboard key its "Paste", the return key's spoken label on earlier blanks its "Next", and the ✕ button's spoken label its "Cancel". The earlier panel's counter, hint line and last-blank "Done" are gone. Per-locale results and their back-check: [fill-ins-strings-check.md](fill-ins-strings-check.md).
 
 ## Snippet editor: the menu that adds blanks and stamps
 

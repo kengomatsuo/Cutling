@@ -25,9 +25,9 @@
 "Copy" = "コピー";
 
 /* MARK: - Fill-ins (docs/fill-ins-strings-brief.md) */
-"%lld of %lld" = "%lld/%lld";
-"Type it with your keyboard" = "いつものキーボードで入力";
+"Type with Your Keyboard" = "いつものキーボードで入力";
 "Paste" = "ペースト";
 "Next" = "次へ";
-"Done" = "完了";
+"Insert" = "挿入";
 "Cancel" = "キャンセル";
+"%@, %lld of %lld" = "%1$@、%3$lldか所中%2$lldか所目";

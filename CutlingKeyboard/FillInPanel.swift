@@ -88,6 +88,8 @@ struct FillSession: Codable, Equatable {
 struct FillInBar: View {
     let session: FillSession
     let keyHeight: CGFloat
+    /// The keyboard's strings bundle (another language in store screenshots).
+    let bundle: Bundle?
     let onCancel: () -> Void
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     private let green = Color(hex: 0x00be86)
@@ -124,7 +126,7 @@ struct FillInBar: View {
                     .contentShape(Circle())
             }
             .buttonStyle(.plain)
-            .accessibilityLabel(Text("Cancel"))
+            .accessibilityLabel(Text("Cancel", bundle: bundle))
         }
     }
 
@@ -167,6 +169,7 @@ struct FillInBar: View {
 struct FillInKeys: View {
     let session: FillSession
     let canPaste: Bool
+    let bundle: Bundle?
     let keyHeight: CGFloat
     let keySpacing: CGFloat
     let onYourKeyboard: () -> Void
@@ -218,7 +221,7 @@ struct FillInKeys: View {
             HStack(spacing: 8) {
                 Image(systemName: "keyboard")
                     .font(.system(size: KeyStyle.buttonIconSize(for: horizontalSizeClass), weight: .medium))
-                Text("Type with Your Keyboard")
+                Text("Type with Your Keyboard", bundle: bundle)
                     .font(.system(size: KeyStyle.buttonTextSize(for: horizontalSizeClass), weight: .semibold))
             }
             .foregroundStyle(green)
@@ -238,7 +241,7 @@ struct FillInKeys: View {
                         .font(.system(size: KeyStyle.iconSize(for: horizontalSizeClass) + 2))
                         .foregroundStyle(.secondary)
                 }
-                Text(verbatim: icon == nil ? text : String(localized: "Paste"))
+                Text(verbatim: icon == nil ? text : String(localized: "Paste", bundle: bundle ?? .main))
                     .font(.system(size: KeyStyle.buttonTextSize(for: horizontalSizeClass)))
                     .lineLimit(1)
                 if chosen {

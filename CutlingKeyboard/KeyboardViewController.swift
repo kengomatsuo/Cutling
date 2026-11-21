@@ -468,7 +468,7 @@ class KeyboardViewController: UIInputViewController {
         FillSession.save(session)
         refreshWordBeforeCursor()
         if let field = session?.field, let session {
-            UIAccessibility.post(notification: .announcement, argument: String(localized: "\(field.label), \(session.index + 1) of \(session.fields.count)"))
+            UIAccessibility.post(notification: .announcement, argument: String(localized: "\(field.label), \(session.index + 1) of \(session.fields.count)", bundle: snapshotBundle ?? .main))
         }
     }
 
@@ -895,7 +895,7 @@ struct KeyboardView: View {
         VStack(spacing: keySpacing) {
             Group {
                 if let session = state.fill, session.field != nil {
-                    FillInBar(session: session, keyHeight: keyHeight, onCancel: onFillCancel)
+                    FillInBar(session: session, keyHeight: keyHeight, bundle: snapshotBundle, onCancel: onFillCancel)
                 } else {
                     suggestionBar
                 }
@@ -907,7 +907,7 @@ struct KeyboardView: View {
             Group {
                 // The fill-in screen replaces the grid at once, as Apple's keyboard swaps layouts.
                 if let session = state.fill, session.field != nil {
-                    FillInKeys(session: session, canPaste: state.hasFullAccess, keyHeight: keyHeight, keySpacing: keySpacing,
+                    FillInKeys(session: session, canPaste: state.hasFullAccess, bundle: snapshotBundle, keyHeight: keyHeight, keySpacing: keySpacing,
                                onYourKeyboard: onFillTypeOnOwnKeyboard, onPick: onFillPick, onPaste: onFillPaste)
                 } else {
                     cutlingGrid
@@ -1150,7 +1150,7 @@ struct KeyboardView: View {
                         : AnyShapeStyle(KeyStyle.keyColor),
                     in: RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous)
                 )
-                .accessibilityLabel(ifPresent: state.fill.flatMap { $0.field == nil ? nil : Text($0.isLast ? "Insert" : "Next") })
+                .accessibilityLabel(ifPresent: state.fill.flatMap { $0.field == nil ? nil : Text($0.isLast ? "Insert" : "Next", bundle: snapshotBundle) })
                 .instantPress(sound: .modifier) {
                     if state.fill?.field != nil { onFillNext() } else { onInsertText("\n") }
                 }
