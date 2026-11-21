@@ -177,12 +177,22 @@ struct FillInBar: View {
     /// Every way to show the sentence, from whole to shortest, dropping one word at a time from the far
     /// end of the longer side; ViewThatFits takes the first that fits the bar.
     private var trims: [Trim] {
-        var before = pieces(self.before)
-        var after = pieces(self.after)
+        let fullBefore = pieces(self.before)
+        let fullAfter = pieces(self.after)
+        var before = fullBefore
+        var after = fullAfter
         var out = [Trim(before: before, after: after)]
         while !before.isEmpty || !after.isEmpty {
             if before.count >= after.count, !before.isEmpty { before.removeFirst() } else if !after.isEmpty { after.removeLast() } else { before.removeFirst() }
-            out.append(Trim(before: (before.isEmpty ? [] : [.ellipsis]) + before, after: after + (after.isEmpty ? [] : [.ellipsis])))
+            // An ellipsis marks only a side that lost words, and sits right against the last word kept.
+            let cutBefore = before.count < fullBefore.count
+            let cutAfter = after.count < fullAfter.count
+            var shownAfter = after
+            if cutAfter, case .word(let last)? = shownAfter.last {
+                shownAfter[shownAfter.count - 1] = .word(last.trimmingCharacters(in: .whitespaces))
+            }
+            out.append(Trim(before: (cutBefore ? [.ellipsis] : []) + before,
+                            after: shownAfter + (cutAfter ? [.ellipsis] : [])))
         }
         return out
     }
