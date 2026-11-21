@@ -247,6 +247,9 @@ struct SetupGuide: View {
 
     private func finish() {
         UserDefaults.standard.set(true, forKey: "hasCompletedSetup")
+        // The 12-step walkthrough no longer starts by itself after setup (owner, 2026-11-21);
+        // it stays under How to Use Cutling. This flag also lets the contextual tips show.
+        UserDefaults.standard.set(true, forKey: "hasSeenInteractiveTutorial")
         dismiss()
     }
 }

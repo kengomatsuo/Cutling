@@ -101,3 +101,14 @@ Keys are the IDs above (W1-W7, A1-A6, F2-F8, T1-T5, T7-T8, N1-N12, N14-N16). Kee
 shows it (N6 one number; N7 two numbers, written `%1$@` and `%2$@` when the order changes; T4 the
 globe icon). If the locale's `Localizable.strings` already holds a string that says exactly the same
 thing (N1 "What's New in Cutling", N15 "Save from Anywhere", the Settings app's name), reuse it.
+
+## Tutorial: the fill-in step (TU1)
+
+The interactive tutorial (replayed from How to Use Cutling) is in the snippet editor, creating
+the first cutling. A tip bubble points at the text box. On iPhone, a bar above the keyboard holds
+small buttons, one of them a curly-braces icon that puts a blank into the text. The tip may be
+read out by VoiceOver too. The person can skip with the tutorial's Next button.
+
+| Key | Role | Must say | Budget |
+|---|---|---|---|
+| TU1 | tip text | while you type the text, tap the braces button to leave a blank you fill in each time you use the cutling; or tap Next to skip | 110 |

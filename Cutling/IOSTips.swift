@@ -90,8 +90,12 @@ struct FillInTip: Tip {
     }
     var image: Image? { Image(systemName: "curlybraces") }
 
+    /// Set while the interactive walkthrough runs, whose own step teaches blanks.
+    @Parameter static var tutorialActive: Bool = false
+
     var rules: [Rule] {
         #Rule(Self.openedTextEditor) { $0.donations.count >= 2 }
+        #Rule(Self.$tutorialActive) { $0 == false }
     }
     var options: [Option] { MaxDisplayCount(1) }
 }
@@ -105,7 +109,7 @@ struct FillInTip: Tip {
 // (#Rule can't read enum rawValue, so the raw ints are inlined.)
 
 enum EditorTipAnchor: Int {
-    case none = -1, name = 0, text = 1, save = 2, back = 3, delete = 4
+    case none = -1, name = 0, text = 1, save = 2, back = 3, delete = 4, fillIn = 5
 }
 
 struct EditorNameTip: Tip {
@@ -119,6 +123,15 @@ struct EditorTextTip: Tip {
     @Parameter static var anchor: Int = -1
     var title: Text { Text("Now type the text you want to save.") }
     var rules: [Rule] { #Rule(Self.$anchor) { $0 == 1 } }
+    var options: [Option] { MaxDisplayCount(1000) }
+}
+
+/// The walkthrough's fill-in step, on the text field like EditorTextTip.
+struct EditorFillInTip: Tip {
+    @Parameter static var anchor: Int = -1
+    var title: Text { Text("While you type the text, tap the braces button to leave a blank you fill in each time. Or tap Next.") }
+    var image: Image? { Image(systemName: "curlybraces") }
+    var rules: [Rule] { #Rule(Self.$anchor) { $0 == 5 } }
     var options: [Option] { MaxDisplayCount(1000) }
 }
 

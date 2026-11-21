@@ -56,6 +56,8 @@ enum TutorialStep: Int, CaseIterable {
     case createIntro
     case createAdd
     case createName
+    /// Optional, and skipped while fill-ins are off: where blanks come from.
+    case createFillIn
     case createSave
     case createdCelebrate
     case editOpen
@@ -69,7 +71,7 @@ enum TutorialStep: Int, CaseIterable {
     var screen: TutorialScreen {
         switch self {
         case .createIntro, .createAdd, .createdCelebrate, .editOpen, .deleteOpen, .recoveredCelebrate: return .grid
-        case .createName, .createSave, .editSave, .deleteConfirm: return .editor
+        case .createName, .createFillIn, .createSave, .editSave, .deleteConfirm: return .editor
         case .recoverIntro, .recoverTap: return .recentlyDeleted
         }
     }
@@ -85,7 +87,7 @@ enum TutorialStep: Int, CaseIterable {
         case .editOpen, .deleteOpen: return .editEllipsis
         case .createdCelebrate, .recoveredCelebrate: return .card
         case .recoverTap: return .recoverCard
-        case .createIntro, .recoverIntro, .createName, .createSave, .editSave, .deleteConfirm: return nil
+        case .createIntro, .recoverIntro, .createName, .createFillIn, .createSave, .editSave, .deleteConfirm: return nil
         }
     }
 
@@ -97,6 +99,7 @@ enum TutorialStep: Int, CaseIterable {
         case .createIntro: return "Welcome to Cutling! Let's create your first cutling together."
         case .createAdd: return "Tap + to start a new text cutling."
         case .createName: return "Give your cutling a name."
+        case .createFillIn: return "While you type the text, tap the braces button to leave a blank you fill in each time. Or tap Next."
         case .createSave: return "Now type the text you want to save."
         case .createdCelebrate: return "Nice! Your cutling is saved."
         case .editOpen: return "Tap the ⋯ button on a card to open and edit it."
@@ -110,7 +113,9 @@ enum TutorialStep: Int, CaseIterable {
     }
 
     /// Steps advanced by the HUD's Next button rather than by a real action.
-    var showsNext: Bool { self == .createIntro || self == .createName || self == .createdCelebrate || self == .recoverIntro }
+    var showsNext: Bool {
+        self == .createIntro || self == .createName || self == .createFillIn || self == .createdCelebrate || self == .recoverIntro
+    }
     /// The name step's Next is gated until the name has content.
     var nextRequiresValidName: Bool { self == .createName }
 
@@ -162,6 +167,8 @@ final class TutorialCoordinator {
         RecoverWhereTip.active = false
         step = .createIntro
         isActive = true
+        // The one-time fill-in tip waits until the walkthrough, which teaches the same thing, is over.
+        FillInTip.tutorialActive = true
         // Replay: make the in-sheet tips eligible again if previously closed.
         // `resetEligibility()` is iOS 26+, so on earlier releases a tip the user
         // closed stays closed — which is exactly why the HUD, not the tip,
@@ -170,6 +177,7 @@ final class TutorialCoordinator {
             Task { @MainActor in
                 await EditorNameTip().resetEligibility()
                 await EditorTextTip().resetEligibility()
+                await EditorFillInTip().resetEligibility()
                 await EditorSaveTip().resetEligibility()
                 await EditorBackTip().resetEligibility()
                 await EditorDeleteTip().resetEligibility()
@@ -186,7 +194,9 @@ final class TutorialCoordinator {
         guard isActive, step == expected else { return }
         editorTipTask?.cancel()
         setEditorAnchor(.none)   // clear the previous tip during the transition
-        if let next = TutorialStep(rawValue: step.rawValue + 1) {
+        if var next = TutorialStep(rawValue: step.rawValue + 1) {
+            // No blanks to teach while fill-ins are off.
+            if next == .createFillIn, !FillIns.isOn, let after = TutorialStep(rawValue: next.rawValue + 1) { next = after }
             step = next
             announce(next)
         } else {
@@ -210,6 +220,7 @@ final class TutorialCoordinator {
 
     func finish() {
         isActive = false
+        FillInTip.tutorialActive = false
         editorTipTask?.cancel()
         announceTask?.cancel()
         setEditorAnchor(.none)
@@ -240,6 +251,7 @@ final class TutorialCoordinator {
         guard isActive else { return setEditorAnchor(.none) }
         switch step {
         case .createName:    setEditorAnchor(.name)
+        case .createFillIn:  setEditorAnchor(.fillIn)
         case .createSave:    setEditorAnchor(.text)
         case .editSave:      setEditorAnchor(.back)
         case .deleteConfirm: setEditorAnchor(.delete)
@@ -306,6 +318,8 @@ final class TutorialCoordinator {
         switch step {
         case .createName:
             setEditorAnchor(nameEmpty ? .name : .none)
+        case .createFillIn:
+            setEditorAnchor(.fillIn)
         case .createSave:
             // Guide toward whatever's still missing: title first, then text,
             // then the Save button once both are filled.
@@ -327,6 +341,7 @@ final class TutorialCoordinator {
         let v = anchor.rawValue
         EditorNameTip.anchor = v
         EditorTextTip.anchor = v
+        EditorFillInTip.anchor = v
         EditorSaveTip.anchor = v
         EditorBackTip.anchor = v
         EditorDeleteTip.anchor = v

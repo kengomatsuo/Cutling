@@ -83,6 +83,7 @@ struct TextDetailView: View {
     #if os(iOS)
     private let editorNameTip = EditorNameTip()
     private let editorTextTip = EditorTextTip()
+    private let editorFillInTip = EditorFillInTip()
     #if os(iOS)
     #endif
     private let editorSaveTip = EditorSaveTip()
@@ -424,6 +425,7 @@ struct TextDetailView: View {
                     }
                     .id("tutorialTextSection")
                     .popoverTip(editorTextTip, arrowEdge: .top)
+                    .popoverTip(editorFillInTip, arrowEdge: .top)
                     #endif
                     .onChange(of: value) { oldValue, newValue in
                         if format == .rich {
@@ -1002,6 +1004,8 @@ struct TextDetailView: View {
     }
 
     private func insertPlaceholder(_ token: String) {
+        // A blank put in during the walkthrough's fill-in step is that step done.
+        TutorialCoordinator.shared.advance(from: .createFillIn)
         // The native editor types at the cursor; the plain one hands over to it first.
         usesNativeEditor = true
         placeholderInsertion = token

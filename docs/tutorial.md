@@ -1,7 +1,7 @@
 # The interactive tutorial (iOS)
 
-`Cutling/TutorialOverlay.swift` drives a 12-step, learn-by-doing walkthrough of
-the four core flows — create, edit, delete, recover — across three screens. The
+`Cutling/TutorialOverlay.swift` drives a 13-step (12 while fill-ins are off), learn-by-doing
+walkthrough of the four core flows — create, edit, delete, recover — across three screens. The
 user performs the real actions; each step advances only when the app observes
 the action happen.
 
@@ -28,13 +28,19 @@ the dim.
 
 ## Steps
 
-`createIntro → createAdd → createName → createSave → createdCelebrate →
+`createIntro → createAdd → createName → createFillIn → createSave → createdCelebrate →
 editOpen → editSave → deleteOpen → deleteConfirm → recoverIntro → recoverTap →
 recoveredCelebrate`
 
-`TutorialStep.screen` decides which host renders. The four editor steps
-(`createName`, `createSave`, `editSave`, `deleteConfirm`) get the HUD plus a
+`TutorialStep.screen` decides which host renders. The five editor steps
+(`createName`, `createFillIn`, `createSave`, `editSave`, `deleteConfirm`) get the HUD plus a
 TipKit popover, no coach-mark.
+
+`createFillIn` (owner, 2026-11-21) points at the text field and says to tap the braces
+button while typing to leave a blank; Next skips it, and putting a blank in finishes it
+(`TextDetailView.insertPlaceholder`). It is skipped while `FillIns.isOn` is off, and the
+one-time `FillInTip` waits while the walkthrough runs (`FillInTip.tutorialActive`), so the
+two never show together.
 
 ## Rules that exist because breaking them caused bugs
 
@@ -80,7 +86,9 @@ the one just deleted.
 
 ## Replay
 
-Auto-launches once for anyone who hasn't seen it, and is replayable from "How
-to Use Cutling" in the keyboard manager's About section. Auto-start is skipped
+Since 2026-11-21 it no longer starts by itself after setup (the owner's pick with the
+remade setup guide; `SetupGuide.finish()` sets `hasSeenInteractiveTutorial`, which also lets
+the contextual tips show). It is replayable from "How to Use Cutling" in the keyboard
+manager's About section. Auto-start is skipped
 when the store is already at the text-cutling limit, since the first step could
 never complete.
