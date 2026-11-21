@@ -91,8 +91,12 @@ final class FormattingUITests: XCTestCase {
         }
 
         // Opened from the toolbar, the Keyboard sheet is still on top.
-        if app.descendants(matching: .any).matching(identifier: "keyboardView").firstMatch.exists {
-            app.navigationBars.buttons.firstMatch.tap()
+        // On a wide iPhone both sit as pop-ups: the guide closes by its BackButton, the Keyboard sheet by Close.
+        let keyboardSheet = app.descendants(matching: .any).matching(identifier: "keyboardView").firstMatch
+        for _ in 0..<8 where keyboardSheet.exists {
+            let back = app.buttons["BackButton"].firstMatch
+            let close = app.buttons["xmark"].firstMatch
+            if back.exists { back.tap() } else if close.exists { close.tap() } else { app.navigationBars.buttons.firstMatch.tap() }
             sleep(1)
         }
 
