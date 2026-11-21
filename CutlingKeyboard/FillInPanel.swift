@@ -2,12 +2,15 @@
 //  FillInPanel.swift
 //  CutlingKeyboard
 //
-//  A cutling with fill-ins is typed piece by piece: Cutling types up to a
-//  blank and waits. The user types the blank with their own keyboard (any
-//  language, autocorrect, dictation), or taps a saved value, then Next types
-//  the rest. A keyboard can't open the system keyboard for a field of its
-//  own, so the blank is filled in the app's own text field.
-//  Full account: docs/fill-ins.md
+//  A cutling with blanks asks for them before anything is typed. The top bar shows the cutling's
+//  sentence with the waiting blank in green; the grid offers Type with Your Keyboard, the blank's
+//  choices, values used before and Paste; the return key moves to the next blank, then inserts.
+//  Cutling draws no letter keys, so a value is typed on the person's own keyboard: either before
+//  the cutling is tapped (the word before the cursor fills the first blank), or after Type with
+//  Your Keyboard, coming back with the globe key. What the person typed into the app is removed
+//  when the finished text goes in. Screens change at once and keys press with the keyboard's flat
+//  highlight, as Apple's keyboard does (docs/research/fill-ins-press-feedback.md).
+//  Full account: docs/fill-ins.md, flow: docs/fill-ins-flow.md
 //
 //  Copyright (c) 2026 Kenneth Johannes Fang. All rights reserved.
 //
@@ -15,24 +18,25 @@
 import SwiftUI
 import UIKit
 
-/// One cutling being typed with fill-ins. Saved between keyboard switches,
-/// because iOS may tear the keyboard down while the user types in another one.
+/// One cutling waiting for its blanks. Saved in the App Group, because iOS may tear the keyboard
+/// down while the person types in their own keyboard.
 struct FillSession: Codable, Equatable {
     var cutlingID: UUID
-    var title: String
-    /// What is still to type.
-    var pending: [Placeholders.Chunk]
-    /// The blank waiting for the user, if any.
-    var field: Placeholders.Field?
+    /// The cutling's text in pieces, stamps already dated.
+    var chunks: [Placeholders.Chunk]
+    /// Each blank once, in order.
+    var fields: [Placeholders.Field]
+    var index = 0
     var values: [String: String] = [:]
-    var fieldNumber = 0
-    var fieldCount: Int
-    /// The end of what Cutling last typed, to find what the user typed after it.
-    var tail = ""
-    /// Characters typed since `{cursor}`; nil before it, or when a typed value could not be read.
-    var afterCursor: Int?
-    var cursorLost = false
+    /// Everything the person typed into the app for these blanks, in order, removed when the text goes in.
+    var typed = ""
+    /// The text before the cursor when the person left to type on their own keyboard.
+    var anchor: String?
+    var smartSpacing: Bool
     var startedAt = Date()
+
+    var field: Placeholders.Field? { fields.indices.contains(index) ? fields[index] : nil }
+    var isLast: Bool { index >= fields.count - 1 }
 
     /// In the App Group so a test seed can clear a session left from an earlier run.
     static let storeKey = "keyboardFillSession"
@@ -56,121 +60,200 @@ struct FillSession: Codable, Equatable {
         }
     }
 
-    /// What the user typed after Cutling's last text, read from the text before the cursor.
-    func typedValue(in context: String) -> String? {
-        guard !tail.isEmpty else { return nil }
-        // The host may hand over only part of the text; a shorter end still finds the spot.
-        for length in stride(from: tail.count, through: min(tail.count, 4), by: -4) {
-            let probe = String(tail.suffix(length))
+    /// What was typed after `anchor`, read from the text before the cursor.
+    static func typed(after anchor: String, in context: String) -> String? {
+        if anchor.isEmpty { return context }
+        // The app may hand over only part of the text; a shorter end still finds the spot.
+        for length in stride(from: anchor.count, through: min(anchor.count, 4), by: -4) {
+            let probe = String(anchor.suffix(length))
             if let range = context.range(of: probe, options: .backwards) {
                 return String(context[range.upperBound...])
             }
         }
         return nil
     }
+
+    /// The word just before the cursor, allowing one space after it, and the characters it takes up.
+    static func wordTypedFirst(in context: String) -> (word: String, length: Int)? {
+        var text = Substring(context)
+        var length = 0
+        if text.last == " " { text = text.dropLast(); length = 1 }
+        let word = String(text.reversed().prefix { $0.isLetter || $0.isNumber || $0 == "-" || $0 == "'" || $0 == "’" }.reversed())
+        guard !word.isEmpty, word.count <= FillInMemory.maxValueLength else { return nil }
+        return (word, length + word.count)
+    }
 }
 
-struct FillInPanel: View {
+/// The top bar during a fill-in: the sentence with its blanks, and a close button where the open-app button sits.
+struct FillInBar: View {
     let session: FillSession
-    let field: Placeholders.Field
-    let canPaste: Bool
-    let onPick: (String) -> Void
-    let onNext: () -> Void
+    let keyHeight: CGFloat
     let onCancel: () -> Void
-    let bundle: Bundle?
-
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    private let green = Color(hex: 0x00be86)
 
-    private var isLast: Bool {
-        !session.pending.contains { if case .field(let f) = $0 { session.values[f.key] == nil && f.key != field.key } else { false } }
+    var body: some View {
+        HStack(spacing: 6) {
+            ScrollViewReader { proxy in
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 0) {
+                        ForEach(Array(session.chunks.enumerated()), id: \.offset) { offset, chunk in
+                            switch chunk {
+                            case .text(let text): Text(verbatim: text.replacingOccurrences(of: "\n", with: " "))
+                            case .field(let field): blank(field).id(offset)
+                            case .cursor: EmptyView()
+                            }
+                        }
+                    }
+                    .font(.system(size: KeyStyle.buttonTextSize(for: horizontalSizeClass)))
+                    .lineLimit(1)
+                    .padding(.horizontal, 4)
+                    .frame(minHeight: keyHeight)
+                }
+                .onAppear { scroll(proxy) }
+                .onChange(of: session.index) { scroll(proxy) }
+            }
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(Text(spokenSentence))
+
+            Button(action: onCancel) {
+                Image(systemName: "xmark")
+                    .font(.system(size: KeyStyle.buttonIconSize(for: horizontalSizeClass), weight: .medium))
+                    .foregroundStyle(.primary)
+                    .frame(width: keyHeight, height: keyHeight)
+                    .contentShape(Circle())
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel(Text("Cancel"))
+        }
+    }
+
+    /// Keeps the waiting blank in view, without animation.
+    private func scroll(_ proxy: ScrollViewProxy) {
+        guard let key = session.field?.key,
+              let offset = session.chunks.firstIndex(where: { if case .field(let f) = $0 { return f.key == key }; return false })
+        else { return }
+        proxy.scrollTo(offset, anchor: .center)
+    }
+
+    private func blank(_ field: Placeholders.Field) -> some View {
+        let active = field.key == session.field?.key
+        let value = session.values[field.key]
+        return Text(verbatim: value ?? field.label)
+            .foregroundStyle(active ? green : (value != nil ? Color.primary : Color.secondary))
+            .overlay(alignment: .bottom) {
+                if active {
+                    Capsule().fill(green).frame(height: 2).offset(y: 3)
+                } else if value == nil {
+                    Rectangle().fill(Color.secondary.opacity(0.5)).frame(height: 1).offset(y: 3)
+                }
+            }
+    }
+
+    private var spokenSentence: String {
+        session.chunks.map { chunk -> String in
+            switch chunk {
+            case .text(let text): return text
+            case .field(let field): return session.values[field.key] ?? field.label
+            case .cursor: return ""
+            }
+        }.joined()
+    }
+}
+
+/// The grid during a fill-in. Its first key sends the person to their own keyboard to type the blank;
+/// below it, the blank's choices, values used before and Paste. Same surface, radius and press as
+/// Cutling's cards (`KeyStyle`, `KeyboardButtonStyle`).
+struct FillInKeys: View {
+    let session: FillSession
+    let canPaste: Bool
+    let keyHeight: CGFloat
+    let keySpacing: CGFloat
+    let onYourKeyboard: () -> Void
+    let onPick: (String) -> Void
+    let onPaste: () -> Void
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    private let green = Color(hex: 0x00be86)
+
+    private struct Value: Identifiable {
+        let text: String
+        var chosen = false
+        var id: String { text }
+    }
+
+    private var values: [Value] {
+        guard let field = session.field else { return [] }
+        let current = session.values[field.key]
+        if field.options.count > 1 {
+            let chosen = current ?? field.options[0]
+            var out = field.options.map { Value(text: $0, chosen: $0 == chosen) }
+            if let current, !field.options.contains(current) { out.insert(Value(text: current, chosen: true), at: 0) }
+            return out
+        }
+        var texts: [String] = []
+        for text in [current].compactMap({ $0 }) + field.options + FillInMemory.recent(for: field) where !texts.contains(text) {
+            texts.append(text)
+        }
+        return texts.prefix(canPaste ? 5 : 6).map { Value(text: $0, chosen: $0 == current) }
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            HStack(spacing: 8) {
-                Button(action: onCancel) {
-                    Image(systemName: "xmark")
-                        .font(.system(size: 13, weight: .semibold))
-                        .foregroundStyle(.secondary)
-                        .frame(width: 30, height: 30)
-                        .background(KeyStyle.keyColor, in: Circle())
+        VStack(spacing: keySpacing) {
+            yourKeyboardKey
+            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: keySpacing), count: 3), spacing: keySpacing) {
+                ForEach(values) { value in
+                    key(value.text, chosen: value.chosen) { onPick(value.text) }
                 }
-                .buttonStyle(.plain)
-                .accessibilityLabel(Text("Cancel", bundle: bundle))
-                .accessibilityIdentifier("fillInCancel")
-
-                Text(session.title)
-                    .font(.system(size: 13, weight: .medium))
-                    .foregroundStyle(.secondary)
-                    .lineLimit(1)
-                Spacer(minLength: 4)
-                if session.fieldCount > 1 {
-                    Text("\(session.fieldNumber) of \(session.fieldCount)", bundle: bundle)
-                        .font(.system(size: 13).monospacedDigit())
-                        .foregroundStyle(.secondary)
+                if canPaste, (session.field?.options.count ?? 0) <= 1 {
+                    key("Paste", icon: "doc.on.clipboard", action: onPaste)
                 }
             }
-
-            Text(field.label)
-                .font(.system(size: horizontalSizeClass == .regular ? 24 : 20, weight: .semibold))
-                .lineLimit(1)
-                .accessibilityIdentifier("fillInLabel")
-            Label {
-                Text("Type it with your keyboard", bundle: bundle)
-            } icon: {
-                Image(systemName: "globe")
-            }
-            .font(.system(size: 12))
-            .foregroundStyle(.secondary)
-            .lineLimit(2)
-
             Spacer(minLength: 0)
-
-            HStack(spacing: 8) {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 6) {
-                        if canPaste {
-                            chip(Label { Text("Paste", bundle: bundle) } icon: { Image(systemName: "doc.on.clipboard") }) {
-                                if let text = UIPasteboard.general.string, !text.isEmpty { onPick(text) }
-                            }
-                            .accessibilityIdentifier("fillInPaste")
-                        }
-                        ForEach(FillInMemory.choices(for: field), id: \.self) { value in
-                            chip(Text(value).lineLimit(1)) { onPick(value) }
-                                .accessibilityIdentifier("fillInChoice")
-                        }
-                    }
-                }
-                Button(action: onNext) {
-                    HStack(spacing: 4) {
-                        Text(isLast ? "Done" : "Next", bundle: bundle)
-                        if !isLast { Image(systemName: "chevron.right").accessibilityHidden(true) }
-                    }
-                    .font(.system(size: 16, weight: .semibold))
-                    .foregroundStyle(.white)
-                    .padding(.horizontal, 16)
-                    .frame(height: 40)
-                    .background(Color(hex: 0x01be86), in: Capsule())
-                }
-                .buttonStyle(.plain)
-                .accessibilityIdentifier("fillInNext")
-            }
         }
-        .padding(.horizontal, KeyStyle.horizontalPadding + 6)
-        .padding(.vertical, 8)
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .accessibilityIdentifier("fillInPanel")
+        .padding(.horizontal, KeyStyle.horizontalPadding)
     }
 
-    private func chip<Content: View>(_ content: Content, action: @escaping () -> Void) -> some View {
-        Button(action: action) {
-            content
-                .font(.system(size: 15))
-                .padding(.horizontal, 12)
-                .frame(height: 40)
-                .frame(maxWidth: 180)
-                .background(KeyStyle.keyColor, in: Capsule())
+    private var yourKeyboardKey: some View {
+        Button(action: onYourKeyboard) {
+            HStack(spacing: 8) {
+                Image(systemName: "keyboard")
+                    .font(.system(size: KeyStyle.buttonIconSize(for: horizontalSizeClass), weight: .medium))
+                Text("Type with Your Keyboard")
+                    .font(.system(size: KeyStyle.buttonTextSize(for: horizontalSizeClass), weight: .semibold))
+            }
+            .foregroundStyle(green)
+            .frame(maxWidth: .infinity, minHeight: keyHeight + 8)
+            .background(KeyStyle.keyColor, in: RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous))
+            .contentShape(RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous))
         }
-        .buttonStyle(KeyboardButtonStyle())
+        .buttonStyle(KeyboardButtonStyle(cornerRadius: KeyStyle.cornerRadius))
+        .accessibilityIdentifier("fillInYourKeyboard")
+    }
+
+    private func key(_ text: String, icon: String? = nil, chosen: Bool = false, action: @escaping () -> Void) -> some View {
+        Button(action: action) {
+            HStack(spacing: 6) {
+                if let icon {
+                    Image(systemName: icon)
+                        .font(.system(size: KeyStyle.iconSize(for: horizontalSizeClass) + 2))
+                        .foregroundStyle(.secondary)
+                }
+                Text(verbatim: icon == nil ? text : String(localized: "Paste"))
+                    .font(.system(size: KeyStyle.buttonTextSize(for: horizontalSizeClass)))
+                    .lineLimit(1)
+                if chosen {
+                    Image(systemName: "checkmark")
+                        .font(.system(size: KeyStyle.iconSize(for: horizontalSizeClass), weight: .semibold))
+                        .foregroundStyle(green)
+                }
+            }
+            .foregroundStyle(.primary)
+            .padding(.horizontal, 8)
+            .frame(maxWidth: .infinity, minHeight: keyHeight)
+            .background(KeyStyle.keyColor, in: RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous))
+            .contentShape(RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous))
+        }
+        .buttonStyle(KeyboardButtonStyle(cornerRadius: KeyStyle.cornerRadius))
+        .accessibilityAddTraits(chosen ? .isSelected : [])
     }
 }

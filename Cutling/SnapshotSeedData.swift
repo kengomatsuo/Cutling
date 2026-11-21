@@ -103,8 +103,6 @@ extension CutlingStore {
         group?.removeObject(forKey: "keyboardFillSession")
         // `-FILLIN_OFF` leaves the switch off, to check that shipped builds type braces as written.
         group?.set(!ProcessInfo.processInfo.arguments.contains("-FILLIN_OFF"), forKey: FillIns.defaultsKey)
-        // `-FILLIN_MOCK own` shows the fill-in design mock in the keyboard (CutlingKeyboard/FillInMocks.swift).
-        group?.set(UserDefaults.standard.string(forKey: "FILLIN_MOCK"), forKey: "fillInMock")
     }
 
     /// A promo take's seed, in the language its viewer reads: `-PROMO_LANG id|en|ja`.
