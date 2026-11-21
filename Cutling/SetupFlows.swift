@@ -201,11 +201,11 @@ struct SetupFlowA: View {
 
     private var addPage: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 20) {
+            VStack(alignment: .leading, spacing: 16) {
                 AppleSheetHeader(title: "Add the Keyboard", subtitle: "Turn on Cutling in Settings, then come back.")
-                // Short enough that the steps under it sit above the button on a 6.1-inch iPhone.
+                // Short enough that the steps under it sit above the button down to a 678-point-tall screen.
                 SettingsDemoVideo()
-                    .frame(maxHeight: 250)
+                    .frame(maxHeight: 210)
                     .frame(maxWidth: .infinity)
                 // The guide's own steps, in every language, for anyone the video doesn't reach.
                 VStack(alignment: .leading, spacing: 12) {
