@@ -23,8 +23,8 @@ paths:
 **Main app views.**
 - `MainContentView.swift`: primary grid/list browsing with 3 modes (browse/select/reorder), search, sort.
 - `TextDetailView.swift` / `ImageDetailView.swift`: editors with undo/redo.
-- `KeyboardSetupView.swift`: 6-page onboarding wizard.
+- `KeyboardSetupView.swift`: opens the setup guide, `SetupGuide` in `SetupFlows.swift`: Welcome, Add the Keyboard (the real Settings video, `SettingsDemoVideo.swift`, recorded by `scripts/record-settings-demo.sh`), Try It, then What You Can Do, Sync Across Devices and You're All Set (`SetupPages.swift`). Every page and sheet uses one layout, `AppleSheetPage` (`AppleSheet.swift`); Full Access is optional. What's New and Welcome Back (`WhatsNewSheet`) show once per `WhatsNewKind.releaseID` and after 30 days away.
 - `CardView.swift`: cutling card display component.
-- `TutorialOverlay.swift`: iOS-only interactive, skippable, 12-step coach-mark walkthrough (create, edit, delete, recover). A persistent `TutorialHUD` carries progress + Skip on every screen, so no missing spotlight frame or closed TipKit popover can strand the user. Full account: [docs/tutorial.md](../../docs/tutorial.md).
+- `TutorialOverlay.swift`: iOS-only interactive, skippable, 13-step coach-mark walkthrough (create, an optional fill-in step, edit, delete, recover), started only from How to Use Cutling. A persistent `TutorialHUD` carries progress + Skip on every screen, so no missing spotlight frame or closed TipKit popover can strand the user. Full account: [docs/tutorial.md](../../docs/tutorial.md).
 
 **App Intents and Siri Shortcuts.** `CutlingAppShortcutsProvider.swift` registers 10 App Shortcuts that surface in the Shortcuts gallery, Spotlight and Siri without user setup. Backing intents live in `*Intent.swift` files at the project root and share `CutlingStore.shared`. Provider constraints: max 10 shortcuts per app, every phrase must contain `\(.applicationName)`, parameter placeholders in phrases must be `AppEntity` or `AppEnum` (String/IntentFile params cannot be inlined). Settings exposes a `SiriTipView` + `ShortcutsLink` to teach phrases and open the gallery.
