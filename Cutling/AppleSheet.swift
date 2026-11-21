@@ -144,13 +144,16 @@ enum WhatsNewKind {
     case update
     case welcomeBack
 
-    /// Rows for changes people can see in this version. Fill-ins stay out while `FillIns.isOn` is off.
+    /// Rows for changes people can see in this version, the biggest first. The fill-ins row
+    /// shows only while `FillIns.isOn`.
     /// The numbers come from the store's own limits, so the sheet can never promise more
     /// room than `CutlingStore` allows.
     static var newRows: [AppleSheetRow] {
         let texts = CutlingStore.maxTextCutlings.formatted()
         let images = CutlingStore.maxImageCutlings.formatted()
-        return [
+        let fillIns = AppleSheetRow(symbol: "rectangle.and.pencil.and.ellipsis", title: "Blanks and Dates",
+                                    detail: "Write {Name} or {date} in a cutling, and fill it in each time you type it.")
+        return (FillIns.isOn ? [fillIns] : []) + [
         AppleSheetRow(symbol: "square.stack.3d.up.fill", title: "Room for \(texts)",
                       detail: "Save up to \(texts) texts and \(images) images."),
         AppleSheetRow(symbol: "hand.tap.fill", title: "Every Key Types",
@@ -175,7 +178,8 @@ struct WhatsNewSheet: View {
     var body: some View {
         switch kind {
         case .update:
-            AppleSheet(title: "What's New in Cutling", subtitle: "More room, and every key types.",
+            AppleSheet(title: "What's New in Cutling",
+                       subtitle: FillIns.isOn ? "Blanks to fill in, and far more room." : "Far more room, and every key types.",
                        rows: WhatsNewKind.newRows) { dismiss() }
         case .welcomeBack:
             // At most four rows, as Apple's sheets keep them (Reminders has four).
