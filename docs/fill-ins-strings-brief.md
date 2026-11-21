@@ -31,3 +31,12 @@ The person is editing a snippet's text on iPhone, iPad or Mac. Below the text bo
 | A7 `clipboard` | menu item | adds whatever text is on the clipboard when the snippet is used | 22 chars |
 
 A new blank is named with the locale's existing word for "Name" (the same word the editor's name field uses).
+
+## Snippet editor: the one-time tip on that menu (board ASG91)
+
+iPhone and iPad only. The person opens a text snippet's editor for the second time or later (never the first, which the tutorial covers). In the editor's Text section, under the text box and the Paste from Clipboard row, sits the A1 menu row. A tip bubble (Apple's standard TipKit popover) shows above that row with its arrow pointing at it: a curly-braces icon on the left, a bold title line, a smaller message under it, and an ✕ that closes it. It shows once and never again. The person may never have noticed the row, since plain snippets never need it. Each locale reuses its own A1, A3 and A4 words, its word for a snippet, and the register and title convention of its existing tips (the More menu tip, the drag-to-select tip, the smart field matching tip).
+
+| Key | Role | What it must say | Budget |
+|---|---|---|---|
+| T1 `tip-title` | bold title line of the tip | names the two things the row adds, blanks and dates; a short noun phrase, no end punctuation, capitalised the way the locale's existing tip titles are; it must not read as one thing filled with the other | one line in the bubble on the narrowest iPhone: about 26 Latin characters, 13 CJK, 20 Indic, Thai or Arabic-script characters |
+| T2 `tip-message` | the tip's message under the title | one sentence: with this row the person can put into this snippet a blank they fill in each time they use the snippet, or today's date; spoken to the person in the register the locale's existing strings use. The date is named the way the locale's A4 item names it, with no second clause explaining it, since the menu's A2 heading already says values fill in at each use. "Each time" must belong to filling the blank, never to adding it, and the date must read as the second thing added, never as something the person uses | at most three lines in the bubble: about 100 Latin characters, 50 CJK, 80 Indic, Thai or Arabic-script characters |
