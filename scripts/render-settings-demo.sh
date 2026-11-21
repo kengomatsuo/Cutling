@@ -38,16 +38,23 @@ for look in ${LOOKS:-light dark}; do
   shift=$(python3 - "$dir/raw.mp4" "$tap0" "$(python3 -c "print(int($cx*$w) - 80)")" "$(python3 -c "print(int($cy*$h) - 12)")" <<'EOF'
 import subprocess, sys
 raw, tap, bx, by = sys.argv[1], float(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4])
-def green(t):
+def state(t):
     px = subprocess.run(["ffmpeg", "-v", "error", "-ss", f"{t:.3f}", "-i", raw, "-frames:v", "1",
                          "-vf", f"crop=40:24:{bx}:{by}", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"],
                         capture_output=True).stdout
-    if not px: return False
+    if not px: return None
     r = sum(px[0::3]) / (len(px) / 3); g = sum(px[1::3]) / (len(px) / 3)
-    return g - r > 80
+    if g - r > 80: return "on"        # the green track
+    if g - r < 20 and g > 150: return "off"   # the white knob, in light and dark
+    return None                       # anything else: another page, or the alert's dimming
 times = [tap - 6 + i * 0.1 for i in range(121)]
-seen = [green(t) for t in times]
-flips = [times[i] for i in range(1, len(times)) if seen[i] and not seen[i - 1]]
+seen = [state(t) for t in times]
+# On, where the last clear state before it was off: the switch turning on, not the green
+# coming back from under the alert's dimming.
+flips, last = [], None
+for t, st in zip(times, seen):
+    if st == "on" and last == "off": flips.append(t)
+    if st: last = st
 # The flip nearest the tap; none means the clock already fits.
 print(round(min(flips, key=lambda f: abs(f - tap - 0.15)) - tap - 0.15, 3) if flips else 0)
 EOF
