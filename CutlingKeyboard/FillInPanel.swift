@@ -96,25 +96,22 @@ struct FillInBar: View {
 
     var body: some View {
         HStack(spacing: 6) {
-            ScrollViewReader { proxy in
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 0) {
-                        ForEach(Array(session.chunks.enumerated()), id: \.offset) { offset, chunk in
-                            switch chunk {
-                            case .text(let text): Text(verbatim: text.replacingOccurrences(of: "\n", with: " "))
-                            case .field(let field): blank(field).id(offset)
-                            case .cursor: EmptyView()
-                            }
-                        }
-                    }
-                    .font(.system(size: KeyStyle.buttonTextSize(for: horizontalSizeClass)))
+            // The waiting blank always shows whole; the words before it trim at their start and the
+            // words after it at their end, with "…", so nothing is cut mid-word or mid-blank.
+            HStack(spacing: 0) {
+                sentence(before)
                     .lineLimit(1)
-                    .padding(.horizontal, 4)
-                    .frame(minHeight: keyHeight)
-                }
-                .onAppear { scroll(proxy) }
-                .onChange(of: session.index) { scroll(proxy) }
+                    .truncationMode(.head)
+                    .layoutPriority(1)
+                if let field = session.field { blank(field).fixedSize().layoutPriority(3) }
+                sentence(after)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
+                    .layoutPriority(2)
             }
+            .font(.system(size: KeyStyle.buttonTextSize(for: horizontalSizeClass)))
+            .padding(.horizontal, 4)
+            .frame(maxWidth: .infinity, minHeight: keyHeight)
             .accessibilityElement(children: .ignore)
             .accessibilityLabel(Text(spokenSentence))
 
@@ -130,12 +127,33 @@ struct FillInBar: View {
         }
     }
 
-    /// Keeps the waiting blank in view, without animation.
-    private func scroll(_ proxy: ScrollViewProxy) {
-        guard let key = session.field?.key,
-              let offset = session.chunks.firstIndex(where: { if case .field(let f) = $0 { return f.key == key }; return false })
-        else { return }
-        proxy.scrollTo(offset, anchor: .center)
+    /// Where the waiting blank first appears in the sentence.
+    private var activeIndex: Int? {
+        guard let key = session.field?.key else { return nil }
+        return session.chunks.firstIndex { if case .field(let f) = $0 { return f.key == key }; return false }
+    }
+
+    private var before: ArraySlice<Placeholders.Chunk> {
+        activeIndex.map { session.chunks[..<$0] } ?? session.chunks[...]
+    }
+
+    private var after: ArraySlice<Placeholders.Chunk> {
+        activeIndex.map { session.chunks[($0 + 1)...] } ?? []
+    }
+
+    /// Part of the sentence as one line of text: filled blanks read as their value, others as their name, underlined.
+    private func sentence(_ chunks: ArraySlice<Placeholders.Chunk>) -> Text {
+        chunks.reduce(Text(verbatim: "")) { text, chunk in
+            switch chunk {
+            case .text(let run):
+                return text + Text(verbatim: run.replacingOccurrences(of: "\n", with: " "))
+            case .field(let field):
+                if let value = session.values[field.key] { return text + Text(verbatim: value) }
+                return text + Text(verbatim: field.label).foregroundStyle(.secondary).underline()
+            case .cursor:
+                return text
+            }
+        }
     }
 
     private func blank(_ field: Placeholders.Field) -> some View {

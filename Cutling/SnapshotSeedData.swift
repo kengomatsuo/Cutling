@@ -97,6 +97,8 @@ extension CutlingStore {
             // Fill-ins as the editor's menu inserts them: each brace carries Placeholders.marker.
             Cutling(name: "Reply", value: "Hi {\u{2060}Name}, your {\u{2060}Plan: Basic | Pro} order ships {\u{2060}date:yyyy-MM-dd}.{\u{2060}cursor} Thanks!", icon: "envelope", sortOrder: 0),
             Cutling(name: "Stamp", value: "Today: {\u{2060}date:yyyy-MM-dd}", icon: "calendar", sortOrder: 1),
+            // Long enough that the keyboard's bar and the card previews must trim around a blank.
+            Cutling(name: "Order", value: "Thanks for ordering the espresso machine with the milk frother and the travel case, {\u{2060}Customer}. It ships on {\u{2060}date:long} from our warehouse with tracking, {\u{2060}Plan: Basic | Pro} support included.", icon: "shippingbox", sortOrder: 2),
         ]
         save()
         let group = UserDefaults(suiteName: "group.com.matsuokengo.Cutling")
