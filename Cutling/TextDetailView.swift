@@ -74,6 +74,9 @@ struct TextDetailView: View {
     #if os(iOS)
     private let editorNameTip = EditorNameTip()
     private let editorTextTip = EditorTextTip()
+    #if os(iOS)
+    private let fillInTip = FillInTip()
+    #endif
     private let editorSaveTip = EditorSaveTip()
     private let editorBackTip = EditorBackTip()
     private let editorDeleteTip = EditorDeleteTip()
@@ -382,13 +385,21 @@ struct TextDetailView: View {
                 textEditor
                     .frame(minHeight: 120, maxHeight: 450)
                     #if os(iOS)
-                    // While writing, Add Fill-in or Date sits on the bar above the keyboard, as Shortcuts'
-                    // variables and Snippety's placeholder button do (docs/research/fill-ins-editor/README.md).
+                    // While writing, the fill-ins sit as buttons on the bar above the keyboard, as Shortcuts
+                    // shows Clipboard and Current Date there (docs/research/fill-ins-editor/README.md).
                     .toolbar {
                         if format != .code, FillIns.isOn {
-                            ToolbarItemGroup(placement: .keyboard) {
-                                placeholderMenu
-                                Spacer()
+                            ToolbarItem(placement: .keyboard) {
+                                ScrollView(.horizontal, showsIndicators: false) {
+                                    HStack(spacing: 16) {
+                                        ForEach(placeholderChoices, id: \.token) { choice in
+                                            Button(choice.title, systemImage: choice.icon) { insertPlaceholder(choice.token) }
+                                                .labelStyle(.titleAndIcon)
+                                        }
+                                    }
+                                    .padding(.horizontal, 4)
+                                }
+                                .accessibilityIdentifier("fillInKeyboardBar")
                             }
                         }
                     }
@@ -441,6 +452,8 @@ struct TextDetailView: View {
 
                 if format != .code, FillIns.isOn {
                     placeholderMenu
+                        .popoverTip(fillInTip, arrowEdge: .bottom)
+                        .task { await FillInTip.openedTextEditor.donate() }
                 }
                 #endif
             } header: {
@@ -851,16 +864,23 @@ struct TextDetailView: View {
 
     /// Fill-ins, date stamps, the cursor spot and the clipboard, typed at the cursor.
     /// Code is pasted byte for byte, so it gets none. Syntax: docs/fill-ins.md
+    /// What the menu and the keyboard bar insert, in that order.
+    private var placeholderChoices: [(title: LocalizedStringKey, icon: String, token: String)] {
+        [
+            ("Fill-in Field", "character.cursor.ibeam", Placeholders.marked(String(localized: "Name"))),
+            ("Today’s Date", "calendar", Placeholders.marked("date")),
+            ("Time", "clock", Placeholders.marked("time")),
+            ("Cursor Position", "cursorarrow.rays", Placeholders.marked("cursor")),
+            ("Clipboard Text", "doc.on.clipboard", Placeholders.marked("clipboard")),
+        ]
+    }
+
     private var placeholderMenu: some View {
         Menu {
             Section("Filled in each time you use it") {
-                Button("Fill-in Field", systemImage: "character.cursor.ibeam") {
-                    insertPlaceholder(Placeholders.marked(String(localized: "Name")))
+                ForEach(placeholderChoices, id: \.token) { choice in
+                    Button(choice.title, systemImage: choice.icon) { insertPlaceholder(choice.token) }
                 }
-                Button("Today’s Date", systemImage: "calendar") { insertPlaceholder(Placeholders.marked("date")) }
-                Button("Time", systemImage: "clock") { insertPlaceholder(Placeholders.marked("time")) }
-                Button("Cursor Position", systemImage: "cursorarrow.rays") { insertPlaceholder(Placeholders.marked("cursor")) }
-                Button("Clipboard Text", systemImage: "doc.on.clipboard") { insertPlaceholder(Placeholders.marked("clipboard")) }
             }
         } label: {
             Label("Add Fill-in or Date", systemImage: "curlybraces")

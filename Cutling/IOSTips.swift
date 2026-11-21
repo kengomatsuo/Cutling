@@ -78,6 +78,24 @@ struct InputTypeMatchTip: Tip {
     var options: [Option] { MaxDisplayCount(1) }
 }
 
+/// Fill-ins and date stamps live behind the editor's Add Fill-in or Date row, which a person
+/// writing plain snippets never needs to open. Shown once, from the second time a text cutling's
+/// editor opens, so it never lands on top of the tutorial's first edit.
+struct FillInTip: Tip {
+    static let openedTextEditor = Event(id: "openedTextEditor")
+
+    var title: Text { Text("Blanks and dates") }
+    var message: Text? {
+        Text("Add a blank you fill in each time you use this cutling, or today’s date.")
+    }
+    var image: Image? { Image(systemName: "curlybraces") }
+
+    var rules: [Rule] {
+        #Rule(Self.openedTextEditor) { $0.donations.count >= 2 }
+    }
+    var options: [Option] { MaxDisplayCount(1) }
+}
+
 // MARK: - Interactive tutorial: in-sheet steps (native popovers)
 //
 // The editor (create / edit) steps use TipKit popovers instead of the custom

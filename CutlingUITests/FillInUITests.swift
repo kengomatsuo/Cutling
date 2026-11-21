@@ -169,7 +169,7 @@ final class FillInUITests: XCTestCase {
             text.tap()
             sleep(2)
             shot("editor_keyboard_bar")
-            XCTAssertGreaterThan(app.descendants(matching: .any).matching(identifier: "addPlaceholderMenu").count, 1, "No Add Fill-in or Date on the keyboard bar")
+            XCTAssertTrue(app.descendants(matching: .any)["fillInKeyboardBar"].firstMatch.exists, "No fill-in buttons on the keyboard bar")
         }
         menu.tap()
         sleep(1)
