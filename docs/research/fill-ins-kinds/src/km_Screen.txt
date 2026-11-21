@@ -1,0 +1,49 @@
+
+ token:Screen [Keyboard Maestro Wiki]
+ token:Screen
+Table of Contents
+See Also
+Functions
+Tokens
+Forum
+The %Screen% tokens returns the frame of the specified screen.
+The %ScreenVisible% tokens returns the visible frame of the specified screen, excluding the menu bar and the dock.
+Both take a parameter indicating which screen to use which may be:
+ Index Name 
+ Description 
+ Main or 0 
+ the screen with the primary menu bar (as configured in the Displays preferences).
+ Second 
+ the first from the left which is not the Main screen.
+ Third 
+ the second from the left which is not the Main screen.
+ Internal 
+ the internal screen of the Mac.
+ External 
+ the first from the left which is not an internal screen.
+ Mouse 
+ the screen containing the mouse.
+ Front 
+ the screen containing (the most of) the front window.
+ Back 
+ the first from the left not containing (the most of) the front window.
+ Back2 
+ the second left most screen not containing (the most of) the front window.
+ All 
+ all of the screens, from left to right, one per line. 
+ Positive Calculation 
+ the indexed screen from left to right. 
+ Negative Calculation 
+ the indexed screen from right to left. 
+So for example, %ScreenVisible%Main% gives the visible frame of the main screen.
+Like all frames in Keyboard Maestro, they are of the form left, top, width, and height, and are from the top left corner of the main screen.
+See Also
+Functions
+SCREEN()
+SCREENVISIBLE()
+See all Functions
+Tokens
+See all Tokens
+Forum
+Keyboard Maestro Forum topics about Screen
+ token/Screen.txt · Last modified: 2026/10/02 06:30 by peternlewis

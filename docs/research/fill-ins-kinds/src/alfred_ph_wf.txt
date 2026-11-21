@@ -1,0 +1,123 @@
+
+ Dynamic Placeholders - Advanced Workflow Topics - Workflows - Alfred Help and Support
+Dynamic Placeholders
+Placeholders are stand-ins in curly brackets, like {query} or {date:short}, that are dynamically inserted into Snippets and certain Workflow objects. They're very easy to use and great time savers.
+A placeholder can be replaced by your current or past clipboard content, a random string from a list, or even another snippet!
+Take a look at the various ways you can use these clever placeholders in your snippets and workflows. Click on the relevant type below to find out more about how to use them, and their specific syntax.
+Query Placeholder
+Date and Time Placeholders
+ISO Date and Time Placeholders
+Clipboard Contents
+Random Placeholder
+Using Variables
+Transform Modifiers
+Cursor Position
+Snippets
+Want to see them in action? Take a look at our 3-post series of tips on using Dynamic Placeholders.
+Query Placeholder
+The simplest and most common placeholder is {query}. It's supported in most workflow objects and stands for whatever your input was. In Workflow Inputs it's replaced by the argument you type into Alfred; in other objects it's replaced by the output of the preceding object.
+You can see examples of it in action in Web Searches, where {query} is used not only to insert your search term into otherwise fixed URLs but also to update the text displayed in Alfred.
+Variables Placeholders
+Variables can be used in workflows to store pieces of text to be used in later objects. For example: you can use an Arg and Vars Utility to save the file path from a Universal Action to a {var:filename} variable to process in an Automation Task later in your workflow.
+Take a look at the Using Variables in Workflows page for an in-depth guide to variables.
+Prepopulated Environment Variables are accessed with {const:} instead of {var:}.
+Date and Time Placeholders
+Local date and time placeholders begin with date, time, or datetime.
+You can follow this with optional date arithmetic to calculate a date/time in the future or past, in different formats (short, medium, long, full). When no format is specified, Alfred uses the medium format from macOS as the default.
+For example: {date} is replaced with the current date in the default format, while {date +7d +3h:long} gives the date 7 days and 3 hours from now, in the long format.
+The {date}, {time}, and {datetime} placeholders use your macOS default formats. You can tweak these in System Settings > General > Language & Region / Date & Time.
+Examples of basic date and time formats
+{date} 28 Feb 2010
+{date:short} 28/02/2010
+{time:full} 09:41:00 Western European Standard Time
+{datetime:long} 28 February 2010 at 09:41:00 WET
+ISO Date and Time Placeholders
+isodate, isotime, and isodatetime behave like their counterparts, but are fixed to the en_US_POSIX locale, enabling generation of Internet-style RFC 3339 date strings.
+Use these placeholders for more predictable results when doing advanced formatting.
+For more information refer to Apple's Technical Q&A QA1480.
+Date Arithmetic
+To set the date or time to a future or past date, add + or - in the placeholder, followed by a number and a time reference:
+Y Year
+M Month (strict uppercase)
+D Day
+h Hour
+m Minute (strict lowercase)
+s Second
+Examples of date arithmetic
+Tomorrow's date: {date +1D}
+Time 3 hours and 20 minutes ago: {time -3h -20m}
+Time 10 minutes and 30 seconds ago in long format: {time -10m -30s:long}
+Date and time 2 years and 2 months ago in full format: {datetime -2Y +2M:full}
+Date and time 1 year ago, showing the date in two digit format: {datetime -1Y:yy}
+Date arithmetic works in combination with date formatting, allowing full control over the date and time placeholders.
+Advanced Unicode Date Formatting
+You can use the Unicode formats for dates to be specific with your date formatting. These can be used with arithmetic included before the colon symbol.
+Examples of Unicode Date Formatting
+ISO 8601 date format: {isodatetime}
+RFC 2822 date format: {isodate:E, dd MMM yyyy HH:mm:ss Z}
+12-hr clock with time zone: {isodate:K:mm a, z}
+Day/Month/Year 7 days ago: {isodate -7d:dd/MM/yy}
+The localised month only, a month from now: {date +1M:MMMM}
+The localised day of the week: {date:EEEE}
+The localised month name and year: {date:MMMM yyyy}
+Tip
+Prefer the iso-prefixed placeholders unless you require localisation such as week name, or week of year.
+Clipboard Contents
+Use {clipboard} by itself to paste the contents of your latest clipboard entry as plain text. You can specify which clipboard item to use with the clipboard offset.
+Clipboard Offset
+The clipboard offset allows you to refer to specific items from your Clipboard History.
+{clipboard} and {clipboard:0} represent the latest item in your clipboard; these may differ if your workflow manipulates the clipboard content.
+For the next items in the clipboard list, use {clipboard:1}, {clipboard:2}, and so on.
+Important
+Clipboard History must be enabled on your Mac in for {clipboard:n} items to be available.
+Example of clipboard offset
+If you copy these three text items in order to your clipboard:
+Andrew
+hedgehogs
+https://en.wikipedia.org/wiki/Hedgehog
+And then create a snippet or workflow output as follows:
+Hi {clipboard:2}, thanks for your question about {clipboard:1}. You can find your answer here: {clipboard:0}.
+It would result in:
+Hi Andrew, thanks for your question about hedgehogs. You can find your answer here: https://en.wikipedia.org/wiki/Hedgehog
+Random Placeholder
+The {random} placeholder can be replaced with a random number, word, or UUID.
+Examples of random placeholders
+{random:UUID} for a random Universally Unique Identifier.
+{random:1..5} for a random number between 1 and 5. Each number can be omitted for a min / max integer between -2147483648 and 2147483647.
+{random:cheese,apple,biscuits} for a random word from the specified list of words.
+Variables
+Variables can be used in workflows. You can, for example, hold on to an argument for later use by using an Argument and Variables Utility to save it as a variable like {var:filename}. You'll then be able to refer to it later in your workflow.
+Take a look at the Variables page for a more in-depth explanation of the uses for variables.
+Transform Modifiers
+Modifiers allow you to quickly transform {query}, {clipboard}, and {var:} placeholders. They use the {placeholder:variation.modifier} syntax.
+: denotes a placeholder variation, such as a variable name, or clipboard history index.
+. adds a modifier. You can add multiple modifiers, which will be processed in order.
+Available Transform Modifiers
+uppercase
+lowercase
+capitals or capitalcase
+trim removes whitespace and newlines from the beginning and end of the string
+reverse reverses the whole string
+stripdiacritics removes accented characters
+stripnonalphanumeric removes any non-alphanumeric characters such as punctuation or emoji
+Examples of transform modifiers syntax
+Lowercase the input: {query.lowercase}
+Take the variable result and uppercase it: {var:result.uppercase}
+Reverse the third clipboard entry: {clipboard:3.reverse}
+Trim the current clipboard contents and strip diacritics: {clipboard.trim.stripdiacritics}
+Cursor Placeholder
+The {cursor} placeholder tells Alfred where to position the caret after pasting your content.
+Snippets
+You can insert the content of a snippet with the {snippet:} placeholder. Snippets are found and inserted by resolved keyword, meaning that if your collection has a prefix of ! and your snippet has a keyword of sig, you write it as {snippet:!sig}.
+If your current text content is rich text, and the snippet you are including is rich text, then the rich text of the snippet is retained.
+Tip
+Alfred's Snippets settings show resolved keywords in the keyword column of the snippets table.
+Note
+Alfred does not recursively embed snippets. If the snippet you are including also contains a {snippet:} placeholder, this secondary placeholder will not be resolved.
+Order of Replacements
+If you're using different types of placeholder replacement in your workflows, keep in mind the order of operations for replacements:
+Variable replacements
+{query} replacement
+Snippet style dynamic placeholders replacements (date, time, datetime)
+The top level workflow environment variables are treated as literal, but may be processed as they're encountered in processing the workflow.
+ Search

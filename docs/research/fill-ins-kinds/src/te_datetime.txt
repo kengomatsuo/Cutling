@@ -1,0 +1,59 @@
+
+ core > site config > consent lookup); start the
+ connections and the two stable files now so the banner isn't the last thing to paint -->
+Using Dates and Times in Snippets
+ Schedule a meeting
+ In this section
+ Using Dates and Times in Snippets
+How to Create a Date / Time Snippet
+Create a date or time Snippet using the Insert menu
+Create a new Snippet by clicking New Snippet in the TextExpander menubar under File > New Snippet.
+At the top of the Snippet editor, click on the Date or Time buttons.
+Select a series of Year, Month, Day or Hour, Minute, Second options. Include all the punctuation and spacing you would like. For example, if you want a date to appear in this format “January 3, 2020”, insert the following:
+Choose Date > Month: January. Add a space.
+Choose Date > Day: 1. Add a comma and a space.
+Choose Date > Year: 2001
+Choose an abbreviation in the Abbreviation box. We like abbreviations like “ddate” and “ttime” since they are simple to type and remember.
+How Date / Time Snippets Work
+TextExpander allows you to create Snippets that expand the current time and date. These types of Snippets use special codes (macros) which appear as small visual blocks and are easily customizable.
+For example, TextExpander comes with a sample Snippet, “ddate”, for the current date. Type the abbreviation, “ddate”, and the current date will appear like this: June 30, 2021  (assuming this is the current date).
+Each portion of the date is represented by a visual block that notes which piece of date, or time, and which format, it represents.
+Whichever arrangement of the date you want, simply drop in the macros, or pieces of the date, in that order, from “January 3, 2020” to “20-01-03.” Options include:
+Time 
+24-hour clock, 1-2 digits (0-23) or 2 digits. 
+12-hour clock, 1-2 digits (0-12) or 2 digits 
+Minute, 1-2 digits (0-59) or 2 digits 
+Second, 1-2 digits (0-59) or 2 digits 
+Time, AM/PM
+Date 
+Year, 2 digits (11) or 4 digits (2011) 
+Month, short name (Jan) or long name (January) 
+Month, 1-2 digits (1-12) or 2 digits (01-12) 
+Day, short name (Mon) or long name (Monday) 
+Day, 1 digit (1-31) or 2 digits (01-31)
+Date / Time Math
+Make a Snippet to show a past or future date or time using math macros. This involves placing a math macro directly in front of a date or time macro. Date/time macros are explained above. For example, say you are in the Accounts Receivable department and routinely need to remind people to pay you in 15 days time. You can create a date Snippet that will always expand to a date 15 days in the future.
+How to create a date / time Snippet using date / time math:
+Create a new Snippet by clicking New Snippet in the TextExpander toolbar under File > New Snippet.
+At the top of the Snippet editor, from the editing bar, click on Math and click Add Day(s). 
+A dialog will pop up and allow you to pick how many days you want to add to the date. In this instance, 15. 
+Insert the Date format you wish to appear, by using the Date Button. For example, if you want the date to appear formatted as “MONTH DAY, YEAR”, insert the following:
+Choose Month: January. 
+Add a space. 
+Choose Day: 01. 
+Add a comma and space. 
+Choose Year: 2001
+When you are done, the Snippet content should be:
+Give your Snippet an abbreviation, such as “d15” or “payupnow”.
+Note that any Date Math Macro, in this case, “Add 15 Days”, must precede other Date Macros. It will effect every Date Macro after it in the Snippet.
+Subtracting
+To subtract the value instead of add, simply choose a “Subtract” option from the Math menu.
+Use multiple dates in a single snippet
+Math macros apply to all subsequent date and time macros which follow them in the whole snippet, including embedded/nested snippets.
+Assuming you have two dates in a single snippet, and you want the first date to be in the future, and the second date to be today, the second date will need to zero out the effects of the first math macro.
+If you do need to reset the date and time in your Snippet, you can insert the ‘Reset Adjustment’ macro via the ‘Date math’ menu in the toolbar.
+Reset Adjustment
+Use Reset Adjustment at the end of your date formatting to keep the formatting from impacting any other date or time macros in the remainder of your Snippet.
+ Get started with TextExpander
+ Free forever. No credit card required.
+ Sign up for free Get a demo

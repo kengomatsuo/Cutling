@@ -1,0 +1,156 @@
+ Mustache Templates | Drafts User Guide Search Menu Expand Document 
+ Mustache Templates 
+ Drafts templates provides a lightweight, easy-to-use way to insert values in actions, but sometimes you have more advanced needs. For more advanced templating needs, Drafts has a custom implementation of Mustache templates that supports conditional values, partials, layouts, iteration, and other advanced templating features.
+ Table of Contents 
+ Mustache Template Basics Variable Tags
+ Sections Tags & Inverted Section Tags
+ Partial Tags
+ Partial Override Tags
+ Comment Tags
+ Pragma Tags
+ Drafts Template Context Draft Value Tags Identifiers
+ Content
+ Dates and Locations
+ Non-Draft-Specific Value Tags
+ Custom Value Tags
+ Formatting Values
+ Filters and Other Special Tags
+ Loading Other Drafts in Templates
+ Using Mustache Templates in Actions
+ Using Mustache Templates in Scripts
+ EXAMPLE ACTIONS 
+ Prefer to learn by example? Look at some sample actions demonstating Mustache template techniques.
+ Mustache Template Basics 
+ For a more detailed understanding of Mustache template syntax, it’s a good idea to read over the official documentation. This article covers enough basics to get you going, as well as discussing specific values and tags available in Drafts’ implementation.
+ Like any template language, Mustache supports markup for substituting values and applying basic logic to strings. Let’s review basic tag constructs.
+ Variable Tags 
+ {{value}} Renders a value from the context.
+ Sections Tags & Inverted Section Tags 
+ Section: {{#section}}...{{/section}} Performs conditionals, loops and object scoping.
+ Inverted Section: {{^section}}...{{/section}} Sister to section tags, and render when the other does not.
+ When rendering, a section tag, if the value returned by the tag is “truthy”, the content inside the tag will be rendered. “Truthy” values are things like a true boolean, but also a not-empty string, a non-zero number, etc. The “inverted” section will render in the case where the same section tag will not, making it possible to have conditional content.
+ Conditional Example: 
+ {{#isFlagged}}FLAGGED{{/isFlagged}}
+{{^isFlagged}}NOT FLAGGED{{/isFlagged}}
+ Section tags are also used to render repeating values, so if the value returned by the tag is a sequence, like an array of values, the section will be rendered once for each of the values in the array.
+ Repeat Example: 
+ In this example, if the context has an array value with the key “letters” equal to ["a", "b", "c"], the template would render “abc”.
+ {{#letters}}{{.}}{{/letters}}
+ Partial Tags 
+ {{>partial}} Includes a template in another one.
+ Partial Override Tags 
+ {{<layout}}...{{/layout}} Provides template inheretance.
+ Comment Tags 
+ {{! Comment Text }} Provides comments in a template that are not rendered.
+ Pragma Tags 
+ {{% CONTENT_TYPE:HTML }} By default, Drafts renders in text mode. If you need to default to HTML mode (automatically HTML escaping values), you can use the above pragma at the beginning of your template to switch modes.
+ Drafts Template Context 
+ When a template is evaluated, values are provided in a context object. In most common uses in Drafts actions, the context is constructed for you with the values and filters discussed below. Note that you can pass additional context values to Mustache templates when triggering them via script (details below).
+ Draft Value Tags 
+ When a draft is in context in a Mustache template, the below tags are available to render information about the draft. When running an action which uses Mustache templates, these values will be loaded in the root of the template context. A simple example using value tags to create a version of the draft with the title, then it’s assigned tags on the second line, the draft’s URL next, and the remaining body of the draft below might look like:
+ Title: {{title}} 
+Tags: {{tags}}
+URL: {{permalink}}
+{{body}}
+ Identifiers 
+ {{uuid}} A unique identifier for the current draft.
+ {{permalink}} A URL which can be used as a bookmark to open Drafts and select the current draft.
+ Content 
+ {{content}} The full text of the draft.
+ {{title}} The first line of the draft only.
+ {{safeTitle}} File name safe version of the first line with ASCII control characters and path separators that can interfere with file names removed (\/:*?<>|#).
+ {{displayTitle}} A cleaned and trimmed version of the first line as would be displayed in the draft list. Removes whitespace and leading “#” characters.
+ {{body}} The remainder of the draft text after the first line is removed.
+ {{bodyPreview}} A trimmed and shortened snippet of the body, as would be displayed in the draft list.
+ {{selection}} If text was selected within the draft before selecting an action, this tag will return only that selected text. If no text was selected, it will return the full text of the draft.
+ {{selectionOnly}} Returns selected text, but unlike {{selection}} will not default to returning the entire draft if no selection was made - it will simply return a empty string.
+ {{isArchived}} Boolean value indicating whether the draft is in the archive. Typically used with conditional sections to render content only true or false.
+ {{isFlagged}} Boolean value indicating whether the draft is in the flagged. Typically used with conditional sections to render content only true or false.
+ {{tags}} Comma-separated list of tags linked to the draft.
+ {{hashtags}} Same as {{tags}}, but with # characters prepended before each tag. For use with actions that export to other systems which utilize hash tags in the text when tagging.
+ {{line}} The text of the current line, based on the last cursor position in the document. If a selection which spanned multiple lines was present, extends the selection to the beginning and end of the lines selected.
+ {{line(n)}} The text of a specific line number in the draft, where “n” is the line number. i.e. {{line(1)}}, {{line(2)}}.This tag also support negative indexes, which count back from the last line of the draft, e.g. {{line(-1)}} returns the last line of the draft.
+ {{line("n..n")}} In addition to specific lines, the lines tag can accept ranges of lines, such as {{line("2..5")}} for lines 2 through 5. This initial or trailing number in the range can be omitted to indicate the beginning or end, i.e. {{line("2..")}} is line 2 through the end of the draft, {{line("..4")}} is the first for lines of the draft.
+ {{selectionStart}} The integer index of the start location of the last text selection in the draft.
+ {{selectionLength}} The number of characters in the last text selection in the draft.
+ Dates and Locations 
+ {{createdAt}} Same as “date”, but returns the timestamp for the creation of the draft, rather than the current time.
+ {{modifiedAt}} Same as “date”, but returns the timestamp for the last modification date of the draft content, rather than the current time.
+ {{createdLongitude}} The location longitude where the draft was created.
+ {{createdLatitude}} The location latitude where the draft was created.
+ {{modifiedLongitude}} The location longitude where the content of the draft was last modified.
+ {{modifiedLatitude}} The location latitude where the content of the draft was last modified.
+ Non-Draft-Specific Value Tags 
+ {{date}} Timestamp in the format YYYY-MM-DD. Can be combined with format filter (see below) to control output.
+ {{longitude}} The current device location longitude.
+ {{latitude}} The current device location latitude.
+ {{clipboard}} The current contents of the iOS clipboard.
+ Custom Value Tags 
+ In addition to the predefined tags always available, scripts in an action can create custom tags which become available to action steps run after the script in the same action. This is useful if a scripted action step processes text to create a value that then needs to be inserted in a later step that shares that text. The below example shows a simple script with creates a tag.
+ let s = "My String Value";
+draft.setTemplateTag("mytag", s);
+// after running this script, templates later
+// in the action will have available a tag.
+ Custom template tag values can also be created using the Define Template Tag action step
+ Formatting Values 
+ Drafts provides a format filter to apply formatting to date and number values output. Several common format strings are available, or
+ format(value, format) If value is a date: Apply format to date value and output as a string. This will pass through Apple’s DateFormatter class, see docs for formatting details.
+ Pre-defined format options: formats.shortDate: 11/23/22
+ formats.shortDateTime: 11/23/37 3:30 PM
+ formats.longDate: November 23, 1937
+ formats.longDateTime: November 23, 1937 3:30:32 PM PST
+ Or, a strftime format string may be provided.
+ If value is a number: Apply format to date value and output as a string. This will pass through Apple’s NumberFormatter class, see docs for formatting details.
+ Pre-defined format options: formats.decimal: 1234.12 => 1,234.12
+ formats.percent: 0.40 => 40%
+ formats.scientific: 1234.5678 => 1.2345678E3
+ formats.spellOut: 123 => one hundred twenty three
+ formats.ordinal: 3 => 3rd
+ formats.currency: 1234.5678 => $1,234.57
+ Or, a format string value can be provide using Unicode Technical Standard #35 notation.
+ adjustDate(value, adjustmentExpression, format): Allows
+ Format Examples 
+ A few examples, assuming the date value tag is available in the context and set to Jan. 1 1970.
+ {{ format(date, formats.shortDate) }} => 1/1/70
+{{ format(date, "%Y-%m-%d") }} => 1970-01-01
+{{ adjustDate(date, "+1 year +1 month +2 days", "%Y-%m-%d")}} => 1971-02-03
+{{ format(23, formats.ordinal)}} => 23rd 
+ Filters and Other Special Tags 
+ In addition to value tags and formatting filters, Drafts provides a number of special filter tags in Mustache templates which can alter values, provide formatting, or even return data such as other drafts to the template context.
+ {{#markdown}}...{{/markdown}}: Section filter that runs the output between the tags through Markdown > HTML conversion.
+ uppercase(value): Convert the value to UPPERCASE text.
+ lowercase(value): Convert the value to lowercase text.
+ HTMLEscape(value): Escape HTML and entities in the value. For example, a & <b> would become a &amp; &lt;b&gt;
+ URLEscape(value): % escape value for use in a URL query argument. For example, My Text would become My%20Text.
+ javascriptEscape(value): Escape value for use in a Javascript string literal. For example My "Text" would become My \"Text\".
+ Loading Other Drafts in Templates 
+ When running an action, the current draft is always in context, and the value tags discussed above will be available in the root level of the context. It is also possible to load other drafts into the context using the special functions described below.
+ _draft(uuid): Loads a draft by its identifier. Can be used with section tags to insert content from another specific draft when rendering.
+ _workspaceDrafts(workspaceName, folder): Loads an array of drafts in a specific workspace. Provide the workspace name as a quoted string. Valid folder values are “inbox”, “archive”. Use with section tag to iterate over the drafts.
+ _queryDrafts(query, filter, sortBy, sortDescending): Loads an array of drafts matching the query and filter. Query should be a quoted string value, supporting the same search options available in app search. Allowed filter values are “inbox”, “archive”, “flagged”, “trash”, and “all”. Allowed values for sort are “created”, “modified”, “accessed”, “text”.
+ Examples 
+ Load a specific draft and render its title:
+ {{# _draft("UUID-OF-DRAFT")}}
+{{title}}
+{{/}}
+ Load a drafts from the inbox of a workspace and render as a list of titles:
+ {{# _workspaceDrafts("Workspace Name", "inbox")}}
+* {{title}}
+{{/}}
+ Using Mustache Templates in Actions 
+ Mustache templates can be used as an alternative to Drafts Templates any long-form (multiline) templates when editing action steps.
+ If you select the template use Mustache, be aware you will need to rewrite the tags to be compatible, as Drafts and Mustache tag syntax differs.
+ Using Mustache Templates in Scripts 
+ To render using the Drafts Mustache template context described in the article via script, use the Draft.processMustacheTemplate function, as shown in this example:
+ // optional additional value to make available in the context
+// they will be available as value tags, like 
+let values = {
+ "val1": "My Value"
+}
+// your template
+let template = "";
+// render the template with content type "text"
+// supported content types are "text" and "html"
+let result = draft.processMustacheTemplate("text", template, values);
+ If you wish to use Mustache template to render something based only the the data you pass to the template context, see also the MustacheTemplate object.
+ Mastodon 

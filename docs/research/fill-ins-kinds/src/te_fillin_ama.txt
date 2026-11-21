@@ -1,0 +1,200 @@
+
+ Ask Me Anything: TextExpander Fill-Ins - Have a question? - TextExpander Community
+ = 40rem)" rel="stylesheet" data-target="discourse-ai_desktop" />
+ = 40rem)" rel="stylesheet" data-target="discourse-gamification_desktop" />
+ = 40rem)" rel="stylesheet" data-target="discourse-reactions_desktop" />
+ = 40rem)" rel="stylesheet" data-target="poll_desktop" />
+ = 40rem)" rel="stylesheet" data-target="desktop_theme" data-theme-id="7" data-theme-name="showcased categories"/>
+ Support
+ Contact Sales
+ TextExpander.com
+ Ask Me Anything: TextExpander Fill-Ins
+ Have a question?
+ ama
+ Rextexpander
+ May 7, 2025, 6:00pm
+ 1
+ Hi, I’m Rex here at the TextExpander team, and @alisa and I are on hand to answer all of your questions about Fill-Ins that we couldn’t answer during the webinar, “How to Make Snippets More Flexible with Fill-ins.”
+Please add your questions about Fill-Ins, and we’ll do our best to answer them! Whether you have a question about single-line fields, multi-line fields, optional sections, or pop-up menus, this is the place for you!
+ TextExpander Webinar: How to Make Snippets More Flexible with Fill-ins
+ How to Use Single Line Fields to Customize Snippets
+ MitchellZoll
+ May 7, 2025, 6:31pm
+ 2
+ Hey Josh, Rex and @alisa - what’s the status of textexpander coming back to the iphone?
+ josh.centers
+ May 7, 2025, 6:38pm
+ 3
+ Hi, Mitchell! You can install the iOS beta here: https://testflight.apple.com/join/vKrjNFUr
+ MitchellZoll
+ May 7, 2025, 6:39pm
+ 4
+ Hey Josh. Thanks for the response. That’s been in beta for a while. Do you know when it will be in full production? You can access beta only for a limited time, correct?
+ josh.centers
+ May 7, 2025, 6:42pm
+ 5
+ We do not have a current timeline for full launch of the iOS keyboard. The betas last for up to 90 days, but you should receive a notification to install the latest versions when it’s available.
+J.D., our CEO, addressed the status of the mobile version here:
+ iOS Keyboard - When will it ever come out of TestFlight? TextExpander Talk
+ We appreciate the question, and it’s incredibly valid considering the length of our mobile beta. I’d love to share some context. 
+The biggest hurdle we’ve faced is delivering a seamless TextExpander experience within the limitations of third-party keyboard support, particularly on iOS. We’ve been testing different keyboard SDKs to overcome these platform-level roadblocks. 
+Rather than hold back until everything is “final,” we chose to develop in the open so customers like you can still use TextE…
+ 1 Like
+ KathyCarrington
+ May 7, 2025, 7:45pm
+ 6
+ Was the “Fill-Ins” webinar recorded? I had to miss it and would love to have an opportunity to watch it.
+ josh.centers
+ May 7, 2025, 7:56pm
+ 7
+ Yes, it was! We’ll put the video on the webinar page as soon as possible, and we’ll also embed it here.
+ roger
+ May 7, 2025, 9:40pm
+ 8
+ Thanks @KathyCarrington - here is the recording:
+ 1 Like
+ AmandaEdson
+ May 7, 2025, 11:51pm
+ 9
+ I was wondering if there is a way to link fill-ins with the multiple selections for example. Lets say I have a list of colors Red Blue and Purple and later on for each of those i have some conditions or instructions for each. I can set up a drop down with Red, Blue, Purple and then have optional for the 3 separate instructions corresponding to each color. So I want to say sorry to hear about your COLOR we are working hard to investigate this issue. In the meantime you can try: Insert optional text here. But is there any way to link say red then use optional text 1 and blue use optional text 2 and purple use optional text 3? I hope that made sense.
+ Rextexpander
+ May 8, 2025, 3:11pm
+ 10
+ Hey there, @AmandaEdson! Great question — and yes, what you’re trying to do does make sense!
+Right now, there isn’t a way to link a pop-up menu selection directly to different optional sections (so picking “Red” in the menu won’t automatically trigger a specific optional text block). That said, there’s a neat little workaround you might find helpful:
+You can set up your snippet using multiple optional sections for each color — for example, two for Red, two for Blue, and two for Purple. And here’s the fun part: if you give those optional sections the same name, like “Red,” then selecting that option once will automatically select every instance of it throughout your snippet! 
+That way, you can insert the selected color wherever you’d like (like “Sorry to hear about your Red item…”) and also include the relevant instructions in another spot, and it’ll all stay in sync.
+I recorded a quick video to walk you through how I set this up: https://share.zight.com/4guvl6nv
+Please let me know if that helps. I’m happy to answer any questions you might have!
+ 2 Likes
+ AmandaEdson
+ May 8, 2025, 3:38pm
+ 11
+ That was very helpful! I especially appreciated the video. I am going to play around with it and i think the workaround will work. It might be a nice feature request for look at in the future just to be simpler to input.
+ 2 Likes
+ AlanFink
+ May 9, 2025, 4:57pm
+ 12
+ Would love to have the ability to format a single line field as currency and have it formatted correctly when expanded. ie: enter 1269.69 in field and have it look like $1,269.69 upon expansion. If this exists now, I am not aware of how to implement it. Thanks!
+ AlexBainov
+ May 9, 2025, 6:15pm
+ 13
+ Is there an easy way to avoid or delete spaces where you have many options?
+For example, I have a fill-in with 15 options items, if I select a few in the middle of the list, the result will be that I have made blank spaces before and after selected items (because of paragraph breaks for the items for the items not selected). If you do not include paragraph breaks, then it is really difficult to read a long list of options as a long run-on list.
+ 2 Likes
+ josh.centers
+ May 9, 2025, 6:23pm
+ 14
+ AlanFink:
+Would love to have the ability to format a single line field as currency and have it formatted correctly when expanded. ie: enter 1269.69 in field and have it look like $1,269.69 upon expansion. If this exists now, I am not aware of how to implement it. Thanks!
+Could you just put a $ in front of the Fill-in field?
+ AmandaEdson
+ May 9, 2025, 6:25pm
+ 15
+ When you use the checkbox optional fillin AND show at the top. Is there a way to make the checkbox checkable at the top as well? It looks like I can type the optional text with the blank fill in but the box to check to include it is at the bottom needing to be expanded to check it.
+ AlexBainov
+ May 9, 2025, 6:27pm
+ 16
+ You can do that through JavaScript snippet function.
+let str = “[fill in field]”
+let num = parseFloat(str)
+result = num.toLocaleString(“en-US”, { style: “currency”, currency: “USD” })
+ 2 Likes
+ AlanFink
+ May 9, 2025, 6:43pm
+ 17
+ I could, but that does not take care of “,” for thousands separator if needed. Would be nice to be formatted base on input to proper currency format. Thanks
+ AlanFink
+ May 9, 2025, 6:56pm
+ 18
+ Thanks for the reply
+How would I implement the javascript for fill in fields VSA Refund, PPM Refund, GAP Refund, and TW Refund using the snippet pictured here.
+Sorry, but I do not have any experience with using javascript function to integrate that here.
+Thank you!
+image1256×1772 204 KB
+ TamarynTobian
+ May 9, 2025, 7:22pm
+ 19
+ Hi there,
+I’m really confused as to how to use the time fill-ins. Would love to understand them better. Or would love an option that pulls up a calendar so it doesn’t just input the current date/ time.
+I’ve done a bit of a work around, but it’s not perfect.
+(See attached)
+Screenshot 2025-05-09 at 3.17.43 PM1214×1108 54.1 KB
+ 1 Like
+ josh.centers
+ May 9, 2025, 9:02pm
+ 20
+ Have you experimented with moving the line breaks inside the Optional Sections?
+ next page →
+ Related topics
+ Topic
+ Replies
+ Views
+ Last activity
+ What's your TextExpander Wish List?
+ TextExpander Talk
+ feedback
+ 103
+ 2178
+ October 21, 2026
+ Need help with TextExpander? Start here!
+ Have a question?
+ getting-started
+ 0
+ 224
+ May 8, 2025
+ Use ChatGPT to Generate TextExpander Checklists
+ TextExpander Talk
+ 14
+ 570
+ June 16, 2026
+ Secret TextExpander Codes and How to Use Them
+ TextExpander Talk
+ 6
+ 573
+ March 11, 2026
+ Exclusive Early Access to TextExpander AI
+ TextExpander Talk
+ 13
+ 701
+ November 4, 2025
+ ×
+ 🎉 Welcome to the
+TextExpander Community!
+ This is your space to ask questions, find support, and share ideas with fellow TextExpander users and our product team. As a first step, take a moment to introduce yourself to the community.
+ Your free TextExpander trial has begun
+ As a bonus for joining the community, you get access to a free trial of TextExpander! Start using your TextExpander
+ Latest Topics
+ Learning Center
+ Contact Support
+ TextExpander
+ Start Free Trial
+ Pricing
+ Templates
+ Download
+ Features
+ Sign In
+ Learn
+ Learning Center
+ Webinars
+ Getting Started
+ Troubleshooting
+ Public Groups
+ Contact Us
+ Blog
+ Blog Home
+ Sales
+ Recruitment
+ Customer Support
+ Development
+ Tips
+ Company
+ About TextExpander
+ Partner with TextExpander
+ Jobs
+ Press
+ © 2025 TextExpander, Inc. TextExpander is a registered trademark.
+ Privacy
+ Policies
+ Security
+ Trust

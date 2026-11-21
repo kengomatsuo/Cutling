@@ -1,0 +1,55 @@
+Text Blaze | {user}Docs
+> Commands
+Summary:
+Inserts information about the current user
+Sample Usage
+If you have any further questions, email me at <{user: email}>.
+_
+Settings
+Setting Name
+Type
+Description
+Positional
+text
+The user property to get
+General Command Settings
+trim
+yes/no/left/right
+If yes whitespace is removed before and after the command. If left, only whitespace to the left is removed. If right, only whitespace to the right is removed.
+The {user} command is a Text Blaze Business feature and may only be used by teams using Text Blaze Business and Enterprise.
+The {user} command allows Text Blaze Business users to include information, known as properties, about the current snippet user in the snippet.
+In this case, the snippet user is the member of your organization that's using the snippet.
+Defining your own properties
+You can define custom properties for each member of your organization.
+Custom properties can be defined in the Members tab of the organization and clicking on the gear icon beside the Member Properties column header.
+For example, you may want to include employees' names in your organization's snippets. You can do that by first creating a custom name property.
+Now you can configure the newly defined name property for each employee individually by clicking on the Edit button next to their name under the Member Propeties column.
+Here is an example of configuring two properties for a member of your organization.
+Editing Properties
+Organization administrators and editors can modify properties for all organization members from the Members tab.
+If the property is user editable, individual members can modify their own properties.
+Setting a property's name and description
+The property name you use is how you will reference that property in your snippets. If your property name is department, you reference the value in a snippet with {user: department}.
+The capitalization that you use is important. For example, {user: department} will work, but {user: Department} will not.
+Text Blaze does not allow you to change a property's name once set initially.
+You can also optionally add a description that allows you to provide additional information to users.
+Setting a property's data type and default value
+The default value that you set for the property is used if an administrator, editor, or individual member has not yet configured a specific value for the property.
+You can also configure the data type of a property.:
+There are four data types available:
+Text: Text properties can be used to represent things like names or phone numbers. You can also specify validation rules using regular expressions.
+Number: Number properties only accept numeric values. You can configure maximum and minimum allowed values.
+Boolean: Boolean properties are yes/no values that can be turned on and off.
+Categorical: Categorical properties allow you to specify a drop-down list of options that the user may select an option from.
+Dates: Date properties that allow you to select a specific date from a date field.
+If the data type of an existing property is changed, or new validations are added to it, existing values for it will not be changed even if they are no longer valid.
+The newly changed data type and validations will only apply when manually updated the values.
+Built-in properties
+Besides allowing you to define your own custom properties, each member of your organization will come with built-in properties by default.
+Property
+Description
+Example
+email
+The user's email.
+user@example.com
+Using {user: email} outputs the email that the user signed up to Text Blaze to join your organization with.

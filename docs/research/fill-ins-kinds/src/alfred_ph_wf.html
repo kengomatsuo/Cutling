@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dynamic Placeholders - Advanced Workflow Topics - Workflows - Alfred Help and Support</title>
+  <meta name="description" content="Placeholders which can be used in workflows and snippets to add dynamic content.">
+  <link rel="Shortcut Icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preload" href="/styles/6/Bitter.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="/styles/6/core.css?ver=1.3">
+  <link rel="stylesheet" href="/styles/6/content.css?ver=1.1">
+  <link rel="stylesheet" href="/styles/6/shop.css?ver=1.0">
+</head>
+
+<body id="alfred_help">
+
+<!-- Navigation -->
+<nav>
+  <ul>
+    <li><a href="/" id="home">Alfred</a></li>
+    <li><a href="/powerpack/">Powerpack</a></li>
+    <li id="nav_workflows"><a href="/workflows/">Workflows</a></li>
+    <li id="nav_forum"><a href="http://www.alfredforum.com/">Forum</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/help/">Help</a></li>
+    <li><a href="/search/">Search</a></li>
+  </ul>
+</nav>
+
+<main class="alfred_grid">
+  <nav>
+    <div>
+      <a href="/help/">Help and Support</a> &gt; <a href="/help/workflows/">Workflows</a> &gt; <a href="/help/workflows/advanced/">Advanced Workflow Topics</a> &gt; Dynamic Placeholders
+    </div>
+  </nav>
+<div>
+  <article>
+<!--
+Title:Dynamic Placeholders
+Breadcrumb:Dynamic Placeholders
+Description:Placeholders which can be used in workflows and snippets to add dynamic content.
+Summary:Placeholders which are replaced by dynamic content
+Search:
+Status:[complete]
+-->
+<h1>Dynamic Placeholders</h1>
+<p>Placeholders are stand-ins in curly brackets, like <code>{query}</code> or <code>{date:short}</code>, that are dynamically inserted into <a href="/help/features/snippets/">Snippets</a> and certain <a href="/help/workflows/">Workflow</a> objects. They're very easy to use and great time savers.</p>
+<p>A placeholder can be replaced by your current or past clipboard content, a random string from a list, or even <em>another snippet</em>!</p>
+<p><img src="dynamic-placeholder-example.png" alt="Dynamic Placeholder content example" /></p>
+<p>Take a look at the various ways you can use these clever placeholders in your snippets and workflows. Click on the relevant type below to find out more about how to use them, and their specific syntax.</p>
+<ul>
+<li><a href="#query">Query Placeholder</a></li>
+<li><a href="#date-time">Date and Time Placeholders</a></li>
+<li><a href="#iso-date-time">ISO Date and Time Placeholders</a></li>
+<li><a href="#clipboard">Clipboard Contents</a></li>
+<li><a href="#random">Random Placeholder</a></li>
+<li><a href="#variables">Using Variables</a></li>
+<li><a href="#modifiers">Transform Modifiers</a></li>
+<li><a href="#cursor">Cursor Position</a></li>
+<li><a href="#snippets">Snippets</a></li>
+</ul>
+<p>Want to see them in action? Take a look at our <a href="/blog/tips-and-tricks/dynamic-placeholders-time-and-date/">3-post series of tips on using Dynamic Placeholders</a>.</p>
+<h2 id="query">Query Placeholder</h2>
+<p>The simplest and most common placeholder is <code>{query}</code>. It's supported in most workflow objects and stands for whatever your input was. In <a href="/help/workflows/inputs/">Workflow Inputs</a> it's replaced by the argument you type into Alfred; in other objects it's replaced by the output of the preceding object.</p>
+<p>You can see examples of it in action in <a href="/help/features/web-search/#default">Web Searches</a>, where <code>{query}</code> is used not only to insert your search term into otherwise fixed URLs but also to update the text displayed in Alfred.</p>
+<h2 id="variables">Variables Placeholders</h2>
+<p>Variables can be used in workflows to store pieces of text to be used in later objects. For example: you can use an <a href="/help/workflows/utilities/argument/">Arg and Vars Utility</a> to save the file path from a <a href="/help/features/universal-actions/">Universal Action</a> to a <code>{var:filename}</code> variable to process in an <a href="/help/workflows/automations/automation-task/">Automation Task</a> later in your workflow.</p>
+<p>Take a look at the <a href="/help/workflows/advanced/variables/">Using Variables in Workflows</a> page for an in-depth guide to variables.</p>
+<p><a href="/help/workflows/prepopulated-environment-variables/">Prepopulated Environment Variables</a> are accessed with <code>{const:}</code> instead of <code>{var:}</code>.</p>
+<h2 id="date-time">Date and Time Placeholders</h2>
+<p>Local date and time placeholders begin with <code>date</code>, <code>time</code>, or <code>datetime</code>.</p>
+<p>You can follow this with optional <a href="#arithmetic">date arithmetic</a> to calculate a date/time in the future or past, in different formats (<code>short</code>, <code>medium</code>, <code>long</code>, <code>full</code>). When no format is specified, Alfred uses the <code>medium</code> format from macOS as the default.</p>
+<p>For example: <code>{date}</code> is replaced with the current date in the default format, while <code>{date +7d +3h:long}</code> gives the date 7 days and 3 hours from now, in the long format.</p>
+<p>The <code>{date}</code>, <code>{time}</code>, and <code>{datetime}</code> placeholders use your macOS default formats. You can tweak these in System Settings &gt; General &gt; Language &amp; Region / Date &amp; Time.</p>
+<p><img src="system-prefs-date-time.png" alt="Setting your Date and Time preferences" style="width:827px;" /></p>
+<h4>Examples of basic date and time formats</h4>
+<ul>
+<li><code>{date}</code> 28 Feb 2010</li>
+<li><code>{date:short}</code> 28/02/2010</li>
+<li><code>{time:full}</code> 09:41:00 Western European Standard Time</li>
+<li><code>{datetime:long}</code> 28 February 2010 at 09:41:00 WET</li>
+</ul>
+<h3 id="iso-date-time">ISO Date and Time Placeholders</h3>
+<p><code>isodate</code>, <code>isotime</code>, and <code>isodatetime</code> behave like <a href="#date-time">their counterparts</a>, but are fixed to the <code>en_US_POSIX</code> locale, enabling generation of Internet-style <a href="https://www.ietf.org/rfc/rfc3339.txt">RFC 3339</a> date strings.</p>
+<p>Use these placeholders for more predictable results when doing <a href="#unicode">advanced formatting</a>.</p>
+<p>For more information refer to Apple's <a href="https://developer.apple.com/library/archive/qa/qa1480/_index.html">Technical Q&amp;A QA1480</a>.</p>
+<h3 id="arithmetic">Date Arithmetic</h3>
+<p>To set the date or time to a future or past date, add <code>+</code> or <code>-</code> in the placeholder, followed by a number and a time reference:</p>
+<ul>
+<li><code>Y</code> Year</li>
+<li><code>M</code> Month (strict uppercase)</li>
+<li><code>D</code> Day</li>
+<li><code>h</code> Hour</li>
+<li><code>m</code> Minute (strict lowercase)</li>
+<li><code>s</code> Second</li>
+</ul>
+<h4>Examples of date arithmetic</h4>
+<ul>
+<li>Tomorrow's date: <code>{date +1D}</code></li>
+<li>Time 3 hours and 20 minutes ago: <code>{time -3h -20m}</code></li>
+<li>Time 10 minutes and 30 seconds ago in long format: <code>{time -10m -30s:long}</code></li>
+<li>Date and time 2 years and 2 months ago in full format: <code>{datetime -2Y +2M:full}</code></li>
+<li>Date and time 1 year ago, showing the date in two digit format: <code>{datetime -1Y:yy}</code></li>
+</ul>
+<p>Date arithmetic works in combination with date formatting, allowing full control over the date and time placeholders.</p>
+<h3 id="unicode">Advanced Unicode Date Formatting</h3>
+<p>You can use the <a href="http://www.unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Format_Patterns">Unicode formats for dates</a> to be specific with your date formatting. These can be used with arithmetic included before the colon symbol.</p>
+<h4>Examples of Unicode Date Formatting</h4>
+<ul>
+<li>ISO 8601 date format: <code>{isodatetime}</code></li>
+<li>RFC 2822 date format: <code>{isodate:E, dd MMM yyyy HH:mm:ss Z}</code></li>
+<li>12-hr clock with time zone: <code>{isodate:K:mm a, z}</code></li>
+<li>Day/Month/Year 7 days ago: <code>{isodate -7d:dd/MM/yy}</code></li>
+<li>The localised month only, a month from now: <code>{date +1M:MMMM}</code></li>
+<li>The localised day of the week: <code>{date:EEEE}</code></li>
+<li>The localised month name and year: <code>{date:MMMM yyyy}</code></li>
+</ul>
+<blockquote>
+<div class="emphasis emphasis-tip">Tip</div>
+<p>Prefer the <a href="#iso-date-time">iso-prefixed placeholders</a> unless you require localisation such as week name, or week of year.</p>
+</blockquote>
+<h2 id="clipboard">Clipboard Contents</h2>
+<p>Use <code>{clipboard}</code> by itself to paste the contents of your latest clipboard entry as plain text. You can specify which clipboard item to use with the <a href="#clipboard-offset">clipboard offset</a>.</p>
+<h3 id="clipboard-offset">Clipboard Offset</h3>
+<p>The clipboard offset allows you to refer to specific items from your <a href="/help/features/clipboard/">Clipboard History</a>.</p>
+<p><code>{clipboard}</code> and <code>{clipboard:0}</code> represent the latest item in your clipboard; these may differ if your workflow manipulates the clipboard content.</p>
+<p>For the next items in the clipboard list, use <code>{clipboard:1}</code>, <code>{clipboard:2}</code>, and so on.</p>
+<blockquote>
+<div class="emphasis emphasis-important">Important</div>
+<p>Clipboard History must be enabled on your Mac in for <code>{clipboard:n}</code> items to be available.</p>
+</blockquote>
+<h4>Example of clipboard offset</h4>
+<p>If you copy these three text items in order to your clipboard:</p>
+<ul>
+<li>Andrew</li>
+<li>hedgehogs</li>
+<li><a href="https://en.wikipedia.org/wiki/Hedgehog">https://en.wikipedia.org/wiki/Hedgehog</a></li>
+</ul>
+<p>And then create a snippet or workflow output as follows:</p>
+<blockquote>
+<p>Hi {clipboard:2}, thanks for your question about {clipboard:1}. You can find your answer here: {clipboard:0}.</p>
+</blockquote>
+<p>It would result in:</p>
+<blockquote>
+<p>Hi Andrew, thanks for your question about hedgehogs. You can find your answer here: <a href="https://en.wikipedia.org/wiki/Hedgehog">https://en.wikipedia.org/wiki/Hedgehog</a></p>
+</blockquote>
+<h2 id="random">Random Placeholder</h2>
+<p>The <code>{random}</code> placeholder can be replaced with a random number, word, or UUID.</p>
+<h4>Examples of random placeholders</h4>
+<ul>
+<li>
+<p><code>{random:UUID}</code> for a random Universally Unique Identifier.</p>
+</li>
+<li>
+<p><code>{random:1..5}</code> for a random number between 1 and 5. Each number can be omitted for a min / max integer between -2147483648 and 2147483647.</p>
+</li>
+<li>
+<p><code>{random:cheese,apple,biscuits}</code> for a random word from the specified list of words.</p>
+</li>
+</ul>
+<h2 id="variables">Variables</h2>
+<p>Variables can be used in workflows. You can, for example, hold on to an argument for later use by using an <a href="/help/workflows/utilities/argument/">Argument and Variables Utility</a> to save it as a variable like <code>{var:filename}</code>. You'll then be able to refer to it later in your workflow.</p>
+<p>Take a look at the <a href="/help/workflows/advanced/variables/">Variables</a> page for a more in-depth explanation of the uses for variables.</p>
+<h2 id="modifiers">Transform Modifiers</h2>
+<p>Modifiers allow you to quickly transform <code>{query}</code>, <code>{clipboard}</code>, and <code>{var:}</code> placeholders. They use the <code>{placeholder:variation.modifier}</code> syntax.</p>
+<ul>
+<li><code>:</code> denotes a placeholder variation, such as a variable name, or clipboard history index.</li>
+<li><code>.</code> adds a modifier. You can add multiple modifiers, which will be processed in order.</li>
+</ul>
+<h3 id="available-transform-modifiers">Available Transform Modifiers</h3>
+<ul>
+<li><code>uppercase</code></li>
+<li><code>lowercase</code></li>
+<li><code>capitals</code> or <code>capitalcase</code></li>
+<li><code>trim</code> removes whitespace and newlines from the beginning and end of the string</li>
+<li><code>reverse</code> reverses the whole string</li>
+<li><code>stripdiacritics</code> removes accented characters</li>
+<li><code>stripnonalphanumeric</code> removes any non-alphanumeric characters such as punctuation or emoji</li>
+</ul>
+<h4>Examples of transform modifiers syntax</h4>
+<ul>
+<li>Lowercase the input: <code>{query.lowercase}</code></li>
+<li>Take the variable <code>result</code> and uppercase it: <code>{var:result.uppercase}</code></li>
+<li>Reverse the third clipboard entry: <code>{clipboard:3.reverse}</code></li>
+<li>Trim the current clipboard contents and strip diacritics: <code>{clipboard.trim.stripdiacritics}</code></li>
+</ul>
+<h2 id="cursor">Cursor Placeholder</h2>
+<p>The <code>{cursor}</code> placeholder tells Alfred where to position the caret after pasting your content.</p>
+<h2 id="snippets">Snippets</h2>
+<p>You can insert the content of a snippet with the <code>{snippet:}</code> placeholder. Snippets are found and inserted by resolved keyword, meaning that if your collection has a prefix of <code>!</code> and your snippet has a keyword of <code>sig</code>, you write it as <code>{snippet:!sig}</code>.</p>
+<p>If your current text content is rich text, and the snippet you are including is rich text, then the rich text of the snippet is retained.</p>
+<blockquote>
+<div class="emphasis emphasis-tip">Tip</div>
+<p><a href="/help/features/snippets/">Alfred's Snippets</a> settings show resolved keywords in the keyword column of the snippets table.</p>
+</blockquote>
+<!-- -->
+<blockquote>
+<div class="emphasis emphasis-note">Note</div>
+<p>Alfred does not recursively embed snippets. If the snippet you are including also contains a <code>{snippet:}</code> placeholder, this secondary placeholder will not be resolved.</p>
+</blockquote>
+<h2 id="order">Order of Replacements</h2>
+<p>If you're using different types of placeholder replacement in your <a href="/help/workflows/">workflows</a>, keep in mind the order of operations for replacements:</p>
+<ol>
+<li><a href="/help/workflows/advanced/variables/">Variable replacements</a></li>
+<li><a href="#query"><code>{query}</code></a> replacement</li>
+<li>Snippet style dynamic placeholders replacements (date, time, datetime)</li>
+</ol>
+<p>The top level workflow environment variables are treated as literal, but may be processed as they're encountered in processing the workflow.</p>
+  </article>
+  <aside>
+    <form action="/search/" method="get" role="search" class="alfred_sidebarsearch">
+      <input name="p" type="hidden" value="help">
+      <input name="q" type="text" placeholder="Search Help..." autocomplete="off" required>
+      <button type="submit">Search</button>
+    </form>
+
+    <nav>
+
+<div class="alfred_pageindex">
+<h3>Page Index</h3>
+<ul>
+<li><a href="#query">Query Placeholder</a></li>
+<li><a href="#variables">Variables Placeholders</a></li>
+<li><a href="#date-time">Date and Time Placeholders</a></li>
+<ul>
+<li><a href="#iso-date-time">ISO Date and Time Placeholders</a></li>
+<li><a href="#arithmetic">Date Arithmetic</a></li>
+<li><a href="#unicode">Advanced Unicode Date Formatting</a></li>
+</ul>
+<li><a href="#clipboard">Clipboard Contents</a></li>
+<ul>
+<li><a href="#clipboard-offset">Clipboard Offset</a></li>
+</ul>
+<li><a href="#random">Random Placeholder</a></li>
+<li><a href="#variables">Variables</a></li>
+<li><a href="#modifiers">Transform Modifiers</a></li>
+<ul>
+<li><a href="#available-transform-modifiers">Available Transform Modifiers</a></li>
+</ul>
+<li><a href="#cursor">Cursor Placeholder</a></li>
+<li><a href="#snippets">Snippets</a></li>
+<li><a href="#order">Order of Replacements</a></li>
+</ul>
+</div>
+
+      <div>
+        <h3>Help Sections</h3>
+        <ul>
+          <li><a href="/help/">Home</a></li>
+          <li><a href="/help/getting-started/">Getting Started</a></li>
+          <li><a href="/help/guides-and-tutorials/">Guides and Tutorials</a></li>
+        </ul>
+        <hr>
+        <ul>
+          <li><a href="/help/general/">General</a></li>
+          <li><a href="/help/features/">Features</a></li>
+          <li><a href="/help/workflows/">Workflows</a></li>
+          <li><a href="/help/appearance/">Appearance</a></li>
+          <li><a href="/help/advanced/">Advanced</a></li>
+          <li><a href="/help/remote/">Remote</a></li>
+        </ul>
+        <hr>
+        <ul>
+          <li><a href="/help/alfredui/">Alfred UI Toolkit</a></li>
+        </ul>
+        <hr>
+        <ul>
+          <li><a href="/help/powerpack/">Powerpack</a></li>
+          <li><a href="/help/update/">Update</a></li>
+        </ul>
+        <hr>
+        <ul>
+          <li><a href="/help/troubleshooting/">Troubleshooting</a></li>
+          <li><a href="/help/recover-license/">Recover License</a></li>
+          <li><a href="/help/report-a-bug/">Report a Bug</a></li>
+        </ul>
+        <hr>
+        <ul>
+          <li><a href="/help/contact/">Contact Us</a></li>
+        </ul>
+      </div>
+
+    </nav>
+  </aside>
+</div>
+</main>
+
+<!-- Footer -->
+<footer>
+
+  <div id="alfred_footerlatestblog">
+    <div class="alfred_footercontent">
+      Latest Blog Post: <a href="/blog/tech/what-is-alfred-ui-toolkit/">What is the Alfred UI Toolkit?</a>    </div>
+  </div>
+
+  <div id="alfred_footerlinks">
+    <div class="alfred_footercontent">
+
+      <div>
+        <h3>Alfred</h3>
+        <ul>
+          <li><a href="/#download">Download Alfred</a></li>
+          <li><a href="/powerpack/">Alfred Powerpack</a></li>
+          <li><a href="/remote/">Alfred Remote</a></li>
+          <li><a href="https://alfred.app">Alfred Gallery</a></li>
+          <li><a href="/help/why-choose-alfred/">Why Alfred?</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="/help/">Support</a></li>
+          <li><a href="/help/getting-started/">Getting Started</a></li>
+          <li><a href="/changelog/">Change Log</a></li>
+          <li><a href="/help/guides-and-tutorials/">Tutorials</a></li>
+          <li><a href="/labs/">Labs</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Community</h3>
+        <ul>
+          <li><a href="/blog/">Our Blog</a></li>
+          <li><a href="/testimonials/">Testimonials</a></li>
+          <li><a href="http://alfredforum.com/">Forum</a></li>
+          <li><a href="/help/kb/buy-goodies-and-stickers/">Buy Goodies</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Company</h3>
+        <ul>
+          <li><a href="https://twitter.com/alfredapp"><img src="/media/logos/Twitter.svg" alt="Twitter Logo">Twitter</a></li>
+          <li><a href="https://www.facebook.com/alfredapp"><img src="/media/logos/Facebook.svg" alt="Facebook Logo">Facebook</a></li>
+          <li><a href="/about/"><img src="/media/logos/Person.svg" alt="About Logo">About Us</a></li>
+          <li><a href="/help/contact/"><img src="/media/logos/Contact.svg" alt="Contact ">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div id="alfred_footerethos">
+        <h3>Handcrafted</h3>
+        <p>Alfred is meticulously handcrafted by an independent team of passionate Mac users. We care about every tiny detail, keeping Alfred reliable day after day.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="alfred_footermetadata">
+    <div class="alfred_footercontent">
+      <div>
+        <a href="http://www.cachefly.com/"><img src="/media/logos/cachefly.png" alt="CacheFly" style="width: 117px;"></a>
+        <a href="https://www.campaignmonitor.com"><img src="/media/logos/campaignmonitor.png" alt="Campaign Monitor" style="width: 151px;"></a>
+      </div>
+      <div id="alfred_footercopyright">
+        <p>
+          "Alfred" is a registered trademark of Running with Crayons Ltd.
+          &copy;2026 Running with Crayons Ltd. All rights reserved.
+        </p>
+        <p><a href="/terms/">Terms &amp; Conditions, Privacy Policy, Cookies.</a></p>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+<!-- Javascript Functions -->
+<script src="/scripts/functions.js?ver=1.4" defer></script>
+<script src="/scripts/copycodeblock.js?ver=1.0" defer></script>
+<script async src="https://www.googletagmanager.com/gtm.js?id=G-CBM4H0L9W4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
+
+</body>
+</html>
+<!-- served from static cache -->

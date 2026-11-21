@@ -1,0 +1,16 @@
+Source: Chrome get_page_text, 2026-11-21 (help.typinator.ergonis.com is Zendesk; curl returned a 17-byte shell). Condensed transcription of the two articles read.
+
+[Creating expansions with interactive input fields] https://help.typinator.ergonis.com/hc/en-us/articles/23134671458588
+- Field syntax {{?First name}}; several fields appear together in ONE dialog, in text order.
+- Same label used twice is asked once and filled everywhere.
+- Typinator remembers last values and pre-fills them next time.
+- Default in angle brackets: {{?Operating System<macOS>}}; date marker as default: {{?Month<{M}>}}.
+- Variables: {{releaseDate=?Release date}} collects a value without inserting; {{releaseDate}} inserts it.
+- Date math with Delta variables: {{dayDelta=?Days in the future}}{YYYY}-{MM}-{DD}; deltas reset after each expansion.
+- "Input field assistant" builds fields without typing syntax.
+- Other field kinds: pop-up menus (title + optional extended result text, optional "Allow free text" = combo box), checkboxes (text for yes/no; empty No skips the text), headings, descriptions and separator lines for form structure.
+
+[Built-in functions] https://help.typinator.ergonis.com/hc/en-us/articles/24704657491228
+- Syntax {/Name params}. Text: Lowercase, Uppercase, Capital, DecodeHTML, EncodeHTML, Length, Repeat n/text/, Unicode n, Left, Right, Mid, Replace, Regex, Choose (index | regex | * random), Case, Count, Index, List, Any (random match), Extract, Sort, URL (fetches a web page and inserts its content).
+- Combine with markers: {/Uppercase {clip}}, {/Case /{{dayDelta}}/0/today/1/tomorrow/in {{dayDelta}} days/}.
+- Clipboard marker is {clip}; date markers {YYYY} {MM} {DD} {M} (from search snippet of the help centre; see advanced markers article).

@@ -1,0 +1,22 @@
+
+ Internal Functions - Templater
+ Light (default)
+ Rust
+ Coal
+ Navy
+ Ayu
+ Templater
+ Internal Functions
+The different internal variables and functions offered by Templater are available under different modules, to sort them. The existing internal modules are:
+App module: tp.app
+Config module: tp.config
+Date module: tp.date
+File module: tp.file
+Frontmatter module: tp.frontmatter
+Hooks module: tp.hooks
+Obsidian module: tp.obsidian
+System module: tp.system
+Web module: tp.web
+If you understood the object hierarchy correctly, this means that a typical internal function call looks like this: <% tp.<module_name>.<internal_function_name> %>
+Contribution
+I invite everyone to contribute to this plugin development by adding new internal functions. More information here.

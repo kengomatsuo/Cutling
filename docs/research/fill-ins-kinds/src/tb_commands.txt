@@ -1,0 +1,123 @@
+Text Blaze | Using Dynamic CommandsDocs
+> Guides
+Using Dynamic Commands
+Text Blaze commands allow you to create dynamic snippets. Commands are replaced when the snippet is inserted with a dynamic value or action. For example, the {time} command lets you insert times and dates.
+Here are a some command examples:
+Example Usages of Commands
+The current date is {time: MMMM D, YYYY}
+The current time is {time: hh:mm}
+The URL of this page: {site: url}
+Your name: {formtext: default=Jane Smith}
+_
+Commands are made up of two parts: the command name and the command settings which configure how the command behaves. A command and its settings are enclosed by a { and }.
+For example {cursor} will move the mouse cursor after the snippet has been entered to the position where you entered the command.
+Command Settings
+Some commands also require settings to work correctly. There are two types of settings: positional settings and named settings.
+For example, {link: https://example.com/product/}Product{endlink} inserts a link into the current snippet. The command is {link} and "https://example.com/product/" is a required positional setting telling Text Blaze which link to display. The text between the start command and the end command is how the link will display.
+All settings are separated by semicolons (;). Positional settings come immediately after the colon following the name of the command as the first setting. They only require a value.
+There can also be multiple named settings on a command. Named settings require you to insert the name of the setting followed by "=" and then the value.
+One example is {time: YYYY; at=2000-01-01; shift=+3Y} which displays the time. Here the command name is {time} and there are three settings. One is a positional setting and there are two named settings.
+The first positional setting, "YYYY", tells Text Blaze how to format the date ("YYYY" means show the current date's four digit year). The second named setting, at, is an optional named setting that allows you to explicitly set the date for the {time} command. If it's excluded it will use the current time. Finally, the last named setting, shift, tells Text Blaze to move the date forwards or backwards by some specified amount.
+Commands can mix positional settings and named settings. There can also be multiple settings per command. Also, some settings are optional. See the documentation for each command to see which settings are optional and which are required.
+Nesting Commands
+An important feature of commands is that you can nest them within each other. For instance, you can use a {time} command as the default value for a {formtext} command or {site} command as part of the condition for an {if} command.
+Examples of Nesting Commands
+Text field whose default value is the current date:
+{formtext: default={time: MMMM D, YYYY}}
+Command that depends on the current website:
+{if: {site:domain} = "blaze.today"}
+You're on Blaze.today
+{else}
+You're not on Blaze.today
+{endif}
+_
+It's also possible for you to use the formula command in your commands for dynamic math or to utilize variables previously saved throughout the snippet.
+For example, if you have a saved city or address in one your snippets you can utilize that to dynamically generate a Google Maps link.
+Using Formula Command In Command Settings
+{city="London"}
+{link: https://www.google.com/maps?q={=city}}Our City{endlink}
+_
+Nesting allows you to create powerful behavior be composing commands together.
+Escaping Special Characters in Commands
+Some characters have special meanings in commands. Primarily "{", "}", "=", and ";". If you want to use these special characters normally, you can do so by "escaping" them: by placing a backslash "" before them. For example this text input will have the default value "{site:url}":
+{formtext: default=\{site:url\}}
+If you didn't escape the { and }, you would get a different result as shown in the following example:
+Escaping Characters in Commands
+A text input including a command that's been escaped:
+{formtext: default=\{site:url\}}
+If you don't escape the characters, the command will be run:
+{formtext: default={site:url}}
+_
+Non-escaped whitespace around a setting will be trimmed. If you want a setting value to start or end with whitespace, you need to escape the whitespace by placing a backslash in front of it.
+Available Commands
+The following is a list of all commands in Text Blaze. Each command includes a description and examples of how to use it:
+{=} (Formula Command)
+Dynamic updating formula that can use and create variables
+Read More »
+{button}
+Runs a code block when clicked.
+Read More »
+{click}
+Simulates a click on any element on any open webpage.
+Read More »
+{clipboard}
+Inserts the current clipboard contents.
+Read More »
+{cursor}
+Moves the mouse cursor after the snippet has been entered.
+Read More »
+{error}
+Show an error message in a snippet. Use it to validate user input and block snippet insertion.
+Read More »
+{formdate}
+Creates a date/time input field.
+Read More »
+{formmenu}
+Creates a menu input to select one or more items.
+Read More »
+{formparagraph}
+Creates a multi-line text input field.
+Read More »
+{formtext}
+Creates a single line text input field.
+Read More »
+{formtoggle}
+Creates a toggle switch that can enable or disable a block of text.
+Read More »
+{if}
+Conditionally includes content in the snippet.
+Read More »
+{import}
+Imports another snippet into the current snippet.
+Read More »
+{key}
+Simulates a key press in the current webpage.
+Read More »
+{link}
+Include a dynamic link in the snippet.
+Read More »
+{note}
+A block of content that is not inserted into a snippet.
+Read More »
+{repeat}
+Repeat a portion of a snippet multiple times.
+Read More »
+{run}
+Runs a code block once.
+Read More »
+{site}
+Inserts information from any open webpage into your snippet.
+Read More »
+{snippet}
+Inserts information about the current snippet in the snippet itself
+Read More »
+{time}
+Powerful and configurable time and date formatting.
+Read More »
+{user}
+Inserts information about the current user
+Read More »
+{wait}
+Pauses snippet insertion for a set period of time.
+Read More »
+What's on this Page

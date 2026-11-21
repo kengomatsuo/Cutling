@@ -1,0 +1,67 @@
+
+Overview | Snippety – Snippets Manager & Text Expander
+Skip to main content
+On this page
+Snippety allows creating reusable templates
+with dynamic parts - placeholders, which are
+replaced with the actual content when you
+expand the snippet.
+This functionality allows you to parametrize your snippets and boost your productivity by
+quickly generating the same or similar content with minimal effort.
+Placeholder Types​
+There are five types of placeholders:
+Smart Placeholders: They are automatically resolved when the snippet is
+used. These are: AI Assistant, Auto-Incrementing Number, Calculated Date/Time,
+Hyperlink, Random Value, and Command-Line Script.
+Dynamic Placeholders: They require input to generate the final content.
+These are: Multiselect, Selectable Date, Selectable Value, and Text Variable.
+Optionally, you can configure AI Assistant and Command-Line Script to require
+input. They are useful if parts of the snippet are different each time you use
+it.
+Content Placeholders: There are also placeholders that use clipboard
+content, selected text, or even a file content. They are useful to provide the
+content that is already available and does not require manual input.
+Reference Placeholders: These placeholders can reuse the content of
+another snippet or another variable. They are useful to avoid duplicates.
+There are two types available: Variable Reference and Snippet Reference.
+Conditional Blocks: These placeholders dynamically show or hide parts of
+your snippet based on the provided conditions. See
+Conditional Block.
+Special Placeholders: These placeholders do not insert any content, but
+they perform some actions instead. These are: Cursor, Keys Simulations, and
+Note.
+When your snippet requires input, you will see a nice Live Template to fill
+in required values.
+Placeholder Syntax​
+Each placeholder has a unique syntax, but they all start with {@ and end with
+@}. Inside the curly braces, you can find the placeholder type and its
+parameters separated by |.
+{@calculated-date|-1m2d|dd.MM.yyyy|English@}
+Here you can see a Calculated Date placeholder that subtracts one month and adds
+two days to the current date. The date is formatted as dd.MM.yyyy and the text
+is in English.
+Using Placeholders​
+To learn how to use placeholders in a template, see Adding
+Placeholders.
+Text Transformations​
+Some placeholders like Selected Text support text transformations.
+Here are the available transformations:
+None: hello world -> hello world
+Start Upper Case: hello world -> Hello world
+Start Lower Case: HELLO WORLD -> hELLO WORLD
+Upper Case: hello world -> HELLO WORLD
+Lower Case: HELLO WORLD -> hello world
+Title Case: hello world -> Hello World
+Title Case (smart): the lord of the rings: the return of the king -> The Lord of the Rings: The Return of the King
+Sentence Case: hello world! how are you? -> Hello world! How are you?
+Camel Case: hello world -> helloWorld
+Pascal Case: hello world -> HelloWorld
+Snake Case: hello world -> hello_world
+Join Lines: hello\nworld -> hello world
+Split Lines by Space: hello world -> hello\nworld
+Sort Lines: world\nhello -> hello\nworld
+Remove Empty Lines: hello\n\nworld -> hello\nworld
+Placeholder Types
+Placeholder Syntax
+Using Placeholders
+Text Transformations

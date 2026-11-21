@@ -1,0 +1,282 @@
+Text Blaze | {time}Docs
+> Commands
+Summary:
+Powerful and configurable time and date formatting.
+Sample Usage
+It is currently: {time: dddd, MMMM Do, YYYY}
+More briefly: {time: ddd, MMM Do, YYYY}
+Or even: {time: M/D/YY}
+The current time is: {time: HH:mm:ss A}
+More briefly: {time: h:mm}
+The time and date are: {time: ddd, MMM Do, YYYY [at] h:mm A}
+Since it is {time: ddd, MMM Do, YYYY}, in 12 days it will be {time: ddd, MMM Do, YYYY; shift=+12D}.
+_
+Quick Overview Video
+Settings
+Setting Name
+Type
+Description
+Positional
+text
+The date/time format.
+at
+text
+Set's the date/time.
+pattern
+text
+Format used to interpret at.
+shift
+text
+An optional date/time shift.
+locale
+text
+An optional locale code (e.g. en-us or just en) used to format the time and date.
+General Command Settings
+trim
+yes/no/left/right
+If yes whitespace is removed before and after the command. If left, only whitespace to the left is removed. If right, only whitespace to the right is removed.
+Time/Date Formatting
+Text Blaze's time/date formatting syntax allows you to customize the output of your times and dates in various ways. It allows you to mix formatting with tokens that have special meanings.
+For example, one way the current date could be entered is MMM Do, YYYY (resulting in the output of Nov 13th, 2017), and the current time could be specified with h:mm (resulting in the output of 11:24).
+Text Blaze's time/date formatting syntax is based on Moment, a JavaScript library for parsing and formatting dates.
+The following table (adapted from the Moment.js documentation website) contains the full list of support tokens:
+Token
+Output
+Month
+M
+1 2 ... 11 12
+Mo
+1st 2nd ... 11th 12th
+MM
+01 02 ... 11 12
+MMM
+Jan Feb ... Nov Dec
+MMMM
+January February ... November December
+Quarter
+Q
+1 2 3 4
+Qo
+1st 2nd 3rd 4th
+Day of Month
+D
+1 2 ... 30 31
+Do
+1st 2nd ... 30th 31st
+DD
+01 02 ... 30 31
+Day of Year
+DDD
+1 2 ... 364 365
+DDDo
+1st 2nd ... 364th 365th
+DDDD
+001 002 ... 364 365
+Day of Week
+d
+0 1 ... 5 6
+do
+0th 1st ... 5th 6th
+dd
+Su Mo ... Fr Sa
+ddd
+Sun Mon ... Fri Sat
+dddd
+Sunday Monday ... Friday Saturday
+Day of Week (Locale)
+e
+0 1 ... 5 6
+Day of Week (ISO)
+E
+1 2 ... 6 7
+Week of Year
+w
+1 2 ... 52 53
+wo
+1st 2nd ... 52nd 53rd
+ww
+01 02 ... 52 53
+Week of Year (ISO)
+W
+1 2 ... 52 53
+Wo
+1st 2nd ... 52nd 53rd
+WW
+01 02 ... 52 53
+Year
+YY
+70 71 ... 29 30
+YYYY
+1970 1971 ... 2029 2030
+AM/PM
+A
+AM PM
+a
+am pm
+Hour
+H
+0 1 ... 22 23
+HH
+00 01 ... 22 23
+h
+1 2 ... 11 12
+hh
+01 02 ... 11 12
+k
+1 2 ... 23 24
+kk
+01 02 ... 23 24
+Minute
+m
+0 1 ... 58 59
+mm
+00 01 ... 58 59
+Second
+s
+0 1 ... 58 59
+ss
+00 01 ... 58 59
+Locale Formatted
+LT
+Ex: 7:10 AM
+LTS
+Ex: 7:10:46 AM
+l
+Ex: 9/22/1985
+L
+Ex: 09/22/1985
+ll
+Ex: Sept 22, 1985
+LL
+Ex: September 22, 1985
+lll
+Ex: Sept 22, 1985 7:10 AM
+LLL
+Ex: September 22, 1985 7:10 AM
+llll
+Ex: Mon, Sept 22, 1985 7:10 AM
+LLLL
+Ex: Monday, September 22, 1985 7:10 AM
+Unix Timestamp
+X
+1360013296
+Unix Millisecond Timestamp
+x
+1360013296123
+The Text Blaze time/date formatting syntax above is also used in the {formdate} command.
+Setting the Time/Date
+The optional at setting allows you to specify the time/date used by the time command. If the at setting is not explicitly set, the current time/date will be used.
+Using "at"
+The date at 2000-01-01 was: {time: dddd MMM D, YYYY; at=2000-01-01}.
+Three year later it was: {time: dddd MMM D, YYYY; at=2000-01-01; shift=+3Y}.
+_
+The at setting will interpret many common date formats. If the at format does not recognize your date format, or your date format is ambiguous, or you want to specify a time; you can use the pattern setting to tell Text Blaze how to understand your date.
+The pattern setting uses the Text Blaze time/date formatting syntax to tell Text Blaze how your time/date is structured.
+For example, if your date was 2000-01-01 where you have Year-Month-Day, you would use a pattern of YYYY-MM-DD. If your date was instead Year-Day-Month, you could use the pattern YYYY-DD-MM.
+Using a Pattern
+An example using a custom formatted data "2000.01.01": {time: ll; at=2000.01.01; pattern=YYYY.MM.DD}.
+Another example with a different custom formatted date "7 Jan (2012)": {time: ll; at=7 Jan (2012); pattern=D MMM (YYYY)}.
+_
+Time/Date Shifting
+The optional shift setting lets you display a time/date in either the future or past. A time shift is specified to select a time period relative to the current time.
+For example, to show the date 10 days from now, you could use {time: MMM Do, YYYY; shift=+10D}.
+If the at setting is specified, any time shifts will be relative to that date.
+Shifts are specified in terms of a base period like days or weeks. You can have a fixed shift like +2W (two weeks from the current time) or -5D (five days ago). You can also shift to the beginning or end of any standard date period. For example, <M will shift to the start of the current month, while >Y will shift to the end of the current year.
+The following table summarizes the shifts relative to the standard periods.
+Period
+Base Period
+Example Fixed Shift
+Start and End Period Shift
+Seconds
+s
+5s
+<s and >s
+Minutes
+m
+-4m
+<m and >m
+Hours
+h
+24h
+<h and >h
+Days
+D
+2D
+<D and >D
+Weeks
+W
+5W
+<W and >W
+Months
+M
+-10M
+<M and >M
+Quarters
+Q
+1Q
+<Q and >Q
+Years
+Y
+3Y
+<Y and >Y
+You can also shift forward or backward to a specific day of the week. For example, >MON will shift forward to the nearest Monday. If the current date is a Monday, no shift will take place. <MON will shift backwards to the nearest Monday. Again, if the current date is a Monday, no shift will take place.
+Day
+Label
+Current or Previous Shift
+Current or Following Shift
+Sunday
+SUN
+<SUN
+>SUN
+Monday
+MON
+<MON
+>MON
+Tuesday
+TUE
+<TUE
+>TUE
+Wednesday
+WED
+<WED
+>WED
+Thursday
+THU
+<THU
+>THU
+Friday
+FRI
+<FRI
+>FRI
+Saturday
+SAT
+<SAT
+>SAT
+You can combine multiple shifts together. For example, +10Y -2D would shift the date by a total of 10 years minus 2 days. +10D >MON would shift the date 10 days and then to the following Monday.
+This is particularly useful if you want to implement something like "find the next Monday". If you just used >MON and the current day is a Monday, it will not shift at all. You instead could use +1D >MON to increment the day by one, and then move forward to the nearest Monday.
+The following examples show how you might use date shifting to specify specific dates.
+Date/Time Shifting
+Current date: {time: MMMM D, YYYY}
+In ten days it will be: {time: MMMM D, YYYY; shift=+10D}
+Ten days ago it was: {time: MMMM D, YYYY; shift=-10D}
+The first day of the month was: {time: MMMM D, YYYY; shift=<M}
+The last day of the month will be: {time: MMMM D, YYYY; shift=>M}
+The last Friday of the quarter is: {time: MMMM D, YYYY; shift=>Q <FRI}
+The first Monday of next year will be: {time: MMMM D, YYYY; shift=+1Y <Y >MON}
+_
+When shifting by days, you can skip certain days of the week. For example, if you wanted to shift 10 weekdays into the future you could use the following:
+Skipping specific days of the week
+In ten weekdays it will be: {time: MMMM D, YYYY; shift=+10D(skip=SAT, SUN)}
+_
+Locales and Localization
+It's possible to override the locale for individual {time} commands using the locale setting.
+If not specified, {time} command will attempt to use the locale specified in your Text Blaze account settings when formatting the time/date.
+A list of available language locales are available in your Account Settings page under the Locale & Formatting header.
+Locales
+In America, the current date and time might be written:
+{time: LLLL; locale=en-us}
+In France, we might use:
+{time: LLLL; locale=fr}
+And in China, we might see:
+{time: LLLL; locale=zh}
+_

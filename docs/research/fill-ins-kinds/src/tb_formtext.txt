@@ -1,0 +1,45 @@
+Text Blaze | {formtext}Docs
+> Commands
+Summary:
+Creates a single line text input field.
+Sample Usage
+First Name: {formtext: name=firstname; default=John} (required)
+Last Name: {formtext: name=lastname; default=Smith} (required)
+...
+_
+Quick Overview Video
+Settings
+Setting Name
+Type
+Description
+cols
+number
+The width of the form field in columns of characters.
+General Form Settings
+name
+text
+Name used for labels and data bindings.
+default
+–
+The default value for the form field.
+formatter
+function
+Formats the value of the field before snippet insertion.
+validate
+list
+Validates the contents of the form field.
+General Command Settings
+trim
+yes/no/left/right
+If yes whitespace is removed before and after the command. If left, only whitespace to the left is removed. If right, only whitespace to the right is removed.
+The {formtext} command is like your traditional input field that you would use in forms across the web. This lets you customize your snippets before inserting them.
+To learn more about form commands and their capabilities, see the forms guide.
+The default setting
+The {formtext} command has access to an optional default setting. One example is utilizing there as the value so that a generic message like Hey there, appears if you do not customize the form.
+formtext example with default setting
+Hey {formtext: default=there},
+Thank you very much for reaching out!
+Regards,
+_
+Validation
+You can use the validate setting to check that the field contains a number, an email, or some other specific data type. Watch this video to learn more.

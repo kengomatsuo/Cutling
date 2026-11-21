@@ -1,0 +1,79 @@
+Text Blaze | {repeat}Docs
+> Commands
+Summary:
+Repeat a portion of a snippet multiple times.
+Sample Usage
+{repeat: 3} hello {endrepeat}
+{repeat: 2 + 2}{key: tab}{endrepeat}
+_
+Settings
+Setting Name
+Type
+Description
+Positional
+formula
+The number of times to repeat or a list comprehension.
+locals
+text
+Optional identifier providing a list of form data in the command.
+General Command Settings
+trim
+yes/no/left/right
+If yes whitespace is removed before and after the command. If left, only whitespace to the left is removed. If right, only whitespace to the right is removed.
+The {repeat} command replicates a portion of a snippet multiple times. It repeats everything that is between the {repeat} and {endrepeat} commands.
+This command takes a formula as the first positional setting that must evaluate to one of two things:
+A Number
+A List Comprehension
+Also, see the {if} command for an additional command that helps you build dynamic snippets.
+Repeating with List Comprehensions
+List Comprehensions are a special formula syntax in Text Blaze that allow you to transform lists.
+As the first positional setting in the {repeat} command instead of placing a number you place a list comprehension.
+Repeating with List Comprehensions Example
+{repeat: for x in [1, 2, 3, 4, 10]}
+{=x} squared is {=x^2}{endrepeat}
+Cities: {formtext: name=cities; default=Miami,London,New York}
+{repeat: for city in split(cities, ",")}
+{=city} spelled backwards is {=reverse(city)}
+{endrepeat: trim=left}
+{repeat: for (color, i) in ["red", "green", "blue"] if color <> "green"}
+Color {=i} is {=color}.
+{endrepeat}
+_
+Notice how in the second example above, the output of the {formtext} is converted into a list by using the split() predefined function.
+In the final example you'll notice an if statement next to the list comprehension. This is the syntax you can use to filter your lists. Visit the Blaze Formula Reference to learn more.
+Variable Scoping in the {repeat} command
+This section assumes that you're already familiar with how variables work in Text Blaze.
+Visit the Blaze Formula Reference to familiarize yourself with variables before proceeding.
+When using the list comprehensions with the {repeat} command, a separate variable scope gets created.
+This means that the value of variables within a {repeat} may differ from variable values outside the repeat.
+This is called variable scoping and the following rules summarize how this works:
+The value of variables in the repeat iterator (e.g. x in the iterator for x in [1, 2, 3]) are only available inside of the command, between the {repeat} and {endrepeat} commands. If the variables are defined outside the block (e.g. you have a {formtext: name=x} command outside the block), then the values will not be changed outside the block but will be overridden within the block.
+If a variable is defined outside the repeat block, it can be used in formulas inside the block. Form fields that have the same name inside the block will all use and change the same global value.
+If a variable is not defined outside the repeat block, any form fields inside the block will each refer to a unique instance of that variable for each iteration of the {repeat} command.
+The following example illustrates this scoping behavior:
+Variable Scoping Behavior
+The most popular color is {formtext: name=popular; default=blue}
+{repeat: for name in ["Jack", "Bob"]}
+{=name} likes the color {formtext: name=color}. The color {formtext: name=color} is {= "not" if popular <> color else ""} the same as the most popular color: {formtext: name=popular}.
+{endrepeat}
+_
+Notice how all instances of the {formtext: name=color} are not all linked because they are scoped to each instance of the {repeat} command.
+Accessing scoped variables outside of the {repeat} command
+If you need access to the variables scoped to inside of the {repeat} command, you can use the optional locals named setting.
+If used, the locals setting will create a list for you, with the identifier provided, where each item in the list is a keyed list for each repetition the command does.
+Each key in the keyed list will be the name of the variable and the value for that key will the value of the variable.
+For example, if we had a time sheet for our employees and we wanted to sum up their hours worked. We could implement it something like this:
+Using the "locals" Setting
+Number of employees: {formmenu: 1; 2; 3; 4; 5; 6; 7; 8; 9; 10; name=count}
+{repeat: count; locals=employees}
+Employee Name: {formtext: name=name} -- Hours worked: {formtext: name=hours; default=5}
+{endrepeat}
+Total hours worked: {=sum(map(employees, employee -> employee.hours))}
+Employees List: {=employees}
+_
+Notice how after the Employees List, the value is a list that contains keyed lists.
+Visit the Blaze Formula Reference to learn more about lists.
+A note on whitespace
+The {repeat} command does not output anything, but it still takes up whitespace in your snippet.
+The optional trim setting is useful for removing whitespace around the {repeat} and {endrepeat} commands.
+See the whitespace guide for more information on why this happens in Text Blaze.

@@ -1,0 +1,40 @@
+
+ core > site config > consent lookup); start the
+ connections and the two stable files now so the banner isn't the last thing to paint -->
+Advanced Snippet Elements
+ Schedule a meeting
+ In this section
+ Advanced Snippet Elements
+What is a Macro?
+One of the advanced ways to enhance your Snippets with form elements, current dates, dynamic content, and more is with a macro. 
+In the context of TextExpander, a macro is a variable, or placeholder, for some other piece of information you want to insert in your snippet, such as today’s date or something you copied to your clipboard. When a snippet that contains a macro is expanded, that macro is replaced by the information you specified.
+TextExpander provides several different macro options to choose from. These macros are accessible in the TextExpander window through the row of buttons in the editing bar at the top of the snippet editor.
+Adding Macros to Snippets
+TextExpander includes some advanced code features called macros which you can insert into your snippets. Insert macros using the various buttons at the top of the snippet editor in the editing bar.
+These include:
+Date
+Inserts the day, month and year of the current date in a variety of formats. (See Date, Time, and Math Macros).
+Time
+Inserts the current time in hours, minutes, seconds and AM/PM. (See Date, Time, and Math Macros).
+Date/Time Math
+Inserts a date or time that takes the current date/time and adds to or subtracts from it; e.g. five days from today. (See Date, Time, and Math Macros).
+Keyboard Macros
+Inserts a replication of a physical key press for Enter, Esc, Return or Tab; useful for web forms. (See Advanced Snippet Elements: More Functions)
+Clipboard
+Inserts whatever you just copied on the Clipboard (Cmd+C on Mac, Ctrl+C on Windows) into your snippet when expanded. (See Advanced Snippet Elements: More Functions)
+Insert Snippet
+Nest, or reference, another snippet within your snippet. For example, you might want to use your telephone number snippet in your email signature snippet. If your telephone number changes, you need only update one snippet. (See Advanced Snippet Elements: More Functions)
+Cursor Macros
+Use Position Cursor Here to specify where you want the cursor to appear within your snippet text after the snippet is expanded. For example, if your snippet is a full letter or email, you might want the cursor to appear at the top so you can personalize the salutation without having to click around with your mouse. This lends itself to quick customizations of “Dear Jane,” instead of boilerplate “Dear Sir/Ma’am”.
+In cases where your editor might automatically add indenting to your snippet, or for other reasons, you can specify up, down, left and right arrow movements.
+Keep or abandon delimiter allows you to override the delimiter behavior specified in Preferences: Expand Abbreviations on a per snippet basis. 
+Fill-in
+Place fill-in-the-blank fields in your snippets which can be filled in while expanding the snippet; useful for form letters. For example, “Dear ____, Thank you for the ____.” Other field options include popup menus and optional text sections. (See Creating and Using Fill-in Fields).
+Hyperlinks
+Create URL links out of words or images in your snippet. The snippet Content must be set to Rich Text. (See Adding Hyperlinks to Snippets).
+Picture
+Browse for an image to insert. The content menu of the snippet must be set to “Rich Text.” Images can also be made into hyperlinks. (See Adding Images to Snippets).
+For more information on Date, Time, and Date/Time Math, see Date, Time, and Math Macros. For more information on Snippet, Key, Clipboard, and Cursor, (See Advanced Snippet Functions: Macros). For more information on Fill-ins, see Creating and Using Fill-in Fields.
+ Get started with TextExpander
+ Free forever. No credit card required.
+ Sign up for free Get a demo

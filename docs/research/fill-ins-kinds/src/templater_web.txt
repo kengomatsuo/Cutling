@@ -1,0 +1,64 @@
+
+ tp.web - Templater
+ Light (default)
+ Rust
+ Coal
+ Navy
+ Ayu
+ Templater
+ Web Module
+This modules contains every internal function related to the web (making web requests).
+Documentation
+tp.web.daily_quote(language?: string)
+tp.web.random_picture(size?: string, query?: string, include_size?: boolean)
+tp.web.request(url: string, path?: string)
+Examples
+Documentation
+Function documentation is using a specific syntax. More information here.
+tp.web.daily_quote(language?: string)
+Retrieves and parses a daily quote as a callout. Without arguments it uses the language configured in Obsidian (via getLanguage()), falling back to English. English quotes come from https://github.com/Zachatoo/quotes-database and Spanish quotes from https://github.com/wulflo/frases-inventario.
+Arguments
+language: Optional language code (e.g. "en", "es") selecting the quotes database. Defaults to Obsidian's display language, falling back to English when no database is registered for that language.
+Examples
+// Daily quote
+<% await tp.web.daily_quote() %>
+// Daily quote in Spanish
+<% await tp.web.daily_quote("es") %>
+tp.web.random_picture(size?: string, query?: string, include_size?: boolean)
+Gets a random image from https://unsplash.com/.
+Arguments
+size: Image size in the format <width>x<height>.
+query: Limits selection to photos matching a search term. Multiple search terms can be passed separated by a comma.
+include_size: Optional argument to include the specified size in the image link markdown. Defaults to false.
+Examples
+// Random picture
+<% await tp.web.random_picture() %>
+// Random picture with size
+<% await tp.web.random_picture("200x200") %>
+// Random picture with size and query
+<% await tp.web.random_picture("200x200", "landscape,water") %>
+tp.web.request(url: string, path?: string)
+Makes a HTTP request to the specified URL. Optionally, you can specify a path to extract specific data from the response.
+Arguments
+url: The URL to which the HTTP request will be made.
+path: A path within the response JSON to extract specific data.
+Examples
+// Simple request
+<% await tp.web.request("https://jsonplaceholder.typicode.com/todos/1") %>
+// Request with path
+<% await tp.web.request("https://jsonplaceholder.typicode.com/todos", "0.title") %>
+Examples
+// Daily quote
+<% await tp.web.daily_quote() %>
+// Daily quote in Spanish
+<% await tp.web.daily_quote("es") %>
+// Random picture
+<% await tp.web.random_picture() %>
+// Random picture with size
+<% await tp.web.random_picture("200x200") %>
+// Random picture with size and query
+<% await tp.web.random_picture("200x200", "landscape,water") %>
+// Simple request
+<% await tp.web.request("https://jsonplaceholder.typicode.com/todos/1") %>
+// Request with path
+<% await tp.web.request("https://jsonplaceholder.typicode.com/todos", "0.title") %>

@@ -1,0 +1,175 @@
+
+ Adjust variables in Shortcuts on iPhone or iPad - Apple Support
+ Select version:
+ iOS 27 
+ iOS 26
+ iOS 18
+ iOS 17
+ iOS 16
+ iOS 15
+ iOS 14
+ 3.5
+ 3.2
+ 3.1
+ 3.0
+ 2.2 
+ 2.1 
+ Shortcuts 2.0
+ Modifying this control will update this page automatically
+ Search this guide
+ Clear Search
+ Table of Contents
+ Shortcuts User Guide
+ Welcome
+ Shortcuts basics
+ Intro to Shortcuts
+ Discover shortcuts in the Gallery
+ Run shortcuts
+ Run a shortcut from the app
+ Run shortcuts with Siri
+ Run shortcuts from Control Center
+ Run shortcuts with the Action button
+ Run shortcuts with Apple Pencil Pro
+ Run app shortcuts
+ Run shortcuts from the Home Screen widget
+ Run shortcuts from the Search screen
+ Add a shortcut to the Home Screen
+ Run a shortcut from another app
+ Run shortcuts from Apple Watch
+ Run shortcuts by tapping the back of your iPhone
+ Adjust privacy settings
+ How shortcuts work
+ Intro to how shortcuts work
+ The flow of content
+ Action connections
+ Control the flow of actions
+ Shortcut completion
+ The Content Graph engine
+ Use Apple Intelligence in Shortcuts
+ Create custom shortcuts
+ Create a custom shortcut
+ Ideas for custom shortcuts
+ Work with actions in Shortcuts
+ Navigate the action list
+ Order of actions
+ Get actions
+ Transform actions
+ Share actions
+ Test your actions
+ About actions in complicated shortcuts
+ Edit shortcuts
+ Intro to editing shortcuts
+ Organize shortcuts in folders
+ Change the layout
+ Reorder shortcuts
+ Rename shortcuts
+ Modify shortcut icons
+ Duplicate shortcuts
+ Delete shortcuts
+ Sync shortcuts
+ Share shortcuts
+ Add import questions to shared shortcuts
+ Add a shortcut to Reminders using Siri
+ Automations
+ Intro to automation shortcuts
+ Add automations
+ Advanced shortcuts
+ Use variables
+ Intro to variables
+ Variable types
+ Use variables
+ Adjust variables
+ Use list actions
+ Use the Choose from Menu action
+ Use If actions
+ Use Repeat actions
+ Use Find and Filter actions
+ Intro to Find and Filter actions
+ Add filter parameters
+ Show prompts in a shortcut 
+ Intro to using prompts
+ Use the Ask for Input action
+ Use the Ask Each Time variable
+ Use the Show Alert action 
+ Use the Show Notification action
+ Input types
+ Limit the input for a shortcut
+ Receive onscreen items
+ Advanced Shortcuts settings
+ Run JavaScript on a webpage
+ Intro to the Run JavaScript on Webpage action
+ Use the Run JavaScript on Webpage action
+ Use URL schemes
+ Intro to URL schemes 
+ Open, create, and run a shortcut
+ Run a shortcut from a URL
+ Open or search the Gallery from a URL
+ Use x-callback-url
+ Use another app’s URL scheme
+ Use Web APIs in Shortcuts
+ Intro to web APIs
+ Get started with web APIs
+ What’s an API?
+ Request your first API
+ Work with JSON
+ Intro to using JSON
+ Parsing JSON
+ Handling lists
+ Get Dictionary Value action
+ Create contacts
+ Further exploration with APIs
+ API limitations
+ Format Date timestamps
+ Dictionaries
+ Date and time formatting
+ About date and time formatting 
+ Date and time formats
+ Dates as written language
+ Technical standards
+ Custom date formats
+ Copyright and trademarks
+ Adjust variables in Shortcuts on iPhone or iPad
+The variable editor appears at the bottom of the shortcut editor, allowing you to access controls to set the content type, choose which details of the content to extract, rename the variable, or reveal the action that generated the variable.
+Change a variable’s content type
+Shortcuts automatically detects the type of content stored in a variable and uses that content as the variable’s default content type. You can force the variable to change content types.
+In the Shortcuts app on your iPhone or iPad, tap on the shortcut you want to modify.
+In the shortcut editor, tap a variable token.
+The variable editor appears. The Type row indicates the content type used by the variable. For example, the Contents of Webpage variable displays URL as its variable type.
+Tap the Type row and then select a new content type for the variable in the list that appears.
+Note: If you choose a custom content type, Shortcuts uses its Content Graph technology to convert the content of the variable to the selected variable type. For example, if you have a variable that stores a URL, you can change its content type from URL to Article. Shortcuts will automatically fetch details about the article at that URL.
+Choose a variable’s content details
+In the Shortcuts app on your iPhone or iPad, tap on the shortcut you want to modify.
+In the shortcut editor, tap a variable token.
+The variable editor appears. The properties offered by the specific content type are listed below the variable’s title and content type. This list represents all of the available metadata associated with your content, allowing you to choose which property to use as the output of the variable.
+For example, an Image variable offers properties such as Width, Height, Date Taken, Location, and Camera Make. Each content type offers its own set of properties.
+Each content type has a default property that’s automatically extracted if nothing else is chosen.
+Tap a property in the list.
+The variable token is updated to indicate your preference.
+Tip: You can manually grab properties from any action’s output by using the Get Details actions, such as Get Details of Safari Webpage or Get Details of Images. Browsing these actions is also a helpful way to explore which details you can extract for each content type.
+Rename a variable
+In the Shortcuts app on your iPhone or iPad, tap on the shortcut you want to modify.
+In the shortcut editor, tap a variable token.
+The variable editor appears.
+Tap the Variable Name row, then enter the new name for the variable.
+Tap .
+All instances of the variable are renamed.
+Reveal the action that generated a variable
+In longer shortcuts that contain multiple variables, you can use the Reveal Action button to show the original action that produced a variable.
+In the Shortcuts app on your iPhone or iPad, tap on the shortcut you want to modify.
+In the shortcut editor, tap a variable token.
+The variable editor appears.
+Tap Reveal Action.
+The shortcut editor scrolls up and highlights the source action of the variable.
+Tap to return to the shortcut editor or tap Go Back to return to the variable editor.
+When you’ve grasped how to add, place, and adjust variables, you’ll begin to see how variables make your shortcuts much more dynamic. You can reuse content multiple times, easily extract particular details from the content, and place that content anywhere in your shortcut.
+Variables let you make shortcuts that are capable of adapting to a variety of situations, adjusting content on the fly while still yielding the results you want.
+Tip: If you’re just getting started with variables, it may be helpful to experiment with an existing shortcut that includes variables. Add a shortcut from the Gallery, then reorder the actions or add new variables to see how the shortcut is affected.
+ Helpful?
+ Yes
+ No
+ Character limit:
+ 250
+ Please don’t include any personal information in your comment.
+ Maximum character limit is 250.
+ Submit
+ Thanks for your feedback.

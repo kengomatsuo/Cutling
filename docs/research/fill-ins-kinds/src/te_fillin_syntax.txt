@@ -1,0 +1,43 @@
+
+ core > site config > consent lookup); start the
+ connections and the two stable files now so the banner isn't the last thing to paint -->
+Advanced Fill-in Syntax
+ Schedule a meeting
+ In this section
+ Advanced Fill-in Syntax
+Single-line fields
+Syntax:
+%filltext[:name=<field name>][:default=<default value>][:width=<width>]%
+Field name, default value, and width are all optional. Default width is 20.
+Example:
+%filltext:name=quantity:default=1:width=4%
+Multi-line fields
+Syntax:
+%fillarea[:name=<area name>][:default=<default value>][:width=<width>][:height=<height>]%
+Area name, default value, width, and height are all optional. Default width is 30. Default height is 5.
+Example:
+%fillarea:name=custom:default=Thanks for ordering from Acme Widgets. We are a family owned business, established in 1891. We really appreciate your business.:width=40:height=4%
+Popup menus
+Syntax:
+%fillpopup[:name=<popup name>]:[default=]<value>:[default=]<value>…%
+Name is optional. At least one <value> should be specified. Multiple <value>s are encouraged. If no default is specified, the first <value> will be the default.
+Example:
+%fillpopup:name=ship timeframe:today:default=tomorrow:next week%
+Optional sections
+Syntax:
+%fillpart[:name=<section name>]:[default=yes’no]%<content of optional section>%fillpartend%
+Example:
+%fillpart:name=Payment Due:default=yes%You did not include payment information with your order. Please call our office at 555-1212 to provide payment details.%fillpartend%
+Name is optional. Default is optional: yes or no; if not specified, no is used. Content can contain other fill-ins.
+Show at top
+Syntax:
+%filltop%
+Place this macro anywhere in the snippet content, including nested snippets, for it to have the effect of displaying fields at the top of the fill-in window upon snippet expansion.
+Notes
+These are only usable in JavaScript, AppleScript, and shell script Snippets.
+When edited in this way, fill-in field names and default values cannot contain % (percent sign) or : (colon). (They can contain these characters when the snippet type is Plain or Formatted text.)
+If two fill-in fields in a snippet have the same name, their value will be synchronized when you expand the snippet.
+(For more macros, see Date, Time, and Math Macros and Advanced Snippet Functions: Macros).
+ Get started with TextExpander
+ Free forever. No credit card required.
+ Sign up for free Get a demo

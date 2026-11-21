@@ -1,0 +1,60 @@
+
+ core > site config > consent lookup); start the
+ connections and the two stable files now so the banner isn't the last thing to paint -->
+Advanced Snippet Elements: More Functions
+ Schedule a meeting
+ In this section
+ Advanced Snippet Elements: More Functions
+TextExpander offers several types of advanced elements you can include to make your Snippet more dynamic. For an overview see Advanced Snippet Elements.
+How to add more advanced elements into your Snippets
+Clipboard
+When you copy something it is stored on your computer’s clipboard for you to paste. Have whatever you recently copied to your clipboard included as part of a snippet upon expansion. 
+This makes it easy to handle a high volume of communication, data entry, documentation, and more. For example, you can quickly put a customer’s name or order number into a templated response, add a prospect’s name and company to an intro email, or insert a patient ID or diagnosis code into medical notes. Here’s how:
+Create a new Snippet or open an existing Snippet.
+Put your cursor where you want the copied text to be inserted into your Snippet.
+In the editing bar, click the Keyboard macros button.
+From the dropdown, select “Clipboard”.
+Then, copy something to the clipboard using the copy command, Command + C (Mac) or Control + C (Windows). For this example, copy the word “Bob”. When you type the Snippet abbreviation, it will expand to:
+ Hello Bob,
+ It was a pleasure meeting you! Thank you for coming.
+ Cheers,
+ Ann
+Key Presses
+Insert the equivalent of the press of a key into a snippet. Available key options are Enter, Escape, Return and Tab. This is useful for web forms where a single snippet can fill in a field, tab to the next field, then submit the form with the Enter key. Also, useful in emails where you want one snippet to fill in the Subject line then tab to the email body and fill it in. That snippet might look like this:
+Cursor Position
+Position Cursor Here:
+Specify where in the snippet content you want the cursor to appear once expanded. The cursor appears at the end of the snippet by default.
+Select To Here:
+In combination with (Position Cursor Here), this specifies a range of text to be selected within the snippet after expansion.
+Cursor Movement
+Cursor right
+Cursor left
+Cursor up
+Cursor down
+In cases where your editor might automatically add indenting to your snippet, or for other reasons, you can specify up, down, left or right arrow keystrokes to occur between parts of the expansion, or if placed at the end of the text, these arrow keystrokes can adjust the cursor position relative to the end of the snippet after the expansion. They cannot be used effectively in combination with Position Cursor Here or Select To Here.
+Delimiter Overrides
+These delimiter modifiers override the Preferences > Expansion > Expand abbreviations setting treatment of the delimiter character.
+Nested Snippets
+Nest a snippet within another snippet. For example, you might want to use your telephone number snippet in your email signature snippet, or your email signature snippet inside multiple snippets you have for emails. If your telephone number changes, you only need to update one snippet. Here is a telephone number snippet (ttel) nested in an email signature snippet (ssig):
+ssig =
+ Ciao,
+ Lisa
+ ---
+ Lisa Newton
+ Acme, Inc.
+ lisa@acme.com
+ (ttel)
+The snippet will expand to this
+ Ciao,
+ Lisa
+ ---
+ Lisa Newton
+ Acme, Inc.
+ lisa@acme.com
+ 1-408-555-5555
+Nested snippets also work with script Snippets.
+Fill-in Fields
+Insert custom fill-in-the-blank fields into your snippets that can be filled in while expanding the snippet; useful for form letters. For example “Dear_______ , Thank you for the ______ .” (See Creating and Using Fill-in Fields).
+ Get started with TextExpander
+ Free forever. No credit card required.
+ Sign up for free Get a demo

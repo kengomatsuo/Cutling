@@ -1,0 +1,51 @@
+
+ Snippets and Text Expansion - Features - Alfred Help and Support
+Snippets and Text Expansion
+Boost your productivity by using snippets to save your frequently used text clips. Expand them automatically using a keyword or browse for the right clip in the Snippets Viewer.
+The snippets and text expansion features are part of Alfred's Powerpack.
+Do you frequently have to type your address, a block of text, or website address? Typing them manually takes time, requires looking up the same information over and over, and leaves you with the possibility of making a typo error.
+Saving your text clip as an Alfred snippet ensures that the next time you need it, it'll save you time and be as perfect as the first time you typed it.
+Learn how to use snippets:
+Creating your own snippets Get started by creating a few of your own snippets from Clipboard History or from scratch.
+Set up snippet auto-expansion: Set up auto-expansion in a few seconds, so that you can expand your snippets just like magic!
+Using dynamic placeholders in snippets: Add a date, time, clipboard content and more with dynamic content. Use date arithmetic to paste in dates and times in the past or future.
+Tips for better snippet expansion: A few tricks to help you set the best keywords for your snippets, so that they're easy to use, but aren't accidentally typed!
+Browsing snippets: Using the snippets viewer is a handy way to view your snippets and collections.
+Using the snip keyword: Type snip followed by your keyword to show your snippet in Alfred.
+Sharing your snippets: Export your snippets for sharing, and save a friend or colleague a lot of time too!
+Using Snippets to Trigger Workflow: Use a snippet in a workflow to trigger an action on your Mac by simply typing your text snippet.
+Creating your own Snippets
+There are two ways you can create your own snippets: In your Clipboard History Viewer or in Alfred's Snippets preferences.
+If you're already using Alfred's Clipboard History and you've just copied something to your clipboard which you'd like to save for use later, pop up your Clipboard History Viewer and use the ⌘S hotkey to save the selected entry to your snippets.
+Alternatively, in Alfred Preferences > Features > Snippets, you can create snippets, as well as collections to group your snippets into.
+Add new collections by clicking the + at the bottom of the Collection column, or a new snippet with the + at the bottom of the Snippets column.
+You can also create rich text snippets. We recommend using plain text snippets in any case where you want the pasted text to match the destination format, and rich text when you want to force the formatting (e.g. setting the colours, fonts and links).
+Tip
+Find out more about creating and editing snippets. You can set a collection-wide affixes for a consistent prefix or suffix to your snippets within the collection (e.g. prefix all snippet keywords with \\).
+Including Dynamic and Cursor Placeholders
+Dynamic Placeholders are stand-ins in curly brackets; Add the {date}, {time}, {datetime}, {clipboard} content and so much more into your snippets. 
+Boost your snippets' flexibility by adding Dynamic Placeholders.
+Using Snippet Auto-Expansion
+With auto-expansion, you can expand your snippets automatically in any app by typing the snippet's keyword, without popping up Alfred's Snippets window!
+Note
+Snippet auto-expansion is disabled by default. 
+To activate it, navigate to Alfred Preferences > Features > Snippets and check the box for Automatically expand snippets by keyword. Follow the instructions, or take a look at the step-by-step guide to setting up auto-expansion for more details.
+Once you've enabled auto-expansion, type the snippet keyword you set into the app or text field you want. As if by magic, your keyword will be replaced will the full text snippet!
+For your security, Alfred doesn't listen for characters typed when you are in a secure text field, such as a password field, so he won't expand a text snippet in a secure field.
+Tip
+Tips for better snippet expansion
+To get the most out of the expansion feature, your keywords need to be memorable but shouldn't be triggered by mistake. Here are some ideas to help you set useful snippet keywords:
+Use non-word keywords to avoid unexpected expansion. Don't use the keyword date to paste the date, otherwise every time you try to type it's a date!, you'll find yourself saying it's a 01/06/16! as your snippet auto-expands.
+Start all your snippets with the same non-alphanumeric character, such as an exclamation mark, colon, or semi-colon. (e.g. !office). Use collection-wide prefixes and suffixes to achieve this.
+Use unusual capitalisation (Alfred will respect the capitalisation you set, e.g. officE).
+Use double characters (e.g. ttime).
+For more advanced Snippet Text Expansion setup, take a look at the options by clicking the Auto Expansion Options button in the top right of the Snippets preferences.
+These options include apps in which snippets should not expand, the ability to turn off the sound when expanding snippets, tweaking options to slow down key events (for slower Macs, or when using non-standard software), and more.
+Browsing Snippets in the Viewer
+If you can't remember your keyword or you prefer to view a list of your keywords, you can do so in Alfred's Snippets Viewer. Either set a hotkey for it in the Snippets preferences window, or you can pop up your Clipboard History Viewer and enable the Snippets options.
+Using the snip Keyword
+If you know the name or keyword for your snippet, you can get to it quickly by typing snip into Alfred followed by either the name or keyword.
+Sharing Your Snippets
+If you need to share snippets between your own Macs, you can use Alfred's preferences syncing feature.
+To share a Snippets collection, right-click the collection name in the left column and choose Export. You'll then be able to share this file with friends and colleagues.
+ Search

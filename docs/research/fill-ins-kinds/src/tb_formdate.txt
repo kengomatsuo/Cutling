@@ -1,0 +1,75 @@
+Text Blaze | {formdate}Docs
+> Commands
+Summary:
+Creates a date/time input field.
+Sample Usage
+Due date and time: {formdate: LLL}
+_
+Quick Overview Video
+Settings
+Setting Name
+Type
+Description
+Positional
+format
+The format for the date/time.
+start
+date/time
+The minimum selectable date/time.
+end
+date/time
+The maximum selectable date/time.
+cols
+number
+The width of the form field in columns of characters.
+General Form Settings
+name
+text
+Name used for labels and data bindings.
+default
+–
+The default value for the form field.
+formatter
+function
+Formats the value of the field before snippet insertion.
+General Command Settings
+trim
+yes/no/left/right
+If yes whitespace is removed before and after the command. If left, only whitespace to the left is removed. If right, only whitespace to the right is removed.
+To learn more about form commands and their capabilities, see the forms guide.
+Formatting Dates and Times
+The {formdate} command requires a format setting that tells Text Blaze how to format the date/time when inserting. This format uses the same notation as the {time} command.
+Click here to learn about time/date formatting in Text Blaze.
+The format setting must contain enough information to define a full date or a full time. Generally, the date needs to contain at least a day, month and year component to be full. Similarly, the time needs to contain hours and minutes to be full. For this reason MM DD YYYY would be considered a full date format, whereas YYYY would be short as it omits the day and month. Similarly, HH:mm would be a full time format, while HH would be short as it lacks the minutes component.
+Full and Short Formats
+Full Date and Time: {formdate: LLL; name=datetime}
+Full Date only: {formdate: YYYY-MM-DD; name=date}
+Full Time only: {formdate: HH:mm; name=time}
+Short date format as it does not define a full date: {formdate: YYYY}
+Short date format as it does not define a full date: {formdate: MM YYYY}
+Short time format as it does not define a full time: {formdate: HH}
+Short time format as it does not define a full time: {formdate: mm}
+_
+When entering a date/time via the {formdate} in the form popup, the date selector will use the same format that you define in the {formdate}'s positional setting.
+Also, the same format will be used when using the date/time in a formula.
+Example Formats
+Formdate 1: {formdate: MM DD, YYYY; name=date1} Formatted: {=date1}
+Formdate 2: {formdate: YYYY-MM-DD; name=date2} Formatted: {=date2}
+Formdate 3: {formdate: LL; name=date3} Formatted: {=date3}
+Formdate 4: {formdate: HH:mm; name=time1} Formatted: {=time1}
+Formdate 5: {formdate: hh:mm A; name=time2} Formatted: {=time2}
+Formdate 6: {formdate: LT; name=time3} Formatted: {=time3}
+Formdate 7: {formdate: MM DD, YYYY HH:mm; name=datetime1} Formatted: {=datetime1}
+Formdate 8: {formdate: LLL; name=datetime2} Formatted: {=datetime2}
+_
+Try it out
+Change the format of the {formdate} commands above and notice how the format of the output will also change.
+Restricting Selectable Dates and Times
+You can optionally restrict the range of dates/times that can be selected using the start and end settings.
+In case of time, you will see an error notification instead of disabled values in the time picker.
+The start and end settings are dates/times that may be entered in the same format as the formdate's format setting, or in a canonical YYYY-MM-DD or HH:mm format.
+You can also embed {time} commands in order to create a dynamic range as seen in this example.
+Restricting the Selectable Range
+Select a date in 2012: {formdate: LL; start=2012-01-01; end=2012-12-31}
+Select a date in the next 14 days: {formdate: LL; start={time: YYYY-MM-DD}; end={time: YYYY-MM-DD; shift=+14D}}
+_

@@ -1,0 +1,91 @@
+Text Blaze | {clipboard}Docs
+> Commands
+Summary:
+Inserts the current clipboard contents.
+Sample Usage
+You've copied: {clipboard}
+_
+Quick Overview Video
+Settings
+Setting Name
+Type
+Description
+General Command Settings
+trim
+yes/no/left/right
+If yes whitespace is removed before and after the command. If left, only whitespace to the left is removed. If right, only whitespace to the right is removed.
+The clipboard command will insert the entire contents of your clipboard.
+In many cases, you will only want to insert a part of the contents of your clipboard.
+Referencing a part of the clipboard
+A very common use case with the clipboard command is only referencing a specific part of the data in your clipboard.
+For example, you may have a customer case management system where data could be copied in the following format:
+Name: John
+Phone number: (555) 123-4567
+Problem: User cannot connect to the website.
+If you wanted to create a snippet that automatically used the name and phone number, you could do that using the clipboard command combined with the {=} (Formula Command) command to reference specific fields.
+The following example shows this.
+To see this example work, please do the following:
+Copy the text in the text box above
+Reload this page so that the example uses your updated clipboard.
+You will need to grant this website permission to access your clipboard.
+Using Structured Data from the Clipboard
+Hi {=extractregex({clipboard}, "Name: (\w+)")},
+I wanted to follow up on your issue. If I don't hear from you this week I will give you a call at {=extractregex({clipboard}, "Phone number: (.+)")}.
+_
+The example above uses the extractregex function. This function uses a regular expression to precisely define what items of the clipboard you want to use. You can learn more about regular expressions in Text Blaze here.
+Referencing specific data in your clipboard with regular expressions
+The following examples assume your computer's clipboard contains the following text:
+Name: John Smith
+Age: 32
+ID: RFS4215
+If you have not yet copied the text and reloaded this page, please do so now.
+If you don't, you are going to see a lot of "No match found" errors in the following examples.
+To reference the name from this text, we could use the following regular expressions:
+Referencing name examples
+The full name is: {=extractregex({clipboard}, "Name: (.+)")}
+The first name is: {=extractregex({clipboard}, "Name: (.+?) ")}
+The last name is: {=extractregex({clipboard}, "Name: .+? (.+)")}
+_
+Now let's write a regular expression to get the user's age. Here we show a couple different approaches:
+Referencing age examples
+The age is: {=extractregex({clipboard}, "Age: (.+)")}
+The age is: {=extractregex({clipboard}, "Age: (\d+)")}
+The age is: {=extractregex({clipboard}, "Age: ([0-9]+)")}
+_
+There are many ways to write a regular expression to grab a specific result that you're looking for.
+Diving in-depth into Regular Expressions is out of scope for this documentation page.
+To learn more, visit the section on Regular Expressions in the Blaze Formula Reference page.
+Handling badly formatted data
+Occasionally, you will try to use a regular expression on data that is incorrectly formatted so that the regular expression does not correctly match the data.
+For example, imagine the following data was given to you:
+Name:
+Age: 32
+ID: RFS4215
+The data is missing the name. If you use the regular expression from the previous section to process this you'll get a "No match found" error.
+Sometimes you want to explicitly want an error to occur, but other times you want to insert a fallback value when the regular expression match fails.
+There are two basic ways to handle these cases:
+Using the catch() function.
+Using the {if} command and the testregex function.
+Handling errors with the catch() function
+The catch() function evaluates its first argument and returns it.
+However, if an error occurs when it is evaluating its first argument, it will return the second argument as a fallback.
+Here is a quick example of the catch() function in action:
+Catch() example
+10 / 2 = {=catch(10 / 2, "could not calculate")}
+10 / "dogs" = {=catch(10 / "dogs", "could not calculate")} (It's not possible to do division with the string "dogs")
+_
+Here's another example using the catch() function together with a regular expression:
+Catch() and regular expressions
+Dear {=catch(extractregex({clipboard}, "Name: (.+?) "), "Customer")},
+Thank you for...
+_
+If the contents of your clipboard contains the correctly formatted text "Name: John", for example, the snippet will output "Dear John".
+If the regular expression above does not match with the contents of the clipboard, then there will be an error. In that case the catch() command's second argument will output. It will display "Dear Customer".
+Handling errors with the if command and the testregex() function
+The testregex() function returns a Boolean (yes/no) which can be used as a condition in the {if} command.
+{if} and testregex() example
+Dear {if: testregex({clipboard}, "Name: (.+?) ")}{=extractregex({clipboard}, "Name: (.+?) ")}{else}Customer{endif},
+Thank you for...
+_
+That's a very short introduction to using regular expressions together with the clipboard command to only grab the data that you need.
+To go more in-depth, see the Regular Expressions section of the Formula Reference page.

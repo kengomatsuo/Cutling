@@ -1,0 +1,47 @@
+
+Placeholders | Snippety – Snippets Manager & Text Expander
+Skip to main content
+📄️Overview
+Snippety allows creating reusable templates
+📄️AI Assistant
+AI Assistant is a placeholder that asks the configured AI model to generate a
+📄️Auto-Incrementing Number
+Inserts a number incremented by a specified step after each expansion.
+📄️Calculated Date
+Inserts a formatted date calculated based on the current date.
+📄️Calculated Time
+Inserts a formatted time calculated based on the current time.
+📄️Clipboard Content
+Inserts the current content of the clipboard and applies a transformation to it.
+📄️Clipboard History
+Inserts the content of the given clipboard history slot.
+📄️Command Line Script
+Runs a command-line script and inserts the output into the snippet.
+📄️Cursor
+Moves the cursor to the specified place in the snippet.
+📄️File Content
+Inserts the content of the selected file.
+📄️Hyperlink
+Inserts a hyperlink with the specified title.
+📄️Multiselect
+Inserts selected values from a list of options.
+📄️Note
+Adds a note or comment to your snippet.
+📄️Random Value
+Inserts a random value from a predefined list.
+📄️Selectable Date
+Inserts the selected date in the specified format.
+📄️Selectable Value
+Inserts the selected value from a predefined list.
+📄️Selected Text
+Inserts the selected text and applies a transformation to it.
+📄️Simulated Key
+Simulates key presses while expanding the snippet.
+📄️Snippet Reference
+Inserts the selected snippet template before expanding the current snippet.
+📄️Text Variable
+Inserts the text value provided when expanding the snippet.
+📄️Text Variable (Multiline)
+Inserts the text value provided when expanding the snippet.
+📄️Variable Reference
+Inserts the value provided in another variable placeholder, optionally applying

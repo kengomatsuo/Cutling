@@ -1,0 +1,107 @@
+Text Blaze | Working with FormsDocs
+> Guides
+What's on this Page
+Summary:
+Forms allow you to create dynamic snippets that integrate your input. They can help manage and streamline your workflow.
+Quick Overview Video
+Forms provide you with a variety of fillable form fields in your Text Blaze snippets.
+Form commands are only available in Text Blaze paid plans. However, the free plan lets you to trial forms by allowing you use snippets containing form commands a limited number of times each day.
+The form commands in Text Blaze are:
+{formtext} - A single line text input field.
+{formparagraph} - A multiline paragraph input field.command.
+{formtoggle} - A toggle switch that can enable or disable a block of text.
+{formmenu} - A menu input to select one or more items.
+{formdate} - A date input field.
+When you insert a snippet that contains one or more form commands, the snippet isn't inserted immediately. Instead, a popup appears, prompting you to fill in the form fields, allowing you to customize the content that is inserted with the snippet.
+The following example shows these commands in action:
+The Form Commands
+Text: {formtext}
+Paragraph: {formparagraph}
+Toggle: {formtoggle}This is optional text{endformtoggle}
+Menu: {formmenu: option 1; option 2; option 3}
+Date: {formdate: YYYY-MM-DD}
+_
+Try it out
+Modify the above example to add a second text input next to the first.
+Add a fourth menuitem to the form menu. Call it "Option X".
+Create a default value for each of the text, paragraph and menu inputs using the default setting. See the next section to learn more.
+General Form Settings
+All form commands in Text Blaze come with 3 optional named settings that are consistent across all of the form commands. These are called General Form Settings.
+These settings are:
+default - The default value for the form field.
+formatter - A function that formats the value of the field before snippet insertion.
+name - A value used to label the form field and for data bindings.
+Besides the general form settings that each form command has, each form command might or might not contain additional settings that are specific to it.
+For example, the {formtoggle} command has no additional settings besides the above 3, but the {formmenu} command contains an additional 4 settings. See the documentation page for each form command to see which settings are available to you.
+Like many other command settings, the default and name general form settings can also be set dynamically. This allows you to dynamically set a default setting based on another value, or even dynamically set the name of the field if you like.
+We'll dive deeper into this in the Nested Commands section.
+The default Setting
+One of the general settings that you get access to in form commands is default. It allows you to set the initial value that you see in the form field when the form popup appears for you to fill out.
+This can be powerful to set the initial value of the form field. It can also be used as a fallback value if you don't modify the value of the field.
+Default Values With Forms
+First Name: {formtext: default=John} Last Name: {formtext: default=Smith}
+Hey {formtext: default=there}, thank you for your email.
+{formtoggle: default=yes}
+{formmenu: option 1; option 2; option 3; default=option 4}
+{formdate: YYYY-MM-DD; default=2001-02-01}
+_
+Try it out
+Change the default setting for the first and last name and observe how the initial value changes in the field.
+Change the default for the formtoggle to no, and then remove it entirely, and see what happens.
+Change the default setting for the formmenu to something else, or remove it entirely, and see what happens.
+Remove the default for the formdate and see what happens.
+If you went through the above exercises you'll notice that these form commands already set a default value for you. The default setting lets you override what that value is.
+If the default setting isn't explicitly overridden for the {formtoggle} command, then it will be no. In {formmenu}'s case, it will be the first item in the menu. In {formparagraph} and {formtext}'s text, it will be an empty string (""). Lastly, in {formdate}'s case, it will be today's date.
+The name Setting
+Another general form setting that you get access to is name. At its most basic level, the name setting is used to label the field.
+A powerful feature of the name setting, is that form commands with the same name are linked. When one of them updates, the others will also update. You can watch this in action below:
+Linked Form Fields
+First: {formtext: name=first; default=John} Last: {formtext: name=last; default=Smith}
+Your name is: {formtext: name=first} {formtext: name=last}
+_
+Try it out
+Edit the form field in the Snippet Preview and observe how they are linked.
+Change the names for all the formtext commands to something different and unique. Notice how they are no longer linked.
+Change all the names to the same thing. Notice how all the fields are now linked together, and that editing one of them updates the other three.
+It is generally recommended to stick to single-word form names, as this simplifies things when referencing these names in formulas.
+However, if you have multi-word form names, you can still reference them in formulas by enclosing them with back-ticks. For example:
+Multi-word form names
+Base Price: ${formtext: name=Base Price; default=100}
+Price with Service Charge (15%): ${=`Base Price` * 1.15}
+_
+Besides using the name setting to label the field, it's also used for data binding when using a variety of other Text Blaze commands. See the next section to learn more.
+Forms and Formulas
+Form commands are often used in combination with the {=} (Formula Command) command, the {if} command, and the {repeat} command. The {=} (Formula Command) command lets you specify dynamic formulas in your snippets. Form fields with the name setting explicitly set can be used within formulas.
+The following shows the combination of forms and formulas used together:
+Forms and Formulas
+Price ($): {formtext: name=price; default=5000}
+Tax Rate (%): {formtext: name=tax; default=12.5}
+Total Cost: {= price * (1 + tax/100); format=$,.2f}
+_
+Try it out
+Change the format setting in the formula above so the thousands place is separated by a comma. See the formatting section of the {=} (Formula Command) documentation for assistance.
+Create a calculator snippet that will sum two numbers.
+Explore what happens when you enter something like "test" into the price form field. Text Blaze shows an error when you try to do math on a non-number.
+The {if} command lets you hide or show a block of text based on whether the formula evaluates to yes or no. It has a main block that is shown if the formula evaluates to yes and an optional else block that is shown if the formula evaluates to no.
+If Command
+Price ($): {formtext: name=price; default=5000}
+{if: price > 1000}That's too expensive for me!{else}Great Price! I am buying it.{endif}
+_
+Form Validation
+The {error} command can be used to validate the contents of a form. It can also be used to prevent the insertion of the snippet until the issue is resolved.
+Form Validation
+First Name: {formtext: name=first}
+Last Name: {formtext: name=last}
+{if: first="" or last=""}{error: Both the first and last name must be entered; block=yes}{endif}
+_
+Nested Commands
+Commands in Text Blaze can be nested. Combined with forms and formulas, this enables a range of interesting capabilities.
+The following adjusts the above example to show how we can change the formatting of a number on the fly.
+Nested Commands
+Decimals: {formtext: name=decimals; default=2} (max is 20)
+Price ($): {formtext: name=price; default=5000}
+Tax Rate (%): {formtext: name=tax; default=12.5}
+Total Cost: {= price * (1 + tax/100); format=$,.{=decimals}f}
+_
+Not all settings can be changed dynamically based on form values. Specifically the name and default setting. Also, the snippet specified in {import} commands cannot depend on form values.
+Now when you combine forms and command packs it gets even more powerful. Imagine setting the default value of a {formtext} to the recipient's name when you're using Gmail. Convenient!

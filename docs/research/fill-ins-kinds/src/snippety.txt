@@ -1,0 +1,193 @@
+
+ Snippety – Snippets Manager & Text Expander – macOS & iOS
+ Smart Snippets
+ Most text expanders paste static text. Snippety runs a real templating engine,
+ so one snippet adapts to every situation.
+ Your template
+ Hi {@text|Name@},
+Thanks for reaching out about your {@selectable|Plan|Free;Premium@} plan.
+{@if|Plan == Premium@}
+Priority support. We'll reply today.
+{@else@}
+We'll reply by {@calculated-date|+3d|dd.MM.yyyy|English@}.
+{@endif@}
+ What gets typed
+ Hi Alex,
+Thanks for reaching out about your Premium plan.
+Priority support. We'll reply today.
+ Pick Free instead and the same snippet writes the fallback line, with the date
+ calculated on the spot. No second snippet to maintain.
+ See all 20 placeholders →
+ Try Text Expansion
+ Type one of these keywords in the box below and watch it expand instantly, just like Snippety does system-wide.
+ Plain text
+ ;email
+ ;sig
+ ;addr
+ Smart templates
+ ;due
+ ;reply
+ Clear
+ ;due calculates a real date. ;reply asks for values and picks its own wording.
+ That's a conditional block.
+ Why Snippety?
+ Deeper than the rest, without the subscription or the account.
+ Deepest Templating Engine
+ 20 smart placeholders and conditional blocks that most competitors don't
+ offer. One snippet handles what other apps need five for.
+ See the full comparison →
+ Simple Pricing
+ Start free. Then a low monthly plan or a one-time purchase with lifetime updates. No
+ forced subscriptions, no hidden fees.
+ 100% Native App
+ Built with native technologies. No web views, no Electron. Fast, lightweight, and truly
+ native macOS & iOS app.
+ Automate Everything
+ Run shell scripts inside snippets, drive the app from a snippety
+ CLI, or wire it into Apple Shortcuts and Siri. Nothing else in this category does all three.
+ AI Where You Need It
+ Generate, translate, and rewrite from inside a template or the editor. Use your own
+ model, including a local one, so nothing leaves your Mac.
+ Advanced iOS Companion
+ A full-featured iOS app with a custom keyboard, so you can expand snippets wherever you
+ type, not a stripped-down viewer for your Mac library.
+ Private, No Account Ever
+ No sign-up, no email, no login. Everything stays on your device or in your own iCloud,
+ so your snippets never touch our servers.
+ Matching Your Style
+ Pick from 250 built-in themes with fully configurable colors, so Snippety looks exactly
+ the way you want.
+ Proven, Maintained, Supported
+ Trusted for over 6 years, updated constantly for the latest macOS
+ and iOS releases, and backed by fast, direct support from the developer.
+ Show all reasons 
+ How It Stacks Up
+ Every text expander expands text. These are the things most of them simply don't do.
+ Feature
+ Snippety
+ TextExpander
+ Typinator
+ Raycast
+ Conditional blocks
+ Shortcuts & Siri actions
+ Command-line interface
+ Run shell scripts in snippets
+ Built-in scripting
+ Syntax highlighting for code
+ 50+ languages
+ One-time purchase option
+ Pro Lifetime
+ macOS only
+no major upgrades
+ Compare all 8 apps across 21 features
+ Already using one of them? See the Migration guide.
+ See How It Works
+ See Snippety in action through short videos
+ Templates
+ Conditional Blocks
+ Expander
+ Collaboration
+ iOS Keyboard
+ Snippety allows you to create smart templates with customizable placeholders. Works in every text field -
+ whether it's a browser, terminal, or application.
+ Use conditional blocks to create dynamic templates that adapt based on your input.
+ Type a keyword like :email and watch it expand instantly. Snippety's text expander lets you boost your productivity without taking your hands off the keyboard.
+ Easily share and build collections of snippets with your co-workers and friends. Everything securely
+ synced via iCloud, without any third-party servers.
+ Snippety Keyboard lets you access your snippets wherever you type, everything seamlessly synced via
+ iCloud. Expand snippets by typing keywords or browsing your collections.
+ Powerful Features
+Snippety is a feature-rich text expander designed to save you time every day.
+ Click below to learn more.
+ Conditional Blocks
+ One snippet, many outcomes. Show a priority line for Premium customers and a
+ standard one for everyone else, decided as the snippet expands.
+ Smart Placeholders
+ 20 built-in placeholders: fill-in fields, dropdowns, calculated dates, clipboard and
+ file contents, references to other snippets, all filled in as you expand.
+ Per-App Snippets
+ App Rules show only your code snippets in your IDE and only your email ones in Mail,
+ so the right library is always in front of you.
+ Syntax Highlighting
+ Store code the way you write it, highlighted across 50+ languages. The only expander
+ in this comparison that does.
+ Real CLI
+ A snippety command that expands, searches, creates, and edits from the
+ terminal. Pipe a snippet into a commit message, or bind one to any hotkey.
+ Shortcuts & Siri
+ 20+ native Shortcuts actions, so your snippets can trigger, and be triggered by,
+ anything else on your Mac. Run them from Spotlight, the menu bar, or Siri.
+ Scripts & Automation
+ Run a shell script mid-snippet and drop its output straight in. Format the selected
+ JSON with jq, pull data from an API, or simulate keystrokes to fill a form.
+ Like Spotlight
+ Works in every text field. Press ⌘⇧Space and access your snippets from anywhere.
+ iCloud Sync
+ Your library follows you to every Apple device through your own iCloud, with no
+ third-party server in the middle.
+ Collaboration
+ Share snippets with your team or friends securely via iCloud. All of this with no
+ subscriptions or hidden fees!
+ Text Formatting
+ Write in HTML, RTF, or Markdown and preview it before it lands, so formatted email
+ replies stay formatted.
+ 250 Themes
+ Pick what best fits your style and tweak it if needed. Choose from 250 built-in
+ themes.
+ Show all features 
+ Snippety for Mobile
+ Works great on iPhone, iPad, and Mac.
+ One App Store purchase unlocks the app on all your devices with the same Apple ID.
+ The Snippety Keyboard
+ Everything you build on the Mac is already on your iPhone and iPad. The Snippety Keyboard expands your
+ snippets wherever you type, without opening the app, and it runs the very same templating engine: the same
+ 20 placeholders, the same fill-in forms, the same conditional
+ blocks. It all travels through your own iCloud, so there is nothing to set up and no account to create.
+ Loved by Users
+ ★★★★★
+ 4.8 from 1141 App Store ratings.
+ "It's been a while since I've fell in love with an app so
+ quickly, but Snippety did. It's a little different than
+ what I'm use to, but the power and convenience made it
+ worth to me. After just one week I find myself using this
+ little app a lot and in new ways all the time. Keep up the
+ great work!"
+ Jerry Pena
+ "I had AI do some research for me on the best text expander
+ option. I wanted pay once, not subscription. I wanted fast, Mac
+ native and good reviews. I wanted keywords with triggers and/or
+ hotkeys. I wanted clean, simple and without lots of bloat. AI
+ recommended Snippety and it couldn’t be better."
+ BWA_83
+ "Snippety is such a hidden gem. I’ve used it every day for the
+ past 3 years. Calendar booking links, email snippets, chunks of
+ code - all of it is instantly accessible. Love this app!"
+ trekertrev
+ "Really enjoying integrating Snippety into my daily
+ workflow. It hits the sweet spot between simplicity, ease
+ of use, and added power. Can't recommend this enough!"
+ danny_insanity
+ "I'm a copywriter and salesman and everything I do is frameworked
+ and structured. This app makes life so easy and the fact its on
+ my computer, phone and tablet synched is awesome because I can
+ get things done much faster"
+ MikeMartinGB
+ "Absolute No. 1 little helper, available across iPhone,
+ iPad and MacOS, synced via iCloud. My favorite tool when
+ it comes to quickly note down some code snippet."
+ ricp80
+ "This is really what I was looking for. I use it for many
+ text snippets. Like standard customer service e-mails and
+ other text snippets that I need every day. Before I had to
+ select/copy/paste from a text file every day. Thanks to
+ Snippety I really save a lot of time."
+ tiezkoz
+ See all reviews on the App Store
+ Ready to Boost Your Productivity?
+ Join ~1,100 people who rated Snippety 4.8 on the App Store.
+ Start free. Then pay monthly, or buy it once and own it.
+ Download for Mac — free to start
+ Buy Snippety for macOS
+ Check out Snippety on YouTube
+ Still have questions? Read the FAQ
+ ×

@@ -1,0 +1,17 @@
+
+ token:WirelessNetwork [Keyboard Maestro Wiki]
+ token:WirelessNetwork
+Table of Contents
+WirelessNetwork
+See Also
+Actions
+Tokens
+WirelessNetwork
+The %WirelessNetwork% token returns the name of the currently connected wireless network(s).
+⚠️ Note that wireless information requires Location system security permissions in macOS Sonoma, so ensure the Keyboard Maestro Engine has Locations permissions if you are using Sonoma or later.
+See Also
+Actions
+See all Actions
+Tokens
+See all Tokens
+ token/WirelessNetwork.txt · Last modified: 2025/07/09 09:11 by peternlewis

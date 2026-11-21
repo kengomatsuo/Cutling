@@ -1,0 +1,19 @@
+
+ token:FinderSelection [Keyboard Maestro Wiki]
+ token:FinderSelection
+Table of Contents
+FinderSelection(s) Token
+See Also
+Actions
+Tokens
+FinderSelection(s) Token
+The %FinderSelection% token returns (v10.0+) the path of the currently selected file in the Finder. If there is none or more than one file selected, then it returns the empty string.
+The %FinderSelections% token returns (v10.0+) the paths of the currently selected files in the Finder, one per line.
+Prior to v11, if the selection was an alias/link, this token would return the target of the link. As of v11.0+, the token returns the alias/link.
+See Also
+Actions
+See all Actions
+Tokens
+%FinderInsertionLocation% token
+See all Tokens
+ token/FinderSelection.txt · Last modified: 2024/12/16 04:38 by peternlewis

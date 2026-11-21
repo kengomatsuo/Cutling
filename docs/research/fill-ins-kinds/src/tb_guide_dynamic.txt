@@ -1,0 +1,119 @@
+Text Blaze | Dynamic Snippets - Intro to CommandsDocs
+> Guides
+What's on this Page
+Summary:
+Get more out of your Text Blaze snippets with Dynamic Commands.
+Quick Overview Video
+Overview
+Text Blaze snippets save you hours by eliminating repetitive typing. Sometimes, there’s more that goes into typing than static text, though - you may need to include today’s date, the recipient’s name, or some calculation.
+Dynamic commands allow you to do all of that and more. Commands are added to your snippet and when the snippet is inserted, they are replaced with a value (e.g., number, today's date) or action (e.g., place the cursor).
+Some of the things commands can help you achieve:
+Add dynamic dates like today’s date to your snippets
+(see Date and Time guide)
+Insert text fields as placeholders in your snippets
+(see Forms guide)
+Use formulas to complete basic calculations
+(see formula commands)
+For example, this is how you can add an automated greeting based on the date to a snippet:
+And here’s how you can add a placeholder:
+Adding commands to a snippet
+Command Panel
+Adding a command is simple. When editing a snippet in your dashboard, use the command menu on the right-hand side to add commands to your snippet.
+You can scroll through this panel to find the command you want to use or search using the search bar.
+The command will be inserted where the cursor is. If you need to, you can move the command around by cutting and pasting it, like any text.
+Configuration Window
+When you add a command to your snippet, a command configuration menu will pop up. Review the setting and click insert. The command icon will then appear in the snippet.
+You can edit the command configuration later by clicking on the command icon, which will open the configuration panel on the right (this is shown in the image below).
+Reviewing a Dynamic Snippet
+Snippets with dynamic commands "behave" a certain way when you insert them. As you edit the snippet you may want to see the snippet in action. There are two ways to do that:
+Try it now Button
+Click the “Try it out” button on the top middle side of your snippet. This opens up a text box where you can type your snippet’s keyboard shortcut to insert the snippet.
+Preview Button
+Click the “Preview” button on the top and far right of your snippet. This will create a dynamic preview of what your snippet will look like when inserted.
+The 3 most commonly used commands
+1. The Date/Time command allows you to include dates and times in your snippet, which can be inserted in any format, for example, 2022-10-25, 10/25, Tuesday, October 25th, etc.
+You can also shift dates if you need to insert the date two days ago, next Monday, the first Thursday of next quarter, and so on. Any date and time math you can think of is possible.
+Check out our Time and Date Guide to learn more.
+Time Command Example
+Long full date: {time: MMMM Do YYYY}
+Short full date: {time: YYYY-MM-DD}
+Date in 1 day: {time: YYYY-MM-DD; shift=1D}
+Date in 1 week: {time: YYYY-MM-DD; shift=1W}
+Date in 1 month: {time: YYYY-MM-DD; shift=1M}
+Next Monday: {time: dddd YYYY-MM-DD; shift=+1D >MON}
+Shift hours later: {time: YYYY-MM-DD; shift=+120m}
+_
+2. The Clipboard command inserts the content of your clipboard (what you copied last, e.g., using cmd/ctrl+c) when the snippet is inserted.
+It can be combined with other dynamic commands to read specific parts of the content of the clipboard (e.g. a name, a phone number, etc.)
+3. The Place cursor command places the cursor at the command's location after the snippet is inserted.
+It makes it easy to continue typing quickly after the snippet is inserted if you'd like to type in any place other than the end of the snippet. For example, you can use a snippet to type a long email, and then place the cursor back at the top to type the recipient's name.
+Example with cursor
+Hi {cursor: trim=yes},
+It was great meeting you. I look forward to working with you.
+Thanks,
+John
+_
+Additional command types
+Automating keyboard clicks with Autopilot
+Autopilot helps you to automate actions on a webpage, submit forms, or navigate between different fields. It simulates clicking a sequence of one or more keyboard keys to automate anything that you can do with your keyboard.
+Autopilot is often used to submit repetitive forms, to write full emails or InMails including both the subject line and the content, or to automate ticket changes.
+Check out our Autopilot Guide to learn more.
+Turning your snippets into customizable templates with form fields
+“Hello, Sally” is always better than “Hello there,”. To maximize the effectiveness of your communications, you need to tailor your message to the situation and recipient. Form field commands are placeholders you add to your snippet that you can edit and customize when inserting the snippet.
+You can add a text box to your snippet to capture the recipient's name, a drop-down menu to capture the item that they’ve purchased, a toggle to decide in real-time whether to offer a discount, and so on.
+When you insert a snippet that contains a formfield, a pop-up window will appear that prompts you to fill out the form field. Once you click insert, your snippet will be inserted.
+Check out our Working with Forms Guide to learn more.
+Form Field Example
+Text:{formtext}
+Paragraph: {formparagraph}
+Toggle: {formtoggle}This is optional text {endformtoggle}
+Menu: {formmenu: option 1; option 2; option 3}
+Date: {formdate: YYYY-MM-DD}
+_
+Adding dynamic logic to your snippet
+Performing math and logical calculations with Formulas
+Sometimes you need to calculate the total cost of an order or the test score of a student. You may want to capitalize the recipient's name or find the first name from the full name.
+These things and much more can be achieved using formulas. You can use the content of form fields to create dynamic calculations that achieve whatever calculation goal you have in mind.
+Check out our Formula Command Page to learn more.
+Formulas Example
+a) {=sqrt(49) * log(10)/2}
+b) {=73 / 51; format=$,.2f}
+c) {formtext: name=x; default=4} * {formtext: name=y; default=3} = {=x * y}
+d) {=81 >= 23}
+_
+Conditionally inserting content using if/else statement
+Text Blaze dynamic logic can be used to include content in your snippets based on certain conditions. When you use the if command, you enter three pieces of information in the command configuration window:
+The condition to test - This is a statement that can either be true (yes) or false (no) such as: Is 150 > 50 (yes), dose the list ['a', 'b', 'c'] contain 'd' (no).
+“If the formula is ‘Yes’” section - this will be inserted if the condition is true.
+You can also include information in the “if the formula is ‘No’” section - this will be inserted if the condition is false.
+The condition can include formulas and form field values. The two other fields can include any dynamic commands (including additional if/then commands)
+Dynamic Logic Example
+You were born in the year: {formmenu: name=birthyear; 1980; 1985; default=1990; 1995; 2000; 2005; 2010; 2015}.
+{if: {time: YYYY; locale=en} - birthyear >= 18; trim=left} Welcome to our service!{else} Sorry! Since you are under 18 years old, you cannot use our service.{endif}
+{formtext: name=x; default=10} {if: x > y}is greater than{elseif: x < y}is less than{else}is equal to{endif} {formtext: name=y; default=5}
+_
+Check out our if command guide to learn more.
+Repeating parts of the snippet
+The repeat command allows you to repeat portions of your snippet multiple times, without having to explicitly write them over and over.
+The number of repeats can be dynamic based on a form value. Repeat can also be used to iterate over a list of items.
+The repeat command is often used with autopilot commands to create long sequences of keystrokes.
+Dynamic Logic Example
+{repeat: 3} hello {endrepeat}
+{repeat: 2 + 2}{key: tab}{endrepeat}
+_
+Reading data from and writing data to tables with Data Blaze commands
+Data Blaze is a spreadsheet solution that makes it easy to organize and manage your data. With Data Blaze, you can also easily access your data and edit it from anywhere using Text Blaze snippets.
+Data Blaze is a smart spreadsheet with rich field types such as text, links, images, and more. It allows you to link tables, create views to organize your data and forms to collect data from external users and much more.
+Text Blaze dynamic commands makes it easy to use data from your Data Blaze tables in your snippets, or update your tables when you insert a snippet.
+Check out our Getting Started With Data Blaze Guide to learn more.
+Here’s an example of a Data Blaze space that can be used as a project tracker to assign tasks, update them as they are completed, send reminders about them, and update team members on the status of tasks and the project.
+Miscellaneous commands
+Import snippet replaces the command with the content of another snippet. If you're using the same content in multiple snippets, import is a great way to only write it and maintain it once.
+Note allows you to capture content in the snippet that will not be inserted when the snippet is inserted. The content of the note command will show up in the pop-up window (e.g. when the snippet includes form fields), so this is a great way to capture instructions or information without typing it.
+Site commands are used to insert information about the current webpage into your snippet. This can be useful if you’re looking to capture information from web pages or automate snippets for note-taking purposes.
+Command packs
+Command packs can be enabled to add more commands to Text Blaze and extend Text Blaze's capabilities.
+The Capitalization command pack allows you to match the capitalization of how the snippet shortcut was typed in the snippet itself.
+The Gmail command pack helps you work faster in Gmail by quickly using data from Gmail (recipient’s name, email address, etc.) and inserting it into your snippets.
+The LinkedIn command pack helps you customize your snippets on LinkedIn with the name or headline of the person you are messaging.
+The Randomization command pack allows you to show phrases or values at random in your snippets.
