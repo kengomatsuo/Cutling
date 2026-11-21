@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>179602 &ndash; [iOS third party keyboard] Keyboard got wrong output when type fast with delete and insert</title>
+
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="hsl(203.6, 100%, 12%)" />
+    
+    <meta property="og:site_name" content="WebKit Bugzilla" />
+    <meta property="og:title" content="179602 &ndash; [iOS third party keyboard] Keyboard got wrong output when type fast with delete and insert">
+    <meta property="og:type" content="object">
+
+    <meta name="twitter:site" content="@webkit">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-180x180.png">
+    
+    <link rel="stylesheet" href="https://www.apple.com/wss/fonts?families=SF+Pro,v1" type="text/css">
+    <link rel="stylesheet" href="https://www.apple.com/wss/fonts?families=SF+Mono,v2" type="text/css">
+
+<link href="data/assets/56c1a2a8e7a6c0d9a4c0ea489698575d.css?1795030946" rel="stylesheet" type="text/css">
+
+<link href="data/assets/c5370471926daadee4fb18adbe19f0f3.css?1795030945" rel="stylesheet" type="text/css">
+
+    
+<script type="text/javascript" src="data/assets/4486faef49429a59caf006d743c23ce7.js?1795030946"></script>
+
+    <script type="text/javascript">
+    <!--
+        document.addEventListener('DOMContentLoaded', () => {
+          [...document.getElementsByClassName("tolocaledatetime")].forEach(element => {
+            let currentDateTime = new Date(element.textContent);
+            element.innerHTML = currentDateTime.toLocaleDateString(undefined, {
+              weekday: 'long',
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            }) + " " + currentDateTime.toLocaleTimeString(undefined, { timeZoneName: "short" });
+          });
+
+        });
+    
+        YAHOO.namespace('bugzilla');
+        YAHOO.util.Event.addListener = function (el, sType, fn, obj, overrideContext) {
+               if ( ("onpagehide" in window || YAHOO.env.ua.gecko) && sType === "unload") { sType = "pagehide"; };
+               var capture = ((sType == "focusin" || sType == "focusout") && !YAHOO.env.ua.ie) ? true : false;
+               return this._addListener(el, this._getType(sType), fn, obj, overrideContext, capture);
+         };
+        if ( "onpagehide" in window || YAHOO.env.ua.gecko) {
+            YAHOO.util.Event._simpleRemove(window, "unload", 
+                                           YAHOO.util.Event._unload);
+        }
+        
+        function unhide_language_selector() { 
+            YAHOO.util.Dom.removeClass(
+                'lang_links_container', 'bz_default_hidden'
+            ); 
+        } 
+        YAHOO.util.Event.onDOMReady(unhide_language_selector);
+
+        
+        var BUGZILLA = {
+            param: {
+                cookiepath: '\/',
+                maxusermatches: 1000
+            },
+            constant: {
+                COMMENT_COLS: 80
+            },
+            string: {
+                
+
+                attach_desc_required:
+                    "You must enter a Description for this attachment.",
+                component_required:
+                    "You must select a Component for this bug.",
+                description_required:
+                    "You must enter a Description for this bug.",
+                short_desc_required:
+                    "You must enter a Summary for this bug.",
+                version_required:
+                    "You must select a Version for this bug."
+            }
+              , api_token: ''
+        };
+
+    if (history && history.replaceState) {
+      if(!document.location.href.match(/show_bug\.cgi/)) {
+        history.replaceState( null,
+                             "179602 – [iOS third party keyboard] Keyboard got wrong output when type fast with delete and insert",
+                             "show_bug.cgi?id=179602" );
+        document.title = "179602 – [iOS third party keyboard] Keyboard got wrong output when type fast with delete and insert";
+      }
+      if (document.location.href.match(/show_bug\.cgi\?.*list_id=/)) {
+        var href = document.location.href;
+        href = href.replace(/[\?&]+list_id=(\d+|cookie)/, '');
+        history.replaceState(null, "179602 – [iOS third party keyboard] Keyboard got wrong output when type fast with delete and insert", href);
+      }
+    }
+    YAHOO.util.Event.onDOMReady(function() {
+      initDirtyFieldTracking();
+
+    });
+    // -->
+    </script>
+<script type="text/javascript" src="data/assets/8055e6f9eb0e3d239e750595ffb711ca.js?1795030946"></script>
+
+
+    
+
+
+    
+    <link rel="search" type="application/opensearchdescription+xml"
+                       title="Bugzilla" href="./search_plugin.cgi">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  </head>
+
+  <body 
+        class="bugs-webkit-org 
+                 bz_bug 
+                 bz_status_NEW 
+                 bz_product_WebKit 
+                 bz_component_New_Bugs 
+                 bz_bug_179602 179602-&amp;ndash;-[ios-third-party-keyboard]-keyboard-got-wrong-output-when-type-fast-with-delete-and-insert yui-skin-sam">
+
+
+  <div id="header">
+
+    
+
+
+    <div id="titles">
+
+      <a id="title" href="./"> WebKit Bugzilla</a>
+
+
+
+    </div>
+
+
+<!-- 
+
+        <div id="bug_title">Bug&nbsp;179602: [iOS third party keyboard] Keyboard got wrong output when type fast with delete and insert</div>
+
+-->
+
+    <div id="common_links"><ul class="links">
+  <li class="new-bug"><a href="enter_bug.cgi">New</a></li>
+  <li class="browse-bugs"><a href="describecomponents.cgi">Browse</a></li>
+  <li class="advanced-search"><a href="query.cgi?format=advanced">Search+</a></li>
+
+
+    
+      
+      <li id="mini_login_container_top">
+  <button id="login_link_top" href="show_bug.cgi?id=179602&amp;GoAheadAndLogIn=1" onclick="document.getElementById('login-dialog').showModal()">Log In</button>
+  
+  <dialog id="login-dialog">
+  <div class="close">
+  <a href="#" onclick="document.getElementById('mini_login_top').classList.remove('bz_default_hidden'); document.getElementById('forgot_form_top').classList.add('bz_default_hidden'); document.getElementById('login-dialog').close(); return false;" class="close">&times;</a>
+  </div>
+<span id="github_mini_login_top" class="bz_default_hidden mini_login_top"></span>
+    <form method="post" action="https://bugs.webkit.org/github.cgi">
+    <input type="hidden" name="github_secret" value="Odq91ErwgXzBUxBh">
+    <input type="hidden" name="target_uri" value="https://bugs.webkit.org/show_bug.cgi?id=179602">
+    <button name="githubauth" value="Log in with GitHub" class="button github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="currentColor" d="M39.9827068,2.06038715 C26.6986914,5.02206928 15.8101542,12.3827204 8.31884067,23.5325825 C-4.79095805,43.1755033 -2.17770913,69.5257633 14.5470839,86.3376647 C19.555811,91.3899459 27.1777871,96.2680106 32.9269346,98.140839 L33.5416202,98.3377883 C35.0307543,98.8014854 35.3836071,98.7742569 36.1347271,98.2821121 L36.4598332,98.0622568 C37.3310229,97.448652 37.3694578,97.0097509 37.3694578,92.304583 L37.3694578,87.1651935 L33.5366926,87.3829642 C29.0506155,87.600735 25.5662834,86.8167603 23.4756844,85.0310402 C22.778818,84.4571503 21.4646582,82.5715118 20.4773008,80.7539572 L19.8536874,79.5760386 C18.4740582,77.0427807 17.242091,75.5874553 14.4744392,73.1058792 L13.6695472,72.3890342 C12.8932319,71.6859889 12.9407045,71.5933044 13.6324468,71.0937126 C15.5052752,69.6999799 19.2944861,71.0501586 21.6899643,73.9247323 L22.7390371,75.1881495 C26.1616492,79.2523919 27.6940317,80.4168625 29.8781443,80.8933961 C32.0122976,81.3289376 33.9722341,81.154721 36.9339163,80.283638 C37.3259036,80.1529756 37.8485535,79.2383385 38.1098784,78.1930389 C38.3712031,77.1912935 39.0680696,75.6668983 39.6342734,74.8393695 L40.679573,73.3149743 L37.151687,72.6181078 C29.7474817,71.0937126 25.1742961,68.4369096 22.1690599,63.9072782 C19.3815944,59.72608 18.4669573,56.1110856 18.4234031,49.3601926 L18.4324675,48.1749454 C18.51876,42.850272 19.2446323,40.3337894 21.6049861,37.1593877 L22.2503793,36.3059336 C23.050648,35.2082945 23.1611069,34.7274879 22.9223171,34.0121113 L22.8659263,33.8549157 C22.2126141,32.2869662 22.3868307,25.6667358 23.083697,23.6632448 C23.649901,22.1824037 23.95478,21.921079 25.1307419,21.7904164 C27.0906787,21.5726457 30.7492273,22.835716 34.4513298,24.9263151 L37.6307827,26.7555895 L40.4182483,26.1022773 C44.3816758,25.1876401 56.2719582,25.2311943 59.8433984,26.1022773 L62.5437556,26.7991435 L65.0698962,25.2747485 C68.4235657,23.2712575 72.6918723,21.7033083 74.8260256,21.7033083 L75.3880613,21.7095181 C76.535526,21.7482235 76.6117457,22.02452 77.2215036,23.968124 C77.9207898,26.395058 78.0761866,30.6867545 77.5409306,33.027357 L77.4392744,33.4193742 C77.0908413,34.7259987 77.1779497,35.117986 78.1361408,36.3810563 C82.8835429,42.6528537 83.4061928,53.0622951 79.3992112,61.5989084 C76.698854,67.2173935 70.9932605,71.1372668 63.3277305,72.5745536 L59.6691819,73.2714201 L61.0193606,75.6668983 L62.4130932,78.1059306 L62.5437556,87.8185058 L62.7179722,97.5310809 L63.8068259,98.2279473 C64.7558478,98.8468746 65.0012471,98.8794498 66.8020229,98.2516071 L67.1169411,98.140839 C70.6012732,96.9648769 76.5681916,93.74187 79.8347527,91.2592835 C99.2599028,76.7121978 105.5317,50.6232629 94.7738257,28.9332968 C88.4584741,16.1719313 76.5246374,6.37224799 62.8486347,2.71369941 C56.8817163,1.14574994 45.6447461,0.797316839 39.9827068,2.06038715 Z"/></svg>Sign in with GitHub</button>
+    </form>
+  
+  <p class="divider">or</p>
+  
+  <form action="show_bug.cgi?id=179602" method="POST"
+        id="mini_login_top" class="mini_login dialog-grid">
+        
+    <input id="Bugzilla_login_top" required autofocus
+           name="Bugzilla_login" class="bz_login"
+        type="email" placeholder="Email Address">
+    <input class="bz_password" name="Bugzilla_password" type="password"
+           id="Bugzilla_password_top" required
+           placeholder="Password">
+    <input type="hidden" name="Bugzilla_login_token"
+           value="">
+    <input type="submit" name="GoAheadAndLogIn" value="Log in"
+            id="log_in_top">
+                
+      <label for="Bugzilla_remember_top"><input type="checkbox" id="Bugzilla_remember_top" 
+             name="Bugzilla_remember" value="on" class="bz_remember"
+             > Remember my login</label>
+    
+    <div class="links">
+    <a id="create_account_link_top" href="/createaccount.cgi">Create Account</a> 
+    
+    &middot;
+              
+    <a id="forgot_link_top" href="show_bug.cgi?id=179602&amp;GoAheadAndLogIn=1#forgot"
+       onclick="document.getElementById('mini_login_top').classList.toggle('bz_default_hidden');
+                document.getElementById('forgot_form_top').classList.toggle('bz_default_hidden');
+                return false;">Forgot Password</a>
+    </div>
+  </form>
+  
+    <form action="token.cgi" method="post" id="forgot_form_top"
+          class="mini_forgot dialog-grid bz_default_hidden">
+      <h2>Forgotten password account recovery</h2>
+      <input name="loginname" size="20" id="login_top" required
+          type="email" placeholder="Your Email Address">
+      <input id="forgot_button_top" value="Reset Password" type="submit">
+      <input type="hidden" name="a" value="reqpw">
+      <input type="hidden" id="token_top" name="token"
+             value="1795227401-KpIURcdiIKi734w49SPoUDq8rqFIvIdikZ_QIdZmaJE">
+    </form>
+  
+  </dialog>
+  
+
+</li>
+    
+    <li class="quicksearch">
+    <form action="buglist.cgi" method="get"
+        onsubmit="if (this.quicksearch.value == '') { document.location.assign('/query.cgi'); return false; } else return true;">
+    <input type="hidden" id="no_redirect_top" name="no_redirect" value="0">
+    <script type="text/javascript">
+      if (history && history.replaceState) {
+        var no_redirect = document.getElementById("no_redirect_top");
+        no_redirect.value = 1;
+      }
+    </script>
+    <input class="search-input" type="search" id="quicksearch_top" name="quicksearch" 
+           title="Quick Search" value="">
+    <!-- <input class="btn" type="submit" value="Search" 
+           id="find_top"> --></form></li>
+  </ul>
+    </div>
+  </div>
+
+
+  <main id="bugzilla-body">
+    <section>
+
+
+<script type="text/javascript">
+<!--
+
+//-->
+</script>
+
+<form name="changeform" id="changeform" method="post" action="process_bug.cgi">
+<div class="mobile-button-positioning mobile-hidden">
+  <div class="mobile-save-overlay">
+  <input type="submit" value="Save Changes" 
+         id="mobile-commit">
+  </div>
+</div>
+
+  <input type="hidden" name="delta_ts" value="2022-02-09 10:14:09">
+  <input type="hidden" name="id" value="179602">
+  <input type="hidden" name="token" value="1795227401-97LT4miXCDTzi5t5anJfbjggw7JheZJ9w_glwSYm_u8">
+<div class="bz_short_desc_container edit_form">
+     <div id="bug-id-status">
+     <span class="bug-status status-new">NEW</span><a href="show_bug.cgi?id=179602" class="bug_id">179602</a>
+     </div>
+     <style>
+     a.bug_id::before {
+       content: "Bug ";
+       -webkit-user-select: none;
+       user-select: none;
+     }
+     </style>
+     <span id="summary_container" class="bz_default_hidden">
+      <span id="short_desc_nonedit_display">[iOS third party keyboard] Keyboard got wrong output when type fast with delete and insert <pre id="commit-urls">https://bugs.webkit.org/show_bug.cgi?id=179602</pre></span>
+     </span>
+    <div id="summary_input"><span class="field_label "
+    id="field_label_short_desc">
+
+
+  <a 
+      title="The bug summary is a short sentence which succinctly describes what the bug is about."
+      class="field_help_link field-label"
+      href="page.cgi?id=fields.html#short_desc"
+  >Summary</a>
+
+</span><span title="[iOS third party keyboard] Keyboard got wrong output when type fast with delete and insert">[iOS third party keyboard] Keyboard got wrong output when type fast with dele...
+        </span>
+    </div>
+  </div>
+  <script type="text/javascript"> 
+    const container = document.getElementById('summary_container')
+    const input = document.getElementById('summary_input');
+    const editButton = document.getElementById('summary_edit_action');
+    
+    container.classList.remove('bz_default_hidden');
+    input.classList.add('bz_default_hidden');
+    editButton.addEventListener('click', () => {
+      container.classList.toggle('bz_default_hidden');
+      input.classList.toggle('bz_default_hidden');
+      document.querySelectorAll('.mobile-hidden').forEach(element => {
+        element.classList.toggle('mobile-hidden');
+      });
+    });
+    
+    function selectText(node) {    
+        if (document.body.createTextRange) {
+            const range = document.body.createTextRange();
+            range.moveToElementText(node);
+            range.select();
+        } else if (window.getSelection) {
+            const selection = window.getSelection();
+            const range = document.createRange();
+            range.selectNodeContents(node);
+            selection.removeAllRanges();
+            selection.addRange(range);
+        }
+    }
+    
+    let copyCommitlogElement = document.getElementById('copy-commitlog');
+    copyCommitlogElement.addEventListener('click', (e) => {
+      e.preventDefault();
+      let text = document.getElementById('short_desc').value + "\n" + document.getElementById('commit-urls').textContent;
+      navigator.clipboard.writeText(text).then(function() {
+        copyCommitlogElement.classList.add('clicked');
+        setTimeout(function () {
+          copyCommitlogElement.classList.remove('clicked');  
+        }, 3000);
+      });
+    });
+    
+    // Add Radar URL
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('#comments .bz_comment').forEach((comment) => {
+          let email = comment.querySelector('.bz_comment_user .email');
+          if (email && email.getAttribute('href') != 'mailto:webkit-bug-importer@group.apple.com')
+            return;
+          let commentText = comment.querySelector('.bz_comment_text');
+          let rdar = commentText.textContent.match(/rdar:\/\/.*?\d+/)
+          let commit_urls = document.getElementById('commit-urls');
+          if (rdar?.length > 0)
+            commit_urls.innerHTML += "\n" + rdar.toString().replace('/problem','');
+      });
+    });
+    
+  </script>
+  
+  <section class="comments-section">
+    
+    
+    <div id="comments"><script src="js/comments.js?1795030858" type="text/javascript"></script>
+
+<script type="text/javascript">
+<!--
+  /* Adds the reply text to the 'comment' textarea */
+  function replyToComment(id, real_id, name) {
+      var prefix = "(In reply to " + name + " from comment #" + id + ")\n";
+      var replytext = "";
+        /* pre id="comment_name_N" */
+        var text_elem = document.getElementById('comment_text_'+id);
+        var text = getCommentSource(text_elem);
+        replytext = prefix + wrapReplyText(text);
+
+
+      /* <textarea id="comment"> */
+      var textarea = document.getElementById('comment');
+      if (textarea.value != replytext) {
+          textarea.value += replytext;
+      }
+
+      textarea.focus();
+  } 
+//-->
+</script>
+
+
+<!-- This auto-sizes the comments and positions the collapse/expand links 
+     to the right. -->
+<div class="bz_comment_table">
+<div id="c0" class="bz_comment bz_first_comment">
+
+      <div class="bz_first_comment_head">
+        <div class="bz_comment_user">
+          <span class="vcard"><span class="fn">Seungyoun Yi</span>
+</span>
+          
+          
+          <span class="bz_comment_user_images">
+          </span>
+
+        </div>
+
+
+        <div class="bz_comment_meta">
+          <a href="show_bug.cgi?id=179602#c0">Reported</a>
+          <span class="bz_comment_time torelativedatetime" data-ts="2017-11-13 00:13:38">2017-11-13 00:13:38 PST</span>
+          
+        </div>
+
+      </div>
+
+
+
+
+<div class="bz_comment_text">Created <span class=""><a href="attachment.cgi?id=326749" name="attach_326749" title="WebKit Log">attachment 326749</a> <a href="attachment.cgi?id=326749&amp;action=edit" title="WebKit Log">[details]</a></span>
+WebKit Log
+
+Hello, This is Seungyoun Yi from Naver Corp in South Korea.
+Although I reported this bug in APPLE bug reporter Radar#34969608(<a href="https://bugreport.apple.com/web/?problemID=34969608" rel="nofollow">https://bugreport.apple.com/web/?problemID=34969608</a>), I think this bug is also related to WebKit. Thus, I will report this bug here too. 
+You can see full issue in this link(<a href="https://github.com/younatics/Apple_Korean_keyboard_bug_report" rel="nofollow">https://github.com/younatics/Apple_Korean_keyboard_bug_report</a>). 
+
+As I see some logs in iOS Console when I typed fast(See attachment), I saw some network response in com.apple.WebKit.WebContent. 
+Maybe, some responses are not work correctly. As I saw `didReceiveData ` and `didFinishResourceLoad ` consecutively at the end of this log, but front of log only shows me that response is not return correctly. 
+When I typed fast with iOS Keyboard extension, this issue is happened always. More, this issue cause us bunch of CS to our company. 
+
+This is not just for our problem, every third party keyboard got struggled with this issue.
+Please fix this issue with Apple Keyboard Team.
+
+Best regards,
+Seungyoun Yi'
+
+---
+This is full issue that I reported in Apple Bug reporter.
+
+Hello Apple keyboard team. I'm developer in South Korea, developing Korean keyboard in Naver corporation. 
+Korean is different then other languages and we found critical bug in typing Korean in Safari or other webview. 
+
+For example, 
+if I insert text -&gt; [self.textDocumentProxy insertText:&#64;&quot;ㅇ&quot;];
+// output: ㅇ
+and want to make chracter, 우
+we have to delete chracter -&gt; [self.textDocumentProxy deleteBackward];
+and insert again -&gt; [self.textDocumentProxy insertText:&#64;&quot;우&quot;];
+// output: 우
+Same, 
+[self.textDocumentProxy deleteBackward];
+[self.textDocumentProxy insertText:&#64;&quot;워&quot;];
+// output: 워
+
+[self.textDocumentProxy deleteBackward];
+[self.textDocumentProxy insertText:&#64;&quot;원&quot;];
+// output: 원
+
+[self.textDocumentProxy deleteBackward];
+[self.textDocumentProxy insertText:&#64;&quot;웑&quot;];
+// output: ㅇ + ㅜ + ㅓ + ㄴ + ㅈ-&gt; 웑
+
+But in this case, we have to delete and make 2 words
+[self.textDocumentProxy deleteBackward];
+[self.textDocumentProxy insertText:&#64;&quot;원재&quot;];
+// output: ㅇ + ㅜ + ㅓ + ㄴ + ㅈ + ㅐ -&gt; 원재
+
+Because of distinct characteristics, we found bug as you can see in my comment GIF file(korean_in_webview.gif). 
+This GIF file shows how we type &quot;우원재&quot; as I explained first. 
+If we type fast, unusual word appeared in webview. However this is not happened in Apple normal Korean keyboard.
+
+So, 
+- Is there any different logic in Apple normal Korean keyboard?
+- If I can help you, I certainly help you to develop Korean keyboard. 
+Thanks!
+
+More, I think lifecycle of keyboard is changed in iOS11. When keyboard appear and close, every lifecycle is called. 
+Thus, our keyboard is crashed and normal keyboard came up as you can see in another gif file(keyboard_lifecycle_in_iOS11.gif)
+Could you give me some advice for this situation?
+
+Thanks again,
+Best regards
+Seungyoun Yi
+---</div>
+    </div>
+    
+    
+
+        
+        
+        <script src="js/status-bubble.js?1795030858"></script>
+<script type="text/javascript">
+<!--
+window.addEventListener('message', handleStatusBubbleMessage, false);
+
+function toggle_display(link) {
+    var table = document.getElementById("attachment_table");
+    var view_all = document.getElementById("view_all");
+    var hide_obsolete_url_parameter = "&hide_obsolete=1";
+    // Store current height for scrolling later
+    var originalHeight = table.offsetHeight;
+    var rows = YAHOO.util.Dom.getElementsByClassName(
+        'bz_tr_obsolete', 'tr', table);
+
+    for (var i = 0; i < rows.length; i++) {
+        bz_toggleClass(rows[i], 'bz_default_hidden');
+    }
+
+    if (YAHOO.util.Dom.hasClass(rows[0], 'bz_default_hidden')) {
+        link.innerHTML = "Show Obsolete";
+        view_all.href = view_all.href + hide_obsolete_url_parameter 
+    }
+    else {
+        link.innerHTML = "Hide Obsolete";
+        view_all.href = view_all.href.replace(hide_obsolete_url_parameter,"");
+    }
+
+    var newHeight = table.offsetHeight;
+    // This scrolling makes the window appear to not move at all.
+    window.scrollBy(0, newHeight - originalHeight);
+
+    return false;
+}
+//-->
+</script>
+
+<table id="attachment_table">
+  <tr id="a0">
+    <th colspan="3" class="left">
+      Attachments
+    </th>
+  </tr>
+
+
+      <tr id="a1" class="bz_contenttype_image_png">
+        <td class="attachment-details">
+            <a href="attachment.cgi?id=326749"
+               title="View the content of the attachment">
+          <b>WebKit Log</b></a>
+
+          <span class="bz_attach_extra_info">
+              (1.45 MB,
+                image/png)
+
+            <br>
+            <a href="#attach_326749"
+               title="Go to the comment associated with the attachment">2017-11-13 00:13 PST</a>,
+
+            <span class="vcard"><span class="fn">Seungyoun Yi</span>
+</span>
+          </span>
+        </td>
+
+          <td class="bz_attach_flags attachment-flags">
+              <em>no flags</em>
+          </td>
+
+        <td class="attachment-controls">
+            <div class="controls">
+<a href="attachment.cgi?id=326749&amp;action=edit">Details</a>
+              </div>
+
+        </td>
+      </tr>
+
+  <tr class="bz_attach_footer">
+    <td colspan="3">
+        <span class="bz_attach_view_hide">
+            <a id="view_all" class="small button" href="attachment.cgi?bugid=179602&amp;action=viewall">View All</a>
+        </span>
+        <a class="small button" href="attachment.cgi?bugid=179602&amp;action=enter">Add attachment</a>
+        <em>proposed patch, testcase, etc.</em>
+    </td>
+  </tr>
+</table>
+        
+        
+        
+          
+    
+
+
+    <div id="c1" class="bz_comment">
+
+      <div class="bz_comment_head">
+        <div class="bz_comment_user">
+          <span class="vcard"><span class="fn">Alexey Proskuryakov</span>
+</span>
+          
+          
+          <span class="bz_comment_user_images">
+          </span>
+
+        </div>
+
+
+        <div class="bz_comment_meta">
+          <a href="show_bug.cgi?id=179602#c1">Comment 1</a>
+          <span class="bz_comment_time torelativedatetime" data-ts="2017-11-13 18:59:21">2017-11-13 18:59:21 PST</span>
+          
+        </div>
+
+      </div>
+
+
+
+
+<div class="bz_comment_text"><a href="rdar://problem/34969608">rdar://problem/34969608</a></div>
+    </div>
+    
+
+
+    <div id="c2" class="bz_comment">
+
+      <div class="bz_comment_head">
+        <div class="bz_comment_user">
+          <span class="vcard"><span class="fn">Wenson Hsieh</span>
+</span>
+          
+          
+          <span class="bz_comment_user_images">
+          </span>
+
+        </div>
+
+
+        <div class="bz_comment_meta">
+          <a href="show_bug.cgi?id=179602#c2">Comment 2</a>
+          <span class="bz_comment_time torelativedatetime" data-ts="2017-11-13 19:13:29">2017-11-13 19:13:29 PST</span>
+          
+        </div>
+
+      </div>
+
+
+
+
+<div class="bz_comment_text">Hi Seungyoun,
+
+Just to make sure — this also reproduces native (non-WebKit) apps, not just WebKit-based apps, correct?
+
+Also, when reproducing in WebKit-based apps, were you using WKWebView or UIWebView?
+
+Thanks!</div>
+    </div>
+    
+
+
+    <div id="c3" class="bz_comment">
+
+      <div class="bz_comment_head">
+        <div class="bz_comment_user">
+          <span class="vcard"><span class="fn">Seungyoun Yi</span>
+</span>
+          
+          
+          <span class="bz_comment_user_images">
+          </span>
+
+        </div>
+
+
+        <div class="bz_comment_meta">
+          <a href="show_bug.cgi?id=179602#c3">Comment 3</a>
+          <span class="bz_comment_time torelativedatetime" data-ts="2017-11-13 19:42:19">2017-11-13 19:42:19 PST</span>
+          
+        </div>
+
+      </div>
+
+
+
+
+<div class="bz_comment_text">Great pleasure that I got fast response! 
+Thanks WebKit Team.
+
+As I tested this application(keyboardsample) in iOS Memo application and iMessage application, this issue is not happened. 
+
+This bug only reproduced by WebView based text input include iOS Safari application in iOS 11.1 or lower iOS version. 
+
+I am not sure this happened in UIWebView. However, I can see bug happened in WKWebView 100%.
+
+If you have any question, you can send me an e-mail to private e-mail or company e-amil (<a href="mailto:seungyoun.yi&#64;navercrop.com">seungyoun.yi&#64;navercrop.com</a>). 
+
+Thanks! 
+Seungyoun Yi</div>
+    </div>
+    
+
+
+    <div id="c4" class="bz_comment">
+
+      <div class="bz_comment_head">
+        <div class="bz_comment_user">
+          <span class="vcard"><span class="fn">Seungyoun Yi</span>
+</span>
+          
+          
+          <span class="bz_comment_user_images">
+          </span>
+
+        </div>
+
+
+        <div class="bz_comment_meta">
+          <a href="show_bug.cgi?id=179602#c4">Comment 4</a>
+          <span class="bz_comment_time torelativedatetime" data-ts="2017-11-13 22:42:00">2017-11-13 22:42:00 PST</span>
+          
+        </div>
+
+      </div>
+
+
+
+
+<div class="bz_comment_text">Oops my company e-mail is wrong. Send me an e-amil to <a href="mailto:seungyoun.yi&#64;navercorp.com">seungyoun.yi&#64;navercorp.com</a></div>
+    </div>
+    
+
+  <div id="add_comment" class="bz_section_additional_comments">
+    <fieldset class="note">
+      <legend>Note</legend>
+      You need to
+      <a href="show_bug.cgi?id=179602&amp;GoAheadAndLogIn=1">log in</a>
+      before you can comment on or make changes to this bug.
+    </fieldset>
+  </div>
+
+
+  
+
+</div>
+    </div>
+    
+  </section>
+  <aside id="bug_details" class="edit_form mobile-hidden">
+
+    <div class="section-status"><div id="status"><div class="field-container"><th class="field_label "
+    id="field_label_bug_status">
+
+
+  <a 
+      title="A bug may be in any of a number of states."
+      class="field_help_link field-label"
+      href="page.cgi?id=fields.html#bug_status"
+  >Status</a>
+
+</th>
+  <span class="field_value "
+      id="field_container_bug_status" >NEW
+
+</span>
+</div>
+
+
+  <span id="resolution_settings"><div class="field-container"><th class="field_label "
+    id="field_label_resolution">
+
+
+  <a 
+      title="If a bug is in a resolved state, then one of these reasons will be given for its resolution."
+      class="field_help_link field-label"
+      href="page.cgi?id=fields.html#resolution"
+  >Resolution</a>
+
+</th>
+  <span class="field_value "
+      id="field_container_resolution" >
+
+</span>
+</div>
+  </span>
+
+</div>
+
+<script type="text/javascript">
+  var close_status_array = [
+  ];
+  YAHOO.util.Dom.removeClass('dup_id_discoverable', 'bz_default_hidden');
+  hideEditableField( "dup_id_container", "dup_id", 'dup_id_edit_action',
+                     'dup_id', '' )
+  showHideStatusItems( "",  ['',
+                             'NEW']);
+  YAHOO.util.Event.addListener( 'bug_status', "change", showHideStatusItems,
+                                ['',
+                                 'NEW']);
+  YAHOO.util.Event.addListener( 'resolution', "change", showDuplicateItem);
+  YAHOO.util.Event.addListener( 'dup_id_discoverable_action',
+                                'click',
+                                setResolutionToDuplicate,
+                                'RESOLVED');
+  YAHOO.util.Event.addListener( window, 'load',  showHideStatusItems,
+                              ['',
+                               'NEW'] );
+
+</script>
+  </div>
+    
+    <div class="section-priority">
+      <span class="severity"><div class="field-container"><th class="field_label "
+    id="field_label_priority">
+
+
+  <a 
+      title="Engineers prioritize their bugs using this field."
+      class="field_help_link field-label"
+      href="page.cgi?id=fields.html#priority"
+  >Priority</a>
+
+</th>
+  <span class="field_value "
+      id="field_container_priority" >P2
+
+</span>
+</div>
+       <div class="field-container"><th class="field_label "
+    id="field_label_bug_severity">
+
+
+  <a 
+      title="How severe the bug is, or whether it's an enhancement."
+      class="field_help_link field-label"
+      href="page.cgi?id=fields.html#bug_severity"
+  >Severity</a>
+
+</th>
+  <span class="field_value "
+      id="field_container_bug_severity" >Critical
+
+</span>
+</div>
+      </span>
+    </div>
+
+    <div class="section-classification bz_default_hidden"><div class="field-container"><th class="field_label "
+    id="field_label_classification">
+
+
+  <a 
+      title="Bugs are categorised into Classifications, Products and Components. classifications is the top-level categorisation."
+      class="field_help_link field-label"
+      href="page.cgi?id=fields.html#classification"
+  >Classification</a>
+
+</th>
+  <span class="field_value "
+      id="field_container_classification" >Unclassified
+
+</span>
+</div>
+    </div>
+    <div class="section-version">
+<th class="field_label "
+    id="field_label_version">
+
+
+  <a 
+      title="The version field defines the version of the software the bug was found in."
+      class="field_help_link field-label"
+      href="page.cgi?id=fields.html#version"
+  >Version</a>
+
+</th>
+<td>Other
+  </td>
+
+    </div>
+        
+    
+        
+    <div class="section-platform"><div class="field-container"><th class="field_label "
+    id="field_label_rep_platform">
+
+
+  <a 
+      title="The hardware platform the bug was observed on. Note: When searching, selecting the option &quot;All&quot; only finds bugs whose value for this field is literally the word &quot;All&quot;."
+      class="field_help_link field-label"
+      href="page.cgi?id=fields.html#rep_platform"
+  >Hardware</a>
+
+</th>
+  <span class="field_value "
+      id="field_container_rep_platform" >iPhone / iPad
+
+</span>
+</div>
+        <div class="field-container"><th class="field_label "
+    id="field_label_op_sys">
+
+
+  <a 
+      title="The operating system the bug was observed on. Note: When searching, selecting the option &quot;All&quot; only finds bugs whose value for this field is literally the word &quot;All&quot;."
+      class="field_help_link field-label"
+      href="page.cgi?id=fields.html#op_sys"
+  >OS</a>
+
+</th>
+  <span class="field_value "
+      id="field_container_op_sys" >All
+
+</span>
+</div>
+    </div>
+
+    
+    
+    
+    <div class="section-product"><div class="field-container"><th class="field_label "
+    id="field_label_product">
+
+
+  <a 
+      title="Bugs are categorised into Products and Components."
+      class="field_help_link field-label"
+      href="describecomponents.cgi"
+  >Product</a>
+
+</th>
+  <span class="field_value "
+      id="field_container_product" >WebKit
+
+</span>
+</div>
+    </div>
+        
+    
+    
+    <div class="section-component"><div class="field-container"><th class="field_label "
+    id="field_label_component">
+
+
+  <a 
+      title="Components are second-level categories; each belongs to a particular Product. Select a Product to narrow down this list."
+      class="field_help_link field-label"
+      href="describecomponents.cgi?product=WebKit"
+  >Component</a>
+
+</th>
+  <span class="field_value "
+      id="field_container_component" >New Bugs
+
+</span>
+</div>
+    </div>
+    
+        <div class="section-people"><th class="field_label "
+    id="field_label_assigned_to">
+
+
+  <a 
+      title="The person in charge of resolving the bug."
+      class="field_help_link field-label"
+      href="page.cgi?id=fields.html#assigned_to"
+  >Assignee</a>
+
+</th>
+      <div><span class="vcard"><span class="fn">Nobody</span>
+</span>
+      </div>
+    </div>
+
+
+    <script type="text/javascript">
+      assignToDefaultOnChange(['product'],
+        'webkit-unassigned\x40lists.webkit.org',
+        '');
+    </script>
+    
+    <div class="section-reported">
+    <label class="field_label">
+      Reported
+    </label>
+    <div>2017-11-13 00:13 PST
+    </div>
+  </div>
+  
+  <div class="section-modified">
+    <label class="field_label">
+      Modified
+    </label>
+    <div>2022-02-09 10:14 PST
+      <a href="show_activity.cgi?id=179602" class="button small">History</a>
+    </div>
+  
+  </div>
+    <div class="section-cclist">
+      <label  class="field_label"  accesskey="a">
+        CC List
+      </label>
+      <div>
+        <div>3 
+          users
+          <span id="cc_edit_area_showhide_container" class="bz_default_hidden">
+            <a href="#" id="cc_edit_area_showhide" class="button small">Show</a>
+          </span>
+        </div>
+        <div id="cc_edit_area">
+            <select id="cc" multiple="multiple" size="5" >
+                <option value="webkit-bug-importer">webkit-bug-importer</option>
+                <option value="wenson_hsieh">wenson_hsieh</option>
+                <option value="younatics">younatics</option>
+            </select>
+        </div>
+          <script type="text/javascript">
+            hideEditableField( 'cc_edit_area_showhide_container', 
+                               'cc_edit_area', 
+                               'cc_edit_area_showhide', 
+                               '', 
+                               '');  
+          </script>
+      </div>
+    </div>
+        <div class="section-url"><th class="field_label "
+    id="field_label_bug_file_loc">
+
+
+  <a 
+      title="Bugs can have a URL associated with them - for example, a pointer to a web site where the problem is seen."
+      class="field_help_link field-label"
+      href="page.cgi?id=fields.html#bug_file_loc"
+  >URL</a>
+
+</th>
+    <div>
+      <div id="bz_url_input_area"><td>  
+  </td>
+      </div>
+    </div>
+  </div>
+
+
+    <div class="section-keywords"><div class="field-container"><th class="field_label "
+    id="field_label_keywords">
+
+
+  <a 
+      title="You can add keywords from a defined list to bugs, in order to easily identify and group them."
+      class="field_help_link field-label"
+      href="describekeywords.cgi"
+  >Keywords</a>
+
+</th>
+  <span class="field_value "
+      id="field_container_keywords" >InRadar
+
+</span>
+</div>
+    </div>
+    
+    
+    <div class="section-dependson"><th class="field_label "
+    id="field_label_dependson">
+
+
+  <a 
+      title="The bugs listed here must be resolved before this bug can be resolved."
+      class="field_help_link field-label"
+      href="page.cgi?id=fields.html#dependson"
+  >Depends on</a>
+
+</th>
+
+  <div class="dependencies-block">
+    <span id="dependson_input_area">
+    </span>
+
+  </div>
+  </div>
+  
+  <div class="section-blocks"><th class="field_label "
+    id="field_label_blocked">
+
+
+  <a 
+      title="This bug must be resolved before the bugs listed in this field can be resolved."
+      class="field_help_link field-label"
+      href="page.cgi?id=fields.html#blocked"
+  >Blocks</a>
+
+</th>
+
+  <div class="dependencies-block">
+    <span id="blocked_input_area">
+    </span>
+
+  </div>
+  </div>
+    <div class="section-see-also"><div class="field-container"><th class="field_label "
+    id="field_label_see_also">
+
+
+  <a 
+      title="This allows you to refer to bugs in other installations. You can enter a URL to a bug in the 'Add Bug URLs' field to note that that bug is related to this one. You can enter multiple URLs at once by separating them with whitespace. You should normally use this field to refer to bugs in other installations. For bugs in this installation, it is better to use the Depends on and Blocks fields."
+      class="field_help_link field-label"
+      href="page.cgi?id=fields.html#see_also"
+  >See Also</a>
+
+</th>
+  <span class="field_value "
+      id="field_container_see_also" >
+
+</span>
+</div>
+    </div> 
+    
+    
+    
+    <div class="section-aliases"><th class="field_label "
+    id="field_label_alias">
+
+
+  <a 
+      title="A short, unique name assigned to a bug in order to assist with looking it up and referring to it in other places in Bugzilla."
+      class="field_help_link field-label"
+      href="page.cgi?id=fields.html#alias"
+  >Alias</a>
+
+</th>
+    <div>
+        <span class="none">None</span>
+    </div>
+  </div>
+   
+  </aside>
+
+</form>
+
+<hr>
+<ul class="related_actions">
+    <li><a href="#" class="button small">Top of Page </a></li>
+    <li><a href="show_bug.cgi?format=multiple&amp;id=179602" class="button small">Format For Printing</a></li>
+    <li><a href="show_bug.cgi?ctype=xml&amp;id=179602" class="button small">XML</a></li>
+    <li><a href="enter_bug.cgi?cloned_bug_id=179602" class="button small">Clone This Bug</a></li>
+    
+    </ul>
+
+<br>
+</section>
+    </main>
+
+    <div id="footer">
+      <div class="intro"></div>
+<ul id="useful-links">
+  <li id="links-actions"><ul class="links">
+  <li class="new-bug"><a href="enter_bug.cgi">New</a></li>
+  <li class="browse-bugs"><a href="describecomponents.cgi">Browse</a></li>
+  <li class="advanced-search"><a href="query.cgi?format=advanced">Search+</a></li>
+
+
+  <li><a href="report.cgi">Reports</a></li>
+
+  <li>
+      
+        <a href="request.cgi">Requests</a></li>
+  </ul>
+  </li>
+
+  
+
+
+
+
+  
+</ul>
+
+      <div class="outro"></div>
+    </div>
+
+    <!-- WEBKIT_CHANGES -->
+    <script defer src="/committers-autocomplete.js"></script>
+  </body>
+</html>

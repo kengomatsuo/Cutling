@@ -1,0 +1,8 @@
+Source: https://help.typinator.ergonis.com/hc/en-us/articles/23134671458588-Creating-expansions-with-interactive-input-fields
+Read with Claude in Chrome get_page_text 2026-11-21 (excerpt, verbatim sentences).
+- "Interactive input fields are special markers that ask you to enter a value when you trigger an abbreviation."
+- Syntax {{?First name}}; "If your expansion includes multiple fields ... Typinator will open a dialog window with both fields, allowing you to type the values before the text is inserted."
+- "If the same field label appears more than once ... Typinator only asks for it once then automatically fills in that value everywhere it's used."
+- "Typinator remembers the last values you entered and automatically fills them in the next time you use the same fields."
+- Default value: {{?Operating System<macOS>}}
+- Pop-up menus; "Allow free text" turns the menu into a combo box.

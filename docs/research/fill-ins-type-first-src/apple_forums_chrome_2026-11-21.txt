@@ -1,0 +1,7 @@
+Read with Claude in Chrome get_page_text 2026-11-21 (excerpts).
+== https://developer.apple.com/forums/thread/772158 "Retrieve input field text as a keyboard extension in Swift", by gignupg, created Jan '25, 0 replies:
+"when I'm pasting text into the input field, textDocumentProxy.documentContextBeforeInput refuses to return the entire text from the input field but instead only returns the last two sentences. I have tried this with the input fields in WhatsApp, Signal, and Telegram and it's all the same ... other third party keyboard extensions such as Grammarly are able to pick up the whole pasted text".
+== https://developer.apple.com/forums/thread/812642 "controller.textDocumentProxy.documentContext not detecting pasted text in Gmail or Email apps", by Jahongir, created Jan '26, 1 reply (Apple DTS, 14 Jan, asks for a sample project):
+"it works fine every time in my original app and in the Messages app. However, in Gmail or Email apps, after pasting text, controller.textDocumentProxy.documentContext returns nil until the pasted text is edited." Keyboard built on KeyboardKit.
+== https://developer.apple.com/forums/thread/700446 "Trash character in webview's textfield", by Minho-Park, created Feb '22, 0 replies:
+"The textfield's text in safari(apple.com search field) is "abcd". But, the return value is " abcd" including space character at first ... This is definitely appeared independently of iOS versions." Their adjustTextPosition(-text.count) overshoots.

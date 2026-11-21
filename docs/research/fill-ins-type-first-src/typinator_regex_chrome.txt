@@ -1,0 +1,7 @@
+Source: https://help.typinator.ergonis.com/hc/en-us/articles/23666803249308-Using-regular-expressions-in-Typinator
+Read with Claude in Chrome get_page_text 2026-11-21 (excerpt).
+- "Typinator uses the ICU Regular Expressions engine".
+- Capturing group "(p) Stores matched text as $1, $2, etc."; replacement patterns: "$0 entire match", "$1, $2... captured groups".
+- Examples: Pattern (\d+)\/(\d+) Replacement $2/$1 ; Surround typed words: Pattern \w+ Replacement #$0# ; Input: text -> #text#
+- "^ beginning of a line ... Irrelevant in Typinator - patterns never extend over multiple lines".
+Search listing (https://help.typinator.ergonis.com/hc/en-us/search?query=regular+expression+capture, 2026-11-21): "Regular expression sets use patterns to define what text should trigger" an expansion (article dated October 23, 2025).

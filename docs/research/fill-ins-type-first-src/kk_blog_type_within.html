@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+  <!-- Meta tags -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="author" content="danielsaidi" />
+  <meta name="description" content="This article discusses how to type into a text input within a keyboard extension.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="canonical" href="https://keyboardkit.com/blog/2023/11/13/how-to-type-within-a-keyboard-extension">
+  <link rel="alternate" type="application/rss+xml" title="KeyboardKit" href="/feed.xml">
+  <title>How to type into a text input within a keyboard extension</title>
+  
+  <!-- Analytics -->
+  
+  
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XJ0HPZDSM3"></script>
+  <script>
+    // Only initialize GA on canonical HTTPS non-www URL
+    const isHttps = window.location.protocol === 'https:';
+    const isNonWww = !window.location.hostname.startsWith('www.');
+    
+    if (isHttps && isNonWww) {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XJ0HPZDSM3');
+    }
+  </script>
+  
+  
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/assets/favicons/site.webmanifest">
+  <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js" defer></script>
+
+  <!-- Scripts -->
+  <script src="/js/kankoda.js" defer></script>
+
+  
+  <!-- Social -->
+  <meta property="og:url" content="https://keyboardkit.com/blog/2023/11/13/how-to-type-within-a-keyboard-extension" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How to type into a text input within a keyboard extension" />
+  <meta name="twitter:site" content="@keyboardkitsdk" />
+  <meta name="twitter:creator" content="@keyboardkitsdk" />
+  <meta name="twitter:title" content="How to type into a text input within a keyboard extension" />
+  
+  <meta property="og:image" content="https://keyboardkit.com/assets/headers/blog.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://keyboardkit.com/assets/headers/blog.jpg" />
+  
+  
+  <meta property="og:description" content="This article discusses how to type into a text input within a keyboard extension.
+
+" />
+  <meta name="twitter:description" content="This article discusses how to type into a text input within a keyboard extension.
+
+" />
+  
+  
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/main.css">
+</head>
+
+
+  <body class="glow">
+    <div class="page-shell">
+      <!-- Header -->
+      <header role="banner">
+  <div class="wrapper wide">
+    
+      <a class="brand-icon" href="/"><img src="/assets/icon/header.png" alt="KeyboardKit icon" /></a>
+    
+
+    
+    
+    
+      <a href="/" class="brand">KeyboardKit</a>
+    
+
+    <button class="menu-toggle" aria-label="Toggle menu">
+      <div class="menu-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button><nav><a href="/about">About</a><a href="/blog">Blog</a><a href="/features">Features</a><a href="/pro">Pro</a><a href="/pricing">Pricing</a><span class="nav-separator" role="separator"></span><a class="nav-menu-page" href="/app">App</a><a class="nav-menu-page" href="/case-studies">Case Studies</a><a class="nav-menu-page" href="/documentation">Documentation</a><a class="nav-menu-page" href="/github">GitHub</a><a class="nav-menu-page" href="/industries">Industries</a><a class="nav-menu-page" href="/partners">Partners</a><a class="nav-menu-page" href="/press">Press</a></nav><div class="menu-pages">
+        <button class="menu-pages-toggle" aria-label="More pages" aria-haspopup="true" aria-expanded="false">
+          <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </button>
+        <div class="menu-pages-dropdown"><a href="/app">App</a><a href="/case-studies">Case Studies</a><a href="/documentation">Documentation</a><a href="/github">GitHub</a><a href="/industries">Industries</a><a href="/partners">Partners</a><a href="/press">Press</a></div>
+      </div></div>
+</header>
+
+
+      <!-- Content -->
+      <main aria-label="Content">
+        
+        
+
+
+
+
+<section class="side-menu-layout">
+  <div class="wrapper wide">
+    <div class="side-menu-layout-grid">
+      <aside class="side-menu" aria-label="On This Page">
+        <div class="side-menu-inner">
+          
+            <a class="side-menu-title side-menu-back-link" href="/blog">Blog</a>
+          
+
+          <div class="side-menu-title">On This Page</div>
+          <nav class="side-menu-section" aria-label="On This Page">
+            <ul>
+              
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                    
+                    
+                    <li><a href="#why-does-this-happen">Why does this happen?</a></li>
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                    
+                    
+                    <li><a href="#how-can-you-fix-this">How can you fix this?</a></li>
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                    
+                    
+                    <li><a href="#keyboardkit-pro-text-routing">KeyboardKit Pro text routing</a></li>
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                    
+                    
+                    <li><a href="#try-it-out">Try it out</a></li>
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+                
+
+                
+
+                
+                  
+                  
+
+                  
+                
+              
+              
+              
+            </ul>
+          </nav>
+        </div>
+      </aside>
+
+      <div class="side-menu-content">
+        <div id="page-top" aria-hidden="true"></div>
+        <article class="blog page-content" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  
+
+
+
+
+<h1>How to type into a text input within a keyboard extension</h1>
+
+<div class="blog-post-meta">
+  <span class="blog-post-date">Nov 13, 2023</span>
+  <span class="blog-post-read-time">3 min read</span>
+  <div class="blog-post-tags">
+    
+      <span class="tag text-input">text-input</span>
+    
+  </div>
+</div>
+
+
+    
+    
+    
+  
+  <p>This article discusses how to type into a text input within a keyboard extension.</p>
+
+<p>When creating a keyboard extension for iOS, you may have had to add a <code class="language-plaintext highlighter-rouge">TextView</code> or <code class="language-plaintext highlighter-rouge">TextField</code> to let users type into a text field <em>within</em> the keyboard, for instance:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">MyKeyboardView</span><span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
+
+    <span class="kd">@State</span> 
+    <span class="kd">private</span> <span class="k">var</span> <span class="nv">text</span> <span class="o">=</span> <span class="s">""</span>
+
+    <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="kt">VStack</span> <span class="p">{</span>
+            <span class="kt">TextField</span><span class="p">(</span><span class="s">"Search..."</span><span class="p">,</span> <span class="nv">text</span><span class="p">:</span> <span class="err">$</span><span class="n">text</span><span class="p">)</span>
+            <span class="c1">// Keyboard here</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>However, you will then have noticed that while you can <em>add</em> a text input to your keyboard, the text you type will still end up in the main app, not the text input.</p>
+
+<h2 id="why-does-this-happen">Why does this happen?</h2>
+
+<p>The reason for this strange behavior, is that although you <em>focus</em> on the text input in the keyboard, the <em>text document proxy</em> will still refer to the main app, not the text input.</p>
+
+<p>Since the keyboard extension will by default send text to its text document proxy, the focused text input will be ignored in favor of the text document proxy, which still receives the typed text.</p>
+
+<h2 id="how-can-you-fix-this">How can you fix this?</h2>
+
+<p>To solve this, you will have to replace the <code class="language-plaintext highlighter-rouge">textDocumentProxy</code> with a custom proxy that routes text to the currently focused text field, instead of to the main app.</p>
+
+<p>This is quite challenging, since you must implement the proxy protocols, and also make sure that the text field takes over the proxy when it receives focus, and hands it back when it loses focus.</p>
+
+<p>KeyboardKit’s <code class="language-plaintext highlighter-rouge">KeyboardInputViewController</code> has a <code class="language-plaintext highlighter-rouge">textInputProxy</code> property that you can use to route text to another proxy. <code class="language-plaintext highlighter-rouge">textDocumentProxy</code> will return it if it’s set.</p>
+
+<p>However, implementing the proxy protocol and the registration is still quite challenging, which is why <a href="/pro">KeyboardKit Pro</a> provides ways to do this in a much easier way.</p>
+
+<h2 id="keyboardkit-pro-text-routing">KeyboardKit Pro text routing</h2>
+
+<p>To make it easier to add text inputs to a keyboard, KeyboardKit Pro has a <code class="language-plaintext highlighter-rouge">KeyboardTextField</code> and a <code class="language-plaintext highlighter-rouge">KeyboardTextView</code> that automatically register themselves as the active proxy while they have focus.</p>
+
+<p>This means that this will work just as you expect that it should:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">MyKeyboardView</span><span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
+
+    <span class="kd">@State</span> 
+    <span class="kd">private</span> <span class="k">var</span> <span class="nv">text</span> <span class="o">=</span> <span class="s">""</span>
+
+    <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="kt">VStack</span> <span class="p">{</span>
+            <span class="kt">KeyboardTextField</span><span class="p">(</span><span class="s">"Search..."</span><span class="p">,</span> <span class="nv">text</span><span class="p">:</span> <span class="err">$</span><span class="n">text</span><span class="p">)</span>
+            <span class="c1">// Keyboard here</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This drastically simplifies managing text input within a keyboard extension. Just add any of these views to your keyboard extension, and they will receive text input while they have focus.</p>
+
+<h2 id="try-it-out">Try it out</h2>
+
+<p>Text routing is part of <a href="/pro">KeyboardKit Pro Silver</a>. You can sign up for a 7 day FREE TRIAL if you want to test it in your keyboard.</p>
+
+  
+  <h2>Discussions & More</h2>
+  <p>
+    If you found this interesting, please share your thoughts on 
+    <a href="https://bsky.app/profile/keyboardkit.bsky.social">Bluesky</a> and
+    <a href="https://techhub.social/@keyboardkit">Mastodon</a>.
+    Make sure to follow to be notified when new content is published.
+  </p>
+
+  <a href="/blog/2023/11/13/how-to-type-within-a-keyboard-extension" hidden></a>
+</article>
+      </div>
+    </div>
+  </div>
+</section>
+
+      </main>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+  <data class="u-url" href="/"></data>
+  <div class="wrapper wide">
+    <div class="row">
+      <div class="column">
+        <p class="toggle">Site</p>
+        <div class="content">
+          <a href="/">Home</a><a href="/about">About</a><a href="/app">App</a><a href="/industries">Industries</a><a href="/case-studies">Case Studies</a><a href="/partners">Partners</a>
+        </div>
+      </div>
+      <div class="column">
+        <p class="toggle">SDK</p>
+        <div class="content">
+          <a href="/features">Features</a><a href="/pro">Pro Features</a><a href="/pricing">Pricing</a><a href="/business-licenses">Business Licenses</a><a href="/pro/terms">Terms &amp; Conditions</a><a href="/privacy">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="column">
+        <p class="toggle">News &amp; Press</p>
+        <div class="content">
+          <a href="/blog">Blog</a><a href="https://keyboardkit.com/feed.xml">RSS</a><a href="https://kankoda.gumroad.com/subscribe">Newsletter</a><a href="/press">Press</a>
+        </div>
+      </div>
+      <div class="column">
+        <p class="toggle">Code</p>
+        <div class="content">
+          <a href="/github">GitHub</a><a href="/get-started">Get Started</a><a href="https://github.com/KeyboardKit/KeyboardKit-Binaries">Binaries &amp; dSYMs</a><a href="/documentation">Documentation</a><a href="https://github.com/KeyboardKit/KeyboardKit/issues">Issue Tracker</a>
+        </div>
+      </div>
+      <div class="column">
+        <p class="toggle">Contact</p>
+        <div class="content">
+          <a href="/contact">Contact</a><a href="https://bsky.app/profile/keyboardkit.bsky.social">Bluesky</a><a href="https://techhub.social/@keyboardkit">Mastodon</a><a href="https://www.reddit.com/r/KeyboardKit">Reddit</a><a href="https://calendar.app.google/HyJeUXdRczwkp3Jh6">Schedule a call</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <span>© 2016-2026&nbsp;</span>
+      <a href="https://kankoda.com">Kankoda Sweden AB</a>. 
+      <span>&nbsp;All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+
+    <button class="scroll-to-top" aria-label="Back to top" title="Back to top"></button>
+  </body>
+</html>

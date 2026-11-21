@@ -1,0 +1,153 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<link href="/css/screen.css" rel="stylesheet" type="text/css"/>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/comments.js" type="text/javascript" charset="utf-8"></script>
+<title>rdar://FB7789012: iOS Keyboard Extension textDocumentProxy.selectedText truncation</title>
+</head>
+<body>
+<div id="page">
+<div style="clear:both" id="header">
+
+<div id="login">
+<div style="float:right">
+
+<span class="item"><a href="/">Home</a></span> |
+<span class="item"><a href="/comments">Recent Comments</a></span> |
+<span class="item"><a href="/login">Sign in</a></span> |
+
+<br/>
+<form action="/search" method="get">
+<input name="query"></input>
+<input type="submit" value="Search"/>
+</form>
+</div>
+</div>
+<h1><a href="/">Open Radar</a></h1>
+<h2>Community bug reports</h2>
+
+</div>
+<div id="content">
+
+<h3>iOS Keyboard Extension textDocumentProxy.selectedText truncation</h3>
+<div>
+<table>
+<tr><td>Originator:</td><td style="min-width:200px">johnofaustin</td>
+
+<td></td>
+
+</tr>
+
+<tr><td>Number:</td><td><a href="rdar://problem/FB7789012">rdar</a>://<a href="/FB7789012">FB7789012</a></td>
+    <td>Date Originated:</td><td>6/25/2020</td></tr>
+
+<tr><td>Status:</td><td>open</td>
+    <td>Resolved:</td><td></td></tr>
+
+<tr><td>Product:</td><td>iOS Keyboard Extensions</td>
+    <td>Product Version:</td><td></td></tr>
+
+<tr><td>Classification:</td><td></td>
+    <td>Reproducible:</td><td>yes</td></tr>
+
+</table>
+<div style="padding:10px; font-size:80%">
+<pre style="white-space:pre-wrap; max-width:800px"> 
+I&#39;ve created a UIInputViewController subclass for a keyboard extension. According to the documentation, the textDocumentProxy.selectedText property should contain &#34;The currently selected text in the document.&#34; However, in many cases, the selectedText property doesn&#39;t match what the user has selected in the UI.
+
+For example:
+-  type the following text into a notes field in the contacts app: &#34;This is text0. This is text1. This is text2. This is text3. This is text4. This is text5. This is text6. This is text7. 1234567890bcdefghijklmnop&#34;
+- select the entire text
+- read the contents of textDocumentsProxy.selectedText from the UIInputViewController of a keyboard extension
+
+Actual results:
+- the textDocumentProxy.selectedText property contains: &#34;This is text0. This is text7. 1234567890bcdefghijklmnop&#34;
+
+Expected results:
+- the textDocumentProxy.selectedText property contains the entire text:  &#34;This is text0. This is text1. This is text2. This is text3. This is text4. This is text5. This is text6. This is text7. 1234567890bcdefghijklmnop&#34;
+
+This is reproducible on both iOS 13, and the first iOS 14 beta. It reproduces on simulators and iPhone hardware.
+
+Because of this truncation, I can&#39;t reliably provide functionality such as adding quote marks to selected text.
+</pre>
+</div>
+</div>
+
+<div id="error"></div>
+
+
+
+<h2>Comments</h2>
+<div class="comments">
+
+
+
+<div class="commentWithReplies">
+
+  <div class="comment">
+    <a class="keyref" name="EhIKB0NvbW1lbnQQgICApsmY5Qk"></a>
+    <h3></h3>
+    <div class="commentbody">
+      <p>Having the same issue. Please look into this</p>
+
+    </div>
+    <div class="meta">
+      
+      By <strong>yamiras.********</strong> at
+      <a href="#EhIKB0NvbW1lbnQQgICApsmY5Qk">May. 19, 2023, 1:10PM</a>
+      (<a href="#" onclick="javascript:replyForm(this); return false">reply...</a>)
+      
+      
+      
+    </div>
+  </div>
+
+  <div class="indent">
+    
+  </div>
+</div>
+
+
+
+</div>
+
+<input id="newcomment" type="button" value="Add a comment" />
+
+<div style="display:none;" id="radar">EhAKBVJhZGFyEICAgOqtmvQI</div>
+<br />
+
+<script type="text/javascript" charset="utf-8">
+  if(jQuery("#error").text() == "") jQuery("#error").hide();
+</script>
+
+
+<p style="margin-top:4em; border-top:solid thin">
+<strong>Please note:</strong> 
+Reports posted here will not necessarily be seen by Apple.
+All problems should be submitted at feedbackassistant.apple.com before they are posted here.
+Please only post information for Radars that you have filed yourself, and please do
+not include Apple confidential information in your posts. Thank you!
+</p>
+
+
+
+</div>
+<div id="sidebar">
+
+</div>
+<div id="footer">
+
+<ul>
+<li>Running on <a href="http://appengine.google.com">Google App Engine</a>.</li>
+<li>Source code on <a href="http://github.com/timburks/openradar">GitHub</a>.</li>
+<li>Answers to <a href="/faq">Frequently Asked Questions</a>.</li>
+<li>On <a href="https://bsky.app/profile/openradar.me">Bluesky</a>.</li>
+</ul>
+
+</div>
+</div>
+</body>
+</html>
