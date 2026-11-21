@@ -45,7 +45,7 @@ final class FillInMockUITests: XCTestCase {
     @MainActor
     func testShootDesigns() throws {
         var keyboardAdded = false
-        for design in ["keys", "abc"] {
+        for design in ["own"] {
             for dark in [false, true] {
                 XCUIDevice.shared.appearance = dark ? .dark : .light
                 let app = XCUIApplication()
@@ -59,13 +59,20 @@ final class FillInMockUITests: XCTestCase {
                 }
                 _ = openKeyboardTestField(in: app)
                 switchToCutlingKeyboard(in: app, showing: "Reply")
+                // The keyboard sometimes stays down on a fresh launch; one more launch brings it up.
+                if !cutlingKeyboardIsUp(in: app, showing: "Reply") {
+                    app.terminate()
+                    app.launch()
+                    _ = openKeyboardTestField(in: app)
+                    switchToCutlingKeyboard(in: app, showing: "Reply")
+                }
                 let mode = dark ? "dark" : "light"
                 shot("\(design)_0_grid_\(mode)")
                 tapKey("Reply", in: app)
                 shot("\(design)_1_name_\(mode)")
-                tapKey("Next", in: app)
+                tapKey("Sarah", in: app)
                 shot("\(design)_2_plan_\(mode)")
-                tapKey("Insert", in: app)
+                tapKey("Basic", in: app)
                 app.terminate()
             }
         }
