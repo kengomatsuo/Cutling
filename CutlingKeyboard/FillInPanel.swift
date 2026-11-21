@@ -96,18 +96,19 @@ struct FillInBar: View {
 
     var body: some View {
         HStack(spacing: 6) {
-            // The waiting blank always shows whole; the words before it trim at their start and the
-            // words after it at their end, with "…", so nothing is cut mid-word or mid-blank.
-            HStack(spacing: 0) {
-                sentence(before)
+            // The waiting blank always shows whole. When the sentence is too long, whole words drop
+            // from the start (before the blank) and the end (after it) and an ellipsis marks each cut,
+            // so nothing is cut mid-word or mid-blank.
+            ViewThatFits(in: .horizontal) {
+                ForEach(Array(trims.enumerated()), id: \.offset) { _, trim in
+                    HStack(spacing: 0) {
+                        sentence(trim.before)
+                        if let field = session.field { blank(field) }
+                        sentence(trim.after)
+                    }
                     .lineLimit(1)
-                    .truncationMode(.head)
-                    .layoutPriority(1)
-                if let field = session.field { blank(field).fixedSize().layoutPriority(3) }
-                sentence(after)
-                    .lineLimit(1)
-                    .truncationMode(.tail)
-                    .layoutPriority(2)
+                    .fixedSize()
+                }
             }
             .font(.system(size: KeyStyle.buttonTextSize(for: horizontalSizeClass)))
             .padding(.horizontal, 4)
@@ -141,17 +142,60 @@ struct FillInBar: View {
         activeIndex.map { session.chunks[($0 + 1)...] } ?? []
     }
 
-    /// Part of the sentence as one line of text: filled blanks read as their value, others as their name, underlined.
-    private func sentence(_ chunks: ArraySlice<Placeholders.Chunk>) -> Text {
-        chunks.reduce(Text(verbatim: "")) { text, chunk in
+    /// One way to show the sentence: some words dropped before and after the blank.
+    private struct Trim {
+        var before: [Piece]
+        var after: [Piece]
+    }
+
+    /// A word of the sentence, or another blank, kept whole.
+    private enum Piece {
+        case word(String)
+        case field(Placeholders.Field)
+        case ellipsis
+    }
+
+    private func pieces(_ chunks: ArraySlice<Placeholders.Chunk>) -> [Piece] {
+        var out: [Piece] = []
+        for chunk in chunks {
             switch chunk {
             case .text(let run):
-                return text + Text(verbatim: run.replacingOccurrences(of: "\n", with: " "))
+                // Words keep the space after them, so dropping one never glues its neighbours.
+                var word = ""
+                for character in run.replacingOccurrences(of: "\n", with: " ") {
+                    word.append(character)
+                    if character == " " { out.append(.word(word)); word = "" }
+                }
+                if !word.isEmpty { out.append(.word(word)) }
+            case .field(let field): out.append(.field(field))
+            case .cursor: break
+            }
+        }
+        return out
+    }
+
+    /// Every way to show the sentence, from whole to shortest, dropping one word at a time from the far
+    /// end of the longer side; ViewThatFits takes the first that fits the bar.
+    private var trims: [Trim] {
+        var before = pieces(self.before)
+        var after = pieces(self.after)
+        var out = [Trim(before: before, after: after)]
+        while !before.isEmpty || !after.isEmpty {
+            if before.count >= after.count, !before.isEmpty { before.removeFirst() } else if !after.isEmpty { after.removeLast() } else { before.removeFirst() }
+            out.append(Trim(before: (before.isEmpty ? [] : [.ellipsis]) + before, after: after + (after.isEmpty ? [] : [.ellipsis])))
+        }
+        return out
+    }
+
+    /// Part of the sentence as one line of text: filled blanks read as their value, others as their name, underlined.
+    private func sentence(_ parts: [Piece]) -> Text {
+        parts.reduce(Text(verbatim: "")) { text, part in
+            switch part {
+            case .word(let word): return text + Text(verbatim: word)
+            case .ellipsis: return text + Text(verbatim: "…")
             case .field(let field):
                 if let value = session.values[field.key] { return text + Text(verbatim: value) }
                 return text + Text(verbatim: field.label).foregroundStyle(.secondary).underline()
-            case .cursor:
-                return text
             }
         }
     }

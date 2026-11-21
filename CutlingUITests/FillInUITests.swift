@@ -194,6 +194,7 @@ final class FillInUITests: XCTestCase {
         shot("keyboard_grid_previews")
         // A long cutling: the bar trims the words around the waiting blank, never the blank.
         tap("Order")
+        sleep(2)
         shot("long_bar_first_blank")
         tap("Next")
         shot("long_bar_second_blank")
