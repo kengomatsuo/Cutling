@@ -28,3 +28,5 @@ paths:
 - `TutorialOverlay.swift`: iOS-only interactive, skippable, 13-step coach-mark walkthrough (create, an optional fill-in step, edit, delete, recover), started only from How to Use Cutling. A persistent `TutorialHUD` carries progress + Skip on every screen, so no missing spotlight frame or closed TipKit popover can strand the user. Full account: [docs/tutorial.md](../../docs/tutorial.md).
 
 **App Intents and Siri Shortcuts.** `CutlingAppShortcutsProvider.swift` registers 10 App Shortcuts that surface in the Shortcuts gallery, Spotlight and Siri without user setup. Backing intents live in `*Intent.swift` files at the project root and share `CutlingStore.shared`. Provider constraints: max 10 shortcuts per app, every phrase must contain `\(.applicationName)`, parameter placeholders in phrases must be `AppEntity` or `AppEnum` (String/IntentFile params cannot be inlined). Settings exposes a `SiriTipView` + `ShortcutsLink` to teach phrases and open the gallery.
+
+- Empty states use `ContentUnavailableView`. A phantom `No such module 'UIKit'` in Zed means a stale `buildServer.json`.
