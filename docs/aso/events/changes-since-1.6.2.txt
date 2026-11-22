@@ -1,0 +1,80 @@
+- The Mac app builds again: the walkthrough's fill-in step is advanced only on iOS, where the walkthrough exists; and the Variables picker lists only kinds Cutling can fill
+- The form's text box draws its pills 3 pt smaller than the text, so wrapped lines sit at normal spacing instead of being pushed apart by pills as tall as the line
+- The tutorial's fill-in step is written in all 61 non-English locales
+- Setup checks shoot the guide and What's New in German, Japanese, Arabic and Tamil, in landscape, and write what VoiceOver reads on each page
+- The interactive tutorial gains an optional fill-in step after naming the first cutling and no longer starts by itself after setup, while the one-time fill-in tip waits until the walkthrough is over
+- The remade setup guide replaces the old one everywhere it opens (first launch, the keyboard manager, the screenshot run), the unchosen directions are removed, and its and the What's New sheet's strings are written in all 61 non-
+- The About Full Access sheet shows the setup guide's bar and title place, so it matches the pages it opens from
+- Every page of the remade setup guide shows the same inline navigation bar, so the Welcome title no longer sits higher than the titles after it
+- The page layout names its scroll area for UI tests only when a page asks, since an identifier on the whole page overrode its button's
+- Every page of the remade setup guide and every Cutling sheet shares one page layout (title at the top left, the same background and rows, one button at the bottom), and the kept What You Can Do, Sync Across Devices and You're Al
+- The Text page's bar follows Notes' order and scroll, Aa then the variables then Bold, Italic, Strikethrough, Monospace and Link inline with a filled circle for a style that is on, and a link is added from an Add Link sheet as in
+- The editor's text box is itself the way into the Text page, as a note opens from Notes' list and Mail's signature from its row, and {} opens the whole Variables list instead of a short menu that repeated the bar
+- The cutling editor's text opens as a Notes-like page from a Variables & Formatting row: a glass bar above the keyboard and Notes' bottom bar below it, an Aa Format card, a Variables menu and searchable picker, and a pill editor 
+- A text cutling holds up to 10,000 characters, with 5,000,000 across all of them, and previews draw only a cutling's first 400 characters: 500 cutlings of 10,000 characters and 500 images peak at 58.5 MB in the keyboard, and the 
+- The Settings video on Add the Keyboard is 210 points tall at most, so all three steps clear the link and button even on the queue's 678-point screen
+- About Full Access sits as a text link over Open Settings so it stays in view, and the Settings videos are cropped past the iPhone Duo's clock strip
+- The fill-in bar's ellipsis marks only a side that lost words and sits against the last word kept
+- The editor's Add Fill-in label speaks 76 languages, written blind and checked back
+- The Settings video on Add the Keyboard is 250 points tall at most, so the numbered steps under it stay above the Open Settings button
+- The keyboard's fill-in bar trims the sentence only between whole words, dropping words from the far ends with an ellipsis until it fits, so neither a word nor a blank is ever cut
+- The setup guide's Settings videos are recut from every recorded frame, light and dark, each about 20 seconds and 215 KB, opening on Cutling's Settings page and ending after Allow
+- The keyboard's fill-in bar always shows the waiting blank whole and trims the words before it at their start and after it at their end with an ellipsis, instead of a sideways scroll cut off mid-word or mid-blank; the test seed g
+- App card previews draw pills a little smaller than their text so a date pill fits the line beside it
+- In card previews a date or time pill shows today's value, short enough for a one-line preview, while a blank keeps its name; Placeholders is shared to every target that draws previews
+- Card previews in the app grid, the keyboard, the Mac picker and lists draw each fill-in as the editor's pill instead of its braces, from the one shared Cutling.displayText, with the pill renderer shared to every target that show
+- The new blank's name prompt speaks 76 languages, written blind and checked in a real alert, and its choices split on the comma each keyboard types (Latin, Arabic, full-width and ideographic)
+- The keyboard bar's fill-in buttons sit side by side, centred, so iOS 26 draws them as one glass group as Notes' bar is
+- UI test seeds skip the What's New sheet whatever the release ID, the Settings recording starts from Settings' first page wherever Settings was left, and the light Settings video (20 s, 137 KB) ships with the setup guide
+- The Cutling keyboard plays Apple's current keyboard sounds, keyboard_press_normal, _delete and _clear from the system's UISounds at run time, instead of the older key_press delete and modifier sounds; the old system sound IDs st
+- Pills sit right against the words beside them, with no side margin
+- What's New and the store notes say fill-ins come from the editor's Add Fill-in or Date and typed braces stay text, since only inserted pills are fill-ins now; the fill-in UI tests mark the release's What's New as seen so it does
+- Pills on wrapped lines sit 3 pt apart, close but not touching
+- Pills are full line height again with 7 pt between lines, since the shortened pills looked cramped
+- The setup guide's Add the Keyboard page plays a looping video of the real Settings steps above the guide's own numbered steps, replacing the drawn Settings rows the owner found pressable, and shows a still frame with a play butt
+- Pills sit shorter than the line with 4 pt between lines, so pills on wrapped lines never touch, and the keyboard bar is a system UIToolbar on the text view's input accessory, as Notes has, drawn by iOS in its own glass
+- Existing users see the new What's New sheet once per release that names new rows, anyone back after 30 days or more sees Welcome Back instead, and a fresh install sees neither, replacing the sheet that only ever showed to people
+- The iPhone keyboard bar carries its own glass capsule, as Notes' bar does, because iOS 26 leaves the space above the keyboard see-through and the icons floated over the page
+- The setup guide's What You Can Do, Sync Across Devices and You're All Set pages live in one shared file that the shipped guide and the remade guide both use, and the remade guide ends on them as the owner asked
+- Cutling holds 5,000 text cutlings and 500 images, up from 1,000 and 50, because the keyboard's reused-cell grid and disk thumbnails made photos nearly free and a store of 5,000 full-length snippets and 500 12 MP photos peaks at 
+- The What's New sheet leads with blanks and dates while fill-ins are on, and its subtitle follows the same switch
+- Pills keep a 2 pt margin off the text beside them, and the iPhone keyboard bar lays out the fill-in buttons as icons spread across, like Notes' bar
+- The editor's fill-in buttons sit on the text view's keyboard accessory, since SwiftUI's keyboard toolbar never reached the UIKit text view that draws the pills, and Fill-in Field asks for the blank's name and choices before inse
+- Direction A returns to the step the buyer reached after iOS relaunches Cutling for a Full Access change, and direction C's step button says Open so its row keeps the title on one line
+- The editor's fill-in tip speaks all 76 app languages, written blind and checked back
+- The What's New sheet's room row reads its numbers from CutlingStore's text and image limits, so it can never promise more room than the store allows
+- The iPhone keyboard bar shows each fill-in as its own button, as Shortcuts shows Clipboard and Current Date, and a one-time tip points to Add Fill-in or Date from the second time a text cutling's editor opens
+- Fill-ins are pills in the editor, as Shortcuts shows variables: only braces Cutling inserts carry an invisible marker and count as fill-ins, so typed braces such as LaTeX or {name} templates stay text, older versions and sync se
+- The editor's Add Fill-in or Date sits where people see it while writing: on the bar above the keyboard on iPhone and iPad, as Shortcuts and Snippety place theirs, and beside Paste from Clipboard right under the text on the Mac; 
+- Setup mocks get the store in their sheet, keep their step buttons reachable for VoiceOver and tests, and run with the Cutling keyboard taken out of the simulator's keyboard list, because an uninstall leaves its entry behind and 
+- Fill-ins are on in builds again now that the owner approved the redesigned keyboard screen, What's New says how they work today (type the name first or fill it from the keyboard), and a UI test opens the editor's Add Fill-in or 
+- VoiceOver reads the keyboard's return key as a button, and during a fill-in as Next or Insert
+- The keyboard's fill-in screen speaks every keyboard language: Type with Your Keyboard, Insert and the blank announcement written blind in 76 locales and checked back, the unused counter, hint and Done strings removed, and the ne
+- Direction C's Done moves to the navigation bar, because a bottom button rides up with the keyboard and covers the try field on short screens and in landscape
+- The setup guide's Continue button steps aside while the test field has the keyboard, because it sat over the field on short screens, and the field scrolls into view above the keyboard; Continue waits for the keyboard test anyway
+- Three onboarding directions for the owner's pick (three short pages, a setup card on the grid, one live checklist) and an Apple-style What's New and Welcome Back sheet run behind DEBUG launch switches, each keeping Full Access o
+- Cutling's store remembers a SHA-256 digest of the list file it last read instead of the whole file, and reads list files memory-mapped, so the keyboard holding 10,000 full-length snippets peaks at 65.3 MB in the simulator instea
+- The keyboard's fill-in screen is built to the owner's approved design: nothing is typed until Insert, a word typed first fills the first blank, Type with Your Keyboard picks up what was typed on the person's own keyboard, the re
+- The fill-in mock changes screens at once as Apple's keyboard swaps layouts, with no spring or fade; a word typed before the cutling fills its first blank; and the mock shows cards without the Inserted overlay
+- The fill-in mock's Type with Your Keyboard key stands apart from the value keys while sharing their surface, radius and press, values become single-line keys, and every step moves with the grid keys' spring: keys scale in from 0
+- The fill-in mock's Your Keyboard card says Type it there, which fits the card where the longer line was cut off
+- The fill-in mock is rebuilt from Cutling's own keyboard parts after the owner rejected letter keys and new-looking keys: the sentence sits in the top bar, the choices and a Your Keyboard card are Cutling cards, and the bottom ro
+- A Formatted key's link in Cutling's keyboard is drawn, not followed, so a tap anywhere on the key types its text as the owner decided, instead of a tap on the link opening it in Safari
+- Two fill-in screen designs for the owner to pick are drawn in the real keyboard behind the -FILLIN_MOCK test seed (Apple letter keys with the blank inline, or the emoji keyboard's ABC pattern), a probe test records where Cutling
+- Cutling's reused-cell keyboard grid keeps the old grid's look and feel: the same paddings around the Suggestions title, divider and keys, keys that scale from 0.8 and fade under the same 0.4 s spring, highlights on touch-down, a
+- Cutling's keyboard lays its keys out in a UICollectionView that reuses cells, each hosting the SwiftUI key, and reads image keys from square thumbnails kept on disk, because the SwiftUI lazy grid kept every key it had scrolled p
+- Fill-ins are switched off in every build until the owner approves the redesigned screens: Cutling types, copies and pastes braces as written, the editor has no fill-in menu, What's New drops the fill-ins paragraph, and only the 
+- Cutling's keyboard can hold any number of cutlings with a reused-cell grid, disk thumbnails and a lazy store, as Gladys, Hamster and the GIF keyboards do, and CutlingStore maps image files always: a 12 MP PNG copied with a mappe
+- CutlingStore reads image files memory-mapped, because the keyboard copies a cutling's image file whole and a 12 MP PNG read into memory took it from 60 MB to 82 MB, past its 77 MB limit; FormattingUITests shoots the keyboard rig
+- Canadian French says macOS may ask you to approve Cutling at login, where a find-and-replace of app had left l'applicationrouver
+- The Mac picker's -SNAPSHOT_FILL_COPY capture finishes the fill-in form as Return does, so a walk can paste the real filled text into a site
+- Cutling holds 50 images, not 100, beside 1,000 text cutlings: scrolling the keyboard through 1,000 full-length snippets and 100 12 MP photos peaked at 95.5 MB in the iOS 27.2 simulator, past the 77 MB keyboard limit, while 50 ph
+- The Mac picker's fill-in form shows the chosen choice as selected, and its -SNAPSHOT_SCREEN fillin capture opens the form filled in, parked below the desktop so it never takes the keyboard
+- The Mac app's -FILLIN_TEST snapshot launch seeds the fill-in test cutlings, so a walk films the picker's form with a throwaway store and the real hotkey
+- A cutling's {Name}, {Plan: Basic | Pro}, {date +3d:yyyy-MM-dd}, {cursor} and {clipboard} are filled each time it is typed, copied or pasted: the iPhone keyboard types up to each blank and waits while the person fills it with the
+- The iOS Debug build compiles again because SnapshotActiveWindows (d4468b74) sits under os(macOS), and the keyboard UI tests find the globe, the Cutling keys and the editor by name, because screen fractions measured on an iPhone 
+- Cutling's screenshot build draws every window active and parks it under the desktop picture, so the Mac captures keep their accent colours without ever covering or taking the owner's focus
+- The keyboard memory test seeds its 100 photos as one rendered PNG and 99 APFS clones of its file, and waits up to ten minutes for the seed, because writing 100 full 12-megapixel PNGs on the main thread outlasted the two-minute w
+- Tapping any key in Cutling's keyboard types its text, Formatted ones included, and a Formatted key's long press offers Copy for the styled version, because a key that looked like the others but only copied made the most common a
+- Cutling holds 1,000 text and 100 image cutlings, because Apple's jetsam table gives a keyboard extension 77 MB on the smallest supported iPhones (com.apple.keyboard-service, iPhone XR on iOS 18.0 and iPhone SE 2 on iOS 27.2.1) a
+- Cutling's site and App Store description say in every language that the Mac clipboard history skips anything a password manager marks as concealed, and scripts/keyboard-memory.sh measures the keyboard's memory with a store fille
