@@ -1,0 +1,100 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<!-- Preview sheet for Cutling 2.0's In-App Event art: each option's card and details image under Apple's
+     own overlay, with the event's badge, name and descriptions. The overlay rules are the web App Store's
+     (apps.apple.com/assets/index~Cuua8lPjmd.css: .gradient-overlay, .text-container, .event-detail and the
+     type tokens they name), as measured in ~/Repositories/undirect/docs/research/in-app-event-art.md.
+     The search-result row round each card (icon, name, Open) is drawn from memory of the iPhone App Store
+     and is not measured. The labels are for choosing; none of them is in the art.
+       bun src/render.mjs src/contact.html contact-sheet.png 1340 900 page 2   (run in options/)
+     ?only=<dir> draws one option alone, 480 px wide, for a per-option preview. -->
+<style>
+  :root { --font: -apple-system, "SF Pro Text", "Helvetica Neue", sans-serif; }
+  html, body { margin: 0; background: #f2f2f4; font-family: var(--font); color: #1d1d1f; -webkit-font-smoothing: antialiased; }
+  body { width: 1340px; padding: 34px 40px 40px; box-sizing: border-box; }
+  body.one { width: 465px; padding: 28px 40px 34px; }
+  h1 { font: 700 22px/1.2 var(--font); margin: 0 0 4px; }
+  .sub { font: 400 13px/1.45 var(--font); color: #6e6e73; margin: 0 0 26px; max-width: 1100px; }
+  .row { display: grid; grid-template-columns: repeat(3, 385px); justify-content: space-between; }
+  body.one .row { grid-template-columns: 385px; }
+  .opt h2 { font: 700 17px/1.2 var(--font); margin: 0 0 3px; }
+  .opt .what { font: 400 12.5px/1.4 var(--font); color: #6e6e73; margin: 0 0 14px; min-height: 70px; }
+  .opt .det { margin: 0 auto; }
+  .lab { font: 600 10px/1 var(--font); letter-spacing: .06em; text-transform: uppercase; color: #8e8e93; margin: 20px 0 8px; }
+
+  /* the search result an owner of the app sees: the app's row, then the event card */
+  .result { background: #fff; border-radius: 14px; padding: 14px 0 16px; box-shadow: 0 1px 2px rgb(0 0 0 / 6%); }
+  .result .app { display: flex; align-items: center; gap: 10px; padding: 0 16px 12px; }
+  .result .app img { width: 52px; height: 52px; border-radius: 12px; }
+  .result .app b { font: 600 15px/1.2 var(--font); display: block; }
+  .result .app i { font: 400 12.5px/1.3 var(--font); font-style: normal; color: #8e8e93; }
+  .result .app .open { margin-left: auto; font: 700 13px/1 var(--font); color: #0a7aff; background: #eeeef0; border-radius: 14px; padding: 7px 16px; }
+  .result .card { margin: 0 16px; }
+
+  /* Apple's event card: 16:9, text over the artwork */
+  .card { position: relative; width: 353px; height: 198.5px; border-radius: 16px; overflow: hidden; display: grid; grid-template-areas: "content"; }
+  .card > img, .det > img { grid-area: content; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gradient-container { grid-area: content; position: relative; z-index: 1; }
+  .gradient-overlay { -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    background: linear-gradient(#0000, var(--color) var(--height, 100%)); bottom: 0; filter: saturate(1.5) brightness(var(--brightness));
+    height: var(--height, 60%); -webkit-mask-image: linear-gradient(180deg, #0000 6%, #000001 85%); mask-image: linear-gradient(180deg, #0000 6%, #000001 85%);
+    position: absolute; width: 100%; z-index: 1; }
+  .card .gradient-overlay { --color: rgb(83 83 83 / 48%); --height: 80%; --brightness: .85; border-radius: 16px; }
+  .card .text-container { color: #ffffffeb; display: flex; flex-direction: column; grid-area: content; justify-content: flex-end; padding: 12px 16px; z-index: 2; }
+  .card .kind { font: 600 12px/1.25 var(--font); text-transform: uppercase; opacity: .92; }
+  .card h3 { font: 400 17px/1.41 var(--font); margin: 0; }
+  .card p { font: 600 12px/1.25 var(--font); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  /* Apple's event details page: 9:16 */
+  .det { position: relative; width: 340px; height: 604.4px; border-radius: 16px; overflow: hidden; display: grid; grid-template-areas: "time" "text"; grid-template-rows: 1fr auto; box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 8px 24px rgb(0 0 0 / 10%); }
+  .det > img { grid-column: 1; grid-row: 1 / 3; position: absolute; inset: 0; }
+  .det .gradient-overlay { --height: 70%; --brightness: .85; border-radius: 16px; }
+  .det .time { grid-area: time; margin: 16px 0 0 16px; z-index: 3; }
+  .det .time span { background: #ffffffa3; border-radius: 12px; color: #000000d9; font: 600 12px/1.25 var(--font); padding: 3px 10px; }
+  .det .text-container { color: #ffffffeb; display: flex; flex-direction: column; gap: 16px; grid-area: text; justify-content: space-between; padding: 16px; z-index: 2; }
+  .det .event-details-container { display: flex; flex-direction: column; gap: 6px; }
+  .det .kind { font: 600 12px/1.25 var(--font); text-transform: uppercase; }
+  .det .title { font: 700 26px/1.23 var(--font); margin: 0; }
+  .det .subtitle { font: 400 15px/1.33 var(--font); margin: 0; }
+  .det .lockup { border-top: 1px solid #ffffff4d; padding-top: 16px; display: flex; align-items: center; gap: 10px; }
+  .det .lockup img { width: 40px; height: 40px; border-radius: 9px; }
+  .det .lockup b { font: 600 13px/1.2 var(--font); display: block; }
+  .det .lockup i { font: 400 11px/1.3 var(--font); font-style: normal; opacity: .75; }
+  .det .lockup .view { margin-left: auto; font: 700 13px/1 var(--font); background: #ffffff38; border-radius: 14px; padding: 7px 16px; }
+  .raw img { width: 385px; border-radius: 6px; display: block; }
+</style></head><body>
+<h1>Cutling 2.0, "The Write-It-Once Update": three options for the In-App Event art</h1>
+<p class="sub">Each shown as the App Store draws it: the card (16:9) in an owner's search result, and the event details page (9:16), under Apple's blur, scrim and text. Files are 2880x1620 and 1620x2880 in <code>fastlane/events/2.0/options/&lt;name&gt;/</code>. All three are path-traced studio stills of one object, Cutling's tag from the app icon, with 2.0's pills in its lines of text.</p>
+<div class="row" id="row"></div>
+<script>
+const EVENT = { kind: "Major Update", name: "The Write-It-Once Update", short: "One saved reply. A different name every time.",
+  long: "Cutling asks for the name, adds today's date and types the rest. You write a reply once and stop fixing it by hand." };
+const OPTS = [
+  { dir: "closeup", name: "A. Close-up", what: "A hand's width from the tag: the pill with a name on it, in the air over the one lit pocket still empty. The blank is being filled as you look. The dark tag is what Apple's white text lands on." },
+  { dir: "three-names", name: "B. Three names", what: "The card line as a photograph: the same reply three times, a different name in each pill. Nothing moves; it is the result, not the moment." },
+  { dir: "whole-tag", name: "C. Whole tag", what: "The whole object on the brand's mint, the icon's fan of tags under it, and not one letter in the picture. The pill drops toward its outlined pocket." },
+];
+const ICON = "../../../../../Cutling/Assets.xcassets/AppIcon-Default.imageset/AppIcon-Default.png";
+const card = (src) => `<div class="card"><img src="${src}"><div class="gradient-container"><div class="gradient-overlay"></div></div>
+  <div class="text-container"><span class="kind">${EVENT.kind}</span><h3>${EVENT.name}</h3><p>${EVENT.short}</p></div></div>`;
+const result = (src) => `<div class="result"><div class="app"><img src="${ICON}"><span><b>Cutling - Clipboard Keyboard</b><i>Paste Text Snippets &amp; Replies</i></span><span class="open">Open</span></div>${card(src)}</div>`;
+const det = (src) => `<div class="det"><img src="${src}" class="art"><div class="gradient-overlay"></div>
+  <div class="time"><span>Happening Now</span></div>
+  <div class="text-container"><div class="event-details-container"><span class="kind">${EVENT.kind}</span><h2 class="title">${EVENT.name}</h2><p class="subtitle">${EVENT.long}</p></div>
+  <div class="lockup"><img src="${ICON}"><span><b>Cutling - Clipboard Keyboard</b><i>Paste Text Snippets &amp; Replies</i></span><span class="view">View</span></div></div></div>`;
+const only = new URLSearchParams(location.search).get("only");
+if (only) { document.body.classList.add("one"); document.querySelector("h1").remove(); document.querySelector(".sub").remove(); }
+document.getElementById("row").innerHTML = OPTS.filter((o) => !only || o.dir === only).map((o) => `<div class="opt"><h2>${o.name}</h2><p class="what">${o.what}</p>
+  <div class="lab" style="margin-top:0">The card, in search</div>${result(`../${o.dir}/card.png`)}
+  <div class="lab">Event details page</div>${det(`../${o.dir}/details.png`)}
+  <div class="lab">The card with nothing over it</div><div class="raw"><img src="../${o.dir}/card.png"></div></div>`).join("");
+// Apple fades the details page to the image's own colour: here, the average of its lower third
+const fade = (img) => { const c = document.createElement("canvas"); c.width = 32; c.height = 32; const g = c.getContext("2d");
+  g.drawImage(img, 0, img.naturalHeight * 2 / 3, img.naturalWidth, img.naturalHeight / 3, 0, 0, 32, 32);
+  const d = g.getImageData(0, 0, 32, 32).data, s = [0, 0, 0]; for (let i = 0; i < d.length; i += 4) for (let k = 0; k < 3; k++) s[k] += d[i + k];
+  return `rgb(${s.map((v) => Math.round(v / 1024)).join(" ")})`; };
+Promise.all([...document.images].map((i) => i.decode().catch(() => {}))).then(() => {
+  const fades = [...document.querySelectorAll(".det")].map((d) => { const f = fade(d.querySelector(".art")); d.querySelector(".gradient-overlay").style.setProperty("--color", f); return f; });
+  window.__note = "contact, details fades " + fades.join(", "); window.__done = true; });
+</script>
+</body></html>
