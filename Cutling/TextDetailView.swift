@@ -405,24 +405,6 @@ struct TextDetailView: View {
                         Text("Separate choices with commas.")
                     }
                     #if os(iOS)
-                    // While writing, the fill-ins sit as buttons on the bar above the keyboard, as Shortcuts
-                    // shows Clipboard and Current Date there (docs/research/fill-ins-editor/README.md).
-                    .toolbar {
-                        if format != .code, FillIns.isOn {
-                            ToolbarItem(placement: .keyboard) {
-                                ScrollView(.horizontal, showsIndicators: false) {
-                                    HStack(spacing: 16) {
-                                        ForEach(placeholderChoices, id: \.title) { choice in
-                                            Button(choice.title, systemImage: choice.icon) { choose(choice.token) }
-                                                .labelStyle(.titleAndIcon)
-                                        }
-                                    }
-                                    .padding(.horizontal, 4)
-                                }
-                                .accessibilityIdentifier("fillInKeyboardBar")
-                            }
-                        }
-                    }
                     .id("tutorialTextSection")
                     .popoverTip(editorTextTip, arrowEdge: .top)
                     .popoverTip(editorFillInTip, arrowEdge: .top)
@@ -864,7 +846,9 @@ struct TextDetailView: View {
     @ViewBuilder
     private var textEditor: some View {
         let text = undoHandler.binding($value, actionName: String(localized: "Change Text"))
-        if usesNativeEditor || format != .plain {
+        // The native editor's own bar shows only while its text has focus; a SwiftUI keyboard toolbar showed on the
+        // Name field too. The walkthrough types here, so it always gets the native editor and its variables bar.
+        if usesNativeEditor || format != .plain || walkthroughTypesHere {
             FormattedTextEditor(text: text, format: $format, insertion: $placeholderInsertion,
                                 keyboardBar: format != .code && FillIns.isOn ? keyboardBarItems : [],
                                 onEditPill: { token, range in
@@ -953,6 +937,14 @@ struct TextDetailView: View {
             (String(localized: "Cursor Position"), "text.cursor", Placeholders.marked("cursor")),
             (String(localized: "Clipboard Text"), "doc.on.clipboard", Placeholders.marked("clipboard")),
         ]
+    }
+
+    private var walkthroughTypesHere: Bool {
+        #if os(iOS)
+        TutorialCoordinator.shared.isActive
+        #else
+        false
+        #endif
     }
 
     /// The keyboard bar's buttons for the native editor (CodeTextEditor.swift).

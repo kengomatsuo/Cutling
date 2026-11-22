@@ -233,6 +233,14 @@ final class FillInUITests: XCTestCase {
         let row = app.descendants(matching: .any)["textPageRow"].firstMatch
         XCTAssertTrue(row.waitForExistence(timeout: 10), "No Variables & Formatting row in the editor")
         shot("editor_text_section")
+        // Typing the name shows the keyboard alone: the variables bar belongs to the Text page.
+        let name = app.textFields.firstMatch
+        if name.waitForExistence(timeout: 5) {
+            name.tap()
+            sleep(2)
+            shot("editor_name_keyboard")
+            XCTAssertFalse(app.descendants(matching: .any)["fillInKeyboardBar"].firstMatch.exists, "The variables bar shows while typing the name")
+        }
         // The one-time tip may be up; its close button first, so the tap reaches the row.
         let closeTip = app.buttons["Close"].firstMatch
         if closeTip.waitForExistence(timeout: 2) { closeTip.tap(); sleep(1) }
