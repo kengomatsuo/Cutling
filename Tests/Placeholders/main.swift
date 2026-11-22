@@ -102,6 +102,15 @@ check("marked: inserted fill-in", markedReply.render(markedValues).text, "Hi Sar
 check("marked: fields", markedReply.fields.map(\.label).joined(separator: ","), "Name")
 check("marked helper", Placeholders.marked("date"), "{\u{2060}date}")
 
+extension FillInEdit {
+    /// The stamp with `change` applied; a blank is returned as it is.
+    func changed(_ change: (inout Placeholders.Stamp) -> Void) -> FillInEdit {
+        guard case .stamp(var stamp) = self else { return self }
+        change(&stamp)
+        return .stamp(stamp)
+    }
+}
+
 // Editing a pill: a marked token read into a model and written back (FillInEdit.swift).
 func edit(_ body: String) -> FillInEdit? { FillInEdit(token: Placeholders.marked(body)) }
 check("edit: blank", edit("Name"), .blank(label: "Name", choices: []))
@@ -128,6 +137,29 @@ check("write: pattern", FillInEdit.stamp(.init(kind: .date, style: .pattern("HH:
 for body in ["Name", "Plan: A | B", "date", "day", "time +2h", "date +1y +2d:long", "date -1w:yyyy-MM-dd", "datetime:full", "City: Jakarta"] {
     check("round trip \(body)", edit(body)?.token, Placeholders.marked(body))
 }
+
+// A custom pattern from the date editor: written as typed, read back the same, refused when it cannot round-trip.
+func pattern(_ p: String) -> FillInEdit { .stamp(.init(kind: .date, style: .pattern(p))) }
+check("custom: pattern with spaces and quotes", pattern("EEEE d MMM 'at' h:mm a").token, Placeholders.marked("date:EEEE d MMM 'at' h:mm a"))
+check("custom: pattern renders", render(pattern("EEEE d MMM 'at' h:mm a").token.replacingOccurrences(of: "\u{2060}", with: "")), "Friday 20 Nov at 2:05 PM")
+check("custom: braces and line breaks dropped", pattern(" {yyyy}\n ").token, Placeholders.marked("date:yyyy"))
+check("custom: round trip", edit("date -1d:EEE d MMM"), pattern("EEE d MMM").changed { $0.offset = [.init(amount: -1, unit: .day)] })
+check("custom: empty pattern is refused", pattern("  ").isValid, false)
+check("custom: braces only is refused", pattern("{}").isValid, false)
+check("custom: a style word is refused", pattern("Long").isValid, false)
+check("custom: a pattern is valid", pattern("yyyy").isValid, true)
+check("custom: weekday pattern", render("{day:EEE}"), "Fri")
+
+// A date pill's spoken name: the kind, then when.
+let en = Locale(identifier: "en_US")
+check("name: date", Placeholders.Stamp(kind: .date).name(locale: en), "Date")
+check("name: weekday", Placeholders.Stamp(kind: .day).name(locale: en), "Weekday")
+check("name: tomorrow", Placeholders.Stamp(kind: .date, offset: [.init(amount: 1, unit: .day)]).name(locale: en), "Date, Tomorrow")
+check("name: in 3 days", Placeholders.Stamp(kind: .day, offset: [.init(amount: 3, unit: .day)]).name(locale: en), "Weekday, In 3 days")
+check("name: time in 30 minutes", Placeholders.Stamp(kind: .time, offset: [.init(amount: 30, unit: .minute)]).name(locale: en), "Time, In 30 minutes")
+check("name: a week ago", Placeholders.Stamp(kind: .datetime, offset: [.init(amount: -1, unit: .week)]).name(locale: en), "Date and Time, Last week")
+check("moment: none", Placeholders.Stamp.moment([], locale: en), nil)
+check("moment: German", Placeholders.Stamp.moment([.init(amount: 1, unit: .day)], locale: Locale(identifier: "de_DE")), "Morgen")
 
 // Values read at use: week, time zone, greeting, place, clipboard parts, counters.
 check("week number (ISO)", render("Week {week}"), "Week 47")

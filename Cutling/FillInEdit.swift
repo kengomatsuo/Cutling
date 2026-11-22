@@ -39,10 +39,24 @@ enum FillInEdit: Equatable {
         text.filter { !"{}:|\n\r".contains($0) }.trimmingCharacters(in: .whitespaces)
     }
 
+    /// A pattern as it can be written into a token: no braces or line breaks, no edge spaces (the engine trims them).
+    static func cleanPattern(_ pattern: String) -> String {
+        pattern.filter { !"{}\n\r".contains($0) }.trimmingCharacters(in: .whitespaces)
+    }
+
+    /// Words the engine reads as a named style, so a pattern spelled so would not come back as written.
+    private static let styleWords: Set<String> = ["short", "medium", "long", "full"]
+
     var isValid: Bool {
-        guard case .blank(let label, _) = self else { return true }
-        let name = Self.clean(label)
-        return !name.isEmpty && !Self.reserved.contains(name.lowercased())
+        switch self {
+        case .blank(let label, _):
+            let name = Self.clean(label)
+            return !name.isEmpty && !Self.reserved.contains(name.lowercased())
+        case .stamp(let stamp):
+            guard case .pattern(let pattern) = stamp.style else { return true }
+            let clean = Self.cleanPattern(pattern)
+            return !clean.isEmpty && !Self.styleWords.contains(clean.lowercased())
+        }
     }
 
     /// The token as Cutling stores it, marked so it draws as a pill.
@@ -63,10 +77,47 @@ enum FillInEdit: Equatable {
             case .medium: body += ":medium"
             case .long: body += ":long"
             case .full: body += ":full"
-            case .pattern(let pattern): body += ":" + pattern
+            case .pattern(let pattern): body += ":" + Self.cleanPattern(pattern)
             }
             return Placeholders.marked(body)
         }
+    }
+}
+
+extension Placeholders.Stamp {
+    /// What the stamp is, in words, for VoiceOver and for a pill whose value cannot be shown:
+    /// the kind ("Weekday"), then when it is read ("Tomorrow", "In 3 days") if not now.
+    func name(locale: Locale = .autoupdatingCurrent) -> String {
+        let what = switch kind {
+        case .date: String(localized: "Date")
+        case .time: String(localized: "Time")
+        case .datetime: String(localized: "Date and Time")
+        case .day: String(localized: "Weekday")
+        }
+        guard let when = Self.moment(offset, locale: locale) else { return what }
+        return String(localized: "\(what), \(when)", comment: "A date pill's spoken name: what it types, then when, e.g. Weekday, Tomorrow")
+    }
+
+    /// An offset in words, capitalised to start a phrase ("Tomorrow", "In 3 days", "2 weeks ago"); nil for none.
+    static func moment(_ offset: [Placeholders.Offset], locale: Locale = .autoupdatingCurrent) -> String? {
+        guard !offset.isEmpty else { return nil }
+        var parts = DateComponents()
+        for step in offset {
+            switch step.unit {
+            case .minute: parts.minute = (parts.minute ?? 0) + step.amount
+            case .hour: parts.hour = (parts.hour ?? 0) + step.amount
+            case .day: parts.day = (parts.day ?? 0) + step.amount
+            case .week: parts.weekOfMonth = (parts.weekOfMonth ?? 0) + step.amount
+            case .month: parts.month = (parts.month ?? 0) + step.amount
+            case .year: parts.year = (parts.year ?? 0) + step.amount
+            }
+        }
+        let words = RelativeDateTimeFormatter()
+        words.locale = locale
+        words.dateTimeStyle = .named
+        words.unitsStyle = .full
+        words.formattingContext = .beginningOfSentence
+        return words.localizedString(from: parts)
     }
 }
 

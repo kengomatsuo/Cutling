@@ -33,7 +33,8 @@ final class FillInAttachment: NSTextAttachment {
         self.token = token
         super.init(data: nil, ofType: nil)
         let title = FillInPills.title(of: token)
-        let (image, size) = FillInPills.image(title, font: font)
+        // A date or time pill shows what it will type, so a change in its editor shows in the text; VoiceOver hears its name.
+        let (image, size) = FillInPills.image(FillInPills.stampValue(of: token) ?? title, font: font)
         self.image = image
         bounds = CGRect(x: 0, y: font.descender - 1, width: size.width, height: size.height)
         #if os(iOS)
@@ -58,8 +59,12 @@ enum FillInPills {
         let body = token.dropFirst(2).dropLast().trimmingCharacters(in: .whitespaces)
         let head = body.split(whereSeparator: { $0 == ":" || $0 == " " }).first.map(String.init)?.lowercased() ?? ""
         switch head {
-        case "date", "datetime", "day": return String(localized: "Today’s Date")
-        case "time": return String(localized: "Time")
+        case "date", "datetime", "day", "time":
+            #if MAIN_APP
+            // The app's editor names the stamp by kind and day (FillInEdit.swift, not built into the extensions).
+            if let stamp = stamp(of: token) { return stamp.name() }
+            #endif
+            return head == "time" ? String(localized: "Time") : String(localized: "Today’s Date")
         case "cursor": return String(localized: "Cursor Position")
         case "clipboard":
             switch body.lowercased() {
@@ -199,6 +204,22 @@ enum FillInPills {
         let context = Placeholders.Context(values: nil, now: Date(), locale: .autoupdatingCurrent, timeZone: .autoupdatingCurrent, clipboard: nil)
         let value = Placeholders(token, marked: true).render(context).text
         return value.isEmpty || value == token ? nil : value
+    }
+
+    /// Longest value a pill shows; a longer custom pattern shows the stamp's name, so one pill never outgrows a line.
+    private static let longestValue = 40
+
+    /// Today's value of a date or time stamp, for its pill in the editor; nil for any other token or a value too long to show.
+    static func stampValue(of token: String) -> String? {
+        guard stamp(of: token) != nil, let value = previewValue(of: token), value.count <= longestValue else { return nil }
+        return value
+    }
+
+    /// The date or time stamp a lone marked token stands for; nil for anything else.
+    private static func stamp(of token: String) -> Placeholders.Stamp? {
+        let pieces = Placeholders(token, marked: true).pieces
+        guard pieces.count == 1, case .stamp(let stamp) = pieces[0] else { return nil }
+        return stamp
     }
 
     /// Whether `text` holds a token not yet drawn as a pill (just inserted or pasted).
