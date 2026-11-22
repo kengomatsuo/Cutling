@@ -1,0 +1,80 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Cutling 2.0 preview directions, round two</title>
+<style>
+  :root { --ink: #1d1d1f; --ink2: #55555b; --ink3: #6e6e73; --brand: #00be86; --accent: #007a56; --paper: #f3f3f1; --card: #ffffff; --line: #e2e2de; }
+  html, body { margin: 0; background: var(--paper); color: var(--ink); font-family: -apple-system, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  .page { width: 2400px; box-sizing: border-box; padding: 64px 64px 80px; }
+  h1 { font-size: 64px; letter-spacing: -0.02em; margin: 0 0 12px; }
+  .lede { font-size: 28px; color: var(--ink2); line-height: 1.4; max-width: 1900px; margin: 0 0 44px; }
+  .lede b { color: var(--ink); }
+  .row { display: grid; grid-template-columns: repeat(6, 1fr); gap: 28px; }
+  .col { background: var(--card); border-radius: 28px; padding: 22px 22px 26px; box-shadow: 0 1px 0 rgba(0,0,0,.04); }
+  .tag { display: inline-flex; align-items: center; justify-content: center; width: 54px; height: 54px; border-radius: 16px; background: var(--brand); color: #fff; font-size: 30px; font-weight: 800; }
+  .name { font-size: 40px; font-weight: 800; letter-spacing: -0.02em; margin: 14px 0 8px; line-height: 1.05; }
+  .idea { font-size: 24px; line-height: 1.32; color: var(--ink2); min-height: 158px; }
+  .poster { width: 100%; border-radius: 18px; display: block; box-shadow: 0 10px 30px rgba(0,0,0,.12); }
+  .label { font-size: 17px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink3); margin: 22px 0 10px; }
+  .beats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .beats img { width: 100%; border-radius: 9px; display: block; }
+  .beats .cap { font-size: 14px; color: var(--ink3); margin-top: 4px; line-height: 1.25; }
+  .devs { display: grid; grid-template-columns: 0.42fr 0.58fr; gap: 10px; align-items: start; }
+  .devs img { width: 100%; border-radius: 10px; display: block; box-shadow: 0 4px 14px rgba(0,0,0,.1); }
+  .words { font-size: 19px; line-height: 1.38; }
+  .words div { padding: 7px 0; border-top: 1px solid var(--line); }
+  .words div:first-child { border-top: 0; }
+  .words span { color: var(--ink3); font-variant-numeric: tabular-nums; font-size: 16px; margin-right: 8px; }
+  .seam img { width: 100%; border-radius: 10px; display: block; border: 1px solid var(--line); }
+  .seam .v { font-size: 18px; font-weight: 700; color: var(--accent); margin-top: 8px; }
+  .meta { font-size: 18px; line-height: 1.4; color: var(--ink2); }
+  .meta b { color: var(--ink); }
+  .search { background: #fff; border-radius: 22px; padding: 14px; box-shadow: 0 1px 0 rgba(0,0,0,.05); }
+  .search .top { display: flex; gap: 10px; align-items: center; margin-bottom: 10px; }
+  .search .top img { width: 54px; height: 54px; border-radius: 13px; }
+  .search .top .t1 { font-size: 17px; font-weight: 600; }
+  .search .top .t2 { font-size: 14px; color: var(--ink3); }
+  .search .top .get { margin-left: auto; background: #eef0f3; color: #0a7cff; font-weight: 700; font-size: 15px; border-radius: 15px; padding: 6px 16px; }
+  .search .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+  .search .tiles img, .search .tiles div { width: 100%; aspect-ratio: 886/1920; border-radius: 10px; display: block; object-fit: cover; }
+  .search .tiles div { background: repeating-linear-gradient(135deg, #f1f1ee 0 10px, #e9e9e5 10px 20px); display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--ink3); }
+  .section { font-size: 30px; font-weight: 800; margin: 52px 0 18px; letter-spacing: -0.01em; }
+  .section small { font-size: 22px; font-weight: 500; color: var(--ink3); margin-left: 12px; }
+  .foot { font-size: 20px; color: var(--ink3); line-height: 1.5; margin-top: 48px; max-width: 2200px; }
+  .notlike { font-size: 19px; line-height: 1.35; color: var(--ink); background: #f6f6f3; border-radius: 12px; padding: 12px 14px; }
+  .rivals { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 28px; }
+  .rivals img { width: 100%; border-radius: 10px; display: block; border: 1px solid var(--line); }
+  .rivals div.cap { font-size: 19px; color: var(--ink2); margin: 8px 0 0; line-height: 1.35; }
+  .set { font-size: 24px; line-height: 1.45; color: var(--ink2); background: #fff; border-radius: 22px; padding: 22px 28px; }
+  .set b { color: var(--ink); }
+</style>
+<script src="directions-data2.js"></script>
+</head>
+<body><div class="page" id="page"></div>
+<script>
+  const D = window.DIRECTIONS;
+  const img = (d, f) => `../${d.key}/${f}.png`;
+  let h = `<h1>Cutling 2.0 App Store previews, round two: six overviews</h1>
+    <div class="lede">The first preview plays to people who have never heard of Cutling, so each of these says what Cutling is for as a whole, with what 2.0 adds inside the story. Apple: “your first preview might share an overview of your app experience, and then use subsequent previews to highlight additional content or features.” <b>The screens are drawn to the app's measurements as stand-ins; the films are cut from store-simulator recordings once a direction is picked.</b> Each has an iPhone animatic on “Complicated” (Mixkit 281) in its folder.</div>`;
+  h += `<div class="section">As a buyer meets them in search <small>the poster frame in the first of three tiles, at the size iOS shows it</small></div><div class="row">`;
+  for (const d of D) h += `<div class="search"><div class="top"><img src="assets/icon.png"><div><div class="t1">Cutling - Clipboard Keyboard</div><div class="t2">Paste Text Snippets &amp; Replies</div></div><div class="get">Get</div></div>
+    <div class="tiles"><img src="${img(d, d.posterStill)}"><div>screenshot</div><div>screenshot</div></div></div>`;
+  h += `</div><div class="section">The overviews <small>the iPhone's first preview; the same idea is cut for iPad and Mac</small></div><div class="row">`;
+  for (const d of D) {
+    h += `<div class="col"><div class="tag">${d.letter}</div><div class="name">${d.name}</div><div class="idea">${d.idea}</div>
+      <img class="poster" src="${img(d, d.posterStill)}">
+      <div class="label">The beats</div><div class="beats">${d.beats.map((b) => `<div><img src="${img(d, b[0])}"><div class="cap">${b[1]}</div></div>`).join('')}</div>
+      <div class="label">iPad and Mac</div><div class="devs"><img src="${img(d, 'ipad-01')}"><img src="${img(d, 'mac-01')}"></div>
+      <div class="label">The words, in order</div><div class="words">${d.words.map((w) => `<div><span>${w[0]}</span>${w[1]}</div>`).join('')}</div>
+      <div class="label">Not like the rivals</div><div class="notlike">${d.notLike}</div>
+      <div class="label">The loop's seam</div><div class="seam"><img src="${img(d, 'seam')}"><div class="v">Dissolves into frame 0 over its last 0.6 s: a rest at the seam. Continuous.</div></div>
+      <div class="label">Takes to record</div><div class="meta">${d.takes}</div></div>`;
+  }
+  h += `</div><div class="section">Previews two and three <small>Apple asks that each shows something new</small></div>
+    <div class="set">Whichever overview is picked, the second iPhone preview is <b>what 2.0 adds to a reply</b> (a blank Cutling asks for, a date and a greeting that fill themselves: round one's A or C), and the third is <b>writing it like a note, with room for 5,000</b> (round one's B or F). The iPad and Mac carry the overview first, then the same second preview.</div>
+    <div class="section">What the rivals' first previews do <small>live US App Store, read 2026-11-22 (rivals.md); a frame every 2.5 s</small></div><div class="rivals">`;
+  for (const [slug, cap] of window.RIVALS) h += `<div><img src="../../../rivals/${slug}.png"><div class="cap">${cap}</div></div>`;
+  h += `</div><div class="foot">Apple's rules these follow (docs/aso/previews-2.0/apple-rules.md): captures of the app itself with text overlays and touch marks, no device frame, 15 to 30 s at 30 fps, no prices, dates or seasonal words, and a seamless loop because previews autoplay and repeat. Every claim on screen is true of Cutling 2.0 today; the words and seed content are English here and are written blind in Indonesian and Japanese from the meanings in directions.md.</div>`;
+  document.getElementById('page').innerHTML = h;
+  Promise.all([...document.images].map((im) => (im.complete ? 0 : new Promise((r) => { im.onload = im.onerror = r; })))).then(() => { window.__done = true; });
+</script>
+</body></html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Cutling preview direction frame</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #000; }
+  body { -webkit-font-smoothing: antialiased; font-family: -apple-system, system-ui, sans-serif; }
+  #frame { position: relative; overflow: hidden; }
+  .draft { position: absolute; z-index: 999; font: 600 18px/1 -apple-system, system-ui; letter-spacing: .02em; padding: 7px 12px; border-radius: 8px; background: rgba(0,0,0,.55); color: #fff; }
+</style>
+<script src="../../src/kit.js"></script>
+<script src="../../src/stage.js"></script>
+<script src="kit2.js"></script>
+<script src="g-every-app.js"></script>
+<script src="h-save-keep-send.js"></script>
+<script src="i-who-its-for.js"></script>
+<script src="j-first-week.js"></script>
+<script src="k-every-key.js"></script>
+<script src="l-by-hand.js"></script>
+</head>
+<body>
+<div id="frame"></div>
+<script>
+  // film.html?d=<direction>&dev=iphone|ipad|mac[&t=<seconds>][&label=1]
+  // Exposes window.draw(t) and window.LOOP for the frame renderer, as the event directions' frames.mjs expects.
+  const q = new URLSearchParams(location.search);
+  const film = window.FILMS[q.get('d')][q.get('dev') || 'iphone'];
+  const root = document.getElementById('frame');
+  root.style.width = film.W + 'px';
+  root.style.height = film.H + 'px';
+  window.LOOP = film.L;
+  window.STILLS = film.stills;
+  const label = q.get('label') === '1';
+  // A film that ends away from its first frame dissolves into frame 0 over its last `loopDissolve` seconds,
+  // so the loop's seam is a rest: the same still on both sides, with speed and acceleration at zero.
+  const frameHTML = (t) => {
+    const d = film.loopDissolve || 0;
+    if (!d || t < film.L - d) return film.draw(t);
+    const p = K.ease.inOut(K.seg(t, film.L - d, film.L));
+    return `<div style="position:absolute;inset:0">${film.draw(t)}</div><div style="position:absolute;inset:0;opacity:${p}">${film.draw(0)}</div>`;
+  };
+  window.draw = async (t) => {
+    root.innerHTML = frameHTML(t) + (label ? `<div class="draft" style="right:18px;bottom:18px">UI drawn as a stand-in for the take</div>` : '');
+    const imgs = [...root.querySelectorAll('img')];
+    await Promise.all(imgs.map((im) => (im.complete ? 0 : new Promise((r) => { im.onload = im.onerror = r; }))));
+  };
+  // Seam signals: each a function of time whose speed and acceleration are plotted across the loop's seam.
+  window.SEAM = film.seam || null;
+  window.seamSamples = (span = 1.5, step = 1 / 120) => {
+    if (!film.seam) return null;
+    const out = {};
+    // what the picture shows: during the loop dissolve each layer is mixed with its own value at frame 0
+    const d = film.loopDissolve || 0;
+    const onScreen = (f) => (t) => {
+      if (!d || t < film.L - d) return f(t);
+      const p = K.ease.inOut(K.seg(t, film.L - d, film.L));
+      return (1 - p) * f(t) + p * f(0);
+    };
+    const signals = Object.fromEntries(Object.entries(film.seam.signals).map(([k, f]) => [k, onScreen(f)]));
+    // how much of frame 0 the picture shows: 0 before the dissolve, 1 at the seam and after it, because
+    // the film's first frame is frame 0
+    if (film.loopDissolve) signals['frame 0 showing (dissolve)'] = (t) => (t >= film.L - film.loopDissolve ? K.ease.inOut(K.seg(t, film.L - film.loopDissolve, film.L)) : (t < film.L / 2 ? 1 : 0));
+    for (const [name, f] of Object.entries(signals)) {
+      const pts = [];
+      const n0 = Math.round(span / step);
+      for (let i = 0; i <= 2 * n0; i++) {
+        const u = (i - n0) * step;
+        const t = i < n0 ? film.L + u : u;   // across the seam: the film's last seconds, then from its frame 0
+        pts.push([u, f(t)]);
+      }
+      out[name] = pts;
+    }
+    return { kind: film.seam.kind, L: film.L, signals: out };
+  };
+  (async () => {
+    const t = q.get('t');
+    if (document.fonts && document.fonts.ready) await document.fonts.ready;
+    await window.draw(t ? +t : 0);
+    window.__done = true;
+  })();
+</script>
+</body></html>

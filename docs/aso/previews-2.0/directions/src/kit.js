@@ -277,7 +277,7 @@
   }).join('') + '</span>';
 
   // ---------- Cutling's Text page (TextPageView.swift): a page like Notes, with the glass bar above the keyboard ----------
-  K.textPage = ({ dark = false, body = '', bar = 'styles', active = {}, formatCard = false, formatActive = {}, keyboard = 'system', caretAt = null, title = '' } = {}) => {
+  K.textPage = ({ dark = false, body = '', bar = 'styles', active = {}, formatCard = false, formatActive = {}, keyboard = 'system', caretAt = null, title = '', barItems = null } = {}) => {
     const fg = dark ? '#fff' : '#000';
     const glass = dark ? 'rgba(58,58,60,.92)' : 'rgba(255,255,255,.95)';
     const shadow = '0 2px 10px rgba(0,0,0,.12)';
@@ -286,10 +286,12 @@
       <div style="${abs(24, 126, 392, 420)};font-size:19px;line-height:1.42;color:${fg};overflow:hidden">${body}</div>`;
     const kbTop = 569;
     if (bar) {
-      const items = [
+      // round two passes the bar's first eight as the page now has them: Aa, the fill-ins, then the styles
+      const items = barItems || [
         ['clip', 'clip'], ['b', 'B'], ['i', 'I'], ['u', 'U'], ['s', 'S'], ['hl', 'highlighter'], ['code', 'code'], ['link', 'link'],
       ];
       const glyph = (k, v) => {
+        if (k === 'aa') return `<span style="font-size:19px;font-weight:600">Aa</span>`;
         if (k === 'b') return `<b style="font-size:20px">B</b>`;
         if (k === 'i') return `<i style="font-size:20px;font-family:Georgia,serif">I</i>`;
         if (k === 'u') return `<span style="font-size:19px;text-decoration:underline">U</span>`;
@@ -500,14 +502,15 @@
   };
 
   // The picker panel (360 x 514 pt): list of saved cutlings, or the short form for a cutling's blanks.
-  K.macPicker = ({ dark = false, x = 0, y = 0, mode = 'list', rows = [], hover = -1, query = '', count = 11, form = null } = {}) => {
+  K.macPicker = ({ dark = false, x = 0, y = 0, mode = 'list', rows = [], hover = -1, query = '', count = 11, form = null, tab = 'saved' } = {}) => {
     const fg = dark ? '#eee' : '#1d1d1f';
     const sec = dark ? '#9a9a9a' : '#8a8a8e';
     const bg = dark ? 'rgba(40,40,40,.97)' : 'rgba(255,255,255,.98)';
     const sep = dark ? '#3a3a3a' : '#e5e5e5';
     let inner = `<div style="${abs(16, 12, 328, 30)};display:flex;align-items:center;gap:8px;font-size:16px;color:${query ? fg : sec}">${K.icon('search', 17, sec, 2)}${query ? K.esc(query) + `<span style="display:inline-block;width:1.5px;height:18px;background:${fg}"></span>` : 'Search cutlings'}</div>`;
     if (mode === 'list') {
-      inner += `<div style="${abs(16, 46, 328, 26)};display:flex;align-items:center;gap:8px;font-size:14px"><span style="font-weight:600;padding:3px 10px;border-radius:13px;background:${dark ? '#14463a' : '#d9f3e9'}">Saved <span style="color:${sec};font-weight:400">${count.toLocaleString('en-US')}</span></span><span style="padding:3px 6px;color:${fg}">History</span></div>
+      const on = `font-weight:600;padding:3px 10px;border-radius:13px;background:${dark ? '#14463a' : '#d9f3e9'}`, off = `padding:3px 6px;color:${fg}`;
+      inner += `<div style="${abs(16, 46, 328, 26)};display:flex;align-items:center;gap:8px;font-size:14px"><span style="${tab === 'saved' ? on : off}">Saved <span style="color:${sec};font-weight:400">${count.toLocaleString('en-US')}</span></span><span style="${tab === 'history' ? on : off}">History</span></div>
         <div style="${abs(0, 80, 360, 0.5)};background:${sep}"></div>`;
       inner += rows.map((r, i) => `<div style="${abs(6, 86 + i * 44, 348, 40)};border-radius:8px;${i === hover ? `background:${dark ? 'rgba(0,190,134,.28)' : 'rgba(0,190,134,.16)'}` : ''};display:flex;align-items:center;gap:10px;padding-left:10px;box-sizing:border-box">
           ${K.icon(r.icon || 'doc', 18, r.color || K.C.brand, 1.9)}<div style="min-width:0"><div style="font-size:14px;font-weight:600;color:${fg};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${K.esc(r.name)}</div><div style="font-size:12px;color:${sec};white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${r.preview || ''}</div></div></div>`).join('');
