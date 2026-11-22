@@ -1,0 +1,37 @@
+{
+ "kind": "dissolve",
+ "verdicts": [
+  {
+   "name": "camera scale",
+   "ok": true,
+   "jumpF": 0,
+   "jumpV": 0,
+   "jumpA": 0,
+   "still": true
+  },
+  {
+   "name": "camera centre y (pt)",
+   "ok": true,
+   "jumpF": 0,
+   "jumpV": 0,
+   "jumpA": 0,
+   "still": true
+  },
+  {
+   "name": "end card (opacity)",
+   "ok": true,
+   "jumpF": 0.0000643004115226109,
+   "jumpV": 0.0018513620735249694,
+   "jumpA": 0.05714285714284023,
+   "still": false
+  },
+  {
+   "name": "frame 0 showing (dissolve)",
+   "ok": true,
+   "jumpF": 0.0000643004115226109,
+   "jumpV": 0.001851362073524971,
+   "jumpA": 0.05714285714284023,
+   "still": false
+  }
+ ]
+}

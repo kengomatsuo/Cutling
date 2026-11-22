@@ -1,0 +1,51 @@
+// What the contact sheet says about each direction. The full account is docs/aso/previews-2.0/directions.md.
+window.DIRECTIONS = [
+  {
+    key: 'a-blank', letter: 'A', name: 'Fill in the blank', posterStill: 'iphone-03',
+    idea: 'One saved reply goes to five people. Each time, Cutling asks only for the name: two taps a reply, and the reply’s own sentence, set large, fills its blank.',
+    beats: [['iphone-02', 'the globe: Cutling'], ['iphone-05', 'faster each round'], ['iphone-06', 'five replies']],
+    words: [['0:00', 'One saved reply. A different name every time.'], ['0:00', 'Hi ____, your order ships Friday. (the blank fills: Maya, Jonas, Aiko, Sam, Lea)'], ['0:03', 'Cutling asks for the name'], ['0:11', 'Two taps for each reply'], ['0:18', 'Write it once. + Cutling']],
+    seam: 'Rest: it ends where it starts, the blank empty and your own keyboard up. Continuous.',
+    takes: '<b>5 takes</b> a language: iPhone 3 (Messages, light), iPad 1, Mac 1 (Notes and ⌘⇧V).',
+  },
+  {
+    key: 'b-note', letter: 'B', name: 'Like a note', posterStill: 'iphone-04',
+    idea: 'Write a cutling the way you write a note, with bold, a list and a highlight on the new Text page, and one tap types all of it.',
+    beats: [['iphone-02', 'bold'], ['iphone-05', 'one tap types it'], ['iphone-06', 'hold to copy']],
+    words: [['0:00', 'Write it like a note'], ['0:02', 'Bold the title, list the details'], ['0:08', 'Then one tap types all of it'], ['0:12', 'Hold it to copy the formatting too'], ['0:18', 'Written like a note. Typed in one tap. + Cutling']],
+    seam: 'Dissolves into frame 0 over its last 0.6 s: a rest at the seam. Continuous.',
+    takes: '<b>5 takes</b> a language: iPhone 3 (Text page, Messages), iPad 1 (Text page), Mac 1 (Notes).',
+  },
+  {
+    key: 'c-clock', letter: 'C', name: 'Around the clock', posterStill: 'iphone-03',
+    idea: 'The same saved replies typed at 9:12, 2:20 and 9:40. The clock turns into the greeting Cutling typed, the order number goes up by one, and the day loops back to morning.',
+    beats: [['iphone-04', '2:20 PM'], ['iphone-05', '9:40 PM, dark'], ['iphone-07', 'night into morning']],
+    words: [['0:00', '9:12 AM → Good morning · #1041 · 9:12 AM · Friday'], ['0:00', 'The same saved reply, three times a day'], ['0:09', '2:20 PM → Good afternoon · #1042'], ['0:18', '9:40 PM → Good evening · #1043'], ['0:22', 'Right at any hour. + Cutling']],
+    seam: 'It never rests: the screen’s float and the day’s colour run on through the seam. Speed and acceleration continuous.',
+    takes: '<b>5 takes</b> a language: iPhone 3 (morning, afternoon, evening in dark), iPad 1, Mac 1. Recorded at those hours.',
+  },
+  {
+    key: 'd-five-taps', letter: 'D', name: 'Five taps', posterStill: 'iphone-05',
+    idea: 'One uncut take at Larger Text: a long, warm reply built from five taps, with nothing laid over it until the end. Then the camera reads down it and what Cutling filled in glows once.',
+    beats: [['iphone-02', 'tap 1: Hello asks the name'], ['iphone-04', 'tap 3: a choice'], ['iphone-06', 'reading it back']],
+    words: [['0:00', 'A long reply in five taps'], ['0:02', '(no words over the take: Good evening, Maya! … See you then! Sam)'], ['0:20', 'That was five taps. + Cutling']],
+    seam: 'Dissolves into frame 0 over its last 0.6 s: a rest at the seam. Continuous.',
+    takes: '<b>3 takes</b> a language: iPhone 1 uncut (Larger Text, evening), iPad 1, Mac 1.',
+  },
+  {
+    key: 'e-first-minute', letter: 'E', name: 'First minute', posterStill: 'iphone-04',
+    idea: 'For people who have never used a keyboard app: the remade setup guide from its first page to the first typed reply, three steps numbered large, and Apple’s Full Access warning answered on the spot.',
+    beats: [['iphone-02', '1: Settings'], ['iphone-03', 'at Apple’s warning'], ['iphone-05', '3: tap to type']],
+    words: [['0:00', 'Set up in three steps'], ['0:02', '1 Turn on the keyboard in Settings'], ['0:05', 'iOS shows this warning for every keyboard'], ['0:09', '2 Hold the globe, pick Cutling'], ['0:11', '3 Tap to type'], ['0:14', 'Then tap to type in any app'], ['0:19', 'Set up once. Use it anywhere. + Cutling']],
+    seam: 'Dissolves into frame 0 over its last 0.6 s: a rest at the seam. Continuous.',
+    takes: '<b>6 takes</b> a language: iPhone 4 (fresh install, Settings, Try It, Messages), iPad 1, Mac 1 (first launch).',
+  },
+  {
+    key: 'f-room', letter: 'F', name: 'Room for everything', posterStill: 'iphone-01',
+    idea: 'The numbers 2.0 raised, each proved on the next screen: the grid’s own count reading 5,000, a whole policy typed by one key, 500 images. Black cards, one green word.',
+    beats: [['iphone-02', '5,000 Cutlings'], ['iphone-03', 'one key, a whole policy'], ['iphone-06', '500 images']],
+    words: [['0:00', '5,000 texts in one keyboard'], ['0:11', '10,000 characters in each one'], ['0:18', '500 images too'], ['0:25', 'Keep every reply you send. + Cutling']],
+    seam: 'Dissolves into frame 0 over its last 0.6 s: a rest at the seam. Continuous.',
+    takes: '<b>6 takes</b> a language: iPhone 4 (grid of 5,000, Messages, page, images; dark), iPad 1, Mac 1.',
+  },
+];

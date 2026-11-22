@@ -1,0 +1,29 @@
+{
+ "kind": "seamless",
+ "verdicts": [
+  {
+   "name": "screen float y (px)",
+   "ok": true,
+   "jumpF": 8.976223944689998e-8,
+   "jumpV": 7.946884999511262e-13,
+   "jumpA": 0.022727584971126317,
+   "still": false
+  },
+  {
+   "name": "screen scale",
+   "ok": true,
+   "jumpF": 3.373511447968269e-8,
+   "jumpV": 0.006695381738022569,
+   "jumpA": 0.003261908819051641,
+   "still": false
+  },
+  {
+   "name": "ground brightness (top colour)",
+   "ok": true,
+   "jumpF": 7.555467986808395e-7,
+   "jumpV": 0.00011168834160480224,
+   "jumpA": 0.013888888892262,
+   "still": false
+  }
+ ]
+}
