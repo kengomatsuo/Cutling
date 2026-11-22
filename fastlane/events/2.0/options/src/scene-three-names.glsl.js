@@ -1,5 +1,5 @@
 // "Three names": one saved reply, three times. Three of Cutling's tags lie one on the next like shingles,
-// the same lines of text on each, and the pill on each carries a different name. The tag's parts are in
+// the same line of text on each, and the pill in it carries a different name. The tag's parts are in
 // tag.glsl.js; this scene lays its own lines, with a larger pill so the names read at card size.
 window.SCENE_EXPO = 1.0;
 const W3 = window.tagInk(["Maya", "Jonas", "Aiko"]);
@@ -12,7 +12,7 @@ window.SCENE_GLSL = `
 float gT;
 ` + window.TAG_GLSL + `
 const float S = 1.3;                    // pills and names are this much larger than on the other scenes' tag
-const float ZA = -4.0, ZB = -1.2;       // the name's line and the one under it
+const float ZA = -4.0;                  // the name's line
 const float XP = -3.1;                  // where every name pill starts
 const float DZ = 4.4;                   // each tag lies this far down the one before it
 const float LEAN = .1132;               // and leans on it, near edge on the ground: atan(.5 / DZ)
@@ -22,7 +22,7 @@ const vec3 LEN = vec3(${W3.map((w) => (w * 1.3 + 2.5).toFixed(3)).join(", ")}); 
 
 Cam camera(){
   Cam c;
-  c.at = mix(vec3(.9, 0, -1.7), vec3(-.2, 0, 0.), TALL);
+  c.at = mix(vec3(.9, 0, -2.3), vec3(-.2, 0, -.6), TALL);
   c.pos = c.at + mix(vec3(-2, 21.6, 27.9), vec3(-2, 30, 26), TALL);
   c.fov = mix(21., 31., TALL);
   c.lens = mix(.14, .2, TALL);
@@ -39,13 +39,10 @@ vec3 tagK(vec3 p, int k){
 float len(int k){ return k == 0 ? LEN.x : k == 1 ? LEN.y : LEN.z; }
 float pillS2(vec2 p, float x0, float x1, float z){ float r = PR * S; return lozenge(p - vec2(.5 * (x0 + x1), z), .5 * (x1 - x0) - r) - r; }
 float nameP(vec3 p, int k){ return ext(pillS2(p.xz, XP, XP + len(k), ZA), p.y - .24, .5, .46); }
+// one line of text on each tag, the name in it; the rest of the tag is left bare for the App Store's own words
 float lines(vec3 p, int k){
   float x = XP + len(k) + .8;
-  float d = bar(p, -5.9, -3.9, ZA);
-  d = min(d, bar(p, x, min(x + 4.6, 8.1), ZA));
-  d = min(d, bar(p, -8.1, -3.4, ZB));
-  d = min(d, bar(p, -2.6, 1.0, ZB));
-  return min(d, bar(p, 1.8, 5.2, ZB)); }
+  return min(bar(p, -5.9, -3.9, ZA), bar(p, x, min(x + 4.6, 8.1), ZA)); }
 float slab(vec3 p, int k){
   float d = ext(tagOutline(p.xz), p.y + .25, .25, .07);
   d = max(d, -(length(p.xz - PIV) - .62));

@@ -16,7 +16,7 @@ const float TOP = 1.4;
 
 Cam camera(){
   Cam c;
-  c.at = mix(vec3(-4.0, TOP, 2.7), vec3(-2.6, TOP, 3.6), TALL);
+  c.at = mix(vec3(-4.0, TOP, 2.7), vec3(-2.6, TOP, 5.4), TALL);
   c.pos = c.at + mix(vec3(-3, 19, 23), vec3(-3, 26, 25), TALL);
   c.fov = mix(21., 31., TALL);
   c.lens = mix(.2, .24, TALL);
@@ -24,8 +24,10 @@ Cam camera(){
   return c; }
 
 vec2 fan(vec2 p, float a){ return (p - PIV) * rot(a) + PIV; }
+// the pill for the first line, 2 cm above its pocket, its face turned to the lens so the name reads; the
+// shutter is fast, since a blurred name reads as a smear
 vec3 dropP(vec3 p){
-  p -= vec3(.5 * (SLOT.x + SLOT.y) + .4, 2.0, Z1 - .2) + vec3(.02, -.22, 0.) * (gT - .5);
+  p -= vec3(.5 * (SLOT.x + SLOT.y) + .4, 2.0, Z1 - .2) + vec3(.01, -.09, 0.) * (gT - .5);
   p.xy *= rot(-.2); p.xz *= rot(-.06); p.yz *= rot(.46);
   return p; }
 float dropping(vec3 p){ p = dropP(p); return ext(lozenge(p.xz, .5 * (SLOT.y - SLOT.x) - PR) - PR, p.y, .42, .4); }
