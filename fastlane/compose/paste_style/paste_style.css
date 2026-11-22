@@ -1,27 +1,30 @@
-/* Paste-style store frame: a calm light ground, one headline, the whole phone with its bezel.
-   Every drawn value is a custom property that build.py writes from spec.json; this file holds
-   no number of its own (check.py prints any it finds). The capture fills the screen uncropped. */
+/* Paste-style store frames: a calm light ground, one headline per frame, whole phones, and the app's
+   own tiles lifted across the seams so the frames join into one strip. Every drawn value is a custom
+   property that build.py writes from spec.json, either on :root or on the element it belongs to; this
+   file holds no number of its own (check.py prints any it finds). */
 *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
-html,body{width:var(--canvas-w);height:var(--canvas-h);overflow:hidden}
-.panel{position:relative;isolation:isolate;width:var(--canvas-w);height:var(--canvas-h);overflow:hidden;
+html,body{width:100vw;height:100vh;overflow:hidden}
+/* the whole strip, slid left so one frame fills the page */
+.strip{position:absolute;isolation:isolate;left:var(--strip-shift);top:0;width:var(--strip-w);height:var(--canvas-h);
  background:var(--ground-fill);font-family:var(--type-family)}
+.frame{position:absolute;left:calc(var(--i) * var(--canvas-w));top:0;width:var(--canvas-w);height:var(--canvas-h)}
 /* the copy block: fit.js shrinks [data-fit] lines until the block fits this box */
 .wrap{position:absolute;left:var(--wrap-x);top:var(--wrap-y);width:var(--wrap-w);height:var(--wrap-h);
- display:flex;flex-direction:column;justify-content:center;align-items:stretch;text-align:var(--wrap-align)}
+ display:flex;flex-direction:column;justify-content:center;align-items:stretch;text-align:start}
 .headline{font-size:var(--headline-size);font-weight:var(--headline-weight);line-height:var(--headline-leading);
  letter-spacing:var(--headline-tracking);color:var(--headline-ink);text-wrap:balance}
 .headline[data-nowrap]{white-space:nowrap}
 .headline em{font-style:normal;color:var(--headline-accent)}
 .sub{margin-top:var(--sub-gap);font-size:var(--sub-size);font-weight:var(--sub-weight);line-height:var(--sub-leading);
  letter-spacing:var(--sub-tracking);color:var(--sub-ink);text-wrap:balance}
-/* the phone: a metal band, a black bezel inside it, the capture inside that */
-.phone{position:absolute;left:var(--phone-x);top:var(--phone-y);width:var(--phone-w);height:var(--phone-h);
- border-radius:var(--phone-radius);background:var(--phone-band);box-shadow:var(--phone-shadow)}
+/* a phone: a metal band, a black bezel inside it, the capture inside that; --k scales the whole device */
+.phone{position:absolute;left:var(--x);top:var(--y);width:var(--phone-w);height:var(--phone-h);transform:scale(var(--k));
+ transform-origin:0 0;border-radius:var(--phone-radius);background:var(--phone-band);box-shadow:var(--phone-shadow)}
 .phone::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:var(--phone-edge)}
 .bezel{position:absolute;inset:var(--bezel-inset);border-radius:var(--bezel-radius);background:var(--bezel-fill)}
 .screen{position:absolute;left:var(--screen-inset);top:var(--screen-inset);width:var(--screen-w);height:var(--screen-h);
  border-radius:var(--screen-radius);overflow:hidden}
-.screen img{display:block;width:100%;height:100%}
+.screen>.surface{transform:scale(var(--screen-scale));transform-origin:0 0}
 .btn{position:absolute;z-index:-1;width:var(--button-w);border-radius:var(--button-radius);background:var(--button-fill)}
 .btn.left{left:var(--button-left)}
 .btn.right{right:var(--button-left)}
@@ -29,6 +32,27 @@ html,body{width:var(--canvas-w);height:var(--canvas-h);overflow:hidden}
 .btn.up{top:var(--button-up-y);height:var(--button-up-h)}
 .btn.down{top:var(--button-down-y);height:var(--button-down-h)}
 .btn.power{top:var(--button-power-y);height:var(--button-power-h)}
-/* where the finger lands, in screen pixels of the frame */
-.tap{position:absolute;left:var(--tap-x);top:var(--tap-y);width:var(--tap-d);height:var(--tap-d);
+/* a surface is a window onto a capture, in the capture's own pixels; a .src-* rule in the page names the capture */
+.surface{position:absolute;left:0;top:0;width:var(--w);height:var(--h);background-position:var(--bx) var(--by);
+ background-size:var(--capture-w) auto;background-repeat:no-repeat}
+/* a patch lays a flat fill, or the same box from another capture, over part of a surface */
+.patch{position:absolute;left:var(--x);top:var(--y);width:var(--w);height:var(--h);background-color:var(--fill);
+ background-position:var(--bx) var(--by);background-size:var(--capture-w) auto;background-repeat:no-repeat}
+/* the status-bar clock, redrawn over the capture's own */
+.clock{position:absolute;left:var(--clock-x);top:var(--clock-y);width:var(--clock-w);height:var(--clock-h);background:var(--fill);
+ font-size:var(--clock-size);font-weight:var(--clock-weight);line-height:var(--clock-h);letter-spacing:var(--clock-tracking);
+ color:var(--clock-ink);text-align:center;direction:ltr}
+/* an incoming Messages bubble with its tail */
+.bubble{position:absolute;isolation:isolate;left:var(--x);top:var(--y);padding:var(--bubble-pad-y) var(--bubble-pad-x);
+ border-radius:var(--bubble-radius);background:var(--bubble-fill);color:var(--bubble-ink);font-size:var(--bubble-size);
+ font-weight:var(--bubble-weight);line-height:var(--bubble-leading);letter-spacing:var(--bubble-tracking);white-space:nowrap}
+.bubble::before{content:"";position:absolute;z-index:-1;bottom:0;left:var(--bubble-tail-x);width:var(--bubble-tail-w);
+ height:var(--bubble-tail-h);background:var(--bubble-fill);border-bottom-right-radius:var(--bubble-tail-curve)}
+.bubble::after{content:"";position:absolute;z-index:-1;bottom:0;left:var(--bubble-cut-x);width:var(--bubble-cut-w);
+ height:var(--bubble-tail-h);background:var(--bubble-cut-fill);border-bottom-right-radius:var(--bubble-cut-curve)}
+/* where the finger lands, in the capture's pixels */
+.tap{position:absolute;left:var(--x);top:var(--y);width:var(--tap-d);height:var(--tap-d);
  border-radius:var(--tap-d);background:var(--tap-fill);box-shadow:var(--tap-ring)}
+/* a tile lifted out of a capture and floated over the strip */
+.lift{position:absolute;left:var(--x);top:var(--y);width:var(--w);height:var(--h);transform:rotate(var(--r)) scale(var(--k));
+ border-radius:var(--lift-radius);overflow:hidden;box-shadow:var(--lift-shadow)}

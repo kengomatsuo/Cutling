@@ -1,36 +1,60 @@
 {
- "about": "Every value the Paste-style frames draw. Numbers are output pixels on the 1320x2868 canvas; strings are CSS values as written. build.py turns each leaf under base, variants.<v> and frames[].tap into a custom property; paste_style.css draws from those only.",
- "recommended": "C",
+ "about": "Every value the Paste-style frames draw. Numbers are pixels: on the 1320x2868 canvas for anything on the ground, in the capture's own pixels for anything inside a screen or a lifted tile. Strings are CSS values as written. build.py writes each leaf under base as a custom property on :root and each per-element value on its element; paste_style.css draws from those only.",
+ "recommended": "S1",
  "capture": {
   "w": 1320,
   "h": 2868,
   "corner_radius": 186,
-  "scale": "2/3",
-  "note": "screen = capture x 2/3: 880x1912, radius 124; the keyboard's own corner in the capture is 187 px, so the clip follows it"
+  "note": "every capture is 1320x2868; its keyboard's own corner is 187 px, so the screen clip follows it"
+ },
+ "card": {
+  "w": 300,
+  "headline_min": 32,
+  "floor_min": 20,
+  "note": "the store search card shows a frame about 300 px wide; Paste's first headline is 32 px there"
  },
  "base": {
   "canvas": {
    "w": 1320,
    "h": 2868
   },
+  "ground": {
+   "fill": "linear-gradient(180deg,#F7F9F8 0%,#E8F1ED 100%)"
+  },
   "type": {
    "family": "-apple-system,\"SF Pro Display\",system-ui,sans-serif"
   },
+  "wrap": {
+   "x": 189,
+   "y": 150,
+   "w": 942,
+   "h": 520
+  },
   "headline": {
-   "size": 162,
+   "size": 156,
    "floor": 96,
    "weight": "800",
    "leading": "1.03",
    "tracking": "-0.025em",
-   "ink": "#0C1210"
+   "ink": "#0C1210",
+   "accent": "#0E8F6C"
+  },
+  "sub": {
+   "gap": 34,
+   "size": 58,
+   "floor": 40,
+   "weight": "500",
+   "leading": "1.2",
+   "tracking": "-0.01em",
+   "ink": "#5B6763"
   },
   "phone": {
-   "x": 189,
    "w": 942,
    "h": 1974,
    "radius": 155,
    "band": "linear-gradient(105deg,#74777A 0%,#3A3C3E 20%,#26282A 55%,#3E4042 80%,#7C7F82 100%)",
-   "edge": "inset 0 0 0 1.5px rgba(255,255,255,.28),inset 0 0 0 3px rgba(0,0,0,.30)"
+   "edge": "inset 0 0 0 1.5px rgba(255,255,255,.28),inset 0 0 0 3px rgba(0,0,0,.30)",
+   "shadow": "0 90px 120px -60px rgba(16,58,46,.42),0 40px 60px -40px rgba(16,58,46,.30)"
   },
   "bezel": {
    "inset": 9,
@@ -41,7 +65,8 @@
    "inset": 31,
    "w": 880,
    "h": 1912,
-   "radius": 124
+   "radius": 124,
+   "scale": "calc(2 / 3)"
   },
   "button": {
    "w": 10,
@@ -64,74 +89,50 @@
     "y": 525,
     "h": 230
    }
-  }
- },
- "variants": {
-  "A": {
-   "pull": "Paste's calm: near-white ground, black headline set flush with the phone's left edge, one grey line under it, nothing on the phone",
-   "ground": {
-    "fill": "linear-gradient(180deg,#F7F9F8 0%,#E8F1ED 100%)"
+  },
+  "tap": {
+   "d": 126,
+   "fill": "rgba(14,143,108,.24)",
+   "ring": "0 0 0 4px rgba(255,255,255,.95),0 0 0 21px rgba(14,143,108,.14)"
+  },
+  "clock": {
+   "x": 188,
+   "y": 62,
+   "w": 168,
+   "h": 70,
+   "size": 59,
+   "weight": "600",
+   "tracking": "0",
+   "ink": "#000000"
+  },
+  "bubble": {
+   "size": 51,
+   "weight": "400",
+   "leading": "66px",
+   "tracking": "-0.6px",
+   "pad": {
+    "y": 21,
+    "x": 39
    },
-   "wrap": {
-    "x": 189,
-    "y": 150,
-    "w": 942,
-    "h": 520,
-    "align": "start"
+   "radius": 54,
+   "fill": "#E9E9EB",
+   "ink": "#000000",
+   "tail": {
+    "x": -21,
+    "w": 60,
+    "h": 60,
+    "curve": 45
    },
-   "headline": {
-    "accent": "#0C1210"
-   },
-   "sub": {
-    "gap": 34,
-    "size": 58,
-    "floor": 40,
-    "weight": "500",
-    "leading": "1.2",
-    "tracking": "-0.01em",
-    "ink": "#5B6763"
-   },
-   "phone": {
-    "y": 754,
-    "shadow": "0 90px 120px -60px rgba(16,58,46,.42),0 40px 60px -40px rgba(16,58,46,.30)"
+   "cut": {
+    "x": -30,
+    "w": 30,
+    "curve": 30,
+    "fill": "#FDFDFD"
    }
   },
-  "B": {
-   "pull": "The tap, in the brand's mint: pale mint ground, centred headline with 'one tap' in green, a touch mark on the key that was tapped",
-   "ground": {
-    "fill": "linear-gradient(180deg,#EFF9F5 0%,#CFEDE1 100%)"
-   },
-   "wrap": {
-    "x": 90,
-    "y": 160,
-    "w": 1140,
-    "h": 440,
-    "align": "center"
-   },
-   "headline": {
-    "accent": "#0E8F6C"
-   },
-   "phone": {
-    "y": 724,
-    "shadow": "0 90px 120px -60px rgba(10,74,56,.50),0 40px 60px -40px rgba(10,74,56,.34)"
-   },
-   "tap": {
-    "d": 84,
-    "fill": "rgba(14,143,108,.24)",
-    "ring": "0 0 0 3px rgba(255,255,255,.95),0 0 0 14px rgba(14,143,108,.14)"
-   }
-  },
-  "C": {
-   "extends": "A",
-   "pull": "Calm, with the tap marked: A's ground, alignment and grey line, plus the one accent that ties the words to the screen: 'one tap' in green and the same green on the key that was tapped",
-   "headline": {
-    "accent": "#0E8F6C"
-   },
-   "tap": {
-    "d": 84,
-    "fill": "rgba(14,143,108,.24)",
-    "ring": "0 0 0 3px rgba(255,255,255,.95),0 0 0 14px rgba(14,143,108,.14)"
-   }
+  "lift": {
+   "radius": 58,
+   "shadow": "0 50px 80px -30px rgba(16,58,46,.45),0 14px 30px -10px rgba(16,58,46,.22),0 0 0 1px rgba(12,18,16,.05)"
   }
  },
  "frames": [
@@ -142,23 +143,196 @@
     "headline": "f1.headline",
     "sub": "f1.sub"
    },
+   "clock": {
+    "fill": "#FDFDFD"
+   },
+   "bubble": {
+    "x": 48,
+    "y": 1302,
+    "text": "f1.bubble",
+    "note": "drawn, not captured: one incoming Messages bubble, 108 px tall, ending 69 px above the field"
+   },
+   "free_box": {
+    "x": 0,
+    "y": 480,
+    "w": 1320,
+    "h": 960,
+    "note": "the capture's empty chat area; the bubble must stay inside it"
+   },
    "tap": {
-    "x": 330,
-    "y": 1346
+    "x": 495,
+    "y": 2019
    },
    "key_box": {
-    "x": 12,
-    "y": 1310,
-    "w": 421,
-    "h": 156,
-    "note": "the Home Address key in screen pixels (capture x 18-650, y 1965-2199, times 2/3)"
+    "x": 18,
+    "y": 1965,
+    "w": 632,
+    "h": 234,
+    "note": "the Home Address key"
    }
+  },
+  {
+   "key": "f2",
+   "capture": "../../tall/cutling/cap/iphone-grid-clean.png",
+   "copy": {
+    "headline": "f2.headline",
+    "sub": "f2.sub"
+   },
+   "clock": {
+    "fill": "#F9F9FC"
+   }
+  },
+  {
+   "key": "f3",
+   "capture": "../../tall/cutling/cap/iphone-email-body.png",
+   "copy": {
+    "headline": "f3.headline",
+    "sub": "f3.sub"
+   },
+   "clock": {
+    "fill": "#FDFDFD"
+   },
+   "patches": [
+    {
+     "what": "the test page's 'localhost' pill, covered with the page's own white",
+     "fill": "#FDFDFD",
+     "x": 505,
+     "y": 1398,
+     "w": 310,
+     "h": 130
+    },
+    {
+     "what": "the charging battery, replaced by the plain status icons of the chat capture",
+     "from": "f1",
+     "sx": 896,
+     "sy": 60,
+     "x": 896,
+     "y": 60,
+     "w": 300,
+     "h": 72
+    },
+    {
+     "what": "the Bank Account key, replaced by the Phone Number key in the same slot of the chat capture",
+     "from": "f1",
+     "sx": 690,
+     "sy": 2395,
+     "x": 690,
+     "y": 2395,
+     "w": 600,
+     "h": 93
+    }
+   ]
   }
  ],
+ "designs": {
+  "S1": {
+   "pull": "Whole phones, tiles cross: every phone stays whole in its own frame, and a tile lifted from the library in frame 2 crosses each seam to dock beside the place it was pasted",
+   "phones": [
+    {
+     "frame": "f1",
+     "x": 189,
+     "y": 754,
+     "k": "1"
+    },
+    {
+     "frame": "f2",
+     "x": 1509,
+     "y": 754,
+     "k": "1"
+    },
+    {
+     "frame": "f3",
+     "x": 2829,
+     "y": 754,
+     "k": "1"
+    }
+   ],
+   "lifts": [
+    {
+     "what": "the Home Address tile, crossing seam 1|2: it leaves the library's margin and lands on the empty part of the chat",
+     "from": "f2",
+     "sx": 48,
+     "sy": 318,
+     "w": 594,
+     "h": 420,
+     "x": 978,
+     "y": 1180,
+     "r": "-5deg",
+     "k": "1",
+     "patches": [
+      {
+       "what": "the tile's top 44 px sit under the library's header in the capture; the same strip of the tile below takes their place",
+       "from": "f2",
+       "sx": 48,
+       "sy": 774,
+       "x": 0,
+       "y": 0,
+       "w": 594,
+       "h": 44
+      }
+     ]
+    },
+    {
+     "what": "the Email Signature tile, crossing seam 2|3 beside its own slot in the library: it lands on the mail's left margin",
+     "from": "f2",
+     "sx": 678,
+     "sy": 318,
+     "w": 594,
+     "h": 420,
+     "x": 2266,
+     "y": 927,
+     "r": "4deg",
+     "k": "1",
+     "patches": [
+      {
+       "what": "as above",
+       "from": "f2",
+       "sx": 678,
+       "sy": 774,
+       "x": 0,
+       "y": 0,
+       "w": 594,
+       "h": 44
+      }
+     ]
+    }
+   ]
+  },
+  "S2": {
+   "pull": "Paste to the letter: one device far larger than the rest fills frame 2 and runs over both seams, the way Paste's MacBook does",
+   "phones": [
+    {
+     "frame": "f1",
+     "x": 189,
+     "y": 754,
+     "k": "1"
+    },
+    {
+     "frame": "f2",
+     "x": 1226,
+     "y": 700,
+     "k": "1.6"
+    },
+    {
+     "frame": "f3",
+     "x": 2829,
+     "y": 754,
+     "k": "1"
+    }
+   ],
+   "lifts": []
+  }
+ },
  "copy": {
   "en-US": {
+   "clock": "9:41",
    "f1.headline": "Your address\nin *one tap*",
-   "f1.sub": "Save it once. Tap it on your keyboard."
+   "f1.sub": "Save it once. Tap it on your keyboard.",
+   "f1.bubble": "What's your address?",
+   "f2.headline": "All you retype\nin *one place*",
+   "f2.sub": "Addresses, sign-offs, codes and links.",
+   "f3.headline": "Your sign-off\nin *any app*",
+   "f3.sub": "Messages, Mail, anywhere you type."
   }
  },
  "ledger": [
@@ -175,7 +349,7 @@
    "source": "owner",
    "item": "Remake it in the rivals' style (Paste is the one to beat)",
    "spec": [
-    "variants/A/ground/fill",
+    "base/ground/fill",
     "base/phone/w"
    ]
   },
@@ -183,7 +357,7 @@
    "source": "brief",
    "item": "Calm light ground",
    "spec": [
-    "variants/A/ground/fill"
+    "base/ground/fill"
    ]
   },
   {
@@ -199,8 +373,8 @@
    "source": "brief",
    "item": "The whole iPhone with its bezel, shown large",
    "spec": [
-    "base/phone/x",
-    "variants/A/phone/y",
+    "designs/S1/phones/0/x",
+    "designs/S1/phones/0/y",
     "base/phone/w",
     "base/phone/h",
     "base/bezel/inset"
@@ -210,8 +384,8 @@
    "source": "brief",
    "item": "Lots of air",
    "spec": [
-    "base/phone/x",
-    "variants/A/wrap/y"
+    "designs/S1/phones/0/x",
+    "base/wrap/y"
    ]
   },
   {
@@ -224,15 +398,15 @@
    "item": "Use the whole real capture inside a phone, never a keyboard panel",
    "spec": [
     "frames/0/capture",
-    "capture/scale"
+    "base/screen/scale"
    ]
   },
   {
    "source": "brief",
    "item": "Brand colour is mint; a light ground with green as accent is fine",
    "spec": [
-    "variants/C/headline/accent",
-    "variants/C/tap/fill"
+    "base/headline/accent",
+    "base/tap/fill"
    ]
   },
   {
@@ -293,8 +467,8 @@
    "item": "Nothing is cropped awkwardly; the phone is whole and sharp",
    "spec": [
     "base/phone/h",
-    "variants/A/phone/y",
-    "capture/scale"
+    "designs/S1/phones/0/y",
+    "base/screen/scale"
    ]
   },
   {
@@ -304,7 +478,7 @@
     "frames",
     "copy",
     "base/headline/floor",
-    "variants/A/sub/floor"
+    "base/sub/floor"
    ]
   },
   {
@@ -327,24 +501,128 @@
    "source": "design",
    "item": "Headline column is the phone's column, so the words and the device share both edges",
    "spec": [
-    "variants/A/wrap/x",
-    "variants/A/wrap/w"
+    "base/wrap/x",
+    "base/wrap/w"
    ]
   },
   {
    "source": "design",
    "item": "The green of 'one tap' and the mark on the tapped key are one accent",
    "spec": [
-    "variants/C/headline/accent",
-    "variants/C/tap/ring",
+    "base/headline/accent",
+    "base/tap/ring",
     "frames/0/tap/y"
+   ]
+  },
+  {
+   "source": "owner",
+   "item": "The bleed through other pictures effect? (Paste's panorama: one picture running across neighbouring screenshots)",
+   "spec": [
+    "designs/S1/lifts/0/x",
+    "designs/S1/lifts/1/x"
+   ]
+  },
+  {
+   "source": "owner",
+   "item": "Everything considered? (every rival technique weighed)",
+   "spec": [
+    "audit"
+   ]
+  },
+  {
+   "source": "coordinator",
+   "item": "Frames 1-3 are one continuous composition",
+   "spec": [
+    "designs/S1/phones",
+    "designs/S1/lifts",
+    "base/ground/fill"
+   ]
+  },
+  {
+   "source": "coordinator",
+   "item": "At least one element crosses each seam",
+   "spec": [
+    "designs/S1/lifts/0/w",
+    "designs/S1/lifts/1/w"
+   ]
+  },
+  {
+   "source": "coordinator",
+   "item": "Each frame still works alone on the product page",
+   "spec": [
+    "designs/S1/phones/0/k",
+    "designs/S1/phones/1/k",
+    "designs/S1/phones/2/k",
+    "base/wrap/w"
+   ]
+  },
+  {
+   "source": "coordinator",
+   "item": "The remaining frames may continue the strip",
+   "dropped": "Only frames 1-3 are drawn. A fourth frame continues the strip by adding a frame, a phone and a lift to spec.json."
+  },
+  {
+   "source": "coordinator",
+   "item": "Keep the near-white calm and the single green accent unless the audit says otherwise",
+   "spec": [
+    "base/ground/fill",
+    "base/headline/accent",
+    "base/tap/fill"
+   ]
+  },
+  {
+   "source": "coordinator",
+   "item": "The empty chat: use the real capture and add only honest content that looks like the app (an incoming Messages bubble)",
+   "spec": [
+    "frames/0/bubble/y",
+    "copy/en-US/f1.bubble",
+    "base/bubble/fill"
+   ]
+  },
+  {
+   "source": "coordinator",
+   "item": "The 09.41 clock reads 9:41",
+   "spec": [
+    "copy/en-US/clock",
+    "base/clock/size",
+    "frames/0/clock/fill",
+    "frames/1/clock/fill",
+    "frames/2/clock/fill"
+   ]
+  },
+  {
+   "source": "coordinator",
+   "item": "Check that search results show the first three portrait screenshots side by side",
+   "spec": [
+    "audit",
+    "card/w"
+   ]
+  },
+  {
+   "source": "capability",
+   "item": "Everything you retype kept in one library (built: iphone-grid-clean.png is the library)",
+   "spec": [
+    "frames/1/capture",
+    "copy/en-US/f2.headline"
+   ]
+  },
+  {
+   "source": "capability",
+   "item": "Paste in any app (built: the keyboard works in any text field; the capture on disk is a test page laid out as a mail composer, not Mail itself)",
+   "spec": [
+    "frames/2/capture",
+    "frames/2/patches/0/what",
+    "copy/en-US/f3.headline"
+   ]
+  },
+  {
+   "source": "design",
+   "item": "The two lifted tiles are the two things pasted: Home Address towards the chat, Email Signature towards the mail",
+   "spec": [
+    "designs/S1/lifts/0/what",
+    "designs/S1/lifts/1/what"
    ]
   }
  ],
- "card": {
-  "w": 300,
-  "headline_min": 32,
-  "floor_min": 20,
-  "note": "the store search card shows the frame about 300 px wide; Paste's first headline is 32 px there"
- }
+ "audit": "TECHNIQUES.md"
 }
