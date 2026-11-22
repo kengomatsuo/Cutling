@@ -112,6 +112,10 @@ final class FormattingUITests: XCTestCase {
             sleep(1)
         }
 
+        // The grid's one-time More options tip sits over the cards the editor is opened from.
+        let tipClose = app.buttons["Close"].firstMatch
+        if tipClose.waitForExistence(timeout: 2) { tipClose.tap(); sleep(1) }
+
         // The editor shows each cutling's format.
         let cards = app.descendants(matching: .any).matching(identifier: "cutlingCard")
         XCTAssertTrue(cards.firstMatch.waitForExistence(timeout: 10), "Grid not reachable")

@@ -185,10 +185,23 @@ extension XCTestCase {
     /// Switches the focused field to the Cutling keyboard through the globe key.
     @MainActor
     func switchToCutlingKeyboard(in app: XCUIApplication, showing name: String? = nil) {
-        // Taps on the globe only: on iOS 27 the held globe's list closes when the finger lifts, and the tap meant for
-        // its Cutling row then lands on the page and closes the keyboard. The simulator can hold many keyboards.
+        // A tap on iOS 27's globe goes back to the keyboard used last, never on down the list, so taps alone reach
+        // Cutling only when it was one of the last two keyboards used.
         XCTAssertTrue(cutlingKeyboardIsUp(in: app, showing: name) || keyboardGlobe(in: app).waitForExistence(timeout: 10),
                       "No globe key (keys: \(app.keys.count))")
+        // The keyboard's own buttons, named in the log, so a run that never reaches Cutling shows what it tapped.
+        print("KEYBOARD-BUTTONS: " + app.keyboards.buttons.allElementsBoundByIndex.map { "\($0.identifier)|\($0.label)" }.joined(separator: ", "))
+        // As a person does it: hold the globe and, in the same touch, slide up its list and let go on Cutling. The list
+        // grows up from the globe in Settings' order, Cutling last, so its row is the first one above the globe; each
+        // try lets go one row higher until the Cutling keyboard is up.
+        for row in 1...10 where !cutlingKeyboardIsUp(in: app, showing: name) {
+            let globe = keyboardGlobe(in: app)
+            guard globe.waitForExistence(timeout: 5) else { break }
+            let start = globe.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
+            start.press(forDuration: 1.0, thenDragTo: start.withOffset(CGVector(dx: 70, dy: -44 * CGFloat(row))),
+                        withVelocity: .slow, thenHoldForDuration: 0.4)
+            sleep(2)
+        }
         // Each tap moves to the next keyboard; wait for each switch to land.
         for _ in 0..<15 where !cutlingKeyboardIsUp(in: app, showing: name) {
             let globe = keyboardGlobe(in: app)
