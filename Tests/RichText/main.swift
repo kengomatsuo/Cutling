@@ -33,6 +33,62 @@ check("gdocs plain", gmd.map { RichText.plainText($0).trimmingCharacters(in: .wh
 check("gdocs wrapper not bold", gmd.map { String($0.hasPrefix("**Hello")) }, "false")
 // html export
 print("   html:", RichText.html(md))
+// Underline and highlight: Apple's Markdown attribute syntax
+let uh = "a ^[under](underline: true) and ^[**both**](underline: true, highlight: true) z"
+check("underline/highlight plain", RichText.plainText(uh), "a under and both z")
+let uhNS = RichText.nsAttributed(uh, editorColors: true)
+check("underline/highlight round trip", RichText.markdown(from: uhNS), uh)
+let uhRTF = RichText.markdown(fromRTF: RichText.rtfData(uh)!)
+check("underline/highlight rtf round trip", uhRTF, uh)
+check("old reader drops the attributes", String((try! AttributedString(markdown: uh, options: .init(interpretedSyntax: .inlineOnlyPreservingWhitespace))).characters), "a under and both z")
+check("html underline/highlight", RichText.html("^[u](underline: true) ^[h](highlight: true)").contains("<u>u</u>") && RichText.html("^[h](highlight: true)").contains("<mark") ? "yes" : "no", "yes")
+// Links keep their own underline out of the Markdown
+let linkNS = NSAttributedString(string: "site", attributes: [.link: URL(string: "https://a.b")!, .underlineStyle: 1])
+check("underlined link is a link", RichText.markdown(from: linkNS), "[site](https://a.b)")
+// A white or grey box behind pasted text is not a highlight; a colour is
+check("white background ignored", RichText.markdown(from: NSAttributedString(string: "x", attributes: [.backgroundColor: NSColor.white])), nil)
+check("grey background ignored", RichText.markdown(from: NSAttributedString(string: "x", attributes: [.backgroundColor: NSColor(white: 0.9, alpha: 1)])), nil)
+check("yellow background is highlight", RichText.markdown(from: NSAttributedString(string: "x", attributes: [.backgroundColor: NSColor.yellow])), "^[x](highlight: true)")
+
+// Lists: markers stored at line start, plain form unchanged
+let list = "Shopping:\n• milk\n• **eggs**\n- one\n1. first\n2. second\nend"
+check("list plain", RichText.plainText(list), "Shopping:\n• milk\n• eggs\n- one\n1. first\n2. second\nend")
+check("list kinds", RichText.listKinds(list).map { $0?.rawValue ?? "-" }.joined(separator: ","), "-,bulleted,bulleted,dashed,numbered,numbered,-")
+let listEditor = RichText.nsAttributed(list, editorColors: true)
+check("list editor keeps markers", listEditor.string, RichText.plainText(list))
+check("list editor round trip", RichText.markdown(from: listEditor), list)
+let listExport = RichText.nsAttributed(list)
+check("list export drops markers", listExport.string, "Shopping:\nmilk\neggs\none\nfirst\nsecond\nend")
+check("list export round trip", RichText.markdown(from: listExport), list)
+let listRTF = RichText.rtfData(list)!
+let rtfText = String(data: listRTF, encoding: .utf8)!
+check("rtf has Apple's list table", rtfText.contains(#"\{disc\}"#) && rtfText.contains(#"\{hyphen\}"#) && rtfText.contains(#"\{decimal\}"#) ? "yes" : "no", "yes")
+check("list rtf round trip", RichText.markdown(fromRTF: listRTF), list)
+check("only a list is still formatted", RichText.markdown(from: RichText.nsAttributed("• a\n• b")), "• a\n• b")
+// Numbers are written by position, whatever the source says
+check("renumbered", RichText.markdown(from: RichText.nsAttributed("1. a\n7. b\n\n3. c")), "1. a\n2. b\n\n1. c")
+// A line typed to look like a list is text: escaped, shown as typed, never a list
+for s in ["- not list", "• not list", "12. not list", "a\n- b\n• c\n3. d"] {
+    let e = RichText.escape(s)
+    check("escape keeps \(s.prefix(12)) as text", RichText.plainText(e), s)
+    check("escaped \(s.prefix(12)) is no list", RichText.listKinds(e).contains { $0 != nil } ? "list" : "text", "text")
+}
+let typed = NSMutableAttributedString(string: "- typed\n", attributes: [.font: NSFont.systemFont(ofSize: 12)])
+typed.append(NSAttributedString(string: "bold", attributes: [.font: NSFont.boldSystemFont(ofSize: 12)]))
+check("typed dash stays text", RichText.markdown(from: typed), "\\- typed\n**bold**")
+// A list pasted from another app (HTML through WebKit, RTF as Notes and TextEdit write it)
+let htmlList = "<p>Intro <u>u</u></p><ul><li>One</li><li>Two</li></ul><ol><li>First</li><li>Second</li></ol><p>after</p>"
+let hmd = MainActor.assumeIsolated { RichText.markdown(fromHTML: htmlList.data(using: .utf8)!) }
+check("html list", hmd, "Intro ^[u](underline: true)\n• One\n• Two\n1. First\n2. Second\nafter")
+let textEditRTF = #"{\rtf1\ansi{\fonttbl\f0\fnil Helvetica;}{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid1\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}\pard\ls1\ilvl0\f0\fs24 {\listtext\tab \uc0\u8259 \tab }Dash one\par {\listtext\tab \uc0\u8259 \tab }Dash two\par }"#
+check("textedit dashed rtf", RichText.markdown(fromRTF: textEditRTF.data(using: .utf8)!), "- Dash one\n- Dash two")
+// HTML export of lists
+let listHTML = RichText.html(list)
+check("html lists", listHTML.contains("<ul><li>milk</li><li><b>eggs</b></li></ul>") && listHTML.contains("Apple-dash-list") && listHTML.contains("<ol><li>first</li><li>second</li></ol>") ? "yes" : listHTML, "yes")
+check("html without lists unchanged", RichText.html("a\n**b**"), "<meta charset=\"utf-8\"><span style=\"white-space:pre-wrap\">a<br><b>b</b></span>")
+// Existing cutlings read as before
+check("existing rich unchanged", RichText.markdown(from: RichText.nsAttributed(md, editorColors: true)), md)
+
 // code heuristics
 check("code: swift", String(TextFormat.looksLikeCode("func a() {\n    return 1\n}")), "true")
 check("code: sentence", String(TextFormat.looksLikeCode("Hi there, see you at 5.")), "false")

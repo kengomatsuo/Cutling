@@ -49,10 +49,21 @@ struct FormattedTextEditor {
         return style
     }()
 
-    /// What the view shows: the rendered text with its pills and line spacing.
+    /// What the view shows: the rendered text with its pills and line spacing. A list line keeps its hanging indent.
     fileprivate static func display(_ rendered: NSAttributedString, font: PillFont) -> NSAttributedString {
         let out = NSMutableAttributedString(attributedString: FillInPills.pilled(rendered, font: font))
-        out.addAttribute(.paragraphStyle, value: lines, range: NSRange(location: 0, length: out.length))
+        let full = NSRange(location: 0, length: out.length)
+        var styled: [(NSRange, NSParagraphStyle)] = []
+        out.enumerateAttribute(.paragraphStyle, in: full) { value, range, _ in
+            guard let style = value as? NSParagraphStyle else { return }
+            styled.append((range, style))
+        }
+        out.addAttribute(.paragraphStyle, value: lines, range: full)
+        for (range, style) in styled {
+            let merged = (style.mutableCopy() as? NSMutableParagraphStyle) ?? NSMutableParagraphStyle()
+            merged.lineSpacing = lines.lineSpacing
+            out.addAttribute(.paragraphStyle, value: merged, range: range)
+        }
         return out
     }
 }
@@ -64,6 +75,8 @@ struct EditorBarItem {
     #if os(iOS)
     /// A formatting button: it toggles this style at the cursor and shows filled while the style is on, as Notes' B does.
     var style: EditorStyle? = nil
+    /// A button with choices, as Notes' list button: its menu grows above the bar and the button is filled while one is on.
+    var menu: [EditorStyle] = []
     #endif
     let action: () -> Void
 }
@@ -94,7 +107,10 @@ struct EditorKeyboardBar: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 0) {
                 ForEach(items, id: \.title) { item in
-                    if let style = item.style {
+                    if !item.menu.isEmpty {
+                        EditorBarMenu(item: item, styles: styles)
+                            .frame(width: Self.styleStep, height: Self.barHeight)
+                    } else if let style = item.style {
                         EditorBarButton(item: EditorBarItem(title: item.title, icon: item.icon) { styles.toggle(style) },
                                         active: styles.active.contains(style))
                             .frame(width: Self.styleStep, height: Self.barHeight)
@@ -125,17 +141,52 @@ struct EditorBarButton: View {
 
     var body: some View {
         Button(action: item.action) {
-            Image(systemName: item.icon)
-                .font(.system(size: 20, weight: .medium))
-                .foregroundStyle(active ? Color.white : Color.primary)
-                .frame(width: 42, height: 42)
-                .background(active ? Color.accentColor : Color.clear, in: Circle())
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .contentShape(Rectangle())
+            EditorBarGlyph(icon: item.icon, active: active)
         }
         .buttonStyle(.plain)
         .accessibilityLabel(item.title)
         .accessibilityAddTraits(active ? .isSelected : [])
+    }
+}
+
+/// The face of a bar button, shared by plain buttons and menus.
+struct EditorBarGlyph: View {
+    let icon: String
+    let active: Bool
+
+    var body: some View {
+        Image(systemName: icon)
+            .font(.system(size: 20, weight: .medium))
+            .foregroundStyle(active ? Color.white : Color.primary)
+            .frame(width: 42, height: 42)
+            .background(active ? Color.accentColor : Color.clear, in: Circle())
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .contentShape(Rectangle())
+    }
+}
+
+/// Notes' list button: a menu of Bulleted, Dashed and Numbered that grows above the bar, icon then name,
+/// the one the cursor is in ticked. The button is filled while the cursor is in a list.
+struct EditorBarMenu: View {
+    let item: EditorBarItem
+    let styles: EditorStyles
+
+    var body: some View {
+        let active = item.menu.contains { styles.active.contains($0) }
+        Menu {
+            ForEach(item.menu, id: \.self) { style in
+                Toggle(isOn: Binding(get: { styles.active.contains(style) }, set: { _ in styles.toggle(style) })) {
+                    Label(style.title, systemImage: style.icon)
+                }
+            }
+        } label: {
+            EditorBarGlyph(icon: item.icon, active: active)
+        }
+        .menuOrder(.fixed)
+        .buttonStyle(.plain)
+        .accessibilityLabel(item.title)
+        .accessibilityAddTraits(active ? .isSelected : [])
+        .accessibilityIdentifier("editorBarMenu.\(item.icon)")
     }
 }
 
@@ -354,7 +405,157 @@ extension FormattedTextEditor: UIViewRepresentable {
             if parent.formatPanel.wrappedValue { DispatchQueue.main.async { self.parent.formatPanel.wrappedValue = false } }
         }
 
-        func textViewDidChangeSelection(_ view: UITextView) { refreshStyles(view) }
+        func textViewDidChangeSelection(_ view: UITextView) {
+            // A list's marker is the list's, as in Notes: the cursor never stands inside or before it.
+            if view.markedTextRange == nil, view.selectedRange.length == 0,
+               let item = listItem(containing: view.selectedRange.location, in: view.textStorage),
+               view.selectedRange.location < item.paragraph.location + item.marker {
+                view.selectedRange = NSRange(location: item.paragraph.location + item.marker, length: 0)
+                return
+            }
+            // Text typed after a marker is not part of it.
+            if view.typingAttributes[.cutlingListMarker] != nil {
+                var typing = view.typingAttributes
+                typing[.cutlingListMarker] = nil
+                view.typingAttributes = typing
+            }
+            refreshStyles(view)
+        }
+
+        // MARK: Lists
+
+        /// The list item a location sits in: its kind, its paragraph without the newline, and its marker's length.
+        private func listItem(containing location: Int, in storage: NSTextStorage) -> (kind: ListKind, paragraph: NSRange, marker: Int)? {
+            let string = storage.string as NSString
+            var paragraph = string.paragraphRange(for: NSRange(location: min(location, string.length), length: 0))
+            if paragraph.length > 0, string.character(at: paragraph.upperBound - 1) == 10 { paragraph.length -= 1 }
+            guard paragraph.length > 0,
+                  let raw = storage.attribute(.cutlingListMarker, at: paragraph.location, effectiveRange: nil) as? String,
+                  let kind = ListKind(rawValue: raw),
+                  let found = ListKind.leading(string.substring(with: paragraph)) else { return nil }
+            return (kind, paragraph, found.length)
+        }
+
+        private func marker(_ kind: ListKind, _ number: Int) -> NSAttributedString {
+            NSAttributedString(string: kind.marker(number), attributes: [
+                .font: UIFont.systemFont(ofSize: bodySize), .foregroundColor: UIColor.label,
+                .paragraphStyle: FormattedTextEditor.lines, .cutlingListMarker: kind.rawValue,
+            ])
+        }
+
+        /// Makes every paragraph the selection touches this list, or takes them out when they all are, as Notes' list menu does.
+        private func setList(_ kind: ListKind, in view: UITextView) {
+            let storage = view.textStorage
+            let string = storage.string as NSString
+            let selection = view.selectedRange
+            let span = string.paragraphRange(for: selection)
+            var paragraphs: [NSRange] = []
+            string.enumerateSubstrings(in: span, options: [.byParagraphs, .substringNotRequired]) { _, range, _, _ in paragraphs.append(range) }
+            if paragraphs.isEmpty { paragraphs = [NSRange(location: span.location, length: 0)] }
+            let items = paragraphs.map { listItem(containing: $0.location, in: storage) }
+            let removing = items.allSatisfy { $0?.kind == kind }
+            edit(view) { storage in
+                var delta = 0
+                var firstMarker = 0
+                for (index, paragraph) in paragraphs.enumerated().reversed() {
+                    let old = items[index]?.marker ?? 0
+                    let made = removing ? NSAttributedString() : marker(kind, index + 1)
+                    storage.replaceCharacters(in: NSRange(location: paragraph.location, length: old), with: made)
+                    delta += made.length - old
+                    if index == 0 { firstMarker = made.length - old }
+                }
+                if selection.length == 0, paragraphs.count == 1 {
+                    let start = paragraphs[0].location + (removing ? 0 : marker(kind, 1).length)
+                    return NSRange(location: max(start, selection.location + firstMarker), length: 0)
+                }
+                let start = paragraphs[0].location
+                return NSRange(location: start, length: paragraphs[paragraphs.count - 1].upperBound + delta - start)
+            }
+        }
+
+        /// Return in a list starts the next item, and on an empty item ends the list; Backspace just after a marker
+        /// takes the line out of the list. Each as Notes does it.
+        func textView(_ view: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+            guard parent.format != .code, view.markedTextRange == nil else { return true }
+            let storage = view.textStorage
+            if text == "\n", let item = listItem(containing: range.location, in: storage),
+               range.location >= item.paragraph.location + item.marker {
+                if item.paragraph.length == item.marker, range.length == 0 {
+                    edit(view) { storage in
+                        storage.replaceCharacters(in: NSRange(location: item.paragraph.location, length: item.marker), with: "")
+                        return NSRange(location: item.paragraph.location, length: 0)
+                    }
+                    return false
+                }
+                let digits = (storage.string as NSString).substring(with: NSRange(location: item.paragraph.location, length: item.marker)).prefix { $0.isNumber }
+                let next = marker(item.kind, (Int(digits) ?? 0) + 1)
+                edit(view) { storage in
+                    var typing = view.typingAttributes
+                    typing[.cutlingListMarker] = nil
+                    let inserted = NSMutableAttributedString(string: "\n", attributes: typing)
+                    inserted.append(next)
+                    storage.replaceCharacters(in: range, with: inserted)
+                    return NSRange(location: range.location + inserted.length, length: 0)
+                }
+                return false
+            }
+            if text.isEmpty, range.length == 1, let item = listItem(containing: range.location, in: storage),
+               range.location == item.paragraph.location + item.marker - 1 {
+                edit(view) { storage in
+                    storage.replaceCharacters(in: NSRange(location: item.paragraph.location, length: item.marker), with: "")
+                    return NSRange(location: item.paragraph.location, length: 0)
+                }
+                return false
+            }
+            return true
+        }
+
+        /// Numbers each numbered list from 1, as markdown(from:) stores it.
+        private func renumber(_ storage: NSTextStorage) {
+            let string = storage.string as NSString
+            var edits: [(NSRange, String)] = []
+            var number = 0
+            string.enumerateSubstrings(in: NSRange(location: 0, length: string.length), options: [.byParagraphs, .substringNotRequired]) { _, range, _, _ in
+                guard range.length > 0,
+                      storage.attribute(.cutlingListMarker, at: range.location, effectiveRange: nil) as? String == ListKind.numbered.rawValue,
+                      let found = ListKind.leading(string.substring(with: range)), found.kind == .numbered else {
+                    number = 0
+                    return
+                }
+                number += 1
+                let digits = NSRange(location: range.location, length: found.length - 2)
+                if string.substring(with: digits) != "\(number)" { edits.append((digits, "\(number)")) }
+            }
+            for (range, text) in edits.reversed() { storage.replaceCharacters(in: range, with: text) }
+        }
+
+        /// A list edit made in the text storage, with its own undo: the whole text and selection as they were.
+        private func edit(_ view: UITextView, _ body: (NSTextStorage) -> NSRange) {
+            let before = NSAttributedString(attributedString: view.attributedText)
+            let selection = view.selectedRange
+            let storage = view.textStorage
+            storage.beginEditing()
+            let after = body(storage)
+            renumber(storage)
+            storage.endEditing()
+            let location = min(after.location, storage.length)
+            view.selectedRange = NSRange(location: location, length: min(after.length, storage.length - location))
+            registerRestore(view, to: before, selection: selection)
+            textViewDidChange(view)
+            refreshStyles(view)
+        }
+
+        /// Undo puts the text back as it was, and registers the way back for redo.
+        private func registerRestore(_ view: UITextView, to snapshot: NSAttributedString, selection: NSRange) {
+            view.undoManager?.registerUndo(withTarget: self) { [weak view] coordinator in
+                guard let view else { return }
+                coordinator.registerRestore(view, to: NSAttributedString(attributedString: view.attributedText), selection: view.selectedRange)
+                view.attributedText = snapshot
+                view.selectedRange = selection
+                coordinator.textViewDidChange(view)
+                coordinator.refreshStyles(view)
+            }
+        }
 
         private func currentAttributes(_ view: UITextView) -> [NSAttributedString.Key: Any] {
             let range = view.selectedRange
@@ -372,15 +573,28 @@ extension FormattedTextEditor: UIViewRepresentable {
                 if traits.contains(.traitMonoSpace) { active.insert(.monospace) }
             }
             if let strike = attributes[.strikethroughStyle] as? Int, strike != 0 { active.insert(.strikethrough) }
+            if let underline = attributes[.underlineStyle] as? Int, underline != 0 { active.insert(.underline) }
+            if attributes[.textHighlightStyle] != nil { active.insert(.highlight) }
             if attributes[.link] != nil { active.insert(.link) }
+            if let item = listItem(containing: view.selectedRange.location, in: view.textStorage) { active.insert(.list(item.kind)) }
             if styles.active != active { styles.active = active }
         }
 
         func toggle(_ style: EditorStyle, in view: UITextView) {
             let turnOn = !styles.active.contains(style)
             switch style {
+            case .list(let kind):
+                setList(kind, in: view)
+                return
             case .bold: view.toggleBoldface(nil)
             case .italic: view.toggleItalics(nil)
+            case .underline:
+                change(view) { $0[.underlineStyle] = turnOn ? NSUnderlineStyle.single.rawValue : nil }
+            case .highlight:
+                change(view) {
+                    $0[.textHighlightStyle] = turnOn ? NSAttributedString.TextHighlightStyle.default : nil
+                    $0[.textHighlightColorScheme] = turnOn ? NSAttributedString.TextHighlightColorScheme.purple : nil
+                }
             case .strikethrough:
                 change(view) { $0[.strikethroughStyle] = turnOn ? NSUnderlineStyle.single.rawValue : nil }
             case .monospace:
@@ -468,6 +682,12 @@ extension FormattedTextEditor: UIViewRepresentable {
                 let selection = view.selectedRange
                 view.attributedText = shown
                 view.selectedRange = selection
+            } else if normal.string != source.string, RichText.listKinds(text).contains(where: { $0 != nil }) {
+                // A list pasted from another app takes the list's own markers, and numbers go back in order:
+                // the text itself changes, and the cursor keeps its place from the end.
+                let fromEnd = view.attributedText.length - view.selectedRange.upperBound
+                view.attributedText = shown
+                view.selectedRange = NSRange(location: max(0, shown.length - fromEnd), length: 0)
             }
             report(text, format: format)
         }
@@ -569,6 +789,11 @@ extension FormattedTextEditor: NSViewRepresentable {
                 let selection = view.selectedRanges
                 storage.setAttributedString(shown)
                 view.selectedRanges = selection
+            } else if normal.string != source.string, RichText.listKinds(text).contains(where: { $0 != nil }) {
+                // A list from Format › List or another app takes Cutling's markers; the cursor keeps its place from the end.
+                let fromEnd = storage.length - view.selectedRange().upperBound
+                storage.setAttributedString(shown)
+                view.setSelectedRange(NSRange(location: max(0, shown.length - fromEnd), length: 0))
             }
             report(text, format: format)
         }

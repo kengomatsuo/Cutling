@@ -113,7 +113,7 @@ The converter walks the attributed string and emits Markdown only for bold, ital
 ## Not doing
 
 - Storing HTML, RTF or fonts, sizes and colours.
-- Headings and lists as styled blocks. SwiftUI `Text` cannot draw them, and pasting as plain keeps their meaning.
+- Headings as styled blocks. SwiftUI `Text` cannot draw them. (Lists were added on 2026-11-22; see the last section.)
 - `TextEditor(text: Binding<AttributedString>)`. It is iOS 26 / macOS 26+, and Cutling supports iOS 18 / macOS 15. Revisit when the floor moves.
 
 ## As built
@@ -144,3 +144,12 @@ The owner dropped the segmented picker and the B / I / S / code / link icons. Th
 The owner approved: a tap on any key types its text, Formatted included (as plain text, since a keyboard can insert nothing else), and a Formatted key's long press offers **Copy**, which puts the styled version on the pasteboard for the user to paste (Full Access, and "Always paste plain text" off). This replaces tap-copies-styled with "Type as Plain Text" on the long press, and the editor tip "formatted text is copied, not typed" is gone with it.
 
 Why: a key that looked like the others but only copied made the most common action fail silently, and the format is chosen by detection, so ordinary pasted text with a link turned into a key that stopped typing. TextExpander's keyboard does the same: formatted snippets type as plain text, and formatting reaches only apps that integrate with it.
+
+## Revised 2026-11-22: underline, highlight and lists
+
+The owner asked for underline, highlight and lists, the rest of Notes' bar (B I U S, highlight, link, then its list menu of Bulleted, Dashed and Numbered). Apple's measured behaviour and the storage choice: [research/rich-text-underline-highlight-lists.md](research/rich-text-underline-highlight-lists.md); what other apps keep on paste: [research/rich-text-paste-targets.md](research/rich-text-paste-targets.md).
+
+- Underline and highlight use Apple's own Markdown attribute syntax, `^[text](underline: true)` and `^[text](highlight: true)`. Older Cutlings read them as plain text with no markers showing.
+- A list is its plain markers at the start of a line (`• `, `- `, `1. `), so plain text, the keyboard's typing and older Cutlings all show the list as lines. A line that only looks like a list is escaped and stays text, so Plain cutlings never turn into lists.
+- Copy writes Apple's lists (`NSTextList`) in RTF and `<ul>`/`<ol>` in HTML; highlight is Notes' own purple one (`\AppleHighlight` in RTF, a purple-tinted `<mark>` in HTML).
+- The Text page's bar gains Underline and Highlight after Italic and the list menu at its end; the Aa Format card gains a second row (the three lists and the link); iPad's top bar gains the list menu beside Aa.

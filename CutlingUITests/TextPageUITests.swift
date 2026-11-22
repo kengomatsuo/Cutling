@@ -3,7 +3,8 @@
 //  CutlingUITests
 //
 //  Opens a cutling's text as its own page from the form, then walks it as a person would: the keyboard's bar,
-//  the Aa Format panel and back, the Variables picker, a new blank, a pill's editor, and Done putting the
+//  the Aa Format panel and back, underline, highlight and a list from the bar's list menu, the Variables picker,
+//  a new blank, a pill's editor, and Done putting the
 //  keyboard down. Light and dark; one screenshot of each state in $FORMAT_TEST_SHOTS as textpage_<what>_<light|dark>.png.
 //
 //  Copyright (c) 2026 Kenneth Johannes Fang. All rights reserved.
@@ -108,6 +109,44 @@ final class TextPageUITests: XCTestCase {
             XCTAssertTrue(bold.isSelected, "Bold does not show as on after a tap")
             shot("4_bar_styles", dark: dark)
             bold.tap()
+            // Underline and highlight sit after Bold and Italic, as in Notes; each fills while it is on.
+            for name in ["Underline", "Highlight"] {
+                let button = app.buttons[name].firstMatch
+                XCTAssertTrue(button.waitForExistence(timeout: 5), "No \(name) on the bar")
+                button.tap()
+                sleep(1)
+                XCTAssertTrue(button.isSelected, "\(name) does not show as on after a tap")
+            }
+            app.typeText(" marked")
+            sleep(1)
+            shot("4_bar_underline_highlight", dark: dark)
+            app.buttons["Underline"].firstMatch.tap()
+            app.buttons["Highlight"].firstMatch.tap()
+            // The list button ends the bar; its menu grows above it with Bulleted, Dashed and Numbered.
+            bar.swipeLeft()
+            let list = any(app, "editorBarMenu.list.bullet")
+            XCTAssertTrue(list.waitForExistence(timeout: 5), "No list button at the end of the bar")
+            list.tap()
+            let bulleted = app.buttons["Bulleted"].firstMatch
+            XCTAssertTrue(bulleted.waitForExistence(timeout: 5), "The list button opened no menu")
+            XCTAssertTrue(app.buttons["Numbered"].firstMatch.exists && app.buttons["Dashed"].firstMatch.exists, "The list menu lacks Dashed or Numbered")
+            sleep(1)
+            shot("4_list_menu", dark: dark)
+            bulleted.tap()
+            sleep(1)
+            app.typeText("\nMilk\nEggs")
+            sleep(1)
+            let listed = (app.textViews.firstMatch.value as? String) ?? ""
+            XCTAssertTrue(listed.contains("• Milk\n• Eggs"), "Return did not carry the bulleted list on: \(listed.suffix(60))")
+            XCTAssertTrue(list.isSelected, "The list button does not show as on inside a list")
+            shot("4_list_typed", dark: dark)
+            // Return on an empty item ends the list, as in Notes.
+            app.typeText("\n\n")
+            sleep(1)
+            let ended = (app.textViews.firstMatch.value as? String) ?? ""
+            XCTAssertFalse(ended.hasSuffix("• "), "Return on an empty item left the list running")
+            bar.swipeRight()
+            bar.swipeRight()
             app.buttons["Add Link"].firstMatch.tap()
             XCTAssertTrue(any(app, "linkAddress").waitForExistence(timeout: 5), "The link button opened no Add Link sheet")
             sleep(1)
@@ -155,6 +194,19 @@ final class TextPageUITests: XCTestCase {
 
         // iPad has no Done check and no second bar, as Notes on iPad has neither.
         if wide {
+            // Its list menu sits in the top bar beside Aa.
+            let list = any(app, "textPageTools").descendants(matching: .any)["editorBarMenu.list.bullet"].firstMatch
+            XCTAssertTrue(list.waitForExistence(timeout: 5), "No list button in iPad's top bar")
+            list.tap()
+            XCTAssertTrue(app.buttons["Numbered"].firstMatch.waitForExistence(timeout: 5), "iPad's list button opened no menu")
+            sleep(1)
+            shot("9_list_menu", dark: dark)
+            app.buttons["Numbered"].firstMatch.tap()
+            sleep(1)
+            app.typeText("\nSecond")
+            sleep(1)
+            let numbered = (app.textViews.firstMatch.value as? String) ?? ""
+            XCTAssertTrue(numbered.contains("2. Second"), "Return did not number the next item: \(numbered.suffix(60))")
             shot("10_after_edits", dark: dark)
             app.terminate()
             return

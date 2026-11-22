@@ -2,10 +2,10 @@
 //  FormatPanel.swift
 //  Cutling
 //
-//  The Aa panel of the text page, after Notes' Format panel (docs/research/editor-notes/shots/iphone-notes-ios26-format-panel.png):
+//  The Aa panel of the text page, after Notes' Format panel (docs/research/editor-notes/owner-recording/dark_13s.png):
 //  a floating card in the keyboard's place with its title at the left and a round close button at the right, then
-//  one row of joined cells as Notes joins B I U S. It holds only what a keyboard can type: bold, italic,
-//  strikethrough, monospace and a link. The active styles are filled; nothing animates.
+//  rows of joined cells as Notes joins them: B I U S beside highlight and monospace, then the three lists beside
+//  the link. It holds only what a formatted cutling stores. The active styles are filled; nothing animates.
 //
 //  Copyright (c) 2026 Kenneth Johannes Fang. All rights reserved.
 //
@@ -13,8 +13,43 @@
 #if os(iOS)
 import SwiftUI
 
-enum EditorStyle: CaseIterable {
-    case bold, italic, strikethrough, monospace, link
+enum EditorStyle: Hashable {
+    case bold, italic, underline, strikethrough, highlight, monospace, link
+    /// The paragraph is this list; choosing the list it already is takes it out, as in Notes.
+    case list(ListKind)
+
+    static let lists: [EditorStyle] = ListKind.allCases.map(EditorStyle.list)
+
+    /// Notes' own glyphs: its bar, its Format card and its list menu.
+    var icon: String {
+        switch self {
+        case .bold: "bold"
+        case .italic: "italic"
+        case .underline: "underline"
+        case .strikethrough: "strikethrough"
+        case .highlight: "highlighter"
+        case .monospace: "chevron.left.forwardslash.chevron.right"
+        case .link: "link"
+        case .list(.bulleted): "list.bullet"
+        case .list(.dashed): "list.dash"
+        case .list(.numbered): "list.number"
+        }
+    }
+
+    var title: String {
+        switch self {
+        case .bold: String(localized: "Bold")
+        case .italic: String(localized: "Italic")
+        case .underline: String(localized: "Underline")
+        case .strikethrough: String(localized: "Strikethrough")
+        case .highlight: String(localized: "Highlight")
+        case .monospace: String(localized: "Monospace")
+        case .link: String(localized: "Add Link")
+        case .list(.bulleted): String(localized: "Bulleted")
+        case .list(.dashed): String(localized: "Dashed")
+        case .list(.numbered): String(localized: "Numbered")
+        }
+    }
 }
 
 /// Which styles the text at the cursor or selection has; the panel draws from it.
@@ -30,15 +65,13 @@ struct FormatPanel: View {
     /// The keyboard's stand-in on iPhone closes with its own button; nil on iPad, where the panel is a popover.
     var close: (() -> Void)? = nil
 
-    /// The card (title row, one row of cells, Notes' padding) and its margins, down to the screen's edge.
-    static let height: CGFloat = 6 + 12 + 44 + 14 + 42 + 34 + 9
+    /// The card (title row, two rows of cells, Notes' padding) and its margins, down to the screen's edge.
+    static let height: CGFloat = 6 + 12 + 44 + 14 + 42 + 14 + 42 + 34 + 9
 
-    private let cells: [(EditorStyle, String, LocalizedStringKey)] = [
-        (.bold, "bold", "Bold"),
-        (.italic, "italic", "Italic"),
-        (.strikethrough, "strikethrough", "Strikethrough"),
-        (.monospace, "chevron.left.forwardslash.chevron.right", "Monospace"),
-    ]
+    /// Notes' rows: B I U S beside its pen and colour; its three lists beside indent and block quote.
+    /// Here the pen is the highlight, monospace takes the colour's place, and the link takes the indents'.
+    private let styles1: [EditorStyle] = [.bold, .italic, .underline, .strikethrough]
+    private let styles2: [EditorStyle] = [.highlight, .monospace]
 
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
@@ -59,16 +92,15 @@ struct FormatPanel: View {
                 }
             }
             .frame(minHeight: 44)
-            // Two groups on one row, as Notes sets B I U S beside highlight and colour.
+            // Two groups on each row, as Notes sets B I U S beside highlight and colour, and its lists beside the indents.
             HStack(spacing: 14) {
-                HStack(spacing: 1.5) {
-                    ForEach(cells, id: \.0) { cell in
-                        cellButton(cell.0) { Image(systemName: cell.1) }
-                            .accessibilityLabel(cell.2)
-                    }
-                }
-                .clipShape(Capsule())
-                cellButton(.link) { Image(systemName: "link") }
+                group(styles1)
+                group(styles2)
+                    .frame(maxWidth: 124)
+            }
+            HStack(spacing: 14) {
+                group(EditorStyle.lists)
+                cellButton(.link)
                     .frame(maxWidth: 72)
                     .clipShape(Capsule())
                     .accessibilityLabel(styles.active.contains(.link) ? Text("Remove Link") : Text("Add Link"))
@@ -83,9 +115,19 @@ struct FormatPanel: View {
         .accessibilityIdentifier("formatPanel")
     }
 
-    private func cellButton<Content: View>(_ style: EditorStyle, @ViewBuilder content: () -> Content) -> some View {
+    private func group(_ cells: [EditorStyle]) -> some View {
+        HStack(spacing: 1.5) {
+            ForEach(cells, id: \.self) { style in
+                cellButton(style)
+                    .accessibilityLabel(style.title)
+            }
+        }
+        .clipShape(Capsule())
+    }
+
+    private func cellButton(_ style: EditorStyle) -> some View {
         Button { styles.toggle(style) } label: {
-            content()
+            Image(systemName: style.icon)
                 .font(.system(size: 17, weight: .semibold))
                 .frame(maxWidth: .infinity, minHeight: 42)
                 .foregroundStyle(styles.active.contains(style) ? Color.white : Color.primary)
@@ -94,6 +136,7 @@ struct FormatPanel: View {
         }
         .buttonStyle(FlatPressStyle(shape: Rectangle()))
         .accessibilityAddTraits(styles.active.contains(style) ? .isSelected : [])
+        .accessibilityIdentifier("format.\(style.icon)")
     }
 }
 

@@ -2,8 +2,10 @@
 //  RichText.swift
 //  Cutling
 //
-//  Text cutling formats. Rich cutlings store an inline Markdown subset
-//  (bold, italic, strikethrough, inline code, links) in `value`.
+//  Text cutling formats. Rich cutlings store an inline Markdown subset (bold, italic,
+//  strikethrough, inline code, links, and Apple's `^[text](underline: true)` and
+//  `^[text](highlight: true)`) in `value`, with lists as their plain markers at the
+//  start of a line ("• ", "- ", "1. ").
 //  Full account: docs/formatting-plan.md
 //
 //  Copyright (c) 2026 Kenneth Johannes Fang. All rights reserved.
@@ -40,26 +42,106 @@ enum TextFormat: String, Codable, CaseIterable, Sendable {
     }
 }
 
+/// A paragraph a formatted cutling keeps as a list, as Notes offers them: Bulleted, Dashed, Numbered.
+/// The marker is stored at the start of the line and is what a plain-text host shows, so a list reads
+/// the same with its formatting gone, and an older Cutling shows it as the same text.
+nonisolated enum ListKind: String, CaseIterable, Codable, Hashable, Sendable {
+    case bulleted, dashed, numbered
+
+    func marker(_ number: Int = 1) -> String {
+        switch self {
+        case .bulleted: "• "
+        case .dashed: "- "
+        case .numbered: "\(number). "
+        }
+    }
+
+    /// The list a line starts with, and its marker's length in UTF-16 units.
+    static func leading<S: StringProtocol>(_ line: S) -> (kind: ListKind, length: Int)? {
+        if line.hasPrefix("• ") { return (.bulleted, 2) }
+        if line.hasPrefix("- ") { return (.dashed, 2) }
+        let digits = line.prefix { $0.isASCII && $0.isNumber }
+        guard (1...3).contains(digits.count), line.dropFirst(digits.count).hasPrefix(". ") else { return nil }
+        return (.numbered, digits.count + 2)
+    }
+
+    #if canImport(UIKit) || canImport(AppKit)
+    /// The list Apple's text system draws for this kind (TextEdit, Notes, Pages and Mail read and write it).
+    var textListFormat: NSTextList.MarkerFormat {
+        switch self {
+        case .bulleted: .disc
+        case .dashed: .hyphen
+        case .numbered: .decimal
+        }
+    }
+
+    init(_ list: NSTextList) {
+        if list.isOrdered { self = .numbered } else { self = list.markerFormat == .hyphen ? .dashed : .bulleted }
+    }
+    #endif
+}
+
+/// Underline, stored with Apple's own Markdown attribute syntax, `^[text](underline: true)`, which
+/// `AttributedString(markdown:)` reads; a reader that doesn't know the attribute shows the text plain.
+nonisolated enum CutlingUnderlineAttribute: CodableAttributedStringKey, MarkdownDecodableAttributedStringKey {
+    typealias Value = Bool
+    static let name = "CutlingUnderline"
+    static let markdownName = "underline"
+}
+
+/// Highlight, stored as `^[text](highlight: true)`; drawn as Notes draws its own (NSTextHighlightStyle, purple).
+nonisolated enum CutlingHighlightAttribute: CodableAttributedStringKey, MarkdownDecodableAttributedStringKey {
+    typealias Value = Bool
+    static let name = "CutlingHighlight"
+    static let markdownName = "highlight"
+}
+
+extension AttributeScopes {
+    nonisolated struct CutlingAttributes: AttributeScope {
+        let underline: CutlingUnderlineAttribute
+        let highlight: CutlingHighlightAttribute
+        let foundation: FoundationAttributes
+    }
+}
+
+extension NSAttributedString.Key {
+    /// On the marker characters of a list line in the editor: the list's kind. A line that only looks
+    /// like a list ("- " typed by hand) has none and stays text.
+    nonisolated static let cutlingListMarker = NSAttributedString.Key("CutlingListMarker")
+}
+
 enum RichText {
     nonisolated static let maxStoredLength = 1500
 
-    private static let options = AttributedString.MarkdownParsingOptions(
+    private nonisolated static let options = AttributedString.MarkdownParsingOptions(
         interpretedSyntax: .inlineOnlyPreservingWhitespace,
         failurePolicy: .returnPartiallyParsedIfPossible
     )
 
-    /// Rendered rich text; falls back to the raw string.
+    /// Rendered rich text, underline and highlight included; falls back to the raw string.
     nonisolated static func attributed(_ markdown: String) -> AttributedString {
-        (try? AttributedString(markdown: markdown, options: options)) ?? AttributedString(markdown)
+        (try? AttributedString(markdown: markdown, including: AttributeScopes.CutlingAttributes.self, options: options))
+            ?? AttributedString(markdown)
     }
 
-    /// The text a reader sees, markers removed.
+    /// The text a reader sees, markers removed. A list keeps its "• ", "- " or "1. ".
     nonisolated static func plainText(_ markdown: String) -> String {
         String(attributed(markdown).characters)
     }
 
-    /// Escapes plain text so Markdown shows it literally.
+    /// The list each line of stored text belongs to. A line whose marker is escaped is text.
+    nonisolated static func listKinds(_ markdown: String) -> [ListKind?] {
+        markdown.split(separator: "\n", omittingEmptySubsequences: false).map { ListKind.leading($0)?.kind }
+    }
+
+    /// Escapes plain text so Markdown shows it literally, and so a line that starts like a list stays text.
     nonisolated static func escape(_ plain: String) -> String {
+        plain.split(separator: "\n", omittingEmptySubsequences: false)
+            .map { escapeLineStart(escapeInline($0)) }
+            .joined(separator: "\n")
+    }
+
+    private nonisolated static func escapeInline<S: StringProtocol>(_ plain: S) -> String {
         var out = ""
         out.reserveCapacity(plain.count)
         for ch in plain {
@@ -69,66 +151,137 @@ enum RichText {
         return out
     }
 
+    /// A line of Markdown that would read as a list item, written so it reads as text: `\- `, `1\. `,
+    /// and the bullet as its HTML entity, all of which CommonMark (and an older Cutling) shows as typed.
+    private nonisolated static func escapeLineStart(_ line: String) -> String {
+        guard let (kind, length) = ListKind.leading(line) else { return line }
+        switch kind {
+        case .bulleted: return "&#8226;" + line.dropFirst()
+        case .dashed: return "\\" + line
+        case .numbered: return line.prefix(length - 2) + "\\" + line.dropFirst(length - 2)
+        }
+    }
+
     // MARK: Attributed → Markdown
 
-    private struct Style: Equatable {
-        var bold = false, italic = false, strike = false, code = false
+    private nonisolated struct Style: Equatable {
+        var bold = false, italic = false, strike = false, code = false, underline = false, highlight = false
         var link: URL?
     }
 
     /// Markdown for an attributed string, or nil when it carries no supported formatting.
+    /// A list comes from the editor's own markers or from a pasted list (`NSTextList`, as Notes, Mail and Safari write it).
     nonisolated static func markdown(from attributed: NSAttributedString, trimTrailingNewlines: Bool = true) -> String? {
-        var segments: [(String, Style)] = []
-        let full = NSRange(location: 0, length: attributed.length)
-        attributed.enumerateAttributes(in: full) { attrs, range, _ in
-            var style = Style()
-            #if canImport(UIKit)
-            if let font = attrs[.font] as? UIFont {
-                let traits = font.fontDescriptor.symbolicTraits
-                style.bold = traits.contains(.traitBold)
-                style.italic = traits.contains(.traitItalic)
-                style.code = traits.contains(.traitMonoSpace)
-            }
-            #elseif canImport(AppKit)
-            if let font = attrs[.font] as? NSFont {
-                let traits = font.fontDescriptor.symbolicTraits
-                style.bold = traits.contains(.bold)
-                style.italic = traits.contains(.italic)
-                style.code = traits.contains(.monoSpace)
-            }
-            #endif
-            if let strike = attrs[.strikethroughStyle] as? Int, strike != 0 { style.strike = true }
-            if let url = attrs[.link] as? URL {
-                style.link = url
-            } else if let string = attrs[.link] as? String {
-                style.link = URL(string: string)
-            }
-            let text = (attributed.string as NSString).substring(with: range)
-            if let last = segments.last, last.1 == style {
-                segments[segments.count - 1].0 += text
+        let string = attributed.string as NSString
+        var lines: [String] = []
+        var formatted = false
+        var number = 0
+        var location = 0
+        while true {
+            let newline = string.range(of: "\n", range: NSRange(location: location, length: string.length - location))
+            let end = newline.location == NSNotFound ? string.length : newline.location
+            var content = NSRange(location: location, length: end - location)
+            let kind = listItem(in: attributed, paragraph: content)
+            if let kind {
+                content = NSRange(location: content.location + kind.length, length: content.length - kind.length)
+                number = kind.kind == .numbered ? number + 1 : 0
+                formatted = true
             } else {
-                segments.append((text, style))
+                number = 0
             }
-        }
-        guard segments.contains(where: { $0.1 != Style() }) else { return nil }
-
-        var out = ""
-        for (text, style) in segments {
-            // Markers can't span a line break or touch inner whitespace.
-            let lines = text.components(separatedBy: "\n")
-            for (i, line) in lines.enumerated() {
-                if i > 0 { out += "\n" }
-                out += wrap(line, style)
+            var segments: [(String, Style)] = []
+            if content.length > 0 {
+                attributed.enumerateAttributes(in: content) { attrs, range, _ in
+                    let style = Self.style(attrs)
+                    let text = string.substring(with: range)
+                    if let last = segments.last, last.1 == style {
+                        segments[segments.count - 1].0 += text
+                    } else {
+                        segments.append((text, style))
+                    }
+                }
             }
+            if segments.contains(where: { $0.1 != Style() }) { formatted = true }
+            let body = segments.map { wrap($0.0, $0.1) }.joined()
+            lines.append(kind.map { $0.kind.marker(number) + body } ?? escapeLineStart(body))
+            if newline.location == NSNotFound { break }
+            location = end + 1
         }
+        guard formatted else { return nil }
+        var out = lines.joined(separator: "\n")
         // Paragraph-based sources end in a newline the user never typed.
         while trimTrailingNewlines, out.hasSuffix("\n") { out.removeLast() }
         return out
     }
 
+    /// The list a paragraph belongs to, and how many of its leading characters are the marker to drop.
+    private nonisolated static func listItem(in attributed: NSAttributedString, paragraph: NSRange) -> (kind: ListKind, length: Int)? {
+        let string = attributed.string as NSString
+        let text = string.substring(with: paragraph)
+        // The editor's own list: its marker characters say so.
+        if paragraph.length > 0, let raw = attributed.attribute(.cutlingListMarker, at: paragraph.location, effectiveRange: nil) as? String,
+           let kind = ListKind(rawValue: raw), let found = ListKind.leading(text) {
+            return (kind, found.length)
+        }
+        // A pasted list: the paragraph style names it, and the marker may be in the text as "\t•\t".
+        // An empty paragraph's style sits on its newline; the empty end after a last newline has none.
+        guard paragraph.location < attributed.length,
+              let style = attributed.attribute(.paragraphStyle, at: paragraph.location, effectiveRange: nil) as? NSParagraphStyle,
+              let list = style.textLists.last else { return nil }
+        var marker = 0
+        if text.hasPrefix("\t"), let second = text.dropFirst().firstIndex(of: "\t"), text.distance(from: text.startIndex, to: second) <= 8 {
+            marker = (String(text[...second]) as NSString).length
+        }
+        return (ListKind(list), marker)
+    }
+
+    private nonisolated static func style(_ attrs: [NSAttributedString.Key: Any]) -> Style {
+        var style = Style()
+        #if canImport(UIKit)
+        if let font = attrs[.font] as? UIFont {
+            let traits = font.fontDescriptor.symbolicTraits
+            style.bold = traits.contains(.traitBold)
+            style.italic = traits.contains(.traitItalic)
+            style.code = traits.contains(.traitMonoSpace)
+        }
+        #elseif canImport(AppKit)
+        if let font = attrs[.font] as? NSFont {
+            let traits = font.fontDescriptor.symbolicTraits
+            style.bold = traits.contains(.bold)
+            style.italic = traits.contains(.italic)
+            style.code = traits.contains(.monoSpace)
+        }
+        #endif
+        if let strike = attrs[.strikethroughStyle] as? Int, strike != 0 { style.strike = true }
+        if let url = attrs[.link] as? URL {
+            style.link = url
+        } else if let string = attrs[.link] as? String {
+            style.link = URL(string: string)
+        }
+        // A link is drawn underlined by most hosts already, and web pages underline every one.
+        if style.link == nil, let underline = attrs[.underlineStyle] as? Int, underline != 0 { style.underline = true }
+        style.highlight = attrs[.textHighlightStyle] != nil || isHighlight(attrs[.backgroundColor])
+        return style
+    }
+
+    /// A pasted background colour reads as a highlight only when it is a colour: web pages paint
+    /// white, grey and black boxes behind text that nobody meant as a highlight.
+    private nonisolated static func isHighlight(_ value: Any?) -> Bool {
+        #if canImport(UIKit)
+        guard let color = value as? UIColor else { return false }
+        var hue: CGFloat = 0, saturation: CGFloat = 0, brightness: CGFloat = 0, alpha: CGFloat = 0
+        guard color.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha) else { return false }
+        #elseif canImport(AppKit)
+        guard let color = (value as? NSColor)?.usingColorSpace(.deviceRGB) else { return false }
+        var hue: CGFloat = 0, saturation: CGFloat = 0, brightness: CGFloat = 0, alpha: CGFloat = 0
+        color.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
+        #endif
+        return alpha >= 0.1 && saturation > 0.25 && brightness > 0.25
+    }
+
     private nonisolated static func wrap(_ text: String, _ style: Style) -> String {
         let core = text.trimmingCharacters(in: .whitespaces)
-        guard !core.isEmpty, style != Style() else { return style.code ? text : escape(text) }
+        guard !core.isEmpty, style != Style() else { return style.code ? text : escapeInline(text) }
         let leading = String(text.prefix { $0 == " " || $0 == "\t" })
         let trailing = String(text.reversed().prefix { $0 == " " || $0 == "\t" }.reversed())
 
@@ -137,12 +290,16 @@ enum RichText {
             let fence = core.contains("`") ? "``" : "`"
             body = fence + (core.hasPrefix("`") || core.hasSuffix("`") ? " \(core) " : core) + fence
         } else {
-            body = escape(core)
+            body = escapeInline(core)
         }
         if style.strike { body = "~~\(body)~~" }
         if style.italic { body = "*\(body)*" }
         if style.bold { body = "**\(body)**" }
         if let link = style.link { body = "[\(body)](\(link.absoluteString.replacingOccurrences(of: ")", with: "%29")))" }
+        var attributes: [String] = []
+        if style.underline { attributes.append("underline: true") }
+        if style.highlight { attributes.append("highlight: true") }
+        if !attributes.isEmpty { body = "^[\(body)](\(attributes.joined(separator: ", ")))" }
         return leading + body + trailing
     }
 
@@ -150,8 +307,10 @@ enum RichText {
 
     #if canImport(UIKit)
     private typealias PlatformFont = UIFont
+    private typealias PlatformColor = UIColor
     #elseif canImport(AppKit)
     private typealias PlatformFont = NSFont
+    private typealias PlatformColor = NSColor
     #endif
 
     private nonisolated static func font(bold: Bool, italic: Bool, code: Bool, size: CGFloat) -> PlatformFont {
@@ -169,6 +328,8 @@ enum RichText {
     }
 
     /// Platform attributed string: 12 pt with no colour for export, or the editor's size and text colour.
+    /// For export a list is Apple's own list (`NSTextList`) with its markers taken out of the text, as RTF and
+    /// Notes expect; in the editor the markers stay as text, marked as the list's, with wrapped lines hung under the text.
     nonisolated static func nsAttributed(_ markdown: String, size: CGFloat = 12, editorColors: Bool = false) -> NSAttributedString {
         let source = attributed(markdown)
         let out = NSMutableAttributedString()
@@ -187,10 +348,56 @@ enum RichText {
             if editorColors { attrs[.foregroundColor] = NSColor.textColor }
             #endif
             if intent.contains(.strikethrough) { attrs[.strikethroughStyle] = NSUnderlineStyle.single.rawValue }
+            if run[CutlingUnderlineAttribute.self] == true { attrs[.underlineStyle] = NSUnderlineStyle.single.rawValue }
+            if run[CutlingHighlightAttribute.self] == true {
+                // Notes' own highlight in its first colour, purple: Notes and Pages keep it as a highlight, and WebKit
+                // (Mail and web pages on iOS read the RTF) draws it as Notes' copy does, tinted text on a light tint.
+                attrs[.textHighlightStyle] = NSAttributedString.TextHighlightStyle.default
+                attrs[.textHighlightColorScheme] = NSAttributedString.TextHighlightColorScheme.purple
+            }
             if let link = run.link { attrs[.link] = link }
             out.append(NSAttributedString(string: text, attributes: attrs))
         }
+        applyLists(listKinds(markdown), to: out, size: size, editor: editorColors)
         return out
+    }
+
+    private nonisolated static func applyLists(_ kinds: [ListKind?], to out: NSMutableAttributedString, size: CGFloat, editor: Bool) {
+        guard kinds.contains(where: { $0 != nil }) else { return }
+        let string = out.string as NSString
+        var paragraphs: [NSRange] = []
+        var location = 0
+        while true {
+            let newline = string.range(of: "\n", range: NSRange(location: location, length: string.length - location))
+            let end = newline.location == NSNotFound ? string.length : newline.location
+            paragraphs.append(NSRange(location: location, length: end - location))
+            if newline.location == NSNotFound { break }
+            location = end + 1
+        }
+        // A code span can join lines; then the stored lines no longer say which paragraph is which.
+        guard paragraphs.count == kinds.count else { return }
+        var markers: [NSRange] = []
+        var current: (ListKind, NSTextList)?
+        for (paragraph, kind) in zip(paragraphs, kinds) {
+            guard let kind, let found = ListKind.leading(string.substring(with: paragraph)), found.kind == kind else {
+                current = nil
+                continue
+            }
+            let marker = NSRange(location: paragraph.location, length: found.length)
+            let whole = NSRange(location: paragraph.location, length: min(paragraph.upperBound + 1, string.length) - paragraph.location)
+            let style = NSMutableParagraphStyle()
+            if editor {
+                out.addAttribute(.cutlingListMarker, value: kind.rawValue, range: marker)
+                let width = string.substring(with: marker).size(withAttributes: [.font: PlatformFont.systemFont(ofSize: size)]).width
+                style.headIndent = ceil(width)
+            } else {
+                if current?.0 != kind { current = (kind, NSTextList(markerFormat: kind.textListFormat, options: 0)) }
+                style.textLists = [current!.1]
+                markers.append(marker)
+            }
+            if whole.length > 0 { out.addAttribute(.paragraphStyle, value: style, range: whole) }
+        }
+        for marker in markers.reversed() { out.deleteCharacters(in: marker) }
     }
 
     nonisolated static func rtfData(_ markdown: String) -> Data? {
@@ -199,28 +406,75 @@ enum RichText {
                             documentAttributes: [.documentType: NSAttributedString.DocumentType.rtf])
     }
 
-    /// Minimal HTML with no fonts, so the destination keeps its own style.
+    /// Minimal HTML with no fonts, so the destination keeps its own style. Lists are real lists, with Notes'
+    /// own class on a dashed one.
     nonisolated static func html(_ markdown: String) -> String {
         let source = attributed(markdown)
-        var body = ""
+        let kinds = listKinds(markdown)
+        var lines: [String] = [""]
+        var plainLines: [String] = [""]
         for run in source.runs {
-            var piece = String(source[run.range].characters)
-                .replacingOccurrences(of: "&", with: "&amp;")
-                .replacingOccurrences(of: "<", with: "&lt;")
-                .replacingOccurrences(of: ">", with: "&gt;")
-                .replacingOccurrences(of: "\n", with: "<br>")
-            let intent = run.inlinePresentationIntent ?? []
-            if intent.contains(.code) { piece = "<code>\(piece)</code>" }
-            if intent.contains(.strikethrough) { piece = "<s>\(piece)</s>" }
-            if intent.contains(.emphasized) { piece = "<i>\(piece)</i>" }
-            if intent.contains(.stronglyEmphasized) { piece = "<b>\(piece)</b>" }
-            if let link = run.link {
-                let href = link.absoluteString.replacingOccurrences(of: "\"", with: "%22")
-                piece = "<a href=\"\(href)\">\(piece)</a>"
+            let parts = String(source[run.range].characters).components(separatedBy: "\n")
+            for (index, part) in parts.enumerated() {
+                if index > 0 { lines.append(""); plainLines.append("") }
+                plainLines[plainLines.count - 1] += part
+                // A list line's marker is the list's to draw; it leaves the text.
+                var text = Substring(part)
+                let line = lines.count - 1
+                if line < kinds.count, let kind = kinds[line], let found = ListKind.leading(plainLines[line]), found.kind == kind {
+                    let drawn = (plainLines[line] as NSString).length - (part as NSString).length
+                    let skip = max(0, found.length - drawn)
+                    text = Substring((part as NSString).substring(from: min(skip, (part as NSString).length)))
+                }
+                guard !text.isEmpty else { continue }
+                lines[line] += htmlPiece(String(text), run)
             }
-            body += piece
         }
-        return "<meta charset=\"utf-8\"><span style=\"white-space:pre-wrap\">\(body)</span>"
+        guard lines.count == kinds.count, kinds.contains(where: { $0 != nil }) else {
+            return "<meta charset=\"utf-8\"><span style=\"white-space:pre-wrap\">\(lines.joined(separator: "<br>"))</span>"
+        }
+        var body = ""
+        var open: ListKind?
+        for (index, (line, kind)) in zip(lines, kinds).enumerated() {
+            if kind != open, let open { body += open == .numbered ? "</ol>" : "</ul>" }
+            if let kind {
+                if kind != open {
+                    switch kind {
+                    case .bulleted: body += "<ul>"
+                    case .dashed: body += "<ul class=\"Apple-dash-list\" style=\"list-style-type:'- '\">"
+                    case .numbered: body += "<ol>"
+                    }
+                }
+                body += "<li>\(line)</li>"
+            } else {
+                // A list ends its own block, so only a line after a line breaks.
+                if open == nil, index > 0 { body += "<br>" }
+                body += line
+            }
+            open = kind
+        }
+        if let open { body += open == .numbered ? "</ol>" : "</ul>" }
+        return "<meta charset=\"utf-8\"><div style=\"white-space:pre-wrap\">\(body)</div>"
+    }
+
+    private nonisolated static func htmlPiece(_ text: String, _ run: AttributedString.Runs.Run) -> String {
+        var piece = text
+            .replacingOccurrences(of: "&", with: "&amp;")
+            .replacingOccurrences(of: "<", with: "&lt;")
+            .replacingOccurrences(of: ">", with: "&gt;")
+        let intent = run.inlinePresentationIntent ?? []
+        if intent.contains(.code) { piece = "<code>\(piece)</code>" }
+        if intent.contains(.strikethrough) { piece = "<s>\(piece)</s>" }
+        if intent.contains(.emphasized) { piece = "<i>\(piece)</i>" }
+        if intent.contains(.stronglyEmphasized) { piece = "<b>\(piece)</b>" }
+        if run[CutlingUnderlineAttribute.self] == true { piece = "<u>\(piece)</u>" }
+        // Apple's HTML writer draws Notes' purple highlight as tinted text on a 15 % tint; the <mark> keeps the meaning.
+        if run[CutlingHighlightAttribute.self] == true { piece = "<mark style=\"color:#9d33d6;background-color:rgba(157,51,214,0.15)\">\(piece)</mark>" }
+        if let link = run.link {
+            let href = link.absoluteString.replacingOccurrences(of: "\"", with: "%22")
+            piece = "<a href=\"\(href)\">\(piece)</a>"
+        }
+        return piece
     }
 
     // MARK: Capture
@@ -386,9 +640,30 @@ extension Cutling {
     private func styled(_ run: String) -> Text {
         switch textFormat {
         case .plain: Text(run)
-        case .rich: Text(RichText.attributed(run))
+        case .rich: Text(RichText.display(run))
         case .code: Text(run).monospaced()
         }
+    }
+}
+
+extension RichText {
+    /// Rich text for SwiftUI's `Text`, which draws underline and a background but knows neither stored attribute.
+    /// The highlight is Notes' purple one, as the editor draws it: purple text on a light purple.
+    static func display(_ markdown: String) -> AttributedString {
+        var text = attributed(markdown)
+        let marked = text.runs.compactMap { run -> (Range<AttributedString.Index>, Bool, Bool)? in
+            let underline = run[CutlingUnderlineAttribute.self] == true
+            let highlight = run[CutlingHighlightAttribute.self] == true
+            return underline || highlight ? (run.range, underline, highlight) : nil
+        }
+        for (range, underline, highlight) in marked {
+            if underline { text[range].swiftUI.underlineStyle = .single }
+            if highlight {
+                text[range].swiftUI.foregroundColor = Color.purple
+                text[range].swiftUI.backgroundColor = Color.purple.opacity(0.18)
+            }
+        }
+        return text
     }
 }
 #endif

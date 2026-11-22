@@ -32,7 +32,7 @@ struct SharedItem: Identifiable {
     func styledText(_ text: String) -> Text {
         switch format ?? .plain {
         case .plain: Text(text)
-        case .rich: Text(RichText.attributed(text))
+        case .rich: Text(RichText.display(text))
         case .code: Text(text).monospaced()
         }
     }

@@ -55,18 +55,16 @@ struct TextPageView: View {
     private var keyboardBar: [EditorBarItem] {
         guard format != .code, !wide else { return [] }
         let aa = EditorBarItem(title: String(localized: "Format"), icon: "textformat") { formatOpen = true }
-        // Notes' order: Aa, its four inserts, then the styles inline (B I U S, highlight, link, lists).
-        // Here the inserts are the variables, and the styles are the five a cutling stores.
+        // Notes' order: Aa, its four inserts, then the styles inline (B I U S, highlight, link), then its list menu.
+        // Here the inserts are the variables, and monospace, which Notes keeps in its Format card, sits before the link.
         let inserts = FillIns.isOn ? [blank, today, allVariables, stamp(String(localized: "Clipboard Text"), "doc.on.clipboard", "clipboard")] : []
-        func style(_ title: String, _ icon: String, _ style: EditorStyle) -> EditorBarItem {
-            EditorBarItem(title: title, icon: icon, style: style) {}
-        }
-        return [aa] + inserts + [
-            style(String(localized: "Bold"), "bold", .bold), style(String(localized: "Italic"), "italic", .italic),
-            style(String(localized: "Strikethrough"), "strikethrough", .strikethrough),
-            style(String(localized: "Monospace"), "chevron.left.forwardslash.chevron.right", .monospace),
-            style(String(localized: "Add Link"), "link", .link),
-        ]
+        let styles: [EditorStyle] = [.bold, .italic, .underline, .strikethrough, .highlight, .monospace, .link]
+        return [aa] + inserts + styles.map { EditorBarItem(title: $0.title, icon: $0.icon, style: $0) {} } + [list]
+    }
+
+    /// Notes' list button: Bulleted, Dashed and Numbered in a menu above the bar.
+    private var list: EditorBarItem {
+        EditorBarItem(title: String(localized: "List"), icon: "list.bullet", menu: EditorStyle.lists) {}
     }
 
     /// iPad's top bar, beside Aa, where Notes on iPad keeps checklist, table and attachment.
@@ -124,6 +122,9 @@ struct TextPageView: View {
                                 EditorBarButton(item: EditorBarItem(title: String(localized: "Format"), icon: "textformat") { formatPopover = true })
                                     .frame(width: 44, height: 40)
                                     .popover(isPresented: $formatPopover) { FormatPanel(styles: styles) }
+                                // Notes on iPad keeps its checklist beside Aa; here the list menu, as at the end of the iPhone's bar.
+                                EditorBarMenu(item: list, styles: styles)
+                                    .frame(width: 44, height: 40)
                                 ForEach(restingBar, id: \.title) { item in
                                     EditorBarButton(item: item)
                                         .frame(width: 44, height: 40)

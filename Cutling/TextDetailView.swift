@@ -926,7 +926,7 @@ struct TextDetailView: View {
         let size = UIFont.preferredFont(forTextStyle: .body).pointSize - 3
         return FillInPills.split(source).reduce(Text(verbatim: "")) { text, piece in
             switch piece {
-            case .text(let run): text + (format == .rich ? Text(RichText.attributed(run)) : Text(verbatim: run))
+            case .text(let run): text + (format == .rich ? Text(RichText.display(run)) : Text(verbatim: run))
             case .token(let token): text + FillInPills.inline(token, size: size)
             }
         }
