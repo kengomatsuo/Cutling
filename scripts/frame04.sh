@@ -32,6 +32,9 @@ TEST_RUNNER_FORMAT_TEST_SHOTS="$out" xcodebuild test-without-building -xctestrun
   -only-testing:CutlingUITests/TryItFrameUITests/testAddKeyboard >"$out/add-keyboard.log" 2>&1 &
 pid=$!; while kill -0 $pid 2>/dev/null; do sleep 20; echo "adding keyboard: $(grep -c 't = ' "$out/add-keyboard.log") steps"; done
 wait $pid && echo "keyboard added" || { echo "adding the keyboard FAILED"; grep -E 'error:' "$out/add-keyboard.log" | grep -v debugger | head -3; }
+# Other sessions' keyboards (kana, romaji, Indonesian) put Cutling beyond the globe test's taps: keep English, Emoji, Cutling.
+short=($(xcrun simctl spawn "$udid" defaults read -g AppleKeyboards 2>/dev/null | sed -n 's/^ *"\{0,1\}\([^",()]*\)"\{0,1\},\{0,1\}$/\1/p' | grep -E "^(en_|emoji@|$kb)"))
+[ ${#short[@]} -gt 0 ] && xcrun simctl spawn "$udid" defaults write -g AppleKeyboards -array "${short[@]}"
 echo "keyboards: $(xcrun simctl spawn "$udid" defaults read -g AppleKeyboards 2>/dev/null | tr -d '\n ')"
 # Apple's marketing status bar, as fastlane snapshot's override_status_bar sets it.
 xcrun simctl status_bar "$udid" override --time 9:41 --dataNetwork wifi --wifiMode active --wifiBars 3 \
