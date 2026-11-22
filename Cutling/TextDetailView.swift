@@ -1006,8 +1006,10 @@ struct TextDetailView: View {
     }
 
     private func insertPlaceholder(_ token: String) {
-        // A blank put in during the walkthrough's fill-in step is that step done.
+        // A blank put in during the walkthrough's fill-in step is that step done (the walkthrough is iOS only).
+        #if os(iOS)
         TutorialCoordinator.shared.advance(from: .createFillIn)
+        #endif
         // The native editor types at the cursor; the plain one hands over to it first.
         usesNativeEditor = true
         placeholderInsertion = token

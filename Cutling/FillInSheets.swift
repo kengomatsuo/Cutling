@@ -5,7 +5,7 @@
 //  The two sheets of the text page, drawn after Shortcuts' variables: a searchable picker of fill-in kinds
 //  (a row is a symbol, a name and a sample read now) and an editor for one fill-in (a blank's name and
 //  choices, a date's format and day), reached from the picker for a new blank and by tapping a pill.
-//  Kinds the engine does not know yet are listed with "Soon" and do nothing.
+//  Only kinds the engine can fill are listed; the rest of FillInKinds.swift waits for its engine.
 //
 //  Copyright (c) 2026 Kenneth Johannes Fang. All rights reserved.
 //
@@ -54,7 +54,8 @@ struct FillInPicker: View {
     @State private var query = ""
     @State private var pushed: FillInEdit?
     /// Read once when the sheet opens, so samples hold still while it is up.
-    @State private var kinds = FillInKind.all()
+    /// Only kinds Cutling can fill today; the rest of the catalogue (FillInKinds.swift) waits for its engine.
+    @State private var kinds = FillInKind.all().filter { !$0.isSoon }
 
     private var matches: [FillInKind] {
         let text = query.trimmingCharacters(in: .whitespaces)
