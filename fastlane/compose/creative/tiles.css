@@ -1,0 +1,17 @@
+/* Cutling's own tile, redrawn as vectors so it stays sharp at any size. Colours are sampled from the
+   captures in ../tall/cutling/cap; glyphs are the SF Symbols the app shows (assets/sym, by assets/symbols.swift). */
+:root{
+  --house:#0088FF; --envelope:#CB30E0; --at:#00B8E6; --wifi:#FF8D28; --person:#FF2D55; --phone:#00C3D0;
+  --doc:#00C08A; --airplane:#6155F5; --video:#FF383C; --preview:#8A8A8E; --send:#0088FF;
+  --sf: -apple-system, "SF Pro Display", "SF Pro Text", system-ui, sans-serif;
+}
+.sym{display:inline-block;background:var(--m) left center/contain no-repeat}
+.s-house{--m:url(assets/sym/c/house.png)}.s-envelope{--m:url(assets/sym/c/envelope.png)}.s-at{--m:url(assets/sym/c/at.png)}
+.s-wifi{--m:url(assets/sym/c/wifi.png)}.s-person{--m:url(assets/sym/c/person.png)}.s-phone{--m:url(assets/sym/c/phone.png)}
+.s-doc{--m:url(assets/sym/c/doc.png)}.s-airplane{--m:url(assets/sym/c/airplane.png)}.s-video{--m:url(assets/sym/c/video.png)}
+/* the keyboard's tile, any size: set --w (the capture's is 633 px wide) */
+.kt{position:absolute;background:#FDFDFD;border-radius:calc(var(--w)*.0694);width:var(--w);height:calc(var(--w)*.3035);box-sizing:border-box}
+.kt img{position:absolute;left:calc(var(--w)*.05);top:calc(var(--w)*.054);width:calc(var(--w)*.082);height:calc(var(--w)*.07);object-fit:contain}
+.kt b{position:absolute;left:calc(var(--w)*.152);top:calc(var(--w)*.052);font:650 calc(var(--w)*.073)/1 var(--sf);letter-spacing:-.02em;white-space:nowrap;color:#000}
+.kt b.noicon{left:calc(var(--w)*.052)}
+.kt i{position:absolute;left:calc(var(--w)*.052);top:calc(var(--w)*.1706);font:400 calc(var(--w)*.0612)/1 var(--sf);font-style:normal;letter-spacing:-.01em;color:#8A8A8E;white-space:nowrap}

@@ -1,0 +1,52 @@
+<!doctype html><meta charset="utf-8">
+<!-- Direction 2, "Don't type it. Tap it. Done.": a flat poster across frames 1 to 3 (3960 x 2868).
+     Frame 1 is the address as the 41 keys it costs to type; frame 2 is Cutling's one key for it, drawn
+     large from the keyboard tile; frame 3 is the real capture with the address pasted. -->
+<style>
+:root{--mint:#2FE6A7;--deep:#12C289;--side:#0A9469;--ink:#06140F;--sf:-apple-system,"SF Pro Display",system-ui,sans-serif}
+html,body{margin:0;overflow:hidden}
+html{height:2868px}
+body{width:3960px;height:2868px;position:relative;background:var(--mint);font-family:var(--sf);color:var(--ink)}
+h1{position:absolute;margin:0;top:150px;font:900 520px/.84 system-ui;font-variation-settings:"wdth" 50;letter-spacing:-4px;white-space:nowrap}
+.sub{position:absolute;font:700 118px/1 var(--sf);letter-spacing:-2px;white-space:nowrap}
+.k{position:absolute;width:140px;height:172px;border-radius:23px;background:#fff;box-shadow:0 8px 0 var(--side),0 20px 24px rgba(0,80,54,.28);
+   font:400 96px/164px var(--sf);text-align:center;color:#000}
+.k img{height:66px;margin-top:52px}
+.key{position:absolute;background:#fff;border-radius:calc(var(--w)*.0694);width:var(--w);height:calc(var(--w)*.3035);
+   box-shadow:0 calc(var(--w)*.0153) 0 var(--side),0 calc(var(--w)*.04) calc(var(--w)*.053) rgba(0,70,48,.36)}
+.key img{position:absolute;left:calc(var(--w)*.05);top:calc(var(--w)*.054);width:calc(var(--w)*.082);height:calc(var(--w)*.07);object-fit:contain}
+.key b{position:absolute;left:calc(var(--w)*.152);top:calc(var(--w)*.052);font:650 calc(var(--w)*.073)/1 var(--sf);letter-spacing:-.02em;white-space:nowrap}
+.key i{position:absolute;left:calc(var(--w)*.052);top:calc(var(--w)*.1706);font:400 calc(var(--w)*.0612)/1 var(--sf);font-style:normal;letter-spacing:-.01em;color:#8A8A8E;white-space:nowrap}
+#tap{position:absolute;left:2292px;top:1060px;width:250px;height:250px;border-radius:50%;background:rgba(6,20,15,.14);box-shadow:0 0 0 13px rgba(6,20,15,.92),0 0 0 64px rgba(6,20,15,.09)}
+#phone{position:absolute;left:2770px;top:1010px;width:1060px;height:2260px;border-radius:168px;background:#0b0b0c;
+   box-shadow:0 0 0 5px #2a2d2c,0 0 0 9px #8f9694,0 60px 120px rgba(0,60,40,.45)}
+#phone img{position:absolute;left:26px;top:26px;width:1008px;border-radius:144px}
+</style>
+<h1 style="left:84px">Don’t<br>type it.</h1>
+<div class="sub" style="left:92px;top:1110px">41 keys. Every time.</div>
+<div id="keys"></div>
+<h1 style="left:1404px">Tap it.</h1>
+<div class="sub" style="left:1412px;top:672px">Cutling makes it one.</div>
+<div class="key" style="--w:1220px;left:1700px;top:2470px;transform:rotate(3deg)"><img src="../assets/sym/c/video.png"><b>Meeting Link</b><i>https://meet.example…</i></div>
+<div class="key" style="--w:1220px;left:1630px;top:2100px;transform:rotate(-2.5deg)"><img src="../assets/sym/c/wifi.png"><b>Wi-Fi Password</b><i>c0ff33-Sh0p-2024!</i></div>
+<div class="key" style="--w:1220px;left:1690px;top:1730px;transform:rotate(2deg)"><img src="../assets/sym/c/envelope.png"><b>Email Signature</b><i>Best regards,…</i></div>
+<div class="key" style="--w:1700px;left:1262px;top:1040px;transform:rotate(-5deg)"><img src="../assets/sym/c/house.png"><b>Home Address</b><i>123 Main Street, Apt 4B…</i></div>
+<div id="tap"></div>
+<h1 style="left:2724px">Done.</h1>
+<div class="sub" style="left:2732px;top:672px">Pasted. No typos.</div>
+<div id="phone"><img src="../assets/chat-screen.png"></div>
+<script>
+// the address, key by key, as it is typed: 40 characters and the return between its two lines, 41 keys,
+// each a hair off square like keys set by hand
+const rows = ["123 Main", "Street, ", "Apt 4B\n", "New York, ", "NY 10001"];
+let n = 0, seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+const box = document.getElementById("keys");
+rows.forEach((r, j) => [...r].forEach((ch, i) => {
+  const d = document.createElement("div"); d.className = "k";
+  if(ch === "\n") d.innerHTML = '<img src="../assets/sym/c/return-black.png">'; else d.textContent = ch === " " ? "" : ch;
+  d.style.left = (88 + i * 152 + (rnd() - .5) * 10) + "px"; d.style.top = (1470 + j * 204 + (rnd() - .5) * 12) + "px";
+  d.style.transform = `rotate(${(rnd() - .5) * 9}deg)`; box.appendChild(d); n++;
+}));
+if(n !== 41) document.title = window.__error = "ERR " + n + " keys, the line says 41";
+</script>
+<script src="../ready.js"></script>

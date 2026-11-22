@@ -1,0 +1,22 @@
+<!doctype html><meta charset="utf-8">
+<!-- The texture the still life prints: the real chat capture for the phone's screen, and eight key faces
+     laid out as the app's grid tile (icon, name, first line). 3840 x 3296. -->
+<link rel="stylesheet" href="../tiles.css">
+<style>
+html,body{margin:0;background:#fff;width:3840px;height:3296px;overflow:hidden;font-family:var(--sf)}
+#screen{position:absolute;left:0;top:0;width:1320px;height:2868px;background:url(../../tall/cutling/cap/iphone-address-chat-clean.png)}
+#clock{position:absolute;left:188px;top:62px;width:168px;height:70px;background:#FDFDFD;font:600 59px/70px var(--sf);text-align:center;color:#000}
+#bubble{position:absolute;left:48px;top:1302px;background:#E9E9EB;border-radius:54px;padding:21px 39px;font:400 51px/66px var(--sf);letter-spacing:-.6px;color:#000}
+.face{position:absolute;width:1208px;height:824px;background:#fff;box-sizing:border-box;padding:96px 0 0 104px}
+.face .sym{width:200px;height:170px}
+.face b{display:block;font:650 124px/1 var(--sf);letter-spacing:-2.5px;margin-top:92px;color:#000;white-space:nowrap}
+.face i{display:block;font:400 82px/1 var(--sf);font-style:normal;letter-spacing:-1px;margin-top:44px;color:var(--preview);white-space:nowrap}
+</style>
+<div id="screen"><div id="clock">9:41</div><div id="bubble">What’s your address?</div></div>
+<script>
+const K=[["house","Home Address","123 Main Street, Apt 4B…"],["envelope","Email Signature","Best regards,…"],["at","Work Email","alex@example.com"],["wifi","Wi-Fi Password","c0ff33-Sh0p-2024!"],
+["phone","Phone Number","+1 (555) 234-5678"],["video","Meeting Link","https://meet.example…"],["person","Social Bio","Designer & developer…"],["airplane","Booking Ref","FLT-2026-XKCD42"]];
+K.forEach((k,i)=>{const d=document.createElement("div");d.className="face";d.style.left=(1400+(i%2)*1208)+"px";d.style.top=(Math.floor(i/2)*824)+"px";
+d.innerHTML=`<span class="sym s-${k[0]}"></span><b>${k[1]}</b><i>${k[2]}</i>`;document.body.appendChild(d);});
+</script>
+<script src="../ready.js"></script>

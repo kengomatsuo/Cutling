@@ -1,0 +1,18 @@
+<!doctype html><meta charset="utf-8">
+<!-- One capture with its patches drawn over it: ?spec=<json>. A patch fills a box with a colour, copies a box
+     from another capture, or sets text (the 9:41 clock). build_sets.py renders each to assets/screens. -->
+<style>html,body{margin:0;overflow:hidden}#s{position:relative;overflow:hidden}#s div{position:absolute;white-space:nowrap}</style>
+<div id="s"></div>
+<script>
+const spec = JSON.parse(new URLSearchParams(location.search).get("spec")), s = document.getElementById("s");
+s.style.cssText += `width:${spec.w}px;height:${spec.h}px;background:url(${spec.src}) 0 0/${spec.w}px ${spec.h}px`;
+for (const p of spec.patches || []) {
+  const d = document.createElement("div");
+  d.style.cssText = `left:${p.x}px;top:${p.y}px;width:${p.w}px;height:${p.h}px;` +
+    (p.from ? `background:url(${p.from}) ${-(p.sx ?? p.x)}px ${-(p.sy ?? p.y)}px/${spec.w}px ${spec.h}px;` : `background:${p.fill || "transparent"};`) +
+    (p.text ? `font:${p.weight || 600} ${p.size}px/${p.h}px -apple-system,"SF Pro Text",system-ui;text-align:${p.align || "center"};color:${p.ink || "#000"};letter-spacing:${p.track || 0}px;border-radius:${p.radius || 0}px;` : "");
+  if (p.text) d.textContent = p.text;
+  s.appendChild(d);
+}
+</script>
+<script src="../ready.js"></script>

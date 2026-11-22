@@ -1,0 +1,39 @@
+<!doctype html><meta charset="utf-8">
+<!-- WIREFRAME, not a capture: the keyboard's fill-in panel as docs/fill-ins.md describes it (the sentence on
+     top with the waiting blank in green, Type with Your Keyboard, values used before, Paste, Next on the
+     return key), drawn over the real keyboard capture's own chrome. 1320 x 2868. -->
+<link rel="stylesheet" href="../../tiles.css">
+<style>
+html,body{margin:0;overflow:hidden}
+#s{position:relative;width:1320px;height:2868px;background:url(../raw/phone-keyboard.png);font-family:var(--sf);overflow:hidden}
+#s>*{position:absolute}
+#clock{left:188px;top:62px;width:168px;height:70px;background:#FDFDFD;font:600 59px/70px var(--sf);text-align:center}
+.bub{left:48px;background:#E9E9EB;border-radius:54px;padding:21px 39px;font:400 51px/66px var(--sf);letter-spacing:-.6px;white-space:nowrap}
+#panel{left:0;top:1764px;width:1320px;height:734px;background:#DFE1E5}
+#x{left:26px;top:1790px;width:104px;height:104px;border-radius:50%;background:#FDFDFD}
+#x img{position:absolute;left:32px;top:32px;width:40px;height:40px;object-fit:contain}
+#line{left:160px;top:1778px;width:1130px;font:400 50px/64px var(--sf);letter-spacing:-.5px;color:#000}
+#line u{text-decoration:none;background:#00A878;color:#fff;border-radius:16px;padding:2px 20px 4px;font-weight:600}
+#line s{text-decoration:none;color:#8A8A8E}
+#count{left:160px;top:1912px;font:500 34px/1 var(--sf);color:#8A8A8E}
+.kt{--w:633px}
+.kt.wide b{left:146px;top:68px;font-size:41px}.kt.wide img{left:36px;top:54px;width:84px;height:84px}
+.kt.val b{left:50%;top:50%;transform:translate(-50%,-50%);font-weight:500}
+#ret{left:1026px;top:2506px;width:276px;height:130px;border-radius:26px;background:#00A878;color:#fff;font:600 46px/130px var(--sf);text-align:center}
+#ret img{height:38px;vertical-align:-4px;margin-left:14px}
+</style>
+<div id="s">
+  <div id="clock">9:41</div>
+  <div class="bub" style="top:1180px">When does my order ship?</div>
+  <div id="panel"></div>
+  <div id="x"><img src="../sym/c/xmark-black.png"></div>
+  <div id="line">Hi <u>Name</u>, your order ships Tue, Nov 24. <s>Thanks!</s></div>
+  <div id="count">Blank 1 of 1</div>
+  <div class="kt wide" style="left:18px;top:1966px"><img src="../sym/c/keyboard-green.png"><b>Type with Your Keyboard</b></div>
+  <div class="kt val" style="left:669px;top:1966px"><b>Maya</b></div>
+  <div class="kt val" style="left:18px;top:2176px"><b>Sam</b></div>
+  <div class="kt val" style="left:669px;top:2176px"><b>Priya</b></div>
+  <div class="kt wide" style="left:18px;top:2386px;height:104px"><img src="../sym/c/doc.on.clipboard-black.png" style="top:20px;width:64px;height:64px"><b style="top:30px;left:120px">Paste</b></div>
+  <div id="ret">Insert<img src="../sym/c/checkmark-white.png"></div>
+</div>
+<script src="../../ready.js"></script>

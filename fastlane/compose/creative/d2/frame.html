@@ -1,0 +1,53 @@
+<!doctype html><meta charset="utf-8">
+<!-- Direction 2, frames 4 on: one poster frame from ?spec=<json>: a giant compressed headline, one line under
+     it, and the items listed (devices showing a real screen, enlarged keys, cards, tags) in paint order. -->
+<style>
+:root{--mint:#2FE6A7;--side:#0A9469;--ink:#06140F;--sf:-apple-system,"SF Pro Display",system-ui,sans-serif}
+html,body{margin:0;overflow:hidden}
+body{position:relative;background:var(--mint);font-family:var(--sf);color:var(--ink)}
+body.ink{background:var(--ink);color:var(--mint);--side:#04100C}
+body>*{position:absolute}
+h1{margin:0;font:900 520px/.84 system-ui;font-variation-settings:"wdth" 50;letter-spacing:-4px;white-space:nowrap}
+.sub{font:700 118px/1.06 var(--sf);letter-spacing:-2px;white-space:nowrap}
+.fine{font:600 76px/1 var(--sf);letter-spacing:-1px;white-space:nowrap;opacity:.72}
+.dev{background:#0b0b0c;box-sizing:border-box;box-shadow:0 0 0 5px #2a2d2c,0 0 0 9px #8f9694,0 60px 120px rgba(0,60,40,.45)}
+.ink .dev{box-shadow:0 0 0 5px #2a2d2c,0 0 0 9px #6f7674,0 60px 120px rgba(0,0,0,.6)}
+.dev img{display:block;width:100%}
+.phone{border-radius:calc(var(--w)*.1585);padding:calc(var(--w)*.0245);width:var(--w)}.phone img{border-radius:calc(var(--w)*.136)}
+.pad{border-radius:calc(var(--w)*.052);padding:calc(var(--w)*.024);width:var(--w)}.pad img{border-radius:calc(var(--w)*.03)}
+.shadow{box-shadow:0 calc(var(--w)*.0153) 0 var(--side),0 calc(var(--w)*.04) calc(var(--w)*.053) rgba(0,70,48,.36)}
+.key{background:#fff;border-radius:calc(var(--w)*.0694);width:var(--w);height:calc(var(--w)*.3035);color:#000}
+.key img{position:absolute;left:calc(var(--w)*.05);top:calc(var(--w)*.054);width:calc(var(--w)*.082);height:calc(var(--w)*.07);object-fit:contain}
+.key b{position:absolute;left:calc(var(--w)*.152);top:calc(var(--w)*.052);font:650 calc(var(--w)*.073)/1 var(--sf);letter-spacing:-.02em;white-space:nowrap}
+.key i{position:absolute;left:calc(var(--w)*.052);top:calc(var(--w)*.1706);font:400 calc(var(--w)*.0612)/1 var(--sf);font-style:normal;letter-spacing:-.01em;color:#8A8A8E;white-space:nowrap}
+.card{background:#fff;color:#000;border-radius:calc(var(--w)*.06);width:var(--w);box-sizing:border-box;padding:calc(var(--w)*.05) calc(var(--w)*.055);font:500 calc(var(--w)*.074)/1.3 var(--sf);letter-spacing:-.02em}
+.card u{text-decoration:none;background:#00A878;color:#fff;border-radius:calc(var(--w)*.016);padding:0 calc(var(--w)*.02);font-weight:650}
+.card s{text-decoration:none;color:#8A8A8E}
+.tag{background:var(--ink);color:#fff;border-radius:999px;font:700 calc(var(--w)*.09)/1 var(--sf);padding:calc(var(--w)*.045) calc(var(--w)*.075);white-space:nowrap;letter-spacing:-.01em}
+.ink .tag{background:var(--mint);color:var(--ink)}
+.mac{background:#fff;border-radius:calc(var(--w)*.045);width:var(--w);overflow:hidden}
+.mac img{display:block;width:100%}
+.ring{width:var(--w);height:var(--w);border-radius:50%;background:rgba(6,20,15,.14);box-shadow:0 0 0 calc(var(--w)*.052) rgba(6,20,15,.92),0 0 0 calc(var(--w)*.26) rgba(6,20,15,.09)}
+</style>
+<body>
+<script>
+const spec = JSON.parse(new URLSearchParams(location.search).get("spec")), B = document.body;
+B.style.width = spec.W + "px"; B.style.height = spec.H + "px"; document.documentElement.style.height = spec.H + "px";
+if (spec.bg === "ink") B.className = "ink";
+const el = (cls, html, css) => { const d = document.createElement("div"); d.className = cls; d.innerHTML = html; d.style.cssText = css; B.appendChild(d); return d; };
+const place = (o) => `--w:${o.w}px;left:${o.left}px;top:${o.top}px;transform:rotate(${o.rot || 0}deg);`;
+for (const o of spec.items) {
+  if (o.type === "phone" || o.type === "pad") el("dev " + o.type, `<img src="../assets/screens/${o.screen}.png">`, place(o));
+  if (o.type === "key") el("key shadow", `<img src="../assets/sym/c/${o.icon}.png"><b>${o.title}</b><i>${o.preview}</i>`, place(o));
+  if (o.type === "card") el("card shadow", o.html, place(o));
+  if (o.type === "tag") el("tag", o.text, place(o));
+  if (o.type === "ring") el("ring", "", place(o));
+  if (o.type === "mac") el("mac shadow", `<img src="../assets/raw/mac-history.png" style="margin-bottom:${-o.cut * o.w / 720}px">`, place(o) + `height:${(1028 - o.cut) * o.w / 720}px`);
+}
+const M = spec.margin, fit = (d, max) => { let s = parseFloat(getComputedStyle(d).fontSize); while (d.scrollWidth > max && s > 40) d.style.fontSize = (s -= 4) + "px"; };
+const h = document.createElement("h1"); h.innerHTML = spec.h1.join("<br>"); h.style.cssText = `left:${M - 8}px;top:${spec.top}px;font-size:${spec.h1size}px`; B.appendChild(h); fit(h, spec.W - 2 * M);
+let y = spec.top + h.offsetHeight + spec.gap;
+const s = el("sub", spec.sub, `left:${M}px;top:${y}px;font-size:${spec.subsize}px`); fit(s, spec.W - 2 * M);
+if (spec.fine) { const f = el("fine", spec.fine, `left:${M}px;top:${y + s.offsetHeight + 26}px;font-size:${spec.subsize * .64}px`); fit(f, spec.W - 2 * M); }
+</script>
+<script src="../ready.js"></script>

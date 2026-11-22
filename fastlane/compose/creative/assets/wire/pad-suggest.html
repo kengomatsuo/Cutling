@@ -1,0 +1,46 @@
+<!doctype html><meta charset="utf-8">
+<!-- WIREFRAME, not a capture: an email being written on iPad with Cutling's keyboard offering the email first,
+     drawn after the real iPhone recording (assets/raw/phone-suggest.png) and the real iPad keyboard. 2064 x 2752. -->
+<link rel="stylesheet" href="../../tiles.css">
+<style>
+html,body{margin:0;overflow:hidden}
+#s{position:relative;width:2064px;height:2752px;background:#FDFDFD;font-family:var(--sf);overflow:hidden}
+#s>*{position:absolute}
+#bar{left:0;top:0;width:2064px;height:60px;background:url(../raw/pad-grid.png) 0 0}
+#strip{left:0;top:60px;width:2064px;height:24px;background:#F2F2F6}
+#clock{left:26px;top:10px;width:96px;height:44px;background:#F2F2F6;font:500 27px/44px var(--sf);text-align:right}
+#app{left:136px;top:10px;width:400px;height:44px;background:#F2F2F6;font:600 27px/44px var(--sf)}
+.row{left:0;width:2064px;border-bottom:2px solid #E3E3E6;font:400 40px/1 var(--sf);color:#000}
+.row s{text-decoration:none;color:#8A8A8E;margin-right:24px}
+.caret{display:inline-block;width:4px;height:48px;background:#3D8BFF;vertical-align:-10px;margin-left:2px}
+#kb{left:0;top:1796px;width:2064px;height:956px;background:#E1E3E7;border-radius:56px 56px 0 0;box-shadow:0 -1px 0 #cfd1d6}
+#hdr{left:0;top:1970px;width:2064px;text-align:center;font:400 38px/52px var(--sf)}
+#hdr img{height:46px;vertical-align:-10px;margin-right:14px}
+#sug{left:20px;top:2066px;font:500 26px/1 var(--sf);color:#8A8A8E}
+.kt{--w:395px;height:160px;border-radius:26px}
+.kt b{font-size:31px;top:34px}.kt i{font-size:25px;top:92px}.kt img{top:32px;width:34px;height:34px;left:22px}.kt b{left:68px}.kt i{left:22px}
+.bk{background:#FDFDFD;border-radius:22px;height:126px;top:2581px}
+.bk img{position:absolute;left:50%;top:50%;height:44px;transform:translate(-50%,-50%)}
+</style>
+<div id="s">
+  <div id="bar"></div><div id="strip"></div><div id="clock">9:41</div><div id="app">Thu 24 Sep</div>
+  <div style="left:40px;top:110px;font:700 44px/1 var(--sf)">New Message</div>
+  <div style="right:40px;top:110px;font:600 44px/1 var(--sf);color:#0A8A5F">Send</div>
+  <div class="row" style="top:190px;height:110px"><span style="position:absolute;left:40px;top:34px"><s>To:</s>alex@example.com<span class="caret"></span></span></div>
+  <div class="row" style="top:302px;height:110px"><span style="position:absolute;left:40px;top:34px"><s>Subject:</s>Friday</span></div>
+  <div id="kb"></div>
+  <div id="hdr"><img src="../sym/c/doc.on.clipboard.fill-black.png">Add from Clipboard</div>
+  <div id="sug">Suggestions</div>
+  <div class="kt" style="left:11px;top:2108px"><img src="../sym/c/at.png"><b>Work Email</b><i>alex@example.com</i></div>
+  <div class="kt" style="left:422px;top:2108px"><img src="../sym/c/envelope.png"><b>Signature</b><i>Best regards,…</i></div>
+  <div class="kt" style="left:11px;top:2300px"><img src="../sym/c/house.png"><b>Home Address</b><i>123 Main Street, Apt 4B…</i></div>
+  <div class="kt" style="left:422px;top:2300px"><img src="../sym/c/video.png"><b>Meeting Link</b><i>https://meet.example.c…</i></div>
+  <div class="kt" style="left:833px;top:2300px"><img src="../sym/c/wifi.png"><b>Wi-Fi Password</b><i>c0ff33-Sh0p-2024!</i></div>
+  <div class="kt" style="left:1244px;top:2300px"><img src="../sym/c/person.png"><b>Social Bio</b><i>Designer & developer…</i></div>
+  <div class="kt" style="left:1655px;top:2300px"><img src="../sym/c/phone.png"><b>Phone Number</b><i>+1 (555) 234-5678</i></div>
+  <div class="bk" style="left:11px;width:144px"><img src="../sym/c/globe-black.png"></div>
+  <div class="bk" style="left:172px;width:144px"><img src="../sym/c/delete.left-black.png"></div>
+  <div class="bk" style="left:331px;width:1521px"></div>
+  <div class="bk" style="left:1868px;width:184px"><img src="../sym/c/return-black.png"></div>
+</div>
+<script src="../../ready.js"></script>

@@ -1,0 +1,19 @@
+<!doctype html><meta charset="utf-8">
+<!-- Direction 1, any frame or strip: a path-traced still life (renders/<name>.png) with the headline set over its
+     plain upper part. ?spec=<json>. -->
+<style>
+html,body{margin:0;overflow:hidden}
+body{position:relative}
+h1{position:absolute;margin:0;font:800 178px/1.04 -apple-system,"SF Pro Display",system-ui,sans-serif;letter-spacing:-.025em;color:#04261C;white-space:nowrap}
+h1 em{font-style:normal;color:#fff}
+.fine{position:absolute;font:700 70px/1 -apple-system,"SF Pro Display",system-ui,sans-serif;letter-spacing:-.01em;color:#04261C;opacity:.8;white-space:nowrap}
+</style>
+<body>
+<script>
+const spec = JSON.parse(new URLSearchParams(location.search).get("spec")), B = document.body;
+B.style.cssText = `width:${spec.W}px;height:${spec.H}px;background:url(renders/${spec.bg}.png) 0 0/${spec.W}px ${spec.H}px no-repeat`;
+document.documentElement.style.height = spec.H + "px";
+for (const h of spec.heads) { const e = document.createElement("h1"); e.innerHTML = h.html; e.style.cssText = `left:${h.left}px;top:${spec.top}px;font-size:${spec.size}px`; B.appendChild(e); }
+if (spec.fine) { const e = document.createElement("div"); e.className = "fine"; e.textContent = spec.fine.text; e.style.cssText = `left:${spec.fine.left}px;top:${spec.fine.top}px;font-size:${spec.fine.size}px`; B.appendChild(e); }
+</script>
+<script src="../ready.js"></script>
