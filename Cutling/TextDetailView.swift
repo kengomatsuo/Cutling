@@ -880,7 +880,7 @@ struct TextDetailView: View {
                         if value.isEmpty {
                             Text("Text").foregroundStyle(.tertiary)
                         } else {
-                            textPreview.lineLimit(8)
+                            if format == .code { textPreview.lineLimit(8) } else { TextPreviewView(text: value, format: format) }
                         }
                     }
                     .multilineTextAlignment(.leading)
@@ -904,9 +904,8 @@ struct TextDetailView: View {
     /// The text as a card previews it: pills drawn, styles kept, only its start laid out.
     private var textPreview: Text {
         guard format != .code else { return Text(verbatim: Cutling.previewSource(value)).monospaced() }
-        // Pills a little smaller than the text, as on cards: a pill as tall as the line pushes every
-        // wrapped line apart in a SwiftUI Text, where the editor's own line spacing doesn't apply.
-        let size = UIFont.preferredFont(forTextStyle: .body).pointSize - 3
+        // Code only now (TextPreviewView draws formatted and plain text with the page's renderer).
+        let size = UIFont.preferredFont(forTextStyle: .body).pointSize
         return Cutling.previewPieces(value, format: format).reduce(Text(verbatim: "")) { text, piece in
             switch piece {
             case .text(let run): text + Text(run)

@@ -36,7 +36,7 @@ struct FormattedTextEditor {
     var styles: EditorStyles? = nil
     #endif
 
-    fileprivate static func rendered(_ text: String, format: TextFormat, size: CGFloat) -> NSAttributedString {
+    static func rendered(_ text: String, format: TextFormat, size: CGFloat) -> NSAttributedString {
         RichText.nsAttributed(format == .rich ? text : RichText.escape(text), size: size, editorColors: true)
     }
 
@@ -50,7 +50,7 @@ struct FormattedTextEditor {
     }()
 
     /// What the view shows: the rendered text with its pills and line spacing. A list line keeps its hanging indent.
-    fileprivate static func display(_ rendered: NSAttributedString, font: PillFont) -> NSAttributedString {
+    static func display(_ rendered: NSAttributedString, font: PillFont) -> NSAttributedString {
         let out = NSMutableAttributedString(attributedString: FillInPills.pilled(rendered, font: font))
         let full = NSRange(location: 0, length: out.length)
         var styled: [(NSRange, NSParagraphStyle)] = []
