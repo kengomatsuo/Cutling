@@ -1,0 +1,34 @@
+/* Paste-style store frame: a calm light ground, one headline, the whole phone with its bezel.
+   Every drawn value is a custom property that build.py writes from spec.json; this file holds
+   no number of its own (check.py prints any it finds). The capture fills the screen uncropped. */
+*{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased}
+html,body{width:var(--canvas-w);height:var(--canvas-h);overflow:hidden}
+.panel{position:relative;isolation:isolate;width:var(--canvas-w);height:var(--canvas-h);overflow:hidden;
+ background:var(--ground-fill);font-family:var(--type-family)}
+/* the copy block: fit.js shrinks [data-fit] lines until the block fits this box */
+.wrap{position:absolute;left:var(--wrap-x);top:var(--wrap-y);width:var(--wrap-w);height:var(--wrap-h);
+ display:flex;flex-direction:column;justify-content:center;align-items:stretch;text-align:var(--wrap-align)}
+.headline{font-size:var(--headline-size);font-weight:var(--headline-weight);line-height:var(--headline-leading);
+ letter-spacing:var(--headline-tracking);color:var(--headline-ink);text-wrap:balance}
+.headline[data-nowrap]{white-space:nowrap}
+.headline em{font-style:normal;color:var(--headline-accent)}
+.sub{margin-top:var(--sub-gap);font-size:var(--sub-size);font-weight:var(--sub-weight);line-height:var(--sub-leading);
+ letter-spacing:var(--sub-tracking);color:var(--sub-ink);text-wrap:balance}
+/* the phone: a metal band, a black bezel inside it, the capture inside that */
+.phone{position:absolute;left:var(--phone-x);top:var(--phone-y);width:var(--phone-w);height:var(--phone-h);
+ border-radius:var(--phone-radius);background:var(--phone-band);box-shadow:var(--phone-shadow)}
+.phone::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:var(--phone-edge)}
+.bezel{position:absolute;inset:var(--bezel-inset);border-radius:var(--bezel-radius);background:var(--bezel-fill)}
+.screen{position:absolute;left:var(--screen-inset);top:var(--screen-inset);width:var(--screen-w);height:var(--screen-h);
+ border-radius:var(--screen-radius);overflow:hidden}
+.screen img{display:block;width:100%;height:100%}
+.btn{position:absolute;z-index:-1;width:var(--button-w);border-radius:var(--button-radius);background:var(--button-fill)}
+.btn.left{left:var(--button-left)}
+.btn.right{right:var(--button-left)}
+.btn.action{top:var(--button-action-y);height:var(--button-action-h)}
+.btn.up{top:var(--button-up-y);height:var(--button-up-h)}
+.btn.down{top:var(--button-down-y);height:var(--button-down-h)}
+.btn.power{top:var(--button-power-y);height:var(--button-power-h)}
+/* where the finger lands, in screen pixels of the frame */
+.tap{position:absolute;left:var(--tap-x);top:var(--tap-y);width:var(--tap-d);height:var(--tap-d);
+ border-radius:var(--tap-d);background:var(--tap-fill);box-shadow:var(--tap-ring)}

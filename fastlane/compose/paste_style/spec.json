@@ -1,0 +1,350 @@
+{
+ "about": "Every value the Paste-style frames draw. Numbers are output pixels on the 1320x2868 canvas; strings are CSS values as written. build.py turns each leaf under base, variants.<v> and frames[].tap into a custom property; paste_style.css draws from those only.",
+ "recommended": "C",
+ "capture": {
+  "w": 1320,
+  "h": 2868,
+  "corner_radius": 186,
+  "scale": "2/3",
+  "note": "screen = capture x 2/3: 880x1912, radius 124; the keyboard's own corner in the capture is 187 px, so the clip follows it"
+ },
+ "base": {
+  "canvas": {
+   "w": 1320,
+   "h": 2868
+  },
+  "type": {
+   "family": "-apple-system,\"SF Pro Display\",system-ui,sans-serif"
+  },
+  "headline": {
+   "size": 162,
+   "floor": 96,
+   "weight": "800",
+   "leading": "1.03",
+   "tracking": "-0.025em",
+   "ink": "#0C1210"
+  },
+  "phone": {
+   "x": 189,
+   "w": 942,
+   "h": 1974,
+   "radius": 155,
+   "band": "linear-gradient(105deg,#74777A 0%,#3A3C3E 20%,#26282A 55%,#3E4042 80%,#7C7F82 100%)",
+   "edge": "inset 0 0 0 1.5px rgba(255,255,255,.28),inset 0 0 0 3px rgba(0,0,0,.30)"
+  },
+  "bezel": {
+   "inset": 9,
+   "radius": 146,
+   "fill": "#050606"
+  },
+  "screen": {
+   "inset": 31,
+   "w": 880,
+   "h": 1912,
+   "radius": 124
+  },
+  "button": {
+   "w": 10,
+   "left": -5,
+   "radius": 3,
+   "fill": "linear-gradient(180deg,#3A3C3E 0%,#1E2021 50%,#3A3C3E 100%)",
+   "action": {
+    "y": 357,
+    "h": 84
+   },
+   "up": {
+    "y": 495,
+    "h": 145
+   },
+   "down": {
+    "y": 664,
+    "h": 145
+   },
+   "power": {
+    "y": 525,
+    "h": 230
+   }
+  }
+ },
+ "variants": {
+  "A": {
+   "pull": "Paste's calm: near-white ground, black headline set flush with the phone's left edge, one grey line under it, nothing on the phone",
+   "ground": {
+    "fill": "linear-gradient(180deg,#F7F9F8 0%,#E8F1ED 100%)"
+   },
+   "wrap": {
+    "x": 189,
+    "y": 150,
+    "w": 942,
+    "h": 520,
+    "align": "start"
+   },
+   "headline": {
+    "accent": "#0C1210"
+   },
+   "sub": {
+    "gap": 34,
+    "size": 58,
+    "floor": 40,
+    "weight": "500",
+    "leading": "1.2",
+    "tracking": "-0.01em",
+    "ink": "#5B6763"
+   },
+   "phone": {
+    "y": 754,
+    "shadow": "0 90px 120px -60px rgba(16,58,46,.42),0 40px 60px -40px rgba(16,58,46,.30)"
+   }
+  },
+  "B": {
+   "pull": "The tap, in the brand's mint: pale mint ground, centred headline with 'one tap' in green, a touch mark on the key that was tapped",
+   "ground": {
+    "fill": "linear-gradient(180deg,#EFF9F5 0%,#CFEDE1 100%)"
+   },
+   "wrap": {
+    "x": 90,
+    "y": 160,
+    "w": 1140,
+    "h": 440,
+    "align": "center"
+   },
+   "headline": {
+    "accent": "#0E8F6C"
+   },
+   "phone": {
+    "y": 724,
+    "shadow": "0 90px 120px -60px rgba(10,74,56,.50),0 40px 60px -40px rgba(10,74,56,.34)"
+   },
+   "tap": {
+    "d": 84,
+    "fill": "rgba(14,143,108,.24)",
+    "ring": "0 0 0 3px rgba(255,255,255,.95),0 0 0 14px rgba(14,143,108,.14)"
+   }
+  },
+  "C": {
+   "extends": "A",
+   "pull": "Calm, with the tap marked: A's ground, alignment and grey line, plus the one accent that ties the words to the screen: 'one tap' in green and the same green on the key that was tapped",
+   "headline": {
+    "accent": "#0E8F6C"
+   },
+   "tap": {
+    "d": 84,
+    "fill": "rgba(14,143,108,.24)",
+    "ring": "0 0 0 3px rgba(255,255,255,.95),0 0 0 14px rgba(14,143,108,.14)"
+   }
+  }
+ },
+ "frames": [
+  {
+   "key": "f1",
+   "capture": "../../tall/cutling/cap/iphone-address-chat-clean.png",
+   "copy": {
+    "headline": "f1.headline",
+    "sub": "f1.sub"
+   },
+   "tap": {
+    "x": 330,
+    "y": 1346
+   },
+   "key_box": {
+    "x": 12,
+    "y": 1310,
+    "w": 421,
+    "h": 156,
+    "note": "the Home Address key in screen pixels (capture x 18-650, y 1965-2199, times 2/3)"
+   }
+  }
+ ],
+ "copy": {
+  "en-US": {
+   "f1.headline": "Your address\nin *one tap*",
+   "f1.sub": "Save it once. Tap it on your keyboard."
+  }
+ },
+ "ledger": [
+  {
+   "source": "owner",
+   "item": "We just crop the keyboard, and badly: stop doing that",
+   "spec": [
+    "frames/0/capture",
+    "base/screen/w",
+    "base/screen/h"
+   ]
+  },
+  {
+   "source": "owner",
+   "item": "Remake it in the rivals' style (Paste is the one to beat)",
+   "spec": [
+    "variants/A/ground/fill",
+    "base/phone/w"
+   ]
+  },
+  {
+   "source": "brief",
+   "item": "Calm light ground",
+   "spec": [
+    "variants/A/ground/fill"
+   ]
+  },
+  {
+   "source": "brief",
+   "item": "One big bold headline at the top, in plain words",
+   "spec": [
+    "copy/en-US/f1.headline",
+    "base/headline/size",
+    "base/headline/weight"
+   ]
+  },
+  {
+   "source": "brief",
+   "item": "The whole iPhone with its bezel, shown large",
+   "spec": [
+    "base/phone/x",
+    "variants/A/phone/y",
+    "base/phone/w",
+    "base/phone/h",
+    "base/bezel/inset"
+   ]
+  },
+  {
+   "source": "brief",
+   "item": "Lots of air",
+   "spec": [
+    "base/phone/x",
+    "variants/A/wrap/y"
+   ]
+  },
+  {
+   "source": "brief",
+   "item": "Optionally a small proof line",
+   "dropped": "No award, rating or press line is on disk to quote, and App Review 2.3.7 bars pricing words from metadata, so 'pay once' is out too. The grey line under the headline says how it works instead (f1.sub)."
+  },
+  {
+   "source": "brief",
+   "item": "Use the whole real capture inside a phone, never a keyboard panel",
+   "spec": [
+    "frames/0/capture",
+    "capture/scale"
+   ]
+  },
+  {
+   "source": "brief",
+   "item": "Brand colour is mint; a light ground with green as accent is fine",
+   "spec": [
+    "variants/C/headline/accent",
+    "variants/C/tap/fill"
+   ]
+  },
+  {
+   "source": "brief",
+   "item": "Output is 1320x2868",
+   "spec": [
+    "base/canvas/w",
+    "base/canvas/h"
+   ]
+  },
+  {
+   "source": "brief",
+   "item": "A flat marketing image, no status bar of our own on top",
+   "dropped": "Nothing is drawn above the headline; the only status bar is the one inside the capture."
+  },
+  {
+   "source": "brief",
+   "item": "Owner-approved idea 'Paste your bank number in one tap'; the capture shows an address",
+   "spec": [
+    "copy/en-US/f1.headline"
+   ]
+  },
+  {
+   "source": "brief",
+   "item": "Buyer copy states the result, not features; about two short lines",
+   "spec": [
+    "copy/en-US/f1.headline",
+    "copy/en-US/f1.sub"
+   ]
+  },
+  {
+   "source": "brief",
+   "item": "A convincing iPhone 17 Pro-style bezel drawn in CSS, no third-party mockup",
+   "spec": [
+    "base/phone/band",
+    "base/phone/edge",
+    "base/phone/radius",
+    "base/bezel/fill",
+    "base/button/w"
+   ]
+  },
+  {
+   "source": "brief",
+   "item": "The Dynamic Island is already in the capture",
+   "dropped": "No island is drawn; the capture's own shows through the uncropped screen."
+  },
+  {
+   "source": "brief",
+   "item": "The headline reads at about 300 px wide",
+   "spec": [
+    "card/w",
+    "card/headline_min",
+    "base/headline/size"
+   ]
+  },
+  {
+   "source": "brief",
+   "item": "Nothing is cropped awkwardly; the phone is whole and sharp",
+   "spec": [
+    "base/phone/h",
+    "variants/A/phone/y",
+    "capture/scale"
+   ]
+  },
+  {
+   "source": "brief",
+   "item": "The rest of the set and the locales render from the same template",
+   "spec": [
+    "frames",
+    "copy",
+    "base/headline/floor",
+    "variants/A/sub/floor"
+   ]
+  },
+  {
+   "source": "capability",
+   "item": "Tap a saved snippet on the keyboard and it is pasted into any app (built: the capture shows the address pasted into Messages)",
+   "spec": [
+    "frames/0/capture",
+    "frames/0/tap/x",
+    "frames/0/key_box/x"
+   ]
+  },
+  {
+   "source": "capability",
+   "item": "Save it once (built: iphone-new.png is the save screen)",
+   "spec": [
+    "copy/en-US/f1.sub"
+   ]
+  },
+  {
+   "source": "design",
+   "item": "Headline column is the phone's column, so the words and the device share both edges",
+   "spec": [
+    "variants/A/wrap/x",
+    "variants/A/wrap/w"
+   ]
+  },
+  {
+   "source": "design",
+   "item": "The green of 'one tap' and the mark on the tapped key are one accent",
+   "spec": [
+    "variants/C/headline/accent",
+    "variants/C/tap/ring",
+    "frames/0/tap/y"
+   ]
+  }
+ ],
+ "card": {
+  "w": 300,
+  "headline_min": 32,
+  "floor_min": 20,
+  "note": "the store search card shows the frame about 300 px wide; Paste's first headline is 32 px there"
+ }
+}
