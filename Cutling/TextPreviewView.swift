@@ -15,6 +15,7 @@ import SwiftUI
 import UIKit
 
 struct TextPreviewView: UIViewRepresentable {
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     let text: String
     let format: TextFormat
     var maxLines = 8
@@ -29,6 +30,8 @@ struct TextPreviewView: UIViewRepresentable {
         view.textContainerInset = .zero
         view.textContainer.lineFragmentPadding = 0
         view.textContainer.lineBreakMode = .byTruncatingTail
+        // Follows the person's text size: updateUIView redraws at the body style's current size.
+        view.adjustsFontForContentSizeCategory = true
         view.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         return view
     }

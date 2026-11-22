@@ -80,9 +80,10 @@ struct FillInForm: View {
                             fieldEditor(field)
                         }
                     }
+                    // The text as it will be pasted, in the primary colour: grey on the grey box failed Apple's contrast audit.
                     Text(preview)
                         .font(.callout)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(.primary)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(8)
                         .background(.background.secondary, in: RoundedRectangle(cornerRadius: 6))
