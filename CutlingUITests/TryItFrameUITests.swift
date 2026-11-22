@@ -40,6 +40,10 @@ final class TryItFrameUITests: XCTestCase {
             try? XCUIScreen.main.screenshot().pngRepresentation.write(to: URL(fileURLWithPath: "\(dir)/\(language)-no-globe.png"))
         }
         switchToCutlingKeyboard(in: app)
+        if !cutlingKeyboardIsUp(in: app), let dir = env["FRAME_SHOTS"] {
+            try? XCUIScreen.main.screenshot().pngRepresentation.write(to: URL(fileURLWithPath: "\(dir)/\(language)-no-cutling.png"))
+            try? app.debugDescription.write(toFile: "\(dir)/\(language)-tree.txt", atomically: true, encoding: .utf8)
+        }
         XCTAssertTrue(cutlingKeyboardIsUp(in: app), "Cutling keyboard did not come up")
 
         // The first seeded cutling (Home Address in every language) is the grid's first key.
