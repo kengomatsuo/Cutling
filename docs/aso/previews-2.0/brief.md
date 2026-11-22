@@ -71,6 +71,11 @@ on 2026-11-22 he called Mixkit 281 "Complicated" (Arulo) and Unminus "Hangtime" 
 licences in `~/Repositories/undirect/docs/research/pro-film-refs/music/`. On 2026-11-18 he ruled Cutling's music comes
 from Mixkit, after a Pixabay track drew a YouTube copyright claim on every Cutling film.
 
+What rivals' live App Store previews show, read 2026-11-22: `docs/aso/previews-2.0/rivals.md` (with frame sheets).
+None of them promotes only its newest feature; each shows what the app is for as a whole, and Apple's guidance puts
+an overview first. The owner asked of the first round: "You didnt see competitors did you? Did the promote the new
+feature only?" On music he picked Mixkit 281 "Complicated" for these previews.
+
 Reference material already gathered (use it, add to it from the best work in any category):
 `~/Repositories/undirect/docs/research/pro-film-refs/` (notes on Apple, Samsung and app launch films with measured cut
 times) and the `product-video` skill's `research/` folder (`appstore-previews.md` among them).
