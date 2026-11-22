@@ -227,6 +227,64 @@ final class TextPageUITests: XCTestCase {
         app.terminate()
     }
 
+    /// The page's own words in a long Latin, a long Indic, a right-to-left and a CJK language, for clipping:
+    /// the Format card, the list menu, the Variables list and the choice editor. Driven by identifiers only.
+    @MainActor
+    func testTextPageLanguages() throws {
+        for lang in ["de", "ta", "ar", "ja"] {
+            let app = XCUIApplication()
+            app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST", "-hasCompletedSetup", "YES",
+                                    "-hasSeenInteractiveTutorial", "YES", "-AppleLanguages", "(\(lang))", "-AppleLocale", lang]
+            app.launch()
+            let card = any(app, "cutlingCard")
+            XCTAssertTrue(card.waitForExistence(timeout: 30), "No cards in \(lang)")
+            let edit = any(app, "editButton")
+            for _ in 0..<3 where !edit.exists {
+                card.press(forDuration: 1.6)
+                _ = edit.waitForExistence(timeout: 8)
+            }
+            edit.tap()
+            let row = any(app, "textPageRow")
+            XCTAssertTrue(row.waitForExistence(timeout: 10), "No text box in \(lang)")
+            row.tap()
+            XCTAssertTrue(any(app, "textPage").waitForExistence(timeout: 10), "The Text page did not open in \(lang)")
+            let wide = any(app, "textPageTools").waitForExistence(timeout: 3)
+            let bar = any(app, "fillInKeyboardBar")
+            if !wide { XCTAssertTrue(bar.waitForExistence(timeout: 10), "No bar in \(lang)") }
+            sleep(1)
+            any(app, "editorBar.textformat").tap()
+            XCTAssertTrue(any(app, "formatPanel").waitForExistence(timeout: 10), "No Format card in \(lang)")
+            sleep(1)
+            shot("lang_\(lang)_format", dark: false)
+            if wide {
+                app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.45)).tap()
+            } else {
+                any(app, "formatPanelClose").tap()
+                XCTAssertTrue(bar.waitForExistence(timeout: 10), "The bar did not come back in \(lang)")
+                bar.swipeLeft()
+                bar.swipeLeft()
+            }
+            sleep(1)
+            let list = any(app, "editorBarMenu.list.bullet")
+            XCTAssertTrue(list.waitForExistence(timeout: 5), "No list button in \(lang)")
+            list.tap()
+            sleep(1)
+            shot("lang_\(lang)_list_menu", dark: false)
+            // A tap above the menu closes it without choosing.
+            app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.15)).tap()
+            sleep(1)
+            if !wide { bar.swipeRight(); bar.swipeRight() }
+            any(app, "editorBar.curlybraces").tap()
+            XCTAssertTrue(any(app, "fillInPicker").waitForExistence(timeout: 5), "No Variables list in \(lang)")
+            sleep(1)
+            shot("lang_\(lang)_variables", dark: false)
+            any(app, "fillInKind-choice").tap()
+            sleep(2)
+            shot("lang_\(lang)_choice", dark: false)
+            app.terminate()
+        }
+    }
+
     @MainActor
     func testTextPageLight() throws { try flow(dark: false) }
 

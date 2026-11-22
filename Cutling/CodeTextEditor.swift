@@ -146,6 +146,7 @@ struct EditorBarButton: View {
         .buttonStyle(.plain)
         .accessibilityLabel(item.title)
         .accessibilityAddTraits(active ? .isSelected : [])
+        .accessibilityIdentifier("editorBar.\(item.icon)")
     }
 }
 
