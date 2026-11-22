@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-**Open ASO items: say them in the first reply of each session until they close (owner, 2026-10-01).** Full account: [docs/aso/open-items.md](docs/aso/open-items.md)
+**Open ASO items: say them in the first reply of each session until they close.** Full account: [docs/aso/open-items.md](docs/aso/open-items.md)
 
 Cutling is a SwiftUI-first iOS/macOS clipboard manager with **no third-party dependencies** (Apple frameworks only; Sparkle only in the direct-download target).
 

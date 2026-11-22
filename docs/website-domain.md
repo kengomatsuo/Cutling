@@ -28,3 +28,8 @@ Use it as a Bearer token against `https://api.cloudflare.com/client/v4`. The
 cannot do this: it carries `zone:read` and no DNS write, so creating a record returns
 `403 {"code": 10000, "message": "Authentication error"}`. The token was set up on
 2026-08-15 during the move.
+
+## The shared AI files
+
+`web/_generator/ai_files.py` has been one file kept identical in undirect and
+Cutling since 2026-11-20; each site says what it is in its own `ai_facts.py`.
