@@ -53,4 +53,43 @@ final class KeyboardColdLaunchUITests: XCTestCase {
         mark("settled")
         XCTAssertTrue(cutlingKeyboardIsUp(in: app, showing: "Reply"), "Cutling keyboard did not come up on the cold launch")
     }
+
+    /// Run first for the English case: leaves English as the keyboard iOS shows, with Cutling the last one used before it.
+    func testCMakeEnglishTheActiveKeyboard() throws {
+        let app = XCUIApplication()
+        app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST"]
+        app.launch()
+        app.terminate()
+        addCutlingKeyboardInSettings()
+        app.launch()
+        sleep(3)
+        _ = openKeyboardTestField(in: app)
+        switchToCutlingKeyboard(in: app, showing: "Reply")
+        // A tap on the system globe goes back to the keyboard used before Cutling.
+        for _ in 0..<4 where cutlingKeyboardIsUp(in: app, showing: "Reply") {
+            let globe = keyboardGlobe(in: app)
+            if globe.waitForExistence(timeout: 5) { globe.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap() }
+            sleep(2)
+        }
+        XCTAssertFalse(cutlingKeyboardIsUp(in: app, showing: "Reply"), "Cutling is still the keyboard")
+        mark("english")
+        app.terminate()
+    }
+
+    /// Run in a second ui-test.sh call after testC: the English keyboard is up and Cutling's process is gone, so
+    /// switching to Cutling starts it from nothing, as a person's first switch after a restart or an update does.
+    func testDColdLaunchFromEnglish() throws {
+        let app = XCUIApplication()
+        app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST"]
+        app.launch()
+        sleep(2)
+        _ = openKeyboardTestField(in: app)
+        sleep(2)
+        mark("english_up")
+        switchToCutlingKeyboard(in: app, showing: "Reply")
+        mark("switched")
+        sleep(3)
+        mark("settled")
+        XCTAssertTrue(cutlingKeyboardIsUp(in: app, showing: "Reply"), "Cutling keyboard did not come up from English")
+    }
 }
