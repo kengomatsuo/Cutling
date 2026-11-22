@@ -264,7 +264,12 @@ class KeyboardViewController: UIInputViewController {
     private let keyboardState = KeyboardState()
     
     // CRITICAL: Reuse the shared store instance to avoid duplicate loading
-    private let store = CutlingStore.shared
+    private let store: CutlingStore = {
+        launchLog.log("store load starts at \(msSinceProcessStart()) ms")
+        let store = CutlingStore.shared
+        launchLog.log("store loaded at \(msSinceProcessStart()) ms")
+        return store
+    }()
 
     override func loadView() {
         launchLog.log("loadView at \(msSinceProcessStart()) ms")
