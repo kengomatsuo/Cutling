@@ -682,7 +682,7 @@ private struct MacPickerRow: View {
             HStack(spacing: 10) {
                 leadingIcon
                 if compact {
-                    Text(preview)
+                    previewText(pillSize: 11)
                         .font(.system(size: 12))
                         .foregroundStyle(.primary)
                         .lineLimit(1)
@@ -693,7 +693,7 @@ private struct MacPickerRow: View {
                             .font(.system(size: 13, weight: .medium))
                             .foregroundStyle(.primary)
                             .lineLimit(1)
-                        Text(preview)
+                        previewText(pillSize: 10)
                             .font(.system(size: 11))
                             .foregroundStyle(.secondary)
                             .lineLimit(1)
@@ -778,6 +778,19 @@ private struct MacPickerRow: View {
                 .font(.system(size: 14))
                 .foregroundStyle(cutling.tintColor)
                 .frame(width: 22, height: 22)
+        }
+    }
+
+    /// The preview with each fill-in drawn as the editor's pill, as cards and the keyboard show it, never its braces.
+    private func previewText(pillSize: CGFloat) -> Text {
+        guard cutling.kind == .text, cutling.textFormat != .code else { return Text(verbatim: preview) }
+        let pieces = FillInPills.split(Cutling.previewSource(preview))
+        if pieces.count <= 1, case .text? = pieces.first { return Text(verbatim: preview) }
+        return pieces.reduce(Text(verbatim: "")) { text, piece in
+            switch piece {
+            case .text(let run): text + Text(verbatim: run)
+            case .token(let token): text + FillInPills.inline(token, size: pillSize)
+            }
         }
     }
 
