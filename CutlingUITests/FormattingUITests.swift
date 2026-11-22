@@ -78,9 +78,16 @@ final class FormattingUITests: XCTestCase {
         XCTAssertEqual(field.value as? String, "Bold and linkprint(\"a_b\") Hello", "Copy should not type")
         shot("04b_rich_copied")
         // Further down the grid, Formatted keys whose highlight, underline and lists meet a key's two-line cut.
-        let plainKey = key("Plain")
-        plainKey.press(forDuration: 0.05, thenDragTo: plainKey.withOffset(CGVector(dx: 0, dy: -260)))
-        sleep(1)
+        // The keys leave the tree while the copied key shows Copied; wait for them to come back.
+        var plainFrame: CGRect?
+        for _ in 0..<6 where plainFrame == nil {
+            if let frame = cutlingKeyFrame("Plain", in: app), frame != .zero { plainFrame = frame } else { sleep(1) }
+        }
+        if let plainFrame {
+            let plainKey = screenPoint(plainFrame.midX, plainFrame.midY, in: app)
+            plainKey.press(forDuration: 0.05, thenDragTo: plainKey.withOffset(CGVector(dx: 0, dy: -260)))
+            sleep(1)
+        }
         shot("04c_formatted_keys")
         app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.15)).tap()
         sleep(1)
