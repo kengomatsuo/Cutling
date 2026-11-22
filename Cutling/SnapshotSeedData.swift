@@ -85,7 +85,13 @@ extension CutlingStore {
             Cutling(name: "Code", value: "print(\"a_b\")", icon: "chevron.left.forwardslash.chevron.right", sortOrder: 1, format: .code),
             Cutling(name: "Plain", value: "Hello", icon: "document", sortOrder: 2),
             // Saved before formats existed: no stored format, detected as code.
-            Cutling(name: "Legacy", value: "def greet():\n    return \"hi\"", icon: "document", sortOrder: 3)
+            Cutling(name: "Legacy", value: "def greet():\n    return \"hi\"", icon: "document", sortOrder: 3),
+            // Styles where a key's two lines and a card's preview cut them off.
+            Cutling(name: "Hours", value: "^[Please note:](highlight: true) our ^[office hours](underline: true) change next week, and **every** booking made before Friday keeps its ^[original time](underline: true, highlight: true).", icon: "clock", sortOrder: 4, format: .rich),
+            Cutling(name: "Shopping", value: "• Milk\n• ^[Eggs](highlight: true)\n• **Bread**\n• Butter", icon: "cart", sortOrder: 5, format: .rich),
+            Cutling(name: "Steps", value: "1. Open ^[Settings](underline: true)\n2. Tap Keyboards\n3. Turn on Cutling", icon: "list.number", sortOrder: 6, format: .rich),
+            // Underlined across the 400th character, where previews stop laying out text.
+            Cutling(name: "Long", value: String(repeating: "word ", count: 76) + "^[an underlined phrase](underline: true) and **bold words** then ^[a highlight](highlight: true)", icon: "text.alignleft", sortOrder: 7, format: .rich),
         ]
         save()
     }

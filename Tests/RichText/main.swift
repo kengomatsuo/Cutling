@@ -89,6 +89,23 @@ check("html without lists unchanged", RichText.html("a\n**b**"), "<meta charset=
 // Existing cutlings read as before
 check("existing rich unchanged", RichText.markdown(from: RichText.nsAttributed(md, editorColors: true)), md)
 
+// A preview cut to its first 400 characters never shows a marker: the cut is made after parsing
+let longRich = String(repeating: "word ", count: 76) + "^[an underlined phrase](underline: true) and **bold words** then ^[a highlight](highlight: true)\n• Milk\n• Eggs"
+let previewText = Cutling.previewPieces(longRich, format: .rich).map { piece -> String in
+    if case .text(let run) = piece { return String(run.characters) }
+    return ""
+}.joined()
+check("cut preview shows no markers", previewText.contains("^[") || previewText.contains("](") || previewText.contains("**") ? previewText.suffix(40).description : "clean", "clean")
+check("cut preview length", String(previewText.count), "400")
+check("cut preview keeps underline", Cutling.previewPieces(longRich, format: .rich).contains { piece in
+    if case .text(let run) = piece { return run.runs.contains { $0.swiftUI.underlineStyle != nil } }
+    return false
+} ? "yes" : "no", "yes")
+check("short plain preview whole", Cutling.previewPieces("a *b* c", format: .plain).map { piece -> String in
+    if case .text(let run) = piece { return String(run.characters) }
+    return ""
+}.joined(), "a *b* c")
+
 // code heuristics
 check("code: swift", String(TextFormat.looksLikeCode("func a() {\n    return 1\n}")), "true")
 check("code: sentence", String(TextFormat.looksLikeCode("Hi there, see you at 5.")), "false")

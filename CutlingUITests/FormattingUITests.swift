@@ -77,6 +77,11 @@ final class FormattingUITests: XCTestCase {
         sleep(1)
         XCTAssertEqual(field.value as? String, "Bold and linkprint(\"a_b\") Hello", "Copy should not type")
         shot("04b_rich_copied")
+        // Further down the grid, Formatted keys whose highlight, underline and lists meet a key's two-line cut.
+        let plainKey = key("Plain")
+        plainKey.press(forDuration: 0.05, thenDragTo: plainKey.withOffset(CGVector(dx: 0, dy: -260)))
+        sleep(1)
+        shot("04c_formatted_keys")
         app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.15)).tap()
         sleep(1)
         app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.15)).tap()

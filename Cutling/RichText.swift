@@ -625,24 +625,44 @@ extension Cutling {
     }
 
     func displayText(pillSize: CGFloat) -> Text {
-        let value = Self.previewSource(self.value)
-        guard textFormat != .code else { return Text(value).monospaced() }
-        let pieces = FillInPills.split(value)
-        if pieces.count <= 1, case .text? = pieces.first { return styled(value) }
-        return pieces.reduce(Text(verbatim: "")) { text, piece in
+        guard textFormat != .code else { return Text(Self.previewSource(value)).monospaced() }
+        return Self.previewPieces(value, format: textFormat).reduce(Text(verbatim: "")) { text, piece in
             switch piece {
-            case .text(let run): text + styled(run)
+            case .text(let run): text + Text(run)
             case .token(let token): text + FillInPills.inline(token, size: pillSize)
             }
         }
     }
 
-    private func styled(_ run: String) -> Text {
-        switch textFormat {
-        case .plain: Text(run)
-        case .rich: Text(RichText.display(run))
-        case .code: Text(run).monospaced()
+    enum PreviewPiece {
+        case text(AttributedString)
+        case token(String)
+    }
+
+    /// What a preview draws of a value: its runs of text, styled, and its fill-ins between them, cut to `previewLength`
+    /// characters of what a reader sees. Formatted text is parsed whole before the cut, so the cut never lands inside
+    /// a marker (a key once showed "^[an underlined phra"); a fill-in is never cut. Plain text is cut first, since it
+    /// has no markers and may be 10,000 characters long.
+    static func previewPieces(_ value: String, format: TextFormat) -> [PreviewPiece] {
+        let source = format == .rich ? RichText.display(value) : AttributedString(previewSource(value))
+        var pieces: [PreviewPiece] = []
+        var index = source.startIndex
+        var shown = 0
+        for piece in FillInPills.split(String(source.characters)) {
+            guard shown < previewLength else { break }
+            switch piece {
+            case .token(let token):
+                pieces.append(.token(token))
+                shown += token.count
+                index = source.characters.index(index, offsetBy: token.count)
+            case .text(let run):
+                let take = min(run.count, previewLength - shown)
+                pieces.append(.text(AttributedString(source[index..<source.characters.index(index, offsetBy: take)])))
+                shown += take
+                index = source.characters.index(index, offsetBy: run.count)
+            }
         }
+        return pieces
     }
 }
 
