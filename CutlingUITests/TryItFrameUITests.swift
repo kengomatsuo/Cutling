@@ -30,6 +30,15 @@ final class TryItFrameUITests: XCTestCase {
                                 "-AppleLanguages", "(\(language))", "-AppleLocale", language.replacingOccurrences(of: "-", with: "_")]
         app.launch()
         _ = openKeyboardTestField(in: app)
+        if !keyboardGlobe(in: app).waitForExistence(timeout: 5), let dir = env["FRAME_SHOTS"] {
+            // What the keyboard offers when the globe is not found by name, for the next fix.
+            let half = app.frame.height / 2
+            let named = (app.buttons.allElementsBoundByIndex + app.keys.allElementsBoundByIndex)
+                .filter { $0.frame.minY > half && $0.label.count > 1 }
+                .map { "\($0.elementType.rawValue) \($0.label) \($0.identifier) \($0.frame)" }
+            try? named.joined(separator: "\n").write(toFile: "\(dir)/\(language)-keys.txt", atomically: true, encoding: .utf8)
+            try? XCUIScreen.main.screenshot().pngRepresentation.write(to: URL(fileURLWithPath: "\(dir)/\(language)-no-globe.png"))
+        }
         switchToCutlingKeyboard(in: app)
         XCTAssertTrue(cutlingKeyboardIsUp(in: app), "Cutling keyboard did not come up")
 
