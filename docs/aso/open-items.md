@@ -3,12 +3,9 @@
 Status on 2026-10-09. The owner asked on 2026-10-01 to hear these in the first reply of
 each new session until they close.
 
-1. **Dark frame 4 is missing in 39 of 50 locales.** Only ar-SA, bn-BD, ca, cs, da, de-DE,
-   el, en-AU, en-CA, en-GB and en-US have it. Fix: `fastlane snapshot --only_testing
-   CutlingUITests/CutlingUITests/testDarkFrame --languages <the 39>`, then
-   `./deploy.sh frame`, `./deploy.sh screenshots`, and re-run
-   `ruby fastlane/custom_product_pages.rb docs/aso/cpp.json` with `CPP_LOCALES` split
-   across about 12 parallel workers. About 1-2 hours. Lands in the next version.
+1. **Closed 2026-11-23: frame 4 is in all 50 locales.** It now shows the remade setup guide's Try It page in
+   dark mode with the Cutling keyboard typing the locale's saved address, on 6.9-inch iPhone and 13-inch iPad
+   (`scripts/frame04-store.sh`, card ASG137, commit 358642b1). It goes up with 2.0's screenshots.
 2. **Frame 1 shows the Cutling keyboard with no pasted text.** The iOS 27 simulator UI
    test cannot switch to the Cutling keyboard, so frame 1 reuses iOS 26 captures (es-ES
    uses es-MX's).
