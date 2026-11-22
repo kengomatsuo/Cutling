@@ -127,7 +127,8 @@ struct FillInForm: View {
                                 .lineLimit(1)
                                 .padding(.horizontal, 10)
                                 .padding(.vertical, 4)
-                                .foregroundStyle(chosen ? AnyShapeStyle(.white) : AnyShapeStyle(.primary))
+                                // Black on Cutling's green reads at about 8:1; white on it fell short of 4.5:1 in Apple's audit.
+                                .foregroundStyle(chosen ? AnyShapeStyle(Color.black) : AnyShapeStyle(.primary))
                                 .background(chosen ? AnyShapeStyle(.tint) : AnyShapeStyle(.quaternary), in: Capsule())
                                 .accessibilityAddTraits(chosen ? .isSelected : [])
                         }
