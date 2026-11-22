@@ -14,13 +14,21 @@ build="${UI_TEST_BUILD:?build-for-testing folder}"
 xctestrun="$(ls -t "$build"/DerivedData/Build/Products/*.xctestrun | head -1)"
 out="${DEVICE_QUEUE_OUT:?run as a device-queue job}"
 udid="${DEVICE_QUEUE_UDID:?}"
-# The store languages App Store Connect holds (fastlane/Snapfile).
+# The 50 store languages App Store Connect holds: fastlane/screenshots' folders (the Snapfile also lists 10 it lacks).
 locales=("$@")
-[ ${#locales[@]} -eq 0 ] && locales=($(sed -n '/^languages(\[/,/^\])/p' "$repo/fastlane/Snapfile" | grep -oE '"[^"]+"' | tr -d '"'))
+[ ${#locales[@]} -eq 0 ] && locales=($(cd "$repo/fastlane/screenshots" && ls -d */ | tr -d /))
 
 defaults write com.apple.iphonesimulator ConnectHardwareKeyboard -bool false
 xcrun simctl spawn "$udid" defaults write com.apple.keyboard.preferences AutomaticMinimizationEnabled -bool NO
 xcrun simctl spawn "$udid" defaults write com.apple.keyboard.preferences HardwareKeyboardLastSeen -bool NO
+# Cutling in iOS's keyboard list without Settings: a fresh store simulator's Add New Keyboard list did not show it
+# (2026-11-22). The app itself is installed by the first xcodebuild run; the list entry is all iOS reads.
+kb=com.matsuokengo.Cutling.CutlingKeyboard
+if ! xcrun simctl spawn "$udid" defaults read -g AppleKeyboards 2>/dev/null | grep -q "$kb"; then
+  xcrun simctl spawn "$udid" defaults read -g AppleKeyboards >/dev/null 2>&1 || xcrun simctl spawn "$udid" defaults write -g AppleKeyboards -array "en_US@sw=QWERTY;hw=Automatic" "emoji@sw=Emoji"
+  xcrun simctl spawn "$udid" defaults write -g AppleKeyboards -array-add "$kb"
+fi
+echo "keyboards: $(xcrun simctl spawn "$udid" defaults read -g AppleKeyboards 2>/dev/null | tr -d '\n ')"
 # Apple's marketing status bar, as fastlane snapshot's override_status_bar sets it.
 xcrun simctl status_bar "$udid" override --time 9:41 --dataNetwork wifi --wifiMode active --wifiBars 3 \
   --cellularMode active --cellularBars 4 --batteryState charged --batteryLevel 100

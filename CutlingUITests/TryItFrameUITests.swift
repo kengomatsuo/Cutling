@@ -23,7 +23,8 @@ final class TryItFrameUITests: XCTestCase {
     @MainActor func testTryItFrame() throws {
         let env = ProcessInfo.processInfo.environment
         let language = env["FRAME_LANGUAGE"] ?? "en-US"
-        addCutlingKeyboardInSettings()
+        // scripts/frame04.sh puts Cutling into iOS's keyboard list; Settings is the fallback.
+        if env["FRAME_SETTINGS"] == "1" { addCutlingKeyboardInSettings() }
 
         let app = XCUIApplication()
         app.launchArguments += ["-SNAPSHOT_MODE", "-SNAPSHOT_DARK", "YES", "-hasSeenInteractiveTutorial", "YES",

@@ -17,15 +17,20 @@ runner_alive() { dq status ios-sim 2>/dev/null | head -1 | grep -q 'runner pid';
 STORE_IPHONE=626CECA3-66AF-4284-921F-C7A8FD05FA08 STORE_IPAD=178ED08A-840F-43D6-8261-D3C4D641E295
 POOL_IPHONE="${POOL_IPHONE:-$(python3 -c 'import json,os;print(json.load(open(os.path.expanduser("~/Shared/device-queue/ios-sim/pool.json")))[0])')}"
 POOL_IPAD="${POOL_IPAD:-$(python3 -c 'import json,os;print(json.load(open(os.path.expanduser("~/Shared/device-queue/ios-sim/pool.json")))[1])')}"
-locales=($(sed -n '/^languages(\[/,/^\])/p' "$repo/fastlane/Snapfile" | grep -oE '"[^"]+"' | tr -d '"'))
+locales=($(cd "$repo/fastlane/screenshots" && ls -d */ | tr -d /))
 half=$(( ${#locales[@]} / 2 ))
 
 until ! runner_alive; do echo "$(date +%H:%M) waiting for the queue runner to leave"; sleep 60; done
-tickets=()
-for form in iphone ipad; do
+submit() { DEVICE_QUEUE_SIM_SOURCE=$STORE_IPHONE DEVICE_QUEUE_IPAD=$STORE_IPAD dq submit ios-sim --form "$1" --tree "$repo" \
+  --who cutling-2-release --cap "$2" --cmd "UI_TEST_BUILD=$build scripts/frame04.sh $3" | awk 'NR==1{print $1}'; }
+# One language first on each form: a failure here stops the run before it holds the queue for two hours.
+tickets=($(submit iphone 15 en-US) $(submit ipad 15 en-US))
+for t in "${tickets[@]}"; do dq wait "$t" --timeout 60 >/dev/null 2>&1; echo "trial $t: $(dq status "$t" | head -1)"; done
+trial_ok=1; for t in "${tickets[@]}"; do dq status "$t" | head -1 | grep -q 'exit 0' || trial_ok=0; done
+locales=("${locales[@]/en-US}"); locales=(${locales[@]}); half=$(( ${#locales[@]} / 2 ))
+[ $trial_ok -eq 1 ] && for form in iphone ipad; do
   for part in "${locales[*]:0:$half}" "${locales[*]:$half}"; do
-    t=$(DEVICE_QUEUE_SIM_SOURCE=$STORE_IPHONE DEVICE_QUEUE_IPAD=$STORE_IPAD dq submit ios-sim --form $form --tree "$repo" \
-      --who cutling-2-release --cap 120 --cmd "UI_TEST_BUILD=$build scripts/frame04.sh $part" | awk 'NR==1{print $1}')
+    t=$(submit $form 120 "$part")
     echo "submitted $form $t: $part"; tickets+=("$t")
   done
 done
