@@ -620,6 +620,7 @@ struct MacPickerView: View {
             clipboard = NSPasteboard.general.string(forType: .string)
         }
         let filled = cutling.filled(.now(values: values, clipboard: clipboard ?? ""))
+        FillInCounters.advance(after: cutling)
         CutlingPasteboard.copy(filled.cutling, plainOnly: plainOnly)
         didPick(cutling, cursorBack: filled.charactersAfterCursor ?? 0)
     }

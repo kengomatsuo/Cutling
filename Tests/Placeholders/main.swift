@@ -129,4 +129,22 @@ for body in ["Name", "Plan: A | B", "date", "day", "time +2h", "date +1y +2d:lon
     check("round trip \(body)", edit(body)?.token, Placeholders.marked(body))
 }
 
+// Values read at use: week, time zone, greeting, place, clipboard parts, counters.
+check("week number (ISO)", render("Week {week}"), "Week 47")
+check("greeting afternoon", render("{greeting}"), "Good afternoon")
+check("language", render("{language}"), "English")
+check("country", render("{country}"), "United States")
+check("currency", render("{currency}"), "USD")
+var clipped = ctx; clipped.clipboard = "See https://example.com/a?b=1 or mail ana@example.com today"
+check("clipboard link", render("{clipboard:link}", clipped), "https://example.com/a?b=1")
+check("clipboard email", render("{clipboard:email}", clipped), "ana@example.com")
+check("clipboard link missing", render("[{clipboard:link}]"), "[]")
+check("link needs the clipboard", Placeholders("{clipboard:link}").usesClipboard, true)
+check("counter starts at 1", render("INV-{counter}"), "INV-1")
+var counted = ctx; counted.counters = ["": 7, "Invoice": 42]
+check("counter next value", render("#{counter}", counted), "#7")
+check("named counter", render("INV-{counter:Invoice}", counted), "INV-42")
+check("counters listed once", Placeholders("{counter:Invoice} {counter:Invoice} {counter}").counters, ["Invoice", ""])
+check("marked week", Placeholders(Placeholders.marked("week"), marked: true).render(ctx).text, "47")
+
 print(fails == 0 ? "ALL PASS" : "\(fails) FAILED"); exit(fails == 0 ? 0 : 1)

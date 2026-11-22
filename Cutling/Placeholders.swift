@@ -72,6 +72,16 @@ struct Placeholders: Sendable {
         case stamp(Stamp)
         case cursor
         case clipboard
+        case info(Info)
+    }
+
+    /// A value read when the cutling is used, from the device, the clock or the clipboard.
+    enum Info: Equatable, Sendable {
+        case weekNumber, timeZone, greeting, language, country, currency
+        /// The first link or email address in the clipboard's text.
+        case clipboardLink, clipboardEmail
+        /// A number that goes up by one each time a cutling using it is typed or copied; named so several can run.
+        case counter(String)
     }
 
     /// What a cutling becomes, split at its fields, with stamps and the clipboard resolved.
@@ -89,6 +99,8 @@ struct Placeholders: Sendable {
         var timeZone = TimeZone.autoupdatingCurrent
         /// nil leaves `{clipboard}` as written.
         var clipboard: String? = nil
+        /// Each counter's next value by name; a counter missing here starts at 1.
+        var counters: [String: Int] = [:]
     }
 
     let pieces: [Piece]
@@ -125,7 +137,56 @@ struct Placeholders: Sendable {
     }
 
     var usesClipboard: Bool {
-        pieces.contains { if case .clipboard = $0 { true } else { false } }
+        pieces.contains {
+            switch $0 {
+            case .clipboard, .info(.clipboardLink), .info(.clipboardEmail): true
+            default: false
+            }
+        }
+    }
+
+    /// The counters this cutling uses, each once, so a use moves each on by one.
+    var counters: [String] {
+        var out: [String] = []
+        for case .info(.counter(let name)) in pieces where !out.contains(name) { out.append(name) }
+        return out
+    }
+
+    /// The value an info token takes in this context.
+    static func value(_ info: Info, _ context: Context) -> String {
+        let locale = context.locale
+        switch info {
+        case .weekNumber:
+            var calendar = Calendar(identifier: .iso8601)
+            calendar.timeZone = context.timeZone
+            return String(calendar.component(.weekOfYear, from: context.now))
+        case .timeZone:
+            return context.timeZone.localizedName(for: .shortGeneric, locale: locale) ?? context.timeZone.identifier
+        case .greeting:
+            var calendar = Calendar(identifier: .gregorian)
+            calendar.timeZone = context.timeZone
+            let hour = calendar.component(.hour, from: context.now)
+            return hour >= 5 && hour < 12 ? String(localized: "Good morning")
+                : hour >= 12 && hour < 18 ? String(localized: "Good afternoon") : String(localized: "Good evening")
+        case .language:
+            return locale.language.languageCode.flatMap { locale.localizedString(forLanguageCode: $0.identifier) } ?? ""
+        case .country:
+            return locale.region.flatMap { locale.localizedString(forRegionCode: $0.identifier) } ?? ""
+        case .currency:
+            return locale.currency?.identifier ?? ""
+        case .clipboardLink, .clipboardEmail:
+            guard let text = context.clipboard, !text.isEmpty,
+                  let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue) else { return "" }
+            for match in detector.matches(in: text, range: NSRange(text.startIndex..., in: text)) {
+                guard let url = match.url else { continue }
+                let isMail = url.scheme == "mailto"
+                if info == .clipboardEmail, isMail { return String(url.absoluteString.dropFirst("mailto:".count)) }
+                if info == .clipboardLink, !isMail { return (text as NSString).substring(with: match.range) }
+            }
+            return ""
+        case .counter(let name):
+            return String(context.counters[name] ?? 1)
+        }
     }
 
     // MARK: Rendering
@@ -151,6 +212,8 @@ struct Placeholders: Sendable {
                 if cursorMark == nil { cursorMark = text.count }
             case .clipboard:
                 text += context.clipboard.map(escape) ?? "{clipboard}"
+            case .info(let info):
+                text += escape(Self.value(info, context))
             }
         }
         return (text, cursorMark.map { text.count - $0 })
@@ -176,6 +239,7 @@ struct Placeholders: Sendable {
             case .cursor:
                 if !seenCursor { out.append(.cursor); seenCursor = true }
             case .clipboard: append(context.clipboard ?? "")
+            case .info(let info): append(Self.value(info, context))
             }
         }
         return out
@@ -303,7 +367,20 @@ struct Placeholders: Sendable {
         switch lower {
         case "cursor": return .cursor
         case "clipboard": return .clipboard
+        case "week": return .info(.weekNumber)
+        case "timezone": return .info(.timeZone)
+        case "greeting": return .info(.greeting)
+        case "language": return .info(.language)
+        case "country": return .info(.country)
+        case "currency": return .info(.currency)
+        case "clipboard:link": return .info(.clipboardLink)
+        case "clipboard:email": return .info(.clipboardEmail)
+        case "counter": return .info(.counter(""))
         default: break
+        }
+        if lower.hasPrefix("counter:") {
+            let name = body.dropFirst("counter:".count).trimmingCharacters(in: .whitespaces)
+            return .info(.counter(name))
         }
         if let stamp = stamp(body) { return .stamp(stamp) }
         if let piece = raycastToken(body) { return piece }

@@ -181,5 +181,6 @@ extension CutlingPasteboard {
             #endif
         }
         copy(cutling.filled(.now(values: values, clipboard: clipboard ?? "")).cutling, plainOnly: plainOnly)
+        FillInCounters.advance(after: cutling)
     }
 }

@@ -512,6 +512,7 @@ class KeyboardViewController: UIInputViewController {
         guard !template.fields.isEmpty else {
             let rendered = Self.render(chunks, values: [:])
             insert(rendered.text, smartSpacing: smartSpacing, charactersAfterCursor: rendered.afterCursor)
+            FillInCounters.advance(after: cutling)
             return
         }
         var session = FillSession(cutlingID: cutling.id, chunks: chunks, fields: template.fields, smartSpacing: smartSpacing)
@@ -610,6 +611,7 @@ class KeyboardViewController: UIInputViewController {
         let rendered = Self.render(session.chunks, values: values)
         show(nil)
         insert(rendered.text, smartSpacing: session.smartSpacing, charactersAfterCursor: rendered.afterCursor)
+        if let cutling = store.cutlings.first(where: { $0.id == session.cutlingID }) { FillInCounters.advance(after: cutling) }
     }
 
     /// Type with Your Keyboard: remembers where the cursor was, then goes to the person's keyboard.
@@ -1282,6 +1284,7 @@ struct KeyboardView: View {
         else { return nil }
         return {
             CutlingPasteboard.copy(cutling.filled(.now(values: nil)).cutling)
+            FillInCounters.advance(after: cutling)
             copiedStyledID = cutling.id
             showCopied(cutling.id)
             incrementPasteCount()

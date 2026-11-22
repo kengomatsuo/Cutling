@@ -69,9 +69,30 @@ extension Cutling {
 }
 
 extension Placeholders.Context {
-    /// Now, in the user's locale, with these field values and (when the cutling asks for it) the clipboard.
+    /// Now, in the user's locale, with these field values, (when the cutling asks for it) the clipboard, and each counter's next value.
     static func now(values: [String: String]? = [:], clipboard: String? = nil) -> Self {
-        Self(values: values, now: Date(), locale: .autoupdatingCurrent, timeZone: .autoupdatingCurrent, clipboard: clipboard)
+        Self(values: values, now: Date(), locale: .autoupdatingCurrent, timeZone: .autoupdatingCurrent, clipboard: clipboard,
+             counters: FillInCounters.next)
+    }
+}
+
+/// Counters a cutling can type ({counter} or {counter:Invoice}): each use moves every counter the cutling holds on by one.
+/// Kept in the App Group so the keyboard, the app and the Mac picker count together; never synced.
+enum FillInCounters {
+    static let defaultsKey = "fillInCounters"
+    private static var defaults: UserDefaults? { UserDefaults(suiteName: "group.com.matsuokengo.Cutling") }
+
+    /// Each counter's next value by name.
+    static var next: [String: Int] {
+        defaults?.dictionary(forKey: defaultsKey) as? [String: Int] ?? [:]
+    }
+
+    /// Call once a cutling has been typed, pasted or copied.
+    static func advance(after cutling: Cutling) {
+        guard let names = cutling.placeholders?.counters, !names.isEmpty, let defaults else { return }
+        var all = next
+        for name in names { all[name] = (all[name] ?? 1) + 1 }
+        defaults.set(all, forKey: defaultsKey)
     }
 }
 

@@ -46,6 +46,7 @@ struct GetLatestCutlingTextIntent: AppIntent {
 
         // Stamps are dated; blanks stay as written for a shortcut to replace.
         let text = latest.filled(.now(values: nil)).cutling.plainValue
+        FillInCounters.advance(after: latest)
         return .result(
             value: text,
             dialog: IntentDialog(stringLiteral: text),

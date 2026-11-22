@@ -61,7 +61,21 @@ enum FillInPills {
         case "date", "datetime", "day": return String(localized: "Today’s Date")
         case "time": return String(localized: "Time")
         case "cursor": return String(localized: "Cursor Position")
-        case "clipboard": return String(localized: "Clipboard Text")
+        case "clipboard":
+            switch body.lowercased() {
+            case "clipboard:link": return String(localized: "Link on Clipboard")
+            case "clipboard:email": return String(localized: "Email on Clipboard")
+            default: return String(localized: "Clipboard Text")
+            }
+        case "week": return String(localized: "Week Number")
+        case "timezone": return String(localized: "Time Zone")
+        case "greeting": return String(localized: "Greeting by Hour")
+        case "language": return String(localized: "Language")
+        case "country": return String(localized: "Country")
+        case "currency": return String(localized: "Currency")
+        case "counter":
+            let name = body.split(separator: ":", maxSplits: 1).dropFirst().first.map { $0.trimmingCharacters(in: .whitespaces) } ?? ""
+            return name.isEmpty ? String(localized: "Counter") : name + " #"
         default:
             let label = body.split(separator: ":", maxSplits: 1).first.map { $0.trimmingCharacters(in: .whitespaces) } ?? body
             return body.contains("|") ? label + " ▾" : label
@@ -179,7 +193,9 @@ enum FillInPills {
     /// Today's value of a date or time stamp, as the cutling would type it now; nil for anything else.
     static func previewValue(of token: String) -> String? {
         let body = token.dropFirst(2).dropLast().trimmingCharacters(in: .whitespaces).lowercased()
-        guard ["date", "time", "datetime", "day"].contains(where: { body == $0 || body.hasPrefix($0 + ":") || body.hasPrefix($0 + " ") }) else { return nil }
+        let live = ["date", "time", "datetime", "day"].contains(where: { body == $0 || body.hasPrefix($0 + ":") || body.hasPrefix($0 + " ") })
+            || ["week", "timezone", "greeting", "language", "country", "currency"].contains(body)
+        guard live else { return nil }
         let context = Placeholders.Context(values: nil, now: Date(), locale: .autoupdatingCurrent, timeZone: .autoupdatingCurrent, clipboard: nil)
         let value = Placeholders(token, marked: true).render(context).text
         return value.isEmpty || value == token ? nil : value

@@ -84,9 +84,9 @@ struct FillInKind: Identifiable {
             ready("tomorrow", .dates, "calendar.badge.plus", String(localized: "Tomorrow"), stamp("date +1d"), .token(Placeholders.marked("date +1d"))),
             ready("yesterday", .dates, "calendar.badge.minus", String(localized: "Yesterday"), stamp("date -1d"), .token(Placeholders.marked("date -1d"))),
             ready("nextWeek", .dates, "calendar", String(localized: "In a Week"), stamp("date +1w"), .token(Placeholders.marked("date +1w"))),
-            soon("timeZone", .dates, "globe", String(localized: "Time Zone"), timeZone.localizedName(for: .standard, locale: locale) ?? timeZone.identifier),
-            soon("weekNumber", .dates, "number", String(localized: "Week Number"), String(calendar.component(.weekOfYear, from: now))),
-            soon("greeting", .dates, "sun.horizon", String(localized: "Greeting by Hour"), hour < 12 ? String(localized: "Good morning") : hour < 18 ? String(localized: "Good afternoon") : String(localized: "Good evening")),
+            ready("timeZone", .dates, "globe", String(localized: "Time Zone"), stamp("timezone"), .token(Placeholders.marked("timezone"))),
+            ready("weekNumber", .dates, "number", String(localized: "Week Number"), stamp("week"), .token(Placeholders.marked("week"))),
+            ready("greeting", .dates, "sun.horizon", String(localized: "Greeting by Hour"), stamp("greeting"), .token(Placeholders.marked("greeting"))),
 
             soon("myName", .contacts, "person.crop.circle", String(localized: "My Name"), String(localized: "Your name")),
             soon("myEmail", .contacts, "envelope", String(localized: "My Email"), String(localized: "Your email")),
@@ -106,15 +106,15 @@ struct FillInKind: Identifiable {
             ready("clipboard", .clipboardText, "doc.on.clipboard", String(localized: "Clipboard Text"), String(localized: "What you copied"), .token(Placeholders.marked("clipboard"))),
             ready("cursor", .clipboardText, "text.cursor", String(localized: "Cursor Position"), String(localized: "Where typing ends"), .token(Placeholders.marked("cursor"))),
             soon("selection", .clipboardText, "text.badge.checkmark", String(localized: "Selected Text"), String(localized: "Text you selected")),
-            soon("clipboardLink", .clipboardText, "link", String(localized: "Link on Clipboard"), "https://"),
-            soon("clipboardEmail", .clipboardText, "at", String(localized: "Email on Clipboard"), "name@example.com"),
+            ready("clipboardLink", .clipboardText, "link", String(localized: "Link on Clipboard"), "https://", .token(Placeholders.marked("clipboard:link"))),
+            ready("clipboardEmail", .clipboardText, "at", String(localized: "Email on Clipboard"), "name@example.com", .token(Placeholders.marked("clipboard:email"))),
 
-            soon("language", .device, "character.bubble", String(localized: "Language"), locale.localizedString(forLanguageCode: locale.language.languageCode?.identifier ?? "") ?? ""),
-            soon("country", .device, "flag", String(localized: "Country"), region.flatMap { locale.localizedString(forRegionCode: $0) } ?? ""),
-            soon("currency", .device, "coloncurrencysign.circle", String(localized: "Currency"), locale.currency?.identifier ?? ""),
+            ready("language", .device, "character.bubble", String(localized: "Language"), stamp("language"), .token(Placeholders.marked("language"))),
+            ready("country", .device, "flag", String(localized: "Country"), stamp("country"), .token(Placeholders.marked("country"))),
+            ready("currency", .device, "coloncurrencysign.circle", String(localized: "Currency"), stamp("currency"), .token(Placeholders.marked("currency"))),
 
             soon("words", .mathOther, "textformat.123", String(localized: "Number in Words"), spelled.string(from: 42) ?? "42"),
-            soon("counter", .mathOther, "plus.forwardslash.minus", String(localized: "Counter"), "INV-0042"),
+            ready("counter", .mathOther, "plus.forwardslash.minus", String(localized: "Counter"), stamp("counter"), .token(Placeholders.marked("counter"))),
             soon("shortcut", .mathOther, "square.stack.3d.up", String(localized: "Value from a Shortcut"), String(localized: "A shortcut’s result")),
         ]
     }
