@@ -128,7 +128,7 @@ struct CardView: View {
             .accessibilityIdentifier("cutlingCard")
             .accessibilityElement(children: .combine)
             .accessibilityLabel(item.name)
-            .accessibilityValue(item.kind == .text ? item.plainValue : String(localized: "Image"))
+            .accessibilityValue(item.kind == .text ? item.writtenText : String(localized: "Image"))
             .accessibilityHint(isSelecting ? String(localized: "Double tap to toggle selection") : String(localized: "Double tap to copy, long press for options"))
             .accessibilityAddTraits(isSelecting && isSelected ? .isSelected : [])
             .onTapGesture {
@@ -557,7 +557,7 @@ struct CardView: View {
                ["http", "https", "ftp"].contains(scheme.lowercased()) {
                 presentShareSheet(items: [url])
             } else {
-                presentShareSheet(items: [item.plainValue])
+                presentShareSheet(items: [item.writtenText])
             }
             #endif
         case .image:
@@ -773,7 +773,7 @@ class CutlingActivityItemSource: NSObject, UIActivityItemSource {
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
         if let image = previewImage { return image }
         if let url = resolvedURL { return url }
-        return cutling.plainValue
+        return cutling.writtenText
     }
 
     func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
@@ -796,7 +796,7 @@ class CutlingActivityItemSource: NSObject, UIActivityItemSource {
         } else if let resolvedURL {
             provider.registerObject(resolvedURL as NSURL, visibility: .all)
         } else {
-            provider.registerObject(cutling.plainValue as NSString, visibility: .all)
+            provider.registerObject(cutling.writtenText as NSString, visibility: .all)
         }
 
         return provider

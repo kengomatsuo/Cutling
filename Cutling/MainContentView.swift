@@ -1457,7 +1457,7 @@ struct MainContentView: View {
                    let scheme = url.scheme, ["http", "https", "ftp"].contains(scheme.lowercased()) {
                     items.append(url)
                 } else {
-                    items.append(cutling.plainValue)
+                    items.append(cutling.writtenText)
                 }
             case .image:
                 if let filename = cutling.imageFilename,

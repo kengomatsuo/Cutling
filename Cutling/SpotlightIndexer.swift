@@ -108,7 +108,7 @@ final class SpotlightIndexer {
         attributes.displayName = cutling.name
 
         if cutling.kind == .text {
-            let value = cutling.plainValue
+            let value = cutling.writtenText
             let snippet = value.count > 1000 ? String(value.prefix(1000)) : value
             attributes.contentDescription = snippet
             attributes.textContent = snippet

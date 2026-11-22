@@ -253,10 +253,11 @@ final class FillInUITests: XCTestCase {
         app.launch()
         let card = app.descendants(matching: .any).matching(identifier: "cutlingCard").firstMatch
         XCTAssertTrue(card.waitForExistence(timeout: 30), "No cards")
-        card.coordinate(withNormalizedOffset: CGVector(dx: 0.3, dy: 0.75)).tap()
+        // The card's name, as a person taps it: the "cutlingCard" match is its ⋯ button, which opens the editor.
+        app.staticTexts["Reply"].firstMatch.tap()
         XCTAssertFalse(app.textFields["fillInField"].firstMatch.waitForExistence(timeout: 4), "Fill-in sheet opened with the switch off")
         shot("switch_off_copied")
-        // The editor (tap() lands on the card's ⋯ Edit button): its Text section, without the fill-in menu.
+        // The editor, from the card's ⋯ button: its Text section, without the fill-in menu.
         card.tap()
         XCTAssertTrue(app.buttons["Paste from Clipboard"].firstMatch.waitForExistence(timeout: 10), "Editor's Text section did not load")
         shot("switch_off_editor")

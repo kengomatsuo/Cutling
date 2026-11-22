@@ -201,7 +201,7 @@ struct CutlingPayload: Codable, Transferable {
     static var transferRepresentation: some TransferRepresentation {
         CodableRepresentation(contentType: .cutling)
         ProxyRepresentation { (payload: CutlingPayload) -> String in
-            payload.cutling.plainValue
+            payload.cutling.writtenText
         }
         DataRepresentation(exportedContentType: .png) { payload in
             guard let data = payload.imageData else {

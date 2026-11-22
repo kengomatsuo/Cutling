@@ -515,6 +515,12 @@ extension Cutling {
     var plainValue: String {
         textFormat == .rich ? RichText.plainText(value) : value
     }
+
+    /// The text as written, for anything that leaves Cutling unfilled (share, drag, Spotlight, VoiceOver):
+    /// fill-ins keep their braces, without the invisible marker that tells Cutling's own braces from typed ones.
+    var writtenText: String {
+        plainValue.replacingOccurrences(of: String(Placeholders.marker), with: "")
+    }
 }
 
 // MARK: - Pasteboard

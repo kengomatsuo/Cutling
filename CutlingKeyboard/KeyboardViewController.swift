@@ -15,6 +15,7 @@ import Combine
 import ImageIO
 import UniformTypeIdentifiers
 import AudioToolbox
+import os
 
 #if DEBUG
 @MainActor private var snapshotBundle: Bundle?
@@ -244,6 +245,19 @@ final class AudioFeedbackInputView: UIInputView, UIInputViewAudioFeedback {
 
 // MARK: - Keyboard View Controller
 
+/// Milliseconds since this process started, for the launch-timing log (subsystem com.matsuokengo.Cutling, category launch).
+private func msSinceProcessStart() -> Int {
+    var info = kinfo_proc()
+    var size = MemoryLayout<kinfo_proc>.stride
+    var mib: [Int32] = [CTL_KERN, KERN_PROC, KERN_PROC_PID, getpid()]
+    guard sysctl(&mib, 4, &info, &size, nil, 0) == 0 else { return -1 }
+    let start = info.kp_proc.p_starttime
+    var now = timeval()
+    gettimeofday(&now, nil)
+    return Int((now.tv_sec - start.tv_sec) * 1000 + Int(now.tv_usec - start.tv_usec) / 1000)
+}
+private let launchLog = Logger(subsystem: "com.matsuokengo.Cutling", category: "launch")
+
 class KeyboardViewController: UIInputViewController {
 
     private var hostingController: UIHostingController<KeyboardView>?
@@ -253,6 +267,7 @@ class KeyboardViewController: UIInputViewController {
     private let store = CutlingStore.shared
 
     override func loadView() {
+        launchLog.log("loadView at \(msSinceProcessStart()) ms")
         #if DEBUG
         if let snapshotLang = UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.string(forKey: "snapshotLanguage") {
             let langCode = snapshotLang.components(separatedBy: "-").first ?? snapshotLang
@@ -299,11 +314,18 @@ class KeyboardViewController: UIInputViewController {
     // launch then shows it at full height from its first frame instead of at height 0 snapping up.
     override func viewDidLoad() {
         super.viewDidLoad()
+        launchLog.log("viewDidLoad at \(msSinceProcessStart()) ms")
         installKeyboardView()
         heightConstraint = view.heightAnchor.constraint(equalToConstant: currentHeight)
         // Below required, so the system's own height constraint wins for a moment when it must.
         heightConstraint?.priority = UILayoutPriority(999)
         heightConstraint?.isActive = true
+        launchLog.log("viewDidLoad done at \(msSinceProcessStart()) ms")
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        launchLog.log("viewDidAppear at \(msSinceProcessStart()) ms, height \(self.view.bounds.height)")
     }
 
     override func viewWillLayoutSubviews() {
@@ -475,7 +497,8 @@ class KeyboardViewController: UIInputViewController {
         let proxy = textDocumentProxy
         for _ in 0..<replacingCount { proxy.deleteBackward() }
         guard let template = cutling.placeholders else {
-            insert(cutling.plainValue, smartSpacing: smartSpacing, charactersAfterCursor: nil)
+            // filled(_:) types the text as written, less Cutling's invisible fill-in markers when fill-ins are off.
+            insert(cutling.filled(.now()).cutling.plainValue, smartSpacing: smartSpacing, charactersAfterCursor: nil)
             return
         }
         fillCancel()
