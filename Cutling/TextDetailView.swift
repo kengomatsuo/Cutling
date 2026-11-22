@@ -921,7 +921,9 @@ struct TextDetailView: View {
     private var textPreview: Text {
         let source = Cutling.previewSource(value)
         guard format != .code else { return Text(verbatim: source).monospaced() }
-        let size = UIFont.preferredFont(forTextStyle: .body).pointSize
+        // Pills a little smaller than the text, as on cards: a pill as tall as the line pushes every
+        // wrapped line apart in a SwiftUI Text, where the editor's own line spacing doesn't apply.
+        let size = UIFont.preferredFont(forTextStyle: .body).pointSize - 3
         return FillInPills.split(source).reduce(Text(verbatim: "")) { text, piece in
             switch piece {
             case .text(let run): text + (format == .rich ? Text(RichText.attributed(run)) : Text(verbatim: run))
