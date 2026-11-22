@@ -15,9 +15,27 @@
 
 import XCTest
 
-final class TryItFrameUITests: XCTestCase {
+final class TryItFrameUITests: SetupMockTestCase {
     override func setUpWithError() throws {
         continueAfterFailure = false
+    }
+
+    /// Turns the keyboard on the way a buyer does, once per simulator: a fresh install opens the setup guide, whose
+    /// Open Settings lands on Cutling's page in Settings (Keyboards, the Cutling switch, Full Access). Writing iOS's
+    /// keyboard list directly left a store simulator showing only the Emoji key (2026-11-22).
+    @MainActor func testAddKeyboard() throws {
+        let app = XCUIApplication()
+        app.launchArguments += ["-hasSeenInteractiveTutorial", "YES"]
+        app.launch()
+        let next = app.buttons["continueButton"].firstMatch
+        XCTAssertTrue(next.waitForExistence(timeout: 30), "Setup guide did not open")
+        next.tap()
+        sleep(2)
+        let open = app.buttons["openSettingsButton"].firstMatch
+        XCTAssertTrue(open.waitForExistence(timeout: 10), "No Open Settings button")
+        open.tap()
+        walkSettings("frame04")
+        XCUIApplication(bundleIdentifier: "com.apple.Preferences").terminate()
     }
 
     @MainActor func testTryItFrame() throws {

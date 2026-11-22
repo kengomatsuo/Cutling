@@ -21,16 +21,17 @@ locales=("$@")
 defaults write com.apple.iphonesimulator ConnectHardwareKeyboard -bool false
 xcrun simctl spawn "$udid" defaults write com.apple.keyboard.preferences AutomaticMinimizationEnabled -bool NO
 xcrun simctl spawn "$udid" defaults write com.apple.keyboard.preferences HardwareKeyboardLastSeen -bool NO
-# Cutling in iOS's keyboard list without Settings: a fresh store simulator's Add New Keyboard list did not show it
-# (2026-11-22). The app itself is installed by the first xcodebuild run; the list entry is all iOS reads.
+# Writing Cutling into iOS's keyboard list directly left the store simulators with only the Emoji key, and General >
+# Keyboard > Add New Keyboard did not list it (2026-11-22); the buyer's own path through the guide does.
 kb=com.matsuokengo.Cutling.CutlingKeyboard
-# The app goes on first, so the list entry below names a keyboard iOS has already registered.
-xcrun simctl install "$udid" "$build/DerivedData/Build/Products/Debug-iphonesimulator/Cutling.app" && sleep 5
-echo "registered keyboards: $(xcrun simctl spawn "$udid" pluginkit -m -p com.apple.keyboard-service 2>&1 | tr '\n' ' ')"
-if ! xcrun simctl spawn "$udid" defaults read -g AppleKeyboards 2>/dev/null | grep -q "$kb"; then
-  xcrun simctl spawn "$udid" defaults read -g AppleKeyboards >/dev/null 2>&1 || xcrun simctl spawn "$udid" defaults write -g AppleKeyboards -array "en_US@sw=QWERTY;hw=Automatic" "emoji@sw=Emoji"
-  xcrun simctl spawn "$udid" defaults write -g AppleKeyboards -array-add "$kb"
-fi
+# A fresh install with Cutling out of iOS's keyboard list, then the guide's own way into Settings (testAddKeyboard).
+xcrun simctl uninstall "$udid" com.matsuokengo.Cutling 2>/dev/null
+keep=($(xcrun simctl spawn "$udid" defaults read -g AppleKeyboards 2>/dev/null | sed -n 's/^ *"\{0,1\}\([^",()]*\)"\{0,1\},\{0,1\}$/\1/p' | grep -v '^$' | grep -v "^$kb"))
+[ ${#keep[@]} -gt 0 ] && xcrun simctl spawn "$udid" defaults write -g AppleKeyboards -array "${keep[@]}"
+TEST_RUNNER_FORMAT_TEST_SHOTS="$out" xcodebuild test-without-building -xctestrun "$xctestrun" -destination "id=$udid" -parallel-testing-enabled NO \
+  -only-testing:CutlingUITests/TryItFrameUITests/testAddKeyboard >"$out/add-keyboard.log" 2>&1 &
+pid=$!; while kill -0 $pid 2>/dev/null; do sleep 20; echo "adding keyboard: $(grep -c 't = ' "$out/add-keyboard.log") steps"; done
+wait $pid && echo "keyboard added" || { echo "adding the keyboard FAILED"; grep -E 'error:' "$out/add-keyboard.log" | grep -v debugger | head -3; }
 echo "keyboards: $(xcrun simctl spawn "$udid" defaults read -g AppleKeyboards 2>/dev/null | tr -d '\n ')"
 # Apple's marketing status bar, as fastlane snapshot's override_status_bar sets it.
 xcrun simctl status_bar "$udid" override --time 9:41 --dataNetwork wifi --wifiMode active --wifiBars 3 \
