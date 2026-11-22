@@ -1,0 +1,151 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<!-- "Today's date": a tear-off calendar on a red wall. Every page carries Cutling's date pill where the
+     number would be, and a row of seven day cells whose marked day moves on one cell with each page, so
+     whichever page is on top, it says today. Pages lift and fly off one after another; seven pages make the loop.
+     One file draws the card (wide window) and the details page (tall window), as a still or as a loop:
+       ?t=<seconds>  the moment to draw (default: the still's moment)
+       window.draw(t) redraws at t; the loop is LOOP seconds long and t=0 equals t=LOOP.
+     No gradient, border or scrim is painted on; the only soft things are the shadows on the wall. -->
+<style>html,body{margin:0;background:#E2473A;overflow:hidden}canvas{display:block}</style>
+</head><body><canvas id="c"></canvas>
+<script>
+const Q = new URLSearchParams(location.search);
+const W = innerWidth, H = innerHeight, TALL = H > W, U = Math.min(W, H) / 1080, DPR = devicePixelRatio || 1;
+const cv = document.getElementById("c"); cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
+cv.style.width = W + "px"; cv.style.height = H + "px";
+const g = cv.getContext("2d");
+
+const P = 1.4, NV = 7, LOOP = P * NV;          // one page every P seconds, seven days to a week, so the loop is 9.8 s
+window.LOOP = LOOP;
+const LIFT = .66;                               // seconds a page spends lifting before it lets go
+const FLY = 3 * P - LIFT;                       // and in the air
+const WALL = "#E2473A", PAPER = [255, 252, 245], BACK = [250, 246, 237], INK = "#22272B", MINT = "#22C79E", BAR = "#DDD8CC";
+
+// the pad: where it hangs and how big it is
+const PW = (TALL ? 650 : 520) * U, PH = PW * 1.1, HEAD = PW * .18, PAGE = PH - HEAD;
+const PX = TALL ? W * .45 : W * .285, PY = TALL ? H * .205 : H * .062;     // top centre of the pad
+const CAM = { x: W / 2, y: H * .36, d: 2600 * U };
+const proj = ([x, y, z]) => { const k = CAM.d / (CAM.d - z); return [CAM.x + (x - CAM.x) * k, CAM.y + (y - CAM.y) * k]; };
+
+const rotX = (a) => { const c = Math.cos(a), s = Math.sin(a); return [[1, 0, 0], [0, c, -s], [0, s, c]]; };
+const rotY = (a) => { const c = Math.cos(a), s = Math.sin(a); return [[c, 0, s], [0, 1, 0], [-s, 0, c]]; };
+const rotZ = (a) => { const c = Math.cos(a), s = Math.sin(a); return [[c, -s, 0], [s, c, 0], [0, 0, 1]]; };
+const mul = (A, B) => A.map((r) => [0, 1, 2].map((j) => r[0] * B[0][j] + r[1] * B[1][j] + r[2] * B[2][j]));
+const app = (M, v) => M.map((r) => r[0] * v[0] + r[1] * v[1] + r[2] * v[2]);
+const ease = (x) => x * x * (3 - 2 * x), clamp = (x) => Math.max(0, Math.min(1, x));
+const DEG = Math.PI / 180;
+
+// three ways to leave, so no two pages in the air move alike; pages go up and to the right, off the frame
+const PATHS = TALL
+  ? [{ X: .62, Y: -.66, wx: 34, wy: 30, wz: 14 }, { X: .20, Y: -.74, wx: 48, wy: -26, wz: -10 }, { X: .92, Y: -.52, wx: 28, wy: 40, wz: 18 }]
+  : [{ X: .94, Y: -.10, wx: 30, wy: 30, wz: 13 }, { X: .90, Y: -.30, wx: 44, wy: -24, wz: -9 }, { X: .98, Y: .03, wx: 26, wy: 38, wz: 16 }];
+
+// where page k is at time tau after it started to lift: its rotation and the place of its top edge's middle
+function pose(k, tau) {
+  const v = PATHS[(((k % NV) + NV) % NV) % 3];
+  const hinge = [PX, PY + HEAD, 2 * U];
+  if (tau <= LIFT) return { R: rotX(ease(tau / LIFT) * 58 * DEG), o: hinge, q: 0 };
+  const s = tau - LIFT, q = s / FLY;
+  // a page in the air rocks and turns but keeps its face to the room, so its pill and its day stay readable
+  const R = mul(rotZ(v.wz * DEG * s), mul(rotY(v.wy * DEG * Math.sin(s * 1.15) * ease(clamp(s / .8))), rotX((58 - 30 * ease(clamp(s / 1.4)) + 20 * Math.sin(v.wx * DEG * s * 1.6)) * DEG)));
+  const o = [hinge[0] + v.X * W * Math.pow(q, 1.3) + 22 * U * Math.sin(s * 1.7 + k),
+             hinge[1] + v.Y * H * Math.pow(q, 1.2) - 30 * U * ease(clamp(s / .5)),
+             hinge[2] + (110 + 240 * Math.sin(Math.PI * clamp(q * 1.1))) * U * ease(clamp(s / .6))];
+  return { R, o, q };
+}
+function corners({ R, o }) {
+  return [[-PW / 2, 0, 0], [PW / 2, 0, 0], [PW / 2, PAGE, 0], [-PW / 2, PAGE, 0]].map((p) => { const r = app(R, p); return [o[0] + r[0], o[1] + r[1], o[2] + r[2]]; });
+}
+const rr = (x, y, w, h, r) => { g.beginPath(); g.roundRect(x, y, w, h, r); };
+
+// what is on a page, in the page's own flat coordinates (0..PW across, 0..PAGE down)
+function pageFace(pop, k) {
+  const pw = PW * .7, ph = PW * .285, cx = PW / 2, cy = PAGE * .40, s = 1 + .07 * pop;
+  g.save(); g.translate(cx, cy); g.scale(s, s);
+  g.fillStyle = MINT; rr(-pw / 2, -ph / 2, pw, ph, ph / 2); g.fill();
+  // the date pill's glyph: a small calendar, then the stand-in for the date it writes
+  const q = ph * .46, gx = -pw / 2 + ph * .34, gy = -q / 2;
+  g.fillStyle = "#fff"; rr(gx, gy, q, q, q * .22); g.fill();
+  g.fillStyle = MINT; g.fillRect(gx + q * .14, gy + q * .34, q * .72, q * .09);
+  for (const dx of [.3, .7]) { g.fillStyle = "#fff"; rr(gx + q * dx - q * .05, gy - q * .13, q * .1, q * .26, q * .05); g.fill(); }
+  g.fillStyle = "#ffffffd9"; rr(gx + q * 1.4, -ph * .1, pw - ph * .68 - q * 1.4, ph * .2, ph * .1); g.fill();
+  g.restore();
+  // the week: days gone by are filled, today is mint and a little larger, days to come are outlines
+  const today = ((k % 7) + 7) % 7, c = PW * .074, gap = PW * .03, x0 = (PW - 7 * c - 6 * gap) / 2, y0 = PAGE * .745;
+  for (let i = 0; i < 7; i++) {
+    const x = x0 + i * (c + gap), e = i === today ? c * .16 * (1 + pop) : 0;
+    if (i > today) { g.strokeStyle = "#D6D0C2"; g.lineWidth = PW * .006; rr(x + PW * .003, y0 + PW * .003, c - PW * .006, c - PW * .006, c * .26); g.stroke(); }
+    else { g.fillStyle = i === today ? MINT : "#D6D0C2"; rr(x - e, y0 - e, c + 2 * e, c + 2 * e, (c + 2 * e) * .28); g.fill(); }
+  }
+}
+function quadPath(p) { g.beginPath(); g.moveTo(p[0][0], p[0][1]); for (let i = 1; i < 4; i++) g.lineTo(p[i][0], p[i][1]); g.closePath(); }
+const LIGHT = (() => { const l = [-.38, -.52, .76], n = Math.hypot(...l); return l.map((x) => x / n); })();
+const shadeRGB = (c, f) => `rgb(${c.map((x) => Math.round(Math.min(255, x * f))).join(",")})`;
+
+function drawShadow(c3, alpha) {
+  const z = (c3[0][2] + c3[1][2] + c3[2][2] + c3[3][2]) / 4;
+  const p = c3.map(([x, y, zz]) => proj([x + zz * .42, y + zz * .62, 0]));
+  g.save(); g.filter = `blur(${7 * U + z * .05}px)`; g.fillStyle = `rgba(92,10,10,${alpha * (.34 / (1 + z / (900 * U)))})`;
+  quadPath(p); g.fill(); g.restore();
+}
+function drawPage(ps, fade, k) {
+  const c3 = corners(ps), p = c3.map(proj), n = app(ps.R, [0, 0, 1]);
+  const front = n[2] > 0, l = Math.abs(n[0] * LIGHT[0] + n[1] * LIGHT[1] + n[2] * LIGHT[2]);
+  g.save(); g.globalAlpha = fade;
+  quadPath(p); g.fillStyle = shadeRGB(front ? PAPER : BACK, .9 + .1 * l); g.fill();
+  if (front) {
+    g.clip();
+    const X = [(p[1][0] - p[0][0]) / PW, (p[1][1] - p[0][1]) / PW], Y = [(p[3][0] - p[0][0]) / PAGE, (p[3][1] - p[0][1]) / PAGE];
+    g.transform(X[0], X[1], Y[0], Y[1], p[0][0], p[0][1]);
+    g.globalAlpha = fade * (.9 + .1 * l); pageFace(0, k);
+  }
+  g.restore();
+}
+
+function pad(pop, k, lifting) {
+  // shadow on the wall, the stack's edge, the top page, the binding strip and its nail
+  g.save(); g.filter = `blur(${16 * U}px)`; g.fillStyle = "rgba(92,10,10,.36)"; rr(PX - PW / 2 + 16 * U, PY + 26 * U, PW, PH + 10 * U, 10 * U); g.fill(); g.restore();
+  for (let i = 7; i >= 1; i--) { g.fillStyle = i % 2 ? "#E9E3D6" : "#F7F2E8"; rr(PX - PW / 2 + i * 1.3 * U, PY + HEAD - 4 * U, PW, PAGE + 4 * U + i * 2.6 * U, 5 * U); g.fill(); }
+  g.fillStyle = shadeRGB(PAPER, 1); rr(PX - PW / 2, PY + HEAD - 6 * U, PW, PAGE + 6 * U, 5 * U); g.fill();
+  g.save(); g.translate(PX - PW / 2, PY + HEAD); pageFace(pop, k); g.restore();
+  for (const pg of lifting) {                     // a page still close to the pad shades the page under it
+    const c3 = corners(pg.ps), z = (c3[2][2] + c3[3][2]) / 2, q = c3.map(([x, y, zz]) => proj([x + zz * .3, y + zz * .5, 0]));
+    g.save(); rr(PX - PW / 2, PY + HEAD - 6 * U, PW, PAGE + 6 * U, 5 * U); g.clip();
+    g.filter = `blur(${5 * U + z * .06}px)`; g.fillStyle = `rgba(60,40,20,${.22 * pg.fade / (1 + z / (500 * U))})`; quadPath(q); g.fill(); g.restore();
+  }
+  g.fillStyle = INK; rr(PX - PW / 2 - 5 * U, PY, PW + 10 * U + 9 * U, HEAD, 9 * U); g.fill();
+  g.fillStyle = "#3A4147"; rr(PX - PW / 2 - 5 * U, PY, PW + 19 * U, HEAD * .14, [9 * U, 9 * U, 0, 0]); g.fill();
+  for (const dx of [-.27, .27]) {                 // two rivets
+    g.fillStyle = "#11151880"; g.beginPath(); g.arc(PX + PW * dx + 2 * U, PY + HEAD * .55 + 3 * U, HEAD * .13, 0, 7); g.fill();
+    g.fillStyle = "#C9CED1"; g.beginPath(); g.arc(PX + PW * dx, PY + HEAD * .55, HEAD * .12, 0, 7); g.fill();
+    g.fillStyle = "#EEF1F2"; g.beginPath(); g.arc(PX + PW * dx - HEAD * .03, PY + HEAD * .55 - HEAD * .03, HEAD * .05, 0, 7); g.fill();
+  }
+}
+
+// a fixed grain, the same every frame, so the wall is not a flat fill and the video does not shimmer
+const grain = document.createElement("canvas"); grain.width = 512; grain.height = 512;
+{ const x = grain.getContext("2d"), d = x.createImageData(512, 512); let s = 12345;
+  for (let i = 0; i < d.data.length; i += 4) { s = (s * 1664525 + 1013904223) >>> 0; const v = (s >>> 24); d.data[i] = d.data[i + 1] = d.data[i + 2] = v; d.data[i + 3] = 16; }
+  x.putImageData(d, 0, 0); }
+
+window.draw = (t) => {
+  g.setTransform(DPR, 0, 0, DPR, 0, 0);
+  g.fillStyle = WALL; g.fillRect(0, 0, W, H);
+  g.save(); g.globalCompositeOperation = "overlay"; g.fillStyle = g.createPattern(grain, "repeat"); g.fillRect(0, 0, W, H); g.restore();
+  t = ((t % LOOP) + LOOP) % LOOP;
+  const k0 = Math.floor(t / P), pages = [];
+  for (let k = k0 - 3; k <= k0; k++) { const tau = t - k * P; if (tau >= 0 && tau < 3 * P) pages.push({ k, tau, ps: pose(k, tau) }); }
+  const tl = t - k0 * P;                           // the newest page's time; the page under it pops as it is uncovered
+  const pop = Math.sin(Math.PI * clamp((tl - LIFT) / .42));
+  for (const pg of pages) pg.fade = 1 - ease(clamp((pg.ps.q - .9) / .1));
+  for (const pg of pages) drawShadow(corners(pg.ps), pg.fade);
+  // the page on the pad is the one after the newest page that has lifted; before that one lets go it is the newest itself
+  pad(pop > 0 ? pop : 0, k0 + 1, pages.filter((pg) => pg.tau < LIFT + 1.2));
+  pages.sort((a, b) => a.ps.o[2] - b.ps.o[2]);
+  for (const pg of pages) drawPage(pg.ps, pg.fade, pg.k);
+};
+const T0 = Q.has("t") ? +Q.get("t") : (TALL ? 4.75 : 6.2);   // the stills: a page lifting and one in the air, clear of Apple's date pill on the tall one
+draw(T0);
+window.__note = `todays-date ${W}x${H} t=${T0}`; window.__done = true;
+</script></body></html>

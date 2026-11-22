@@ -1,0 +1,169 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<!-- Contact sheet for the directions of Cutling 2.0's In-App Event: each direction's card and details image
+     under Apple's own overlay, carrying that direction's own words. The overlay rules are the web App
+     Store's (apps.apple.com/assets/index~Cuua8lPjmd.css: .gradient-overlay, .text-container, .event-detail
+     and the type tokens they name), as measured in ~/Repositories/undirect/docs/research/in-app-event-art.md.
+     The search-result row round each card (icon, name, Open) is drawn from memory of the iPhone App Store
+     and is not measured. The labels are for choosing; none of them is in the art.
+       bun ~/.claude/skills/studio-render/scripts/render.mjs src/contact.html contact-sheet.png 1600 900 page 2   (run in directions/)
+     ?only=<dir> draws one direction alone, for its app-store-preview.png.
+     The words live here and nowhere else; a line over Apple's limit stops the render. -->
+<style>
+  :root { --font: -apple-system, "SF Pro Text", "Helvetica Neue", sans-serif; }
+  html, body { margin: 0; background: #f2f2f4; font-family: var(--font); color: #1d1d1f; -webkit-font-smoothing: antialiased; }
+  body { width: 1600px; padding: 36px 40px 40px; box-sizing: border-box; }
+  body.one { width: 820px; padding: 30px 36px 34px; }
+  h1 { font: 700 23px/1.2 var(--font); margin: 0 0 5px; }
+  .sub { font: 400 13.5px/1.45 var(--font); color: #6e6e73; margin: 0 0 22px; max-width: 1180px; }
+  .glance { display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 14px; margin-bottom: 34px; }
+  .glance figure { margin: 0; } .glance img { width: 100%; border-radius: 10px; display: block; }
+  .glance figcaption { font: 600 12.5px/1.3 var(--font); margin-top: 7px; } .glance figcaption span { font-weight: 400; color: #6e6e73; }
+  .grid { display: grid; grid-template-columns: 745px 745px; justify-content: space-between; row-gap: 44px; }
+  body.one .grid { grid-template-columns: 745px; }
+  .dir h2 { font: 700 19px/1.2 var(--font); margin: 0 0 8px; } .dir h2 span { font: 500 12px/1 var(--font); color: #fff; background: #1d1d1f; border-radius: 9px; padding: 3px 8px; margin-left: 8px; vertical-align: 3px; }
+  .facts { margin: 0 0 14px; padding: 0; list-style: none; font: 400 13px/1.42 var(--font); color: #3a3a3c; min-height: 112px; }
+  .facts b { font-weight: 600; color: #1d1d1f; }
+  .pair { display: grid; grid-template-columns: 385px 340px; justify-content: space-between; align-items: start; }
+  .lab { font: 600 10px/1 var(--font); letter-spacing: .06em; text-transform: uppercase; color: #8e8e93; margin: 0 0 8px; }
+  .words { margin-top: 18px; } .words dl { margin: 0; }
+  .words dt { font: 600 10px/1 var(--font); letter-spacing: .06em; text-transform: uppercase; color: #8e8e93; margin: 12px 0 4px; }
+  .words dt i { font-style: normal; font-weight: 500; letter-spacing: 0; text-transform: none; color: #aeaeb2; margin-left: 6px; }
+  .words dd { margin: 0; font: 400 14px/1.38 var(--font); } .words dd.name { font: 600 16px/1.3 var(--font); }
+  .strip { margin-top: 16px; } .strip img { width: 385px; border-radius: 6px; display: block; } .strip p { font: 400 11.5px/1.35 var(--font); color: #6e6e73; margin: 6px 0 0; }
+  .notes { font: 400 12.5px/1.5 var(--font); color: #6e6e73; margin-top: 40px; padding-top: 18px; border-top: 1px solid #d9d9de; columns: 2; column-gap: 110px; } .notes p { margin: 0 0 9px; break-inside: avoid; }
+
+  /* the search result an owner of the app sees: the app's row, then the event card */
+  .result { background: #fff; border-radius: 14px; padding: 14px 0 16px; box-shadow: 0 1px 2px rgb(0 0 0 / 6%); }
+  .result .app { display: flex; align-items: center; gap: 10px; padding: 0 16px 12px; }
+  .result .app img { width: 52px; height: 52px; border-radius: 12px; }
+  .result .app b { font: 600 15px/1.2 var(--font); display: block; }
+  .result .app i { font: 400 12.5px/1.3 var(--font); font-style: normal; color: #8e8e93; }
+  .result .app .open { margin-left: auto; font: 700 13px/1 var(--font); color: #0a7aff; background: #eeeef0; border-radius: 14px; padding: 7px 16px; }
+  .result .card { margin: 0 16px; }
+  /* Apple's event card: 16:9, text over the artwork */
+  .card { position: relative; width: 353px; height: 198.5px; border-radius: 16px; overflow: hidden; display: grid; grid-template-areas: "content"; }
+  .card > img, .det > img { grid-area: content; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .gradient-container { grid-area: content; position: relative; z-index: 1; }
+  .gradient-overlay { -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    background: linear-gradient(#0000, var(--color) var(--height, 100%)); bottom: 0; filter: saturate(1.5) brightness(var(--brightness));
+    height: var(--height, 60%); -webkit-mask-image: linear-gradient(180deg, #0000 6%, #000001 85%); mask-image: linear-gradient(180deg, #0000 6%, #000001 85%);
+    position: absolute; width: 100%; z-index: 1; }
+  .card .gradient-overlay { --color: rgb(83 83 83 / 48%); --height: 80%; --brightness: .85; border-radius: 16px; }
+  .card .text-container { color: #ffffffeb; display: flex; flex-direction: column; grid-area: content; justify-content: flex-end; padding: 12px 16px; z-index: 2; }
+  .card .kind { font: 600 12px/1.25 var(--font); text-transform: uppercase; opacity: .92; }
+  .card h3 { font: 400 17px/1.41 var(--font); margin: 0; }
+  .card p { font: 600 12px/1.25 var(--font); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  /* Apple's event details page: 9:16 */
+  .det { position: relative; width: 340px; height: 604.4px; border-radius: 16px; overflow: hidden; display: grid; grid-template-areas: "time" "text"; grid-template-rows: 1fr auto; box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 8px 24px rgb(0 0 0 / 10%); }
+  .det > img { grid-column: 1; grid-row: 1 / 3; position: absolute; inset: 0; }
+  .det .gradient-overlay { --height: 70%; --brightness: .85; border-radius: 16px; }
+  .det .time { grid-area: time; margin: 16px 0 0 16px; z-index: 3; }
+  .det .time span { background: #ffffffa3; border-radius: 12px; color: #000000d9; font: 600 12px/1.25 var(--font); padding: 3px 10px; }
+  .det .text-container { color: #ffffffeb; display: flex; flex-direction: column; gap: 16px; grid-area: text; justify-content: space-between; padding: 16px; z-index: 2; }
+  .det .event-details-container { display: flex; flex-direction: column; gap: 6px; }
+  .det .kind { font: 600 12px/1.25 var(--font); text-transform: uppercase; }
+  .det .title { font: 700 26px/1.23 var(--font); margin: 0; }
+  .det .subtitle { font: 400 15px/1.33 var(--font); margin: 0; }
+  .det .lockup { border-top: 1px solid #ffffff4d; padding-top: 16px; display: flex; align-items: center; gap: 10px; }
+  .det .lockup img { width: 40px; height: 40px; border-radius: 9px; }
+  .det .lockup b { font: 600 13px/1.2 var(--font); display: block; }
+  .det .lockup i { font: 400 11px/1.3 var(--font); font-style: normal; opacity: .75; }
+  .det .lockup .view { margin-left: auto; font: 700 13px/1 var(--font); background: #ffffff38; border-radius: 14px; padding: 7px 16px; }
+</style></head><body>
+<h1 id="h1"></h1>
+<p class="sub" id="sub"></p>
+<div class="glance" id="glance"></div>
+<div class="grid" id="grid"></div>
+<script>
+const KIND = "Major Update";
+const DIRS = [
+  { dir: "one-key", name: "One key", medium: "studio still",
+    sells: "a cutling now holds 10,000 characters, and a tap types all of it.",
+    picture: "one mint key, and the whole email it types running out behind it as a printed tape. Path-traced, so it reads as a photograph. No letters.",
+    costs: "it says nothing about blanks and dates, which buyers ask rival keyboards for by name.",
+    event: "A Whole Email, One Key", short: "Tap one key. The whole email types itself.",
+    long: "A key now holds 10,000 characters, ten times as much as before. Save your longest reply once, then tap to type it." },
+  { dir: "todays-date", name: "Today's date", medium: "looping video", strip: "As a video (card.mp4, details.mp4): seven pages in 9.8 seconds, and the last frame meets the first. The pictures here are its stills.",
+    sells: "date pills (today, tomorrow, in a week) that are right on the day you send.",
+    picture: "a tear-off calendar whose every page carries the mint date pill; the marked day moves on one cell with each page. No letters or numbers.",
+    costs: "dates are the smaller half of what a cutling can now fill in, and a video is two more files to upload.",
+    event: "Always Today's Date", short: "Saved replies that know what day it is.",
+    long: "Put “tomorrow” or “a week from now” in a saved reply. Cutling works out the date each time, so delivery days stay right." },
+  { dir: "it-asks", name: "It asks", medium: "the app's own screen",
+    sells: "Ask Each Time, with an order number where the first round had a name.",
+    picture: "the keyboard's question with earlier answers one tap away, beside the chat the reply goes into. Drawn from the recorded 2.0 screens.",
+    costs: "the picture has English words in it, so 50 languages need 50 pictures or read English; and it is a drawing until a real capture replaces it.",
+    event: "One Reply, Every Order", short: "Cutling asks for the order number, then types.",
+    long: "Leave a gap for the order number or the plan. Cutling's keyboard asks before it types, with past answers one tap away." },
+  { dir: "bold-the-price", name: "Bold the price", medium: "illustration",
+    sells: "the Notes-like page: bold, highlight, links and lists in a cutling.",
+    picture: "a note with one phrase in bold under a highlighter still finishing its stroke, a blue link and a list. No letters.",
+    costs: "a tap types plain text. The styling travels only when you touch and hold to copy, so the card promises something one step further in.",
+    event: "Bold the Part They Skip", short: "Bold the price. Highlight the deadline.",
+    long: "A saved reply keeps its bold and its links. Touch and hold the key to copy it styled, then paste it as you wrote it." },
+  { dir: "room-to-grow", name: "Room to grow", medium: "botanical drawing",
+    sells: "5,000 text cutlings and 500 images, where there were 100 and 25.",
+    picture: "a cutting in a glass that has grown far past it: the app's name, made literal. No letters.",
+    costs: "the loosest tie to what the app does. A plant says nothing about typing until the words under it do.",
+    event: "Room to Grow", short: "Keep 5,000 replies now, up from 100.",
+    long: "Cutling now holds 5,000 texts and 500 images, and each text can run as long as an email. Keep everything you send twice." },
+  { dir: "same-question", name: "Same question", medium: "pattern",
+    sells: "the buyer's day: one question asked all day, and a saved answer that comes out different for each person.",
+    picture: "a wall of chats. Every grey question is the same; every mint answer is the same reply with its own coloured parts. No letters.",
+    costs: "it sells Cutling as much as it sells 2.0, and Apple asks that an event's picture and words be about the event.",
+    event: "Asked 40 Times a Day", short: "40 people ask. Each gets their own answer.",
+    long: "Save the answer once with gaps in it. Cutling asks for the order number, adds the date and types the rest, every time." },
+];
+const LIMITS = { event: 30, short: 50, long: 120 };
+const params = new URLSearchParams(location.search), only = params.get("only");
+const exists = (src) => new Promise((res) => { const i = new Image(); i.onload = () => res(true); i.onerror = () => res(false); i.src = src; });
+const ICON = "../../../../../Cutling/Assets.xcassets/AppIcon-Default.imageset/AppIcon-Default.png";
+const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;");
+(async () => {
+  const have = [];
+  for (const d of DIRS) if ((!only || d.dir === only) && await exists(`../${d.dir}/card.png`)) have.push(d);
+  for (const d of have) for (const k in LIMITS) if ([...d[k]].length > LIMITS[k]) { window.__error = `ERR ${d.dir} ${k} is ${[...d[k]].length} of ${LIMITS[k]}`; return; }
+  have.forEach((d, i) => d.letter = "ABCDEFGH"[DIRS.filter((x) => have.includes(x)).indexOf(d)]);
+  const card = (d) => `<div class="card"><img src="../${d.dir}/card.png"><div class="gradient-container"><div class="gradient-overlay"></div></div>
+    <div class="text-container"><span class="kind">${KIND}</span><h3>${esc(d.event)}</h3><p>${esc(d.short)}</p></div></div>`;
+  const result = (d) => `<div class="result"><div class="app"><img src="${ICON}"><span><b>Cutling - Clipboard Keyboard</b><i>Paste Text Snippets &amp; Replies</i></span><span class="open">Open</span></div>${card(d)}</div>`;
+  const det = (d) => `<div class="det"><img src="../${d.dir}/details.png" class="art"><div class="gradient-overlay"></div>
+    <div class="time"><span>Happening Now</span></div>
+    <div class="text-container"><div class="event-details-container"><span class="kind">${KIND}</span><h2 class="title">${esc(d.event)}</h2><p class="subtitle">${esc(d.long)}</p></div>
+    <div class="lockup"><img src="${ICON}"><span><b>Cutling - Clipboard Keyboard</b><i>Paste Text Snippets &amp; Replies</i></span><span class="view">View</span></div></div></div>`;
+  const n = (s) => [...s].length;
+  const words = (d) => `<div class="words"><dl>
+    <dt>Event name<i>${n(d.event)} of 30</i></dt><dd class="name">${esc(d.event)}</dd>
+    <dt>On the card<i>${n(d.short)} of 50</i></dt><dd>${esc(d.short)}</dd>
+    <dt>On the details page<i>${n(d.long)} of 120</i></dt><dd>${esc(d.long)}</dd></dl></div>`;
+  const block = async (d) => `<div class="dir"><h2>${d.letter}. ${d.name}<span>${d.medium}</span></h2>
+    <ul class="facts"><li><b>Sells</b> ${esc(d.sells)}</li><li><b>Picture</b> ${esc(d.picture)}</li><li><b>Costs</b> ${esc(d.costs)}</li></ul>
+    <div class="pair"><div><p class="lab">The card, in search</p>${result(d)}${words(d)}
+      ${d.strip && await exists(`../${d.dir}/loop-frames.png`) ? `<div class="strip"><img src="../${d.dir}/loop-frames.png"><p>${esc(d.strip)}</p></div>` : ""}</div>
+      <div><p class="lab">Event details page</p>${det(d)}</div></div></div>`;
+  if (only) { document.body.classList.add("one"); for (const id of ["h1", "sub", "glance"]) document.getElementById(id).remove(); }
+  else {
+    document.getElementById("h1").textContent = `Cutling 2.0 In-App Event: directions A to ${have[have.length - 1].letter}`;
+    document.getElementById("sub").innerHTML = `Each direction takes a different thing 2.0 brings and shows it in its own picture, medium and words. The top row is the bare cards. Below, each card sits in an owner's search result with its details page beside it, under Apple's blur, scrim and white text, at the size the App Store draws them. Files are 2880x1620 and 1620x2880 in <code>fastlane/events/2.0/directions/&lt;name&gt;/</code>.`;
+    const gl = document.getElementById("glance"); gl.style.setProperty("--n", have.length);
+    gl.innerHTML = have.map((d) => `<figure><img src="../${d.dir}/card.png"><figcaption>${d.letter}. ${d.name} <span>${d.medium}</span></figcaption></figure>`).join("");
+  }
+  let html = ""; for (const d of have) html += await block(d);
+  document.getElementById("grid").innerHTML = html;
+  if (!only) document.getElementById("grid").insertAdjacentHTML("afterend", `<div class="notes">
+    <p>Every picture keeps its subject in the top 60% and leaves plain colour below, because Apple's text starts at 69.5% of the card and 64.3% of the details page.</p>
+    <p>The overlay is rebuilt from the web App Store's own stylesheet; the search row round each card is drawn from memory. App Store Connect's preview and a phone are the last check before any of these is submitted.</p>
+    <p>All ${have.length * 3} lines are inside Apple's limits of 30, 50 and 120 characters, spaces counted, and none names a price. They are English; the other 49 languages follow the choice.</p>
+    <p>Nothing here is uploaded or committed, and <code>card.png</code>, <code>details.png</code> and <code>event.json</code> one folder up are untouched.</p></div>`);
+  // Apple fades the details page to the image's own colour: here, the average of its lower third
+  const fade = (img) => { const c = document.createElement("canvas"); c.width = 32; c.height = 32; const g = c.getContext("2d");
+    g.drawImage(img, 0, img.naturalHeight * 2 / 3, img.naturalWidth, img.naturalHeight / 3, 0, 0, 32, 32);
+    const d = g.getImageData(0, 0, 32, 32).data, s = [0, 0, 0]; for (let i = 0; i < d.length; i += 4) for (let k = 0; k < 3; k++) s[k] += d[i + k];
+    return `rgb(${s.map((v) => Math.round(v / 1024)).join(" ")})`; };
+  await Promise.all([...document.images].map((i) => i.decode().catch(() => {})));
+  const fades = [...document.querySelectorAll(".det")].map((d) => { const f = fade(d.querySelector(".art")); d.querySelector(".gradient-overlay").style.setProperty("--color", f); return f; });
+  window.__note = `contact: ${have.map((d) => d.dir).join(", ")}; details fades ${fades.join(", ")}`; window.__done = true;
+})();
+</script>
+</body></html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<!-- "Room to grow": a cutting in a glass of water that has grown far past the glass. A cutting is what the
+     app is named for, and 2.0 holds fifty times as many of them. A flat botanical drawing on ochre; the
+     shadows on the wall are the only soft things in it, and no gradient, border or scrim is added.
+     One file draws the card (wide window) and the details page (tall window). -->
+<style>html,body{margin:0;background:#D4881C;overflow:hidden}canvas{display:block}</style>
+</head><body><canvas id="c"></canvas>
+<script>
+const W = innerWidth, H = innerHeight, TALL = H > W, U = Math.min(W, H) / 1080, DPR = devicePixelRatio || 1;
+const cv = document.getElementById("c"); cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR); cv.style.width = W + "px"; cv.style.height = H + "px";
+const g = cv.getContext("2d"); g.setTransform(DPR, 0, 0, DPR, 0, 0);
+const GROUND = "#D4881C", DEG = Math.PI / 180;
+// leaf colours: [dark half, light half, vein]
+const TONES = [["#0C4F3B", "#11694E", "#2E8A6B"], ["#136B50", "#1B8765", "#49A886"], ["#1A8C6C", "#25A784", "#62C7A6"], ["#5CCDA6", "#86E2C1", "#C4F3E2"]];
+const J = (TALL ? 262 : 222) * U, JW = J * .66;                         // the glass: height and width
+const BX = TALL ? W * .5 : W * .5, BY = H * .605;                       // middle of its foot; Apple's text starts below
+const MOUTH = [BX, BY - J];
+// each leaf: a = which way its stem sets off (0 is up, + is right), len = stem length, L = leaf length (both in glass heights),
+// c = tone, t = extra turn of the leaf, s = where on the rim it starts (-1 to 1)
+const LEAVES = TALL ? [
+  { a: -64, len: 2.05, L: 1.18, c: 0, t: 16 }, { a: 60, len: 2.25, L: 1.22, c: 0, t: -18 }, { a: -40, len: 2.7, L: 1.2, c: 1, t: 6 },
+  { a: 36, len: 2.95, L: 1.25, c: 1, t: -6 }, { a: -17, len: 3.2, L: 1.08, c: 2, t: 4 }, { a: 12, len: 3.45, L: .98, c: 0, t: -2 },
+  { a: -50, len: 1.25, L: .7, c: 2, t: 22 }, { a: 47, len: 1.4, L: .74, c: 2, t: -20 }, { a: -24, len: 1.9, L: .82, c: 1, t: 10 },
+  { a: 22, len: 2.1, L: .8, c: 2, t: -12 }, { a: -4, len: 2.45, L: .62, c: 3, t: 0 }, { a: -74, len: 1.2, L: .56, c: 3, t: 30 }, { a: 72, len: 1.15, L: .54, c: 3, t: -30 },
+] : [
+  { a: -80, len: 3.25, L: 1.3, c: 0, t: 22 }, { a: 80, len: 3.45, L: 1.34, c: 0, t: -24 }, { a: -63, len: 2.55, L: 1.12, c: 1, t: 10 },
+  { a: 62, len: 2.75, L: 1.16, c: 1, t: -10 }, { a: -43, len: 2.05, L: 1.14, c: 0, t: 4 }, { a: 42, len: 2.2, L: 1.18, c: 2, t: -6 },
+  { a: -24, len: 1.72, L: .92, c: 2, t: 2 }, { a: 22, len: 1.86, L: .98, c: 0, t: -2 }, { a: -71, len: 1.5, L: .64, c: 2, t: 26 },
+  { a: 70, len: 1.6, L: .66, c: 2, t: -28 }, { a: -5, len: 1.62, L: .74, c: 1, t: 0 }, { a: -36, len: 1.05, L: .5, c: 3, t: 14 },
+  { a: 34, len: 1.12, L: .52, c: 3, t: -14 }, { a: 8, len: 1.02, L: .44, c: 3, t: 4 },
+];
+// a stem is a curve from the rim that sets off upward and leans out; the leaf follows on from its end
+function stem(lf) {
+  const a = lf.a * DEG, s = Math.max(-1, Math.min(1, lf.a / 75)), p0 = [MOUTH[0] + s * JW * .3, MOUTH[1] + J * .08];
+  const p2 = [MOUTH[0] + Math.sin(a) * lf.len * J, MOUTH[1] - Math.cos(a) * lf.len * J * (TALL ? 1 : .86)];
+  const c = [MOUTH[0] + Math.sin(a * .3) * lf.len * J * .66, MOUTH[1] - Math.cos(a * .3) * lf.len * J * .66];
+  const dir = Math.atan2(p2[1] - c[1], p2[0] - c[0]) + lf.t * DEG;
+  return { p0, c, p2, dir };
+}
+function leafPath(L) {     // along +x from its stalk at 0,0 to its tip at L,0
+  const w = L * .64, p = new Path2D();
+  p.moveTo(0, 0); p.bezierCurveTo(-L * .16, -w * .78, L * .5, -w * .7, L, 0); p.bezierCurveTo(L * .5, w * .7, -L * .16, w * .78, 0, 0); p.closePath();
+  return p;
+}
+function drawLeaf(lf, shadow) {
+  const { p2, dir } = stem(lf), L = lf.L * J, path = leafPath(L), [dark, light, vein] = TONES[lf.c];
+  g.save(); g.translate(p2[0], p2[1]); g.rotate(dir);
+  if (shadow) { g.fillStyle = "rgba(96,48,0,.26)"; g.fill(path); g.restore(); return; }
+  g.fillStyle = dark; g.fill(path);
+  g.save(); g.clip(path);
+  // the half that faces the light, cut along a midrib that bows a little
+  g.fillStyle = light; g.beginPath(); g.moveTo(-L * .2, 0); g.quadraticCurveTo(L * .5, -L * .035, L * 1.02, 0); g.lineTo(L * 1.02, L); g.lineTo(-L * .2, L); g.closePath(); g.fill();
+  g.strokeStyle = vein; g.lineCap = "round"; g.lineWidth = Math.max(1.5 * U, L * .016);
+  g.beginPath(); g.moveTo(0, 0); g.quadraticCurveTo(L * .5, -L * .035, L * .97, 0); g.stroke();
+  g.globalAlpha = .55; g.lineWidth = Math.max(1 * U, L * .009);
+  for (let i = 1; i <= 4; i++) for (const sgn of [-1, 1]) {
+    const x = L * (.1 + i * .16), y0 = -L * .035 * Math.sin(Math.PI * x / L);
+    g.beginPath(); g.moveTo(x, y0); g.quadraticCurveTo(x + L * .1, y0 + sgn * L * .1, x + L * .2, y0 + sgn * L * (.3 - i * .035)); g.stroke();
+  }
+  g.restore(); g.restore();
+}
+function drawStem(lf, shadow) {
+  const { p0, c, p2 } = stem(lf);
+  g.strokeStyle = shadow ? "rgba(96,48,0,.22)" : "#0E5943"; g.lineCap = "round"; g.lineWidth = (5 + lf.L * 5) * U;
+  g.beginPath(); g.moveTo(p0[0], p0[1]); g.quadraticCurveTo(c[0], c[1], p2[0], p2[1]); g.stroke();
+}
+const rr = (x, y, w, h, r) => { g.beginPath(); g.roundRect(x, y, w, h, r); };
+
+// ground with a fixed grain
+g.fillStyle = GROUND; g.fillRect(0, 0, W, H);
+{ const n = document.createElement("canvas"); n.width = n.height = 512; const x = n.getContext("2d"), d = x.createImageData(512, 512); let s = 99;
+  for (let i = 0; i < d.data.length; i += 4) { s = (s * 1664525 + 1013904223) >>> 0; d.data[i] = d.data[i + 1] = d.data[i + 2] = s >>> 24; d.data[i + 3] = 15; }
+  x.putImageData(d, 0, 0); g.save(); g.globalCompositeOperation = "overlay"; g.fillStyle = g.createPattern(n, "repeat"); g.fillRect(0, 0, W, H); g.restore(); }
+
+// shadows on the wall first: the plant's, then the glass's on the table
+g.save(); g.filter = `blur(${16 * U}px)`; g.translate(34 * U, 44 * U);
+for (const lf of LEAVES) { drawStem(lf, true); drawLeaf(lf, true); }
+g.restore();
+g.save(); g.filter = `blur(${14 * U}px)`; g.fillStyle = "rgba(96,48,0,.42)"; g.beginPath(); g.ellipse(BX + JW * .16, BY + 2 * U, JW * .72, J * .07, 0, 0, 7); g.fill(); g.restore();
+
+// stems in the water, with a few roots, behind the glass
+const gx = BX - JW / 2, gy = BY - J;
+g.save(); rr(gx, gy, JW, J, [6 * U, 6 * U, JW * .2, JW * .2]); g.clip();
+g.strokeStyle = "#0E5943"; g.lineCap = "round";
+for (const [i, sx] of [-.24, -.08, .07, .22].entries()) { g.lineWidth = 8 * U; g.beginPath(); g.moveTo(MOUTH[0] + sx * JW, gy + J * .06); g.quadraticCurveTo(BX + sx * JW * .5, gy + J * .5, BX + sx * JW * .32, BY - J * (.2 + .04 * i)); g.stroke(); }
+g.strokeStyle = "#F4EEDC"; g.lineWidth = 3 * U;
+for (const [sx, dx, dy] of [[-.08, -.2, .1], [-.07, -.06, .16], [0, .1, .15], [.06, .22, .09], [.02, -.13, .17], [.07, .02, .18]]) {
+  g.beginPath(); g.moveTo(BX + sx * JW, BY - J * .24); g.bezierCurveTo(BX + sx * JW + dx * JW * .3, BY - J * .2, BX + (sx + dx) * JW * .8, BY - J * (.22 - dy * .6), BX + (sx + dx) * JW, BY - J * (.22 - dy)); g.stroke(); }
+g.restore();
+// the plant
+for (const lf of LEAVES) drawStem(lf, false);
+for (const lf of LEAVES) drawLeaf(lf, false);
+// the glass over its stems: water, glass, a rim and one streak of light
+g.fillStyle = "rgba(196,238,226,.42)"; rr(gx + 5 * U, gy + J * .3, JW - 10 * U, J * .7 - 5 * U, [0, 0, JW * .17, JW * .17]); g.fill();
+g.fillStyle = "rgba(255,255,255,.2)"; rr(gx, gy, JW, J, [6 * U, 6 * U, JW * .2, JW * .2]); g.fill();
+g.strokeStyle = "rgba(255,255,255,.75)"; g.lineWidth = 4 * U; rr(gx, gy, JW, J, [6 * U, 6 * U, JW * .2, JW * .2]); g.stroke();
+g.strokeStyle = "rgba(255,255,255,.6)"; g.lineWidth = 3 * U; g.beginPath(); g.moveTo(gx + 6 * U, gy + J * .3); g.lineTo(gx + JW - 6 * U, gy + J * .3); g.stroke();
+g.fillStyle = "rgba(255,255,255,.55)"; rr(gx + JW * .13, gy + J * .12, JW * .075, J * .62, JW * .04); g.fill();
+// keep the glass's rim clear of leaves that would hide where the stems come from
+const topY = Math.min(...LEAVES.map((lf) => { const s = stem(lf); return s.p2[1] - Math.abs(Math.sin(s.dir)) * lf.L * J - lf.L * J * .3; }));
+window.__note = `room-to-grow ${W}x${H} foot ${(BY / H * 100).toFixed(1)}% top about ${(Math.max(0, topY) / H * 100).toFixed(1)}%`; window.__done = true;
+</script></body></html>

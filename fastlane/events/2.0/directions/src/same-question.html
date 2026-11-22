@@ -1,0 +1,45 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<!-- "Same question": a wall of chats on a dark ground. Every grey bubble is the same question; every mint
+     bubble is the same saved reply, and only its three filled-in parts (a name, a number, a date) differ,
+     each chat in its own colours. No letter is drawn. The wall stops near 60% of the height, where Apple's
+     text begins. One file draws the card (wide window) and the details page (tall window). -->
+<style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#14161A}svg{display:block}</style>
+</head><body><div id="root"></div>
+<script>
+const W = innerWidth, H = innerHeight, TALL = H > W, U = Math.min(W, H) / 1080;
+const UW = 336, UH = 232, GAPX = 54, GAPY = 46, K = (TALL ? 1.0 : 1.0) * U, ROT = -7;
+const PAL = ["#FFD23F", "#FF7A59", "#7CC4FF", "#C9A7FF", "#FFFFFF", "#FF9EC4", "#FFB23F", "#9DF0FF"];
+const hash = (a, b) => { let h = (a * 374761393 + b * 668265263) >>> 0; h = ((h ^ (h >>> 13)) * 1274126177) >>> 0; return (h ^ (h >>> 16)) >>> 0; };
+const bar = (x, y, w, fill, h = 15) => `<rect x="${x}" y="${y - h / 2}" width="${w}" height="${h}" rx="${h / 2}" fill="${fill}"/>`;
+const pill = (x, y, w, fill) => `<rect x="${x}" y="${y - 14}" width="${w}" height="28" rx="14" fill="${fill}"/>`;
+function unit(c, r) {
+  const h = hash(c + 50, r + 50), a = PAL[h % 8], b = PAL[(h >>> 4) % 8 === h % 8 ? (h + 3) % 8 : (h >>> 4) % 8], d = PAL[(h >>> 9) % 8];
+  const ink = "#0A6F55";
+  return `<g>
+    <rect x="0" y="0" width="212" height="66" rx="30" fill="#2A2E36"/>${bar(26, 24, 128, "#5B616D")}${bar(26, 45, 84, "#5B616D")}
+    <rect x="72" y="84" width="264" height="148" rx="34" fill="#17B78C"/>
+    ${pill(98, 118, 72, a)}${bar(182, 118, 112, ink)}
+    ${bar(98, 158, 62, ink)}${pill(172, 158, 58, b)}${bar(242, 158, 60, ink)}
+    ${bar(98, 198, 96, ink)}${pill(206, 198, 84, d)}
+  </g>`;
+}
+// columns of chats, each column half a chat lower than the one before, the whole wall turned a little
+const limit = H * .6, cx = W / 2, cy = H * .3;
+let out = "";
+const cols = Math.ceil(W / ((UW + GAPX) * K)) + 4, rows = Math.ceil(limit / ((UH + GAPY) * K)) + 4;
+const rad = ROT * Math.PI / 180;
+for (let c = -Math.ceil(cols / 2); c <= cols / 2; c++) for (let r = -rows; r <= rows; r++) {
+  const x = c * (UW + GAPX) - UW / 2, y = r * (UH + GAPY) + (((c % 2) + 2) % 2) * (UH + GAPY) / 2 - UH / 2;
+  // where the chat's lowest corner lands on the page once the wall is turned
+  const yb = Math.max(...[[x, y + UH], [x + UW, y + UH]].map(([px, py]) => cy + (px * Math.sin(rad) + py * Math.cos(rad)) * K));
+  const yt = Math.min(...[[x, y], [x + UW, y]].map(([px, py]) => cy + (px * Math.sin(rad) + py * Math.cos(rad)) * K));
+  if (yb > limit || yt < -UH * K * 1.2) continue;
+  out += `<g transform="translate(${x} ${y})">${unit(c, r)}</g>`;
+}
+document.getElementById("root").innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
+  <defs><filter id="n" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="5"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .05 0"/></filter></defs>
+  <rect width="${W}" height="${H}" fill="#14161A"/><rect width="${W}" height="${H}" filter="url(#n)"/>
+  <g transform="translate(${cx} ${cy}) rotate(${ROT}) scale(${K})">${out}</g></svg>`;
+window.__note = `same-question ${W}x${H}`; window.__done = true;
+</script></body></html>

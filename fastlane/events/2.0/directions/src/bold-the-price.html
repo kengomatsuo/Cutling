@@ -1,0 +1,82 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<!-- "Bold the price": a note on a plum desk. Its lines stand for typed text; one phrase is bold and a
+     highlighter is finishing the stroke over it, a link is blue and underlined, and the last lines are a
+     bulleted list. No letter is drawn, so the picture needs no translation.
+     One file draws the card (wide window) and the details page (tall window). The shadows are the only
+     soft things in it; no gradient, border or scrim is added. -->
+<style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#5C2150}svg{display:block}</style>
+</head><body><div id="root"></div>
+<script>
+const W = innerWidth, H = innerHeight, TALL = H > W, U = Math.min(W, H) / 1080;
+const INK = "#2B2630", SOFT = "#7E7884", BLUE = "#2D6BF6", PAPER = "#FCF7EA", YEL = "#FFDF2E";
+// the note, in its own units: SW across, SH down
+const SW = TALL ? 900 : 1010, SH = TALL ? 985 : 596, ROT = -3.2;
+const SX = TALL ? W / 2 - SW * U / 2 - 10 * U : W * .16, SY = TALL ? H * .1 : H * .062;
+const LH = TALL ? 84 : 70, M = TALL ? 84 : 78, BH = 23;           // line height, margin, bar height
+let y = M + 14, out = "", mark = null;
+const bar = (x, w, h = BH, fill = SOFT, yy = y) => `<rect x="${x}" y="${yy - h / 2}" width="${w}" height="${h}" rx="${h / 2}" fill="${fill}"/>`;
+// a line of words: widths in units; a word may be {w, bold, link, hl}
+function line(words, x0 = M) {
+  let x = x0, s = "";
+  for (const wd of words) {
+    const o = typeof wd === "number" ? { w: wd } : wd;
+    if (o.hl && !mark) mark = { x0: x - 16, y };
+    if (o.link) s += bar(x, o.w, BH, BLUE) + `<rect x="${x}" y="${y + BH / 2 + 7}" width="${o.w}" height="4.5" rx="2.2" fill="${BLUE}"/>`;
+    else s += bar(x, o.w, o.bold ? BH + 9 : BH, o.bold ? INK : SOFT);
+    x += o.w + (o.bold ? 22 : 18);
+    if (o.hl) mark.x1 = x - 6;
+  }
+  out += s; y += LH;
+}
+const B = (w, hl) => ({ w, bold: true, hl });
+// a heading, then the reply, then the list
+out += bar(M, 300, 40, INK) + bar(M + 322, 190, 40, INK); y += LH + 12;
+line([120, 86, 190, 64, 150, ...(TALL ? [] : [110])]);
+line(TALL ? [94, B(150, true), B(118, true), 130, 90] : [94, 150, B(150, true), B(118, true), 100, 70]);
+line([160, 70, { w: 210, link: true }, ...(TALL ? [] : [120])]);
+if (TALL) { line([110, 180, 76, 140, 96]); line([150, 92, 130]); }
+y += 14;
+for (const ws of [[170, 110], [120, 150, 80], [200, 90]]) {
+  out += `<circle cx="${M + 11}" cy="${y}" r="9.5" fill="${INK}"/>`; line(ws, M + 44);
+}
+if (TALL) { y += 14; line([130, 96, 170, 80]); }
+
+// the highlighter stroke over the bold phrase, a little uneven as a felt tip is, and the pen at its end
+const mh = 54, stroke = `<rect x="${mark.x0}" y="${mark.y - mh / 2 + 2}" width="${mark.x1 - mark.x0}" height="${mh}" rx="5" fill="${YEL}" filter="url(#felt)" style="mix-blend-mode:multiply"/>`;
+const PEN = (() => {     // drawn along +x from its tip at 0,0; about 700 long
+  const L = TALL ? 720 : 700, R = 47;
+  return `<g>
+    <path d="M0 -4 L52 -25 L52 25 L4 15 Z" fill="#E9C300"/><path d="M0 -4 L52 -25 L52 -6 Z" fill="#FFE55C"/>
+    <path d="M50 -27 L112 -${R - 5} L112 ${R - 5} L50 27 Z" fill="#2A2530"/><path d="M50 -27 L112 -${R - 5} L112 -${R - 22} L50 -13 Z" fill="#494250"/>
+    <rect x="110" y="-${R}" width="${L - 110}" height="${R * 2}" rx="14" fill="#FFD21A"/>
+    <rect x="110" y="-${R}" width="${L - 110}" height="${R * .62}" rx="14" fill="#FFE766"/>
+    <rect x="124" y="-${R - 9}" width="${L - 150}" height="7" rx="3.5" fill="#FFF5B8"/>
+    <rect x="110" y="${R * .42}" width="${L - 110}" height="${R * .58}" rx="14" fill="#E9B800"/>
+    <rect x="110" y="${R * .3}" width="${L - 110}" height="${R * .34}" fill="#F4C60C"/>
+    <rect x="240" y="-${R}" width="230" height="${R * 2}" fill="#FCF7EA"/><rect x="240" y="-${R}" width="230" height="${R * .62}" fill="#FFFFFF"/><rect x="240" y="${R * .42}" width="230" height="${R * .58}" fill="#E4DCC8"/>
+    <rect x="272" y="-9" width="120" height="18" rx="9" fill="#2B2630"/>
+    <rect x="${L - 86}" y="-${R + 3}" width="92" height="${R * 2 + 6}" rx="16" fill="#2A2530"/><rect x="${L - 86}" y="-${R + 3}" width="92" height="${R * .66}" rx="16" fill="#494250"/>
+  </g>`; })();
+const tipX = mark.x1 - 8, tipY = mark.y + 4, ANG = TALL ? -57 : -23;
+document.getElementById("root").innerHTML = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
+  <defs>
+    <filter id="felt" x="-5%" y="-30%" width="110%" height="160%"><feTurbulence type="fractalNoise" baseFrequency=".035 .5" numOctaves="2" seed="4" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="9"/></filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="7"/><feColorMatrix values="0 0 0 0 .3  0 0 0 0 .25  0 0 0 0 .2  0 0 0 .09 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+    <filter id="sh" x="-30%" y="-30%" width="160%" height="170%"><feGaussianBlur stdDeviation="${22 * U}"/></filter>
+    <filter id="sh2" x="-30%" y="-80%" width="160%" height="260%"><feGaussianBlur stdDeviation="${15 * U}"/></filter>
+    <filter id="desk" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="11"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .07 0"/></filter>
+  </defs>
+  <rect width="${W}" height="${H}" fill="#5C2150"/><rect width="${W}" height="${H}" filter="url(#desk)"/>
+  <g transform="translate(${SX} ${SY}) scale(${U}) rotate(${ROT})">
+    <rect x="14" y="30" width="${SW}" height="${SH}" rx="10" fill="#1C0518" opacity=".5" filter="url(#sh)"/>
+    <rect width="${SW}" height="${SH}" rx="10" fill="${PAPER}"/><rect width="${SW}" height="${SH}" rx="10" fill="${PAPER}" filter="url(#grain)"/>
+    ${out}${stroke}
+    <g transform="translate(${tipX} ${tipY}) rotate(${ANG})">
+      <g transform="translate(26 44)" opacity=".42" filter="url(#sh2)"><rect x="40" y="-44" width="${(TALL ? 720 : 700) - 30}" height="88" rx="16" fill="#1C0518"/></g>
+      ${PEN}
+    </g>
+  </g></svg>`;
+const yb = (v) => ((SY + (v * Math.cos(ROT * Math.PI / 180)) * U) / H * 100).toFixed(1);
+window.__note = `bold-the-price ${W}x${H} note ${yb(0)}-${yb(SH)}% last line ${yb(y - LH)}%`; window.__done = true;
+</script></body></html>
