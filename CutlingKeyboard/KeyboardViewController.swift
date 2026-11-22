@@ -291,7 +291,47 @@ class KeyboardViewController: UIInputViewController {
             keyboardState.fill = session
         }
         pickUpTypedValue()
-        
+        installKeyboardView()
+        updateHeight()
+    }
+
+    // The keyboard is built and sized as the controller loads, not when it is about to appear: a cold
+    // launch then shows it at full height from its first frame instead of at height 0 snapping up.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        installKeyboardView()
+        heightConstraint = view.heightAnchor.constraint(equalToConstant: currentHeight)
+        // Below required, so the system's own height constraint wins for a moment when it must.
+        heightConstraint?.priority = UILayoutPriority(999)
+        heightConstraint?.isActive = true
+    }
+
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        updateHeight()
+    }
+
+    private var heightConstraint: NSLayoutConstraint?
+
+    /// The height for the current size class and orientation; before the host's traits arrive,
+    /// read from the device and the screen.
+    private var currentHeight: CGFloat {
+        let traits = view.traitCollection
+        let regular: Bool = traits.horizontalSizeClass == .unspecified
+            ? UIDevice.current.userInterfaceIdiom == .pad
+            : traits.horizontalSizeClass == .regular
+        let landscape: Bool = traits.verticalSizeClass == .unspecified
+            ? UIScreen.main.bounds.width > UIScreen.main.bounds.height
+            : traits.verticalSizeClass == .compact
+        return KeyStyle.keyboardHeight(for: regular ? .regular : .compact, isLandscape: landscape)
+    }
+
+    private func updateHeight() {
+        let height = currentHeight
+        if let constraint = heightConstraint, constraint.constant != height { constraint.constant = height }
+    }
+
+    private func installKeyboardView() {
         // Only create the hosting controller once
         if hostingController == nil {
             let inputVC = self
@@ -633,6 +673,15 @@ enum KeyStyle {
         return 180
     }
     
+    /// The whole keyboard's height, as KeyboardView stacks it: top pad, suggestion bar, grid, bottom row,
+    /// the spacing between them and 2 pt under the bottom row. Known before SwiftUI lays anything out,
+    /// so the input view has its height from its first frame on a cold launch.
+    static func keyboardHeight(for sizeClass: UserInterfaceSizeClass?, isLandscape: Bool) -> CGFloat {
+        let key = keyHeight(for: sizeClass, isLandscape: isLandscape)
+        let spacing = keySpacing(for: sizeClass)
+        return spacing + (key + spacing) + spacing + gridHeight(for: sizeClass, isLandscape: isLandscape) + spacing + key + 2
+    }
+
     static func smallKeyWidth(for sizeClass: UserInterfaceSizeClass?, isLandscape: Bool) -> CGFloat {
         // iPad uses regular size class in both orientations
         if sizeClass == .regular {
