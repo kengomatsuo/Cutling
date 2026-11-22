@@ -29,7 +29,11 @@ for t in "${tickets[@]}"; do dq wait "$t" --timeout 60 >/dev/null 2>&1; echo "tr
 trial_ok=1; for t in "${tickets[@]}"; do dq status "$t" | head -1 | grep -q 'exit 0' || trial_ok=0; done
 locales=("${locales[@]/en-US}"); locales=(${locales[@]}); half=$(( ${#locales[@]} / 2 ))
 [ $trial_ok -eq 1 ] && for form in iphone ipad; do
-  for part in "${locales[*]:0:$half}" "${locales[*]:$half}"; do
+  # IPHONE_LOCALES / IPAD_LOCALES shoot only those languages on that device (a rerun of the ones that failed).
+  want="$(eval echo "\${$(echo $form | tr a-z A-Z)_LOCALES:-}")"
+  if [ -n "$want" ]; then set -- $want; parts=("${*:1:$(( ($# + 1) / 2 ))}" "${*:$(( ($# + 1) / 2 + 1 ))}"); else parts=("${locales[*]:0:$half}" "${locales[*]:$half}"); fi
+  for part in "${parts[@]}"; do
+    [ -z "$part" ] && continue
     t=$(submit $form 120 "$part")
     echo "submitted $form $t: $part"; tickets+=("$t")
   done

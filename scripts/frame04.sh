@@ -43,6 +43,7 @@ xcrun simctl io "$udid" screenshot "$out/screen-size.png" >/dev/null 2>&1 && sip
 
 failed=()
 for loc in "${locales[@]}"; do
+ for try in 1 2; do
   log="$out/$loc.log"
   TEST_RUNNER_FRAME_LANGUAGE="$loc" TEST_RUNNER_FRAME_SHOTS="$out" xcodebuild test-without-building -xctestrun "$xctestrun" \
     -destination "id=$udid" -parallel-testing-enabled NO -only-testing:CutlingUITests/TryItFrameUITests/testTryItFrame \
@@ -50,7 +51,10 @@ for loc in "${locales[@]}"; do
   pid=$!; start=$SECONDS
   while kill -0 $pid 2>/dev/null; do sleep 20; echo "$loc: $((SECONDS - start)) s"; done
   wait $pid; status=$?
-  if [ $status -eq 0 ] && [ -f "$out/$loc.png" ]; then echo "$loc ok $((SECONDS - start)) s"; else failed+=("$loc"); echo "$loc FAILED"; grep -E "error:|failed" "$log" | head -3; fi
+  if [ $status -eq 0 ] && [ -f "$out/$loc.png" ]; then echo "$loc ok $((SECONDS - start)) s"; break; fi
+  echo "$loc try $try FAILED: $(grep -h 'error:' "$log" | grep -v debugger | head -1 | sed 's/.*\] : //' | cut -c1-120)"
+  [ $try -eq 2 ] && failed+=("$loc")
+ done
 done
 xcrun simctl status_bar "$udid" clear
 echo "done: $(( ${#locales[@]} - ${#failed[@]} ))/${#locales[@]}; failed: ${failed[*]:-none}"
