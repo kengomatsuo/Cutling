@@ -24,6 +24,9 @@ xcrun simctl spawn "$udid" defaults write com.apple.keyboard.preferences Hardwar
 # Cutling in iOS's keyboard list without Settings: a fresh store simulator's Add New Keyboard list did not show it
 # (2026-11-22). The app itself is installed by the first xcodebuild run; the list entry is all iOS reads.
 kb=com.matsuokengo.Cutling.CutlingKeyboard
+# The app goes on first, so the list entry below names a keyboard iOS has already registered.
+xcrun simctl install "$udid" "$build/DerivedData/Build/Products/Debug-iphonesimulator/Cutling.app" && sleep 5
+echo "registered keyboards: $(xcrun simctl spawn "$udid" pluginkit -m -p com.apple.keyboard-service 2>&1 | tr '\n' ' ')"
 if ! xcrun simctl spawn "$udid" defaults read -g AppleKeyboards 2>/dev/null | grep -q "$kb"; then
   xcrun simctl spawn "$udid" defaults read -g AppleKeyboards >/dev/null 2>&1 || xcrun simctl spawn "$udid" defaults write -g AppleKeyboards -array "en_US@sw=QWERTY;hw=Automatic" "emoji@sw=Emoji"
   xcrun simctl spawn "$udid" defaults write -g AppleKeyboards -array-add "$kb"
