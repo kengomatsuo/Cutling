@@ -86,7 +86,7 @@ struct FillInPicker: View {
             .overlay {
                 if matches.isEmpty { ContentUnavailableView.search(text: query) }
             }
-            .searchable(text: $query, prompt: "Search")
+            .searchable(text: $query)
             .navigationTitle("Variables")
             #if os(iOS)
             .navigationBarTitleDisplayMode(.inline)
