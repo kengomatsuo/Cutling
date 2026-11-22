@@ -34,8 +34,7 @@ pid=$!; while kill -0 $pid 2>/dev/null; do sleep 20; echo "adding keyboard: $(gr
 wait $pid && echo "keyboard added" || { echo "adding the keyboard FAILED"; grep -E 'error:' "$out/add-keyboard.log" | grep -v debugger | head -3; }
 # Other keyboards put Cutling beyond the globe test's taps (kana, romaji, Indonesian on the iPad; English variants and Emoji
 # still on the iPhone, 2026-11-22): keep US English and Cutling, so each globe tap flips between the two.
-short=($(xcrun simctl spawn "$udid" defaults read -g AppleKeyboards 2>/dev/null | sed -n 's/^ *"\{0,1\}\([^",()]*\)"\{0,1\},\{0,1\}$/\1/p' | grep -E "^(en_US@|$kb)"))
-[ ${#short[@]} -gt 0 ] && xcrun simctl spawn "$udid" defaults write -g AppleKeyboards -array "${short[@]}"
+xcrun simctl spawn "$udid" defaults write -g AppleKeyboards -array "en_US@sw=QWERTY;hw=Automatic" "$kb"
 echo "keyboards: $(xcrun simctl spawn "$udid" defaults read -g AppleKeyboards 2>/dev/null | tr -d '\n ')"
 # Apple's marketing status bar, as fastlane snapshot's override_status_bar sets it.
 xcrun simctl status_bar "$udid" override --time 9:41 --dataNetwork wifi --wifiMode active --wifiBars 3 \
