@@ -189,9 +189,10 @@ enum FillInPills {
             return made
         }()
         #if os(iOS)
-        return Text(Image(uiImage: image)).baselineOffset(font.descender - 1)
+        // Spoken as what it shows: an image in a Text has no label of its own, so VoiceOver skipped every pill.
+        return Text(Image(uiImage: image)).baselineOffset(font.descender - 1).accessibilityLabel(Text(verbatim: shown))
         #else
-        return Text(Image(nsImage: image)).baselineOffset(font.descender - 1)
+        return Text(Image(nsImage: image)).baselineOffset(font.descender - 1).accessibilityLabel(Text(verbatim: shown))
         #endif
     }
 

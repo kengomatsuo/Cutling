@@ -39,6 +39,14 @@ struct TextPreviewView: UIViewRepresentable {
         let rendered = FormattedTextEditor.rendered(source, format: format, size: size)
         view.attributedText = FormattedTextEditor.display(rendered, font: UIFont.systemFont(ofSize: size))
         view.textContainer.maximumNumberOfLines = maxLines
+        // Spoken with each pill read as its name or today's value, as the cards read them.
+        view.isAccessibilityElement = true
+        view.accessibilityLabel = FillInPills.split(format == .rich ? RichText.plainText(source) : source).map { piece in
+            switch piece {
+            case .text(let run): run
+            case .token(let token): FillInPills.previewValue(of: token) ?? FillInPills.title(of: token)
+            }
+        }.joined()
     }
 
     func sizeThatFits(_ proposal: ProposedViewSize, uiView: UITextView, context: Context) -> CGSize? {
