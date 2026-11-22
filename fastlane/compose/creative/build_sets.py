@@ -136,7 +136,17 @@ NIGHT_PAD_HERO = dict(W=6192, H=2752, h1size=250, origin="2700px 300px", cz=1.35
     links=[dict(a="ins:mT", b="cA:L", c="#2F9BFF", bend=[300, -900, -900, 60]), dict(a="sig:mR", b="cB:L", c="#E05CF5", bend=[700, -80, -700, 40]), dict(a="tel:mB", b="cC:L", c="#37D2F5", bend=[500, 420, -700, 300])])
 def night_pad_hero():
     out = os.path.join(HERE, "out", "night-pad-strip.png")
-    render("frame.html", out, 6192, 2752, "spec=" + urllib.parse.quote(json.dumps(NIGHT_PAD_HERO)), cwd=os.path.join(HERE, "d3"), tall=1800)
+    dark_render("frame.html", out, 6192, 2752, NIGHT_PAD_HERO)
+
+def dark_render(page, out, w, h, spec):
+    """Renders a night page and checks it was painted: Chrome sometimes saves a page of 3D layers before its
+    tiles are drawn, which leaves the dark ground white. A white top-left corner is rendered again, three times at most."""
+    for attempt in range(3):
+        render(page, out, w, h, "spec=" + urllib.parse.quote(json.dumps(spec)), cwd=os.path.join(HERE, "d3"), tall=1800)
+        mean = float(subprocess.run(["magick", out, "-crop", "300x300+0+0", "-format", "%[fx:mean]", "info:"], capture_output=True, text=True).stdout)
+        if mean < .2: return
+        print("  half painted, again")
+    raise SystemExit(f"{out} would not paint")
 
 def night(only=None):
     for device, D in NIGHT.items():
@@ -144,7 +154,7 @@ def night(only=None):
             if only and str(n) not in only: continue
             spec = dict(W=D["W"], H=D["H"], h1size=D["h1size"], origin=D["origin"], heads=[dict(left=D["hx"], html=f["h"])], **{k: v for k, v in f.items() if k != "h"})
             if "cz" in D: spec["cz"] = D["cz"]
-            render("frame.html", out_path("night", device, n), D["W"], D["H"], "spec=" + urllib.parse.quote(json.dumps(spec)), cwd=os.path.join(HERE, "d3"), tall=1800)
+            dark_render("frame.html", out_path("night", device, n), D["W"], D["H"], spec)
 
 
 # Direction 1: headlines over the still lifes d1/gen.py renders. Frames 1 to 3 are cut from one picture per device.

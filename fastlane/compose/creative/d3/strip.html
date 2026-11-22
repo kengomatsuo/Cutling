@@ -7,9 +7,7 @@
 :root{--mint:#5CF2C0;--ink:#020C09;--sf:-apple-system,"SF Pro Display",system-ui,sans-serif;--s:1.0152}
 html,body{margin:0;overflow:hidden}html{height:2868px}
 body{width:3960px;height:2868px;position:relative;font-family:var(--sf);
-  background:radial-gradient(1500px 1100px at 1750px 2050px,rgba(46,230,167,.34),transparent 70%),
-             radial-gradient(1300px 1000px at 3500px 1700px,rgba(60,120,255,.20),transparent 70%),
-             radial-gradient(900px 800px at 3300px 2700px,rgba(203,48,224,.16),transparent 70%),
+  background:radial-gradient(1500px 1100px at 1750px 2050px,rgba(46,230,167,.20),transparent 70%),
              linear-gradient(180deg,#020B09 0%,#041A14 55%,#052219 100%)}
 h1{position:absolute;margin:0;top:170px;font:800 196px/1.03 Rounded,var(--sf);letter-spacing:-3px;color:#fff;white-space:nowrap}
 h1 em{font-style:normal;color:var(--mint)}
@@ -17,10 +15,10 @@ h1 em{font-style:normal;color:var(--mint)}
 #plane{position:absolute;left:930px;top:330px;width:1400px;height:3040px;transform-style:preserve-3d;
   transform:rotateX(52deg) rotateZ(-33deg) scale(.93)}
 #plane>*{position:absolute}
-#grid{left:-3600px;top:-3000px;width:8600px;height:9000px;transform:translateZ(-80px);opacity:.5;
+#grid{left:-3600px;top:-3000px;width:8600px;height:9000px;transform:translateZ(-80px);opacity:.2;
   background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='700' height='250'><rect x='18' y='18' width='664' height='214' rx='48' fill='none' stroke='%235CF2C0' stroke-width='5'/></svg>");
   -webkit-mask-image:radial-gradient(closest-side,#000 10%,transparent 78%);mask-image:radial-gradient(closest-side,#000 10%,transparent 78%)}
-#under{left:-120px;top:-120px;width:1640px;height:3280px;border-radius:330px;transform:translateZ(-78px);background:rgba(46,230,167,.55);filter:blur(120px)}
+#under{left:-120px;top:-120px;width:1640px;height:3280px;border-radius:330px;transform:translateZ(-78px);background:rgba(46,230,167,.3);filter:blur(120px)}
 .side{left:0;top:0;width:1400px;height:3040px;border-radius:214px;background:#23302c}
 #face{left:0;top:0;width:1400px;height:3040px;border-radius:214px;background:#070908;box-shadow:inset 0 0 0 5px #5d6b67,inset 0 0 0 9px #101413}
 #face img{position:absolute;left:30px;top:64px;width:1340px;border-radius:180px}
@@ -30,21 +28,21 @@ h1 em{font-style:normal;color:var(--mint)}
 .key img{position:absolute;left:calc(var(--w)*.05);top:calc(var(--w)*.054);width:calc(var(--w)*.082);height:calc(var(--w)*.07);object-fit:contain}
 .key b{position:absolute;left:calc(var(--w)*.152);top:calc(var(--w)*.052);font:650 calc(var(--w)*.073)/1 var(--sf);letter-spacing:-.02em;white-space:nowrap;color:#000}
 .key i{position:absolute;left:calc(var(--w)*.052);top:calc(var(--w)*.1706);font:400 calc(var(--w)*.0612)/1 var(--sf);font-style:normal;letter-spacing:-.01em;color:#8A8A8E;white-space:nowrap}
-.ghost{opacity:.22}
+.ghost{opacity:.1}
 .m{position:absolute;width:1px;height:1px}.mR{left:100%;top:50%}.mT{left:62%;top:0}.mB{left:78%;top:100%}
 svg{position:absolute;left:0;top:0;pointer-events:none}
 .card{position:absolute;background:#fff;border-radius:64px;color:#000}
 .card .lab{position:absolute;left:8px;top:-104px;font:700 64px/1 Rounded,var(--sf);color:#fff;white-space:nowrap;letter-spacing:-.5px}
 .card .lab::before{content:"";display:inline-block;width:30px;height:30px;border-radius:50%;background:var(--c);margin-right:22px;vertical-align:6px;box-shadow:0 0 30px var(--c)}
 .caret{display:inline-block;width:6px;height:1.05em;background:#3D8BFF;vertical-align:-.16em;margin-left:3px;border-radius:3px}
-#cA{left:2800px;top:1010px;width:1090px;height:236px;border-radius:92px;transform:rotate(-3deg);box-shadow:0 0 0 3px rgba(0,136,255,.5),0 0 140px rgba(0,136,255,.55),0 50px 90px rgba(0,0,0,.5)}
+#cA{left:2800px;top:1010px;width:1090px;height:236px;border-radius:92px;transform:rotate(-3deg);box-shadow:0 0 0 2px rgba(92,242,192,.3),0 40px 80px rgba(0,0,0,.55)}
 #cA p{position:absolute;left:58px;top:32px;margin:0;font:400 70px/86px var(--sf);letter-spacing:-.6px;white-space:nowrap}
 #cA u{position:absolute;right:26px;bottom:26px;width:150px;height:104px;border-radius:52px;background:#0088FF}
 #cA u img{position:absolute;left:47px;top:22px;height:60px}
-#cB{left:2900px;top:1560px;width:900px;height:456px;transform:rotate(2.5deg);box-shadow:0 0 0 3px rgba(203,48,224,.5),0 0 140px rgba(203,48,224,.5),0 50px 90px rgba(0,0,0,.5)}
+#cB{left:2900px;top:1560px;width:900px;height:456px;transform:rotate(2.5deg);box-shadow:0 0 0 2px rgba(92,242,192,.3),0 40px 80px rgba(0,0,0,.55)}
 #cB p{position:absolute;left:66px;top:44px;margin:0;font:400 72px/92px var(--sf);letter-spacing:-.6px;white-space:nowrap}
 #cB p s{text-decoration:none;color:#8A8A8E}
-#cC{left:2880px;top:2300px;width:1000px;height:200px;transform:rotate(-2deg);box-shadow:0 0 0 3px rgba(0,184,230,.5),0 0 140px rgba(0,184,230,.5),0 50px 90px rgba(0,0,0,.5)}
+#cC{left:2880px;top:2300px;width:1000px;height:200px;transform:rotate(-2deg);box-shadow:0 0 0 2px rgba(92,242,192,.3),0 40px 80px rgba(0,0,0,.55)}
 #cC p{position:absolute;left:56px;top:54px;margin:0;font:400 70px/92px var(--sf);letter-spacing:-.6px;white-space:nowrap}
 #cC p s{text-decoration:none;color:#8A8A8E;margin-right:26px}
 </style>
@@ -60,8 +58,8 @@ svg{position:absolute;left:0;top:0;pointer-events:none}
            {id:"kE",x:18,y:2175,z:210,ic:"at",t:"Work Email",p:"alex@example.com",c:"0,184,230"}];
   for(const k of K){
     document.write(`<div class="slot" style="${slot(k.x,k.y)}"></div><div class="shade" style="${slot(k.x,k.y)};transform:translateZ(3px) translate(${k.z*.18}px,${k.z*.26}px)"></div>`);
-    for(const f of [.33,.66]) document.write(`<div class="key ghost" style="--w:${633*s}px;${slot(k.x,k.y)};transform:translateZ(${k.z*f}px);box-shadow:0 0 60px rgba(${k.c},.5)"></div>`);
-    document.write(`<div class="key" id="${k.id}" style="--w:${633*s}px;${slot(k.x,k.y)};transform:translateZ(${k.z}px) scale(1.1);box-shadow:0 0 0 3px rgba(${k.c},.55),0 0 110px rgba(${k.c},.75)"><img src="../assets/sym/c/${k.ic}.png"><b>${k.t}</b><i>${k.p}</i><span class="m mR"></span><span class="m mT"></span><span class="m mB"></span></div>`);
+    for(const f of [.33,.66]) document.write(`<div class="key ghost" style="--w:${633*s}px;${slot(k.x,k.y)};transform:translateZ(${k.z*f}px);box-shadow:0 0 30px rgba(92,242,192,.2)"></div>`);
+    document.write(`<div class="key" id="${k.id}" style="--w:${633*s}px;${slot(k.x,k.y)};transform:translateZ(${k.z}px) scale(1.1);box-shadow:0 0 0 2px rgba(92,242,192,.45),0 0 46px rgba(92,242,192,.28),0 30px 60px rgba(0,0,0,.3)"><img src="../assets/sym/c/${k.ic}.png"><b>${k.t}</b><i>${k.p}</i><span class="m mR"></span><span class="m mT"></span><span class="m mB"></span></div>`);
   }
   </script>
 </div></div>
@@ -69,25 +67,25 @@ svg{position:absolute;left:0;top:0;pointer-events:none}
 <h1 style="left:96px">Asked for<br>your address<br><em>again?</em></h1>
 <h1 style="left:1416px">It’s <em>one tap</em><br>on your<br>keyboard.</h1>
 <h1 style="left:2736px">Pasted into<br><em>any app</em><br>you use.</h1>
-<div class="card" id="cA" style="--c:#0088FF"><span class="lab">A message</span><p>123 Main Street, Apt 4B<br>New York, NY 10001<span class="caret"></span></p><u><img src="../assets/sym/c/arrow.up-white.png"></u></div>
-<div class="card" id="cB" style="--c:#CB30E0"><span class="lab">An email</span><p><s>Thanks for today</s><br>Best regards,<br>Alex Chen<br>alex@example.com<span class="caret"></span></p></div>
-<div class="card" id="cC" style="--c:#00B8E6"><span class="lab">A sign-up form</span><p><s>Email</s>alex@example.com<span class="caret"></span></p></div>
+<div class="card" id="cA" style="--c:#5CF2C0"><span class="lab">A message</span><p>123 Main Street, Apt 4B<br>New York, NY 10001<span class="caret"></span></p><u><img src="../assets/sym/c/arrow.up-white.png"></u></div>
+<div class="card" id="cB" style="--c:#5CF2C0"><span class="lab">An email</span><p><s>Thanks for today</s><br>Best regards,<br>Alex Chen<br>alex@example.com<span class="caret"></span></p></div>
+<div class="card" id="cC" style="--c:#5CF2C0"><span class="lab">A sign-up form</span><p><s>Email</s>alex@example.com<span class="caret"></span></p></div>
 <script>
 // a trail of light from each lifted key to the place its text lands
 const svg=document.getElementById("trails"), NS="http://www.w3.org/2000/svg";
 const mk=(n,a)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);svg.appendChild(e);return e};
-const defs=mk("defs",{});defs.innerHTML='<filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="22"/></filter>';
+const defs=mk("defs",{});defs.innerHTML='<filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="12"/></filter>';
 [["kH","cA","#2F9BFF","mT"],["kS","cB","#E05CF5","mR"],["kE","cC","#37D2F5","mB"]].forEach(([a,b,c,m],i)=>{
   const A=document.querySelector("#"+a+" ."+m).getBoundingClientRect(), B=document.getElementById(b).getBoundingClientRect();
   const x0=A.left, y0=A.top, x1=B.left+4, y1=B.top+B.height*.5, dx=(x1-x0);
   const d = m==="mB" ? `M${x0} ${y0} C ${x0+420} ${y0+330}, ${x1-620} ${y1+330}, ${x1} ${y1}`
           : m==="mT" ? `M${x0} ${y0} C ${x0+260} ${y0-760}, ${x1-dx*.42} ${y1+40}, ${x1} ${y1}`
                       : `M${x0} ${y0} C ${x0+dx*.5} ${y0-60}, ${x1-dx*.5} ${y1+30}, ${x1} ${y1}`;
-  mk("path",{d,stroke:c,"stroke-width":46,"stroke-linecap":"round",opacity:.55,filter:"url(#glow)"});
-  mk("path",{d,stroke:c,"stroke-width":12,"stroke-linecap":"round"});
-  mk("path",{d,stroke:"#fff","stroke-width":4,"stroke-linecap":"round",opacity:.9});
-  mk("circle",{cx:x1,cy:y1,r:22,fill:"#fff"});mk("circle",{cx:x1,cy:y1,r:44,fill:c,opacity:.35});
-  mk("circle",{cx:x0,cy:y0,r:14,fill:"#fff"});
+  // one quiet line per key: a hairline in pale mint with a faint halo, no colour of its own
+  mk("path",{d,stroke:"#5CF2C0","stroke-width":20,"stroke-linecap":"round",opacity:.16,filter:"url(#glow)"});
+  mk("path",{d,stroke:"#D9FFF0","stroke-width":5,"stroke-linecap":"round",opacity:.85});
+  mk("circle",{cx:x1,cy:y1,r:26,fill:"#5CF2C0",opacity:.22});mk("circle",{cx:x1,cy:y1,r:12,fill:"#fff"});
+  mk("circle",{cx:x0,cy:y0,r:8,fill:"#fff"});
 });
 </script>
 <script src="../ready.js"></script>

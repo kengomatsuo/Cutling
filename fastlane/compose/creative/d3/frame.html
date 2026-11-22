@@ -12,7 +12,7 @@ h1 em{font-style:normal;color:var(--mint)}
 .fine{position:absolute;font:700 74px/1 Rounded,var(--sf);color:rgba(255,255,255,.72);white-space:nowrap;letter-spacing:-.5px}
 #scene{position:absolute;inset:0;perspective:7000px}
 .plane{position:absolute;transform-style:preserve-3d}.plane>*{position:absolute}
-.grid{left:-2300px;top:-1900px;width:6000px;height:6800px;transform:translateZ(-80px);opacity:.5;
+.grid{left:-2300px;top:-1900px;width:6000px;height:6800px;transform:translateZ(-80px);opacity:.2;
   background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='700' height='250'><rect x='18' y='18' width='664' height='214' rx='48' fill='none' stroke='%235CF2C0' stroke-width='5'/></svg>");
   -webkit-mask-image:radial-gradient(closest-side,#000 10%,transparent 78%);mask-image:radial-gradient(closest-side,#000 10%,transparent 78%)}
 .under{transform:translateZ(-78px);filter:blur(120px)}
@@ -21,7 +21,7 @@ h1 em{font-style:normal;color:var(--mint)}
 .face img{position:absolute}
 .slot{background:#C5C9D0;transform:translateZ(1px)}
 .shade{background:rgba(0,0,0,.34);filter:blur(36px)}
-.ghost{background:#fff;opacity:.22}
+.ghost{background:#fff;opacity:.1}
 .lift{background-repeat:no-repeat}
 .m{position:absolute;width:1px;height:1px}.mR{left:100%;top:50%}.mL{left:0;top:50%}.mT{left:62%;top:0}.mB{left:78%;top:100%}.mC{left:50%;top:50%}
 svg{position:absolute;left:0;top:0;pointer-events:none}
@@ -51,27 +51,28 @@ svg{position:absolute;left:0;top:0;pointer-events:none}
 <script>
 const spec = JSON.parse(new URLSearchParams(location.search).get("spec")), B = document.body, scene = document.getElementById("scene");
 B.style.width = spec.W + "px"; B.style.height = spec.H + "px"; document.documentElement.style.height = spec.H + "px";
-B.style.background = spec.glows.map(g => `radial-gradient(${g[2]}px ${g[3]}px at ${g[0]}px ${g[1]}px,${g[4]},transparent 70%)`).concat("linear-gradient(180deg,#020B09 0%,#041A14 55%,#052219 100%)").join(",");
+// one quiet mint glow under the device; the owner found several colours on black too much
+B.style.background = spec.glows.slice(0, 1).map(g => `radial-gradient(${g[2]}px ${g[3]}px at ${g[0]}px ${g[1]}px,rgba(46,230,167,.2),transparent 70%)`).concat("linear-gradient(180deg,#020B09 0%,#041A14 55%,#052219 100%)").join(",");
 scene.style.perspectiveOrigin = spec.origin;
 const DEV = {  // the body's size, its corner, where the screen sits in it and how many body pixels one capture pixel is
   phone: { w: 1400, h: 3040, r: 214, sx: 30, sy: 64, s: 1340 / 1320, sr: 180, W: 1320, H: 2868 },
   pad: { w: 2160, h: 2848, r: 112, sx: 48, sy: 48, s: 1, sr: 64, W: 2064, H: 2752 } };
-const rgb = (h) => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)).join(",");
+const rgb = () => "92,242,192";   // every glow is the one mint; a piece's own colour (spec `c`) is no longer drawn
 for (const d of spec.devices) {
   const D = DEV[d.kind], p = document.createElement("div"); p.className = "plane";
   // a device given `zoom` is laid out at its drawn size, so its whole face lies inside the page and is painted;
   // one given `scale` keeps its full-size box, which Chrome leaves half painted where the box runs far off the page
   const zm = d.zoom || 1;
   p.style.cssText = `zoom:${zm};left:${d.left / zm}px;top:${d.top / zm}px;width:${D.w}px;height:${D.h}px;transform:rotateX(${d.rx}deg) rotateZ(${d.rz}deg) scale(${d.scale || 1})`;
-  let h = (d.grid ? `<div class="grid"></div>` : "") + `<div class="under" style="left:-120px;top:-120px;width:${D.w + 240}px;height:${D.h + 240}px;border-radius:330px;background:${d.under || "rgba(46,230,167,.55)"}"></div>`;
+  let h = (d.grid ? `<div class="grid"></div>` : "") + `<div class="under" style="left:-120px;top:-120px;width:${D.w + 240}px;height:${D.h + 240}px;border-radius:330px;background:rgba(46,230,167,.3)"></div>`;
   for (let k = 11; k >= 1; k--) h += `<div class="side" style="border-radius:${D.r}px;transform:translateZ(${-k * 6}px);background:${k > 9 ? "#0c1210" : "#27332f"}"></div>`;
   const src = `../assets/screens/${d.screen}.png`;
   h += `<div class="face" style="border-radius:${D.r}px"><img src="${src}" style="left:${D.sx}px;top:${D.sy}px;width:${D.W * D.s}px;border-radius:${D.sr}px"></div>`;
   for (const l of d.lifts || []) {
     const box = `left:${D.sx + l.x * D.s}px;top:${D.sy + l.y * D.s}px;width:${l.w * D.s}px;height:${l.h * D.s}px;border-radius:${(l.r ?? 44) * D.s}px;`, c = rgb(l.c);
     h += `<div class="slot" style="${box}"></div><div class="shade" style="${box}transform:translateZ(3px) translate(${l.z / zm * .18}px,${l.z / zm * .26}px)"></div>`;
-    for (const f of [.33, .66]) h += `<div class="ghost" style="${box}transform:translateZ(${l.z / zm * f}px);box-shadow:0 0 60px rgba(${c},.5)"></div>`;
-    h += `<div class="lift" id="${l.id}" style="${box}background-image:url(${src});background-size:${D.W * D.s}px ${D.H * D.s}px;background-position:${-l.x * D.s}px ${-l.y * D.s}px;transform:translateZ(${l.z / zm}px) scale(${l.k ?? 1.08});box-shadow:0 0 0 3px rgba(${c},.55),0 0 110px rgba(${c},.75)"><span class="m mR"></span><span class="m mL"></span><span class="m mT"></span><span class="m mB"></span><span class="m mC"></span></div>`;
+    for (const f of [.33, .66]) h += `<div class="ghost" style="${box}transform:translateZ(${l.z / zm * f}px);box-shadow:0 0 30px rgba(${c},.2)"></div>`;
+    h += `<div class="lift" id="${l.id}" style="${box}background-image:url(${src});background-size:${D.W * D.s}px ${D.H * D.s}px;background-position:${-l.x * D.s}px ${-l.y * D.s}px;transform:translateZ(${l.z / zm}px) scale(${l.k ?? 1.08});box-shadow:0 0 0 2px rgba(${c},.45),0 0 46px rgba(${c},.28),0 30px 60px rgba(0,0,0,.3)"><span class="m mR"></span><span class="m mL"></span><span class="m mT"></span><span class="m mB"></span><span class="m mC"></span></div>`;
   }
   p.innerHTML = h; scene.appendChild(p);
 }
@@ -80,7 +81,7 @@ for (const f of spec.fines || []) { const e = document.createElement("div"); e.c
 for (const c of spec.cards || []) {
   const e = document.createElement("div"); e.id = c.id; e.className = "card " + c.type; const g = rgb(c.c);
   const cz = spec.cz || 1;   // cards are drawn cz times larger on the iPad's wider page; their places stay in page pixels
-  e.style.cssText = `--c:${c.c};--w:${c.w}px;left:${c.left / cz}px;top:${c.top / cz}px;${c.w ? `width:${c.w}px;` : ""}transform:rotate(${c.rot || 0}deg);box-shadow:0 0 0 3px rgba(${g},.5),0 0 140px rgba(${g},.55),0 50px 90px rgba(0,0,0,.5)`;
+  e.style.cssText = `--c:#5CF2C0;--w:${c.w}px;left:${c.left / cz}px;top:${c.top / cz}px;${c.w ? `width:${c.w}px;` : ""}transform:rotate(${c.rot || 0}deg);box-shadow:0 0 0 2px rgba(${g},.3),0 40px 80px rgba(0,0,0,.55)`;
   const lab = c.label ? `<span class="lab">${c.label}</span>` : "";
   if (c.type === "key") e.innerHTML = lab + `<img src="../assets/sym/c/${c.icon}.png"><b>${c.title}</b><i>${c.preview}</i>`;
   else if (c.type === "mac") { e.innerHTML = lab + `<img src="../assets/raw/mac-history.png">`; e.style.height = (1028 - c.cut) * c.w / 720 + "px"; e.style.overflow = "visible"; e.innerHTML = lab + `<div style="overflow:hidden;border-radius:44px;height:100%"><img src="../assets/raw/mac-history.png"></div>`; }
@@ -88,22 +89,22 @@ for (const c of spec.cards || []) {
   if (spec.cz) e.style.zoom = spec.cz;
   B.appendChild(e);
 }
-for (const c of spec.chips || []) { const e = document.createElement("div"); e.className = "chip"; e.textContent = c.text; e.style.cssText = `--c:${c.c};left:${c.left}px;top:${c.top}px;transform:rotate(${c.rot || 0}deg)`; B.appendChild(e); }
+for (const c of spec.chips || []) { const e = document.createElement("div"); e.className = "chip"; e.textContent = c.text; e.style.cssText = `--c:#5CF2C0;left:${c.left}px;top:${c.top}px;transform:rotate(${c.rot || 0}deg)`; B.appendChild(e); }
 // a trail of light between two anchors: "liftId:mR" is a marker on a lifted piece, "cardId:L" a side of a card
 const svg = document.getElementById("trails"), NS = "http://www.w3.org/2000/svg";
 svg.setAttribute("width", spec.W); svg.setAttribute("height", spec.H); svg.setAttribute("viewBox", `0 0 ${spec.W} ${spec.H}`);
 const mk = (n, a) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); svg.appendChild(e); return e; };
-mk("defs", {}).innerHTML = '<filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="22"/></filter>';
+mk("defs", {}).innerHTML = '<filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="12"/></filter>';
 const anchor = (a) => { const [id, w] = a.split(":"), e = document.getElementById(id);
   if (w.length > 1) { const r = e.querySelector("." + w).getBoundingClientRect(); return [r.left, r.top]; }
   const r = e.getBoundingClientRect(); return { L: [r.left + 4, r.top + r.height / 2], R: [r.right - 4, r.top + r.height / 2], T: [r.left + r.width / 2, r.top + 4], B: [r.left + r.width / 2, r.bottom - 4] }[w]; };
 for (const l of spec.links || []) {
   const [x0, y0] = anchor(l.a), [x1, y1] = anchor(l.b), b = l.bend;
   const d = `M${x0} ${y0} C ${x0 + b[0]} ${y0 + b[1]}, ${x1 + b[2]} ${y1 + b[3]}, ${x1} ${y1}`;
-  mk("path", { d, stroke: l.c, "stroke-width": 46, "stroke-linecap": "round", opacity: .55, filter: "url(#glow)" });
-  mk("path", { d, stroke: l.c, "stroke-width": 12, "stroke-linecap": "round" });
-  mk("path", { d, stroke: "#fff", "stroke-width": 4, "stroke-linecap": "round", opacity: .9 });
-  mk("circle", { cx: x1, cy: y1, r: 22, fill: "#fff" }); mk("circle", { cx: x1, cy: y1, r: 44, fill: l.c, opacity: .35 }); mk("circle", { cx: x0, cy: y0, r: 14, fill: "#fff" });
+  // one quiet line: a hairline in pale mint with a faint halo
+  mk("path", { d, stroke: "#5CF2C0", "stroke-width": 20, "stroke-linecap": "round", opacity: .16, filter: "url(#glow)" });
+  mk("path", { d, stroke: "#D9FFF0", "stroke-width": 5, "stroke-linecap": "round", opacity: .85 });
+  mk("circle", { cx: x1, cy: y1, r: 26, fill: "#5CF2C0", opacity: .22 }); mk("circle", { cx: x1, cy: y1, r: 12, fill: "#fff" }); mk("circle", { cx: x0, cy: y0, r: 8, fill: "#fff" });
 }
 </script>
 <script>window.READY_WAIT = 6000;</script>
