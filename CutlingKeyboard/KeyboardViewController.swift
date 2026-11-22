@@ -68,46 +68,23 @@ final class KeyboardState: ObservableObject {
 
 // MARK: - Keyboard Sound
 
-/// Plays the correct system sound for each key type, matching the native iOS keyboard.
-/// Apple's own keyboard sounds: the files the system keyboard plays (iOS 27.2 runtime,
-/// /System/Library/Audio/UISounds), read from the system at run time and never bundled.
-/// The older key_press_* system sound IDs are the fallback if a file is ever missing.
+/// Plays the iPhone keyboard's own click for each key type: key_press_click, _delete and _modifier, the three
+/// files UIKitCore.framework carries for its keyboard (the same bytes sit in /System/Library/Audio/UISounds as
+/// system sounds 1123, 1155 and 1156). Not the keyboard_press_normal, _delete and _clear files beside them in
+/// UISounds, which UIKit's keyboard does not carry: they are 140 to 314 ms long against Apple's 4 to 19 ms, about
+/// a fifth as loud, and _clear only sounds 131 ms after the press, so space and return clicked late (ASG159).
 enum KeyboardSound {
-    case standard   // character keys: keyboard_press_normal
-    case delete     // backspace: keyboard_press_delete
-    case modifier   // space, return, shift, globe: keyboard_press_clear
+    case standard   // character and cutling keys: key_press_click (1123)
+    case delete     // backspace: key_press_delete (1155)
+    case modifier   // space, return, globe: key_press_modifier (1156)
 
-    private var file: String {
-        switch self {
-        case .standard: "keyboard_press_normal"
-        case .delete:   "keyboard_press_delete"
-        case .modifier: "keyboard_press_clear"
-        }
-    }
-
-    private var fallbackID: SystemSoundID {
+    var soundID: SystemSoundID {
         switch self {
         case .standard: 1123
         case .delete:   1155
         case .modifier: 1156
         }
     }
-
-    /// Each file's sound, created once; a file that can't be read is left out.
-    private static let loaded: [String: SystemSoundID] = {
-        var ids: [String: SystemSoundID] = [:]
-        for file in ["keyboard_press_normal", "keyboard_press_delete", "keyboard_press_clear"] {
-            let url = URL(fileURLWithPath: "/System/Library/Audio/UISounds/\(file).caf")
-            var id: SystemSoundID = 0
-            if FileManager.default.fileExists(atPath: url.path),
-               AudioServicesCreateSystemSoundID(url as CFURL, &id) == kAudioServicesNoError {
-                ids[file] = id
-            }
-        }
-        return ids
-    }()
-
-    var soundID: SystemSoundID { Self.loaded[file] ?? fallbackID }
 
     func play() {
         AudioServicesPlaySystemSound(soundID)
@@ -116,8 +93,9 @@ enum KeyboardSound {
 
 // MARK: - Instant Press Modifier
 
-/// Zero-latency touch via DragGesture(minimumDistance: 0).
-/// Cancels when finger drags more than a threshold, or when vertical scrolling is detected.
+/// Lights on touch-down, as Apple's keys do, and fires on lift; read from UIKit (KeyTouchSurface.swift), since a
+/// SwiftUI DragGesture lights late on iOS 27. Cancels when the finger drags more than a threshold, when vertical
+/// scrolling is detected, or when the system takes the touch.
 struct InstantPress: ViewModifier {
     let cornerRadius: CGFloat
     let fill: Color?
@@ -138,14 +116,28 @@ struct InstantPress: ViewModifier {
             : Color.black.opacity(0.25)
     }
 
-    private func shouldCancelForScroll(_ value: DragGesture.Value) -> Bool {
+    private func shouldCancelForScroll(_ offset: CGSize) -> Bool {
         // Cancel if vertical movement exceeds threshold (user is trying to scroll)
-        abs(value.translation.height) > Self.scrollDetectionThreshold &&
-        abs(value.translation.height) > abs(value.translation.width)
+        abs(offset.height) > Self.scrollDetectionThreshold &&
+        abs(offset.height) > abs(offset.width)
     }
 
-    private func isInsideBounds(_ value: DragGesture.Value) -> Bool {
-        max(abs(value.translation.width), abs(value.translation.height)) < Self.cancelThreshold
+    private func isInsideBounds(_ offset: CGSize) -> Bool {
+        max(abs(offset.width), abs(offset.height)) < Self.cancelThreshold
+    }
+
+    private func track(_ offset: CGSize) {
+        // Cancel immediately if user is trying to scroll
+        if shouldCancelForScroll(offset) {
+            isPressed = false
+            return
+        }
+        let inside = isInsideBounds(offset)
+        if inside && !isPressed {
+            Self.haptic.impactOccurred()
+            sound.play()
+        }
+        isPressed = inside
     }
 
     func body(content: Content) -> some View {
@@ -157,32 +149,17 @@ struct InstantPress: ViewModifier {
                         .fill(highlightColor)
                     : nil
             )
-            .contentShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
-            .simultaneousGesture(
-                DragGesture(minimumDistance: 0, coordinateSpace: .local)
-                    .onChanged { value in
-                        // Cancel immediately if user is trying to scroll
-                        if shouldCancelForScroll(value) {
-                            isPressed = false
-                            return
-                        }
-                        
-                        let inside = isInsideBounds(value)
-                        if inside && !isPressed {
-                            Self.haptic.impactOccurred()
-                            sound.play()
-                        }
-                        isPressed = inside
-                    }
-                    .onEnded { value in
-                        let shouldFire = isPressed &&
-                                       isInsideBounds(value) &&
-                                       !shouldCancelForScroll(value)
+            .overlay(
+                KeyTouchSurface(
+                    onDown: { track(.zero) },
+                    onMove: { track($0) },
+                    onUp: { offset in
+                        let shouldFire = isPressed && isInsideBounds(offset) && !shouldCancelForScroll(offset)
                         isPressed = false
-                        if shouldFire {
-                            onPress()
-                        }
-                    }
+                        if shouldFire { onPress() }
+                    },
+                    onCancel: { isPressed = false }
+                )
             )
     }
 }
@@ -220,10 +197,11 @@ struct KeyboardButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .overlay(
-                configuration.isPressed
-                    ? RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                        .fill(highlightColor)
-                    : nil
+                // On and off at once, as Apple's keys: the tap's own spring (showCopied) must not fade it out.
+                RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+                    .fill(highlightColor)
+                    .opacity(configuration.isPressed ? 1 : 0)
+                    .transaction { $0.animation = nil }
             )
             .onChange(of: configuration.isPressed) {
                 if configuration.isPressed {
@@ -331,6 +309,21 @@ class KeyboardViewController: UIInputViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         launchLog.log("viewDidAppear at \(msSinceProcessStart()) ms, height \(self.view.bounds.height)")
+        deliverTouchesAtOnce()
+    }
+
+    /// The keyboard window's system gesture gates (_UISystemGestureGate, _UIHomeAffordanceGate) hold a touch's start
+    /// and end until they rule out a system swipe: filmed on the iOS 27.2 simulator (ASG159), a cutling key at the
+    /// screen's edge lit about 120 ms after touch-down and delete once stayed lit and repeating 0.5 s after the finger
+    /// left. Apple's keys answer at once; letting the gates watch without holding the touch does the same (touches
+    /// then reach the keys within 20 ms), as azooKey's keyboard does for the start (MIT, github.com/azooKey/azooKey,
+    /// Keyboard/Display/KeyboardViewController.swift, viewDidAppear). A touch a gate then claims arrives cancelled,
+    /// which InstantPress and BackspaceRepeat clear (KeyTouchSurface.swift).
+    private func deliverTouchesAtOnce() {
+        view.window?.gestureRecognizers?.forEach {
+            $0.delaysTouchesBegan = false
+            $0.delaysTouchesEnded = false
+        }
     }
 
     override func viewWillLayoutSubviews() {
@@ -826,7 +819,7 @@ struct ReturnKeyInfo {
 /// Replicates native iOS keyboard backspace behavior:
 /// 1. Delete one character immediately on press
 /// 2. After initial delay (~0.5s), delete character-by-character
-/// 3. After acceleration threshold (~1.8s of holding), delete word-by-word
+/// 3. After 2 s of repeating, delete two words at a time
 struct BackspaceRepeat: ViewModifier {
     let cornerRadius: CGFloat
     let onDelete: () -> Bool
@@ -839,11 +832,12 @@ struct BackspaceRepeat: ViewModifier {
 
     private static let haptic = UIImpactFeedbackGenerator(style: .light)
 
-    // Timing constants matching native keyboard feel
+    // Apple's keyboard, filmed holding delete over 96 characters (iOS 27.2 simulator, ASG159): one character on
+    // touch-down, the repeat 0.5 s later, a character every 100 ms for 2 s, then two words every 350 ms.
     private static let initialDelay: Duration = .milliseconds(500)
-    private static let charRepeatInterval: Duration = .milliseconds(120)
-    private static let wordPhaseThreshold: Duration = .milliseconds(1800)
-    private static let wordRepeatInterval: Duration = .milliseconds(400)
+    private static let charRepeatInterval: Duration = .milliseconds(100)
+    private static let wordPhaseThreshold: Duration = .milliseconds(2000)
+    private static let wordRepeatInterval: Duration = .milliseconds(350)
 
     private static let cancelThreshold: CGFloat = 40
     private static let scrollDetectionThreshold: CGFloat = 8
@@ -852,6 +846,28 @@ struct BackspaceRepeat: ViewModifier {
         colorScheme == .dark
             ? Color.white.opacity(0.3)
             : Color.black.opacity(0.25)
+    }
+
+    private func track(_ offset: CGSize) {
+        let shouldCancel =
+            abs(offset.height) > Self.scrollDetectionThreshold &&
+            abs(offset.height) > abs(offset.width)
+        let inside = max(abs(offset.width), abs(offset.height)) < Self.cancelThreshold
+
+        if shouldCancel || !inside {
+            releaseBackspace()
+            return
+        }
+
+        if !isPressed {
+            isPressed = true
+            isHighlighted = true
+            Self.haptic.impactOccurred()
+            KeyboardSound.delete.play()
+            if onDelete() {
+                startRepeat()
+            }
+        }
     }
 
     func body(content: Content) -> some View {
@@ -863,33 +879,14 @@ struct BackspaceRepeat: ViewModifier {
                         .fill(highlightColor)
                     : nil
             )
-            .contentShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
-            .simultaneousGesture(
-                DragGesture(minimumDistance: 0, coordinateSpace: .local)
-                    .onChanged { value in
-                        let shouldCancel =
-                            abs(value.translation.height) > Self.scrollDetectionThreshold &&
-                            abs(value.translation.height) > abs(value.translation.width)
-                        let inside = max(abs(value.translation.width), abs(value.translation.height)) < Self.cancelThreshold
-
-                        if shouldCancel || !inside {
-                            releaseBackspace()
-                            return
-                        }
-
-                        if !isPressed {
-                            isPressed = true
-                            isHighlighted = true
-                            Self.haptic.impactOccurred()
-                            KeyboardSound.delete.play()
-                            if onDelete() {
-                                startRepeat()
-                            }
-                        }
-                    }
-                    .onEnded { _ in
-                        releaseBackspace()
-                    }
+            // Read from UIKit, as InstantPress; a cancelled touch stops the repeat too.
+            .overlay(
+                KeyTouchSurface(
+                    onDown: { track(.zero) },
+                    onMove: { track($0) },
+                    onUp: { _ in releaseBackspace() },
+                    onCancel: { releaseBackspace() }
+                )
             )
     }
 
