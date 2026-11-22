@@ -1,0 +1,50 @@
+{
+ "E1": {
+  "text": "Skrevet én gang for alle",
+  "back": "Written once and for all",
+  "chars": 24,
+  "note": "'Én gang for alle' is the Danish idiom for once and for all, and read word by word it also says 'one time, for everyone'; no word for update under the badge. Danish has no title case."
+ },
+ "E2": {
+  "text": "Du gemmer ét svar, og navnet skifter hver gang.",
+  "back": "You save one reply, and the name changes every time.",
+  "chars": 47,
+  "note": "du as in the app; 'ét' with the accent is the numeral one, so 'a single one' is in the word itself."
+ },
+ "E3": {
+  "text": "Cutling spørger om navnet, indsætter selv datoen og skriver resten. Du skriver svaret én gang og retter det aldrig igen.",
+  "back": "Cutling asks for the name, inserts the date itself and types the rest. You write the reply one time and never correct it again.",
+  "chars": 120,
+  "note": "'skriver' is the app's own verb for Cutling typing; 'dags dato' (today's date) and 'i hånden' (by hand) did not fit in 120."
+ },
+ "E3s": {
+  "text": "Cutling spørger om navnet, indsætter selv datoen og skriver resten. Du skriver kun én gang. På tilbud til Black Friday.",
+  "back": "Cutling asks for the name, inserts the date itself and types the rest. You write only one time. On offer for Black Friday.",
+  "chars": 119,
+  "note": "'På tilbud' is the shop word for on sale; Danish shops say Black Friday in English; the last sentence is elliptical like a shop sign."
+ },
+ "E2s": {
+  "text": "Ét svar med et nyt navn hver gang. Nu på tilbud.",
+  "back": "One reply with a new name every time. On offer now.",
+  "chars": 48,
+  "note": "Two short statements; 'Ét' is the numeral one."
+ },
+ "N_ios": {
+  "text": "Du skriver et svar én gang, og så passer det til alle, du sender det til. En cutling kan nu have et felt til det, der skifter, for eksempel et navn eller et ordrenummer. Når du trykker på sådan en cutling, spørger Cutling-tastaturet om navnet, viser de navne, du har brugt før, så ét tryk er nok, og skriver så hele svaret. Du kan også skrive navnet først og derefter trykke på cutlingen.\n\nDatoer skal du ikke gøre noget ved. En cutling kan indeholde dags dato, datoen i morgen, datoen om en uge eller klokkeslættet, og det passer den dag, du bruger den. Den kan også lade dig vælge mellem et par muligheder, for eksempel Basis og Premium, indsætte den tekst, du sidst kopierede, eller efterlade markøren dér, hvor du vil skrive videre. Det hele ligger under knappen ”Variabler”, når du redigerer en cutling. Krøllede parenteser, du selv har skrevet, er stadig almindelig tekst, så de cutlings, du allerede har, virker, som de plejer.\n\nDu skriver en cutling, ligesom du skriver i Apples app Noter, så der er ikke noget nyt at lære. Teksten i en cutling åbner nu som sin egen side med fed, kursiv, understreget, gennemstreget, markering, skrift med fast bredde, links og lister med punkter, tankestreger eller tal.\n\nDer er langt mere plads. Du kan gemme 5.000 tekst-cutlings og 500 billeder, hvor det før var 100 og 25. En enkelt cutling kan være op til 10.000 tegn, og det er nok til en hel mail.\n\nAlle taster på Cutling-tastaturet skriver nu. Trykker du på en formateret cutling, bliver den skrevet som alle andre. Holder du den nede, bliver den kopieret med formateringen i behold.\n\nHvis du aldrig blev færdig med at tilføje Cutling-tastaturet, så åbn ”Tastaturopsætning” i Cutling. Den nye guide viser de tre trin i appen Indstillinger som en kort video.",
+  "back": "You write a reply one time, and then it fits everyone you send it to. A cutling can now have a field for the part that changes, for example a name or an order number. When you tap such a cutling, the Cutling keyboard asks for the name, shows the names you have used before, so one tap is enough, and then types the whole reply. You can also write the name first and then tap the cutling.\n\nDates you don't have to do anything about. A cutling can contain today's date, tomorrow's date, the date in a week or the time of day, and it is right on the day you use it. It can also let you choose between a couple of options, for example Basis and Premium, insert the text you copied last, or leave the cursor where you want to keep writing. All of it is under the \"Variabler\" button when you edit a cutling. Curly brackets you wrote yourself are still ordinary text, so the cutlings you already have work as they usually do.\n\nYou write a cutling just as you write in Apple's Noter app, so there is nothing new to learn. The text in a cutling now opens as its own page with bold, italic, underlined, struck through, highlighting, fixed-width type, links and lists with bullets, dashes or numbers.\n\nThere is far more room. You can save 5,000 text cutlings and 500 images, where it used to be 100 and 25. A single cutling can be up to 10,000 characters, and that is enough for a whole email.\n\nAll keys on the Cutling keyboard now type. If you tap a formatted cutling, it is typed like all the others. If you hold it down, it is copied with the formatting intact.\n\nIf you never finished adding the Cutling keyboard, open \"Tastaturopsætning\" in Cutling. The new guide shows the three steps in the Indstillinger app as a short video.",
+  "chars": 1757,
+  "note": "du throughout; 'felt' is the in-app What's New row's word for the gap; 'tryk på' is a tap and 'skriver' is typing, as in the app; comma before every subordinate clause (startkomma), as the app's strings write."
+ },
+ "N_mac": {
+  "text": "Du skriver et svar én gang, og så passer det til alle, du sender det til. En cutling kan nu have et felt til det, der skifter, for eksempel et navn eller et ordrenummer. Når du vælger sådan en cutling med ⌘⇧V, spørger en kort formular om navnet, før den bliver indsat, og de navne, du har brugt før, er ét klik væk.\n\nDatoer skal du ikke gøre noget ved. En cutling kan indeholde dags dato, datoen i morgen, datoen om en uge eller klokkeslættet, og det passer den dag, du bruger den. Den kan også lade dig vælge mellem et par muligheder, for eksempel Basis og Premium, eller indsætte den tekst, du sidst kopierede. Det hele ligger under knappen ”Tilføj variabel”, som sidder lige under teksten, når du redigerer en cutling. Krøllede parenteser, du selv har skrevet, er stadig almindelig tekst, så de cutlings, du allerede har, bliver indsat, som de plejer.\n\nDer er langt mere plads. Du kan gemme 5.000 tekst-cutlings og 500 billeder, hvor det før var 100 og 25. En enkelt cutling kan være op til 10.000 tegn, og det er nok til en hel mail.",
+  "back": "You write a reply one time, and then it fits everyone you send it to. A cutling can now have a field for the part that changes, for example a name or an order number. When you pick such a cutling with ⌘⇧V, a short form asks for the name before it is pasted, and the names you have used before are one click away.\n\nDates you don't have to do anything about. A cutling can contain today's date, tomorrow's date, the date in a week or the time of day, and it is right on the day you use it. It can also let you choose between a couple of options, for example Basis and Premium, or insert the text you copied last. All of it is under the \"Tilføj variabel\" button, which sits right below the text when you edit a cutling. Curly brackets you wrote yourself are still ordinary text, so the cutlings you already have are pasted as they usually are.\n\nThere is far more room. You can save 5,000 text cutlings and 500 images, where it used to be 100 and 25. A single cutling can be up to 10,000 characters, and that is enough for a whole email.",
+  "chars": 1037,
+  "note": "Same voice as iOS; 'indsætte' is the app's word for paste; 'formular' is common gender in Danish ('en kort formular')."
+ },
+ "glossary": {
+  "Variables": "Variabler",
+  "Add Variable": "Tilføj variabel",
+  "Ask Each Time": "Spørg hver gang",
+  "Choice": "Valg"
+ }
+}

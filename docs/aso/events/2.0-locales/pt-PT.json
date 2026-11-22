@@ -1,0 +1,50 @@
+{
+  "E1": {
+    "text": "Só se escreve uma vez",
+    "back": "You only write it once (literally: it is only written once)",
+    "chars": 21,
+    "note": "Sentence case; impersonal 'se', because a bare 'Escreve' would read in Portugal as a command in tu; it echoes the common saying 'só se vive uma vez' (you only live once). No word for 'update' under the badge."
+  },
+  "E2": {
+    "text": "Uma resposta guardada uma vez. O nome muda sempre.",
+    "back": "One reply saved once. The name always changes.",
+    "chars": 50,
+    "note": "Two statements with no verb in the second person, which keeps the app's formal register without 'você'; 'sempre' stands for 'each time'."
+  },
+  "E3": {
+    "text": "O Cutling pede o nome, põe a data de hoje e escreve o resto. A resposta escreve-se uma vez e acabam as correções à mão.",
+    "back": "Cutling asks for the name, puts in today's date and types the rest. The reply is written once and the corrections by hand are over.",
+    "chars": 119,
+    "note": "Second sentence is impersonal because a third-person 'Escreve a resposta' right after 'o Cutling escreve' would read as Cutling writing it; 'by itself' rests on Cutling being the subject."
+  },
+  "E3s": {
+    "text": "O Cutling pede o nome, põe a data de hoje e escreve o resto. Escrever uma vez chega. E está em promoção na Black Friday.",
+    "back": "Cutling asks for the name, puts in today's date and types the rest. Writing once is enough. And it is on sale on Black Friday.",
+    "chars": 120,
+    "note": "Shoppers in Portugal say 'Black Friday' ('na Black Friday') and 'em promoção'; second sentence avoids repeating the event name word for word."
+  },
+  "E2s": {
+    "text": "Uma resposta, sempre com outro nome. Em promoção.",
+    "back": "One reply, always with another name. On sale.",
+    "chars": 49,
+    "note": "'Agora' (now) did not fit 50; 'Em promoção.' as a closing fragment reads as on sale now."
+  },
+  "N_ios": {
+    "text": "Basta escrever uma resposta uma única vez para ela servir a todas as pessoas a quem a envia. Um cutling pode agora ter um espaço em branco para a parte que muda, como o nome da pessoa ou o número da encomenda. Ao tocar nesse cutling, o teclado Cutling pergunta o nome, mostra os nomes que já usou, para escolher um com um toque, e escreve a resposta completa. Também pode escrever primeiro o nome e só depois tocar no cutling.\n\nAs datas não lhe dão trabalho nenhum. Um cutling pode levar a data de hoje, a de amanhã, a de daqui a uma semana ou a hora, e sai tudo certo no dia em que for usado. Pode também dar a escolher entre opções (plano Base ou plano Premium, por exemplo), ir buscar o último texto que copiou ou deixar o cursor no sítio onde quer continuar a escrever. Está tudo no botão “Variáveis”, ao editar um cutling. As chavetas escritas por si continuam a ser texto normal, pelo que os cutlings que já tem funcionam como antes.\n\nUm cutling escreve-se como se escreve na app Notas, sem nada de novo para aprender. O texto do cutling abre agora numa página própria, com negrito, itálico, sublinhado, rasurado, realce, monoespaçado, ligações e listas com marcadores, com travessões e numeradas.\n\nCabe muito mais. São 5000 cutlings de texto e 500 imagens, onde antes cabiam 100 e 25, e cada cutling pode ter até 10 000 caracteres, o que chega para um e-mail inteiro.\n\nTodas as teclas do teclado Cutling passaram a escrever. Um cutling formatado escreve-se com um toque, como qualquer outro; se o mantiver premido, é copiado com a formatação.\n\nSe nunca chegou a acabar de adicionar o teclado Cutling, abra “Configuração do teclado” no Cutling. O novo guia mostra, num vídeo curto, os três passos a dar na app Definições.",
+    "back": "It is enough to write a reply one single time for it to serve all the people you send it to. A cutling can now have a blank space for the part that changes, such as the person's name or the order number. On tapping that cutling, the Cutling keyboard asks the name, shows the names you have already used, to pick one with a tap, and types the complete reply. You can also type the name first and only then tap the cutling.\n\nDates give you no work at all. A cutling can carry today's date, tomorrow's, the one a week from now or the time, and it all comes out right on the day it is used. It can also let you choose between options (Base plan or Premium plan, for example), fetch the last text you copied or leave the cursor at the place where you want to keep typing. It is all in the “Variables” button, when editing a cutling. The curly braces written by you continue to be normal text, so the cutlings you already have work as before.\n\nA cutling is written the way one writes in the Notes app, with nothing new to learn. The cutling's text now opens in a page of its own, with bold, italic, underline, strikethrough, highlight, monospace, links and bulleted, dashed and numbered lists.\n\nMuch more fits. That is 5000 text cutlings and 500 images, where before 100 and 25 fit, and each cutling can have up to 10 000 characters, which is enough for a whole email.\n\nAll the keys of the Cutling keyboard have started to type. A formatted cutling is typed with a tap, like any other; if you keep it pressed, it is copied with the formatting.\n\nIf you never got to finish adding the Cutling keyboard, open “Keyboard Setup” in Cutling. The new guide shows, in a short video, the three steps to take in the Settings app.",
+    "chars": 1727,
+    "note": "Formal third person without 'você', as the app's strings ('abra', 'copiou'); 'a escrever', 'premido', 'encomenda', 'sítio', 'chavetas', 'Definições'; format and list names as the app's Format card ('rasurado', 'realce', 'ligações', 'com marcadores'). Gap is 'espaço em branco' as the in-app What's New heading, so room is said with 'cabe' to keep 'espaço' for one thing. 5000 without separator and 10 000 with a no-break space (U+00A0), as the system formats numbers for Portugal."
+  },
+  "N_mac": {
+    "text": "Basta escrever uma resposta uma única vez para ela servir a todas as pessoas a quem a envia. Um cutling pode agora ter um espaço em branco para a parte que muda, como o nome da pessoa ou o número da encomenda. Ao escolher esse cutling com ⌘⇧V, um pequeno formulário pergunta o nome antes de colar, e os nomes que já usou ficam à distância de um clique.\n\nAs datas não lhe dão trabalho nenhum: a de hoje, a de amanhã, a de daqui a uma semana ou a hora saem certas no dia em que o cutling for usado. Um cutling pode também dar a escolher entre opções (plano Base ou plano Premium, por exemplo) ou ir buscar o último texto que copiou. Está tudo no botão “Adicionar variável”, logo abaixo do texto ao editar um cutling. As chavetas escritas por si continuam a ser texto normal, pelo que os cutlings que já tem são colados como antes.\n\nE cabe muito mais. São 5000 cutlings de texto e 500 imagens, onde antes cabiam 100 e 25, e cada cutling pode ter até 10 000 caracteres, o que chega para um e-mail inteiro.",
+    "back": "It is enough to write a reply one single time for it to serve all the people you send it to. A cutling can now have a blank space for the part that changes, such as the person's name or the order number. On picking that cutling with ⌘⇧V, a small form asks the name before pasting, and the names you have already used are one click away.\n\nDates give you no work at all: today's, tomorrow's, the one a week from now or the time come out right on the day the cutling is used. A cutling can also let you choose between options (Base plan or Premium plan, for example) or fetch the last text you copied. It is all in the “Add Variable” button, right below the text when editing a cutling. The curly braces written by you continue to be normal text, so the cutlings you already have are pasted as before.\n\nAnd much more fits. That is 5000 text cutlings and 500 images, where before 100 and 25 fit, and each cutling can have up to 10 000 characters, which is enough for a whole email.",
+    "chars": 1001,
+    "note": "Same voice as iPhone; 'clique' and 'colar' for the Mac; button quoted as “Adicionar variável”, sentence case as Apple uses in Portugal."
+  },
+  "glossary": {
+    "Variables": "Variáveis",
+    "Add Variable": "Adicionar variável",
+    "Ask Each Time": "Perguntar sempre",
+    "Choice": "Escolha"
+  }
+}

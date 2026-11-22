@@ -1,0 +1,50 @@
+{
+ "E1": {
+  "text": "Ho escrius un cop i prou",
+  "back": "You write it once and that's that",
+  "chars": 24,
+  "note": "Said as you would tell a friend, in the indicative (not the imperative 'escriu-ho'), so it is no instruction; 'i prou' carries 'and never again'. No 'actualització' because the badge above says it. Catalan capitalises only the first word."
+ },
+ "E2": {
+  "text": "Una sola resposta desada, cada cop un altre nom.",
+  "back": "A single saved reply, each time another name.",
+  "chars": 48,
+  "note": "One verbless sentence in two beats, a statement of fact; 'una sola ... desada' carries 'saved a single time'."
+ },
+ "E3": {
+  "text": "Cutling demana el nom, posa la data d’avui tot sol i escriu la resta. Escrius la resposta un cop i ja no la retoques.",
+  "back": "Cutling asks for the name, puts in today's date all by itself and writes the rest. You write the reply once and you no longer touch it up.",
+  "chars": 117,
+  "note": "'tu' form as the app's Catalan strings use. 'retocar' is what a person says for fixing a pasted text by hand, so 'a mà' is not needed. 'demana ... posa ... i escriu' keeps the order: it asks before it writes."
+ },
+ "E3s": {
+  "text": "Cutling demana el nom, posa la data d’avui tot sol i escriu la resta. Ho escrius un cop. Ara, d’oferta pel Black Friday.",
+  "back": "Cutling asks for the name, puts in today's date all by itself and writes the rest. You write it once. Now, on offer for Black Friday.",
+  "chars": 120,
+  "note": "Catalan shoppers and shops say 'Black Friday' untranslated, with 'd’oferta' for 'on sale'. The third sentence has no verb, as Catalan shop copy writes it, which keeps the line at the limit."
+ },
+ "E2s": {
+  "text": "Una resposta, un nom nou cada cop. Ara, d’oferta.",
+  "back": "One reply, a new name each time. Now, on offer.",
+  "chars": 49,
+  "note": "Two short verbless statements; same 'Ara, d’oferta' as the long sale version so the sale has one wording."
+ },
+ "N_ios": {
+  "text": "Escrius una resposta un sol cop i et serveix per a tothom a qui l’envies. Des d’ara, un cutling pot tenir un espai buit per a la part que canvia: un nom o un número de comanda, per exemple. Quan toques aquest cutling, el teclat de Cutling et demana el nom i t’ensenya els que ja has fet servir, perquè en triïs un amb un sol toc; després escriu la resposta sencera. També pots escriure primer el nom i tocar després el cutling.\n\nDe les dates no te n’has d’ocupar. Un cutling pot portar la data d’avui, la de demà, la d’aquí a una setmana o l’hora, i surt la correcta el dia que el fas servir. També et pot donar a triar entre opcions (per exemple, el pla Bàsic o el pla Pro), afegir l’últim text que has copiat o deixar el cursor al punt on vols continuar escrivint. Tot això ho trobaràs al botó “Variables” mentre edites un cutling. Les claus que has escrit tu continuen sent text normal, així que els cutlings que ja tens funcionen com sempre.\n\nPots escriure un cutling igual que escrius a l’app Notes d’Apple, sense haver d’aprendre res de nou. El text del cutling ara s’obre en una pàgina pròpia, amb negreta, cursiva, subratllat, ratllat, ressaltat, lletra monoespaiada, enllaços i llistes amb pics, amb guions i numerades.\n\nHi caben molts més cutlings: 5.000 de text i 500 d’imatge, quan abans eren 100 i 25. Un sol cutling pot arribar als 10.000 caràcters, prou per a un correu sencer.\n\nAra totes les tecles del teclat de Cutling escriuen. Si toques un cutling amb format, s’escriu com qualsevol altre. Si el mantens premut, es copia amb el format.\n\nSi no vas acabar d’afegir el teclat de Cutling, obre “Configuració del teclat” a Cutling. La guia nova t’ensenya els tres passos de l’app Configuració en un vídeo curt.",
+  "back": "You write a reply a single time and it serves you for everyone you send it to. From now on, a cutling can have an empty space for the part that changes: a name or an order number, for example. When you tap this cutling, the Cutling keyboard asks you for the name and shows you the ones you have already used, so that you pick one with a single tap; then it writes the whole reply. You can also write the name first and tap the cutling afterwards.\n\nYou do not have to take care of the dates. A cutling can carry today's date, tomorrow's, the one a week from now or the time, and the correct one comes out on the day you use it. It can also give you a choice between options (for example, the Basic plan or the Pro plan), add the last text you copied or leave the cursor at the point where you want to keep writing. You will find all of this at the “Variables” button while you edit a cutling. The braces you wrote yourself go on being normal text, so the cutlings you already have work as always.\n\nYou can write a cutling just as you write in Apple's Notes app, without having to learn anything new. The cutling's text now opens in a page of its own, with bold, italic, underline, strikethrough, highlight, monospaced type, links and bulleted, dashed and numbered lists.\n\nMany more cutlings fit: 5,000 of text and 500 of image, when before it was 100 and 25. A single cutling can reach 10,000 characters, enough for a whole email.\n\nNow all the keys of the Cutling keyboard write. If you tap a cutling with formatting, it is written like any other. If you keep it pressed, it is copied with the formatting.\n\nIf you did not finish adding the Cutling keyboard, open “Keyboard Setup” in Cutling. The new guide shows you the three steps of the Settings app in a short video.",
+  "chars": 1725,
+  "note": "'tu' throughout, as the app addresses the user. Settings is 'Configuració', the name Catalan iOS gives the app, and Notes is 'Notes'. Button names sit in “ ” as Apple's Catalan guides quote them. Weak pronouns ('te n’has', 'en triïs', 'hi caben') are used where Catalan needs them and a translation tends to drop them."
+ },
+ "N_mac": {
+  "text": "Escrius una resposta un sol cop i et serveix per a tothom a qui l’envies. Des d’ara, un cutling pot tenir un espai buit per a la part que canvia: un nom o un número de comanda, per exemple. Quan tries aquest cutling amb ⌘⇧V, un formulari breu et demana el nom abans d’enganxar-lo, i els noms que ja has fet servir els tens a un clic.\n\nDe les dates no te n’has d’ocupar: la data d’avui, la de demà, la d’aquí a una setmana o l’hora surten bé el dia que fas servir el cutling. Un cutling també et pot donar a triar entre opcions (per exemple, el pla Bàsic o el pla Pro) o afegir l’últim text que has copiat. Tot això és al botó “Afegeix una variable”, just a sota del text mentre edites un cutling. Les claus que has escrit tu continuen sent text normal, així que els cutlings que ja tens s’enganxen com sempre.\n\nHi caben molts més cutlings: 5.000 de text i 500 d’imatge, quan abans eren 100 i 25. Un sol cutling pot arribar als 10.000 caràcters, prou per a un correu sencer.",
+  "back": "You write a reply a single time and it serves you for everyone you send it to. From now on, a cutling can have an empty space for the part that changes: a name or an order number, for example. When you choose this cutling with ⌘⇧V, a brief form asks you for the name before pasting it, and the names you have already used are one click away.\n\nYou do not have to take care of the dates: today's date, tomorrow's, the one a week from now or the time come out right on the day you use the cutling. A cutling can also give you a choice between options (for example, the Basic plan or the Pro plan) or add the last text you copied. All of this is at the “Add a variable” button, just below the text while you edit a cutling. The braces you wrote yourself go on being normal text, so the cutlings you already have are pasted as always.\n\nMany more cutlings fit: 5,000 of text and 500 of image, when before it was 100 and 25. A single cutling can reach 10,000 characters, enough for a whole email.",
+  "chars": 973,
+  "note": "Same voice as the iPhone text with 'clic' and 'enganxar' as the app's Mac strings have them; 'a un clic' is a phrase Catalan uses natively."
+ },
+ "glossary": {
+  "Variables": "Variables",
+  "Add Variable": "Afegeix una variable",
+  "Ask Each Time": "Pregunta cada vegada",
+  "Choice": "Elecció"
+ }
+}

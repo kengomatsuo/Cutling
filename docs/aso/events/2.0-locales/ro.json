@@ -1,0 +1,50 @@
+{
+  "E1": {
+    "text": "Scrii o singură dată",
+    "back": "You write a single time",
+    "chars": 20,
+    "note": "Second person singular, informal 'tu' as in the app; a statement, since Romanian imperative would be 'Scrie'. No word for 'update' under the badge. Romanian has no title case."
+  },
+  "E2": {
+    "text": "Un răspuns salvat o dată. Mereu cu alt nume.",
+    "back": "One reply saved once. Always with another name.",
+    "chars": 44,
+    "note": "Two verbless statements; 'alt nume' (another name) already implies another person, so 'person' is left out."
+  },
+  "E3": {
+    "text": "Cutling îți cere numele, pune singur data de azi și scrie restul. Scrii răspunsul o dată și nu-l mai corectezi manual.",
+    "back": "Cutling asks you for the name, puts in today's date by itself and writes the rest. You write the reply once and you no longer correct it manually.",
+    "chars": 118,
+    "note": "App name without article, as the app's strings use it. 'manual' rather than 'de mână', which in Romanian suggests handwriting. 'data de azi' is the app's own term for today's date."
+  },
+  "E3s": {
+    "text": "Cutling îți cere numele, pune singur data de azi și scrie restul. Scrii o dată. De Black Friday, Cutling e la reducere.",
+    "back": "Cutling asks you for the name, puts in today's date by itself and writes the rest. You write once. For Black Friday, Cutling is on sale.",
+    "chars": 119,
+    "note": "Same first sentence as E3. Romanian shoppers say 'Black Friday' in English and 'la reducere' for on sale; no price word."
+  },
+  "E2s": {
+    "text": "Un răspuns, mereu cu alt nume. Acum la reducere.",
+    "back": "One reply, always with another name. Now on sale.",
+    "chars": 48,
+    "note": "Verbless card style, same sale word as E3s."
+  },
+  "N_ios": {
+    "text": "Scrii un răspuns o singură dată și e bun pentru toți cei cărora îl trimiți. Un cutling poate avea acum un spațiu gol pentru partea care se schimbă, de pildă un nume sau un număr de comandă. Când atingi un astfel de cutling, tastatura Cutling îți cere numele, îți arată numele folosite înainte, ca să alegi unul dintr-o atingere, apoi scrie răspunsul întreg. Poți și să scrii întâi numele și abia apoi să atingi cutling-ul.\n\nCu datele nu ai nimic de făcut. Un cutling poate conține data de azi, cea de mâine, cea de peste o săptămână sau ora, iar ce apare e corect în ziua în care îl folosești. Un cutling îți poate da și de ales între mai multe variante (de exemplu planul Standard sau Premium), poate aduce ultimul text copiat sau poate lăsa cursorul acolo unde vrei să scrii mai departe. Pe toate le găsești sub butonul „Variabile”, când editezi un cutling. Acoladele pe care le-ai tastat chiar tu rămân text obișnuit, așa că toate cutling-urile pe care le ai deja merg ca până acum.\n\nPoți scrie un cutling așa cum scrii în aplicația Notițe de la Apple, fără să înveți nimic nou. Textul cutling-ului se deschide acum pe o pagină separată, cu aceste formate: aldin, cursiv, subliniat, text tăiat, evidențiere, lățime fixă, linkuri și liste cu buline, cu liniuțe sau numerotate.\n\nAi mult mai mult loc. Încap 5.000 de cutling-uri text și 500 de imagini, față de 100 și 25 până acum. Un cutling poate avea până la 10.000 de caractere, cât un e-mail întreg.\n\nPe tastatura Cutling, acum fiecare tastă scrie. Dacă atingi un cutling formatat, se scrie la fel ca oricare altul. Dacă îl ții apăsat, se copiază cu tot cu formatare.\n\nDacă n-ai apucat să termini de adăugat tastatura Cutling, deschide „Configurare tastatură” în Cutling. Noul ghid îți arată într-un videoclip scurt cei trei pași din aplicația Configurări.",
+    "back": "You write a reply a single time and it is good for all those you send it to. A cutling can now have an empty space for the part that changes, for instance a name or an order number. When you tap such a cutling, the Cutling keyboard asks you for the name, shows you the names used before, so that you choose one with a single tap, then writes the whole reply. You can also write the name first and only then tap the cutling.\n\nWith dates you have nothing to do. A cutling can contain today's date, tomorrow's, the one a week from now or the time, and what appears is correct on the day you use it. A cutling can also let you choose between several options (for example the Standard or Premium plan), can bring in the last copied text or can leave the cursor where you want to keep writing. You find all of them under the \"Variabile\" (Variables) button, when you edit a cutling. The curly braces you typed yourself remain ordinary text, so all the cutlings you already have work as until now.\n\nYou can write a cutling the way you write in the Notes app from Apple, without learning anything new. The cutling's text now opens on a separate page, with these formats: bold, italic, underlined, struck-through text, highlight, fixed width, links and lists with bullets, with dashes or numbered.\n\nYou have much more room. 5,000 text cutlings and 500 images fit, compared with 100 and 25 until now. A cutling can have up to 10,000 characters, as much as a whole email.\n\nOn the Cutling keyboard, every key now writes. If you tap a formatted cutling, it is written the same as any other. If you hold it pressed, it is copied together with its formatting.\n\nIf you did not get to finish adding the Cutling keyboard, open \"Configurare tastatură\" (Keyboard Setup) in Cutling. The new guide shows you in a short video the three steps in the Settings app.",
+    "chars": 1811,
+    "note": "Informal 'tu'. 'cutling' lower case with the hyphenated article and plural the app uses (cutling-ul, cutling-uri). Gap is 'spațiu gol' from the app's 'Spații și date' row. Format names are the app's Format card words. Numbers grouped with a full stop and followed by 'de' (5.000 de). Settings is named 'Configurări', the name iOS shows in Romanian."
+  },
+  "N_mac": {
+    "text": "Scrii un răspuns o singură dată și e bun pentru toți cei cărora îl trimiți. Un cutling poate avea acum un spațiu gol pentru partea care se schimbă, de pildă un nume sau un număr de comandă. Când alegi un astfel de cutling cu ⌘⇧V, un formular scurt îți cere numele înainte de lipire, iar numele folosite înainte sunt la un clic distanță.\n\nCu datele nu ai nimic de făcut: data de azi, cea de mâine, cea de peste o săptămână sau ora apar corect în ziua în care folosești cutling-ul. Un cutling îți poate da și de ales între mai multe variante (de exemplu planul Standard sau Premium) sau poate aduce ultimul text copiat. Pe toate le găsești sub butonul „Adaugă o variabilă”, aflat chiar sub text când editezi un cutling. Acoladele pe care le-ai tastat chiar tu rămân text obișnuit, așa că toate cutling-urile pe care le ai deja se lipesc ca până acum.\n\nAi mult mai mult loc: 5.000 de cutling-uri text și 500 de imagini, față de 100 și 25 până acum. Un cutling poate avea până la 10.000 de caractere, cât un e-mail întreg.",
+    "back": "You write a reply a single time and it is good for all those you send it to. A cutling can now have an empty space for the part that changes, for instance a name or an order number. When you choose such a cutling with ⌘⇧V, a short form asks you for the name before pasting, and the names used before are one click away.\n\nWith dates you have nothing to do: today's date, tomorrow's, the one a week from now or the time appear correctly on the day you use the cutling. A cutling can also let you choose between several options (for example the Standard or Premium plan) or can bring in the last copied text. You find all of them under the \"Adaugă o variabilă\" (Add Variable) button, located right under the text when you edit a cutling. The curly braces you typed yourself remain ordinary text, so all the cutlings you already have paste as until now.\n\nYou have much more room: 5,000 text cutlings and 500 images, compared with 100 and 25 until now. A cutling can have up to 10,000 characters, as much as a whole email.",
+    "chars": 1018,
+    "note": "Same voice; 'clic' for the Mac, 'se lipesc' (paste) in the reassurance."
+  },
+  "glossary": {
+    "Variables": "Variabile",
+    "Add Variable": "Adaugă o variabilă",
+    "Ask Each Time": "Întreabă de fiecare dată",
+    "Choice": "Alegere"
+  }
+}

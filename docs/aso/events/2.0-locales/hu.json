@@ -1,0 +1,50 @@
+{
+  "E1": {
+    "text": "Egyszer megírod, és kész",
+    "back": "You write it once, and that's it",
+    "chars": 24,
+    "note": "Second person indicative, informal (tegezés) as in the app; 'és kész' is the everyday way to say nothing more is ever needed. No word for 'update', since the badge above already says it. Hungarian has no title case."
+  },
+  "E2": {
+    "text": "Egy válasz, egyszer mentve. Mindig más névre szól.",
+    "back": "One reply, saved once. It is always addressed to a different name.",
+    "chars": 50,
+    "note": "'névre szól' is the set phrase for something made out to a named person, so no word for 'person' is needed. Exactly 50 characters."
+  },
+  "E3": {
+    "text": "A Cutling elkéri a nevet, a dátumot maga tudja, a többit beírja. A választ egyszer írod meg, többé nem javítod kézzel.",
+    "back": "Cutling asks for the name, knows the date itself, types in the rest. You write the reply once, you no longer correct it by hand.",
+    "chars": 118,
+    "note": "Three clauses in the order things happen, so asking comes before typing. 'a dátumot maga tudja' (knows the date itself) stands for putting in the current date unprompted; 'mai' (today's) did not fit. App name takes the article, as in the app's strings."
+  },
+  "E3s": {
+    "text": "A Cutling elkéri a nevet, a dátumot maga tudja, a többit beírja. Egyszer írod meg. Black Friday van, a Cutling akciós.",
+    "back": "Cutling asks for the name, knows the date itself, types in the rest. You write it once. It is Black Friday, Cutling is on sale.",
+    "chars": 118,
+    "note": "Same first sentence as E3. Hungarian shops write 'Black Friday' in English, and saying 'Black Friday van' avoids putting a Hungarian case ending on it. 'akciós' is the shoppers' word for on sale and names no price."
+  },
+  "E2s": {
+    "text": "Egy válasz, mindig más névvel. Most akciós.",
+    "back": "One reply, always with a different name. On sale now.",
+    "chars": 43,
+    "note": "Two verbless statements, the way a shop card is written in Hungarian."
+  },
+  "N_ios": {
+    "text": "Egy választ elég egyszer megírnod, és mindenkinek jó, akinek elküldöd. A cutlingban mostantól üres helyet hagyhatsz annak, ami változik, például a névnek vagy a rendelésszámnak. Ha rákoppintasz egy ilyen cutlingra, a Cutling billentyűzet megkérdezi a nevet, megmutatja a korábbiakat, hogy egy koppintással választhass, aztán beírja a teljes választ. A nevet előre is beírhatod, és csak utána koppintasz a cutlingra.\n\nA dátumokkal semmi dolgod. A cutlingban lehet a mai, a holnapi vagy az egy héttel későbbi dátum, illetve a pontos idő, és mindig az jelenik meg, ami aznap érvényes, amikor használod. Egy cutling választási lehetőségeket is kínálhat (például Alap vagy Prémium csomag), behozhatja a legutóbb másolt szöveget, vagy ott hagyhatja a kurzort, ahol folytatnád az írást. Mindezt szerkesztés közben a „Változók” gomb alatt találod. A kapcsos zárójel, amit magad gépeltél be, sima szöveg marad, így a meglévő cutlingjaid ugyanúgy működnek, mint eddig.\n\nÚgy írhatsz cutlingot, ahogy az Apple Jegyzetek appjában szoktál, semmi újat nem kell megtanulnod. A szövege most már külön oldalon nyílik meg, ezekkel a formázásokkal: félkövér, dőlt, aláhúzott, áthúzott, kiemelés, fix szélességű betű, linkek, valamint pontozott, kötőjeles és számozott lista.\n\nSokkal több a hely. Mostantól 5000 szöveges cutling és 500 kép fér el az eddigi 100 és 25 helyett. Egy cutling akár 10 000 karakteres is lehet, ebbe egy teljes e-mail belefér.\n\nA Cutling billentyűzeten most már minden gomb ír. Ha formázott cutlingra koppintasz, ugyanúgy beírja, mint a többit. Ha lenyomva tartod, a formázásával együtt másolja ki.\n\nHa még nem fejezted be a Cutling billentyűzet hozzáadását, nyisd meg a Cutling appban a „Billentyűzet beállítása” menüpontot. Az új útmutató rövid videón mutatja meg a Beállítások app három lépését.",
+    "back": "It is enough for you to write a reply once, and it is good for everyone you send it to. In a cutling you can from now on leave an empty place for what changes, for example the name or the order number. If you tap such a cutling, the Cutling keyboard asks for the name, shows the earlier ones so that you can choose with one tap, then types in the whole reply. You can also type the name in beforehand and only then tap the cutling.\n\nYou have nothing to do with dates. A cutling can hold today's, tomorrow's or the one-week-later date, or the exact time, and what appears is always what is valid on the day you use it. A cutling can also offer options to choose from (for example Basic or Premium plan), can bring in the text copied last, or can leave the cursor where you would continue writing. While editing, you find all of this under the \"Változók\" (Variables) button. A curly brace that you typed in yourself remains plain text, so your existing cutlings work the same as before.\n\nYou can write a cutling the way you are used to in Apple's Notes app, you do not need to learn anything new. Its text now opens on a separate page, with these formats: bold, italic, underlined, struck through, highlight, fixed-width letters, links, and dotted, dashed and numbered list.\n\nThere is much more room. From now on 5000 text cutlings and 500 images fit, instead of the 100 and 25 so far. A cutling can be as much as 10 000 characters, a whole email fits into that.\n\nOn the Cutling keyboard every key now types. If you tap a formatted cutling, it types it in the same way as the rest. If you hold it down, it copies it together with its formatting.\n\nIf you have not yet finished adding the Cutling keyboard, open the \"Billentyűzet beállítása\" (Keyboard Setup) menu item in the Cutling app. The new guide shows the three steps of the Settings app in a short video.",
+    "chars": 1803,
+    "note": "Informal 'te' throughout, as the app addresses its user. 'cutling' lower case with back-vowel endings (cutlingot, cutlingra), matching the glossary plural 'Cutlingok'. Gap is 'üres hely' from the app's 'Üres helyek és dátumok' row. Format names are the app's own Format card words. Numbers: 5000 without a space, 10 000 with one, per Hungarian rules."
+  },
+  "N_mac": {
+    "text": "Egy választ elég egyszer megírnod, és mindenkinek jó, akinek elküldöd. A cutlingban mostantól üres helyet hagyhatsz annak, ami változik, például a névnek vagy a rendelésszámnak. Ha a ⌘⇧V billentyűparanccsal ilyen cutlingot választasz, beillesztés előtt egy rövid űrlap megkérdezi a nevet, a korábban használt nevek pedig egy kattintásnyira vannak.\n\nA dátumokkal semmi dolgod: a mai, a holnapi vagy az egy héttel későbbi dátum, illetve a pontos idő mindig aszerint jelenik meg, hogy melyik napon használod a cutlingot. Egy cutling választási lehetőségeket is kínálhat (például Alap vagy Prémium csomag), vagy behozhatja a legutóbb másolt szöveget. Mindezt a „Változó hozzáadása” gombbal éred el, amely szerkesztés közben közvetlenül a szöveg alatt van. A kapcsos zárójel, amit magad gépeltél be, sima szöveg marad, így a meglévő cutlingjaid ugyanúgy illeszthetők be, mint eddig.\n\nSokkal több a hely: mostantól 5000 szöveges cutling és 500 kép fér el az eddigi 100 és 25 helyett. Egy cutling akár 10 000 karakteres is lehet, ebbe egy teljes e-mail belefér.",
+    "back": "It is enough for you to write a reply once, and it is good for everyone you send it to. In a cutling you can from now on leave an empty place for what changes, for example the name or the order number. If you choose such a cutling with the ⌘⇧V keyboard shortcut, before pasting a short form asks for the name, and the names used earlier are one click away.\n\nYou have nothing to do with dates: today's, tomorrow's or the one-week-later date, or the exact time, always appears according to which day you use the cutling on. A cutling can also offer options to choose from (for example Basic or Premium plan), or can bring in the text copied last. You reach all of this with the \"Változó hozzáadása\" (Add Variable) button, which during editing is directly below the text. A curly brace that you typed in yourself remains plain text, so your existing cutlings can be pasted the same as before.\n\nThere is much more room: from now on 5000 text cutlings and 500 images fit, instead of the 100 and 25 so far. A cutling can be as long as 10 000 characters, a whole email fits into that.",
+    "chars": 1054,
+    "note": "Same voice as iPhone; 'kattintás' for the click, 'billentyűparancs' (the app's own Mac word) carries ⌘⇧V so the symbols take no case ending."
+  },
+  "glossary": {
+    "Variables": "Változók",
+    "Add Variable": "Változó hozzáadása",
+    "Ask Each Time": "Mindig rákérdez",
+    "Choice": "Választás"
+  }
+}

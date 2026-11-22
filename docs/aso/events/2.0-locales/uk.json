@@ -1,0 +1,50 @@
+{
+  "E1": {
+    "text": "Написано раз і назавжди",
+    "back": "Written once and for all (literally: written once and forever)",
+    "chars": 23,
+    "note": "Built on the idiom «раз і назавжди»; no word for update, since the badge above already says it. Ukrainian has no title case, so sentence case. The impersonal form avoids a gendered verb."
+  },
+  "E2": {
+    "text": "Відповідь збережено один раз, ім’я щоразу інше.",
+    "back": "The reply is saved one time, the name is different each time.",
+    "chars": 47,
+    "note": "Two statements joined by a comma, with the impersonal -но form, so neither ти nor ви is needed. Apostrophe is ’ (U+2019), as in the app's strings."
+  },
+  "E3": {
+    "text": "Cutling питає ім’я, сам ставить сьогоднішню дату й друкує решту. Пишете відповідь один раз і більше не правите вручну.",
+    "back": "Cutling asks for the name, puts in today's date by itself and types the rest. You write the reply one time and no longer correct it by hand.",
+    "chars": 118,
+    "note": "App named «Cutling» in Latin letters. Polite ви shown only in the verb endings (пишете, правите); present tense for what happens every time; «й» after a vowel for euphony."
+  },
+  "E3s": {
+    "text": "Cutling питає ім’я, сам ставить сьогоднішню дату й друкує решту. Пишете лише раз. На Чорну п’ятницю Cutling зі знижкою.",
+    "back": "Cutling asks for the name, puts in today's date by itself and types the rest. You write only once. For Black Friday Cutling is at a discount.",
+    "chars": 119,
+    "note": "First sentence identical to E3. «Чорна п’ятниця» is what Ukrainian shoppers call the sale."
+  },
+  "E2s": {
+    "text": "Одна відповідь, ім’я щоразу нове. Нині зі знижкою.",
+    "back": "One reply, the name is new each time. At a discount now.",
+    "chars": 50,
+    "note": "«Нині» for 'now' because «Зараз зі знижкою» puts the line at 51; exactly 50."
+  },
+  "N_ios": {
+    "text": "Напишіть відповідь один раз, і вона підійде кожному, кому ви її надсилаєте. У катлінгу тепер можна залишити пропуск для того, що змінюється, наприклад для імені чи номера замовлення. Натисніть на такий катлінг, і клавіатура Cutling спитає ім’я, покаже ті, що ви вже вводили, щоб вибрати потрібне одним натисканням, і надрукує всю відповідь. Можна й швидше: спершу надрукувати ім’я, а потім натиснути на катлінг.\n\nЗ датами нічого робити не треба. У катлінгу може стояти сьогоднішня дата, завтрашня, дата через тиждень або поточний час, і в день, коли ви ним користуєтеся, вони будуть правильні. Ще катлінг може запропонувати вибір, наприклад між тарифами «Базовий» і «Преміум», підставити текст, який ви скопіювали останнім, або залишити курсор там, де ви хочете друкувати далі. Усе це є під кнопкою «Змінні», коли ви редагуєте катлінг. Фігурні дужки, які ви надрукували самі, залишаються звичайним текстом, тож давніші катлінги працюють як раніше.\n\nПисати катлінг тепер можна так само, як у застосунку «Нотатки» від Apple, і нічого нового вчити не доведеться. Текст катлінга відкривається окремою сторінкою, а на ній є жирний шрифт, курсив, підкреслення, закреслення, виділення кольором, моноширинний шрифт, посилання та списки: з маркерами, з тире й нумеровані.\n\nМісця стало набагато більше. Тепер уміщається 5000 текстових катлінгів і 500 зображень, а раніше було 100 і 25. В одному катлінгу може бути до 10 000 символів, цього вистачить на цілий лист.\n\nНа клавіатурі Cutling тепер друкує кожна клавіша. Натисніть на форматований катлінг, і він надрукується, як будь-який інший. Якщо натиснути на нього й утримувати, він скопіюється разом із форматуванням.\n\nЯкщо ви так і не додали клавіатуру Cutling, відкрийте в Cutling розділ «Налаштування клавіатури». Новий посібник показує три кроки в застосунку «Налаштування» коротким відео.",
+    "back": "Write a reply one time, and it will suit everyone you send it to. In a cutling you can now leave a gap for what changes, for example for a name or an order number. Tap such a cutling, and the Cutling keyboard will ask for the name, show the ones you have already entered so you can pick the right one with one tap, and type the whole reply. It can be quicker too: first type the name, and then tap the cutling.\n\nWith dates there is nothing you have to do. A cutling can hold today's date, tomorrow's, the date a week from now or the current time, and on the day you use it they will be correct. A cutling can also offer a choice, for example between the plans \"Basic\" and \"Premium\", put in the text you copied last, or leave the cursor where you want to keep typing. All of this is under the \"Variables\" button when you edit a cutling. Curly braces you typed yourself remain ordinary text, so the older cutlings work as before.\n\nYou can now write a cutling the same way as in Apple's Notes app, and you will not have to learn anything new. The cutling's text opens as a separate page, and on it there are bold, italic, underline, strikethrough, colour highlight, a monospaced font, links and lists: bulleted, dashed and numbered.\n\nThere is now far more room. 5000 text cutlings and 500 images now fit, and before it was 100 and 25. One cutling can hold up to 10 000 characters, which is enough for a whole letter (email).\n\nOn the Cutling keyboard every key now types. Tap a formatted cutling, and it gets typed like any other. If you tap it and hold, it is copied together with its formatting.\n\nIf you never did add the Cutling keyboard, open the \"Keyboard Setup\" section in Cutling. The new guide shows the three steps in the Settings app as a short video.",
+    "chars": 1834,
+    "note": "Polite lowercase ви, as a maker writes to a customer in store text (the app's older strings use ви, its newest screens use ти). The app and its keyboard are «Cutling» in Latin letters, undeclined; «катлінг» lowercase is one saved item and «застосунок» is app, as the app's strings write them. 5000 ungrouped and 10 000 with a no-break space (U+00A0). Notes is «Нотатки», Apple's name. Longer than 1,400 because Ukrainian runs longer for the same six paragraphs."
+  },
+  "N_mac": {
+    "text": "Напишіть відповідь один раз, і вона підійде кожному, кому ви її надсилаєте. У катлінгу тепер можна залишити пропуск для того, що змінюється, наприклад для імені чи номера замовлення. Коли ви вибираєте такий катлінг через ⌘⇧V, коротка форма перед вставленням питає ім’я, а імена, які ви вже вводили, вибираються одним клацанням.\n\nЗ датами нічого робити не треба: сьогоднішня дата, завтрашня, дата через тиждень або поточний час будуть правильні в той день, коли ви користуєтеся катлінгом. Ще катлінг може запропонувати вибір, наприклад між тарифами «Базовий» і «Преміум», або підставити текст, який ви скопіювали останнім. Усе це є під кнопкою «Додати змінну», вона стоїть одразу під текстом, коли ви редагуєте катлінг. Фігурні дужки, які ви надрукували самі, залишаються звичайним текстом, тож давніші катлінги вставляються як раніше.\n\nМісця стало набагато більше: 5000 текстових катлінгів і 500 зображень, а раніше було 100 і 25. В одному катлінгу може бути до 10 000 символів, цього вистачить на цілий лист.",
+    "back": "Write a reply one time, and it will suit everyone you send it to. In a cutling you can now leave a gap for what changes, for example for a name or an order number. When you pick such a cutling through ⌘⇧V, a short form asks for the name before pasting, and the names you have already entered are picked with one click.\n\nWith dates there is nothing you have to do: today's date, tomorrow's, the date a week from now or the current time will be correct on the day you use the cutling. A cutling can also offer a choice, for example between the plans \"Basic\" and \"Premium\", or put in the text you copied last. All of this is under the \"Add Variable\" button, which sits right below the text when you edit a cutling. Curly braces you typed yourself remain ordinary text, so the older cutlings paste as before.\n\nThere is now far more room: 5000 text cutlings and 500 images, and before it was 100 and 25. One cutling can hold up to 10 000 characters, which is enough for a whole letter (email).",
+    "chars": 1009,
+    "note": "Same register as N_ios. «клацання» for a Mac click and «вставлення» for paste, as the app's Mac strings say. 10 000 carries a no-break space (U+00A0)."
+  },
+  "glossary": {
+    "Variables": "Змінні",
+    "Add Variable": "Додати змінну",
+    "Ask Each Time": "Питати щоразу",
+    "Choice": "Вибір"
+  }
+}

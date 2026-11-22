@@ -1,0 +1,50 @@
+{
+ "E1": {
+  "text": "Cukup Tulis Sekali",
+  "back": "Writing Once Is Enough",
+  "chars": 18,
+  "note": "Nickname built without 'Kemas Kini' because the badge above already says it; 'cukup' (it suffices) carries 'once and never again'. Title case as Malay headings take it."
+ },
+ "E2": {
+  "text": "Satu balasan disimpan sekali, nama lain tiap kali.",
+  "back": "One reply saved once, a different name every time.",
+  "chars": 50,
+  "note": "One sentence in two beats, stated as fact with no verb aimed at the reader; 'nama lain' is 'another name', the person is understood; 'tiap' is the short everyday form of 'setiap', taken to stay at 50."
+ },
+ "E3": {
+  "text": "Cutling tanya nama, isi tarikh hari ini sendiri, lalu taip selebihnya. Tulis balasan sekali, tak perlu betulkan lagi.",
+  "back": "Cutling asks the name, fills in today's date by itself, then types the rest. Write the reply once, no need to correct it any more.",
+  "chars": 117,
+  "note": "Bare verbs (tanya, isi, taip) and 'tak' are the everyday register Malaysian store copy uses; the full forms (bertanya, mengisi, menaip) do not fit 120. 'lalu' keeps the order: asks, fills, then types."
+ },
+ "E3s": {
+  "text": "Cutling tanya nama, isi tarikh hari ini sendiri, lalu taip selebihnya. Cukup tulis sekali. Kini ada jualan Black Friday.",
+  "back": "Cutling asks the name, fills in today's date by itself, then types the rest. Writing once is enough. There is now a Black Friday sale.",
+  "chars": 120,
+  "note": "Second sentence echoes the event name. Malaysian shoppers say 'jualan Black Friday'; the sale sentence leaves Cutling as the understood subject to stay inside 120."
+ },
+ "E2s": {
+  "text": "Satu balasan, nama lain setiap kali. Ada jualan.",
+  "back": "One reply, a different name every time. There is a sale on.",
+  "chars": 48,
+  "note": "'Kini ada jualan' (there is a sale now) put the line at 51, so the present-tense 'Ada jualan' carries the 'now' by itself."
+ },
+ "N_ios": {
+  "text": "Balasan yang anda tulis sekali boleh dihantar kepada sesiapa sahaja. Sesebuah cutling kini boleh mempunyai tempat kosong untuk bahagian yang berubah, seperti nama atau nombor pesanan. Apabila anda mengetik cutling itu, papan kekunci Cutling bertanya nama, menunjukkan nama yang pernah anda gunakan supaya boleh dipilih dengan satu ketikan, lalu menaip balasan yang lengkap. Anda juga boleh menaip nama dahulu, kemudian mengetik cutling itu.\n\nTarikh pula tidak perlu anda isi sendiri. Cutling boleh mengandungi tarikh hari ini, esok, seminggu dari sekarang atau masa, dan semuanya tepat pada hari cutling itu digunakan. Cutling juga boleh memberi pilihan (contohnya pelan Asas atau Premium), memasukkan teks terakhir yang anda salin, atau meninggalkan kursor di tempat anda mahu sambung menaip. Semua ini ada pada butang “Pemboleh Ubah” semasa anda mengedit cutling. Pendakap kerinting yang anda taip sendiri kekal sebagai teks biasa, jadi cutling yang sudah anda simpan berfungsi seperti dahulu.\n\nAnda boleh menulis cutling seperti menulis dalam app Nota Apple, tanpa perlu belajar apa-apa yang baharu. Teks cutling kini dibuka sebagai halaman tersendiri dengan format tebal, italik, garis bawah, garis lorek, serlahan, fon lebar tetap dan pautan, serta senarai berbulet, bersengkang dan bernombor.\n\nRuang juga jauh lebih besar. Anda boleh menyimpan 5,000 cutling teks dan 500 imej, berbanding 100 dan 25 sebelum ini. Satu cutling boleh memuatkan sehingga 10,000 aksara, cukup untuk satu emel penuh.\n\nSetiap kekunci pada papan kekunci Cutling kini menaip. Ketik cutling berformat dan ia ditaip seperti cutling lain. Sentuh dan tahan cutling itu untuk menyalinnya bersama formatnya.\n\nJika anda belum selesai menambah papan kekunci Cutling, buka “Persediaan papan kekunci” dalam Cutling. Panduan baharu menunjukkan tiga langkah dalam app Seting melalui video pendek.",
+  "back": "A reply you write once can be sent to anyone at all. A cutling can now have a blank space for the part that changes, such as a name or an order number. When you tap that cutling, the Cutling keyboard asks the name, shows the names you have used before so that one can be picked with one tap, then types the complete reply. You can also type the name first, then tap the cutling.\n\nAs for dates, you do not need to fill them in yourself. A cutling can contain the date today, tomorrow, a week from now, or the time, and all of them are correct on the day the cutling is used. A cutling can also give a choice (for example the Basic or Premium plan), put in the last text you copied, or leave the cursor at the place where you want to continue typing. All of this is at the “Variables” button while you edit a cutling. Curly braces you typed yourself stay as ordinary text, so the cutlings you have already saved work as before.\n\nYou can write a cutling like writing in Apple's Notes app, without needing to learn anything new. The cutling's text now opens as a page of its own with the formats bold, italic, underline, strikethrough, highlight, fixed-width font and links, and bulleted, dashed and numbered lists.\n\nThe room is also far bigger. You can keep 5,000 text cutlings and 500 images, compared with 100 and 25 before this. One cutling can hold up to 10,000 characters, enough for one full email.\n\nEvery key on the Cutling keyboard now types. Tap a formatted cutling and it is typed like other cutlings. Touch and hold that cutling to copy it together with its formatting.\n\nIf you have not finished adding the Cutling keyboard, open “Keyboard Setup” in Cutling. The new guide shows the three steps in the Settings app through a short video.",
+  "chars": 1864,
+  "note": "Formal 'anda' with full verb forms, as the app's own Malay strings address the user. Notes is 'Nota' and Settings is 'Seting', the names Apple's Malay iPhone shows; 'pula', 'lalu' and 'jadi' do the joining a Malay writer would use."
+ },
+ "N_mac": {
+  "text": "Balasan yang anda tulis sekali boleh dihantar kepada sesiapa sahaja. Sesebuah cutling kini boleh mempunyai tempat kosong untuk bahagian yang berubah, seperti nama atau nombor pesanan. Apabila anda memilih cutling itu dengan ⌘⇧V, satu borang ringkas bertanya nama sebelum cutling ditampal, dan nama yang pernah anda gunakan boleh dipilih dengan satu klik.\n\nTarikh pula tidak perlu anda isi sendiri: tarikh hari ini, esok, seminggu dari sekarang atau masa, semuanya tepat pada hari cutling itu digunakan. Cutling juga boleh memberi pilihan (contohnya pelan Asas atau Premium) atau memasukkan teks terakhir yang anda salin. Semua ini ada pada butang “Tambah Pemboleh Ubah”, yang terletak betul-betul di bawah teks semasa anda mengedit cutling. Pendakap kerinting yang anda taip sendiri kekal sebagai teks biasa, jadi cutling yang sudah anda simpan ditampal seperti dahulu.\n\nRuang juga jauh lebih besar. Anda boleh menyimpan 5,000 cutling teks dan 500 imej, berbanding 100 dan 25 sebelum ini. Satu cutling boleh memuatkan sehingga 10,000 aksara, cukup untuk satu emel penuh.",
+  "back": "A reply you write once can be sent to anyone at all. A cutling can now have a blank space for the part that changes, such as a name or an order number. When you pick that cutling with ⌘⇧V, a short form asks the name before the cutling is pasted, and the names you have used before can be picked with one click.\n\nAs for dates, you do not need to fill them in yourself: the date today, tomorrow, a week from now, or the time, all correct on the day the cutling is used. A cutling can also give a choice (for example the Basic or Premium plan) or put in the last text you copied. All of this is at the “Add Variable” button, which sits right below the text while you edit a cutling. Curly braces you typed yourself stay as ordinary text, so the cutlings you have already saved are pasted as before.\n\nThe room is also far bigger. You can keep 5,000 text cutlings and 500 images, compared with 100 and 25 before this. One cutling can hold up to 10,000 characters, enough for one full email.",
+  "chars": 1070,
+  "note": "Same voice as the iPhone text, with 'klik' and 'tampal' as the app's Mac strings have them; 'one click away' is written as 'can be picked with one click' because the English idiom does not exist in Malay."
+ },
+ "glossary": {
+  "Variables": "Pemboleh Ubah",
+  "Add Variable": "Tambah Pemboleh Ubah",
+  "Ask Each Time": "Tanya Setiap Kali",
+  "Choice": "Pilihan"
+ }
+}

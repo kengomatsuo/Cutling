@@ -1,0 +1,50 @@
+{
+  "E1": {
+    "text": "رسالة تكتبها مرة واحدة فقط",
+    "back": "A message you write only one time",
+    "chars": 26,
+    "note": "A noun phrase with a relative clause, so it names the update without ordering the reader (an Arabic verb in the second person with لا would read as a command); no word for update, since the badge above says it; Arabic has no capitals."
+  },
+  "E2": {
+    "text": "رد واحد تحفظه مرة، وفي كل مرة يحمل اسم شخص آخر.",
+    "back": "One reply you save once, and each time it carries another person's name.",
+    "chars": 47,
+    "note": "Plain standard Arabic addressed to one man, as the app's strings and Saudi store copy do; رد is the word sellers use for a reply to a customer; written without the shadda to save a character."
+  },
+  "E3": {
+    "text": "يسألك Cutling عن الاسم، ويضيف تاريخ اليوم بنفسه، ثم يكتب الباقي. تكتب الرد مرة واحدة ولا تعود إلى تصحيحه بيدك.",
+    "back": "Cutling asks you for the name, and adds today's date by itself, then types the rest. You write the reply one time and you do not go back to correcting it by hand.",
+    "chars": 110,
+    "note": "Verb-first sentence, the normal Arabic order; the app is Cutling in Latin letters as the store listing names it, with masculine verbs; ثم (then) keeps the asking ahead of the typing."
+  },
+  "E3s": {
+    "text": "يسألك Cutling عن الاسم، ويضيف تاريخ اليوم بنفسه، ثم يكتب الباقي. تكتبه مرة واحدة فقط. Cutling ضمن عروض الجمعة البيضاء.",
+    "back": "Cutling asks you for the name, and adds today's date by itself, then types the rest. You write it only one time. Cutling is among the White Friday offers.",
+    "chars": 118,
+    "note": "Saudi shoppers call the sale الجمعة البيضاء (White Friday), the name Amazon.sa and the Saudi press use; 'among its offers' is how a shop there says a thing is on sale."
+  },
+  "E2s": {
+    "text": "رد واحد باسم جديد في كل مرة، وعليه تخفيض الآن.",
+    "back": "One reply with a new name each time, and there is a discount on it now.",
+    "chars": 46,
+    "note": "One sentence joined with و, the native Arabic joint; تخفيض is the plain shop word for a price cut."
+  },
+  "N_ios": {
+    "text": "تكتب الرد مرة واحدة فيصلح لكل من ترسله إليه. صار بإمكانك أن تترك في الكاتلينج حقلًا فارغًا للجزء الذي يتغير، مثل الاسم أو رقم الطلب. وعندما تضغط على هذا الكاتلينج، تسألك لوحة مفاتيح Cutling عن الاسم، وتعرض عليك الأسماء التي استخدمتها من قبل لتختار أحدها بضغطة واحدة، ثم تكتب الرد كاملًا. ويمكنك أيضًا أن تكتب الاسم أولًا ثم تضغط على الكاتلينج.\n\nأما التواريخ فلا تحتاج منك إلى شيء. يمكن أن يحمل الكاتلينج تاريخ اليوم أو تاريخ الغد أو التاريخ بعد أسبوع أو الوقت، ويظهر صحيحًا في اليوم الذي تستخدمه فيه. ويمكن أيضًا أن يخيّرك بين عدة خيارات (مثل الخطة «الأساسية» أو «المميزة»)، أو أن يجلب آخر نص نسخته، أو أن يترك المؤشر في المكان الذي تريد أن تكمل الكتابة منه. تجد هذا كله تحت زر «المتغيّرات» أثناء تعديل الكاتلينج. والأقواس المعقوفة { } التي كتبتها بنفسك تبقى نصًا عاديًا، ولذلك تعمل الكاتلينج التي لديك كما كانت تعمل.\n\nتكتب الكاتلينج كما تكتب في تطبيق الملاحظات من Apple، ولا شيء جديد تتعلمه. صار نص الكاتلينج يُفتح في صفحة خاصة به، وفيها الخط العريض والمائل، والتسطير، والخط الذي يتوسطه خط، والتمييز، والخط أحادي المسافة، والروابط، والقوائم النقطية والشرطية والمرقّمة.\n\nوالمساحة أكبر بكثير. يتسع التطبيق الآن لـ 5,000 كاتلينج نصي و500 صورة، بعد أن كان الحد 100 و25. ويتسع الكاتلينج الواحد لما يصل إلى 10,000 حرف، وهذا يكفي لرسالة بريد إلكتروني كاملة.\n\nكل كاتلينج في لوحة مفاتيح Cutling صار يُكتب. تضغط على كاتلينج منسّق فيُكتب مثل غيره، وتضغط عليه مطولًا فيُنسخ مع تنسيقه.\n\nوإن لم تكمل من قبل إضافة لوحة مفاتيح Cutling، فافتح «إعداد لوحة المفاتيح» في Cutling. الدليل الجديد يعرض الخطوات الثلاث في تطبيق الإعدادات في فيديو قصير.",
+    "back": "You write the reply one time and it serves for everyone you send it to. You can now leave in the cutling an empty field for the part that changes, such as the name or the order number. And when you tap that cutling, the Cutling keyboard asks you for the name, shows you the names you used before so you pick one of them with one tap, then types the reply complete. And you can also type the name first and then tap the cutling.\n\nAs for dates, they need nothing from you. The cutling can carry today's date or tomorrow's date or the date after a week or the time, and it appears correct on the day you use it. It can also have you choose between several options (such as the \"Basic\" plan or the \"Premium\" one), or bring the last text you copied, or leave the cursor at the place from which you want to go on typing. You find all of this under the \"Variables\" button while editing the cutling. And the curly braces { } that you typed yourself stay ordinary text, and so the cutlings you have work as they used to work.\n\nYou write the cutling as you write in the Notes app from Apple, and there is nothing new for you to learn. The cutling's text now opens on a page of its own, and in it are bold and italic type, underlining, type with a line through it, highlighting, monospaced type, links, and bulleted, dashed and numbered lists.\n\nAnd the room is much greater. The app now holds 5,000 text cutlings and 500 images, after the limit was 100 and 25. And a single cutling holds up to 10,000 characters, and this is enough for a complete email message.\n\nEvery cutling on the Cutling keyboard is now typed. You tap a formatted cutling and it is typed like the others, and you press on it long and it is copied with its formatting.\n\nAnd if you did not complete adding the Cutling keyboard before, open \"Keyboard Setup\" in Cutling. The new guide shows the three steps in the Settings app in a short video.",
+    "chars": 1528,
+    "note": "Standard Arabic to one man, sentences opened with و and أما…فـ as Arabic prose joins them; the item is كاتلينج, masculine in the singular and with feminine agreement for the plural as the app's strings have it; the blank is حقل from the app's What's New row; format, list and plan words are the app's own; Western digits with comma grouping; the app is Cutling in Latin letters."
+  },
+  "N_mac": {
+    "text": "تكتب الرد مرة واحدة فيصلح لكل من ترسله إليه. صار بإمكانك أن تترك في الكاتلينج حقلًا فارغًا للجزء الذي يتغير، مثل الاسم أو رقم الطلب. وعندما تختار هذا الكاتلينج بالاختصار ⌘⇧V، يسألك نموذج قصير عن الاسم قبل اللصق، والأسماء التي استخدمتها من قبل على بعد نقرة واحدة.\n\nأما التواريخ فلا تحتاج منك إلى شيء. يمكن أن يحمل الكاتلينج تاريخ اليوم أو تاريخ الغد أو التاريخ بعد أسبوع أو الوقت، ويظهر صحيحًا في اليوم الذي تستخدمه فيه. ويمكن أيضًا أن يخيّرك بين عدة خيارات (مثل الخطة «الأساسية» أو «المميزة»)، أو أن يجلب آخر نص نسخته. تجد هذا كله تحت زر «إضافة متغيّر»، وهو أسفل النص مباشرة أثناء تعديل الكاتلينج. والأقواس المعقوفة { } التي كتبتها بنفسك تبقى نصًا عاديًا، ولذلك تُلصق الكاتلينج التي لديك كما كانت تُلصق.\n\nوالمساحة أكبر بكثير. يتسع التطبيق الآن لـ 5,000 كاتلينج نصي و500 صورة، بعد أن كان الحد 100 و25. ويتسع الكاتلينج الواحد لما يصل إلى 10,000 حرف، وهذا يكفي لرسالة بريد إلكتروني كاملة.",
+    "back": "You write the reply one time and it serves for everyone you send it to. You can now leave in the cutling an empty field for the part that changes, such as the name or the order number. And when you pick that cutling with the shortcut ⌘⇧V, a short form asks you for the name before the pasting, and the names you used before are one click away.\n\nAs for dates, they need nothing from you. The cutling can carry today's date or tomorrow's date or the date after a week or the time, and it appears correct on the day you use it. It can also have you choose between several options (such as the \"Basic\" plan or the \"Premium\" one), or bring the last text you copied. You find all of this under the \"Add Variable\" button, which is directly below the text while editing the cutling. And the curly braces { } that you typed yourself stay ordinary text, and so the cutlings you have are pasted as they used to be pasted.\n\nAnd the room is much greater. The app now holds 5,000 text cutlings and 500 images, after the limit was 100 and 25. And a single cutling holds up to 10,000 characters, and this is enough for a complete email message.",
+    "chars": 885,
+    "note": "Same voice as the iPhone text, with نقرة for a click and لصق for pasting; the button is quoted as «إضافة متغيّر»."
+  },
+  "glossary": {
+    "Variables": "المتغيّرات",
+    "Add Variable": "إضافة متغيّر",
+    "Ask Each Time": "اسأل في كل مرة",
+    "Choice": "خيار"
+  }
+}

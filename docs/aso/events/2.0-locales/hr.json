@@ -1,0 +1,50 @@
+{
+  "E1": {
+    "text": "Jednom napišeš i gotovo",
+    "back": "You write it once and that's it",
+    "chars": 23,
+    "note": "Second person singular present, informal 'ti' as in the app's newer strings; 'i gotovo' is the spoken way to say nothing more is needed, ever. No word for 'update' under the badge. Croatian has no title case."
+  },
+  "E2": {
+    "text": "Jedan odgovor, spremljen jednom. Uvijek drugo ime.",
+    "back": "One reply, saved once. Always a different name.",
+    "chars": 50,
+    "note": "Two verbless statements. Exactly 50 characters. 'drugo ime' (a different name) implies a different person."
+  },
+  "E3": {
+    "text": "Cutling te pita za ime, sam doda današnji datum i upiše ostalo. Odgovor napišeš jednom i više ga ne ispravljaš ručno.",
+    "back": "Cutling asks you for the name, adds today's date by itself and types in the rest. You write the reply once and no longer correct it by hand.",
+    "chars": 117,
+    "note": "Present tense throughout, so no verb form shows the reader's gender. 'upiše' is the app's verb for typing a cutling. Clauses in the order things happen: asks, then types."
+  },
+  "E3s": {
+    "text": "Cutling te pita za ime, sam doda današnji datum i upiše ostalo. Pišeš samo jednom. Cutling je na Black Friday sniženju.",
+    "back": "Cutling asks you for the name, adds today's date by itself and types in the rest. You write only once. Cutling is on Black Friday sale.",
+    "chars": 119,
+    "note": "Same first sentence as E3. Croatian shops and shoppers say 'Black Friday' in English; 'sniženje' is the plain word for a sale and names no price."
+  },
+  "E2s": {
+    "text": "Jedan odgovor, uvijek novo ime. Sada na sniženju.",
+    "back": "One reply, always a new name. Now on sale.",
+    "chars": 49,
+    "note": "Verbless card style, same sale word as E3s."
+  },
+  "N_ios": {
+    "text": "Odgovor napišeš jednom i vrijedi za svakoga kome ga šalješ. Cutling sada može imati prazninu za dio koji se mijenja, na primjer ime ili broj narudžbe. Kad dodirneš takav cutling, Cutling tipkovnica te pita za ime, pokaže prijašnja imena pa jedno odabereš jednim dodirom, a zatim upiše cijeli odgovor. Možeš i prvo upisati ime pa tek onda dodirnuti cutling.\n\nOko datuma nemaš nikakvog posla. Cutling može sadržavati današnji datum, sutrašnji, datum za tjedan dana ili vrijeme, a u tekstu se uvijek pojavi ono što vrijedi na dan kad ga koristiš. Cutling ti može ponuditi i izbor između više mogućnosti (recimo paket Osnovni ili Premium), ubaciti zadnji kopirani tekst ili ostaviti kursor ondje gdje želiš nastaviti pisati. Sve to nalazi se pod gumbom „Varijable“ dok uređuješ cutling. Vitičaste zagrade upisane ručno ostaju običan tekst, pa cutlinzi koje već imaš rade kao i dosad.\n\nCutling možeš pisati onako kako pišeš u Appleovoj aplikaciji Bilješke, bez učenja ičeg novog. Tekst cutlinga sada se otvara kao zasebna stranica s ovim mogućnostima oblikovanja: podebljano, kurziv, podcrtano, precrtano, isticanje, fiksna širina, poveznice te popisi s točkama, s crticama i numerirani popisi.\n\nMjesta je puno više. Stane 5.000 tekstualnih cutlinga i 500 slika, a dosad je stalo 100 i 25. Jedan cutling može imati do 10.000 znakova, što je dovoljno za cijeli e-mail.\n\nNa Cutling tipkovnici sada svaka tipka upisuje. Kad dodirneš oblikovani cutling, upiše se kao i svaki drugi. Kad ga dodirneš i držiš, kopira se zajedno s oblikovanjem.\n\nAko dodavanje Cutling tipkovnice još nije dovršeno, otvori „Postavljanje tipkovnice“ u Cutlingu. Novi vodič kratkim videom pokazuje tri koraka u aplikaciji Postavke.",
+    "back": "You write a reply once and it holds for everyone you send it to. A cutling can now have a gap for the part that changes, for example a name or an order number. When you tap such a cutling, the Cutling keyboard asks you for the name, shows the earlier names so you pick one with a single tap, and then types in the whole reply. You can also type in the name first and only then tap the cutling.\n\nAround dates you have no work at all. A cutling can contain today's date, tomorrow's, the date a week from now or the time, and in the text there always appears what holds on the day you use it. A cutling can also offer you a choice between several options (say the Basic or Premium package), drop in the last copied text or leave the cursor where you want to continue writing. All of that is found under the \"Varijable\" (Variables) button while you edit a cutling. Curly braces typed in by hand remain ordinary text, so the cutlings you already have work as before.\n\nYou can write a cutling the way you write in Apple's Notes app, without learning anything new. The cutling's text now opens as a separate page with these formatting options: bold, italic, underlined, struck through, highlighting, fixed width, links and lists with dots, with dashes and numbered lists.\n\nThere is much more room. 5,000 text cutlings and 500 images fit, and until now 100 and 25 fitted. One cutling can have up to 10,000 characters, which is enough for a whole email.\n\nOn the Cutling keyboard every key now types. When you tap a formatted cutling, it is typed in like any other. When you touch and hold it, it is copied together with its formatting.\n\nIf adding the Cutling keyboard is not yet finished, open \"Postavljanje tipkovnice\" (Keyboard Setup) in Cutling. The new guide shows the three steps in the Settings app with a short video.",
+    "chars": 1698,
+    "note": "Informal 'ti', present tense and passive participles instead of past tense, so nothing depends on the reader's gender. 'cutling' lower case, plural 'cutlinzi' as the app declines it. Gap is 'praznina' from the app's 'Praznine i datumi' row. Format names are the app's Format card words. 'gumb' for a button, 'tipka' only for keyboard keys. Numbers grouped with a full stop."
+  },
+  "N_mac": {
+    "text": "Odgovor napišeš jednom i vrijedi za svakoga kome ga šalješ. Cutling sada može imati prazninu za dio koji se mijenja, na primjer ime ili broj narudžbe. Kad takav cutling odabereš s ⌘⇧V, kratki obrazac te prije lijepljenja pita za ime, a prijašnja imena udaljena su jedan klik.\n\nOko datuma nemaš nikakvog posla: današnji datum, sutrašnji, datum za tjedan dana ili vrijeme uvijek su onakvi kakvi vrijede na dan kad koristiš cutling. Cutling ti može ponuditi i izbor između više mogućnosti (recimo paket Osnovni ili Premium) ili ubaciti zadnji kopirani tekst. Sve to nalazi se pod gumbom „Dodaj varijablu“, odmah ispod teksta dok uređuješ cutling. Vitičaste zagrade upisane ručno ostaju običan tekst, pa se cutlinzi koje već imaš lijepe kao i dosad.\n\nMjesta je puno više: 5.000 tekstualnih cutlinga i 500 slika, a dosad 100 i 25. Jedan cutling može imati do 10.000 znakova, što je dovoljno za cijeli e-mail.",
+    "back": "You write a reply once and it holds for everyone you send it to. A cutling can now have a gap for the part that changes, for example a name or an order number. When you choose such a cutling with ⌘⇧V, a short form asks you for the name before pasting, and the earlier names are one click away.\n\nAround dates you have no work at all: today's date, tomorrow's, the date a week from now or the time are always as they hold on the day you use the cutling. A cutling can also offer you a choice between several options (say the Basic or Premium package) or drop in the last copied text. All of that is found under the \"Dodaj varijablu\" (Add Variable) button, right below the text while you edit a cutling. Curly braces typed in by hand remain ordinary text, so the cutlings you already have paste as before.\n\nThere is much more room: 5,000 text cutlings and 500 images, and until now 100 and 25. One cutling can have up to 10,000 characters, which is enough for a whole email.",
+    "chars": 903,
+    "note": "Same voice; 'klik' for the Mac and 'lijepe' (paste) in the reassurance."
+  },
+  "glossary": {
+    "Variables": "Varijable",
+    "Add Variable": "Dodaj varijablu",
+    "Ask Each Time": "Pitaj svaki put",
+    "Choice": "Izbor"
+  }
+}

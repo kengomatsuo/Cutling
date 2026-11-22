@@ -1,0 +1,50 @@
+{
+  "E1": {
+    "text": "Svaret du bare skriver én gang",
+    "back": "The reply you only write once",
+    "chars": 30,
+    "note": "No word for 'update': the badge above already says it. Norwegian has no title case, so sentence case. A noun phrase, the way one would name it to a friend ('den med svaret du bare skriver én gang')."
+  },
+  "E2": {
+    "text": "Ett svar, lagret én gang. Nytt navn hver gang.",
+    "back": "One reply, saved one time. New name every time.",
+    "chars": 46,
+    "note": "Two verbless statements; 'én gang / hver gang' is a deliberate echo. 'Ett' is the numeral one (neuter), not the article."
+  },
+  "E3": {
+    "text": "Cutling spør om navnet, setter inn dagens dato selv og skriver resten. Du skriver svaret én gang og slipper å rette det.",
+    "back": "Cutling asks for the name, puts in today's date itself and writes the rest. You write the reply one time and are spared correcting it.",
+    "chars": 120,
+    "note": "'slipper å' (are spared from) carries 'stop doing it by hand afterwards'; 'for hånd' did not fit in 120. Present tense in sequence keeps the order ask, date, type."
+  },
+  "E3s": {
+    "text": "Cutling spør om navnet, setter inn dagens dato selv og skriver resten. Du skriver det én gang. Nå på Black Friday-salg.",
+    "back": "Cutling asks for the name, puts in today's date itself and writes the rest. You write it one time. Now on Black Friday sale.",
+    "chars": 119,
+    "note": "First sentence identical to E3. Norwegian shoppers say 'Black Friday' untranslated; 'Black Friday-salg' is the usual compound. Third sentence is verbless to fit 120."
+  },
+  "E2s": {
+    "text": "Ett svar, nytt navn hver gang. Nå på salg.",
+    "back": "One reply, new name every time. Now on sale.",
+    "chars": 42,
+    "note": "'på salg' = discounted; matches 'Black Friday-salg' in E3s."
+  },
+  "N_ios": {
+    "text": "Skriv et svar én gang, så passer det til alle du sender det til. En cutling kan nå ha et felt for det som endrer seg, for eksempel et navn eller et ordrenummer. Når du trykker på cutlingen, spør Cutling-tastaturet om navnet, viser navnene du har brukt før, så du kan velge ett med ett trykk, og skriver så hele svaret. Du kan også skrive navnet først og trykke på cutlingen etterpå.\n\nDatoer trenger du ikke å gjøre noe med. En cutling kan inneholde dagens dato, morgendagens, datoen om en uke eller klokkeslettet, og det blir riktig den dagen du bruker den. Den kan også la deg velge mellom alternativer (for eksempel Basis eller Premium), hente inn teksten du kopierte sist, eller la markøren stå der du vil skrive videre. Alt dette finner du under knappen «Variabler» når du redigerer en cutling. Krøllparenteser du har skrevet selv, er fortsatt vanlig tekst, så cutlingene du allerede har, fungerer som før.\n\nDu kan skrive en cutling slik du skriver i Notater-appen fra Apple, uten å lære noe nytt. Teksten åpnes nå på en egen side med fet, kursiv, understreking, gjennomstreking, utheving, monospace, lenker og punktlister, streklister og nummererte lister.\n\nDu har fått mye mer plass. Nå kan du ha 5000 tekst-cutlings og 500 bilder, mot 100 og 25 før. Én cutling kan være på opptil 10 000 tegn, og det er nok til en hel e-post.\n\nAlle tastene på Cutling-tastaturet skriver nå. Trykker du på en cutling med formatering, skrives den inn som alle andre. Holder du den inne, kopieres den med formateringen i behold.\n\nBle du aldri ferdig med å legge til Cutling-tastaturet, åpner du «Tastaturoppsett» i Cutling. Den nye veiledningen viser de tre trinnene i Innstillinger-appen som en kort video.",
+    "back": "Write a reply one time, then it fits everyone you send it to. A cutling can now have a field for what changes, for example a name or an order number. When you tap the cutling, the Cutling keyboard asks for the name, shows the names you have used before, so you can pick one with one tap, and then types the whole reply. You can also type the name first and tap the cutling afterwards.\n\nDates you do not need to do anything with. A cutling can contain today's date, tomorrow's, the date in a week or the time of day, and it comes out right on the day you use it. It can also let you choose between options (for example Basis or Premium), bring in the text you copied last, or leave the cursor where you want to keep writing. All this you find under the button \"Variabler\" when you edit a cutling. Curly braces you have typed yourself are still ordinary text, so the cutlings you already have work as before.\n\nYou can write a cutling the way you write in the Notes app from Apple, without learning anything new. The text now opens on a page of its own with bold, italic, underline, strikethrough, highlight, monospace, links and bulleted lists, dashed lists and numbered lists.\n\nYou have got much more room. Now you can have 5000 text cutlings and 500 images, against 100 and 25 before. One cutling can be up to 10,000 characters, and that is enough for a whole email.\n\nAll the keys on the Cutling keyboard now type. If you tap a cutling with formatting, it is typed in like all the others. If you hold it down, it is copied with the formatting kept.\n\nIf you never finished adding the Cutling keyboard, open \"Tastaturoppsett\" in Cutling. The new guide shows the three steps in the Settings app as a short video.",
+    "chars": 1694,
+    "note": "Informal 'du' as in the app. The gap is 'felt', the word of the in-app row 'Felt og datoer'. Plural 'cutlings' / definite 'cutlingene' as the app's strings mostly write it. Format and list names are the app's own Format card words (Fet, Kursiv, Understreking, Gjennomstreking, Utheving, Monospace, Punktliste, Strekliste, Nummerert liste), in lower case; Apple's Notes says 'halvfet' where the app says 'Fet'. 10 000 uses a no-break space; 5000 is written closed, which Norwegian allows for four digits. Button names in «»."
+  },
+  "N_mac": {
+    "text": "Skriv et svar én gang, så passer det til alle du sender det til. En cutling kan nå ha et felt for det som endrer seg, for eksempel et navn eller et ordrenummer. Når du velger cutlingen med ⌘⇧V, spør et lite skjema om navnet før den limes inn, og navnene du har brukt før, er ett klikk unna.\n\nDatoer trenger du ikke å gjøre noe med. En cutling kan inneholde dagens dato, morgendagens, datoen om en uke eller klokkeslettet, og det blir riktig den dagen du bruker den. Den kan også la deg velge mellom alternativer, for eksempel Basis eller Premium, eller hente inn teksten du kopierte sist. Alt dette ligger under knappen «Legg til variabel», som står rett under teksten når du redigerer en cutling. Krøllparenteser du har skrevet selv, er fortsatt vanlig tekst, så cutlingene du allerede har, limes inn som før.\n\nDu har fått mye mer plass. Nå kan du ha 5000 tekst-cutlings og 500 bilder, mot 100 og 25 før. Én cutling kan være på opptil 10 000 tegn, og det er nok til en hel e-post.",
+    "back": "Write a reply one time, then it fits everyone you send it to. A cutling can now have a field for what changes, for example a name or an order number. When you pick the cutling with ⌘⇧V, a small form asks for the name before it is pasted, and the names you have used before are one click away.\n\nDates you do not need to do anything with. A cutling can contain today's date, tomorrow's, the date in a week or the time of day, and it comes out right on the day you use it. It can also let you choose between options, for example Basis or Premium, or bring in the text you copied last. All this lies under the button \"Legg til variabel\", which sits right below the text when you edit a cutling. Curly braces you have typed yourself are still ordinary text, so the cutlings you already have are pasted as before.\n\nYou have got much more room. Now you can have 5000 text cutlings and 500 images, against 100 and 25 before. One cutling can be up to 10,000 characters, and that is enough for a whole email.",
+    "chars": 981,
+    "note": "Same register and words as N_ios; 'klikk' and 'limes inn' (the app's 'Lim inn') for the Mac."
+  },
+  "glossary": {
+    "Variables": "Variabler",
+    "Add Variable": "Legg til variabel",
+    "Ask Each Time": "Spør hver gang",
+    "Choice": "Valg"
+  }
+}

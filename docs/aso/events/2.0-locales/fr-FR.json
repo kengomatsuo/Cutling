@@ -1,0 +1,50 @@
+{
+ "E1": {
+  "text": "Écrit une fois pour toutes",
+  "back": "Written once and for all",
+  "chars": 26,
+  "note": "Past participle, so it reads as a nickname and not an order; the idiom « une fois pour toutes » carries both one single time and never again. No « mise à jour », since the badge above already says it; French takes no title case."
+ },
+ "E2": {
+  "text": "Une seule réponse, un nom différent à chaque envoi",
+  "back": "A single reply, a different name at each sending",
+  "chars": 50,
+  "note": "Verbless two-beat line with no final stop, as French card lines are set; exactly 50, and a full stop would make 51. « Saved a single time » rests on « une seule » and on the name above it."
+ },
+ "E3": {
+  "text": "Cutling demande le nom, met seul la date du jour et écrit le reste. Tu écris ta réponse une fois et ne la corriges plus.",
+  "back": "Cutling asks for the name, puts in today's date by itself and writes the rest. You write your reply once and no longer correct it.",
+  "chars": 120,
+  "note": "« tu », as the app's newest strings speak; the three verbs in order say the name is asked before anything is written. « By hand » is left to « corriger », which is always by hand."
+ },
+ "E3s": {
+  "text": "Cutling demande le nom, met seul la date du jour et écrit le reste. Tu écris une fois. En promo pour le Black Friday.",
+  "back": "Cutling asks for the name, puts in today's date by itself and writes the rest. You write once. On promotion for Black Friday.",
+  "chars": 117,
+  "note": "French shoppers say « Black Friday »; « en promo » and not « en solde », because « soldes » names the two legal sale seasons in France. The third sentence has no verb so the first can stay word for word the same as in E3."
+ },
+ "E2s": {
+  "text": "Une réponse, un autre nom à chaque fois. En promo.",
+  "back": "One reply, another name each time. On promotion.",
+  "chars": 50,
+  "note": "« Now » is carried by « en promo » alone, which only ever means at this moment; exactly 50."
+ },
+ "N_ios": {
+  "text": "Tu écris une réponse une seule fois et elle sert pour tous ceux à qui tu l’envoies. Un cutling peut maintenant contenir un champ pour ce qui change, comme un nom ou un numéro de commande. Quand tu touches ce cutling, le clavier Cutling te demande le nom, te propose ceux que tu as déjà utilisés (un toucher suffit), puis écrit la réponse complète. Tu peux aussi écrire le nom d’abord, puis toucher le cutling.\n\nLes dates, tu n’as pas à t’en occuper. Un cutling peut contenir la date du jour, celle du lendemain, celle d’une semaine plus tard ou l’heure, et c’est la bonne qui s’écrit le jour où tu t’en sers. Il peut aussi proposer un choix (le forfait Essentiel ou Premium, par exemple), insérer le dernier texte que tu as copié, ou laisser le curseur là où tu veux continuer à écrire. Tout cela se trouve sous le bouton « Variables » quand tu modifies un cutling. Les accolades que tu as écrites toi-même restent du texte ordinaire, donc tes cutlings actuels se comportent comme avant.\n\nTu écris un cutling comme dans l’app Notes d’Apple, sans rien de nouveau à apprendre. Son texte s’ouvre maintenant dans sa propre page, avec le gras, l’italique, le souligné, le barré, le surlignage, le monospace, les liens et les listes à puces, avec tirets ou numérotées.\n\nIl y a aussi bien plus de place : 5 000 cutlings texte et 500 images, contre 100 et 25 avant. Un cutling peut contenir jusqu’à 10 000 caractères, assez pour un e-mail entier.\n\nToutes les touches du clavier Cutling écrivent désormais. Un cutling mis en forme s’écrit comme les autres quand tu le touches. Si tu maintiens le doigt dessus, il est copié avec sa mise en forme.\n\nSi tu n’as jamais fini d’ajouter le clavier Cutling, ouvre « Configuration du clavier » dans Cutling. Le nouveau guide montre les trois étapes à faire dans l’app Réglages, en une courte vidéo.",
+  "back": "You write a reply one single time and it serves for all those you send it to. A cutling can now contain a field for what changes, such as a name or an order number. When you tap that cutling, the Cutling keyboard asks you for the name, offers you the ones you have already used (one tap is enough), then writes the complete reply. You can also write the name first, then tap the cutling.\n\nThe dates, you do not have to look after them. A cutling can contain today's date, the next day's, the one a week later or the time, and it is the right one that gets written on the day you use it. It can also offer a choice (the Essentiel or Premium plan, for example), insert the last text you copied, or leave the cursor where you want to go on writing. All of that is found under the “Variables” button when you edit a cutling. The curly braces you wrote yourself remain ordinary text, so your current cutlings behave as before.\n\nYou write a cutling as in Apple's Notes app, with nothing new to learn. Its text now opens in its own page, with bold, italic, underline, strikethrough, highlighting, monospace, links and bulleted, dashed or numbered lists.\n\nThere is also far more room: 5,000 text cutlings and 500 images, against 100 and 25 before. One cutling can contain up to 10,000 characters, enough for a whole e-mail.\n\nAll the keys of the Cutling keyboard now write. A formatted cutling is written like the others when you tap it. If you keep your finger on it, it is copied with its formatting.\n\nIf you never finished adding the Cutling keyboard, open “Configuration du clavier” (Keyboard Setup) in Cutling. The new guide shows the three steps to do in the Settings app, in a short video.",
+  "chars": 1830,
+  "note": "« tu » throughout, matching the app's own What's New and setup guide; « écrire » for what the keyboard does, as the app says « Toutes les touches écrivent ». No-break spaces before colons, inside guillemets and in 5 000 and 10 000."
+ },
+ "N_mac": {
+  "text": "Tu écris une réponse une seule fois et elle sert pour tout le monde. Un cutling peut maintenant contenir un champ pour ce qui change, comme un nom ou un numéro de commande. Quand tu choisis ce cutling avec ⌘⇧V, un court formulaire te demande le nom avant de coller, et les noms déjà utilisés sont à un clic.\n\nLes dates, tu n’as pas à t’en occuper : la date du jour, celle du lendemain, celle d’une semaine plus tard ou l’heure sont les bonnes le jour où tu utilises le cutling. Un cutling peut aussi proposer un choix (le forfait Essentiel ou Premium, par exemple) ou insérer le dernier texte que tu as copié. Tout cela se trouve sous le bouton « Ajouter une variable », juste sous le texte quand tu modifies un cutling. Les accolades que tu as écrites toi-même restent du texte ordinaire, donc tes cutlings actuels se collent comme avant.\n\nIl y a aussi bien plus de place : 5 000 cutlings texte et 500 images, contre 100 et 25 avant. Un cutling peut contenir jusqu’à 10 000 caractères, assez pour un e-mail entier.",
+  "back": "You write a reply one single time and it serves for everyone. A cutling can now contain a field for what changes, such as a name or an order number. When you pick that cutling with ⌘⇧V, a short form asks you for the name before pasting, and the names already used are one click away.\n\nThe dates, you do not have to look after them: today's date, the next day's, the one a week later or the time are the right ones on the day you use the cutling. A cutling can also offer a choice (the Essentiel or Premium plan, for example) or insert the last text you copied. All of that is found under the “Ajouter une variable” (Add Variable) button, right under the text when you edit a cutling. The curly braces you wrote yourself remain ordinary text, so your current cutlings paste as before.\n\nThere is also far more room: 5,000 text cutlings and 500 images, against 100 and 25 before. One cutling can contain up to 10,000 characters, enough for a whole e-mail.",
+  "chars": 1015,
+  "note": "« tu » here too, although the Mac app's older screens say « vous »: its newest strings (formatted paste, the setup guide) already say « tu ». « Coller » and « clic » where the Mac pastes and is clicked."
+ },
+ "glossary": {
+  "Variables": "Variables",
+  "Add Variable": "Ajouter une variable",
+  "Ask Each Time": "Demander à chaque fois",
+  "Choice": "Choix"
+ }
+}

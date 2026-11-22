@@ -1,0 +1,50 @@
+{
+ "E1": {
+  "text": "Bir Kere Yazdın mı Tamam",
+  "back": "Once You Have Written It, That Is It",
+  "chars": 24,
+  "note": "The spoken frame «bir kere …dın mı tamam», where mı makes a condition and not a question; title case with the particle mı left small; no word for update, since the badge above says it."
+ },
+ "E2": {
+  "text": "Tek cevap kaydedersin. Her seferinde başka isimle.",
+  "back": "You save a single reply. Each time with a different name.",
+  "chars": 50,
+  "note": "Informal sen as in the app's newer strings, and cevap, the everyday word, over yanıt; tek carries both one reply and saved a single time; the second statement is verbless to hold 50."
+ },
+ "E3": {
+  "text": "Cutling önce ismi sorar, günün tarihini kendi koyar, gerisini yazar. Cevabı bir kez yazarsın, sonra elle düzeltmezsin.",
+  "back": "Cutling first asks the name, puts in the day's date itself, types the rest. You write the reply one time, afterwards you do not correct it by hand.",
+  "chars": 118,
+  "note": "önce (first) keeps the asking ahead of the typing; aorist tense throughout, the tense Turkish uses for what a thing habitually does."
+ },
+ "E3s": {
+  "text": "Cutling önce ismi sorar, günün tarihini kendi koyar, gerisini yazar. Bir kez yazarsın. Black Friday'de indirimde.",
+  "back": "Cutling first asks the name, puts in the day's date itself, types the rest. You write one time. Cutling is on sale on Legendary Friday.",
+  "chars": 113,
+  "note": "Efsane Cuma is what Turkish shoppers and the press call the day; Black Friday itself is little used there because Friday is the holy day. | Orchestrator: 'Efsane Cuma' replaced by 'Black Friday' (possible Hepsiburada trademark); subject dropped to stay within 120."
+ },
+ "E2s": {
+  "text": "Tek cevap, her defa yeni isim. Şimdi indirimde.",
+  "back": "A single reply, a new name every time. On sale now.",
+  "chars": 47,
+  "note": "her defa in place of her seferinde to fit 50; two verbless statements, as a store card reads."
+ },
+ "N_ios": {
+  "text": "Bir cevabı bir kez yazarsın, gönderdiğin herkese uyar. Bir cutling'de artık değişen kısım için boşluk bırakabilirsin, örneğin isim ya da sipariş numarası için. O cutling'e dokunduğunda Cutling klavyesi ismi sorar, daha önce kullandığın isimleri gösterir ki birini tek dokunuşla seçebilesin, sonra cevabın tamamını yazar. İstersen önce ismi yazıp sonra cutling'e de dokunabilirsin.\n\nTarihler için bir şey yapman gerekmez. Bir cutling bugünün tarihini, yarının tarihini, bir hafta sonrasının tarihini ya da saati içerebilir; kullandığın gün doğrusu yazılır. Bir cutling sana seçenekler arasından seçim de yaptırabilir (örneğin “Standart” ya da “Premium” plan), son kopyaladığın metni getirebilir ya da imleci yazmaya devam etmek istediğin yerde bırakabilir. Bunların hepsi, bir cutling'i düzenlerken “Değişkenler” düğmesinin altında. Kendi yazdığın küme parantezleri { } düz metin olarak kalır, yani elindeki cutling'ler eskisi gibi çalışır.\n\nBir cutling'i Apple'ın Notlar uygulamasında yazar gibi yazarsın, yeni bir şey öğrenmen gerekmez. Bir cutling'in metni artık kendi sayfasında açılıyor ve kalın, italik, altı çizili, üstü çizili, vurgulu ya da tek aralıklı yazabiliyor, bağlantı ekleyebiliyor, madde işaretli, tireli ya da numaralı liste yapabiliyorsun.\n\nYer çok daha fazla. Artık 5.000 metin cutling'i ve 500 görsel saklayabilirsin; eskiden bu sayılar 100 ve 25'ti. Tek bir cutling 10.000 karaktere kadar çıkabilir, bu da koca bir e-postaya yeter.\n\nCutling klavyesindeki her cutling artık yazılıyor. Biçimli bir cutling'e dokunduğunda o da diğerleri gibi yazılır. Basılı tutarsan biçimiyle birlikte kopyalanır.\n\nCutling klavyesini eklemeyi yarıda bıraktıysan Cutling'de “Klavye kurulumu”nu aç. Yeni kılavuz, Ayarlar uygulamasındaki üç adımı kısa bir videoyla gösteriyor.",
+  "back": "You write a reply one time, and it suits everyone you send it to. In a cutling you can now leave a blank for the part that changes, for example for a name or an order number. When you tap that cutling, the Cutling keyboard asks the name, shows the names you used before so that you can pick one with a single tap, then types the whole of the reply. If you like, you can also type the name first and then tap the cutling.\n\nYou need to do nothing for dates. A cutling can contain today's date, tomorrow's date, the date of a week later or the time; the correct one is typed on the day you use it. A cutling can also have you make a choice among options (for example the \"Standard\" or \"Premium\" plan), bring the text you copied last, or leave the cursor at the place where you want to go on typing. All of these are under the \"Variables\" button while editing a cutling. Curly braces { } you typed yourself stay as plain text, so the cutlings you have work as they did before.\n\nYou write a cutling as if writing in Apple's Notes app, you need to learn nothing new. A cutling's text now opens on its own page, and you can write bold, italic, underlined, struck through, highlighted or monospaced, add a link, and make a bulleted, dashed or numbered list.\n\nThere is far more room. You can now keep 5,000 text cutlings and 500 images; these numbers used to be 100 and 25. A single cutling can go up to 10,000 characters, and that is enough for a whole big email.\n\nEvery cutling on the Cutling keyboard is now typed. When you tap a formatted cutling, it too is typed like the others. If you hold it down, it is copied together with its formatting.\n\nIf you left adding the Cutling keyboard half done, open \"Keyboard Setup\" in Cutling. The new guide shows the three steps in the Settings app with a short video.",
+  "chars": 1776,
+  "note": "Informal sen; cutling takes its suffixes after an apostrophe (cutling'e, cutling'ler) as the app's newer strings write it; the blank is boşluk from the app's What's New row; format, list and plan words are the app's own from its Format card and Variables list; braces are küme parantezleri as the app says."
+ },
+ "N_mac": {
+  "text": "Bir cevabı bir kez yazarsın, gönderdiğin herkese uyar. Bir cutling'de artık değişen kısım için boşluk bırakabilirsin, örneğin isim ya da sipariş numarası için. O cutling'i ⌘⇧V ile seçtiğinde, yapıştırmadan önce kısa bir form ismi sorar; daha önce kullandığın isimler de bir tık uzağında.\n\nTarihler için bir şey yapman gerekmez. Bir cutling bugünün tarihini, yarının tarihini, bir hafta sonrasının tarihini ya da saati içerebilir; kullandığın gün doğrusu yazılır. Bir cutling sana seçenekler arasından seçim de yaptırabilir (örneğin “Standart” ya da “Premium” plan) ya da son kopyaladığın metni getirebilir. Bunların hepsi, bir cutling'i düzenlerken metnin hemen altında duran “Değişken Ekle” düğmesinde. Kendi yazdığın küme parantezleri { } düz metin olarak kalır, yani elindeki cutling'ler eskisi gibi yapıştırılır.\n\nYer çok daha fazla. Artık 5.000 metin cutling'i ve 500 görsel saklayabilirsin; eskiden bu sayılar 100 ve 25'ti. Tek bir cutling 10.000 karaktere kadar çıkabilir, bu da koca bir e-postaya yeter.",
+  "back": "You write a reply one time, and it suits everyone you send it to. In a cutling you can now leave a blank for the part that changes, for example for a name or an order number. When you pick that cutling with ⌘⇧V, a short form asks the name before pasting; the names you used before are also one click away.\n\nYou need to do nothing for dates. A cutling can contain today's date, tomorrow's date, the date of a week later or the time; the correct one is typed on the day you use it. A cutling can also have you make a choice among options (for example the \"Standard\" or \"Premium\" plan) or bring the text you copied last. All of these are at the \"Add Variable\" button, which sits right below the text while editing a cutling. Curly braces { } you typed yourself stay as plain text, so the cutlings you have are pasted as they were before.\n\nThere is far more room. You can now keep 5,000 text cutlings and 500 images; these numbers used to be 100 and 25. A single cutling can go up to 10,000 characters, and that is enough for a whole big email.",
+  "chars": 1011,
+  "note": "Same voice as the iPhone text, with tık and yapıştırmak for the Mac; the button is quoted as “Değişken Ekle”."
+ },
+ "glossary": {
+  "Variables": "Değişkenler",
+  "Add Variable": "Değişken Ekle",
+  "Ask Each Time": "Her Seferinde Sor",
+  "Choice": "Seçenek"
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "E1": {
+  "text": "Einmal schreiben reicht",
+  "back": "Writing once is enough",
+  "chars": 23,
+  "note": "No word for update, since the badge above already says it; a statement with the infinitive as subject, so it is not a command. German has no title case."
+ },
+ "E2": {
+  "text": "Du speicherst eine Antwort, nur der Name wechselt.",
+  "back": "You save one reply, only the name changes.",
+  "chars": 50,
+  "note": "du as in the app; 'eine' carries 'one', and 'a single time' leans on the event name right above it, because 'einmal gespeichert' put the line over 50."
+ },
+ "E3": {
+  "text": "Cutling fragt nach dem Namen, setzt das Datum selbst ein und tippt den Rest. Du schreibst einmal und besserst nie nach.",
+  "back": "Cutling asks for the name, puts in the date itself and types the rest. You write once and never touch it up afterwards.",
+  "chars": 119,
+  "note": "'nachbessern' holds 'correct afterwards' in one verb; 'heutige' (today's) and 'von Hand' (by hand) did not fit in 120."
+ },
+ "E3s": {
+  "text": "Cutling fragt nach dem Namen, setzt das Datum ein, tippt den Rest. Du schreibst nur einmal. Zum Black Friday im Angebot.",
+  "back": "Cutling asks for the name, puts in the date, types the rest. You write only once. On offer for Black Friday.",
+  "chars": 120,
+  "note": "First sentence loses 'selbst' and 'und' to make room; the sale sentence is elliptical (no 'Cutling ist'), the shop-window form German shoppers read. 'Black Friday' is the name used in Germany."
+ },
+ "E2s": {
+  "text": "Eine Antwort, der Name wechselt. Jetzt im Angebot.",
+  "back": "One reply, the name changes. On offer now.",
+  "chars": 50,
+  "note": "'im Angebot' is the plain shop word for on sale; no Black Friday here for length."
+ },
+ "N_ios": {
+  "text": "Du schreibst eine Antwort einmal, und sie passt für alle, denen du sie schickst. Ein Cutling kann jetzt einen Platzhalter haben für das, was sich ändert, etwa einen Namen oder eine Bestellnummer. Tippst du auf so einen Cutling, fragt die Cutling-Tastatur nach dem Namen, zeigt dir die Namen von früher, sodass ein Tipp genügt, und tippt dann die ganze Antwort. Du kannst den Namen auch zuerst schreiben und dann auf den Cutling tippen.\n\nUm das Datum musst du dich nicht kümmern. Ein Cutling kann das Datum von heute, von morgen oder von heute in einer Woche enthalten, auch die Uhrzeit, und alles stimmt an dem Tag, an dem du ihn verwendest. Er kann dir auch eine Auswahl anbieten, etwa „Basis“ oder „Premium“, den zuletzt kopierten Text einsetzen oder den Cursor dort lassen, wo du weiterschreiben willst. All das findest du beim Bearbeiten unter der Taste „Variablen“. Geschweifte Klammern, die du selbst getippt hast, bleiben normaler Text, deine bisherigen Cutlings verhalten sich also wie immer.\n\nEinen Cutling schreibst du jetzt wie in Apples App „Notizen“, ohne etwas Neues zu lernen. Sein Text öffnet sich als eigene Seite mit Fett, Kursiv, Unterstrichen, Durchgestrichen, Hervorheben, Festbreitenschrift, Links und Listen mit Punkten, Strichen oder Nummern.\n\nEs ist jetzt viel mehr Platz da: 5.000 Text-Cutlings und 500 Bilder statt bisher 100 und 25. Ein einzelner Cutling kann bis zu 10.000 Zeichen lang sein, das reicht für eine ganze E-Mail.\n\nAuf der Cutling-Tastatur tippt jetzt jede Taste. Tippst du auf einen formatierten Cutling, wird er geschrieben wie jeder andere. Hältst du ihn gedrückt, wird er samt Formatierung kopiert.\n\nFalls du die Cutling-Tastatur nie fertig hinzugefügt hast, öffne in Cutling „Tastatur einrichten“. Die neue Anleitung zeigt die drei Schritte in der App „Einstellungen“ als kurzes Video.",
+  "back": "You write a reply once, and it fits everyone you send it to. A cutling can now have a placeholder for what changes, say a name or an order number. When you tap such a cutling, the Cutling keyboard asks for the name, shows you the names from earlier, so that one tap is enough, and then types the whole reply. You can also write the name first and then tap the cutling.\n\nYou don't have to look after the date. A cutling can hold the date of today, of tomorrow or of a week from today, the time too, and all of it is right on the day you use it. It can also offer you a choice, say \"Basis\" or \"Premium\", put in the text copied last, or leave the cursor where you want to keep writing. You find all of that under the \"Variablen\" button while editing. Curly braces you typed yourself remain ordinary text, so your existing cutlings behave as always.\n\nYou now write a cutling as in Apple's \"Notizen\" app, without learning anything new. Its text opens as a page of its own with bold, italic, underlined, struck through, highlight, monospaced type, links and lists with bullets, dashes or numbers.\n\nThere is now much more room: 5,000 text cutlings and 500 images instead of 100 and 25 until now. A single cutling can be up to 10,000 characters long, which is enough for a whole email.\n\nOn the Cutling keyboard every key now types. When you tap a formatted cutling, it is written like any other. When you hold it down, it is copied together with its formatting.\n\nIf you never finished adding the Cutling keyboard, open \"Tastatur einrichten\" in Cutling. The new guide shows the three steps in the \"Einstellungen\" app as a short video.",
+  "chars": 1831,
+  "note": "du throughout; 'Platzhalter' is the in-app What's New row's word for the gap; 'auf ... tippen' is a tap and 'tippt'/'schreiben' is typing, as the app's strings split them; 'Taste' is Apple's German for an on-screen button."
+ },
+ "N_mac": {
+  "text": "Du schreibst eine Antwort einmal, und sie passt für alle, denen du sie schickst. Ein Cutling kann jetzt einen Platzhalter haben für das, was sich ändert, etwa einen Namen oder eine Bestellnummer. Wählst du so einen Cutling mit ⌘⇧V aus, fragt ein kurzes Formular vor dem Einfügen nach dem Namen, und die Namen von früher sind nur einen Klick entfernt.\n\nUm das Datum musst du dich nicht kümmern. Ein Cutling kann das Datum von heute, von morgen oder von heute in einer Woche enthalten, auch die Uhrzeit, und alles stimmt an dem Tag, an dem du ihn verwendest. Er kann dir auch eine Auswahl anbieten, etwa „Basis“ oder „Premium“, oder den zuletzt kopierten Text einsetzen. All das findest du unter der Taste „Variable hinzufügen“, die beim Bearbeiten direkt unter dem Text sitzt. Geschweifte Klammern, die du selbst getippt hast, bleiben normaler Text, deine bisherigen Cutlings werden also eingefügt wie immer.\n\nEs ist jetzt viel mehr Platz da: 5.000 Text-Cutlings und 500 Bilder statt bisher 100 und 25. Ein einzelner Cutling kann bis zu 10.000 Zeichen lang sein, das reicht für eine ganze E-Mail.",
+  "back": "You write a reply once, and it fits everyone you send it to. A cutling can now have a placeholder for what changes, say a name or an order number. When you pick such a cutling with ⌘⇧V, a short form asks for the name before pasting, and the names from earlier are only one click away.\n\nYou don't have to look after the date. A cutling can hold the date of today, of tomorrow or of a week from today, the time too, and all of it is right on the day you use it. It can also offer you a choice, say \"Basis\" or \"Premium\", or put in the text copied last. You find all of that under the \"Variable hinzufügen\" button, which sits right below the text while editing. Curly braces you typed yourself remain ordinary text, so your existing cutlings are pasted as always.\n\nThere is now much more room: 5,000 text cutlings and 500 images instead of 100 and 25 until now. A single cutling can be up to 10,000 characters long, which is enough for a whole email.",
+  "chars": 1095,
+  "note": "Same voice as iOS; 'einfügen' for paste as the app's Mac strings have it; Cutling is masculine ('er') as in the app's newer strings."
+ },
+ "glossary": {
+  "Variables": "Variablen",
+  "Add Variable": "Variable hinzufügen",
+  "Ask Each Time": "Jedes Mal fragen",
+  "Choice": "Auswahl"
+ }
+}

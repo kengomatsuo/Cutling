@@ -1,0 +1,50 @@
+{
+  "E1": {
+    "text": "मेसेज एकदाच लिहिला की झालं",
+    "back": "Write the message just once and that's that",
+    "chars": 26,
+    "note": "Spoken Marathi (‘... की झालं’), the way one tells a friend; no word for ‘update’ because the badge above already says it."
+  },
+  "E2": {
+    "text": "उत्तर एकदाच जतन करता. दर वेळी नाव दुसऱ्या कोणाचे.",
+    "back": "You save the reply just once. Each time the name is someone else's.",
+    "chars": 49,
+    "note": "Two plain statements in the तुम्ही form; ‘जतन’ is the app's word for Save."
+  },
+  "E3": {
+    "text": "Cutling नाव विचारते, आजची तारीख स्वतः टाकते आणि बाकी सगळे लिहिते. उत्तर एकदाच लिहिता, नंतर हाताने दुरुस्त करत बसत नाही.",
+    "back": "Cutling asks for the name, puts in today's date by itself and writes everything else. You write the reply just once; afterwards you don't sit correcting it by hand.",
+    "chars": 119,
+    "note": "App name in Latin letters with neuter verbs, as the app's strings conjugate it; ask, date, type are in that order so asking comes before typing; ‘तुम्ही’ is carried by the verb ending."
+  },
+  "E3s": {
+    "text": "Cutling नाव विचारते, आजची तारीख स्वतः टाकते आणि बाकी सगळे लिहिते. लिहायचे एकदाच. Cutling वर ब्लॅक फ्रायडे सेल सुरू आहे.",
+    "back": "Cutling asks for the name, puts in today's date by itself and writes everything else. You only have to write once. The Black Friday sale is on for Cutling.",
+    "chars": 119,
+    "note": "‘ब्लॅक फ्रायडे सेल’ is the transliteration Marathi shopping news uses; ‘सेल सुरू आहे’ is how a running sale is said."
+  },
+  "E2s": {
+    "text": "एकच उत्तर, दर वेळी नवे नाव. सध्या सेल सुरू आहे.",
+    "back": "One reply, a new name each time. A sale is on at present.",
+    "chars": 47,
+    "note": "Verbless first beat to fit one line; no sale name on the card, the long description names it."
+  },
+  "N_ios": {
+    "text": "उत्तर एकदाच लिहा, ते तुम्ही ज्यांना पाठवता त्या प्रत्येकासाठी उपयोगी पडते. कटलिंगमध्ये आता बदलणाऱ्या भागासाठी रिकामी जागा ठेवता येते, उदाहरणार्थ नाव किंवा ऑर्डर क्रमांक. असे कटलिंग टॅप केले की Cutling कीबोर्ड नाव विचारतो, तुम्ही आधी वापरलेली नावे दाखवतो म्हणजे एका टॅपमध्ये त्यातले एक निवडता येते, आणि मग पूर्ण उत्तर लिहितो. नाव आधी टाइप करून मग कटलिंग टॅप केले तरी चालते.\n\nतारखांसाठी तुम्हाला काहीच करावे लागत नाही. कटलिंगमध्ये आजची तारीख, उद्याची तारीख, एका आठवड्यानंतरची तारीख किंवा वेळ ठेवता येते, आणि ज्या दिवशी कटलिंग वापराल त्या दिवशी ती बरोबर येते. कटलिंगमध्ये काही निवडींमधून एक निवडायची सोयही ठेवता येते (उदा. बेसिक किंवा प्रीमियम प्लॅन), तुम्ही शेवटी कॉपी केलेला मजकूर आणता येतो, किंवा जिथून पुढे लिहायचे आहे तिथे कर्सर ठेवता येतो. कटलिंग संपादित करताना ‘व्हेरिएबल’ बटणावर टॅप केल्यावर हे सगळे मिळते. तुम्ही स्वतः टाइप केलेले कर्ली ब्रेस { } साधा मजकूरच राहतात, त्यामुळे तुमचे आधीचे कटलिंग पूर्वीसारखेच चालतात.\n\nकटलिंग आता तुम्ही Apple च्या Notes ॲपमध्ये लिहिता तसेच लिहिता येते, नवीन काही शिकावे लागत नाही. कटलिंगचा मजकूर आता स्वतःच्या वेगळ्या पानावर उघडतो, आणि तिथे बोल्ड, इटॅलिक, अधोरेखित, स्ट्राइकथ्रू, हायलाइट, मोनोस्पेस, लिंक, तसेच बुलेट असलेली, डॅश असलेली आणि क्रमांकित यादी वापरता येते.\n\nजागा आता खूप जास्त आहे. पूर्वी 100 मजकूर कटलिंग आणि 25 प्रतिमा ठेवता येत होत्या, आता 5,000 मजकूर कटलिंग आणि 500 प्रतिमा ठेवता येतात. एका कटलिंगमध्ये 10,000 अक्षरांपर्यंत मजकूर मावतो, तेवढ्यात एक अख्खा ईमेल बसतो.\n\nCutling कीबोर्डवरची प्रत्येक की आता लिहिते. फॉरमॅट केलेले कटलिंग टॅप केले की ते इतर कोणत्याही कटलिंगसारखेच लिहिले जाते. ते दाबून ठेवले की फॉरमॅटिंगसह कॉपी होते.\n\nCutling कीबोर्ड जोडण्याचे काम अर्धवट राहिले असेल, तर Cutling मध्ये ‘कीबोर्ड सेटअप’ उघडा. नवीन मार्गदर्शक सेटिंग्ज ॲपमधील तीन पायऱ्या एका छोट्या व्हिडिओमध्ये दाखवतो.",
+    "back": "Write the reply just once; it comes in useful for each person you send it to. A cutling can now keep a blank space for the part that changes, for example a name or an order number. When you tap such a cutling, the Cutling keyboard asks for the name, shows the names you used before so that one of them can be picked in one tap, and then writes the full reply. It also works if you type the name first and then tap the cutling.\n\nFor dates you have to do nothing at all. A cutling can keep today's date, tomorrow's date, the date a week later or the time, and on the day you use the cutling it comes out right. A cutling can also keep a way to pick one out of a few choices (e.g. the Basic or the Premium plan), can bring in the text you copied last, or can keep the cursor at the place you want to go on writing from. While editing a cutling, all of this is found on tapping the ‘Variables’ button. Curly braces { } you typed yourself stay plain text, so your earlier cutlings work just as before.\n\nA cutling can now be written just the way you write in Apple's Notes app; nothing new has to be learned. A cutling's text now opens on a separate page of its own, and there you can use bold, italic, underline, strikethrough, highlight, monospace, link, as well as bulleted, dashed and numbered lists.\n\nThere is now far more room. Before, 100 text cutlings and 25 images could be kept; now 5,000 text cutlings and 500 images can be kept. One cutling holds text of up to 10,000 characters; a whole email fits in that much.\n\nEvery key on the Cutling keyboard now writes. When you tap a formatted cutling, it is written just like any other cutling. When you press and hold it, it is copied with its formatting.\n\nIf the job of adding the Cutling keyboard was left half done, open ‘Keyboard Setup’ in Cutling. The new guide shows the three steps in the Settings app in one short video.",
+    "chars": 1746,
+    "note": "तुम्ही register in standard written Marathi; ‘Cutling’ in Latin is the app and its keyboard, ‘कटलिंग’ (neuter, as most app strings treat it) is one saved item; format and list names are the app's own Text page words; Notes is in Latin as the App Store's Marathi page names it; Latin digits as in the app's strings."
+  },
+  "N_mac": {
+    "text": "उत्तर एकदाच लिहा, ते तुम्ही ज्यांना पाठवता त्या प्रत्येकासाठी उपयोगी पडते. कटलिंगमध्ये आता बदलणाऱ्या भागासाठी रिकामी जागा ठेवता येते, उदाहरणार्थ नाव किंवा ऑर्डर क्रमांक. असे कटलिंग ⌘⇧V ने निवडले की पेस्ट करण्याआधी एक छोटा फॉर्म नाव विचारतो, आणि तुम्ही आधी वापरलेली नावे एका क्लिकवर मिळतात.\n\nतारखांसाठी तुम्हाला काहीच करावे लागत नाही. कटलिंगमध्ये आजची तारीख, उद्याची तारीख, एका आठवड्यानंतरची तारीख किंवा वेळ ठेवता येते, आणि ज्या दिवशी कटलिंग वापराल त्या दिवशी ती बरोबर येते. कटलिंगमध्ये काही निवडींमधून एक निवडायची सोयही ठेवता येते (उदा. बेसिक किंवा प्रीमियम प्लॅन), किंवा तुम्ही शेवटी कॉपी केलेला मजकूर आणता येतो. कटलिंग संपादित करताना मजकुराच्या लगेच खाली ‘व्हेरिएबल जोडा’ बटण आहे, त्यावर क्लिक केल्यावर हे सगळे मिळते. तुम्ही स्वतः टाइप केलेले कर्ली ब्रेस { } साधा मजकूरच राहतात, त्यामुळे तुमचे आधीचे कटलिंग पूर्वीसारखेच पेस्ट होतात.\n\nजागा आता खूप जास्त आहे. पूर्वी 100 मजकूर कटलिंग आणि 25 प्रतिमा ठेवता येत होत्या, आता 5,000 मजकूर कटलिंग आणि 500 प्रतिमा ठेवता येतात. एका कटलिंगमध्ये 10,000 अक्षरांपर्यंत मजकूर मावतो, तेवढ्यात एक अख्खा ईमेल बसतो.",
+    "back": "Write the reply just once; it comes in useful for each person you send it to. A cutling can now keep a blank space for the part that changes, for example a name or an order number. When you pick such a cutling with ⌘⇧V, a short form asks for the name before pasting, and the names you used before are one click away.\n\nFor dates you have to do nothing at all. A cutling can keep today's date, tomorrow's date, the date a week later or the time, and on the day you use the cutling it comes out right. A cutling can also keep a way to pick one out of a few choices (e.g. the Basic or the Premium plan), or can bring in the text you copied last. While editing a cutling there is an ‘Add Variable’ button right below the text; all of this is found on clicking it. Curly braces { } you typed yourself stay plain text, so your earlier cutlings paste just as before.\n\nThere is now far more room. Before, 100 text cutlings and 25 images could be kept; now 5,000 text cutlings and 500 images can be kept. One cutling holds text of up to 10,000 characters; a whole email fits in that much.",
+    "chars": 1047,
+    "note": "Same register and words as the iPhone text, with ‘क्लिक’ for the Mac; the room paragraph is word for word the same."
+  },
+  "glossary": {
+    "Variables": "व्हेरिएबल",
+    "Add Variable": "व्हेरिएबल जोडा",
+    "Ask Each Time": "प्रत्येक वेळी विचारा",
+    "Choice": "निवड"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "E1": {
+    "text": "Viesti, jonka kirjoitat kerran",
+    "back": "The message that you write once",
+    "chars": 30,
+    "note": "No word for 'update' (the badge says it). Finnish has no title case. A noun phrase with a relative clause, as one would name it in speech; the comma before 'jonka' is obligatory."
+  },
+  "E2": {
+    "text": "Tallennat vastauksen kerran. Joka kerta uusi nimi.",
+    "back": "You save the reply once. Every time a new name.",
+    "chars": 50,
+    "note": "Second person is in the verb ending, no pronoun. Second statement is verbless to fit 50; 'kerran / joka kerta' is a deliberate echo."
+  },
+  "E3": {
+    "text": "Cutling kysyy nimen, lisää päiväyksen itse ja kirjoittaa loput. Kirjoitat vastauksen kerran etkä enää korjaa sitä käsin.",
+    "back": "Cutling asks for the name, adds the date (of the day of writing) itself and writes the rest. You write the reply once and no longer correct it by hand.",
+    "chars": 120,
+    "note": "'päiväys' is the date put on a letter, by nature today's; the app's 'päivän päivämäärä' did not fit in 120. 'enää' (any longer) carries 'afterwards'."
+  },
+  "E3s": {
+    "text": "Cutling kysyy nimen, lisää päiväyksen itse ja kirjoittaa loput. Kirjoitat sen vain kerran. Nyt Black Friday -alessa.",
+    "back": "Cutling asks for the name, adds the date itself and writes the rest. You write it only once. Now in the Black Friday sale.",
+    "chars": 116,
+    "note": "First sentence identical to E3. Finnish shops say 'Black Friday' untranslated; 'Black Friday -ale' takes a space before the hyphen because the first part is two words. Third sentence is verbless to fit 120."
+  },
+  "E2s": {
+    "text": "Yksi vastaus, joka kerta uusi nimi. Nyt alessa.",
+    "back": "One reply, every time a new name. Now on sale.",
+    "chars": 47,
+    "note": "'alessa' (in the sale) is the everyday word, matching E3s."
+  },
+  "N_ios": {
+    "text": "Kirjoita vastaus kerran, niin se käy kaikille, joille sen lähetät. Nyt cutlingissa voi olla täytettävä kohta sille osalle, joka vaihtuu, vaikkapa nimelle tai tilausnumerolle. Kun napautat tällaista cutlingia, Cutling-näppäimistö kysyy nimen, näyttää aiemmin käyttämäsi nimet, joista voit valita yhdellä napautuksella, ja kirjoittaa sitten koko vastauksen. Voit myös kirjoittaa nimen ensin ja napauttaa cutlingia vasta sitten.\n\nPäivämääristä sinun ei tarvitse huolehtia. Voit lisätä cutlingiin tämän päivän tai huomisen päivämäärän, päivämäärän viikon päästä tai kellonajan, ja se on oikein sinä päivänä, jona cutlingia käytät. Lisäksi cutling voi antaa valita vaihtoehdoista (esimerkiksi Perus tai Premium), tuoda viimeksi kopioimasi tekstin tai jättää kohdistimen kohtaan, josta haluat jatkaa kirjoittamista. Kaikki nämä löytyvät Muuttujat-painikkeesta, kun muokkaat cutlingia. Itse kirjoittamasi aaltosulkeet pysyvät tavallisena tekstinä, joten nykyiset cutlingisi toimivat kuten ennenkin.\n\nVoit kirjoittaa cutlingin samalla tavalla kuin kirjoitat Applen Muistiinpanoissa, eikä mitään uutta tarvitse opetella. Teksti avautuu nyt omalle sivulleen, ja käytössä ovat lihavointi, kursivointi, alleviivaus, yliviivaus, korostus, tasaleveä teksti, linkit sekä luettelomerkit, viivaluettelot ja numeroidut luettelot.\n\nTilaa on paljon enemmän. Nyt voit tallentaa 5000 tekstiä ja 500 kuvaa, kun ennen rajat olivat 100 ja 25. Yhdessä cutlingissa voi olla jopa 10 000 merkkiä, ja se riittää kokonaiseen sähköpostiin.\n\nCutling-näppäimistön jokainen näppäin kirjoittaa nyt. Kun napautat muotoiltua cutlingia, se kirjoitetaan kuten mikä tahansa muukin. Kun pidät sitä painettuna, se kopioidaan muotoiluineen.\n\nJos Cutling-näppäimistön lisääminen jäi sinulta kesken, avaa Cutlingissa ”Näppäimistön käyttöönotto”. Uusi opas näyttää Asetukset-sovelluksen kolme vaihetta lyhyenä videona.",
+    "back": "Write a reply once, and it suits everyone you send it to. Now a cutling can have a spot to fill in for the part that changes, say for a name or an order number. When you tap such a cutling, the Cutling keyboard asks for the name, shows the names you have used before, from which you can pick with one tap, and then types the whole reply. You can also type the name first and tap the cutling only then.\n\nDates you do not need to look after. You can add to a cutling today's or tomorrow's date, the date a week from now or the time of day, and it is right on the day you use the cutling. In addition a cutling can let you choose from options (for example Perus or Premium), bring in the text you copied last or leave the cursor at the spot from which you want to continue typing. All of these are found in the Muuttujat button when you edit a cutling. Curly braces you typed yourself stay ordinary text, so your present cutlings work as before.\n\nYou can write a cutling the same way you write in Apple's Notes (Muistiinpanot), and nothing new needs to be learnt. The text now opens onto a page of its own, and available are bold, italic, underline, strikethrough, highlight, monospaced text, links and bullets, dashed lists and numbered lists.\n\nThere is much more room. Now you can save 5000 texts and 500 images, when before the limits were 100 and 25. One cutling can have up to 10,000 characters, and that is enough for a whole email.\n\nEvery key of the Cutling keyboard now types. When you tap a formatted cutling, it is typed like any other. When you hold it down, it is copied with its formatting.\n\nIf adding the Cutling keyboard was left unfinished, open \"Näppäimistön käyttöönotto\" in Cutling. The new guide shows the three steps of the Settings app as a short video.",
+    "chars": 1871,
+    "note": "Informal second person through verb endings, as in the app. The gap is 'täytettävä kohta', from the in-app row 'Kohdat ja päivämäärät'. Sentences never start with the item word, because a capitalised 'Cutling' would read as the app. '5000 tekstiä ja 500 kuvaa' follows the app's own What's New row and avoids the app's compound 'Tekstilcutling'. Format and list names are the app's own Format card words (Lihavointi, Kursivointi, Alleviivaus, Yliviivaus, Korostus, Tasaleveä, Luettelomerkit, Viivaluettelo, Numeroitu); Apple's Notes calls the lists 'luettelomerkitty' and 'viivoitettu luettelo'. Apple's Notes app is named 'Muistiinpanot' and inflected ('Applen Muistiinpanoissa'), as Apple's own Finnish does. Button names are joined to 'painike' with a hyphen, the Finnish way (Muuttujat-painike, Lisää muuttuja -painike). 10 000 has a no-break space."
+  },
+  "N_mac": {
+    "text": "Kirjoita vastaus kerran, niin se käy kaikille, joille sen lähetät. Nyt cutlingissa voi olla täytettävä kohta sille osalle, joka vaihtuu, vaikkapa nimelle tai tilausnumerolle. Kun valitset tällaisen cutlingin painamalla ⌘⇧V, lyhyt lomake kysyy nimen ennen liittämistä, ja aiemmin käyttämäsi nimet ovat yhden klikkauksen päässä.\n\nPäivämääristä sinun ei tarvitse huolehtia. Voit lisätä cutlingiin tämän päivän tai huomisen päivämäärän, päivämäärän viikon päästä tai kellonajan, ja se on oikein sinä päivänä, jona cutlingia käytät. Lisäksi cutling voi antaa valita vaihtoehdoista, esimerkiksi Perus tai Premium, tai tuoda viimeksi kopioimasi tekstin. Kaikki nämä löytyvät Lisää muuttuja -painikkeesta, joka on heti tekstin alla, kun muokkaat cutlingia. Itse kirjoittamasi aaltosulkeet pysyvät tavallisena tekstinä, joten nykyiset cutlingisi liitetään kuten ennenkin.\n\nTilaa on paljon enemmän. Nyt voit tallentaa 5000 tekstiä ja 500 kuvaa, kun ennen rajat olivat 100 ja 25. Yhdessä cutlingissa voi olla jopa 10 000 merkkiä, ja se riittää kokonaiseen sähköpostiin.",
+    "back": "Write a reply once, and it suits everyone you send it to. Now a cutling can have a spot to fill in for the part that changes, say for a name or an order number. When you pick such a cutling by pressing ⌘⇧V, a short form asks for the name before pasting, and the names you have used before are one click away.\n\nDates you do not need to look after. You can add to a cutling today's or tomorrow's date, the date a week from now or the time of day, and it is right on the day you use the cutling. In addition a cutling can let you choose from options, for example Perus or Premium, or bring in the text you copied last. All of these are found in the Lisää muuttuja button, which is right below the text when you edit a cutling. Curly braces you typed yourself stay ordinary text, so your present cutlings are pasted as before.\n\nThere is much more room. Now you can save 5000 texts and 500 images, when before the limits were 100 and 25. One cutling can have up to 10,000 characters, and that is enough for a whole email.",
+    "chars": 1058,
+    "note": "Same words as N_ios; 'klikkaus' (Apple's Finnish verb is 'klikata') and 'liittää' (the app's 'Liitä') for the Mac."
+  },
+  "glossary": {
+    "Variables": "Muuttujat",
+    "Add Variable": "Lisää muuttuja",
+    "Ask Each Time": "Kysy joka kerta",
+    "Choice": "Valinta"
+  }
+}

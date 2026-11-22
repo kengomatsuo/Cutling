@@ -1,0 +1,50 @@
+{
+  "E1": {
+    "text": "Você escreve uma vez e pronto",
+    "back": "You write once and that's it",
+    "chars": 29,
+    "note": "Sentence case, as the app's own headings in Brazilian Portuguese; a statement with 'você', which keeps it from reading as a command; 'e pronto' is how a Brazilian says it is settled. No word for 'update' under the badge."
+  },
+  "E2": {
+    "text": "Uma resposta salva uma vez, com o nome de cada um.",
+    "back": "One reply saved once, with each person's name.",
+    "chars": 50,
+    "note": "One sentence without a pronoun so it does not repeat the 'Você' of the name above; 'de cada um' says whose name it is, which 'outro nome' leaves open."
+  },
+  "E3": {
+    "text": "O Cutling pede o nome, põe a data de hoje e digita o resto. Você escreve a resposta uma vez só e para de corrigir à mão.",
+    "back": "Cutling asks for the name, puts in today's date and types the rest. You write the reply just once and stop correcting by hand.",
+    "chars": 120,
+    "note": "App name takes the article ('o Cutling') as in the app's strings; 'digita' is the app's verb for typing; 'by itself' rests on Cutling being the subject, since 'sozinho' did not fit beside 'de hoje'."
+  },
+  "E3s": {
+    "text": "O Cutling pede o nome, põe a data de hoje e digita o resto. Você escreve uma vez só. E está em promoção na Black Friday.",
+    "back": "Cutling asks for the name, puts in today's date and types the rest. You write just once. And it is on sale on Black Friday.",
+    "chars": 120,
+    "note": "Brazilian shoppers say 'Black Friday' (feminine, 'na Black Friday') and 'em promoção'; 'E' ties the third sentence back to Cutling without repeating the name."
+  },
+  "E2s": {
+    "text": "Uma resposta, outro nome a cada uso. Em promoção.",
+    "back": "One reply, another name at each use. On sale.",
+    "chars": 49,
+    "note": "'Agora' (now) did not fit 50; 'Em promoção.' as a closing fragment reads as on sale now."
+  },
+  "N_ios": {
+    "text": "Agora você escreve uma resposta uma vez só e ela serve para todo mundo que recebe. Um cutling pode ter um campo para a parte que muda, como o nome da pessoa ou o número do pedido. Quando você toca nesse cutling, o teclado Cutling pergunta o nome, mostra os nomes que você já usou, para escolher um com um toque, e digita a resposta completa. Se preferir, digite o nome primeiro e depois toque no cutling.\n\nCom as datas você não precisa fazer nada. O cutling pode ter a data de hoje, a de amanhã, a de daqui a uma semana ou a hora, e sai tudo certo no dia em que ele é usado. Ele também pode oferecer uma escolha entre opções (plano Mensal ou plano Anual, por exemplo), trazer o último texto que você copiou ou deixar o cursor no ponto em que você quer continuar digitando. Tudo isso fica no botão “Variáveis”, na hora de editar um cutling. As chaves que você mesmo digitou continuam sendo texto comum, então os cutlings que você já tem funcionam como antes.\n\nDá para escrever um cutling do jeito que você escreve no app Notas, sem aprender nada novo. O texto do cutling agora abre numa página só dele, com negrito, itálico, sublinhado, tachado, destaque, monoespaçado, links e listas com marcadores, com traços e numeradas.\n\nTem muito mais espaço. Agora cabem 5.000 cutlings de texto e 500 imagens, onde antes cabiam 100 e 25, e um cutling pode ter até 10.000 caracteres, o suficiente para um e-mail inteiro.\n\nTodas as teclas do teclado Cutling agora digitam. Se você toca num cutling formatado, ele é digitado como qualquer outro. Se mantém o cutling pressionado, ele é copiado com a formatação.\n\nSe você não chegou a terminar de adicionar o teclado Cutling, abra “Configuração do teclado” no Cutling. O novo guia mostra os três passos do app Ajustes em um vídeo curto.",
+    "back": "Now you write a reply just one time and it serves for everybody who receives it. A cutling can have a field for the part that changes, such as the person's name or the order number. When you tap that cutling, the Cutling keyboard asks the name, shows the names you have already used, to pick one with a tap, and types the complete reply. If you prefer, type the name first and then tap the cutling.\n\nWith dates you do not need to do anything. The cutling can have today's date, tomorrow's, the one a week from now or the time, and it all comes out right on the day it is used. It can also offer a choice between options (Monthly plan or Annual plan, for example), bring in the last text you copied or leave the cursor at the point where you want to keep typing. All of this is in the “Variables” button, when editing a cutling. The curly braces you typed yourself continue to be ordinary text, so the cutlings you already have work as before.\n\nYou can write a cutling the way you write in the Notes app, without learning anything new. The cutling's text now opens in a page all its own, with bold, italic, underline, strikethrough, highlight, monospace, links and bulleted, dashed and numbered lists.\n\nThere is much more room. Now 5,000 text cutlings and 500 images fit, where before 100 and 25 fit, and one cutling can have up to 10,000 characters, enough for a whole email.\n\nAll the keys of the Cutling keyboard now type. If you tap a formatted cutling, it is typed like any other. If you keep the cutling pressed, it is copied with the formatting.\n\nIf you never got to finish adding the Cutling keyboard, open “Keyboard Setup” in Cutling. The new guide shows the three steps of the Settings app in a short video.",
+    "chars": 1770,
+    "note": "'Você' with third-person verbs and formal imperatives ('digite', 'abra') as the app's strings; gerund ('continuar digitando'), 'tem' for 'there is', 'todo mundo'; gap is 'campo' as the in-app What's New row; format and list names as the app's Format card ('com traços'); dot thousands (5.000)."
+  },
+  "N_mac": {
+    "text": "Agora você escreve uma resposta uma vez só e ela serve para todo mundo que recebe. Um cutling pode ter um campo para a parte que muda, como o nome da pessoa ou o número do pedido. Quando você escolhe esse cutling com ⌘⇧V, um formulário curto pergunta o nome antes de colar, e os nomes que você já usou ficam a um clique.\n\nCom as datas você não precisa fazer nada: a de hoje, a de amanhã, a de daqui a uma semana ou a hora saem certas no dia em que o cutling é usado. O cutling também pode oferecer uma escolha entre opções (plano Mensal ou plano Anual, por exemplo) ou trazer o último texto que você copiou. Tudo isso fica no botão “Adicionar variável”, logo abaixo do texto na hora de editar um cutling. As chaves que você mesmo digitou continuam sendo texto comum, então os cutlings que você já tem são colados como antes.\n\nE tem muito mais espaço. Agora cabem 5.000 cutlings de texto e 500 imagens, onde antes cabiam 100 e 25, e um cutling pode ter até 10.000 caracteres, o suficiente para um e-mail inteiro.",
+    "back": "Now you write a reply just one time and it serves for everybody who receives it. A cutling can have a field for the part that changes, such as the person's name or the order number. When you pick that cutling with ⌘⇧V, a short form asks the name before pasting, and the names you have already used are one click away.\n\nWith dates you do not need to do anything: today's, tomorrow's, the one a week from now or the time come out right on the day the cutling is used. The cutling can also offer a choice between options (Monthly plan or Annual plan, for example) or bring in the last text you copied. All of this is in the “Add Variable” button, right below the text when editing a cutling. The curly braces you typed yourself continue to be ordinary text, so the cutlings you already have are pasted as before.\n\nAnd there is much more room. Now 5,000 text cutlings and 500 images fit, where before 100 and 25 fit, and one cutling can have up to 10,000 characters, enough for a whole email.",
+    "chars": 1011,
+    "note": "Same voice as iPhone; 'clique' and 'colar' for the Mac; button quoted as the app's strings write it, “Adicionar variável”."
+  },
+  "glossary": {
+    "Variables": "Variáveis",
+    "Add Variable": "Adicionar variável",
+    "Ask Each Time": "Perguntar sempre",
+    "Choice": "Escolha"
+  }
+}

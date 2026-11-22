@@ -1,0 +1,50 @@
+{
+ "E1": {
+  "text": "書くのは一度きり",
+  "back": "Writing is only the one time",
+  "chars": 8,
+  "note": "Ends on a noun phrase (体言止め), so it is a nickname and not a request; 「きり」 says once and never after. No 「アップデート」, since the badge above already reads メジャーアップデート."
+ },
+ "E2": {
+  "text": "返信は一度保存するだけ。使うたびに違う相手の名前が入ります。",
+  "back": "You just save the reply once. Each time you use it, a different person's name goes in.",
+  "chars": 30,
+  "note": "です・ます for the second beat, with a noun-style stop on the first, as card copy is written; 「相手」 makes the name clearly the other person's."
+ },
+ "E3": {
+  "text": "Cutling が相手の名前をたずね、今日の日付を自動で入れて、残りはすべて入力します。返信は一度書くだけで、あとから手で直すことはなくなります。",
+  "back": "Cutling asks for the other person's name, puts in today's date automatically, and types all the rest. You only write the reply once, and correcting it by hand afterwards goes away.",
+  "chars": 73,
+  "note": "です・ます throughout; the 連用形 chain (たずね、入れて、入力します) keeps the order ask, date, type, so the asking comes before the typing. The app is 「Cutling」 in Latin letters, as the store listing names it."
+ },
+ "E3s": {
+  "text": "Cutling が相手の名前をたずね、今日の日付を自動で入れて、残りはすべて入力します。書くのは一度だけです。Cutling はブラックフライデーセール中です。",
+  "back": "Cutling asks for the other person's name, puts in today's date automatically, and types all the rest. Writing is one time only. Cutling is in its Black Friday sale.",
+  "chars": 80,
+  "note": "Japanese stores name it 「ブラックフライデーセール」; 「セール中」 says the sale is on without a price, a rate or a date."
+ },
+ "E2s": {
+  "text": "返信はひとつ、使うたびに新しい名前が入ります。ただいまセール中です。",
+  "back": "One reply, and each time you use it a new name goes in. It is on sale right now.",
+  "chars": 34,
+  "note": "「ただいま」 is the shop-floor word for right now; です・ます."
+ },
+ "N_ios": {
+  "text": "返信は一度書けば、送る相手みんなに使えます。カットリングに、毎回変わる部分のための空欄を入れられるようになりました。たとえば相手の名前や注文番号です。そのカットリングをタップすると、Cutling キーボードが名前をたずね、これまでに使った名前も並ぶのでワンタップで選べます。そのあとで返信全体を入力します。先に名前を入力してからカットリングをタップする使い方もできます。\n\n日付は、何もしなくて大丈夫です。カットリングには今日の日付、明日の日付、1週間後の日付、時刻を入れておけて、使ったその日の正しい内容になります。ほかにも、いくつかの選択肢から選ぶ（たとえば「スタンダードプラン」か「プレミアムプラン」）、最後にコピーしたテキストを入れる、続きを書きたい場所にカーソルを置く、といったことができます。どれも、カットリングの編集中に「変数」ボタンから追加できます。自分で入力した波括弧は普通の文字のままなので、いまあるカットリングはこれまでどおりに動きます。\n\nカットリングは、Apple の「メモ」アプリと同じ感覚で書けます。新しく覚えることはありません。カットリングの本文は専用のページで開くようになり、ボールド、イタリック、下線、取り消し線、ハイライト、等幅、リンク、それに箇条書き、ダッシュ、番号付きのリストが使えます。\n\n保存できる数も大きく増えました。テキストのカットリングは100個から5,000個に、画像は25個から500個になりました。1つのカットリングには10,000文字まで入るので、メール1通がまるごと収まります。\n\nCutling キーボードは、すべてのキーで入力できるようになりました。書式付きのカットリングも、タップすればほかと同じように入力されます。長押しすると、書式を保ったままコピーされます。\n\nCutling キーボードの追加が途中のままになっている方は、Cutling で「キーボード設定」を開いてください。新しいガイドが、「設定」アプリで行う3つの手順を短い動画で案内します。",
+  "back": "If you write a reply once, you can use it for everyone you send it to. It has become possible to put, in a cutling, a blank for the part that changes each time. For example the other person's name or an order number. When you tap that cutling, the Cutling keyboard asks for the name, and the names you have used so far are also lined up, so you can choose with one tap. After that it types the whole reply. You can also use it by typing the name first and then tapping the cutling.\n\nFor dates, it is fine to do nothing. In a cutling you can keep today's date, tomorrow's date, the date one week later, or the time, and it becomes the correct content for the day you used it. Besides that, you can do things such as choosing from several options (for example “Standard plan” or “Premium plan”), putting in the text you copied last, and placing the cursor where you want to continue writing. All of them can be added from the “変数” (Variables) button while editing a cutling. Curly braces you typed yourself stay ordinary characters, so the cutlings you have now work as they have until now.\n\nYou can write a cutling with the same feel as Apple's Notes app. There is nothing new to learn. The body of a cutling now opens in a page of its own, and bold, italic, underline, strikethrough, highlight, monospace, links, and also bulleted, dashed and numbered lists can be used.\n\nThe number you can save has also grown a lot. Text cutlings went from 100 to 5,000, and images from 25 to 500. One cutling holds up to 10,000 characters, so a whole email fits in it.\n\nOn the Cutling keyboard, it has become possible to type with every key. Cutlings with formatting, too, are typed the same as the others if you tap them. If you touch and hold, it is copied with the formatting kept.\n\nIf adding the Cutling keyboard has been left halfway, please open “キーボード設定” (Keyboard Setup) in Cutling. The new guide walks you through the three steps done in the Settings app in a short video.",
+  "chars": 861,
+  "note": "です・ます throughout with varied endings; the app and its keyboard are 「Cutling」 in Latin letters and one saved item is 「カットリング」; 「空欄」 is the app's word for the gap; format names as the app's Format card has them; numbers grouped with a comma."
+ },
+ "N_mac": {
+  "text": "返信は一度書けば、送る相手みんなに使えます。カットリングに、毎回変わる部分のための空欄を入れられるようになりました。たとえば相手の名前や注文番号です。そのカットリングを ⌘⇧V で選ぶと、ペーストの前に短いフォームが名前をたずねます。これまでに使った名前はワンクリックで選べます。\n\n日付は、何もしなくて大丈夫です。今日の日付、明日の日付、1週間後の日付、時刻は、カットリングを使ったその日の正しい内容になります。ほかにも、いくつかの選択肢から選ぶ（たとえば「スタンダードプラン」か「プレミアムプラン」）、最後にコピーしたテキストを入れる、といったことができます。どれも、カットリングの編集中に、本文のすぐ下にある「変数を追加」ボタンから追加できます。自分で入力した波括弧は普通の文字のままなので、いまあるカットリングはこれまでどおりにペーストされます。\n\n保存できる数も大きく増えました。テキストのカットリングは100個から5,000個に、画像は25個から500個になりました。1つのカットリングには10,000文字まで入るので、メール1通がまるごと収まります。",
+  "back": "If you write a reply once, you can use it for everyone you send it to. It has become possible to put, in a cutling, a blank for the part that changes each time. For example the other person's name or an order number. When you pick that cutling with ⌘⇧V, a short form asks for the name before pasting. The names you have used so far can be chosen with one click.\n\nFor dates, it is fine to do nothing. Today's date, tomorrow's date, the date one week later and the time become the correct content for the day you used the cutling. Besides that, you can do things such as choosing from several options (for example “Standard plan” or “Premium plan”) and putting in the text you copied last. All of them can be added from the “変数を追加” (Add Variable) button right below the body text while editing a cutling. Curly braces you typed yourself stay ordinary characters, so the cutlings you have now are pasted as they have been until now.\n\nThe number you can save has also grown a lot. Text cutlings went from 100 to 5,000, and images from 25 to 500. One cutling holds up to 10,000 characters, so a whole email fits in it.",
+  "chars": 482,
+  "note": "Same です・ます voice; 「ペースト」 and 「クリック」 as the Mac strings say; a space on each side of ⌘⇧V so the symbols stand clear of the kana. Every 「カットリング」 here means a saved item."
+ },
+ "glossary": {
+  "Variables": "変数",
+  "Add Variable": "変数を追加",
+  "Ask Each Time": "毎回尋ねる",
+  "Choice": "選択肢"
+ }
+}

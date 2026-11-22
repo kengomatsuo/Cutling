@@ -1,0 +1,50 @@
+{
+  "E1": {
+    "text": "একবার লিখলেই হলো",
+    "back": "Write it once and that's that",
+    "chars": 16,
+    "note": "The spoken 'X করলেই হলো' idiom (doing X is all it takes), a conditional and not an order; no word for update under the badge."
+  },
+  "E2": {
+    "text": "একবার সংরক্ষণ করা উত্তর, প্রতিবার অন্য কারও নাম।",
+    "back": "A reply saved once, each time someone else's name.",
+    "chars": 48,
+    "note": "One verbless sentence, as Bengali captions run; সংরক্ষণ is the app's word for save."
+  },
+  "E3": {
+    "text": "Cutling আগে নাম জিজ্ঞেস করে, আজকের তারিখ নিজেই বসায়, বাকিটা টাইপ করে দেয়। উত্তর একবার লিখলে পরে হাতে ঠিক করতে হয় না।",
+    "back": "Cutling first asks the name, puts in today's date by itself, and types the rest. If you write the reply once, you do not have to fix it by hand afterwards.",
+    "chars": 119,
+    "note": "App name in Latin letters as the listing has it; আগে (first) puts the asking before the typing; second sentence is a conditional statement (লিখলে), no command."
+  },
+  "E3s": {
+    "text": "Cutling নাম জিজ্ঞেস করে, আজকের তারিখ নিজেই বসায়, বাকিটা টাইপ করে। লিখবেন একবারই। Cutling-এ ব্ল্যাক ফ্রাইডে ছাড় চলছে।",
+    "back": "Cutling asks the name, puts in today's date by itself, types the rest. You will write only once. A Black Friday discount is running on Cutling.",
+    "chars": 118,
+    "note": "আগে is dropped to fit 120 and the order of the verbs carries ask, date, type; the case ending joins the Latin name with a hyphen (Cutling-এ) as the app's strings do for iCloud-এ; ছাড় চলছে is how shops in Bangladesh say a sale is on, with no figure."
+  },
+  "E2s": {
+    "text": "একটাই উত্তর, প্রতিবার নতুন নাম। এখন ছাড় চলছে।",
+    "back": "Just one reply, a new name each time. A discount is running now.",
+    "chars": 46,
+    "note": "ছাড় চলছে for 'on sale'; no price or percentage."
+  },
+  "N_ios": {
+    "text": "উত্তর একবার লিখুন, এরপর যাকেই পাঠান, সেটাই কাজে লাগবে। কাটলিংয়ে এখন যে অংশটা প্রতিবার বদলায় তার জন্য ফাঁকা জায়গা রাখা যায়, যেমন নাম বা অর্ডার নম্বর। এমন কাটলিংয়ে ট্যাপ করলে Cutling কীবোর্ড নাম জিজ্ঞেস করে, আগে ব্যবহার করা নামগুলো দেখায় যাতে এক ট্যাপেই বেছে নিতে পারেন, তারপর পুরো উত্তরটা টাইপ করে দেয়। চাইলে আগে নামটা টাইপ করে তারপর কাটলিংয়ে ট্যাপ করতে পারেন।\n\nতারিখ নিয়ে আপনাকে কিছুই করতে হয় না। কাটলিংয়ে আজকের তারিখ, আগামীকালের তারিখ, এক সপ্তাহ পরের তারিখ বা সময় রাখা যায়, আর যেদিন ব্যবহার করবেন সেদিন ঠিকটাই বসবে। কাটলিং কয়েকটা বিকল্প থেকে একটা বেছে নিতেও দিতে পারে (যেমন বেসিক বা প্রিমিয়াম প্ল্যান), আপনার সবশেষ কপি করা টেক্সট এনে বসাতে পারে, কিংবা কার্সর ঠিক সেখানে রেখে দিতে পারে যেখান থেকে আপনি আবার লিখতে চান। কাটলিং সম্পাদনা করার সময় «ভেরিয়েবল» বোতামে এর সবই পাবেন। আপনার নিজের টাইপ করা কার্লি ব্রেস { } সাধারণ লেখা হিসেবেই থাকে, তাই আগের কাটলিংগুলো আগের মতোই কাজ করে।\n\nকাটলিং এখন লিখুন ঠিক যেভাবে Apple-এর Notes অ্যাপে লেখেন, নতুন কিছু শিখতে হবে না। কাটলিংয়ের টেক্সট এখন আলাদা একটা পাতায় খোলে, সেখানে আছে বোল্ড, ইটালিক, আন্ডারলাইন, স্ট্রাইকথ্রু, হাইলাইট, মনোস্পেস, লিংক, আর বুলেট, ড্যাশ ও নম্বর দেওয়া তালিকা।\n\nজায়গাও অনেক বেড়েছে। এখন ৫,০০০টি টেক্সট কাটলিং আর ৫০০টি ছবি রাখা যায়, আগে যা ছিল ১০০ আর ২৫। একটা কাটলিং ১০,০০০ অক্ষর পর্যন্ত হতে পারে, মানে আস্ত একটা ইমেল ধরে যায়।\n\nCutling কীবোর্ডের প্রতিটি কী এখন টাইপ করে। ফরম্যাট করা কাটলিংয়ে ট্যাপ করলে সেটা বাকিগুলোর মতোই টাইপ হয়। চেপে ধরলে ফরম্যাটিংসহ কপি হয়।\n\nCutling কীবোর্ড যোগ করা যদি শেষ না করে থাকেন, Cutling-এ «কীবোর্ড সেটআপ» খুলুন। নতুন গাইড সেটিংস অ্যাপের তিনটি ধাপ ছোট একটা ভিডিওতে দেখায়।",
+    "back": "Write a reply once; after that, whoever you send it to, that same one will do. A cutling can now keep a blank for the part that changes every time, such as a name or an order number. When you tap such a cutling, the Cutling keyboard asks the name, shows the names used before so that you can pick one in a single tap, then types out the whole reply. If you like, you can type the name first and then tap the cutling.\n\nYou do not have to do anything about the date. A cutling can keep today's date, tomorrow's date, the date a week later or the time, and on the day you use it the right one goes in. A cutling can also let you pick one from a few options (such as the Basic or Premium plan), can bring in the text you copied last, or can leave the cursor exactly where you want to write again. While editing a cutling you will find all of this in the \"Variables\" button. Curly braces { } you typed yourself stay as ordinary writing, so your earlier cutlings work as before.\n\nNow write a cutling exactly the way you write in Apple's Notes app; there is nothing new to learn. A cutling's text now opens on a separate page, where there are bold, italic, underline, strikethrough, highlight, monospace, links, and bulleted, dashed and numbered lists.\n\nRoom has grown a lot too. Now 5,000 text cutlings and 500 images can be kept, where it used to be 100 and 25. One cutling can be up to 10,000 characters, which means a whole email fits.\n\nEvery key of the Cutling keyboard now types. Tapping a formatted cutling types it just like the others. Pressing and holding it copies it with its formatting.\n\nIf you have not finished adding the Cutling keyboard, open \"Keyboard Setup\" in Cutling. The new guide shows the three steps of the Settings app in a short video.",
+    "chars": 1584,
+    "note": "আপনি in spoken-standard (চলিত) Bengali with the app's করুন imperative; Cutling in Latin letters is the app and its keyboard, কাটলিং is one saved item; Bengali digits as the app's own strings use; Notes stays in Latin letters as the Bengali App Store shows it; 'ordinary text' is সাধারণ লেখা so it is not read as the app's Plain Text format (সাধারণ টেক্সট)."
+  },
+  "N_mac": {
+    "text": "উত্তর একবার লিখুন, এরপর যাকেই পাঠান, সেটাই কাজে লাগবে। কাটলিংয়ে এখন যে অংশটা প্রতিবার বদলায় তার জন্য ফাঁকা জায়গা রাখা যায়, যেমন নাম বা অর্ডার নম্বর। ⌘⇧V দিয়ে এমন কাটলিং বেছে নিলে পেস্ট হওয়ার আগে ছোট একটা ফর্ম নাম জিজ্ঞেস করে, আর আগে ব্যবহার করা নামগুলো এক ক্লিকেই পাওয়া যায়।\n\nতারিখ নিয়ে আপনাকে কিছুই করতে হয় না। কাটলিংয়ে আজকের তারিখ, আগামীকালের তারিখ, এক সপ্তাহ পরের তারিখ বা সময় রাখা যায়, আর যেদিন ব্যবহার করবেন সেদিন ঠিকটাই বসবে। কাটলিং কয়েকটা বিকল্প থেকে একটা বেছে নিতেও দিতে পারে (যেমন বেসিক বা প্রিমিয়াম প্ল্যান), কিংবা আপনার সবশেষ কপি করা টেক্সট এনে বসাতে পারে। এর সবই পাবেন «ভেরিয়েবল যোগ করুন» বোতামে, কাটলিং সম্পাদনা করার সময় যেটা টেক্সটের ঠিক নিচে থাকে। আপনার নিজের টাইপ করা কার্লি ব্রেস { } সাধারণ লেখা হিসেবেই থাকে, তাই আগের কাটলিংগুলো আগের মতোই পেস্ট হয়।\n\nজায়গাও অনেক বেড়েছে। এখন ৫,০০০টি টেক্সট কাটলিং আর ৫০০টি ছবি রাখা যায়, আগে যা ছিল ১০০ আর ২৫। একটা কাটলিং ১০,০০০ অক্ষর পর্যন্ত হতে পারে, মানে আস্ত একটা ইমেল ধরে যায়।",
+    "back": "Write a reply once; after that, whoever you send it to, that same one will do. A cutling can now keep a blank for the part that changes every time, such as a name or an order number. When you pick such a cutling with ⌘⇧V, a small form asks the name before it is pasted, and the names used before are there in one click.\n\nYou do not have to do anything about the date. A cutling can keep today's date, tomorrow's date, the date a week later or the time, and on the day you use it the right one goes in. A cutling can also let you pick one from a few options (such as the Basic or Premium plan), or bring in the text you copied last. You will find all of this in the \"Add Variable\" button, which sits right below the text while editing a cutling. Curly braces { } you typed yourself stay as ordinary writing, so your earlier cutlings paste as before.\n\nRoom has grown a lot too. Now 5,000 text cutlings and 500 images can be kept, where it used to be 100 and 25. One cutling can be up to 10,000 characters, which means a whole email fits.",
+    "chars": 952,
+    "note": "Same register as the iPhone text; ক্লিক where a Mac is clicked; ⌘⇧V kept as symbols."
+  },
+  "glossary": {
+    "Variables": "ভেরিয়েবল",
+    "Add Variable": "ভেরিয়েবল যোগ করুন",
+    "Ask Each Time": "প্রতিবার জিজ্ঞাসা করুন",
+    "Choice": "পছন্দ"
+  }
+}

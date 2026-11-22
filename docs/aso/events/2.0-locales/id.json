@@ -1,0 +1,50 @@
+{
+ "E1": {
+  "text": "Sekali Tulis, Pakai Terus",
+  "back": "Write Once, Keep Using It",
+  "chars": 25,
+  "note": "Title case; the word for update is left out because the badge above already says it. 'Sekali tulis' is how a person says 'written one time' in speech."
+ },
+ "E2": {
+  "text": "Balasan disimpan sekali, namanya beda tiap pakai.",
+  "back": "The reply is saved once, its name is different each use.",
+  "chars": 49,
+  "note": "One statement in two beats, casual 'tiap pakai' (each use) to fit one line; no command form."
+ },
+ "E3": {
+  "text": "Cutling tanya nama, isi tanggal hari ini sendiri, lalu ketik sisanya. Kamu tulis balasan sekali, tak perlu edit lagi.",
+  "back": "Cutling asks the name, fills in today's date by itself, then types the rest. You write the reply once, no need to edit it again.",
+  "chars": 117,
+  "note": "Bare verbs (tanya, isi, ketik) as in spoken Indonesian with 'kamu'; 'lalu' (then) keeps asking before typing."
+ },
+ "E3s": {
+  "text": "Cutling tanya nama, isi tanggal hari ini sendiri, lalu ketik sisanya. Cukup tulis sekali. Cutling diskon Black Friday.",
+  "back": "Cutling asks the name, fills in today's date by itself, then types the rest. Writing it once is enough. Cutling is discounted for Black Friday.",
+  "chars": 118,
+  "note": "Indonesian shoppers say 'diskon Black Friday' with the English name; 'Cutling diskon' is the short promo predicate, used to stay inside 120."
+ },
+ "E2s": {
+  "text": "Satu balasan, nama baru tiap pakai. Sedang diskon.",
+  "back": "One reply, a new name each use. On discount now.",
+  "chars": 50,
+  "note": "Subject left out in the second sentence, as Indonesian does when the card already names the app."
+ },
+ "N_ios": {
+  "text": "Balasan cukup kamu tulis sekali untuk semua orang yang kamu kirimi. Sekarang sebuah cutling bisa punya isian untuk bagian yang berubah, misalnya nama atau nomor pesanan. Saat kamu mengetuk cutling itu, keyboard Cutling menanyakan namanya, menampilkan nama yang pernah kamu pakai supaya tinggal diketuk sekali, lalu mengetik balasannya sampai lengkap. Bisa juga dibalik: ketik namanya dulu, baru ketuk cutlingnya.\n\nTanggal tidak perlu kamu urus. Sebuah cutling bisa memuat tanggal hari ini, besok, seminggu lagi, atau jam, dan hasilnya benar pada hari cutling itu dipakai. Kamu juga bisa membuat cutling menawarkan pilihan (misalnya Paket Hemat atau Paket Premium), mengambil teks yang terakhir kamu salin, atau meninggalkan kursor di tempat kamu mau lanjut mengetik. Semuanya ada di tombol “Variabel” saat kamu mengedit cutling. Kurung kurawal yang kamu ketik sendiri tetap teks biasa, jadi cutling yang sudah kamu punya bekerja seperti sebelumnya.\n\nMenulis cutling sekarang sama seperti menulis di aplikasi Catatan dari Apple, jadi tidak ada yang perlu dipelajari lagi. Teks cutling kini terbuka di halamannya sendiri, dengan format tebal, miring, garis bawah, coret, sorot, monospace, tautan, serta daftar berpoin, berstrip, dan bernomor.\n\nRuangnya jauh lebih lega: 5.000 cutling teks dan 500 gambar, dari sebelumnya 100 dan 25. Satu cutling bisa sampai 10.000 karakter, cukup untuk satu email utuh.\n\nSemua tombol di keyboard Cutling sekarang mengetik. Cutling yang berformat pun terketik seperti cutling lain saat kamu ketuk. Kalau kamu sentuh dan tahan, cutling itu tersalin lengkap dengan formatnya.\n\nKalau kamu belum selesai menambahkan keyboard Cutling, buka “Penyiapan keyboard” di Cutling. Panduan barunya menunjukkan tiga langkah di aplikasi Pengaturan lewat video singkat.",
+  "back": "You only need to write a reply once for everyone you send it to. Now a cutling can have a fill-in for the part that changes, for example a name or an order number. When you tap that cutling, the Cutling keyboard asks for the name, shows the names you have used before so one tap is all it takes, then types the reply out in full. It also works the other way round: type the name first, then tap the cutling.\n\nDates need no looking after from you. A cutling can hold today's date, tomorrow's, a week from now, or the time, and the result is correct on the day that cutling is used. You can also make a cutling offer a choice (for example Paket Hemat or Paket Premium), bring in the text you copied last, or leave the cursor at the place where you want to go on typing. All of it is under the “Variabel” button when you edit a cutling. Curly braces you typed yourself stay ordinary text, so the cutlings you already have work as before.\n\nWriting a cutling is now the same as writing in Apple's Notes (Catatan) app, so there is nothing more to learn. A cutling's text now opens on its own page, with the formats bold, italic, underline, strikethrough, highlight, monospace, links, and bulleted, dashed and numbered lists.\n\nThere is far more room: 5,000 text cutlings and 500 images, from 100 and 25 before. One cutling can be up to 10,000 characters, enough for one whole email.\n\nEvery key on the Cutling keyboard now types. A formatted cutling, too, gets typed like any other cutling when you tap it. If you touch and hold it, that cutling is copied complete with its formatting.\n\nIf you have not finished adding the Cutling keyboard, open “Penyiapan keyboard” (Keyboard Setup) in Cutling. Its new guide shows the three steps in the Settings app through a short video.",
+  "chars": 1783,
+  "note": "Addresses the reader as 'kamu' (house rule for Indonesian products), though the app's own strings say 'Anda'; item is lowercase 'cutling', app is 'Cutling', gap is 'isian' as in the app's What's New row."
+ },
+ "N_mac": {
+  "text": "Balasan cukup kamu tulis sekali untuk semua orang yang kamu kirimi. Sekarang sebuah cutling bisa punya isian untuk bagian yang berubah, misalnya nama atau nomor pesanan. Saat kamu memilih cutling itu dengan ⌘⇧V, formulir singkat menanyakan namanya sebelum cutling ditempel, dan nama-nama yang pernah kamu pakai tinggal diklik sekali.\n\nTanggal tidak perlu kamu urus: tanggal hari ini, besok, seminggu lagi, atau jam selalu benar pada hari cutling itu dipakai. Kamu juga bisa membuat cutling menawarkan pilihan (misalnya Paket Hemat atau Paket Premium) atau mengambil teks yang terakhir kamu salin. Semuanya ada di tombol “Tambah Variabel”, tepat di bawah teks saat kamu mengedit cutling. Kurung kurawal yang kamu ketik sendiri tetap teks biasa, jadi cutling yang sudah kamu punya tertempel seperti sebelumnya.\n\nRuangnya jauh lebih lega: 5.000 cutling teks dan 500 gambar, dari sebelumnya 100 dan 25. Satu cutling bisa sampai 10.000 karakter, cukup untuk satu email utuh.",
+  "back": "You only need to write a reply once for everyone you send it to. Now a cutling can have a fill-in for the part that changes, for example a name or an order number. When you pick that cutling with ⌘⇧V, a short form asks for the name before the cutling is pasted, and the names you have used before take a single click.\n\nDates need no looking after from you: today's date, tomorrow's, a week from now, or the time are always correct on the day that cutling is used. You can also make a cutling offer a choice (for example Paket Hemat or Paket Premium) or bring in the text you copied last. All of it is under the “Tambah Variabel” button, right below the text when you edit a cutling. Curly braces you typed yourself stay ordinary text, so the cutlings you already have paste as before.\n\nThere is far more room: 5,000 text cutlings and 500 images, from 100 and 25 before. One cutling can be up to 10,000 characters, enough for one whole email.",
+  "chars": 969,
+  "note": "Same 'kamu' voice; 'klik' and 'tempel' where a Mac is clicked and pastes; nothing about the keyboard, the Notes-like page, the setup guide or the cursor."
+ },
+ "glossary": {
+  "Variables": "Variabel",
+  "Add Variable": "Tambah Variabel",
+  "Ask Each Time": "Tanya Setiap Kali",
+  "Choice": "Pilihan"
+ }
+}

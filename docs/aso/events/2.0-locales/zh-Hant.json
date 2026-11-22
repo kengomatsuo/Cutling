@@ -1,0 +1,50 @@
+{
+ "E1": {
+  "text": "以後只要寫一次",
+  "back": "From now on you only have to write it once",
+  "chars": 7,
+  "note": "以後只要 is how a person in Taiwan or Hong Kong says 'from now on, just'; no 你 and no 更新, since the badge above already reads 重大更新."
+ },
+ "E2": {
+  "text": "回覆存一次就好，每次用都會換上對方的名字。",
+  "back": "Saving the reply once is enough, and every time you use it, it takes on the other person's name.",
+  "chars": 21,
+  "note": "就好 states that once is enough, as a fact and not a request; 回覆 is the word both Taiwan and Hong Kong use for a reply."
+ },
+ "E3": {
+  "text": "Cutling 會先問你對方的名字，當天日期它自己填好，再幫你把其餘內容全部輸入。回覆只要寫一次，之後不用再動手改。",
+  "back": "Cutling first asks you for the other person's name, fills in that day's date itself, and then types all the rest for you. You only have to write a reply once, and afterwards there is no more changing it by hand.",
+  "chars": 58,
+  "note": "先……再 carries the order (ask, then type); 幫你 is the everyday Taiwan way to say the app does it for you, and 它自己填好 avoids the maker's word 自動."
+ },
+ "E3s": {
+  "text": "Cutling 會先問你對方的名字，當天日期它自己填好，再幫你把其餘內容全部輸入。回覆寫一次就夠了。Cutling 現正推出黑色星期五優惠。",
+  "back": "Cutling first asks you for the other person's name, fills in that day's date itself, and then types all the rest for you. Writing the reply once is enough. Cutling is running a Black Friday offer now.",
+  "chars": 70,
+  "note": "黑色星期五 in full, because Taiwan shoppers also say 黑五 while Hong Kong shoppers mostly say Black Friday, and the full name is the one both read without effort."
+ },
+ "E2s": {
+  "text": "一則回覆每次用都換上新名字，現在特價中。",
+  "back": "One reply takes on a new name every time it is used, and it is on sale now.",
+  "chars": 20,
+  "note": "特價中 is the shop-sign wording for 'on sale now' in both Taiwan and Hong Kong; 則 is the counter the app's own strings use."
+ },
+ "N_ios": {
+  "text": "回覆只要寫一次，傳給誰都能用。現在剪切片段裡可以留填空，把每次不一樣的地方空下來，例如對方的名字或訂單編號。點一下這樣的剪切片段，Cutling 鍵盤會先問你名字，也會列出你之前用過的名字，點一下就能選，接著輸入完整的回覆。你也可以先打好名字，再點一下剪切片段。\n\n日期完全不用你動手。剪切片段可以放今天的日期、明天的日期、一週後的日期或目前時間，到了使用的那一天，出來的都會是正確的。它也能讓你從幾個選項裡挑一個，例如「基本方案」和「進階方案」，還能帶入你上一次複製的文字，或是把游標停在你想繼續打字的位置。編輯剪切片段時，這些都在「變數」按鈕裡。你自己打的大括號仍然是一般文字，所以原有的剪切片段用起來跟以前一樣。\n\n寫剪切片段就跟在 Apple 的「備忘錄」裡寫東西一樣，不用重新學。剪切片段的文字現在會開成獨立的一頁，可以用粗體、斜體、底線、刪除線、重點顯示、等寬文字和連結，也可以用項目符號、破折號和編號列表。\n\n容量大了很多。文字剪切片段可以存 5,000 則，圖片可以存 500 張，以前是 100 則和 25 張。一則剪切片段最多可以有 10,000 個字元，放一整封電子郵件也夠。\n\nCutling 鍵盤上的每個鍵現在都能輸入。帶格式的剪切片段，點一下就跟其他的一樣直接輸入，按住則會連格式一起複製。\n\n如果你一直沒把 Cutling 鍵盤加入完成，到 Cutling 裡打開「鍵盤設定」就可以了。新的指南會用一段短片示範「設定」App 裡的三個步驟。",
+  "back": "You only have to write a reply once and it works for whoever you send it to. A cutling can now have a blank left in it, leaving empty the place that differs each time, for example the other person's name or an order number. Tap such a cutling and the Cutling keyboard first asks you for the name, and also lists the names you used before so one tap picks one, then types the complete reply. You can also type the name first and then tap the cutling.\n\nDates need no work from you at all. A cutling can hold today's date, tomorrow's date, the date a week from now or the current time, and when the day of use comes, what comes out is correct. It can also let you pick one of several options, for example 'Basic plan' and 'Advanced plan', bring in the text you copied last, or leave the cursor where you want to keep typing. While you edit a cutling, all of these are in the 'Variables' button. Curly braces you typed yourself are still ordinary text, so the cutlings you already have work the same as before.\n\nWriting a cutling is just like writing in Apple's Notes, with nothing to learn again. A cutling's text now opens as a page of its own, where you can use bold, italic, underline, strikethrough, highlight, monospaced text and links, and also bulleted, dashed and numbered lists.\n\nThere is far more room. You can keep 5,000 text cutlings and 500 images, where it used to be 100 and 25. One cutling can be up to 10,000 characters, enough even for a whole email.\n\nEvery key on the Cutling keyboard now types. A cutling with formatting types straight in like the others with one tap, and touching and holding it copies it together with its formatting.\n\nIf you never finished adding the Cutling keyboard, go to Cutling and open 'Keyboard Setup'. The new guide shows the three steps in the Settings app as a short video.",
+  "chars": 635,
+  "note": "你 throughout, with 「」 for button names and the words Taiwan and Hong Kong use (點一下, 游標, 訂單編號, 短片, 字元); highlight and list names follow Apple's Traditional Chinese Notes (重點顯示, 項目符號、破折號和編號列表)."
+ },
+ "N_mac": {
+  "text": "回覆只要寫一次，傳給誰都能用。現在剪切片段裡可以留填空，把每次不一樣的地方空下來，例如對方的名字或訂單編號。用 ⌘⇧V 選這樣的剪切片段時，貼上之前會先跳出一個簡短的表單問你名字，之前用過的名字按一下就能選。\n\n日期完全不用你動手。今天的日期、明天的日期、一週後的日期或目前時間，到了使用剪切片段的那一天，出來的都會是正確的。剪切片段也能讓你從幾個選項裡挑一個，例如「基本方案」和「進階方案」，還能帶入你上一次複製的文字。編輯剪切片段時，這些都在文字正下方的「加入變數」按鈕裡。你自己打的大括號仍然是一般文字，所以原有的剪切片段貼上後跟以前一樣。\n\n容量大了很多。文字剪切片段可以存 5,000 則，圖片可以存 500 張，以前是 100 則和 25 張。一則剪切片段最多可以有 10,000 個字元，放一整封電子郵件也夠。",
+  "back": "You only have to write a reply once and it works for whoever you send it to. A cutling can now have a blank left in it, leaving empty the place that differs each time, for example the other person's name or an order number. When you pick such a cutling with ⌘⇧V, a short form pops up asking you for the name before it pastes, and the names you used before can be picked with one click.\n\nDates need no work from you at all. Today's date, tomorrow's date, the date a week from now or the current time come out correct when the day you use the cutling arrives. A cutling can also let you pick one of several options, for example 'Basic plan' and 'Advanced plan', or bring in the text you copied last. While you edit a cutling, all of these are in the 'Add Variable' button directly below the text. Curly braces you typed yourself are still ordinary text, so the cutlings you already have paste the same as before.\n\nThere is far more room. You can keep 5,000 text cutlings and 500 images, where it used to be 100 and 25. One cutling can be up to 10,000 characters, enough even for a whole email.",
+  "chars": 362,
+  "note": "Same voice as the iPhone text; 按一下 is Apple's Traditional Chinese word for a click on the Mac, where the iPhone text says 點一下."
+ },
+ "glossary": {
+  "Variables": "變數",
+  "Add Variable": "加入變數",
+  "Ask Each Time": "每次都詢問",
+  "Choice": "選項"
+ }
+}

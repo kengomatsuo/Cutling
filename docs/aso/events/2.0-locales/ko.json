@@ -1,0 +1,50 @@
+{
+ "E1": {
+  "text": "한 번만 써 두면 되는 답장",
+  "back": "The reply you only have to write once and keep",
+  "chars": 15,
+  "note": "A noun phrase, so it reads as a nickname and not an order; 써 두다 (write and keep) is used because bare 쓰다 also means 'use'. 'Update' is left out because the badge above already says it."
+ },
+ "E2": {
+  "text": "답장은 하나만 저장해 둡니다. 보낼 때마다 다른 사람 이름이 들어갑니다.",
+  "back": "You keep just one reply saved. Each time you send it, a different person's name goes in.",
+  "chars": 40,
+  "note": "Two plain statements in 합니다체, the level the app's own strings hold; 보낼 때마다 (each time you send) avoids 쓰다, which would read as 'write'."
+ },
+ "E3": {
+  "text": "Cutling이 먼저 받는 사람 이름을 묻고, 오늘 날짜는 알아서 넣은 다음 나머지를 모두 입력합니다. 답장은 한 번만 써 두면 되고, 그 뒤로는 손으로 고칠 일이 없습니다.",
+  "back": "Cutling first asks for the recipient's name, puts in today's date by itself, and then types all the rest. You only have to write a reply once, and after that there is nothing to correct by hand.",
+  "chars": 97,
+  "note": "먼저 ... 다음 fixes the order ask, date, type; 알아서 is the everyday word for 'by itself' and avoids 자동."
+ },
+ "E3s": {
+  "text": "Cutling이 먼저 받는 사람 이름을 묻고, 오늘 날짜는 알아서 넣은 다음 나머지를 모두 입력합니다. 답장은 한 번만 쓰면 됩니다. Cutling은 지금 블랙프라이데이 할인 중입니다.",
+  "back": "Cutling first asks for the recipient's name, puts in today's date by itself, and then types all the rest. You only have to write a reply once. Cutling is on a Black Friday sale now.",
+  "chars": 103,
+  "note": "블랙프라이데이 written closed up, as Korean shops and shoppers write it; the three sentences end on three different verbs."
+ },
+ "E2s": {
+  "text": "답장 하나에 보낼 때마다 새 이름이 들어갑니다. 지금 할인 중입니다.",
+  "back": "One reply gets a new name each time you send it. It is on sale now.",
+  "chars": 38,
+  "note": "The sale sentence has no subject, which Korean allows; the reader takes it as the app on the card."
+ },
+ "N_ios": {
+  "text": "답장은 한 번만 써 두면 누구에게 보내든 쓸 수 있습니다. 이제 컷링 안에 빈칸을 둘 수 있어서, 받는 사람 이름이나 주문 번호처럼 매번 달라지는 부분은 비워 두면 됩니다. 빈칸이 있는 컷링을 탭하면 Cutling 키보드가 이름을 묻고, 전에 썼던 이름도 보여 주어 한 번만 탭하면 고를 수 있습니다. 그런 다음 완성된 답장을 입력합니다. 이름을 먼저 입력하고 나서 컷링을 탭해도 됩니다.\n\n날짜는 신경 쓸 일이 없습니다. 컷링에 오늘 날짜, 내일 날짜, 일주일 뒤 날짜나 현재 시간을 넣어 두면 쓰는 날에 맞는 값으로 나옵니다. ‘베이직’과 ‘프리미엄’ 같은 요금제 이름 중에서 하나를 고르게 하거나, 마지막으로 복사한 텍스트를 불러오거나, 이어서 입력할 자리에 커서를 놓아 둘 수도 있습니다. 이 기능은 모두 컷링을 편집할 때 ‘변수’ 버튼 안에 있습니다. 직접 입력한 중괄호는 일반 텍스트로 남기 때문에 이미 만들어 둔 컷링은 전과 똑같이 동작합니다.\n\n컷링은 Apple의 메모 앱에서 글을 쓰듯이 쓰면 되고, 새로 배울 것이 없습니다. 컷링의 텍스트가 이제 별도 페이지로 열리고, 여기서 볼드체, 이탤릭체, 밑줄, 취소선, 하이라이트, 고정폭 글꼴, 링크와 구분점 목록, 대시 목록, 번호 목록을 쓸 수 있습니다.\n\n저장 공간도 훨씬 넓어졌습니다. 텍스트 컷링은 100개에서 5,000개로, 이미지는 25개에서 500개로 늘었습니다. 컷링 하나에 10,000자까지 담을 수 있으니 이메일 한 통을 통째로 넣기에 충분합니다.\n\nCutling 키보드의 키는 이제 모두 탭하면 바로 입력됩니다. 서식이 있는 컷링도 다른 컷링과 똑같이 입력되고, 길게 누르면 서식째 복사됩니다.\n\nCutling 키보드 추가를 끝내지 못했다면 Cutling에서 ‘키보드 설정’을 열면 됩니다. 새 가이드가 설정 앱에서 거치는 세 단계를 짧은 영상으로 보여 줍니다.",
+  "back": "Write a reply just once and you can use it whoever you send it to. A cutling can now have a blank in it, so the part that differs each time, such as the recipient's name or an order number, can be left empty. When you tap a cutling that has a blank, the Cutling keyboard asks for the name and also shows the names you used before, so one tap picks one. Then it types the finished reply. You can also type the name first and then tap the cutling.\n\nDates need no attention from you. Put today's date, tomorrow's date, the date a week from now or the current time in a cutling and it comes out with the value that fits the day you use it. A cutling can also have you pick one from plan names such as 'Basic' and 'Premium', bring in the text you copied last, or leave the cursor where you will go on typing. All of these are inside the 'Variables' button when you edit a cutling. Curly braces you typed yourself stay ordinary text, so the cutlings you already made behave exactly as before.\n\nYou write a cutling the way you write in Apple's Notes app, and there is nothing new to learn. A cutling's text now opens as a separate page, and there you can use bold, italic, underline, strikethrough, highlight, a monospaced font, links, and bulleted, dashed and numbered lists.\n\nThere is also far more room. Text cutlings went from 100 to 5,000 and images from 25 to 500. One cutling holds up to 10,000 characters, enough to put in a whole email.\n\nEvery key on the Cutling keyboard now types as soon as you tap it. A cutling with formatting types just like the others, and touching and holding it copies it with its formatting.\n\nIf you never finished adding the Cutling keyboard, open 'Keyboard Setup' in Cutling. The new guide shows the three steps you go through in the Settings app as a short video.",
+  "chars": 921,
+  "note": "합니다체 held to the last line, with ~면 됩니다 in place of the ~세요 imperative so the level never drops to 해요체; format and list names are the ones Apple's Korean Notes guide prints."
+ },
+ "N_mac": {
+  "text": "답장은 한 번만 써 두면 누구에게 보내든 쓸 수 있습니다. 이제 컷링 안에 빈칸을 둘 수 있어서, 받는 사람 이름이나 주문 번호처럼 매번 달라지는 부분은 비워 두면 됩니다. ⌘⇧V로 그 컷링을 고르면 붙여넣기 전에 짧은 입력 양식이 이름을 묻고, 전에 썼던 이름은 클릭 한 번으로 고를 수 있습니다.\n\n날짜는 신경 쓸 일이 없습니다. 오늘 날짜, 내일 날짜, 일주일 뒤 날짜나 현재 시간을 넣어 두면 컷링을 쓰는 날에 맞는 값으로 나옵니다. ‘베이직’과 ‘프리미엄’ 같은 요금제 이름 중에서 하나를 고르게 하거나, 마지막으로 복사한 텍스트를 불러올 수도 있습니다. 이 기능은 모두 컷링을 편집할 때 텍스트 바로 아래에 있는 ‘변수 추가’ 버튼 안에 있습니다. 직접 입력한 중괄호는 일반 텍스트로 남기 때문에 이미 만들어 둔 컷링을 붙여넣은 결과는 전과 같습니다.\n\n저장 공간도 훨씬 넓어졌습니다. 텍스트 컷링은 100개에서 5,000개로, 이미지는 25개에서 500개로 늘었습니다. 컷링 하나에 10,000자까지 담을 수 있으니 이메일 한 통을 통째로 넣기에 충분합니다.",
+  "back": "Write a reply just once and you can use it whoever you send it to. A cutling can now have a blank in it, so the part that differs each time, such as the recipient's name or an order number, can be left empty. When you pick that cutling with ⌘⇧V, a short form asks for the name before it pastes, and the names you used before can be picked with one click.\n\nDates need no attention from you. Put in today's date, tomorrow's date, the date a week from now or the current time and it comes out with the value that fits the day you use the cutling. A cutling can also have you pick one from plan names such as 'Basic' and 'Premium', or bring in the text you copied last. All of these are inside the 'Add Variable' button right below the text when you edit a cutling. Curly braces you typed yourself stay ordinary text, so what the cutlings you already made paste is the same as before.\n\nThere is also far more room. Text cutlings went from 100 to 5,000 and images from 25 to 500. One cutling holds up to 10,000 characters, enough to put in a whole email.",
+  "chars": 543,
+  "note": "Same 합니다체 as the iPhone text, with 클릭 where a Mac is clicked; the last sentence of paragraph 2 is turned so it avoids the clumsy passive 붙여넣어집니다."
+ },
+ "glossary": {
+  "Variables": "변수",
+  "Add Variable": "변수 추가",
+  "Ask Each Time": "매번 묻기",
+  "Choice": "선택지"
+ }
+}

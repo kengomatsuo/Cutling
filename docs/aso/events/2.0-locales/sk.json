@@ -1,0 +1,50 @@
+{
+ "E1": {
+  "text": "Napísané raz a navždy",
+  "back": "Written once and for good",
+  "chars": 21,
+  "note": "Built on the idiom 'raz a navždy'; no word for 'update' under the badge; Slovak has no title case."
+ },
+ "E2": {
+  "text": "Odpoveď uložíš raz, meno je zakaždým iné.",
+  "back": "You save the reply once, the name is different every time.",
+  "chars": 41,
+  "note": "Informal ty (tykanie), as the app's setup guide and What's New sheet speak; one sentence with two clauses."
+ },
+ "E3": {
+  "text": "Cutling sa opýta na meno, sám doplní dnešný dátum a zvyšok napíše. Odpoveď napíšeš raz a ručne ju už neopravuješ.",
+  "back": "Cutling asks for the name, fills in today's date by itself and types the rest. You write the reply once and you no longer correct it by hand.",
+  "chars": 113,
+  "note": "Perfective verbs give the order (asks, then fills in, then types); present and future only, so no gendered past tense."
+ },
+ "E3s": {
+  "text": "Cutling sa opýta na meno, sám doplní dnešný dátum a zvyšok napíše. Píšeš len raz. Na Black Friday je Cutling v zľave.",
+  "back": "Cutling asks for the name, fills in today's date by itself and types the rest. You write only once. For Black Friday Cutling is on sale.",
+  "chars": 117,
+  "note": "Slovak shops say 'Black Friday'; 'v zľave' is the shopper's phrase for on sale."
+ },
+ "E2s": {
+  "text": "Jedna odpoveď, zakaždým iné meno. Teraz v zľave.",
+  "back": "One reply, a different name every time. On sale now.",
+  "chars": 48,
+  "note": "Verbless card line; 'v zľave' is the same sale wording as E3s."
+ },
+ "N_ios": {
+  "text": "Odpoveď napíšeš raz a hodí sa pre každého, komu ju posielaš. V cutlingu teraz môžeš nechať prázdne pole na to, čo je zakaždým iné, napríklad meno alebo číslo objednávky. Keď na taký cutling klepneš, klávesnica Cutling sa opýta na meno, ukáže mená použité predtým, takže stačí jedno klepnutie, a potom napíše celú odpoveď. Meno môžeš napísať aj vopred a na cutling klepnúť až potom.\n\nO dátum sa starať nemusíš. V cutlingu môže byť dnešný dátum, zajtrajší, dátum o týždeň alebo aktuálny čas a v deň, keď ho použiješ, vyjdú správne. Cutling ti vie dať aj na výber viacero možností, napríklad plán „Základný“ alebo „Premium“, vložiť naposledy skopírovaný text alebo nechať kurzor tam, kde chceš písať ďalej. To všetko nájdeš pri úprave cutlingu pod tlačidlom „Premenné“. Ručne napísané zložené zátvorky zostávajú obyčajným textom, takže cutlingy, ktoré už máš, fungujú ako predtým.\n\nCutling teraz píšeš rovnako ako v aplikácii Poznámky od Apple a nič nové sa učiť nemusíš. Text cutlingu sa otvorí ako samostatná stránka a na nej máš tučné písmo, kurzívu, podčiarknutie, prečiarknutie, zvýraznenie, písmo monospace, odkazy a zoznamy s odrážkami, s pomlčkami aj číslované.\n\nMiesta je oveľa viac: 5 000 textových cutlingov a 500 obrázkov namiesto doterajších 100 a 25. Jeden cutling môže mať až 10 000 znakov, čo stačí na celý e-mail.\n\nNa klávesnici Cutling teraz píše každý kláves. Keď klepneš na formátovaný cutling, napíše sa ako ktorýkoľvek iný, a keď ho podržíš, skopíruje sa aj s formátovaním.\n\nAk pridanie klávesnice Cutling zostalo nedokončené, otvor v aplikácii Cutling „Nastavenie klávesnice“. Nový sprievodca ukáže tri kroky v aplikácii Nastavenia na krátkom videu.",
+  "back": "You write a reply once and it suits everyone you send it to. In a cutling you can now leave an empty field for what is different every time, for example a name or an order number. When you tap such a cutling, the Cutling keyboard asks for the name, shows the names used before, so one tap is enough, and then types the whole reply. You can also write the name beforehand and tap the cutling only afterwards.\n\nYou do not have to look after the date. A cutling can hold today's date, tomorrow's, the date a week from now or the current time, and on the day you use it they come out right. A cutling can also give you a choice from several options, for example the plan \"Basic\" or \"Premium\", insert the last copied text, or leave the cursor where you want to keep writing. You will find all of this while editing a cutling, under the button \"Variables\". Curly braces written by hand stay ordinary text, so the cutlings you already have work as before.\n\nYou now write a cutling the same way as in Apple's Notes app and you do not have to learn anything new. A cutling's text opens as a separate page, and on it you have bold type, italic, underline, strikethrough, highlight, monospace type, links, and bulleted, dashed and numbered lists.\n\nThere is much more room: 5,000 text cutlings and 500 images instead of the previous 100 and 25. One cutling can have up to 10,000 characters, which is enough for a whole email.\n\nOn the Cutling keyboard every key now types. When you tap a formatted cutling, it is typed like any other, and when you hold it, it is copied with its formatting too.\n\nIf adding the Cutling keyboard was left unfinished, open \"Keyboard Setup\" in the Cutling app. The new guide shows the three steps in the Settings app in a short video.",
+  "chars": 1669,
+  "note": "Tykanie throughout, present and future tense plus passive participles (ručne napísané, použité predtým) so no verb shows the reader's gender; 'klepnúť' for a tap because the app's own strings use it."
+ },
+ "N_mac": {
+  "text": "Odpoveď napíšeš raz a hodí sa pre každého, komu ju posielaš. V cutlingu teraz môžeš nechať prázdne pole na to, čo je zakaždým iné, napríklad meno alebo číslo objednávky. Keď taký cutling vyberieš cez ⌘⇧V, krátky formulár sa pred vložením opýta na meno a mená použité predtým máš na jedno kliknutie.\n\nO dátum sa starať nemusíš: dnešný dátum, zajtrajší, dátum o týždeň alebo aktuálny čas vyjdú správne v deň, keď cutling použiješ. Cutling ti vie dať aj na výber viacero možností, napríklad plán „Základný“ alebo „Premium“, alebo vložiť naposledy skopírovaný text. To všetko je pod tlačidlom „Pridať premennú“, ktoré pri úprave cutlingu nájdeš hneď pod textom. Ručne napísané zložené zátvorky zostávajú obyčajným textom, takže cutlingy, ktoré už máš, sa vkladajú ako predtým.\n\nMiesta je oveľa viac: 5 000 textových cutlingov a 500 obrázkov namiesto doterajších 100 a 25. Jeden cutling môže mať až 10 000 znakov, čo stačí na celý e-mail.",
+  "back": "You write a reply once and it suits everyone you send it to. In a cutling you can now leave an empty field for what is different every time, for example a name or an order number. When you pick such a cutling through ⌘⇧V, a short form asks for the name before pasting, and the names used before are one click away.\n\nYou do not have to look after the date: today's date, tomorrow's, the date a week from now or the current time come out right on the day you use the cutling. A cutling can also give you a choice from several options, for example the plan \"Basic\" or \"Premium\", or insert the last copied text. All of this is under the button \"Add Variable\", which you find right below the text while editing a cutling. Curly braces written by hand stay ordinary text, so the cutlings you already have paste as before.\n\nThere is much more room: 5,000 text cutlings and 500 images instead of the previous 100 and 25. One cutling can have up to 10,000 characters, which is enough for a whole email.",
+  "chars": 933,
+  "note": "Tykanie; 'kliknutie' for a click and 'vloženie' for pasting, as the Mac strings have them."
+ },
+ "glossary": {
+  "Variables": "Premenné",
+  "Add Variable": "Pridať premennú",
+  "Ask Each Time": "Opýtať sa vždy",
+  "Choice": "Voľba"
+ }
+}
