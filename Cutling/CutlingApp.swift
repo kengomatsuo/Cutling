@@ -180,6 +180,11 @@ struct CutlingApp: App {
                 #endif
                 .onAppear {
                     #if DEBUG
+                    // Only a screenshot run sets the keyboard's language; any other run clears what one left behind,
+                    // or a later test finds the keyboard in that run's language (a Traditional Chinese "Next" key).
+                    if !ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") {
+                        UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.removeObject(forKey: "snapshotLanguage")
+                    }
                     if ProcessInfo.processInfo.arguments.contains("-MEMORY_TEST") {
                         store.seedForMemoryTest()
                         UserDefaults.standard.removeObject(forKey: "setupWelcomeSeen")
