@@ -30,6 +30,9 @@ Commands:
   frame             Caption screenshots for iPhone, iPad, Mac and product pages (fastlane/compose)
   screenshots       Upload framed screenshots to App Store Connect
   screenshots_mac   Upload captioned Mac screenshots to the editable macOS version
+  event <name> [--readback|--submit]
+                    Build or update the In-App Event in fastlane/events/<name>; --submit
+                    sends it to review with the open submission (owner's yes first)
   upload            Upload metadata + framed screenshots together
   build             Build IPA for App Store (output: $BUILD_DIR/ios/Cutling.ipa)
   binary            Upload the already-built IPA to App Store Connect (binary
@@ -319,6 +322,7 @@ case "${1:-help}" in
   # uv brings deep-translator itself; the old docs/_generator venv no longer has it.
   release_notes)    uv run --no-project --with deep-translator python3 translate_release_notes.py ;;
   release_notes_mac) uv run --no-project --with deep-translator python3 translate_release_notes.py --mac ;;
+  event)            python3 fastlane/create_event.py "${@:2}" ;;
   metadata)         $FASTLANE ios upload_metadata ;;
   metadata_mac)     $FASTLANE mac upload_metadata_mac ;;
   snap)

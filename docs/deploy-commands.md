@@ -18,4 +18,5 @@
 ./deploy.sh dist           # Build/notarize/publish the macOS Developer ID app (direct download) + Sparkle appcast
 ./deploy.sh mas            # Build the clean "Cutling" target for the Mac App Store (no Sparkle) and upload the .pkg via fastlane (build_mac_app + deliver, platform osx)
 ./deploy.sh resubmit_notes # Correct notes on a version already in review (see release-workflow.md)
+./deploy.sh event 2.0 [--readback|--submit] # Build or update the In-App Event in fastlane/events/2.0 (event.json + art) in every locale; --submit joins the open review submission, after the owner's yes (docs/aso/in-app-events.md)
 ```
