@@ -404,6 +404,15 @@ final class PromoEveryAppUITests: XCTestCase {
     }
 
     private func runAll() {
+        // Messages on the store iPad never reports its event loop idle, so every query in it times out (2026-11-23);
+        // the iPad film is Maps, Calendar and Safari, the keyboard switched on in Maps.
+        if device == "ipad" {
+            mapsSearch()
+            calendarLocation()
+            safariRefund()
+            cleanUp()
+            return
+        }
         messagesToMaya()
         mapsSearch()
         calendarLocation()
