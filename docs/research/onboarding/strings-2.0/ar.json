@@ -1,0 +1,31 @@
+{
+ "folders": [
+  "ar",
+  "ar-SA"
+ ],
+ "strings": {
+  "P1": "ما تحفظه يبقى لك وحدك",
+  "P2": "لا حساب ولا يُجمع عنك شيء. تُزامَن الكاتلينج عبر iCloud الخاص بك فقط، إن فعّلت المزامنة",
+  "P3": "ما تكتبه يبقى خاصاً",
+  "P4": "ليس في كاتلينج حساب ولا يُجمع عنك شيء، وما تكتبه لا يُرسَل إلى أي مكان أبداً",
+  "N2b": "متغيّرات وكتابة كما في الملاحظات ومساحة أكبر بكثير",
+  "N4b": "المتغيّرات",
+  "N5b": "عدّل أي كاتلينج وافتح المتغيّرات لتضيف حقلاً فارغاً تملؤه في كل مرة، أو تاريخ اليوم، أو خياراً، وغير ذلك",
+  "N17": "اكتب كما في الملاحظات",
+  "N18": "يُفتح نص الكاتلينج في صفحة مستقلة، فيها الخط العريض والتسطير والتمييز والقوائم",
+  "TU2": "أثناء الكتابة، اضغط «اسأل في كل مرة» فوق لوحة المفاتيح لترك حقل فارغ تملؤه عند كل استخدام. للتخطي اضغط التالي"
+ },
+ "back": {
+  "P1": "What you save stays yours alone",
+  "P2": "No account and nothing is collected about you. The cutlings are synced through your own iCloud only, if you turn sync on",
+  "P3": "What you type stays private",
+  "P4": "There is no account in Cutling and nothing is collected about you, and what you type is never sent to any place",
+  "N2b": "Variables, writing as in Notes, and much more room",
+  "N4b": "Variables",
+  "N5b": "Edit any cutling and open Variables to add an empty field you fill in each time, or today's date, or a choice, and other things",
+  "N17": "Write as in Notes",
+  "N18": "The cutling's text opens on a separate page, which has bold, underline, highlight and lists",
+  "TU2": "While typing, tap «Ask Each Time» above the keyboard to leave an empty field you fill in at each use. To skip, tap Next"
+ },
+ "notes": "Singular masculine-default address and no trailing period, as in the existing ar onboarding strings; ar and ar-SA Localizable files are identical, so one set serves both. Locale terms reused exactly: المتغيّرات (Variables, N4b verbatim), اسأل في كل مرة (Ask Each Time, verbatim in TU2), التالي (Next), لوحة المفاتيح, iCloud, تاريخ اليوم, خيار (Choice), حقل فارغ (blank, as in the replaced N5 and TU1), الكاتلينج for cutlings and كاتلينج for the app. Notes is الملاحظات, read from Apple's Arabic iPhone guide on 2026-11-23 (support.apple.com/ar-sa/guide/iphone/iph1ac0b3a2/ios). TU2 puts the button name in guillemets, which the locale file already uses, because the name is itself an imperative sentence and would otherwise run into the instruction around it; the text inside them is the locale's string unchanged. The blank is then 'filled in at each use' (عند كل استخدام, a phrase the locale file has) so 'each time' is not said twice in one line. P2 and P4 say 'nothing is collected about you' in the passive: the existing sheet strings give the app both genders (F2 feminine, T5 masculine), and the passive needs neither. P1 says 'yours alone' because خاص بك is the locale's everyday 'your own' (iPhone الخاص بك) and would not read as private; P3 uses خاصاً as the locale's existing 'your data stays private' does. N18 names bold الخط العريض after the Format card's own عريض, the word the person sees on that page (Apple's Notes guide and two older strings in the file say الخط الغامق); underline, highlight and list are the Format card's words too. Tanween is written before the alif (خاصاً, أبداً) as in the existing onboarding strings. Budgets counted in Unicode code points, diacritics included."
+}
