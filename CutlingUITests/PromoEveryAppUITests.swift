@@ -353,12 +353,16 @@ final class PromoEveryAppUITests: XCTestCase {
         // The page opens through the system, as a link would: XCUIApplication.launch() fails the whole take when a
         // loaded simulator's Safari is slow to load accessibility (2026-11-23), and the job already set the language.
         let page = URL(string: "http://localhost:\(env["EVERY_PORT"] ?? "8767")/refund.html?lang=\(language)")!
-        for _ in 0..<3 {
+        // The page is opened again until its form is there: Safari's first launch after its tabs were cleared showed its
+        // start page and the account number went into the address bar (iPhone id, 2026-11-23).
+        let form = safari.textFields.matching(NSPredicate(format: "identifier != %@", "TabBarItemTitleContainer"))
+        for _ in 0..<4 {
             XCUIDevice.shared.system.open(page)
-            if safari.wait(for: .runningForeground, timeout: 30) { break }
+            _ = safari.wait(for: .runningForeground, timeout: 30)
+            sleep(4)
+            clearWelcome(safari)
+            if form.firstMatch.waitForExistence(timeout: 10) { break }
         }
-        sleep(4)
-        clearWelcome(safari)
         // The page's last text field: on the iPad, webViews.textFields did not reach the page's fields (2026-11-23), so
         // the address bar (TabBarItemTitleContainer) is left out by identifier instead.
         let pageFields = safari.textFields.matching(NSPredicate(format: "identifier != %@", "TabBarItemTitleContainer"))
