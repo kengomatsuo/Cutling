@@ -89,9 +89,9 @@ final class TutorialFillInUITests: SetupMockTestCase {
         sleep(2)
         shot("blank_in")
         dump(app, "blank-in")
-        // The step is done once a blank is in: the walkthrough moves on to the save step by itself.
-        XCTAssertTrue(app.staticTexts["Now type the text you want to save."].firstMatch.waitForExistence(timeout: 4)
-                      || app.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS '5 / 13' OR label CONTAINS '5/13'")).firstMatch.exists,
-                      "The walkthrough did not move past the fill-in step after a blank went in")
+        // The step is done once a blank is in: the walkthrough moves on to the save step by itself,
+        // and with the text already typed it points at Save.
+        XCTAssertTrue(app.staticTexts["Tap here to save your cutling."].firstMatch.waitForExistence(timeout: 6),
+                      "After the blank the walkthrough does not point at Save")
     }
 }

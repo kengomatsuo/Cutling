@@ -142,6 +142,9 @@ final class TutorialCoordinator {
     var frames: [TutorialTarget: CGRect] = [:]
     /// Whether the Name field has content (gates the name step's Next button).
     var nameFieldFilled = false
+    /// Whether the text has content: once the fill-in step has had the person type, the save
+    /// step points at Save rather than asking for the text again.
+    @ObservationIgnored var textFieldFilled = false
     /// Whether a text field in the editor currently holds focus. While true no
     /// popover anchor may move — see `editorTypingChanged`.
     var editorFieldFocused = false
@@ -162,6 +165,7 @@ final class TutorialCoordinator {
     func start() {
         frames = [:]
         nameFieldFilled = false
+        textFieldFilled = false
         editorFieldFocused = false
         recoverWhereActive = false
         RecoverWhereTip.active = false
@@ -252,7 +256,7 @@ final class TutorialCoordinator {
         switch step {
         case .createName:    setEditorAnchor(.name)
         case .createFillIn:  setEditorAnchor(.none)   // its instruction is in the HUD
-        case .createSave:    setEditorAnchor(.text)
+        case .createSave:    setEditorAnchor(textFieldFilled ? .save : .text)
         case .editSave:      setEditorAnchor(.back)
         case .deleteConfirm: setEditorAnchor(.delete)
         default:             setEditorAnchor(.none)
@@ -293,6 +297,10 @@ final class TutorialCoordinator {
         // else — the pointer is moved by step transitions and by focus loss,
         // never by a keystroke timer.
         nameFieldFilled = !nameEmpty
+        textFieldFilled = !valueEmpty
+        // Once a name is typed its tip has done its job; left open it would take the first tap
+        // on the HUD's Next for its own dismissal, so Next seemed to need two taps.
+        if step == .createName, !nameEmpty { setEditorAnchor(.none) }
     }
 
     /// Called by the editor whenever a text field gains or loses focus. The

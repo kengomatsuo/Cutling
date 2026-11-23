@@ -559,6 +559,10 @@ struct TextDetailView: View {
             if newStep == .createSave, !isEditing, focusedField == nil {
                 TutorialCoordinator.shared.showEditorTipForCurrentStep()
             }
+            // The fill-in step's instruction sits in the HUD above the keyboard, which then covers
+            // the text box; the keyboard goes down so the box shows, and a tap in it brings the
+            // keyboard back with Ask Each Time on its bar.
+            if newStep == .createFillIn, !isEditing { focusedField = nil }
         }
         // Advance the name step however the user leaves the field (Return, tap
         // elsewhere, keyboard dismiss), not only on Return.
