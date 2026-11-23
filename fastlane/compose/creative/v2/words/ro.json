@@ -1,0 +1,29 @@
+{
+ "cseed": {"names": ["Ioana", "Andrei", "Maria"], "mac_name": "Mihai",
+           "reply": "{name}, îți trimitem comanda {date}!", "reply_name": "Expediere",
+           "mac_reply": "{name}, îți trimitem {date} pachetul {plan}!",
+           "name_label": "Prenume", "plan_label": "Pachet", "plan_choices": ["Standard", "Premium"],
+           "delivered": "Coletul a ajuns pe {date}.", "delivered_name": "Livrare"},
+ "C": {
+  "iphone": {
+   "1": {"k": "Scrii răspunsul o dată.", "s": "Atingi răspunsul și Cutling te întreabă cui îi scrii."},
+   "2": {"k": "Același răspuns, următorul client.", "s": "Numele folosite deja te așteaptă ca taste."},
+   "3": {"k": "Data o scrie Cutling.", "s": "Azi, mâine sau peste o săptămână: data iese corectă oricând lipești."},
+   "4": {"k": "Și ce nu se schimbă niciodată:", "h": "[IBAN-ul tău], [adresa ta] și [semnătura ta].",
+         "s": "Câte o atingere pe tastatura Cutling, în\u00a0orice\u00a0aplicație."},
+   "5": {"k": "Ai loc pentru tot.", "h": "[5.000] de|Cutling-uri.",
+         "s": "Până acum erau doar 100, iar în fiecare încape un e-mail întreg."},
+   "6": {"k": "iPhone, iPad și Mac.", "h": "Plătești [o dată].",
+         "s": "O singură achiziție pentru toate trei, fără cont și\u00a0fără abonament."}
+  },
+  "mac": {
+   "1": {"k": "Scrii o dată, trimiți tuturor.", "s": "Alegi răspunsul cu {cmd}, completezi spațiile și Cutling îl lipește."},
+   "2": {"k": "Oriunde scrii.", "h": "{cmd}", "s": "Cutling-urile tale și ce ai copiat recent se deschid peste orice aplicație."},
+   "3": {"k": "Istoricul de copiere nu păstrează", "s": "Tot ce marchează un manager de parole ca ascuns nu ajunge niciodată în istoric."},
+   "4": {"k": "Schimbi ceva pe Mac?", "h": "Se schimbă și pe [iPhone].",
+         "s": "Prin iCloud-ul tău, fără să creezi vreun cont."},
+   "5": {"k": "iPhone, iPad și Mac.", "h": "Plătești [o dată].",
+         "s": "O singură achiziție pentru toate trei, fără cont și\u00a0fără abonament."}
+  }
+ }
+}
