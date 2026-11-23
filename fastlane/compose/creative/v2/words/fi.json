@@ -1,0 +1,77 @@
+{
+ "cseed": {
+  "names": [
+   "Aino",
+   "Mikko",
+   "Laura"
+  ],
+  "mac_name": "Ville",
+  "reply": "Hei {name}, lähetyspäivä on {date}.",
+  "reply_name": "Tilaus lähtee",
+  "mac_reply": "Hei {name}, {plan}-paketin lähetyspäivä on {date}.",
+  "name_label": "Nimi",
+  "plan_label": "Paketti",
+  "plan_choices": [
+   "Perus",
+   "Premium"
+  ],
+  "delivered": "Toimitettu {date}.",
+  "delivered_name": "Toimituspäivä"
+ },
+ "C": {
+  "iphone": {
+   "1": {
+    "k": "Kirjoitat vain kerran.",
+    "s": "Kun napautat vastausta, Cutling kysyy ensin nimen."
+   },
+   "2": {
+    "k": "Sama vastaus seuraavalle.",
+    "s": "Aiemmin käyttämäsi nimet ovat yhden napautuksen päässä."
+   },
+   "3": {
+    "k": "Päivämäärät hoituvat itsestään.",
+    "s": "Tänään, huomenna tai viikon päästä: päivämäärä on aina oikein, kun liität."
+   },
+   "4": {
+    "k": "Ja se, mikä ei muutu:",
+    "h": "[tilinumerosi], [osoitteesi] ja [allekirjoituksesi].",
+    "s": "Napautus Cutling-näppäimistöllä riittää joka sovelluksessa."
+   },
+   "5": {
+    "k": "Tilaa riittää kaikelle.",
+    "h": "[5 000] cutlingia",
+    "s": "Ennen raja oli 100, ja jokaiseen mahtuu kokonainen sähköposti."
+   },
+   "6": {
+    "k": "iPhone, iPad ja Mac.",
+    "h": "Maksat [kerran].",
+    "s": "Yksi ostos kattaa kaikki kolme ilman tiliä ja kuukausimaksuja."
+   }
+  },
+  "mac": {
+   "1": {
+    "k": "Kirjoita kerran, lähetä kaikille.",
+    "s": "Paina {cmd} ja valitse vastaus, niin lyhyt lomake kysyy ensin puuttuvat tiedot."
+   },
+   "2": {
+    "k": "Missä tahansa kirjoitatkin.",
+    "h": "{cmd}",
+    "s": "Cutlingisi ja viimeksi kopioimasi avautuvat minkä tahansa sovelluksen päälle."
+   },
+   "3": {
+    "k": "Leikepöydän historia ohittaa",
+    "s": "Salasanojen hallintaohjelman piilottamat tiedot eivät koskaan päädy historiaan."
+   },
+   "4": {
+    "k": "Kun muokkaat cutlingia Macilla,",
+    "h": "se muuttuu myös [iPhonessa].",
+    "s": "Cutlingit synkronoituvat oman iCloudisi kautta, eikä tiliä tarvitse luoda."
+   },
+   "5": {
+    "k": "iPhone, iPad ja Mac.",
+    "h": "Maksat [kerran].",
+    "s": "Yksi ostos kattaa kaikki kolme ilman tiliä ja kuukausimaksuja."
+   }
+  }
+ }
+}
