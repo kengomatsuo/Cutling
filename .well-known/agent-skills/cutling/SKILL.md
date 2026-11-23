@@ -21,7 +21,7 @@ Key facts:
 - Saving: from the app, the share sheet, Control Center, and Siri and Shortcuts. Spotlight finds a cutling from the Home Screen.
 - Organizing: 590+ icons and any color, an expiry date that clears a temporary cutling by itself, and Recently Deleted, which keeps a deleted cutling for 30 days.
 - Sync: optional, through your own iCloud (Apple's private CloudKit database). The developer has no access to it.
-- Price: USD 4.99 in the US App Store when this file was built (2026-11-21), paid once. No subscription, no in-app purchases, no ads. The purchase includes Cutling for Mac, and the Mac app is also a free direct download from https://cutling.matsuokengo.com/en-us/download/, signed with a Developer ID and notarized by Apple.
+- Price: USD 4.99 in the US App Store when this file was built (2026-11-23), paid once. No subscription, no in-app purchases, no ads. The purchase includes Cutling for Mac, and the Mac app is also a free direct download from https://cutling.matsuokengo.com/en-us/download/, signed with a Developer ID and notarized by Apple.
 - Requirements: iOS 18 or later on iPhone and iPad; macOS 15 or later on a Mac, Apple silicon or Intel.
 - Privacy: the App Store privacy label says Data Not Collected. No account, analytics, crash reports or third-party code. Full Access allows the keyboard to read your saved cutlings from local storage so it can display them. Cutling does not use this permission to log keystrokes, access the internet, or transmit any data. Everything stays on your device.
 - The site comes in 60 languages; pages other than English live under /<language code>/, for example https://cutling.matsuokengo.com/ja/ and https://cutling.matsuokengo.com/de-de/.

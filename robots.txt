@@ -3,7 +3,7 @@ User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
-# 206 AI crawlers and agents from ai.robots.txt (read at build time), and the search
+# 207 AI crawlers and agents from ai.robots.txt (read at build time), and the search
 # crawlers AI answers draw on. A crawler that finds its own name reads this group, not the one above.
 User-agent: Googlebot
 User-agent: bingbot
@@ -90,6 +90,7 @@ User-agent: FirecrawlAgent
 User-agent: FriendlyCrawler
 User-agent: GeistHaus-PageFetcher
 User-agent: Gemini-Deep-Research
+User-agent: GeneralRetrievalBot
 User-agent: Google-Agent
 User-agent: Google-CloudVertexBot
 User-agent: Google-Extended
