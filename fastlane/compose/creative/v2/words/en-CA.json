@@ -1,0 +1,77 @@
+{
+  "cseed": {
+    "names": [
+      "Erin",
+      "Kyle",
+      "Sarah"
+    ],
+    "mac_name": "Ryan",
+    "reply": "Hi {name}, your order ships on {date}.",
+    "reply_name": "Shipping date",
+    "mac_reply": "Hi {name}, your {plan} box ships on {date}.",
+    "name_label": "Name",
+    "plan_label": "Plan",
+    "plan_choices": [
+      "Basic",
+      "Premium"
+    ],
+    "delivered": "Delivered on {date}.",
+    "delivered_name": "Delivery date"
+  },
+  "C": {
+    "iphone": {
+      "1": {
+        "k": "Write it once.",
+        "s": "Tap the reply and Cutling asks who it’s for."
+      },
+      "2": {
+        "k": "Same reply, next customer.",
+        "s": "Names you’ve used before are ready to tap."
+      },
+      "3": {
+        "k": "Dates fill themselves in.",
+        "s": "Today, tomorrow or a week from now, counted from the day you paste it."
+      },
+      "4": {
+        "k": "And the stuff that never changes:",
+        "h": "your [banking info], [address] and [signature].",
+        "s": "Each one’s a single tap on the Cutling keyboard, in any app."
+      },
+      "5": {
+        "k": "Room for all of it.",
+        "h": "[5,000] cutlings.",
+        "s": "Up from 100. Each one can hold a whole email."
+      },
+      "6": {
+        "k": "iPhone, iPad and Mac.",
+        "h": "[One-time] payment.",
+        "s": "That covers all three, with no account and nothing to renew."
+      }
+    },
+    "mac": {
+      "1": {
+        "k": "Write it once, send it to everyone.",
+        "s": "Pick the reply with {cmd} and a quick form asks for the blanks before it’s pasted."
+      },
+      "2": {
+        "k": "Wherever you’re typing.",
+        "h": "{cmd}",
+        "s": "Your cutlings and the last few things you copied pop up over any app."
+      },
+      "3": {
+        "k": "Your clipboard history leaves out",
+        "s": "Anything your password manager marks as hidden never ends up in it."
+      },
+      "4": {
+        "k": "Change it on your Mac",
+        "h": "and it’s changed on your [iPhone] too.",
+        "s": "It syncs through your own iCloud, so there’s no account to set up."
+      },
+      "5": {
+        "k": "iPhone, iPad and Mac.",
+        "h": "[One-time] payment.",
+        "s": "That covers all three, with no account and nothing to renew."
+      }
+    }
+  }
+}
