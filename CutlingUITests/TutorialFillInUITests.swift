@@ -26,7 +26,8 @@ final class TutorialFillInUITests: SetupMockTestCase {
     }
 
     @MainActor private func tapNext(_ app: XCUIApplication) -> Bool {
-        let next = app.buttons.matching(NSPredicate(format: "label == 'Next'")).firstMatch
+        // The walkthrough's own Next (the keyboard's return key is also called Next on the name field).
+        let next = app.buttons.matching(NSPredicate(format: "identifier == 'tutorialNext' OR (label == 'Next' AND identifier == '')")).firstMatch
         guard next.waitForExistence(timeout: 6) else { return false }
         // The walkthrough's bar floats in its own layer, which XCUITest calls unhittable with the keyboard up.
         next.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
@@ -55,7 +56,7 @@ final class TutorialFillInUITests: SetupMockTestCase {
         XCTAssertTrue(tapNext(app), "No Next after the name")
         // The step's tip, with the blank button's icon, before the person taps the box.
         let tip = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'As you type'")).firstMatch
-        XCTAssertTrue(tip.waitForExistence(timeout: 8), "The fill-in step shows no tip")
+        XCTAssertTrue(tip.waitForExistence(timeout: 8), "The fill-in step shows its instruction neither in the bar nor as a tip")
         sleep(1)
         shot("fill_in_step")
         dump(app, "fill-in-step")

@@ -468,6 +468,21 @@ struct TutorialHUD: View {
         let total = TutorialStep.allCases.count
 
         VStack(spacing: 10) {
+            // The fill-in step begins while the person is typing, and a tip cannot open over a
+            // focused field without taking the keyboard away, so its instruction rides here,
+            // above the keyboard, with the blank button's icon, until the field lets go and the
+            // tip takes over.
+            if step == .createFillIn, tutorial.editorFieldFocused {
+                Label {
+                    Text(step.message)
+                } icon: {
+                    Image(systemName: "character.textbox").foregroundStyle(.tint)
+                }
+                .font(.subheadline)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .fixedSize(horizontal: false, vertical: true)
+                .accessibilityIdentifier("tutorialHUDInstruction")
+            }
             HStack(spacing: 10) {
                 ProgressView(value: Double(step.number), total: Double(total))
                     .tint(.accentColor)
@@ -510,6 +525,7 @@ struct TutorialHUD: View {
                     .modifier(GlassProminentButtonModifier())
                     .buttonBorderShape(.capsule)
                     .controlSize(.small)
+                    .accessibilityIdentifier("tutorialNext")
                     .opacity(enabled ? 1 : 0)
                     .disabled(!enabled)
                     .allowsHitTesting(enabled)
