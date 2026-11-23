@@ -1,4 +1,4 @@
-# App Store Connect read-back, 2026-11-23 10:29 UTC
+# App Store Connect read-back, 2026-11-23 10:43 UTC
 
 ## App information (PREPARE_FOR_SUBMISSION), shared by iOS and macOS
 
@@ -81,7 +81,7 @@
 | hr | lijepljenje,kopiranje,brzi,odgovori,predlošci,bilješke,isječci (65) | 0 | Nove slike u App Storeu. Sama aplikacija nije promijenjena. | IPAD_PRO_3GEN_129=6 (on disk 6/6) IPHONE_67=6 (on disk 6/6) |
 | hu | válaszok,sablonok,jegyzetek,szöveg,kitöltés,aláírás,cím,üzenetek (73) | 0 | Új képek az App Store-ban. Maga az app nem változott. | IPHONE_67=6 (on disk 6/6) IPAD_PRO_3GEN_129=6 (on disk 6/6) |
 | id | papan,klip,teks,catatan,template,isi,otomatis,alamat,rekening (61) | 0 | Gambar baru di App Store. Aplikasinya sendiri tidak berubah. | IPAD_PRO_3GEN_129=6 (on disk 6/6) IPHONE_67=6 (on disk 6/6) |
-| it | copia,incolla,testi,frasi,modelli,note,scorciatoie,indirizzo,messaggi,predefiniti,firma,compilazione (100) | 0 | Nuove immagini su App Store. L'app non è cambiata. | IPAD_PRO_3GEN_129=5 (on disk 5/5) IPHONE_67=6 (on disk 6/6) |
+| it | copia,incolla,testi,frasi,modelli,note,scorciatoie,indirizzo,messaggi,predefiniti,firma,compilazione (100) | 0 | Nuove immagini su App Store. L'app non è cambiata. | IPAD_PRO_3GEN_129=6 (on disk 6/6) IPHONE_67=6 (on disk 6/6) |
 | ja | クリップボード,履歴,スニペット,ペースト,辞書,返信,テンプレ (84) | 0 | App Store の画像を新しくしました。アプリ自体に変更はありません。 | IPAD_PRO_3GEN_129=6 (on disk 6/6) IPHONE_67=6 (on disk 6/6) |
 | kn-IN | text,replacement,shortcut,typing,faster (39) | 0 | App Store ನಲ್ಲಿ ಹೊಸ ಚಿತ್ರಗಳು. ಆ್ಯಪ್‌ನಲ್ಲಿ ಯಾವುದೇ ಬದಲಾವಣೆ ಇಲ್ಲ. | IPAD_PRO_3GEN_129=6 (on disk 6/6) IPHONE_67=6 (on disk 6/6) |
 | ko | 정형문,상용구,스니펫,자동입력,메모,문구저장,답장 (69) | 0 | App Store 이미지를 새로 바꿨습니다. 앱 자체는 달라진 점이 없습니다. | IPAD_PRO_3GEN_129=6 (on disk 6/6) IPHONE_67=6 (on disk 6/6) |
@@ -245,82 +245,4 @@ Version state: APPROVED; deep link: cutling://addText
 | ta-IN | 134 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
 | te-IN | 95 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
 | th | 108 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| tr | 109 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| uk | 122 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| ur-PK | 109 | autofill | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| vi | 119 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| zh-Hans | 44 | 自动填充 | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| zh-Hant | 48 | 自動填寫 | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-
-### Quick replies
-
-URL: https://apps.apple.com/us/app/cutling-clipboard-keyboard/id6759476314?ppid=b9524c4c-42b1-412c-9618-6e659839aa19
-
-Version state: APPROVED; deep link: cutling://addText
-
-| Locale | Promo (chars) | Keywords | Screenshot sets |
-|---|---|---|---|
-| ar-SA | 98 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| bn-BD | 108 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| ca | 130 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| cs | 118 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| da | 123 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| de-DE | 138 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| el | 144 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| en-AU | 157 | template | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| en-CA | 157 | quick,canned | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| en-GB | 157 | quick,canned | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| en-US | 157 | quick,canned | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| es-ES | 134 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| es-MX | 134 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| fi | 142 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| fr-CA | 152 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| fr-FR | 158 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| gu-IN | 107 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| he | 105 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| hi | 107 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| hr | 114 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| hu | 159 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| id | 146 | template | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| it | 140 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| ja | 69 | 返信 | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| kn-IN | 115 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| ko | 62 | 정형문,답장 | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| ml-IN | 110 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| mr-IN | 126 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| ms | 162 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| nl-NL | 131 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| no | 119 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| or-IN | 110 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| pa-IN | 114 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| pl | 148 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| pt-BR | 127 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| pt-PT | 136 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| ro | 143 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| ru | 147 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| sk | 124 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| sl-SI | 158 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| sv | 148 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| ta-IN | 110 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| te-IN | 101 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| th | 113 | แม่แบบ | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| tr | 118 | şablon,yanıt | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| uk | 146 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| ur-PK | 112 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| vi | 131 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| zh-Hans | 48 | 模板,常用文字 | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-| zh-Hant | 48 | 範本,常用文字 | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |
-
-### Text expander
-
-URL: https://apps.apple.com/us/app/cutling-clipboard-keyboard/id6759476314?ppid=ae9574cc-803c-4d6b-bf8b-92ab17fb0349
-
-Version state: READY_FOR_REVIEW; deep link: cutling://addText
-
-| Locale | Promo (chars) | Keywords | Screenshot sets |
-|---|---|---|---|
-| en-AU | 118 | snippet,typing | IPHONE_67=5 (on disk 0/5) IPAD_PRO_3GEN_129=5 (on disk 0/5) |
-| en-CA | 118 | expander,shortcuts,autotext | IPHONE_67=5 (on disk 0/5) IPAD_PRO_3GEN_129=5 (on disk 0/5) |
-| en-GB | 118 | expander,shortcuts,autotext | IPHONE_67=5 (on disk 0/5) IPAD_PRO_3GEN_129=5 (on disk 0/5) |
-| en-US | 118 | expander,shortcuts,autotext | IPHONE_67=5 (on disk 0/5) IPAD_PRO_3GEN_129=5 (on disk 0/5) |
-
+| tr | 109 |  | IPHONE_67=5 (on disk 3/5) IPAD_PRO_3GEN_129=5 (on disk 3/5) |LIMIT: killed after 1200s. It ran past what you expected: narrow it, or report it unfinished. Do not rerun it unchanged.
