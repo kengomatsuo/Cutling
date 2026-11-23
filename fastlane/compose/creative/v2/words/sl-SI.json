@@ -1,0 +1,41 @@
+{
+ "cseed": {"names": ["Maja", "Luka", "Nina"], "mac_name": "Marko",
+           "reply": "{name}, vaše naročilo gre na pot v\u00a0{date}.", "reply_name": "Odprema",
+           "mac_reply": "{name}, vaš paket {plan} gre na pot v\u00a0{date}.",
+           "name_label": "Ime", "plan_label": "Paket", "plan_choices": ["Osnovni", "Premium"],
+           "delivered": "Dostavljeno: {date}", "delivered_name": "Dostava"},
+ "C": {
+  "iphone": {
+   "1": {"k": "Odgovor napišete enkrat.",
+         "s": "Ko tapnete shranjeni odgovor, Cutling vpraša le\u00a0še za ime."},
+   "2": {"k": "Isti odgovor dobi naslednja stranka.",
+         "s": "Imena, ki ste jih že vpisali, čakajo kot tipke na\u00a0en\u00a0dotik."},
+   "3": {"k": "Datume Cutling vpiše sam.",
+         "s": "Datum za danes, jutri ali čez teden dni je točen na dan, ko ga prilepite."},
+   "4": {"k": "In vse, kar je vedno enako",
+         "h": "Vaš [IBAN], [naslov] in [podpis].",
+         "s": "Vsak je ena tipka na tipkovnici Cutling, v\u00a0vsaki aplikaciji."},
+   "5": {"k": "Prostora je za vse.",
+         "h": "[5000] cutlingov",
+         "s": "Prej jih je bilo največ 100. V\u00a0vsakega gre celo e\u2011poštno sporočilo."},
+   "6": {"k": "Za iPhone, iPad in Mac",
+         "h": "Plačate le [enkrat].",
+         "s": "En nakup velja za vse tri, brez registracije in naročnine."}
+  },
+  "mac": {
+   "1": {"k": "Napišete enkrat, pošljete vsem.",
+         "s": "Odgovor izberete z\u00a0bližnjico {cmd}, obrazec pa pred lepljenjem vpraša za prazna mesta."},
+   "2": {"k": "Kjer koli pišete",
+         "h": "{cmd}",
+         "s": "Vaši cutlingi in to, kar ste nazadnje kopirali, se odprejo nad vsako aplikacijo."},
+   "3": {"k": "Zgodovina odložišča preskoči",
+         "s": "Kar upravitelj gesel označi kot skrito, nikoli ne pride v\u00a0zgodovino."},
+   "4": {"k": "Spremenite nekaj na Macu.",
+         "h": "Spremeni se tudi na [iPhonu].",
+         "s": "Cutlingi se sinhronizirajo prek vašega iClouda, brez registracije."},
+   "5": {"k": "Za iPhone, iPad in Mac",
+         "h": "Plačate le [enkrat].",
+         "s": "En nakup velja za vse tri, brez registracije in naročnine."}
+  }
+ }
+}
