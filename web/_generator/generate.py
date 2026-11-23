@@ -867,6 +867,10 @@ def main():
                     "    " + en_only_links("            ").lstrip() + '\n        </ul>\n        <p class="copyright">')
             if template_rel == "index.html":
                 page_template = page_template.replace("{{page_title_home}}", esc_attr(home_title(code, translation)))
+                # Every home page carries the directory badges: a directory's checker may land on
+                # /en-us/ through the root's canonical or open any language's home, and a check that
+                # misses the badge unlists the app.
+                page_template = page_template.replace("{{DIRECTORY_BADGES}}", BADGE_STRIP)
             elif template_rel in TITLE_KEYS:
                 page_template = page_template.replace("{{" + TITLE_KEYS[template_rel] + "}}",
                                                       esc_attr(sub_page_title(code, template_rel, translation)))
@@ -892,8 +896,7 @@ def main():
             # first visitors get content. Their canonical points at /en-us/, and
             # lang-suggest.js offers the visitor's language instead of redirecting.
             if is_default and not specific_web_locales:
-                # Directory badges keep each free followed link; the directories check the homepage only.
-                root_template = page_template.replace("{{DIRECTORY_BADGES}}", BADGE_STRIP) if template_rel == "index.html" else page_template
+                root_template = page_template
                 root_html = generate_page(
                     root_template, translation, en_translation, code, is_rtl,
                     compute_root(template_depth, True), compute_lang_prefix(template_depth),
