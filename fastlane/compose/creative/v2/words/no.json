@@ -1,0 +1,77 @@
+{
+ "cseed": {
+  "names": [
+   "Ida",
+   "Lars",
+   "Nora"
+  ],
+  "mac_name": "Emil",
+  "reply": "Hei, {name}! Pakken din sendes på {date}.",
+  "reply_name": "Pakken sendes",
+  "mac_reply": "Hei, {name}! {plan}-pakken din sendes på {date}.",
+  "name_label": "Navn",
+  "plan_label": "Pakke",
+  "plan_choices": [
+   "Basis",
+   "Premium"
+  ],
+  "delivered": "Pakken din ble levert {date}.",
+  "delivered_name": "Pakke levert"
+ },
+ "C": {
+  "iphone": {
+   "1": {
+    "k": "Skrevet bare én gang.",
+    "s": "Trykk på svaret, så spør Cutling om navnet."
+   },
+   "2": {
+    "k": "Samme svar, neste kunde.",
+    "s": "Navnene du har brukt før, ligger klare som egne taster."
+   },
+   "3": {
+    "k": "Cutling fyller inn datoen selv.",
+    "s": "Velg i dag, i morgen eller om en uke, og datoen stemmer når du limer inn."
+   },
+   "4": {
+    "k": "Og det som aldri endrer seg:",
+    "h": "[ditt kontonummer], [din adresse] og [din signatur].",
+    "s": "Ett trykk hver på Cutling-tastaturet, i alle apper."
+   },
+   "5": {
+    "k": "Det er plass til alt.",
+    "h": "[5 000] cutlings.",
+    "s": "Før var grensen 100, og hver av dem rommer en hel e-post."
+   },
+   "6": {
+    "k": "På iPhone, iPad og Mac.",
+    "h": "Betal [én gang].",
+    "s": "Ett kjøp dekker alle tre, uten konto og uten abonnement."
+   }
+  },
+  "mac": {
+   "1": {
+    "k": "Skriv én gang, send til alle.",
+    "s": "Velg svaret med {cmd}, fyll ut feltene i et kort skjema, og det limes inn."
+   },
+   "2": {
+    "k": "Uansett hvor du skriver.",
+    "h": "{cmd}",
+    "s": "Cutlingene dine og det du har kopiert nylig, åpnes over alle apper."
+   },
+   "3": {
+    "k": "Cutling husker alt du kopierer, unntatt",
+    "s": "Det en passordbehandler markerer som skjult, havner aldri i loggen."
+   },
+   "4": {
+    "k": "Endrer du noe på Mac,",
+    "h": "endres det på [iPhone].",
+    "s": "Alt synkroniseres via din egen iCloud, og du slipper å opprette konto."
+   },
+   "5": {
+    "k": "På iPhone, iPad og Mac.",
+    "h": "Betal [én gang].",
+    "s": "Ett kjøp dekker alle tre, uten konto og uten abonnement."
+   }
+  }
+ }
+}
