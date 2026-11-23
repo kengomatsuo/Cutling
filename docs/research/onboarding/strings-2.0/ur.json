@@ -1,0 +1,31 @@
+{
+ "folders": [
+  "ur",
+  "ur-PK"
+ ],
+ "strings": {
+  "P1": "آپ جو محفوظ کریں وہ نجی ہے",
+  "P2": "اکاؤنٹ نہیں، کچھ جمع نہیں ہوتا؛ کٹلنگ کی ہم آہنگی آن کریں تو صرف آپ کے iCloud سے ہوتی ہے",
+  "P3": "آپ جو ٹائپ کریں وہ نجی رہتا ہے",
+  "P4": "کٹلنگ میں اکاؤنٹ نہیں اور یہ کچھ جمع نہیں کرتا؛ آپ جو ٹائپ کریں وہ کبھی کہیں نہیں بھیجا جاتا",
+  "N2b": "ویری ایبلز، نوٹ ایپ کی طرح لکھنا، بہت زیادہ گنجائش",
+  "N4b": "ویری ایبلز",
+  "N5b": "کٹلنگ میں ترمیم کریں اور ویری ایبلز کھول کر ہر بار بھرنے کی خالی جگہ، آج کی تاریخ، انتخاب اور بہت کچھ ڈالیں",
+  "N17": "نوٹ ایپ کی طرح لکھیں",
+  "N18": "کٹلنگ کا متن اب اپنے الگ صفحے پر کھلتا ہے، جس میں بولڈ، انڈر لائن، ہائی لائٹ اور فہرستیں ہیں",
+  "TU2": "ٹائپ کرتے وقت کی بورڈ کے اوپر «ہر بار پوچھیں» ٹیپ کر کے ہر بار بھرنے کی خالی جگہ ڈالیں۔ ورنہ «اگلا» ٹیپ کریں"
+ },
+ "back": {
+  "P1": "What you save, that is private",
+  "P2": "No account, nothing gets collected; if you turn on the cutlings' sync, it happens only through your iCloud",
+  "P3": "What you type, that stays private",
+  "P4": "Cutling has no account and it collects nothing; what you type is never sent anywhere",
+  "N2b": "Variables, writing like in the Notes app, far more room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling and, opening Variables, put in a blank to fill in each time, today's date, a choice and much else",
+  "N17": "Write like in the Notes app",
+  "N18": "A cutling's text now opens on its own separate page, which has bold, underline, highlight and lists",
+  "TU2": "While typing, tap \"Ask Each Time\" above the keyboard and put in a blank to fill in each time. Otherwise tap \"Next\""
+ },
+ "notes": "Register as in strings/ur.json: polite آپ with imperatives in ـیں, no exclamation marks, no closing ۔ on a one-sentence line, ؛ between the two halves of a line as W7 had, and ۔ only between TU2's two sentences as in TU1. کٹلنگ is masculine, as on these sheets (the app's later strings sometimes make it feminine). ur and ur-PK Localizable.strings differ only in one sample IBAN, so one text serves both. Taken exactly from Localizable.strings: ویری ایبلز (Variables, N4b verbatim, same form in N2b and N5b), ہر بار پوچھیں (Ask Each Time, verbatim in TU2), اگلا (Next), کٹلنگ, کی بورڈ, iCloud, ہم آہنگی (the toggle is iCloud ہم آہنگی), ترمیم (Edit), آج کی تاریخ and انتخاب (the Variables list's own labels for Today's Date and Choice), بولڈ, انڈر لائن, ہائی لائٹ, فہرست. Kept from the earlier sheets: خالی جگہ for a blank, متن for text, بہت زیادہ گنجائش for far more room, نجی for private (as in 'آپ کا ڈیٹا نجی رہتا ہے'), and 'کبھی کہیں نہیں بھیجا جاتا' for never sent anywhere, which the app's older Full Access line already says. Button names sit in « » as T4 has them. Notes: Apple's Urdu name for the app is نوٹ, read from MobileNotes.app/ur.lproj/InfoPlist.strings (CFBundleDisplayName) in the iOS 27.2 simulator runtime. Bare نوٹ also means any note, and Apple's own Urdu strings write نوٹ ایپ where that could confuse ('نوٹ ایپ ابھی کھولا نہیں جا سکتا'), so N17 and N2b both say نوٹ ایپ. P1 and P3 are a matched pair in the correlative (آپ جو … وہ …), P1 with ہے (is) and P3 with رہتا ہے (stays); P4 repeats P3's 'آپ جو ٹائپ کریں وہ'. P1 says private with نجی and leaves 'to you' to آپ; 'جو محفوظ کریں، صرف آپ کا ہے' (what you save is yours alone) ran one over 26. P2 puts the condition first, as Urdu does (آن کریں تو), instead of a trailing 'if'; it names cutlings as کٹلنگ کی ہم آہنگی and says آپ کے iCloud without اپنے (own), because both together run to 93 against 90. If 'own' matters more than naming cutlings: 'اکاؤنٹ نہیں، کچھ جمع نہیں ہوتا؛ ہم آہنگی آن کریں تو صرف آپ کے اپنے iCloud سے ہوتی ہے' is 84. The opening is two negative statements, not W7's 'نہ … نہ', which with a verb after it could be read as 'neither an account nor anything is collected'. N2b is a comma list without اور so that it can carry نوٹ ایپ کی طرح لکھنا, the same words as N17, at exactly 50; with اور before the last item it is 53. N5b uses ڈالیں (put in), the verb the editor's own line uses for today's date, and TU2 uses it for the blank too; 'and more' is اور بہت کچھ, not the calque اور مزید. TU2: 'to skip' is carried by ورنہ (otherwise); naming the skip ('چھوڑنے کے لیے «اگلا» ٹیپ کریں') made the line 117 against 110. The blank is called ہر بار بھرنے کی خالی جگہ in both N5b and TU2. For the owner, outside these ten keys: the same runtime names the Settings app سیٹنگ family (Preferences.app's bundle name is سسٹم سیٹنگ), while Cutling's Urdu sheets say ترتیبات; worth a look on a device set to Urdu, as the earlier ur.json notes already asked. Lengths in Unicode code points: P1 26/26, P2 88/90, P3 30/30, P4 92/100, N2b 50/50, N4b 10/24, N5b 107/110, N17 20/24, N18 92/110, TU2 108/110."
+}
