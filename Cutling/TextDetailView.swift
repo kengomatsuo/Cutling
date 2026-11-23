@@ -83,7 +83,6 @@ struct TextDetailView: View {
     #if os(iOS)
     private let editorNameTip = EditorNameTip()
     private let editorTextTip = EditorTextTip()
-    private let editorFillInTip = EditorFillInTip()
     #if os(iOS)
     #endif
     private let editorSaveTip = EditorSaveTip()
@@ -407,7 +406,6 @@ struct TextDetailView: View {
                     #if os(iOS)
                     .id("tutorialTextSection")
                     .popoverTip(editorTextTip, arrowEdge: .top)
-                    .popoverTip(editorFillInTip, arrowEdge: .top)
                     #endif
                     .onChange(of: value) { oldValue, newValue in
                         if format == .rich {

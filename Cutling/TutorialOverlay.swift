@@ -181,7 +181,6 @@ final class TutorialCoordinator {
             Task { @MainActor in
                 await EditorNameTip().resetEligibility()
                 await EditorTextTip().resetEligibility()
-                await EditorFillInTip().resetEligibility()
                 await EditorSaveTip().resetEligibility()
                 await EditorBackTip().resetEligibility()
                 await EditorDeleteTip().resetEligibility()
@@ -349,7 +348,6 @@ final class TutorialCoordinator {
         let v = anchor.rawValue
         EditorNameTip.anchor = v
         EditorTextTip.anchor = v
-        EditorFillInTip.anchor = v
         EditorSaveTip.anchor = v
         EditorBackTip.anchor = v
         EditorDeleteTip.anchor = v

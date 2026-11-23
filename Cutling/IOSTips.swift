@@ -109,7 +109,7 @@ struct FillInTip: Tip {
 // (#Rule can't read enum rawValue, so the raw ints are inlined.)
 
 enum EditorTipAnchor: Int {
-    case none = -1, name = 0, text = 1, save = 2, back = 3, delete = 4, fillIn = 5
+    case none = -1, name = 0, text = 1, save = 2, back = 3, delete = 4
 }
 
 struct EditorNameTip: Tip {
@@ -123,15 +123,6 @@ struct EditorTextTip: Tip {
     @Parameter static var anchor: Int = -1
     var title: Text { Text("Now type the text you want to save.") }
     var rules: [Rule] { #Rule(Self.$anchor) { $0 == 1 } }
-    var options: [Option] { MaxDisplayCount(1000) }
-}
-
-/// The walkthrough's fill-in step, on the text field like EditorTextTip.
-struct EditorFillInTip: Tip {
-    @Parameter static var anchor: Int = -1
-    var title: Text { Text("As you type, tap Ask Each Time above the keyboard to leave a blank you fill in each time. Or tap Next to skip.") }
-    var image: Image? { Image(systemName: "character.textbox") }
-    var rules: [Rule] { #Rule(Self.$anchor) { $0 == 5 } }
     var options: [Option] { MaxDisplayCount(1000) }
 }
 
