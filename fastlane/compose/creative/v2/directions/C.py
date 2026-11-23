@@ -31,7 +31,7 @@ def join_date(date):
     """A long date in a message bubble may break only before its last part (the year, or the day where the year
     leads), so "23 de novembro de / 2026" never splits the day from its month."""
     head_, sep, tail = date.rpartition(" ")
-    return head_.replace(" ", "\u00a0") + sep + tail if sep else date
+    return head_.replace(" ", "\u00a0") + sep + tail if sep else "\u2060".join(date)   # no spaces (CJK): keep it whole
 
 def head(m, h):
     """Every chip stays on one line (CSS nowrap), so a blank never reads as two pieces; a long one, such as a full
