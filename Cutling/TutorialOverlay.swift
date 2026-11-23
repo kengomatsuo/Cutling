@@ -678,7 +678,7 @@ struct TutorialCoachmark: View {
 
     private func spotlightRing(_ rect: CGRect, radius: CGFloat) -> some View {
         RoundedRectangle(cornerRadius: radius, style: .continuous)
-            .stroke(Color.accentColor, lineWidth: 3)
+            .stroke(Color.brandGreen, lineWidth: 3)
             .frame(width: rect.width, height: rect.height)
             .position(x: rect.midX, y: rect.midY)
             // A soft dark halo keeps the ring visible on white controls and
@@ -725,7 +725,7 @@ private struct GlassProminentButtonModifier: ViewModifier {
         if #available(iOS 26, *) {
             content.buttonStyle(.glassProminent)
         } else {
-            content.buttonStyle(.borderedProminent)
+            content.buttonStyle(.borderedProminent).tint(.brandGreen)
         }
     }
 }

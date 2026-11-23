@@ -48,7 +48,7 @@ struct SetupStepLine: View {
                 .font(.caption.bold())
                 .foregroundStyle(.white)
                 .frame(width: 24, height: 24)
-                .background(Color.accentColor, in: Circle())
+                .background(Color.brandGreen, in: Circle())
                 .accessibilityHidden(true)
             Text(text).font(.subheadline)
         }
@@ -62,7 +62,7 @@ struct StepBadge: View {
 
     var body: some View {
         ZStack {
-            Circle().fill(done ? Color.green : Color.accentColor)
+            Circle().fill(done ? Color.green : Color.brandGreen)
             if done {
                 Image(systemName: "checkmark").font(.caption.weight(.bold))
             } else {

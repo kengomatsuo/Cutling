@@ -209,9 +209,9 @@ struct AppleSheetButton: View {
 struct ProminentCapsuleButton: ViewModifier {
     func body(content: Content) -> some View {
         if #available(iOS 26, *) {
-            content.buttonStyle(.glassProminent)
+            content.buttonStyle(.glassProminent).tint(.brandGreen)
         } else {
-            content.buttonStyle(.borderedProminent).buttonBorderShape(.capsule)
+            content.buttonStyle(.borderedProminent).buttonBorderShape(.capsule).tint(.brandGreen)
         }
     }
 }

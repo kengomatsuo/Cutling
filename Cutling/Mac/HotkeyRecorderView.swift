@@ -27,7 +27,7 @@ struct HotkeyRecorderView: View {
                 .frame(height: 22)
                 .background(
                     RoundedRectangle(cornerRadius: 6)
-                        .stroke(isRecording ? Color.accentColor : Color.gray.opacity(0.4), lineWidth: 1)
+                        .stroke(isRecording ? Color.brandGreen : Color.gray.opacity(0.4), lineWidth: 1)
                 )
 
             if isRecording {

@@ -83,7 +83,7 @@ struct LatestCutlingSnippetView: View {
                         Label("Copy", systemImage: "doc.on.doc")
                             .frame(maxWidth: .infinity)
                     }
-                    .buttonStyle(.borderedProminent)
+                    .buttonStyle(.borderedProminent).tint(.brandGreen)
 
                     Button(intent: ViewCutlingIntent(target: item.entity)) {
                         Label("Open", systemImage: "arrow.up.right.square")

@@ -176,7 +176,7 @@ struct TextPageView: View {
 /// The filled check Notes and this app's sheets use on iOS 26; earlier systems keep a plain Done.
 private struct ProminentWhenGlass: ViewModifier {
     func body(content: Content) -> some View {
-        if #available(iOS 26, *) { content.buttonStyle(.borderedProminent) } else { content }
+        if #available(iOS 26, *) { content.buttonStyle(.borderedProminent).tint(.brandGreen) } else { content }
     }
 }
 #endif

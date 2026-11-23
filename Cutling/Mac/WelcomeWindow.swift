@@ -61,7 +61,7 @@ struct WelcomeView: View {
                                 .frame(width: 7, height: 7)
                             if i == step {
                                 Circle()
-                                    .fill(Color.accentColor)
+                                    .fill(Color.brandGreen)
                                     .frame(width: 7, height: 7)
                                     .matchedGeometryEffect(id: "activeDot", in: dotNamespace)
                             }
@@ -208,7 +208,7 @@ private struct StepMenuBar: View {
             // Control Center / Clock on the far right.
             ZStack {
                 RoundedRectangle(cornerRadius: 5)
-                    .fill(Color.accentColor.opacity(0.25))
+                    .fill(Color.brandGreen.opacity(0.25))
                     .frame(width: 28, height: 22)
                 Image(systemName: "doc.on.clipboard")
                     .font(.system(size: 12, weight: .semibold))
@@ -216,7 +216,7 @@ private struct StepMenuBar: View {
             }
             .overlay(
                 RoundedRectangle(cornerRadius: 5)
-                    .stroke(Color.accentColor, lineWidth: 1.5)
+                    .stroke(Color.brandGreen, lineWidth: 1.5)
             )
             Image(systemName: "wifi")
                 .foregroundStyle(.secondary.opacity(0.6))
@@ -424,7 +424,7 @@ private struct StepAccessibility: View {
                                     PasteService.shared.openAccessibilitySettings()
                                 }
                                 .controlSize(.small)
-                                .buttonStyle(.borderedProminent)
+                                .buttonStyle(.borderedProminent).tint(.brandGreen)
                             }
                         }
                     )

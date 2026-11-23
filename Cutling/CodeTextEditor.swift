@@ -171,7 +171,7 @@ struct EditorBarGlyph: View {
             .font(.system(size: 20, weight: .medium))
             .foregroundStyle(active ? Color.white : Color.primary)
             .frame(width: 42, height: 42)
-            .background(active ? Color.accentColor : Color.clear, in: Circle())
+            .background(active ? Color.brandGreen : Color.clear, in: Circle())
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .contentShape(Rectangle())
     }

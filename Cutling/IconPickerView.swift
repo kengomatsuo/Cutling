@@ -47,7 +47,7 @@ struct IconPickerView: View {
                                         .font(.title3)
                                         .frame(width: 48, height: 48)
                                         .foregroundStyle(isSelected ? .white : .primary)
-                                        .background(isSelected ? Color.accentColor : Color.clear)
+                                        .background(isSelected ? Color.brandGreen : Color.clear)
                                         .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                                         .contentShape(Rectangle())
                                 }

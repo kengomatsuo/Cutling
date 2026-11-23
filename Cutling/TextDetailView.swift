@@ -164,7 +164,7 @@ struct TextDetailView: View {
                                     Text("Save")
                                 }
                             }
-                            .buttonStyle(.borderedProminent)
+                            .buttonStyle(.borderedProminent).tint(.brandGreen)
                             .disabled(name.isEmpty || value.isEmpty)
                         }
                     }
@@ -215,7 +215,7 @@ struct TextDetailView: View {
                                 } label: {
                                     Image(systemName: "checkmark")
                                 }
-                                .buttonStyle(.borderedProminent)
+                                .buttonStyle(.borderedProminent).tint(.brandGreen)
                                 .disabled(name.isEmpty || value.isEmpty)
                                 .popoverTip(editorSaveTip, arrowEdge: .top)
                             } else {

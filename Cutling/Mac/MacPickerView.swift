@@ -316,7 +316,7 @@ struct MacPickerView: View {
             }
             .padding(.horizontal, 8)
             .padding(.vertical, 4)
-            .background(tab == value ? Color.accentColor.opacity(0.2) : Color.clear)
+            .background(tab == value ? Color.brandGreen.opacity(0.2) : Color.clear)
             .clipShape(Capsule())
             .contentShape(Capsule())
         }
@@ -709,7 +709,7 @@ private struct MacPickerRow: View {
             }
             .padding(.horizontal, 12)
             .padding(.vertical, compact ? 6 : 8)
-            .background(shownHovered ? Color.accentColor.opacity(0.18) : Color.clear)
+            .background(shownHovered ? Color.brandGreen.opacity(0.18) : Color.clear)
             .contentShape(Rectangle())
             .opacity(shownPressed ? 0.55 : 1)
         }

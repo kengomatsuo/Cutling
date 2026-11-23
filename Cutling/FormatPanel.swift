@@ -153,7 +153,7 @@ struct FormatPanel: View {
                 .font(.system(size: 17, weight: .semibold))
                 .frame(maxWidth: .infinity, minHeight: 42)
                 .foregroundStyle(styles.active.contains(style) ? Color.white : Color.primary)
-                .background(styles.active.contains(style) ? Color.accentColor : Color(.tertiarySystemFill))
+                .background(styles.active.contains(style) ? Color.brandGreen : Color(.tertiarySystemFill))
                 .contentShape(Rectangle())
         }
         .buttonStyle(FlatPressStyle(shape: Rectangle()))
