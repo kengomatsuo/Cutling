@@ -132,9 +132,25 @@ def ipad(src, x, y, w, *, bar="#F2F2F7", dark_text=True, z=2, rot=0):
             f'<div class="scr" style="left:{b}px;top:{b}px;width:{ws}px;height:{hs}px;border-radius:{R-b}px">'
             f'<img class="cap" src="{src}">{sbar(ws, bar, dark_text, pad=True)}</div></div>'), h
 
-def win(src, x, y, w, z=3, rot=0):
+def win(src, x, y, w, z=3, rot=0, extra=""):
     t = f"transform:rotate({rot}deg);" if rot else ""
-    return f'<div class="win" style="left:{x}px;top:{y}px;width:{w}px;z-index:{z};{t}"><img src="{src}"></div>'
+    return f'<div class="win" style="left:{x}px;top:{y}px;width:{w}px;z-index:{z};{t}"><img src="{src}">{extra}</div>'
+
+def history_label(loc, w):
+    """The Mac history captures (720 x 1028) predate the localised "Clear History" button: every language's capture
+    reads it in English. This paints the app's own string for that language over it, right-aligned where it sits."""
+    strings = {}
+    for c in (loc, loc.split("-")[0], {"no": "nb"}.get(loc, "")):
+        f = REPO / "Cutling" / f"{c}.lproj" / "Localizable.strings"
+        if c and f.exists():
+            for m_ in re.finditer(r'^"Clear History"\s*=\s*"((?:[^"\\]|\\.)*)";', f.read_text(), re.M):
+                strings["v"] = m_.group(1)
+            break
+    label = strings.get("v", "Clear History")
+    k = w / 720.0
+    return (f'<div style="position:absolute;left:{230*k}px;width:{412*k}px;top:{978*k}px;height:{36*k}px;background:#f8f8f8;'
+            f'display:flex;align-items:center;justify-content:flex-end;font-family:SF;font-size:{21*k}px;color:#1d1d1f;'
+            f'direction:ltr;white-space:nowrap">{esc(label)}</div>')
 
 # ---------------------------------------------------------------- shared drawn parts
 
@@ -311,7 +327,7 @@ def flatten(png):
 def run_jobs():
     if "--no-render" in sys.argv or not JOBS:
         return
-    jf = HERE / "out" / "jobs.json"
+    jf = HERE / "out" / f"jobs-{os.getpid()}.json"   # one queue per build, so builds running side by side never share one
     jf.write_text(json.dumps(JOBS))
     r = subprocess.run(["bun", str(HERE / "render-batch.mjs"), str(jf)], cwd=HERE)
     for c in POST:

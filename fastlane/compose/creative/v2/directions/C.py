@@ -10,8 +10,9 @@ CSS = """
 .stage{background:radial-gradient(130% 90% at 30% 0%,#1A1E1C 0%,#0E100F 55%,#090A0A 100%)}
 .kick{position:absolute;color:#34D3A2;font-weight:600;letter-spacing:-.01em}
 .h{position:absolute;font-family:NY,serif;color:#F3F0E8;font-weight:500;letter-spacing:-.012em;line-height:1.14}
-.h .chip{display:inline;white-space:normal;font-family:NY,serif;background:#1DBB8A;color:#03241A;border-radius:.2em;padding:0 .16em;margin:0 .02em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-.s{position:absolute;color:#A3AAA6;font-weight:500;letter-spacing:-.005em;line-height:1.25}
+.h .chip{display:inline;white-space:nowrap;font-family:NY,serif;background:#1DBB8A;color:#03241A;border-radius:.2em;padding:0 .16em;margin:0 .02em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.s{position:absolute;color:#A3AAA6;font-weight:500;letter-spacing:-.005em;line-height:1.25;text-wrap:pretty}
+.h{text-wrap:pretty}
 .cmd{display:inline-flex;gap:.14em;direction:ltr}
 .cmd b{display:inline-flex;align-items:center;justify-content:center;width:1.25em;height:1.25em;border-radius:.2em;font-family:SF;font-weight:500;
   font-size:.8em;background:linear-gradient(180deg,#2B2F2D,#1B1E1D);color:#F3F0E8;box-shadow:0 .05em 0 #000,inset 0 1px 0 rgba(255,255,255,.12),0 0 0 .012em #3a3f3c}
@@ -21,7 +22,12 @@ def text(m, t, x, y, w, kfs, hfs, sfs, maxh, gap=0.55):
     s = f'<div class="s" style="position:static;margin-top:{hfs*gap*0.6}px;font-size:{sfs}px;width:{w*0.9}px">{m.rich(t["s"])}</div>' if t.get("s") else ""
     return (f'<div class="abs" data-fit="{maxh}" style="left:{x}px;top:{y}px;width:{w}px;z-index:30">'
             f'<div class="kick" style="position:static;font-size:{kfs}px;margin-bottom:{kfs*0.55}px">{m.esc(t["k"])}</div>'
-            f'<div class="h" style="position:static;font-size:{hfs}px">{m.rich(t["h"])}</div>{s}</div>')
+            f'<div class="h" style="position:static;font-size:{hfs}px">{head(m, t["h"])}</div>{s}</div>')
+
+def head(m, h):
+    """Every chip stays on one line (CSS nowrap), so a blank never reads as two pieces; a long one, such as a full
+    date, makes the fit script shrink the headline instead of breaking."""
+    return m.rich(h)
 
 def build(m, loc, words, only):
     W = words["C"]; cs = words["cseed"]; F = m.FACTS[loc]
@@ -63,32 +69,42 @@ def touch_set(m, loc, W, cs, F, out, dev):
     # 3: the saved note whose blank is a date, and what it typed today
     fs = 86 if not pad else 92
     cy = 1500 if not pad else 1400
-    pill = (f'<span style="background:#D6F5EA;color:#08664B;border-radius:.25em;padding:0 .2em;font-weight:600">'
+    pill = (f'<span style="background:#D6F5EA;color:#08664B;border-radius:.25em;padding:0 .2em;font-weight:600;white-space:nowrap">'
             f'{m.esc(F["long_date_nov23"])}</span>')
     before, _, after = cs["delivered"].partition("{date}")
-    card = (f'<div class="abs" style="left:{X}px;top:{cy}px;width:{w-2*X}px;padding:{fs*.9}px;border-radius:{fs*.8}px;'
-            f'background:#1A1D1C;box-shadow:inset 0 0 0 2px #2A2F2D;color:#F3F0E8;font-size:{fs*.8}px;line-height:1.5;z-index:5">'
+    card = (f'<div style="padding:{fs*.9}px;border-radius:{fs*.8}px;'
+            f'background:#1A1D1C;box-shadow:inset 0 0 0 2px #2A2F2D;color:#F3F0E8;font-size:{fs*.8}px;line-height:1.5">'
             f'<div style="color:#7F8783;font-size:{fs*.62}px;margin-bottom:{fs*.4}px">{m.esc(cs["delivered_name"])}</div>'
             f'{m.esc(before)}{pill}{m.esc(after)}</div>')
-    side = "right" if rtl else "left"
-    bub = (f'<div class="abs" style="{side}:{w*0.24}px;top:{cy + fs * 5.2}px;max-width:{w*0.7}px;background:#0A84FF;color:#fff;'
-           f'font-size:{fs}px;line-height:1.25;padding:{fs*.42}px {fs*.7}px;border-radius:{fs*.9}px;z-index:4">'
+    bub = (f'<div style="align-self:flex-end;max-width:{w*0.72}px;background:#0A84FF;color:#fff;'
+           f'font-size:{fs}px;line-height:1.25;padding:{fs*.42}px {fs*.7}px;border-radius:{fs*.9}px">'
            f'{m.esc(m.filled(cs["delivered"], {"date": F["long_date_nov23"]}))}</div>')
+    # the saved note, then the message it typed today, stacked so a long date never makes them overlap
+    card = (f'<div class="abs" style="left:{X}px;top:{cy}px;width:{w-2*X}px;display:flex;flex-direction:column;'
+            f'gap:{fs*.7}px;z-index:5">{card}{bub}</div>')
+    bub = ""
     body = text(m, T["3"], X, Y, TW, KF, HF * 1.15, SF, cy - Y - 80) + card + bub
     m.write_render(out / "03.html", m.page(w, h, body, CSS, loc), w, h)
 
-    # 4, 5, 6: a whole device under the line, real captures of this language
+    # 4, 5, 6: real captures of this language under the line. 4: the 2.0 setup guide's Try It page, the keyboard
+    # typing the saved address (the Messages captures are English in most languages, so they are not used);
+    # 5: the app's grid; 6: the same cutlings on Mac, iPad and iPhone.
     top = 1060 if pad else 1130
+    mx = (lambda x, width: w - x - width) if rtl else (lambda x, width: x)
     if pad:
-        devs = {"04": m.ipad(m.cap(loc, "pad-chat"), 420, top, 1220, bar="#F7F6F9")[0],
+        devs = {"04": m.ipad(m.cap(loc, "pad-guide"), 420, top, 1220, bar="#000", dark_text=False)[0],
                 "05": m.ipad(m.cap(loc, "pad-grid"), 420, top, 1220)[0],
-                "06": m.ipad(m.cap(loc, "pad-guide"), 420, top, 1220, bar="#000", dark_text=False)[0]}
+                "06": m.win(m.cap(loc, "mac-picker"), mx(150, 760), top + 40, 760, z=1)
+                      + m.ipad(m.cap(loc, "pad-grid"), mx(560, 1150), top + 220, 1150, z=2)[0]
+                      + m.phone(m.cap(loc, "phone-grid"), mx(1400, 560), top + 640, 560, bar="#F2F2F7", z=3)[0]}
     else:
-        devs = {"04": m.phone(m.cap(loc, "phone-chat"), 300, top, 720)[0],
+        devs = {"04": m.phone(m.cap(loc, "phone-guide"), 300, top, 720, bar="#000", dark_text=False, aspect=2868 / 1320)[0],
                 "05": m.phone(m.cap(loc, "phone-grid"), 300, top, 720, bar="#F2F2F7")[0],
-                "06": m.phone(m.cap(loc, "phone-guide"), 300, top, 720, bar="#000", dark_text=False, aspect=2868 / 1320)[0]}
+                "06": m.win(m.cap(loc, "mac-picker"), mx(70, 520), top + 30, 520, z=1)
+                      + m.ipad(m.cap(loc, "pad-grid"), mx(300, 860), top + 170, 860, z=2)[0]
+                      + m.phone(m.cap(loc, "phone-grid"), mx(840, 420), top + 520, 420, bar="#F2F2F7", z=3)[0]}
     for n, key in (("04", "4"), ("05", "5"), ("06", "6")):
-        hf = HF * (1.5 if n in ("05", "06") else 1.0)
+        hf = HF * (1.5 if n in ("05", "06") else 1.0)   # 4 is a list of three; 5 and 6 are a number and two words
         body = text(m, T[key], X, Y, TW, KF, hf, SF, top - Y - 70) + devs[n]
         m.write_render(out / f"{n}.html", m.page(w, h, body, CSS, loc), w, h)
 
@@ -108,7 +124,7 @@ def mac_set(m, loc, W, cs, F, out):
     pages = {
         "01": text(m, T["1"], mx(X, TW), Y, TW, KF, HF, SF, room) + form,
         "02": text(m, T["2"], mx(X, TW), Y, TW, KF, HF * 1.75, SF, room) + m.win(m.cap(loc, "mac-picker"), mx(1640, 1100), 110, 1100),
-        "03": text(m, T["3"], mx(X, TW), Y, TW, KF, HF * 1.1, SF, room) + m.win(m.cap(loc, "mac-history"), mx(1640, 1100), 110, 1100),
+        "03": text(m, T["3"], mx(X, TW), Y, TW, KF, HF * 1.1, SF, room) + m.win(m.cap(loc, "mac-history"), mx(1640, 1100), 110, 1100, extra=m.history_label(loc, 1100)),
         "04": text(m, T["4"], mx(X, TW), Y, TW, KF, HF, SF, room) + m.win(m.cap(loc, "mac-sync"), mx(1480, 1250), 300, 1250, z=5)
               + m.phone(m.cap(loc, "phone-grid"), mx(2240, 520), 560, 520, bar="#F2F2F7", z=20)[0],
         "05": text(m, T["5"], mx(X, 1350), Y + 380, 1350, KF, HF * 1.5, SF, room - 380)
