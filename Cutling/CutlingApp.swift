@@ -195,7 +195,9 @@ struct CutlingApp: App {
                         store.seedForFillInTests()
                         UserDefaults.standard.removeObject(forKey: "setupWelcomeSeen")
                     } else if ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") {
-                        if ProcessInfo.processInfo.arguments.contains("-PROMO_MODE") {
+                        if ProcessInfo.processInfo.arguments.contains("-PROMO_EVERY") {
+                            store.seedForEveryApp()
+                        } else if ProcessInfo.processInfo.arguments.contains("-PROMO_MODE") {
                             store.seedForPromo()
                         } else {
                             store.seedForSnapshots()

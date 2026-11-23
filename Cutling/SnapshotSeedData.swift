@@ -77,7 +77,128 @@ private struct PromoSeedCopy {
     )
 }
 
+/// The "Every app" preview's keys (docs/aso/previews-2.0/directions.md, G) in one language, in the keyboard's order.
+/// The order update's blank and weekday are inserted with Cutling's marker, as the editor's Variables insert them.
+private struct EveryAppSeedCopy {
+    typealias Entry = (name: String, value: String)
+    let home, order, account, studio, thanks: Entry
+    let sizeChart: String
+    /// The order reply's blank, as the editor's Ask Each Time names it in the language.
+    let blank: String
+    /// The Name blank's recent values, newest first: the fill-in screen's choices.
+    let names: [String]
+
+    static func forLanguage(_ language: String) -> EveryAppSeedCopy {
+        switch language {
+        case "id": indonesian
+        case "ja": japanese
+        default: english
+        }
+    }
+
+    private static let english = EveryAppSeedCopy(
+        home: ("Home address", "14 Linden Road, Flat 3"),
+        order: ("Order update", "Hi {\u{2060}Name}, your order ships {\u{2060}day +1d}."),
+        account: ("Account number", "0441 2290 18"),
+        studio: ("Studio address", "22 Mill Lane, Studio 4"),
+        thanks: ("Thank you", "Thank you so much for your order!"),
+        sizeChart: "Size chart",
+        blank: "Name",
+        names: ["Maya", "Jonas", "Aiko", "Sam", "Lea"]
+    )
+
+    // Written blind from directions.md's meanings: docs/aso/previews-2.0/g-words.json.
+    private static let indonesian = EveryAppSeedCopy(
+        home: ("Alamat rumah", "Jl. Kenanga Blok C2 No. 5, Depok"),
+        order: ("Jadwal kirim", "Kak {\u{2060}Nama}, paketnya kami kirim {\u{2060}day +1d} ya."),
+        account: ("No. rekening", "5270183946"),
+        studio: ("Studio keramik", "Jl. Cempaka No. 21, Lt. 2, Depok"),
+        thanks: ("Terima kasih", "Terima kasih sudah belanja, Kak!"),
+        sizeChart: "Tabel ukuran",
+        blank: "Nama",
+        names: ["Rina", "Dimas", "Sari", "Yoga", "Fitri"]
+    )
+
+    /// The order reply ends with a line break: the keyboard puts a space between two cutlings typed in a row, which after
+    /// 「。」 reads as a typo, and none after a line break, so the thanks starts its own line as Japanese shop messages do.
+    private static let japanese = EveryAppSeedCopy(
+        home: ("自宅の住所", "東京都練馬区豊玉北4-21-6 203"),
+        order: ("発送連絡", "{\u{2060}名前}様、ご注文の品は{\u{2060}day +1d}に発送いたします。\n"),
+        account: ("口座番号", "3058162"),
+        studio: ("教室の住所", "東京都三鷹市下連雀3-25-9 2階"),
+        thanks: ("お礼", "お買い上げありがとうございました。"),
+        sizeChart: "サイズ表",
+        blank: "名前",
+        names: ["中村", "小林", "松本", "岡田", "原田"]
+    )
+}
+
 extension CutlingStore {
+    /// The "Every app" preview's seed (`-PROMO_EVERY`), in `-PROMO_LANG id|en|ja`: six keys, the size chart an image,
+    /// and the Name blank's recent values. No input-type triggers, so the keyboard shows the same keys in every app.
+    func seedForEveryApp() {
+        let language = UserDefaults.standard.string(forKey: "PROMO_LANG") ?? "en"
+        let copy = EveryAppSeedCopy.forLanguage(language)
+        for filename in cutlings.compactMap(\.imageFilename) { deleteImageFile(named: filename) }
+        var seeded = [
+            Cutling(name: copy.home.name, value: copy.home.value, icon: "house.fill", sortOrder: 0, color: "blue"),
+            Cutling(name: copy.order.name, value: copy.order.value, icon: "shippingbox.fill", sortOrder: 1, color: "teal"),
+            Cutling(name: copy.account.name, value: copy.account.value, icon: "banknote.fill", sortOrder: 2, color: "green"),
+            Cutling(name: copy.studio.name, value: copy.studio.value, icon: "mappin.and.ellipse", sortOrder: 3, color: "orange"),
+        ]
+        #if os(iOS)
+        let id = UUID()
+        if let filename = Self.sizeChartImage().flatMap({ saveImageData($0, for: id) }) {
+            seeded.append(Cutling(id: id, name: copy.sizeChart, value: "", icon: "photo", kind: .image, imageFilename: filename,
+                                  sortOrder: 4, color: "purple"))
+        }
+        #endif
+        seeded.append(Cutling(name: copy.thanks.name, value: copy.thanks.value, icon: "sparkles", sortOrder: seeded.count, color: "pink"))
+        cutlings = seeded
+        save()
+        let group = UserDefaults(suiteName: "group.com.matsuokengo.Cutling")
+        group?.set([Placeholders.Field.key(copy.blank): copy.names], forKey: FillInMemory.defaultsKey)
+        group?.removeObject(forKey: "keyboardFillSession")
+    }
+
+    #if os(iOS)
+    /// A clothing size chart as a shop would send it: sizes and centimetres only, so it reads in every language.
+    private static func sizeChartImage() -> Data? {
+        let rows = [["", "S", "M", "L", "XL"], ["cm", "88", "96", "104", "112"], ["", "66", "68", "70", "72"]]
+        let size = CGSize(width: 900, height: 600)
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 1
+        let image = UIGraphicsImageRenderer(size: size, format: format).image { context in
+            UIColor(red: 0.96, green: 0.93, blue: 0.88, alpha: 1).setFill()
+            context.fill(CGRect(origin: .zero, size: size))
+            let ink = UIColor(red: 0.16, green: 0.14, blue: 0.12, alpha: 1)
+            // A T-shirt outline above the table.
+            let shirt = UIBezierPath()
+            for (x, y) in [(370, 40), (330, 60), (290, 110), (330, 140), (355, 120), (355, 230), (545, 230), (545, 120), (570, 140),
+                           (610, 110), (570, 60), (530, 40), (500, 60), (400, 60)] {
+                shirt.isEmpty ? shirt.move(to: CGPoint(x: x, y: y)) : shirt.addLine(to: CGPoint(x: x, y: y))
+            }
+            shirt.close()
+            UIColor(red: 0.16, green: 0.55, blue: 0.47, alpha: 1).setFill()
+            shirt.fill()
+            for (row, cells) in rows.enumerated() {
+                for (column, text) in cells.enumerated() {
+                    let bold = row == 0 || column == 0
+                    let attributes: [NSAttributedString.Key: Any] = [
+                        .font: UIFont.systemFont(ofSize: 56, weight: bold ? .bold : .regular), .foregroundColor: ink,
+                    ]
+                    let box = CGRect(x: 60 + column * 160, y: 280 + row * 100, width: 160, height: 100)
+                    let measured = (text as NSString).size(withAttributes: attributes)
+                    (text as NSString).draw(at: CGPoint(x: box.midX - measured.width / 2, y: box.midY - measured.height / 2), withAttributes: attributes)
+                }
+            }
+            ink.withAlphaComponent(0.25).setFill()
+            context.fill(CGRect(x: 60, y: 378, width: 800, height: 3))
+        }
+        return image.pngData()
+    }
+    #endif
+
     /// One cutling per format, for FormattingUITests.
     func seedForFormatTests() {
         cutlings = [
