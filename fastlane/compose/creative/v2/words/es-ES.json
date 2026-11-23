@@ -1,0 +1,41 @@
+{
+ "cseed": {"names": ["Lucía", "Pablo", "Marta"], "mac_name": "Javier",
+           "reply": "¡Hola, {name}! Tu pedido sale el {date}.", "reply_name": "Envío",
+           "mac_reply": "¡Hola, {name}! Tu pack {plan} sale el {date}.",
+           "name_label": "Nombre", "plan_label": "Pack", "plan_choices": ["Básico", "Premium"],
+           "delivered": "Entregado el {date}.", "delivered_name": "Entrega"},
+ "C": {
+  "iphone": {
+   "1": {"k": "La escribes una sola vez",
+         "s": "Tocas la respuesta y Cutling te pregunta el nombre."},
+   "2": {"k": "Y la misma, al siguiente cliente",
+         "s": "Los nombres que ya has usado están a un toque."},
+   "3": {"k": "La fecha la pone Cutling",
+         "s": "Hoy, mañana o dentro de una semana, según el día en que lo pegues."},
+   "4": {"k": "Y lo que nunca cambia:",
+         "h": "[tu IBAN], [tu dirección] y [tu firma].",
+         "s": "Un toque en el teclado Cutling y lo tienes en cualquier app."},
+   "5": {"k": "Hay sitio para todo",
+         "h": "[5000] cutlings",
+         "s": "Antes eran 100, y en cada uno cabe un correo entero."},
+   "6": {"k": "iPhone, iPad y Mac",
+         "h": "Pagas [una vez].",
+         "s": "Una compra vale para los tres, sin cuenta ni suscripción."}
+  },
+  "mac": {
+   "1": {"k": "Escríbela una vez y mándasela a todos",
+         "s": "Con {cmd} eliges la respuesta y, antes de pegarla, rellenas los huecos."},
+   "2": {"k": "Escribas donde escribas",
+         "h": "{cmd}",
+         "s": "Tus cutlings y lo último que has copiado se abren encima de cualquier app."},
+   "3": {"k": "El historial del portapapeles no guarda",
+         "s": "Lo que tu gestor de contraseñas marca como oculto nunca llega al historial."},
+   "4": {"k": "Cambias algo en tu Mac",
+         "h": "y ya está en tu [iPhone].",
+         "s": "Se sincroniza con tu propio iCloud, sin crear ninguna cuenta."},
+   "5": {"k": "iPhone, iPad y Mac",
+         "h": "Pagas [una vez].",
+         "s": "Una compra vale para los tres, sin cuenta ni suscripción."}
+  }
+ }
+}
