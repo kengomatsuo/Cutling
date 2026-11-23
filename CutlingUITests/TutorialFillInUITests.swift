@@ -54,6 +54,12 @@ final class TutorialFillInUITests: SetupMockTestCase {
         sleep(1)
         shot("name_typed")
         XCTAssertTrue(tapNext(app), "No Next after the name")
+        // One tap of Next must move the walkthrough on, as a person expects.
+        let fillStep = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'As you type'")).firstMatch
+        if !fillStep.waitForExistence(timeout: 3) {
+            XCTFail("The name step's Next took no effect on the first tap")
+            _ = tapNext(app)
+        }
         // The step's tip, with the blank button's icon, before the person taps the box.
         let tip = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'As you type'")).firstMatch
         XCTAssertTrue(tip.waitForExistence(timeout: 8), "The fill-in step shows its instruction neither in the bar nor as a tip")

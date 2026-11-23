@@ -251,7 +251,7 @@ final class TutorialCoordinator {
         guard isActive else { return setEditorAnchor(.none) }
         switch step {
         case .createName:    setEditorAnchor(.name)
-        case .createFillIn:  setEditorAnchor(.fillIn)
+        case .createFillIn:  setEditorAnchor(.none)   // its instruction is in the HUD
         case .createSave:    setEditorAnchor(.text)
         case .editSave:      setEditorAnchor(.back)
         case .deleteConfirm: setEditorAnchor(.delete)
@@ -319,7 +319,7 @@ final class TutorialCoordinator {
         case .createName:
             setEditorAnchor(nameEmpty ? .name : .none)
         case .createFillIn:
-            setEditorAnchor(.fillIn)
+            setEditorAnchor(.none)   // its instruction is in the HUD
         case .createSave:
             // Guide toward whatever's still missing: title first, then text,
             // then the Save button once both are filled.
@@ -468,11 +468,11 @@ struct TutorialHUD: View {
         let total = TutorialStep.allCases.count
 
         VStack(spacing: 10) {
-            // The fill-in step begins while the person is typing, and a tip cannot open over a
-            // focused field without taking the keyboard away, so its instruction rides here,
-            // above the keyboard, with the blank button's icon, until the field lets go and the
-            // tip takes over.
-            if step == .createFillIn, tutorial.editorFieldFocused {
+            // The fill-in step begins while the person is typing, and a popover cannot open over
+            // the text box without taking the keyboard away (the walkthrough's box is a UIKit text
+            // view whose focus SwiftUI never reports), so the step's instruction lives here, above
+            // the keyboard beside the bar it names, with the blank button's icon.
+            if step == .createFillIn {
                 Label {
                     Text(step.message)
                 } icon: {

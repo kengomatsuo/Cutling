@@ -36,9 +36,10 @@ recoveredCelebrate`
 (`createName`, `createFillIn`, `createSave`, `editSave`, `deleteConfirm`) get the HUD plus a
 TipKit popover, no coach-mark.
 
-`createFillIn` (owner, 2026-11-21) points at the text field and says to tap Ask Each Time
-above the keyboard while typing to leave a blank, with that button's icon (`character.textbox`)
-in the tip. The walkthrough types in the form's own box, whose bar holds Ask Each Time, Today's
+`createFillIn` (owner, 2026-11-21) says, in the HUD above the keyboard, to tap Ask Each Time
+while typing to leave a blank, beside that button's icon (`character.textbox`). It has no popover:
+the step begins while the person types, the walkthrough's box is a UIKit text view whose focus
+SwiftUI never reports, and a popover over it would take the keyboard away. The walkthrough types in the form's own box, whose bar holds Ask Each Time, Today's
 Date, Time, Cursor Position and Clipboard Text and no Variables (braces) button, so the tip names
 the button the bar has. Next skips it, and putting a blank in finishes it
 (`TextDetailView.insertPlaceholder`); `CutlingUITests/TutorialFillInUITests` walks it. It is skipped while `FillIns.isOn` is off, and the
