@@ -161,6 +161,48 @@ extension CutlingStore {
         group?.removeObject(forKey: "keyboardFillSession")
     }
 
+    /// The 2.0 release film's seed (`-PROMO_RELEASE`): six keys, one with a date that fills itself in and one written
+    /// like a note, and the Name blank's recent values. `-PROMO_ROOM n` adds plain replies up to n text cutlings, for
+    /// the take that shows the grid's own count.
+    func seedForReleaseFilm() {
+        for filename in cutlings.compactMap(\.imageFilename) { deleteImageFile(named: filename) }
+        var seeded = [
+            Cutling(name: "Order update", value: "Hi {\u{2060}Name}, your order ships {\u{2060}day +1d}.", icon: "shippingbox.fill", sortOrder: 0, color: "teal"),
+            Cutling(name: "Delivery note", value: "Delivered on {\u{2060}date:long}.", icon: "calendar", sortOrder: 1, color: "orange"),
+            Cutling(name: "Welcome note", value: "**Welcome to the studio!**\nEverything for your first visit:\n• Door code ^[4815](highlight: true)\n• Wi-Fi: studio-guest\n• Parking behind the bakery",
+                    icon: "textformat", sortOrder: 2, color: "purple", format: .rich),
+            Cutling(name: "Home address", value: "14 Linden Road, Flat 3", icon: "house.fill", sortOrder: 3, color: "blue"),
+            Cutling(name: "Account number", value: "0441 2290 18", icon: "banknote.fill", sortOrder: 4, color: "green"),
+            Cutling(name: "Thank you", value: "Thank you so much for your order!", icon: "sparkles", sortOrder: 5, color: "pink"),
+        ]
+        let room = UserDefaults.standard.integer(forKey: "PROMO_ROOM")
+        if room > seeded.count {
+            let replies: [(String, String, String, String)] = [
+                ("Opening hours", "We're open Tuesday to Saturday, 10 to 6.", "clock.fill", "indigo"),
+                ("Returns", "You can return anything within 30 days, no questions asked.", "arrow.uturn.backward", "red"),
+                ("Shipping times", "Orders placed before 2 pm ship the same day.", "shippingbox.fill", "teal"),
+                ("Gift wrap", "Yes, we gift wrap for free. Just tell us at checkout.", "gift.fill", "pink"),
+                ("Size guide", "Our sizes run true. If you're between two, take the larger.", "ruler.fill", "brown"),
+                ("Out of stock", "That one sold out, and it's back in about two weeks.", "tray.fill", "orange"),
+                ("Directions", "Upstairs from the flower shop on the corner; ring 4 at the green door.", "map.fill", "green"),
+                ("Booking", "Your table is booked. See you then!", "calendar", "orange"),
+                ("Invoice", "Your invoice is attached. Payment is due within 14 days.", "doc.text.fill", "blue"),
+                ("Follow-up", "Just checking in: did everything arrive as expected?", "bubble.left.fill", "purple"),
+                ("Wi-Fi", "Network: studio-guest", "wifi", "cyan"),
+                ("Sign-off", "Thanks again, and have a lovely week!", "hand.wave.fill", "yellow"),
+            ]
+            for index in seeded.count..<room {
+                let reply = replies[index % replies.count]
+                seeded.append(Cutling(name: reply.0, value: reply.1, icon: reply.2, sortOrder: index, color: reply.3))
+            }
+        }
+        cutlings = seeded
+        save()
+        let group = UserDefaults(suiteName: "group.com.matsuokengo.Cutling")
+        group?.set([Placeholders.Field.key("Name"): ["Maya", "Jonas", "Aiko", "Sam", "Lea"]], forKey: FillInMemory.defaultsKey)
+        group?.removeObject(forKey: "keyboardFillSession")
+    }
+
     #if os(iOS)
     /// A clothing size chart as a shop would send it: sizes and centimetres only, so it reads in every language.
     private static func sizeChartImage() -> Data? {
