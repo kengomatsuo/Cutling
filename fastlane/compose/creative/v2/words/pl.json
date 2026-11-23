@@ -1,0 +1,41 @@
+{
+ "cseed": {"names": ["Aniu", "Jacku", "Kasiu"], "mac_name": "Bartku",
+           "reply": "{name}, Twoją paczkę wyślę we\u00a0{date}!", "reply_name": "Wysyłka",
+           "mac_reply": "{name}, Twój pakiet {plan} wyślę we\u00a0{date}!",
+           "name_label": "Imię", "plan_label": "Pakiet", "plan_choices": ["Standard", "Premium"],
+           "delivered": "Paczka doręczona {date}.", "delivered_name": "Doręczenie"},
+ "C": {
+  "iphone": {
+   "1": {"k": "Tę odpowiedź piszesz raz",
+         "s": "Stuknij zapisaną odpowiedź, a\u00a0Cutling zapyta o\u00a0imię."},
+   "2": {"k": "Ta sama trafia do kolejnego klienta",
+         "s": "Imiona użyte wcześniej czekają na klawiszach, wystarczy stuknąć."},
+   "3": {"k": "Cutling sam wpisuje daty",
+         "s": "Dziś, jutro czy za tydzień, zawsze licząc od\u00a0dnia wklejenia."},
+   "4": {"k": "I\u00a0to, czego nie zmieniasz latami:",
+         "h": "[numer konta], [adres] i\u00a0[podpis].",
+         "s": "Klawiatura Cutling wpisze je wszędzie jednym stuknięciem."},
+   "5": {"k": "Jest miejsce na wszystko",
+         "h": "[5000] cutlingów",
+         "s": "Wcześniej było ich 100, a\u00a0każdy zmieści cały\u00a0e-mail."},
+   "6": {"k": "iPhone, iPad i\u00a0Mac",
+         "h": "Płacisz [raz].",
+         "s": "Jeden zakup na wszystkie trzy, bez konta i\u00a0bez abonamentu."}
+  },
+  "mac": {
+   "1": {"k": "Napisz raz, wysyłaj wszystkim",
+         "s": "Wybierz odpowiedź skrótem {cmd}, a\u00a0formularz zapyta o\u00a0puste pola przed wklejeniem."},
+   "2": {"k": "Gdziekolwiek piszesz",
+         "h": "{cmd}",
+         "s": "Twoje cutlingi i\u00a0ostatnio skopiowane teksty otwierają się nad każdą aplikacją."},
+   "3": {"k": "Historia schowka na Macu pomija",
+         "s": "Nic, co menedżer haseł oznaczy jako ukryte, nie\u00a0trafi do historii."},
+   "4": {"k": "Zmień coś na Macu",
+         "h": "Zmieni się też na\u00a0[iPhonie].",
+         "s": "Synchronizuje się przez Twój własny iCloud, bez\u00a0zakładania konta."},
+   "5": {"k": "iPhone, iPad i\u00a0Mac",
+         "h": "Płacisz [raz].",
+         "s": "Jeden zakup na wszystkie trzy, bez konta i\u00a0bez abonamentu."}
+  }
+ }
+}
