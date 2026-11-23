@@ -77,12 +77,20 @@ def locale_css(loc):
            f'.h,.h .chip{{font-family:NY{s},"Times New Roman",serif !important}}')
     if loc == "ko":
         css += " .h{word-break:keep-all}"
+    if loc == "ja":
+        # Japanese has no spaces, so Chrome breaks it between any two characters ("カットリン|グ", "発|送いたしま|す。");
+        # auto-phrase breaks every line on the frame between phrases instead, and FIT_JS shrinks a headline whose widest
+        # phrase is wider than it.
+        css += " body{word-break:auto-phrase}"
     return css
 
-# Shrinks a text block's headline until the block fits its height and no word runs past its width.
+# Shrinks a text block's headline until the block fits its height and no word runs past its width. Under
+# word-break:auto-phrase (Japanese) Chrome splits a phrase wider than the line instead of letting it overflow, so there
+# the headline also shrinks until its min-content width, which is its widest phrase, fits the line.
 FIT_JS = """<script>addEventListener('load',async()=>{await document.fonts.ready;
 for(const el of document.querySelectorAll('[data-fit]')){const max=+el.dataset.fit,h=el.querySelector('.h');if(!h)continue;
-let fs=parseFloat(h.style.fontSize);const over=()=>el.scrollHeight>max+1||h.scrollWidth>h.clientWidth+1;
+const phrased=getComputedStyle(h).wordBreak==='auto-phrase',widest=()=>{h.style.width='min-content';const w=h.offsetWidth;h.style.width='';return w;};
+let fs=parseFloat(h.style.fontSize);const over=()=>el.scrollHeight>max+1||h.scrollWidth>h.clientWidth+1||(phrased&&widest()>h.clientWidth+1);
 while(over()&&fs>36){fs*=0.96;h.style.fontSize=fs+'px';}
 const s=el.querySelector('.s');if(s){let ss=parseFloat(s.style.fontSize);while(el.scrollHeight>max+1&&ss>28){ss*=0.96;s.style.fontSize=ss+'px';}}}});</script>"""
 
