@@ -1,0 +1,41 @@
+{
+ "cseed": {"names": ["Sara", "Marco", "Giulia"], "mac_name": "Luca",
+           "reply": "Ciao {name}, il tuo ordine parte {date}!", "reply_name": "Spedizione",
+           "mac_reply": "Ciao {name}, il tuo piano {plan} parte {date}!",
+           "name_label": "Nome", "plan_label": "Piano", "plan_choices": ["Base", "Premium"],
+           "delivered": "Pacco consegnato il {date}.", "delivered_name": "Consegna"},
+ "C": {
+  "iphone": {
+   "1": {"k": "La scrivi una volta sola",
+         "s": "Tocchi la risposta e Cutling ti chiede il nome."},
+   "2": {"k": "Stessa risposta, altro cliente",
+         "s": "Trovi sulla tastiera i nomi già usati: ne tocchi uno e via."},
+   "3": {"k": "Alle date ci pensa Cutling",
+         "s": "Oggi, domani o tra una settimana, contando da quando incolli."},
+   "4": {"k": "E quello che non cambia mai",
+         "h": "[Il tuo IBAN], [il tuo indirizzo] e [la tua firma].",
+         "s": "Un tocco sulla tastiera Cutling, in ogni app."},
+   "5": {"k": "C’è spazio per tutto",
+         "h": "[5000] cutling.",
+         "s": "Prima erano 100, e ognuno può contenere un’email intera."},
+   "6": {"k": "iPhone, iPad e Mac",
+         "h": "Paghi [una volta].",
+         "s": "Per tutti e tre, senza account né abbonamento."}
+  },
+  "mac": {
+   "1": {"k": "La scrivi una volta, la mandi a tutti",
+         "s": "Scegli la risposta con {cmd}: prima di incollarla, un breve modulo ti chiede cosa manca."},
+   "2": {"k": "Ovunque tu stia scrivendo",
+         "h": "{cmd}",
+         "s": "I tuoi cutling e le ultime cose che hai copiato compaiono sopra qualsiasi app."},
+   "3": {"k": "La cronologia ricorda tutto, tranne",
+         "s": "Quello che un gestore di password segna come nascosto non ci finisce mai."},
+   "4": {"k": "Cambi qualcosa su Mac",
+         "h": "E lo ritrovi aggiornato su [iPhone].",
+         "s": "Si sincronizza con il tuo iCloud e non devi registrarti da nessuna parte."},
+   "5": {"k": "iPhone, iPad e Mac",
+         "h": "Paghi [una volta].",
+         "s": "Per tutti e tre, senza account né abbonamento."}
+  }
+ }
+}
