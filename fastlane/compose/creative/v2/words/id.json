@@ -1,0 +1,21 @@
+{
+ "cseed": {"names": ["Rina", "Yoga", "Sari"], "mac_name": "Dimas", "reply": "Kak {name}, paketnya kami kirim {date} ya.", "reply_name": "Jadwal kirim", "mac_reply": "Kak {name}, Paket {plan} kami kirim {date} ya.",
+           "name_label": "Nama", "plan_label": "Paket", "plan_choices": ["Hemat", "Premium"], "delivered": "Paket diterima {date}.", "delivered_name": "Tanda terima"},
+ "C": {
+  "iphone": {
+   "1": {"k": "Cukup tulis sekali", "s": "Begitu kamu ketuk balasannya, Cutling tanya namanya dulu."},
+   "2": {"k": "Lalu ke pembeli berikutnya", "s": "Nama yang pernah kamu pakai jadi tombol, tinggal ketuk."},
+   "3": {"k": "Tanggal terisi sendiri", "s": "Hari ini, besok, seminggu lagi, benar kapan pun kamu tempel."},
+   "4": {"k": "Dan yang tak pernah berubah", "h": "[Nomor rekeningmu], [alamat rumahmu], [salam penutupmu]", "s": "Satu ketukan dari keyboard Cutling, di app apa pun."},
+   "5": {"k": "Ada tempat untuk semuanya", "h": "[5.000] cutling", "s": "Dulu hanya 100, dan tiap cutling muat satu email utuh."},
+   "6": {"k": "Di iPhone, iPad, dan Mac", "h": "Bayar [sekali] saja", "s": "Sudah termasuk ketiganya, tanpa akun dan tanpa langganan."}
+  },
+  "mac": {
+   "1": {"k": "Tulis sekali untuk semua pembeli", "s": "Pilih balasan dengan {cmd}, lengkapi isiannya, lalu tempel."},
+   "2": {"k": "Di mana pun kamu mengetik", "h": "{cmd}", "s": "Semua cutling dan yang baru kamu salin muncul di atas app apa pun."},
+   "3": {"k": "Riwayat papan klip melewatkan", "s": "Yang ditandai rahasia oleh pengelola kata sandi tak ikut tersimpan."},
+   "4": {"k": "Ubah di Mac-mu", "h": "Ikut berubah di [iPhone]", "s": "Sinkron lewat iCloud-mu sendiri, tanpa membuat akun."},
+   "5": {"k": "Di iPhone, iPad, dan Mac", "h": "Bayar [sekali] saja", "s": "Sudah termasuk ketiganya, tanpa akun dan tanpa langganan."}
+  }
+ }
+}
