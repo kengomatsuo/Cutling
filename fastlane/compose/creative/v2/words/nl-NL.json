@@ -1,0 +1,31 @@
+{
+ "cseed": {"names": ["Lisa", "Bas", "Femke"], "mac_name": "Thijs", "reply": "Hoi {name}, ik verstuur je pakket {date}.",
+           "reply_name": "Verzending", "mac_reply": "Hoi {name}, ik verstuur je {plan}pakket {date}.",
+           "name_label": "Naam", "plan_label": "Pakket", "plan_choices": ["Basis", "Plus"],
+           "delivered": "Bezorgd op {date}", "delivered_name": "Bezorging"},
+ "C": {
+  "iphone": {
+   "1": {"k": "Eén keer geschreven.", "s": "Tik op het antwoord en Cutling vraagt om\u00a0de\u00a0naam."},
+   "2": {"k": "En weer naar de volgende klant.", "s": "Namen die je eerder gebruikte, kies\u00a0je met\u00a0één\u00a0tik."},
+   "3": {"k": "Cutling vult de datum zelf in.", "s": "Vandaag, morgen of over een week: de datum klopt op de dag dat je plakt."},
+   "4": {"k": "En wat nooit verandert:", "h": "je [IBAN], [adres] en [handtekening].",
+         "s": "Eén tik op het Cutling-toetsenbord, in elke app."},
+   "5": {"k": "Er is ruimte voor alles.", "h": "[5.000] cutlings",
+         "s": "Eerst waren het er 100, en in elke cutling past een hele e-mail."},
+   "6": {"k": "Voor iPhone, iPad en Mac.", "h": "[Eén keer] betalen.",
+         "s": "Eén aankoop voor alle drie, zonder account of abonnement."}
+  },
+  "mac": {
+   "1": {"k": "Eén keer geschreven, voor iedereen.",
+         "s": "Kies het antwoord met {cmd}, vul een\u00a0kort\u00a0formulier in en Cutling plakt het."},
+   "2": {"k": "Waar je ook typt.", "h": "{cmd}",
+         "s": "Je cutlings en wat je laatst kopieerde, verschijnen boven elke app."},
+   "3": {"k": "Klembordgeschiedenis zonder",
+         "s": "Wat een wachtwoordbeheerder als vertrouwelijk markeert, komt er nooit in."},
+   "4": {"k": "Verander iets op je Mac,", "h": "dan verandert het ook op je [iPhone].",
+         "s": "Alles synchroniseert via je eigen iCloud: geen\u00a0account\u00a0nodig."},
+   "5": {"k": "Voor iPhone, iPad en Mac.", "h": "[Eén keer] betalen.",
+         "s": "Eén aankoop voor alle drie, zonder account of abonnement."}
+  }
+ }
+}
