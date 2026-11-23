@@ -53,6 +53,9 @@ final class TutorialFillInUITests: SetupMockTestCase {
         sleep(1)
         shot("name_typed")
         XCTAssertTrue(tapNext(app), "No Next after the name")
+        // The step's tip, with the blank button's icon, before the person taps the box.
+        let tip = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'As you type'")).firstMatch
+        XCTAssertTrue(tip.waitForExistence(timeout: 8), "The fill-in step shows no tip")
         sleep(1)
         shot("fill_in_step")
         dump(app, "fill-in-step")
