@@ -1,0 +1,253 @@
+{
+ "_note": "English source for the 2.0 store frames (ASG167). Other languages are written blind from the meanings in meanings.json, never from this file. Markup: *x* is the accent phrase; [x] is a fill-in blank drawn as a green chip; | is a forced line break; {cmd} draws the ⌘⇧V keys.",
+ "seed": {
+  "bank": [
+   "Bank Account",
+   "IBAN: DE89 3704 0044 0532 0130 00"
+  ],
+  "home": [
+   "Home Address",
+   "123 Main Street, Apt 4B"
+  ],
+  "sig": [
+   "Email Signature",
+   "Best regards, Alex Chen"
+  ],
+  "wifi": [
+   "Wi-Fi Password",
+   "c0ff33-Sh0p-2024!"
+  ],
+  "booking": [
+   "Booking Ref",
+   "FLT-2026-XKCD42"
+  ],
+  "phone": [
+   "Phone Number",
+   "+1 (555) 234-5678"
+  ],
+  "order": [
+   "Order update",
+   "Hi [Name], your order ships [tomorrow]."
+  ],
+  "names": [
+   "Maya",
+   "Jonas",
+   "Aiko",
+   "Sam",
+   "Lea"
+  ],
+  "blank": "Name",
+  "hint": "Type it with your keyboard",
+  "paste": "Paste",
+  "next": "Next",
+  "step": "1 of 1",
+  "sent": "Hi Maya, your order ships Nov 24.",
+  "sent2": "Hi Jonas, your order ships Nov 24.",
+  "date_long": "November 23, 2026",
+  "maps_field": "123 Main Street, Apt 4B",
+  "maps_result": "123 Main Street",
+  "maps_sub": "New York, NY 10001",
+  "mail_to": "To:",
+  "mail_subject": "Subject:",
+  "mail_subject_v": "Friday",
+  "mail_body": "See you then.",
+  "sig_lines": [
+   "Best regards,",
+   "Alex Chen",
+   "alex@example.com"
+  ],
+  "bubble_q": "What's your bank number?",
+  "cal_title": "Pottery class",
+  "cal_location": "Location",
+  "menu_day": "Mon 23 Nov",
+  "pw_dots": "••••••••••••",
+  "ask_order": "When does my order ship?",
+  "var_today": "Today",
+  "delivered": "Delivered on",
+  "date_name": "Delivery note"
+ },
+ "A": {
+  "name": "Fan deck",
+  "iphone": {
+   "1": {
+    "h": "Everything you keep *retyping*",
+    "s": "Saved once, then one tap each on Cutling's keyboard."
+   },
+   "2": {
+    "h": "One tap types it into *any app*",
+    "s": "Here, your bank number in Messages."
+   },
+   "3": {
+    "h": "Write a reply once. *Fill in the name.*",
+    "s": "The names you used before are one tap away, and the date fills itself in."
+   },
+   "4": {
+    "h": "Room for *5,000* of them",
+    "s": "Up from 100, and each one can hold a whole email."
+   },
+   "5": {
+    "h": "Also on your *iPad and Mac*",
+    "s": "One purchase for all three. They sync through your own iCloud."
+   },
+   "6": {
+    "h": "Paid once. *No account.*",
+    "s": "No subscription and no ads. Keyboard Setup walks you through the three steps."
+   }
+  },
+  "mac": {
+   "1": {
+    "h": "Everything you retype, at {cmd}",
+    "s": "The picker opens over the app you're typing in."
+   },
+   "2": {
+    "h": "Write a reply once. *Fill in the name.*",
+    "s": "A short form asks for it before Cutling pastes."
+   },
+   "3": {
+    "h": "Copied passwords stay *out of your history*",
+    "s": "Anything your password manager marks as concealed is skipped."
+   },
+   "4": {
+    "h": "The same cutlings on *iPhone, iPad and Mac*",
+    "s": "One purchase, synced through your own iCloud."
+   },
+   "5": {
+    "h": "Paid once. *No account.*",
+    "s": "No subscription and no ads. Room for 5,000 cutlings."
+   }
+  }
+ },
+ "B": {
+  "name": "Every app",
+  "iphone": {
+   "1": {
+    "h": "Your bank number",
+    "g": "in Messages"
+   },
+   "2": {
+    "h": "A reply that asks for the name",
+    "g": "in Messages"
+   },
+   "3": {
+    "h": "Your address",
+    "g": "in Maps"
+   },
+   "4": {
+    "h": "Your signature",
+    "g": "in Mail"
+   },
+   "5": {
+    "h": "Everything you retype",
+    "g": "in one place, with room for 5,000"
+   },
+   "6": {
+    "h": "Any app on your iPhone.",
+    "g": "Also on iPad and Mac, one purchase for all three. Paid once, no account."
+   }
+  },
+  "ipad": {
+   "6": {
+    "h": "Any app on your iPad.",
+    "g": "Also on iPhone and Mac, one purchase for all three. Paid once, no account."
+   }
+  },
+  "mac": {
+   "1": {
+    "h": "Your address, wherever you type",
+    "g": "Press {cmd} and pick it"
+   },
+   "2": {
+    "h": "A reply that asks for the name",
+    "g": "before it pastes"
+   },
+   "3": {
+    "h": "Copied passwords",
+    "g": "never land in your history"
+   },
+   "4": {
+    "h": "The same cutlings",
+    "g": "on your iPhone and iPad"
+   },
+   "5": {
+    "h": "Any app on your Mac.",
+    "g": "Also on iPhone and iPad, one purchase for all three. Paid once, no account."
+   }
+  }
+ },
+ "C": {
+  "name": "The blank",
+  "iphone": {
+   "1": {
+    "k": "Write it once.",
+    "s": "Tap the reply and Cutling asks for the name."
+   },
+   "2": {
+    "k": "Send it again.",
+    "s": "The names you used before are one tap away."
+   },
+   "3": {
+    "k": "Dates fill themselves in.",
+    "s": "Today, tomorrow or a week from now, right on the day you paste."
+   },
+   "4": {
+    "k": "And the parts that never change:",
+    "h": "your [bank number], your [address], your [sign-off].",
+    "s": "One tap each, in any app, from Cutling's keyboard."
+   },
+   "5": {
+    "k": "Room for all of it.",
+    "h": "[5,000] cutlings",
+    "s": "Up from 100, and each one is long enough for a whole email."
+   },
+   "6": {
+    "k": "iPhone, iPad and Mac.",
+    "h": "Paid [once].",
+    "s": "One purchase covers all three, with no account to make and no subscription to keep."
+   }
+  },
+  "mac": {
+   "1": {
+    "k": "Write it once. Send it to everyone.",
+    "s": "Pick the reply with {cmd} and a short form asks for the blanks before it pastes."
+   },
+   "2": {
+    "k": "Wherever you're typing.",
+    "h": "{cmd}",
+    "s": "Your cutlings and the last things you copied, over any app."
+   },
+   "3": {
+    "k": "Your clipboard history skips",
+    "s": "Anything your password manager marks as concealed never lands in it."
+   },
+   "4": {
+    "k": "Change it on your Mac,",
+    "h": "it's changed on your [iPhone].",
+    "s": "Synced through your own iCloud, with no account to make."
+   },
+   "5": {
+    "k": "iPhone, iPad and Mac.",
+    "h": "Paid [once].",
+    "s": "One purchase covers all three, with no account to make and no subscription to keep."
+   }
+  }
+ },
+ "cseed": {
+  "names": [
+   "Maya",
+   "Jonas",
+   "Aiko"
+  ],
+  "mac_name": "Sarah",
+  "reply": "Hi {name}, your order ships {date}.",
+  "reply_name": "Order update",
+  "mac_reply": "Hi {name}, your {plan} order ships {date}. Thanks!",
+  "name_label": "Name",
+  "plan_label": "Plan",
+  "plan_choices": [
+   "Basic",
+   "Pro"
+  ],
+  "delivered": "Delivered on {date}",
+  "delivered_name": "Delivery note"
+ }
+}

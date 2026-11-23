@@ -27,9 +27,11 @@ Commands:
   metadata          Upload iOS metadata to App Store Connect (all languages)
   metadata_mac      Upload macOS release notes to App Store Connect (platform osx)
   snap [--all]      Capture screenshots (missing only, or --all from scratch)
-  frame             Caption screenshots for iPhone, iPad, Mac and product pages (fastlane/compose)
-  screenshots       Upload framed screenshots to App Store Connect
-  screenshots_mac   Upload captioned Mac screenshots to the editable macOS version
+  frame             Render the store frames, iPhone, iPad and Mac, every language, into fastlane/frames
+                    (fastlane/compose/creative/v2, direction C "The blank")
+  frame_cpp         Caption the custom product page screenshots and the site's link preview (fastlane/compose)
+  screenshots       Upload the iPhone and iPad store frames to App Store Connect
+  screenshots_mac   Upload the Mac store frames to the editable macOS version
   event <name> [--readback|--submit]
                     Build or update the In-App Event in fastlane/events/<name>; --submit
                     sends it to review with the open submission (owner's yes first)
@@ -333,6 +335,9 @@ case "${1:-help}" in
     fi
     ;;
   frame)
+    python3 fastlane/compose/creative/v2/build.py --store C --publish
+    ;;
+  frame_cpp)
     # CoreText captions: frameit's ImageMagick has no shaping for Arabic, Indic, Thai
     mkdir -p "$BUILD_DIR"
     swiftc -O fastlane/compose/compose.swift -o "$BUILD_DIR/compose"

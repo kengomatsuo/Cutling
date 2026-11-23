@@ -6,8 +6,9 @@
 ./deploy.sh binary         # Upload the already-built IPA to App Store Connect (binary only, no submit; run build first)
 ./deploy.sh snap           # Capture missing locale screenshots
 ./deploy.sh snap --all     # Recapture all screenshots
-./deploy.sh frame          # Caption iPhone/iPad/Mac/product-page screenshots (fastlane/compose, CoreText; frameit cannot shape Arabic/Indic/Thai)
-./deploy.sh screenshots    # Upload framed screenshots to App Store Connect
+./deploy.sh frame          # Render the store frames (iPhone, iPad, Mac, every language) into fastlane/frames (fastlane/compose/creative/v2)
+./deploy.sh frame_cpp      # Caption custom product page screenshots and the site's link preview (fastlane/compose, CoreText)
+./deploy.sh screenshots    # Upload the iPhone and iPad store frames to App Store Connect
 ./deploy.sh metadata       # Upload iOS metadata/release notes to App Store Connect
 ./deploy.sh metadata_mac   # Upload macOS metadata (fastlane/metadata_mac: release notes, promo text, description, keywords, support URL) to App Store Connect (platform osx)
 ./deploy.sh upload         # Upload metadata + framed screenshots together

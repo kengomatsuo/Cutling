@@ -48,3 +48,38 @@ and each frame still stands alone on the product page.
 | A closing frame in the inverse colour | CARROT Weather's dark frame, TextExpander's dark closer (rival audit) | `poster` 8 |
 | Real UI pieces lifted out of the screen, not redrawn | Copilot Money, Paste frames 3 to 7 (rival audit) | `night` 4 to 8: the lifted pieces are the capture's own pixels |
 | The last frame answers "is it safe and where does it work" in one line | Flighty's and Things' closing frames | all three, frame 8 |
+
+## Mac App Store frames, and what search shows in 2.0 (ASG167, 23 November 2026)
+
+Fetched on 23 November 2026 from each listing's `apps.apple.com/us/app/id<id>?platform=mac` page (the
+`?entity=macSoftware` lookup returns no Mac screenshots for universal apps such as Paste). Saved for
+the first time in `refs/mac/<app>/`, 1440 x 900. Paste's eight are `refs/mac/paste/mac_-_screen_{1..8}.png`.
+
+| App | id | What its Mac frames do | Idea taken | Used in |
+|---|---|---|---|---|
+| Paste | 967805235 | Pale pastel gradients; frame 1 is a MacBook with iPhone and iPad and three award laurels, the MacBook running on into frame 2; frames 2 to 8 have a small coloured label over a centred line (KEEP, SEARCH, ORGANIZE) and the app's cards at poster size crossing the frame edges; frames 5 and 6 join again (a MacBook across the seam) | Its cards at poster size, cut by the frame edge. Not taken: the laptop running across a seam (Mac search shows one frame, so a join is invisible where it would matter) and the per-frame labels | all, on Mac |
+| Maccy | 1527619437 | Frame 1 a MacBook on a wallpaper, "CLIPBOARD MANAGER. NO FLUFF"; frames 2 and 3 its menu at large size with notes beside it | A menu-bar app shown as the menu itself at large size, not as a whole desktop | B, C on Mac |
+| PastePal | 1503446680 | Sunset gradient; a MacBook with iPhone and iPad in frame 1, then MacBooks at an angle with a heading at left | Nothing new | none |
+| Things 3 | 904280696 | Flat blue ground, windows floating with no laptop, one sentence in white in two weights (bold lead, plain rest) | A window floating on a flat ground with no laptop: the interface is large enough to read | C on Mac |
+| Bear | 1091189122 | One window per frame inside a MacBook bezel cropped at the bottom; a drawn line landscape behind | none | none |
+| Fantastical | 975937182 | Frame 1 a laptop with event cards popping out of it across the frame edge | Lifted cards over the window edge (already in the set) | none new |
+| Pixelmator Pro | 1289583905 | A centred sentence over a full MacBook | none | none |
+| iA Writer | 775737590 | Black ground; the window bleeds off the bottom; the text being written is the picture, set in the app's own type at poster size | Text in the app's own type at poster size is a complete frame; a dark Mac frame | B |
+| Craft | 1487937127 | Warm photographic ground, serif headline with one italic word, a Mac, iPad and iPhone stacked | none | none |
+| Mela | 1568924476 | The whole desktop with the real menu bar along the top, no laptop and no headline | Keeping the macOS menu bar in the frame says "this lives on your Mac" | A on Mac |
+| Flighty | 1358823008 | Frame 2, "Live In Your Menu Bar": a real menu bar band across the top of the frame with the app's menu dropped down under it at 2 to 3 times size, over the desktop | A menu-bar app's frame is the menu bar band and its dropped menu, enlarged. The best answer seen to "how do you show a picker that lives at the top of the screen" | A, C on Mac |
+
+### What search shows, read 23 November 2026
+
+- Apple, App Store asset best practices: "You can have up to 10 screenshots on your product page. Depending on
+  orientation, up to three screenshots can appear in search results." and "You can have up to three app previews
+  on your product page and up to three may appear in search results." So with 2.0's "Every app" preview in front,
+  an iPhone or iPad search result shows the preview and then screenshots 1 and 2, not 1 to 3. A three-frame
+  panorama loses its third panel exactly where it would be seen; each direction below makes frames 1 and 2 a pair
+  that stands beside the preview, and frame 3 stands alone.
+- Same page: "If you choose to not use a search result creative asset, your In-App Events, app previews, and
+  screenshots will appear." The creative asset is new in iOS 27 and iPadOS 27; App Store Connect Help, Creative
+  assets specifications: search results 3:2, 1920 x 1280 to 3840 x 2560, no alpha. Each direction's sheet shows
+  its search row both ways: with the preview, and without it.
+- Mac App Store: frames are 16:10; App Store Connect accepts 1280 x 800, 1440 x 900, 2560 x 1600 and 2880 x 1800.
+  The Mac sets here are 2880 x 1800, the size the live Mac frames already use.

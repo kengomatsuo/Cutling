@@ -1,0 +1,59 @@
+/* Shared parts for the 2.0 store frames (ASG167). Every size is set in px by build.py for the frame it draws. */
+@font-face{font-family:SF;src:url(file:///System/Library/Fonts/SFNS.ttf);font-weight:100 1000}
+@font-face{font-family:SFR;src:url(file:///System/Library/Fonts/SFNSRounded.ttf);font-weight:100 1000}
+@font-face{font-family:NY;src:url(file:///System/Library/Fonts/NewYork.ttf);font-weight:100 1000}
+@font-face{font-family:NY;font-style:italic;src:url(file:///System/Library/Fonts/NewYorkItalic.ttf);font-weight:100 1000}
+@font-face{font-family:SFMono;src:url(file:///System/Library/Fonts/SFNSMono.ttf);font-weight:100 1000}
+:root{--green:#17B98A;--green-ink:#0A6E52;--ink:#0B0D0C;--paper:#FDFDFD}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow:hidden}
+body{font-family:SF,-apple-system,"Hiragino Sans","PingFang SC","Apple SD Gothic Neo",sans-serif;-webkit-font-smoothing:antialiased;font-feature-settings:"ss01"}
+.abs{position:absolute}
+.stage{position:relative;overflow:hidden}
+
+/* devices: the capture is the screen; bezel, island and status bar are drawn */
+.dev{position:absolute;background:#0d0d0f;box-shadow:0 0 0 calc(var(--w)*.006) #3a3b3f inset}
+.dev .scr{position:absolute;overflow:hidden;background:#fff}
+.dev .scr>img.cap{position:absolute;left:0;top:0;width:100%;display:block}
+.dev .island{position:absolute;background:#000;border-radius:999px;z-index:5}
+.sb{position:absolute;left:0;top:0;width:100%;z-index:4;display:flex;align-items:center;justify-content:space-between}
+.sb .t{font-weight:600;letter-spacing:-.01em;text-align:center}
+.sb svg{display:block}
+.shadow-soft{filter:drop-shadow(0 30px 60px rgba(0,0,0,.18)) drop-shadow(0 6px 14px rgba(0,0,0,.10))}
+
+/* a symbol drawn from the exported SF Symbol PNG, tinted */
+.sym{display:inline-block;-webkit-mask-size:contain;-webkit-mask-repeat:no-repeat;-webkit-mask-position:center;flex:none}
+
+/* tags (direction A): the icon's punched tags, riveted on one ring */
+.tag{position:absolute;border-radius:calc(var(--L)*.055);background:linear-gradient(172deg,#ffffff 0%,#f6f8f7 60%,#eef2f0 100%);
+  box-shadow:0 calc(var(--L)*.004) 0 #c3cfca,0 calc(var(--L)*.006) 0 #a9b8b2,0 calc(var(--L)*.02) calc(var(--L)*.035) rgba(2,40,30,.30),inset 0 1px 0 #fff,inset 0 -1px 0 rgba(0,0,0,.06);
+  -webkit-mask:radial-gradient(circle at var(--hx) var(--hy),transparent calc(var(--L)*.026),#000 calc(var(--L)*.0265));}
+.tag .ring{position:absolute;border-radius:50%;border:calc(var(--L)*.009) solid #d9e2de;box-shadow:inset 0 1px 2px rgba(0,0,0,.12)}
+.tag .body{position:absolute;display:flex;flex-direction:column;justify-content:center}
+.tag .nm{display:flex;align-items:center;font-weight:700;color:#101312;letter-spacing:-.015em;white-space:nowrap}
+.tag .pv{color:#7c8380;letter-spacing:-.005em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tag.dark{background:linear-gradient(160deg,#3a3f3d 0%,#121514 55%,#050606 100%)}
+.tag.dark .nm{color:#fff}.tag.dark .pv{color:#9aa39f}
+.rivet{position:absolute;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffffff 0%,#d3d9d6 35%,#8e9893 75%,#6c7672 100%);box-shadow:0 4px 10px rgba(0,0,0,.25)}
+
+/* fill-in chips: the app's blank, as a green pill */
+.chip{display:inline-block;border-radius:.28em;padding:0 .22em;line-height:1.08;background:var(--green);color:#04271d;white-space:nowrap}
+
+/* the keyboard's fill-in panel, drawn from the 2.0 build's capture (fillin_06_saved_value) */
+.panel{position:absolute;background:#DFE1E5;overflow:hidden}
+.panel .hdr{position:absolute;display:flex;align-items:center;color:#6f7378}
+.panel .x{border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center}
+.panel .q{position:absolute;font-weight:700;color:#111;letter-spacing:-.01em}
+.panel .hint{position:absolute;color:#7a7e84;display:flex;align-items:center}
+.panel .row{position:absolute;display:flex;align-items:center}
+.panel .pill{background:#fff;color:#111;border-radius:999px;display:flex;align-items:center;justify-content:center;white-space:nowrap}
+.panel .pill.on{background:var(--green);color:#fff;font-weight:600}
+.panel .next{white-space:nowrap;background:#0FBE85;color:#fff;border-radius:999px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.panel .keys{position:absolute;display:flex}
+.panel .k{background:#fff;border-radius:.16em;display:flex;align-items:center;justify-content:center}
+.panel .k.ok{background:#0FBE85}
+
+/* Mac windows: raw captures carry their own corners and alpha */
+.win{position:absolute;filter:drop-shadow(0 40px 80px rgba(0,0,0,.28)) drop-shadow(0 0 1px rgba(0,0,0,.35))}
+.win img{display:block;width:100%}
+.keycap{display:inline-flex;align-items:center;justify-content:center;border-radius:.2em;font-weight:500}
