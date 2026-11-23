@@ -1,0 +1,77 @@
+{
+ "cseed": {
+  "names": [
+   "Jana",
+   "Tomáš",
+   "Zuzana"
+  ],
+  "mac_name": "Martin",
+  "reply": "Ahoj, {name}, balíček ti pošlem v {date}.",
+  "reply_name": "Odoslanie",
+  "mac_reply": "Ahoj, {name}, balíček {plan} ti pošlem v {date}.",
+  "name_label": "Meno",
+  "plan_label": "Plán",
+  "plan_choices": [
+   "Základný",
+   "Premium"
+  ],
+  "delivered": "Balíček bol doručený {date}.",
+  "delivered_name": "Doručenie"
+ },
+ "C": {
+  "iphone": {
+   "1": {
+    "k": "Odpoveď napíšeš len raz",
+    "s": "Klepneš na ňu a Cutling sa opýta na meno."
+   },
+   "2": {
+    "k": "Tú istú pošleš aj ďalšiemu",
+    "s": "Mená použité predtým čakajú na klávesoch, stačí klepnúť."
+   },
+   "3": {
+    "k": "Dátum doplní Cutling sám",
+    "s": "Dnes, zajtra či o týždeň: dátum sedí v deň, keď ho vložíš."
+   },
+   "4": {
+    "k": "Aj to, čo sa u teba nemení:",
+    "h": "[číslo účtu], [adresa] a [podpis].",
+    "s": "Z klávesnice Cutling ich máš kdekoľvek na jedno klepnutie."
+   },
+   "5": {
+    "k": "Zmestí sa všetko",
+    "h": "[5 000] cutlingov",
+    "s": "Doteraz bol limit 100 a každý cutling pojme celý e-mail."
+   },
+   "6": {
+    "k": "iPhone, iPad a Mac",
+    "h": "Zaplatíš len [raz]",
+    "s": "Jeden nákup na všetky tri. Účet ani predplatné netreba."
+   }
+  },
+  "mac": {
+   "1": {
+    "k": "Napíšeš raz, pošleš každému",
+    "s": "Odpoveď vyberieš cez {cmd} a krátky formulár sa pred vložením opýta na meno a plán."
+   },
+   "2": {
+    "k": "Nech píšeš kdekoľvek",
+    "h": "{cmd}",
+    "s": "Tvoje cutlingy a história schránky sa otvoria nad každou aplikáciou."
+   },
+   "3": {
+    "k": "História schránky vynechá",
+    "s": "Nič, čo správca hesiel skryje, sa do histórie nedostane."
+   },
+   "4": {
+    "k": "Čo zmeníš na Macu,",
+    "h": "zmení sa aj na [iPhone].",
+    "s": "Synchronizuje sa cez tvoj vlastný iCloud, bez nového účtu."
+   },
+   "5": {
+    "k": "iPhone, iPad a Mac",
+    "h": "Zaplatíš len [raz]",
+    "s": "Jeden nákup na všetky tri. Účet ani predplatné netreba."
+   }
+  }
+ }
+}
