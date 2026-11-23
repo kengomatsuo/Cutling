@@ -1,0 +1,1663 @@
+{
+ "what": "Every word a viewer reads in Cutling 2.0's App Store preview G, 'Every app' (card ASG166), and the seed its recordings show, in en-US, id and ja. The one source the build reads.",
+ "written": "2026-11-23",
+ "rule": "No locale is the source the others are translated from. id and ja were written blind: each by its own writer (a separate Claude process with no tools and no file access), given only the brief below (screen, moment, meaning, budget, register, the product's own words in that language), never an English line, and never the other language's draft. en-US keeps the lines the owner saw in directions.md section G word for word.",
+ "how_to_read": {
+  "overlay": "Film words. Each key: devices, time in the iPhone cut, type, 'says' (what it tells a buyer), the meaning the writers wrote from, then per locale 'lines' (the line breaks to draw, measured to fit), 'text' (the same joined), and for id and ja 'back' (literal back-translation) and 'note'. Each bar is a what-line (big, ink) over a where-line (small, green).",
+  "seed": "Content the recordings show. Each key: where it shows, 'says', then per locale the values to seed. [BLANK] and [WEEKDAY] are Cutling fill-ins (see seed.tokens).",
+  "written": "Which writer pass produced a string. r1 is the first brief; r2 marks a key whose brief was fixed and re-run (brief_revision says why)."
+ },
+ "app_names": {
+  "source": "Read on 2026-11-23 from the iOS 27.2 simulator runtime (each app's <lang>.lproj/InfoPlist.strings CFBundleDisplayName) and from /System/Applications/<App>.app/Contents/Resources/InfoPlist.loctable on this Mac. iPadOS uses the iOS names.",
+  "en-US": {
+   "Messages": "Messages",
+   "Maps": "Maps",
+   "Calendar": "Calendar",
+   "Safari": "Safari",
+   "Photos": "Photos",
+   "Notes": "Notes",
+   "Reminders": "Reminders",
+   "Contacts": "Contacts",
+   "Mail": "Mail",
+   "TextEdit (Mac)": "TextEdit"
+  },
+  "id": {
+   "Messages": "Pesan",
+   "Maps": "Peta",
+   "Calendar": "Kalender",
+   "Safari": "Safari",
+   "Photos": "Foto",
+   "Notes": "Catatan",
+   "Reminders": "Pengingat",
+   "Contacts": "Kontak",
+   "Mail": "Mail",
+   "TextEdit (Mac)": "TextEdit"
+  },
+  "ja": {
+   "Messages": "メッセージ",
+   "Maps": "マップ",
+   "Calendar": "カレンダー",
+   "Safari": "Safari",
+   "Photos": "写真",
+   "Notes": "メモ",
+   "Reminders": "リマインダー",
+   "Contacts": "連絡先",
+   "Mail": "メール",
+   "TextEdit (Mac)": "テキストエディット"
+  }
+ },
+ "typography": {
+  "id": "No dashes as connectors. Possessive -mu on a Latin product name takes a hyphen (iPhone-mu, Mac-mu).",
+  "ja": "、 and 。 only; no ―. A half-width space between a Latin word and Japanese (Safari に, iPhone の, iPad と Mac も), as Cutling's 2.0 Japanese store words do; none between a digit and its counter (1回). Break only where 'lines' breaks; never let the renderer wrap Japanese on its own.",
+  "en-US": "Break only where lines breaks."
+ },
+ "overlay": {
+  "open": {
+   "devices": [
+    "iphone",
+    "ipad"
+   ],
+   "time": "0.0 to 2.27 s, frame 0 of the loop",
+   "type": "iPhone 86 px bold on 760 px at x 72, y 96, lh 1.04; iPad 92 px on 1000 px",
+   "says": "What Cutling is, in the buyer's own terms (VoC A1: 'type out the same info over and over'), and how quick it is. Leaves 'any app' to the end card, which the loop dissolves straight back into this line.",
+   "meaning": "The things you type again and again, each a single tap away. Say only what Cutling holds and how quick it is to use. Do not say 'any app' or name an app: the end card says that, and when the film loops the end card dissolves straight back into this line, so the same point would land twice.",
+   "brief_revision": "r2 (2026-11-23): r1's meaning added 'in whatever app you are in', which put the end card's point into the first line; removed.",
+   "en-US": {
+    "text": "What you keep typing, one tap away",
+    "lines": [
+     "What you",
+     "keep typing,",
+     "one tap away"
+    ],
+    "note": "Owner-seen words, kept. Breaks moved so 'away' no longer sits alone on a third line and 'one tap away' stays together."
+   },
+   "id": {
+    "text": "Yang sering kamu ketik, satu ketukan.",
+    "lines": [
+     "Yang sering",
+     "kamu ketik,",
+     "satu ketukan."
+    ],
+    "back": "What you often / type, / one tap.",
+    "note": "A short headline clause plus a tag, the way Indonesian ad copy runs. 'satu ketukan' is the store's own phrase. The line names what Cutling holds (what you type often) and how fast it is. It names no app and does not say 'any app', so the end card's point does not appear twice on the loop. Each line break falls at a phrase break. Units count the comma and period at 0.25 each, as narrow glyphs like a space. If your counter uses 0.52, the lines measure 5.45 and 6.49, still within 8.8.",
+    "written": "r2 (second pass)"
+   },
+   "ja": {
+    "text": "何度も打つものをワンタップで",
+    "lines": [
+     "何度も打つものを",
+     "ワンタップで"
+    ],
+    "back": "The things (you) type again and again / with one tap",
+    "note": "This keeps the film's noun-stop, particle-final register, matching マップに and the end card's どれでも. It says only what Cutling holds (何度も打つもの) and how fast it is (ワンタップで). No app is named and there is no 'any app', so the end card's どれでも lands fresh when the loop returns here. The line break falls between bunsetsu. It avoids the stock 'paste in one tap' because there is no ペースト and no verb: the tap is the whole point.",
+    "written": "r2 (second pass)"
+   }
+  },
+  "open_mac": {
+   "devices": [
+    "mac"
+   ],
+   "time": "the Mac cut's first frame",
+   "type": "Mac 64 px bold on 520 px, lh 1.08, in the right-hand column at x 1330",
+   "says": "The Mac's version of the opening: a shortcut in place of a tap, so a Mac buyer is not told to tap.",
+   "meaning": "The Mac counterpart of the opening line: the things you type again and again, each one keyboard shortcut away (a Mac has no tapping). Same shape as the iPhone opening so the two read as one voice. Do not say 'any app': the Mac's own main line and end card say that.",
+   "brief_revision": "r2 (2026-11-23): as open.",
+   "en-US": {
+    "text": "What you keep typing, one shortcut away",
+    "lines": [
+     "What you",
+     "keep typing,",
+     "one shortcut away"
+    ],
+    "note": "New for the Mac cut, same shape as the iPhone opening."
+   },
+   "id": {
+    "text": "Yang sering kamu ketik, satu pintasan.",
+    "lines": [
+     "Yang sering",
+     "kamu ketik,",
+     "satu pintasan."
+    ],
+    "back": "What you often / type, / one shortcut.",
+    "note": "This has the same shape as the iPhone opening, with only the last word swapped. 'pintasan' is the word Apple uses on Indonesian macOS for a keyboard shortcut ('pintasan papan ketik'). A Mac has no tapping, so 'ketukan' is not used. It does not say 'any app'. Punctuation is counted as in open. At 0.52 per mark the last line is 7.01, within 8.1.",
+    "written": "r2 (second pass)"
+   },
+   "ja": {
+    "text": "何度も打つものをキー操作ひとつで",
+    "lines": [
+     "何度も打つものを",
+     "キー操作ひとつで"
+    ],
+    "back": "The things (you) type again and again / with a single keystroke",
+    "note": "Same shape as the iPhone opening: the same first line, and a second line ending in 〜で. キー操作ひとつで carries 'one keyboard shortcut away' in native words. The full ショートカットひとつで is 11 units and would have to break inside a noun phrase. ⌘⇧V is kept out of this line because mac_sub already shows it. Both lines are within 8.1 units.",
+    "written": "r2 (second pass)"
+   }
+  },
+  "maps_what": {
+   "devices": [
+    "iphone",
+    "ipad"
+   ],
+   "time": "2.27 to 4.53 s; also the poster frame",
+   "type": "iPhone 80 px bold on 760 px at x 72, y 96, lh 1.04, ink #1c1c1e; iPad 92 px on 1000 px; Mac 64 px on 520 px",
+   "says": "Each bar is a real everyday job in an app the buyer already uses; this one is the thing everybody saves first. Also the poster frame.",
+   "meaning": "Your own home address (this is what went in).",
+   "brief_revision": "r1",
+   "en-US": {
+    "text": "Your address",
+    "lines": [
+     "Your address"
+    ],
+    "note": "Owner-seen, kept."
+   },
+   "id": {
+    "text": "Alamat rumahmu",
+    "lines": [
+     "Alamat rumahmu"
+    ],
+    "back": "Address house-your",
+    "note": "One line, possessive -mu for the kamu register. No period because bars are labels.",
+    "written": "r1 (first pass)"
+   },
+   "ja": {
+    "text": "自宅の住所",
+    "lines": [
+     "自宅の住所"
+    ],
+    "back": "home 's address",
+    "note": "Bare noun. 自宅 means 'one's own home' without needing あなたの. It matches the key name the viewer sees on the keyboard.",
+    "written": "r1 (first pass)"
+   }
+  },
+  "where_maps": {
+   "devices": [
+    "iphone",
+    "ipad",
+    "mac"
+   ],
+   "time": "under maps_what",
+   "type": "iPhone 52 px semibold on 760 px, accent green, directly under the big line; iPad 50 px; Mac 36 px on 500 px",
+   "says": "Names the app in the phone's own words, so the buyer recognises Maps without being told.",
+   "meaning": "Into Maps (the app it went into), named as this language's iPhone names Maps.",
+   "brief_revision": "r1",
+   "en-US": {
+    "text": "in Maps",
+    "lines": [
+     "in Maps"
+    ],
+    "note": "Owner-seen, kept."
+   },
+   "id": {
+    "text": "masuk ke Peta",
+    "lines": [
+     "masuk ke Peta"
+    ],
+    "back": "goes into Maps",
+    "note": "Series shape: lowercase 'masuk ke' + iOS app name, continuing the big line as one sentence.",
+    "written": "r1 (first pass)"
+   },
+   "ja": {
+    "text": "マップに",
+    "lines": [
+     "マップに"
+    ],
+    "back": "Maps into",
+    "note": "Series shape: app name + に (into). Read under the what line it gives 'home address, into Maps'.",
+    "written": "r1 (first pass)"
+   }
+  },
+  "calendar_what": {
+   "devices": [
+    "iphone",
+    "ipad",
+    "mac"
+   ],
+   "time": "4.53 to 6.8 s",
+   "type": "iPhone 80 px bold on 760 px at x 72, y 96, lh 1.04, ink #1c1c1e; iPad 92 px on 1000 px; Mac 64 px on 520 px",
+   "says": "An address you type often that is not your own: Cutling is for more than your personal details.",
+   "meaning": "The studio's address, said as short as a person would say it: just 'the studio' (where the pottery class is).",
+   "brief_revision": "r1",
+   "en-US": {
+    "text": "The studio",
+    "lines": [
+     "The studio"
+    ],
+    "note": "Owner-seen, kept."
+   },
+   "id": {
+    "text": "Alamat studio",
+    "lines": [
+     "Alamat studio"
+    ],
+    "back": "Address studio",
+    "note": "As short as people say it. It mirrors 'Alamat rumahmu'. There is no -mu because the studio is not theirs.",
+    "written": "r1 (first pass)"
+   },
+   "ja": {
+    "text": "教室の住所",
+    "lines": [
+     "教室の住所"
+    ],
+    "back": "class('s place) 's address",
+    "note": "Japanese people call the pottery class's place just 教室, as short as they would say it. It mirrors 自宅の住所.",
+    "written": "r1 (first pass)"
+   }
+  },
+  "where_calendar": {
+   "devices": [
+    "iphone",
+    "ipad",
+    "mac"
+   ],
+   "time": "under calendar_what",
+   "type": "iPhone 52 px semibold on 760 px, accent green, directly under the big line; iPad 50 px; Mac 36 px on 500 px",
+   "says": "Calendar, named as the buyer's phone names it.",
+   "meaning": "Into Calendar.",
+   "brief_revision": "r1",
+   "en-US": {
+    "text": "in Calendar",
+    "lines": [
+     "in Calendar"
+    ],
+    "note": "Owner-seen, kept."
+   },
+   "id": {
+    "text": "masuk ke Kalender",
+    "lines": [
+     "masuk ke Kalender"
+    ],
+    "back": "goes into Calendar",
+    "note": "Same shape as the series.",
+    "written": "r1 (first pass)"
+   },
+   "ja": {
+    "text": "カレンダーに",
+    "lines": [
+     "カレンダーに"
+    ],
+    "back": "Calendar into",
+    "note": "Same app + に shape.",
+    "written": "r1 (first pass)"
+   }
+  },
+  "order_what": {
+   "devices": [
+    "iphone",
+    "ipad"
+   ],
+   "time": "6.8 to 11.33 s, where the music's drop lands; the longest bar",
+   "type": "iPhone 80 px bold on 760 px at x 72, y 96, lh 1.04, ink #1c1c1e; iPad 92 px on 1000 px; Mac 64 px on 520 px",
+   "says": "2.0's biggest addition, inside the overview as one of the jobs: the saved reply asks who it is for, one tap picks the name.",
+   "meaning": "A saved reply that asks you who it is for before it types.",
+   "brief_revision": "r1",
+   "en-US": {
+    "text": "A reply that asks for the name",
+    "lines": [
+     "A reply that asks for",
+     "the name"
+    ],
+    "note": "Owner-seen, kept; the film's own wrap."
+   },
+   "id": {
+    "text": "Balasan yang tanya nama dulu",
+    "lines": [
+     "Balasan yang tanya",
+     "nama dulu"
+    ],
+    "back": "Reply that asks name first",
+    "note": "Bare 'tanya' matches the store's 'Cutling tanya nama'. 'dulu' carries 'before it types'. The break falls before the object because 'Balasan / yang tanya nama dulu' runs 9.59.",
+    "written": "r1 (first pass)"
+   },
+   "ja": {
+    "text": "名前を先に聞く返信",
+    "lines": [
+     "名前を先に聞く返信"
+    ],
+    "back": "name (object) first asks reply",
+    "note": "A noun phrase like the other what lines, on one line. 名前 matches the green pill on screen, and 先に carries 'before it types'.",
+    "written": "r1 (first pass)"
+   }
+  },
+  "where_messages": {
+   "devices": [
+    "iphone",
+    "ipad",
+    "mac"
+   ],
+   "time": "under order_what and under photo_what",
+   "type": "iPhone 52 px semibold on 760 px, accent green, directly under the big line; iPad 50 px; Mac 36 px on 500 px",
+   "says": "Messages, named as the buyer's phone names it; used under the reply bar and the photo bar.",
+   "meaning": "Into Messages.",
+   "brief_revision": "r1",
+   "en-US": {
+    "text": "in Messages",
+    "lines": [
+     "in Messages"
+    ],
+    "note": "Owner-seen, kept."
+   },
+   "id": {
+    "text": "masuk ke Pesan",
+    "lines": [
+     "masuk ke Pesan"
+    ],
+    "back": "goes into Messages",
+    "note": "Same shape. It also reads right under 'Foto juga'.",
+    "written": "r1 (first pass)"
+   },
+   "ja": {
+    "text": "メッセージに",
+    "lines": [
+     "メッセージに"
+    ],
+    "back": "Messages into",
+    "note": "Same app + に shape. It is also used under photo_what.",
+    "written": "r1 (first pass)"
+   }
+  },
+  "safari_what": {
+   "devices": [
+    "iphone",
+    "ipad"
+   ],
+   "time": "11.33 to 13.6 s",
+   "type": "iPhone 80 px bold on 760 px at x 72, y 96, lh 1.04, ink #1c1c1e; iPad 92 px on 1000 px; Mac 64 px on 520 px",
+   "says": "A number people copy by hand and fear getting wrong, typed exactly into a web form.",
+   "meaning": "Your own bank account number.",
+   "brief_revision": "r1",
+   "en-US": {
+    "text": "Your account number",
+    "lines": [
+     "Your account number"
+    ],
+    "note": "Owner-seen, kept."
+   },
+   "id": {
+    "text": "Nomor rekeningmu",
+    "lines": [
+     "Nomor rekeningmu"
+    ],
+    "back": "Number account-your",
+    "note": "'Rekening' already means bank account, so 'bank' is not needed.",
+    "written": "r1 (first pass)"
+   },
+   "ja": {
+    "text": "口座番号",
+    "lines": [
+     "口座番号"
+    ],
+    "back": "account number",
+    "note": "Bare noun, one line. 'Own' is clear from context, as with 自宅.",
+    "written": "r1 (first pass)"
+   }
+  },
+  "where_safari": {
+   "devices": [
+    "iphone",
+    "ipad",
+    "mac"
+   ],
+   "time": "under safari_what",
+   "type": "iPhone 52 px semibold on 760 px, accent green, directly under the big line; iPad 50 px; Mac 36 px on 500 px",
+   "says": "Safari, the same name in every language.",
+   "meaning": "Into Safari.",
+   "brief_revision": "r1",
+   "en-US": {
+    "text": "in Safari",
+    "lines": [
+     "in Safari"
+    ],
+    "note": "Owner-seen, kept."
+   },
+   "id": {
+    "text": "masuk ke Safari",
+    "lines": [
+     "masuk ke Safari"
+    ],
+    "back": "goes into Safari",
+    "note": "Same shape.",
+    "written": "r1 (first pass)"
+   },
+   "ja": {
+    "text": "Safari に",
+    "lines": [
+     "Safari に"
+    ],
+    "back": "Safari into",
+    "note": "Latin app name kept as the store names it, with a half-width space before に.",
+    "written": "r1 (first pass)"
+   }
+  },
+  "photo_what": {
+   "devices": [
+    "iphone",
+    "ipad"
+   ],
+   "time": "13.6 to 15.87 s",
+   "type": "iPhone 80 px bold on 760 px at x 72, y 96, lh 1.04, ink #1c1c1e; iPad 92 px on 1000 px; Mac 64 px on 520 px",
+   "says": "Cutling keeps pictures as well as text.",
+   "meaning": "A photo (Cutling holds pictures as well as text).",
+   "brief_revision": "r1",
+   "en-US": {
+    "text": "A photo",
+    "lines": [
+     "A photo"
+    ],
+    "note": "Owner-seen, kept."
+   },
+   "id": {
+    "text": "Foto juga",
+    "lines": [
+     "Foto juga"
+    ],
+    "back": "Photo too",
+    "note": "'juga' says it holds pictures as well as text. It is the shortest line.",
+    "written": "r1 (first pass)"
+   },
+   "ja": {
+    "text": "写真も",
+    "lines": [
+     "写真も"
+    ],
+    "back": "photos too",
+    "note": "も (too) carries 'pictures as well as text' in one character. This is the shortest line in the film.",
+    "written": "r1 (first pass)"
+   }
+  },
+  "where_notes": {
+   "devices": [
+    "mac"
+   ],
+   "time": "only if the Mac take runs in this app",
+   "type": "iPhone 52 px semibold on 760 px, accent green, directly under the big line; iPad 50 px; Mac 36 px on 500 px",
+   "says": "Host-app line for the Mac take, if it pastes into Notes.",
+   "meaning": "Into Notes (Apple's Notes app).",
+   "brief_revision": "r1",
+   "en-US": {
+    "text": "in Notes",
+    "lines": [
+     "in Notes"
+    ],
+    "note": "New, same shape as the other where-lines."
+   },
+   "id": {
+    "text": "masuk ke Catatan",
+    "lines": [
+     "masuk ke Catatan"
+    ],
+    "back": "goes into Notes",
+    "note": "Same shape, iOS/macOS Indonesian name.",
+    "written": "r1 (first pass)"
+   },
+   "ja": {
+    "text": "メモに",
+    "lines": [
+     "メモに"
+    ],
+    "back": "Notes into",
+    "note": "Same app + に shape.",
+    "written": "r1 (first pass)"
+   }
+  },
+  "where_textedit": {
+   "devices": [
+    "mac"
+   ],
+   "time": "only if the Mac take runs in this app",
+   "type": "iPhone 52 px semibold on 760 px, accent green, directly under the big line; iPad 50 px; Mac 36 px on 500 px",
+   "says": "Host-app line for the Mac take, if it pastes into TextEdit.",
+   "meaning": "Into TextEdit (the Mac's plain text editor).",
+   "brief_revision": "r1",
+   "en-US": {
+    "text": "in TextEdit",
+    "lines": [
+     "in TextEdit"
+    ],
+    "note": "New."
+   },
+   "id": {
+    "text": "masuk ke TextEdit",
+    "lines": [
+     "masuk ke TextEdit"
+    ],
+    "back": "goes into TextEdit",
+    "note": "The app keeps its English name in Indonesian macOS.",
+    "written": "r1 (first pass)"
+   },
+   "ja": {
+    "text": "テキストエディットに",
+    "lines": [
+     "テキストエディットに"
+    ],
+    "back": "TextEdit into",
+    "note": "Same app + に shape, using the Mac's own Japanese app name.",
+    "written": "r1 (first pass)"
+   }
+  },
+  "where_mail": {
+   "devices": [
+    "mac"
+   ],
+   "time": "only if the Mac take runs in this app",
+   "type": "iPhone 52 px semibold on 760 px, accent green, directly under the big line; iPad 50 px; Mac 36 px on 500 px",
+   "says": "Host-app line for the Mac take, if it pastes into Mail.",
+   "meaning": "Into Mail.",
+   "brief_revision": "r1",
+   "en-US": {
+    "text": "in Mail",
+    "lines": [
+     "in Mail"
+    ],
+    "note": "New."
+   },
+   "id": {
+    "text": "masuk ke Mail",
+    "lines": [
+     "masuk ke Mail"
+    ],
+    "back": "goes into Mail",
+    "note": "Same shape.",
+    "written": "r1 (first pass)"
+   },
+   "ja": {
+    "text": "メールに",
+    "lines": [
+     "メールに"
+    ],
+    "back": "Mail into",
+    "note": "Same app + に shape.",
+    "written": "r1 (first pass)"
+   }
+  },
+  "where_reminders": {
+   "devices": [
+    "mac"
+   ],
+   "time": "only if the Mac take runs in this app",
+   "type": "iPhone 52 px semibold on 760 px, accent green, directly under the big line; iPad 50 px; Mac 36 px on 500 px",
+   "says": "Host-app line for the Mac take, if it pastes into Reminders.",
+   "meaning": "Into Reminders.",
+   "brief_revision": "r1",
+   "en-US": {
+    "text": "in Reminders",
+    "lines": [
+     "in Reminders"
+    ],
+    "note": "New."
+   },
+   "id": {
+    "text": "masuk ke Pengingat",
+    "lines": [
+     "masuk ke Pengingat"
+    ],
+    "back": "goes into Reminders",
+    "note": "Same shape.",
+    "written": "r1 (first pass)"
+   },
+   "ja": {
+    "text": "リマインダーに",
+    "lines": [
+     "リマインダーに"
+    ],
+    "back": "Reminders into",
+    "note": "Same app + に shape.",
+    "written": "r1 (first pass)"
+   }
+  },
+  "mac_line": {
+   "devices": [
+    "mac"
+   ],
+   "time": "over the Mac take, beside the picker",
+   "type": "Mac 64 px bold on 520 px at x 1330, y 400, lh 1.08",
+   "says": "On a Mac it works in any app too.",
+   "meaning": "It works in any app on your Mac.",
+   "brief_revision": "r1",
+   "en-US": {
+    "text": "Any app on your Mac",
+    "lines": [
+     "Any app on",
+     "your Mac"
+    ],
+    "note": "The stand-in's words; broken in two because one line is 585 px on the 520 px measure."
+   },
+   "id": {
+    "text": "Di semua app di Mac-mu.",
+    "lines": [
+     "Di semua app",
+     "di Mac-mu."
+    ],
+    "back": "In all apps on Mac-your.",
+    "note": "Verbless tagline. 'semua app' keeps it different from the end card's 'app apa pun'. Hyphenated -mu is standard on a brand name.",
+    "written": "r1 (first pass)"
+   },
+   "ja": {
+    "text": "Mac のアプリならどれでも",
+    "lines": [
+     "Mac のアプリなら",
+     "どれでも"
+    ],
+    "back": "Mac 's app if-it-is, whichever-one",
+    "note": "Same wording as the end cards. ならどれでも is the natural spoken way to say 'any app at all'.",
+    "written": "r1 (first pass)"
+   }
+  },
+  "mac_sub": {
+   "devices": [
+    "mac"
+   ],
+   "time": "under mac_line",
+   "type": "Mac 36 px semibold on 500 px, accent green, lh 1.2",
+   "says": "How it opens on a Mac: one shortcut, right at the cursor.",
+   "meaning": "Pressing ⌘⇧V opens your saved items right where you are typing. Write the shortcut as the three symbols ⌘⇧V.",
+   "brief_revision": "r1",
+   "en-US": {
+    "text": "⌘⇧V opens your cutlings at the cursor",
+    "lines": [
+     "⌘⇧V opens your cutlings",
+     "at the cursor"
+    ],
+    "note": "The stand-in's words; broken in two because one line is 605 px on the 500 px measure."
+   },
+   "id": {
+    "text": "⌘⇧V membuka cutling di tempat kamu mengetik.",
+    "lines": [
+     "⌘⇧V membuka cutling",
+     "di tempat kamu mengetik."
+    ],
+    "back": "⌘⇧V opens cutlings at place you are typing.",
+    "note": "Active verb, with the shortcut as the subject. 'cutling' is the lowercase common noun from the vocabulary.",
+    "written": "r1 (first pass)"
+   },
+   "ja": {
+    "text": "⌘⇧V で、保存したものをカーソルの位置に",
+    "lines": [
+     "⌘⇧V で、保存したものを",
+     "カーソルの位置に"
+    ],
+    "back": "⌘⇧V with, saved things (object), cursor 's position at",
+    "note": "Phrase-stop with the verb implied, matching open. The picker opening at the cursor on screen completes the sense. ⌘ and ⇧ are counted as 1.0 each.",
+    "written": "r1 (first pass)"
+   }
+  },
+  "end_big_iphone": {
+   "devices": [
+    "iphone"
+   ],
+   "time": "15.87 s to the end, the end card",
+   "type": "iPhone 112 px bold on 760 px at x 72, y 560, lh 1.02 (Japanese takes 3 lines: move end_small down by one line); iPad and Mac end cards are not drawn in directions.md: the fit check set them at 120 px on 1000 px (iPad) and 96 px on 1400 px (Mac)",
+   "says": "The point of the film: it works wherever you already type.",
+   "meaning": "It works in any app on your iPhone.",
+   "brief_revision": "r1",
+   "en-US": {
+    "text": "Any app on your iPhone.",
+    "lines": [
+     "Any app on",
+     "your iPhone."
+    ],
+    "note": "Owner-seen, kept."
+   },
+   "id": {
+    "text": "Di app apa pun di iPhone-mu.",
+    "lines": [
+     "Di app apa pun",
+     "di iPhone-mu."
+    ],
+    "back": "In app any on iPhone-your.",
+    "note": "Echoes the opening's 'di app apa pun' so the loop closes on it. 'aplikasi' does not fit 6.8 units with the device name.",
+    "written": "r1 (first pass)"
+   },
+   "ja": {
+    "text": "iPhone のアプリならどれでも",
+    "lines": [
+     "iPhone の",
+     "アプリなら",
+     "どれでも"
+    ],
+    "back": "iPhone 's app if-it-is, whichever-one",
+    "note": "Three lines, which the brief allows for Japanese. Each break falls between bunsetsu.",
+    "written": "r1 (first pass)"
+   }
+  },
+  "end_big_ipad": {
+   "devices": [
+    "ipad"
+   ],
+   "time": "the iPad cut's end card",
+   "type": "iPhone 112 px bold on 760 px at x 72, y 560, lh 1.02 (Japanese takes 3 lines: move end_small down by one line); iPad and Mac end cards are not drawn in directions.md: the fit check set them at 120 px on 1000 px (iPad) and 96 px on 1400 px (Mac)",
+   "says": "The same point on the iPad's page.",
+   "meaning": "It works in any app on your iPad.",
+   "brief_revision": "r1",
+   "en-US": {
+    "text": "Any app on your iPad.",
+    "lines": [
+     "Any app on",
+     "your iPad."
+    ],
+    "note": "New, the iPhone line for the iPad."
+   },
+   "id": {
+    "text": "Di app apa pun di iPad-mu.",
+    "lines": [
+     "Di app apa pun",
+     "di iPad-mu."
+    ],
+    "back": "In app any on iPad-your.",
+    "note": "Same as iPhone.",
+    "written": "r1 (first pass)"
+   },
+   "ja": {
+    "text": "iPad のアプリならどれでも",
+    "lines": [
+     "iPad の",
+     "アプリなら",
+     "どれでも"
+    ],
+    "back": "iPad 's app if-it-is, whichever-one",
+    "note": "As end_big_iphone.",
+    "written": "r1 (first pass)"
+   }
+  },
+  "end_big_mac": {
+   "devices": [
+    "mac"
+   ],
+   "time": "the Mac cut's end card",
+   "type": "iPhone 112 px bold on 760 px at x 72, y 560, lh 1.02 (Japanese takes 3 lines: move end_small down by one line); iPad and Mac end cards are not drawn in directions.md: the fit check set them at 120 px on 1000 px (iPad) and 96 px on 1400 px (Mac)",
+   "says": "The same point on the Mac's page.",
+   "meaning": "It works in any app on your Mac.",
+   "brief_revision": "r1",
+   "en-US": {
+    "text": "Any app on your Mac.",
+    "lines": [
+     "Any app on your Mac."
+    ],
+    "note": "New; one line on the Mac's wide frame."
+   },
+   "id": {
+    "text": "Di app apa pun di Mac-mu.",
+    "lines": [
+     "Di app apa pun di Mac-mu."
+    ],
+    "back": "In app any on Mac-your.",
+    "note": "Same as iPhone. Set on one line on the Mac end card (measured to fit 1400 px); lines_narrow is the break for a 760 px measure.",
+    "written": "r1 (first pass)",
+    "lines_narrow": [
+     "Di app apa pun",
+     "di Mac-mu."
+    ]
+   },
+   "ja": {
+    "text": "Mac のアプリならどれでも",
+    "lines": [
+     "Mac のアプリならどれでも"
+    ],
+    "back": "Mac 's app if-it-is, whichever-one",
+    "note": "As end_big_iphone. Set on one line on the Mac end card (measured to fit 1400 px); lines_narrow is the break for a 760 px measure.",
+    "written": "r1 (first pass)",
+    "lines_narrow": [
+     "Mac の",
+     "アプリなら",
+     "どれでも"
+    ]
+   }
+  },
+  "end_small_iphone": {
+   "devices": [
+    "iphone"
+   ],
+   "time": "under end_big",
+   "type": "iPhone 46 px semibold on 700 px, accent green, lh 1.2, 40 px under the big line; iPad 50 px on 900 px; Mac 44 px on 1400 px",
+   "says": "What rivals cannot match: one purchase covers iPhone, iPad and Mac, with no subscription named or priced (the listing's own claim, 'One purchase includes Cutling for Mac').",
+   "meaning": "It is on iPad and Mac too, and one purchase covers all three.",
+   "brief_revision": "r1",
+   "en-US": {
+    "text": "Also on iPad and Mac, one purchase for all three.",
+    "lines": [
+     "Also on iPad and Mac,",
+     "one purchase for all three."
+    ],
+    "note": "Owner-seen words, kept. Break moved so 'one purchase' is not split across lines."
+   },
+   "id": {
+    "text": "Ada juga di iPad dan Mac. Sekali beli untuk ketiganya.",
+    "lines": [
+     "Ada juga di iPad dan Mac.",
+     "Sekali beli untuk ketiganya."
+    ],
+    "back": "Exists also on iPad and Mac. Once buy for all three.",
+    "note": "'Sekali beli' is the store description's own phrase. It names no price and no subscription.",
+    "written": "r1 (first pass)"
+   },
+   "ja": {
+    "text": "iPad と Mac も、1回の購入で",
+    "lines": [
+     "iPad と Mac も、1回の購入で"
+    ],
+    "back": "iPad and Mac too, one-time 's purchase with",
+    "note": "Follows the store's own 1回の購入で. No price and no subscription. 1回 has no space, since it is a digit plus counter, not a Latin word.",
+    "written": "r1 (first pass)"
+   }
+  },
+  "end_small_ipad": {
+   "devices": [
+    "ipad"
+   ],
+   "time": "under end_big",
+   "type": "iPhone 46 px semibold on 700 px, accent green, lh 1.2, 40 px under the big line; iPad 50 px on 900 px; Mac 44 px on 1400 px",
+   "says": "The same claim, from the iPad's side.",
+   "meaning": "It is on iPhone and Mac too, and one purchase covers all three.",
+   "brief_revision": "r1",
+   "en-US": {
+    "text": "Also on iPhone and Mac, one purchase for all three.",
+    "lines": [
+     "Also on iPhone and Mac,",
+     "one purchase for all three."
+    ],
+    "note": "New, the iPhone line for the iPad."
+   },
+   "id": {
+    "text": "Ada juga di iPhone dan Mac. Sekali beli untuk ketiganya.",
+    "lines": [
+     "Ada juga di iPhone dan Mac.",
+     "Sekali beli untuk ketiganya."
+    ],
+    "back": "Exists also on iPhone and Mac. Once buy for all three.",
+    "note": "Same shape as iPhone.",
+    "written": "r1 (first pass)"
+   },
+   "ja": {
+    "text": "iPhone と Mac も、1回の購入で",
+    "lines": [
+     "iPhone と Mac も、1回の購入で"
+    ],
+    "back": "iPhone and Mac too, one-time 's purchase with",
+    "note": "As end_small_iphone.",
+    "written": "r1 (first pass)"
+   }
+  },
+  "end_small_mac": {
+   "devices": [
+    "mac"
+   ],
+   "time": "under end_big",
+   "type": "iPhone 46 px semibold on 700 px, accent green, lh 1.2, 40 px under the big line; iPad 50 px on 900 px; Mac 44 px on 1400 px",
+   "says": "The same claim, from the Mac's side.",
+   "meaning": "It is on iPhone and iPad too, and one purchase covers all three.",
+   "brief_revision": "r1",
+   "en-US": {
+    "text": "Also on iPhone and iPad, one purchase for all three.",
+    "lines": [
+     "Also on iPhone and iPad, one purchase for all three."
+    ],
+    "note": "New; one line on the Mac's wide frame."
+   },
+   "id": {
+    "text": "Ada juga di iPhone dan iPad. Sekali beli untuk ketiganya.",
+    "lines": [
+     "Ada juga di iPhone dan iPad. Sekali beli untuk ketiganya."
+    ],
+    "back": "Exists also on iPhone and iPad. Once buy for all three.",
+    "note": "Same shape as iPhone. Set on one line on the Mac end card (measured to fit 1400 px); lines_narrow is the break for a 760 px measure.",
+    "written": "r1 (first pass)",
+    "lines_narrow": [
+     "Ada juga di iPhone dan iPad.",
+     "Sekali beli untuk ketiganya."
+    ]
+   },
+   "ja": {
+    "text": "iPhone と iPad も、1回の購入で",
+    "lines": [
+     "iPhone と iPad も、1回の購入で"
+    ],
+    "back": "iPhone and iPad too, one-time 's purchase with",
+    "note": "As end_small_iphone. It fits under 15.2 on one line. Set on one line on the Mac end card (measured to fit 1400 px); lines_narrow is the break for a 760 px measure.",
+    "written": "r1 (first pass)",
+    "lines_narrow": [
+     "iPhone と iPad も、1回の購入で"
+    ]
+   }
+  },
+  "brand": {
+   "devices": [
+    "iphone",
+    "ipad",
+    "mac"
+   ],
+   "time": "end card, beside the icon",
+   "type": "iPhone 58 px bold beside a 110 px icon at x 72, y 1060",
+   "says": "The name to search for.",
+   "en-US": {
+    "text": "Cutling"
+   },
+   "id": {
+    "text": "Cutling"
+   },
+   "ja": {
+    "text": "Cutling"
+   },
+   "note": "Data, not written: the store and the app name the brand Cutling in Latin letters in all three languages."
+  }
+ },
+ "seed": {
+  "contacts": {
+   "shows": "Messages To: field (G1, G4 to contact 1; G6 to contact 5) and its suggestions; nine contacts on each store simulator.",
+   "says": "Ordinary people a small seller messages; nobody real.",
+   "en-US": {
+    "items": [
+     {
+      "given": "Maya",
+      "family": "",
+      "shows_as": "Maya"
+     },
+     {
+      "given": "Jonas",
+      "family": "",
+      "shows_as": "Jonas"
+     },
+     {
+      "given": "Aiko",
+      "family": "",
+      "shows_as": "Aiko"
+     },
+     {
+      "given": "Sam",
+      "family": "",
+      "shows_as": "Sam"
+     },
+     {
+      "given": "Lea",
+      "family": "",
+      "shows_as": "Lea"
+     },
+     {
+      "given": "Ana",
+      "family": "",
+      "shows_as": "Ana"
+     },
+     {
+      "given": "Ben",
+      "family": "",
+      "shows_as": "Ben"
+     },
+     {
+      "given": "Chloe",
+      "family": "",
+      "shows_as": "Chloe"
+     },
+     {
+      "given": "Leo",
+      "family": "",
+      "shows_as": "Leo"
+     }
+    ],
+    "note": "As directions.md \"Recording (every take)\" lists them."
+   },
+   "id": {
+    "items": [
+     {
+      "given": "Rina",
+      "family": "Wulandari",
+      "shows_as": "Rina Wulandari"
+     },
+     {
+      "given": "Dimas",
+      "family": "Prasetyo",
+      "shows_as": "Dimas Prasetyo"
+     },
+     {
+      "given": "Sari",
+      "family": "Handayani",
+      "shows_as": "Sari Handayani"
+     },
+     {
+      "given": "Yoga",
+      "family": "Saputra",
+      "shows_as": "Yoga Saputra"
+     },
+     {
+      "given": "Fitri",
+      "family": "Lestari",
+      "shows_as": "Fitri Lestari"
+     },
+     {
+      "given": "Agus",
+      "family": "Setiawan",
+      "shows_as": "Agus Setiawan"
+     },
+     {
+      "given": "Nadia",
+      "family": "Putri",
+      "shows_as": "Nadia Putri"
+     },
+     {
+      "given": "Bayu",
+      "family": "Nugroho",
+      "shows_as": "Bayu Nugroho"
+     },
+     {
+      "given": "Yanti",
+      "family": "",
+      "shows_as": "Yanti"
+     }
+    ],
+    "note": "Ordinary names from a mix of regions. One contact has a single name with the family field empty, which is common in Indonesia. In the To: field iOS shows given then family.",
+    "written": "r1 (first pass)"
+   },
+   "ja": {
+    "items": [
+     {
+      "given": "由美",
+      "family": "中村",
+      "shows_as": "中村 由美",
+      "family_phonetic": "なかむら",
+      "given_phonetic": "ゆみ"
+     },
+     {
+      "given": "智也",
+      "family": "小林",
+      "shows_as": "小林 智也",
+      "family_phonetic": "こばやし",
+      "given_phonetic": "ともや"
+     },
+     {
+      "given": "彩花",
+      "family": "松本",
+      "shows_as": "松本 彩花",
+      "family_phonetic": "まつもと",
+      "given_phonetic": "あやか"
+     },
+     {
+      "given": "恵",
+      "family": "岡田",
+      "shows_as": "岡田 恵",
+      "family_phonetic": "おかだ",
+      "given_phonetic": "めぐみ"
+     },
+     {
+      "given": "千夏",
+      "family": "原田",
+      "shows_as": "原田 千夏",
+      "family_phonetic": "はらだ",
+      "given_phonetic": "ちなつ"
+     },
+     {
+      "given": "翔",
+      "family": "西村",
+      "shows_as": "西村 翔",
+      "family_phonetic": "にしむら",
+      "given_phonetic": "しょう"
+     },
+     {
+      "given": "奈々",
+      "family": "吉川",
+      "shows_as": "吉川 奈々",
+      "family_phonetic": "よしかわ",
+      "given_phonetic": "なな"
+     },
+     {
+      "given": "拓也",
+      "family": "内田",
+      "shows_as": "内田 拓也",
+      "family_phonetic": "うちだ",
+      "given_phonetic": "たくや"
+     },
+     {
+      "given": "真理",
+      "family": "池田",
+      "shows_as": "池田 真理",
+      "family_phonetic": "いけだ",
+      "given_phonetic": "まり"
+     }
+    ],
+    "note": "Common invented names. A Japanese-region iPhone shows them family-first with a space. Fill the よみがな fields (なかむら/ゆみ and so on) so sorting and suggestions behave as on a real phone. The five family names on the name screen are all different. Phonetic (よみがな) fields added from the names' ordinary readings.",
+    "written": "r1 (first pass)"
+   }
+  },
+  "recent_values": {
+   "shows": "The keyboard's name screen in G4: three keys across, two rows, the sixth is Paste. The first is tapped. Seeded as Name's recent values, most recent first.",
+   "says": "The keyboard remembers names, so the next customer is one tap.",
+   "en-US": {
+    "items": [
+     "Maya",
+     "Jonas",
+     "Aiko",
+     "Sam",
+     "Lea"
+    ],
+    "note": "As directions.md."
+   },
+   "id": {
+    "items": [
+     "Rina",
+     "Dimas",
+     "Sari",
+     "Yoga",
+     "Fitri"
+    ],
+    "note": "Only first names, because the reply text already has 'Kak' before the blank, the way Indonesian sellers address customers. Each is at most 3.22 units.",
+    "written": "r1 (first pass)"
+   },
+   "ja": {
+    "items": [
+     "中村",
+     "小林",
+     "松本",
+     "岡田",
+     "原田"
+    ],
+    "back": "Nakamura, Kobayashi, Matsumoto, Okada, Harada",
+    "note": "The honorific now lives in the reply text, right after the blank, instead of inside each saved name. This is how Japanese shop templates are written (〇〇様、…). It also means that for a new customer the seller types only the family name, which is natural on a Japanese keyboard, and no saved name carries a 様 the seller did not type. These are the family names of contacts 1 to 5. Each is 2 units.",
+    "written": "r2 (second pass)"
+   }
+  },
+  "blank_label": {
+   "shows": "The pill and the name screen's sentence in G4 (the blank's label before a name is picked).",
+   "says": "The word the keyboard asks for.",
+   "en-US": {
+    "text": "Name"
+   },
+   "id": {
+    "text": "Nama"
+   },
+   "ja": {
+    "text": "名前"
+   },
+   "note": "Data, not written: the app's own default label for a new Ask Each Time blank, String(localized: \"Name\") in FillInSheets.swift, which is Nama and 名前 in id.lproj and ja.lproj. Insert the blank from the editor's Variables (Ask Each Time) so it carries Cutling's marker and draws as a pill."
+  },
+  "tokens": {
+   "[BLANK]": "An Ask Each Time blank labelled blank_label, inserted from the editor's Variables.",
+   "[WEEKDAY]": "A date variable in the Day format (EEEE) set to tomorrow (+1 day); Cutling types it in the system language: Friday, Jumat, 金曜日. The recording day decides which weekday shows."
+  },
+  "cutlings": [
+   {
+    "key": "cutling_home_address",
+    "order": 1,
+    "shown_in": "G2 Maps",
+    "says": "The thing everybody saves first, typed into Maps' search.",
+    "meaning": "Name: what the person calls the key for their own home address. Text: a made-up home address in this country's usual written form, short enough for one search line, with a flat or unit number. The street and area may be ordinary names that exist somewhere; no famous place and no real building name.",
+    "brief_revision": "r1",
+    "en-US": {
+     "name": "Home address",
+     "text": "14 Linden Road, Flat 3"
+    },
+    "id": {
+     "name": "Alamat rumah",
+     "text": "Jl. Kenanga Blok C2 No. 5, Depok",
+     "back_name": "Home address",
+     "back_text": "Kenanga St. Block C2 No. 5, Depok",
+     "note": "This is a housing-estate address. 'Blok C2 No. 5' stands in for the unit number, since most Indonesians live in houses. Name 6.07, text 15.01 units.",
+     "written": "r1 (first pass)"
+    },
+    "ja": {
+     "name": "自宅の住所",
+     "text": "東京都練馬区豊玉北4-21-6 203",
+     "back_name": "home 's address",
+     "back_text": "Tokyo-to Nerima-ku Toyotama-kita 4-21-6, (room) 203",
+     "note": "The usual written form: prefecture, ward, town, block numbers with half-width hyphens, then the room number after a space. The ward and town are ordinary and real so Maps resolves it. The numbers are invented. About 14.6 units.",
+     "written": "r1 (first pass)"
+    }
+   },
+   {
+    "key": "cutling_order_update",
+    "order": 2,
+    "shown_in": "G4 Messages",
+    "says": "A seller's everyday reply with the customer's name left for Cutling to ask.",
+    "meaning": "Name: what a small online clothing seller would call this saved reply. Text: the seller's message to a customer saying their order ships on a given day, with two pieces Cutling fills: [BLANK] where the customer's name goes, typed as one of recent_values, and [WEEKDAY] which Cutling types as tomorrow's weekday in this language's own form (Indonesian: Jumat; Japanese: 金曜日). Write the sentence around them so it reads right with a real value in place.",
+    "brief_revision": "r2 (2026-11-23): r1's unit budget undercounted Latin text; replaced with a measured point budget.",
+    "en-US": {
+     "name": "Order update",
+     "text": "Hi [BLANK], your order ships [WEEKDAY].",
+     "filled_example": "Hi Maya, your order ships Friday."
+    },
+    "id": {
+     "name": "Jadwal kirim",
+     "text": "Kak [BLANK], paketnya kami kirim [WEEKDAY] ya.",
+     "filled_example": "Kak Rina, paketnya kami kirim Jumat ya.",
+     "back_name": "Shipping schedule",
+     "back_text": "Sis/Bro [name], the package we send [weekday] okay.",
+     "note": "Still the online-seller voice: it opens with 'Kak' and the name, as sellers do in chat, and ends on 'ya'. 'Halo' is dropped because 'Kak Rina,' is itself a normal greeting. 'Paketnya' (the parcel) replaces 'pesanannya'. It is shorter and fits a shipping message better. The verb stays active ('kami kirim'). Filled with Rina and Jumat it is 39 characters, about 330 pt at the measured r1 rate of 8.5 pt per character. The widest case uses a 5-letter recent name (Dimas, Fitri) and a 6-letter weekday (Selasa, Minggu). That is 41 characters, about 349 pt, still under 360. On screen the pill now reads 'Kak [Nama]'.",
+     "written": "r2 (third pass, measured header budget)"
+    },
+    "ja": {
+     "name": "発送連絡",
+     "text": "[BLANK]様、ご注文の品は[WEEKDAY]に発送いたします。",
+     "filled_example": "中村様、ご注文の品は金曜日に発送いたします。",
+     "back_name": "shipping notice",
+     "back_text": "Nakamura-sama, (your) ordered goods (topic) on Friday (we humbly) ship.",
+     "note": "様 moved out of the names and into the text, right after [BLANK]. On the reply screen the pill reads 名前 followed by 様, which looks like an ordinary shop template. The text keeps business keigo (ご注文, 発送いたします), with no spaces around the filled values. The name is 4 units. The filled text is 22 units, within 23.",
+     "written": "r2 (second pass)"
+    }
+   },
+   {
+    "key": "cutling_account_number",
+    "order": 3,
+    "shown_in": "G5 Safari",
+    "says": "A number people dread retyping, typed exactly.",
+    "meaning": "Name: what the person calls their own bank account number key. Text: a made-up account number only (no bank name, no holder name), in the digit count and grouping people in this country write into such a field.",
+    "brief_revision": "r1",
+    "en-US": {
+     "name": "Account number",
+     "text": "0441 2290 18"
+    },
+    "id": {
+     "name": "No. rekening",
+     "text": "5270183946",
+     "back_name": "Account no.",
+     "back_text": "5270183946",
+     "note": "Ten digits with no spaces, which is how people type account numbers into Indonesian forms. No bank is named.",
+     "written": "r1 (first pass)"
+    },
+    "ja": {
+     "name": "口座番号",
+     "text": "3058162",
+     "back_name": "account number",
+     "back_text": "3058162",
+     "note": "Japanese bank account numbers are 7 digits, written ungrouped. The number is invented.",
+     "written": "r1 (first pass)"
+    }
+   },
+   {
+    "key": "cutling_studio_address",
+    "order": 4,
+    "shown_in": "G3 and G7 Calendar, G8 Mac",
+    "says": "An address you type often that is not your own.",
+    "meaning": "Name: what the person calls the address of the pottery studio where their class is. Text: a made-up address of that studio in this country's usual form, with a floor or unit; no real building.",
+    "brief_revision": "r1",
+    "en-US": {
+     "name": "Studio address",
+     "text": "22 Mill Lane, Studio 4"
+    },
+    "id": {
+     "name": "Studio keramik",
+     "text": "Jl. Cempaka No. 21, Lt. 2, Depok",
+     "back_name": "Pottery studio",
+     "back_text": "Cempaka St. No. 21, Fl. 2, Depok",
+     "note": "'Lt.' is the usual short form for lantai (floor). Name 7.11, text 14.47 units.",
+     "written": "r1 (first pass)"
+    },
+    "ja": {
+     "name": "教室の住所",
+     "text": "東京都三鷹市下連雀3-25-9 2階",
+     "back_name": "class('s place) 's address",
+     "back_text": "Tokyo-to Mitaka-shi Shimorenjaku 3-25-9, 2nd floor",
+     "note": "Same address form as home, with the floor after a space. The area is ordinary and real. The numbers and the studio are invented, and no building is named. About 14.4 units.",
+     "written": "r1 (first pass)"
+    }
+   },
+   {
+    "key": "cutling_size_chart",
+    "order": 5,
+    "shown_in": "G6 Messages",
+    "says": "Pictures live on the keyboard too, and this is a seller's real one.",
+    "meaning": "Name: what a clothing seller calls their size chart picture. The picture is a simple table the seller made: a title, the unit (cm, measured flat), column heads for size, chest width and body length, and rows S, M, L, XL with the numbers 48/66, 51/69, 54/72, 57/74. Write the title, the unit note and the column heads the way a seller in this country labels a size chart.",
+    "brief_revision": "r2 (2026-11-23): r1's 5-unit column budget forced a shortened chest label; widened.",
+    "en-US": {
+     "name": "Size chart",
+     "title": "Size chart",
+     "unit_note": "cm, measured flat",
+     "columns": [
+      "Size",
+      "Chest",
+      "Length"
+     ],
+     "rows": [
+      [
+       "S",
+       "48",
+       "66"
+      ],
+      [
+       "M",
+       "51",
+       "69"
+      ],
+      [
+       "L",
+       "54",
+       "72"
+      ],
+      [
+       "XL",
+       "57",
+       "74"
+      ]
+     ]
+    },
+    "id": {
+     "name": "Tabel ukuran",
+     "title": "Tabel Ukuran",
+     "unit_note": "Dalam cm, diukur flat",
+     "columns": [
+      "Ukuran",
+      "Lebar Dada",
+      "Panjang Baju"
+     ],
+     "rows": [
+      [
+       "S",
+       "48",
+       "66"
+      ],
+      [
+       "M",
+       "51",
+       "69"
+      ],
+      [
+       "L",
+       "54",
+       "72"
+      ],
+      [
+       "XL",
+       "57",
+       "74"
+      ]
+     ],
+     "back": "Size Table; In cm, measured flat; Size, Chest Width, Body Length",
+     "note": "Indonesian clothing sellers write their size charts with these heads. 'Lebar Dada' and 'Panjang Baju' are the full forms behind the LD and PB abbreviations sellers use. The widened budget allows the full forms, which a stranger reads more easily. 'flat' is the loan sellers really print for a garment measured lying flat. A native paraphrase such as 'diletakkan rata' reads as less familiar on a size chart. The sizes S, M, L and XL stay as letters, as they are sold. The unit note had no budget; it measures 9.79 units.",
+     "written": "r2 (second pass)"
+    },
+    "ja": {
+     "name": "サイズ表",
+     "title": "サイズ表",
+     "unit_note": "平置き実寸（cm）",
+     "columns": [
+      "サイズ",
+      "身幅",
+      "着丈"
+     ],
+     "rows": [
+      [
+       "S",
+       "48",
+       "66"
+      ],
+      [
+       "M",
+       "51",
+       "69"
+      ],
+      [
+       "L",
+       "54",
+       "72"
+      ],
+      [
+       "XL",
+       "57",
+       "74"
+      ]
+     ],
+     "back": "size chart; laid-flat actual measurements (cm); size; body width; garment length",
+     "note": "身幅 and 着丈 are what Japanese clothing sellers label these measurements. 平置き実寸 is their stock note for 'measured flat'. Rows S, M, L and XL stay Latin.",
+     "written": "r1 (first pass)"
+    }
+   },
+   {
+    "key": "cutling_thank_you",
+    "order": 6,
+    "shown_in": "G4 Messages, after the order reply",
+    "says": "A second key into the same message: a reply is built from keys.",
+    "meaning": "Name: what the seller calls it. Text: the seller's thanks to the customer for ordering, which reads well right after the order reply in one message.",
+    "brief_revision": "r1",
+    "en-US": {
+     "name": "Thank you",
+     "text": "Thank you so much for your order!"
+    },
+    "id": {
+     "name": "Terima kasih",
+     "text": "Terima kasih sudah belanja, Kak!",
+     "back_name": "Thank you",
+     "back_text": "Thank you already shopping, Sis/Bro!",
+     "note": "Repeating 'Kak' after the reply is normal seller warmth. Text 15.22 units.",
+     "written": "r1 (first pass)"
+    },
+    "ja": {
+     "name": "お礼",
+     "text": "お買い上げありがとうございました。",
+     "back_name": "thanks",
+     "back_text": "Purchase thank-you-very-much (past).",
+     "note": "A standard shop closing. I chose お買い上げ over ご注文 so the word ご注文 is not repeated in the same message. 17 units.",
+     "written": "r1 (first pass)"
+    }
+   },
+   {
+    "key": "cutling_wifi",
+    "order": 7,
+    "shown_in": "iPad keyboard, Mac picker (not tapped)",
+    "says": "The same person's other things, so the library looks lived in.",
+    "meaning": "Name: what people call the key holding a Wi-Fi network and password. Text: a made-up studio guest network name and password, in the characters people in this country use for network names.",
+    "brief_revision": "r1",
+    "en-US": {
+     "name": "Wi-Fi",
+     "text": "studio-guest · fern2291"
+    },
+    "id": {
+     "name": "Wi-Fi studio",
+     "text": "Tamu_Studio, sandi: tanahliat88",
+     "back_name": "Studio Wi-Fi",
+     "back_text": "Guest_Studio, password: clay88",
+     "note": "Plain ASCII network name. 'sandi' is the short form of iOS 'kata sandi'. Text 15.17 units.",
+     "written": "r1 (first pass)"
+    },
+    "ja": {
+     "name": "教室の Wi-Fi",
+     "text": "tougei-guest / kama2580",
+     "back_name": "class('s place) 's Wi-Fi",
+     "back_text": "tougei(pottery)-guest / kama(kiln)2580",
+     "note": "Japanese network names and passwords are ASCII. The name is the network, then the password after a slash. About 11.8 units.",
+     "written": "r1 (first pass)"
+    }
+   },
+   {
+    "key": "cutling_shipping_times",
+    "order": 8,
+    "shown_in": "iPad keyboard, Mac picker (not tapped)",
+    "says": "The seller's other stock answers.",
+    "meaning": "Name: the seller's saved answer about how long shipping takes. Text: orders go out within 2 working days.",
+    "brief_revision": "r1",
+    "en-US": {
+     "name": "Shipping times",
+     "text": "Orders ship within 2 business days."
+    },
+    "id": {
+     "name": "Waktu kirim",
+     "text": "Pesanan kami kirim dalam 2 hari kerja.",
+     "back_name": "Shipping time",
+     "back_text": "Orders we send within 2 working days.",
+     "note": "Active verb with 'kami' as the seller. Text 18.07 units.",
+     "written": "r1 (first pass)"
+    },
+    "ja": {
+     "name": "発送の目安",
+     "text": "ご注文から2営業日以内に発送いたします。",
+     "back_name": "shipping estimate",
+     "back_text": "From order within 2 business days (we humbly) ship.",
+     "note": "営業日 is the standard Japanese term for working days. Business keigo. About 19.6 units.",
+     "written": "r1 (first pass)"
+    }
+   },
+   {
+    "key": "cutling_returns",
+    "order": 9,
+    "shown_in": "iPad keyboard, Mac picker (not tapped)",
+    "says": "The seller's other stock answers.",
+    "meaning": "Name: the seller's saved answer about returns. Text: returns are accepted within 30 days of delivery.",
+    "brief_revision": "r1",
+    "en-US": {
+     "name": "Returns",
+     "text": "Returns accepted within 30 days of delivery."
+    },
+    "id": {
+     "name": "Info retur",
+     "text": "Retur bisa dalam 30 hari setelah barang sampai.",
+     "back_name": "Returns info",
+     "back_text": "Return can within 30 days after goods arrive.",
+     "note": "'retur' is the term Indonesian sellers really use. Text 22.58 units.",
+     "written": "r1 (first pass)"
+    },
+    "ja": {
+     "name": "返品について",
+     "text": "商品到着後30日以内であれば、返品を承ります。",
+     "back_name": "about returns",
+     "back_text": "Goods arrival after 30 days within if-it-is, returns (we humbly) accept.",
+     "note": "承ります is the shop's humble 'we accept'. About 22.2 units.",
+     "written": "r1 (first pass)"
+    }
+   },
+   {
+    "key": "cutling_care",
+    "order": 10,
+    "shown_in": "iPad keyboard, Mac picker (not tapped)",
+    "says": "The seller's other stock answers.",
+    "meaning": "Name: the seller's saved care instructions for the clothes. Text: wash in cold water, dry flat.",
+    "brief_revision": "r1",
+    "en-US": {
+     "name": "Care",
+     "text": "Wash cold, dry flat."
+    },
+    "id": {
+     "name": "Cara cuci",
+     "text": "Cuci dengan air dingin, jemur mendatar.",
+     "back_name": "How to wash",
+     "back_text": "Wash with water cold, dry flat.",
+     "note": "Imperatives as on a care label. Text 18.49 units.",
+     "written": "r1 (first pass)"
+    },
+    "ja": {
+     "name": "お手入れ",
+     "text": "水で洗濯し、平干ししてください。",
+     "back_name": "care",
+     "back_text": "With water wash, flat-dry please.",
+     "note": "水で means unheated water, which is the natural way to say 'cold water' here. 冷水 would sound clinical. 平干し is the care-label term. 15 units.",
+     "written": "r1 (first pass)"
+    }
+   }
+  ],
+  "calendar_title": {
+   "shows": "G3 and G7: Calendar New Event, the title row; G8 the Mac event.",
+   "says": "Sets the scene for the studio address.",
+   "en-US": {
+    "text": "Pottery class"
+   },
+   "id": {
+    "text": "Kelas keramik",
+    "back": "Pottery class",
+    "note": "Urban Indonesians call pottery classes 'kelas keramik'. 6.59 units."
+   },
+   "ja": {
+    "text": "陶芸教室",
+    "back": "pottery class",
+    "note": "This is how a person titles their own class in a calendar: just the class, no particles."
+   }
+  },
+  "refund_page": {
+   "shows": "G5: Safari, a plain local page (no shop, logo or business). Above the keyboard: heading, the line under it, the name field filled, the account number field focused and empty until the tap. The send button sits below the fold. The title shows in the tab and address bar if the page is served by name.",
+   "says": "An ordinary form where the account number is wanted, with no business named.",
+   "en-US": {
+    "title": "Refund",
+    "heading": "Refund details",
+    "lead": "Where should we send your refund?",
+    "label_name": "Name on account",
+    "value_name": "Nora Okafor",
+    "label_account": "Account number",
+    "button": "Send",
+    "note": "The stand-in's words, except the holder: the stand-in's 'Sam Okafor' shared a first name with the customer Sam on the name screen, and the account is the keyboard owner's own."
+   },
+   "id": {
+    "title": "Pengembalian Dana",
+    "heading": "Ke mana dana dikembalikan?",
+    "lead": "Isi rekening bank untuk menerima dana.",
+    "label_name": "Nama pemilik rekening",
+    "value_name": "Dewi Anggraini",
+    "label_account": "Nomor rekening",
+    "button": "Kirim",
+    "back": "Refund; Where is the money returned?; Fill bank account to receive the funds.; Account holder name; Dewi Anggraini; Account number; Send",
+    "note": "This is form language that uses no pronoun, which avoids a kamu/Anda clash with the film. 'Pengembalian Dana' is the e-commerce term. Units: title 8.77, heading 12.54, lead 18.24, labels 10.48 and 7.11."
+   },
+   "ja": {
+    "title": "返金のお手続き",
+    "heading": "返金先の口座",
+    "lead": "ご指定の口座へ、返金額をお振り込みいたします。",
+    "label_name": "口座名義（カナ）",
+    "value_name": "ヤマモト　ユウコ",
+    "label_account": "口座番号",
+    "button": "送信する",
+    "back": "refund procedure; refund-destination account; to (your) designated account, the refund amount (we humbly) transfer; account holder (kana); YAMAMOTO YUUKO; account number; send",
+    "note": "Business keigo, as a Japanese shop form uses it. The holder name is in full-width katakana with a full-width space, as Japanese bank transfers require. The holder is the phone's owner, not one of the contacts. Title 7, heading 6, lead 23, labels 8 and 4 units."
+   }
+  },
+  "message_after_g4": {
+   "shows": "G4's last frame: the Messages field after the order reply (with the first name) and the thanks are typed one after the other.",
+   "en-US": "Hi Maya, your order ships Friday. Thank you so much for your order!",
+   "id": "Kak Rina, paketnya kami kirim Jumat ya. Terima kasih sudah belanja, Kak!",
+   "ja": "中村様、ご注文の品は金曜日に発送いたします。お買い上げありがとうございました。",
+   "note": "The keyboard's smart spacing (KeyboardViewController.spaced) puts one space between the two in en and id, as intended. In ja it also puts a half-width space after 「。」, which a Japanese reader sees as a typo: see findings."
+  }
+ },
+ "in_frame_but_not_written_here": {
+  "app_strings": "Cutling's own UI in frame reads from the app's strings, already localized: Type with Your Keyboard = 'Ketik di Keyboard Biasa Anda' / 'いつものキーボードで入力'; Paste = Tempel / ペースト; Copied = Disalin / コピー済み; Inserted = Disisipkan / 挿入済み (CutlingKeyboard/<lang>.lproj/Localizable.strings).",
+  "system_strings": "iOS and macOS draw their own words in the device language (New Message, To:, Search Maps, New Event, Location, the edit menu's Paste, the globe menu's keyboard names). Run each take with the system language and region set, as directions.md 'Recording (every take)' says."
+ },
+ "brief": {
+  "film": "Cutling 2.0 App Store preview G, 'Every app'. 22.7 s, 30 fps, autoplays muted and loops, in App Store search results (a third of the phone's width) and on the product page. The viewer is a stranger who has never had Cutling, scrolling past, reading at a glance. Cutling is a keyboard for iPhone and iPad (on the Mac a picker opened with Command-Shift-V) that holds the things a person types again and again (addresses, account numbers, replies, photos) as keys: tap a key and the whole text is typed into whatever app is open. New in 2.0: a saved reply can hold a blank, and when you tap that reply the keyboard first asks who it is for, showing names used before so one tap picks one, then types the whole reply. In the film the Cutling keyboard holds still at the bottom while Apple's own apps change above it, one app every 2.27 s. Above the screen, two lines of type: a big line (black) says what went in, a smaller line under it (green) says which app it went into. The film ends on a card: a big line, a smaller green line, the app icon and the name Cutling. iPhone, iPad and Mac each get their own cut.",
+  "register": {
+   "id": "The store page speaking to one person, 'kamu', everyday but standard spelling (tidak or tak, not nggak; saja, not aja), active verbs, as Cutling's 2.0 store words already read ('Balasan disimpan sekali, namanya beda tiap pakai.', 'Cutling tanya nama, isi tanggal hari ini sendiri, lalu ketik sisanya.'). Seed texts are what a real person would have saved for themselves, in their own voice.",
+   "ja": "Store captions: short, plain, no cheerleading. Choose noun-stop captions or です・ます sentences and hold one register across every line of the film. Seed texts are what a real person would have saved for themselves, in their own voice; a shop's messages to a customer use the polite business register."
+  },
+  "vocabulary": {
+   "id": {
+    "brand": "Cutling (Latin, as the store and the app name it)",
+    "a saved item": "cutling (lowercase as a common noun, plural also cutling), as the 2.0 release notes write it",
+    "the keyboard": "keyboard Cutling",
+    "tap": "ketuk / satu ketukan (the store's promotional text says 'dengan satu ketukan dari keyboard')",
+    "a blank": "isian",
+    "Ask Each Time (the app's button)": "Tanya Setiap Kali",
+    "one purchase": "the store description says 'Sekali beli sudah termasuk Cutling untuk Mac'",
+    "Paste (system and app)": "Tempel",
+    "Copied (the keyboard's toast)": "Disalin",
+    "the default name of a new blank": "Nama"
+   },
+   "ja": {
+    "brand": "Cutling (Latin, as the store names it)",
+    "a saved item": "カットリング (the app's own word for one saved item; the brand stays Cutling)",
+    "the keyboard": "Cutling キーボード",
+    "tap": "タップ / ワンタップ",
+    "a blank": "空欄",
+    "Ask Each Time (the app's button)": "毎回尋ねる",
+    "one purchase": "the store description says '1回の購入でMac版も使え'",
+    "Paste (system and app)": "ペースト",
+    "Copied (the keyboard's toast)": "コピー済み",
+    "the default name of a new blank": "名前",
+    "Latin words in Japanese text": "a half-width space between a Latin word and Japanese text (Cutling キーボード, iPhone の), as Cutling's 2.0 Japanese store words and Apple's Japanese support pages do"
+   }
+  },
+  "rules": [
+   "No source string exists. Write what a person in this language would put on this screen at this moment. Do not ask for an English version.",
+   "Every line must read at a glance at search-result size: the fewest words that carry the meaning.",
+   "No price, no date with a year, no 'free', no 'subscription', no real business, no real person, no real bank's name, no famous place.",
+   "Do not say any of these ideas in their stock phrasing, which rival apps already use: 'write a reply once', 'leave blanks', 'fill in the blanks', 'save it once', 'copy it anytime', 'paste in one tap', 'type less'.",
+   "Indonesian: no dashes as connectors; a comma, a conjunction or a new sentence. Avoid stiff passives (dilakukan, dapat dilakukan) and needless English loans where Indonesians use the native word; keep loans Indonesians really use.",
+   "Japanese: 、 and 。 only, no ― as a connector; no needless katakana loanwords; never mix です・ます with だ・である.",
+   "Overlay lines are given as an array of display lines. Japanese: break only between bunsetsu, never inside a word, never start a line with 、。ー or a small kana. Indonesian: break between words where the phrase breaks.",
+   "Each overlay line's budget is in full-width units: one CJK character or kana = 1.0; a Latin capital or digit = 0.62; a Latin lowercase letter = 0.52; a space = 0.25; a full-width 、 or 。 = 1.0."
+  ]
+ },
+ "findings": [
+  "Japanese G4 shows a stray space. The keyboard's smart spacing (CutlingKeyboard/KeyboardViewController.swift, static func spaced, lines 640-652) adds ' ' before any cutling whose first character is not punctuation when the text before ends in a non-space. After the Japanese order reply ends in 「。」, tapping the thanks types '…発送いたします。 お買い上げ…', which reads as a typo to a Japanese viewer (and hits every ja and zh user who types two cutlings in a row). Either the app skips the space after CJK text and punctuation, or the ja take ends the order reply with a line break so the thanks starts on its own line (Japanese shop messages often do that); this file seeds the reply without one.",
+  "The fill-in header fits whole in every language. It has 370 pt on the 440 pt store iPhone (440 - 2x6 padding - 44 close - 6 spacing - 2x4 padding, FillInPanel.swift and KeyStyle) and drops whole space-separated words when it is too wide. Widest case at 16 pt SF Pro, measured in Chrome: en 317 ('Wednesday'), id 344 ('Kak Dimas, ... Selasa ya.'), ja 350. The first Indonesian reply measured 391 and would have lost its day, so it was rewritten shorter.",
+  "Addresses may resolve to a real lot in Maps and in Calendar's Location suggestions in every language (14 Linden Road, Jl. Kenanga Blok C2 No. 5 Depok, 東京都練馬区豊玉北4-21-6). The numbers are invented and no building is named; directions.md's recording rule applies: if Maps pins a home, cut before the result list.",
+  "Indonesian register is split. The app's id strings say 'Anda' (89 of 93 person references in Cutling/id.lproj), the store words say 'kamu' (2.0 event words, these overlays), so G4 shows the keyboard's 'Ketik di Keyboard Biasa Anda' under a '-mu' line for about a second. This predates the change and is left as it is here.",
+  "The stand-in's iPad where-line 'in Calendar, on iPad' is dropped: iPad previews play on the iPad's page, so the iPad uses the same where-lines as the iPhone. directions.md lists one iPad take (G7, 3 s used), so the iPad film needs more takes to reach 15 s; every bar's words carry 'ipad' in devices for that.",
+  "The English refund holder changes from the stand-in's 'Sam Okafor' to 'Nora Okafor', because Sam is also a customer on the name screen and the account is the keyboard owner's."
+ ],
+ "checks": {
+  "blind": "The writer prompts (scratch prompt-*.txt) were grepped for the English lines and seed names (Maya, Linden, Pottery class, Order update, one tap away, Any app): 0 hits. id and ja ran as separate processes with no tools.",
+  "back_translation": "Every id and ja back-translation was compared with its key's meaning. Four briefs were wrong and were fixed and re-run, never edited toward the English: (1) open and open_mac: r1's meaning added 'in any app', which repeats the end card across the loop seam; (2) id size chart heads: r1's 5-unit budget forced 'Dada' for 'Lebar Dada'; (3) ja honorific: r1 gave no facts on where 様 goes, so r2 gave them and the writer moved it into the reply; (4) id order reply: r1's unit budget undercounted Latin text, so r2 used a measured 360 pt budget.",
+  "tells": "human-prose Final check and language-surface-forms were run on both: no dashes in id, only 、。 in ja, one register per language (id kamu with standard spelling; ja noun-stop captions, business keigo in the seller's seed), no 'not X but Y' frames, no filler, and no rival phrasing.",
+  "fit": "Every overlay line in all three locales was set at the film's type (stage.js S.text: -apple-system, letter-spacing -0.02em, sizes from g-every-app.js) in headless Chrome and measured against its measure: 0 lines over (121 device-locale lines). The sheets were looked at for each locale.",
+  "not_checked": "Seed text on the real keyboard cards and the size chart image are not rendered here: that happens in the takes. Card names are at most 7 CJK characters or 15 Latin characters."
+ }
+}
