@@ -177,7 +177,7 @@ final class PromoEveryAppUITests: XCTestCase {
     /// Dismisses a first-run sheet or alert an Apple app shows over its first screen, in one query each, since every
     /// query waits for the app's main thread and a busy app makes many queries cost minutes.
     private func clearWelcome(_ app: XCUIApplication) {
-        let labels = ["Continue", "Not Now", "Allow While Using App", "Allow Once", "OK", "Done", "Lanjutkan", "Lain Kali", "Nanti Saja",
+        let labels = ["Don’t Allow", "Don't Allow", "Jangan Izinkan", "許可しない", "Continue", "Not Now", "Allow While Using App", "Allow Once", "OK", "Done", "Lanjutkan", "Lain Kali", "Nanti Saja",
                       "Izinkan Saat Menggunakan App", "続ける", "今はしない", "後で", "Appの使用中は許可"]
         let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
         for _ in 0..<3 {
@@ -312,7 +312,8 @@ final class PromoEveryAppUITests: XCTestCase {
     private func calendarLocation() {
         launch(calendar)
         clearWelcome(calendar)
-        let add = [calendar.buttons["Add"], calendar.buttons["Tambah"], calendar.buttons["追加"]].map(\.firstMatch).first { $0.waitForExistence(timeout: 3) }
+        // The iPad's Calendar names its + button "add" (identifier add-plus-button); the iPhone's says Add.
+        let add = [calendar.buttons["add-plus-button"], calendar.buttons["Add"], calendar.buttons["add"], calendar.buttons["Tambah"], calendar.buttons["追加"]].map(\.firstMatch).first { $0.waitForExistence(timeout: 3) }
         guard let add else { shot("no-add", calendar); XCTFail("No Add button in Calendar"); return }
         add.tap()
         sleep(3)
@@ -358,7 +359,10 @@ final class PromoEveryAppUITests: XCTestCase {
         }
         sleep(4)
         clearWelcome(safari)
-        let field = safari.webViews.textFields.element(boundBy: 1)
+        // The page's last text field: on the iPad, webViews.textFields did not reach the page's fields (2026-11-23), so
+        // the address bar (TabBarItemTitleContainer) is left out by identifier instead.
+        let pageFields = safari.textFields.matching(NSPredicate(format: "identifier != %@", "TabBarItemTitleContainer"))
+        let field = pageFields.element(boundBy: max(0, pageFields.count - 1))
         focus(field, in: safari, "account number field")
         keyboard(cutling: true, in: safari)
         shot("g5-ready", safari)

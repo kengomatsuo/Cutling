@@ -77,7 +77,7 @@ contacts() {
 
 for lang in "${langs[@]}"; do
   case "$lang" in
-    id) own="id@sw=QWERTY;hw=Automatic" ;;
+    id) own="id_ID@sw=QWERTY;hw=Automatic" ;;
     ja) own="ja_JP-Kana@sw=Kana;hw=Automatic" ;;
     *) own="en_US@sw=QWERTY;hw=Automatic" ;;
   esac
