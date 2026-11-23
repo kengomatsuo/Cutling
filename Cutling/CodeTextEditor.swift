@@ -236,6 +236,7 @@ extension FormattedTextEditor: UIViewRepresentable {
         view.adjustsFontForContentSizeCategory = true
         context.coordinator.configure(view, for: format)
         context.coordinator.load(view, text: text, format: format)
+        context.coordinator.followTextSize(of: view)
         context.coordinator.setBar(keyboardBar, on: view)
         context.coordinator.styles.toggle = { [weak coordinator = context.coordinator, weak view] style in
             guard let coordinator, let view else { return }
@@ -357,6 +358,28 @@ extension FormattedTextEditor: UIViewRepresentable {
             view.spellCheckingType = code ? .no : .default
             view.inlinePredictionType = code ? .no : .default
             view.keyboardType = code ? .asciiCapable : .default
+        }
+
+        private var textSizeObserver: NSObjectProtocol?
+
+        /// Redraws the text at the new size when the person changes their text size: the text carries fonts sized
+        /// from the body style when it was drawn, which adjustsFontForContentSizeCategory alone leaves as they were.
+        func followTextSize(of view: UITextView) {
+            textSizeObserver = NotificationCenter.default.addObserver(
+                forName: UIContentSizeCategory.didChangeNotification, object: nil, queue: .main
+            ) { [weak self, weak view] _ in
+                MainActor.assumeIsolated {
+                    guard let self, let view else { return }
+                    let selection = view.selectedRange
+                    self.load(view, text: self.parent.text, format: self.parent.format)
+                    let length = (view.text as NSString).length
+                    view.selectedRange = NSRange(location: min(selection.location, length), length: 0)
+                }
+            }
+        }
+
+        deinit {
+            if let textSizeObserver { NotificationCenter.default.removeObserver(textSizeObserver) }
         }
 
         func load(_ view: UITextView, text: String, format: TextFormat) {

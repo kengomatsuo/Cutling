@@ -43,8 +43,9 @@ struct FillInForm: View {
                     Section(field.label) { fieldEditor(field) }
                 }
                 Section {
+                    // Primary colour: grey preview text failed Apple's contrast audit on this sheet as on the Mac's.
                     Text(preview)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(.primary)
                         .textSelection(.enabled)
                         .accessibilityIdentifier("fillInPreview")
                 }
