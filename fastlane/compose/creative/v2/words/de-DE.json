@@ -1,0 +1,18 @@
+{
+ "cseed": {"names": ["Lena", "Jan", "Anna"], "mac_name": "Paul", "reply": "Hi {name}, dein Paket geht {date} raus!", "reply_name": "Versandinfo",
+           "mac_reply": "Hi {name}, dein {plan}-Paket geht {date} raus!",
+           "name_label": "Name", "plan_label": "Paket", "plan_choices": ["Basis", "Premium"], "delivered": "Zugestellt am {date}.", "delivered_name": "Zustellung"},
+ "C": {
+  "iphone": {"1": {"k": "Einmal geschrieben", "s": "Tippst du auf die Antwort, fragt Cutling nach dem Namen."},
+             "2": {"k": "Dieselbe Antwort, nächster Kunde", "s": "Die Namen von früher warten schon als Tasten."},
+             "3": {"k": "Das Datum schreibt Cutling selbst", "s": "Heute, morgen oder in einer Woche, gerechnet ab dem Einfügen."},
+             "4": {"k": "Und was sich nie ändert", "h": "[Deine\u00a0IBAN], [deine\u00a0Adresse], [deine\u00a0Signatur]", "s": "In jeder App reicht dafür ein Tipp auf der Cutling-Tastatur."},
+             "5": {"k": "Platz für alles", "h": "[5.000] Cutlings", "s": "Bisher waren es 100, und in jeden passt eine ganze E-Mail."},
+             "6": {"k": "iPhone, iPad und Mac", "h": "[Einmal] zahlen", "s": "Ein Kauf gilt für alle drei, und du brauchst weder Konto noch Abo."}},
+  "mac": {"1": {"k": "Einmal schreiben, an alle schicken", "s": "Mit {cmd} wählst du die Antwort, ein kurzes Formular fragt erst die Platzhalter ab."},
+          "2": {"k": "Überall, wo du tippst", "h": "{cmd}", "s": "Deine Cutlings und das zuletzt Kopierte öffnen sich über jeder App."},
+          "3": {"k": "Der Verlauf merkt sich alles außer", "s": "Was ein Passwortmanager als vertraulich markiert, landet nie im Verlauf."},
+          "4": {"k": "Am Mac geändert", "h": "Auch auf dem [iPhone]", "s": "Synchronisiert wird über deine eigene iCloud, ohne neues Konto."},
+          "5": {"k": "iPhone, iPad und Mac", "h": "[Einmal] zahlen", "s": "Ein Kauf gilt für alle drei, ohne Konto und ohne Abo."}}
+ }
+}
