@@ -70,6 +70,11 @@ SCRIPT_FONTS = {
     "ta-IN": ('"Tamil Sangam MN"', '"Tamil MN"'), "te-IN": ('"Telugu Sangam MN"', '"Kohinoor Telugu"'),
 }
 
+# Scripts whose marks reach far past New York's line box: Odia hangs subjoined consonants and its u-signs well under
+# the baseline and sets its reph above the letter, so at New York's line-height a subjoined letter drops out of its
+# chip, dark on the black ground, and touches the next line. Per locale: (headline line-height, chip padding below).
+DEEP_MARKS = {"or-IN": (1.34, ".18em")}
+
 def locale_css(loc):
     serif, sans = SCRIPT_FONTS.get(loc, ("", ""))
     s = f",{serif}" if serif else ""; ss = f",{sans}" if sans else ""
@@ -82,6 +87,9 @@ def locale_css(loc):
         # auto-phrase breaks every line on the frame between phrases instead, and FIT_JS shrinks a headline whose widest
         # phrase is wider than it.
         css += " body{word-break:auto-phrase}"
+    if loc in DEEP_MARKS:
+        lh, below = DEEP_MARKS[loc]
+        css += f" .h{{line-height:{lh}}} .h .chip{{padding-bottom:{below}}}"
     return css
 
 # Shrinks a text block's headline until the block fits its height and no word runs past its width. Under
