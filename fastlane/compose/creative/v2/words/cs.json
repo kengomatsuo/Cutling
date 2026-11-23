@@ -1,0 +1,77 @@
+{
+ "cseed": {
+  "names": [
+   "Lucie",
+   "Jiří",
+   "Marie"
+  ],
+  "mac_name": "Julie",
+  "reply": "Ahoj {name}, balíček ti pošlu v {date}.",
+  "reply_name": "Stav objednávky",
+  "mac_reply": "Ahoj {name}, balíček {plan} ti pošlu v {date}.",
+  "name_label": "Jméno",
+  "plan_label": "Balíček",
+  "plan_choices": [
+   "Základní",
+   "Premium"
+  ],
+  "delivered": "Doručeno {date}",
+  "delivered_name": "Datum doručení"
+ },
+ "C": {
+  "iphone": {
+   "1": {
+    "k": "Napíšete ji jen jednou.",
+    "s": "Klepněte na uloženou odpověď a Cutling se zeptá na jméno."
+   },
+   "2": {
+    "k": "Stejnou pošlete dalšímu.",
+    "s": "Dříve použitá jména máte na jedno klepnutí."
+   },
+   "3": {
+    "k": "Datum doplní Cutling sám.",
+    "s": "Dnes, zítra nebo za týden, vždy podle dne, kdy vkládáte."
+   },
+   "4": {
+    "k": "A to, co se nikdy nemění:",
+    "h": "vaše [číslo účtu], [adresa] a [podpis].",
+    "s": "Vložíte je z klávesnice Cutling jedním klepnutím, kamkoli."
+   },
+   "5": {
+    "k": "Místo na všechno.",
+    "h": "[5 000] cutlingů",
+    "s": "Dřív se jich vešlo jen 100 a každý pojme celý e‑mail."
+   },
+   "6": {
+    "k": "iPhone, iPad a Mac.",
+    "h": "Zaplatíte [jednou].",
+    "s": "Jeden nákup pro všechny tři, bez registrace a předplatného."
+   }
+  },
+  "mac": {
+   "1": {
+    "k": "Napíšete jednou, pošlete všem.",
+    "s": "Odpověď vyberete přes {cmd} a krátký formulář se před vložením zeptá, co doplnit."
+   },
+   "2": {
+    "k": "Ať píšete kdekoli.",
+    "h": "{cmd}",
+    "s": "Otevře vaše cutlingy i naposledy zkopírované věci nad jakoukoli aplikací."
+   },
+   "3": {
+    "k": "Historie schránky přeskočí",
+    "s": "Nic, co správce hesel označí jako skryté, se do historie nedostane."
+   },
+   "4": {
+    "k": "Co změníte na Macu,",
+    "h": "to se změní i na [iPhonu].",
+    "s": "Synchronizuje se přes váš vlastní iCloud, bez registrace."
+   },
+   "5": {
+    "k": "iPhone, iPad a Mac.",
+    "h": "Zaplatíte [jednou].",
+    "s": "Jeden nákup pro všechny tři, bez registrace a předplatného."
+   }
+  }
+ }
+}
