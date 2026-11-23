@@ -36,7 +36,7 @@ notes and the in-app event write it, and takes masculine verbs as in the app (ک
 | iphone.5.k | سب کچھ سما جائے گا | Everything will fit | سمانا ("to fit inside") says room in the buyer's terms. |
 | iphone.5.h | [5,000] کٹلنگ | [5,000] cutling | Bare after a number, as locale-facts gives the plural and the app counts (%lld کٹلنگ). |
 | iphone.5.s | پہلے صرف 100 کٹلنگ کی گنجائش تھی، اب ہر ایک میں پوری ای میل آتی ہے۔ | Before there was room for only 100 cutlings; now a whole email fits in each one. | گنجائش is the app's word for room (%@ کی گنجائش). آتی ہے rather than آ جاتی ہے, so the verb has no helper to split. کٹلنگ makes both clauses the same width, so the two iPhone lines break at the comma (without it, اب ended line 1). |
-| iphone.6.k | iPhone،‏ iPad اور Mac | iPhone, iPad and Mac | A right-to-left mark follows the comma (written `‏` in the file). Without it the comma joins "iPhone" on its Latin side, so reading from the right meets iPad first. |
+| iphone.6.k | iPhone،‏ iPad اور Mac | iPhone, iPad and Mac | A right-to-left mark follows the comma (written `\u200f` in the file). Without it the comma joins "iPhone" on its Latin side, so reading from the right meets iPad first. |
 | iphone.6.h | ادائیگی بس [ایک بار] | Payment just [one time] | بس ایک بار ("just once") is the spoken emphasis. 18 characters. |
 | iphone.6.s | تینوں کے لیے ایک ہی خریداری؛ نہ اکاؤنٹ، نہ سبسکرپشن۔ | One single purchase for all three; no account, no subscription. | نہ اکاؤنٹ، نہ … is the app's own pattern (نہ اکاؤنٹ، نہ انٹرنیٹ). سبسکرپشن is the word Pakistani app buyers use. |
 | mac.1.k | ایک بار لکھیں، سب کو بھیجیں | Write once, send to all | Two polite imperatives. |
