@@ -9,7 +9,7 @@ owner's replies use `tu` too, the way Romanian small shops write to a customer t
 is Romanian: ș and ț with the comma below, no comma before "și", a colon before a list, no long dashes.
 
 Line breaks: a word with a hyphen ("Cutling-uri", "să-ți") must not end a line, because the browser splits it at the
-hyphen. `|` in iPhone 5's headline forces the break after "de". Two sublines carry no-break spaces (` `) so the
+hyphen. `|` in iPhone 5's headline forces the break after "de". Two sublines carry no-break spaces (U+00A0, written `\u00a0` in the JSON) so the
 iPhone line breaks at a comma or before "și", never leaving a short word or one lone word at a line end.
 
 | Key | String | Back-translation | Choice |
