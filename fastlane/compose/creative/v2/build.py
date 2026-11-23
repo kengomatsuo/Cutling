@@ -74,10 +74,12 @@ SCRIPT_FONTS = {
 
 # Scripts whose marks reach far past New York's line box (Indic subjoined consonants and below-vowels, Thai below
 # vowels, Odia's reph above): at New York's line-height a subjoined letter drops out of its chip, dark on the black
-# ground, and touches the next line. Per locale: (headline line-height, chip padding below).
+# ground, and touches the next line. Per locale: (headline line-height, chip padding below). A Thai chip in Sathu is
+# 1.36 em tall with its padding, so Thai lines sit 1.42 em apart: at 1.3 a chip ran 7 to 9 px into the chip under it
+# and a tone mark (ร้, ให้) met the chip above.
 DEEP_MARKS = {"or-IN": (1.34, ".18em"), "kn-IN": (1.32, ".2em"), "te-IN": (1.32, ".2em"), "ml-IN": (1.3, ".16em"),
               "ta-IN": (1.28, ".12em"), "bn-BD": (1.3, ".16em"), "gu-IN": (1.28, ".14em"), "pa-IN": (1.28, ".14em"),
-              "hi": (1.28, ".14em"), "mr-IN": (1.28, ".14em"), "th": (1.3, ".16em")}
+              "hi": (1.28, ".14em"), "mr-IN": (1.28, ".14em"), "th": (1.42, ".16em")}
 
 def locale_css(loc):
     serif, sans = SCRIPT_FONTS.get(loc, ("", ""))
