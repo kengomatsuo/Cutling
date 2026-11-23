@@ -45,7 +45,7 @@ def main():
     for d in dirs:
         o = HERE / "out" / loc / d
         f = lambda dev, n: (o / dev / f"{n:02d}.png").as_uri()
-        name = words[d]["name"]
+        name = words[d].get("name", d)
         ph = [f("iphone", i) for i in range(1, 7)]
         pd = [f("ipad", i) for i in range(1, 7)]
         mc = [f("mac", i) for i in range(1, 6)]

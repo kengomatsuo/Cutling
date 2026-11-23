@@ -10,7 +10,10 @@ CSS = """
 .stage{background:radial-gradient(130% 90% at 30% 0%,#1A1E1C 0%,#0E100F 55%,#090A0A 100%)}
 .kick{position:absolute;color:#34D3A2;font-weight:600;letter-spacing:-.01em}
 .h{position:absolute;font-family:NY,serif;color:#F3F0E8;font-weight:500;letter-spacing:-.012em;line-height:1.14}
-.h .chip{display:inline;white-space:nowrap;font-family:NY,serif;background:#1DBB8A;color:#03241A;border-radius:.2em;padding:0 .16em;margin:0 .02em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.h .chip{display:inline;white-space:nowrap;font-family:NY,serif;position:relative;background:none;color:#03241A;padding:0 .16em;margin:0 .02em}
+/* A chip's green sits under every letter of the text block (z-index -1 in its stacking context), so a chip on the next
+   line never hides a mark that hangs below this one, such as the u-sign of Devanagari "तु" or a Latin "j". */
+.h .chip::before{content:"";position:absolute;inset:0;z-index:-1;background:#1DBB8A;border-radius:.2em}
 .s{position:absolute;color:#A3AAA6;font-weight:500;letter-spacing:-.005em;line-height:1.25;text-wrap:pretty}
 .h{text-wrap:pretty}
 .cmd{display:inline-flex;gap:.14em;direction:ltr}
@@ -78,7 +81,7 @@ def touch_set(m, loc, W, cs, F, out, dev):
             f'{m.esc(before)}{pill}{m.esc(after)}</div>')
     bub = (f'<div style="align-self:flex-end;max-width:{w*0.72}px;background:#0A84FF;color:#fff;'
            f'font-size:{fs}px;line-height:1.25;padding:{fs*.42}px {fs*.7}px;border-radius:{fs*.9}px">'
-           f'{m.esc(m.filled(cs["delivered"], {"date": F["long_date_nov23"]}))}</div>')
+           f'{m.esc(before)}<span style="white-space:nowrap">{m.esc(F["long_date_nov23"])}</span>{m.esc(after)}</div>')
     # the saved note, then the message it typed today, stacked so a long date never makes them overlap
     card = (f'<div class="abs" style="left:{X}px;top:{cy}px;width:{w-2*X}px;display:flex;flex-direction:column;'
             f'gap:{fs*.7}px;z-index:5">{card}{bub}</div>')
