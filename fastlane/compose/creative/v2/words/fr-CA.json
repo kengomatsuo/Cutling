@@ -1,0 +1,77 @@
+{
+ "cseed": {
+  "names": [
+   "Léa",
+   "Félix",
+   "Maude"
+  ],
+  "mac_name": "Simon",
+  "reply": "Bonjour {name}, ta commande part {date}!",
+  "reply_name": "Expédition",
+  "mac_reply": "Bonjour {name}, ta commande {plan} part {date}!",
+  "name_label": "Prénom",
+  "plan_label": "Forfait",
+  "plan_choices": [
+   "De base",
+   "Pro"
+  ],
+  "delivered": "Livré le {date}",
+  "delivered_name": "Livraison"
+ },
+ "C": {
+  "iphone": {
+   "1": {
+    "k": "Écrite une seule fois.",
+    "s": "Touche la réponse et Cutling te demande d’abord le prénom."
+   },
+   "2": {
+    "k": "La même, au client suivant.",
+    "s": "Les prénoms déjà utilisés t’attendent, chacun sur sa touche."
+   },
+   "3": {
+    "k": "La date s’écrit toute seule.",
+    "s": "Aujourd’hui, demain ou dans une semaine, selon le jour où tu colles."
+   },
+   "4": {
+    "k": "Et ce qui ne change jamais :",
+    "h": "ton [numéro de compte], ton [adresse], ta [signature].",
+    "s": "Une touche chacun, dans toutes tes apps, au clavier Cutling."
+   },
+   "5": {
+    "k": "De la place pour tout.",
+    "h": "[5 000] cutlings",
+    "s": "Au lieu de 100, et chacun peut contenir un courriel entier."
+   },
+   "6": {
+    "k": "iPhone, iPad et Mac.",
+    "h": "Tu paies [une fois].",
+    "s": "Un seul achat pour les trois, sans compte à créer ni abonnement."
+   }
+  },
+  "mac": {
+   "1": {
+    "k": "Écrite une fois, envoyée à tous.",
+    "s": "Choisis la réponse avec {cmd} : un petit formulaire te demande ce qui change."
+   },
+   "2": {
+    "k": "Partout où tu écris.",
+    "h": "{cmd}",
+    "s": "Tes cutlings et ce que tu viens de copier, par‑dessus n’importe quelle app."
+   },
+   "3": {
+    "k": "Ton historique laisse de côté",
+    "s": "Ce que ton gestionnaire de mots de passe masque n’y entre jamais."
+   },
+   "4": {
+    "k": "Modifie un cutling sur ton Mac,",
+    "h": "il est à jour sur ton [iPhone].",
+    "s": "Synchronisé par ton propre iCloud, sans compte à créer."
+   },
+   "5": {
+    "k": "iPhone, iPad et Mac.",
+    "h": "Tu paies [une fois].",
+    "s": "Un seul achat pour les trois, sans compte à créer ni abonnement."
+   }
+  }
+ }
+}
