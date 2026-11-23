@@ -1,0 +1,31 @@
+{
+  "folders": [
+    "de",
+    "de-DE"
+  ],
+  "strings": {
+    "P1": "Privat gespeichert",
+    "P2": "Kein Konto, nichts wird erfasst. Aktivierst du iCloud-Sync, nutzt er nur deine iCloud.",
+    "P3": "Was du tippst, bleibt privat",
+    "P4": "Cutling hat kein Konto und erfasst nichts. Was du tippst, wird nirgendwohin gesendet.",
+    "N2b": "Variablen, Text wie in Notizen und viel mehr Platz",
+    "N4b": "Variablen",
+    "N5b": "Öffne beim Bearbeiten Variablen: Platzhalter, den du jedes Mal ausfüllst, heutiges Datum, Auswahl und mehr.",
+    "N17": "Schreiben wie in Notizen",
+    "N18": "Der Text eines Cutlings öffnet sich auf einer eigenen Seite, mit Fett, Unterstrichen, Hervorheben und Listen.",
+    "TU2": "Tippe über der Tastatur auf Jedes Mal fragen für einen Platzhalter, den du jedes Mal füllst, oder auf Weiter."
+  },
+  "back": {
+    "P1": "Saved privately",
+    "P2": "No account, nothing is collected. If you turn on iCloud Sync, it uses only your iCloud.",
+    "P3": "What you type stays private",
+    "P4": "Cutling has no account and collects nothing. What you type is sent nowhere.",
+    "N2b": "Variables, text like in Notes and much more room",
+    "N4b": "Variables",
+    "N5b": "While editing, open Variables: a blank that you fill in every time, today's date, a choice and more.",
+    "N17": "Writing like in Notes",
+    "N18": "A cutling's text opens on a page of its own, with Bold, Underline, Highlight and lists.",
+    "TU2": "Above the keyboard, tap Ask Each Time for a blank that you fill every time, or tap Next."
+  },
+  "notes": "Du-form and the words of the existing sheets: Platzhalter for a blank, viel mehr Platz, füllst/ausfüllst, Weiter, der Cutling (masculine). Button and setting names are the app's own, unquoted as in T4: Variablen, Jedes Mal fragen, iCloud-Sync, and Fett, Unterstrichen, Hervorheben from the Format card. 'erfasst' is the App Store privacy label's word for collected (Keine Daten erfasst). 'wird nirgendwohin gesendet' is the app's existing phrase for never sent anywhere. Notizen is Apple's German name for Notes. P2 names the setting iCloud-Sync so the person can find it, and 'er' refers to der Sync. P1 leaves 'to you' to the row line, since 'Deine Cutlings' would use the word before the welcome sheet has taught it. TU2: the full meaning does not fit 110 in German; 'while you type the text' and 'to skip' are left out, since the tip sits on the text box with the keyboard up and 'über der Tastatur' already places the person there. N5b uses a colon and an article-free list to fit 110; 'edit a cutling' is 'beim Bearbeiten', the menu's own Bearbeiten. N2b is exactly 50 and N17 exactly 24."
+}

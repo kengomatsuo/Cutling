@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "tr"
+ ],
+ "strings": {
+  "P1": "Kaydettiklerin sana özel",
+  "P2": "Hesap yok, veri toplanmaz. Eşitlemeyi açarsan cutling'ler yalnızca kendi iCloud'una gider",
+  "P3": "Yazdıkların gizli kalır",
+  "P4": "Cutling'in hesabı yok, veri toplamaz. Yazdıkların hiçbir yere gönderilmez",
+  "N2b": "Değişkenler, Notlar tarzı yazı, çok daha fazla yer",
+  "N4b": "Değişkenler",
+  "N5b": "Cutling'i düzenlerken Değişkenler'i aç: her seferinde dolduracağın boşluk, bugünün tarihi, seçenek ve dahası",
+  "N17": "Notlar'daki gibi yaz",
+  "N18": "Bir cutling'in metni kendi sayfasında açılır. Kalın, altı çizili, vurgu ve liste kullanabilirsin",
+  "TU2": "Yazarken klavye üstünde Her Seferinde Sor'a dokun: her seferinde dolduracağın boşluk kalır. Atlamak için İleri"
+ },
+ "back": {
+  "P1": "What you've saved is private to you",
+  "P2": "There is no account, no data is collected. If you turn sync on, cutlings go only to your own iCloud",
+  "P3": "What you type stays private",
+  "P4": "Cutling has no account, it collects no data. What you type is not sent anywhere",
+  "N2b": "Variables, Notes-style writing, far more room",
+  "N4b": "Variables",
+  "N5b": "While editing a cutling, open Variables: a blank you will fill in each time, today's date, a choice and more",
+  "N17": "Write as you do in Notes",
+  "N18": "A cutling's text opens on its own page. You can use bold, underline, highlight and lists",
+  "TU2": "While typing, tap Ask Each Time above the keyboard: a blank you will fill in each time is left. To skip, Next"
+ },
+ "notes": "Informal sen-form, no exclamation marks, no final full stop, straight apostrophes, as the existing tr onboarding strings. Row titles in sentence case. Terms from tr.lproj: Değişkenler (Variables, N4b exact), Her Seferinde Sor (Ask Each Time, exact in TU2), İleri (Next), Seçenek (Choice), Bugünün tarihi (Today's Date), Kalın / Altı Çizili (Bold, Underline); Highlight is the button verb Vurgula there, so the noun vurgu is used in N18's list. Apple's Notes app is Notlar (Apple's Turkish App Store listing and iPhone guide, read 2026-11-23). P2: 'nothing collected' is 'veri toplanmaz' (no data is collected) and 'sync only through your own iCloud' is 'go only to your own iCloud', because repeating eşitle- twice ran to 94; the condition 'if you turn sync on' is kept whole. N2b: 'çok daha fazla yer' is the locale's existing wording for far more room (N3), so the Notes part is the compact 'Notlar tarzı yazı' to land on 50. N5b: the list after the colon carries 'put in' by implication (open Variables: a blank, the date, a choice and more); the full verb form ran to 113. TU2 keeps TU1's shape (dokun: ... boşluk kalır); to fit 110 the skip is the clipped 'Atlamak için İleri' (TU1 had 'Atlamak için İleri'ye dokun') and 'above the keyboard' is the adverb 'klavye üstünde'. The full form 'klavyenin üstündeki ... Atlamak için İleri'ye dokun' is 124."
+}

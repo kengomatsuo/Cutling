@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "lv"
+ ],
+ "strings": {
+  "P1": "Saglabātais ir privāts",
+  "P2": "Nav konta un datu vākšanas. Cutlings sinhronizējas tikai caur tavu iCloud, ja to ieslēdz.",
+  "P3": "Rakstītais paliek privāts",
+  "P4": "Cutling nav konta, un tas neko nevāc. Rakstītais nekad nekur netiek nosūtīts.",
+  "N2b": "Mainīgie, teksts kā Notes un daudz vairāk vietas",
+  "N4b": "Mainīgie",
+  "N5b": "Rediģē cutlingu, atver Mainīgie un ievieto tukšumu, ko aizpildi katru reizi, šodienas datumu, izvēli un citus",
+  "N17": "Raksti kā lietotnē Notes",
+  "N18": "Cutlinga teksts tagad atveras savā lapā ar treknrakstu, pasvītrojumu, izcelšanu un sarakstiem",
+  "TU2": "Rakstot pieskaries Jautāt katru reizi virs tastatūras, lai atstātu aizpildāmu tukšumu, vai Tālāk, lai izlaistu"
+ },
+ "back": {
+  "P1": "What is saved is private",
+  "P2": "There is no account and no data collection. Cutlings sync only through your iCloud, if you turn it on.",
+  "P3": "What is typed stays private",
+  "P4": "Cutling has no account, and it collects nothing. What is typed is never sent anywhere.",
+  "N2b": "Variables, text as in Notes and much more room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling, open Variables and put in a blank that you fill in each time, today's date, a choice and others",
+  "N17": "Write as in the Notes app",
+  "N18": "A cutling's text now opens on its own page with bold, underline, highlight and lists",
+  "TU2": "While typing, tap Ask Each Time above the keyboard to leave a blank to be filled in, or Next to skip"
+ },
+ "notes": "Tu-form, no exclamation marks, sentence-case titles, as the Latvian setup and What's New strings already are; one-sentence lines end without a full stop and two-sentence lines (P2, P4) keep theirs, as W7 and F6 did. Words kept from the same sheets and Localizable.strings: Mainīgie (Variables), Jautāt katru reizi (Ask Each Time), Tālāk (Next), tukšums for the blank (N5, TU1), Šodienas datums, Izvēle, Treknraksts, Pasvītrojums, Izcelšana, Saraksts (here in the cases the sentence needs), daudz vairāk vietas (N2, N3), caur tavu iCloud (W7), Cutling nav konta, un tas (F6), cutling declined as the app declines it (cutlingu, cutlinga). Notes stays 'Notes': Apple's Latvian iPhone guide writes 'lietotnē Notes' and 'Atveriet Notes lietotni' (support.apple.com/lv-lv/guide/iphone/iph1ac0b3a2, read 2026-11-23), so N17 follows that wording. Budget choices: P2 opens with the noun pair 'Nav konta un datu vākšanas' because 'Nav konta, nekas netiek vākts' put the line at 93; it is now 89. N2b says 'teksts kā Notes' (text as in Notes) because 'rakstīšana kā Notes' ran to 53 against 50. N17 is exactly 24. TU2 is exactly 110 and makes one trade: the blank is 'aizpildāmu tukšumu' (a blank to be filled in) and 'each time' is carried by the button's own name, Jautāt katru reizi, which stands in the same clause; spelling it out again ('tukšumu, ko aizpildi katrreiz') needs 121 and repeats 'katru reizi' twice in one sentence. 'vai Tālāk, lai izlaistu' shares the verb pieskaries with the first half. P1 and P3 use the substantivised participles Saglabātais and Rakstītais, as F4 uses 'nokopēto'. 'ja to ieslēdz' in P2 points at iCloud, which is how the setting (iCloud sinhronizācija) is turned on."
+}

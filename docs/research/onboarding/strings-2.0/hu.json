@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "hu"
+ ],
+ "strings": {
+  "P1": "Amit mentesz, csak a tiéd",
+  "P2": "Nincs fiók, nincs adatgyűjtés; szinkronizálás csak a saját iCloudodon át, ha bekapcsolod",
+  "P3": "Amit írsz, privát marad",
+  "P4": "A Cutlingnek nincs fiókja, és semmilyen adatot nem gyűjt; amit írsz, azt soha nem küldi el sehová",
+  "N2b": "Változók, Jegyzetek-szerű írás és sokkal több hely",
+  "N4b": "Változók",
+  "N5b": "Cutling szerkesztésekor nyisd meg a Változókat: mező, amit mindig kitöltesz, mai dátum, választás és sok más",
+  "N17": "Írj, mint a Jegyzetekben",
+  "N18": "A cutling szövege külön oldalon nyílik meg, félkövérrel, aláhúzással, kiemeléssel és listákkal",
+  "TU2": "Íráskor a billentyűzet fölötti Mindig rákérdez gomb mezőt tesz be, amit mindig kitöltesz; a Következő kihagyja"
+ },
+ "back": {
+  "P1": "What you save is only yours",
+  "P2": "No account, no data collection; syncing only through your own iCloud, if you turn it on",
+  "P3": "What you type stays private",
+  "P4": "Cutling has no account and collects no data of any kind; what you type, it never sends anywhere",
+  "N2b": "Variables, Notes-like writing and much more room",
+  "N4b": "Variables",
+  "N5b": "When editing a cutling, open Variables: a field that you always fill in, today's date, a choice and much else",
+  "N17": "Write as in Notes",
+  "N18": "A cutling's text opens on a separate page, with bold, underline, highlight and lists",
+  "TU2": "When writing, the Ask Each Time button above the keyboard puts in a field that you always fill in; Next skips it"
+ },
+ "notes": "Te-form (tegező), sentence-case titles, no final period and a semicolon between clauses, as the hu strings already on these sheets. Terms from hu.lproj/Localizable.strings: Változók (Variables), Mindig rákérdez (Ask Each Time, kept uninflected by adding 'gomb'), Következő (Next), Félkövér/Aláhúzott/Kiemelés/Lista turned into nouns for N18, 'mai dátum' and 'választás' as the Variables list names them. Jegyzetek is Apple's Hungarian name for Notes (read from Notes.app's hu InfoPlist loctable). The blank is 'mező' here, the editor's own word ('Kitöltendő mezők', 'tehetsz egy mezőt, amit minden használatkor kitöltesz'), where the replaced N4, N5 and TU1 said 'üres hely': on the What's New sheet 'hely' already means room ('sokkal több hely', '%@ cutlingnyi hely'), so one sheet would use 'hely' for two things. P1 says 'only yours' for 'private to you'; P3 uses 'privát', the word Apple's Hungarian uses (Privát böngészés). P2 makes syncing the noun ('szinkronizálás csak a saját iCloudodon át, ha bekapcsolod') so that 'bekapcsolod' can only mean the sync, and so the line fits: with 'a cutlingok ... szinkronizálódnak' it runs to 97 against 90. The word cutling is therefore not in P2; this also sidesteps the file's mixed plural (W7 has 'cutlingek' once, the rest of the file 'cutlingok'). P4 'semmilyen adatot nem gyűjt' names data, since 'semmit sem gyűjt' alone leaves open what. N2b is exactly 50 and N17 exactly 24: 'Jegyzetek-szerű írás' in the subtitle because 'írás, mint a Jegyzetekben, és sokkal több hely' is 53. N5b starts 'Cutling szerkesztésekor' as the app's 'Cutling szerkesztése' does, which also avoids choosing between 'cutlingot' and 'cutlinget'. TU2 is exactly 110 and states instead of commanding: the imperative 'Írás közben koppints a billentyűzet fölötti Mindig rákérdez gombra mezőért, amit mindig kitöltesz, vagy a Következőre' is 117 and still lacks 'to skip', so the button is the subject ('gomb mezőt tesz be') and Next 'kihagyja' (skips it); no word for 'tap' appears. 'Íráskor' stands for TU1's 'Írás közben' to save four characters."
+}

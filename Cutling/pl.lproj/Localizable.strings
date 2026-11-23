@@ -545,8 +545,6 @@
 "Save what you type over and over, then tap it on the keyboard in any app." = "Zapisz to, co wpisujesz w kółko, i stuknij to na klawiaturze w dowolnej aplikacji";
 "Images Too" = "Obrazy też działają";
 "Copy a saved image with one tap and paste it anywhere." = "Skopiuj zapisany obraz jednym stuknięciem i wklej gdzie chcesz";
-"Stays on Your iPhone" = "Zostaje na iPhonie";
-"No account, no internet. Your cutlings sync only through your own iCloud." = "Bez konta i internetu; cutlingi synchronizują się tylko przez własny iCloud";
 "Add the Keyboard" = "Dodaj klawiaturę";
 "Turn on Cutling in Settings, then come back." = "Włącz Cutling w Ustawieniach, a potem wróć do tej aplikacji";
 "About Full Access" = "O pełnym dostępie";
@@ -556,8 +554,6 @@
 "Cutling types your text without it." = "Cutling wpisuje tekst także bez niego";
 "Images and Clipboard" = "Obrazy i schowek";
 "Full Access lets the keyboard copy a saved image and add what you copied." = "Pełny dostęp pozwala klawiaturze skopiować zapisany obraz i dodać to, co skopiowano";
-"Nothing Leaves Your iPhone" = "Nic nie opuszcza iPhone’a";
-"Cutling has no account and never connects to the internet. It doesn't read what you type." = "Cutling nie ma konta, nigdy nie łączy się z internetem i nie czyta tego, co piszesz";
 "Apple's Warning" = "Ostrzeżenie Apple";
 "iOS shows the same warning for every keyboard that asks, whatever it does." = "iOS pokazuje to samo ostrzeżenie przy każdej klawiaturze, niezależnie od tego, co robi";
 "Try It" = "Wypróbuj";
@@ -567,10 +563,7 @@
 "Cutling typed it. You're set." = "Cutling to wpisał. Wszystko gotowe";
 "Try Me" = "Wypróbuj mnie";
 "Cutling typed this for me." = "To wpisał za mnie Cutling";
-"Blanks to fill in, and far more room." = "Pola do uzupełnienia i dużo więcej miejsca";
 "Far more room, and every key types." = "Dużo więcej miejsca i każdy klawisz wpisuje";
-"Blanks and Dates" = "Puste pola i daty";
-"Add a blank or today’s date from the editor, and fill the blank in each time you type the cutling." = "W edytorze dodaj puste pole lub dzisiejszą datę i uzupełniaj pole przy każdym wpisaniu cutlinga";
 "Room for %@" = "Miejsce na %@";
 "Save up to %@ texts and %@ images." = "Zapisz do %1$@ tekstów i %2$@ obrazów";
 "Every Key Types" = "Każdy klawisz wpisuje";
@@ -582,7 +575,6 @@
 "Share text, links or images to Cutling from any app." = "Udostępnij tekst, linki lub obrazy do Cutling z dowolnej aplikacji";
 
 /* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */
-"While you type the text, tap the braces button to leave a blank you fill in each time. Or tap Next." = "Podczas pisania stuknij { }, by zostawić puste pole do uzupełniania za każdym razem, albo Dalej, by pominąć";
 
 /* MARK: - Text page, Format card and Variables (docs/text-page-strings-brief.md) */
 "Format" = "Format";
@@ -700,3 +692,14 @@
 "Number in Words" = "Liczba słownie";
 "Value from a Shortcut" = "Wynik skrótu";
 "A shortcut’s result" = "To, co zwraca skrót";
+
+/* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */
+"What You Save Is Private" = "Zapisane widzisz tylko Ty";
+"No account, nothing collected. Cutlings sync only through your iCloud, if you turn it on." = "Bez konta i gromadzenia danych; synchronizacja tylko przez Twój iCloud, jeśli ją włączysz";
+"What You Type Stays Private" = "Co piszesz, zostaje prywatne";
+"Cutling has no account and collects nothing. What you type is never sent anywhere." = "Cutling nie ma konta i nie gromadzi żadnych danych; tego, co piszesz, nigdy nigdzie nie wysyła";
+"Variables, writing as in Notes, and far more room." = "Zmienne, edytor jak Notatki i dużo więcej miejsca";
+"Edit a cutling and open Variables to add a blank you fill in each time, today’s date, a choice and more." = "Edytuj cutling, otwórz Zmienne i wstaw puste pole uzupełniane za każdym razem, dzisiejszą datę, wybór i inne";
+"Write as You Do in Notes" = "Pisz jak w Notatkach";
+"A cutling’s text now opens on a page of its own, with bold, underline, highlight and lists." = "Tekst cutlinga otwiera się na osobnej stronie z pogrubieniem, podkreśleniem, zakreślaczem i listami";
+"As you type, tap Ask Each Time above the keyboard to leave a blank you fill in each time. Or tap Next to skip." = "Podczas pisania stuknij nad klawiaturą Pytaj za każdym razem, by zostawić puste pole, albo Dalej, by pominąć";

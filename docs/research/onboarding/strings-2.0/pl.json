@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "pl"
+ ],
+ "strings": {
+  "P1": "Zapisane widzisz tylko Ty",
+  "P2": "Bez konta i gromadzenia danych; synchronizacja tylko przez Twój iCloud, jeśli ją włączysz",
+  "P3": "Co piszesz, zostaje prywatne",
+  "P4": "Cutling nie ma konta i nie gromadzi żadnych danych; tego, co piszesz, nigdy nigdzie nie wysyła",
+  "N2b": "Zmienne, edytor jak Notatki i dużo więcej miejsca",
+  "N4b": "Zmienne",
+  "N5b": "Edytuj cutling, otwórz Zmienne i wstaw puste pole uzupełniane za każdym razem, dzisiejszą datę, wybór i inne",
+  "N17": "Pisz jak w Notatkach",
+  "N18": "Tekst cutlinga otwiera się na osobnej stronie z pogrubieniem, podkreśleniem, zakreślaczem i listami",
+  "TU2": "Podczas pisania stuknij nad klawiaturą Pytaj za każdym razem, by zostawić puste pole, albo Dalej, by pominąć"
+ },
+ "back": {
+  "P1": "What's saved, only you see",
+  "P2": "Without an account and data collection; sync only through your iCloud, if you turn it on",
+  "P3": "What you type stays private",
+  "P4": "Cutling has no account and collects no data; what you type, it never sends anywhere",
+  "N2b": "Variables, an editor like Notes and much more room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling, open Variables and put in a blank filled in each time, today's date, a choice and others",
+  "N17": "Write like in Notes",
+  "N18": "A cutling's text opens on a separate page with bold, underline, a highlighter and lists",
+  "TU2": "While writing, tap Ask Each Time above the keyboard to leave a blank, or Next to skip"
+ },
+ "notes": "Imperative singular, no final full stop, a semicolon between two clauses and 'stuknij', as in pl.json. Ty/Twój are capitalised as Apple's Polish and the app's own settings strings write them. App words from pl.lproj: Zmienne, Pytaj za każdym razem and Dalej (button names left in the nominative and unquoted, as T4 has Wypróbuj mnie), cutling/cutlinga in lower case, puste pole for a blank (N4, N5, TU1), wybór for the Choice variable, dużo więcej miejsca (N2, N3), and pogrubienie, podkreślenie, zakreślacz, lista from the Format card. Apple's own Notes guide in Polish says 'wyróżnienie' for highlight; the card's Zakreślacz is kept because that is the button the person will see. Notatki is Apple's Polish name for Notes, read on 2026-11-23 from the Polish iPhone User Guide (support.apple.com/pl-pl/guide/iphone, chapter Notatki, 'Pierwsze kroki w aplikacji Notatki'). 'gromadzi' is the Polish App Store privacy label's word, read the same day on Cutling's own Polish store page: 'Dane nie są gromadzone. Deweloper nie gromadzi żadnych danych z tej aplikacji.' P1: 'Co zapiszesz, jest prywatne' and 'Zapisujesz tylko dla siebie' are both 27 against 26, so the title says private-to-you as 'only you see it', with Zapisane as the noun Polish apps use for saved things. If a claim about seeing reads as too strong, 'Co zapisane, to prywatne' (24) says only 'what is saved is private'. P2: W7's clause 'cutlingi synchronizują się tylko przez ... iCloud' with the condition added runs to 100 against 90, so the clause became the noun 'synchronizacja' (the setting is Synchronizacja z iCloud, and 'ją' points back to it) and the word cutlingi is left out; P1 above it already says what is being synced. 'Twój iCloud' replaces W7's 'własny iCloud', which had no person to belong to. P4 has Cutling as the subject of both clauses; 'nigdy nigdzie nie wysyła' follows the app's own 'nigdy nie są nigdzie wysyłane'. N2b: 'pisanie jak w Notatkach i dużo więcej miejsca' is 54 against 50, so the Notes part is 'edytor jak Notatki' (edytor is N5's word) and 'dużo więcej miejsca' stays whole; N17 carries 'Pisz jak w Notatkach'. N5b: three imperatives in a row instead of 'to put in', and 'i inne' for 'and more', since 'i nie tylko' takes the line to 113. TU2 keeps TU1's sentence and swaps the button. The button's name is 21 characters and already says 'za każdym razem', so 'you fill in each time' is carried by the name and not said twice; with 'do uzupełniania' added the line is 124. 'nad klawiaturą' stands before the name so the name is not read as running on into it."
+}

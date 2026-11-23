@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "hr"
+ ],
+ "strings": {
+  "P1": "Što spremiš, samo je tvoje",
+  "P2": "Bez računa, ništa se ne prikuplja; sinkronizacija samo preko tvog iClouda, ako je uključiš",
+  "P3": "Što tipkaš, ostaje privatno",
+  "P4": "Cutling nema račun i ništa ne prikuplja. Ono što tipkaš nikad se nikamo ne šalje.",
+  "N2b": "Varijable, pisanje kao u Bilješkama i više mjesta",
+  "N4b": "Varijable",
+  "N5b": "Uredi cutling i otvori Varijable da dodaš prazninu koju svaki put popuniš, današnji datum, izbor i još toga",
+  "N17": "Piši kao u Bilješkama",
+  "N18": "Tekst cutlinga sada se otvara na zasebnoj stranici, uz podebljano, podcrtano, isticanje i popise",
+  "TU2": "Dok pišeš, iznad tipkovnice dodirni Pitaj svaki put za prazninu koju svaki put popuniš, ili Dalje da preskočiš"
+ },
+ "back": {
+  "P1": "What you save is yours alone",
+  "P2": "No account, nothing is collected; syncing only through your iCloud, if you turn it on",
+  "P3": "What you type stays private",
+  "P4": "Cutling has no account and collects nothing. What you type is never sent anywhere.",
+  "N2b": "Variables, writing as in Notes and more room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling and open Variables to add a blank that you fill in each time, today's date, a choice and more besides",
+  "N17": "Write as in Notes",
+  "N18": "A cutling's text now opens on a separate page, with bold, underline, highlighting and lists",
+  "TU2": "While you write, above the keyboard tap Ask Each Time for a blank that you fill in each time, or Next to skip"
+ },
+ "notes": "Informal ti, sentence case, no final stop on a one-sentence line and full stops on the two-sentence P4, as strings/hr.json has them (W7, F6, T5). App words taken from hr.lproj: Varijable, Pitaj svaki put, Dalje, cutling/cutlinzi/cutlinga in lower case as the setup block writes them, praznina, današnji datum, izbor (Choice), podebljano and podcrtano used as nouns the way the app's 'zadržava podebljano, kurziv i poveznice' does, popis, sinkronizacija, 'preko tvog iClouda' (W7's words), uključiti for turning sync on, dodirni, tipkaš for typing into another app (W3, F6) and pišeš for writing the cutling's own text (TU1). Bilješke is Apple's Croatian name for Notes, read from Notes.app's hr strings on macOS, where Apple declines it in running text (u Bilješkama); N17 and N2b do the same. P1: 'samo je tvoje' (yours alone) carries 'private to you'; 'Što spremiš, ostaje privatno' is 28 against 26, and 'privatno' is kept for P3, where the brief says 'stays private'. P2: the verb clause W7 had, 'cutlinzi se sinkroniziraju samo preko tvog iClouda', leaves 5 characters for 'if you turn it on', so the line names the thing the Settings switch names, sinkronizacija, and 'ako je uključiš' refers to it (feminine je); the word cutlinzi is dropped, since under P1 the only thing that can sync is what the person saved. P2 is exactly 90. P4 uses nikamo, the standard adverb for direction, where the older 'nikada se ne šalju nigdje' in the app uses nigdje. N2b: 'puno više mjesta', as N2 had it, makes 54 against 50; the line says 'više mjesta' as N3 already does for the same thing, so 'far' is not carried. N18 adds 'sada' (now), as the brief's paragraph on the text page has it; highlight is the noun isticanje of the app's Istakni. N5b and TU2 share 'prazninu koju svaki put popuniš' (perfective present for a habit, gender-free); N5b uses 'da dodaš' because 'kako bi dodao/dodala' would mark gender. TU2 is exactly 110: the place comes before the verb so the button's name, which sentence case does not set off, is not read on into 'iznad tipkovnice'; 'za prazninu' stands for 'to leave a blank'; the second 'dodirni' is left to ellipsis ('ili Dalje da preskočiš'), and the comma before ili is kept so the alternative is not read into the relative clause. No quotation marks round button names, as T4 and A5 write them. The folder's en.json was opened while listing the folder; every string here was composed from the brief's table and the Croatian files, not from it."
+}

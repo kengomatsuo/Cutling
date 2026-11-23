@@ -91,8 +91,8 @@ struct FullAccessSheet: View {
             rows: [
                 AppleSheetRow(symbol: "photo.on.rectangle", title: "Images and Clipboard",
                               detail: "Full Access lets the keyboard copy a saved image and add what you copied."),
-                AppleSheetRow(symbol: "wifi.slash", title: "Nothing Leaves Your iPhone",
-                              detail: "Cutling has no account and never connects to the internet. It doesn't read what you type."),
+                AppleSheetRow(symbol: "lock.shield", title: "What You Type Stays Private",
+                              detail: "Cutling has no account and collects nothing. What you type is never sent anywhere."),
                 AppleSheetRow(symbol: "exclamationmark.shield", title: "Apple's Warning",
                               detail: "iOS shows the same warning for every keyboard that asks, whatever it does."),
             ],
@@ -166,8 +166,8 @@ struct SetupGuide: View {
                                   detail: "Save what you type over and over, then tap it on the keyboard in any app."),
                     AppleSheetRow(symbol: "photo.on.rectangle", title: "Images Too",
                                   detail: "Copy a saved image with one tap and paste it anywhere."),
-                    AppleSheetRow(symbol: "lock.fill", title: "Stays on Your iPhone",
-                                  detail: "No account, no internet. Your cutlings sync only through your own iCloud."),
+                    AppleSheetRow(symbol: "lock.fill", title: "What You Save Is Private",
+                                  detail: "No account, nothing collected. Cutlings sync only through your iCloud, if you turn it on."),
                 ],
                 topPadding: setupPageTopPadding,
                 buttonID: "continueButton"

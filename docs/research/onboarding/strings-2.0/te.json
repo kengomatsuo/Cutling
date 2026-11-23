@@ -1,0 +1,31 @@
+{
+ "folders": [
+  "te",
+  "te-IN"
+ ],
+ "strings": {
+  "P1": "మీరు సేవ్ చేసేది ప్రైవేట్",
+  "P2": "ఖాతా లేదు, డేటా సేకరణ లేదు; సింక్ ఆన్ చేస్తే కట్లింగ్‌లు మీ iCloud ద్వారానే సింక్ అవుతాయి",
+  "P3": "మీ టైపింగ్ ప్రైవేట్‌గా ఉంటుంది",
+  "P4": "కట్లింగ్‌కు ఖాతా లేదు, అది ఏ డేటానూ సేకరించదు; మీరు టైప్ చేసేదాన్ని ఎప్పుడూ ఎక్కడికీ పంపదు",
+  "N2b": "వేరియబుల్స్, నోట్స్‌లోలా రాయడం, ఇంకా ఎక్కువ చోటు",
+  "N4b": "వేరియబుల్స్",
+  "N5b": "కట్లింగ్‌ను సవరిస్తూ వేరియబుల్స్ తెరిచి, ప్రతిసారీ నింపే ఖాళీ, ఈరోజు తేదీ, ఎంపిక, ఇంకా మరెన్నో జోడించండి",
+  "N17": "నోట్స్ యాప్‌లోలా రాయండి",
+  "N18": "కట్లింగ్‌లోని టెక్స్ట్ ఇప్పుడు బోల్డ్, అండర్‌లైన్, హైలైట్, జాబితాలు ఉన్న సొంత పేజీలో తెరుచుకుంటుంది",
+  "TU2": "టైప్ చేస్తూ కీబోర్డ్ పైన “ప్రతిసారీ అడుగు” నొక్కి, ప్రతిసారీ నింపే ఖాళీ ఉంచండి. దాటవేయాలంటే “తదుపరి” నొక్కండి"
+ },
+ "back": {
+  "P1": "What you save is private",
+  "P2": "No account, no data collection; if you turn sync on, cutlings sync only through your iCloud",
+  "P3": "Your typing stays private",
+  "P4": "Cutling has no account, it collects no data at all; it never sends what you type anywhere",
+  "N2b": "Variables, writing as in Notes, and still more room",
+  "N4b": "Variables",
+  "N5b": "While editing a cutling, open Variables and add a blank to fill in each time, today's date, a choice, and many more besides",
+  "N17": "Write as in the Notes app",
+  "N18": "The text in a cutling now opens on a page of its own that has bold, underline, highlight and lists",
+  "TU2": "While typing, tap \"Ask Each Time\" above the keyboard and leave a blank to fill in each time. If you want to skip, tap \"Next\""
+ },
+ "notes": "Register as in strings/te.json: polite మీరు, imperatives in -ండి, no exclamation marks, no closing full stop, a full stop only between two sentences (TU2) and a semicolon inside one line (P2, P4), as W7, F6 and N9 had. te and te-IN differ only in older strings (the bank sample and the sensitive-content warnings), so one set serves both. Taken exactly from te.lproj/Localizable.strings: వేరియబుల్స్ (Variables, N4b verbatim), ప్రతిసారీ అడుగు (Ask Each Time, verbatim in TU2), తదుపరి (Next), ఈరోజు తేదీ and ఎంపిక (the Variables list's own labels for today's date and a choice, so the person finds the same words there; the retired N5 said నేటి తేదీ), బోల్డ్, అండర్‌లైన్, హైలైట్, జాబితా (the Format card's words), ఖాతా, iCloud, సింక్, ప్రైవేట్‌గా ఉంటుంది (the file's 'stays private'), సవరించు (Edit, as సవరిస్తూ), దాటవేయి (Skip, as దాటవేయాలంటే), యాప్, టెక్స్ట్, కీబోర్డ్. The blank stays ఖాళీ and 'far more room' stays ఇంకా ఎక్కువ చోటు, as on the earlier sheets; the blank is ప్రతిసారీ నింపే ఖాళీ in both N5b and TU2. Apple's Notes is నోట్స్: CFBundleDisplayName in MobileNotes.app/te.lproj/InfoPlist.strings of the iOS 27.2 simulator runtime, read on 2026-11-23 (macOS Notes has no Telugu). N17 says నోట్స్ యాప్ because నోట్స్ is also everyday Telugu for study notes; N2b keeps the bare నోట్స్‌లోలా, since నోట్స్ యాప్‌లోలా there is 53 against 50 and the N17 row beside it names the app. -లోలా ('as in') is used in both because నోట్స్ యాప్‌లో లాగా రాయండి is 26 against 24. P1 is a verbless statement, ordinary for a Telugu title; 'to you' is carried by మీరు and not said twice. P3 uses the noun టైపింగ్ because మీరు టైప్ చేసేది ప్రైవేట్‌గా ఉంటుంది is 36 against 30 and dropping ఉంటుంది would lose 'stays'; the line under it (P4) says మీరు టైప్ చేసేదాన్ని, as F6 did. 'Collects nothing' is written with డేటా (డేటా సేకరణ లేదు, ఏ డేటానూ సేకరించదు), the usual Telugu wording for an app collecting data and the file's own word in మీ డేటా ప్రైవేట్‌గా ఉంటుంది. P2 has no named subject, so it uses the noun form to keep కట్లింగ్ for the items only; -నే on ద్వారానే carries 'only through', and the conditional చేస్తే carries 'if you turn sync on'; 'your own iCloud' is మీ iCloud as W7 had it. P4 is active with Cutling as the sender (పంపదు) in place of the file's older passive పంపబడదు, which reads as translated. N18 puts the formatting before the page as a relative clause, the Telugu order, and సొంత పేజీ is 'a page of its own' as the file's యాప్ సొంత నిల్వ is the app's own storage. TU2 puts both button names in “ ”, the quotes Localizable.strings uses, because అడుగు alone also means 'step' and ప్రతిసారీ follows it straight after; ఖాళీ ఉంచండి is 'leave a blank' (వదలండి after నొక్కి would read as press and release). Budgets counted in Unicode code points, ZWNJ included, the stricter count for Telugu: P1 25/26, P2 89/90, P3 30/30, P4 90/100, N2b 48/50, N4b 11/24, N5b 104/110, N17 23/24, N18 99/110, TU2 109/110."
+}

@@ -1,0 +1,31 @@
+{
+ "folders": [
+  "sl",
+  "sl-SI"
+ ],
+ "strings": {
+  "P1": "Kar shraniš, je samo tvoje",
+  "P2": "Brez računa in zbiranja podatkov. Sinhronizacija le prek tvojega iClouda, če jo vklopiš.",
+  "P3": "Kar tipkaš, ostane zasebno",
+  "P4": "Cutling nima računa in ne zbira ničesar. Kar tipkaš, se nikoli nikamor ne pošilja.",
+  "N2b": "Spremenljivke, pišeš kot v Zapiskih, več prostora",
+  "N4b": "Spremenljivke",
+  "N5b": "Uredi cutling, odpri Spremenljivke in dodaj prazno mesto, ki ga vsakič izpolniš, današnji datum, izbiro in več",
+  "N17": "Piši kot v Zapiskih",
+  "N18": "Besedilo cutlinga se zdaj odpre na posebni strani s krepko in podčrtano pisavo, označevanjem ter seznami",
+  "TU2": "Ko pišeš, nad tipkovnico tapni Vprašaj vsakič za prazno mesto, ki ga vsakič izpolniš, ali preskoči z Naprej."
+ },
+ "back": {
+  "P1": "What you save is yours alone",
+  "P2": "Without an account and without collecting data. Syncing only through your iCloud, if you turn it on.",
+  "P3": "What you type stays private",
+  "P4": "Cutling has no account and collects nothing. What you type is never sent anywhere.",
+  "N2b": "Variables, you write as in Notes, more room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling, open Variables and add a blank that you fill in each time, today's date, a choice and more",
+  "N17": "Write as in Notes",
+  "N18": "A cutling's text now opens on a page of its own with bold and underlined type, highlighting and lists",
+  "TU2": "When you write, above the keyboard tap Ask Each Time for a blank that you fill in each time, or skip with Next."
+ },
+ "notes": "Informal ti and sentence case, as strings/sl.json has them; a one-sentence sheet line carries no final stop and the two-sentence P2 and P4 carry stops, as W7 and F6 did. TU2 ends in a stop because it is shown between walkthrough tips that all do in sl.lproj ('Zdaj vnesi besedilo, ki ga želiš shraniti.', 'Tapni tukaj, da shraniš svoj cutling.'); the old TU1 had none. App words from sl.lproj (sl-SI is byte-identical): Spremenljivke, Vprašaj vsakič (the 'Ask Each Time' button, not the older 'Vsakič vprašaj' of 'Ask each time'), Naprej, Uredi, cutling in lower case and declined (cutlinga), današnji datum, izbira (Choice), prazno mesto for a blank as N5 and TU1 had it, tipkaš for typing into another app and pišeš for writing the cutling's own text, 'le prek tvojega iClouda' (W7's words), vklopiti for turning sync on, sinhronizacija as the Settings switch 'Sinhronizacija z iCloud' names it. Zapiski is Apple's Slovenian name for Notes, read from Notes.app's sl strings on macOS (CFBundleDisplayName 'Zapiski'), where Apple declines it in running text ('v Zapiskih'); N17 and N2b do the same. The same file gives Krepko for Bold and Označi for Highlight ('Barva označbe'), which match the app's Format card, so N18 says 'krepko in podčrtano pisavo' (bold and underlined type) and 'označevanjem' (highlighting). P1: 'samo tvoje' (yours alone) carries 'private to you' in exactly 26; 'zasebno' is kept for P3, where the brief says 'stays private'. P2: the verb clause W7 had, 'Cutlingi se sinhronizirajo le prek tvojega iClouda', leaves no room for 'if you turn it on', so the line names the thing the switch names, sinhronizacija, and 'če jo vklopiš' refers to it (feminine jo); under P1 the only thing that can sync is what the person saved. 'Brez računa in zbiranja podatkov' follows the shape of W7's 'Brez računa in interneta'. P4: imperfective 'se ne pošilja' for a standing fact; nikamor is the adverb of direction. N2b: the all-noun line 'Spremenljivke, pisanje kot v Zapiskih, več prostora' is 51 against 50 and with 'in' 53, so the middle item is the verb 'pišeš' (you write); 'far' is not carried, as N3 already says 'Več prostora' for the same thing, and 'prostor' is kept because the row below is 'Prostor za %@' ('več mesta' would fit but collides with 'prazno mesto', the blank). N5b is exactly 110: three imperatives in a row keep the button's name in the form the button shows; 'in več' stands for 'and more' because 'in še kaj' makes 113. N18 adds 'zdaj' (now), as the brief's paragraph on the text page has it; 'na posebni strani' is the idiomatic 'on a page of its own' ('na svoji strani' also reads as 'on its side'); 'ter' closes the outer list so it is not read into 'krepko in podčrtano'. TU2: the place comes before the verb so the button's name, which sentence case does not set off, is bounded by 'tapni' and 'za' and not read on into 'nad tipkovnico'; 'za prazno mesto' stands for 'to leave a blank' because 'da pustiš prazno mesto' with 'tapni Naprej za preskok' makes 121; 'preskoči z Naprej' (skip with Next) carries 'tap Next to skip' with a verb. The comma before 'ali' closes the relative clause. No quotation marks round button names, as T4 and A5 write them. The folder's en.json and hr.json were opened to see the hand-back format; every string here was composed from the brief's table and the Slovenian files."
+}

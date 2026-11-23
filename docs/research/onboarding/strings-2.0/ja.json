@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "ja"
+ ],
+ "strings": {
+  "P1": "保存した内容は自分だけのもの",
+  "P2": "アカウントは不要で、データも一切収集しません。カットリングの同期は、オンにした場合に自分の iCloud だけで行います。",
+  "P3": "入力した内容は自分だけのもの",
+  "P4": "カットリングにはアカウントがなく、データも一切収集しません。入力した内容をどこかに送信することもありません。",
+  "N2b": "変数、「メモ」のような書き心地、ぐっと広がった保存数",
+  "N4b": "変数",
+  "N5b": "カットリングを編集して「変数」を開くと、使うたびに埋める空欄、今日の日付、選択肢などを追加できます。",
+  "N17": "「メモ」のように書ける",
+  "N18": "カットリングのテキストは専用のページで開き、ボールド、下線、ハイライト、リストが使えます。",
+  "TU2": "入力中にキーボードの上の「毎回尋ねる」をタップすると、使うたびに埋める空欄を残せます。省略するには「次へ」をタップします。"
+ },
+ "back": {
+  "P1": "What you saved is yours alone",
+  "P2": "No account is needed, and no data at all is collected either. Syncing of cutlings, if you turn it on, is done through your own iCloud only.",
+  "P3": "What you typed is yours alone",
+  "P4": "Cutling has no account and collects no data at all either. Nor does it send what you typed anywhere.",
+  "N2b": "Variables, a writing feel like Notes, and room to save that has grown a great deal",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling and open Variables, and you can add a blank you fill in at every use, today's date, a choice and so on.",
+  "N17": "You can write as in Notes",
+  "N18": "A cutling's text opens on a page of its own, and bold, underline, highlight and lists can be used.",
+  "TU2": "While typing, tap Ask Each Time above the keyboard and you can leave a blank to fill in at every use. To skip, tap Next."
+ },
+ "notes": "Plain polite です/ます on row lines and the tip, each closed with 。; titles (P1, P3, N4b, N17) and the subtitle (N2b) carry no 。, as ja.json has them. Words taken from ja.lproj and ja.json unchanged: カットリング, 変数 (Variables; N4b is the string itself), 毎回尋ねる (Ask Each Time, verbatim in TU2), 次へ (Next), 同期, iCloud with a space on each side, 今日の日付, 選択肢 (Choice), 空欄 and 使うたびに埋める空欄 for the blank (N5 and TU1's words), ボールド, 下線, ハイライト, リスト (the Format card's words), テキスト, ぐっと広がった保存数 (N2's phrase for far more room). Notes is メモ, read from Notes.app's Japanese InfoPlist on this Mac; because メモ is also the everyday word for a note, it is written 「メモ」, the form Apple's Japanese iPhone guide uses when it names the app in a heading (support.apple.com/ja-jp/guide/iphone/iph1ac0b3a2/ios, read 2026-11-23), and the same 「」 these sheets already put round names (「お試し」, 「次へ」). 「変数」 and 「毎回尋ねる」 are quoted for the same reason. P1 and P3 say 'yours alone' (自分だけのもの), the ordinary Japanese for private to you; 非公開 and プライベート belong to posts and browsing. 自分 is the sheets' word for the person (自分の iCloud). 'Nothing collected' is データも一切収集しません, the wording Japanese privacy labels use. P2 keeps W7's sentence for sync and adds the condition; 'オンにした場合に' refers to 同期, the topic of that sentence. P4 keeps F6's opening. N2b is three noun phrases, as N2 was two; 書き心地 is the usual word for how writing feels in an app. TU2 is TU1 with only the button changed: 'above the keyboard' is キーボードの上の, and 'while you type the text' is 入力中に, since the tip before it has just said to type the text. All ten are inside their budgets, counted in Unicode code points (longest: P2 61 of 90 and TU2 61 of 110)."
+}

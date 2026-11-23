@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "it"
+ ],
+ "strings": {
+  "P1": "Ciò che salvi è solo tuo",
+  "P2": "Nessun account né raccolta dati; se attivi la sincronizzazione, passa solo dal tuo iCloud",
+  "P3": "Ciò che scrivi resta privato",
+  "P4": "Cutling non ha account e non raccoglie nulla; ciò che scrivi non viene mai inviato altrove",
+  "N2b": "Variabili, testo come in Note e molto più spazio",
+  "N4b": "Variabili",
+  "N5b": "Modifica un cutling e apri Variabili: un campo da compilare ogni volta, la data di oggi, una scelta e altro",
+  "N17": "Scrivi come in Note",
+  "N18": "Il testo di un cutling si apre in una pagina tutta sua, con grassetto, sottolineato, evidenziazione ed elenchi",
+  "TU2": "Mentre scrivi, tocca “Chiedi ogni volta” sopra la tastiera per lasciare un campo da compilare, o tocca Avanti"
+ },
+ "back": {
+  "P1": "What you save is yours alone",
+  "P2": "No account nor data collection; if you turn on sync, it goes only through your iCloud",
+  "P3": "What you write stays private",
+  "P4": "Cutling has no account and collects nothing; what you write is never sent elsewhere",
+  "N2b": "Variables, text as in Notes and much more room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling and open Variables: a field to fill in each time, today's date, a choice and more",
+  "N17": "Write as in Notes",
+  "N18": "A cutling's text opens on a page all its own, with bold, underline, highlighting and lists",
+  "TU2": "While you write, tap “Ask each time” above the keyboard to leave a field to fill in, or tap Next"
+ },
+ "notes": "Informal tu, sentence case, no final period, plain apostrophe and a semicolon between two clauses, as in strings/it.json. Words kept from it.lproj and the earlier sheets: cutling, Variabili, Chiedi ogni volta, Avanti, Modifica un cutling (the app's own string), sincronizzazione and attivare (Attiva sincronizzazione iCloud), il tuo iCloud (W7), ciò che scrivi for what you type (F6), campo da compilare for a blank (Fill-in Field), data di oggi, scelta, molto più spazio (N3), non viene mai inviato altrove (the app's 'never sent anywhere'), grassetto, sottolineato, elenchi; evidenziazione is the noun of the app's Evidenzia. Note is Apple's Italian name for Notes, read from Notes.app's own it strings on this Mac (CFBundleDisplayName), where Apple writes 'in Note' in running text. P1 says 'è solo tuo' (yours alone) for 'private to you'; 'resta privato' is 27 against 26, and P3 keeps the word privato. P2 leaves the word cutling out to stay in 90: under P1's title the only thing that can sync is what the person saves, and 'passa solo dal tuo iCloud' has la sincronizzazione as its subject; the version with W7's own clause, 'i cutling si sincronizzano solo con il tuo iCloud, se lo attivi', is 96 with the opening. 'raccolta dati' is the usual Italian compound for data collection. N5b is 107: 'per inserire' after Variabili makes it 119, so a colon introduces what Variables holds and 'to put in' is left to it; the items keep their articles. N18 says 'una pagina tutta sua' for a page of its own. TU2 is 109 and leaves two things to the button's name and position: the name already says 'ogni volta', so the blank is 'un campo da compilare' without a second 'ogni volta', and 'to skip' is unsaid ('o tocca Avanti'), as TU1's English key did; with 'per saltare' it is 121. The button's name is in “ ” in TU2 only: unquoted, 'tocca Chiedi ogni volta sopra la tastiera' also reads as 'tap Chiedi every time above the keyboard', because only its first word is capitalised. Single-word names (Variabili, Avanti, Note) stay unquoted as in the earlier strings; it.lproj already uses “ ” for “Salva come file”."
+}

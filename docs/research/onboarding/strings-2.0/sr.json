@@ -1,0 +1,30 @@
+{
+  "folders": [
+    "sr"
+  ],
+  "strings": {
+    "P1": "Сачувано је само твоје",
+    "P2": "Без налога и прикупљања података; синхронизација само преко твог iCloud-а, ако је укључиш",
+    "P3": "Оно што куцаш остаје приватно",
+    "P4": "Катлинг нема налог и не прикупља никакве податке. Оно што куцаш никад се никуда не шаље.",
+    "N2b": "Променљиве, текст као у Notes-у и много више места",
+    "N4b": "Променљиве",
+    "N5b": "Уреди катлинг и отвори Променљиве да додаш поље које сваки пут попуњаваш, данашњи датум, избор и још тога",
+    "N17": "Пиши као у Notes-у",
+    "N18": "Текст катлинга се сада отвара на засебној страници, са подебљаним и подвученим словима, истицањем и листама",
+    "TU2": "Док куцаш, додирни „Питај сваки пут” изнад тастатуре за поље које сваки пут попуњаваш, или „Даље” да прескочиш"
+  },
+  "back": {
+    "P1": "What is saved is yours alone",
+    "P2": "Without an account and without collecting of data; syncing only through your iCloud, if you turn it on",
+    "P3": "That which you type stays private",
+    "P4": "Cutling has no account and does not collect any data. That which you type is never sent anywhere.",
+    "N2b": "Variables, text like in Notes and much more room",
+    "N4b": "Variables",
+    "N5b": "Edit a cutling and open Variables to add a field that you fill in each time, today's date, a choice and more besides",
+    "N17": "Write like in Notes",
+    "N18": "A cutling's text now opens on a separate page, with bold and underlined letters, highlighting and lists",
+    "TU2": "While you type, tap \"Ask Each Time\" above the keyboard for a field that you fill in each time, or \"Next\" to skip"
+  },
+  "notes": "Cyrillic, ekavian, informal ти, sentence case, no final stop on a one-sentence line and stops on the two-sentence P4, as strings/sr.json has them (W7, F6, T5). Words taken from sr.lproj: Катлинг for the app and катлинг in lower case for a snippet, Променљиве, Питај сваки пут, Даље, iCloud-а, синхронизација (the switch is iCloud синхронизација), укључити, тастатура, данашњи датум, Избор, and the Format card's Подебљано, Подвучено, Истицање and Листа, declined in N18 as a sentence needs. Notes stays Notes in Latin: Apple has no Serbian system language (Notes.app on macOS has no sr folder), and Apple's Serbian iPhone guide, read on 2026-11-23 at support.apple.com/sr-rs/guide/iphone/welcome/ios, writes 'Први кораци у апликацији Notes' and 'Промена подешавања за Notes', so that is the name on a Serbian reader's phone. The case ending is hyphenated (Notes-у) as the file writes iPhone-у and iCloud-а and as that guide writes iPhone-у; 'Пиши као у апликацији Notes' would be 27 against 24. A blank is поље, the word the editor's own Variables line uses ('можеш да додаш поље, које попуњаваш при сваком коришћењу'), since that is what the person meets after opening Променљиве; празнина stood only in N4, N5 and TU1, which these rows replace. P1: 'само твоје' (yours alone) carries 'private to you', and приватно is kept for P3, where the brief says 'stays private'. P2: the clause W7 had, 'катлинзи се синхронизују само преко твог iCloud-а', with the sync condition made 99 against 90, so the line names синхронизација, the word on the Settings switch, and 'ако је укључиш' refers to it; the word катлинзи is dropped, since under P1 the only thing that can sync is what was saved. 'Без налога и прикупљања података' is the usual Serbian privacy phrase and matches P4's 'не прикупља никакве податке'. P2 is 89. P3 and P4 use 'оно што куцаш', the free relative, where F6's 'не чита шта куцаш' was an indirect question; никуда is the adverb of direction. N2b is exactly 50: 'писање као у Notes-у и много више простора', in N2's words, is 54, so writing is 'текст као у Notes-у' (N18 opens with Текст) and room is места, the word N6's row title 'Места за %@' already uses on the same sheet; this keeps 'much more'. The other fit, 48, was 'Променљиве, писање као у Notes-у и више простора', which keeps писање and N3's простора and loses 'far'. N5b: 'избор' is the picker's own label for a choice; 'и још тога' is 'and more' (with много it is 111). N18: 'сада' (now) as the brief's paragraph on the text page has it. TU2 is exactly 110. 'To leave a blank' is 'за поље' (for a field): with 'да оставиш поље' the line is 118. 'Док куцаш' stands for 'while you type the text', as TU1 had it. Both button names are in Serbian quotes „ ” (the pair sr.lproj uses in its Step 1 line), because Питај сваки пут is an imperative clause and unquoted it reads on into the sentence as 'ask each time above the keyboard'; the sheets and other tips leave single-word names such as Даље unquoted, and Даље is quoted here only so one sentence does not quote one name and not the other. Without any quotes TU2 is 106. Not used: the file's 'Done', 'Save' and 'Edit' are in Latin script (Gotovo, Sačuvaj, Uredi), a defect in sr.lproj; N5b's Уреди is the Cyrillic verb its tips already use."
+}

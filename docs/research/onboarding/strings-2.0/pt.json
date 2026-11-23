@@ -1,0 +1,36 @@
+{
+  "folders": [
+    "pt",
+    "pt-PT"
+  ],
+  "strings": {
+    "P1": "O que guarda é só seu",
+    "P2": "Sem conta nem recolha de dados. Os cutlings sincronizam só pelo seu iCloud, se o ativar.",
+    "P3": "O que escreve continua privado",
+    "P4": "O Cutling não tem conta nem recolhe dados, e o que escreve nunca é enviado para lado algum",
+    "N2b": "Variáveis, texto como em Notas e muito mais espaço",
+    "N4b": "Variáveis",
+    "N5b": "Edite um cutling e abra Variáveis para pôr espaços a preencher de cada vez, a data de hoje, escolhas e mais",
+    "N17": "Escreva como em Notas",
+    "N18": "O texto de um cutling abre-se agora numa página própria, com negrito, sublinhado, realce e listas",
+    "TU2": "Ao escrever, deixe espaços a preencher de cada vez: toque em Perguntar sempre acima do teclado. Ou em Seguinte"
+  },
+  "back": {
+    "P1": "What you save is yours alone",
+    "P2": "No account and no data collection. The cutlings sync only through your iCloud, if you turn it on.",
+    "P3": "What you type stays private",
+    "P4": "Cutling has no account and collects no data, and what you type is never sent anywhere",
+    "N2b": "Variables, text like in Notes and much more room",
+    "N4b": "Variables",
+    "N5b": "Edit a cutling and open Variables to put in blanks to fill in each time, today's date, choices and more",
+    "N17": "Write like in Notes",
+    "N18": "A cutling's text now opens on a page of its own, with bold, underline, highlight and lists",
+    "TU2": "While typing, leave blanks to fill in each time: tap Ask Each Time above the keyboard. Or Next"
+  },
+  "notes": "European Portuguese, polite imperative (Edite, Escreva, toque) and 'o seu', as strings/pt.json; post-1990 spelling (ativar) as that file. Sentence-case titles. Final full stop only on P2, as W7 had on the welcome sheet; the Full Access, What's New and walkthrough lines carry none, as F4/F6/F8, N5/N9 and TU1. Words kept from the locale: 'espaço' for a blank and 'de cada vez' (TU1), 'muito mais espaço' (N2/N3), 'nunca ... enviado para lado algum' and 'continua privado' (the file's own 'Os seus dados continuam privados e nunca são enviados para lado algum'), 'sincronizam só pelo seu iCloud' (W7), 'abre-se' (the file's 'o Cutling abre-se sozinho'). 'Recolha de dados / recolhe dados' is the verb of the App Store privacy label in Portugal ('Dados não recolhidos'). P1 says 'é só seu' (yours alone) for 'private to you'; P3 is exactly 30. P2 'se o ativar': 'o' is iCloud, since 'se ativar a sincronização' runs past 90. N4b is the editor's 'Variáveis' exactly. Apple's Notes app is 'Notas' in Apple's pt-PT iPhone guide (support.apple.com/pt-pt/guide/iphone, 'Começar a usar a aplicação Notas', 'Alterar a vista de Notas', read 2026-11-23), which writes the name with no article, so 'em Notas' in N2b and N17; the same guide has 'negrito' and 'realce', and 'Sublinhado' and 'Lista' are the editor's words ('realce' is the noun of its 'Realçar'). N2b says 'texto como em Notas' because 'escrita como em Notas' is 52 against 50; it is exactly 50. N5b and TU2 put the blank and the choice in the plural ('espaços a preencher de cada vez', 'escolhas', after the editor's variable 'Escolha'): the singular runs to 112 in each. N18 adds 'agora' (now), from the brief's own sentence. TU2: 'Perguntar sempre' and 'Seguinte' exactly as pt-PT.lproj has them, no quotes around button names as in TU1; it is exactly 110 and so ends 'Ou em Seguinte' (Or Next, the verb 'toque' carried over) without 'para saltar' (to skip), which does not fit beside 'acima do teclado'. FOLDER DIFFERENCE: pt.lproj has \"Next\" = \"Avançar\" where pt-PT.lproj has \"Seguinte\" (pt.lproj's older strings are Brazilian: Ajustes, Salvar, Excluir), so in pt.lproj TU2 should end 'Ou em Avançar' (109) to match the button it shows; the existing TU1 says 'Avançar' in both folders, which is wrong for pt-PT.",
+  "overrides": {
+    "pt": {
+      "TU2": "Ao escrever, deixe espaços a preencher de cada vez: toque em Perguntar sempre acima do teclado. Ou em Avançar"
+    }
+  }
+}

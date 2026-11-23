@@ -545,8 +545,6 @@
 "Save what you type over and over, then tap it on the keyboard in any app." = "把常打的文字存起来，在任何 App 的键盘上轻点就能输入。";
 "Images Too" = "图片也可以";
 "Copy a saved image with one tap and paste it anywhere." = "轻点一下就能复制存好的图片，再粘贴到任何地方。";
-"Stays on Your iPhone" = "数据只留在 iPhone 上";
-"No account, no internet. Your cutlings sync only through your own iCloud." = "无需账户，也不用联网。只通过你自己的 iCloud 同步。";
 "Add the Keyboard" = "添加键盘";
 "Turn on Cutling in Settings, then come back." = "在设置中打开 Cutling，然后回到这个 App";
 "About Full Access" = "关于完全访问权限";
@@ -556,8 +554,6 @@
 "Cutling types your text without it." = "不开启也能输入文字";
 "Images and Clipboard" = "图片和剪贴板";
 "Full Access lets the keyboard copy a saved image and add what you copied." = "开启完全访问后，键盘可以复制存好的图片，并添加你复制的内容。";
-"Nothing Leaves Your iPhone" = "内容不会离开 iPhone";
-"Cutling has no account and never connects to the internet. It doesn't read what you type." = "Cutling 没有账户，也从不联网，不会读取你输入的内容。";
 "Apple's Warning" = "Apple 的警告";
 "iOS shows the same warning for every keyboard that asks, whatever it does." = "任何请求完全访问的键盘，iOS 都会显示同样的警告，不论它做什么。";
 "Try It" = "试一试";
@@ -567,10 +563,7 @@
 "Cutling typed it. You're set." = "已输入，可以开始用了";
 "Try Me" = "试试看";
 "Cutling typed this for me." = "这是 Cutling 帮我输入的";
-"Blanks to fill in, and far more room." = "可填空，容量大增";
 "Far more room, and every key types." = "容量大增，每个键都能输入";
-"Blanks and Dates" = "填空与日期";
-"Add a blank or today’s date from the editor, and fill the blank in each time you type the cutling." = "在编辑器里加入空白或今天的日期，每次输入这条内容时再填写空白。";
 "Room for %@" = "可存 %@ 条";
 "Save up to %@ texts and %@ images." = "最多存 %1$@ 条文字和 %2$@ 张图片";
 "Every Key Types" = "每个键都能输入";
@@ -582,7 +575,6 @@
 "Share text, links or images to Cutling from any app." = "在任何 App 里，都能把文字、链接或图片分享给 Cutling。";
 
 /* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */
-"While you type the text, tap the braces button to leave a blank you fill in each time. Or tap Next." = "输入时轻点花括号按钮，可留出空白，每次使用 Cutling 时再填写。想跳过，请轻点“下一步”。";
 
 /* MARK: - Text page, Format card and Variables (docs/text-page-strings-brief.md) */
 "Format" = "格式";
@@ -700,3 +692,14 @@
 "Number in Words" = "中文数字";
 "Value from a Shortcut" = "快捷指令结果";
 "A shortcut’s result" = "快捷指令返回的结果";
+
+/* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */
+"What You Save Is Private" = "你存的内容只属于你";
+"No account, nothing collected. Cutlings sync only through your iCloud, if you turn it on." = "无需账户，不收集任何数据。如果开启同步，你存的内容也只通过你自己的 iCloud 同步。";
+"What You Type Stays Private" = "你输入的内容只属于你";
+"Cutling has no account and collects nothing. What you type is never sent anywhere." = "Cutling 没有账户，也不收集任何数据。你输入的内容不会发送到任何地方。";
+"Variables, writing as in Notes, and far more room." = "新增变量，像在“备忘录”里一样书写，容量大增";
+"Edit a cutling and open Variables to add a blank you fill in each time, today’s date, a choice and more." = "编辑一条内容时打开“变量”，可以加入每次使用时再填写的空白、今天的日期、选项等。";
+"Write as You Do in Notes" = "像在“备忘录”里一样书写";
+"A cutling’s text now opens on a page of its own, with bold, underline, highlight and lists." = "每条文字都在单独的页面里打开，可以用粗体、下划线、高亮和列表。";
+"As you type, tap Ask Each Time above the keyboard to leave a blank you fill in each time. Or tap Next to skip." = "输入时轻点键盘上方的“每次询问”，可留出空白，每次使用时再填写。想跳过，请轻点“下一步”。";

@@ -543,8 +543,6 @@
 "Save what you type over and over, then tap it on the keyboard in any app." = "తరచూ టైప్ చేసేది సేవ్ చేసి, ఏ యాప్‌లోనైనా కీబోర్డ్‌లో నొక్కండి";
 "Images Too" = "చిత్రాలూ పనిచేస్తాయి";
 "Copy a saved image with one tap and paste it anywhere." = "సేవ్ చేసిన చిత్రాన్ని ఒక్క నొక్కుతో కాపీ చేసి ఎక్కడైనా అతికించండి";
-"Stays on Your iPhone" = "ఇది మీ iPhoneలోనే ఉంటుంది";
-"No account, no internet. Your cutlings sync only through your own iCloud." = "ఖాతా, ఇంటర్నెట్ అవసరం లేదు; కట్లింగ్‌లు మీ iCloud ద్వారా మాత్రమే సింక్ అవుతాయి";
 "Add the Keyboard" = "కీబోర్డ్‌ను జోడించండి";
 "Turn on Cutling in Settings, then come back." = "సెట్టింగ్‌లలో కట్లింగ్‌ను ఆన్ చేసి, ఈ యాప్‌కు తిరిగి రండి";
 "About Full Access" = "పూర్తి యాక్సెస్ గురించి";
@@ -554,8 +552,6 @@
 "Cutling types your text without it." = "కట్లింగ్ ఇది లేకుండానే టెక్స్ట్ టైప్ చేస్తుంది";
 "Images and Clipboard" = "చిత్రాలు, క్లిప్‌బోర్డ్";
 "Full Access lets the keyboard copy a saved image and add what you copied." = "పూర్తి యాక్సెస్‌తో కీబోర్డ్ సేవ్ చేసిన చిత్రాన్ని కాపీ చేసి, మీరు కాపీ చేసినదాన్ని జోడిస్తుంది";
-"Nothing Leaves Your iPhone" = "ఏదీ iPhone దాటి వెళ్లదు";
-"Cutling has no account and never connects to the internet. It doesn't read what you type." = "కట్లింగ్‌కు ఖాతా లేదు, ఇంటర్నెట్‌కు కనెక్ట్ కాదు; మీరు టైప్ చేసేది చదవదు";
 "Apple's Warning" = "Apple హెచ్చరిక";
 "iOS shows the same warning for every keyboard that asks, whatever it does." = "ఏ కీబోర్డ్ అడిగినా, అది ఏం చేసినా iOS ఇదే హెచ్చరిక చూపిస్తుంది";
 "Try It" = "ప్రయత్నించండి";
@@ -565,10 +561,7 @@
 "Cutling typed it. You're set." = "కట్లింగ్ టైప్ చేసింది. మీరు సిద్ధం";
 "Try Me" = "ప్రయత్నించు";
 "Cutling typed this for me." = "కట్లింగ్ నా కోసం ఇది టైప్ చేసింది";
-"Blanks to fill in, and far more room." = "నింపాల్సిన ఖాళీలు, ఇంకా ఎక్కువ చోటు";
 "Far more room, and every key types." = "ఇంకా ఎక్కువ చోటు, ప్రతి కీ టైప్ అవుతుంది";
-"Blanks and Dates" = "ఖాళీలు, తేదీలు";
-"Add a blank or today’s date from the editor, and fill the blank in each time you type the cutling." = "ఎడిటర్‌లో ఖాళీని లేదా నేటి తేదీని జోడించి, కట్లింగ్‌ను టైప్ చేసిన ప్రతిసారీ ఖాళీని నింపండి";
 "Room for %@" = "%@ కోసం చోటు";
 "Save up to %@ texts and %@ images." = "%1$@ టెక్స్ట్‌లు, %2$@ చిత్రాల వరకు సేవ్ చేయండి";
 "Every Key Types" = "ప్రతి కీ టైప్ అవుతుంది";
@@ -580,7 +573,6 @@
 "Share text, links or images to Cutling from any app." = "ఏ యాప్ నుండైనా టెక్స్ట్, లింక్‌లు, చిత్రాలను కట్లింగ్‌కు షేర్ చేయండి";
 
 /* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */
-"While you type the text, tap the braces button to leave a blank you fill in each time. Or tap Next." = "టైప్ చేసేటప్పుడు కర్లీ బ్రేస్ బటన్ నొక్కితే, ప్రతిసారీ నింపడానికి ఖాళీ ఉంటుంది. దాటవేయడానికి తదుపరి నొక్కండి";
 
 /* MARK: - Text page, Format card and Variables (docs/text-page-strings-brief.md) */
 "Format" = "ఫార్మాట్";
@@ -698,3 +690,14 @@
 "Number in Words" = "అక్షరాల్లో సంఖ్య";
 "Value from a Shortcut" = "షార్ట్‌కట్ ఫలితం";
 "A shortcut’s result" = "షార్ట్‌కట్ ఇచ్చే ఫలితం";
+
+/* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */
+"What You Save Is Private" = "మీరు సేవ్ చేసేది ప్రైవేట్";
+"No account, nothing collected. Cutlings sync only through your iCloud, if you turn it on." = "ఖాతా లేదు, డేటా సేకరణ లేదు; సింక్ ఆన్ చేస్తే కట్లింగ్‌లు మీ iCloud ద్వారానే సింక్ అవుతాయి";
+"What You Type Stays Private" = "మీ టైపింగ్ ప్రైవేట్‌గా ఉంటుంది";
+"Cutling has no account and collects nothing. What you type is never sent anywhere." = "కట్లింగ్‌కు ఖాతా లేదు, అది ఏ డేటానూ సేకరించదు; మీరు టైప్ చేసేదాన్ని ఎప్పుడూ ఎక్కడికీ పంపదు";
+"Variables, writing as in Notes, and far more room." = "వేరియబుల్స్, నోట్స్‌లోలా రాయడం, ఇంకా ఎక్కువ చోటు";
+"Edit a cutling and open Variables to add a blank you fill in each time, today’s date, a choice and more." = "కట్లింగ్‌ను సవరిస్తూ వేరియబుల్స్ తెరిచి, ప్రతిసారీ నింపే ఖాళీ, ఈరోజు తేదీ, ఎంపిక, ఇంకా మరెన్నో జోడించండి";
+"Write as You Do in Notes" = "నోట్స్ యాప్‌లోలా రాయండి";
+"A cutling’s text now opens on a page of its own, with bold, underline, highlight and lists." = "కట్లింగ్‌లోని టెక్స్ట్ ఇప్పుడు బోల్డ్, అండర్‌లైన్, హైలైట్, జాబితాలు ఉన్న సొంత పేజీలో తెరుచుకుంటుంది";
+"As you type, tap Ask Each Time above the keyboard to leave a blank you fill in each time. Or tap Next to skip." = "టైప్ చేస్తూ కీబోర్డ్ పైన “ప్రతిసారీ అడుగు” నొక్కి, ప్రతిసారీ నింపే ఖాళీ ఉంచండి. దాటవేయాలంటే “తదుపరి” నొక్కండి";

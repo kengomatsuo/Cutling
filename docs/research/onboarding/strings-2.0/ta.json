@@ -1,0 +1,31 @@
+{
+ "folders": [
+  "ta",
+  "ta-IN"
+ ],
+ "strings": {
+  "P1": "சேமிப்பவை உங்களுக்கே",
+  "P2": "கணக்கில்லை, எதையும் சேகரிக்காது; ஒத்திசைவை இயக்கினால் அதுவும் உங்கள் iCloud வழியாக மட்டுமே",
+  "P3": "தட்டச்சு செய்வது தனிப்பட்டதே",
+  "P4": "கட்லிங்குக்குக் கணக்கு இல்லை, எதையும் சேகரிக்காது; நீங்கள் தட்டச்சு செய்வதை எங்குமே அனுப்பாது",
+  "N2b": "மாறிகள், “குறிப்புகள்” போல எழுத்து, மிக அதிக இடம்",
+  "N4b": "மாறிகள்",
+  "N5b": "கட்லிங்குவைத் திருத்தி, மாறிகளில் ஒவ்வொரு முறையும் நிரப்ப வெற்றிடம், இன்றைய தேதி, தேர்வு எனப் பல சேர்க்கலாம்",
+  "N17": "“குறிப்புகள்” போல எழுது",
+  "N18": "கட்லிங்குவின் உரை தனிப் பக்கத்தில் திறக்கும்; அதில் தடித்த எழுத்து, அடிக்கோடு, ஹைலைட், பட்டியல்கள் உண்டு",
+  "TU2": "எழுதும்போது நிரப்ப வெற்றிடம் விட, விசைப்பலகைக்கு மேலே “ஒவ்வொரு முறையும் கேள்” தட்டவும். தவிர்க்க “அடுத்து”"
+ },
+ "back": {
+  "P1": "What you save is for you alone",
+  "P2": "No account, it collects nothing; if you turn sync on, that too only through your iCloud",
+  "P3": "What you type is private, and stays so",
+  "P4": "Cutling has no account, it collects nothing; what you type it never sends anywhere at all",
+  "N2b": "Variables, writing like “Notes”, very much more room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling, and in Variables you can add a blank to fill in each time, today's date, a choice and many such",
+  "N17": "Write like “Notes”",
+  "N18": "A cutling's text opens on a separate page; on it there are bold letters, underline, highlight, lists",
+  "TU2": "While writing, to leave a blank to fill in, tap “Ask Each Time” above the keyboard. To skip, “Next”"
+ },
+ "notes": "Register as in strings/ta.json: the app speaks to நீங்கள், polite imperatives (தட்டவும்), bare imperative in titles (N17 எழுது, as N11 மாறு and A1 சேர்), no exclamation marks, no closing full stop, ';' between two clauses as W7, F6 and N9 had. Words taken from ta.lproj/Localizable.strings exactly, and ta-IN has the same ones, so there are no overrides: மாறிகள் (Variables, N4b), ஒவ்வொரு முறையும் கேள் (Ask Each Time), அடுத்து (Next), ஒத்திசைவு, கணக்கு, உரை, அடிக்கோடு, ஹைலைட், பட்டியல், இன்றைய தேதி, தேர்வு; Bold is the adjective தடித்த there, so the list in N18 says தடித்த எழுத்து. A cutling stays கட்லிங்கு and a blank stays வெற்றிடம், as on the earlier sheets. குறிப்புகள் is Apple's Tamil name for Notes, read from MobileNotes.app/ta.lproj/InfoPlist.strings (CFBundleDisplayName) in the iOS 27.2 simulator runtime; macOS has no Tamil. The word is also the common noun for notes and hints, so N2b and N17 put it in “ ”, the marks Localizable.strings already uses around names; 'குறிப்புகள் ஆப்' was clearer still but ran N17 to 25. TU2 quotes both button names the same way, because ஒவ்வொரு முறையும் கேள் unquoted reads as part of the sentence; the earlier sheets wrote 'X என்பதைத் தட்டவும்', which costs 9 code points a name. Choices that trim the brief, all to fit budgets counted in Unicode code points (Tamil vowel signs and the pulli each count one, so visible length is roughly 60% of the count): P1 says 'for you alone' with the emphatic -ஏ; the plainer 'சேமிப்பவை உங்களுக்கு மட்டுமே' is 28 against 26. P2 leaves the sync clause without a verb and without the word கட்லிங்குகள் ('that too only through your iCloud'), and writes கணக்கில்லை as one word; it is exactly 90. N2b says மிக அதிக இடம் where N3 says இன்னும் அதிக இடம், which with the quoted name is 53. N5b says 'in Variables' and not 'open Variables'; with மாறிகளைத் திறந்து it is 116. TU2 says 'each time' only through the button's own name: the blank is 'a blank to fill in', as N2 and TU1 had it, since a second ஒவ்வொரு முறையும் beside the name adds 17 with its space and reads badly aloud; its last sentence is 'To skip, “Next”' with the verb understood from the sentence before, because repeating தட்டவும் runs to 115."
+}

@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "ca"
+ ],
+ "strings": {
+  "P1": "El que deses és només teu",
+  "P2": "Sense compte i sense recollir res; si sincronitzes els cutlings, només van al teu iCloud",
+  "P3": "El que escrius es manté privat",
+  "P4": "Cutling no té compte ni recull res; el que escrius no s'envia mai enlloc",
+  "N2b": "Variables, text com a l'app Notes i molt més lloc",
+  "N4b": "Variables",
+  "N5b": "Edita un cutling i obre Variables per posar-hi un espai que omples cada cop, la data d'avui, una elecció i més",
+  "N17": "Escriu com a l'app Notes",
+  "N18": "El text d'un cutling s'obre en una pàgina pròpia, amb negreta, subratllat, ressaltat i llistes",
+  "TU2": "Mentre escrius, toca Pregunta cada vegada sobre el teclat: deixa un espai que omples cada cop. O toca Següent"
+ },
+ "back": {
+  "P1": "What you save is yours alone",
+  "P2": "No account and without collecting anything; if you sync the cutlings, they go only to your iCloud",
+  "P3": "What you type stays private",
+  "P4": "Cutling has no account and collects nothing; what you type is never sent anywhere",
+  "N2b": "Variables, text like in the Notes app and much more room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling and open Variables to put in a blank you fill in each time, today's date, a choice and more",
+  "N17": "Write like in the Notes app",
+  "N18": "A cutling's text opens on a page of its own, with bold, underline, highlight and lists",
+  "TU2": "While you type, tap Ask Each Time above the keyboard: it leaves a blank you fill in each time. Or tap Next"
+ },
+ "notes": "Informal tu, sentence case, no final period and the plain apostrophe ', as in strings/ca.json. App words reused from ca.lproj: Variables, Pregunta cada vegada (Ask Each Time), Següent (Next), elecció (Choice), negreta, subratllat, ressaltat, llista, cutling, molt més lloc. Apple's Catalan name for Notes is Notes, read from Notes.app's own ca strings on macOS, where Apple writes it in running text as l'app Notes; the bare 'com a Notes' would read as 'as Notes', so N17 and N2b say 'com a l'app Notes'. The blank is 'un espai que omples cada cop' in both N5b and TU2 (the older strings said 'espai buit'; 'buit' was dropped for room). P1 says 'només teu' (yours alone) for 'private to you'; P3 keeps the word 'privat'. P2 makes sync optional with 'si sincronitzes els cutlings' (if you sync them) because 'els cutlings només se sincronitzen amb el teu iCloud si ho actives' is 100 characters against a budget of 90. TU2 uses a colon ('toca ... sobre el teclat: deixa un espai') instead of 'per deixar' and ends on 'O toca Següent' without 'to skip', as the app's current English key does ('Or tap Next'), to stay inside 110; 'deixa' reads as 'it leaves'. Button names are unquoted and capitalised, as in the existing 'toca Prova'm' and 'tria Edita'."
+}

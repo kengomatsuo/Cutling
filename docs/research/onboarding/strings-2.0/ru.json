@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "ru"
+ ],
+ "strings": {
+  "P1": "Катлинги видишь только ты",
+  "P2": "Без аккаунта и сбора данных; синхронизация только через твой iCloud, если ты её включишь",
+  "P3": "Что печатаешь, остаётся у тебя",
+  "P4": "В Катлинге нет аккаунта, он ничего не собирает и никуда не отправляет то, что ты печатаешь",
+  "N2b": "Переменные, стиль Заметок и гораздо больше места",
+  "N4b": "Переменные",
+  "N5b": "В редакторе катлинга открой «Переменные» и вставь пропуск на каждый раз, сегодняшнюю дату, выбор и другое",
+  "N17": "Пиши как в Заметках",
+  "N18": "Текст катлинга открывается отдельной страницей с жирным шрифтом, подчёркиванием, выделением цветом и списками",
+  "TU2": "Пока пишешь, нажми «Спрашивать каждый раз» над клавиатурой и оставь пропуск на каждый раз. Или нажми «Далее»"
+ },
+ "back": {
+  "P1": "Only you see the cutlings",
+  "P2": "Without an account and without data collection; syncing only through your iCloud, if you turn it on",
+  "P3": "What you type stays with you",
+  "P4": "Cutling has no account, it collects nothing and sends what you type nowhere",
+  "N2b": "Variables, the style of Notes and much more room",
+  "N4b": "Variables",
+  "N5b": "In the cutling's editor open \"Variables\" and insert a blank for each time, today's date, a choice and other things",
+  "N17": "Write as in Notes",
+  "N18": "A cutling's text opens as a separate page with bold type, underlining, colour highlighting and lists",
+  "TU2": "While you write, tap \"Ask each time\" above the keyboard and leave a blank for each time. Or tap \"Next\""
+ },
+ "notes": "Ты-form, no exclamation marks, no closing full stop, sentence case, ё kept, «ёлочки» around button names, all as in the earlier sheet strings. Катлинг is the app, катлинг the thing. App words reused exactly: «Переменные» (Variables), «Спрашивать каждый раз» (Ask Each Time), «Далее» (Next), пропуск (blank, as in N4/N5/TU1), «пропуск на каждый раз» (TU1's phrase for a blank filled in each time), iCloud, «в редакторе» (N5), жирный шрифт / выделение цветом / список from the format panel. Apple's Notes app is «Заметки» in Russian iOS, declined and capitalised (Заметок, в Заметках). P2 and P4 keep the shape of the W7 and F6 lines they replace, with «сбора данных» / «ничего не собирает» where the internet claim stood; 'what you type' is «что ты печатаешь», the F6 wording. P2 says «синхронизация» without repeating «катлинги» to fit 90. N2b: «текст как в Заметках» with «гораздо» runs to 55, so the subtitle says «стиль Заметок» (the page's look and formatting) and keeps «гораздо больше места», the N3 wording; N17 right under it carries 'write'. N17 has no comma before «как»: the comparison is the adverbial of manner. N5b: 'a choice' is «выбор», the editor's own name for that variable. N18: «отдельной страницей» (instrumental) fits where «на отдельной странице» ran to 111. TU2: «пишешь» for «печатаешь» and no «чтобы пропустить» after «Далее», because the 21-letter button name leaves no room; «нажми … и оставь» is the Russian tap-and-get chain, the tap itself leaves the blank."
+}

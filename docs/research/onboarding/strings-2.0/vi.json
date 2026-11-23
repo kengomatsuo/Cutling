@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "vi"
+ ],
+ "strings": {
+  "P1": "Thứ bạn lưu luôn riêng tư",
+  "P2": "Không cần tài khoản, không thu thập gì; cutling chỉ đồng bộ qua iCloud của bạn nếu bạn bật",
+  "P3": "Những gì bạn gõ luôn riêng tư",
+  "P4": "Cutling không có tài khoản và không thu thập gì; những gì bạn gõ không bao giờ được gửi đi đâu",
+  "N2b": "Các biến, viết như ở Ghi chú và nhiều chỗ hơn hẳn",
+  "N4b": "Biến",
+  "N5b": "Chỉnh sửa cutling rồi mở Biến để thêm ô trống cho bạn điền mỗi lần, ngày hôm nay, lựa chọn và nhiều biến khác",
+  "N17": "Viết như trong Ghi chú",
+  "N18": "Văn bản của cutling giờ mở trên một trang riêng, có chữ đậm, gạch chân, tô sáng và danh sách",
+  "TU2": "Khi gõ, chạm nút Hỏi mỗi lần phía trên bàn phím để chừa ô trống cho bạn điền mỗi lần. Chạm Tiếp theo để bỏ qua"
+ },
+ "back": {
+  "P1": "The things you save always stay private",
+  "P2": "No account needed, nothing collected; cutlings sync only through your iCloud if you turn it on",
+  "P3": "What you type always stays private",
+  "P4": "Cutling has no account and collects nothing; what you type is never sent anywhere",
+  "N2b": "Variables, writing like in Notes and far more room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling then open Variables to add a blank for you to fill in each time, today's date, a choice and many other variables",
+  "N17": "Write like in Notes",
+  "N18": "A cutling's text now opens on a page of its own, with bold text, underline, highlight and lists",
+  "TU2": "While typing, tap the Ask Each Time button above the keyboard to leave a blank for you to fill in each time. Tap Next to skip"
+ },
+ "notes": "Written in Vietnamese from the brief's meanings, not from another locale. bạn register, sentence-case row titles and no trailing period, as vi.json's rows have ('Dùng được cả hình ảnh', 'Phím nào cũng gõ'). App terms exactly as vi.lproj has them: Biến, Hỏi mỗi lần, Tiếp theo, cutling (lowercase for the thing, Cutling for the app), Chỉnh sửa cutling, Ngày hôm nay, Lựa chọn, Gạch chân, Tô sáng, Danh sách; 'ô trống' is the sheets' own word for a blank (N4, N5, TU1), kept over the fill-in editor's 'chỗ trống' because 'chỗ' on these sheets already means room ('nhiều chỗ hơn hẳn'). 'luôn riêng tư' and 'không bao giờ được gửi đi đâu' are the locale's own privacy words ('Dữ liệu của bạn luôn riêng tư và không bao giờ được gửi đi đâu'); 'những gì bạn gõ' is F6's phrase for what you type. Ghi chú is the name Apple's Vietnamese iPhone User Guide gives the Notes app (support.apple.com/vi-vn/guide/iphone, read 2026-11-23); the capital G marks it as the app. Budget and wording choices: P1 says 'luôn riêng tư' (always private) and lets 'bạn lưu' carry 'to you', since 'Thứ bạn lưu là của riêng bạn' (yours alone) is 28 against 26. P2 is exactly 90: it drops 'chính' (own) from W7's 'iCloud của chính bạn' and the comma before 'nếu', because with them the line is 97; 'iCloud của bạn' still says whose, and 'nếu bạn bật' leaves its object unsaid, which Vietnamese allows and which here can only be the sync named two words earlier. N2b opens with 'Các biến' and not the bare 'Biến': alone at the head of a line 'Biến,' also reads as the verb, and as the slang for 'get lost'; the plural marker costs four letters, so the subtitle says 'như ở Ghi chú' where the row title N17 has the fuller 'như trong Ghi chú' (with 'trong' N2b is 53 against 50). N5b ends 'và nhiều biến khác' (and many other variables) for 'and more', which names what the more is. N18 adds 'giờ' (now), as a What's New line, and says 'chữ đậm' (bold text) because the bare button label 'Đậm' does not stand as a noun in a sentence. TU2 is exactly 110: 'Khi gõ' stands for 'while you type the text', as TU1 had it; 'nút' (button) is added before Hỏi mỗi lần because only its first letter is capital, so without it the name's end is unclear in running text ('chạm Hỏi / mỗi lần'); TU1's 'mỗi lần dùng cutling' is cut to 'mỗi lần' to pay for 'phía trên bàn phím'."
+}

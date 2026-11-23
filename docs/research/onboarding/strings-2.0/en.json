@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "en"
+ ],
+ "strings": {
+  "P1": "What You Save Is Private",
+  "P2": "No account, nothing collected. Cutlings sync only through your iCloud, if you turn it on.",
+  "P3": "What You Type Stays Private",
+  "P4": "Cutling has no account and collects nothing. What you type is never sent anywhere.",
+  "N2b": "Variables, writing as in Notes, and far more room.",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling and open Variables to add a blank you fill in each time, today’s date, a choice and more.",
+  "N17": "Write as You Do in Notes",
+  "N18": "A cutling’s text now opens on a page of its own, with bold, underline, highlight and lists.",
+  "TU2": "As you type, tap Ask Each Time above the keyboard to leave a blank you fill in each time. Or tap Next to skip."
+ },
+ "back": {
+  "P1": "What you save is private",
+  "P2": "No account, nothing collected. Cutlings sync only through your iCloud, if you turn it on.",
+  "P3": "What you type stays private",
+  "P4": "Cutling has no account and collects nothing. What you type is never sent anywhere.",
+  "N2b": "Variables, writing as in Notes, and far more room.",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling and open Variables to add a blank you fill in each time, today's date, a choice and more.",
+  "N17": "Write as you do in Notes",
+  "N18": "A cutling's text now opens on a page of its own, with bold, underline, highlight and lists.",
+  "TU2": "As you type, tap Ask Each Time above the keyboard to leave a blank you fill in each time. Or tap Next to skip."
+ },
+ "notes": "English (US), written from the brief, not from another locale. Titles (P1, P3, N4b, N17) are in title case as AppleSheet.swift and SetupFlows.swift have theirs; lines are full sentences ending in a period, as the same sheets do. Terms are the app's own: cutling, Variables, Ask Each Time, Next, 'add a blank you fill in each time' (the Variables picker's own line), 'turn it on' for iCloud Sync. Apostrophes in N5b and N18 are the curly U+2019 the replaced N5 and the Variables strings use; the Swift literal must carry the same character, since these strings are the lookup keys. No serial comma in N5b and N18, as the sheets' other lines; N2b keeps the comma before 'and' that N2 had, so 'Notes and far more room' is not read as one item. Budget choices: P2 says 'your iCloud' where W7 said 'your own iCloud', because 'your own iCloud, if you turn it on' runs to 93 against 90 and 'only through your iCloud' still says whose it is. TU2 is exactly 110: 'As you type' stands for 'while you type the text' (the tip before it says 'Now type the text you want to save'), which leaves room for 'to skip'. N17 is exactly 24 and N2b exactly 50."
+}

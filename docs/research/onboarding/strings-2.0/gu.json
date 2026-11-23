@@ -1,0 +1,31 @@
+{
+ "folders": [
+  "gu",
+  "gu-IN"
+ ],
+ "strings": {
+  "P1": "તમે સાચવો તે ખાનગી રહે છે",
+  "P2": "ખાતું નથી, કોઈ ડેટા લેવાતો નથી; સિંક ચાલુ કરો તો કટલિંગ તમારા પોતાના iCloud થી જ સિંક થશે",
+  "P3": "તમે ટાઇપ કરો તે ખાનગી રહે છે",
+  "P4": "કટલિંગમાં ખાતું નથી અને તે તમારો કોઈ ડેટા લેતું નથી; તમે જે ટાઇપ કરો તે ક્યારેય ક્યાંય મોકલાતું નથી",
+  "N2b": "વેરિએબલ, નોટ્સ ઍપ જેવું લખવાનું અને ઘણી વધુ જગ્યા",
+  "N4b": "વેરિએબલ",
+  "N5b": "કટલિંગમાં ફેરફાર કરો અને વેરિએબલ ખોલીને દર વખતે ભરવાનો ખાલી ભાગ, આજની તારીખ, પસંદગી અને બીજું ઘણું ઉમેરો",
+  "N17": "નોટ્સમાં લખો છો તેમ લખો",
+  "N18": "કટલિંગનું લખાણ હવે પોતાના અલગ પેજ પર ખૂલે છે, જ્યાં બોલ્ડ, અન્ડરલાઇન, હાઇલાઇટ અને યાદી વાપરી શકાય છે",
+  "TU2": "લખાણ લખતાં કીબોર્ડની ઉપર ‘દરેક વખતે પૂછો’ ટૅપ કરો, તો દર વખતે ભરવાનો ખાલી ભાગ રહેશે. છોડવા માટે ‘આગળ’ ટૅપ કરો"
+ },
+ "back": {
+  "P1": "What you save stays private",
+  "P2": "There is no account, no data is taken; if you turn sync on, cutlings will sync only through your own iCloud",
+  "P3": "What you type stays private",
+  "P4": "Cutling has no account and it takes none of your data; what you type is never sent anywhere",
+  "N2b": "Variables, writing like the Notes app, and much more room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling and, opening Variables, add a blank to be filled each time, today's date, a choice and much more",
+  "N17": "Write the way you write in Notes",
+  "N18": "A cutling's text now opens on a separate page of its own, where bold, underline, highlight and lists can be used",
+  "TU2": "While typing the text, tap 'Ask Each Time' above the keyboard, and a blank to be filled each time will be left. To skip, tap 'Next'"
+ },
+ "notes": "Register as in strings/gu.json: polite plain તમે, no exclamation marks, no closing full stop on a single-sentence line. App words from gu.lproj/Localizable.strings: કટલિંગ, વેરિએબલ (Variables, N4b exact), દરેક વખતે પૂછો (Ask Each Time, the editor button's exact name in TU2), આગળ (Next), કીબોર્ડ, સિંક, ખાનગી, ડેટા, ફેરફાર કરો (Edit), આજની તારીખ, પસંદગી, બોલ્ડ, અન્ડરલાઇન, હાઇલાઇટ, યાદી, પેજ. Blank stays ખાલી ભાગ, as in the sheets' earlier strings, and 'far more room' keeps N2's ઘણી વધુ જગ્યા. The person's typing is ટાઇપ કરો, as F6 had it; Cutling's own typing stays લખવું. Apple's Notes is નોટ્સ, read from MobileNotes.app's gu.lproj in the iOS 27.2 runtime; N2b adds ઍપ and N17 says નોટ્સમાં (in Notes) so it is not read as the loanword for study notes. 'Collects nothing' is written with લેવું (ડેટા લેવાતો નથી, ડેટા લેતું નથી), the everyday Gujarati for an app collecting data; એકઠો કરાતો put P2 over 90. P2 ends in the future થશે after the condition 'if you turn sync on', and જ after iCloud થી carries 'only through'. Button names in TU2 sit in ‘ ’ as T4's does, because દરેક વખતે પૂછો next to દર વખતે would otherwise run into the sentence. Budgets counted in Unicode code points, the stricter count for Gujarati: P1 25/26, P2 89/90, P3 28/30, P4 99/100, N2b 49/50, N4b 7/24, N5b 104/110, N17 23/24, N18 100/110, TU2 109/110."
+}

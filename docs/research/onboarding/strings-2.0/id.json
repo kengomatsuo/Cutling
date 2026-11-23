@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "id"
+ ],
+ "strings": {
+  "P1": "Yang disimpan tetap privat",
+  "P2": "Tanpa akun, tidak ada yang dikumpulkan; sinkron hanya lewat iCloud Anda, jika diaktifkan",
+  "P3": "Ketikan Anda tetap privat",
+  "P4": "Cutling tidak punya akun, tidak mengumpulkan apa pun; ketikan Anda tidak pernah dikirim ke mana pun",
+  "N2b": "Variabel, tulis ala Catatan, ruang jauh lebih luas",
+  "N4b": "Variabel",
+  "N5b": "Edit cutling dan buka Variabel untuk isian yang Anda isi tiap kali, tanggal hari ini, pilihan, dan lainnya",
+  "N17": "Tulis seperti di Catatan",
+  "N18": "Teks cutling kini terbuka di halaman tersendiri, dengan format tebal, garis bawah, sorot, dan daftar",
+  "TU2": "Saat mengetik, ketuk Tanya Setiap Kali di atas keyboard agar ada isian tiap dipakai. Lewati dengan Berikutnya"
+ },
+ "back": {
+  "P1": "What is saved stays private",
+  "P2": "No account, nothing is collected; sync only through your iCloud, if it is turned on",
+  "P3": "What you type stays private",
+  "P4": "Cutling has no account, collects nothing; what you type is never sent anywhere",
+  "N2b": "Variables, write Notes-style, far more room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling and open Variables for a blank you fill in each time, today's date, a choice, and more",
+  "N17": "Write like in Notes",
+  "N18": "A cutling's text now opens on a page of its own, with bold, underline, highlight, and list formatting",
+  "TU2": "While typing, tap Ask Each Time above the keyboard so there is a blank each time it is used. Skip with Next"
+ },
+ "notes": "Written from the brief's meanings in Indonesian, not from another locale. Anda register and no trailing period, as id.json's lines have; row titles in sentence case like 'Gambar juga bisa' and 'Semua tombol mengetik'; serial comma before 'dan' as in N16. App terms exactly as id.lproj has them: Variabel, Tanya Setiap Kali, Berikutnya, cutling, Edit, isian, Tanggal hari ini, Pilihan, Tebal, Garis Bawah, Sorot, Daftar; 'privat' and 'tidak pernah dikirim ke mana pun' are the locale's own privacy words ('Data Anda tetap privat dan tidak pernah dikirim ke mana pun'); 'ketikan Anda' is F6's word for what you type. Catatan is iOS's Indonesian name for Apple's Notes. Budget choices: P1 is exactly 26: 'Yang Anda simpan tetap privat' is 29, so the passive 'Yang disimpan' carries it and 'private to you' rests on 'privat'; it picks up 'Simpan' and 'tersimpan' from the two rows above it. P2 drops the subject 'cutling' ('sinkron hanya lewat iCloud Anda, jika diaktifkan'): with it the line is 96 against 90, the title already names what is saved, and the passive 'diaktifkan' then points at the sync; 'iCloud Anda' stands for 'your own iCloud' ('sendiri' would run to 95). P4 joins its two denials with a comma where F6 had the same shape, since 'dan' runs to 102 against 100. N2b is exactly 50 and has no 'dan': 'menulis seperti di Catatan' would make it 61, so it uses the bare 'tulis' and 'ala', and keeps N3's 'ruang jauh lebih luas' word for word. N17 is exactly 24 with the plainer 'seperti di' ('Menulis seperti di Catatan' is 26). N5b says 'buka Variabel untuk isian ...' (open Variables for a blank ...) without a verb for 'put in': with 'menyisipkan' the line is 115 against 110, or loses 'Anda isi'. N18 adds 'kini' (now), as a What's New line. TU2: 'Saat mengetik' stands for 'while you type the text' as TU1 did; 'agar ada isian tiap dipakai' is TU1's clause without 'kosong'; 'Lewati dengan Berikutnya' (skip with Next) replaces TU1's 'Untuk melewati, ketuk Berikutnya', which would run to 113."
+}

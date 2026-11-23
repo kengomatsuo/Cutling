@@ -1,0 +1,31 @@
+{
+ "folders": [
+  "pa",
+  "pa-IN"
+ ],
+ "strings": {
+  "P1": "ਤੁਹਾਡਾ ਸੰਭਾਲਿਆ ਨਿੱਜੀ ਹੈ",
+  "P2": "ਨਾ ਖਾਤਾ, ਨਾ ਡੈਟਾ ਇਕੱਠਾ ਕਰਨਾ; ਸਿੰਕ ਚਾਲੂ ਕਰੋ ਤਾਂ ਕਟਲਿੰਗ ਸਿਰਫ਼ ਤੁਹਾਡੇ iCloud ਰਾਹੀਂ ਸਿੰਕ ਹੋਣਗੇ",
+  "P3": "ਜੋ ਟਾਈਪ ਕਰੋ, ਨਿੱਜੀ ਰਹਿੰਦਾ ਹੈ",
+  "P4": "ਕਟਲਿੰਗ ਦਾ ਕੋਈ ਖਾਤਾ ਨਹੀਂ ਅਤੇ ਇਹ ਕੋਈ ਡੈਟਾ ਇਕੱਠਾ ਨਹੀਂ ਕਰਦੀ; ਤੁਹਾਡਾ ਟਾਈਪ ਕੀਤਾ ਕਦੇ ਕਿਤੇ ਨਹੀਂ ਭੇਜਿਆ ਜਾਂਦਾ",
+  "N2b": "ਵੇਰੀਏਬਲ, ਨੋਟਸ ਐਪ ਵਾਂਗ ਲਿਖਣਾ ਅਤੇ ਬਹੁਤ ਜ਼ਿਆਦਾ ਥਾਂ",
+  "N4b": "ਵੇਰੀਏਬਲ",
+  "N5b": "ਕਟਲਿੰਗ ਸੋਧੋ ਅਤੇ ਵੇਰੀਏਬਲ ਖੋਲ੍ਹ ਕੇ ਹਰ ਵਾਰ ਭਰਨ ਵਾਲੀ ਖਾਲੀ ਥਾਂ, ਅੱਜ ਦੀ ਤਾਰੀਖ਼, ਚੋਣ ਅਤੇ ਹੋਰ ਬਹੁਤ ਕੁਝ ਜੋੜੋ",
+  "N17": "ਨੋਟਸ ਐਪ ਵਾਂਗ ਲਿਖੋ",
+  "N18": "ਕਟਲਿੰਗ ਦਾ ਟੈਕਸਟ ਹੁਣ ਆਪਣੇ ਵੱਖਰੇ ਪੰਨੇ 'ਤੇ ਖੁੱਲ੍ਹਦਾ ਹੈ, ਜਿੱਥੇ ਗੂੜ੍ਹਾ, ਰੇਖਾਂਕਿਤ, ਹਾਈਲਾਈਟ ਅਤੇ ਸੂਚੀਆਂ ਵਰਤ ਸਕਦੇ ਹੋ",
+  "TU2": "ਲਿਖਣ ਵੇਲੇ ਕੀਬੋਰਡ ਉੱਪਰ ‘ਹਰ ਵਾਰ ਪੁੱਛੋ’ 'ਤੇ ਟੈਪ ਕਰੋ, ਖਾਲੀ ਥਾਂ ਰਹੇਗੀ ਜੋ ਹਰ ਵਾਰ ਭਰਨੀ ਹੈ। ਛੱਡਣ ਲਈ ‘ਅੱਗੇ’ 'ਤੇ ਟੈਪ ਕਰੋ"
+ },
+ "back": {
+  "P1": "What you saved is private",
+  "P2": "No account, no collecting of data; if you turn sync on, cutlings will sync only through your iCloud",
+  "P3": "What you type stays private",
+  "P4": "Cutling has no account and it collects no data; what you typed is never sent anywhere",
+  "N2b": "Variables, writing as in the Notes app, and much more room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling and, opening Variables, add a blank to fill each time, today's date, a choice and much more",
+  "N17": "Write as in the Notes app",
+  "N18": "A cutling's text now opens on a separate page of its own, where you can use bold, underline, highlight and lists",
+  "TU2": "While writing, tap 'Ask Each Time' above the keyboard; a blank will remain that is to be filled each time. To skip, tap 'Next'"
+ },
+ "notes": "Register as in strings/pa.json: polite ਤੁਸੀਂ imperatives (ਕਰੋ, ਲਿਖੋ), no exclamation marks, no closing ਡੰਡੀ on a one-sentence line; TU2 is two sentences joined by । as TU1 was. App words from pa.lproj and pa-IN.lproj Localizable.strings, which agree on all of them: ਕਟਲਿੰਗ, ਵੇਰੀਏਬਲ (Variables, N4b exact), ਹਰ ਵਾਰ ਪੁੱਛੋ (Ask Each Time, the editor button's own name with ਵਾਰ, not the older 'Ask each time' key's ਵਾਰੀ), ਅੱਗੇ (Next), ਕੀਬੋਰਡ, ਸਿੰਕ, ਚਾਲੂ ਕਰੋ, ਕਟਲਿੰਗ ਸੋਧੋ (Edit Cutling), ਅੱਜ ਦੀ ਤਾਰੀਖ਼, ਚੋਣ, ਗੂੜ੍ਹਾ, ਰੇਖਾਂਕਿਤ, ਹਾਈਲਾਈਟ, ਸੂਚੀ, ਪੰਨਾ, ਡੈਟਾ, ਨਿੱਜੀ and ਕਿਤੇ ਨਹੀਂ ਭੇਜਿਆ ਜਾਂਦਾ (both from the app's existing 'Your data stays private and is never sent anywhere'). Kept from the sheets' earlier strings: ਖਾਲੀ ਥਾਂ for a blank, ਬਹੁਤ ਜ਼ਿਆਦਾ ਥਾਂ for 'far more room' (N2), ਤੁਹਾਡਾ ਟਾਈਪ ਕੀਤਾ for what the person types (F6), TU1's ਲਿਖਣ ਵੇਲੇ and ਖਾਲੀ ਥਾਂ ਰਹੇਗੀ ਜੋ ਹਰ ਵਾਰ ਭਰਨੀ ਹੈ, the straight apostrophe in 'ਤੇ, and ‘ ’ around a button's name as T4 has. TU2 quotes both names: ਹਰ ਵਾਰ ਪੁੱਛੋ sits next to ਹਰ ਵਾਰ ਭਰਨੀ, and bare ਅੱਗੇ reads as the ordinary word 'ahead'. Grammar: the app is feminine as in F2 and F6 (ਕਰਦੀ), cutlings are masculine plural as in W7 (ਹੋਣਗੇ). P2 ends in the future ਹੋਣਗੇ after the condition ਸਿੰਕ ਚਾਲੂ ਕਰੋ ਤਾਂ, which is how Punjabi states a condition and also saves four characters against W7's ਹੁੰਦੇ ਹਨ. Apple's Notes is ਨੋਟਸ, read from MobileNotes.app's pa.lproj/InfoPlist.strings (CFBundleDisplayName) in the iOS 27.2 simulator runtime; N2b and N17 add ਐਪ so it is not read as the loanword for study notes. 'Collects nothing' is said with ਡੈਟਾ (ਡੈਟਾ ਇਕੱਠਾ ਕਰਨਾ, ਕੋਈ ਡੈਟਾ ਇਕੱਠਾ ਨਹੀਂ ਕਰਦੀ), because bare ਕੁਝ ਇਕੱਠਾ leaves a Punjabi reader asking what. Budget choices, counted in Unicode code points (the stricter count for Gurmukhi, where vowel signs and ੱ ੰ ਼ each count): P2 says ਤੁਹਾਡੇ iCloud where W7 had ਤੁਹਾਡੇ ਆਪਣੇ iCloud (your own), since with ਆਪਣੇ it runs to 94 against 90 and ਸਿਰਫ਼ ਤੁਹਾਡੇ still says whose iCloud; P3 is the relative ਜੋ ਟਾਈਪ ਕਰੋ because ਤੁਹਾਡਾ ਟਾਈਪ ਕੀਤਾ ਨਿੱਜੀ ਰਹਿੰਦਾ ਹੈ is 32 against 30; TU2 says ਕੀਬੋਰਡ ਉੱਪਰ without ਦੇ, which means the same and brings it to exactly 110. Counts: P1 23/26, P2 90/90, P3 28/30, P4 99/100, N2b 47/50, N4b 7/24, N5b 99/110, N17 17/24, N18 107/110, TU2 110/110."
+}

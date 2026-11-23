@@ -235,9 +235,11 @@ enum WhatsNewKind {
     static var newRows: [AppleSheetRow] {
         let texts = CutlingStore.maxTextCutlings.formatted()
         let images = CutlingStore.maxImageCutlings.formatted()
-        let fillIns = AppleSheetRow(symbol: "rectangle.and.pencil.and.ellipsis", title: "Blanks and Dates",
-                                    detail: "Add a blank or today’s date from the editor, and fill the blank in each time you type the cutling.")
+        let fillIns = AppleSheetRow(symbol: "curlybraces", title: "Variables",
+                                    detail: "Edit a cutling and open Variables to add a blank you fill in each time, today’s date, a choice and more.")
         return (FillIns.isOn ? [fillIns] : []) + [
+        AppleSheetRow(symbol: "note.text", title: "Write as You Do in Notes",
+                      detail: "A cutling’s text now opens on a page of its own, with bold, underline, highlight and lists."),
         AppleSheetRow(symbol: "square.stack.3d.up.fill", title: "Room for \(texts)",
                       detail: "Save up to \(texts) texts and \(images) images."),
         AppleSheetRow(symbol: "hand.tap.fill", title: "Every Key Types",
@@ -263,7 +265,7 @@ struct WhatsNewSheet: View {
         switch kind {
         case .update:
             AppleSheet(title: "What's New in Cutling",
-                       subtitle: FillIns.isOn ? "Blanks to fill in, and far more room." : "Far more room, and every key types.",
+                       subtitle: FillIns.isOn ? "Variables, writing as in Notes, and far more room." : "Far more room, and every key types.",
                        rows: WhatsNewKind.newRows) { dismiss() }
         case .welcomeBack:
             // At most four rows, as Apple's sheets keep them (Reminders has four).

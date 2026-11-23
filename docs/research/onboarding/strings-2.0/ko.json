@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "ko"
+ ],
+ "strings": {
+  "P1": "저장한 내용은 나만 봅니다",
+  "P2": "계정도 없고 수집하는 정보도 없습니다. 동기화는 직접 켰을 때 내 iCloud로만 합니다.",
+  "P3": "컷링은 입력하는 내용을 보내지 않습니다",
+  "P4": "컷링에는 계정이 없고 수집하는 정보도 없습니다. 입력하는 내용은 어디로도 보내지 않습니다.",
+  "N2b": "변수, 메모 앱처럼 쓰기, 훨씬 넓어진 공간",
+  "N4b": "변수",
+  "N5b": "컷링을 편집할 때 ‘변수’를 열면 사용할 때마다 채우는 빈칸, 오늘 날짜, 선택지 등을 넣을 수 있습니다.",
+  "N17": "메모 앱처럼 쓰기",
+  "N18": "컷링의 텍스트가 이제 별도 화면에서 열립니다. 굵게, 밑줄, 하이라이트, 목록 서식을 쓸 수 있습니다.",
+  "TU2": "입력하면서 키보드 위의 ‘매번 묻기’를 탭하면 사용할 때마다 채울 빈칸을 남길 수 있습니다. 건너뛰려면 ‘다음’을 탭하세요."
+ },
+ "back": {
+  "P1": "Only I see what I saved",
+  "P2": "There is no account and no information is collected. Sync is done only through my iCloud, when you turn it on yourself.",
+  "P3": "Cutling does not send what you type",
+  "P4": "Cutling has no account and no information it collects. It does not send what you type anywhere.",
+  "N2b": "Variables, writing like the Notes app, much more room",
+  "N4b": "Variables",
+  "N5b": "When you edit a cutling, open 'Variables' and you can put in a blank you fill at every use, today's date, a choice and so on.",
+  "N17": "Writing like the Notes app",
+  "N18": "A cutling's text now opens on a separate screen. You can use bold, underline, highlight and list formatting.",
+  "TU2": "While typing, tap 'Ask Each Time' above the keyboard and you can leave a blank to fill in at every use. To skip, tap 'Next'."
+ },
+ "notes": "Written in Korean from the brief's meanings, not from another locale. Register as the existing ko sheets: 합니다 for titles and statements, 하세요 only for the instruction in TU2, no exclamation marks, a period on full lines and none on titles. Terms are the ko Localizable.strings' own, unchanged: 변수 (Variables, N4b verbatim), 매번 묻기 (Ask Each Time, verbatim in TU2), 다음 (Next), 선택지 (Choice), 빈칸 (blank, as in the replaced N5 and TU1), 오늘 날짜, 굵게, 밑줄, 하이라이트, 목록 and 서식 (the Format card's labels), 편집, 키보드, iCloud, 동기화, and 컷링 for both the app and a cutling. Button names sit in the curly single quotes ‘ ’ that T4 and TU1 already use. Notes is 메모 앱, read from Apple's Korean iPhone guide on 2026-11-23 (support.apple.com/ko-kr/guide/iphone/iph1ac0b3a2/ios: '메모 앱을 사용하여…', and 하이라이트 for highlight); 앱 is kept because bare 메모 reads as 'a memo'. P1 says 'private to you' as 나만 봅니다 (only I see it), the plain Korean for it; 비공개로 유지됩니다 was avoided as translated-sounding. P3 does not reuse that phrase, because people type messages that others read, and it makes no claim about keeping or recording, because the keyboard remembers values typed into a blank and offers them next time. It says only that Cutling does not send what is typed, with 컷링 as the stated subject so the line is about the app's act and not the person's own messages; 입력하는 내용 and 보내다 are the words P4's line uses under it, where 어디로도 (anywhere) is added. P2 keeps W7's shape and its 내 iCloud; the subject 'cutlings' is left implicit as W7 left it, and 'if they turn sync on' is 직접 켰을 때 (when you turn it on yourself). P4 keeps F6's shape with Cutling as the one who does not send (보내지 않습니다), not a passive. 'Nothing collected' is 수집하는 정보도 없습니다 in both P2 and P4, the standard Korean privacy wording. The blank is 'filled at every use' (사용할 때마다) in both N5b and TU2, as TU1 had it and as the Variables list's 사용할 때 입력 has it, so 입력 in TU2 means only the typing happening now. N18's 'a page of its own' is 별도 화면 (a separate screen), the word a Korean reader uses for an app page. N2b and N17 share 메모 앱처럼 쓰기. Every key is well inside its budget in characters; Hangul is about twice a Latin letter's width, so P2 (50), P4 (50), N5b (59), N18 (57) and TU2 (69) will each wrap to a second or third line like the lines they replace."
+}

@@ -556,8 +556,6 @@
 "Save what you type over and over, then tap it on the keyboard in any app." = "I-save ang madalas mong i-type, saka i-tap ito sa keyboard sa kahit anong app";
 "Images Too" = "Pati mga larawan";
 "Copy a saved image with one tap and paste it anywhere." = "I-copy ang naka-save na larawan sa isang tap at i-paste kahit saan";
-"Stays on Your iPhone" = "Nasa iPhone mo lang ito";
-"No account, no internet. Your cutlings sync only through your own iCloud." = "Walang account at internet; sa sarili mong iCloud lang nagsi-sync ang mga cutling";
 "Add the Keyboard" = "Idagdag ang keyboard";
 "Turn on Cutling in Settings, then come back." = "I-on ang Cutling sa Settings, saka bumalik sa app na ito";
 "About Full Access" = "Tungkol sa Full Access";
@@ -567,8 +565,6 @@
 "Cutling types your text without it." = "Gumagana ang teksto kahit wala nito";
 "Images and Clipboard" = "Mga larawan at clipboard";
 "Full Access lets the keyboard copy a saved image and add what you copied." = "Sa Full Access, makokopya ng keyboard ang naka-save na larawan at ang kinopya mo";
-"Nothing Leaves Your iPhone" = "Walang lumalabas sa iPhone mo";
-"Cutling has no account and never connects to the internet. It doesn't read what you type." = "Walang account ang Cutling, hindi kumokonekta sa internet at hindi binabasa ang tina-type mo";
 "Apple's Warning" = "Babala ng Apple";
 "iOS shows the same warning for every keyboard that asks, whatever it does." = "Pareho ang babala ng iOS sa bawat keyboard na humihingi nito, anuman ang ginagawa nito";
 "Try It" = "Subukan";
@@ -578,10 +574,7 @@
 "Cutling typed it. You're set." = "Na-type ito ng Cutling. Handa ka na";
 "Try Me" = "Subukan Ako";
 "Cutling typed this for me." = "Na-type ito ng Cutling para sa akin";
-"Blanks to fill in, and far more room." = "Mga blangkong pupunan, at mas maraming espasyo";
 "Far more room, and every key types." = "Mas maraming espasyo, at bawat key ay nagta-type";
-"Blanks and Dates" = "Mga blangko at petsa";
-"Add a blank or today’s date from the editor, and fill the blank in each time you type the cutling." = "Magdagdag ng blangko o petsa ngayon mula sa editor, at punan ang blangko sa bawat pag-type ng cutling";
 "Room for %@" = "Espasyo para sa %@";
 "Save up to %@ texts and %@ images." = "Mag-save ng hanggang %1$@ teksto at %2$@ larawan";
 "Every Key Types" = "Nagta-type ang bawat key";
@@ -593,7 +586,6 @@
 "Share text, links or images to Cutling from any app." = "Mag-share ng teksto, link o larawan sa Cutling mula sa anumang app";
 
 /* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */
-"While you type the text, tap the braces button to leave a blank you fill in each time. Or tap Next." = "Sa pag-type, i-tap ang kulot na brace para sa blangkong pupunan sa bawat gamit. Susunod para laktawan";
 
 /* MARK: - Text page, Format card and Variables (docs/text-page-strings-brief.md) */
 "Format" = "Format";
@@ -711,3 +703,14 @@
 "Number in Words" = "Numero sa salita";
 "Value from a Shortcut" = "Resulta ng shortcut";
 "A shortcut’s result" = "Ang ibinabalik ng shortcut";
+
+/* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */
+"What You Save Is Private" = "Pribado ang naka-save mo";
+"No account, nothing collected. Cutlings sync only through your iCloud, if you turn it on." = "Walang account, walang kinokolekta; sa iCloud mo lang ang sync ng mga cutling kung i-on mo";
+"What You Type Stays Private" = "Pribado pa rin ang tina-type";
+"Cutling has no account and collects nothing. What you type is never sent anywhere." = "Walang account ang Cutling, walang kinokolekta; hindi kailanman ipinapadala saanman ang tina-type mo";
+"Variables, writing as in Notes, and far more room." = "Mga variable, sulat na mala-Notes, dagdag espasyo";
+"Edit a cutling and open Variables to add a blank you fill in each time, today’s date, a choice and more." = "I-edit ang cutling at buksan ang Mga variable: blangkong pupunan mo lagi, petsa ngayon, pagpipilian at iba pa";
+"Write as You Do in Notes" = "Magsulat gaya sa Notes";
+"A cutling’s text now opens on a page of its own, with bold, underline, highlight and lists." = "Bumubukas ang teksto ng cutling sa sarili nitong page, na may bold, salungguhit, highlight at mga listahan";
+"As you type, tap Ask Each Time above the keyboard to leave a blank you fill in each time. Or tap Next to skip." = "Sa pag-type, i-tap ang Itanong bawat beses sa itaas ng keyboard para sa blangkong pupunan lagi. O Susunod lang";

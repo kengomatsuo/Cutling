@@ -1,0 +1,31 @@
+{
+  "folders": [
+    "es",
+    "es-ES"
+  ],
+  "strings": {
+    "P1": "Lo que guardas es privado",
+    "P2": "Sin cuenta y sin recopilar datos. Solo tu iCloud sincroniza tus cutlings, si lo activas.",
+    "P3": "Lo que escribes es privado",
+    "P4": "Cutling no tiene cuenta ni recopila datos. Lo que escribes nunca se envía a ningún sitio.",
+    "N2b": "Variables, texto como en Notas y mucho más espacio",
+    "N4b": "Variables",
+    "N5b": "Edita un cutling y abre Variables para añadir un hueco que rellenas cada vez, la fecha de hoy, opciones y más.",
+    "N17": "Escribe como en Notas",
+    "N18": "El texto de un cutling se abre en su propia página, con negrita, subrayado, resaltado y listas.",
+    "TU2": "Al escribir, toca Preguntar cada vez sobre el teclado y deja un hueco que rellenas cada vez. O toca Siguiente."
+  },
+  "back": {
+    "P1": "What you save is private",
+    "P2": "No account and no collecting data. Only your iCloud syncs your cutlings, if you turn it on.",
+    "P3": "What you type is private",
+    "P4": "Cutling has no account and collects no data. What you type is never sent anywhere.",
+    "N2b": "Variables, text like in Notes and much more room",
+    "N4b": "Variables",
+    "N5b": "Edit a cutling and open Variables to add a blank that you fill in each time, today's date, choices and more.",
+    "N17": "Write like in Notes",
+    "N18": "A cutling's text opens on its own page, with bold, underline, highlight and lists.",
+    "TU2": "When typing, tap Ask Each Time above the keyboard and leave a blank that you fill in each time. Or tap Next."
+  },
+  "notes": "Tú, Spain wording, same register as strings/es.json: 'hueco' for a blank, 'rellenar', 'mucho más espacio', 'a ningún sitio' (as the app's own 'nunca se envían a ningún sitio'), sentence-case titles, full stop on row lines and none on titles or the subtitle. 'Recopilar datos' is the App Store privacy label's verb in Spanish. P2 keeps the old W7 clause 'Solo tu iCloud sincroniza tus cutlings' and adds 'si lo activas' (lo = iCloud). P3 says 'is private', not 'stays private': 'sigue siendo privado' does not fit 30. N4b is the editor's 'Variables' exactly. N5b writes the Choice variable (editor: 'Opción') as plural 'opciones': 'una opción' reads as 'an option' with no sense of picking from a list, and it lands the line on 110. N2b says 'texto como en Notas' because 'escribir como en Notas' is 53. N17/N18: Apple's Notes app is 'Notas' in Spanish; negrita, subrayado, listas are the editor's words, 'resaltado' is the noun of its 'Resaltar'. TU2: 'Preguntar cada vez' and 'Siguiente' exactly as Localizable.strings; button names carry no quotes, as in the walkthrough's other tips ('toca Eliminar cutling', 'elige Editar'); 'Al escribir' instead of TU1's 'Mientras escribes' and no 'para saltarlo' so the line fits 110 exactly."
+}

@@ -1,0 +1,31 @@
+{
+ "folders": [
+  "bn",
+  "bn-BD"
+ ],
+ "strings": {
+  "P1": "যা রাখেন তা শুধু আপনার",
+  "P2": "অ্যাকাউন্ট নেই, কিছুই সংগ্রহ হয় না; কাটলিং সিঙ্ক হয় শুধু আপনার iCloud-এ, তাও চালু করলে",
+  "P3": "যা টাইপ করেন তা ব্যক্তিগত থাকে",
+  "P4": "কাটলিংয়ে অ্যাকাউন্ট নেই, এটি কিছুই সংগ্রহ করে না; আপনি যা টাইপ করেন তা কখনো কোথাও পাঠানো হয় না",
+  "N2b": "ভেরিয়েবল, নোট অ্যাপের মতো লেখা ও অনেক বেশি জায়গা",
+  "N4b": "ভেরিয়েবল",
+  "N5b": "কাটলিং সম্পাদনা করুন আর ভেরিয়েবল খুলে বসান প্রতিবার পূরণের শূন্যস্থান, আজকের তারিখ, পছন্দ ও আরও অনেক কিছু",
+  "N17": "নোট অ্যাপের মতো লিখুন",
+  "N18": "কাটলিংয়ের টেক্সট আলাদা পৃষ্ঠায় খোলে, সেখানে বোল্ড, আন্ডারলাইন, হাইলাইট আর তালিকা আছে",
+  "TU2": "লেখার সময় প্রতিবার পূরণের শূন্যস্থান রাখতে কীবোর্ডের উপরে «প্রতিবার জিজ্ঞাসা করুন», নয়তো পরবর্তী ট্যাপ করুন"
+ },
+ "back": {
+  "P1": "What you keep is yours alone",
+  "P2": "No account, nothing is collected; cutlings sync only to your iCloud, and that only if turned on",
+  "P3": "What you type stays private",
+  "P4": "Cutling has no account, it collects nothing; what you type is never sent anywhere",
+  "N2b": "Variables, writing like in the Notes app, and far more room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling and open Variables to put in a blank to fill each time, today's date, a choice and much more",
+  "N17": "Write as in the Notes app",
+  "N18": "A cutling's text opens on a separate page; there it has bold, underline, highlight and lists",
+  "TU2": "While writing, to leave a blank to fill each time, tap «Ask Each Time» above the keyboard, or else Next"
+ },
+ "notes": "Register as in strings/bn.json: polite আপনি, plain statements, no closing দাঁড়ি, a semicolon between the two halves of a line. Budgets counted in Unicode code points with য় and ড় decomposed, as both Localizable.strings files store them. App words taken from bn and bn-BD Localizable.strings, which agree on all of them: ভেরিয়েবল (Variables, N4b exactly), প্রতিবার জিজ্ঞাসা করুন (Ask Each Time, TU2 exactly, in « » as T4 quotes a button whose name is a verb phrase), পরবর্তী (Next), পছন্দ (Choice), বোল্ড, আন্ডারলাইন, হাইলাইট, তালিকা, পৃষ্ঠা, সম্পাদনা, iCloud, কীবোর্ড, ব্যক্তিগত (private, as in 'আপনার ডেটা ব্যক্তিগত থাকে'). Apple's Notes is নোট: CFBundleDisplayName in MobileNotes.app/bn.lproj/InfoPlist.strings of the iOS 27.2 simulator runtime; written নোট অ্যাপ because bare নোট also means a note or a banknote. Blank is শূন্যস্থান, the editor's word in Localizable.strings and the school phrase for fill-in-the-blank, in place of ফাঁকা জায়গা from the replaced N2, N4, N5 and TU1: on the What's New sheet ফাঁকা জায়গা ('empty room') sat beside জায়গা meaning storage room in N2b, N3 and N6. No remaining onboarding string uses ফাঁকা জায়গা. P1 uses রাখেন (keep) because যা সংরক্ষণ করেন তা শুধু আপনার is 29 against 26. P2 drops নিজের ('own') from W7's আপনার নিজের iCloud to fit 90; আপনার iCloud still says whose it is, and কাটলিং there means the items, so the collecting clause is passive to keep the app's name out of the same line. N5b keeps the editor's পছন্দ for a choice so the person finds it in the Variables menu; on its own the word also reads as 'preference', and বিকল্প would be clearer if the editor's label is ever revisited. TU2 shares one ট্যাপ করুন between the two buttons and leaves off the locative endings (-এ, -তে) the locale usually puts before ট্যাপ করুন; with both endings it is 114 against 110. If the layout has four characters of slack, the fuller form is: লেখার সময় প্রতিবার পূরণের শূন্যস্থান রাখতে কীবোর্ডের উপরে «প্রতিবার জিজ্ঞাসা করুন»-এ, নয়তো পরবর্তী-তে ট্যাপ করুন. One text is offered for bn and bn-BD."
+}

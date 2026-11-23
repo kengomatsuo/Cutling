@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "ro"
+ ],
+ "strings": {
+  "P1": "Ce salvezi rămâne privat",
+  "P2": "Fără cont, nimic colectat; dacă sincronizezi cutling-urile, trec doar prin iCloud-ul tău",
+  "P3": "Ce scrii rămâne privat",
+  "P4": "Cutling nu are cont și nu colectează nimic; ce scrii nu se trimite niciodată nicăieri",
+  "N2b": "Variabile, scris ca în Notițe și mult mai mult loc",
+  "N4b": "Variabile",
+  "N5b": "Editează un cutling și deschide Variabile: spații de completat de fiecare dată, data de azi, alegeri și altele",
+  "N17": "Scrii ca în Notițe",
+  "N18": "Textul unui cutling se deschide acum pe o pagină separată, cu aldin, subliniat, evidențiere și liste",
+  "TU2": "Când scrii, apasă „Întreabă de fiecare dată” deasupra tastaturii pentru un spațiu de completat, sau Următorul."
+ },
+ "back": {
+  "P1": "What you save stays private",
+  "P2": "No account, nothing collected; if you sync the cutlings, they pass only through your iCloud",
+  "P3": "What you type stays private",
+  "P4": "Cutling has no account and collects nothing; what you type is never sent anywhere",
+  "N2b": "Variables, writing as in Notes and much more room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling and open Variables: blanks to fill in each time, today's date, choices and others",
+  "N17": "You write as in Notes",
+  "N18": "A cutling's text now opens on a separate page, with bold, underline, highlight and lists",
+  "TU2": "When you type, press \"Ask each time\" above the keyboard for a blank to fill in, or Next."
+ },
+ "notes": "Tu-form, sentence-case titles, and no closing period on the setup and What's New lines, as W1-N16 have them; two clauses are joined by a semicolon as W7 and N9 are. App terms from ro.lproj: cutling / cutling-urile, Variabile, Întreabă de fiecare dată, Următorul, Editează un cutling, data de azi, Alegeri, Aldin, Subliniat, Evidențiere, Listă, iCloud-ul tău (W7). Notițe is Apple's Romanian name for Notes (Manual de utilizare iPhone, 'Începeți utilizarea aplicației Notițe'); the app's Romanian release notes already call it that. The blank is 'spațiu de completat', the sheet's own word from N2, in N5b and TU2 alike. P2 (88 of 90): Romanian cannot hold 'cutling-urile se sincronizează' and 'dacă activezi sincronizarea' together in 90, so the opt-in is said as 'dacă sincronizezi cutling-urile' (if you sync the cutlings) and they 'trec doar prin iCloud-ul tău'. N2b is exactly 50; N3's 'mult mai mult loc' is kept word for word. N5b is exactly 110: the list is plural after a colon ('spații de completat de fiecare dată, data de azi, alegeri și altele') because 'ca să adaugi un spațiu ... o alegere' runs to 126; the verb 'add' is carried by the colon. 'De fiecare dată' is kept because the button the person will look for is named 'Întreabă de fiecare dată'. N18: bold, underline and highlight are written as their buttons are labelled (aldin, subliniat, evidențiere), as the Romanian release notes list them. TU2 is exactly 110. It follows the walkthrough tips shown just before and after it ('Acum scrie textul pe care vrei să-l salvezi.', 'Apasă aici pentru a-ți salva cutlingul.'): 'apasă', and a closing period, where TU1 had 'atinge' and none. The button name is 24 characters in Romanian against 13 in English, so two things are left to the reader: 'you fill in each time' is 'de completat', with 'each time' said only by the button's name, and 'to skip' is dropped ('sau Următorul'). The name is in Romanian quotes „ ” because four unquoted words would run into 'deasupra tastaturii'; Următorul, one capitalised word, needs none, as T4 and A5 leave button names unquoted."
+}

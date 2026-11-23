@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "sw"
+ ],
+ "strings": {
+  "P1": "Unachohifadhi ni chako tu",
+  "P2": "Hakuna akaunti, hakuna kinachokusanywa. Ukiwasha usawazishaji, ni kupitia iCloud yako tu",
+  "P3": "Unachoandika ni cha faragha",
+  "P4": "Cutling haina akaunti wala haikusanyi chochote. Unachoandika hakitumwi popote kamwe",
+  "N2b": "Vigezo, kuandika kama Notes, na nafasi kubwa zaidi",
+  "N4b": "Vigezo",
+  "N5b": "Hariri cutling na ufungue Vigezo ili kuweka nafasi ya kujaza kila mara, tarehe ya leo, chaguo na mengineyo",
+  "N17": "Andika kama kwenye Notes",
+  "N18": "Maandishi ya cutling hufunguka kwenye ukurasa wake wenyewe: herufi nzito, kupigia mstari, kuangazia na orodha",
+  "TU2": "Unapoandika, gusa “Uliza kila mara” juu ya kibodi uache nafasi ya kujaza kila mara, au gusa Ifuatayo kuruka"
+ },
+ "back": {
+  "P1": "What you save is yours alone",
+  "P2": "There is no account, there is nothing that is collected. If you turn on sync, it is through your iCloud only",
+  "P3": "What you type is private",
+  "P4": "Cutling has no account nor does it collect anything. What you type is not sent anywhere, ever",
+  "N2b": "Variables, writing like Notes, and much bigger room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling and open Variables in order to put in a space to fill every time, today's date, a choice and others",
+  "N17": "Write as in Notes",
+  "N18": "A cutling's text opens on its very own page: bold letters, underlining, highlighting and lists",
+  "TU2": "While you are typing, tap \"Ask each time\" above the keyboard so that you leave a space to fill every time, or tap Next to skip"
+ },
+ "notes": "Register and words follow strings/sw.json: second person singular, plain imperatives (Gusa, Hariri, Andika), habitual hu- for what the app does, sentence case titles, no closing full stop, cutling kept lower case as an unchanged noun. App words taken from sw.lproj: Vigezo (Variables), Uliza kila mara (Ask Each Time), Ifuatayo (Next), usawazishaji (sync, as in Usawazishaji wa iCloud), herufi nzito, pigia mstari, angazia, orodha, chaguo, tarehe ya leo, faragha, hakitumwi popote. Notes stays 'Notes': iOS 27.2's Notes and Settings apps carry no Swahili localisation (checked in the simulator runtime, 56 and 57 languages, none sw), so that is the name on a Swahili speaker's Home Screen. P1 says 'yours alone' because 'cha faragha' runs to 28 against 26. P3 says 'is private' because 'hubaki cha faragha' (stays private) runs to 31 against 30; P4 carries the 'never sent anywhere'. P2 leaves the word cutling out to fit 90: the row's title already names what you save, and 'Ukiwasha usawazishaji' names the setting the person turns on. N2b says 'kama Notes' without 'kwenye' to keep the sheet's existing 'nafasi kubwa zaidi' inside 50. N5b and TU2 say 'nafasi ya kujaza' without 'tupu' to fit. TU2 puts the button name in the file's curly quotes, because unquoted 'gusa Uliza kila mara' also reads as 'tap Uliza every time'; purpose is the bare subjunctive 'uache' (ili would run to 111). N18 lists underline and highlight as verbal nouns (kupigia mstari, kuangazia) built from the editor's own button names."
+}

@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "lt"
+ ],
+ "strings": {
+  "P1": "Ką išsaugai, yra tik tavo",
+  "P2": "Be paskyros, nieko nerenkama; cutlingus sinchronizuoja tik tavo iCloud, jei tai įjungi",
+  "P3": "Ką rašai, lieka privatu",
+  "P4": "Cutling neturi paskyros ir nieko nerenka; tai, ką rašai, niekada niekur nesiunčiama",
+  "N2b": "Kintamieji, rašymas kaip Užrašuose ir daug vietos",
+  "N4b": "Kintamieji",
+  "N5b": "Redaguok cutlingą ir iš Kintamųjų pridėk tuščią vietą užpildyti kaskart, šiandienos datą, pasirinkimą ir kita",
+  "N17": "Rašyk kaip Užrašuose",
+  "N18": "Cutlingo tekstas atsiveria atskirame puslapyje su pusjuodžiu šriftu, pabraukimu, paryškinimu ir sąrašais",
+  "TU2": "Kol rašai, virš klaviatūros bakstelėk Klausti kaskart ir palik tuščią vietą užpildyti. Arba bakstelėk Toliau"
+ },
+ "back": {
+  "P1": "What you save is yours alone",
+  "P2": "Without an account, nothing is collected; only your iCloud syncs the cutlings, if you turn that on",
+  "P3": "What you type stays private",
+  "P4": "Cutling has no account and collects nothing; what you type is never sent anywhere",
+  "N2b": "Variables, writing like in Notes and lots of room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling and from Variables add a blank to fill in each time, today's date, a choice and other things",
+  "N17": "Write like in Notes",
+  "N18": "A cutling's text opens on a separate page with bold type, underline, highlight and lists",
+  "TU2": "While you type, tap Ask Each Time above the keyboard and leave a blank to fill in. Or tap Next"
+ },
+ "notes": "Informal ty (išsaugai, rašai, bakstelėk) and no final full stop, as in lt.json; a semicolon joins two clauses as W7 and N9 do, and TU2 has one inner full stop as T5 does. App words from lt.lproj: Kintamieji (N4b verbatim), Klausti kaskart (verbatim in TU2), Toliau, cutlingas, iCloud, šiandienos data, pasirinkimas (Choice), and Pusjuodis, Pabraukimas, Paryškinimas, Sąrašas from the Format card for N18 ('pusjuodžiu šriftu' because the bare adjective cannot stand in the instrumental as a noun). A blank is 'tuščia vieta' and 'tuščią vietą užpildyti kaskart' is TU1's own phrase, as on the sheets (the editor's older strings say 'laukas'). Notes is Užrašai, read from Apple's Lithuanian iPhone guide on 2026-11-23 (support.apple.com/lt-lt/guide/iphone/welcome/ios: Pradėkite naudoti programą „Užrašai“); it is written without quotation marks, as T4 and A5 write names on these sheets. Button names after 'bakstelėk' stay in the nominative, unquoted, as in A5 and T4; the capital letter marks the name. In N5b Variables is declined (iš Kintamųjų, genitive) as A2 declines Nustatymuose, and 'open Variables to put in' became 'from Variables add' to fit 110. Nothing needs a gender: TU1's masculine 'Rašydamas' is 'Kol rašai' here, 'nieko nerenkama' is impersonal, and 'privatu' is the neuter form a clause subject takes. Budget choices. P2: W7's 'cutlingai sinchronizuojasi tik per tavo iCloud, jei tai įjungi' ran to 92, so iCloud became the subject (cutlingus sinchronizuoja tik tavo iCloud); 'tai' is the syncing. N2b: with N3's 'daug daugiau vietos' the line is 57, so 'far more room' is 'daug vietos' (lots of room) and the Notes part keeps N17's words; N6 under it gives the number. The other fit was 'Kintamieji, Užrašų stilius ir daug daugiau vietos' (49), which keeps N3's phrase and loses 'writing'. TU2: the whole meaning is about 147 in Lithuanian. 'Each time' is said once, by the button's name, because a second 'kaskart' right after 'Klausti kaskart' reads as a slip; 'the text' and 'to skip' are left out, the tip sitting on the text box and Next being the tutorial's own way on. P1 says 'yours alone' because 'privatu' is kept for P3 and 'lieka' (stays) would echo the removed W6 'Lieka tavo iPhone'. Lengths: P1 25, P2 86, P3 23, P4 83, N2b 49, N4b 10, N5b 109, N17 20, N18 104, TU2 108."
+}

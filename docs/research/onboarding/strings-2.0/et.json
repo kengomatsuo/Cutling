@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "et"
+ ],
+ "strings": {
+  "P1": "Salvestatut näed vaid sina",
+  "P2": "Kontot pole, midagi ei koguta. Sünkroonib vaid sinu enda iCloud, kui selle sisse lülitad.",
+  "P3": "Kirjutatu jääb privaatseks",
+  "P4": "Cutlingil pole kontot ja see ei kogu midagi. Seda, mida kirjutad, ei saadeta kunagi kuhugi.",
+  "N2b": "Muutujad, tekst nagu Notesis ja palju rohkem ruumi",
+  "N4b": "Muutujad",
+  "N5b": "Muuda cutlingut ja ava Muutujad, et lisada iga kord täidetav lünk, tänane kuupäev, valik ja palju muud",
+  "N17": "Kirjuta nagu Notesis",
+  "N18": "Cutlingu tekst avaneb omaette lehel, kus on rasvane kiri, allakriipsutus, esiletõstmine ja loendid",
+  "TU2": "Kirjutades puuduta klaviatuuri kohal Küsi iga kord, et jätta lünk, mille täidad iga kord, või puuduta Edasi"
+ },
+ "back": {
+  "P1": "Only you see what you have saved",
+  "P2": "There is no account, nothing is collected. Only your own iCloud syncs, if you turn it on.",
+  "P3": "What you type stays private",
+  "P4": "Cutling has no account and it collects nothing. What you type is never sent anywhere.",
+  "N2b": "Variables, text like in Notes, and much more room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling and open Variables to add a blank that is filled in each time, today's date, a choice and much more",
+  "N17": "Write like in Notes",
+  "N18": "A cutling's text opens on a page of its own, which has bold, underline, highlight and lists",
+  "TU2": "While typing, tap Ask Each Time above the keyboard to leave a blank you fill in each time, or tap Next"
+ },
+ "notes": "Sina-form and no exclamation marks, as on the same sheets; one-sentence lines carry no full stop and two-sentence lines (P2, P4) do, as W7 and F6 did. Reused from Localizable.strings: Muutujad, Küsi iga kord, Edasi, iCloud, sisse lülitama, lünk, tänane kuupäev, valik, and the Format card's words rasvane, allakriipsutus, esiletõstmine, loend; cutling is declined cutlingu/cutlingut as in N9 and N14. Notes stays 'Notes' (inessive Notesis, no apostrophe since it ends in a consonant in writing and speech): iOS has no Estonian system language (the iOS 27.2 simulator runtime has no et.lproj for Notes or Settings), so the app on an Estonian reader's phone is named Notes, and Apple's own Estonian site writes 'Vidinad Calendar ja Notes'. 'Märkmed' would name an app the reader does not have. P2 leaves the word cutlingid out to stay inside 90 with 'kui selle sisse lülitad' (the Settings toggle's verb); the title above it says what is meant. With the noun it is 94: 'Cutlingid sünkroonib vaid sinu iCloud, kui selle sisse lülitad.' TU2 ends 'või puuduta Edasi' without 'et vahele jätta' (to skip): with it the line is 124. The button name is kept mid-sentence so its capital marks it as a name, unquoted as T4 writes Proovi mind. N5b uses 'iga kord täidetav lünk' because a relative clause inside the comma list read as a list item. N2b is exactly 50; 'tekst nagu Notesis' stands for writing like in Notes ('kirjutamine' made it 56)."
+}

@@ -545,8 +545,6 @@
 "Save what you type over and over, then tap it on the keyboard in any app." = "자주 쓰는 문장을 저장해 두고, 어떤 앱에서든 키보드에서 탭하세요.";
 "Images Too" = "이미지도 됩니다";
 "Copy a saved image with one tap and paste it anywhere." = "저장한 이미지를 한 번 탭해 복사하고 어디든 붙여넣으세요.";
-"Stays on Your iPhone" = "데이터는 iPhone 안에만";
-"No account, no internet. Your cutlings sync only through your own iCloud." = "계정도 인터넷도 필요 없습니다. 동기화는 내 iCloud로만 합니다.";
 "Add the Keyboard" = "키보드 추가";
 "Turn on Cutling in Settings, then come back." = "설정에서 컷링을 켠 다음 이 앱으로 돌아오세요";
 "About Full Access" = "전체 접근 권한 안내";
@@ -556,8 +554,6 @@
 "Cutling types your text without it." = "전체 접근 없이도 텍스트는 입력됩니다";
 "Images and Clipboard" = "이미지와 클립보드";
 "Full Access lets the keyboard copy a saved image and add what you copied." = "전체 접근을 허용하면 키보드가 저장한 이미지를 복사하고, 복사한 내용을 추가할 수 있습니다.";
-"Nothing Leaves Your iPhone" = "iPhone 밖으로 나가지 않습니다";
-"Cutling has no account and never connects to the internet. It doesn't read what you type." = "컷링에는 계정이 없고 인터넷에 연결하지 않습니다. 입력하는 내용도 읽지 않습니다.";
 "Apple's Warning" = "Apple의 경고";
 "iOS shows the same warning for every keyboard that asks, whatever it does." = "iOS는 전체 접근을 요청하는 모든 키보드에 기능과 상관없이 같은 경고를 표시합니다.";
 "Try It" = "사용해 보기";
@@ -567,10 +563,7 @@
 "Cutling typed it. You're set." = "컷링이 입력했습니다. 준비됐습니다";
 "Try Me" = "체험";
 "Cutling typed this for me." = "컷링이 대신 입력했어요";
-"Blanks to fill in, and far more room." = "채워 넣는 빈칸, 훨씬 넓어진 공간";
 "Far more room, and every key types." = "훨씬 넓어진 공간, 모든 키로 입력";
-"Blanks and Dates" = "빈칸과 날짜";
-"Add a blank or today’s date from the editor, and fill the blank in each time you type the cutling." = "편집기에서 빈칸이나 오늘 날짜를 넣을 수 있습니다. 빈칸은 컷링을 입력할 때마다 채웁니다.";
 "Room for %@" = "%@개 저장 공간";
 "Save up to %@ texts and %@ images." = "텍스트 %1$@개, 이미지 %2$@개까지 저장";
 "Every Key Types" = "모든 키로 입력";
@@ -582,7 +575,6 @@
 "Share text, links or images to Cutling from any app." = "어떤 앱에서든 텍스트, 링크, 이미지를 컷링으로 공유하세요.";
 
 /* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */
-"While you type the text, tap the braces button to leave a blank you fill in each time. Or tap Next." = "입력하면서 중괄호 버튼을 탭하면 사용할 때마다 채울 빈칸을 남길 수 있습니다. 건너뛰려면 ‘다음’을 탭하세요.";
 
 /* MARK: - Text page, Format card and Variables (docs/text-page-strings-brief.md) */
 "Format" = "서식";
@@ -700,3 +692,14 @@
 "Number in Words" = "한글로 쓴 숫자";
 "Value from a Shortcut" = "단축어 결과";
 "A shortcut’s result" = "단축어가 돌려준 값";
+
+/* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */
+"What You Save Is Private" = "저장한 내용은 나만 봅니다";
+"No account, nothing collected. Cutlings sync only through your iCloud, if you turn it on." = "계정도 없고 수집하는 정보도 없습니다. 동기화는 직접 켰을 때 내 iCloud로만 합니다.";
+"What You Type Stays Private" = "컷링은 입력하는 내용을 보내지 않습니다";
+"Cutling has no account and collects nothing. What you type is never sent anywhere." = "컷링에는 계정이 없고 수집하는 정보도 없습니다. 입력하는 내용은 어디로도 보내지 않습니다.";
+"Variables, writing as in Notes, and far more room." = "변수, 메모 앱처럼 쓰기, 훨씬 넓어진 공간";
+"Edit a cutling and open Variables to add a blank you fill in each time, today’s date, a choice and more." = "컷링을 편집할 때 ‘변수’를 열면 사용할 때마다 채우는 빈칸, 오늘 날짜, 선택지 등을 넣을 수 있습니다.";
+"Write as You Do in Notes" = "메모 앱처럼 쓰기";
+"A cutling’s text now opens on a page of its own, with bold, underline, highlight and lists." = "컷링의 텍스트가 이제 별도 화면에서 열립니다. 굵게, 밑줄, 하이라이트, 목록 서식을 쓸 수 있습니다.";
+"As you type, tap Ask Each Time above the keyboard to leave a blank you fill in each time. Or tap Next to skip." = "입력하면서 키보드 위의 ‘매번 묻기’를 탭하면 사용할 때마다 채울 빈칸을 남길 수 있습니다. 건너뛰려면 ‘다음’을 탭하세요.";

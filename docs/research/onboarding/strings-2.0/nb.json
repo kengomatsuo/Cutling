@@ -1,0 +1,30 @@
+{
+  "folders": [
+    "nb"
+  ],
+  "strings": {
+    "P1": "Det du lagrer, er privat",
+    "P2": "Ingen konto, ingenting samles inn. Slår du på synkronisering, brukes bare din egen iCloud.",
+    "P3": "Det du skriver, forblir privat",
+    "P4": "Cutling har ingen konto og samler ikke inn noe. Det du skriver, sendes aldri noe sted.",
+    "N2b": "Variabler, tekst som i Notater og mye mer plass",
+    "N4b": "Variabler",
+    "N5b": "Rediger en cutling og åpne Variabler. Sett inn et felt du fyller ut hver gang, dagens dato, et valg og mer.",
+    "N17": "Skriv som i Notater",
+    "N18": "Teksten i en cutling åpnes på en egen side, med fet skrift, understreking, utheving og lister",
+    "TU2": "Trykk underveis på Spør hver gang over tastaturet, og få et felt du fyller ut hver gang. Eller trykk på Neste."
+  },
+  "back": {
+    "P1": "What you save is private",
+    "P2": "No account, nothing is collected. If you turn sync on, only your own iCloud is used.",
+    "P3": "What you type stays private",
+    "P4": "Cutling has no account and collects nothing. What you type is never sent anywhere.",
+    "N2b": "Variables, text like in Notes and much more room",
+    "N4b": "Variables",
+    "N5b": "Edit a cutling and open Variables. Insert a field you fill in each time, today's date, a choice and more.",
+    "N17": "Write like in Notes",
+    "N18": "The text in a cutling opens on a page of its own, with bold type, underlining, highlighting and lists",
+    "TU2": "As you go, tap Ask Each Time above the keyboard and get a field you fill in each time. Or tap Next."
+  },
+  "notes": "Du-form, no exclamation marks, sentence-case titles with no full stop, as in strings/nb.json; a body line of one sentence has no full stop and a line of two has both, as that file does (N5 against N9, W7, F6). Words reused from the locale: cutling (lowercase common noun), Variabler, Spør hver gang, Neste, 'felt du fyller ut hver gang' for the blank (TU1 and the Fill-ins strings), 'mye mer plass' (N2), 'Rediger en cutling' and 'sett inn' (Localizable.strings), 'forblir privat' and 'sendes aldri noe sted' (the old setup step). Notater is Apple's Norwegian name for Notes, read from Notes.app's own InfoPlist. Button names stand unquoted with their capital, as in T4 and TU1. The comma after 'Det du lagrer' and 'Det du skriver' is the Bokmål rule for a subject that ends in a relative clause. P2 does not repeat the word cutlings: the W7 sentence plus an 'if you turn it on' clause ran past 95, so the sync clause leads and 'only your own iCloud' follows; its first sentence drops 'og' ('Ingen konto, ingenting samles inn') because with it the line is 93. N5b is two sentences because the one-sentence form with 'for å sette inn' is 112. N2b says 'text like in Notes' since the noun 'skriving' reads as a school subject; with 'skriving' it is exactly 50 and also fits. N18 writes the formats as nouns in running text (fet skrift, understreking, utheving) for the buttons Fet, Understreking, Utheving; 'fet' and not Apple's 'halvfet' because the app's own button says Fet. TU2: 'underveis' (as you go) stands for 'while you type the text', because 'mens du skriver' puts the tip at 115; the step itself is the typing, so it reads as during it. TU2 ends 'Or tap Next' without 'to skip' (16 more characters), as the Danish and the old English TU1 did; this is the one part of the must-say left out, and the line is at 110 exactly."
+}

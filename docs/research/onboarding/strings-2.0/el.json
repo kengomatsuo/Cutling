@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "el"
+ ],
+ "strings": {
+  "P1": "Ιδιωτικό ό,τι αποθηκεύεις",
+  "P2": "Χωρίς λογαριασμό, χωρίς συλλογή δεδομένων. Συγχρονίζεται μόνο μέσω του iCloud σου, αν θες",
+  "P3": "Ό,τι γράφεις μένει ιδιωτικό",
+  "P4": "Το Cutling δεν έχει λογαριασμό και δεν συλλέγει τίποτα. Ό,τι γράφεις δεν στέλνεται ποτέ πουθενά",
+  "N2b": "Μεταβλητές, γραφή σαν στις Σημειώσεις, πολύς χώρος",
+  "N4b": "Μεταβλητές",
+  "N5b": "Στην επεξεργασία, άνοιξε τις Μεταβλητές: κενό που συμπληρώνεις κάθε φορά, σημερινή ημερομηνία, επιλογή κι άλλα",
+  "N17": "Όπως στις Σημειώσεις",
+  "N18": "Το κείμενο κάθε cutling ανοίγει σε δική του σελίδα, με έντονα, υπογράμμιση, επισήμανση και λίστες",
+  "TU2": "Όσο γράφεις, πάτα «Ερώτηση κάθε φορά» πάνω από το πληκτρολόγιο για κενό που συμπληρώνεις κάθε φορά, ή Επόμενο"
+ },
+ "back": {
+  "P1": "Private, whatever you save",
+  "P2": "No account, no data collection. It syncs only through your iCloud, if you want",
+  "P3": "Whatever you type stays private",
+  "P4": "Cutling has no account and collects nothing. Whatever you type is never sent anywhere",
+  "N2b": "Variables, writing as in Notes, lots of room",
+  "N4b": "Variables",
+  "N5b": "When editing, open Variables: a blank you fill in every time, today's date, a choice and others",
+  "N17": "As in Notes",
+  "N18": "Each cutling's text opens on a page of its own, with bold, underline, highlight and lists",
+  "TU2": "While you write, tap 'Ask each time' above the keyboard for a blank you fill in every time, or Next"
+ },
+ "notes": "Singular informal (esy), no final period, as in strings/el.json. App words taken from el.lproj/Localizable.strings: Μεταβλητές, Ερώτηση κάθε φορά, Επόμενο, Έντονα, Υπογράμμιση, Επισήμανση, Λίστα, κενό (the What's New and tutorial word for a blank), συμπληρώνεις κάθε φορά, σημερινή ημερομηνία, Επιλογή. Notes is Σημειώσεις, checked on the Greek App Store page of Apple's Notes on 2026-11-23, and takes its article (στις Σημειώσεις). Budget trades: P1 fronts the predicate without a verb, a normal Greek headline shape, because 'Ό,τι αποθηκεύεις μένει ιδιωτικό' is 31. P2 says 'if you want' (αν θες) for 'if they turn sync on': 'αν το ενεργοποιήσεις' puts the line at 100 or more; the verb is the middle 'Συγχρονίζεται' with Cutling as its subject, as W7 had it. P3 and P4 use γράφεις for 'type' (W3's word) since 'πληκτρολογείς' puts P3 at 33. N2b says 'lots of room' (πολύς χώρος), not 'far more room': the existing 'πολύ περισσότερος χώρος' puts it at 62, and the list has no 'και' before its last item for the same reason. N17 has no verb 'write' ('Γράψε σαν στις Σημειώσεις' is 25, one over); N18 under it starts with 'Το κείμενο'. N5b says 'Στην επεξεργασία' (in editing, the menu word Επεξεργασία) without 'a cutling', and a colon stands for 'to put in'. TU2 puts the button name in guillemets because unquoted it reads as 'tap Question every time'; 'tap' is not repeated before Επόμενο, and 'to skip' is left out, to fit 110."
+}

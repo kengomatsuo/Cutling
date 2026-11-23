@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "sv"
+ ],
+ "strings": {
+  "P1": "Det du sparar är privat",
+  "P2": "Inget konto, inget samlas in. Cutlings synkas bara via din egen iCloud, om du slår på det.",
+  "P3": "Det du skriver förblir privat",
+  "P4": "Cutling har inget konto och samlar inte in något. Det du skriver skickas aldrig någonstans.",
+  "N2b": "Variabler, text som i Anteckningar och mer plats",
+  "N4b": "Variabler",
+  "N5b": "Redigera en cutling och öppna Variabler för ett fält du fyller i varje gång, dagens datum, ett val med mera.",
+  "N17": "Skriv som i Anteckningar",
+  "N18": "Texten i en cutling öppnas på en egen sida, med fetstil, understrykning, färgmarkering och listor.",
+  "TU2": "Skriv och tryck på Fråga varje gång ovanför tangentbordet för ett fält du fyller i varje gång, eller på Nästa."
+ },
+ "back": {
+  "P1": "What you save is private",
+  "P2": "No account, nothing is collected. Cutlings are synced only via your own iCloud, if you turn it on.",
+  "P3": "What you type stays private",
+  "P4": "Cutling has no account and collects nothing. What you type is never sent anywhere.",
+  "N2b": "Variables, text as in Notes and more room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling and open Variables for a field you fill in each time, today's date, a choice and more.",
+  "N17": "Write as in Notes",
+  "N18": "The text in a cutling opens on a page of its own, with bold, underlining, colour highlighting and lists.",
+  "TU2": "Type, and tap Ask Each Time above the keyboard for a field you fill in each time, or Next."
+ },
+ "notes": "Swedish, written from the brief's meanings. Du-form, sentence-case titles, no exclamation marks; titles and the subtitle carry no full stop and row lines do, as W6/W7, F5/F6, N2 and N5 did. Terms are the app's own from sv.lproj: cutling (en-word, plural cutlings), Variabler, Fråga varje gång, Nästa, 'fält du fyller i varje gång' for the blank (as TU1 and N5 had it), 'dagens datum', 'val', 'slå på' for turning sync on, 'synkas bara via din egen iCloud' kept from W7. Notes is Anteckningar, and highlight follows Apple's Swedish iPhone guide for iOS 27 ('Skapa och formatera anteckningar på iPhone': 'ett fett eller kursivt typsnitt eller markering'); N18 writes 'färgmarkering' because bare 'markering' also means a selection, and this app uses Markera for Select as well as for Highlight. N18 uses the nouns 'understrykning' and 'färgmarkering' where the buttons are labelled Understruken and Markera, since the line lists what the page has. P1 and P3 are parallel ('Det du sparar är privat' / 'Det du skriver förblir privat'); 'förblir privat' is Apple's own Swedish phrasing. P2 is exactly 90; 'det' in 'om du slår på det' is the syncing. N17 is exactly 24. Budget losses, each chosen over an unnatural fit: N2b says 'mer plats' (more room), not 'mycket mer plats' (far more room), since 'Variabler, text som i Anteckningar' leaves 16 characters and ' och mycket mer plats' needs 21; the row under it still says 'Plats för %@'. N5b says 'öppna Variabler för ett fält' (open Variables for a field) with no verb for 'put in', which saved the 11 characters 'att infoga ' cost (119 with it). TU2 is exactly 110: the button's name plus 'ovanför tangentbordet' takes 38 characters, so 'while you type the text' became 'Skriv och' (type, and) and 'to skip' is dropped, as the shipped English TU1 ended 'Or tap Next.'; the full sentence with 'medan du skriver' and 'för att hoppa över' runs to 136. 'eller på Nästa' continues 'tryck på'. The button name is unquoted, as T4 writes 'tryck på Prova mig'."
+}

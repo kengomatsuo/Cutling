@@ -1,0 +1,30 @@
+{
+  "folders": [
+    "es-MX"
+  ],
+  "strings": {
+    "P1": "Lo que guardas es privado",
+    "P2": "Sin cuenta y sin recopilar nada. Solo tu iCloud sincroniza tus cutlings, si lo activas.",
+    "P3": "Lo que escribes es privado",
+    "P4": "Cutling no tiene cuenta ni recopila nada. Lo que escribes nunca se envía a ningún lado.",
+    "N2b": "Variables, texto estilo Notas y mucho más espacio",
+    "N4b": "Variables",
+    "N5b": "Edita un cutling y abre Variables para agregar un campo que llenas cada vez, la fecha de hoy, opciones y más.",
+    "N17": "Escribe como en Notas",
+    "N18": "El texto de un cutling se abre en su propia página, con negritas, subrayado, resaltado y listas.",
+    "TU2": "Al escribir, toca Preguntar cada vez arriba del teclado para dejar un campo por llenar. Si no, toca Siguiente."
+  },
+  "back": {
+    "P1": "What you save is private",
+    "P2": "Without an account and without collecting anything. Only your iCloud syncs your cutlings, if you turn it on.",
+    "P3": "What you type is private",
+    "P4": "Cutling has no account and collects nothing. What you type is never sent anywhere.",
+    "N2b": "Variables, Notes-style text and much more room",
+    "N4b": "Variables",
+    "N5b": "Edit a cutling and open Variables to add a blank that you fill in each time, today's date, choices and more.",
+    "N17": "Write as in Notes",
+    "N18": "A cutling's text opens on its own page, with bold, underline, highlight and lists.",
+    "TU2": "When typing, tap Ask Each Time above the keyboard to leave a blank to fill in. If not, tap Next."
+  },
+  "notes": "Tú, no exclamation marks, Mexican wording as in the earlier file: 'agregar', 'llenar', 'a ningún lado', 'arriba del teclado', 'negritas'. App terms reused exactly: Variables, Preguntar cada vez, Siguiente, cutling, 'campo' for a blank, 'opciones' for choices, 'fecha de hoy', and negritas / subrayado / resaltado from the Format card (its button says 'Resaltar'; the noun is used in the list). Notas is Apple's Mexican name for Notes. Periods on row lines and the tip, none on titles or the subtitle, as the earlier strings do. P2 ends with W7's own clause 'Solo tu iCloud sincroniza tus cutlings'; 'si lo activas' stands for turning sync on. P1 and P3 say 'is private': 'sigue siendo privado' (stays private) is 35 characters against P3's 30. N2b: the plain 'texto como en Notas y mucho más espacio' is 52 against 50, so it reads 'texto estilo Notas' to keep 'mucho más'. N5b: 'a choice' is plural 'opciones', the editor's own section name, since 'una opción' alone reads as 'an option'. TU2: the button's name already says 'cada vez', so the blank is 'un campo por llenar' and not 'que llenas cada vez' a second time; 'to skip' is carried by 'Si no' (otherwise), and 'Al escribir' replaces TU1's 'Mientras escribes' to stay at 110."
+}

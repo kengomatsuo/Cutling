@@ -1,0 +1,31 @@
+{
+ "folders": [
+  "kn",
+  "kn-IN"
+ ],
+ "strings": {
+  "P1": "ನೀವು ಉಳಿಸಿದ್ದು ನಿಮಗೆ ಮಾತ್ರ",
+  "P2": "ಖಾತೆ ಇಲ್ಲ, ಮಾಹಿತಿ ಸಂಗ್ರಹ ಇಲ್ಲ; ಕಟ್ಲಿಂಗ್‌ಗಳ ಸಿಂಕ್ ಆನ್ ಮಾಡಿದರೆ ಅದು ನಿಮ್ಮದೇ iCloud ಮೂಲಕ ಮಾತ್ರ",
+  "P3": "ಟೈಪ್ ಮಾಡಿದ್ದು ಖಾಸಗಿಯಾಗಿರುತ್ತದೆ",
+  "P4": "ಕಟ್ಲಿಂಗ್‌ನಲ್ಲಿ ಖಾತೆ ಇಲ್ಲ, ಮಾಹಿತಿ ಸಂಗ್ರಹವೂ ಇಲ್ಲ; ನೀವು ಟೈಪ್ ಮಾಡಿದ್ದನ್ನು ಎಂದೂ ಎಲ್ಲಿಗೂ ಕಳುಹಿಸುವುದಿಲ್ಲ",
+  "N2b": "ವೇರಿಯಬಲ್‌ಗಳು, ಟಿಪ್ಪಣಿ ಆ್ಯಪ್‌ನಂಥ ಬರಹ, ಹೆಚ್ಚು ಸ್ಥಳ",
+  "N4b": "ವೇರಿಯಬಲ್‌ಗಳು",
+  "N5b": "ಕಟ್ಲಿಂಗ್ ಸಂಪಾದಿಸುವಾಗ ವೇರಿಯಬಲ್‌ಗಳನ್ನು ತೆರೆದು, ಪ್ರತಿ ಬಾರಿ ತುಂಬುವ ಖಾಲಿ ಜಾಗ, ಇಂದಿನ ದಿನಾಂಕ, ಆಯ್ಕೆ ಇತ್ಯಾದಿ ಸೇರಿಸಿ",
+  "N17": "ಟಿಪ್ಪಣಿ ಆ್ಯಪ್‌ನಂತೆ ಬರೆಯಿರಿ",
+  "N18": "ಕಟ್ಲಿಂಗ್‌ನ ಪಠ್ಯ ತನ್ನದೇ ಪುಟದಲ್ಲಿ ತೆರೆದುಕೊಳ್ಳುತ್ತದೆ; ಅಲ್ಲಿ ಬೋಲ್ಡ್, ಅಂಡರ್‌ಲೈನ್, ಹೈಲೈಟ್ ಮತ್ತು ಪಟ್ಟಿಗಳಿವೆ",
+  "TU2": "ಟೈಪ್ ಮಾಡುವಾಗ, ಪ್ರತಿ ಬಾರಿ ತುಂಬುವ ಖಾಲಿ ಜಾಗ ಬಿಡಲು ಕೀಬೋರ್ಡ್ ಮೇಲಿನ 'ಪ್ರತಿ ಬಾರಿ ಕೇಳಿ' ಟ್ಯಾಪ್ ಮಾಡಿ, ಬೇಡವಾದರೆ 'ಮುಂದೆ'"
+ },
+ "back": {
+  "P1": "What you saved is for you alone",
+  "P2": "No account, no information collection; if you turn on the cutlings' sync, it is only through your own iCloud",
+  "P3": "What is typed stays private",
+  "P4": "There is no account in Cutling, and no information collection either; what you typed is never sent anywhere",
+  "N2b": "Variables, text like the Notes app's, more room",
+  "N4b": "Variables",
+  "N5b": "While editing a cutling, open Variables and add a blank you fill in each time, today's date, a choice and so on",
+  "N17": "Write as in the Notes app",
+  "N18": "A cutling's text opens on its own page; bold, underline, highlight and lists are there",
+  "TU2": "While typing, to leave a blank that is filled in each time, tap 'Ask Each Time' above the keyboard; if you don't want one, 'Next'"
+ },
+ "notes": "Polite plural imperative (ಮಾಡಿ, ಸೇರಿಸಿ, ಬರೆಯಿರಿ), no closing period and a semicolon between a line's two halves, as the kn strings already on these sheets. Budgets are counted in Unicode code points, the strictest count for Kannada, where a vowel sign, a virama and the zero-width non-joiner each count as one; that is also how the earlier kn strings sit against their budgets. By that count N17 is 26 against 24 (15 characters as a reader sees them, and 188 pt wide in the system font where 24 English characters are 185 pt); every other key is inside its budget. Reused exactly from kn.lproj, which kn-IN.lproj matches for these: ವೇರಿಯಬಲ್‌ಗಳು (N4b verbatim; ವೇರಿಯಬಲ್‌ಗಳನ್ನು in N5b is its object form, as the sheets write ಸೆಟ್ಟಿಂಗ್‌ಗಳನ್ನು ತೆರೆಯಿರಿ), ಪ್ರತಿ ಬಾರಿ ಕೇಳಿ (Ask Each Time, verbatim), ಮುಂದೆ (Next), ಕೀಬೋರ್ಡ್, iCloud, ಸಿಂಕ್, ಖಾತೆ, ಇಂದಿನ ದಿನಾಂಕ, ಆಯ್ಕೆ, ಬೋಲ್ಡ್, ಅಂಡರ್‌ಲೈನ್, ಹೈಲೈಟ್, ಪಟ್ಟಿ, ಸಂಪಾದಿಸಿ for Edit, ಸ್ಥಳ for room, ಟೈಪ್ ಮಾಡಿ and ಟ್ಯಾಪ್ ಮಾಡಿ. Notes is ಟಿಪ್ಪಣಿ ಆ್ಯಪ್: MobileNotes.app's kn.lproj in the iOS 27.2 simulator runtime names the app ಟಿಪ್ಪಣಿ (CFBundleDisplayName) and writes it as ಟಿಪ್ಪಣಿ ಆ್ಯಪ್ in every sentence (Welcome to Notes is ಟಿಪ್ಪಣಿ ಆ್ಯಪ್‌ಗೆ ಸುಸ್ವಾಗತ), because ಟಿಪ್ಪಣಿ alone reads as 'a note'. 'Nothing collected' is ಮಾಹಿತಿ ಸಂಗ್ರಹ ಇಲ್ಲ (no information collection), not a bare ಏನನ್ನೂ ಸಂಗ್ರಹಿಸುವುದಿಲ್ಲ: ಸಂಗ್ರಹಿಸು is also this app's and Apple's Kannada word for 'store', and 'stores nothing' would be false of an app that keeps what you save. P1 says 'for you alone' in plain words, and P3 carries ಖಾಸಗಿ (private) with the locale's own ಖಾಸಗಿಯಾಗಿರುತ್ತದೆ; P3 drops the pronoun to stay in 30, which Kannada titles do freely. P4 says 'there is no account in Cutling', since ಕಟ್ಲಿಂಗ್‌ಗೆ ಖಾತೆ ಇಲ್ಲ (the replaced F6) reads as Cutling itself not owning an account. P2 names the cutlings' sync instead of repeating 'cutlings sync' as a verb, and uses ನಿಮ್ಮದೇ for 'own'; the full sentence with ಸಿಂಕ್ ಆಗುತ್ತವೆ ran to 100 against 90. N2b says ಹೆಚ್ಚು ಸ್ಥಳ (more room) where N3 has ಇನ್ನೂ ಹೆಚ್ಚು ಸ್ಥಳ, because 'far more' ran to 54 against 50. A blank is ಖಾಲಿ ಜಾಗ, the phrase every Kannada speaker knows from 'fill in the blanks'; the replaced N5 and TU1 had ಖಾಲಿ alone, which is an adjective, and the editor's older strings say ಫೀಲ್ಡ್. 'And more' in N5b is ಇತ್ಯಾದಿ (and so on). TU2 puts the two button names in straight single quotes, as this locale's walkthrough already does ('ಕಟ್ಲಿಂಗ್ ಅನ್ನು ಹೇಗೆ ಬಳಸುವುದು'): ಪ್ರತಿ ಬಾರಿ ಕೇಳಿ is itself an imperative and ಮುಂದೆ is the everyday word for 'ahead', so unquoted they run into the sentence. TU2 says 'tap' once and lets it carry over to Next (ಬೇಡವಾದರೆ 'ಮುಂದೆ'), ordinary gapping in Kannada; with the verb repeated it is 121. 'While you type the text' is ಟೈಪ್ ಮಾಡುವಾಗ, as TU1 had it. N18 is two clauses joined by a semicolon, with ತೆರೆದುಕೊಳ್ಳುತ್ತದೆ for 'opens' by itself. Unsure: whether the tip draws the quoted names well beside its icon; without quotes TU2 is 105."
+}

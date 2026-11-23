@@ -1,0 +1,30 @@
+{
+  "folders": [
+    "da"
+  ],
+  "strings": {
+    "P1": "Det, du gemmer, er kun dit",
+    "P2": "Ingen konto, og intet indsamles. Slår du synkronisering til, bruges kun din egen iCloud.",
+    "P3": "Det, du skriver, er privat",
+    "P4": "Cutling har ingen konto og indsamler intet. Det, du skriver, sendes aldrig nogen steder hen.",
+    "N2b": "Variabler, tekst som i Noter og meget mere plads",
+    "N4b": "Variabler",
+    "N5b": "Rediger en cutling, og åbn Variabler. Indsæt et felt, du udfylder hver gang, dagens dato, et valg og mere til.",
+    "N17": "Skriv som i Noter",
+    "N18": "Teksten i en cutling åbnes på sin egen side med fed skrift, understregning, fremhævning og lister.",
+    "TU2": "Tryk undervejs på Spørg hver gang over tastaturet, og få et felt, du udfylder hver gang. Eller tryk på Næste."
+  },
+  "back": {
+    "P1": "What you save is yours alone",
+    "P2": "No account, and nothing is collected. If you turn sync on, only your own iCloud is used.",
+    "P3": "What you type is private",
+    "P4": "Cutling has no account and collects nothing. What you type is never sent anywhere.",
+    "N2b": "Variables, text like in Notes and far more room",
+    "N4b": "Variables",
+    "N5b": "Edit a cutling and open Variables. Insert a field you fill in each time, today's date, a choice and more besides.",
+    "N17": "Write like in Notes",
+    "N18": "The text in a cutling is opened on its own page with bold type, underlining, highlighting and lists.",
+    "TU2": "As you go, tap Ask Each Time above the keyboard and get a field you fill in each time. Or tap Next."
+  },
+  "notes": "Du-form, sentence-case titles without a full stop, body lines with one, as in strings/da.json. Start comma kept (Det, du gemmer, ...) because the existing sheet strings use it. Words reused from the locale: cutling (lowercase, en-word), Variabler, Spørg hver gang, Næste, felt for a blank with 'et felt, du udfylder hver gang' from TU1, 'meget mere plads' from N2, Rediger en cutling, 'sendes aldrig nogen steder' from the old setup step. Noter is Apple's Danish name for Notes. Button names stand unquoted, as in T4 and TU1. P1 says 'yours alone' so the two privacy titles differ; P3 says 'is private' because 'forbliver privat' is 33 characters and 'bliver privat' can be read as 'becomes private'. P2 does not repeat the word cutlings: the sentence W7 used plus 'hvis du slår det til' ran to 102 characters, so the sync clause leads and 'only your own iCloud' follows. N2b says 'text like in Notes' since the noun 'skrivning' reads as school handwriting. N18 writes the formats as nouns in running text (fed skrift, understregning, fremhævning) for the buttons Fed, Understreget, Fremhæv. TU2: 'undervejs' (as you go) stands for 'while you type the text', which at full length put the tip at 116 or more; the step before it tells the person to type the text, so it reads as during that typing. TU2 ends 'Or tap Next' without 'to skip', as the English TU1 did."
+}

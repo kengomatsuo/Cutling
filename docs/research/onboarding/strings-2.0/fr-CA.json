@@ -1,0 +1,30 @@
+{
+  "folders": [
+    "fr-CA"
+  ],
+  "strings": {
+    "P1": "Ce que tu gardes est privé",
+    "P2": "Aucun compte, rien de recueilli. Seul ton iCloud synchronise tes cutlings si tu l’actives.",
+    "P3": "Ce que tu tapes reste privé",
+    "P4": "Cutling n’a aucun compte et ne recueille rien. Ce que tu tapes n’est jamais envoyé nulle part.",
+    "N2b": "Variables, texte façon Notes et bien plus de place",
+    "N4b": "Variables",
+    "N5b": "Modifie un cutling, ouvre Variables et ajoute un champ à remplir chaque fois, la date du jour, un choix, etc.",
+    "N17": "Écris comme dans Notes",
+    "N18": "Le texte d’un cutling s’ouvre sur sa propre page, avec le gras, le souligné, le surlignage et les listes.",
+    "TU2": "En écrivant, touche Demander chaque fois au-dessus du clavier pour un champ à remplir, ou Suivant pour passer."
+  },
+  "back": {
+    "P1": "What you keep is private",
+    "P2": "No account, nothing collected. Only your iCloud syncs your cutlings if you turn it on.",
+    "P3": "What you type stays private",
+    "P4": "Cutling has no account and collects nothing. What you type is never sent anywhere.",
+    "N2b": "Variables, Notes-style text and much more room",
+    "N4b": "Variables",
+    "N5b": "Edit a cutling, open Variables and add a field to fill in each time, today's date, a choice, etc.",
+    "N17": "Write as in Notes",
+    "N18": "A cutling's text opens on its own page, with bold, underline, highlighting and lists.",
+    "TU2": "While writing, tap Ask Each Time above the keyboard for a field to fill in, or Next to skip."
+  },
+  "notes": "Tutoiement, sentence-case titles and no exclamation marks, as in the fr-CA strings already on these sheets. Reused from Localizable.strings: Variables, Demander chaque fois (Ask Each Time, the button's own name), Suivant, champ à remplir (the locale's word for a blank), cutling, 'Seul ton iCloud synchronise tes cutlings' from the old W7, 'ce que tu tapes' from the old F6, 'bien plus de place' from the old N2, garder for saving as in W3. Canadian wording: 'recueillir' for collecting data, which is the verb Apple's fr-CA privacy labels use ('Données non recueillies', apple.com/ca/fr/privacy/labels, read 2026-11-23); France says 'collecter'. Apple's Notes app is 'Notes' in fr-CA. P1 says 'est privé' because 'reste privé' is 28 characters; 'to you' is carried by 'ce que tu gardes'. P2 has no comma before 'si' to land on 90; 'l’' is the iCloud sync. N2b uses 'texte façon Notes' because 'comme dans Notes' runs to 53. N5b ends on 'etc.' for 'and more': 'et plus encore' runs to 119. N18 names the styles as nouns (le gras, le souligné, le surlignage); the editor's button reads 'Surligner'. TU2: 'chaque fois' is said once, inside the button's name, and 'pour un champ à remplir' drops the verb 'laisser' to hold 110; with 'pour laisser un champ à remplir' the line is 118. All ten keys fit their budgets."
+}

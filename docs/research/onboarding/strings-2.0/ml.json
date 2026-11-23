@@ -1,0 +1,31 @@
+{
+ "folders": [
+  "ml",
+  "ml-IN"
+ ],
+ "strings": {
+  "P1": "സേവ് ചെയ്യുന്നത് സ്വകാര്യം",
+  "P2": "അക്കൗണ്ട് വേണ്ട, ഒന്നും ശേഖരിക്കില്ല; സമന്വയം ഓണാക്കിയാൽ അത് നിങ്ങളുടെ iCloud വഴി മാത്രം",
+  "P3": "ടൈപ്പ് ചെയ്യുന്നത് സ്വകാര്യം",
+  "P4": "കട്ട്‌ലിംഗിന് അക്കൗണ്ടില്ല, ഒന്നും ശേഖരിക്കില്ല; നിങ്ങൾ ടൈപ്പ് ചെയ്യുന്നത് ഒരിടത്തേക്കും അയയ്ക്കില്ല",
+  "N2b": "വേരിയബിളുകൾ, ‘കുറിപ്പുകൾ’ പോലെ എഴുത്ത്, ഏറെ സ്ഥലം",
+  "N4b": "വേരിയബിളുകൾ",
+  "N5b": "എഡിറ്ററിൽ വേരിയബിളുകൾ തുറന്ന്, ഓരോ തവണയും പൂരിപ്പിക്കാൻ ഫീൽഡ്, ഇന്നത്തെ തീയതി, തിരഞ്ഞെടുപ്പ് മുതലായവ ചേർക്കാം",
+  "N17": "‘കുറിപ്പുകൾ’ പോലെ എഴുതാം",
+  "N18": "കട്ട്‌ലിംഗിന്റെ ടെക്സ്റ്റ് ഇനി സ്വന്തം പേജിൽ തുറക്കും; അവിടെ ബോൾഡ്, അടിവര, ഹൈലൈറ്റ്, ലിസ്റ്റുകൾ എന്നിവയുണ്ട്",
+  "TU2": "എഴുതുമ്പോൾ കീബോർഡിനു മുകളിലെ ‘ഓരോ തവണയും ചോദിക്കുക’ ടാപ്പ് ചെയ്ത്, പൂരിപ്പിക്കാൻ ഫീൽഡ് ചേർക്കാം. വേണ്ടെങ്കിൽ ‘അടുത്തത്’ ടാപ്പ് ചെയ്യുക"
+ },
+ "back": {
+  "P1": "What you save is private",
+  "P2": "No account needed, nothing is collected; if you turn sync on, it goes only through your iCloud",
+  "P3": "What you type is private",
+  "P4": "Cutling has no account and collects nothing; what you type is not sent to any place at all",
+  "N2b": "Variables, writing like 'Notes', much more room",
+  "N4b": "Variables",
+  "N5b": "In the editor, open Variables and you can add a field to fill in each time, today's date, a choice and so on",
+  "N17": "You can write like 'Notes'",
+  "N18": "A cutling's text now opens on its own page; there it has bold, underline, highlight and lists",
+  "TU2": "While writing, tap 'Ask Each Time' above the keyboard and you can add a field to fill in. If you do not want it, tap 'Next'"
+ },
+ "notes": "Same register as the ml strings already on these sheets: plain statements and -ഉക / -ആം forms, നിങ്ങൾ for you, no closing period, no exclamation marks; ml and ml-IN take the same text (their Variables, Ask Each Time, Next, iCloud Sync, Bold, Underline, Highlight, Choice and Today's Date strings were compared and are identical). Taken exactly from Localizable.strings: കട്ട്‌ലിംഗ് (with its zero-width non-joiner), വേരിയബിളുകൾ (N4b exact), ഓരോ തവണയും ചോദിക്കുക (Ask Each Time, exact in TU2), അടുത്തത് (Next), സമന്വയം, ഇന്നത്തെ തീയതി, തിരഞ്ഞെടുപ്പ്, ബോൾഡ്, അടിവര, ഹൈലൈറ്റ്, ലിസ്റ്റ്. Notes is കുറിപ്പുകൾ: read on 2026-11-23 from MobileNotes.app's ml.lproj (CFBundleDisplayName) in the iOS 27.2 simulator runtime and from Apple's Malayalam iPhone guide (support.apple.com/ml-in/guide/iphone/iph1ac0b3a2/ios), which writes it in single curly quotes, ‘കുറിപ്പുകൾ’. The quotes stay in N17 and N2b because without them the word reads as ordinary notes; if the owner wants the Latin name instead, N17 is 'Notes പോലെ എഴുതാം'. In TU2 both button names are in the same quotes: ഓരോ തവണയും ചോദിക്കുക is itself an imperative sentence and runs into the instruction around it, and bare അടുത്തത് ടാപ്പ് ചെയ്യുക reads as 'tap the next one'. Changed word: the blank is ഫീൽഡ്, the editor's own word (ഫീൽഡ് ചേർക്കുക, പൂരിപ്പിക്കേണ്ട ഫീൽഡ്), where the replaced N2, N4, N5 and TU1 said ഒഴിവ്. After this replacement no string on these sheets says ഒഴിവ്, the person meets ഫീൽഡ് in the editor next, and ഒഴിവ് also means a vacancy or time off. Budgets are counted in Unicode code points, as len() counts them; measured in the system font, Malayalam renders about one Latin character wide per code point, so the count is a fair width proxy. P1 26/26, P2 88/90, P3 28/30, P4 100/100, N2b 49/50, N4b 11/24, N5b 109/110, N17 24/24, N18 108/110, TU2 134/110. Choices made to fit: P1 and P3 leave 'you' unsaid, as Malayalam does, and P3 says 'is private' for 'stays private'. P2 and P4 say 'never' with the habitual negative (ശേഖരിക്കില്ല, അയയ്ക്കില്ല) and 'not to any place at all' (ഒരിടത്തേക്കും); adding ഒരിക്കലും ran P4 to 110 against 100. P2 names the syncing and not the cutlings ('if you turn sync on, it goes only through your iCloud'), since the line with കട്ട്‌ലിംഗുകൾ and സമന്വയിക്കും ran to 100 against 90. N2b says ഏറെ സ്ഥലം (much more room) where N3 has കൂടുതൽ സ്ഥലം, because കൂടുതൽ ran to 52 against 50. N5b says 'in the editor' (എഡിറ്ററിൽ, the word the replaced N5 used) for 'edit a cutling'; the fuller line is 126 against 110: കട്ട്‌ലിംഗ് എഡിറ്റ് ചെയ്ത് വേരിയബിളുകൾ തുറന്ന്, ഓരോ തവണയും പൂരിപ്പിക്കാൻ ഫീൽഡ്, ഇന്നത്തെ തീയതി, തിരഞ്ഞെടുപ്പ് മുതലായവ ചേർക്കാം. TU2 does not fit: the button's name alone is 22 and the two 'tap' instructions 24. The line given keeps while-you-write, above-the-keyboard, the button's name, the field to fill in and the skip; 'each time' is said once, by the button's name, since repeating ഓരോ തവണയും beside it adds 11 and reads as an echo. Shorter lines if one is wanted: without 'while writing', 123: കീബോർഡിനു മുകളിലെ ‘ഓരോ തവണയും ചോദിക്കുക’ ടാപ്പ് ചെയ്ത്, പൂരിപ്പിക്കാൻ ഫീൽഡ് ചേർക്കാം. വേണ്ടെങ്കിൽ ‘അടുത്തത്’ ടാപ്പ് ചെയ്യുക — or one sentence with a single verb, 108, harder to read aloud: പൂരിപ്പിക്കാൻ ഫീൽഡ് ചേർക്കാൻ കീബോർഡിനു മുകളിലെ ‘ഓരോ തവണയും ചോദിക്കുക’, വേണ്ടെങ്കിൽ ‘അടുത്തത്’ ടാപ്പ് ചെയ്യുക"
+}

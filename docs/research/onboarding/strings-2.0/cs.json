@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "cs"
+ ],
+ "strings": {
+  "P1": "Co uložíš, je jen tvoje",
+  "P2": "Bez účtu a sběru dat; cutlingy se synchronizují jen přes tvůj iCloud, pokud to zapneš",
+  "P3": "Co píšeš, zůstává soukromé",
+  "P4": "Cutling nemá účet a nesbírá žádná data; co píšeš, nikdy nikam neposílá",
+  "N2b": "Proměnné, editor jako Poznámky a mnohem více místa",
+  "N4b": "Proměnné",
+  "N5b": "Uprav cutling, otevři Proměnné a vlož prázdné pole, které pokaždé vyplníš, dnešní datum, volbu a další věci",
+  "N17": "Piš jako v Poznámkách",
+  "N18": "Text cutlingu se otevře na vlastní stránce s tučným písmem, podtržením, zvýrazněním a seznamy",
+  "TU2": "Při psaní klepni nad klávesnicí na Zeptat se pokaždé a nech pole, které vždy vyplníš; Další to přeskočí"
+ },
+ "back": {
+  "P1": "What you save is yours alone",
+  "P2": "Without an account and data collection; cutlings sync only through your iCloud, if you turn it on",
+  "P3": "What you type stays private",
+  "P4": "Cutling has no account and collects no data; what you type, it never sends anywhere",
+  "N2b": "Variables, an editor like Notes and much more room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling, open Variables and put in a blank that you fill in each time, today's date, a choice and other things",
+  "N17": "Write like in Notes",
+  "N18": "A cutling's text opens on its own page with bold type, underline, highlight and lists",
+  "TU2": "While typing, tap Ask Each Time above the keyboard and leave a blank that you always fill in; Next skips it"
+ },
+ "notes": "Informal ty and no final full stop, as in cs.json; a semicolon joins two clauses as W7 and N9 do. App words taken from cs.lproj: Proměnné, Zeptat se pokaždé (both left in the nominative so the person finds the button by its name), Další, cutling/cutlingy, prázdné pole, volba, iCloud; Poznámky is Apple's Czech name for Notes. P2 keeps W7's clause 'cutlingy se synchronizují jen přes tvůj iCloud' and adds 'pokud to zapneš'. N2b: 'psaní jako v Poznámkách a mnohem více místa' is 53, over the 50 budget, so the Notes part became 'editor jako Poznámky' (editor is N5's word) and N3's 'mnohem více místa' stayed whole. TU2: 'vždy' instead of a second 'pokaždé' right after the button name; with 'nebo klepni na Další a přeskoč to' the line ran to 119, so the skip is said as 'Další to přeskočí' (Next skips it) and the verb tap is left to the button name."
+}

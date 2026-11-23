@@ -1,0 +1,31 @@
+{
+  "folders": [
+    "nl",
+    "nl-NL"
+  ],
+  "strings": {
+    "P1": "Wat je bewaart, is privé",
+    "P2": "Geen account, niets verzameld. Synchroniseren kan alleen via je iCloud, als je dat aanzet.",
+    "P3": "Wat je typt, blijft privé",
+    "P4": "Cutling heeft geen account en verzamelt niets. Wat je typt, wordt nooit ergens naartoe verzonden.",
+    "N2b": "Variabelen, tekst als in Notities en meer ruimte",
+    "N4b": "Variabelen",
+    "N5b": "Open Variabelen in de editor: een invulveld dat je elke keer invult, de datum van vandaag, een keuze en meer.",
+    "N17": "Schrijf als in Notities",
+    "N18": "De tekst van een cutling open je nu op een eigen pagina, met vet, onderstreept, markeren en lijsten.",
+    "TU2": "Tik boven het toetsenbord op Vraag elke keer voor een invulveld dat je telkens invult, of tik op Volgende."
+  },
+  "back": {
+    "P1": "What you save is private",
+    "P2": "No account, nothing collected. Syncing is only possible through your iCloud, if you turn that on.",
+    "P3": "What you type stays private",
+    "P4": "Cutling has no account and collects nothing. What you type is never sent anywhere.",
+    "N2b": "Variables, text as in Notes and more room",
+    "N4b": "Variables",
+    "N5b": "Open Variables in the editor: a blank that you fill in every time, today's date, a choice and more.",
+    "N17": "Write as in Notes",
+    "N18": "You now open a cutling's text on a page of its own, with bold, underlined, highlighting and lists.",
+    "TU2": "Above the keyboard, tap Ask Each Time for a blank that you fill in each time, or tap Next."
+  },
+  "notes": "Written from the brief, not from another locale. Je-form, sentence-case titles, and the punctuation of the existing sheets: titles and the N2b subtitle carry no period (as N2 has none), row lines and the tip end in one (as W7, F6, N5, N9 and TU1 do). Terms are the app's own: Variabelen, Vraag elke keer and Volgende unquoted as T4 writes Probeer mij; invulveld for a blank and 'dat je elke keer invult' as N5 and TU1 have them; editor as N5 has it; bewaart for save as W3 does; vet, onderstreept and markeren are the Format card's labels (Vet, Onderstreept, Markeren) in lower case; 'de datum van vandaag' is the variable's own name; 'wordt nooit ergens naartoe verzonden' is the app's existing phrase for never sent anywhere. 'verzameld' is the verb of the Dutch App Store privacy label, and Notities is Apple's Dutch name for Notes (both read on apple.com/nl on 2026-11-23). P1 and P3 keep the comma between the two finite verbs, as Dutch spelling advice and Apple's own Dutch lines do. Budget trades, all because synchroniseren, toetsenbord and Variabelen are long words: P2 (exactly 90) says 'je iCloud' where W7 said 'je eigen iCloud'; 'eigen' cost six characters and 'je' still says whose it is, while 'alleen' and 'als je dat aanzet' carry the two facts the line is there for. N2b (48) says 'meer ruimte', not 'veel meer ruimte' as N2 did, and 'tekst als in Notities' for writing as in Notes; with 'veel' it runs to 53, and with the verb 'schrijven' to 52. N5b (109) says 'in de editor' for 'edit a cutling', as the replaced N5 did, and lists what Variables holds after a colon; 'Bewerk een cutling en open Variabelen voor ...' with the full list runs to 122. N17 (23) is 'Schrijf als in Notities' because 'Schrijf zoals in Notities' is 25. TU2 (106) leaves out 'while you type the text' and 'to skip': the tip sits on the text box with the keyboard up, 'boven het toetsenbord' places the button, and Volgende is the walkthrough's own skip. The full meaning runs to about 140. It says 'telkens' for each time so the sentence does not repeat 'elke keer' right after the button's name."
+}

@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "th"
+ ],
+ "strings": {
+  "P1": "คุณบันทึกอะไรก็เป็นส่วนตัว",
+  "P2": "ไม่ต้องมีบัญชี ไม่รวบรวมข้อมูลใด ๆ คัตลิงซิงก์ผ่าน iCloud ของคุณเองเท่านั้น ถ้าคุณเปิดไว้",
+  "P3": "สิ่งที่คุณพิมพ์ยังเป็นส่วนตัว",
+  "P4": "คัตลิงไม่มีบัญชี ไม่รวบรวมข้อมูลใด ๆ และไม่ส่งสิ่งที่คุณพิมพ์ไปที่ไหนเลย",
+  "N2b": "ตัวแปร เขียนได้เหมือนในแอปโน้ต และพื้นที่อีกมาก",
+  "N4b": "ตัวแปร",
+  "N5b": "แก้ไขคัตลิงแล้วเปิด ตัวแปร เพื่อใส่ช่องว่างที่คุณกรอกทุกครั้ง วันที่วันนี้ ตัวเลือก และอื่น ๆ",
+  "N17": "เขียนเหมือนในแอปโน้ต",
+  "N18": "ข้อความของคัตลิงเปิดเป็นหน้าของตัวเอง ใช้ตัวหนา ขีดเส้นใต้ ไฮไลต์ และรายการได้",
+  "TU2": "ระหว่างพิมพ์ แตะปุ่ม ถามทุกครั้ง เหนือคีย์บอร์ดเพื่อเว้นช่องว่างไว้กรอกทุกครั้งที่ใช้ หรือแตะ ถัดไป เพื่อข้าม"
+ },
+ "back": {
+  "P1": "Whatever you save is private",
+  "P2": "No account needed, no data of any kind collected; cutlings sync only through your own iCloud, if you have turned it on",
+  "P3": "What you type is still private",
+  "P4": "Cutling has no account, collects no data of any kind, and does not send what you type anywhere at all",
+  "N2b": "Variables, writing the way you can in the Notes app, and far more room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling and open Variables to put in a blank you fill in every time, today's date, a choice and others",
+  "N17": "Write like in the Notes app",
+  "N18": "A cutling's text opens as a page of its own; you can use bold, underline, highlight and lists",
+  "TU2": "While typing, tap the Ask Each Time button above the keyboard to leave a blank to fill in every time you use it, or tap Next to skip"
+ },
+ "notes": "Same polite register as the first sheet strings, no ครับ/ค่ะ, no exclamation marks, คุณ for the reader. Locale words reused from th.lproj: คัตลิง, ตัวแปร (Variables, N4b exact), ถามทุกครั้ง (Ask Each Time, exact in TU2), ถัดไป (Next), ซิงก์ and iCloud, คีย์บอร์ด, ตัวหนา, ขีดเส้นใต้, ไฮไลต์, รายการ, ตัวเลือก, and from the first sheets ช่องว่าง, วันที่วันนี้, พื้นที่อีกมาก. Apple's Notes is แอปโน้ต: Apple's Thai iPhone guide names the app โน้ต and the Thai release notes already say แอปโน้ต; bare โน้ต would read as 'a note'. 'Collect' is รวบรวม, the App Store privacy label's verb, because th.lproj uses เก็บข้อมูล for storing data and 'stores nothing' would be false. P1 uses the 'อะไรก็' frame and P3 uses ยัง so that เป็นส่วนตัว reads as the predicate; 'สิ่งที่คุณบันทึกเป็นส่วนตัว' can also be read as 'things you save as private' and is one over budget. P2's ถ้าคุณเปิดไว้ leaves 'sync' understood from the clause before it. Button names (ตัวแปร, ถามทุกครั้ง, ถัดไป) are set off with spaces, as T4 does with ลองฉันสิ; Thai has no capitals to mark them. ๆ is spaced (ใด ๆ, อื่น ๆ) as most of th.lproj writes it. No line says Cutling is offline or does not read typing. All ten are within budget counted in Unicode code points, the strictest count; on screen they are narrower because Thai vowel and tone marks stack."
+}

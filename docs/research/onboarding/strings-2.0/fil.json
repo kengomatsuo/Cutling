@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "fil"
+ ],
+ "strings": {
+  "P1": "Pribado ang naka-save mo",
+  "P2": "Walang account, walang kinokolekta; sa iCloud mo lang ang sync ng mga cutling kung i-on mo",
+  "P3": "Pribado pa rin ang tina-type",
+  "P4": "Walang account ang Cutling, walang kinokolekta; hindi kailanman ipinapadala saanman ang tina-type mo",
+  "N2b": "Mga variable, sulat na mala-Notes, dagdag espasyo",
+  "N4b": "Mga variable",
+  "N5b": "I-edit ang cutling at buksan ang Mga variable: blangkong pupunan mo lagi, petsa ngayon, pagpipilian at iba pa",
+  "N17": "Magsulat gaya sa Notes",
+  "N18": "Bumubukas ang teksto ng cutling sa sarili nitong page, na may bold, salungguhit, highlight at mga listahan",
+  "TU2": "Sa pag-type, i-tap ang Itanong bawat beses sa itaas ng keyboard para sa blangkong pupunan lagi. O Susunod lang"
+ },
+ "back": {
+  "P1": "What you have saved is private",
+  "P2": "No account, nothing collected; the syncing of the cutlings is only in your iCloud, if you turn it on",
+  "P3": "What is typed is still private",
+  "P4": "Cutling has no account, collects nothing; what you type is never sent anywhere",
+  "N2b": "Variables, Notes-like writing, extra room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling and open Variables: a blank you always fill in, today's date, a choice and more",
+  "N17": "Write as in Notes",
+  "N18": "A cutling's text opens on its own page, with bold, underline, highlight and lists",
+  "TU2": "While typing, tap Ask Each Time above the keyboard for a blank that is always filled in. Or just Next"
+ },
+ "notes": "Register as in strings/fil.json: informal, hyphenated i-/mag-/naka- forms on English roots, sentence-case titles, no closing full stop, a semicolon joining the two halves of a row line. App words taken exactly from fil.lproj: Mga variable (Variables, capital M inside N5b because it is the button's name), Itanong bawat beses (Ask Each Time), pagpipilian (Choice), salungguhit (Underline), listahan (List), bold and highlight as the app has them, Susunod (Next), blangkong pupunan and teksto as the earlier onboarding strings have them. Notes stays Notes: Apple's Notes has no Filipino localisation (no fil.lproj in Notes.app), so that is the name a Filipino user sees. mala-Notes uses the ordinary mala- prefix for 'like'. Budget choices: P2 says 'sa iCloud mo lang' (only in your iCloud) for the person's own iCloud, and 'ang sync ... kung i-on mo' so that 'turn it on' points at the sync. P3 drops 'mo' (31 with it); 'pa rin' carries 'stays' on the Full Access sheet. P4 uses saanman for 'anywhere' so that kailanman (never) also fits, at exactly 100. N2b says 'dagdag espasyo' (extra room) because the earlier 'mas maraming espasyo' makes 55. N5b puts the list after a colon in place of 'para maglagay ng' (to put in), which makes 122. TU2, at exactly 110, keeps the blank filled in each time ('lagi', always, beside the button's own 'bawat beses') and shortens the skip to 'O Susunod lang' (or just Next); 'tap' and 'to skip' are implied there, not stated."
+}

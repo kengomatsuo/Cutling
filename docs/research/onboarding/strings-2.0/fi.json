@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "fi"
+ ],
+ "strings": {
+  "P1": "Tallentamasi on yksityistä",
+  "P2": "Ei tiliä, eikä mitään kerätä. Synkronointi vain omaan iCloudiisi, jos otat sen käyttöön.",
+  "P3": "Kirjoittamasi on yksityistä",
+  "P4": "Cutlingissa ei ole tiliä, eikä se kerää mitään. Kirjoittamaasi ei koskaan lähetetä minnekään.",
+  "N2b": "Muuttujat, Muistiinpanojen tyyli ja reilusti tilaa",
+  "N4b": "Muuttujat",
+  "N5b": "Muokkaa cutlingia ja avaa Muuttujat: lisää kohta, jonka täytät joka kerta, päivän päivämäärä, valinta ja muuta",
+  "N17": "Kuin Muistiinpanoissa",
+  "N18": "Cutlingin teksti avautuu omalle sivulleen, jossa on lihavointi, alleviivaus, korostus ja luettelot",
+  "TU2": "Napauta kirjoittaessasi näppäimistön yltä Kysy joka kerta, niin jää täytettävä kohta. Seuraava ohittaa tämän."
+ },
+ "back": {
+  "P1": "What you save is private",
+  "P2": "No account, and nothing is collected. Syncing only to your own iCloud, if you turn it on.",
+  "P3": "What you type is private",
+  "P4": "Cutling has no account, and it collects nothing. What you type is never sent anywhere.",
+  "N2b": "Variables, the style of Notes and plenty of room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling and open Variables: add a blank that you fill in each time, today's date, a choice and more",
+  "N17": "As in Notes",
+  "N18": "A cutling's text opens onto a page of its own, which has bold, underline, highlight and lists",
+  "TU2": "While you type, tap Ask Each Time from above the keyboard, and a blank to fill in is left. Next skips this."
+ },
+ "notes": "Te-free imperative (sinä), no exclamation marks, sentence-case titles, as in strings/fi.json. Reused from Localizable.strings: Muuttujat (Variables), Kysy joka kerta (Ask Each Time), Seuraava (Next), Päivän päivämäärä, Valinta, Lihavointi, Alleviivaus, Korostus, Luettelo, and 'yksityinen' for private (the app already says 'Tietosi pysyvät yksityisinä'). 'Täytettävä kohta' for a blank is kept from the old N5 and TU1. Notes is Muistiinpanot, read from the Finnish name in the system Notes app's bundle. Button names stand without quotation marks, as T4 does; 'cutling' is lowercase inside a sentence, as N5 and N14 are. P1/P3: 'pysyy yksityisenä' (stays private) is 31 characters against P3's 30, so both titles say 'on yksityistä' (is private). P2: the second sentence has no verb and no 'cutlingit', because 'Cutlingit synkronoidaan vain iCloudiisi, jos otat sen käyttöön' runs to 91+; 'sen' points back to Synkronointi. A fuller alternative that fits (88) but says 'if you want' in place of 'if you turn it on': 'Ei tiliä, eikä mitään kerätä. Cutlingit synkronoidaan vain omaan iCloudiisi, jos haluat.' N2b: 'Muistiinpanoissa' is 16 letters, so 'kirjoitus kuin Muistiinpanoissa ja paljon enemmän tilaa' cannot fit 50; the line says 'the style of Notes' and 'reilusti tilaa' (plenty of room), which loses the comparative 'more'. N17: the verb does not fit ('Kirjoita kuin Muistiinpanoissa' is 30 against 24), so the title is 'Kuin Muistiinpanoissa' and N18 beneath it carries the writing. N5b: a colon and a relative clause ('kohta, jonka täytät joka kerta'), because 'lisää joka kerta täytettävä kohta' can be read as 'add a blank every time'. TU2: 'fill in each time' rests on 'täytettävä kohta' plus the button's own name, since saying 'joka kerta' twice passes 110; skipping is 'Seuraava ohittaa tämän' (Next skips this), without a second 'napauta'."
+}

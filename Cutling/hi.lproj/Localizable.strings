@@ -545,8 +545,6 @@
 "Save what you type over and over, then tap it on the keyboard in any app." = "जो टेक्स्ट बार-बार लिखते हैं उसे सहेजें, फिर किसी भी ऐप में कीबोर्ड पर टैप करें";
 "Images Too" = "छवियाँ भी चलती हैं";
 "Copy a saved image with one tap and paste it anywhere." = "सहेजी छवि एक टैप में कॉपी करें और कहीं भी चिपकाएँ";
-"Stays on Your iPhone" = "आपके iPhone पर रहता है";
-"No account, no internet. Your cutlings sync only through your own iCloud." = "कोई खाता नहीं, इंटरनेट नहीं; कटलिंग सिर्फ़ आपके अपने iCloud से सिंक होते हैं";
 "Add the Keyboard" = "कीबोर्ड जोड़ें";
 "Turn on Cutling in Settings, then come back." = "सेटिंग्स में कटलिंग चालू करें, फिर इस ऐप में लौट आएँ";
 "About Full Access" = "पूर्ण ऐक्सेस के बारे में";
@@ -556,8 +554,6 @@
 "Cutling types your text without it." = "कटलिंग इसके बिना भी आपका टेक्स्ट टाइप करता है";
 "Images and Clipboard" = "छवियाँ और क्लिपबोर्ड";
 "Full Access lets the keyboard copy a saved image and add what you copied." = "पूर्ण ऐक्सेस से कीबोर्ड सहेजी छवि कॉपी कर सकता है और आपकी कॉपी की चीज़ जोड़ सकता है";
-"Nothing Leaves Your iPhone" = "iPhone से कुछ बाहर नहीं जाता";
-"Cutling has no account and never connects to the internet. It doesn't read what you type." = "कटलिंग में खाता नहीं है, यह कभी इंटरनेट से नहीं जुड़ता और आपका टाइप किया नहीं पढ़ता";
 "Apple's Warning" = "Apple की चेतावनी";
 "iOS shows the same warning for every keyboard that asks, whatever it does." = "iOS हर उस कीबोर्ड के लिए यही चेतावनी दिखाता है जो इसे माँगे, वह कुछ भी करे";
 "Try It" = "आज़माएँ";
@@ -567,10 +563,7 @@
 "Cutling typed it. You're set." = "कटलिंग ने टाइप कर दिया, सब तैयार है";
 "Try Me" = "आज़माकर देखें";
 "Cutling typed this for me." = "कटलिंग ने यह मेरे लिए टाइप किया";
-"Blanks to fill in, and far more room." = "भरने की खाली जगहें, और बहुत ज़्यादा जगह";
 "Far more room, and every key types." = "बहुत ज़्यादा जगह, और हर कुंजी टाइप करती है";
-"Blanks and Dates" = "खाली जगहें और तारीख़ें";
-"Add a blank or today’s date from the editor, and fill the blank in each time you type the cutling." = "एडिटर से खाली जगह या आज की तारीख़ जोड़ें, और कटलिंग टाइप करते समय हर बार खाली जगह भरें";
 "Room for %@" = "%@ की जगह";
 "Save up to %@ texts and %@ images." = "%1$@ टेक्स्ट और %2$@ छवियाँ तक सहेजें";
 "Every Key Types" = "हर कुंजी टाइप करती है";
@@ -582,7 +575,6 @@
 "Share text, links or images to Cutling from any app." = "किसी भी ऐप से टेक्स्ट, लिंक या छवियाँ कटलिंग में शेयर करें";
 
 /* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */
-"While you type the text, tap the braces button to leave a blank you fill in each time. Or tap Next." = "लिखते समय कर्ली ब्रेस वाला बटन टैप करें, ताकि खाली जगह रहे जिसे आप हर बार भरें। छोड़ने के लिए अगला टैप करें";
 
 /* MARK: - Text page, Format card and Variables (docs/text-page-strings-brief.md) */
 "Format" = "फ़ॉर्मैट";
@@ -700,3 +692,14 @@
 "Number in Words" = "शब्दों में संख्या";
 "Value from a Shortcut" = "शॉर्टकट का परिणाम";
 "A shortcut’s result" = "शॉर्टकट से मिला परिणाम";
+
+/* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */
+"What You Save Is Private" = "आपका सहेजा निजी रहता है";
+"No account, nothing collected. Cutlings sync only through your iCloud, if you turn it on." = "कोई खाता नहीं, कुछ इकट्ठा नहीं होता; सिंक आप चालू करें तभी, वह भी सिर्फ़ अपने iCloud से";
+"What You Type Stays Private" = "आपका टाइप किया निजी रहता है";
+"Cutling has no account and collects nothing. What you type is never sent anywhere." = "कटलिंग में खाता नहीं है और यह कुछ इकट्ठा नहीं करता; आप जो टाइप करते हैं, वह कभी कहीं नहीं भेजा जाता";
+"Variables, writing as in Notes, and far more room." = "वेरिएबल, नोट्स की तरह लिखना, और बहुत ज़्यादा जगह";
+"Edit a cutling and open Variables to add a blank you fill in each time, today’s date, a choice and more." = "कटलिंग संपादित करते समय वेरिएबल खोलें और हर बार भरने की खाली जगह, आज की तिथि, विकल्प और भी बहुत कुछ डालें";
+"Write as You Do in Notes" = "नोट्स ऐप की तरह लिखें";
+"A cutling’s text now opens on a page of its own, with bold, underline, highlight and lists." = "कटलिंग का टेक्स्ट अपने अलग पृष्ठ पर खुलता है, जिसमें बोल्ड, अंडरलाइन, हाइलाइट और सूचियाँ हैं";
+"As you type, tap Ask Each Time above the keyboard to leave a blank you fill in each time. Or tap Next to skip." = "लिखते समय कीबोर्ड के ऊपर “हर बार पूछें” टैप करके हर बार भरने की खाली जगह डालें। छोड़ना हो तो “अगला” टैप करें";

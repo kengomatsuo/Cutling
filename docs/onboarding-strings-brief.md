@@ -112,3 +112,36 @@ read out by VoiceOver too. The person can skip with the tutorial's Next button.
 | Key | Role | Must say | Budget |
 |---|---|---|---|
 | TU1 | tip text | while you type the text, tap the braces button to leave a blank you fill in each time you use the cutling; or tap Next to skip | 110 |
+
+## 2.0 corrections (ASG162, ASG195)
+
+Six strings above said what is no longer true, and the What's New rows named an older editor.
+These rows replace W6, W7, F5, F6, N2, N4 and N5, and add a row for the new text page. Written
+the same way: from the meaning, in the locale's own words.
+
+What is true, read from the code on 2026-11-23: Cutling has no account and collects nothing (its
+privacy manifest lists no data and no tracking). Cutlings sync through the person's own iCloud
+only when they turn on iCloud Sync. Saving a link fetches that page's title. The keyboard reads
+the text just before the cursor to fill a blank, and never sends what is typed anywhere. So no
+line may say Cutling never goes online, has no internet, or does not read what you type.
+
+The editor now has a Variables button (each locale's `Localizable.strings` already holds its word
+for "Variables"), which puts in a blank asked for each time the cutling is typed (the editor calls
+it "Ask Each Time"), today's date, a choice, and more. A cutling's text now opens on a page of its
+own, laid out like Apple's Notes, with bold, underline, highlight and lists.
+
+| Key | Role | Must say | Budget |
+|---|---|---|---|
+| P1 | welcome row title (replaces W6) | what you save is private to you | 26 |
+| P2 | welcome row line (replaces W7) | no account, nothing collected; cutlings sync only through the person's own iCloud, if they turn sync on | 90 |
+| P3 | Full Access row title (replaces F5) | what you type stays private | 30 |
+| P4 | Full Access row line (replaces F6) | Cutling has no account and collects nothing; what you type is never sent anywhere | 100 |
+| N2b | What's New subtitle (replaces N2) | variables, writing like in Notes, and far more room | 50 |
+| N4b | row title (replaces N4) | the editor's own word for Variables, exactly as the locale's `Localizable.strings` has it | 24 |
+| N5b | row line (replaces N5) | edit a cutling and open Variables to put in a blank you fill in each time, today's date, a choice and more | 110 |
+| N17 | row title | write the way you do in Notes (the locale's name for Apple's Notes app) | 24 |
+| N18 | row line | a cutling's text opens on a page of its own, with bold, underline, highlight and lists | 110 |
+| TU2 | the walkthrough's fill-in tip (replaces TU1). The person is typing the first cutling's text in the form's box; the bar above the keyboard shows icon-only buttons, and the tip shows the blank button's icon (a small text box) beside its words. VoiceOver reads the same words. | while you type the text, tap Ask Each Time above the keyboard to leave a blank you fill in each time; or tap Next to skip. "Ask Each Time" is the button's own name, exactly as the locale's `Localizable.strings` has it | 110 |
+
+TU1 said "the braces button", and the walkthrough's bar has no braces: its blank button is a small
+text box named Ask Each Time.

@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "sk"
+ ],
+ "strings": {
+  "P1": "Čo uložíš, je len tvoje",
+  "P2": "Bez účtu a bez zberu údajov; cutlingy sa synchronizujú len cez tvoj iCloud, ak to zapneš",
+  "P3": "Čo píšeš, zostáva súkromné",
+  "P4": "Cutling nemá účet a nezbiera žiadne údaje; čo píšeš, nikdy nikam neposiela",
+  "N2b": "Premenné, editor ako Poznámky a oveľa viac miesta",
+  "N4b": "Premenné",
+  "N5b": "Uprav cutling, otvor Premenné a vlož prázdne pole, ktoré zakaždým vyplníš, dnešný dátum, voľbu a ďalšie",
+  "N17": "Píš ako v Poznámkach",
+  "N18": "Text cutlingu sa otvorí na vlastnej stránke s tučným písmom, podčiarknutím, zvýraznením a zoznamami",
+  "TU2": "Pri písaní klepni nad klávesnicou na Opýtať sa vždy a vlož pole, ktoré zakaždým vyplníš, alebo klepni na Ďalej"
+ },
+ "back": {
+  "P1": "What you save is yours alone",
+  "P2": "Without an account and without data collection; cutlings sync only through your iCloud, if you turn it on",
+  "P3": "What you type stays private",
+  "P4": "Cutling has no account and collects no data; what you type, it never sends anywhere",
+  "N2b": "Variables, an editor like Notes and much more room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling, open Variables and put in a blank that you fill in each time, today's date, a choice and others",
+  "N17": "Write like in Notes",
+  "N18": "A cutling's text opens on a page of its own with bold type, underline, highlight and lists",
+  "TU2": "While typing, tap Ask Each Time above the keyboard and put in a blank that you fill in each time, or tap Next"
+ },
+ "notes": "Informal ty and no final full stop, as in sk.json; a semicolon joins two clauses the way W7 and N9 do. App words from sk.lproj: Premenné, Opýtať sa vždy (the editor's button, line \"Ask Each Time\"; the macOS image setting \"Ask each time\" = Vždy sa opýtať is a different control and was not used), Ďalej, cutling/cutlingy, prázdne pole, 'pole, ktoré zakaždým vyplníš' (the app's own tip wording), Dnešný dátum, Voľba, Tučné, Podčiarknutie, Zvýraznenie, Zoznam, iCloud. Button names stand in the nominative without quotes, as T4 and A5 write Skús ma and Povoliť plný prístup. Poznámky is Apple's Slovak name for Notes (support.apple.com/sk-sk iPhone guide). P2 keeps W7's clause 'cutlingy sa synchronizujú len cez tvoj iCloud' and adds 'ak to zapneš'; 'zber údajov' is the usual Slovak privacy phrase. N2b: 'písanie ako v Poznámkach a oveľa viac miesta' came to 54, over 50, so the Notes part is 'editor ako Poznámky' (editor is N5's word) and N3's 'oveľa viac miesta' stays whole. N5b: 'a ďalšie' reads as 'and other (variables)', agreeing with Premenné. TU2: with 'nechaj prázdne pole ... alebo klepni na Ďalej a preskoč to' (TU1's wording) the line ran to 133; it now sits at exactly 110 by saying 'vlož pole' and ending on 'alebo klepni na Ďalej', so skipping is carried by 'alebo' and the button name, not by a verb of its own."
+}

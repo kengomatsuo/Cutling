@@ -545,8 +545,6 @@
 "Save what you type over and over, then tap it on the keyboard in any app." = "Bewaar tekst die je vaak typt en tik erop op het toetsenbord in elke app.";
 "Images Too" = "Ook afbeeldingen";
 "Copy a saved image with one tap and paste it anywhere." = "Kopieer een bewaarde afbeelding met één tik en plak hem overal.";
-"Stays on Your iPhone" = "Blijft op je iPhone";
-"No account, no internet. Your cutlings sync only through your own iCloud." = "Geen account en geen internet. Cutlings synchroniseren alleen via je eigen iCloud.";
 "Add the Keyboard" = "Voeg het toetsenbord toe";
 "Turn on Cutling in Settings, then come back." = "Zet Cutling aan in Instellingen en kom dan terug";
 "About Full Access" = "Over volledige toegang";
@@ -556,8 +554,6 @@
 "Cutling types your text without it." = "Cutling typt je tekst ook zonder";
 "Images and Clipboard" = "Afbeeldingen en klembord";
 "Full Access lets the keyboard copy a saved image and add what you copied." = "Het toetsenbord kan dan een bewaarde afbeelding kopiëren en wat je kopieerde toevoegen.";
-"Nothing Leaves Your iPhone" = "Niets verlaat je iPhone";
-"Cutling has no account and never connects to the internet. It doesn't read what you type." = "Cutling heeft geen account en maakt nooit verbinding met internet. Het leest niet mee wat je typt.";
 "Apple's Warning" = "Waarschuwing van Apple";
 "iOS shows the same warning for every keyboard that asks, whatever it does." = "iOS toont dezelfde waarschuwing bij elk toetsenbord dat erom vraagt, wat het ook doet.";
 "Try It" = "Probeer het";
@@ -567,10 +563,7 @@
 "Cutling typed it. You're set." = "Cutling heeft het getypt";
 "Try Me" = "Probeer mij";
 "Cutling typed this for me." = "Dit typte Cutling voor mij";
-"Blanks to fill in, and far more room." = "Invulvelden en veel meer ruimte";
 "Far more room, and every key types." = "Veel meer ruimte, elke cutling typt";
-"Blanks and Dates" = "Invulvelden en datums";
-"Add a blank or today’s date from the editor, and fill the blank in each time you type the cutling." = "Voeg in de editor een invulveld of de datum van vandaag toe en vul het veld in bij elke keer typen.";
 "Room for %@" = "Ruimte voor %@";
 "Save up to %@ texts and %@ images." = "Bewaar tot %1$@ teksten en %2$@ afbeeldingen";
 "Every Key Types" = "Elke cutling typt";
@@ -582,7 +575,6 @@
 "Share text, links or images to Cutling from any app." = "Deel tekst, links of afbeeldingen vanuit elke app met Cutling";
 
 /* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */
-"While you type the text, tap the braces button to leave a blank you fill in each time. Or tap Next." = "Tik tijdens het typen op { } voor een invulveld dat je elke keer invult, of tik op Volgende om over te slaan.";
 
 /* MARK: - Text page, Format card and Variables (docs/text-page-strings-brief.md) */
 "Format" = "Opmaak";
@@ -700,3 +692,14 @@
 "Number in Words" = "Getal in woorden";
 "Value from a Shortcut" = "Resultaat van opdracht";
 "A shortcut’s result" = "Wat je opdracht teruggeeft";
+
+/* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */
+"What You Save Is Private" = "Wat je bewaart, is privé";
+"No account, nothing collected. Cutlings sync only through your iCloud, if you turn it on." = "Geen account, niets verzameld. Synchroniseren kan alleen via je iCloud, als je dat aanzet.";
+"What You Type Stays Private" = "Wat je typt, blijft privé";
+"Cutling has no account and collects nothing. What you type is never sent anywhere." = "Cutling heeft geen account en verzamelt niets. Wat je typt, wordt nooit ergens naartoe verzonden.";
+"Variables, writing as in Notes, and far more room." = "Variabelen, tekst als in Notities en meer ruimte";
+"Edit a cutling and open Variables to add a blank you fill in each time, today’s date, a choice and more." = "Open Variabelen in de editor: een invulveld dat je elke keer invult, de datum van vandaag, een keuze en meer.";
+"Write as You Do in Notes" = "Schrijf als in Notities";
+"A cutling’s text now opens on a page of its own, with bold, underline, highlight and lists." = "De tekst van een cutling open je nu op een eigen pagina, met vet, onderstreept, markeren en lijsten.";
+"As you type, tap Ask Each Time above the keyboard to leave a blank you fill in each time. Or tap Next to skip." = "Tik boven het toetsenbord op Vraag elke keer voor een invulveld dat je telkens invult, of tik op Volgende.";

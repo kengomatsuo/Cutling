@@ -1,0 +1,31 @@
+{
+  "folders": [
+    "fr",
+    "fr-FR"
+  ],
+  "strings": {
+    "P1": "Ce que tu gardes est privé",
+    "P2": "Ni compte ni collecte. La synchronisation, si tu l’actives, ne passe que par ton iCloud.",
+    "P3": "Ce que tu écris reste privé",
+    "P4": "Cutling fonctionne sans compte et ne collecte rien. Ce que tu écris n’est jamais envoyé nulle part.",
+    "N2b": "Variables, texte façon Notes, bien plus de place",
+    "N4b": "Variables",
+    "N5b": "Modifie un cutling et ouvre Variables pour ajouter un champ à remplir chaque fois, la date du jour, un choix…",
+    "N17": "Écris comme dans Notes",
+    "N18": "Le texte d’un cutling s’ouvre sur sa propre page, avec gras, souligné, surlignage et listes.",
+    "TU2": "En écrivant, touche Demander à chaque fois au-dessus du clavier pour laisser un champ à remplir, ou Suivant."
+  },
+  "back": {
+    "P1": "What you keep is private",
+    "P2": "Neither account nor collection. Syncing, if you turn it on, goes only through your iCloud.",
+    "P3": "What you write stays private",
+    "P4": "Cutling works without an account and collects nothing. What you write is never sent anywhere.",
+    "N2b": "Variables, Notes-style text, much more room",
+    "N4b": "Variables",
+    "N5b": "Edit a cutling and open Variables to add a field to fill in each time, today's date, a choice…",
+    "N17": "Write as in Notes",
+    "N18": "A cutling's text opens on its own page, with bold, underline, highlighting and lists.",
+    "TU2": "While writing, tap Ask Each Time above the keyboard to leave a field to fill in, or Next."
+  },
+  "notes": "Tutoiement and sentence case, as in fr.json. Words kept from the app and the earlier sheets: garder and écrire for save and type (W3, T2), champ à remplir for a blank, date du jour, choix, Variables, Demander à chaque fois, Suivant, synchronisation, iCloud, bien plus de place (N3), Notes (Apple's French name for the app), gras, souligné, listes; surlignage is the noun of the app's Surligner. P1 says 'what you keep is private' and leaves 'to you' to the possessive sense of the sentence; P2 carries the rest. P2 drops the word cutlings to stay in 90: after P1 the only thing that can sync is what the person keeps, and 'si tu l’actives' refers to la synchronisation. 'Ni compte ni collecte' is the short French for no account and no data collection. P4 says 'fonctionne sans compte' where F6 had 'n’a aucun compte', because an app that 'has no account' reads oddly in French. N5b and TU2 are the two tight ones. N5b writes 'and more' as the ellipsis that closes a French list, and 'chaque fois' without 'à', to land on 109. TU2 at 108 says 'ou Suivant' and leaves 'to skip' unsaid, and says 'un champ à remplir' once, with 'each time' carried by the button's name; the full sentence with 'pour passer' is 120. The button name is unquoted with its capital, as T4 writes Essaie-moi. N2b is a comma list with no 'et' to keep 'bien' (far) inside 50."
+}

@@ -129,8 +129,8 @@ struct EditorTextTip: Tip {
 /// The walkthrough's fill-in step, on the text field like EditorTextTip.
 struct EditorFillInTip: Tip {
     @Parameter static var anchor: Int = -1
-    var title: Text { Text("While you type the text, tap the braces button to leave a blank you fill in each time. Or tap Next.") }
-    var image: Image? { Image(systemName: "curlybraces") }
+    var title: Text { Text("As you type, tap Ask Each Time above the keyboard to leave a blank you fill in each time. Or tap Next to skip.") }
+    var image: Image? { Image(systemName: "character.textbox") }
     var rules: [Rule] { #Rule(Self.$anchor) { $0 == 5 } }
     var options: [Option] { MaxDisplayCount(1000) }
 }

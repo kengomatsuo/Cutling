@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "he"
+ ],
+ "strings": {
+  "P1": "מה שאתה שומר נשאר פרטי",
+  "P2": "בלי חשבון ובלי איסוף מידע. הקאטלינגים מסתנכרנים רק דרך ה-iCloud שלך, ורק אם הפעלת סנכרון",
+  "P3": "ההקלדה שלך נשארת פרטית",
+  "P4": "לקאטלינג אין חשבון והוא לא אוסף שום מידע. מה שאתה מקליד אף פעם לא נשלח לשום מקום",
+  "N2b": "משתנים, כתיבה כמו ב״פתקים״ והרבה יותר מקום",
+  "N4b": "משתנים",
+  "N5b": "ערוך קאטלינג והקש על ״משתנים״ כדי להוסיף שדה שתמלא בכל פעם, את תאריך היום, בחירה בין אפשרויות ועוד",
+  "N17": "כתיבה כמו ב״פתקים״",
+  "N18": "הטקסט של קאטלינג נפתח בעמוד משלו, עם הדגשה, קו תחתון, סימון ורשימות",
+  "TU2": "בזמן ההקלדה, הקש על ״שאל בכל פעם״ מעל המקלדת כדי להשאיר שדה שתמלא בכל שימוש. כדי לדלג, הקש על ״הבא״"
+ },
+ "back": {
+  "P1": "What you save stays private",
+  "P2": "No account and no data collection. The cutlings sync only through your iCloud, and only if you turned sync on",
+  "P3": "Your typing stays private",
+  "P4": "Cutling has no account and it collects no data at all. What you type is never sent anywhere",
+  "N2b": "Variables, writing like in \"Notes\" and a lot more room",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling and tap \"Variables\" to add a field you will fill in each time, today's date, a choice between options and more",
+  "N17": "Writing like in \"Notes\"",
+  "N18": "A cutling's text opens on a page of its own, with bold, underline, highlight and lists",
+  "TU2": "While typing, tap \"Ask Each Time\" above the keyboard to leave a field you will fill in at each use. To skip, tap \"Next\""
+ },
+ "notes": "Masculine singular imperative and no closing period, as the he strings already on these sheets. App words taken from he.lproj: קאטלינג, משתנים (Variables, N4b exact), שאל בכל פעם (Ask Each Time, exact), הבא (Next), סנכרון, תאריך היום, בחירה and אפשרויות, שדה for a blank, קו תחתון, סימון (Highlight), רשימה; bold is the noun הדגשה, as the locale writes it in running text. Notes is פתקים, read from Notes.app's own Hebrew InfoPlist. Names of an app or a button inside a sentence are in Hebrew quotes ״ ״, as Apple's Hebrew does (ב״פתקים״): without them פתקים reads as paper notes and 'הקש על שאל בכל פעם מעל המקלדת' reads as 'tap Ask, every time'. The older sheet strings leave names unquoted. P2 uses the plural קאטלינגים, which the locale's newer sync strings use, because W7's 'הקאטלינג מסונכרן' also reads as the app itself being synced. P3 is a noun phrase so P4 does not open by repeating its title. N5b says 'tap' for 'open', since Variables is a button, and 'a choice between options' because בחירה alone is vague. TU2 keeps TU1's sentence and changes only the button."
+}

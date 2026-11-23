@@ -545,8 +545,6 @@
 "Save what you type over and over, then tap it on the keyboard in any app." = "Spremi tekst koji često tipkaš i dodirni ga na tipkovnici u bilo kojoj aplikaciji";
 "Images Too" = "I slike rade";
 "Copy a saved image with one tap and paste it anywhere." = "Kopiraj spremljenu sliku jednim dodirom i zalijepi je bilo gdje";
-"Stays on Your iPhone" = "Ostaje na tvom iPhoneu";
-"No account, no internet. Your cutlings sync only through your own iCloud." = "Bez računa i interneta; cutlinzi se sinkroniziraju samo preko tvog iClouda";
 "Add the Keyboard" = "Dodaj tipkovnicu";
 "Turn on Cutling in Settings, then come back." = "Uključi Cutling u postavkama, pa se vrati u aplikaciju";
 "About Full Access" = "O punom pristupu";
@@ -556,8 +554,6 @@
 "Cutling types your text without it." = "Cutling bez toga upisuje tvoj tekst";
 "Images and Clipboard" = "Slike i međuspremnik";
 "Full Access lets the keyboard copy a saved image and add what you copied." = "Puni pristup tipkovnici omogućuje kopiranje spremljene slike i dodavanje kopiranog";
-"Nothing Leaves Your iPhone" = "Ništa ne napušta iPhone";
-"Cutling has no account and never connects to the internet. It doesn't read what you type." = "Cutling nema račun i nikad se ne spaja na internet. Ne čita što tipkaš.";
 "Apple's Warning" = "Upozorenje iOS-a";
 "iOS shows the same warning for every keyboard that asks, whatever it does." = "iOS prikazuje isto upozorenje za svaku tipkovnicu koja traži pristup, bez obzira što radi";
 "Try It" = "Isprobaj";
@@ -567,10 +563,7 @@
 "Cutling typed it. You're set." = "Cutling je to upisao. Sve je spremno.";
 "Try Me" = "Isprobaj me";
 "Cutling typed this for me." = "Ovo mi je upisao Cutling";
-"Blanks to fill in, and far more room." = "Polja za popunjavanje i puno više mjesta";
 "Far more room, and every key types." = "Više mjesta i svaka tipka upisuje";
-"Blanks and Dates" = "Praznine i datumi";
-"Add a blank or today’s date from the editor, and fill the blank in each time you type the cutling." = "Dodaj prazninu ili današnji datum u uređivaču i popuni je svaki put kad upisuješ cutling";
 "Room for %@" = "Mjesta za %@";
 "Save up to %@ texts and %@ images." = "Spremi do %1$@ tekstova i %2$@ slika";
 "Every Key Types" = "Svaka tipka upisuje";
@@ -582,7 +575,6 @@
 "Share text, links or images to Cutling from any app." = "Dijeli tekst, poveznice ili slike u Cutling iz bilo koje aplikacije";
 
 /* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */
-"While you type the text, tap the braces button to leave a blank you fill in each time. Or tap Next." = "Dok pišeš, dodirni { } da ostaviš prazninu koju popunjavaš svaki put, ili dodirni Dalje za preskakanje";
 
 /* MARK: - Text page, Format card and Variables (docs/text-page-strings-brief.md) */
 "Format" = "Format";
@@ -700,3 +692,14 @@
 "Number in Words" = "Broj riječima";
 "Value from a Shortcut" = "Rezultat prečaca";
 "A shortcut’s result" = "Ono što prečac vrati";
+
+/* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */
+"What You Save Is Private" = "Što spremiš, samo je tvoje";
+"No account, nothing collected. Cutlings sync only through your iCloud, if you turn it on." = "Bez računa, ništa se ne prikuplja; sinkronizacija samo preko tvog iClouda, ako je uključiš";
+"What You Type Stays Private" = "Što tipkaš, ostaje privatno";
+"Cutling has no account and collects nothing. What you type is never sent anywhere." = "Cutling nema račun i ništa ne prikuplja. Ono što tipkaš nikad se nikamo ne šalje.";
+"Variables, writing as in Notes, and far more room." = "Varijable, pisanje kao u Bilješkama i više mjesta";
+"Edit a cutling and open Variables to add a blank you fill in each time, today’s date, a choice and more." = "Uredi cutling i otvori Varijable da dodaš prazninu koju svaki put popuniš, današnji datum, izbor i još toga";
+"Write as You Do in Notes" = "Piši kao u Bilješkama";
+"A cutling’s text now opens on a page of its own, with bold, underline, highlight and lists." = "Tekst cutlinga sada se otvara na zasebnoj stranici, uz podebljano, podcrtano, isticanje i popise";
+"As you type, tap Ask Each Time above the keyboard to leave a blank you fill in each time. Or tap Next to skip." = "Dok pišeš, iznad tipkovnice dodirni Pitaj svaki put za prazninu koju svaki put popuniš, ili Dalje da preskočiš";

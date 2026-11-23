@@ -1,0 +1,30 @@
+{
+  "folders": [
+    "bg"
+  ],
+  "strings": {
+    "P1": "Запазеното е само твое",
+    "P2": "Без акаунт, нищо не се събира; синхронизацията е само през твоя iCloud, ако я включиш",
+    "P3": "Каквото пишеш, остава лично",
+    "P4": "Кътлинг няма акаунт и не събира нищо. Каквото пишеш, никога не се изпраща никъде.",
+    "N2b": "Променливи, писане като в Бележки и повече място",
+    "N4b": "Променливи",
+    "N5b": "Редактирай кътлинг и от Променливи добави празно място, което попълваш всеки път, днешна дата, избор и още",
+    "N17": "Пиши като в Бележки",
+    "N18": "Текстът на кътлинга се отваря на отделна страница с удебеляване, подчертаване, маркиране и списъци",
+    "TU2": "Докато пишеш, докосни „Питай всеки път“ над клавиатурата за празно място за попълване или пропусни с „Напред“"
+  },
+  "back": {
+    "P1": "What is saved is yours alone",
+    "P2": "No account, nothing is collected; the syncing is only through your iCloud, if you turn it on",
+    "P3": "Whatever you type stays private",
+    "P4": "Cutling has no account and collects nothing. Whatever you type is never sent anywhere.",
+    "N2b": "Variables, writing like in Notes and more room",
+    "N4b": "Variables",
+    "N5b": "Edit a cutling and from Variables add a blank that you fill in each time, today's date, a choice and more",
+    "N17": "Write like in Notes",
+    "N18": "The cutling's text opens on a separate page with bolding, underlining, highlighting and lists",
+    "TU2": "While you type, tap \"Ask Each Time\" above the keyboard for a blank to fill in, or skip with \"Next\""
+  },
+  "notes": "Informal ти and sentence-case titles, as in the existing setup and What's New strings; row lines end without a period except P4, which is two sentences like the F6 it replaces. Reused from Localizable.strings: кътлинг (lowercase, as on these sheets), Променливи, Питай всеки път, Напред, iCloud, синхронизация, клавиатура, Днешна дата, Избор, and празно място for a blank as in N5/TU1. Бележки is Apple's own Bulgarian name for Notes, read from MobileNotes.app's bg.lproj in the iOS 27.2 runtime; the format words follow the app's Удебелен/Подчертан/Маркиране/Списък as nouns (удебеляване is already in the file). P2 names the syncing rather than the cutlings: the line with кътлингите се синхронизират and the sync condition ran to 96 against 90. N2b says повече място (as N3 does for the same idea) because много повече място ran to 54 against 50. TU2: the blank is празно място за попълване (N2's phrase) and the each-time sense rides on the button's own name, since repeating всеки път and keeping the skip ran to 125; the two button names are in Bulgarian quotes because Питай всеки път mid-sentence reads as 'ask, each time above the keyboard' without them, although the setup sheets leave single-word names unquoted. Unsure: whether the tip draws quotes well beside the icon; without them TU2 is 105."
+}

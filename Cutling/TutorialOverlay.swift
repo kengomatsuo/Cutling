@@ -99,7 +99,7 @@ enum TutorialStep: Int, CaseIterable {
         case .createIntro: return "Welcome to Cutling! Let's create your first cutling together."
         case .createAdd: return "Tap + to start a new text cutling."
         case .createName: return "Give your cutling a name."
-        case .createFillIn: return "While you type the text, tap the braces button to leave a blank you fill in each time. Or tap Next."
+        case .createFillIn: return "As you type, tap Ask Each Time above the keyboard to leave a blank you fill in each time. Or tap Next to skip."
         case .createSave: return "Now type the text you want to save."
         case .createdCelebrate: return "Nice! Your cutling is saved."
         case .editOpen: return "Tap the ⋯ button on a card to open and edit it."

@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "hi"
+ ],
+ "strings": {
+  "P1": "आपका सहेजा निजी रहता है",
+  "P2": "कोई खाता नहीं, कुछ इकट्ठा नहीं होता; सिंक आप चालू करें तभी, वह भी सिर्फ़ अपने iCloud से",
+  "P3": "आपका टाइप किया निजी रहता है",
+  "P4": "कटलिंग में खाता नहीं है और यह कुछ इकट्ठा नहीं करता; आप जो टाइप करते हैं, वह कभी कहीं नहीं भेजा जाता",
+  "N2b": "वेरिएबल, नोट्स की तरह लिखना, और बहुत ज़्यादा जगह",
+  "N4b": "वेरिएबल",
+  "N5b": "कटलिंग संपादित करते समय वेरिएबल खोलें और हर बार भरने की खाली जगह, आज की तिथि, विकल्प और भी बहुत कुछ डालें",
+  "N17": "नोट्स ऐप की तरह लिखें",
+  "N18": "कटलिंग का टेक्स्ट अपने अलग पृष्ठ पर खुलता है, जिसमें बोल्ड, अंडरलाइन, हाइलाइट और सूचियाँ हैं",
+  "TU2": "लिखते समय कीबोर्ड के ऊपर “हर बार पूछें” टैप करके हर बार भरने की खाली जगह डालें। छोड़ना हो तो “अगला” टैप करें"
+ },
+ "back": {
+  "P1": "What you saved stays private",
+  "P2": "No account, nothing gets collected; sync only when you turn it on, and even then only through your own iCloud",
+  "P3": "What you typed stays private",
+  "P4": "Cutling has no account and it collects nothing; what you type is never sent anywhere",
+  "N2b": "Variables, writing like in Notes, and far more room",
+  "N4b": "Variables",
+  "N5b": "While editing a cutling, open Variables and put in a blank to fill in each time, today's date, a choice and much more besides",
+  "N17": "Write like in the Notes app",
+  "N18": "A cutling's text opens on its own separate page, which has bold, underline, highlight and lists",
+  "TU2": "While writing, tap \"Ask Each Time\" above the keyboard to put in a blank to fill in each time. If you want to skip, tap \"Next\""
+ },
+ "notes": "Register as in strings/hi.json: आप forms, polite imperatives in -एँ/-ें, no exclamation marks, no closing danda; कटलिंग masculine for both the app and a cutling. Terms taken from hi.lproj/Localizable.strings exactly: वेरिएबल (Variables, N4b), हर बार पूछें (Ask Each Time), अगला (Next), iCloud, खाता, संपादित करें, पृष्ठ, बोल्ड, अंडरलाइन, हाइलाइट, सूची. N5b names the items as the Variables list labels them, आज की तिथि and विकल्प, so the person finds the same words there; the retired N5 said तारीख़. The blank stays खाली जगह as in the earlier sheets (the editor's older footer says रिक्त स्थान), and is called हर बार भरने की खाली जगह in both N5b and TU2. नोट्स is Apple's Hindi name for Notes, read from Notes.app's InfoPlist.loctable on macOS; N17 says नोट्स ऐप so it cannot be read as 'notes' in general, and N2b keeps the shorter नोट्स की तरह to fit 50. P1 and P3 are a matched pair built on the participle-as-noun form the earlier F6 used (आपका टाइप किया). P2 is elliptical to fit 90 code points: the sync clause has no verb and does not repeat the word कटलिंग, which the sheet's other rows supply, and 'your own iCloud' is the reflexive अपने iCloud, bound to आप in the same clause; the fuller sentence 'सिंक चालू करें, तो कटलिंग सिर्फ़ आपके अपने iCloud से सिंक होते हैं' runs to 103 code points (about 68 visible characters) if the budget is counted in visible characters instead. TU2 drops पर before टैप करें, as TU1 and the app's other tutorial lines do, to fit 110, and uses डालें, the verb N5b uses for putting a variable in; button names are in “ ” as elsewhere in Localizable.strings, while T4 on the Try It page uses « ». All ten fit their budgets counted in Unicode code points (P2 87/90, TU2 108/110); in visible characters they are far shorter."
+}

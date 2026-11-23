@@ -545,8 +545,6 @@
 "Save what you type over and over, then tap it on the keyboard in any app." = "Ulož, čo píšeš stále dokola, a klepni na to na klávesnici v akejkoľvek aplikácii";
 "Images Too" = "Fungujú aj obrázky";
 "Copy a saved image with one tap and paste it anywhere." = "Skopíruj uložený obrázok jedným klepnutím a vlož ho kamkoľvek";
-"Stays on Your iPhone" = "Zostáva v tvojom iPhone";
-"No account, no internet. Your cutlings sync only through your own iCloud." = "Bez účtu a internetu; cutlingy sa synchronizujú len cez tvoj iCloud";
 "Add the Keyboard" = "Pridaj klávesnicu";
 "Turn on Cutling in Settings, then come back." = "Zapni Cutling v Nastaveniach a vráť sa do tejto aplikácie";
 "About Full Access" = "O plnom prístupe";
@@ -556,8 +554,6 @@
 "Cutling types your text without it." = "Cutling píše text aj bez neho";
 "Images and Clipboard" = "Obrázky a schránka";
 "Full Access lets the keyboard copy a saved image and add what you copied." = "Plný prístup umožní klávesnici skopírovať uložený obrázok a pridať obsah zo schránky";
-"Nothing Leaves Your iPhone" = "Nič neopúšťa iPhone";
-"Cutling has no account and never connects to the internet. It doesn't read what you type." = "Cutling nemá účet, nikdy sa nepripája na internet a nečíta, čo píšeš";
 "Apple's Warning" = "Upozornenie od Apple";
 "iOS shows the same warning for every keyboard that asks, whatever it does." = "iOS ukazuje rovnaké upozornenie pri každej klávesnici, nech robí čokoľvek";
 "Try It" = "Vyskúšaj";
@@ -567,10 +563,7 @@
 "Cutling typed it. You're set." = "Cutling to napísal. Máš hotovo";
 "Try Me" = "Skús ma";
 "Cutling typed this for me." = "Toto za mňa napísal Cutling";
-"Blanks to fill in, and far more room." = "Polia na vyplnenie a oveľa viac miesta";
 "Far more room, and every key types." = "Oveľa viac miesta a píše každý kláves";
-"Blanks and Dates" = "Prázdne polia a dátumy";
-"Add a blank or today’s date from the editor, and fill the blank in each time you type the cutling." = "V editore pridaj prázdne pole alebo dnešný dátum a pole vyplň zakaždým, keď cutling píšeš";
 "Room for %@" = "Miesto pre %@";
 "Save up to %@ texts and %@ images." = "Ulož až %1$@ textov a %2$@ obrázkov";
 "Every Key Types" = "Píše každý kláves";
@@ -582,7 +575,6 @@
 "Share text, links or images to Cutling from any app." = "Zdieľaj text, odkazy či obrázky do Cutlingu z akejkoľvek aplikácie";
 
 /* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */
-"While you type the text, tap the braces button to leave a blank you fill in each time. Or tap Next." = "Pri písaní klepni na { } a nechaj prázdne pole, ktoré vyplníš zakaždým, alebo klepni na Ďalej a preskoč to";
 
 /* MARK: - Text page, Format card and Variables (docs/text-page-strings-brief.md) */
 "Format" = "Formát";
@@ -700,3 +692,14 @@
 "Number in Words" = "Číslo slovom";
 "Value from a Shortcut" = "Výsledok skratky";
 "A shortcut’s result" = "Čo vráti skratka";
+
+/* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */
+"What You Save Is Private" = "Čo uložíš, je len tvoje";
+"No account, nothing collected. Cutlings sync only through your iCloud, if you turn it on." = "Bez účtu a bez zberu údajov; cutlingy sa synchronizujú len cez tvoj iCloud, ak to zapneš";
+"What You Type Stays Private" = "Čo píšeš, zostáva súkromné";
+"Cutling has no account and collects nothing. What you type is never sent anywhere." = "Cutling nemá účet a nezbiera žiadne údaje; čo píšeš, nikdy nikam neposiela";
+"Variables, writing as in Notes, and far more room." = "Premenné, editor ako Poznámky a oveľa viac miesta";
+"Edit a cutling and open Variables to add a blank you fill in each time, today’s date, a choice and more." = "Uprav cutling, otvor Premenné a vlož prázdne pole, ktoré zakaždým vyplníš, dnešný dátum, voľbu a ďalšie";
+"Write as You Do in Notes" = "Píš ako v Poznámkach";
+"A cutling’s text now opens on a page of its own, with bold, underline, highlight and lists." = "Text cutlingu sa otvorí na vlastnej stránke s tučným písmom, podčiarknutím, zvýraznením a zoznamami";
+"As you type, tap Ask Each Time above the keyboard to leave a blank you fill in each time. Or tap Next to skip." = "Pri písaní klepni nad klávesnicou na Opýtať sa vždy a vlož pole, ktoré zakaždým vyplníš, alebo klepni na Ďalej";

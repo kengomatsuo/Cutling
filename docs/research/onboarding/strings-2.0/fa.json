@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "fa"
+ ],
+ "strings": {
+  "P1": "هرچه ذخیره کنید خصوصی است",
+  "P2": "بدون حساب و جمع‌آوری داده؛ همگام‌سازی کاتلینگ‌ها فقط با iCloud خودتان، اگر روشنش کنید",
+  "P3": "هرچه تایپ کنید خصوصی می‌ماند",
+  "P4": "کاتلینگ حساب ندارد و هیچ داده‌ای جمع‌آوری نمی‌کند؛ آنچه تایپ می‌کنید هرگز به جایی فرستاده نمی‌شود",
+  "N2b": "متغیرها، نوشتن مثل Notes و جای بسیار بیشتر",
+  "N4b": "متغیرها",
+  "N5b": "در ویرایش کاتلینگ، از «متغیرها» جای خالی‌ای که هر بار پر می‌کنید، تاریخ امروز، چند گزینه و چیزهای دیگر بگذارید",
+  "N17": "مثل Notes بنویسید",
+  "N18": "متن هر کاتلینگ در صفحهٔ خودش باز می‌شود، با پررنگ، زیرخط، هایلایت و فهرست",
+  "TU2": "هنگام نوشتن، «هر بار بپرس» را بالای صفحه‌کلید بزنید تا جای خالی بماند که هر بار پر می‌کنید. یا «بعدی» را بزنید"
+ },
+ "back": {
+  "P1": "Whatever you save is private",
+  "P2": "Without an account or data collection; syncing of cutlings only with your own iCloud, if you turn it on",
+  "P3": "Whatever you type stays private",
+  "P4": "Cutling has no account and collects no data at all; what you type is never sent anywhere",
+  "N2b": "Variables, writing like Notes, and far more room",
+  "N4b": "Variables",
+  "N5b": "While editing a cutling, from \"Variables\" put in a blank that you fill in each time, today's date, a few options and other things",
+  "N17": "Write like Notes",
+  "N18": "Each cutling's text opens on its own page, with bold, underline, highlight and list",
+  "TU2": "While writing, tap \"Ask Each Time\" above the keyboard so that a blank remains which you fill in each time. Or tap \"Next\""
+ },
+ "notes": "Formal plural-you (کنید، بزنید) and no final period, as fa.json has on the same sheets. Reused from Localizable.strings exactly: متغیرها (Variables, N4b/N2b/N5b), هر بار بپرس (Ask Each Time, TU2), بعدی (Next, TU2), پررنگ / زیرخط / هایلایت / فهرست (N18), همگام‌سازی, جای خالی and جای بسیار بیشتر as N2/N5/TU1 had them. Button and menu names sit in «», as T4 and TU1 do. Notes stays in Latin: iOS 27.2 ships no Persian localisation (the simulator runtime's MobileNotes.app and Preferences.app have ar, he and ur folders and no fa), so a Persian speaker's iPhone shows the app as Notes, and the file already keeps iCloud and iPhone in Latin. If translated app names are wanted, as تنظیمات is for Settings, N17 becomes «مثل «یادداشت‌ها» بنویسید» (24) and N2b «متغیرها، نوشتن مثل «یادداشت‌ها» و جای بسیار بیشتر» (50), both at their budgets. P1 and P3 use هرچه + subjunctive (whatever you save / type), which is how Persian says this in a short title; 'private to you' is carried by خصوصی. P2 keeps W7's verbless shape; روشنش کنید (turn it on, with the object clitic) is slightly spoken but is what fits and keeps the choice with the person; the clitic points at همگام‌سازی. P2 and P4 use one word for collecting, جمع‌آوری. N5b says 'a choice' as چند گزینه (a few options), because bare انتخاب (the menu's name for Choice) reads as the abstract noun in a list; the Choice variable's own screen calls its items گزینه‌ها. 'And more' is و چیزهای دیگر (and other things), not the calque و بیشتر. TU2 keeps TU1's sentence and swaps the button; 'to skip' is carried by یا «بعدی» را بزنید (or tap Next), since naming the skip put it 10 over budget. It sits at exactly 110."
+}

@@ -1,0 +1,30 @@
+{
+  "folders": [
+    "pt-BR"
+  ],
+  "strings": {
+    "P1": "O que você salva é só seu",
+    "P2": "Sem conta nem coleta de dados. Os cutlings sincronizam só pelo seu iCloud, se você ativar.",
+    "P3": "O que você digita fica privado",
+    "P4": "O Cutling não tem conta e não coleta nada, e o que você digita nunca é enviado a lugar algum",
+    "N2b": "Variáveis, texto como no Notas e muito mais espaço",
+    "N4b": "Variáveis",
+    "N5b": "Edite um cutling e abra Variáveis para pôr um campo a preencher a cada uso, a data de hoje, uma escolha e mais",
+    "N17": "Escreva como no Notas",
+    "N18": "O texto do cutling abre numa página só dele, com negrito, sublinhado, destaque e listas",
+    "TU2": "Ao digitar, toque em Perguntar sempre, acima do teclado, e crie um campo a preencher a cada uso, ou em Avançar"
+  },
+  "back": {
+    "P1": "What you save is yours alone",
+    "P2": "No account and no data collection. The cutlings sync only through your iCloud, if you turn it on.",
+    "P3": "What you type stays private",
+    "P4": "Cutling has no account and collects nothing, and what you type is never sent anywhere",
+    "N2b": "Variables, text like in Notes and much more room",
+    "N4b": "Variables",
+    "N5b": "Edit a cutling and open Variables to put in a blank to fill in at each use, today's date, a choice and more",
+    "N17": "Write like in Notes",
+    "N18": "The cutling's text opens on a page all its own, with bold, underline, highlight and lists",
+    "TU2": "When typing, tap Ask Each Time, above the keyboard, and create a blank to fill in at each use, or [tap] Next"
+  },
+  "notes": "Brazilian Portuguese, same register as strings/pt-BR.json: você, imperative, digitar, salvar, 'campo' for a blank, sentence-case titles, a final period only where the string it replaces had one (P2, as W7). Button and menu names exactly as Localizable.strings has them: Variáveis, Perguntar sempre, Avançar; the choice variable is 'Escolha', so N5b says 'uma escolha'. 'a cada uso' (at each use) is the one wording for 'each time' in N5b and TU2, since 'preenche sempre' can read as 'always fill in'. Notes app: Apple's pt-BR iPhone guide calls it 'app Notas' (support.apple.com/pt-br/guide/iphone, 'Comece a usar o app Notas'); 'no Notas' is how people say it and 'no app Notas' does not fit N17 (25) or N2b (53). Highlight is the noun 'destaque', as Apple's guide lists Notes' styles ('fonte em negrito ou itálico, destaque'); the app's button is the verb 'Destacar'. P2: 'se você ativar' leaves the object (a sincronização) unsaid, as spoken Brazilian Portuguese does; naming it runs to 98. TU2 is at 110 exactly: 'ou em Avançar' (or [tap] Next) leaves 'to skip' implied and 'Ao digitar' leaves 'the text' implied. The full wording is 121: 'Ao digitar, toque em Perguntar sempre, acima do teclado, e crie um campo a preencher a cada uso, ou em Avançar para pular'. The commas around 'acima do teclado' keep 'sempre' inside the button's name. Back-translations are literal."
+}

@@ -40,6 +40,13 @@ KEYS = {
     "TU1": "While you type the text, tap the braces button to leave a blank you fill in each time. Or tap Next.",
 }
 
+# Replaced in 2.0 (docs/onboarding-strings-brief.md, "2.0 corrections"): their lines leave every locale.
+REPLACED = ["W6", "W7", "F5", "F6", "N2", "N4", "N5", "TU1"]
+# The 2.0 rows' keys are the English writer's own strings, since English is written from the brief too.
+NEW_DIR = repo / "docs/research/onboarding/strings-2.0"
+if (NEW_DIR / "en.json").exists():
+    KEYS.update(json.loads((NEW_DIR / "en.json").read_text())["strings"])
+
 def check_keys():
     """Every key must be what the code asks for: its text, interpolations aside, is in a Swift file."""
     source = "".join(p.read_text() for p in (repo / "Cutling").glob("*.swift"))
@@ -49,19 +56,34 @@ def check_keys():
 
 def esc(s): return s.replace("\\", "\\\\").replace('"', '\\"').replace("\n", "\\n")
 
+def drop_replaced(text):
+    """The lines of the replaced keys, by their English key, out of one Localizable.strings."""
+    for i in REPLACED:
+        text = re.sub(r'^"' + re.escape(esc(KEYS[i])) + r'"\s*=.*\n', "", text, flags=re.M)
+    return text
+
 def main():
+    old = {i: KEYS.pop(i) for i in REPLACED}
     check_keys()
+    KEYS.update(old)
     added = 0
     for path in sorted((repo / "docs/research/onboarding/strings").glob("*.json")):
         data = json.loads(path.read_text())
-        strings = data["strings"]
-        lost = [i for i in KEYS if i not in strings]
+        strings = dict(data["strings"])
+        new = NEW_DIR / path.name
+        if new.exists(): strings.update(json.loads(new.read_text())["strings"])
+        lost = [i for i in KEYS if i not in strings and i not in REPLACED]
         if lost: sys.exit(f"{path.name}: no {lost}")
+        for i in REPLACED: strings.pop(i, None)
+        # A folder whose own words differ (pt says Avançar for Next, pt-PT Seguinte) takes its own line.
+        overrides = json.loads(new.read_text()).get("overrides", {}) if new.exists() else {}
         for folder in data["folders"]:
+            strings_here = {**strings, **overrides.get(folder, {})}
             target = repo / "Cutling" / f"{folder}.lproj" / "Localizable.strings"
-            text = target.read_text()
+            text = drop_replaced(target.read_text())
+            target.write_text(text)
             have = set(re.findall(r'^"((?:[^"\\]|\\.)*)"\s*=', text, re.M))
-            lines = [f'"{esc(KEYS[i])}" = "{esc(v)}";' for i, v in strings.items()
+            lines = [f'"{esc(KEYS[i])}" = "{esc(v)}";' for i, v in strings_here.items()
                      if i in KEYS and esc(KEYS[i]) not in have]
             if not lines: continue
             block = "\n/* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */\n" + "\n".join(lines) + "\n"

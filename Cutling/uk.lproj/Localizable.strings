@@ -545,8 +545,6 @@
 "Save what you type over and over, then tap it on the keyboard in any app." = "Збережи те, що часто друкуєш, і натискай на це на клавіатурі в будь-якому застосунку";
 "Images Too" = "Зображення теж";
 "Copy a saved image with one tap and paste it anywhere." = "Скопіюй збережене зображення одним натисканням і встав куди завгодно";
-"Stays on Your iPhone" = "Усе лишається на iPhone";
-"No account, no internet. Your cutlings sync only through your own iCloud." = "Без облікового запису й інтернету; катлінги синхронізуються лише через твій iCloud";
 "Add the Keyboard" = "Додай клавіатуру";
 "Turn on Cutling in Settings, then come back." = "Увімкни Катлінг у Налаштуваннях і поверніся до застосунку";
 "About Full Access" = "Про повний доступ";
@@ -556,8 +554,6 @@
 "Cutling types your text without it." = "Катлінг вводить текст і без нього";
 "Images and Clipboard" = "Зображення й буфер обміну";
 "Full Access lets the keyboard copy a saved image and add what you copied." = "Із повним доступом клавіатура копіює збережене зображення й додає скопійоване";
-"Nothing Leaves Your iPhone" = "Ніщо не залишає iPhone";
-"Cutling has no account and never connects to the internet. It doesn't read what you type." = "У Катлінгу немає облікового запису, він не виходить в інтернет і не читає, що ти друкуєш";
 "Apple's Warning" = "Попередження Apple";
 "iOS shows the same warning for every keyboard that asks, whatever it does." = "iOS показує його для кожної клавіатури, що просить доступ, хоч би що вона робила";
 "Try It" = "Спробуй";
@@ -567,10 +563,7 @@
 "Cutling typed it. You're set." = "Катлінг ввів це. Усе готово";
 "Try Me" = "Спробуй мене";
 "Cutling typed this for me." = "Катлінг надрукував це за мене";
-"Blanks to fill in, and far more room." = "Поля для заповнення й набагато більше місця";
 "Far more room, and every key types." = "Набагато більше місця, кожна клавіша вводить";
-"Blanks and Dates" = "Пропуски й дати";
-"Add a blank or today’s date from the editor, and fill the blank in each time you type the cutling." = "Додай у редакторі пропуск чи сьогоднішню дату й заповнюй пропуск щоразу, коли вводиш катлінг";
 "Room for %@" = "Місце для %@";
 "Save up to %@ texts and %@ images." = "Зберігай до %1$@ текстів і %2$@ зображень";
 "Every Key Types" = "Кожна клавіша вводить";
@@ -582,7 +575,6 @@
 "Share text, links or images to Cutling from any app." = "Надсилай в Катлінг текст, посилання й зображення з будь-де";
 
 /* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */
-"While you type the text, tap the braces button to leave a blank you fill in each time. Or tap Next." = "Поки друкуєш, натисни { }, щоб залишити пропуск, який заповнюєш щоразу, або натисни «Далі», щоб пропустити";
 
 /* MARK: - Text page, Format card and Variables (docs/text-page-strings-brief.md) */
 "Format" = "Формат";
@@ -700,3 +692,14 @@
 "Number in Words" = "Число словами";
 "Value from a Shortcut" = "Результат швидкої команди";
 "A shortcut’s result" = "Що поверне швидка команда";
+
+/* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */
+"What You Save Is Private" = "Збережене бачиш лише ти";
+"No account, nothing collected. Cutlings sync only through your iCloud, if you turn it on." = "Без облікового запису й збору даних; синхронізація лише з твоїм iCloud, якщо її ввімкнеш";
+"What You Type Stays Private" = "Те, що друкуєш, лише твоє";
+"Cutling has no account and collects nothing. What you type is never sent anywhere." = "У Катлінгу немає облікового запису, він нічого не збирає й нікуди не надсилає те, що ти друкуєш";
+"Variables, writing as in Notes, and far more room." = "Змінні, текст у стилі Нотаток, значно більше місця";
+"Edit a cutling and open Variables to add a blank you fill in each time, today’s date, a choice and more." = "Редагуючи катлінг, відкрий «Змінні» й додай пропуск, який заповнюєш щоразу, сьогоднішню дату, вибір та інше";
+"Write as You Do in Notes" = "Пиши, як у Нотатках";
+"A cutling’s text now opens on a page of its own, with bold, underline, highlight and lists." = "Текст катлінга відкривається на окремій сторінці, де є жирний шрифт, підкреслення, виділення кольором і списки";
+"As you type, tap Ask Each Time above the keyboard to leave a blank you fill in each time. Or tap Next to skip." = "Поки друкуєш, натисни «Питати щоразу» над клавіатурою, щоб лишити пропуск, який заповнюєш щоразу, або «Далі»";

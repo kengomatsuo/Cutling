@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "uk"
+ ],
+ "strings": {
+  "P1": "Збережене бачиш лише ти",
+  "P2": "Без облікового запису й збору даних; синхронізація лише з твоїм iCloud, якщо її ввімкнеш",
+  "P3": "Те, що друкуєш, лише твоє",
+  "P4": "У Катлінгу немає облікового запису, він нічого не збирає й нікуди не надсилає те, що ти друкуєш",
+  "N2b": "Змінні, текст у стилі Нотаток, значно більше місця",
+  "N4b": "Змінні",
+  "N5b": "Редагуючи катлінг, відкрий «Змінні» й додай пропуск, який заповнюєш щоразу, сьогоднішню дату, вибір та інше",
+  "N17": "Пиши, як у Нотатках",
+  "N18": "Текст катлінга відкривається на окремій сторінці, де є жирний шрифт, підкреслення, виділення кольором і списки",
+  "TU2": "Поки друкуєш, натисни «Питати щоразу» над клавіатурою, щоб лишити пропуск, який заповнюєш щоразу, або «Далі»"
+ },
+ "back": {
+  "P1": "What is saved, only you see",
+  "P2": "Without an account and data collection; sync only with your iCloud, if you turn it on",
+  "P3": "What you type is yours alone",
+  "P4": "Cutling has no account, it collects nothing and sends what you type nowhere",
+  "N2b": "Variables, text in the style of Notes, considerably more room",
+  "N4b": "Variables",
+  "N5b": "While editing a cutling, open \"Variables\" and add a blank that you fill in every time, today's date, a choice and other things",
+  "N17": "Write as in Notes",
+  "N18": "A cutling's text opens on a separate page, where there are bold type, underlining, colour highlighting and lists",
+  "TU2": "While you type, tap \"Ask Each Time\" above the keyboard to leave a blank that you fill in every time, or \"Next\""
+ },
+ "notes": "Ти-form and no closing full stop, as in strings/uk.json. Names reused from uk.lproj: «Змінні» (Variables), «Питати щоразу» (Ask Each Time), «Далі» (Next), синхронізація з iCloud, пропуск (the What's New and walkthrough word for a blank), вибір (the Variables menu's Choice), сьогоднішня дата, жирний шрифт, виділення кольором (the Format card's Highlight). Notes is «Нотатки», as Apple's Ukrainian iPhone guide names and declines it (у Нотатках, Нотаток). Button names sit in «», as T4 and TU1 have them. P2 names sync without the word катлінги to stay in 90: 'синхронізація лише з твоїм iCloud' uses the app's own 'синхронізація з iCloud', and the version with катлінги as subject ran to 99. P3 says 'yours alone' and not 'only you see it', so it claims nothing about the keyboard reading text near the cursor. N2b uses 'у стилі Нотаток' because 'як у Нотатках' inside a list needs commas that break the list; N17 keeps 'як у Нотатках' with its comma. N2b has 'значно' where N3 has 'набагато' to fit 50. TU2 ends on 'або «Далі»' without 'щоб пропустити' (with it the line is 124); it is 108. N18 is exactly 110 and N2b exactly 50."
+}

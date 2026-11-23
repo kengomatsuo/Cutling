@@ -556,8 +556,6 @@
 "Save what you type over and over, then tap it on the keyboard in any app." = "Spara text du skriver om och om igen och tryck på den på tangentbordet i valfri app.";
 "Images Too" = "Bilder funkar också";
 "Copy a saved image with one tap and paste it anywhere." = "Kopiera en sparad bild med ett tryck och klistra in den var du vill.";
-"Stays on Your iPhone" = "Det stannar på din iPhone";
-"No account, no internet. Your cutlings sync only through your own iCloud." = "Inget konto och inget internet. Cutlings synkas bara via din egen iCloud.";
 "Add the Keyboard" = "Lägg till tangentbordet";
 "Turn on Cutling in Settings, then come back." = "Slå på Cutling i Inställningar och kom sedan tillbaka hit";
 "About Full Access" = "Om full åtkomst";
@@ -567,8 +565,6 @@
 "Cutling types your text without it." = "Cutling skriver din text utan den";
 "Images and Clipboard" = "Bilder och urklipp";
 "Full Access lets the keyboard copy a saved image and add what you copied." = "Med full åtkomst kan tangentbordet kopiera en sparad bild och lägga till det du kopierat.";
-"Nothing Leaves Your iPhone" = "Inget lämnar din iPhone";
-"Cutling has no account and never connects to the internet. It doesn't read what you type." = "Cutling har inget konto och ansluter aldrig till internet. Appen läser inte vad du skriver.";
 "Apple's Warning" = "Apples varning";
 "iOS shows the same warning for every keyboard that asks, whatever it does." = "iOS visar samma varning för varje tangentbord som ber om det, oavsett vad det gör.";
 "Try It" = "Prova";
@@ -578,10 +574,7 @@
 "Cutling typed it. You're set." = "Cutling skrev det";
 "Try Me" = "Prova mig";
 "Cutling typed this for me." = "Det här skrev Cutling åt mig";
-"Blanks to fill in, and far more room." = "Fält att fylla i och mycket mer plats";
 "Far more room, and every key types." = "Mycket mer plats, och alla cutlings skriver";
-"Blanks and Dates" = "Fält och datum";
-"Add a blank or today’s date from the editor, and fill the blank in each time you type the cutling." = "Lägg till ett fält eller dagens datum i redigeraren och fyll i fältet varje gång du skriver cutlingen.";
 "Room for %@" = "Plats för %@";
 "Save up to %@ texts and %@ images." = "Spara upp till %1$@ texter och %2$@ bilder";
 "Every Key Types" = "Alla cutlings skriver";
@@ -593,7 +586,6 @@
 "Share text, links or images to Cutling from any app." = "Dela text, länkar eller bilder till Cutling från valfri app";
 
 /* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */
-"While you type the text, tap the braces button to leave a blank you fill in each time. Or tap Next." = "Tryck på { } medan du skriver för ett fält du fyller i varje gång, eller på Nästa för att hoppa över.";
 
 /* MARK: - Text page, Format card and Variables (docs/text-page-strings-brief.md) */
 "Format" = "Format";
@@ -711,3 +703,14 @@
 "Number in Words" = "Tal med bokstäver";
 "Value from a Shortcut" = "Resultat från genväg";
 "A shortcut’s result" = "Det genvägen returnerar";
+
+/* MARK: - Setup guide and What's New (docs/onboarding-strings-brief.md) */
+"What You Save Is Private" = "Det du sparar är privat";
+"No account, nothing collected. Cutlings sync only through your iCloud, if you turn it on." = "Inget konto, inget samlas in. Cutlings synkas bara via din egen iCloud, om du slår på det.";
+"What You Type Stays Private" = "Det du skriver förblir privat";
+"Cutling has no account and collects nothing. What you type is never sent anywhere." = "Cutling har inget konto och samlar inte in något. Det du skriver skickas aldrig någonstans.";
+"Variables, writing as in Notes, and far more room." = "Variabler, text som i Anteckningar och mer plats";
+"Edit a cutling and open Variables to add a blank you fill in each time, today’s date, a choice and more." = "Redigera en cutling och öppna Variabler för ett fält du fyller i varje gång, dagens datum, ett val med mera.";
+"Write as You Do in Notes" = "Skriv som i Anteckningar";
+"A cutling’s text now opens on a page of its own, with bold, underline, highlight and lists." = "Texten i en cutling öppnas på en egen sida, med fetstil, understrykning, färgmarkering och listor.";
+"As you type, tap Ask Each Time above the keyboard to leave a blank you fill in each time. Or tap Next to skip." = "Skriv och tryck på Fråga varje gång ovanför tangentbordet för ett fält du fyller i varje gång, eller på Nästa.";
