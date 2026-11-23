@@ -83,6 +83,11 @@ for lang in "${langs[@]}"; do
   esac
   # One system keyboard of the language and Cutling, so the held globe's list has two rows.
   xcrun simctl spawn "$udid" defaults write -g AppleKeyboards -array "$own" "$kb"
+  # Safari starts each language with no tabs: earlier runs left a stack of them, one a "can't open page" tab, and the
+  # iPad's ja take never reached its page (2026-11-23).
+  xcrun simctl terminate "$udid" com.apple.mobilesafari >/dev/null 2>&1 || true
+  sdata="$(xcrun simctl get_app_container "$udid" com.apple.mobilesafari data 2>/dev/null)"
+  [ -n "$sdata" ] && rm -f "$sdata"/Library/Safari/SafariTabs.db* 2>/dev/null
   # The system in the take's language and region (the status bar's 9:41, the globe list, the edit menu), as
   # directions.md asks; SpringBoard restarts to read it, and finish puts the simulator's own setting back.
   case "$lang" in id) region=id_ID ;; ja) region=ja_JP ;; *) region=en_US ;; esac
