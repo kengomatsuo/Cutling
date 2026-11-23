@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "ms"
+ ],
+ "strings": {
+  "P1": "Yang anda simpan, peribadi",
+  "P2": "Tiada akaun, tiada data dikumpul; cutling hanya disegerak ke iCloud anda jika dihidupkan",
+  "P3": "Yang anda taip kekal peribadi",
+  "P4": "Cutling tiada akaun dan tidak mengumpul data; apa yang anda taip tidak pernah dihantar ke mana-mana",
+  "N2b": "Pemboleh ubah, tulis ala Nota dan ruang lebih luas",
+  "N4b": "Pemboleh Ubah",
+  "N5b": "Edit cutling, buka Pemboleh Ubah: tempat kosong yang diisi tiap kali, tarikh hari ini, pilihan dan lain-lain",
+  "N17": "Tulis seperti dalam Nota",
+  "N18": "Teks cutling kini dibuka pada halaman tersendiri, dengan huruf tebal, garis bawah, serlahan dan senarai",
+  "TU2": "Semasa menaip, ketik Tanya Setiap Kali untuk tempat kosong yang diisi tiap kali, atau Seterusnya untuk langkau"
+ },
+ "back": {
+  "P1": "What you save, private",
+  "P2": "No account, no data collected; cutlings are synced only to your iCloud if it is turned on",
+  "P3": "What you type stays private",
+  "P4": "Cutling has no account and collects no data; what you type is never sent anywhere",
+  "N2b": "Variables, write Notes-style and roomier space",
+  "N4b": "Variables",
+  "N5b": "Edit a cutling, open Variables: a blank that is filled in each time, today's date, a choice and others",
+  "N17": "Write as in Notes",
+  "N18": "A cutling's text now opens on a page of its own, with bold letters, underline, highlighting and lists",
+  "TU2": "While typing, tap Ask Each Time for a blank that is filled in each time, or Next to skip"
+ },
+ "notes": "Malay (ms), written from the brief. Register as the sheets already have it: anda, ketik for tap, taip for type, sentence-case titles, no closing full stop, a semicolon between the two halves of a line. App words kept: cutling, Pemboleh Ubah, Tanya Setiap Kali, Seterusnya, Edit cutling, disegerak, tempat kosong (the sheets' word for a blank, and the school phrase 'isi tempat kosong'), peribadi for private ('Data anda kekal peribadi' is already in the app), huruf tebal / garis bawah / senarai as Localizable.strings has them, serlahan as the noun of its Serlah. Checked on 2026-11-23: Apple's Malay iPhone guide names the app Nota ('Bermula dengan Nota', 'app Nota') and lists 'fon tebal atau italik, serlahan'; the Malay App Store privacy label is 'Data Tidak Dikumpul' ('Pembangun tidak mengumpul sebarang data'), so P2 and P4 say data dikumpul / mengumpul data, the words the buyer saw on the store page. Budget choices, each a meaning the reviewer should weigh: P1 (26 of 26) is a headline with a comma, since 'Yang anda simpan kekal peribadi' runs to 31; 'Simpanan anda' was avoided because simpanan beside 'Tiada akaun' reads as a savings account. P2 (88) says 'ke iCloud anda' (to your iCloud) where W7 said 'melalui iCloud anda sendiri': with melalui it is 93, and 'only to your iCloud' still says nothing goes anywhere else. N2b (50 of 50) drops 'jauh' (far): 'ruang jauh lebih luas' makes 52, and the row under it prints the number (Ruang untuk 5,000). 'ala' is the dictionary word for 'in the manner of'. N5b (108) has a colon and a list where the brief has 'to put in': with 'dan buka ... untuk menambah' it is 125. TU2 (110 of 110) leaves out 'above the keyboard': Malay names are long (Tanya Setiap Kali 17, papan kekunci 13, tempat kosong 13) and the full line is 133, 'Semasa menaip, ketik Tanya Setiap Kali di atas papan kekunci untuk tempat kosong yang diisi tiap kali. Ketik Seterusnya untuk langkau'. The place was dropped because the tip shows the button's icon beside its words; it is otherwise TU1 with the button's name corrected. If the place matters more than the purpose, the 106-character alternative is 'Semasa menaip, ketik Tanya Setiap Kali di atas papan kekunci untuk tempat kosong; Seterusnya untuk langkau'."
+}
