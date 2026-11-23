@@ -7,7 +7,8 @@
 What each slide shows, real or drawn: the cover and the end card are type; "asks for the name" is the keyboard's
 fill-in screen drawn after the 2.0 build as on store frame 1; the date slide is the saved note and its message drawn
 as on store frame 3; the note, the 5,000 and the formatted key are real captures of the 2.0 build from
-CutlingUITests/PromoReleaseUITests (captures/en-US/release_*.png), with only the status bar redrawn."""
+CutlingUITests/PromoReleaseUITests (captures/en-US/release_*.png), each shown through a window onto the part of the
+screen the line is about."""
 import sys
 from pathlib import Path
 
@@ -48,9 +49,20 @@ def mark():
             f'font-size:36px;font-weight:600;z-index:40"><img src="{ICON.as_uri()}" style="width:56px;height:56px;border-radius:13px">Cutling 2.0</div>')
 
 
-def shot(name, fallback):
+def shot(name):
     p = CAP / name
-    return p.as_uri() if p.exists() else m.cap("en-US", fallback)
+    if not p.exists():
+        raise SystemExit(f"missing capture: {p} (CutlingUITests/PromoReleaseUITests writes it)")
+    return p.as_uri()
+
+
+def window(src, crop, x, y, w, radius=56):
+    """A rounded window onto part of a 1320 px wide capture: crop is (x, y, w, h) in the capture's pixels."""
+    cx, cy, cw, ch = crop
+    k = w / cw
+    return (f'<div class="abs" style="left:{x}px;top:{y}px;width:{w}px;height:{ch * k}px;border-radius:{radius}px;overflow:hidden;background:#fff;'
+            f'box-shadow:0 40px 90px rgba(0,0,0,.5),0 0 0 1.5px rgba(255,255,255,.08);z-index:5">'
+            f'<img src="{src}" style="position:absolute;left:{-cx * k}px;top:{-cy * k}px;width:{1320 * k}px;max-width:none;display:block"></div>')
 
 
 def slide(n, body):
@@ -96,19 +108,22 @@ def main():
                 "Today, tomorrow, a week from now or the time: saved once, right on the day you send it.", 124) + stack + mark()
     slide(3, body)
 
-    # 4, 5, 6: real captures of the 2.0 build under the line
+    # 4, 5, 6: real captures of the 2.0 build under the line, through the same windows as the release film
+    # (cutling-promo src/release/plan.ts): the part of the screen the line is about, at reading size.
     top = 640
-    for n, k, head, sub, cap, fallback, bar_color in (
-        (4, 3, "Write it like a [note].", "The text opens as a page of its own, with bold, highlight, links and lists.",
-         "release_note_3_written.png", "phone-guide", "#FFFFFF"),
-        (5, 4, "Room for [5,000].", "Up from 100 texts, and from 25 images to 500. One text can run to 10,000 characters, so a whole email fits.",
-         "release_room_0_grid.png", "phone-grid", "#F2F2F7"),
-        (6, 5, "Every key [types].", "A formatted cutling used to copy when you tapped it. Now it types like the rest; touch and hold to copy its formatting.",
-         "release_keyboard_4_formatted.png", "phone-guide", "#F2F2F7"),
-    ):
-        dev, _ = m.phone(shot(cap, fallback), (W - 560) / 2, top, 560, bar=bar_color, aspect=2868 / 1320)
-        body = text(f"<span>{k}</span><i>of 5</i>", head, sub, 124) + dev + mark()
-        slide(n, body)
+    note = window(shot("release_note_3_written.png"), (24, 205, 920, 790), X, top, W - 2 * X)
+    body = text("<span>3</span><i>of 5</i>", "Write it like a [note].", "The text opens as a page of its own, with bold, highlight, links and lists.", 124) + note + mark()
+    slide(4, body)
+
+    room = window(shot("release_room_0_grid.png"), (0, 330, 700, 560), X, top, W - 2 * X)
+    body = text("<span>4</span><i>of 5</i>", "Room for [5,000].", "Up from 100 texts, and from 25 images to 500. One text can run to 10,000 characters, so a whole email fits.", 124) + room + mark()
+    slide(5, body)
+
+    k = (W - 2 * X) / 940
+    typed = window(shot("release_keyboard_4_formatted.png"), (60, 716, 940, 376), X, top, W - 2 * X, radius=44)
+    keys = window(shot("release_keyboard_4_formatted.png"), (0, 1960, 1320, 520), X, top + 376 * k + 20, W - 2 * X, radius=44)
+    body = text("<span>5</span><i>of 5</i>", "Every key [types].", "A formatted cutling used to copy when you tapped it. Now it types like the rest; touch and hold to copy its formatting.", 124) + typed + keys + mark()
+    slide(6, body)
 
     # 7 the end card asks the reader
     body = (f'<div class="abs" style="left:{X}px;top:130px;width:924px;z-index:30">'
@@ -117,7 +132,7 @@ def main():
             f'<div class="s" style="margin-top:44px;font-size:48px">Tell us in the comments.</div></div>'
             f'<div class="abs" style="left:{X}px;bottom:96px;width:924px;z-index:30;border-top:2px solid #262B29;padding-top:40px">'
             f'<div style="color:#F3F0E8;font-size:50px;font-weight:600;letter-spacing:-.015em">Cutling 2.0 is on the App Store.</div>'
-            f'<div class="s" style="margin-top:10px">A free update if you already have it. Link in bio.</div></div>')
+            f'<div class="s" style="margin-top:10px">A free update if you already have it.</div></div>')
     slide(7, body)
 
     m.run_jobs()
