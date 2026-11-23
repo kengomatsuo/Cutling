@@ -1,0 +1,31 @@
+{
+ "folders": [
+  "or",
+  "or-IN"
+ ],
+ "strings": {
+  "P1": "ଆପଣଙ୍କ ସେଭ୍ ଜିନିଷ ଗୋପନୀୟ",
+  "P2": "ଖାତା ନାହିଁ, କିଛି ସଂଗ୍ରହ ହୁଏ ନାହିଁ; ସିଙ୍କ ଚାଲୁ କଲେ କଟ୍‌ଲିଂ କେବଳ ଆପଣଙ୍କ ନିଜ iCloud ଦେଇ ଯାଏ",
+  "P3": "ଯାହା ଟାଇପ୍ କରନ୍ତି, ଗୋପନୀୟ ରହେ",
+  "P4": "କଟ୍‌ଲିଂରେ ଖାତା ନାହିଁ ଓ ଏହା କିଛି ସଂଗ୍ରହ କରେ ନାହିଁ; ଆପଣ ଯାହା ଟାଇପ୍ କରନ୍ତି, କେବେ ବି କୁଆଡ଼େ ପଠାଯାଏ ନାହିଁ",
+  "N2b": "ଭେରିଏବଲ୍, ନୋଟ୍ ଆପ ପରି ଲେଖା ଓ ବହୁତ ଅଧିକ ଜାଗା",
+  "N4b": "ଭେରିଏବଲ୍",
+  "N5b": "କଟ୍‌ଲିଂ ସମ୍ପାଦନା କଲାବେଳେ ଭେରିଏବଲ୍ ଖୋଲି ପ୍ରତିଥର ଭରିବାକୁ ଖାଲି ସ୍ଥାନ, ଆଜିର ତାରିଖ, ପସନ୍ଦ ଓ ଆହୁରି ଅନେକ ଯୋଡ଼ନ୍ତୁ",
+  "N17": "ନୋଟ୍ ଆପ ପରି ଲେଖନ୍ତୁ",
+  "N18": "କଟ୍‌ଲିଂର ଟେକ୍ସଟ ଏବେ ନିଜର ଅଲଗା ପୃଷ୍ଠାରେ ଖୋଲେ, ଯେଉଁଠି ବୋଲ୍ଡ୍, ଅଣ୍ଡରଲାଇନ୍, ହାଇଲାଇଟ୍ ଓ ତାଲିକା ଅଛି",
+  "TU2": "ଲେଖିବାବେଳେ ପ୍ରତିଥର ଭରିବାକୁ ଖାଲି ସ୍ଥାନ ପାଇଁ କୀବୋର୍ଡ ଉପରେ ‘ପ୍ରତିଥର ପଚାରନ୍ତୁ’, ନହେଲେ ‘ପରବର୍ତ୍ତୀ’ ଟ୍ୟାପ୍ କରନ୍ତୁ।"
+ },
+ "back": {
+  "P1": "Your saved things are private",
+  "P2": "No account, nothing is collected; if you turn sync on, Cutlings go only through your own iCloud",
+  "P3": "What you type stays private",
+  "P4": "Cutling has no account and it collects nothing; what you type is never sent anywhere",
+  "N2b": "Variables, writing like the Notes app, and much more room",
+  "N4b": "Variables",
+  "N5b": "When editing a Cutling, open Variables and add a blank to fill in each time, today's date, a choice and many more",
+  "N17": "Write like the Notes app",
+  "N18": "A Cutling's text now opens on its own separate page, where there are bold, underline, highlight and lists",
+  "TU2": "While writing, for a blank to fill in each time tap 'Ask Each Time' above the keyboard, otherwise 'Next'."
+ },
+ "notes": "Register as in strings/or.json: polite ଆପଣ with ନ୍ତୁ imperatives, no exclamation marks, no closing danda on a sheet line. TU2 ends in a danda because every other walkthrough tip in or.lproj does. App words from or.lproj/Localizable.strings: ଭେରିଏବଲ୍ (Variables, N4b exact), ପ୍ରତିଥର ପଚାରନ୍ତୁ (Ask Each Time, the button's exact name), ପରବର୍ତ୍ତୀ (Next), ଆଜିର ତାରିଖ, ପସନ୍ଦ (the Choice variable), ବୋଲ୍ଡ୍, ଅଣ୍ଡରଲାଇନ୍, ହାଇଲାଇଟ୍, ତାଲିକା, ସମ୍ପାଦନା, ପୃଷ୍ଠା, ସିଙ୍କ as the setting iCloud ସିଙ୍କ writes it, ଚାଲୁ for turning on. Kept from the sheets' earlier strings: ଖାତା (account), ଖାଲି ସ୍ଥାନ (blank), ଭରିବାକୁ, ବହୁତ ଅଧିକ ଜାଗା, ସେଭ୍, ଟେକ୍ସଟ, ଟାଇପ୍, ଟ୍ୟାପ୍, ଆପ, ଲେଖିବା for the person's writing in the walkthrough. Cutling is spelled କଟ୍‌ଲିଂ (ଟ, virama, zero-width non-joiner), as or.lproj does in 161 places; the 16 sheet strings in strings/or.json had lost the virama, which makes the name read 'kaṭaling', and were corrected to match in the same commit. Apple's Notes is ନୋଟ୍, read from MobileNotes.app/or.lproj/InfoPlist.strings (CFBundleDisplayName) in the iOS 27.2 simulator runtime; Apple's own strings say ନୋଟ୍ ଆପ୍ for 'the Notes app', so N2b and N17 say ନୋଟ୍ ଆପ (with this app's spelling ଆପ), because ନୋଟ୍ alone reads as 'a note'. Private is ଗୋପନୀୟ, the adjective of the app's ଗୋପନୀୟତା ନୀତି (Privacy Policy); the older setup line's ବ୍ୟକ୍ତିଗତ means 'personal' and put P3 over 30. 'Collects nothing' is କିଛି ସଂଗ୍ରହ ହୁଏ ନାହିଁ / କରେ ନାହିଁ, the usual Odia for data collection. 'Never sent anywhere' builds on the app's existing କେବେ ବି ପଠାଯାଏ ନାହିଁ with କୁଆଡ଼େ (anywhere). P2 says ଦେଇ (through) where W7 said ମାଧ୍ୟମରେ: the plain spoken word, and five code points shorter, which is what lets 'own' (ନିଜ) and 'if you turn sync on' both stay; ଯାଏ (go) avoids saying sync twice. N5b and TU2 are each one verb-final sentence, Odia's own way to chain the steps; in TU2 the two button names share the closing ଟ୍ୟାପ୍ କରନ୍ତୁ and ନହେଲେ (otherwise) carries 'to skip'. Button names in TU2 sit in ‘ ’ as T4's does, since ପ୍ରତିଥର ପଚାରନ୍ତୁ follows ପ୍ରତିଥର ଭରିବାକୁ. Budgets counted in Unicode code points, the stricter count for Odia (viramas and vowel signs add no width): P1 24/26, P2 88/90, P3 29/30, P4 100/100, N2b 43/50, N4b 8/24, N5b 106/110, N17 19/24, N18 93/110, TU2 108/110. I am less sure of Odia than of the larger languages; a native read is worth it."
+}
