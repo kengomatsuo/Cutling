@@ -172,6 +172,7 @@ struct ImageDetailView: View {
                                 }
                             }
                             .buttonStyle(.borderedProminent).tint(.brandGreen)
+                            .accessibilityLabel("Save")
                             .disabled(name.isEmpty || (imageData == nil && existingItem?.imageFilename == nil))
                         }
                     }
@@ -218,6 +219,7 @@ struct ImageDetailView: View {
                                     Image(systemName: "checkmark")
                                 }
                                 .buttonStyle(.borderedProminent).tint(.brandGreen)
+                                .accessibilityLabel("Save")
                                 .disabled(name.isEmpty || (imageData == nil && existingItem?.imageFilename == nil))
                             } else {
                                 Button("Done") {

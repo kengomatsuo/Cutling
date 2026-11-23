@@ -228,6 +228,7 @@ struct FillInEditorForm: View {
                     if #available(iOS 26, macOS 26, *) { Image(systemName: "checkmark") } else { Text("Done") }
                 }
                 .disabled(!draft.isValid)
+                .accessibilityLabel("Done")
                 .accessibilityIdentifier("fillInEditorDone")
             }
         }

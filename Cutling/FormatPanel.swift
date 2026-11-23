@@ -231,6 +231,7 @@ struct LinkSheet: View {
                         if #available(iOS 26, *) { Image(systemName: "checkmark") } else { Text("Done") }
                     }
                     .disabled(url == nil)
+                    .accessibilityLabel("Done")
                     .accessibilityIdentifier("linkDone")
                 }
             }
