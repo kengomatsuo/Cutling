@@ -6,9 +6,11 @@ each new session until they close.
 1. **Closed 2026-11-23: frame 4 is in all 50 locales.** It now shows the remade setup guide's Try It page in
    dark mode with the Cutling keyboard typing the locale's saved address, on 6.9-inch iPhone and 13-inch iPad
    (`scripts/frame04-store.sh`, card ASG137, commit 358642b1). It goes up with 2.0's screenshots.
-2. **Frame 1 shows the Cutling keyboard with no pasted text.** The iOS 27 simulator UI
-   test cannot switch to the Cutling keyboard, so frame 1 reuses iOS 26 captures (es-ES
-   uses es-MX's).
+2. **Closed 2026-11-23: the store frames no longer use the Messages capture.** 2.0's frames (direction C, in all
+   50 languages, iPhone, iPad and Mac; `fastlane/frames`, card ASG167) show each language's Try It, grid and Mac
+   captures. The Messages captures (`01_KeyboardInMessages`) are English in most languages and are left only in the
+   custom product pages. The grid captures (`02_MainGrid`) in some languages still carry an older plural in their
+   title (hu, it, hr, no, he, ru, sl-SI, uk, ur-PK); a reshoot of that one frame fixes it.
 3. **Previews.** The iPhone 6.9" preview for 1.6.0 went up on 2026-10-09 (feature film
    first, older save film second). As of 1.6.1, en-US, id and ja have iPhone, iPad and
    Mac previews; the iPhone and iPad ones are being re-cut without the device frame.
