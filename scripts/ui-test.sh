@@ -24,6 +24,8 @@ defaults write com.apple.iphonesimulator ConnectHardwareKeyboard -bool false
 # hardware key events, which set HardwareKeyboardLastSeen, and with minimisation on every later field shows no keyboard.
 xcrun simctl spawn "${DEVICE_QUEUE_UDID:?}" defaults write com.apple.keyboard.preferences AutomaticMinimizationEnabled -bool NO
 xcrun simctl spawn "${DEVICE_QUEUE_UDID:?}" defaults write com.apple.keyboard.preferences HardwareKeyboardLastSeen -bool NO
+# UI_APPEARANCE=light|dark pins the look, since the shared simulator keeps whatever the last job left.
+[ -n "${UI_APPEARANCE:-}" ] && xcrun simctl ui "$DEVICE_QUEUE_UDID" appearance "$UI_APPEARANCE"
 # Serial: parallel testing runs on clones of the queue's simulator, and the device queue allows no clones.
 TEST_RUNNER_FORMAT_TEST_SHOTS="$out/shots" xcodebuild test-without-building -xctestrun "$xctestrun" -destination "id=${DEVICE_QUEUE_UDID:?}" \
   -parallel-testing-enabled NO "${only[@]}" -resultBundlePath "$out/result.xcresult" >"$out/test.log" 2>&1 &
