@@ -56,11 +56,11 @@ locs.each do |loc|
     names = wanted[[device, lang_of.(loc.locale)]] || []
     set = sets.find { |s| s.preview_type == type }
     if !readback_only && !names.empty?
-      set ||= Spaceship::ConnectAPI::AppPreviewSet.create(app_store_version_localization_id: loc.id, attributes: { previewType: type })
+      set ||= loc.create_app_preview_set(attributes: { previewType: type })
       old = Spaceship::ConnectAPI::AppPreviewSet.get(app_preview_set_id: set.id).app_previews.to_a
       old_code = old.map(&:preview_frame_time_code).compact.first
       fresh_ids = names.map do |name|
-        fresh = set.upload_preview(path: File.join(dir, name), wait_for_processing: true, frame_time_code: posters[name] || old_code)
+        fresh = set.upload_preview(path: File.join(dir, name), wait_for_processing: true, frame_time_code: posters[name] || old_code || "00:00:05:00")
         fresh = Spaceship::ConnectAPI::AppPreview.get(app_preview_id: fresh.id)
         abort "#{loc.locale} #{type} #{name}: preview #{fresh.id} not complete: #{fresh.asset_delivery_state}" unless fresh.complete?
         fresh.id
