@@ -1,0 +1,22 @@
+{
+ "cseed": {"names": ["Ana", "Luka", "Hrvoje"], "mac_name": "Lana",
+           "reply": "{name}, narudžbu ti šaljemo u {date}.",
+           "reply_name": "Slanje narudžbe",
+           "mac_reply": "{name}, paket {plan} ti šaljemo u {date}.",
+           "name_label": "Ime", "plan_label": "Paket", "plan_choices": ["Osnovni", "Premium"],
+           "delivered": "Paket je dostavljen {date}", "delivered_name": "Potvrda dostave"},
+ "C": {
+  "iphone": {"1": {"k": "Odgovor napišeš jednom.", "s": "Dodirneš ga i Cutling pita za ime kupca."},
+             "2": {"k": "Isti odgovor, sljedeći kupac.", "s": "Prijašnja imena čekaju na tipkovnici, svako na jedan dodir."},
+             "3": {"k": "Datumi se upisuju sami.", "s": "Danas, sutra ili za tjedan dana, prema danu kad lijepiš."},
+             "4": {"k": "I ono što se nikad ne mijenja:", "h": "tvoj [IBAN], tvoja [adresa], tvoj [potpis].",
+                   "s": "Po jedan dodir na Cutling tipkovnici u svakoj aplikaciji."},
+             "5": {"k": "Ima mjesta za sve.", "h": "[5.000] cutlinga", "s": "Dosad ih je stalo 100, a u svaki stane cijeli e-mail."},
+             "6": {"k": "iPhone, iPad i Mac.", "h": "Plaćaš [jednom].", "s": "Jedna kupnja za sva tri, bez registracije i bez pretplate."}},
+  "mac": {"1": {"k": "Napišeš jednom, šalješ svima.", "s": "Odgovor odabereš s {cmd} i prije lijepljenja popuniš kratki obrazac."},
+          "2": {"k": "Gdje god tipkaš.", "h": "{cmd}", "s": "Tvoji cutlinzi i nedavno kopirano otvaraju se iznad bilo koje aplikacije."},
+          "3": {"k": "Povijest kopiranja preskače", "s": "Sve što upravitelj zaporki označi kao skriveno nikad ne uđe u povijest."},
+          "4": {"k": "Promijeniš nešto na Macu,", "h": "promijeni se i na [iPhoneu].", "s": "Cutlinzi se sinkroniziraju preko tvog iClouda, bez registracije."},
+          "5": {"k": "iPhone, iPad i Mac.", "h": "Plaćaš [jednom].", "s": "Jedna kupnja za sva tri, bez registracije i bez pretplate."}}
+ }
+}
