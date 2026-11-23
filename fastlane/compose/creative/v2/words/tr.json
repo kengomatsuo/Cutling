@@ -1,0 +1,70 @@
+{
+  "cseed": {
+    "names": ["Elif", "Mehmet", "Zeynep"],
+    "mac_name": "Burak",
+    "reply": "{name}, siparişin {date} yola çıkıyor!",
+    "reply_name": "Kargo bilgisi",
+    "mac_reply": "{name}, {plan} paketin {date} yola çıkıyor!",
+    "name_label": "İsim",
+    "plan_label": "Paket",
+    "plan_choices": ["Standart", "Premium"],
+    "delivered": "{date} tarihinde teslim edildi.",
+    "delivered_name": "Teslim notu"
+  },
+  "C": {
+    "iphone": {
+      "1": {
+        "k": "Bunu bir kez yazarsın.",
+        "s": "Kayıtlı yanıta dokununca Cutling müşterinin ismini sorar."
+      },
+      "2": {
+        "k": "Sıradaki müşteriye de aynısı.",
+        "s": "Daha önce kullandığın isimler hazır, birine dokunman yeter."
+      },
+      "3": {
+        "k": "Tarihi Cutling kendisi yazar.",
+        "s": "Bugünün, yarının ya da bir hafta sonrasının tarihi, yapıştırdığın gün doğru yazılır."
+      },
+      "4": {
+        "k": "Bir de hiç değişmeyenler:",
+        "h": "[IBAN’ım], [adresim] ve [imzam].",
+        "s": "Her biri Cutling klavyesinden her uygulamaya tek dokunuşla."
+      },
+      "5": {
+        "k": "Hepsine yer var.",
+        "h": "[5.000] Cutling.",
+        "s": "Eskiden 100 taneydi, üstelik her birine koca bir e-posta sığar."
+      },
+      "6": {
+        "k": "iPhone, iPad ve Mac",
+        "h": "[Bir kez] ödersin.",
+        "s": "Tek satın alma üçünde de geçerli, hesap da abonelik de gerekmez."
+      }
+    },
+    "mac": {
+      "1": {
+        "k": "Bir kez yaz, herkese gönder.",
+        "s": "Yanıtı {cmd} ile seç, boşlukları kısa bir formda doldur ve yapıştır."
+      },
+      "2": {
+        "k": "Nerede yazıyorsan orada",
+        "h": "{cmd}",
+        "s": "Cutling’lerin ve son kopyaladıkların her uygulamanın üstünde açılır."
+      },
+      "3": {
+        "k": "Pano geçmişi bunu kaydetmez:",
+        "s": "Parola yöneticinin gizli işaretlediği hiçbir şey geçmişe düşmez."
+      },
+      "4": {
+        "k": "Mac’inde değiştirdiğin her şey",
+        "h": "[iPhone’unda] da değişir.",
+        "s": "Kendi iCloud’unla eşitlenir, hesap açmana gerek yok."
+      },
+      "5": {
+        "k": "iPhone, iPad ve Mac",
+        "h": "[Bir kez] ödersin.",
+        "s": "Tek satın alma üçünde de geçerli, hesap da abonelik de gerekmez."
+      }
+    }
+  }
+}
