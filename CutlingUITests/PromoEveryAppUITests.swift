@@ -349,11 +349,15 @@ final class PromoEveryAppUITests: XCTestCase {
 
     /// G5: a refund form on a local page in Safari, the account number typed by one tap.
     private func safariRefund() {
-        safari.launchArguments = ["-AppleLanguages", "(\(language))", "-AppleLocale", words.locale]
-        safari.launch()
+        // The page opens through the system, as a link would: XCUIApplication.launch() fails the whole take when a
+        // loaded simulator's Safari is slow to load accessibility (2026-11-23), and the job already set the language.
+        let page = URL(string: "http://localhost:\(env["EVERY_PORT"] ?? "8767")/refund.html?lang=\(language)")!
+        for _ in 0..<3 {
+            XCUIDevice.shared.system.open(page)
+            if safari.wait(for: .runningForeground, timeout: 30) { break }
+        }
+        sleep(4)
         clearWelcome(safari)
-        safari.open(URL(string: "http://localhost:\(env["EVERY_PORT"] ?? "8767")/refund.html?lang=\(language)")!)
-        sleep(3)
         let field = safari.webViews.textFields.element(boundBy: 1)
         focus(field, in: safari, "account number field")
         keyboard(cutling: true, in: safari)
