@@ -11,6 +11,7 @@ list() { xcrun simctl spawn "$udid" defaults read -g AppleKeyboards 2>/dev/null 
 original=(); while IFS= read -r k; do original+=("$k"); done < <(list)
 without=(); for k in "${original[@]}"; do [[ "$k" == com.matsuokengo.Cutling* ]] || without+=("$k"); done
 [ ${#without[@]} -gt 0 ] && xcrun simctl spawn "$udid" defaults write -g AppleKeyboards -array "${without[@]}"
-"$@"; status=$?
+# scripts/ui-test.sh puts the Cutling keyboard back unless told not to.
+CUTLING_KEYBOARD=off "$@"; status=$?
 [ ${#original[@]} -gt 0 ] && xcrun simctl spawn "$udid" defaults write -g AppleKeyboards -array "${original[@]}"
 exit $status

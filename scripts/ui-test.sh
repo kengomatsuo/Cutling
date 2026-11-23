@@ -32,6 +32,29 @@ if [ "$lang" != "en" ]; then
   xcrun simctl spawn "$DEVICE_QUEUE_UDID" defaults write -g AppleLocale -string en_US
   xcrun simctl spawn "$DEVICE_QUEUE_UDID" launchctl stop com.apple.SpringBoard 2>/dev/null; sleep 8
 fi
+# The keyboards too: a promo film job leaves the system keyboard of its language (the iPad stood on Japanese kana, which
+# has no "a" key, so the keyboard tests cycled Cutling and Emoji and never found letters). One US keyboard and Cutling.
+# A setup test meets the keyboard as a new buyer does, not yet added: scripts/without-cutling-keyboard.sh
+# sets CUTLING_KEYBOARD=off, and the list is then the US keyboard alone.
+kb=com.matsuokengo.Cutling.CutlingKeyboard
+[ "${CUTLING_KEYBOARD:-on}" = off ] && kb=""
+keyboards="$(xcrun simctl spawn "$DEVICE_QUEUE_UDID" defaults read -g AppleKeyboards 2>/dev/null | tr -d '()", \n')"
+if [ "$keyboards" != "en_US@sw=QWERTY;hw=Automatic$kb" ]; then
+  xcrun simctl spawn "$DEVICE_QUEUE_UDID" defaults write -g AppleKeyboards -array "en_US@sw=QWERTY;hw=Automatic" ${kb:+"$kb"}
+fi
+# Safari opens its test pages in a fresh tab stack: tabs left by film jobs (one a can't-open-page tab) kept pages from loading.
+xcrun simctl terminate "$DEVICE_QUEUE_UDID" com.apple.mobilesafari >/dev/null 2>&1
+sdata="$(xcrun simctl get_app_container "$DEVICE_QUEUE_UDID" com.apple.mobilesafari data 2>/dev/null)"
+[ -n "$sdata" ] && rm -f "$sdata"/Library/Safari/SafariTabs.db* 2>/dev/null
+# LongInsertUITests opens scripts/fixtures/long-insert.html from the Mac on port 8765; its server runs for this job only.
+server=""
+case " $* " in *LongInsertUITests*)
+  if ! curl -s -m 2 -o /dev/null http://127.0.0.1:8765/long-insert.html; then
+    python3 -m http.server 8765 --bind 127.0.0.1 --directory "$repo/scripts/fixtures" >/dev/null 2>&1 &
+    server=$!
+  fi ;;
+esac
+trap '[ -n "$server" ] && kill "$server" 2>/dev/null' EXIT
 # UI_APPEARANCE=light|dark pins the look, since the shared simulator keeps whatever the last job left.
 [ -n "${UI_APPEARANCE:-}" ] && xcrun simctl ui "$DEVICE_QUEUE_UDID" appearance "$UI_APPEARANCE"
 # Serial: parallel testing runs on clones of the queue's simulator, and the device queue allows no clones.
