@@ -27,6 +27,12 @@ def text(m, t, x, y, w, kfs, hfs, sfs, maxh, gap=0.55):
             f'<div class="kick" style="position:static;font-size:{kfs}px;margin-bottom:{kfs*0.55}px">{m.esc(t["k"])}</div>'
             f'<div class="h" style="position:static;font-size:{hfs}px">{head(m, t["h"])}</div>{s}</div>')
 
+def join_date(date):
+    """A long date in a message bubble may break only before its last part (the year, or the day where the year
+    leads), so "23 de novembro de / 2026" never splits the day from its month."""
+    head_, sep, tail = date.rpartition(" ")
+    return head_.replace(" ", "\u00a0") + sep + tail if sep else date
+
 def head(m, h):
     """Every chip stays on one line (CSS nowrap), so a blank never reads as two pieces; a long one, such as a full
     date, makes the fit script shrink the headline instead of breaking."""
@@ -79,9 +85,9 @@ def touch_set(m, loc, W, cs, F, out, dev):
             f'background:#1A1D1C;box-shadow:inset 0 0 0 2px #2A2F2D;color:#F3F0E8;font-size:{fs*.8}px;line-height:1.5">'
             f'<div style="color:#7F8783;font-size:{fs*.62}px;margin-bottom:{fs*.4}px">{m.esc(cs["delivered_name"])}</div>'
             f'{m.esc(before)}{pill}{m.esc(after)}</div>')
-    bub = (f'<div style="align-self:flex-end;max-width:{w*0.72}px;background:#0A84FF;color:#fff;'
+    bub = (f'<div style="align-self:flex-end;max-width:{w-2*X}px;background:#0A84FF;color:#fff;'
            f'font-size:{fs}px;line-height:1.25;padding:{fs*.42}px {fs*.7}px;border-radius:{fs*.9}px">'
-           f'{m.esc(before)}<span style="white-space:nowrap">{m.esc(F["long_date_nov23"])}</span>{m.esc(after)}</div>')
+           f'{m.esc(before)}{m.esc(join_date(F["long_date_nov23"]))}{m.esc(after)}</div>')
     # the saved note, then the message it typed today, stacked so a long date never makes them overlap
     card = (f'<div class="abs" style="left:{X}px;top:{cy}px;width:{w-2*X}px;display:flex;flex-direction:column;'
             f'gap:{fs*.7}px;z-index:5">{card}{bub}</div>')

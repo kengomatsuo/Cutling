@@ -46,12 +46,14 @@ def esc(s):
     return html.escape(s, quote=False)
 
 def rich(s, chip_cls="chip", accent=None):
-    """*x* accent, [x] chip, | line break, {cmd} keycaps."""
+    """*x* accent, [x] chip, | line break, {cmd} keycaps. A hyphenated word (e-mail, Cutling-tastaturet, să-ți) is
+    kept on one line, since Chrome would otherwise break after its hyphen."""
     out = esc(s)
+    out = re.sub(r"[^\s\[\]|{}*<>]*\w-\w[^\s\[\]|{}*<>]*", lambda m: f'\x00{m.group(0)}\x01', out)
     out = re.sub(r"\*(.+?)\*", lambda m: f'<span class="acc">{m.group(1)}</span>', out)
     out = re.sub(r"\[(.+?)\]", lambda m: f'<span class="{chip_cls}">{m.group(1)}</span>', out)
     out = out.replace("{cmd}", '<span class="cmd"><b>⌘</b><b>⇧</b><b>V</b></span>').replace("|", "<br>")
-    return out
+    return out.replace("\x00", '<span style="white-space:nowrap">').replace("\x01", "</span>")
 
 FACTS = json.loads((REPO / "docs/aso/screens-2.0/locale-facts.json").read_text())
 RTL = {"ar-SA", "he", "ur-PK"}
@@ -73,7 +75,11 @@ SCRIPT_FONTS = {
 # Scripts whose marks reach far past New York's line box: Odia hangs subjoined consonants and its u-signs well under
 # the baseline and sets its reph above the letter, so at New York's line-height a subjoined letter drops out of its
 # chip, dark on the black ground, and touches the next line. Per locale: (headline line-height, chip padding below).
-DEEP_MARKS = {"or-IN": (1.34, ".18em")}
+# Scripts whose subscript consonants and below-vowels hang past the Latin baseline box: (headline line height, extra
+# green below a chip), so a chip covers its whole word and stacked chips never touch.
+DEEP_MARKS = {"or-IN": (1.34, ".18em"), "kn-IN": (1.32, ".2em"), "te-IN": (1.32, ".2em"), "ml-IN": (1.3, ".16em"),
+              "ta-IN": (1.28, ".12em"), "bn-BD": (1.3, ".16em"), "gu-IN": (1.28, ".14em"), "pa-IN": (1.28, ".14em"),
+              "hi": (1.28, ".14em"), "mr-IN": (1.28, ".14em"), "th": (1.3, ".16em")}
 
 def locale_css(loc):
     serif, sans = SCRIPT_FONTS.get(loc, ("", ""))
@@ -81,7 +87,9 @@ def locale_css(loc):
     css = (f'body{{font-family:SF{ss},-apple-system,sans-serif}} '
            f'.h,.h .chip{{font-family:NY{s},"Times New Roman",serif !important}}')
     if loc == "ko":
-        css += " .h{word-break:keep-all}"
+        # Korean wraps between words; Chrome's default breaks between any two syllables ("날|짜가", "없|어요",
+        # "완료됐|어요"), so every line on the frame keeps its words whole: headline, subline, the note card and bubble.
+        css += " body{word-break:keep-all}"
     if loc == "ja":
         # Japanese has no spaces, so Chrome breaks it between any two characters ("カットリン|グ", "発|送いたしま|す。");
         # auto-phrase breaks every line on the frame between phrases instead, and FIT_JS shrinks a headline whose widest

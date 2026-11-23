@@ -1,0 +1,21 @@
+{
+ "cseed": {"names": ["Ximena", "Diego", "Paola"], "mac_name": "Andrés",
+           "reply": "¡{name}, tu pedido sale el {date}!", "reply_name": "Envío",
+           "mac_reply": "¡{name}, tu paquete {plan} sale el {date}!",
+           "name_label": "Nombre", "plan_label": "Paquete", "plan_choices": ["Básico", "Premium"],
+           "delivered": "Pedido entregado el {date}.", "delivered_name": "Entrega"},
+ "C": {
+  "iphone": {"1": {"k": "La escribes una sola vez", "s": "Tocas la respuesta guardada y Cutling solo pide el nombre."},
+             "2": {"k": "Y la misma va al siguiente cliente", "s": "Los nombres que ya usaste quedan a un toque."},
+             "3": {"k": "Las fechas se escriben solas", "s": "Hoy, mañana o en una semana, según el día en que pegues."},
+             "4": {"k": "Y tus datos de siempre", "h": "Tu [CLABE], tu [dirección] y tu [firma].",
+                   "s": "En cualquier app, un toque en el teclado de Cutling y listo."},
+             "5": {"k": "Ahora cabe todo", "h": "[5,000] cutlings.", "s": "Antes eran 100 y cada uno guarda hasta un correo completo."},
+             "6": {"k": "iPhone, iPad y Mac", "h": "Pago [único].", "s": "Con una compra lo tienes en los tres, sin cuenta ni suscripción."}},
+  "mac": {"1": {"k": "Escríbela una vez y mándala a todos", "s": "Con {cmd} eliges la respuesta, llenas los campos y se pega."},
+          "2": {"k": "Donde sea que escribas", "h": "{cmd}", "s": "Tus cutlings y lo último que copiaste se abren sobre cualquier app."},
+          "3": {"k": "Todo lo que copias se guarda, menos", "s": "Si tu administrador de contraseñas lo marca como oculto, no se guarda."},
+          "4": {"k": "Cambias algo en tu Mac", "h": "Y ya está en tu [iPhone].", "s": "Todo se sincroniza con tu propio iCloud, sin crear otra cuenta."},
+          "5": {"k": "iPhone, iPad y Mac", "h": "Pago [único].", "s": "Con una compra lo tienes en los tres, sin cuenta ni suscripción."}}
+ }
+}

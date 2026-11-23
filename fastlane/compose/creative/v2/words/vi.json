@@ -1,0 +1,28 @@
+{
+ "cseed": {"names": ["Thảo", "Tuấn", "Linh"], "mac_name": "Minh",
+           "reply": "{name} ơi, {date} shop gửi hàng nhé.", "reply_name": "Báo gửi hàng",
+           "mac_reply": "{name} ơi, {date} shop gửi gói {plan} nhé.",
+           "name_label": "Tên", "plan_label": "Gói", "plan_choices": ["Cơ bản", "Nâng cao"],
+           "delivered": "Đơn hàng đã giao {date}.", "delivered_name": "Báo đã giao"},
+ "C": {
+  "iphone": {"1": {"k": "Câu này chỉ viết một lần", "s": "Chạm vào câu trả lời đã lưu là Cutling hỏi tên ngay."},
+             "2": {"k": "Vẫn câu đó, gửi khách sau", "s": "Tên từng dùng đã nằm sẵn trên phím, một chạm là xong."},
+             "3": {"k": "Cutling tự điền ngày tháng", "s": "Hôm nay, ngày mai hay một tuần nữa, kể từ hôm bạn dán."},
+             "4": {"k": "Và cả những thứ không bao giờ đổi", "h": "[Số tài khoản], [địa chỉ nhà] và [chữ ký email]",
+                   "s": "Thứ nào cũng chỉ một chạm trên bàn phím Cutling, ở mọi app."},
+             "5": {"k": "Đủ chỗ cho tất cả", "h": "[5.000] Cutling",
+                   "s": "Trước đây chỉ 100, giờ mỗi cutling chứa được cả một email."},
+             "6": {"k": "iPhone, iPad và Mac", "h": "Chỉ trả [một lần]",
+                   "s": "Dùng trên cả ba máy, không cần tài khoản, không gói đăng ký."}},
+  "mac": {"1": {"k": "Viết một lần, gửi cho mọi người",
+                "s": "Nhấn {cmd} chọn câu trả lời, một khung nhỏ hỏi những gì cần điền rồi mới dán."},
+          "2": {"k": "Dù bạn đang gõ ở đâu", "h": "{cmd}",
+                "s": "Các cutling đã lưu và những gì vừa sao chép hiện ngay trên mọi app."},
+          "3": {"k": "Lịch sử bộ nhớ tạm bỏ qua",
+                "s": "Những gì trình quản lý mật khẩu đánh dấu ẩn không bao giờ lọt vào lịch sử."},
+          "4": {"k": "Sửa gì trên Mac", "h": "[iPhone] đổi theo",
+                "s": "Đồng bộ qua iCloud của chính bạn, không cần tạo tài khoản."},
+          "5": {"k": "iPhone, iPad và Mac", "h": "Chỉ trả [một lần]",
+                "s": "Dùng được trên cả ba máy, không cần tài khoản, không gói đăng ký."}}
+ }
+}

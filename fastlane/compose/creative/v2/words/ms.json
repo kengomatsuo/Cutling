@@ -1,0 +1,48 @@
+{
+ "cseed": {
+  "names": ["Aina", "Amir", "Mei Ling"],
+  "mac_name": "Ravi",
+  "reply": "Hai {name}, pesanan dipos hari {date}.",
+  "reply_name": "Pesanan dipos",
+  "mac_reply": "Hai {name}, pakej {plan} dipos hari {date}.",
+  "name_label": "Nama",
+  "plan_label": "Pakej",
+  "plan_choices": ["Asas", "Premium"],
+  "delivered": "Diterima pada {date}.",
+  "delivered_name": "Pesanan diterima"
+ },
+ "C": {
+  "iphone": {
+   "1": {"k": "Ditulis sekali sahaja",
+         "s": "Ketik balasan tersimpan dan Cutling meminta nama pelanggan."},
+   "2": {"k": "Dihantar lagi kepada pelanggan seterusnya",
+         "s": "Nama yang pernah anda taip sedia sebagai kekunci sekali ketik."},
+   "3": {"k": "Cutling mengisi tarikh sendiri",
+         "s": "Hari ini, esok atau seminggu lagi, dikira dari hari ia ditampal."},
+   "4": {"k": "Dan butiran diri yang kekal sama",
+         "h": "[Akaun bank], [alamat rumah] dan [tandatangan] anda",
+         "s": "Satu ketikan di papan kekunci Cutling, dalam mana-mana app."},
+   "5": {"k": "Ada ruang untuk semuanya",
+         "h": "[5,000] Cutling",
+         "s": "Dulu hanya 100, dan setiap satu boleh memuatkan e-mel penuh."},
+   "6": {"k": "Untuk iPhone, iPad dan Mac",
+         "h": "Hanya bayar [sekali]",
+         "s": "Satu pembelian untuk ketiga-tiganya, tanpa akaun atau langganan."}
+  },
+  "mac": {
+   "1": {"k": "Tulis sekali, hantar kepada semua",
+         "s": "Pilih balasan dengan {cmd} dan isi borang ringkas sebelum ia ditampal."},
+   "2": {"k": "Di mana sahaja anda menaip",
+         "h": "{cmd}",
+         "s": "Cutling anda dan apa yang baru disalin muncul di atas mana-mana app."},
+   "3": {"k": "Sejarah papan keratan tidak menyimpan",
+         "s": "Apa-apa yang ditandakan sulit oleh pengurus kata laluan akan dilangkau."},
+   "4": {"k": "Ubah sesuatu pada Mac anda",
+         "h": "Ia turut berubah pada [iPhone]",
+         "s": "Disegerakkan melalui iCloud anda sendiri, tanpa perlu mendaftar akaun."},
+   "5": {"k": "Untuk iPhone, iPad dan Mac",
+         "h": "Hanya bayar [sekali]",
+         "s": "Satu pembelian untuk ketiga-tiganya, tanpa akaun atau langganan."}
+  }
+ }
+}

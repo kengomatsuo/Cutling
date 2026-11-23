@@ -1,0 +1,29 @@
+{
+ "cseed": {"names": ["Laia", "Pau", "Marta"], "mac_name": "Jordi",
+           "reply": "Hola, {name}! T’enviem la comanda {date}.", "reply_name": "Enviament",
+           "mac_reply": "Hola, {name}! La comanda del pla {plan} surt {date}.",
+           "name_label": "Nom", "plan_label": "Pla", "plan_choices": ["Bàsic", "Pro"],
+           "delivered": "Lliurat el {date}.", "delivered_name": "Lliurament"},
+ "C": {
+  "iphone": {
+   "1": {"k": "L’escrius un sol cop.", "s": "Toques la resposta i Cutling et demana el nom."},
+   "2": {"k": "I l’envies al client següent.", "s": "Els noms que ja has fet servir, els tens a un toc."},
+   "3": {"k": "La data s’escriu sola.", "s": "Avui, demà o d’aquí a una setmana, i surt bé el dia que l’enganxes."},
+   "4": {"k": "I el que no canvia mai:", "h": "el teu [IBAN], la teva [adreça] i la teva [signatura].",
+         "s": "Un toc al teclat de Cutling i ja hi és, a qualsevol app."},
+   "5": {"k": "Hi cap tot.", "h": "[5.000] cutlings", "s": "Abans n’hi cabien 100, i cada un pot ser un correu sencer."},
+   "6": {"k": "iPhone, iPad i Mac.", "h": "Pagues [un\u00a0cop].", "s": "Una sola compra per als tres, sense compte ni subscripció."}
+  },
+  "mac": {
+   "1": {"k": "L’escrius un cop i l’envies a tothom.",
+         "s": "Tries la resposta amb {cmd} i un formulari breu et demana el que falta abans d’enganxar."},
+   "2": {"k": "Escriguis on escriguis.", "h": "{cmd}",
+         "s": "Els teus cutlings i el que has copiat fa poc s’obren sobre qualsevol app."},
+   "3": {"k": "L’historial del porta-retalls no desa",
+         "s": "El que un gestor de contrasenyes marca com a ocult no hi entra mai."},
+   "4": {"k": "Ho canvies al Mac", "h": "i ja ho tens canviat a l’[iPhone].",
+         "s": "Se sincronitza amb el teu iCloud, sense crear cap compte."},
+   "5": {"k": "iPhone, iPad i Mac.", "h": "Pagues [un\u00a0cop].", "s": "Una sola compra per als tres, sense compte ni subscripció."}
+  }
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "cseed": {"names": ["Ana", "João", "Luiz"], "mac_name": "Júlia",
+           "reply": "Oi, {name}! Seu pedido sai na {date}.", "reply_name": "Envio",
+           "mac_reply": "Oi, {name}! Seu kit {plan} sai na {date}.",
+           "name_label": "Nome", "plan_label": "Kit", "plan_choices": ["Básico", "Premium"],
+           "delivered": "Pedido entregue em {date}.", "delivered_name": "Entrega"},
+ "C": {
+  "iphone": {
+   "1": {"k": "Você escreve uma vez só",
+          "s": "Toque na resposta salva e o Cutling pede o nome."},
+   "2": {"k": "E manda de novo ao próximo cliente",
+          "s": "Os nomes que você já usou ficam no teclado, a um toque."},
+   "3": {"k": "O Cutling põe a data sozinho",
+          "s": "Hoje, amanhã ou daqui a uma semana, sempre certa no dia em que você cola."},
+   "4": {"k": "E o que nunca muda:",
+          "h": "sua [chave Pix], seu [endereço] e sua [assinatura].",
+          "s": "Cada um com um toque, em qualquer app, no teclado Cutling."},
+   "5": {"k": "Tem espaço para tudo",
+          "h": "[5.000] cutlings",
+          "s": "Antes eram 100, e em cada um cabe um e‑mail inteiro."},
+   "6": {"k": "iPhone, iPad e Mac",
+          "h": "Pagamento [único].",
+          "s": "Uma compra vale para os três, sem cadastro nem mensalidade."}
+  },
+  "mac": {
+   "1": {"k": "Escreva uma vez e mande para todos",
+          "s": "Escolha a resposta com {cmd} e um formulário curto pede o que falta antes de colar."},
+   "2": {"k": "Onde você estiver digitando",
+          "h": "{cmd}",
+          "s": "Seus cutlings e o que você copiou por último abrem por cima de qualquer app."},
+   "3": {"k": "O histórico guarda tudo, menos",
+          "s": "O que um gerenciador de senhas marca como oculto nunca entra no histórico."},
+   "4": {"k": "Mudou no Mac,",
+          "h": "mudou no [iPhone].",
+          "s": "Sincronizado pelo seu próprio iCloud, sem criar conta."},
+   "5": {"k": "iPhone, iPad e Mac",
+          "h": "Pagamento [único].",
+          "s": "Uma compra vale para os três, sem cadastro nem mensalidade."}
+  }
+ }
+}
