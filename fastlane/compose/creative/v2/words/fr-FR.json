@@ -1,0 +1,77 @@
+{
+ "cseed": {
+  "names": [
+   "Julie",
+   "Thomas",
+   "Inès"
+  ],
+  "mac_name": "Karim",
+  "reply": "Bonjour {name}, votre colis part {date}.",
+  "reply_name": "Expédition",
+  "mac_reply": "Bonjour {name}, votre coffret {plan} part {date}.",
+  "name_label": "Prénom",
+  "plan_label": "Formule",
+  "plan_choices": [
+   "Standard",
+   "Premium"
+  ],
+  "delivered": "Colis livré le {date}",
+  "delivered_name": "Livraison"
+ },
+ "C": {
+  "iphone": {
+   "1": {
+    "k": "Écrivez-la une fois.",
+    "s": "Touchez-la et Cutling vous demande le prénom."
+   },
+   "2": {
+    "k": "Renvoyez-la au suivant.",
+    "s": "Les prénoms déjà saisis vous attendent : un toucher suffit."
+   },
+   "3": {
+    "k": "Les dates s’écrivent toutes seules.",
+    "s": "Aujourd’hui, demain ou dans une semaine : toujours la bonne date."
+   },
+   "4": {
+    "k": "Et ce qui ne change jamais :",
+    "h": "votre [RIB], votre [adresse], votre [signature].",
+    "s": "D’un toucher sur le clavier Cutling, dans toutes vos apps."
+   },
+   "5": {
+    "k": "De la place pour tout.",
+    "h": "[5 000] cutlings",
+    "s": "Contre 100 avant, et chacun peut contenir un e‑mail entier."
+   },
+   "6": {
+    "k": "iPhone, iPad et Mac.",
+    "h": "Achat [unique].",
+    "s": "Valable sur les trois, sans inscription ni abonnement."
+   }
+  },
+  "mac": {
+   "1": {
+    "k": "Écrivez-la une fois, envoyez-la à tous.",
+    "s": "Choisissez la réponse avec {cmd}, remplissez les champs et c’est collé."
+   },
+   "2": {
+    "k": "Partout où vous écrivez.",
+    "h": "{cmd}",
+    "s": "Vos cutlings et vos dernières copies, par‑dessus n’importe quelle app."
+   },
+   "3": {
+    "k": "L’historique du presse-papiers ignore",
+    "s": "Ce qu’un gestionnaire de mots de passe masque n’y entre jamais."
+   },
+   "4": {
+    "k": "Modifié sur votre Mac,",
+    "h": "à jour sur votre [iPhone].",
+    "s": "Synchronisé via votre propre iCloud, sans compte à créer."
+   },
+   "5": {
+    "k": "iPhone, iPad et Mac.",
+    "h": "Achat [unique].",
+    "s": "Valable sur les trois, sans inscription ni abonnement."
+   }
+  }
+ }
+}
