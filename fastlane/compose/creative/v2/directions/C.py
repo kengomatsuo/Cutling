@@ -16,6 +16,7 @@ CSS = """
 .h .chip::before{content:"";position:absolute;inset:0;z-index:-1;background:#1DBB8A;border-radius:.2em}
 .s{position:absolute;color:#A3AAA6;font-weight:500;letter-spacing:-.005em;line-height:1.25;text-wrap:pretty}
 .h{text-wrap:pretty}
+.note{line-height:1.5} .bubble{line-height:1.25}
 .cmd{display:inline-flex;gap:.14em;direction:ltr}
 .cmd b{display:inline-flex;align-items:center;justify-content:center;width:1.25em;height:1.25em;border-radius:.2em;font-family:SF;font-weight:500;
   font-size:.8em;background:linear-gradient(180deg,#2B2F2D,#1B1E1D);color:#F3F0E8;box-shadow:0 .05em 0 #000,inset 0 1px 0 rgba(255,255,255,.12),0 0 0 .012em #3a3f3c}
@@ -81,12 +82,12 @@ def touch_set(m, loc, W, cs, F, out, dev):
     pill = (f'<span style="background:#D6F5EA;color:#08664B;border-radius:.25em;padding:0 .2em;font-weight:600;white-space:nowrap">'
             f'{m.esc(F["long_date_nov23"])}</span>')
     before, _, after = cs["delivered"].partition("{date}")
-    card = (f'<div style="padding:{fs*.9}px;border-radius:{fs*.8}px;'
-            f'background:#1A1D1C;box-shadow:inset 0 0 0 2px #2A2F2D;color:#F3F0E8;font-size:{fs*.8}px;line-height:1.5">'
+    card = (f'<div class="note" style="padding:{fs*.9}px;border-radius:{fs*.8}px;'
+            f'background:#1A1D1C;box-shadow:inset 0 0 0 2px #2A2F2D;color:#F3F0E8;font-size:{fs*.8}px">'
             f'<div style="color:#7F8783;font-size:{fs*.62}px;margin-bottom:{fs*.4}px">{m.esc(cs["delivered_name"])}</div>'
             f'{m.esc(before)}{pill}{m.esc(after)}</div>')
-    bub = (f'<div style="align-self:flex-end;max-width:{w-2*X}px;background:#0A84FF;color:#fff;'
-           f'font-size:{fs}px;line-height:1.25;padding:{fs*.42}px {fs*.7}px;border-radius:{fs*.9}px">'
+    bub = (f'<div class="bubble" style="align-self:flex-end;max-width:{w-2*X}px;background:#0A84FF;color:#fff;'
+           f'font-size:{fs}px;padding:{fs*.42}px {fs*.7}px;border-radius:{fs*.9}px">'
            f'{m.esc(before)}{m.esc(join_date(F["long_date_nov23"]))}{m.esc(after)}</div>')
     # the saved note, then the message it typed today, stacked so a long date never makes them overlap
     card = (f'<div class="abs" style="left:{X}px;top:{cy}px;width:{w-2*X}px;display:flex;flex-direction:column;'
