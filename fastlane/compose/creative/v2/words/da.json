@@ -1,0 +1,31 @@
+{
+ "cseed": {"names": ["Mette", "Mads", "Ida"], "mac_name": "Søren", "reply": "Hej {name}, din pakke sendes {date}.",
+           "reply_name": "Forsendelse", "mac_reply": "Hej {name}, din {plan}-pakke sendes {date}.",
+           "name_label": "Navn", "plan_label": "Pakke", "plan_choices": ["Basis", "Plus"],
+           "delivered": "Leveret den {date}", "delivered_name": "Levering"},
+ "C": {
+  "iphone": {
+   "1": {"k": "Skriv svaret én gang.", "s": "Tryk på svaret, så spørger Cutling efter navnet."},
+   "2": {"k": "Send det til den næste.", "s": "Navnene fra før ligger klar på hver sin tast."},
+   "3": {"k": "Datoen skriver sig selv.", "s": "I dag, i morgen eller om en uge, regnet fra dagen, hvor du indsætter."},
+   "4": {"k": "Og det, der aldrig ændrer sig:", "h": "dit [kontonummer], din [adresse] og din [signatur].",
+         "s": "Ét tryk hver på Cutling-tastaturet i alle apps."},
+   "5": {"k": "Der er plads til det hele.", "h": "[5.000] cutlings",
+         "s": "Før var grænsen 100, og hver enkelt kan rumme en hel e-mail."},
+   "6": {"k": "Til iPhone, iPad og Mac.", "h": "Betal [én gang].",
+         "s": "Ét køb til alle tre, uden konto og abonnement."}
+  },
+  "mac": {
+   "1": {"k": "Skriv det én gang og send det til alle.",
+         "s": "Vælg svaret med {cmd}, udfyld felterne i en lille formular, og så indsættes det."},
+   "2": {"k": "Uanset hvor du skriver.", "h": "{cmd}",
+         "s": "Dine cutlings og det, du sidst har kopieret, vises oven på enhver app."},
+   "3": {"k": "Historikken springer over",
+         "s": "Det, en adgangskodeadministrator markerer som skjult, gemmes aldrig."},
+   "4": {"k": "Ret noget på din Mac,", "h": "så er det rettet på din [iPhone].",
+         "s": "Alt synkroniseres med din egen iCloud, uden at du skal oprette en konto."},
+   "5": {"k": "Til iPhone, iPad og Mac.", "h": "Betal [én gang].",
+         "s": "Ét køb til alle tre, uden konto og abonnement."}
+  }
+ }
+}
