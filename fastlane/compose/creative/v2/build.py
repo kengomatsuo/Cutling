@@ -72,11 +72,9 @@ SCRIPT_FONTS = {
     "ta-IN": ('"Tamil Sangam MN"', '"Tamil MN"'), "te-IN": ('"Telugu Sangam MN"', '"Kohinoor Telugu"'),
 }
 
-# Scripts whose marks reach far past New York's line box: Odia hangs subjoined consonants and its u-signs well under
-# the baseline and sets its reph above the letter, so at New York's line-height a subjoined letter drops out of its
-# chip, dark on the black ground, and touches the next line. Per locale: (headline line-height, chip padding below).
-# Scripts whose subscript consonants and below-vowels hang past the Latin baseline box: (headline line height, extra
-# green below a chip), so a chip covers its whole word and stacked chips never touch.
+# Scripts whose marks reach far past New York's line box (Indic subjoined consonants and below-vowels, Thai below
+# vowels, Odia's reph above): at New York's line-height a subjoined letter drops out of its chip, dark on the black
+# ground, and touches the next line. Per locale: (headline line-height, chip padding below).
 DEEP_MARKS = {"or-IN": (1.34, ".18em"), "kn-IN": (1.32, ".2em"), "te-IN": (1.32, ".2em"), "ml-IN": (1.3, ".16em"),
               "ta-IN": (1.28, ".12em"), "bn-BD": (1.3, ".16em"), "gu-IN": (1.28, ".14em"), "pa-IN": (1.28, ".14em"),
               "hi": (1.28, ".14em"), "mr-IN": (1.28, ".14em"), "th": (1.3, ".16em")}
