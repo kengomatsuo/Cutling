@@ -265,8 +265,9 @@ final class FillInUITests: XCTestCase {
         app.staticTexts["Reply"].firstMatch.tap()
         XCTAssertFalse(app.textFields["fillInField"].firstMatch.waitForExistence(timeout: 4), "Fill-in sheet opened with the switch off")
         shot("switch_off_copied")
-        // The editor, from the card's ⋯ button: its Text section, without the fill-in menu.
-        card.tap()
+        // The editor, from the card's ⋯ button: its Text section, without the fill-in menu. The button by type: on iPad the
+        // first element with the card's identifier is its icon, whose tap copies the card.
+        app.buttons.matching(identifier: "cutlingCard").firstMatch.tap()
         XCTAssertTrue(app.buttons["Paste from Clipboard"].firstMatch.waitForExistence(timeout: 10), "Editor's Text section did not load")
         shot("switch_off_editor")
         XCTAssertFalse(app.descendants(matching: .any)["addPlaceholderMenu"].exists, "Editor shows the fill-in menu with the switch off")

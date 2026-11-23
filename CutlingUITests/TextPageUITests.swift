@@ -136,7 +136,19 @@ final class TextPageUITests: XCTestCase {
             sleep(1)
             app.typeText("\nMilk\nEggs")
             sleep(1)
-            let listed = (app.textViews.firstMatch.value as? String) ?? ""
+            // Two walk runs on a busy machine read the value without the typed text (ASG63; not reproduced on a quiet one).
+            // Read until it arrives, and name every text view's value if it never does.
+            var listed = ""
+            let arrival = Date().addingTimeInterval(8)
+            repeat {
+                listed = (app.textViews.firstMatch.value as? String) ?? ""
+                if listed.contains("• Milk\n• Eggs") { break }
+                usleep(500_000)
+            } while Date() < arrival
+            if !listed.contains("• Milk\n• Eggs") {
+                shot("4_list_not_typed", dark: dark)
+                print("Text views: \(app.textViews.allElementsBoundByIndex.map { "\($0.identifier)=\(String(describing: $0.value))" })")
+            }
             XCTAssertTrue(listed.contains("• Milk\n• Eggs"), "Return did not carry the bulleted list on: \(listed.suffix(60))")
             XCTAssertTrue(list.isSelected, "The list button does not show as on inside a list")
             shot("4_list_typed", dark: dark)

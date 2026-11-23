@@ -91,7 +91,7 @@ struct FillInTip: Tip {
     var image: Image? { Image(systemName: "curlybraces") }
 
     /// Set while the interactive walkthrough runs, whose own step teaches blanks.
-    @Parameter static var tutorialActive: Bool = false
+    @Parameter(.transient) static var tutorialActive: Bool = false
 
     var rules: [Rule] {
         #Rule(Self.openedTextEditor) { $0.donations.count >= 2 }
@@ -107,34 +107,37 @@ struct FillInTip: Tip {
 // The coordinator drives `EditorTipAnchor` (with a 2s debounce and dismiss
 // while typing); each tip is eligible only when the anchor matches.
 // (#Rule can't read enum rawValue, so the raw ints are inlined.)
+//
+// The walkthrough's parameters are transient: TipKit keeps a parameter between launches, so one set when the app was
+// killed mid-walk left its tip on every later editor (TutorialLeftoverTipUITests).
 
 enum EditorTipAnchor: Int {
     case none = -1, name = 0, text = 1, save = 2, back = 3, delete = 4
 }
 
 struct EditorNameTip: Tip {
-    @Parameter static var anchor: Int = -1
+    @Parameter(.transient) static var anchor: Int = -1
     var title: Text { Text("Give your cutling a name.") }
     var rules: [Rule] { #Rule(Self.$anchor) { $0 == 0 } }
     var options: [Option] { MaxDisplayCount(1000) }
 }
 
 struct EditorTextTip: Tip {
-    @Parameter static var anchor: Int = -1
+    @Parameter(.transient) static var anchor: Int = -1
     var title: Text { Text("Now type the text you want to save.") }
     var rules: [Rule] { #Rule(Self.$anchor) { $0 == 1 } }
     var options: [Option] { MaxDisplayCount(1000) }
 }
 
 struct EditorSaveTip: Tip {
-    @Parameter static var anchor: Int = -1
+    @Parameter(.transient) static var anchor: Int = -1
     var title: Text { Text("Tap here to save your cutling.") }
     var rules: [Rule] { #Rule(Self.$anchor) { $0 == 2 } }
     var options: [Option] { MaxDisplayCount(1000) }
 }
 
 struct EditorBackTip: Tip {
-    @Parameter static var anchor: Int = -1
+    @Parameter(.transient) static var anchor: Int = -1
     // Same wording as the step's own instruction, so the tip and the
     // walkthrough never say the same thing two different ways.
     var title: Text { Text("Edit the text, then tap Back. Your changes save automatically.") }
@@ -143,7 +146,7 @@ struct EditorBackTip: Tip {
 }
 
 struct EditorDeleteTip: Tip {
-    @Parameter static var anchor: Int = -1
+    @Parameter(.transient) static var anchor: Int = -1
     var title: Text { Text("Scroll down and tap Delete Cutling to remove it.") }
     var rules: [Rule] { #Rule(Self.$anchor) { $0 == 4 } }
     var options: [Option] { MaxDisplayCount(1000) }

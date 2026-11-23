@@ -80,14 +80,12 @@ final class TextPageGestureUITests: XCTestCase {
         text.tap()
     }
 
-    /// From the form to the Text page with the keyboard and its bar up.
+    /// Taps the form's text box. A tip over the form (TipKit's "Now type the text you want to save") takes a tap outside it
+    /// as its dismissal and passes nothing on: then its Close, never the New sheet's own close button in the bar, and again.
     @MainActor
-    private func openPage(_ app: XCUIApplication) -> XCUIElement {
-        let row = any(app, "textPageRow")
-        XCTAssertTrue(row.waitForExistence(timeout: 10), "No text box on the form")
+    private func tapRow(_ app: XCUIApplication, _ row: XCUIElement) {
         row.tap()
         if !any(app, "textPage").waitForExistence(timeout: 5) {
-            // A tip over the form took the tap: its Close, never the New sheet's own close button in the bar.
             let navBar = app.navigationBars.firstMatch.frame
             let closeTip = app.buttons.matching(NSPredicate(format: "label == 'Close'")).allElementsBoundByIndex
                 .first { !navBar.intersects($0.frame) && $0.isHittable }
@@ -95,11 +93,32 @@ final class TextPageGestureUITests: XCTestCase {
             sleep(1)
             row.tap()
         }
+    }
+
+    /// From the form to the Text page with the keyboard up. Returns what stands with the keyboard and leaves with it:
+    /// iPhone's bar above it, iPad's keyboard itself (the tools stay in the top bar).
+    @MainActor
+    private func openPage(_ app: XCUIApplication) -> XCUIElement {
+        let row = any(app, "textPageRow")
+        XCTAssertTrue(row.waitForExistence(timeout: 10), "No text box on the form")
+        tapRow(app, row)
         XCTAssertTrue(any(app, "textPage").waitForExistence(timeout: 10), "The Text page did not open")
         let tip = app.buttons["Continue"].firstMatch
         if tip.waitForExistence(timeout: 3) { tip.tap(); sleep(1) }
+        // The page's layout follows its width, not the device: iPad's pushed page is wide (tools in the top bar, no bar of
+        // its own above the keyboard, as Notes on iPad has none), but the New sheet there is a narrow form sheet with
+        // iPhone's layout, the bar above the keyboard.
+        let tools = any(app, "textPageTools")
         let bar = any(app, "fillInKeyboardBar")
-        XCTAssertTrue(bar.waitForExistence(timeout: 10), "No bar above the keyboard on the page")
+        let deadline = Date().addingTimeInterval(10)
+        while !tools.exists && !bar.exists && Date() < deadline { usleep(250_000) }
+        if tools.exists {
+            useSystemKeyboard(app)
+            let keyboard = app.keyboards.firstMatch
+            XCTAssertTrue(keyboard.waitForExistence(timeout: 10), "No keyboard on the page")
+            return keyboard
+        }
+        XCTAssertTrue(bar.exists, "No bar above the keyboard and no tools in the top bar on the page")
         useSystemKeyboard(app)
         return bar
     }
@@ -158,15 +177,23 @@ final class TextPageGestureUITests: XCTestCase {
 
         // A swipe from the left edge goes back one step, to the form, and no further.
         mark("edge swipe \(new ? "new" : "edit")")
-        app.coordinate(withNormalizedOffset: CGVector(dx: 0.0, dy: 0.5)).withOffset(CGVector(dx: 2, dy: 0))
-            .press(forDuration: 0.05, thenDragTo: app.coordinate(withNormalizedOffset: CGVector(dx: 0.8, dy: 0.5)), withVelocity: 900, thenHoldForDuration: 0.05)
+        // From the navigation bar's left edge, which is the sheet's own edge: on iPad the New sheet is a form sheet in the
+        // middle of the screen, and the screen's edge is outside it. (The page's own frame starts 20 pt inside the edge.)
+        // The last bar in the tree is the top one: the form sheet's, not the list's behind it.
+        let barFrame = app.navigationBars.allElementsBoundByIndex.last?.frame ?? app.frame
+        let origin = app.coordinate(withNormalizedOffset: .zero)
+        // A flick, lifted while moving right. The system finishes a back swipe by where it is let go and which way the finger
+        // moves; a drag that stopped and held before the lift was cancelled at 77% in 6 of 9 runs ("pop interaction changed:
+        // cancelled 1 percent 0.77 velocity -0.77") and a flick was never (3 of 3), the same recognizer winning the touch each time.
+        origin.withOffset(CGVector(dx: barFrame.minX + 2, dy: app.frame.midY))
+            .press(forDuration: 0.05, thenDragTo: origin.withOffset(CGVector(dx: barFrame.minX + barFrame.width * 0.8, dy: app.frame.midY)), withVelocity: 1500, thenHoldForDuration: 0)
         sleep(2)
         XCTAssertFalse(any(app, "textPage").exists, "A swipe from the left edge did not leave the Text page")
         XCTAssertTrue(any(app, "textPageRow").waitForExistence(timeout: 5), "A swipe from the left edge went past the form")
         shot("\(new ? "new" : "edit")_4_after_edge_swipe")
 
         // The back button too.
-        any(app, "textPageRow").tap()
+        tapRow(app, any(app, "textPageRow"))
         XCTAssertTrue(any(app, "textPage").waitForExistence(timeout: 10), "The Text page did not open again")
         sleep(1)
         // The bar's back chevron; a foldable's wide layout keeps it outside a navigation bar.
@@ -176,6 +203,12 @@ final class TextPageGestureUITests: XCTestCase {
         XCTAssertTrue(any(app, "textPageRow").waitForExistence(timeout: 5), "Back did not return to the form")
         if new {
             // Back on the form, the New sheet's own drag down closes it again, as before the page was opened.
+            sleep(1)
+            // TipKit keeps the walkthrough's "Now type the text you want to save." for a run that was stopped mid-walkthrough on
+            // this simulator; a drag outside a tip only dismisses it, so its Close first.
+            let navBar = app.navigationBars.allElementsBoundByIndex.last?.frame ?? .zero
+            app.buttons.matching(NSPredicate(format: "label == 'Close'")).allElementsBoundByIndex
+                .first { !navBar.intersects($0.frame) && $0.isHittable }?.tap()
             sleep(1)
             mark("drag down on the form")
             app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.2))
@@ -195,6 +228,9 @@ final class TextPageGestureUITests: XCTestCase {
     /// Aa then the card's close, twice, each with three still seconds around it, dark as in the owner's Notes recording.
     @MainActor
     func testFormatCardMotion() throws {
+        // The card rising in the keyboard's place is iPhone's; on iPad an existing cutling's page is wide and Aa opens a
+        // popover from the top bar.
+        try XCTSkipIf(UIDevice.current.userInterfaceIdiom == .pad, "Format is a popover on iPad's page, not the card that replaces the keyboard")
         let app = launch(dark: true)
         openExisting(app)
         let bar = openPage(app)

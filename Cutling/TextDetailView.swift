@@ -164,6 +164,7 @@ struct TextDetailView: View {
                                 }
                             }
                             .buttonStyle(.borderedProminent).tint(.brandGreen)
+                            .accessibilityLabel("Save")
                             .disabled(name.isEmpty || value.isEmpty)
                         }
                     }
@@ -215,6 +216,7 @@ struct TextDetailView: View {
                                     Image(systemName: "checkmark")
                                 }
                                 .buttonStyle(.borderedProminent).tint(.brandGreen)
+                                .accessibilityLabel("Save")
                                 .disabled(name.isEmpty || value.isEmpty)
                                 .popoverTip(editorSaveTip, arrowEdge: .top)
                             } else {
@@ -500,8 +502,8 @@ struct TextDetailView: View {
             TextPageView(text: undoHandler.binding($value, actionName: String(localized: "Change Text")),
                          format: $format, count: visibleText.count, limit: textLimit)
                 // A drag in the text pulls the keyboard down and scrolls, as in Notes; it never pulls the whole editor
-                // sheet away (a flick down at the top of the text did). The page's back button and edge swipe still go back.
-                .interactiveDismissDisabled(true)
+                // sheet away (a flick down at the top of the text did): the form's `interactiveDismissDisabled` above holds
+                // the sheet while this page is open. None here: on a pushed page the modifier also stops the edge swipe back.
         }
         #endif
         .sheet(isPresented: $showIconPicker, onDismiss: { userDidPickIcon = true }) {
