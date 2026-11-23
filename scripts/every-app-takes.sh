@@ -28,7 +28,7 @@ xcrun simctl ui "$udid" appearance light
 xcrun simctl spawn "$udid" defaults write com.apple.keyboard.preferences AutomaticMinimizationEnabled -bool NO
 xcrun simctl spawn "$udid" defaults write com.apple.keyboard.preferences HardwareKeyboardLastSeen -bool NO
 # Contacts, Calendar, Maps and Messages need services simslim turns off; the next ticket's `simslim on` restores them.
-simslim enable "$udid" pim apps messaging >/dev/null 2>&1 || true
+simslim enable "$udid" pim apps messaging search photos >/dev/null 2>&1 || true
 xcrun simctl privacy "$udid" grant location com.apple.Maps 2>/dev/null
 # Maps asks to share contacts over its first screen; Messages and Calendar read them too.
 for app in com.apple.MobileSMS com.apple.Maps com.apple.mobilecal; do xcrun simctl privacy "$udid" grant contacts "$app" 2>/dev/null; done

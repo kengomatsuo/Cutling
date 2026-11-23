@@ -115,10 +115,10 @@ final class PromoEveryAppUITests: XCTestCase {
             press(label, CGPoint(x: known.midX, y: known.midY), in: app)
             return
         }
-        var frame = cutlingKeyFrame(name, in: app)
+        var frame = keyFrame(name, in: app)
         for _ in 0..<10 where frame == nil {
             usleep(500_000)
-            frame = cutlingKeyFrame(name, in: app)
+            frame = keyFrame(name, in: app)
         }
         guard let frame else {
             shot("no-key-\(label)", app)
@@ -127,6 +127,12 @@ final class PromoEveryAppUITests: XCTestCase {
         }
         learned[label] = frame
         press(label, CGPoint(x: frame.midX, y: frame.midY), in: app)
+    }
+
+    /// A key by its cutling's name: the label is the name, then the text after the language's list separator (", " or
+    /// "、"); the name screen's buttons are the name alone.
+    private func keyFrame(_ name: String, in app: XCUIApplication) -> CGRect? {
+        cutlingKeys(in: app)?.first { $0.label == name || $0.label.hasPrefix(name + ",") || $0.label.hasPrefix(name + "、") }?.frame
     }
 
     private func launch(_ app: XCUIApplication) {
@@ -144,6 +150,9 @@ final class PromoEveryAppUITests: XCTestCase {
             return
         }
         for _ in 0..<3 {
+            // A field that already holds the caret is left alone: a tap on the caret opens the edit menu (Paste,
+            // AutoFill), which the first take filmed over Messages.
+            if (element.value(forKey: "hasKeyboardFocus") as? Bool) == true, app.keyboards.firstMatch.exists || cutlingKeys(in: app) != nil { break }
             element.tap()
             if app.keyboards.firstMatch.waitForExistence(timeout: 4) || cutlingKeys(in: app) != nil { break }
         }
@@ -204,16 +213,18 @@ final class PromoEveryAppUITests: XCTestCase {
         // Hold the globe until its list opens, slide up to Cutling (the row nearest the globe, about 133 pt above it on
         // the store iPhone) and let go there. A loaded Mac can open the list late: the finger waits on the row, and a
         // try that misses is made again, so the take holds one whole gesture that worked.
-        for attempt in 0..<4 where !cutlingKeyboardIsUp(in: messages) {
+        // Each try is marked, so the cut shows the one that worked; a miss lets go at the next height (rows of the list
+        // measured on the store iPhone at 133 pt above the globe; the iPad's list is a guess, so it is searched).
+        let rises: [CGFloat] = device == "ipad" ? [90, 60, 125, 160, 45, 200] : [133, 100, 166, 66, 200]
+        for attempt in 0..<rises.count where !cutlingKeyboardIsUp(in: messages) {
             let globe = keyboardGlobe(in: messages)
             XCTAssertTrue(globe.waitForExistence(timeout: 5), "No globe key")
             let start = globe.frame
-            let rise: CGFloat = device == "ipad" ? 0 : 133
-            let target = CGPoint(x: start.midX + (device == "ipad" ? 80 : 20), y: start.midY - (device == "ipad" ? 90 : rise))
+            let target = CGPoint(x: start.midX + (device == "ipad" ? 80 : 20), y: start.midY - rises[attempt])
             mark("globe down", at: CGPoint(x: start.midX, y: start.midY))
             let from = globe.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
             from.press(forDuration: 1.2, thenDragTo: from.withOffset(CGVector(dx: target.x - start.midX, dy: target.y - start.midY)),
-                       withVelocity: .slow, thenHoldForDuration: 1.0 + Double(attempt) * 0.8)
+                       withVelocity: .slow, thenHoldForDuration: 1.0 + Double(min(attempt, 2)) * 0.6)
             mark("globe up", at: target)
             sleep(2)
         }
@@ -256,20 +267,26 @@ final class PromoEveryAppUITests: XCTestCase {
         messages.open(URL(string: "sms:")!)
         XCTAssertTrue(messages.wait(for: .runningForeground, timeout: 15))
         sleep(3)
-        // The person is picked from Contacts as one is on a phone: their name into To:, then the suggestion. The name
-        // goes in by Paste, as the Calendar title does, so no input method stands between.
-        let to = messages.textFields["To:"].firstMatch.exists ? messages.textFields["To:"].firstMatch : messages.textFields.firstMatch
-        if to.waitForExistence(timeout: 5) {
-            UIPasteboard.general.string = person
-            to.press(forDuration: 1.0)
-            let paste = words.paste.lazy.map { self.messages.menuItems[$0].firstMatch }.first { $0.waitForExistence(timeout: 3) }
-            if let paste { paste.tap() } else { shot("no-to-paste", messages) }
+        // The person is picked from Contacts with To:'s + button, as one is on a phone. (Typing the name finds nobody on
+        // the store simulators: their contact search is off, and an sms: link to the number stays "No Name, Searching".)
+        let add = messages.buttons["ComposeRecipientAddButton"].firstMatch
+        if add.waitForExistence(timeout: 5) {
+            add.tap()
+            sleep(3)
+            // The contact whose name is exactly `person` first (an older "Maya Brooks" sorts ahead of "Maya"), else
+            // the one whose name starts with it (Rina Wulandari, 中村 由美).
+            let texts = messages.descendants(matching: .any).matching(NSPredicate(format: "elementType == %d OR elementType == %d",
+                XCUIElement.ElementType.cell.rawValue, XCUIElement.ElementType.staticText.rawValue))
+            let exact = texts.matching(NSPredicate(format: "label == %@", person)).firstMatch
+            let starts = texts.matching(NSPredicate(format: "label BEGINSWITH %@", person)).firstMatch
+            if exact.waitForExistence(timeout: 8) { exact.tap() } else if starts.exists { starts.tap() } else {
+                shot("no-contact-row", messages)
+                let cancel = messages.buttons.matching(NSPredicate(format: "label IN %@", ["Cancel", "Batalkan", "Batal", "キャンセル"])).firstMatch
+                if cancel.exists { cancel.tap() }
+            }
             sleep(2)
-            let suggestion = messages.cells.containing(NSPredicate(format: "label CONTAINS %@", person)).firstMatch
-            if suggestion.waitForExistence(timeout: 5) { suggestion.tap() } else { shot("no-suggestion", messages) }
-            sleep(1)
         } else {
-            shot("no-to", messages)
+            shot("no-add-recipient", messages)
         }
         let body = messageField()
         focus(body, in: messages, "message field")
@@ -316,6 +333,9 @@ final class PromoEveryAppUITests: XCTestCase {
         let location = calendar.images["location"].firstMatch
         if location.waitForExistence(timeout: 5) { location.tap() } else { shot("no-location", calendar) }
         sleep(3)
+        // The place search opens with its field unfocused and no keyboard: the field is tapped, as a person would.
+        let place = calendar.searchFields.firstMatch.exists ? calendar.searchFields.firstMatch : calendar.textFields.firstMatch
+        focus(place, in: calendar, "location search field")
         if !filming { shot("g3-location", calendar) }
         keyboard(cutling: true, in: calendar)
         shot("g3-ready", calendar)
