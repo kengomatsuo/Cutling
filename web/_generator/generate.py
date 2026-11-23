@@ -34,6 +34,8 @@ from live import LIVE_CAPS
 SCRIPT_DIR = Path(__file__).parent
 DOCS_DIR = SCRIPT_DIR.parent
 TEMPLATES_DIR = SCRIPT_DIR / "templates"
+# Cloudflare Web Analytics for *.matsuokengo.com (one site, split by host); traffic.ts in claude-house-rules reads it.
+CF_BEACON = '<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon=\'{"token": "ca9784aea0cc4bf699f79f2ac42e5e31"}\'></script>'
 TRANSLATIONS_DIR = SCRIPT_DIR / "translations"
 
 # Find locales.json: check two levels up (web/_generator/ layout) then one level up (legacy)
@@ -308,6 +310,7 @@ def generate_page(template_content, translation, en_translation, locale_code, is
     html = html.replace("{{LANGUAGE_PICKER}}", picker_html)
     html = html.replace("{{FILM}}", film_html(locale_code, translation, root))
     html = html.replace("</head>", f'    <script src="{root}/store-source.js" defer></script>\n</head>', 1)
+    html = html.replace("</head>", f"    {CF_BEACON}\n</head>", 1)
     html = html.replace("{{DIRECTORY_BADGES}}", "")
 
     for key in en_translation:
