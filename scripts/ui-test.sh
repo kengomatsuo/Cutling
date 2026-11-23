@@ -24,6 +24,14 @@ defaults write com.apple.iphonesimulator ConnectHardwareKeyboard -bool false
 # hardware key events, which set HardwareKeyboardLastSeen, and with minimisation on every later field shows no keyboard.
 xcrun simctl spawn "${DEVICE_QUEUE_UDID:?}" defaults write com.apple.keyboard.preferences AutomaticMinimizationEnabled -bool NO
 xcrun simctl spawn "${DEVICE_QUEUE_UDID:?}" defaults write com.apple.keyboard.preferences HardwareKeyboardLastSeen -bool NO
+# The tests read English labels (Settings > General, the edit menu); a shared simulator can be left in another
+# language by a film job, so English is put back and SpringBoard restarted to read it.
+lang=$(xcrun simctl spawn "$DEVICE_QUEUE_UDID" defaults read -g AppleLanguages 2>/dev/null | tr -d '()", \n' | cut -c1-2)
+if [ "$lang" != "en" ]; then
+  xcrun simctl spawn "$DEVICE_QUEUE_UDID" defaults write -g AppleLanguages -array en
+  xcrun simctl spawn "$DEVICE_QUEUE_UDID" defaults write -g AppleLocale -string en_US
+  xcrun simctl spawn "$DEVICE_QUEUE_UDID" launchctl stop com.apple.SpringBoard 2>/dev/null; sleep 8
+fi
 # UI_APPEARANCE=light|dark pins the look, since the shared simulator keeps whatever the last job left.
 [ -n "${UI_APPEARANCE:-}" ] && xcrun simctl ui "$DEVICE_QUEUE_UDID" appearance "$UI_APPEARANCE"
 # Serial: parallel testing runs on clones of the queue's simulator, and the device queue allows no clones.
