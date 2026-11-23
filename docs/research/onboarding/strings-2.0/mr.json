@@ -1,0 +1,31 @@
+{
+ "folders": [
+  "mr",
+  "mr-IN"
+ ],
+ "strings": {
+  "P1": "जतन केलेले फक्त तुमचेच",
+  "P2": "खाते नाही, काहीही गोळा होत नाही; सिंक चालू केल्यास कटलिंग तुमच्याच iCloud मधून सिंक होतात",
+  "P3": "तुम्ही टाइप केलेले खाजगी राहते",
+  "P4": "कटलिंगमध्ये खाते नाही आणि ते काहीही गोळा करत नाही. तुम्ही टाइप केलेले कधीही कुठेही पाठवले जात नाही",
+  "N2b": "व्हेरिएबल, नोट्स अ‍ॅपसारखे लेखन आणि खूप जास्त जागा",
+  "N4b": "व्हेरिएबल",
+  "N5b": "कटलिंग संपादित करताना ‘व्हेरिएबल’ उघडा आणि दर वेळी भरायची जागा, आजची तारीख, निवड किंवा आणखी काही घाला",
+  "N17": "नोट्स अ‍ॅपसारखे लिहा",
+  "N18": "कटलिंगचा मजकूर स्वतंत्र पानावर उघडतो; तिथे बोल्ड, अधोरेखित, हायलाइट आणि याद्या वापरता येतात",
+  "TU2": "लिहिताना कीबोर्डच्या वर ‘प्रत्येक वेळी विचारा’ टॅप करा, दर वेळी भरायची जागा राहील. वगळण्यासाठी ‘पुढे’ टॅप करा"
+ },
+ "back": {
+  "P1": "What is saved is yours alone",
+  "P2": "No account, nothing gets collected; if you turn sync on, cutlings sync through your own iCloud and no other",
+  "P3": "What you type stays private",
+  "P4": "Cutling has no account and it collects nothing. What you type is never sent anywhere",
+  "N2b": "Variables, writing like the Notes app, and much more room",
+  "N4b": "Variables",
+  "N5b": "While editing a cutling, open 'Variables' and put in a space to fill each time, today's date, a choice or something more",
+  "N17": "Write like the Notes app",
+  "N18": "A cutling's text opens on a separate page; there bold, underline, highlight and lists can be used",
+  "TU2": "While writing, tap 'Ask Each Time' above the keyboard; a space to fill each time will remain. To skip, tap 'Next'"
+ },
+ "notes": "Register as in the existing mr sheet strings: polite तुम्ही, imperatives in -आ (उघडा, घाला, लिहा), no exclamation marks, no full stop at the end of a line, a full stop only between two sentences (P4, TU2) and a semicolon inside one line (P2, N18) as W7 and N9 had. mr and mr-IN differ only in older strings, so one set serves both. Reused exactly from Localizable.strings: व्हेरिएबल (Variables, N4b verbatim), प्रत्येक वेळी विचारा (Ask Each Time, verbatim in TU2), पुढे (Next), कटलिंग, कीबोर्ड, iCloud, सिंक, आजची तारीख, निवड (Choice), संपादित (Edit), बोल्ड, अधोरेखित, हायलाइट and यादी (the Format card's own words), खाजगी राहते and कुठेही पाठवले जात नाही (the file's 'stays private and is never sent anywhere'), खूप जास्त जागा (N2, N3). Notes is नोट्स, read on 2026-11-23 from Apple's own Marathi iOS: CFBundleDisplayName in the iOS 27.2 simulator's MobileNotes.app/mr.lproj/InfoPlist.strings. N17 and N2b say नोट्स अ‍ॅप ('the Notes app') because नोट्स is also the everyday Marathi word for jottings and study notes, so a bare नोट्ससारखे लिहा reads as 'write like notes'; अ‍ॅप is spelled as W3 and A2 spell it. 'The way you write in Notes' in full (नोट्समध्ये लिहिता तसे लिहा) is 26 against 24, so N17 says 'write like the Notes app'. The blank is दर वेळी भरायची जागा in both N5b and TU2: भरायची जागा is the editor's own name for a fill-in field, and दर वेळी (the file's word in the fill-in line) keeps TU2 from saying प्रत्येक वेळी twice beside the button's name. TU2 uses टॅप करा with a direct object, as the app's older step strings do ('…' टॅप करा, मागे टॅप करा), where the sheet strings say वर टॅप करा: 'above the keyboard' is कीबोर्डच्या वर, and a second वर straight after the button's name both reads badly and runs to 117; कीबोर्डवरील was not used because it means on the keyboard. Button names sit in ‘ ’ as T4 and TU1 have them. P2 says तुमच्याच iCloud, where W7 had फक्त तुमच्या स्वतःच्या iCloud: the particle -च carries 'your own and only that', and the longer phrase with the sync condition is 103 against 90. P1 is 'yours alone' (फक्त तुमचेच) and P3 'stays private' (खाजगी राहते), as the brief separates the two. N18 calls the text page पान, the plain word, where one older setup string says पृष्ठ; 'and more' in N5b is किंवा आणखी काही, 'or something more'. Budgets counted in Unicode code points, vowel signs and viramas included, as the earlier mr file was; on screen the lines are a third narrower than the count."
+}
