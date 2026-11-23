@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "zh-Hans"
+ ],
+ "strings": {
+  "P1": "你存的内容只属于你",
+  "P2": "无需账户，不收集任何数据。如果开启同步，你存的内容也只通过你自己的 iCloud 同步。",
+  "P3": "你输入的内容只属于你",
+  "P4": "Cutling 没有账户，也不收集任何数据。你输入的内容不会发送到任何地方。",
+  "N2b": "新增变量，像在“备忘录”里一样书写，容量大增",
+  "N4b": "变量",
+  "N5b": "编辑一条内容时打开“变量”，可以加入每次使用时再填写的空白、今天的日期、选项等。",
+  "N17": "像在“备忘录”里一样书写",
+  "N18": "每条文字都在单独的页面里打开，可以用粗体、下划线、高亮和列表。",
+  "TU2": "输入时轻点键盘上方的“每次询问”，可留出空白，每次使用时再填写。想跳过，请轻点“下一步”。"
+ },
+ "back": {
+  "P1": "What you save belongs only to you",
+  "P2": "No account needed, no data of any kind collected. If you turn on sync, what you save also syncs only through your own iCloud.",
+  "P3": "What you type belongs only to you",
+  "P4": "Cutling has no account and collects no data of any kind either. What you type is not sent anywhere.",
+  "N2b": "Variables added, write as you do in Notes, much more capacity",
+  "N4b": "Variables",
+  "N5b": "While editing an item, open Variables and you can add a blank you fill in at each use, today's date, a choice and so on.",
+  "N17": "Write as you do in Notes",
+  "N18": "Each text opens on a separate page of its own, where you can use bold, underline, highlight and lists.",
+  "TU2": "While typing, tap Ask Each Time above the keyboard to leave a blank, filled in at each use. To skip, tap Next."
+ },
+ "notes": "你, not 您, as zh-Hans.json. Titles (P1, P3, N4b, N17) and the subtitle (N2b) carry no 。; row lines and the tip end in 。, as the same sheets have them. Names are in “ ” as the sheets already write “键盘”, “试试看” and “下一步”. Words taken unchanged from zh-Hans.lproj: 变量 (Variables; N4b is the string itself), 每次询问 (Ask Each Time, verbatim in TU2), 下一步 (Next), 粗体, 下划线, 高亮, 列表 (the Format card's words), 选项 (Choice), 今天的日期, 同步, iCloud with a space each side. Notes is 备忘录, read from Notes.app's zh_CN InfoPlist on this Mac (CFBundleDisplayName), and quoted “备忘录” as Apple's own zh_CN strings quote the app's name, since 备忘录 is also the everyday word for a memo. A cutling: the app's Localizable.strings says 剪切片段, but these sheets never use it; they say 内容 / 这条内容 (N5, N9, N14) and 条文字 for a text cutling (N7), and the welcome sheet names no noun at all. I kept the sheets' words so one sheet has one name: 你存的内容 on the welcome row (P2, tied to P1 and to W3's 存起来), 一条内容 in N5b, 每条文字 in N18 (N7 on the same sheet counts 条文字). If the owner would rather have the app's noun, N5b becomes 编辑剪切片段时打开“变量”… and N18 剪切片段的文字都在单独的页面里打开…; both still fit. The blank is 空白 with 再填写, N5 and TU1's words, not the older editor's 填写项. P1 and P3 say 只属于你 (belongs only to you), the plain Chinese for private to you; 私密 reads as translated and 仅自己可见 belongs to social posts. They are a matched pair, as the two rows they replace were. 'Nothing collected' is 不收集任何数据, the wording of the App Store's Chinese privacy label. P2's 也只 carries 'only … if you turn it on': even with sync on, only your own iCloud. 同步 without iCloud in the condition because iCloud follows in the same sentence. P4 keeps F6's opening and the app's existing 不会发送到任何地方. No line says Cutling is offline or does not read what is typed. N2b is three short phrases joined by ，as N2 and N3 were, with N2's 容量大增 for far more room. TU2 is TU1 with only the button changed (键盘上方的“每次询问” for 花括号按钮); TU1's 每次使用 Cutling 时 is now 每次使用时, since the brief's meaning has no noun there. All ten are inside their budgets, counted in Unicode code points (longest against budget: N17 12 of 24, P2 44 of 90)."
+}
