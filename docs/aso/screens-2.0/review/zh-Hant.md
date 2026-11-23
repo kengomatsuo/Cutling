@@ -9,10 +9,11 @@ messages say 您 to customers, as Taiwanese shops write. The vocabulary is Taiwa
 letters and digits (Cutling 鍵盤, 100 個), as the app, the listing and Apple Taiwan all write; the app types the long
 date with no spaces, so none are put around it. There are no dashes and no quotation marks.
 
-The customers are given names, the most common of their generation in Taiwan, two characters each, in a mix of
-genders: 怡君 and 雅婷 are women, 家豪 and 冠宇 men. A small Taiwanese shop opens a message with the buyer's given name and
-您好. The weekday stands as a bare time word before the verb (您的訂單星期二就會出貨囉), which is ordinary Chinese and
-leaves 星期二 untouched.
+The customers are given names Taiwanese buyers born in the 1980s and 1990s most often have, two characters each, in a
+mix of genders: 怡君 and 雅婷 are women, 家豪 and 冠宇 men. 家豪 tops the Ministry of the Interior's 2023 name statistics;
+雅婷 and 怡君 led the women of those decades, and 冠宇 ran close behind 家豪 among the men. A small Taiwanese shop opens a
+message with the buyer's given name and 您好. The weekday stands as a bare time word before the verb
+(您的訂單星期二就會出貨囉), which is ordinary Chinese and leaves 星期二 untouched.
 
 Chinese has no spaces, and the frames' Chrome breaks it between any two characters (its `auto-phrase` covers Japanese
 only, tested in Chrome 158). Every kicker and subline was measured at its frame's own font, size and width, and each
@@ -25,8 +26,8 @@ Rows marked *built* are put together by the build from the seed; `[x]` is a gree
 
 | Key | String | Back-translation | Choice |
 |---|---|---|---|
-| cseed.names | 怡君, 家豪, 雅婷 | Yi-chun (f), Chia-hao (m), Ya-ting (f) | Taiwan's most common given names of their generation, two characters each; a shop writes to a buyer by given name |
-| cseed.mac_name | 冠宇 | Kuan-yu (m) | Another of the most common men's names |
+| cseed.names | 怡君, 家豪, 雅婷 | Yi-chun (f), Chia-hao (m), Ya-ting (f) | Among the most common given names of buyers born in the 1980s and 1990s, two characters each; a shop writes to a buyer by given name |
+| cseed.mac_name | 冠宇 | Kuan-yu (m) | Close behind 家豪 among men of the same decades |
 | cseed.reply | {name}您好，您的訂單{date}就會出貨囉！ | {name}, hello; your order ships as soon as {date}! | Name + 您好 is how a Taiwanese shop opens a message; 出貨 is the e-commerce verb for sending an order out; 就會…囉 makes it prompt and warm. The weekday stands bare before the verb. 18 characters filled, and the keyboard bar shows it whole |
 | cseed.reply_name | 出貨通知 | Shipping notice | What a shop calls this message; also the title of the Mac form |
 | cseed.mac_reply | {name}您好，您訂的{plan}在{date}就會出貨囉！ | {name}, hello; the {plan} you ordered ships as soon as {date}! | Same voice as the iPhone reply; 在 keeps the plan and weekday chips apart. 22 characters filled |
