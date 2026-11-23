@@ -1,0 +1,30 @@
+{
+ "folders": [
+  "zh-Hant"
+ ],
+ "strings": {
+  "P1": "你存的內容只有你看得到",
+  "P2": "不需要帳號，也不收集任何資料。如果開啟同步，剪切片段也只透過你自己的 iCloud 同步。",
+  "P3": "你輸入的內容保持私密",
+  "P4": "Cutling 沒有帳號，也不收集任何資料。你輸入的內容絕不會傳送到任何地方。",
+  "N2b": "可用變數，寫起來像「備忘錄」，容量大增",
+  "N4b": "變數",
+  "N5b": "編輯剪切片段時打開「變數」，可以加入每次使用時再填寫的空白、今天的日期、選項等。",
+  "N17": "寫起來就像「備忘錄」",
+  "N18": "剪切片段的文字會在獨立的頁面打開，可以使用粗體、底線、螢光標示和列表。",
+  "TU2": "輸入時點一下鍵盤上方的「每次詢問」，可留出空白，每次使用時再填寫。想跳過，請點一下「下一步」。"
+ },
+ "back": {
+  "P1": "What you save, only you can see",
+  "P2": "No account is needed, and no data at all is collected. If you turn on sync, cutlings still sync only through your own iCloud.",
+  "P3": "What you type stays private",
+  "P4": "Cutling has no account and collects no data at all. What you type is never sent to any place.",
+  "N2b": "Variables can be used, writing feels like Notes, capacity greatly increased",
+  "N4b": "Variables",
+  "N5b": "While editing a cutling, open Variables and you can add a blank that is filled in at each use, today's date, a choice and so on.",
+  "N17": "Writing feels just like Notes",
+  "N18": "A cutling's text opens on a separate page of its own, where you can use bold, underline, highlight and lists.",
+  "TU2": "While typing, tap Ask Each Time above the keyboard to leave a blank, filled in at each use. To skip, tap Next."
+ },
+ "notes": "Taiwan Mandarin, 你, the register of zh-Hant.json: row lines and the tip are full sentences closed with 。; titles (P1, P3, N4b, N17) and the subtitle (N2b) carry none, as W2, F5 and N2 had none. Words taken unchanged from zh-Hant.lproj: 變數 (Variables; N4b is the string itself), 每次詢問 (Ask Each Time, verbatim in TU2), 下一步 (Next), 剪切片段 (cutling), 選項 (Choice), 粗體, 底線, 螢光標示, 列表 (the Format card's words), 打開 (Open), iCloud with a space on each side, the app written Cutling. Words kept from the sheets in zh-Hant.json: 空白 and 填寫 for the blank (N5, TU1), 今天的日期, 加入, 容量大增 (N2's phrase for far more room, and N2's 可… opening in N2b), 不需要帳號 and 只透過你自己的 iCloud 同步 (W7), Cutling 沒有帳號 (F6), 點一下, 想跳過，請點一下「下一步」 (TU1's close). One choice to know about: the older sheet lines name a cutling as 內容 with the measure 則 (N9, N14), while the app's own word everywhere else is 剪切片段, and the writer's task names Localizable.strings as the source for that word. P2, N5b and N18 say 剪切片段: N5b's 編輯剪切片段 is the Edit menu's own title, and 內容的文字 in N18 would read as 'the text of the content'. P1 and P3 say 內容 in its plain sense, what was saved or typed. Notes is 備忘錄, read from Notes.app's zh_TW bundle name on this Mac (CFBundleDisplayName); it is also the everyday word for a memo, so it is written 「備忘錄」, as Apple's Traditional Chinese guides write app names and as these sheets already quote 「鍵盤」, 「試用」 and 「下一步」. 「變數」 and 「每次詢問」 are quoted the same way where the person is told to open or tap them. P1 says 'only you can see it' (只有你看得到), the ordinary spoken way to say private to you; P3 says 保持私密, the phrase the locale already has for 'stays private'. 'Nothing collected' is 不收集任何資料. P2 puts the condition first (如果開啟同步) and 也只 marks that even then it goes only through the person's own iCloud. N17 and N2b say 寫起來(就)像「備忘錄」, 'writing feels like Notes', since 書寫 leans toward handwriting in Taiwan usage. 'And more' in N5b is 等. TU2 is TU1 with the button changed to 鍵盤上方的「每次詢問」; 輸入時 stands for 'while you type the text' because the tip before it has just asked for the text. All ten are inside their budgets, counted in Unicode code points."
+}
