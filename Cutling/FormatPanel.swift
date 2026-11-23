@@ -60,6 +60,28 @@ final class EditorStyles {
     @ObservationIgnored var toggle: (EditorStyle) -> Void = { _ in }
 }
 
+/// How the Format card comes and goes on iPhone, matched to Notes on iOS 27 frame by frame from the owner's recording
+/// (docs/research/editor-notes/owner-recording, the 60 fps original): the card rises from just below the screen to its
+/// place on a spring with no bounce, while the bar above blurs and fades out; closing, the bar blurs back in.
+@Observable
+final class FormatCardMotion {
+    /// The keyboard's bar shows. It leaves as the card comes in and returns with the keyboard.
+    var barIn = true
+
+    /// Notes' card follows a critically damped spring of 18.3 rad/s (fit to its 28 frames from start to rest, 1.4 px rms
+    /// at 3x), which is a spring with a perceptual duration of 2π / 18.3 = 0.34 s and no bounce.
+    /// The bar's fade rides the same spring: Notes' bar is gone in the 13 frames the card takes to cover 90% of its way.
+    static let duration: TimeInterval = 0.34
+    /// With Reduce Motion the card fades in place instead, as fast as the app's other reduced motion.
+    static let reducedDuration: TimeInterval = 0.15
+    /// How far the leaving bar blurs, as Notes' does before it is gone.
+    static let barBlur: CGFloat = 8
+
+    static var reduced: Bool { UIAccessibility.isReduceMotionEnabled }
+    /// The bar's fade, on the card's spring.
+    static var animation: Animation { reduced ? .easeOut(duration: reducedDuration) : .spring(duration: duration, bounce: 0) }
+}
+
 struct FormatPanel: View {
     let styles: EditorStyles
     /// The keyboard's stand-in on iPhone closes with its own button; nil on iPad, where the panel is a popover.

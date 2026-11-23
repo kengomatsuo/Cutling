@@ -190,7 +190,7 @@ struct TextDetailView: View {
         if presentedAsSheet {
             NavigationStack {
                 formContent
-                    .interactiveDismissDisabled(tutorialGuardsDismiss)
+                    .interactiveDismissDisabled(tutorialGuardsDismiss || showTextPage)
                     .toolbar {
                         ToolbarItem(placement: .cancellationAction) {
                             Button {
@@ -501,6 +501,9 @@ struct TextDetailView: View {
         .navigationDestination(isPresented: $showTextPage) {
             TextPageView(text: undoHandler.binding($value, actionName: String(localized: "Change Text")),
                          format: $format, count: visibleText.count, limit: textLimit)
+                // A drag in the text pulls the keyboard down and scrolls, as in Notes; it never pulls the whole editor
+                // sheet away (a flick down at the top of the text did). The page's back button and edge swipe still go back.
+                .interactiveDismissDisabled(true)
         }
         #endif
         .sheet(isPresented: $showIconPicker, onDismiss: { userDidPickIcon = true }) {

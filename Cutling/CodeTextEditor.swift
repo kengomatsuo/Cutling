@@ -29,6 +29,9 @@ struct FormattedTextEditor {
     var formatPanel: Binding<Bool> = .constant(false)
     /// Opens with the keyboard up (iPhone, iPad).
     var autofocus = false
+    /// The text is a whole page, as a Notes note (iPhone, iPad): a drag anywhere in it scrolls, however short the text,
+    /// and a drag down through the keyboard carries the keyboard with it.
+    var fullPage = false
     /// Whether the text is being edited: the cursor is in it, with a software keyboard or a hardware one (iPhone, iPad).
     var editing: Binding<Bool> = .constant(false)
     #if os(iOS)
@@ -95,6 +98,8 @@ struct EditorKeyboardBar: View {
     let items: [EditorBarItem]
     /// Which styles are on at the cursor; a formatting button reads it and toggles through it.
     let styles: EditorStyles
+    /// The bar blurs away as the Format card comes in and blurs back as the keyboard returns, as Notes' does.
+    var motion: FormatCardMotion? = nil
     static let barHeight: CGFloat = 48
     /// Capsule height plus the gap above the keyboard.
     static let height: CGFloat = barHeight + 10
@@ -102,6 +107,8 @@ struct EditorKeyboardBar: View {
     /// its formatting glyphs, further along the same bar, about 58 pt apart.
     static let step: CGFloat = 70
     static let styleStep: CGFloat = 58
+
+    private var shown: Bool { motion?.barIn ?? true }
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -128,6 +135,10 @@ struct EditorKeyboardBar: View {
         .modifier(EditorBarGlass())
         .padding(.horizontal, 10)
         .padding(.bottom, 10)
+        .blur(radius: shown ? 0 : FormatCardMotion.barBlur)
+        .opacity(shown ? 1 : 0)
+        .allowsHitTesting(shown)
+        .accessibilityHidden(!shown)
         .accessibilityElement(children: .contain)
         .accessibilityIdentifier("fillInKeyboardBar")
     }
@@ -202,6 +213,19 @@ struct EditorBarGlass: ViewModifier {
     }
 }
 
+/// The Format panel's place in the keyboard's stead; it tells once when it is on screen, so the card's rise starts there.
+final class FormatPanelSlot: UIView {
+    var onWindow: (() -> Void)?
+
+    override func didMoveToWindow() {
+        super.didMoveToWindow()
+        guard window != nil, let start = onWindow else { return }
+        onWindow = nil
+        // A turn later: iOS places input views with animations off, which would end the card's rise at once.
+        DispatchQueue.main.async(execute: start)
+    }
+}
+
 extension FormattedTextEditor: UIViewRepresentable {
     func makeUIView(context: Context) -> UITextView {
         let view = UITextView()
@@ -216,6 +240,12 @@ extension FormattedTextEditor: UIViewRepresentable {
         context.coordinator.styles.toggle = { [weak coordinator = context.coordinator, weak view] style in
             guard let coordinator, let view else { return }
             coordinator.toggle(style, in: view)
+        }
+        if fullPage {
+            // Notes' note: the text bounces under the finger even when it fits, so a drag is the text's own scroll;
+            // a drag that runs into the keyboard pulls it down.
+            view.alwaysBounceVertical = true
+            view.keyboardDismissMode = .interactive
         }
         if autofocus { DispatchQueue.main.async { view.becomeFirstResponder() } }
         return view
@@ -274,6 +304,10 @@ extension FormattedTextEditor: UIViewRepresentable {
         private let ownStyles = EditorStyles()
         var styles: EditorStyles { parent.styles ?? ownStyles }
         private var panelHost: UIHostingController<FormatPanel>?
+        /// The Format card's way in and out, and the bar's with it.
+        private let motion = FormatCardMotion()
+        /// The keyboard's stand-in is the keyboard's height while the card comes in, then the card's.
+        private var panelHeight: NSLayoutConstraint?
 
         /// The bar above the keyboard (`EditorKeyboardBar`). SwiftUI's keyboard toolbar never reaches a UIKit text view,
         /// so the bar is the text view's input accessory and comes and goes with the keyboard.
@@ -290,7 +324,7 @@ extension FormattedTextEditor: UIViewRepresentable {
             }
             // The same buttons: left as they are, so typing never redraws the bar or moves the keyboard.
             if sameButtons, barHost != nil { return }
-            let host = UIHostingController(rootView: EditorKeyboardBar(items: items, styles: styles))
+            let host = UIHostingController(rootView: EditorKeyboardBar(items: items, styles: styles, motion: motion))
             host.view.backgroundColor = .clear
             let container = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: EditorKeyboardBar.height))
             container.backgroundColor = .clear
@@ -364,6 +398,9 @@ extension FormattedTextEditor: UIViewRepresentable {
         // MARK: Format panel
 
         /// The Format panel takes the keyboard's place and the bar leaves with the keyboard; closing it brings both back.
+        /// The motion is Notes' own, read frame by frame from the owner's recording (FormatCardMotion): opening, the keyboard
+        /// goes at once and the bar stays where it was, then the card rises from below the screen while the bar blurs away;
+        /// closing, the keyboard comes back up in front of the card while the bar blurs back in.
         func setPanel(open: Bool, on view: UITextView) {
             if open, view.inputView == nil {
                 refreshStyles(view)
@@ -373,28 +410,68 @@ extension FormattedTextEditor: UIViewRepresentable {
                 host.view.translatesAutoresizingMaskIntoConstraints = false
                 // A plain view, not a keyboard-style UIInputView: that style draws the keyboard's grey tray around the
                 // card, where Notes shows its Format card floating alone over the note.
-                let panel = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: FormatPanel.height))
+                // The keyboard's own height first, so the bar above stays where it was while it blurs away, as Notes' does.
+                // iOS takes an input view's height from its frame, so the frame carries it as well as the constraint.
+                let start = max(FormatPanel.height, keyboardHeight() ?? 0)
+                let panel = FormatPanelSlot(frame: CGRect(x: 0, y: 0, width: 0, height: start))
                 // The page's own background, so the system's keyboard backdrop behind an input view never shows
                 // as a grey tray around the card.
                 panel.backgroundColor = .systemBackground
                 panel.addSubview(host.view)
+                let height = panel.heightAnchor.constraint(equalToConstant: start)
                 NSLayoutConstraint.activate([
-                    host.view.topAnchor.constraint(equalTo: panel.topAnchor),
+                    host.view.heightAnchor.constraint(equalToConstant: FormatPanel.height),
                     host.view.leadingAnchor.constraint(equalTo: panel.leadingAnchor),
                     host.view.trailingAnchor.constraint(equalTo: panel.trailingAnchor),
                     host.view.bottomAnchor.constraint(equalTo: panel.bottomAnchor),
-                    panel.heightAnchor.constraint(equalToConstant: FormatPanel.height),
+                    height,
                 ])
+                let reduced = FormatCardMotion.reduced
+                // The card waits just below the screen (or, with Reduce Motion, unseen in its place).
+                if reduced { host.view.alpha = 0 } else { host.view.transform = CGAffineTransform(translationX: 0, y: FormatPanel.height) }
                 panelHost = host
+                panelHeight = height
+                // Once the panel stands in the keyboard's place: iOS puts an input view in its window a moment after
+                // reloadInputViews, and an animation started before then ends at once.
+                panel.onWindow = { [weak self, weak view, weak panel, weak host] in
+                    guard let self, let host else { return }
+                    host.view.superview?.layoutIfNeeded()
+                    let settle = { [weak self] in
+                        // Closed again before the card settled: the keyboard and its bar are already back.
+                        guard let self, let view, let panel, view.inputView === panel else { return }
+                        // The Format panel stands alone, as in Notes: no bar above it, and the page down to the card.
+                        self.panelHeight?.constant = FormatPanel.height
+                        panel.frame.size.height = FormatPanel.height
+                        view.inputAccessoryView = nil
+                        view.reloadInputViews()
+                    }
+                    if reduced {
+                        UIView.animate(withDuration: FormatCardMotion.reducedDuration, delay: 0, options: .curveEaseOut,
+                                       animations: { host.view.alpha = 1 }, completion: { _ in settle() })
+                    } else {
+                        UIView.animate(springDuration: FormatCardMotion.duration, bounce: 0,
+                                       animations: { host.view.transform = .identity }, completion: { _ in settle() })
+                    }
+                    withAnimation(FormatCardMotion.animation) { self.motion.barIn = false }
+                }
                 view.inputView = panel
-                view.inputAccessoryView = nil
                 view.reloadInputViews()
             } else if !open, view.inputView != nil {
                 view.inputView = nil
                 view.inputAccessoryView = barContainer
                 panelHost = nil
+                panelHeight = nil
                 view.reloadInputViews()
+                withAnimation(FormatCardMotion.animation) { motion.barIn = true }
             }
+        }
+
+        /// The software keyboard's height below the bar, read in screen points from where the bar stands (the keyboard's
+        /// own window is not the screen's size); nil with no bar on screen.
+        private func keyboardHeight() -> CGFloat? {
+            guard let bar = barContainer, let screen = bar.window?.windowScene?.screen else { return nil }
+            let height = screen.bounds.height - bar.convert(bar.bounds, to: screen.coordinateSpace).maxY
+            return height > 0 ? height : nil
         }
 
         func textViewDidBeginEditing(_ view: UITextView) {

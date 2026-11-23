@@ -84,7 +84,8 @@ struct TextPageView: View {
                             onEditPill: { token, range in
                                 if let edit = FillInEdit(token: token) { editing = PillEditRequest(edit: edit, range: range) }
                             },
-                            replacement: $replacement, formatPanel: $formatOpen, autofocus: true, editing: $inText, styles: styles)
+                            replacement: $replacement, formatPanel: $formatOpen, autofocus: true, fullPage: true,
+                            editing: $inText, styles: styles)
             .padding(.horizontal, 20)
             .padding(.top, 8)
             .safeAreaInset(edge: .bottom) {
