@@ -93,9 +93,21 @@ def locale_css(loc):
         # auto-phrase breaks every line on the frame between phrases instead, and FIT_JS shrinks a headline whose widest
         # phrase is wider than it.
         css += " body{word-break:auto-phrase}"
+    if loc in ("zh-Hans", "zh-Hant"):
+        # Chrome breaks Chinese between any two characters and its auto-phrase covers Japanese only, so headlines keep
+        # runs whole and ZH_WBR_JS opens a break at each chip's edge: lines break between phrases ("怡君您好，/您的訂單").
+        css += " .h{word-break:keep-all}"
     if loc in DEEP_MARKS:
         lh, below = DEEP_MARKS[loc]
         css += f" .h{{line-height:{lh}}} .h .chip{{padding-bottom:{below}}}"
+    if loc == "ur-PK":
+        # Nastaliq sets each word on a slope, its letters reaching about half an em past New York's line box above and
+        # below, so at the Latin line heights one line's descenders run into the chip under it. Headline, chips,
+        # subline, note and bubble take the spacing Urdu print uses; headline and subline balance their lines, since
+        # at that spacing a lone last word stands out; the drawn Mac form keeps a compact line box, so each label sits
+        # above its field instead of behind it.
+        css += (" .h{line-height:2;text-wrap:balance} .h .chip{padding:.22em .16em .38em}"
+                " .s{line-height:1.9;text-wrap:balance} .note,.bubble{line-height:1.9} .win div{line-height:1.2}")
     return css
 
 # Shrinks a text block's headline until the block fits its height and no word runs past its width. Under
@@ -108,12 +120,14 @@ let fs=parseFloat(h.style.fontSize);const over=()=>el.scrollHeight>max+1||h.scro
 while(over()&&fs>36){fs*=0.96;h.style.fontSize=fs+'px';}
 const s=el.querySelector('.s');if(s){let ss=parseFloat(s.style.fontSize);while(el.scrollHeight>max+1&&ss>28){ss*=0.96;s.style.fontSize=ss+'px';}}}});</script>"""
 
+ZH_WBR_JS = r"""<script>if(document.documentElement.lang.startsWith('zh'))for(const c of document.querySelectorAll('.h .chip')){const p=c.previousSibling,n=c.nextSibling,pc=p&&p.nodeType===3?p.data.slice(-1):'',nc=n&&n.nodeType===3?n.data[0]:'';if(p&&!/[「『（《〈【〔“‘(\[\s]/.test(pc))c.before(document.createElement('wbr'));if(n&&!/[，。、；：！？」』）》〉】〕”’)\],.!?:;…\s]/.test(nc))c.after(document.createElement('wbr'));}</script>"""
+
 def page(w, h, body, css="", lang="en"):
     rtl = ' dir="rtl"' if lang in RTL else ""
     return f"""<!doctype html><html lang="{lang}"{rtl}><head><meta charset="utf-8">
 <link rel="stylesheet" href="{(HERE / 'lib.css').as_uri()}"><style>
 html,body{{width:{w}px;height:{h}px}} .stage{{width:{w}px;height:{h}px}} {css} {locale_css(lang)}</style></head>
-<body><div class="stage">{body}</div>{FIT_JS}<script src="{(HERE.parent / 'ready.js').as_uri()}"></script></body></html>"""
+<body><div class="stage">{body}</div>{ZH_WBR_JS}{FIT_JS}<script src="{(HERE.parent / 'ready.js').as_uri()}"></script></body></html>"""
 
 # ---------------------------------------------------------------- devices
 
