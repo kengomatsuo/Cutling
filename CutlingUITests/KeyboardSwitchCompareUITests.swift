@@ -24,6 +24,8 @@ final class KeyboardSwitchCompareUITests: XCTestCase {
     }
 
     private func launch() -> XCUIApplication {
+        // A fresh simulator has no Cutling keyboard; the setup guide's test field needs it added with Full Access.
+        addCutlingKeyboardInSettings()
         let app = XCUIApplication()
         app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST"]
         app.launch()
@@ -98,6 +100,7 @@ final class KeyboardSwitchCompareUITests: XCTestCase {
     /// Cutling up, the globe back to the keyboard before, the globe to Cutling again: the recording between the second
     /// tap and Cutling's first frame shows iOS's stand-in. `trial` is the keyboard's height trial, nil as shipped.
     private func standIn(_ name: String, trial: String?) {
+        addCutlingKeyboardInSettings()
         let app = XCUIApplication()
         app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST"]
         if let trial { app.launchArguments += ["-KEYBOARD_HEIGHT_TRIAL", trial] }
