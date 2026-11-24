@@ -111,6 +111,8 @@ struct CardView: View {
     private var cardInteractive: Bool { tutorialMode == .normal }
     private var cardFullyDisabled: Bool { tutorialMode == .disabled }
 
+    /// The ••• button's circle, 36 pt at the default text size, grows with the dots in it.
+    @ScaledMetric(relativeTo: .subheadline) private var buttonSize: CGFloat = 36
     @State private var copied = false
     @State private var showInfo = false
     /// A cutling with blanks asks for them before it is copied; true copies without formatting.
@@ -493,7 +495,7 @@ struct CardView: View {
                         .scaleEffect(1.3)
                 }
             }
-            .frame(width: 36, height: 36)
+            .frame(width: buttonSize, height: buttonSize)
         }
         .buttonStyle(.plain)
         #if os(iOS)
