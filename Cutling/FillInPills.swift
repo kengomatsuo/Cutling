@@ -308,8 +308,8 @@ extension FillInPills {
         RichText.nsAttributed(format == .rich ? text : RichText.escape(text), size: size, editorColors: true)
     }
 
-    /// Just enough room between lines that pills on wrapped lines almost meet but never touch.
-    static let lines: NSParagraphStyle = {
+    /// Just enough room between lines that pills on wrapped lines almost meet but never touch. Never mutated.
+    nonisolated(unsafe) static let lines: NSParagraphStyle = {
         let style = NSMutableParagraphStyle()
         style.lineSpacing = 3
         return style
