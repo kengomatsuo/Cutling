@@ -1492,13 +1492,13 @@ struct KeyboardView: View {
     }
 
     private func showCopied(_ id: UUID) {
-        withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
+        withAnimation(.smooth(duration: 0.3)) {
             copiedID = id
         }
         Task {
             try? await Task.sleep(for: .seconds(1.2))
             if copiedID == id {
-                withAnimation(.easeOut(duration: 0.25)) {
+                withAnimation(.smooth(duration: 0.3)) {
                     copiedID = nil
                 }
             }
@@ -1679,6 +1679,21 @@ struct KeyboardView: View {
 
 // MARK: - Cutling Key
 
+/// The Inserted mark's checkmark, drawn in as iOS 26 draws its own confirmations; earlier systems show it whole.
+private struct AppliedCheckmark: View {
+    @State private var drawn = false
+
+    var body: some View {
+        if #available(iOS 26.0, *) {
+            Image(systemName: "checkmark")
+                .symbolEffect(.drawOn, isActive: !drawn)
+                .task { drawn = true }
+        } else {
+            Image(systemName: "checkmark")
+        }
+    }
+}
+
 struct CutlingKeyView: View {
     let cutling: Cutling
     let store: CutlingStore
@@ -1720,19 +1735,19 @@ struct CutlingKeyView: View {
                         )
                 }
                 // Inserted for typed text, Copied for an image or a styled copy (the owner asked the mark back, ASG210).
+                // Apple's motion for a tap's confirmation: no overshoot (a tap has no momentum), the label blurs in and
+                // out in place, and the checkmark draws itself (iOS 26 Draw On); the look is unchanged.
                 if isCopied {
                     RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous)
                         .fill(.ultraThinMaterial)
+                        .transition(.opacity)
                     Label {
                         Text(cutling.kind == .text && !copiedStyled ? "Inserted" : "Copied", bundle: snapshotBundle)
                     } icon: {
-                        Image(systemName: "checkmark")
+                        AppliedCheckmark()
                     }
                     .font(.subheadline.weight(.semibold))
-                    .transition(AsymmetricTransition(
-                        insertion: .scale(0.85).combined(with: .opacity),
-                        removal: .opacity
-                    ))
+                    .transition(.blurReplace)
                 }
             }
             .scaleEffect(isExisted ? 1.025 : 1.0)
@@ -1746,7 +1761,7 @@ struct CutlingKeyView: View {
         }
         .disabled(isBlocked)
         .opacity(isBlocked ? 0.4 : 1)
-        .animation(.spring(duration: 0.35, bounce: 0.2), value: isCopied)
+        .animation(.smooth(duration: 0.3), value: isCopied)
     }
 
     private var textContent: some View {
