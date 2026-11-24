@@ -30,14 +30,24 @@ struct TextPreviewView: UIViewRepresentable {
         view.textContainerInset = .zero
         view.textContainer.lineFragmentPadding = 0
         view.textContainer.lineBreakMode = .byTruncatingTail
-        // Follows the person's text size: updateUIView redraws at the body style's current size.
-        view.adjustsFontForContentSizeCategory = true
         view.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         return view
     }
 
+    /// What the text view last drew, so a pass that changes nothing leaves it alone.
+    final class Coordinator { var drawn = "" }
+
+    func makeCoordinator() -> Coordinator { Coordinator() }
+
     func updateUIView(_ view: UITextView, context: Context) {
+        // Follows the person's text size: a change of dynamicTypeSize calls this again with the body style's new size.
         let size = UIFont.preferredFont(forTextStyle: .body).pointSize
+        // Drawn again only when what it shows changes. Each assignment made a new text with new pill images, which
+        // re-measured the form's row inside the layout pass that asked for it: with the Text page open, the editor's
+        // navigation view was laid out again and again (UIKit's observation feedback loop) and stalled the page.
+        let drawn = "\(text)|\(format)|\(size)|\(maxLines)|\(view.traitCollection.userInterfaceStyle.rawValue)"
+        guard drawn != context.coordinator.drawn else { return }
+        context.coordinator.drawn = drawn
         let source = Cutling.previewSource(text)
         let rendered = FormattedTextEditor.rendered(source, format: format, size: size)
         view.attributedText = FormattedTextEditor.display(rendered, font: UIFont.systemFont(ofSize: size))
