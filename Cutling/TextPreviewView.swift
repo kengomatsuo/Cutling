@@ -114,7 +114,19 @@ extension TextPreviewView: UIViewRepresentable {
 
     func sizeThatFits(_ proposal: ProposedViewSize, uiView: UITextView, context: Context) -> CGSize? {
         let width = proposal.width ?? 320
-        let fit = uiView.sizeThatFits(CGSize(width: width, height: .greatestFiniteMagnitude))
+        let bound = CGSize(width: width, height: .greatestFiniteMagnitude)
+        // A SwiftUI Text gives up whole lines when its frame is short (a card in the grid has a fixed height); so does
+        // this, down to one line, where reporting all its lines let a card's text run over the card below it.
+        var lines = maxLines
+        uiView.textContainer.maximumNumberOfLines = lines
+        var fit = uiView.sizeThatFits(bound)
+        if let height = proposal.height, height.isFinite {
+            while fit.height > height + 0.5, lines > 1 {
+                lines -= 1
+                uiView.textContainer.maximumNumberOfLines = lines
+                fit = uiView.sizeThatFits(bound)
+            }
+        }
         return CGSize(width: width, height: ceil(fit.height))
     }
 }
@@ -148,8 +160,20 @@ extension TextPreviewView: NSViewRepresentable {
         let width = proposal.width ?? 300
         guard let container = nsView.textContainer, let layout = nsView.layoutManager else { return nil }
         container.containerSize = CGSize(width: width, height: .greatestFiniteMagnitude)
+        // Whole lines dropped to fit a short frame, as a SwiftUI Text does (see the iOS twin).
+        var lines = maxLines
+        container.maximumNumberOfLines = lines
         layout.ensureLayout(for: container)
-        return CGSize(width: width, height: ceil(layout.usedRect(for: container).height))
+        var height = layout.usedRect(for: container).height
+        if let limit = proposal.height, limit.isFinite {
+            while height > limit + 0.5, lines > 1 {
+                lines -= 1
+                container.maximumNumberOfLines = lines
+                layout.ensureLayout(for: container)
+                height = layout.usedRect(for: container).height
+            }
+        }
+        return CGSize(width: width, height: ceil(height))
     }
 }
 #endif
