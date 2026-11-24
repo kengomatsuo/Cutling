@@ -397,6 +397,14 @@ extension FormattedTextEditor: UIViewRepresentable {
         func load(_ view: UITextView, text: String, format: TextFormat) {
             lastText = text
             lastFormat = format
+            // Drawn again while the person is in the text (the first style on a plain cutling reloads the page once the
+            // binding comes back): the same words keep the selection, where a new text would throw the caret to the end.
+            let before = view.isFirstResponder ? (words: view.textStorage.string, selection: view.selectedRange) : nil
+            defer {
+                if let before, view.textStorage.string == before.words, before.selection.upperBound <= view.textStorage.length {
+                    view.selectedRange = before.selection
+                }
+            }
             if format == .code {
                 view.attributedText = nil
                 view.font = .monospacedSystemFont(ofSize: bodySize + FormattedTextEditor.codeFontSizeDelta, weight: .regular)
