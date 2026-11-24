@@ -209,11 +209,6 @@ final class FormatPanelSlot: UIView {
     }
 }
 
-#if DEBUG
-import os
-private let editorTrace = Logger(subsystem: "com.matsuokengo.Cutling", category: "editor-trace")
-#endif
-
 extension FormattedTextEditor: UIViewRepresentable {
     func makeUIView(context: Context) -> UITextView {
         let view = UITextView()
@@ -270,9 +265,6 @@ extension FormattedTextEditor: UIViewRepresentable {
         coordinator.setPanel(open: formatPanel.wrappedValue, on: view)
         // Only outside changes (paste button, undo, format switch) reload the view.
         if !coordinator.reporting, text != coordinator.lastText || format != coordinator.lastFormat {
-            #if DEBUG
-            editorTrace.log("RELOAD text \(text.count) \(String(describing: format), privacy: .public) last \(coordinator.lastText.count) \(String(describing: coordinator.lastFormat), privacy: .public) sameText \(text == coordinator.lastText) settling \(coordinator.settling)")
-            #endif
             if coordinator.settling {
                 // Just after the editor handed back a change, SwiftUI can draw once with the new format and the old
                 // text (after ⌘B, ⌘I or ⌘U): reloading that drew the markers as text and lost the selection. Whatever
@@ -545,21 +537,8 @@ extension FormattedTextEditor: UIViewRepresentable {
             if parent.formatPanel.wrappedValue { DispatchQueue.main.async { self.parent.formatPanel.wrappedValue = false } }
         }
 
-        #if DEBUG
-        /// The selection before this change, so a jump from a selection to the end of the text can be traced.
-        private var traceSelection = NSRange(location: 0, length: 0)
-        #endif
 
         func textViewDidChangeSelection(_ view: UITextView) {
-            #if DEBUG
-            // Traces what throws a selection to the end of the text (a styled variable lost its selection).
-            let now = view.selectedRange
-            if traceSelection.length > 0, now.length == 0, now.location == view.textStorage.length {
-                let stack = Thread.callStackSymbols.prefix(24).joined(separator: "\n")
-                editorTrace.log("SELECTION JUMP \(self.traceSelection.location),\(self.traceSelection.length) -> end \(now.location)\n\(stack, privacy: .public)")
-            }
-            traceSelection = now
-            #endif
             // A list's marker is the list's, as in Notes: the cursor never stands inside or before it.
             if view.markedTextRange == nil, view.selectedRange.length == 0,
                let item = listItem(containing: view.selectedRange.location, in: view.textStorage),
@@ -873,9 +852,6 @@ extension FormattedTextEditor: UIViewRepresentable {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: settle)
             if parent.format != format { parent.format = format }
             if parent.text != text { parent.text = text }
-            #if DEBUG
-            editorTrace.log("REPORT \(text.count) \(String(describing: format), privacy: .public) binding now \(self.parent.text.count) \(String(describing: self.parent.format), privacy: .public)")
-            #endif
         }
     }
 }
