@@ -15,6 +15,12 @@ import XCTest
 final class KeyboardColdLaunchUITests: XCTestCase {
     override func setUp() async throws { continueAfterFailure = false }
 
+    /// The keyboard height trial the run asks for (TEST_RUNNER_KEYBOARD_HEIGHT_TRIAL), passed to every launch so the
+    /// keyboard shows the same way before and during the cold switch.
+    private var heightTrial: [String] {
+        ProcessInfo.processInfo.environment["KEYBOARD_HEIGHT_TRIAL"].map { ["-KEYBOARD_HEIGHT_TRIAL", $0] } ?? []
+    }
+
     private func mark(_ name: String) {
         let attachment = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
         attachment.name = "cold_\(name)"
@@ -26,7 +32,7 @@ final class KeyboardColdLaunchUITests: XCTestCase {
     /// Run first: leaves Cutling as the keyboard iOS shows next.
     func testAMakeCutlingTheActiveKeyboard() throws {
         let app = XCUIApplication()
-        app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST"]
+        app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST"] + heightTrial
         app.launch()
         app.terminate()
         addCutlingKeyboardInSettings()
@@ -43,7 +49,7 @@ final class KeyboardColdLaunchUITests: XCTestCase {
     /// the field starts Cutling from nothing, as a person's first use after a restart or an update does.
     func testBColdLaunch() throws {
         let app = XCUIApplication()
-        app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST"]
+        app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST"] + heightTrial
         app.launch()
         sleep(2)
         mark("before_focus")
@@ -57,7 +63,7 @@ final class KeyboardColdLaunchUITests: XCTestCase {
     /// Run first for the English case: leaves English as the keyboard iOS shows, with Cutling the last one used before it.
     func testCMakeEnglishTheActiveKeyboard() throws {
         let app = XCUIApplication()
-        app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST"]
+        app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST"] + heightTrial
         app.launch()
         app.terminate()
         addCutlingKeyboardInSettings()
@@ -80,7 +86,7 @@ final class KeyboardColdLaunchUITests: XCTestCase {
     /// switching to Cutling starts it from nothing, as a person's first switch after a restart or an update does.
     func testDColdLaunchFromEnglish() throws {
         let app = XCUIApplication()
-        app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST"]
+        app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST"] + heightTrial
         app.launch()
         sleep(2)
         _ = openKeyboardTestField(in: app)
