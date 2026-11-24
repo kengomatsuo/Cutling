@@ -787,8 +787,14 @@ extension FormattedTextEditor: UIViewRepresentable {
             }
             // Leave composing (marked) text alone, or CJK input breaks.
             guard view.markedTextRange == nil else { return }
-            // A pill styled by any route (bar, Format panel, edit menu, shortcut) is drawn again in its new style.
-            FillInPills.restyle(view.textStorage, fallback: UIFont.systemFont(ofSize: bodySize))
+            // A pill styled by any route (bar, Format panel, edit menu, shortcut) is drawn again in its new style. The new
+            // pill goes straight into the text storage, which drops the selection to the end of the text (the first
+            // Bold on a selected pill lost it, so a second tap styled the end instead): the selection is put back.
+            let selection = view.selectedRange
+            if FillInPills.restyle(view.textStorage, fallback: UIFont.systemFont(ofSize: bodySize)), view.selectedRange != selection,
+               selection.upperBound <= view.textStorage.length {
+                view.selectedRange = selection
+            }
             // Pills (FillInPills.swift) are read back as their tokens.
             let source = FillInPills.expanded(view.attributedText)
             let markdown = RichText.markdown(from: source, trimTrailingNewlines: false)
@@ -897,8 +903,13 @@ extension FormattedTextEditor: NSViewRepresentable {
                 return
             }
             guard !view.hasMarkedText(), let storage = view.textStorage else { return }
-            // A pill styled by any route (Format menu, shortcut, font panel) is drawn again in its new style.
-            FillInPills.restyle(storage, fallback: NSFont.systemFont(ofSize: bodySize))
+            // A pill styled by any route (Format menu, shortcut, font panel) is drawn again in its new style, the
+            // selection kept: the new pill goes straight into the storage, which can move it.
+            let selection = view.selectedRanges
+            if FillInPills.restyle(storage, fallback: NSFont.systemFont(ofSize: bodySize)),
+               selection.allSatisfy({ $0.rangeValue.upperBound <= storage.length }) {
+                view.selectedRanges = selection
+            }
             // Pills (FillInPills.swift) are read back as their tokens.
             let source = FillInPills.expanded(storage)
             let markdown = RichText.markdown(from: source, trimTrailingNewlines: false)
