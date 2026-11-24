@@ -133,7 +133,8 @@ struct CutlingKeyGrid<Key: View>: UIViewRepresentable {
         func attach(to collection: UICollectionView) {
             let keyCell = UICollectionView.CellRegistration<UICollectionViewCell, UUID> { [weak self] cell, _, id in
                 guard let self, let grid = self.grid, let cutling = self.cutlingsByID[id] else { return }
-                cell.contentConfiguration = UIHostingConfiguration { grid.key(cutling) }.margins(.all, 0)
+                // Keyed by the cutling, so a reused cell starts its key's own state (the Inserted mark) afresh.
+                cell.contentConfiguration = UIHostingConfiguration { grid.key(cutling).id(cutling.id) }.margins(.all, 0)
             }
             let titleCell = UICollectionView.CellRegistration<UICollectionViewCell, Int> { [weak self] cell, _, section in
                 guard let title = self?.grid?.sections[safe: section]?.title else { return }

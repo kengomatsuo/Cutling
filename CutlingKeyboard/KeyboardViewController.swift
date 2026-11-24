@@ -1700,6 +1700,8 @@ struct CutlingKeyView: View {
     let onTap: () -> Void
     
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    /// The Inserted or Copied mark as drawn; follows `isCopied` (see the onChange below).
+    @State private var markShown = false
     
     private var cardHeight: CGFloat {
         KeyStyle.cardHeight(for: horizontalSizeClass)
@@ -1731,7 +1733,7 @@ struct CutlingKeyView: View {
                 // Inserted for typed text, Copied for an image or a styled copy (the owner asked the mark back, ASG210).
                 // Apple's motion for a tap's confirmation: no overshoot (a tap has no momentum), the label blurs in and
                 // out in place, and the checkmark draws itself (iOS 26 Draw On); the look is unchanged.
-                if isCopied {
+                if markShown {
                     RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous)
                         .fill(.ultraThinMaterial)
                         .transition(.opacity)
@@ -1755,7 +1757,13 @@ struct CutlingKeyView: View {
         }
         .disabled(isBlocked)
         .opacity(isBlocked ? 0.4 : 1)
-        .animation(.smooth(duration: 0.3), value: isCopied)
+        // The grid redraws a key inside UIKit's no-animation update, where a change pops (filmed: the mark came and
+        // went in one frame); the mark follows on the next turn of the run loop, in its own animation.
+        .onChange(of: isCopied) { _, now in
+            DispatchQueue.main.async {
+                withAnimation(.smooth(duration: 0.3)) { markShown = now }
+            }
+        }
     }
 
     private var textContent: some View {
