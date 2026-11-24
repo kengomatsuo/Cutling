@@ -271,9 +271,20 @@ extension FormattedTextEditor: UIViewRepresentable {
         // Only outside changes (paste button, undo, format switch) reload the view.
         if !coordinator.reporting, text != coordinator.lastText || format != coordinator.lastFormat {
             #if DEBUG
-            editorTrace.log("RELOAD text \(text.count) \(String(describing: format), privacy: .public) last \(coordinator.lastText.count) \(String(describing: coordinator.lastFormat), privacy: .public) sameText \(text == coordinator.lastText) text: \(text.prefix(60), privacy: .public) | last: \(coordinator.lastText.prefix(60), privacy: .public)")
+            editorTrace.log("RELOAD text \(text.count) \(String(describing: format), privacy: .public) last \(coordinator.lastText.count) \(String(describing: coordinator.lastFormat), privacy: .public) sameText \(text == coordinator.lastText) settling \(coordinator.settling)")
             #endif
-            coordinator.load(view, text: text, format: format)
+            if coordinator.settling {
+                // Just after the editor handed back a change, SwiftUI can draw once with the new format and the old
+                // text (after ⌘B, ⌘I or ⌘U): reloading that drew the markers as text and lost the selection. Whatever
+                // still differs once the change has settled is a real outside change and reloads then.
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) { [weak coordinator, weak view] in
+                    guard let coordinator, let view else { return }
+                    let now = (coordinator.parent.text, coordinator.parent.format)
+                    if now.0 != coordinator.lastText || now.1 != coordinator.lastFormat { coordinator.load(view, text: now.0, format: now.1) }
+                }
+            } else {
+                coordinator.load(view, text: text, format: format)
+            }
         }
         // The binding is cleared a turn later, and this runs again before then: each token is typed once.
         if let pending = insertion.wrappedValue, !coordinator.typing {
@@ -846,12 +857,20 @@ extension FormattedTextEditor: UIViewRepresentable {
         /// The editor is handing its text and format back: SwiftUI can draw in between the two, when the page sees the
         /// new text with the old format (a first style's `**` showed for a moment) and reloaded, losing the selection.
         var reporting = false
+        /// A change was handed back within the last moment, and SwiftUI may still draw with half of it.
+        var settling = false
+        private var settleTask: DispatchWorkItem?
 
         private func report(_ text: String, format: TextFormat) {
             lastText = text
             lastFormat = format
             reporting = true
             defer { reporting = false }
+            settling = true
+            settleTask?.cancel()
+            let settle = DispatchWorkItem { [weak self] in self?.settling = false }
+            settleTask = settle
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: settle)
             if parent.format != format { parent.format = format }
             if parent.text != text { parent.text = text }
             #if DEBUG
