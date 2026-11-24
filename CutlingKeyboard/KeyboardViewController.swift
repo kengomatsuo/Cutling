@@ -396,12 +396,6 @@ class KeyboardViewController: UIInputViewController {
         heightConstraint = view.heightAnchor.constraint(equalToConstant: currentHeight)
         // Below required, so the system's own height constraint wins for a moment when it must.
         heightConstraint?.priority = UILayoutPriority(999)
-        #if DEBUG
-        // Trial: does iOS size the stand-in it shows while switching to Cutling from the height Cutling first appears at?
-        if UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.string(forKey: "keyboardHeightTrial") == "required" {
-            heightConstraint?.priority = .required
-        }
-        #endif
         heightConstraint?.isActive = true
         frameLink = CADisplayLink(target: self, selector: #selector(frameTick))
         frameLink?.add(to: .main, forMode: .common)

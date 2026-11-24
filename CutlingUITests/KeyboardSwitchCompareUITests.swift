@@ -3,8 +3,8 @@
 //  CutlingUITests
 //
 //  Cutling's own keys: a tapped cutling shows its Inserted mark, and holding the space bar moves the cursor like a
-//  trackpad. Then the stand-in iOS shows while switching back to Cutling with the globe, filmed with the keyboard's
-//  height constraint as shipped and with it required, to see whether iOS sizes the stand-in from Cutling.
+//  trackpad. Then a warm switch back to Cutling with the globe, filmed: with Cutling's keyboard still running, iOS keeps
+//  the old keyboard in place until Cutling draws (a cold start shows iOS's own stand-in instead, KeyboardColdLaunch).
 //
 //  Copyright (c) 2026 Kenneth Johannes Fang. All rights reserved.
 //
@@ -100,12 +100,11 @@ final class KeyboardSwitchCompareUITests: XCTestCase {
     }
 
     /// Cutling up, the globe back to the keyboard before, the globe to Cutling again: the recording between the second
-    /// tap and Cutling's first frame shows iOS's stand-in. `trial` is the keyboard's height trial, nil as shipped.
-    private func standIn(_ name: String, trial: String?) {
+    /// tap and Cutling's first frame shows what iOS keeps on screen meanwhile.
+    private func standIn(_ name: String) {
         addCutlingKeyboardInSettings()
         let app = XCUIApplication()
         app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST"]
-        if let trial { app.launchArguments += ["-KEYBOARD_HEIGHT_TRIAL", trial] }
         app.launch()
         sleep(2)
         _ = openKeyboardTestField(in: app)
@@ -126,7 +125,5 @@ final class KeyboardSwitchCompareUITests: XCTestCase {
         app.terminate()
     }
 
-    func testBStandInAsShipped() throws { standIn("shipped", trial: nil) }
-
-    func testCStandInHeightRequired() throws { standIn("required", trial: "required") }
+    func testBStandInWarmSwitch() throws { standIn("warm") }
 }
