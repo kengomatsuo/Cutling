@@ -270,6 +270,9 @@ extension FormattedTextEditor: UIViewRepresentable {
         coordinator.setPanel(open: formatPanel.wrappedValue, on: view)
         // Only outside changes (paste button, undo, format switch) reload the view.
         if !coordinator.reporting, text != coordinator.lastText || format != coordinator.lastFormat {
+            #if DEBUG
+            editorTrace.log("RELOAD text \(text.count) \(String(describing: format), privacy: .public) last \(coordinator.lastText.count) \(String(describing: coordinator.lastFormat), privacy: .public) sameText \(text == coordinator.lastText) text: \(text.prefix(60), privacy: .public) | last: \(coordinator.lastText.prefix(60), privacy: .public)")
+            #endif
             coordinator.load(view, text: text, format: format)
         }
         // The binding is cleared a turn later, and this runs again before then: each token is typed once.
@@ -851,6 +854,9 @@ extension FormattedTextEditor: UIViewRepresentable {
             defer { reporting = false }
             if parent.format != format { parent.format = format }
             if parent.text != text { parent.text = text }
+            #if DEBUG
+            editorTrace.log("REPORT \(text.count) \(String(describing: format), privacy: .public) binding now \(self.parent.text.count) \(String(describing: self.parent.format), privacy: .public)")
+            #endif
         }
     }
 }
