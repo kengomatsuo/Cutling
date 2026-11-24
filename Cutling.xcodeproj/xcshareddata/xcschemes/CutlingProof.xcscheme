@@ -54,6 +54,9 @@
                <Test
                   Identifier = "AccessibilityAuditUITests">
                </Test>
+               <Test
+                  Identifier = "KeyboardSwitchUITests">
+               </Test>
             </SelectedTests>
          </TestableReference>
       </Testables>

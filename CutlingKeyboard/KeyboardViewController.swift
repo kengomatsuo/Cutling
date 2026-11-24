@@ -64,6 +64,10 @@ final class KeyboardState: ObservableObject {
     @Published var wordBeforeCursor: String = ""
     /// A cutling with fill-ins waiting at a blank.
     @Published var fill: FillSession?
+    /// The space bar is held: the keyboard is a trackpad for the cursor.
+    @Published var trackpad = false
+    /// The cutling whose text was just typed, for the Inserted mark on its key.
+    @Published var applied: UUID?
 }
 
 // MARK: - Keyboard Sound
@@ -172,6 +176,89 @@ extension View {
         action: @escaping () -> Void
     ) -> some View {
         modifier(InstantPress(cornerRadius: cornerRadius, fill: fill, sound: sound, onPress: action))
+    }
+}
+
+/// The space bar, as on Apple's keyboard: a tap types a space, and a hold turns the keyboard into a trackpad for the
+/// cursor (the keys empty, sliding moves the cursor a character per 9 pt across and a line per 24 pt up or down,
+/// lifting ends it). Lights on touch-down like every key (InstantPress); during a fill-in it only types a space.
+struct SpaceTrackpad: ViewModifier {
+    let enabled: Bool
+    let onSpace: () -> Void
+    let onActive: (Bool) -> Void
+    let onMove: (_ characters: Int, _ lines: Int) -> Void
+
+    @Environment(\.colorScheme) private var colorScheme
+    @State private var isPressed = false
+    @State private var isActive = false
+    @State private var hold: Task<Void, Never>?
+    /// The finger's offset from where it landed, and the part of it already turned into cursor steps.
+    @State private var offset = CGSize.zero
+    @State private var used = CGSize.zero
+
+    private static let holdTime: Duration = .milliseconds(400)
+    private static let cancelThreshold: CGFloat = 40
+    private static let stepAcross: CGFloat = 9
+    private static let stepDown: CGFloat = 24
+    private static let press = UIImpactFeedbackGenerator(style: .light)
+    private static let start = UIImpactFeedbackGenerator(style: .medium)
+
+    private var highlight: Color { colorScheme == .dark ? Color.white.opacity(0.3) : Color.black.opacity(0.25) }
+
+    private func down() {
+        isPressed = true
+        offset = .zero
+        Self.press.impactOccurred()
+        KeyboardSound.modifier.play()
+        guard enabled else { return }
+        hold = Task { @MainActor in
+            try? await Task.sleep(for: Self.holdTime)
+            guard !Task.isCancelled, isPressed, !isActive else { return }
+            isActive = true
+            used = offset
+            Self.start.impactOccurred()
+            onActive(true)
+        }
+    }
+
+    private func move(_ to: CGSize) {
+        offset = to
+        guard isActive else {
+            if max(abs(to.width), abs(to.height)) >= Self.cancelThreshold { isPressed = false; hold?.cancel() }
+            return
+        }
+        let across = Int((to.width - used.width) / Self.stepAcross)
+        let lines = Int((to.height - used.height) / Self.stepDown)
+        guard across != 0 || lines != 0 else { return }
+        used.width += CGFloat(across) * Self.stepAcross
+        used.height += CGFloat(lines) * Self.stepDown
+        onMove(across, lines)
+    }
+
+    private func end(typesSpace: Bool) {
+        hold?.cancel()
+        hold = nil
+        if isActive {
+            isActive = false
+            onActive(false)
+        } else if typesSpace, isPressed {
+            onSpace()
+        }
+        isPressed = false
+    }
+
+    func body(content: Content) -> some View {
+        content
+            .background(Color.keyHitTest)
+            .overlay(isPressed && !isActive ? RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous).fill(highlight) : nil)
+            .overlay(
+                KeyTouchSurface(
+                    onDown: { down() },
+                    onMove: { move($0) },
+                    onUp: { move($0); end(typesSpace: max(abs($0.width), abs($0.height)) < Self.cancelThreshold) },
+                    onCancel: { end(typesSpace: false) }
+                )
+            )
     }
 }
 
@@ -389,6 +476,7 @@ class KeyboardViewController: UIInputViewController {
                 store: store,
                 state: keyboardState,
                 onInsertText: { inputVC.textDocumentProxy.insertText($0); inputVC.refreshWordBeforeCursor() },
+                onMoveCursor: { inputVC.moveCursor(characters: $0, lines: $1) },
                 onUseCutling: { inputVC.use($0, replacingCount: $1, smartSpacing: $2) },
                 onFillPick: { inputVC.fillPick($0) },
                 onFillPaste: { inputVC.fillPaste() },
@@ -525,6 +613,7 @@ class KeyboardViewController: UIInputViewController {
         guard let template = cutling.placeholders else {
             // filled(_:) types the text as written, less Cutling's invisible fill-in markers when fill-ins are off.
             insert(cutling.filled(.now()).cutling.plainValue, smartSpacing: smartSpacing, charactersAfterCursor: nil)
+            markApplied(cutling.id)
             return
         }
         fillCancel()
@@ -534,6 +623,7 @@ class KeyboardViewController: UIInputViewController {
             let rendered = Self.render(chunks, values: [:])
             insert(rendered.text, smartSpacing: smartSpacing, charactersAfterCursor: rendered.afterCursor)
             FillInCounters.advance(after: cutling)
+            markApplied(cutling.id)
             return
         }
         var session = FillSession(cutlingID: cutling.id, chunks: chunks, fields: template.fields, smartSpacing: smartSpacing)
@@ -633,6 +723,53 @@ class KeyboardViewController: UIInputViewController {
         show(nil)
         insert(rendered.text, smartSpacing: session.smartSpacing, charactersAfterCursor: rendered.afterCursor)
         if let cutling = store.cutlings.first(where: { $0.id == session.cutlingID }) { FillInCounters.advance(after: cutling) }
+        markApplied(session.cutlingID)
+    }
+
+    /// Shows the Inserted mark on the key whose text was just typed, for a moment.
+    private func markApplied(_ id: UUID) {
+        keyboardState.applied = id
+        Task { @MainActor [keyboardState] in
+            try? await Task.sleep(for: .seconds(1.2))
+            if keyboardState.applied == id { keyboardState.applied = nil }
+        }
+    }
+
+    /// The space bar's trackpad: moves the cursor `characters` across and `lines` up (negative) or down.
+    fileprivate func moveCursor(characters: Int, lines: Int) {
+        let proxy = textDocumentProxy
+        let offset = Self.cursorOffset(characters: characters, lines: lines,
+                                       before: proxy.documentContextBeforeInput ?? "", after: proxy.documentContextAfterInput ?? "")
+        guard offset != 0 else { return }
+        proxy.adjustTextPosition(byCharacterOffset: offset)
+        refreshWordBeforeCursor()
+    }
+
+    /// The `adjustTextPosition(byCharacterOffset:)` offset (UTF-16, as `cursorLength`) that moves the cursor
+    /// `characters` across and `lines` up or down in the text the proxy shows around it, keeping the cursor's column
+    /// from line to line; a line runs between line breaks, and the cursor stops at either end of that text.
+    static func cursorOffset(characters: Int, lines: Int, before: String, after: String) -> Int {
+        let head = Array(before), text = head + Array(after)
+        let start = head.count
+        var index = start
+        func lineStart(_ i: Int) -> Int { var j = i; while j > 0, !text[j - 1].isNewline { j -= 1 }; return j }
+        func lineEnd(_ i: Int) -> Int { var j = i; while j < text.count, !text[j].isNewline { j += 1 }; return j }
+        if lines != 0 {
+            let column = index - lineStart(index)
+            for _ in 0..<abs(lines) {
+                if lines < 0 {
+                    let first = lineStart(index)
+                    guard first > 0 else { index = 0; break }
+                    index = min(lineStart(first - 1) + column, first - 1)
+                } else {
+                    let end = lineEnd(index)
+                    guard end < text.count else { index = text.count; break }
+                    index = min(end + 1 + column, lineEnd(end + 1))
+                }
+            }
+        }
+        index = min(max(index + characters, 0), text.count)
+        return index < start ? -String(text[index..<start]).utf16.count : String(text[start..<index]).utf16.count
     }
 
     /// Type with Your Keyboard: remembers where the cursor was, then goes to the person's keyboard.
@@ -978,6 +1115,7 @@ struct KeyboardView: View {
     @ObservedObject var store: CutlingStore
     @ObservedObject var state: KeyboardState
     let onInsertText: (String) -> Void
+    let onMoveCursor: (_ characters: Int, _ lines: Int) -> Void
     let onUseCutling: (Cutling, Int, Bool) -> Void
     let onFillPick: (String) -> Void
     let onFillPaste: () -> Void
@@ -1032,6 +1170,7 @@ struct KeyboardView: View {
                     suggestionBar
                 }
             }
+                .opacity(state.trackpad ? 0 : 1)
                 .padding(.horizontal, KeyStyle.horizontalPadding)
                 .frame(height: keyHeight + keySpacing)
                 .padding(.top, keySpacing)
@@ -1045,6 +1184,7 @@ struct KeyboardView: View {
                     cutlingGrid
                 }
             }
+            .opacity(state.trackpad ? 0 : 1)
             .frame(height: gridHeight)
 
             bottomRow
@@ -1052,6 +1192,7 @@ struct KeyboardView: View {
                 .frame(height: keyHeight)
         }
         .accessibilityIdentifier("CutlingKeyboardView")
+        .animation(.easeOut(duration: 0.15), value: state.trackpad)
         .padding(.bottom, 2)
         .tint(Color(hex: 0x00be86))
         .background(Color.clear)
@@ -1214,7 +1355,7 @@ struct KeyboardView: View {
                     CutlingKeyView(
                         cutling: cutling,
                         store: store,
-                        isCopied: copiedID == cutling.id,
+                        isCopied: copiedID == cutling.id || state.applied == cutling.id,
                         isExisted: existedID == cutling.id,
                         isBlocked: isBlockedByASCIIField(cutling),
                         copiedStyled: copiedStyledID == cutling.id,
@@ -1269,7 +1410,11 @@ struct KeyboardView: View {
                 .font(.system(size: 17))
                 .frame(maxWidth: .infinity, minHeight: keyHeight)
                 .background(KeyStyle.keyColor, in: RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous))
-                .instantPress(sound: .modifier) { onInsertText(" ") }
+                .modifier(SpaceTrackpad(enabled: state.fill?.field == nil,
+                                        onSpace: { onInsertText(" ") },
+                                        onActive: { state.trackpad = $0 },
+                                        onMove: onMoveCursor))
+                .accessibilityIdentifier("spaceKey")
 
             // Return — icon + action tint
             Image(systemName: info.icon)
@@ -1323,7 +1468,6 @@ struct KeyboardView: View {
         case .text:
             onUseCutling(cutling, replacesWord ? state.wordBeforeCursor.count : 0, cutling.textFormat != .code)
             copiedStyledID = nil
-            showCopied(cutling.id)
             incrementPasteCount()
         case .image:
             if !state.hasFullAccess {
@@ -1574,8 +1718,8 @@ struct CutlingKeyView: View {
                                 .fill(Color(hex: 0x01be86).opacity(0.15))
                         )
                 }
-                // Typed text needs no confirmation, as on Apple's keyboards; only a copied image says so (ASG101).
-                if isCopied && (cutling.kind == .image || copiedStyled) {
+                // Inserted for typed text, Copied for an image or a styled copy (the owner asked the mark back, ASG210).
+                if isCopied {
                     RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous)
                         .fill(.ultraThinMaterial)
                     Label {
