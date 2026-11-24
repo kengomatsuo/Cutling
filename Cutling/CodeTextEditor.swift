@@ -369,8 +369,15 @@ extension FormattedTextEditor: UIViewRepresentable {
         }
 
         func configure(_ view: UITextView, for format: TextFormat) {
-            configuredFormat = format
             let code = format == .code
+            // Plain and Formatted text share every setting below. Set again on the focused view, they restart its input
+            // session and drop the selection to the end of the text: the first style on a plain cutling (or the last one
+            // taken off) moved the caret away from the variable just styled. Only a change to or from Code sets them.
+            if let configured = configuredFormat, (configured == .code) == code {
+                configuredFormat = format
+                return
+            }
+            configuredFormat = format
             view.allowsEditingTextAttributes = !code
             view.smartQuotesType = code ? .no : .default
             view.smartDashesType = code ? .no : .default
