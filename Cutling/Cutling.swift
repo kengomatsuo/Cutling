@@ -12,7 +12,6 @@
 import CoreTransferable
 import Darwin
 import Foundation
-import LinkPresentation
 import NaturalLanguage
 import SwiftUI
 import UniformTypeIdentifiers
@@ -367,22 +366,6 @@ enum InputTypeCategory: String, CaseIterable, Identifiable, Codable, Sendable {
             triggers: Set(detected.flatMap { $0.triggerKeys }),
             categories: detected
         )
-    }
-
-    static func fetchURLTitle(from text: String) async -> String? {
-        let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard let detector = try? NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue) else { return nil }
-        let range = NSRange(trimmed.startIndex..., in: trimmed)
-        guard let match = detector.firstMatch(in: trimmed, range: range),
-              let url = match.url,
-              let scheme = url.scheme?.lowercased(),
-              ["http", "https"].contains(scheme) else { return nil }
-        let provider = LPMetadataProvider()
-        provider.shouldFetchSubresources = false
-        provider.timeout = 5
-        guard let metadata = try? await provider.startFetchingMetadata(for: url),
-              let title = metadata.title, !title.isEmpty else { return nil }
-        return title
     }
 
     #if os(iOS)
