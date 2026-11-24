@@ -209,6 +209,11 @@ final class FormatPanelSlot: UIView {
     }
 }
 
+#if DEBUG
+import os
+private let editorTrace = Logger(subsystem: "com.matsuokengo.Cutling", category: "editor-trace")
+#endif
+
 extension FormattedTextEditor: UIViewRepresentable {
     func makeUIView(context: Context) -> UITextView {
         let view = UITextView()
@@ -526,7 +531,21 @@ extension FormattedTextEditor: UIViewRepresentable {
             if parent.formatPanel.wrappedValue { DispatchQueue.main.async { self.parent.formatPanel.wrappedValue = false } }
         }
 
+        #if DEBUG
+        /// The selection before this change, so a jump from a selection to the end of the text can be traced.
+        private var traceSelection = NSRange(location: 0, length: 0)
+        #endif
+
         func textViewDidChangeSelection(_ view: UITextView) {
+            #if DEBUG
+            // Traces what throws a selection to the end of the text (a styled variable lost its selection).
+            let now = view.selectedRange
+            if traceSelection.length > 0, now.length == 0, now.location == view.textStorage.length {
+                let stack = Thread.callStackSymbols.prefix(24).joined(separator: "\n")
+                editorTrace.log("SELECTION JUMP \(self.traceSelection.location),\(self.traceSelection.length) -> end \(now.location)\n\(stack, privacy: .public)")
+            }
+            traceSelection = now
+            #endif
             // A list's marker is the list's, as in Notes: the cursor never stands inside or before it.
             if view.markedTextRange == nil, view.selectedRange.length == 0,
                let item = listItem(containing: view.selectedRange.location, in: view.textStorage),
