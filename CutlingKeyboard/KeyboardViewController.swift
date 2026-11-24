@@ -236,6 +236,16 @@ private func msSinceProcessStart() -> Int {
 }
 private let launchLog = Logger(subsystem: "com.matsuokengo.Cutling", category: "launch")
 
+/// Logs each step of the keyboard's start once, so a cold switch can be timed step by step from the launch log.
+@MainActor
+private enum LaunchMarks {
+    private static var seen = Set<String>()
+    static func once(_ step: String) {
+        guard seen.insert(step).inserted else { return }
+        launchLog.log("\(step, privacy: .public) at \(msSinceProcessStart()) ms")
+    }
+}
+
 class KeyboardViewController: UIInputViewController {
 
     private var hostingController: UIHostingController<KeyboardView>?
@@ -272,6 +282,8 @@ class KeyboardViewController: UIInputViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        LaunchMarks.once("viewWillAppear")
+        defer { LaunchMarks.once("viewWillAppear done") }
 
         // Sync full-access state to shared UserDefaults AND observable state
         let fullAccess = hasFullAccess
@@ -303,7 +315,22 @@ class KeyboardViewController: UIInputViewController {
         // Below required, so the system's own height constraint wins for a moment when it must.
         heightConstraint?.priority = UILayoutPriority(999)
         heightConstraint?.isActive = true
+        frameLink = CADisplayLink(target: self, selector: #selector(frameTick))
+        frameLink?.add(to: .main, forMode: .common)
         launchLog.log("viewDidLoad done at \(msSinceProcessStart()) ms")
+    }
+
+    /// Times the keyboard's first frames on screen for the launch log, then stops.
+    private var frameLink: CADisplayLink?
+    private var framesInWindow = 0
+    @objc private func frameTick() {
+        guard view.window != nil else { return }
+        framesInWindow += 1
+        LaunchMarks.once("frame \(framesInWindow) in a window")
+        if framesInWindow >= 3 {
+            frameLink?.invalidate()
+            frameLink = nil
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -328,6 +355,7 @@ class KeyboardViewController: UIInputViewController {
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        LaunchMarks.once("first layout")
         updateHeight()
     }
 
@@ -995,6 +1023,7 @@ struct KeyboardView: View {
     }
 
     var body: some View {
+        let _ = LaunchMarks.once("first keyboard body")
         VStack(spacing: keySpacing) {
             Group {
                 if let session = state.fill, session.field != nil {
