@@ -14,7 +14,11 @@ import XCTest
 
 @MainActor
 final class AccessibilityAuditUITests: XCTestCase {
-    override func setUp() async throws { continueAfterFailure = true }
+    override func setUp() async throws {
+        continueAfterFailure = true
+        // Each audit walks six screens; at the largest text size on Xcode Cloud that took past the 10-minute default.
+        executionTimeAllowance = 1500
+    }
 
     private func any(_ app: XCUIApplication, _ id: String) -> XCUIElement {
         app.descendants(matching: .any).matching(identifier: id).firstMatch
