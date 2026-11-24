@@ -269,7 +269,7 @@ extension FormattedTextEditor: UIViewRepresentable {
         coordinator.setBar(keyboardBar, on: view)
         coordinator.setPanel(open: formatPanel.wrappedValue, on: view)
         // Only outside changes (paste button, undo, format switch) reload the view.
-        if text != coordinator.lastText || format != coordinator.lastFormat {
+        if !coordinator.reporting, text != coordinator.lastText || format != coordinator.lastFormat {
             coordinator.load(view, text: text, format: format)
         }
         // The binding is cleared a turn later, and this runs again before then: each token is typed once.
@@ -840,9 +840,15 @@ extension FormattedTextEditor: UIViewRepresentable {
             report(text, format: format)
         }
 
+        /// The editor is handing its text and format back: SwiftUI can draw in between the two, when the page sees the
+        /// new text with the old format (a first style's `**` showed for a moment) and reloaded, losing the selection.
+        var reporting = false
+
         private func report(_ text: String, format: TextFormat) {
             lastText = text
             lastFormat = format
+            reporting = true
+            defer { reporting = false }
             if parent.format != format { parent.format = format }
             if parent.text != text { parent.text = text }
         }
@@ -867,7 +873,7 @@ extension FormattedTextEditor: NSViewRepresentable {
         let coordinator = context.coordinator
         coordinator.parent = self
         if coordinator.configuredFormat != format { coordinator.configure(view, for: format) }
-        if text != coordinator.lastText || format != coordinator.lastFormat {
+        if !coordinator.reporting, text != coordinator.lastText || format != coordinator.lastFormat {
             coordinator.load(view, text: text, format: format)
         }
         if let pending = insertion.wrappedValue {
@@ -953,9 +959,15 @@ extension FormattedTextEditor: NSViewRepresentable {
             report(text, format: format)
         }
 
+        /// The editor is handing its text and format back: SwiftUI can draw in between the two, when the page sees the
+        /// new text with the old format (a first style's `**` showed for a moment) and reloaded, losing the selection.
+        var reporting = false
+
         private func report(_ text: String, format: TextFormat) {
             lastText = text
             lastFormat = format
+            reporting = true
+            defer { reporting = false }
             if parent.format != format { parent.format = format }
             if parent.text != text { parent.text = text }
         }
