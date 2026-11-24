@@ -155,14 +155,10 @@ struct MainContentView: View {
     }
     #endif
 
-    #if os(iOS)
-    let columns = [GridItem(.adaptive(minimum: 160, maximum: 240), spacing: 12)]
-    private let cardHeight: CGFloat = 140
-    #endif
-    #if os(macOS)
-    let columns = [GridItem(.adaptive(minimum: 180, maximum: 280), spacing: 14)]
-    private let cardHeight: CGFloat = 160
-    #endif
+    /// The cards' columns and height, shared with every other grid of cards (CardGrid in CardView.swift).
+    private var grid = CardGrid()
+    private var columns: [GridItem] { grid.columns }
+    private var cardHeight: CGFloat { grid.cardHeight }
 
     var filtered: [Cutling] {
         let live = store.cutlings.filter { !$0.isExpired }

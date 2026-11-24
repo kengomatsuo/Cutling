@@ -62,6 +62,33 @@ enum CardTutorialMode {
 
 // MARK: - Card View
 
+/// The grid every set of cards sits in (the main screen and Recently Deleted). A card is 140 pt tall at the default text
+/// size and grows with the person's text size; at the accessibility sizes the cards widen, one to a row on iPhone and two
+/// or three on iPad, as Apple's own grids do, where fixed 140 pt cards let a bigger icon and name run over the card below.
+struct CardGrid: DynamicProperty {
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+    #if os(iOS)
+    @ScaledMetric(relativeTo: .body) private var scaledHeight: CGFloat = 140
+    #endif
+
+    var columns: [GridItem] {
+        #if os(iOS)
+        if dynamicTypeSize.isAccessibilitySize { return [GridItem(.adaptive(minimum: 320, maximum: 520), spacing: 12)] }
+        return [GridItem(.adaptive(minimum: 160, maximum: 240), spacing: 12)]
+        #else
+        return [GridItem(.adaptive(minimum: 180, maximum: 280), spacing: 14)]
+        #endif
+    }
+
+    var cardHeight: CGFloat {
+        #if os(iOS)
+        scaledHeight
+        #else
+        160
+        #endif
+    }
+}
+
 struct CardView: View {
     @EnvironmentObject var store: CutlingStore
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
