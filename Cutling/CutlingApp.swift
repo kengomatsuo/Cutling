@@ -180,6 +180,8 @@ struct CutlingApp: App {
                 #endif
                 .onAppear {
                     #if DEBUG
+                    // A UI test's height trial for the Cutling keyboard (KeyboardSwitchCompareUITests); cleared when not given.
+                    UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.set(UserDefaults.standard.string(forKey: "KEYBOARD_HEIGHT_TRIAL"), forKey: "keyboardHeightTrial")
                     // Only a screenshot run sets the keyboard's language; any other run clears what one left behind,
                     // or a later test finds the keyboard in that run's language (a Traditional Chinese "Next" key).
                     if !ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") {

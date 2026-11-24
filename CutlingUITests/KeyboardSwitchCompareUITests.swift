@@ -2,9 +2,9 @@
 //  KeyboardSwitchCompareUITests.swift
 //  CutlingUITests
 //
-//  Switching keyboards from the globe menu, filmed by scripts/ui-test.sh for frame-by-frame comparison: English to
-//  Apple's Japanese Kana, then English to Cutling, each marked in the log so the frames can be found. Then Cutling's
-//  own keys: a tapped cutling shows its Inserted mark, and holding the space bar moves the cursor like a trackpad.
+//  Cutling's own keys: a tapped cutling shows its Inserted mark, and holding the space bar moves the cursor like a
+//  trackpad. Then the stand-in iOS shows while switching back to Cutling with the globe, filmed with the keyboard's
+//  height constraint as shipped and with it required, to see whether iOS sizes the stand-in from Cutling.
 //
 //  Copyright (c) 2026 Kenneth Johannes Fang. All rights reserved.
 //
@@ -63,56 +63,9 @@ final class KeyboardSwitchCompareUITests: XCTestCase {
         }
     }
 
-    /// Adds Apple's Japanese Kana keyboard and the Cutling keyboard in Settings.
-    func testAAddKanaAndCutling() throws {
-        addCutlingKeyboardInSettings()
-        let settings = XCUIApplication(bundleIdentifier: "com.apple.Preferences")
-        settings.launch()
-        for label in ["General", "Keyboard", "Keyboards"] {
-            let cell = settings.cells.staticTexts[label].firstMatch
-            XCTAssertTrue(cell.waitForExistence(timeout: 5), "Settings: '\(label)' not found")
-            cell.tap()
-            sleep(1)
-        }
-        let kana = settings.cells.staticTexts.matching(NSPredicate(format: "label CONTAINS[c] 'Kana'")).firstMatch
-        if !kana.exists {
-            let addNew = settings.cells["AddNewKeyboard"].firstMatch
-            if !addNew.exists { settings.swipeUp() }
-            addNew.tap()
-            let japanese = settings.cells.staticTexts["Japanese"].firstMatch
-            for _ in 0..<6 where !japanese.isHittable { settings.swipeUp() }
-            japanese.tap()
-            let kanaOption = settings.cells.staticTexts["Kana"].firstMatch
-            XCTAssertTrue(kanaOption.waitForExistence(timeout: 5), "No Kana option")
-            kanaOption.tap()
-            settings.buttons["Done"].firstMatch.tap()
-            sleep(1)
-        }
-        XCTAssertTrue(kana.waitForExistence(timeout: 5), "Japanese Kana keyboard not added")
-        settings.terminate()
-    }
-
-    /// English to Japanese Kana, then back, then English to Cutling: the frames show whether the English keys move.
-    func testBSwitchEnglishToKanaThenCutling() throws {
-        let app = launch()
-        _ = openKeyboardTestField(in: app)
-        sleep(1)
-        backToEnglish(app)
-        XCTAssertTrue(englishIsUp(app), "English is not up")
-        mark("1_english")
-        switchFromGlobe(app) { kanaIsUp(app) }
-        mark("2_kana")
-        XCTAssertTrue(kanaIsUp(app), "Japanese Kana did not come up")
-        backToEnglish(app)
-        mark("3_english_again")
-        switchFromGlobe(app) { cutlingKeyboardIsUp(in: app, showing: "Reply") }
-        mark("4_cutling")
-        XCTAssertTrue(cutlingKeyboardIsUp(in: app, showing: "Reply"), "Cutling did not come up")
-    }
-
     /// A tapped cutling shows Inserted, and holding the space bar moves the cursor: a space typed after sliding left
     /// lands inside the text, not at its end.
-    func testCInsertedMarkAndTrackpad() throws {
+    func testAInsertedMarkAndTrackpad() throws {
         let app = launch()
         let field = openKeyboardTestField(in: app)
         switchToCutlingKeyboard(in: app, showing: "Order")
@@ -141,4 +94,34 @@ final class KeyboardSwitchCompareUITests: XCTestCase {
         mark("7_space_inside")
         print("TRACKPAD before '\(typed)' after '\(after)'")
     }
+
+    /// Cutling up, the globe back to the keyboard before, the globe to Cutling again: the recording between the second
+    /// tap and Cutling's first frame shows iOS's stand-in. `trial` is the keyboard's height trial, nil as shipped.
+    private func standIn(_ name: String, trial: String?) {
+        let app = XCUIApplication()
+        app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-FILLIN_TEST"]
+        if let trial { app.launchArguments += ["-KEYBOARD_HEIGHT_TRIAL", trial] }
+        app.launch()
+        sleep(2)
+        _ = openKeyboardTestField(in: app)
+        switchToCutlingKeyboard(in: app, showing: "Reply")
+        XCTAssertTrue(cutlingKeyboardIsUp(in: app, showing: "Reply"), "Cutling did not come up (\(name))")
+        mark("\(name)_1_cutling")
+        for step in ["2_back", "3_cutling_again"] {
+            let globe = keyboardGlobe(in: app)
+            XCTAssertTrue(globe.waitForExistence(timeout: 5), "No globe (\(name))")
+            print("KEYBOARD-SWITCH \(name)_\(step) tap at \(Date().timeIntervalSince1970)")
+            globe.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+            sleep(4)
+            let tip = app.buttons.matching(NSPredicate(format: "label == 'Continue' AND identifier != 'continueButton'")).firstMatch
+            if tip.exists { tip.tap(); sleep(1) }
+            mark("\(name)_\(step)")
+        }
+        XCTAssertTrue(cutlingKeyboardIsUp(in: app, showing: "Reply"), "Cutling did not come back (\(name))")
+        app.terminate()
+    }
+
+    func testBStandInAsShipped() throws { standIn("shipped", trial: nil) }
+
+    func testCStandInHeightRequired() throws { standIn("required", trial: "required") }
 }
