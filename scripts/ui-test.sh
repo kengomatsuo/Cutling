@@ -38,9 +38,12 @@ fi
 # sets CUTLING_KEYBOARD=off, and the list is then the US keyboard alone.
 kb=com.matsuokengo.Cutling.CutlingKeyboard
 [ "${CUTLING_KEYBOARD:-on}" = off ] && kb=""
+# EXTRA_KEYBOARD adds one more system keyboard between them (emoji@sw=Emoji), for a test that switches between two
+# of Apple's own keyboards as the reference for switching to Cutling's.
+extra="${EXTRA_KEYBOARD:-}"
 keyboards="$(xcrun simctl spawn "$DEVICE_QUEUE_UDID" defaults read -g AppleKeyboards 2>/dev/null | tr -d '()", \n')"
-if [ "$keyboards" != "en_US@sw=QWERTY;hw=Automatic$kb" ]; then
-  xcrun simctl spawn "$DEVICE_QUEUE_UDID" defaults write -g AppleKeyboards -array "en_US@sw=QWERTY;hw=Automatic" ${kb:+"$kb"}
+if [ "$keyboards" != "en_US@sw=QWERTY;hw=Automatic$extra$kb" ]; then
+  xcrun simctl spawn "$DEVICE_QUEUE_UDID" defaults write -g AppleKeyboards -array "en_US@sw=QWERTY;hw=Automatic" ${extra:+"$extra"} ${kb:+"$kb"}
 fi
 # Safari opens its test pages in a fresh tab stack: tabs left by film jobs (one a can't-open-page tab) kept pages from loading.
 xcrun simctl terminate "$DEVICE_QUEUE_UDID" com.apple.mobilesafari >/dev/null 2>&1
