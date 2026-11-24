@@ -100,14 +100,21 @@ final class FormatVariablesUITests: XCTestCase {
         sleep(1)
     }
 
-    /// Selects the "Name" pill alone: the text is "Hi {Name}, …", so the pill is the fourth character.
+    /// The page's first line with nothing selected, so a selection that did not take can be told apart.
+    private var unselectedLine = Data()
+
+    /// Selects the "Name" pill alone: the text is "Hi {Name}, …", so the pill is the fourth character. Tried again while
+    /// the line still looks unselected, since a slow simulator can drop a key event.
     @MainActor
     private func selectPill(_ app: XCUIApplication) {
         let text = app.textViews["textPage"].firstMatch
-        text.typeKey(.upArrow, modifierFlags: .command)
-        for _ in 0..<3 { text.typeKey(.rightArrow, modifierFlags: []) }
-        text.typeKey(.rightArrow, modifierFlags: .shift)
-        sleep(1)
+        for _ in 0..<3 {
+            text.typeKey(.upArrow, modifierFlags: .command)
+            for _ in 0..<3 { text.typeKey(.rightArrow, modifierFlags: []) }
+            text.typeKey(.rightArrow, modifierFlags: .shift)
+            sleep(1)
+            if unselectedLine.isEmpty || difference(firstLine(app), unselectedLine) > 0.002 { return }
+        }
     }
 
     @MainActor
@@ -126,6 +133,7 @@ final class FormatVariablesUITests: XCTestCase {
         openPage(app)
         // The page as it opens, nothing selected: what the reopened page is compared with at the end.
         let unselected = firstLine(app)
+        unselectedLine = unselected
         selectPill(app)
         let plain = firstLine(app)
         shot("0_pill_selected")
