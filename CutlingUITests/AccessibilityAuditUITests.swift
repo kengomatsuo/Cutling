@@ -70,7 +70,15 @@ final class AccessibilityAuditUITests: XCTestCase {
         XCTAssertTrue(edit.exists, "The card's menu has no Edit")
         edit.tap()
         let row = any(app, "textPageRow")
-        XCTAssertTrue(row.waitForExistence(timeout: 10), "No text box in the editor")
+        // At the largest text sizes the text box sits below the form's first screen, and a list makes no row it hasn't
+        // shown yet: the form is scrolled until it appears.
+        if !row.waitForExistence(timeout: 10) {
+            for _ in 0..<6 where !row.exists {
+                app.swipeUp()
+                _ = row.waitForExistence(timeout: 2)
+            }
+        }
+        XCTAssertTrue(row.exists, "No text box in the editor")
         let closeTip = app.buttons["Close"].firstMatch
         if closeTip.waitForExistence(timeout: 2) { closeTip.tap(); sleep(1) }
         sleep(1)
