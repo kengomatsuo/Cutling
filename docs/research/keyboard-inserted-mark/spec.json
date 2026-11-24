@@ -1,0 +1,300 @@
+{
+  "name": "Inserted mark, status-line design",
+  "version": 1,
+  "date": "2026-11-24",
+  "units": "points and seconds; colours sRGB",
+  "source": "CutlingKeyboard/KeyboardViewController.swift KeyStyle and UIColor.keyBackground, read 2026-11-24",
+  "breakpoints": {
+    "phone": {
+      "sizeClass": "compact",
+      "cardHeight": 64,
+      "cardMinWidth": 140,
+      "mockCardWidth": 192,
+      "mockKeyboardWidth": 402,
+      "gridSpacing": 6,
+      "horizontalPadding": 6,
+      "cornerRadius": 10,
+      "cardPadding": 10,
+      "iconSize": 13,
+      "titleSize": 14,
+      "bodySize": 12,
+      "imageNameSize": 12,
+      "imageNamePadding": 8,
+      "rowSpacing": 4,
+      "iconTitleSpacing": 4,
+      "statusIconSpacing": 3,
+      "statusCheckSize": 12,
+      "statusTextSize": 12
+    },
+    "pad": {
+      "sizeClass": "regular",
+      "cardHeight": 80,
+      "cardMinWidth": 180,
+      "mockCardWidth": 240,
+      "mockKeyboardWidth": 1032,
+      "gridSpacing": 8,
+      "horizontalPadding": 6,
+      "cornerRadius": 10,
+      "cardPadding": 12,
+      "iconSize": 16,
+      "titleSize": 17,
+      "bodySize": 15,
+      "imageNameSize": 15,
+      "imageNamePadding": 10,
+      "rowSpacing": 4,
+      "iconTitleSpacing": 4,
+      "statusIconSpacing": 4,
+      "statusCheckSize": 15,
+      "statusTextSize": 15
+    }
+  },
+  "type": {
+    "title": {
+      "weight": 600,
+      "token": "KeyStyle.titleSize, .semibold (unchanged)"
+    },
+    "preview": {
+      "weight": 400,
+      "lines": 2,
+      "token": "KeyStyle.bodySize, .secondary (unchanged)"
+    },
+    "status": {
+      "weight": 600,
+      "lines": 1,
+      "minimumScaleFactor": 0.8,
+      "token": "KeyStyle.bodySize, .semibold, .primary"
+    },
+    "statusCheck": {
+      "symbol": "checkmark",
+      "weight": 600,
+      "token": "font .system(size: KeyStyle.bodySize, weight: .semibold) to match the word beside it (HIG: a symbol takes the weight of adjacent text), foreground cutling.tintColor"
+    },
+    "imageStatus": {
+      "weight": 600,
+      "token": "KeyStyle.titleSize - 2, .semibold, white, shadow black 0.4 r2 y1 (same as the name it replaces)"
+    },
+    "imageShadow": {
+      "opacity": 0.4,
+      "radius": 2,
+      "y": 1,
+      "token": "unchanged from today's image name"
+    }
+  },
+  "colors": {
+    "light": {
+      "keyboardBackground": "#DFE1E5",
+      "keyFill": "#FDFDFD",
+      "primary": "#000000",
+      "secondary": "rgba(60,60,67,0.6)",
+      "tintSample": "#007AFF",
+      "washOpacity": 0.08,
+      "imageStatus": "#FFFFFF",
+      "imageGradientBottom": "rgba(0,0,0,0.35)",
+      "imagePlaceholder": "#8FA3BF"
+    },
+    "dark": {
+      "keyboardBackground": "#2C2C2E",
+      "keyFill": "rgba(145,145,145,0.30)",
+      "primary": "#FFFFFF",
+      "secondary": "rgba(235,235,245,0.6)",
+      "tintSample": "#0A84FF",
+      "washOpacity": 0.12,
+      "imageStatus": "#FFFFFF",
+      "imageGradientBottom": "rgba(0,0,0,0.35)",
+      "imagePlaceholder": "#3E4C63"
+    },
+    "notes": {
+      "keyboardBackground": "light sampled from fastlane/compose/creative/assets/screens/phone/chat.png at (660,2150); dark is a GUESS for the mock only, the real keyboard sits on the system's glass",
+      "keyFill": "UIColor.keyBackground: light white 1.05 alpha 0.75 (sampled #FDFDFD), dark white 145/255 alpha 0.30",
+      "wash": "cutling.tintColor at washOpacity, drawn above the key fill and below the content, clipped to the card. Image cards get no wash.",
+      "statusColour": "word in .primary so any user hex tint still reads; only the checkmark takes cutling.tintColor"
+    }
+  },
+  "copy": {
+    "textInserted": "Inserted",
+    "imageOrStyledCopied": "Copied",
+    "voiceOverInserted": "Inserted %@",
+    "voiceOverCopied": "Copied %@",
+    "notes": "Both words already exist in the string catalogue. The VoiceOver strings are new keys, %@ is the cutling's name, never its text (a cutling may be a password)."
+  },
+  "timeline": {
+    "origin": "t = 0 is the Button action (touch-up), the moment the text is inserted. The touch-down highlight and light haptic are unchanged and happen before t = 0.",
+    "hold": 1.4,
+    "elements": [
+      {
+        "id": "previewOut",
+        "what": "preview line leaves",
+        "start": 0,
+        "duration": 0.15,
+        "curve": "smooth",
+        "transition": "blurReplace(.upUp)"
+      },
+      {
+        "id": "statusIn",
+        "what": "status line arrives",
+        "start": 0.05,
+        "duration": 0.3,
+        "curve": "smooth",
+        "transition": "blurReplace(.upUp)"
+      },
+      {
+        "id": "checkDraw",
+        "what": "checkmark draws on",
+        "start": 0.05,
+        "duration": 0.4,
+        "curve": "system",
+        "transition": "symbolEffect(.drawOn.wholeSymbol), iOS 26+; symbolEffect(.appear) on iOS 18 to 25",
+        "durationNote": "system-owned; 0.40 is the mock's stand-in, measure on device"
+      },
+      {
+        "id": "iconBounce",
+        "what": "the key's own icon bounces",
+        "start": 0,
+        "duration": 0.35,
+        "curve": "system",
+        "effect": "symbolEffect(.bounce, value: serial)",
+        "durationNote": "system-owned; mock stand-in"
+      },
+      {
+        "id": "washIn",
+        "what": "tint wash fades in",
+        "start": 0,
+        "duration": 0.2,
+        "curve": "smooth"
+      },
+      {
+        "id": "statusOut",
+        "what": "status line leaves",
+        "start": 1.4,
+        "duration": 0.15,
+        "curve": "smooth",
+        "transition": "blurReplace(.upUp)"
+      },
+      {
+        "id": "previewIn",
+        "what": "preview line returns",
+        "start": 1.45,
+        "duration": 0.3,
+        "curve": "smooth",
+        "transition": "blurReplace(.upUp)"
+      },
+      {
+        "id": "washOut",
+        "what": "tint wash fades out",
+        "start": 1.4,
+        "duration": 0.5,
+        "curve": "smooth"
+      }
+    ],
+    "end": 1.9,
+    "springs": "every 'smooth' is Animation.smooth(duration:) = spring(duration:, bounce: 0); no element of the mark overshoots",
+    "stagger": "the outgoing line leaves in 0.15 s and the incoming one starts 0.05 s after the insert (or after the hold), so a two-line preview never sits under the one-line status; drawn at t = 0.08 and 1.50 in mock.png"
+  },
+  "repeat": {
+    "sameKey": "serial += 1; the status line stays (no blur-out and back); checkmark and icon each play .bounce once; hold restarts so the mark leaves at lastTap + hold",
+    "otherKey": "the first key's mark leaves at once with its own exit (statusOut, previewIn, washOut); the new key's mark enters at the same instant; only one key carries the mark",
+    "duringExit": "a tap on the same key after the hold, while the line is leaving: a fresh status line enters with the normal entry while the old one finishes its 0.15 s exit; the wash retargets from wherever it is (opacity spring keeps its velocity, WWDC23 10158)",
+    "keyboardHidden": "viewWillDisappear cancels the hold and clears the mark, so a reopened keyboard never shows a stale one"
+  },
+  "reduceMotion": {
+    "lineSwap": {
+      "transition": "opacity",
+      "curve": "easeInOut",
+      "outDuration": 0.15,
+      "inDelay": 0.05,
+      "inDuration": 0.2
+    },
+    "checkDraw": "none: the checkmark arrives with the line's opacity",
+    "iconBounce": "none",
+    "wash": "unchanged (opacity only)",
+    "hold": 1.4
+  },
+  "voiceOver": {
+    "announcement": "UIAccessibility.post(notification: .announcement) with an NSAttributedString of voiceOverInserted or voiceOverCopied and .accessibilitySpeechQueueAnnouncement = true, so it queues after any echo of the typed text; posted once per insert, after insertText returns",
+    "keyLabel": "unchanged; the key's label stays the cutling's name while the mark shows",
+    "statusLine": "accessibilityHidden(true): the announcement carries the news; the key's label while marked is its name"
+  },
+  "mock": {
+    "frames": [
+      0,
+      0.08,
+      0.15,
+      0.3,
+      0.8,
+      1.5,
+      1.6,
+      1.9
+    ],
+    "gridFrame": 0.8,
+    "scale": 2,
+    "labelSize": 11,
+    "labelGap": 18,
+    "frameGap": 14,
+    "rowGap": 22,
+    "margin": 24,
+    "blurReplaceBlur": 4,
+    "blurReplaceScale": 0.9,
+    "bounceScale": 1.18,
+    "lineHeight": 1.2,
+    "checkPath": [
+      [
+        0.12,
+        0.55
+      ],
+      [
+        0.4,
+        0.82
+      ],
+      [
+        0.9,
+        0.2
+      ]
+    ],
+    "chartWidth": 640,
+    "chartLaneHeight": 26,
+    "chartSeconds": 2,
+    "notes": "mock-only stand-ins for system transitions (blurReplace blur and scale, draw progress, bounce peak); the builder uses the system blurReplace, drawOn and bounce and does not copy these numbers",
+    "checkStroke": 0.14,
+    "todayMaterialOpacity": 0.8,
+    "todayMaterialBlur": 8,
+    "chartTick": 0.25,
+    "sheetWidth": 2100,
+    "sheetHeight": 1500,
+    "chartColour": "#007AFF",
+    "chartBandOpacity": 0.12
+  },
+  "samples": {
+    "textCard": {
+      "name": "Home Address",
+      "preview": "123 Main Street, Apt 4B, New York, NY 10001"
+    },
+    "imageCard": {
+      "name": "Boarding pass"
+    },
+    "gridNames": [
+      "Home Address",
+      "Email Signature",
+      "Work Email",
+      "Wi-Fi Password",
+      "Social Bio",
+      "Phone Number"
+    ],
+    "gridPreviews": [
+      "123 Main Street, Apt 4B…",
+      "Best regards,…",
+      "alex@example.com",
+      "c0ff33-Sh0p-2024!",
+      "Designer & developer…",
+      "+1 (555) 234-5678"
+    ],
+    "gridTints": [
+      "#007AFF",
+      "#AF52DE",
+      "#30B0C7",
+      "#FF9500",
+      "#FF2D55",
+      "#34C759"
+    ],
+    "gridMarked": 0
+  }
+}
