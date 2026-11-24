@@ -40,34 +40,17 @@ struct FormattedTextEditor {
     #endif
 
     static func rendered(_ text: String, format: TextFormat, size: CGFloat) -> NSAttributedString {
-        RichText.nsAttributed(format == .rich ? text : RichText.escape(text), size: size, editorColors: true)
+        FillInPills.rendered(text, format: format, size: size)
     }
 
     fileprivate static let codeFontSizeDelta: CGFloat = -2
 
-    /// Just enough room between lines that pills on wrapped lines almost meet but never touch (FillInPills.swift).
-    fileprivate static let lines: NSParagraphStyle = {
-        let style = NSMutableParagraphStyle()
-        style.lineSpacing = 3
-        return style
-    }()
+    fileprivate static var lines: NSParagraphStyle { FillInPills.lines }
 
-    /// What the view shows: the rendered text with its pills and line spacing. A list line keeps its hanging indent.
+    /// What the view shows: the rendered text with its pills and line spacing (FillInPills.display, which every preview
+    /// of a cutling's text draws with too).
     static func display(_ rendered: NSAttributedString, font: PillFont) -> NSAttributedString {
-        let out = NSMutableAttributedString(attributedString: FillInPills.pilled(rendered, font: font))
-        let full = NSRange(location: 0, length: out.length)
-        var styled: [(NSRange, NSParagraphStyle)] = []
-        out.enumerateAttribute(.paragraphStyle, in: full) { value, range, _ in
-            guard let style = value as? NSParagraphStyle else { return }
-            styled.append((range, style))
-        }
-        out.addAttribute(.paragraphStyle, value: lines, range: full)
-        for (range, style) in styled {
-            let merged = (style.mutableCopy() as? NSMutableParagraphStyle) ?? NSMutableParagraphStyle()
-            merged.lineSpacing = lines.lineSpacing
-            out.addAttribute(.paragraphStyle, value: merged, range: range)
-        }
-        return out
+        FillInPills.display(rendered, font: font)
     }
 }
 

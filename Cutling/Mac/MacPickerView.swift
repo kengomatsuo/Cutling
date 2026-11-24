@@ -683,7 +683,7 @@ private struct MacPickerRow: View {
             HStack(spacing: 10) {
                 leadingIcon
                 if compact {
-                    previewText(pillSize: 11)
+                    previewText(pillSize: 12)
                         .font(.system(size: 12))
                         .foregroundStyle(.primary)
                         .lineLimit(1)
@@ -694,7 +694,7 @@ private struct MacPickerRow: View {
                             .font(.system(size: 13, weight: .medium))
                             .foregroundStyle(.primary)
                             .lineLimit(1)
-                        previewText(pillSize: 10)
+                        previewText(pillSize: 11)
                             .font(.system(size: 11))
                             .foregroundStyle(.secondary)
                             .lineLimit(1)
@@ -907,9 +907,7 @@ private struct TextPreviewPopover: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             ScrollView {
-                cutling.displayText
-                    .font(.system(size: 12, design: codeLooking ? .monospaced : .default))
-                    .textSelection(.enabled)
+                TextPreviewView(text: cutling.value, format: cutling.textFormat, size: 12, maxLines: 0, selectable: true)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 2)
             }
@@ -927,17 +925,6 @@ private struct TextPreviewPopover: View {
         }
         .padding(12)
         .frame(minWidth: 280, idealWidth: 360, maxWidth: 420)
-    }
-
-    /// Heuristic to render with a monospaced font when the content looks
-    /// like source code or structured data. Keeps prose readable in the
-    /// default font and code legible in mono.
-    private var codeLooking: Bool {
-        if cutling.textFormat == .code { return true }
-        if cutling.textFormat == .rich { return false }
-        let v = cutling.value
-        return v.contains("{") || v.contains(";") || v.contains("=>") ||
-               v.range(of: #"^\s*\w+\s*=\s*"#, options: .regularExpression) != nil
     }
 }
 

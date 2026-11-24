@@ -48,6 +48,9 @@
                <Test
                   Identifier = "KeyboardMotionUITests/testTextPageOpensWithKeyboardInItsColours()">
                </Test>
+               <Test
+                  Identifier = "PreviewPillsUITests">
+               </Test>
             </SelectedTests>
          </TestableReference>
       </Testables>

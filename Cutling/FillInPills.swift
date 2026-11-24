@@ -299,3 +299,38 @@ enum FillInPills {
         return location - shift
     }
 }
+
+// MARK: - How a cutling's text is drawn
+
+extension FillInPills {
+    /// A cutling's text with its styles, at `size`, before its fill-ins become pills.
+    static func rendered(_ text: String, format: TextFormat, size: CGFloat) -> NSAttributedString {
+        RichText.nsAttributed(format == .rich ? text : RichText.escape(text), size: size, editorColors: true)
+    }
+
+    /// Just enough room between lines that pills on wrapped lines almost meet but never touch.
+    static let lines: NSParagraphStyle = {
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = 3
+        return style
+    }()
+
+    /// What the editor and every preview show: the rendered text with its pills at the text's own size and its lines
+    /// 3 pt apart. A list line keeps its hanging indent.
+    static func display(_ rendered: NSAttributedString, font: PillFont) -> NSAttributedString {
+        let out = NSMutableAttributedString(attributedString: pilled(rendered, font: font))
+        let full = NSRange(location: 0, length: out.length)
+        var styled: [(NSRange, NSParagraphStyle)] = []
+        out.enumerateAttribute(.paragraphStyle, in: full) { value, range, _ in
+            guard let style = value as? NSParagraphStyle else { return }
+            styled.append((range, style))
+        }
+        out.addAttribute(.paragraphStyle, value: lines, range: full)
+        for (range, style) in styled {
+            let merged = (style.mutableCopy() as? NSMutableParagraphStyle) ?? NSMutableParagraphStyle()
+            merged.lineSpacing = lines.lineSpacing
+            out.addAttribute(.paragraphStyle, value: merged, range: range)
+        }
+        return out
+    }
+}

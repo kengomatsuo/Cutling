@@ -813,10 +813,7 @@ struct MainContentView: View {
                             .font(.body.weight(.medium))
                             .lineLimit(1)
                         if item.kind == .text {
-                            item.displayText
-                                .font(.subheadline)
-                                .foregroundStyle(.secondary)
-                                .lineLimit(1)
+                            TextPreviewView(text: item.value, format: item.textFormat, style: .subheadline, secondary: true, maxLines: 1)
                         }
                     }
 

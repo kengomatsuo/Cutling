@@ -273,14 +273,6 @@ struct CardView: View {
     /// for clarity at each context-menu action).
     private func markContextMenuDiscovered() {}
 
-    /// The preview's pills, a little smaller than its subheadline text so a pill fits the line beside it.
-    private static var subheadlineSize: CGFloat {
-        #if os(iOS)
-        UIFont.preferredFont(forTextStyle: .subheadline).pointSize - 2
-        #else
-        NSFont.preferredFont(forTextStyle: .subheadline).pointSize - 2
-        #endif
-    }
 
     private func handleTap() {
         // During the walkthrough, tap-to-copy is off; only the ⋯ button is live.
@@ -311,11 +303,7 @@ struct CardView: View {
             Text(item.name)
                 .font(.headline)
                 .lineLimit(1)
-            item.displayText(pillSize: Self.subheadlineSize)
-                .font(.subheadline)
-                .foregroundStyle(.secondary)
-                .lineLimit(3)
-                .truncationMode(.tail)
+            TextPreviewView(text: item.value, format: item.textFormat, style: .subheadline, secondary: true, maxLines: 3)
             if let expiresAt = item.expiresAt, expiresAt > Date() {
                 Spacer(minLength: 0)
                 Label {
@@ -408,9 +396,7 @@ struct CardView: View {
                     Spacer()
                 }
 
-                item.displayText
-                    .font(.body)
-                    .lineLimit(18)
+                TextPreviewView(text: item.value, format: item.textFormat, style: .body, maxLines: 18)
             }
             .padding()
             .frame(
