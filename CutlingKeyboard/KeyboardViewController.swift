@@ -64,8 +64,6 @@ final class KeyboardState: ObservableObject {
     @Published var wordBeforeCursor: String = ""
     /// A cutling with fill-ins waiting at a blank.
     @Published var fill: FillSession?
-    /// The space bar is held: the keyboard is a trackpad for the cursor.
-    @Published var trackpad = false
     /// The cutling whose text was just typed, for the Inserted mark on its key.
     @Published var applied: UUID?
 }
@@ -179,13 +177,12 @@ extension View {
     }
 }
 
-/// The space bar, as on Apple's keyboard: a tap types a space, and a hold turns the keyboard into a trackpad for the
-/// cursor (the keys empty, sliding moves the cursor a character per 9 pt across and a line per 24 pt up or down,
-/// lifting ends it). Lights on touch-down like every key (InstantPress); during a fill-in it only types a space.
+/// The space bar: a tap types a space, and a hold turns the space key alone into a trackpad for the cursor (it stays
+/// lit while held; sliding moves the cursor a character per 9 pt across and a line per 24 pt up or down, lifting ends
+/// it), the rest of the keyboard left as it is. Lights on touch-down like every key; during a fill-in it only types.
 struct SpaceTrackpad: ViewModifier {
     let enabled: Bool
     let onSpace: () -> Void
-    let onActive: (Bool) -> Void
     let onMove: (_ characters: Int, _ lines: Int) -> Void
 
     @Environment(\.colorScheme) private var colorScheme
@@ -217,7 +214,6 @@ struct SpaceTrackpad: ViewModifier {
             isActive = true
             used = offset
             Self.start.impactOccurred()
-            onActive(true)
         }
     }
 
@@ -240,7 +236,6 @@ struct SpaceTrackpad: ViewModifier {
         hold = nil
         if isActive {
             isActive = false
-            onActive(false)
         } else if typesSpace, isPressed {
             onSpace()
         }
@@ -250,7 +245,7 @@ struct SpaceTrackpad: ViewModifier {
     func body(content: Content) -> some View {
         content
             .background(Color.keyHitTest)
-            .overlay(isPressed && !isActive ? RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous).fill(highlight) : nil)
+            .overlay(isPressed || isActive ? RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous).fill(highlight) : nil)
             .overlay(
                 KeyTouchSurface(
                     onDown: { down() },
@@ -1176,7 +1171,6 @@ struct KeyboardView: View {
                     suggestionBar
                 }
             }
-                .opacity(state.trackpad ? 0 : 1)
                 .padding(.horizontal, KeyStyle.horizontalPadding)
                 .frame(height: keyHeight + keySpacing)
                 .padding(.top, keySpacing)
@@ -1190,7 +1184,6 @@ struct KeyboardView: View {
                     cutlingGrid
                 }
             }
-            .opacity(state.trackpad ? 0 : 1)
             .frame(height: gridHeight)
 
             bottomRow
@@ -1198,7 +1191,6 @@ struct KeyboardView: View {
                 .frame(height: keyHeight)
         }
         .accessibilityIdentifier("CutlingKeyboardView")
-        .animation(.easeOut(duration: 0.15), value: state.trackpad)
         .padding(.bottom, 2)
         .tint(Color(hex: 0x00be86))
         .background(Color.clear)
@@ -1418,7 +1410,6 @@ struct KeyboardView: View {
                 .background(KeyStyle.keyColor, in: RoundedRectangle(cornerRadius: KeyStyle.cornerRadius, style: .continuous))
                 .modifier(SpaceTrackpad(enabled: state.fill?.field == nil,
                                         onSpace: { onInsertText(" ") },
-                                        onActive: { state.trackpad = $0 },
                                         onMove: onMoveCursor))
                 // An empty Text is no accessibility element: VoiceOver reads the key as Apple's does.
                 .accessibilityElement(children: .ignore)
