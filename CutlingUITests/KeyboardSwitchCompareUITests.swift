@@ -70,9 +70,10 @@ final class KeyboardSwitchCompareUITests: XCTestCase {
     func testAInsertedMarkAndTrackpad() throws {
         let app = launch()
         let field = openKeyboardTestField(in: app)
-        switchToCutlingKeyboard(in: app, showing: "Order")
-        XCTAssertTrue(cutlingKeyboardIsUp(in: app, showing: "Order"), "Cutling did not come up")
-        guard let order = cutlingKeyFrame("Order", in: app) else { return XCTFail("No Order key") }
+        switchToCutlingKeyboard(in: app, showing: "Stamp")
+        XCTAssertTrue(cutlingKeyboardIsUp(in: app, showing: "Stamp"), "Cutling did not come up")
+        // Stamp has no blanks, so a tap types it at once (Order and Reply open the fill-in screen first).
+        guard let order = cutlingKeyFrame("Stamp", in: app) else { return XCTFail("No Stamp key") }
         screenPoint(order.midX, order.midY, in: app).tap()
         let inserted = app.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS 'Inserted'")).firstMatch
         XCTAssertTrue(inserted.waitForExistence(timeout: 1), "No Inserted mark after typing a cutling")

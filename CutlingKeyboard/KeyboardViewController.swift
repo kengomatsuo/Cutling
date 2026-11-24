@@ -1420,6 +1420,10 @@ struct KeyboardView: View {
                                         onSpace: { onInsertText(" ") },
                                         onActive: { state.trackpad = $0 },
                                         onMove: onMoveCursor))
+                // An empty Text is no accessibility element: VoiceOver reads the key as Apple's does.
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel(Text("Space", bundle: snapshotBundle))
+                .accessibilityAddTraits(.isButton)
                 .accessibilityIdentifier("spaceKey")
 
             // Return — icon + action tint
