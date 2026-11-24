@@ -25,16 +25,50 @@ typealias PillColor = NSColor
 typealias PillImage = NSImage
 #endif
 
+/// The styles of the text a pill sits in, drawn on the pill so a variable shows the formatting it will type with.
+struct PillLook: Equatable {
+    var font: PillFont
+    var underline = false
+    var strikethrough = false
+    var highlight = false
+
+    init(font: PillFont, underline: Bool = false, strikethrough: Bool = false, highlight: Bool = false) {
+        self.font = font
+        self.underline = underline
+        self.strikethrough = strikethrough
+        self.highlight = highlight
+    }
+
+    /// The look of the text run `attributes` describe; `fallback` when it has no font.
+    init(_ attributes: [NSAttributedString.Key: Any], fallback: PillFont) {
+        font = attributes[.font] as? PillFont ?? fallback
+        underline = (attributes[.underlineStyle] as? Int ?? 0) != 0
+        strikethrough = (attributes[.strikethroughStyle] as? Int ?? 0) != 0
+        #if os(iOS)
+        highlight = attributes[.textHighlightStyle] != nil
+        #else
+        highlight = attributes[.backgroundColor] != nil
+        #endif
+    }
+}
+
 /// One pill in the editor; `token` is the text it stands for.
 final class FillInAttachment: NSTextAttachment {
     let token: String
+    let look: PillLook
 
-    init(token: String, font: PillFont) {
+    convenience init(token: String, font: PillFont) {
+        self.init(token: token, look: PillLook(font: font))
+    }
+
+    init(token: String, look: PillLook) {
         self.token = token
+        self.look = look
         super.init(data: nil, ofType: nil)
+        let font = look.font
         let title = FillInPills.title(of: token)
         // A date or time pill shows what it will type, so a change in its editor shows in the text; VoiceOver hears its name.
-        let (image, size) = FillInPills.image(FillInPills.stampValue(of: token) ?? title, font: font)
+        let (image, size) = FillInPills.image(FillInPills.stampValue(of: token) ?? title, look: look)
         self.image = image
         bounds = CGRect(x: 0, y: font.descender - 1, width: size.width, height: size.height)
         #if os(iOS)
@@ -88,12 +122,22 @@ enum FillInPills {
     }
 
     static func image(_ title: String, font: PillFont) -> (PillImage, CGSize) {
+        image(title, look: PillLook(font: font))
+    }
+
+    /// The pill for `title` in the text's own font, underlined, struck through or highlighted as the text around it is.
+    static func image(_ title: String, look: PillLook) -> (PillImage, CGSize) {
+        let font = look.font
         #if os(iOS)
         let dark = UITraitCollection.current.userInterfaceStyle == .dark
         #else
         let dark = NSApp?.effectiveAppearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
         #endif
-        let attributes: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: ink(dark: dark)]
+        var attributes: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: ink(dark: dark)]
+        if look.underline { attributes[.underlineStyle] = NSUnderlineStyle.single.rawValue }
+        if look.strikethrough { attributes[.strikethroughStyle] = NSUnderlineStyle.single.rawValue }
+        // Highlighted text in the editor is purple (Notes' default highlight); a highlighted pill takes the same tint.
+        let tint = look.highlight ? PillColor.systemPurple : green
         let textSize = (title as NSString).size(withAttributes: attributes)
         // No margin: a pill sits right against the words beside it; line spacing keeps wrapped lines apart.
         let margin: CGFloat = 0
@@ -104,13 +148,13 @@ enum FillInPills {
         let textOrigin = CGPoint(x: margin + 6, y: (size.height - textSize.height) / 2)
         #if os(iOS)
         let image = UIGraphicsImageRenderer(size: size).image { _ in
-            green.withAlphaComponent(dark ? 0.22 : 0.15).setFill()
+            tint.withAlphaComponent(dark ? 0.22 : 0.15).setFill()
             UIBezierPath(roundedRect: rect, cornerRadius: 6).fill()
             (title as NSString).draw(at: textOrigin, withAttributes: attributes)
         }
         #else
         let image = NSImage(size: size, flipped: true) { _ in
-            green.withAlphaComponent(dark ? 0.22 : 0.15).setFill()
+            tint.withAlphaComponent(dark ? 0.22 : 0.15).setFill()
             NSBezierPath(roundedRect: rect, xRadius: 6, yRadius: 6).fill()
             (title as NSString).draw(at: textOrigin, withAttributes: attributes)
             return true
@@ -127,11 +171,29 @@ enum FillInPills {
         for match in matches.reversed() {
             let token = (text.string as NSString).substring(with: match.range)
             var attributes = text.attributes(at: match.range.location, effectiveRange: nil)
-            let localFont = attributes[.font] as? PillFont ?? font
-            attributes[.attachment] = FillInAttachment(token: token, font: localFont)
+            attributes[.attachment] = FillInAttachment(token: token, look: PillLook(attributes, fallback: font))
             out.replaceCharacters(in: match.range, with: NSAttributedString(string: "\u{FFFC}", attributes: attributes))
         }
         return out
+    }
+
+    /// Redraws every pill whose text has been styled since it was drawn (bold from the bar, a shortcut, the edit menu or
+    /// the Format panel), so the pill shows the style it will type with. Returns whether any pill changed.
+    @discardableResult
+    static func restyle(_ storage: NSMutableAttributedString, fallback font: PillFont) -> Bool {
+        var stale: [(NSRange, FillInAttachment)] = []
+        storage.enumerateAttribute(.attachment, in: NSRange(location: 0, length: storage.length)) { value, range, _ in
+            guard let pill = value as? FillInAttachment else { return }
+            let look = PillLook(storage.attributes(at: range.location, effectiveRange: nil), fallback: font)
+            if look != pill.look {
+                stale.append((range, FillInAttachment(token: pill.token, look: look)))
+            }
+        }
+        guard !stale.isEmpty else { return false }
+        storage.beginEditing()
+        for (range, pill) in stale { storage.addAttribute(.attachment, value: pill, range: range) }
+        storage.endEditing()
+        return true
     }
 
     /// `text` with every pill turned back into its token, to be read as Markdown or plain text.

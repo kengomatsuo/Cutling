@@ -248,8 +248,30 @@ extension FormattedTextEditor: UIViewRepresentable {
             view.alwaysBounceVertical = true
             view.keyboardDismissMode = .interactive
         }
-        if autofocus { DispatchQueue.main.async { view.becomeFirstResponder() } }
+        if autofocus { Self.focusOnceSettled(view) }
         return view
+    }
+
+    /// Takes the keyboard once the page has finished arriving, as a note in Notes does: the keyboard then rises from the
+    /// bottom in its own colours. Focused during the push, the keyboard and the bar above it rode in sideways as a
+    /// darkened stand-in and turned light in one frame when the push ended (owner's recording, build 9).
+    private static func focusOnceSettled(_ view: UITextView, tries: Int = 30) {
+        DispatchQueue.main.async {
+            guard view.window != nil else {
+                if tries > 0 { focusOnceSettled(view, tries: tries - 1) }
+                return
+            }
+            var responder: UIResponder? = view
+            while let next = responder, !(next is UIViewController) { responder = next.next }
+            let controller = responder as? UIViewController
+            if let transition = controller?.transitionCoordinator ?? controller?.navigationController?.transitionCoordinator {
+                transition.animate(alongsideTransition: nil) { context in
+                    if !context.isCancelled, view.window != nil { view.becomeFirstResponder() }
+                }
+            } else {
+                view.becomeFirstResponder()
+            }
+        }
     }
 
     func updateUIView(_ view: UITextView, context: Context) {
@@ -765,6 +787,8 @@ extension FormattedTextEditor: UIViewRepresentable {
             }
             // Leave composing (marked) text alone, or CJK input breaks.
             guard view.markedTextRange == nil else { return }
+            // A pill styled by any route (bar, Format panel, edit menu, shortcut) is drawn again in its new style.
+            FillInPills.restyle(view.textStorage, fallback: UIFont.systemFont(ofSize: bodySize))
             // Pills (FillInPills.swift) are read back as their tokens.
             let source = FillInPills.expanded(view.attributedText)
             let markdown = RichText.markdown(from: source, trimTrailingNewlines: false)
@@ -873,6 +897,8 @@ extension FormattedTextEditor: NSViewRepresentable {
                 return
             }
             guard !view.hasMarkedText(), let storage = view.textStorage else { return }
+            // A pill styled by any route (Format menu, shortcut, font panel) is drawn again in its new style.
+            FillInPills.restyle(storage, fallback: NSFont.systemFont(ofSize: bodySize))
             // Pills (FillInPills.swift) are read back as their tokens.
             let source = FillInPills.expanded(storage)
             let markdown = RichText.markdown(from: source, trimTrailingNewlines: false)
