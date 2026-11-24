@@ -296,7 +296,7 @@ struct RecentlyDeletedView: View {
             Text(cutling.name)
                 .font(.headline)
                 .lineLimit(1)
-            TextPreviewView(text: cutling.value, format: cutling.textFormat, style: .subheadline, secondary: true, maxLines: 3)
+            TextPreviewView(text: cutling.value, format: cutling.textFormat, style: .subheadline, secondary: true, maxLines: 3, hidesCursor: true)
         }
         .padding()
     }
@@ -360,7 +360,7 @@ struct RecentlyDeletedView: View {
                     Spacer()
                 }
 
-                TextPreviewView(text: cutling.value, format: cutling.textFormat, style: .body, maxLines: 18)
+                TextPreviewView(text: cutling.value, format: cutling.textFormat, style: .body, maxLines: 18, hidesCursor: true)
                     .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding()

@@ -32,12 +32,26 @@ struct TextPreviewView {
     var maxLines = 8
     /// The Mac picker's popover lets its text be selected and copied.
     var selectable = false
+    /// Cards and rows show where the caret will land as nothing, as they always have; the editor's form shows its pill.
+    var hidesCursor = false
 
     private var pointSize: CGFloat { size ?? PillFont.preferredFont(forTextStyle: style).pointSize }
 
+    /// The start of the text a preview draws, without the cursor spot where the preview hides it.
+    private var source: String {
+        let head = Cutling.previewSource(text)
+        guard hidesCursor, format != .code else { return head }
+        return FillInPills.split(head).map { piece in
+            switch piece {
+            case .text(let run): run
+            case .token(let token):
+                token.dropFirst(2).dropLast().trimmingCharacters(in: .whitespaces).lowercased() == "cursor" ? "" : token
+            }
+        }.joined()
+    }
+
     /// The text as drawn: pills at the text's size, lines 3 pt apart, in the preview's ink. Code is monospaced, as typed.
     private func drawn() -> NSAttributedString {
-        let source = Cutling.previewSource(text)
         #if os(iOS)
         let ink: PillColor = secondary ? .secondaryLabel : .label
         let primary: PillColor = .label
@@ -63,7 +77,6 @@ struct TextPreviewView {
 
     /// Spoken with each pill read as its name or today's value, as the cards read them.
     private var spoken: String {
-        let source = Cutling.previewSource(text)
         guard format != .code else { return source }
         return FillInPills.split(format == .rich ? RichText.plainText(source) : source).map { piece in
             switch piece {
@@ -81,7 +94,7 @@ struct TextPreviewView {
     func makeCoordinator() -> Coordinator { Coordinator() }
 
     private func key(dark: Bool) -> String {
-        "\(text)|\(format)|\(pointSize)|\(secondary)|\(maxLines)|\(dark)"
+        "\(text)|\(format)|\(pointSize)|\(secondary)|\(maxLines)|\(hidesCursor)|\(dark)"
     }
 }
 

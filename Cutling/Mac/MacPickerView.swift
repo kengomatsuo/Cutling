@@ -907,7 +907,7 @@ private struct TextPreviewPopover: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             ScrollView {
-                TextPreviewView(text: cutling.value, format: cutling.textFormat, size: 12, maxLines: 0, selectable: true)
+                TextPreviewView(text: cutling.value, format: cutling.textFormat, size: 12, maxLines: 0, selectable: true, hidesCursor: true)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.horizontal, 2)
             }

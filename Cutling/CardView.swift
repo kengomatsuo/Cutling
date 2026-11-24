@@ -303,7 +303,7 @@ struct CardView: View {
             Text(item.name)
                 .font(.headline)
                 .lineLimit(1)
-            TextPreviewView(text: item.value, format: item.textFormat, style: .subheadline, secondary: true, maxLines: 3)
+            TextPreviewView(text: item.value, format: item.textFormat, style: .subheadline, secondary: true, maxLines: 3, hidesCursor: true)
             if let expiresAt = item.expiresAt, expiresAt > Date() {
                 Spacer(minLength: 0)
                 Label {
@@ -396,7 +396,7 @@ struct CardView: View {
                     Spacer()
                 }
 
-                TextPreviewView(text: item.value, format: item.textFormat, style: .body, maxLines: 18)
+                TextPreviewView(text: item.value, format: item.textFormat, style: .body, maxLines: 18, hidesCursor: true)
             }
             .padding()
             .frame(
