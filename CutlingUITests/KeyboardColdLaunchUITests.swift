@@ -86,7 +86,11 @@ final class KeyboardColdLaunchUITests: XCTestCase {
         _ = openKeyboardTestField(in: app)
         sleep(2)
         mark("english_up")
-        switchToCutlingKeyboard(in: app, showing: "Reply")
+        // MENU_HOLD (TEST_RUNNER_MENU_HOLD) rests on the menu as long as a person reading it does. iOS starts the
+        // keyboard's process when the globe is held; on the simulator its start runs seconds longer than on a phone
+        // (UI testing loads an accessibility bundle per framework), so a short hold measures that, not Cutling.
+        let hold = Double(ProcessInfo.processInfo.environment["MENU_HOLD"] ?? "") ?? 0.4
+        switchToCutlingKeyboard(in: app, showing: "Reply", hold: hold)
         mark("switched")
         sleep(3)
         mark("settled")

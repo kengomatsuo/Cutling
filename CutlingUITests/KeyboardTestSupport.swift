@@ -182,9 +182,10 @@ extension XCTestCase {
         return false
     }
 
-    /// Switches the focused field to the Cutling keyboard through the globe key.
+    /// Switches the focused field to the Cutling keyboard through the globe key; `hold` is how long the finger rests on
+    /// a row of the globe menu before letting go.
     @MainActor
-    func switchToCutlingKeyboard(in app: XCUIApplication, showing name: String? = nil) {
+    func switchToCutlingKeyboard(in app: XCUIApplication, showing name: String? = nil, hold: TimeInterval = 0.4) {
         // A tap on iOS 27's globe goes back to the keyboard used last, never on down the list, so taps alone reach
         // Cutling only when it was one of the last two keyboards used.
         XCTAssertTrue(cutlingKeyboardIsUp(in: app, showing: name) || keyboardGlobe(in: app).waitForExistence(timeout: 10),
@@ -199,7 +200,7 @@ extension XCTestCase {
             guard globe.waitForExistence(timeout: 5) else { break }
             let start = globe.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
             start.press(forDuration: 1.0, thenDragTo: start.withOffset(CGVector(dx: 70, dy: -44 * CGFloat(row))),
-                        withVelocity: .slow, thenHoldForDuration: 0.4)
+                        withVelocity: .slow, thenHoldForDuration: hold)
             sleep(2)
         }
         // Each tap moves to the next keyboard; wait for each switch to land.
