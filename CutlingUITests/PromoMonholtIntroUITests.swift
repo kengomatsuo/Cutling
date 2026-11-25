@@ -16,6 +16,10 @@ import XCTest
 final class PromoMonholtIntroUITests: XCTestCase {
 
     private let messages = XCUIApplication(bundleIdentifier: "com.apple.MobileSMS")
+    /// The day the intro posts: the seed's "Order update" names the next day ({day +1d}), so the reply typed by hand
+    /// in the first take and the one Cutling fills in the second both say Wednesday.
+    private static let postDay = "2026-12-01"
+    private static let reply = "Hi Maya, your order ships Wednesday."
     /// 60 words a minute, five characters a word: a quick typist on a phone.
     private let slot = 60.0 / (60.0 * 5)
 
@@ -29,7 +33,7 @@ final class PromoMonholtIntroUITests: XCTestCase {
     private func openNewMessage() {
         let app = XCUIApplication()
         app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-PROMO_RELEASE", "-hasSeenInteractiveTutorial", "YES",
-                                "-hasCompletedSetup", "YES", "-PROMO_NO_RECENT"]
+                                "-hasCompletedSetup", "YES", "-PROMO_NO_RECENT", "-PROMO_TODAY", Self.postDay]
         XCUIDevice.shared.appearance = .light
         app.launch()
         XCTAssertTrue(app.descendants(matching: .any)["cutlingCard"].firstMatch.waitForExistence(timeout: 30), "No cards")
@@ -77,7 +81,7 @@ final class PromoMonholtIntroUITests: XCTestCase {
         cutlingLastUsed(showing: "Order update")
         sleep(1)
         mark("type start")
-        pressKeys("Hi Maya, your order ships Thursday.", in: messages, slot: slot, mark: mark)
+        pressKeys(Self.reply, in: messages, slot: slot, mark: mark)
         mark("type end")
         sleep(2)
         let typed = (messageField.value as? String) ?? ""
@@ -118,7 +122,7 @@ final class PromoMonholtIntroUITests: XCTestCase {
         sleep(4)
         let typed = (messageField.value as? String) ?? ""
         print("TYPED: \(typed)")
-        XCTAssertEqual(typed.components(separatedBy: "Maya").count - 1, 1, "The name is not in the reply once: \(typed)")
+        XCTAssertEqual(typed, Self.reply, "The filled reply is not the line the first take typed by hand")
         mark("end")
         messages.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: 90))
         sleep(1)
