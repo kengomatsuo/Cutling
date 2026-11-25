@@ -111,6 +111,10 @@ struct MainContentView: View {
     @State private var hostWindow = HostWindow()
     /// The grid's width, so a card's long-press preview never runs wider than the window it opens in.
     @State private var gridWidth: CGFloat = 0
+    /// The window's width class, which keys the toolbar's items: an iPhone Duo unfolding moves the bar's items from the
+    /// outer screen's side bar to the inner one's, and items that are zoom transition sources came back as an empty capsule
+    /// until the app relaunched (iOS 27.2). Items rebuilt for the new width class keep their buttons and their zoom.
+    @Environment(\.horizontalSizeClass) private var toolbarWidthClass
     #endif
     @State private var hasScrolledToNew = false
 
@@ -623,6 +627,7 @@ struct MainContentView: View {
                 if #available(iOS 26, *) {
                     ToolbarItem(placement: .primaryAction) {
                         addMenu
+                            .id(toolbarWidthClass)
                     }
                     .matchedTransitionSource(id: addButtonZoomID, in: zoomNamespace)
                 } else {
@@ -643,6 +648,7 @@ struct MainContentView: View {
                         }
                         .accessibilityIdentifier("keyboardToolbarButton")
                         .disabled(!tutorial.allowsUnrelatedControls)
+                        .id(toolbarWidthClass)
                     }
                     .matchedTransitionSource(id: keyboardButtonZoomID, in: zoomNamespace)
                 } else {
@@ -669,12 +675,18 @@ struct MainContentView: View {
                 #endif
             }
             ToolbarItemGroup(placement: .primaryAction) {
+                #if os(iOS)
                 primaryToolbarContent
+                    .id(toolbarWidthClass)
+                #else
+                primaryToolbarContent
+                #endif
             }
             
             #if os(iOS)
             ToolbarItemGroup(placement: .bottomBar) {
                 bottomToolbarContent
+                    .id(toolbarWidthClass)
             }
             #endif
             #if os(macOS)

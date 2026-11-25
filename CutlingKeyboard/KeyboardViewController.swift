@@ -447,11 +447,16 @@ class KeyboardViewController: UIInputViewController {
     /// read from the device and the screen.
     private var currentHeight: CGFloat {
         let traits = view.traitCollection
+        let idiom = traits.userInterfaceIdiom == .unspecified ? UIDevice.current.userInterfaceIdiom : traits.userInterfaceIdiom
         let regular: Bool = traits.horizontalSizeClass == .unspecified
-            ? UIDevice.current.userInterfaceIdiom == .pad
+            ? idiom == .pad
             : traits.horizontalSizeClass == .regular
+        // The screen the keyboard is on: on an iPhone Duo UIScreen.main stays on the cover screen while the keyboard
+        // can be on the inner one (Divvun's keyboard, github.com/divvun/giellakbd-ios PR #290, Apache-2.0). Before the
+        // view is in a window there is no other screen to read.
+        let screen = (view.window?.windowScene?.screen ?? UIScreen.main).bounds.size
         let landscape: Bool = traits.verticalSizeClass == .unspecified
-            ? UIScreen.main.bounds.width > UIScreen.main.bounds.height
+            ? screen.width > screen.height
             : traits.verticalSizeClass == .compact
         return KeyStyle.keyboardHeight(for: regular ? .regular : .compact, isLandscape: landscape)
     }
