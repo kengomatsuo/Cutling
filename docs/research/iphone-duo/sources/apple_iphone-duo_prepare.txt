@@ -1,0 +1,8 @@
+Source: https://developer.apple.com/iphone-duo/prepare/ "Three steps to make your app shine on iPhone Duo", fetched 2026-11-25 with Claude in Chrome get_page_text. Key lines (verbatim):
+- "Apps built with the iOS 26 SDK or earlier run on iPhone Duo, but won't adapt to all layouts. When the device is open, your app will appear in the center of the display, with empty space surrounding the window."
+- "Apps built with the iOS 27 SDK resize to fill most of the inner display ..., but still avoid the status bar on the right edge."
+- "Apps built with the iOS 27.1 SDK or later ... will extend to use the full display, with toolbars and tab bars appearing vertically below the status bar."
+- "Search your project for UIScreen.main and replace each use" ... "Re-read the size whenever it changes ... Do size-dependent layout in layoutSubviews or viewDidLayoutSubviews, and use viewWillTransition(to:with:)" ... "Don't store a UIScreen. ... access it dynamically with view.window?.windowScene?.screen."
+- "Avoid using orientation to make layout decisions: UIDevice.current.orientation, statusBarOrientation, interfaceOrientation"
+- "Don't choose a layout by idiom ... Don't treat 'regular width' as 'iPad.'"
+- Testing: "The iPhone Duo simulator is the best way to test the full native experience."

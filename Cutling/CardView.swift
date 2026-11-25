@@ -89,9 +89,65 @@ struct CardGrid: DynamicProperty {
     }
 }
 
+#if os(iOS)
+/// The window a SwiftUI view sits in, kept by a UIKit view placed behind it, so a sheet UIKit presents opens in that view's
+/// own window. The app's first connected scene is not it once a screen holds two windows or the app moves between screens
+/// (iPad, iPhone Duo).
+@MainActor final class HostWindow {
+    weak var window: UIWindow?
+
+    /// The share sheet over whatever this window shows now, anchored at its centre for iPad's popover.
+    func presentShareSheet(items: [Any]) {
+        guard var top = window?.rootViewController else { return }
+        while let presented = top.presentedViewController { top = presented }
+        let sheet = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        sheet.popoverPresentationController?.sourceView = top.view
+        sheet.popoverPresentationController?.sourceRect = CGRect(x: top.view.bounds.midX, y: top.view.bounds.midY, width: 0, height: 0)
+        top.present(sheet, animated: true)
+    }
+}
+
+/// Puts the window of the view it sits behind into a `HostWindow`.
+struct HostWindowReader: UIViewRepresentable {
+    let host: HostWindow
+
+    func makeUIView(context: Context) -> ReaderView { ReaderView(host: host) }
+    func updateUIView(_ uiView: ReaderView, context: Context) {}
+
+    final class ReaderView: UIView {
+        let host: HostWindow
+
+        init(host: HostWindow) {
+            self.host = host
+            super.init(frame: .zero)
+            isUserInteractionEnabled = false
+        }
+
+        required init?(coder: NSCoder) { fatalError("init(coder:) is not used") }
+
+        override func didMoveToWindow() {
+            super.didMoveToWindow()
+            if let window { host.window = window }
+        }
+    }
+}
+
+extension EnvironmentValues {
+    /// The grid's window, for the sheets a card presents.
+    @Entry var hostWindow: HostWindow? = nil
+    /// The widest a card's long-press preview may be: 350 pt, or 40 pt less than the grid where the grid is narrower
+    /// (a small iPhone, Slide Over), set by the grid from its own width so it follows the window as it resizes.
+    @Entry var cardPreviewWidth: CGFloat = 350
+}
+#endif
+
 struct CardView: View {
     @EnvironmentObject var store: CutlingStore
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    #if os(iOS)
+    @Environment(\.hostWindow) private var hostWindow
+    @Environment(\.cardPreviewWidth) private var previewWidth
+    #endif
 
     let item: Cutling
     let isSelecting: Bool
@@ -429,7 +485,7 @@ struct CardView: View {
             }
             .padding()
             .frame(
-                width: min(UIScreen.main.bounds.width - 40, 350),
+                width: previewWidth,
                 alignment: .leading
             )
             .fixedSize(horizontal: false, vertical: true)
@@ -456,7 +512,7 @@ struct CardView: View {
                         .frame(minHeight: 100, maxHeight: 500)
                 }
             }
-            .frame(width: min(UIScreen.main.bounds.width - 40, 350))
+            .frame(width: previewWidth)
             .background(.background)
         }
     }
@@ -591,20 +647,7 @@ struct CardView: View {
 
     private func presentShareSheet(items: [Any]) {
         #if os(iOS)
-        let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let window = windowScene.windows.first,
-              var topController = window.rootViewController else { return }
-        while let presented = topController.presentedViewController {
-            topController = presented
-        }
-        activityVC.popoverPresentationController?.sourceView = topController.view
-        activityVC.popoverPresentationController?.sourceRect = CGRect(
-            x: topController.view.bounds.midX,
-            y: topController.view.bounds.midY,
-            width: 0, height: 0
-        )
-        topController.present(activityVC, animated: true)
+        hostWindow?.presentShareSheet(items: items)
         #endif
         #if os(macOS)
         let picker = NSSharingServicePicker(items: items)

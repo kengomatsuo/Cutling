@@ -1,0 +1,10 @@
+Source: https://developer.apple.com/forums/thread/849736  "iPhone Duo - globe button appeared in RC 1 - intended change or bug?", fetched 2026-11-25 with Claude in Chrome get_page_text. Created Oct 2026 (6 Oct), 3 replies.
+
+Answer by DTS Engineer, Ziqiao Chen, Worldwide Developer Relations (verbatim):
+Thanks for bringing up this important topic.
+For a system keyboard, the global button should always be there (either with a button shape or not). That provides a way for users to switch to other input mode.
+For a custom keyboard extension, developers should check needsInputModeSwitchKey, and use the value to decide if it should display the global button (that links to advanceToNextInputMode).
+For iPhones that have Face ID, needsInputModeSwitchKey returns false, meaning the system will take care the global button, and so a custom keyboard doesn't need to show it.
+For iPhone Duo, and other iPhones that don't have Face ID, needsInputModeSwitchKey returns true, meaning that the system will NOT take care the global button, and so a custom keyboard needs to show the button for itself.
+Important: Failing to do so will lead to an App Review rejection, because users will have no way to switch to other input mode once getting to the keyboard.
+Best, Ziqiao Chen

@@ -1,0 +1,39 @@
+Source: https://developer.apple.com/forums/thread/850917  "iPhone Duo - Current SDK State", fetched 2026-11-25 with Claude in Chrome get_page_text (after Apple's automatic browser check passed by itself). Replies 3 to 7 text for Apple's second reply read by screenshot. Thread created 2026-10-13, last reply 2026-10-15. Eight posts, 7 replies.
+
+--- OP maxik, 2026-10-13
+We are just 9 days before the iPhone Duo release, and the SDK is still in a pretty bad state, at least for the Keyboard Extension:
+- Hinge detection doesn't work
+- Reserved area detection doesn't work
+- needsInputModeSwitchKey returns false even though iOS doesn't display its own globe button
+- Switching between closed and fully open state loses text field focus and the keyboard disappears (regression bug - it worked in Beta 1)
+
+--- DTS Engineer "Albert WWDR", Apple, Oct 2026 (answer 1, verbatim)
+Thanks for the post, I do not see any questions besides the comments about what is not working and I would like to go over the details for each and find out the issues you are encountering and how to reproduce those.
+Instead of looking for a specific "hinge" API, the system reports the physical hinge and reserved areas, like rounded corners or a camera housing, through safeAreas. If your keyboard spans both screens, the hinge acts as an "unsafe" area in the middle of your view. You can always change that.
+If needsInputModeSwitchKey was returning false or behaving unpredictably, it's often because the view hierarchy hasn't fully resolved, or the keyboard wasn't configured as a primary language keyboard. To ensure the renders properly and hands off control to iOS, you should check this property in viewDidLoad
+The regression where the text field loses focus and the keyboard dismisses usually happens if the extension crashes, takes too long to layout, or manually resigns first responder during a bounds change. The key to keeping the keyboard alive rather than tearing down and rebuilding your views.
+I would be very interested to see a focused sample showing how you handle each item and see how you hit those issues you have described.
+Do you get the same results with just the relevant code in a small test project? If so, please share a link to your test project. That'll help us better understand what's going on. If you're not familiar with preparing a test project, take a look at Creating a test project.
+Looking forward to your focused sample.
+Albert WWDR
+
+--- OP maxik
+> If your keyboard spans both screens, the hinge acts as an "unsafe" area ...
+As I mentioned, reserved area doesn't work either. So you can't detect it and you can't adjust to it.
+> If needsInputModeSwitchKey was returning false ... it's often because the view hierarchy hasn't fully resolved
+No, it's a bug, already confirmed: https://developer.apple.com/forums/thread/849736
+> The regression where the text field loses focus ...
+It's a bug, it happens also when using the native keyboard + Safari app.
+> I would be very interested to see a focused sample ...
+Everything has already been reported (besides the focus issue) with sample projects: FB25073949 FB24883137 FB24979367 FB24785360
+
+--- DTS Engineer "Albert WWDR" (answer 2, verbatim from screenshot)
+@maxik Thank you for sharing this information; it is greatly appreciated. I will review each item to confirm whether it constitutes a bug and assess the current status specifically, whether a workaround is available or a resolution has already been implemented.
+Thanks!
+Albert WWDR
+
+--- OP maxik: "Thank you! Having you here, could you please also take a look at: FB13954760? I've been waiting for over 2 years for the fix for this critical keyboard-related bug. It's still reproducible."
+--- OP maxik: "8 days until iPhone Duo release and we still don't have a stable SDK available..."
+--- DTS Engineer (answer 3): says FB13954760 is an unrelated issue and to use Feedback Assistant (text read from accessibility tree, truncated).
+--- OP maxik: complains Feedback Assistant gets no response (not Duo specific).
+Outcome: no fix, no workaround confirmed by Apple in the thread.

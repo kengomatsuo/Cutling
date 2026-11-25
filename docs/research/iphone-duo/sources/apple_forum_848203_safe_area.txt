@@ -1,0 +1,5 @@
+Source: https://developer.apple.com/forums/thread/848203 "iPhone Duo and the Safe-Area", Sep 2026 (24 Sept), accepted answer by DTS Engineer "Travis". Fetched 2026-11-25 with Claude in Chrome.
+Answer (verbatim excerpts):
+"Rather than checking for a specific device before ignoring the safe area, you can query the live occlusion regions and lay out around whatever is actually reported, so the same code adapts as device geometry changes:"
+GeometryReader { proxy in let occlusions = proxy.reservedRegions(kind: .occlusion) YourContent() .ignoresSafeArea() }
+"Worth noting, on iPhone Duo the occlusion array won't be empty, since the outer camera's region is 'always present, and expands into the Dynamic Island for Live Activities.' But that frame is scoped to the corner, not a full-width band ... For more, see Strike a pose with adaptive layouts on iPhone Duo, which covers reservedRegions in both SwiftUI and UIKit."

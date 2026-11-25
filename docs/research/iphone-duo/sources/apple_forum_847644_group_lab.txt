@@ -1,0 +1,15 @@
+Source: https://developer.apple.com/forums/thread/847644 "A Summary of the iPhone Duo Group Lab", posted by a DTS Engineer, 2026-09-23, locked, 16 replies. Fetched 2026-11-25 with Claude in Chrome get_page_text. Keyboard-relevant answers, verbatim:
+
+Q: How should apps handle the keyboard and text input when the device folds or unfolds while typing?
+A: As iPhone Duo folds or unfolds, the available screen geometry and framing change. Ensure your app adopts standard layout controls, containers, and size classes to handle resizability gracefully across all poses. When a text field becomes first responder, the system automatically shows the keyboard and binds its input to the text field. Because the appearance of the keyboard has the potential to obscure portions of your user interface, you should update your interface as needed to ensure that the text field being edited remains visible. Use keyboard notifications such as keyboardWillShowNotification, keyboardWillHideNotification, and keyboardWillChangeFrameNotification to detect the appearance and disappearance of the keyboard and to make necessary changes to your interface layout. To learn more, see UITextField.
+
+Q: If someone is typing and closes iPhone Duo, does the keyboard/editing session survive the hinge transition, or does it get a new scene?
+A: When a user types and closes iPhone Duo, the active editing session and keyboard do not get a completely new scene. Instead, the app undergoes a dynamic resizing and transitions from the inner display to the compact outer display, maintaining the existing scene and application state. For more info, watch Prepare your app for iPhone Duo.
+
+Q: If a full-screen app on the inner display is closed, does it move to the outer display or get backgrounded?
+A: iPhone Duo honors UIRequiresFullScreen and apps adapt in place as the device opens and closes rather than backgrounding. To learn more, watch Prepare your app for iPhone Duo.
+
+Q: How should apps preserve navigation and UI state when switching between the inner and outer displays?
+A: Treat display transitions as size-class and trait changes, not a scene disconnect or app termination; your process stays alive. ... For state that must survive a scene disconnect/reconnect, implement stateRestorationActivity(for:) to save an NSUserActivity.
+
+Q: Do multiple instances ... share UserDefaults/@AppStorage? A: ... Both UserDefaults and AppStorage are app-wide, not per-window, stores.

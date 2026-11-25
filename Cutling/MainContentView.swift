@@ -106,6 +106,12 @@ struct MainContentView: View {
 
     // MARK: Grid Tracking
     @State private var cutlingLocations: [UUID: CGRect] = [:]
+    #if os(iOS)
+    /// The window this grid sits in, for the share sheet it and its cards present.
+    @State private var hostWindow = HostWindow()
+    /// The grid's width, so a card's long-press preview never runs wider than the window it opens in.
+    @State private var gridWidth: CGFloat = 0
+    #endif
     @State private var hasScrolledToNew = false
 
     // MARK: Transitions (iOS)
@@ -908,6 +914,12 @@ struct MainContentView: View {
             }
         }
         #if os(iOS)
+        .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { gridWidth = $0 }
+        .environment(\.cardPreviewWidth, gridWidth > 40 ? min(gridWidth - 40, 350) : 350)
+        .environment(\.hostWindow, hostWindow)
+        .background(HostWindowReader(host: hostWindow))
+        #endif
+        #if os(iOS)
         .scrollPosition($scrollProperties.position)
         .onScrollGeometryChange(for: CGFloat.self, of: {
             $0.contentOffset.y + $0.contentInsets.top
@@ -1424,20 +1436,7 @@ struct MainContentView: View {
             }
             guard !items.isEmpty else { return }
 
-            let activityVC = UIActivityViewController(activityItems: items, applicationActivities: nil)
-            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-                  let window = windowScene.windows.first,
-                  var topController = window.rootViewController else { return }
-            while let presented = topController.presentedViewController {
-                topController = presented
-            }
-            activityVC.popoverPresentationController?.sourceView = topController.view
-            activityVC.popoverPresentationController?.sourceRect = CGRect(
-                x: topController.view.bounds.midX,
-                y: topController.view.bounds.midY,
-                width: 0, height: 0
-            )
-            topController.present(activityVC, animated: true)
+            hostWindow.presentShareSheet(items: items)
         }
         #endif
         #if os(macOS)
