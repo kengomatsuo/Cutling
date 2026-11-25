@@ -444,5 +444,29 @@ def publish(loc):
         for f in sorted((HERE / "out" / loc / STORE_DIRECTION / dev).glob("[0-9][0-9].png")):
             shutil.copy(f, dst / f"{dev}-{f.name}")
 
+def publish_duo(loc):
+    """Copies this language's iPhone Duo frames to fastlane/frames/<locale>/duo-<screen>-NN.png, at most 10 (App Store
+    Connect's limit for the one APP_IPHONE_DUO set both screens share). Frames 4 to 6 show captures of the app, and a
+    language without its own Duo captures would show English ones, so it gets only frames 1 to 3, which are drawn in its
+    words, on both screens; a language with them gets the inner screen's six and the outer screen's 4 to 6."""
+    import shutil
+    dst = REPO / "fastlane/frames" / loc
+    dst.mkdir(parents=True, exist_ok=True)
+    for old in dst.glob("duo-*.png"):
+        old.unlink()
+    own = all((EXTRA / loc / f"duo-{s}-{k}.png").exists() for s in ("inner", "outer") for k in ("grid", "guide"))
+    pick = {"duo-inner": ["01", "02", "03", "04", "05", "06"], "duo-outer": ["04", "05", "06"]} if own \
+        else {"duo-inner": ["01", "02", "03"], "duo-outer": ["01", "02", "03"]}
+    for dev, frames in pick.items():
+        for n in frames:
+            f = HERE / "out" / loc / STORE_DIRECTION / dev / f"{n}.png"
+            if f.exists():
+                shutil.copy(f, dst / f"{dev}-{n}.png")
+
 if __name__ == "__main__":
+    if "--publish-duo" in sys.argv:
+        locs = [a for a in sys.argv[1:] if not a.startswith("--")] or sorted(p.name for p in (HERE / "out").iterdir() if (p / STORE_DIRECTION / "duo-inner").is_dir())
+        for loc in locs:
+            publish_duo(loc)
+        sys.exit(0)
     main()

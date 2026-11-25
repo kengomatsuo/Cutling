@@ -19,7 +19,7 @@ def cell(text) = (text || "").gsub("|", "\\|").gsub("\n", " ")
 # the upload lanes send from this checkout, so stale images show as a shortfall.
 def md5s(glob) = Dir.glob(File.join(__dir__, glob)).map { |f| Digest::MD5.file(f).hexdigest }.to_set
 def on_disk(sums, disk) = "(on disk #{sums.count { |x| disk.include?(x) }}/#{sums.size})"
-DISK_GLOB = { "IOS" => "frames/%s/{iphone,ipad}-*.png", "MAC_OS" => "frames/%s/mac-*.png" }
+DISK_GLOB = { "IOS" => "frames/%s/{iphone,ipad,duo}-*.png", "MAC_OS" => "frames/%s/mac-*.png" }
 
 puts "# App Store Connect read-back, #{Time.now.utc.strftime('%Y-%m-%d %H:%M UTC')}", ""
 
