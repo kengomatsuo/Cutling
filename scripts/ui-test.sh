@@ -26,10 +26,12 @@ xcrun simctl spawn "${DEVICE_QUEUE_UDID:?}" defaults write com.apple.keyboard.pr
 xcrun simctl spawn "${DEVICE_QUEUE_UDID:?}" defaults write com.apple.keyboard.preferences HardwareKeyboardLastSeen -bool NO
 # The tests read English labels (Settings > General, the edit menu); a shared simulator can be left in another
 # language by a film job, so English is put back and SpringBoard restarted to read it.
+# UI_TEST_LANG=ja:ja_JP:ja_JP-Kana@sw=Kana;hw=Automatic (language, region, system keyboard) keeps a film job's own language.
+IFS=: read -r want_lang want_region want_keyboard <<<"${UI_TEST_LANG:-en:en_US:en_US@sw=QWERTY;hw=Automatic}"
 lang=$(xcrun simctl spawn "$DEVICE_QUEUE_UDID" defaults read -g AppleLanguages 2>/dev/null | tr -d '()", \n' | cut -c1-2)
-if [ "$lang" != "en" ]; then
-  xcrun simctl spawn "$DEVICE_QUEUE_UDID" defaults write -g AppleLanguages -array en
-  xcrun simctl spawn "$DEVICE_QUEUE_UDID" defaults write -g AppleLocale -string en_US
+if [ "$lang" != "$want_lang" ]; then
+  xcrun simctl spawn "$DEVICE_QUEUE_UDID" defaults write -g AppleLanguages -array "$want_lang"
+  xcrun simctl spawn "$DEVICE_QUEUE_UDID" defaults write -g AppleLocale -string "$want_region"
   xcrun simctl spawn "$DEVICE_QUEUE_UDID" launchctl stop com.apple.SpringBoard 2>/dev/null; sleep 8
 fi
 # The keyboards too: a promo film job leaves the system keyboard of its language (the iPad stood on Japanese kana, which
@@ -42,8 +44,8 @@ kb=com.matsuokengo.Cutling.CutlingKeyboard
 # of Apple's own keyboards as the reference for switching to Cutling's.
 extra="${EXTRA_KEYBOARD:-}"
 keyboards="$(xcrun simctl spawn "$DEVICE_QUEUE_UDID" defaults read -g AppleKeyboards 2>/dev/null | tr -d '()", \n')"
-if [ "$keyboards" != "en_US@sw=QWERTY;hw=Automatic$extra$kb" ]; then
-  xcrun simctl spawn "$DEVICE_QUEUE_UDID" defaults write -g AppleKeyboards -array "en_US@sw=QWERTY;hw=Automatic" ${extra:+"$extra"} ${kb:+"$kb"}
+if [ "$keyboards" != "$want_keyboard$extra$kb" ]; then
+  xcrun simctl spawn "$DEVICE_QUEUE_UDID" defaults write -g AppleKeyboards -array "$want_keyboard" ${extra:+"$extra"} ${kb:+"$kb"}
 fi
 # Safari opens its test pages in a fresh tab stack: tabs left by film jobs (one a can't-open-page tab) kept pages from loading.
 xcrun simctl terminate "$DEVICE_QUEUE_UDID" com.apple.mobilesafari >/dev/null 2>&1

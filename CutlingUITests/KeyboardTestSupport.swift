@@ -148,11 +148,11 @@ extension XCTestCase {
         return find(tree, [])
     }
 
-    /// A cutling's key on screen, by the cutling's name. Its label is the name, then the text after a comma;
+    /// A cutling's key on screen, by the cutling's name. Its label is the name, then the text after a comma (「、」 in Japanese);
     /// an image key's placeholder icon can come first.
     @MainActor
     func cutlingKeyFrame(_ name: String, in app: XCUIApplication) -> CGRect? {
-        cutlingKeys(in: app)?.first { $0.label == name || $0.label.hasPrefix(name + ",") || $0.label.hasSuffix(", " + name) }?.frame
+        cutlingKeys(in: app)?.first { $0.label == name || $0.label.hasPrefix(name + ",") || $0.label.hasPrefix(name + "、") || $0.label.hasSuffix(", " + name) }?.frame
     }
 
     /// A point on screen, in points from the top-left corner.
@@ -208,7 +208,7 @@ extension XCTestCase {
             let globe = keyboardGlobe(in: app)
             // A screen-point tap: the system globe under a Face ID iPhone's keyboard refuses scroll-to-visible.
             if globe.waitForExistence(timeout: 5) { globe.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap() }
-            let tip = app.buttons.matching(NSPredicate(format: "label == 'Continue' AND identifier != 'continueButton'")).firstMatch
+            let tip = app.buttons.matching(NSPredicate(format: "label IN {'Continue', '次へ'} AND identifier != 'continueButton'")).firstMatch
             if tip.waitForExistence(timeout: 1) { tip.tap(); sleep(1) }
         }
     }

@@ -133,6 +133,75 @@ private struct EveryAppSeedCopy {
     )
 }
 
+/// The 2.0 release film's keys (cutling-promo storyboard/release-2.0.md) in one language, in the keyboard's order.
+/// PromoReleaseUITests types the welcome note's words on camera, so they are kept in step with `welcome` there.
+private struct ReleaseSeedCopy {
+    typealias Entry = (name: String, value: String)
+    typealias Reply = (name: String, value: String, icon: String, color: String)
+    let order, delivery, welcome, home, account, thanks: Entry
+    /// The order reply's blank, as the editor's Ask Each Time names it in the language.
+    let blank: String
+    /// The Name blank's recent values, newest first: the fill-in screen's choices.
+    let names: [String]
+    /// The plain replies that fill the grid up to `-PROMO_ROOM`.
+    let room: [Reply]
+
+    static func forLanguage(_ language: String) -> ReleaseSeedCopy {
+        language == "ja" ? japanese : english
+    }
+
+    private static let english = ReleaseSeedCopy(
+        order: ("Order update", "Hi {\u{2060}Name}, your order ships {\u{2060}day +1d}."),
+        delivery: ("Delivery note", "Delivered on {\u{2060}date:long}."),
+        welcome: ("Welcome note", "**Welcome to the studio!**\nEverything for your first visit:\n• Door code ^[4815](highlight: true)\n• Wi-Fi: studio-guest\n• Parking behind the bakery"),
+        home: ("Home address", "14 Linden Road, Flat 3"),
+        account: ("Account number", "0441 2290 18"),
+        thanks: ("Thank you", "Thank you so much for your order!"),
+        blank: "Name",
+        names: ["Maya", "Jonas", "Aiko", "Sam", "Lea"],
+        room: [
+            ("Opening hours", "We're open Tuesday to Saturday, 10 to 6.", "clock.fill", "indigo"),
+            ("Returns", "You can return anything within 30 days, no questions asked.", "arrow.uturn.backward", "red"),
+            ("Shipping times", "Orders placed before 2 pm ship the same day.", "shippingbox.fill", "teal"),
+            ("Gift wrap", "Yes, we gift wrap for free. Just tell us at checkout.", "gift.fill", "pink"),
+            ("Size guide", "Our sizes run true. If you're between two, take the larger.", "ruler.fill", "brown"),
+            ("Out of stock", "That one sold out, and it's back in about two weeks.", "tray.fill", "orange"),
+            ("Directions", "Upstairs from the flower shop on the corner; ring 4 at the green door.", "map.fill", "green"),
+            ("Booking", "Your table is booked. See you then!", "calendar", "orange"),
+            ("Invoice", "Your invoice is attached. Payment is due within 14 days.", "doc.text.fill", "blue"),
+            ("Follow-up", "Just checking in: did everything arrive as expected?", "bubble.left.fill", "purple"),
+            ("Wi-Fi", "Network: studio-guest", "wifi", "cyan"),
+            ("Sign-off", "Thanks again, and have a lovely week!", "hand.wave.fill", "yellow"),
+        ]
+    )
+
+    // The designer's strings: undirect docs/plans/app-store-growth/social/cutling-ja/copy-ja.json, post 2_release_2_0, seed.
+    private static let japanese = ReleaseSeedCopy(
+        order: ("発送連絡", "{\u{2060}名前}様、ご注文の品は{\u{2060}day +1d}に発送いたします。\n"),
+        delivery: ("発送完了", "ご注文の品を{\u{2060}date:M月d日}に発送いたしました。"),
+        welcome: ("初回のご案内", "**陶芸教室へようこそ！**\nお越しの際は、以下をご確認ください。\n• 入口の暗証番号は ^[4815](highlight: true)\n• Wi-Fi は tougei-guest\n• 駐車場は隣のパン屋さんの裏"),
+        home: ("自宅の住所", "東京都練馬区豊玉北4-21-6 203"),
+        account: ("口座番号", "3058162"),
+        thanks: ("お礼", "お買い上げありがとうございました。"),
+        blank: "名前",
+        names: ["中村", "小林", "松本", "岡田", "原田"],
+        room: [
+            ("営業時間", "営業は火曜〜土曜、10時〜18時です。", "clock.fill", "indigo"),
+            ("返品について", "商品到着後30日以内であれば、返品を承ります。", "arrow.uturn.backward", "red"),
+            ("発送の目安", "ご注文から2営業日以内に発送いたします。", "shippingbox.fill", "teal"),
+            ("ギフトラッピング", "ギフトラッピングは無料で承ります。ご注文時にお申し付けください。", "gift.fill", "pink"),
+            ("サイズについて", "普段のサイズでお選びください。迷われた場合はワンサイズ上がおすすめです。", "ruler.fill", "brown"),
+            ("品切れ", "あいにく品切れ中です。2週間ほどで再入荷の予定です。", "tray.fill", "orange"),
+            ("教室への道順", "角の花屋さんの上、2階です。緑の扉が目印です。", "map.fill", "green"),
+            ("ご予約確定", "ご予約を承りました。当日を楽しみにお待ちしております。", "calendar", "orange"),
+            ("請求書の送付", "請求書を添付いたしましたので、ご確認ください。お支払いは発行日より14日以内にお願いいたします。", "doc.text.fill", "blue"),
+            ("到着の確認", "商品は無事にお手元に届きましたでしょうか。", "bubble.left.fill", "purple"),
+            ("教室の Wi-Fi", "tougei-guest / kama2580", "wifi", "cyan"),
+            ("結びのあいさつ", "末永くお使いいただけますように。またのご利用をお待ちしております。", "hand.wave.fill", "yellow"),
+        ]
+    )
+}
+
 extension CutlingStore {
     /// The "Every app" preview's seed (`-PROMO_EVERY`), in `-PROMO_LANG id|en|ja`: six keys, the size chart an image,
     /// and the Name blank's recent values. No input-type triggers, so the keyboard shows the same keys in every app.
@@ -161,45 +230,32 @@ extension CutlingStore {
         group?.removeObject(forKey: "keyboardFillSession")
     }
 
-    /// The 2.0 release film's seed (`-PROMO_RELEASE`): six keys, one with a date that fills itself in and one written
-    /// like a note, and the Name blank's recent values. `-PROMO_ROOM n` adds plain replies up to n text cutlings, for
-    /// the take that shows the grid's own count.
+    /// The 2.0 release film's seed (`-PROMO_RELEASE`), in `-PROMO_LANG en|ja`: six keys, one with a date that fills itself in
+    /// and one written like a note, and the Name blank's recent values. `-PROMO_ROOM n` adds plain replies up to n text
+    /// cutlings, for the take that shows the grid's own count.
     func seedForReleaseFilm() {
+        let language = UserDefaults.standard.string(forKey: "PROMO_LANG") ?? "en"
+        let copy = ReleaseSeedCopy.forLanguage(language)
         for filename in cutlings.compactMap(\.imageFilename) { deleteImageFile(named: filename) }
         var seeded = [
-            Cutling(name: "Order update", value: "Hi {\u{2060}Name}, your order ships {\u{2060}day +1d}.", icon: "shippingbox.fill", sortOrder: 0, color: "teal"),
-            Cutling(name: "Delivery note", value: "Delivered on {\u{2060}date:long}.", icon: "calendar", sortOrder: 1, color: "orange"),
-            Cutling(name: "Welcome note", value: "**Welcome to the studio!**\nEverything for your first visit:\n• Door code ^[4815](highlight: true)\n• Wi-Fi: studio-guest\n• Parking behind the bakery",
-                    icon: "textformat", sortOrder: 2, color: "purple", format: .rich),
-            Cutling(name: "Home address", value: "14 Linden Road, Flat 3", icon: "house.fill", sortOrder: 3, color: "blue"),
-            Cutling(name: "Account number", value: "0441 2290 18", icon: "banknote.fill", sortOrder: 4, color: "green"),
-            Cutling(name: "Thank you", value: "Thank you so much for your order!", icon: "sparkles", sortOrder: 5, color: "pink"),
+            Cutling(name: copy.order.name, value: copy.order.value, icon: "shippingbox.fill", sortOrder: 0, color: "teal"),
+            Cutling(name: copy.delivery.name, value: copy.delivery.value, icon: "calendar", sortOrder: 1, color: "orange"),
+            Cutling(name: copy.welcome.name, value: copy.welcome.value, icon: "textformat", sortOrder: 2, color: "purple", format: .rich),
+            Cutling(name: copy.home.name, value: copy.home.value, icon: "house.fill", sortOrder: 3, color: "blue"),
+            Cutling(name: copy.account.name, value: copy.account.value, icon: "banknote.fill", sortOrder: 4, color: "green"),
+            Cutling(name: copy.thanks.name, value: copy.thanks.value, icon: "sparkles", sortOrder: 5, color: "pink"),
         ]
         let room = UserDefaults.standard.integer(forKey: "PROMO_ROOM")
         if room > seeded.count {
-            let replies: [(String, String, String, String)] = [
-                ("Opening hours", "We're open Tuesday to Saturday, 10 to 6.", "clock.fill", "indigo"),
-                ("Returns", "You can return anything within 30 days, no questions asked.", "arrow.uturn.backward", "red"),
-                ("Shipping times", "Orders placed before 2 pm ship the same day.", "shippingbox.fill", "teal"),
-                ("Gift wrap", "Yes, we gift wrap for free. Just tell us at checkout.", "gift.fill", "pink"),
-                ("Size guide", "Our sizes run true. If you're between two, take the larger.", "ruler.fill", "brown"),
-                ("Out of stock", "That one sold out, and it's back in about two weeks.", "tray.fill", "orange"),
-                ("Directions", "Upstairs from the flower shop on the corner; ring 4 at the green door.", "map.fill", "green"),
-                ("Booking", "Your table is booked. See you then!", "calendar", "orange"),
-                ("Invoice", "Your invoice is attached. Payment is due within 14 days.", "doc.text.fill", "blue"),
-                ("Follow-up", "Just checking in: did everything arrive as expected?", "bubble.left.fill", "purple"),
-                ("Wi-Fi", "Network: studio-guest", "wifi", "cyan"),
-                ("Sign-off", "Thanks again, and have a lovely week!", "hand.wave.fill", "yellow"),
-            ]
             for index in seeded.count..<room {
-                let reply = replies[index % replies.count]
-                seeded.append(Cutling(name: reply.0, value: reply.1, icon: reply.2, sortOrder: index, color: reply.3))
+                let reply = copy.room[index % copy.room.count]
+                seeded.append(Cutling(name: reply.name, value: reply.value, icon: reply.icon, sortOrder: index, color: reply.color))
             }
         }
         cutlings = seeded
         save()
         let group = UserDefaults(suiteName: "group.com.matsuokengo.Cutling")
-        group?.set([Placeholders.Field.key("Name"): ["Maya", "Jonas", "Aiko", "Sam", "Lea"]], forKey: FillInMemory.defaultsKey)
+        group?.set([Placeholders.Field.key(copy.blank): copy.names], forKey: FillInMemory.defaultsKey)
         group?.removeObject(forKey: "keyboardFillSession")
     }
 
