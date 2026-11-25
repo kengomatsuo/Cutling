@@ -306,7 +306,7 @@ final class AudioFeedbackInputView: UIInputView, UIInputViewAudioFeedback {
 // MARK: - Keyboard View Controller
 
 /// Milliseconds since this process started, for the launch-timing log (subsystem com.matsuokengo.Cutling, category launch).
-func msSinceProcessStart() -> Int {
+private func msSinceProcessStart() -> Int {
     var info = kinfo_proc()
     var size = MemoryLayout<kinfo_proc>.stride
     var mib: [Int32] = [CTL_KERN, KERN_PROC, KERN_PROC_PID, getpid()]
@@ -316,11 +316,11 @@ func msSinceProcessStart() -> Int {
     gettimeofday(&now, nil)
     return Int((now.tv_sec - start.tv_sec) * 1000 + Int(now.tv_usec - start.tv_usec) / 1000)
 }
-let launchLog = Logger(subsystem: "com.matsuokengo.Cutling", category: "launch")
+private let launchLog = Logger(subsystem: "com.matsuokengo.Cutling", category: "launch")
 
 /// Logs each step of the keyboard's start once, so a cold switch can be timed step by step from the launch log.
 @MainActor
-enum LaunchMarks {
+private enum LaunchMarks {
     private static var seen = Set<String>()
     static func once(_ step: String) {
         guard seen.insert(step).inserted else { return }
@@ -331,7 +331,8 @@ enum LaunchMarks {
 class KeyboardViewController: UIInputViewController {
 
     private var hostingController: UIHostingController<KeyboardView>?
-
+    private let keyboardState = KeyboardState()
+    
     // CRITICAL: Reuse the shared store instance to avoid duplicate loading
     private let store: CutlingStore = {
         launchLog.log("store load starts at \(msSinceProcessStart()) ms")
@@ -340,12 +341,8 @@ class KeyboardViewController: UIInputViewController {
         return store
     }()
 
-    /// The keyboard built while the person was still in the globe menu, when there is one (KeyboardPrewarm.swift).
-    private let prewarmed = KeyboardPrewarm.take()
-    private lazy var keyboardState: KeyboardState = prewarmed?.state ?? KeyboardState()
-
-    /// Screenshot runs pick the keyboard's language through the App Group; the keys read their strings from it.
-    static func applySnapshotLanguage() {
+    override func loadView() {
+        launchLog.log("loadView at \(msSinceProcessStart()) ms")
         #if DEBUG
         if let snapshotLang = UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.string(forKey: "snapshotLanguage") {
             let langCode = snapshotLang.components(separatedBy: "-").first ?? snapshotLang
@@ -355,11 +352,6 @@ class KeyboardViewController: UIInputViewController {
             }
         }
         #endif
-    }
-
-    override func loadView() {
-        launchLog.log("loadView at \(msSinceProcessStart()) ms")
-        Self.applySnapshotLanguage()
 
         // Replace the default inputView with our audio-feedback-enabled subclass
         let audioView = AudioFeedbackInputView(
@@ -453,9 +445,8 @@ class KeyboardViewController: UIInputViewController {
 
     /// The height for the current size class and orientation; before the host's traits arrive,
     /// read from the device and the screen.
-    private var currentHeight: CGFloat { Self.height(for: view.traitCollection) }
-
-    static func height(for traits: UITraitCollection) -> CGFloat {
+    private var currentHeight: CGFloat {
+        let traits = view.traitCollection
         let regular: Bool = traits.horizontalSizeClass == .unspecified
             ? UIDevice.current.userInterfaceIdiom == .pad
             : traits.horizontalSizeClass == .regular
@@ -472,130 +463,109 @@ class KeyboardViewController: UIInputViewController {
 
     private func installKeyboardView() {
         // Only create the hosting controller once
-        guard hostingController == nil else { return }
-        let hc: UIHostingController<KeyboardView>
-        if let prewarmed {
-            prewarmed.target.controller = self
-            hc = prewarmed.hostingController
-            LaunchMarks.once("keyboard taken from the prewarm")
-        } else {
-            let target = KeyboardActionTarget()
-            target.controller = self
-            hc = Self.makeHostingController(store: store, state: keyboardState, target: target)
-        }
-        hc.view.translatesAutoresizingMaskIntoConstraints = false
+        if hostingController == nil {
+            let inputVC = self
 
-        addChild(hc)
-        view.addSubview(hc.view)
-        hc.didMove(toParent: self)
+            // Type-safe hosting controller — no AnyView overhead
+            let keyboardView = KeyboardView(
+                store: store,
+                state: keyboardState,
+                onInsertText: { inputVC.textDocumentProxy.insertText($0); inputVC.refreshWordBeforeCursor() },
+                onMoveCursor: { inputVC.moveCursor(characters: $0, lines: $1) },
+                onUseCutling: { inputVC.use($0, replacingCount: $1, smartSpacing: $2) },
+                onFillPick: { inputVC.fillPick($0) },
+                onFillPaste: { inputVC.fillPaste() },
+                onFillNext: { inputVC.fillNext() },
+                onFillTypeOnOwnKeyboard: { inputVC.fillTypeOnOwnKeyboard() },
+                onFillCancel: { inputVC.fillCancel() },
+                onCopyImage: { data in
+                    // Set the raw image bytes directly without decoding to UIImage.
+                    // UIImage(data:) decompresses to a bitmap that can be 10-30x the
+                    // file size, OOM-ing the keyboard extension on large images.
+                    let uti: String
+                    if let source = CGImageSourceCreateWithData(data as CFData, nil),
+                       let type = CGImageSourceGetType(source) {
+                        uti = type as String
+                    } else {
+                        uti = UTType.png.identifier
+                    }
+                    UIPasteboard.general.setData(data, forPasteboardType: uti)
+                },
+                onBackspace: {
+                    let proxy = inputVC.textDocumentProxy
+                    guard proxy.hasText else { return false }
+                    proxy.deleteBackward()
+                    inputVC.refreshWordBeforeCursor()
+                    return true
+                },
+                onDeleteWord: { wordCount in
+                    let proxy = inputVC.textDocumentProxy
+                    guard proxy.hasText else { return false }
 
-        NSLayoutConstraint.activate([
-            hc.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            hc.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            hc.view.topAnchor.constraint(equalTo: view.topAnchor),
-            hc.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        ])
+                    func isWordChar(_ ch: Character) -> Bool {
+                        ch.isLetter || ch.isNumber || ch == "_"
+                    }
 
-        hostingController = hc
+                    var didDelete = false
+                    for _ in 0..<wordCount {
+                        guard let before = proxy.documentContextBeforeInput, !before.isEmpty else { break }
 
-        // Listen for memory warnings and clear image cache
-        NotificationCenter.default.addObserver(
-            forName: UIApplication.didReceiveMemoryWarningNotification,
-            object: nil,
-            queue: .main
-        ) { [weak self] _ in
-            print("⚠️ Memory warning received - clearing thumbnail cache")
-            Task { @MainActor in
-                self?.store.clearThumbnailCache()
-            }
-        }
-    }
+                        var count = 0
+                        let chars = Array(before)
+                        var i = chars.count - 1
 
-    /// The keyboard's SwiftUI view in its hosting controller. Its keys act through `target`, so it can be built before
-    /// iOS creates the controller (KeyboardPrewarm.swift) and handed to whichever controller iOS creates.
-    static func makeHostingController(store: CutlingStore, state: KeyboardState, target: KeyboardActionTarget) -> UIHostingController<KeyboardView> {
-        // Type-safe hosting controller — no AnyView overhead
-        let keyboardView = KeyboardView(
-            store: store,
-            state: state,
-            onInsertText: { text in
-                guard let inputVC = target.controller else { return }
-                inputVC.textDocumentProxy.insertText(text)
-                inputVC.refreshWordBeforeCursor()
-            },
-            onMoveCursor: { target.controller?.moveCursor(characters: $0, lines: $1) },
-            onUseCutling: { target.controller?.use($0, replacingCount: $1, smartSpacing: $2) },
-            onFillPick: { target.controller?.fillPick($0) },
-            onFillPaste: { target.controller?.fillPaste() },
-            onFillNext: { target.controller?.fillNext() },
-            onFillTypeOnOwnKeyboard: { target.controller?.fillTypeOnOwnKeyboard() },
-            onFillCancel: { target.controller?.fillCancel() },
-            onCopyImage: { data in
-                // Set the raw image bytes directly without decoding to UIImage.
-                // UIImage(data:) decompresses to a bitmap that can be 10-30x the
-                // file size, OOM-ing the keyboard extension on large images.
-                let uti: String
-                if let source = CGImageSourceCreateWithData(data as CFData, nil),
-                   let type = CGImageSourceGetType(source) {
-                    uti = type as String
-                } else {
-                    uti = UTType.png.identifier
+                        while i >= 0 && !isWordChar(chars[i]) {
+                            count += 1
+                            i -= 1
+                        }
+
+                        while i >= 0 && isWordChar(chars[i]) {
+                            count += 1
+                            i -= 1
+                        }
+
+                        if count == 0 { count = 1 }
+                        for _ in 0..<count {
+                            proxy.deleteBackward()
+                        }
+                        didDelete = true
+                    }
+                    inputVC.refreshWordBeforeCursor()
+                    return didDelete
+                },
+                onSwitchKeyboard: { inputVC.advanceToNextInputMode() }
+            )
+
+            let hc = UIHostingController(rootView: keyboardView)
+            hc.view.translatesAutoresizingMaskIntoConstraints = false
+            hc.view.backgroundColor = .clear
+            hc.safeAreaRegions = []
+
+            addChild(hc)
+            view.addSubview(hc.view)
+            hc.didMove(toParent: self)
+
+            NSLayoutConstraint.activate([
+                hc.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                hc.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                hc.view.topAnchor.constraint(equalTo: view.topAnchor),
+                hc.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            ])
+
+            hostingController = hc
+            
+            // Listen for memory warnings and clear image cache
+            NotificationCenter.default.addObserver(
+                forName: UIApplication.didReceiveMemoryWarningNotification,
+                object: nil,
+                queue: .main
+            ) { [weak self] _ in
+                print("⚠️ Memory warning received - clearing thumbnail cache")
+                Task { @MainActor in
+                    self?.store.clearThumbnailCache()
                 }
-                UIPasteboard.general.setData(data, forPasteboardType: uti)
-            },
-            onBackspace: { target.controller?.backspace() ?? false },
-            onDeleteWord: { target.controller?.deleteWords($0) ?? false },
-            onSwitchKeyboard: { target.controller?.advanceToNextInputMode() }
-        )
-
-        let hc = UIHostingController(rootView: keyboardView)
-        hc.view.backgroundColor = .clear
-        hc.safeAreaRegions = []
-        return hc
-    }
-
-    fileprivate func backspace() -> Bool {
-        let proxy = textDocumentProxy
-        guard proxy.hasText else { return false }
-        proxy.deleteBackward()
-        refreshWordBeforeCursor()
-        return true
-    }
-
-    fileprivate func deleteWords(_ wordCount: Int) -> Bool {
-        let proxy = textDocumentProxy
-        guard proxy.hasText else { return false }
-
-        func isWordChar(_ ch: Character) -> Bool {
-            ch.isLetter || ch.isNumber || ch == "_"
+            }
         }
-
-        var didDelete = false
-        for _ in 0..<wordCount {
-            guard let before = proxy.documentContextBeforeInput, !before.isEmpty else { break }
-
-            var count = 0
-            let chars = Array(before)
-            var i = chars.count - 1
-
-            while i >= 0 && !isWordChar(chars[i]) {
-                count += 1
-                i -= 1
-            }
-
-            while i >= 0 && isWordChar(chars[i]) {
-                count += 1
-                i -= 1
-            }
-
-            if count == 0 { count = 1 }
-            for _ in 0..<count {
-                proxy.deleteBackward()
-            }
-            didDelete = true
-        }
-        refreshWordBeforeCursor()
-        return didDelete
     }
     
     // Called every time the text input context changes — new text field,
@@ -1730,8 +1700,6 @@ struct CutlingKeyView: View {
     let onTap: () -> Void
     
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    /// The host app's appearance, for the fill-in pills: a key can be built before it reaches its host (KeyboardPrewarm).
-    @Environment(\.colorScheme) private var colorScheme
     /// The Inserted or Copied mark as drawn; follows `isCopied` (see the onChange below).
     @State private var markShown = false
     
@@ -1808,7 +1776,7 @@ struct CutlingKeyView: View {
                     .font(.system(size: KeyStyle.titleSize(for: horizontalSizeClass), weight: .semibold))
                     .lineLimit(1)
             }
-            cutling.displayText(pillSize: KeyStyle.bodySize(for: horizontalSizeClass), dark: colorScheme == .dark)
+            cutling.displayText(pillSize: KeyStyle.bodySize(for: horizontalSizeClass))
                 .font(.system(size: KeyStyle.bodySize(for: horizontalSizeClass)))
                 .foregroundStyle(.secondary)
                 .lineLimit(2)

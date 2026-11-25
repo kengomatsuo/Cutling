@@ -630,12 +630,12 @@ extension Cutling {
         return head
     }
 
-    func displayText(pillSize: CGFloat, dark: Bool? = nil) -> Text {
+    func displayText(pillSize: CGFloat) -> Text {
         guard textFormat != .code else { return Text(Self.previewSource(value)).monospaced() }
         return Self.previewPieces(value, format: textFormat).reduce(Text(verbatim: "")) { text, piece in
             switch piece {
             case .text(let run): text + Text(run)
-            case .token(let token): text + FillInPills.inline(token, size: pillSize, dark: dark)
+            case .token(let token): text + FillInPills.inline(token, size: pillSize)
             }
         }
     }
