@@ -7,7 +7,7 @@
 #
 # The first argument is the language (en or ja), the rest are the tests (default: all three). Each test's screen recording
 # ($DEVICE_QUEUE_OUT/<lang>-<test>.mov), the wall clock its recording started (.t0, seconds) and its log with the MARK lines
-# (.log) land in $DEVICE_QUEUE_OUT, shots in $DEVICE_QUEUE_OUT/shots. The contacts are the ones every-app-takes.sh saved
+# (.log) land in $DEVICE_QUEUE_OUT, shots in $DEVICE_QUEUE_OUT/shots/<test>. The contacts are the ones every-app-takes.sh saved
 # (Messages names a thread from them), plus the Japanese guest of Five taps. Prints every 20 s for the queue.
 set -u
 build="${UI_TEST_BUILD:?build-for-testing folder}"
@@ -25,6 +25,9 @@ xcrun simctl ui "$udid" appearance "${NAMES_APPEARANCE:-light}"
 xcrun simctl spawn "$udid" defaults write com.apple.keyboard.preferences AutomaticMinimizationEnabled -bool NO
 xcrun simctl spawn "$udid" defaults write com.apple.keyboard.preferences HardwareKeyboardLastSeen -bool NO
 simslim enable "$udid" pim apps messaging search photos >/dev/null 2>&1 || true
+# Messages' thread view asks StatusKit's daemon about the contact: with it stopped by simslim, MobileSMS loops on
+# _statusDaemonDisconnectedNotification at 110 % CPU, no accessibility query of it is answered and typing lands a key a minute.
+simslim enable "$udid" com.apple.StatusKitAgent >/dev/null 2>&1 || true
 for app in com.apple.MobileSMS; do xcrun simctl privacy "$udid" grant contacts "$app" 2>/dev/null; done
 
 was_languages=($(xcrun simctl spawn "$udid" defaults read -g AppleLanguages 2>/dev/null | tr -d '()", ' | grep -v '^$'))
@@ -54,18 +57,21 @@ xcrun simctl status_bar "$udid" override --time 9:41 --dataNetwork wifi --wifiMo
   --cellularMode active --cellularBars 4 --batteryState discharging --batteryLevel 100
 
 for test in "${tests[@]}"; do
-  stem="$out/$lang-$test"
+  stem="$out/$lang-$test"; sd="$out/shots/$test"; mkdir -p "$sd"
   xcrun simctl terminate "$udid" com.apple.MobileSMS >/dev/null 2>&1
   xcrun simctl io "$udid" recordVideo --codec=h264 --force "$stem.mov" 2>"$stem.reclog" &
   rec=$!
   for _ in $(seq 1 100); do grep -q "Recording started" "$stem.reclog" 2>/dev/null && break; sleep 0.1; done
   python3 -c 'import time; print("%.3f" % time.time())' >"$stem.t0"
-  TEST_RUNNER_NAMES_LANG="$lang" TEST_RUNNER_NAMES_DIR="$out/shots" \
+  python3 "$(dirname "$0")/names-type-helper.py" "$sd/type-request-$lang.json" "$sd/type-done-$lang" "$udid" >"$stem.keys.log" 2>&1 &
+  helper=$!
+  TEST_RUNNER_NAMES_LANG="$lang" TEST_RUNNER_NAMES_DIR="$sd" \
     xcodebuild test-without-building -xctestrun "$xctestrun" -destination "id=$udid" -parallel-testing-enabled NO \
     -test-timeouts-enabled NO -only-testing:"CutlingUITests/PromoNamesFilmsUITests/$test" >"$stem.log" 2>&1 &
   pid=$!; start=$SECONDS
   while kill -0 $pid 2>/dev/null; do sleep 20; echo "$lang $test: $((SECONDS - start)) s"; done
   wait $pid; status=$?
+  kill "$helper" 2>/dev/null; cat "$stem.keys.log" >>"$stem.log"
   kill -INT "$rec" 2>/dev/null; wait "$rec" 2>/dev/null; rec=""
   grep -E "error:|Test Case .* (passed|failed)" "$stem.log" | grep -v debugger | head -6
   echo "$lang $test exit $status"

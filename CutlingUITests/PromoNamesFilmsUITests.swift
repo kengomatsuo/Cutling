@@ -11,6 +11,7 @@
 //  Copyright (c) 2026 Kenneth Johannes Fang. All rights reserved.
 //
 
+import Contacts
 import XCTest
 
 @MainActor
@@ -28,6 +29,10 @@ final class PromoNamesFilmsUITests: XCTestCase {
         /// Five taps: the three keys, the guest, the choice that is tapped.
         let hello, booking, signoff, guest, party: String
     }
+
+    /// How fast the name is typed, from a measured mean of flick typists (Yokoyama, Kato, Yamamoto, IPSJ 2019 5H-03:
+    /// 87 kana a minute) and, in English, Palin et al. 2019 (36.2 words of five characters a minute).
+    private var slot: Double { language == "ja" ? 60.0 / 87 : 60.0 / (36.2 * 5) }
 
     private var words: Words {
         switch language {
@@ -67,13 +72,51 @@ final class PromoNamesFilmsUITests: XCTestCase {
         return body
     }
 
-    /// A new message, the cursor in the message field. The simulator's Messages has no service, so a recipient never
-    /// resolves and nothing can be sent: the takes end with the reply in the field, and the customer is named by the film.
-    private func newMessage() {
-        if messages.state != .runningForeground { messages.launch() }
-        messages.open(URL(string: "sms:")!)
-        XCTAssertTrue(messages.wait(for: .runningForeground, timeout: 15))
-        sleep(3)
+    /// The stock thread of +1 (555) 564-8583 is the only one the simulator's Messages can show (no imagent makes another), so
+    /// every customer is that thread: the contact that owns the number is swapped to the customer before Messages opens, and
+    /// the thread shows the customer's avatar beside the number. The customer's question is the film's caption.
+    private static let threadNumber = "+15555648583"
+
+    private func assignThread(to customer: String) throws {
+        let store = CNContactStore()
+        let keys = [CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey] as [CNKeyDescriptor]
+        var all: [CNContact] = []
+        try store.enumerateContacts(with: CNContactFetchRequest(keysToFetch: keys)) { contact, _ in all.append(contact) }
+        let digits = { (n: CNPhoneNumber) in n.stringValue.filter(\.isNumber) }
+        let want = Self.threadNumber.filter(\.isNumber)
+        let isCustomer = { (c: CNContact) in self.language == "ja" ? c.familyName == customer : (c.givenName == customer && c.familyName.isEmpty) }
+        let request = CNSaveRequest()
+        var given = false
+        for contact in all {
+            let owns = contact.phoneNumbers.contains { digits($0.value) == want }
+            let gets = isCustomer(contact) && !given
+            if gets { given = true }
+            guard owns != gets else { continue }
+            let edit = contact.mutableCopy() as! CNMutableContact
+            edit.phoneNumbers = contact.phoneNumbers.filter { digits($0.value) != want }
+            if gets { edit.phoneNumbers.append(CNLabeledValue(label: CNLabelPhoneNumberMobile, value: CNPhoneNumber(stringValue: Self.threadNumber))) }
+            request.update(edit)
+        }
+        XCTAssertTrue(given, "No contact for \(customer)")
+        try store.execute(request)
+    }
+
+    /// The customer's thread, the cursor in the message field: Messages' own conversation view, not the New Message sheet.
+    private func thread(_ customer: String) throws {
+        try assignThread(to: customer)
+        messages.terminate()
+        messages.launch()
+        let row = messages.descendants(matching: .any).matching(NSPredicate(format: "label CONTAINS '564-8583'")).firstMatch
+        XCTAssertTrue(row.waitForExistence(timeout: 15), "No thread list")
+        sleep(2)
+        if !row.isHittable {
+            // Messages reopens on the New Message sheet it was left on, over the list: its close button is the top right circle
+            messages.coordinate(withNormalizedOffset: CGVector(dx: 397.0 / 440, dy: 104.0 / 956)).tap()
+            sleep(2)
+            XCTAssertTrue(row.isHittable, "The New Message sheet did not close")
+        }
+        mark("thread \(customer)")
+        row.tap()
         let body = messageField()
         for _ in 0..<3 where (body.value(forKey: "hasKeyboardFocus") as? Bool) != true {
             body.tap()
@@ -82,10 +125,27 @@ final class PromoNamesFilmsUITests: XCTestCase {
         sleep(1)
     }
 
+    /// The send button pressed on camera, and whatever Messages then does: the simulator has no imagent, so the take
+    /// only records the press and a frame 0.4 s and 2 s on (shots sent-*), and the film claims no more than that frame shows.
+    private func send(_ tag: String) {
+        let button = messages.buttons["sendButton"]
+        let at = button.waitForExistence(timeout: 5) ? screenPoint(button.frame.midX, button.frame.midY, in: messages)
+            : messages.coordinate(withNormalizedOffset: CGVector(dx: 386.0 / 440, dy: 907.0 / 956))
+        mark("send press \(tag)")
+        at.press(forDuration: 0.12)
+        usleep(400_000)
+        shot("sent-\(tag)-a")
+        sleep(2)
+        shot("sent-\(tag)-b")
+        mark("sent \(tag)")
+    }
+
     /// The person's own keyboard up, not the Cutling keyboard Messages reopens on (the one used last).
     private func ownKeyboard() {
         for _ in 0..<4 where cutlingKeyboardIsUp(in: messages) {
-            keyboardGlobe(in: messages).coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+            let g = keyboardGlobe(in: messages).coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
+            mark("own-globe at \(Int(g.screenPoint.x)),\(Int(g.screenPoint.y))")
+            g.tap()
             sleep(2)
         }
         XCTAssertTrue(messages.keys.count > 0, "The person's own keyboard did not come up")
@@ -117,8 +177,9 @@ final class PromoNamesFilmsUITests: XCTestCase {
     /// is the way when that tap lands elsewhere.
     private func cutlingUp(showing key: String) {
         if !cutlingKeyboardIsUp(in: messages, showing: key) {
-            mark("globe")
-            keyboardGlobe(in: messages).coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+            let g = keyboardGlobe(in: messages).coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
+            mark("globe at \(Int(g.screenPoint.x)),\(Int(g.screenPoint.y))")
+            g.tap()
             sleep(2)
         }
         if !cutlingKeyboardIsUp(in: messages, showing: key) {
@@ -135,41 +196,55 @@ final class PromoNamesFilmsUITests: XCTestCase {
         if language == "ja" {
             XCTAssertTrue(messages.keys["な"].waitForExistence(timeout: 10), "The kana keyboard did not come up")
             sleep(1)
-            func tapKey(_ label: String) {
-                mark("kana \(label)")
-                messages.keys[label].tap()
-                usleep(450_000)
-            }
-            func flick(_ label: String, _ dx: CGFloat, _ dy: CGFloat) {
-                mark("kana \(label) flick")
-                let key = messages.keys[label].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
-                key.press(forDuration: 0.1, thenDragTo: key.withOffset(CGVector(dx: dx, dy: dy)), withVelocity: .default, thenHoldForDuration: 0.2)
-                usleep(450_000)
-            }
-            switch name {
-            case "中村": tapKey("な"); tapKey("か"); flick("ま", 0, -50); tapKey("ら")
-            case "高橋": tapKey("た"); tapKey("か"); tapKey("は"); flick("さ", -50, 0)
-            default: XCTFail("No kana for \(name)")
-            }
-            sleep(1)
             func kana(_ names: [String]) -> XCUIElement {
-                messages.keyboards.firstMatch.descendants(matching: .any)
+                messages.descendants(matching: .any)
                     .matching(NSPredicate(format: "label IN %@ OR identifier IN %@", names, names)).firstMatch
             }
-            mark("kana convert")
-            kana(["空白", "space", "Space"]).tap()
-            usleep(900_000)
-            shot("converted")
-            mark("kana commit")
-            kana(["確定", "Return"]).tap()
-        } else {
-            XCTAssertTrue(messages.keys["a"].waitForExistence(timeout: 10) || messages.keys["A"].waitForExistence(timeout: 2), "No system keyboard")
-            sleep(1)
-            for letter in name {
-                mark("key \(letter)")
-                messages.keys.matching(NSPredicate(format: "label ==[c] %@", String(letter))).firstMatch.tap()
-                usleep(380_000)
+            // Key centres are read before the first touch, so a kana costs a touch and no lookup; one touch every `slot`.
+            let kanaKeys = Set(name == "中村" ? ["な", "か", "ま", "ら"] : ["た", "か", "は", "さ"])
+            var centres: [String: XCUICoordinate] = [:]
+            for label in kanaKeys {
+                let frame = messages.keys[label].frame
+                centres[label] = screenPoint(frame.midX, frame.midY, in: messages)
             }
+            let convertKey = kana(["空白", "\u{3000}", "space", "Space"]), commitKey = kana(["確定", "Return", "改行", "\n"])
+            XCTAssertTrue(convertKey.waitForExistence(timeout: 15) && commitKey.waitForExistence(timeout: 5),
+                          "No space or return key (keys: \(messages.keys.allElementsBoundByIndex.map(\.label)), buttons: \(messages.keyboards.buttons.allElementsBoundByIndex.map(\.label)))")
+            let convert = convertKey.frame, commit = commitKey.frame
+            // Each touch starts at its own place on a fixed clock, so one that runs long (a flick) is made up by the next.
+            let start = Date().addingTimeInterval(0.3)
+            var index = 0
+            func touch(_ what: String, _ at: XCUICoordinate, flick: CGVector? = nil) {
+                let rest = start.addingTimeInterval(Double(index) * slot).timeIntervalSinceNow - 0.09   // 0.09 s: the mark comes that long before the touch lands (read from the MARK lines)
+                if rest > 0 { usleep(UInt32(rest * 1_000_000)) }
+                index += 1
+                let p = at.screenPoint
+                mark("kana \(what) at \(Int(p.x)),\(Int(p.y))")
+                if let flick { at.press(forDuration: 0.05, thenDragTo: at.withOffset(flick), withVelocity: .fast, thenHoldForDuration: 0.05) } else { at.tap() }
+            }
+            func key(_ label: String, flick: CGVector? = nil) { touch(flick == nil ? label : "\(label) flick", centres[label]!, flick: flick) }
+            switch name {
+            case "中村": key("な"); key("か"); key("ま", flick: CGVector(dx: 0, dy: -50)); key("ら")
+            case "高橋": key("た"); key("か"); key("は"); key("さ", flick: CGVector(dx: -50, dy: 0))
+            default: XCTFail("No kana for \(name)")
+            }
+            touch("convert", screenPoint(convert.midX, convert.midY, in: messages))
+            shot("converted")
+            touch("commit", screenPoint(commit.midX, commit.midY, in: messages))
+        } else {
+            // XCUITest's touch costs 0.43 s, more than a key gets at 36.2 words a minute: the points of the keys go to
+            // scripts/names-type-helper.py, which touches them with axe at `slot` and logs the MARK lines.
+            XCTAssertTrue(messages.keys["a"].waitForExistence(timeout: 10) || messages.keys["A"].waitForExistence(timeout: 2), "No system keyboard")
+            let dir = env["NAMES_DIR"] ?? NSTemporaryDirectory()
+            let request = "\(dir)/type-request-\(language).json", done = "\(dir)/type-done-\(language)"
+            try? FileManager.default.removeItem(atPath: done)
+            let keys: [[String: Any]] = name.map { letter in
+                let frame = messages.keys.matching(NSPredicate(format: "label ==[c] %@", String(letter))).firstMatch.frame
+                return ["label": String(letter), "x": frame.midX, "y": frame.midY]
+            }
+            try? JSONSerialization.data(withJSONObject: ["slot": slot, "keys": keys]).write(to: URL(fileURLWithPath: request))
+            for _ in 0..<300 where !FileManager.default.fileExists(atPath: done) { usleep(100_000) }
+            XCTAssertTrue(FileManager.default.fileExists(atPath: done), "The typing helper did not finish")
         }
         sleep(1)
         shot("typed")
@@ -188,7 +263,7 @@ final class PromoNamesFilmsUITests: XCTestCase {
         seed(kind: "names", history: "")
         messages.launch()
         sleep(2)
-        newMessage()
+        try thread(words.typedCustomer)
         ownKeyboard()
         mark("ready")
         typeName(words.typedCustomer)
@@ -205,6 +280,8 @@ final class PromoNamesFilmsUITests: XCTestCase {
         shot("filled")
         mark("filled")
         sleep(1)
+        send("1")
+        sleep(1)
         mark("end")
         clearDraft()
     }
@@ -215,7 +292,7 @@ final class PromoNamesFilmsUITests: XCTestCase {
         messages.launch()
         sleep(2)
         for customer in words.pickedCustomers {
-            newMessage()
+            try thread(customer)
             cutlingUp(showing: words.order)
             sleep(1)
             mark("ready \(customer)")
@@ -230,7 +307,9 @@ final class PromoNamesFilmsUITests: XCTestCase {
             if cutlingKeyFrame(words.order, in: messages) == nil { confirm(); sleep(1) }
             shot("filled-\(customer)")
             mark("filled \(customer)")
-            sleep(2)
+            sleep(1)
+            send(customer)
+            sleep(1)
             mark("end \(customer)")
             clearDraft()
         }
@@ -241,7 +320,7 @@ final class PromoNamesFilmsUITests: XCTestCase {
         seed(kind: "taps", history: "")
         messages.launch()
         sleep(2)
-        newMessage()
+        try thread(words.guest)
         ownKeyboard()
         mark("ready")
         typeName(words.guest)
@@ -274,7 +353,9 @@ final class PromoNamesFilmsUITests: XCTestCase {
         sleep(2)
         shot("signoff-done")
         mark("signoff done")
-        sleep(2)
+        sleep(1)
+        send("1")
+        sleep(1)
         mark("end")
         clearDraft()
     }
