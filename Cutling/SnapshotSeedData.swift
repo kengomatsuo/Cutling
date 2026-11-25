@@ -255,8 +255,12 @@ extension CutlingStore {
         cutlings = seeded
         save()
         let group = UserDefaults(suiteName: "group.com.matsuokengo.Cutling")
-        group?.set([Placeholders.Field.key(copy.blank): copy.names], forKey: FillInMemory.defaultsKey)
+        // `-PROMO_NO_RECENT`: no name used before, so the fill-in asks for the first one.
+        if ProcessInfo.processInfo.arguments.contains("-PROMO_NO_RECENT") { group?.removeObject(forKey: FillInMemory.defaultsKey) }
+        else { group?.set([Placeholders.Field.key(copy.blank): copy.names], forKey: FillInMemory.defaultsKey) }
         group?.removeObject(forKey: "keyboardFillSession")
+        // `-PROMO_TODAY yyyy-MM-dd`: the day the film's post goes out, which the date stamps type (FillInClock).
+        if let today = UserDefaults.standard.string(forKey: "PROMO_TODAY") { group?.set(today, forKey: "promoToday") } else { group?.removeObject(forKey: "promoToday") }
     }
 
     #if os(iOS)

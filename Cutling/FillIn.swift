@@ -71,7 +71,7 @@ extension Cutling {
 extension Placeholders.Context {
     /// Now, in the user's locale, with these field values, (when the cutling asks for it) the clipboard, and each counter's next value.
     static func now(values: [String: String]? = [:], clipboard: String? = nil) -> Self {
-        Self(values: values, now: Date(), locale: .autoupdatingCurrent, timeZone: .autoupdatingCurrent, clipboard: clipboard,
+        Self(values: values, now: FillInClock.now, locale: .autoupdatingCurrent, timeZone: .autoupdatingCurrent, clipboard: clipboard,
              counters: FillInCounters.next)
     }
 }

@@ -264,7 +264,7 @@ enum FillInPills {
         let live = ["date", "time", "datetime", "day"].contains(where: { body == $0 || body.hasPrefix($0 + ":") || body.hasPrefix($0 + " ") })
             || ["week", "timezone", "greeting", "language", "country", "currency"].contains(body)
         guard live else { return nil }
-        let context = Placeholders.Context(values: nil, now: Date(), locale: .autoupdatingCurrent, timeZone: .autoupdatingCurrent, clipboard: nil)
+        let context = Placeholders.Context(values: nil, now: FillInClock.now, locale: .autoupdatingCurrent, timeZone: .autoupdatingCurrent, clipboard: nil)
         let value = Placeholders(token, marked: true).render(context).text
         return value.isEmpty || value == token ? nil : value
     }
@@ -332,5 +332,20 @@ extension FillInPills {
             out.addAttribute(.paragraphStyle, value: merged, range: range)
         }
         return out
+    }
+}
+
+/// The moment a cutling's date and time stamps read. A debug build can be told the day a promo film's post goes out
+/// (`promoToday`, yyyy-MM-dd, in the App Group, set by the release film's seed from `-PROMO_TODAY`), so a take recorded
+/// earlier types that day; a release build always reads the clock.
+enum FillInClock {
+    static var now: Date {
+        #if DEBUG
+        if let day = UserDefaults(suiteName: "group.com.matsuokengo.Cutling")?.string(forKey: "promoToday") {
+            let parts = day.split(separator: "-").compactMap { Int($0) }
+            if parts.count == 3, let noon = Calendar.current.date(from: DateComponents(year: parts[0], month: parts[1], day: parts[2], hour: 12)) { return noon }
+        }
+        #endif
+        return Date()
     }
 }

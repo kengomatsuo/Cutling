@@ -6,6 +6,7 @@
 #     --cmd 'UI_TEST_BUILD=<dir> scripts/release-film-takes.sh'
 #
 # The film of the whole run, its MARK lines (test.log) and screenshots land in $DEVICE_QUEUE_OUT/PromoReleaseUITests.
+# RELEASE_TODAY=2026-12-01 makes a date stamp type that day (debug builds), for a take filmed before its post goes out.
 # Arguments pick single takes: test1Note, test2Keyboard, test3Room, test4Messages. RELEASE_LANG=ja films the Japanese cut: the system in
 # Japanese with the ja_JP region and the kana keyboard beside Cutling's, the seed and the test's labels in Japanese.
 set -u
@@ -32,4 +33,4 @@ if [ "$was_locale" != "$region" ] || [ "$lang" != en ]; then
 fi
 xcrun simctl status_bar "$udid" override --time 9:41 --batteryState discharging --batteryLevel 100 --cellularBars 4 --wifiBars 3 --dataNetwork wifi
 tests=(PromoReleaseUITests); [ $# -gt 0 ] && { tests=(); for t in "$@"; do tests+=("PromoReleaseUITests/$t"); done; }
-TEST_RUNNER_RELEASE_LANG="$lang" UI_TEST_LANG="$lang:$region:$own" UI_APPEARANCE=light "$(dirname "$0")/ui-test.sh" "${tests[@]}"
+TEST_RUNNER_RELEASE_TODAY="${RELEASE_TODAY:-}" TEST_RUNNER_RELEASE_LANG="$lang" UI_TEST_LANG="$lang:$region:$own" UI_APPEARANCE=light "$(dirname "$0")/ui-test.sh" "${tests[@]}"

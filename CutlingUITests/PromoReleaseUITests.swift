@@ -70,6 +70,8 @@ final class PromoReleaseUITests: XCTestCase {
     private func launch(_ extra: [String] = []) -> XCUIApplication {
         let app = XCUIApplication()
         app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-PROMO_RELEASE", "-hasSeenInteractiveTutorial", "YES"] + extra
+        // RELEASE_TODAY=yyyy-MM-dd: the day the film's post goes out, which a date stamp types (FillInClock).
+        if let today = ProcessInfo.processInfo.environment["RELEASE_TODAY"], !today.isEmpty { app.launchArguments += ["-PROMO_TODAY", today] }
         if language != "en" {
             app.launchArguments += ["-PROMO_LANG", language, "-AppleLanguages", "(\(language))", "-AppleLocale", "ja_JP"]
         }
@@ -294,7 +296,7 @@ final class PromoReleaseUITests: XCTestCase {
     /// keys are the release seed's, so every beat shows one set.
     @MainActor
     func test4Messages() throws {
-        let seed = launch(["-hasCompletedSetup", "YES"])
+        let seed = launch(["-hasCompletedSetup", "YES"] + (language == "ja" ? ["-PROMO_NO_RECENT"] : []))
         XCTAssertTrue(any(seed, "cutlingCard").waitForExistence(timeout: 30), "No cards")
         sleep(2)
         seed.terminate()
@@ -307,7 +309,8 @@ final class PromoReleaseUITests: XCTestCase {
         sleep(3)
         let body = messages.descendants(matching: .any).matching(identifier: "messageBodyField").firstMatch
         XCTAssertTrue(body.waitForExistence(timeout: 15), "No message field")
-        for _ in 0..<3 where !messages.keyboards.firstMatch.exists {
+        // The To: field starts with the caret, and its keyboard has no globe: the message field is tapped until it holds it.
+        for _ in 0..<3 where (body.value(forKey: "hasKeyboardFocus") as? Bool) != true {
             body.tap()
             _ = messages.keyboards.firstMatch.waitForExistence(timeout: 4)
         }
@@ -338,10 +341,50 @@ final class PromoReleaseUITests: XCTestCase {
         sleep(1)
         press("order update", order)
         sleep(2)
-        let name = frame(words.name)
         shot("messages_1_asks")
         sleep(1)
-        press("name", name)
+        if language == "ja" {
+            // The first time: the fill-in asks, the name is typed on the kana keyboard (なかむら flicked and converted),
+            // the globe goes back to Cutling, which reads the name before the cursor, and the check mark types the reply.
+            let own = cutlingKeys(in: messages)?.first { $0.label.contains("キーボード") && $0.label != "次のキーボード" }?.frame ?? frame("いつものキーボードで入力")
+            press("type with your keyboard", own)
+            XCTAssertTrue(messages.keys["な"].waitForExistence(timeout: 10), "The kana keyboard did not come up")
+            sleep(2)
+            func tapKey(_ label: String) {
+                mark("kana \(label)")
+                messages.keys[label].tap()
+                usleep(450_000)
+            }
+            tapKey("な"); tapKey("か")
+            mark("kana む flick")
+            let ma = messages.keys["ま"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
+            ma.press(forDuration: 0.1, thenDragTo: ma.withOffset(CGVector(dx: 0, dy: -50)), withVelocity: .default, thenHoldForDuration: 0.2)
+            usleep(450_000)
+            tapKey("ら")
+            sleep(1)
+            shot("messages_1b_typed")
+            mark("kana convert")
+            messages.keys["空白"].tap()
+            usleep(900_000)
+            mark("kana commit")
+            messages.keys["確定"].tap()
+            sleep(1)
+            shot("messages_1c_converted")
+            mark("globe back")
+            keyboardGlobe(in: messages).coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+            XCTAssertTrue(cutlingKeyboardIsUp(in: messages), "Cutling did not come back")
+            sleep(1)
+            shot("messages_1d_back")
+            // The return key: the right end of the lowest row of Cutling's buttons (delete, space, return).
+            let keys = cutlingKeys(in: messages) ?? []
+            let lowest = keys.map { Int($0.frame.midY) }.max() ?? 0
+            let row = keys.filter { abs(Int($0.frame.midY) - lowest) < 8 }
+            let done = row.max(by: { $0.frame.midX < $1.frame.midX })?.frame ?? .zero
+            press("insert", done.midX > messages.frame.width * 0.75 ? done : CGRect(x: messages.frame.width * 0.88, y: CGFloat(lowest), width: 0, height: 0))
+        } else {
+            let name = frame(words.name)
+            press("name", name)
+        }
         sleep(3)
         shot("messages_2_asked")
         mark("ask end")
