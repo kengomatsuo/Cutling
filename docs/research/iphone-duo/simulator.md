@@ -19,3 +19,9 @@ On the inner screen the keyboard takes the regular-width (iPad) height, about 40
 The first time the Cutling keyboard was chosen from the globe menu on the outer screen it came up blank (iOS's default 245 pt, no keys), with UIKit logging "Invalid UIScreen coordinate space conversion" between two UIScreen objects of the same 466 x 678 size while converting the keyboard's 452 x 294 frame; that cold start took 73 s on an overloaded Mac (load 50-200). Focusing the field again showed the keyboard whole. Dictus's audit (getdictus/dictus-ios #785) saw the same blank cover-screen keyboard after the globe menu, fixed by refocusing. GUESS: an iOS 27.2 issue with third-party keyboards on the cover screen, not Cutling's code, which does no screen conversion.
 
 `needsInputModeSwitchKey` was true on the outer screen: Cutling drew its globe key there.
+
+## Undirect's Safari pop-up
+Undirect's pop-up, opened from Safari's page menu on example.com, appears on the inner screen as a popover sized to its content (no header-tall popover as wBlock had, issue 0xCUB3/wBlock#1105), and folding with it open turns it into a sheet on the outer screen that stays open and keeps its page. The extension had been switched on in Settings > Apps > Safari > Extensions on this simulator before.
+
+## Fixes verified on the Duo simulator after the change
+- Cutling build 54 (Proof run 54, commit be5a34a2): launched on the outer screen and unfolded, the side column keeps +, keyboard and more, and the keyboard button opens its sheet. Shots: `~/Downloads/Claude/duo-editions/after/`.
