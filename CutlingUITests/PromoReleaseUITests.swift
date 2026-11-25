@@ -296,7 +296,7 @@ final class PromoReleaseUITests: XCTestCase {
     /// keys are the release seed's, so every beat shows one set.
     @MainActor
     func test4Messages() throws {
-        let seed = launch(["-hasCompletedSetup", "YES"] + (language == "ja" ? ["-PROMO_NO_RECENT"] : []))
+        let seed = launch(["-hasCompletedSetup", "YES", "-PROMO_NO_RECENT"])
         XCTAssertTrue(any(seed, "cutlingCard").waitForExistence(timeout: 30), "No cards")
         sleep(2)
         seed.terminate()
@@ -352,6 +352,19 @@ final class PromoReleaseUITests: XCTestCase {
             shot("messages_0b_converted")
             XCTAssertEqual((body.value as? String) ?? "", words.name, "The name was not typed")
             mark("globe to Cutling")
+        } else {
+            // The simulator keeps the keyboard used last, which an earlier run leaves as Cutling's: the globe goes back to the English one.
+            for _ in 0..<3 where messages.keys.count == 0 {
+                let globe = keyboardGlobe(in: messages)
+                if globe.waitForExistence(timeout: 5) { globe.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap() }
+                sleep(2)
+            }
+            XCTAssertGreaterThan(messages.keys.count, 0, "The English keyboard is not up")
+            mark("type name")
+            body.typeText(words.name)
+            sleep(1)
+            XCTAssertEqual((body.value as? String) ?? "", words.name, "The name was not typed")
+            mark("globe to Cutling")
         }
         continueAfterFailure = true
         switchToCutlingKeyboard(in: messages, showing: words.order)
@@ -380,22 +393,17 @@ final class PromoReleaseUITests: XCTestCase {
         sleep(2)
         shot("messages_1_asks")
         sleep(1)
-        if language == "ja" {
-            // The typed name already fills the blank: the check mark types the reply and the typed 中村 goes.
-            // The return key: the right end of the lowest row of Cutling's buttons (delete, space, return).
-            let keys = cutlingKeys(in: messages) ?? []
-            let lowest = keys.map { Int($0.frame.midY) }.max() ?? 0
-            let row = keys.filter { abs(Int($0.frame.midY) - lowest) < 8 }
-            let done = row.max(by: { $0.frame.midX < $1.frame.midX })?.frame ?? .zero
-            press("insert", done.midX > messages.frame.width * 0.75 ? done : CGRect(x: messages.frame.width * 0.88, y: CGFloat(lowest), width: 0, height: 0))
-            sleep(3)
-            let typed = (body.value as? String) ?? ""
-            XCTAssertTrue(typed.hasPrefix(words.name + "様"), "The reply does not start with the name: \(typed)")
-            XCTAssertFalse(typed.contains(words.name + words.name), "The typed name stayed in the text: \(typed)")
-        } else {
-            let name = frame(words.name)
-            press("name", name)
-        }
+        // The typed name already fills the blank: the check mark types the reply and the typed name goes.
+        // The return key: the right end of the lowest row of Cutling's buttons (delete, space, return).
+        let keys = cutlingKeys(in: messages) ?? []
+        let lowest = keys.map { Int($0.frame.midY) }.max() ?? 0
+        let row = keys.filter { abs(Int($0.frame.midY) - lowest) < 8 }
+        let done = row.max(by: { $0.frame.midX < $1.frame.midX })?.frame ?? .zero
+        press("insert", done.midX > messages.frame.width * 0.75 ? done : CGRect(x: messages.frame.width * 0.88, y: CGFloat(lowest), width: 0, height: 0))
+        sleep(3)
+        let typed = (body.value as? String) ?? ""
+        XCTAssertEqual(typed.components(separatedBy: words.name).count - 1, 1, "The name is not in the reply once: \(typed)")
+        XCTAssertFalse(typed.hasPrefix(words.name + words.name), "The typed name stayed in the text: \(typed)")
         sleep(3)
         shot("messages_2_asked")
         mark("ask end")
