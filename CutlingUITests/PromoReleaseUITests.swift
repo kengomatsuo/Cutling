@@ -361,7 +361,7 @@ final class PromoReleaseUITests: XCTestCase {
             }
             XCTAssertGreaterThan(messages.keys.count, 0, "The English keyboard is not up")
             mark("type name")
-            body.typeText(words.name)
+            for letter in words.name { body.typeText(String(letter)); usleep(280_000) }
             sleep(1)
             XCTAssertEqual((body.value as? String) ?? "", words.name, "The name was not typed")
             mark("globe to Cutling")
