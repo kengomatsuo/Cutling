@@ -18,6 +18,13 @@ MAC = REPO / "fastlane/screenshots_mac/raw"
 EXTRA = HERE / "captures"                       # 2.0 captures that are not in the snapshot folders yet
 RENDER = HERE.parent / "render.mjs"
 SIZE = {"iphone": (1320, 2868), "ipad": (2064, 2752), "mac": (2880, 1800)}
+# The iPhone Duo's two screens, which App Store Connect takes in one set (APP_IPHONE_DUO): each is laid out like the iPad,
+# on a page 2064 CSS px wide and as tall as the screen's shape gives, then saved at the screen's own pixels.
+DUO = {"duo-inner": (2007, 2853), "duo-outer": (1398, 2034)}
+SCALE = {}
+for _d, (_w, _h) in DUO.items():
+    SIZE[_d] = (2064, round(2064 * _h / _w))
+    SCALE[_d] = _w / 2064
 GREEN = "#17B98A"
 
 def cap(loc, key):
@@ -29,6 +36,10 @@ def cap(loc, key):
         "pad-chat": SHOTS / loc / "iPad Air 13-inch (M4)-01_KeyboardInMessages.png",
         "pad-grid": SHOTS / loc / "iPad Air 13-inch (M4)-02_MainGrid.png",
         "pad-guide": SHOTS / loc / "iPad Air 13-inch (M4)-04_KeyboardGuide.png",
+        "duo-inner-guide": EXTRA / loc / "duo-inner-guide.png",
+        "duo-inner-grid": EXTRA / loc / "duo-inner-grid.png",
+        "duo-outer-guide": EXTRA / loc / "duo-outer-guide.png",
+        "duo-outer-grid": EXTRA / loc / "duo-outer-grid.png",
         "mac-picker": MAC / loc / "01_Picker.png",
         "mac-history": MAC / loc / "02_History.png",
         "mac-sync": MAC / loc / "05_Sync.png",
@@ -169,6 +180,25 @@ def ipad(src, x, y, w, *, bar="#F2F2F7", dark_text=True, z=2, rot=0):
     return (f'<div class="dev shadow-soft" style="--w:{w}px;left:{x}px;top:{y}px;width:{w}px;height:{h}px;border-radius:{R}px;z-index:{z};{t}">'
             f'<div class="scr" style="left:{b}px;top:{b}px;width:{ws}px;height:{hs}px;border-radius:{R-b}px">'
             f'<img class="cap" src="{src}">{sbar(ws, bar, dark_text, pad=True)}</div></div>'), h
+
+def duo(src, x, y, w, *, screen="inner", z=2, rot=0):
+    """An iPhone Duo around a capture of one screen: the inner one open like a book (a 2853 x 2007 capture, its fold
+    down the middle) or the outer one (1398 x 2034), whose hinge edge has the squarer corners, as the device does."""
+    inner = screen == "inner"
+    aspect = 2007 / 2853 if inner else 2034 / 1398
+    b = w * (0.016 if inner else 0.026); ws = w - 2 * b; hs = ws * aspect; h = hs + 2 * b
+    if inner:
+        R = w * 0.03
+        outer_r, screen_r = f"{R}px", f"{R - b}px"
+    else:
+        R, r = w * 0.152, w * 0.045
+        outer_r, screen_r = f"{r}px {R}px {R}px {r}px", f"{max(r - b, 2)}px {R - b}px {R - b}px {max(r - b, 2)}px"
+    fold = ('<div style="position:absolute;left:50%;top:0;bottom:0;width:3px;margin-left:-1.5px;z-index:3;'
+            'background:linear-gradient(90deg,rgba(0,0,0,.05),rgba(255,255,255,.08),rgba(0,0,0,.05))"></div>') if inner else ""
+    t = f"transform:rotate({rot}deg);" if rot else ""
+    return (f'<div class="dev shadow-soft" style="--w:{w}px;left:{x}px;top:{y}px;width:{w}px;height:{h}px;border-radius:{outer_r};z-index:{z};{t}">'
+            f'<div class="scr" style="left:{b}px;top:{b}px;width:{ws}px;height:{hs}px;border-radius:{screen_r}">'
+            f'<img class="cap" src="{src}">{fold}</div></div>'), h
 
 def win(src, x, y, w, z=3, rot=0, extra=""):
     t = f"transform:rotate({rot}deg);" if rot else ""
@@ -346,18 +376,20 @@ def bubble(text, x, y, fs, *, mine=True, maxw=None, z=4):
 
 JOBS, POST = [], []
 
-def write_render(path_html, html_text, w, h):
-    """Writes the page and queues it; run_jobs() renders the queue through one Chrome."""
+def write_render(path_html, html_text, w, h, scale=1):
+    """Writes the page and queues it; run_jobs() renders the queue through one Chrome. A page laid out at (w, h) is
+    saved at (w, h) * scale pixels."""
     path_html.parent.mkdir(parents=True, exist_ok=True)
     path_html.write_text(html_text)
     png = path_html.with_suffix(".png")
-    JOBS.append({"html": str(path_html), "png": str(png), "w": w, "h": h})
+    JOBS.append({"html": str(path_html), "png": str(png), "w": round(w * scale), "h": round(h * scale), "scale": scale})
     return png
 
 def split_pair(png, out1, out2, w):
     """Frames 1 and 2 are two clips of the same double-width page (Chrome's PNGs are RGB, no alpha to flatten)."""
     job = next(j for j in JOBS if j["png"] == str(png))
-    job["crops"] = [[str(out1), 0, w], [str(out2), w, w]]
+    k = job.get("scale", 1)
+    job["crops"] = [[str(out1), 0, round(w * k)], [str(out2), round(w * k), round(w * k)]]
 
 def flatten(png):
     return png
@@ -379,7 +411,7 @@ import importlib  # noqa: E402
 def main():
     """python3 build.py [locale ...|--store] [A|B|C ...] [--only iphone|ipad|mac] [--no-render] [--publish]
     --store: every store language that has a words file (the 50 App Store Connect locales)."""
-    args = [a for a in sys.argv[1:] if not a.startswith("--") and a not in ("iphone", "ipad", "mac")]
+    args = [a for a in sys.argv[1:] if not a.startswith("--") and a not in ("iphone", "ipad", "mac", *DUO)]
     dirs = [a for a in args if a in ("A", "B", "C")] or ["A", "B", "C"]
     locs = [a for a in args if a not in ("A", "B", "C")]
     if "--store" in sys.argv:
@@ -408,7 +440,7 @@ def publish(loc):
     dst.mkdir(parents=True, exist_ok=True)
     for old in dst.glob("*.png"):
         old.unlink()
-    for dev in ("iphone", "ipad", "mac"):
+    for dev in ("iphone", "ipad", "mac", *DUO):
         for f in sorted((HERE / "out" / loc / STORE_DIRECTION / dev).glob("[0-9][0-9].png")):
             shutil.copy(f, dst / f"{dev}-{f.name}")
 

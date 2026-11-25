@@ -42,7 +42,7 @@ def head(m, h):
 def build(m, loc, words, only):
     W = words["C"]; cs = words["cseed"]; F = m.FACTS[loc]
     out = m.HERE / "out" / loc / "C"
-    for dev in ("iphone", "ipad", "mac"):
+    for dev in ("iphone", "ipad", "mac", *m.DUO):
         if only and dev != only:
             continue
         (out / dev).mkdir(parents=True, exist_ok=True)
@@ -53,9 +53,12 @@ def build(m, loc, words, only):
 
 def touch_set(m, loc, W, cs, F, out, dev):
     T = {k: dict(v) for k, v in W["iphone"].items()}
-    for k, v in W.get(dev, {}).items():
+    # The Duo's screens take the iPad's words and layout (build.py lays them out 2064 px wide, as the iPad)
+    for k, v in W.get("ipad" if dev in m.DUO else dev, {}).items():
         T.setdefault(k, {}).update(v)
-    w, h = m.SIZE[dev]; pad = dev == "ipad"; rtl = loc in m.RTL
+    w, h = m.SIZE[dev]; pad = dev != "iphone"; rtl = loc in m.RTL
+    k_ = m.SCALE.get(dev, 1)
+    render = lambda path, body, pw=w: m.write_render(path, m.page(pw, h, body, CSS, loc), pw, h, k_)
     X, Y, TW = (150, 200, 1700) if pad else (96, 200, 1140)
     KF, HF, SF = (60, 150, 54) if pad else (54, 138, 50)
     day = F["weekday_tue_nov24"]
@@ -73,7 +76,7 @@ def touch_set(m, loc, W, cs, F, out, dev):
     room = py - Y - 60
     body = (text(m, T["1"], X, Y, TW, KF, big, SF, room) + p1
             + text(m, T["2"], w + X, Y, TW, KF, big, SF, room) + p2)
-    pair = m.write_render(out / "pair-12.html", m.page(2 * w, h, body, CSS, loc), 2 * w, h)
+    pair = render(out / "pair-12.html", body, 2 * w)
     m.split_pair(pair, out / "01.png", out / "02.png", w)
 
     # 3: the saved note whose blank is a date, and what it typed today
@@ -94,14 +97,23 @@ def touch_set(m, loc, W, cs, F, out, dev):
             f'gap:{fs*.7}px;z-index:5">{card}{bub}</div>')
     bub = ""
     body = text(m, T["3"], X, Y, TW, KF, HF * 1.15, SF, cy - Y - 80) + card + bub
-    m.write_render(out / "03.html", m.page(w, h, body, CSS, loc), w, h)
+    render(out / "03.html", body)
 
     # 4, 5, 6: real captures of this language under the line. 4: the 2.0 setup guide's Try It page, the keyboard
     # typing the saved address (the Messages captures are English in most languages, so they are not used);
     # 5: the app's grid; 6: the same cutlings on Mac, iPad and iPhone.
     top = 1060 if pad else 1130
     mx = (lambda x, width: w - x - width) if rtl else (lambda x, width: x)
-    if pad:
+    if dev in m.DUO:
+        # 4 and 5: this screen's own captures; 6: the Mac, the inner screen open and the outer one, the same cutlings
+        scr = dev.split("-")[1]
+        dw = 1700 if scr == "inner" else 1000
+        devs = {"04": m.duo(m.cap(loc, f"duo-{scr}-guide"), (w - dw) / 2, top, dw, screen=scr)[0],
+                "05": m.duo(m.cap(loc, f"duo-{scr}-grid"), (w - dw) / 2, top, dw, screen=scr)[0],
+                "06": m.win(m.cap(loc, "mac-picker"), mx(150, 760), top + 40, 760, z=1)
+                      + m.duo(m.cap(loc, "duo-inner-grid"), mx(420, 1450), top + 330, 1450, screen="inner", z=2)[0]
+                      + m.duo(m.cap(loc, "duo-outer-grid"), mx(1360, 560), top + 900, 560, screen="outer", z=3)[0]}
+    elif pad:
         devs = {"04": m.ipad(m.cap(loc, "pad-guide"), 420, top, 1220, bar="#000", dark_text=False)[0],
                 "05": m.ipad(m.cap(loc, "pad-grid"), 420, top, 1220)[0],
                 "06": m.win(m.cap(loc, "mac-picker"), mx(150, 760), top + 40, 760, z=1)
@@ -116,7 +128,7 @@ def touch_set(m, loc, W, cs, F, out, dev):
     for n, key in (("04", "4"), ("05", "5"), ("06", "6")):
         hf = HF * (1.5 if n in ("05", "06") else 1.0)   # 4 is a list of three; 5 and 6 are a number and two words
         body = text(m, T[key], X, Y, TW, KF, hf, SF, top - Y - 70) + devs[n]
-        m.write_render(out / f"{n}.html", m.page(w, h, body, CSS, loc), w, h)
+        render(out / f"{n}.html", body)
 
 def mac_set(m, loc, W, cs, F, out):
     T = {k: dict(v) for k, v in W["mac"].items()}

@@ -40,7 +40,9 @@ try {
     const { sessionId } = await send("Target.attachToTarget", { targetId, flatten: true });
     const S = (m, p) => send(m, p, sessionId);
     try {
-      await S("Emulation.setDeviceMetricsOverride", { width: j.w, height: j.h || 1200, deviceScaleFactor: 1, mobile: false });
+      // scale: a page laid out at (w, h) / scale CSS pixels and saved at w x h, so one layout serves two sizes (the Duo's)
+      const k = j.scale || 1;
+      await S("Emulation.setDeviceMetricsOverride", { width: Math.round(j.w / k), height: Math.round((j.h || 1200) / k), deviceScaleFactor: k, mobile: false });
       await S("Page.enable"); await S("Runtime.enable");
       pageError = null;
       await S("Page.navigate", { url: "file://" + j.html });
@@ -58,7 +60,7 @@ try {
       }
       const shots = j.crops || [[j.png, 0, j.w]];   // a double-width page is saved as two frames
       for (const [png, x, cw] of shots) {
-        const b64 = (await S("Page.captureScreenshot", { format: "png", clip: { x, y: 0, width: cw, height: j.h, scale: 1 } })).data;
+        const b64 = (await S("Page.captureScreenshot", { format: "png", clip: { x: x / k, y: 0, width: cw / k, height: j.h / k, scale: 1 } })).data;
         writeFileSync(png, Buffer.from(b64, "base64"));
       }
       console.log(`${j.png} ${((Date.now() - t0) / 1000).toFixed(1)}s`);
