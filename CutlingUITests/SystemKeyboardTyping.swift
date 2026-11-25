@@ -22,7 +22,8 @@ extension XCTestCase {
         func point(_ frame: CGRect) -> XCUICoordinate { screenPoint(frame.midX, frame.midY, in: app) }
         func find(_ query: XCUIElementQuery, _ format: String, _ args: [Any]) -> XCUICoordinate? {
             let element = query.matching(NSPredicate(format: format, argumentArray: args)).firstMatch
-            return element.waitForExistence(timeout: 5) ? point(element.frame) : nil
+            guard element.waitForExistence(timeout: 5) else { return nil }
+            return point(element.frame)
         }
         var letters: [Character: XCUICoordinate] = [:]
         for letter in Set(text.lowercased().filter(\.isLetter)) {
@@ -48,7 +49,8 @@ extension XCTestCase {
         func touch(_ what: String, _ at: XCUICoordinate?) {
             guard let at else { return XCTFail("No key for \(what)") }
             let began = Date()
-            mark("key \(what)")
+            let p = at.screenPoint
+            mark("key \(what) at \(Int(p.x)),\(Int(p.y))")
             at.tap()
             let rest = slot - Date().timeIntervalSince(began)
             if rest > 0 { usleep(UInt32(rest * 1_000_000)) }
