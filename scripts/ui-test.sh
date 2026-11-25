@@ -74,6 +74,9 @@ if ! kill -0 $rec 2>/dev/null; then
   display="$(grep -E -- '--display=[0-9]+ +[A-Za-z]+ \(primary\)' "$out/record.log" | grep -oE -- '--display=[0-9]+' | head -1)"
   [ -n "$display" ] && record
 fi
+# The wall clock of the recording's first frame, so a test's MARK lines map to times in run.mp4.
+for _ in $(seq 50); do grep -q "Recording started" "$out/record.log" 2>/dev/null && break; sleep 0.1; done
+python3 -c 'import time; print(time.time())' > "$out/record-start"
 while kill -0 $pid 2>/dev/null; do sleep 20; echo "$name: $((SECONDS - start)) s"; done
 wait $pid; status=$?
 kill -INT $rec 2>/dev/null; wait $rec 2>/dev/null
