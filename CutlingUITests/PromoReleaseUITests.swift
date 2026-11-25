@@ -364,10 +364,15 @@ final class PromoReleaseUITests: XCTestCase {
             sleep(1)
             shot("messages_1b_typed")
             mark("kana convert")
-            messages.keys["空白"].tap()
+            func kana(_ names: [String]) -> XCUIElement {
+                messages.keyboards.firstMatch.descendants(matching: .any)
+                    .matching(NSPredicate(format: "label IN %@ OR identifier IN %@", names, names)).firstMatch
+            }
+            print("KANA-KEYS: " + messages.keyboards.firstMatch.descendants(matching: .any).allElementsBoundByIndex.map { "\($0.elementType.rawValue):\($0.identifier)|\($0.label)" }.joined(separator: ", "))
+            kana(["空白", "space", "Space"]).tap()
             usleep(900_000)
             mark("kana commit")
-            messages.keys["確定"].tap()
+            kana(["確定", "Return"]).tap()
             sleep(1)
             shot("messages_1c_converted")
             mark("globe back")
