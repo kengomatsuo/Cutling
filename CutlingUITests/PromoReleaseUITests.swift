@@ -316,6 +316,43 @@ final class PromoReleaseUITests: XCTestCase {
         }
         sleep(1)
         mark("messages own keyboard")
+        if language == "ja" {
+            // The first time, as a person does it: the name is typed on the kana keyboard before Cutling is up (なかむら flicked and
+            // converted to 中村); a word typed just before a cutling fills its first blank (FillSession.wordTypedFirst).
+            // The simulator keeps the keyboard used last, which an earlier run leaves as Cutling's: the globe goes back to the kana one.
+            for _ in 0..<3 where !messages.keys["な"].waitForExistence(timeout: 3) {
+                let globe = keyboardGlobe(in: messages)
+                if globe.waitForExistence(timeout: 5) { globe.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap() }
+                sleep(2)
+            }
+            XCTAssertTrue(messages.keys["な"].waitForExistence(timeout: 10), "The kana keyboard is not up")
+            func tapKey(_ label: String) {
+                mark("kana \(label)")
+                messages.keys[label].tap()
+                usleep(450_000)
+            }
+            func kana(_ names: [String]) -> XCUIElement {
+                messages.keyboards.firstMatch.descendants(matching: .any)
+                    .matching(NSPredicate(format: "label IN %@ OR identifier IN %@", names, names)).firstMatch
+            }
+            tapKey("な"); tapKey("か")
+            mark("kana む flick")
+            let ma = messages.keys["ま"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
+            ma.press(forDuration: 0.1, thenDragTo: ma.withOffset(CGVector(dx: 0, dy: -50)), withVelocity: .default, thenHoldForDuration: 0.2)
+            usleep(450_000)
+            tapKey("ら")
+            sleep(1)
+            shot("messages_0a_typed")
+            mark("kana convert")
+            kana(["空白", "space", "Space"]).tap()
+            usleep(900_000)
+            mark("kana commit")
+            kana(["確定", "Return"]).tap()
+            sleep(1)
+            shot("messages_0b_converted")
+            XCTAssertEqual((body.value as? String) ?? "", words.name, "The name was not typed")
+            mark("globe to Cutling")
+        }
         continueAfterFailure = true
         switchToCutlingKeyboard(in: messages, showing: words.order)
         continueAfterFailure = false
@@ -344,48 +381,17 @@ final class PromoReleaseUITests: XCTestCase {
         shot("messages_1_asks")
         sleep(1)
         if language == "ja" {
-            // The first time: the fill-in asks, the name is typed on the kana keyboard (なかむら flicked and converted),
-            // the globe goes back to Cutling, which reads the name before the cursor, and the check mark types the reply.
-            let own = cutlingKeys(in: messages)?.first { $0.label.contains("キーボード") && $0.label != "次のキーボード" }?.frame ?? frame("いつものキーボードで入力")
-            press("type with your keyboard", own)
-            XCTAssertTrue(messages.keys["な"].waitForExistence(timeout: 10), "The kana keyboard did not come up")
-            sleep(2)
-            func tapKey(_ label: String) {
-                mark("kana \(label)")
-                messages.keys[label].tap()
-                usleep(450_000)
-            }
-            tapKey("な"); tapKey("か")
-            mark("kana む flick")
-            let ma = messages.keys["ま"].coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
-            ma.press(forDuration: 0.1, thenDragTo: ma.withOffset(CGVector(dx: 0, dy: -50)), withVelocity: .default, thenHoldForDuration: 0.2)
-            usleep(450_000)
-            tapKey("ら")
-            sleep(1)
-            shot("messages_1b_typed")
-            mark("kana convert")
-            func kana(_ names: [String]) -> XCUIElement {
-                messages.keyboards.firstMatch.descendants(matching: .any)
-                    .matching(NSPredicate(format: "label IN %@ OR identifier IN %@", names, names)).firstMatch
-            }
-            print("KANA-KEYS: " + messages.keyboards.firstMatch.descendants(matching: .any).allElementsBoundByIndex.map { "\($0.elementType.rawValue):\($0.identifier)|\($0.label)" }.joined(separator: ", "))
-            kana(["空白", "space", "Space"]).tap()
-            usleep(900_000)
-            mark("kana commit")
-            kana(["確定", "Return"]).tap()
-            sleep(1)
-            shot("messages_1c_converted")
-            mark("globe back")
-            keyboardGlobe(in: messages).coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
-            XCTAssertTrue(cutlingKeyboardIsUp(in: messages), "Cutling did not come back")
-            sleep(1)
-            shot("messages_1d_back")
+            // The typed name already fills the blank: the check mark types the reply and the typed 中村 goes.
             // The return key: the right end of the lowest row of Cutling's buttons (delete, space, return).
             let keys = cutlingKeys(in: messages) ?? []
             let lowest = keys.map { Int($0.frame.midY) }.max() ?? 0
             let row = keys.filter { abs(Int($0.frame.midY) - lowest) < 8 }
             let done = row.max(by: { $0.frame.midX < $1.frame.midX })?.frame ?? .zero
             press("insert", done.midX > messages.frame.width * 0.75 ? done : CGRect(x: messages.frame.width * 0.88, y: CGFloat(lowest), width: 0, height: 0))
+            sleep(3)
+            let typed = (body.value as? String) ?? ""
+            XCTAssertTrue(typed.hasPrefix(words.name + "様"), "The reply does not start with the name: \(typed)")
+            XCTAssertFalse(typed.contains(words.name + words.name), "The typed name stayed in the text: \(typed)")
         } else {
             let name = frame(words.name)
             press("name", name)
