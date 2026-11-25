@@ -233,20 +233,27 @@ enum FillInPills {
     nonisolated(unsafe) private static let inlineCache = NSCache<NSString, PillImage>()
 
     /// One token as an inline pill for a SwiftUI preview (cards, lists, the keyboard); the cursor spot shows nothing.
-    static func inline(_ token: String, size: CGFloat) -> Text {
+    /// `dark` names the appearance when the view knows it (the keyboard's keys are built before their host app's
+    /// appearance is known); otherwise the current one is used.
+    static func inline(_ token: String, size: CGFloat, dark appearance: Bool? = nil) -> Text {
         let body = token.dropFirst(2).dropLast().trimmingCharacters(in: .whitespaces).lowercased()
         if body == "cursor" { return Text(verbatim: "") }
         let font = PillFont.systemFont(ofSize: size)
         #if os(iOS)
-        let dark = UITraitCollection.current.userInterfaceStyle == .dark
+        let dark = appearance ?? (UITraitCollection.current.userInterfaceStyle == .dark)
         #else
-        let dark = NSApp?.effectiveAppearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua
+        let dark = appearance ?? (NSApp?.effectiveAppearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua)
         #endif
         // A date or time reads as today's value, short enough for a one-line preview; a blank keeps its name.
         let shown = previewValue(of: token) ?? title(of: token)
         let key = "\(token)|\(shown)|\(size)|\(dark)" as NSString
         let image = inlineCache.object(forKey: key) ?? {
+            #if os(iOS)
+            var made = PillImage()
+            UITraitCollection(userInterfaceStyle: dark ? .dark : .light).performAsCurrent { made = Self.image(shown, font: font).0 }
+            #else
             let made = Self.image(shown, font: font).0
+            #endif
             inlineCache.setObject(made, forKey: key)
             return made
         }()

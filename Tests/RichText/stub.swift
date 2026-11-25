@@ -7,5 +7,5 @@ import SwiftUI
 enum FillInPills {
     enum Piece { case text(String), token(String) }
     static func split(_ value: String) -> [Piece] { [.text(value)] }
-    static func inline(_ token: String, size: CGFloat) -> Text { Text(token) }
+    static func inline(_ token: String, size: CGFloat, dark: Bool? = nil) -> Text { Text(token) }
 }
