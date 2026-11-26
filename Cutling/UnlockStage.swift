@@ -26,6 +26,11 @@ struct UnlockStage: View {
     let roomSize: CGSize
     let trailingPadding: CGFloat
 
+    #if os(macOS)
+    /// The Mac window's sixth tile shows the item that waits (its SF Symbol) instead of the +.
+    var waitingIcon: String?
+    #endif
+
     @Environment(\.layoutDirection) private var direction
     @Environment(\.colorScheme) private var scheme
 
@@ -48,16 +53,28 @@ struct UnlockStage: View {
         .allowsHitTesting(false)
     }
 
+    private var sixthSymbol: String {
+        #if os(macOS)
+        waitingIcon ?? "plus"
+        #else
+        "plus"
+        #endif
+    }
+
     @ViewBuilder private func tile(_ index: Int) -> some View {
         let radius = side * UnlockSlots.radiusRatio
+        #if os(macOS)
+        let icon = 18 * side / 40 // the Mac mock's 18 pt glyph in a 40 pt tile
+        #else
         let icon = 20 * side / UnlockMotion.heroTile
+        #endif
         if index == Unlock.freeLimit {
             ZStack {
                 RoundedRectangle(cornerRadius: radius).fill(Color.brandGreen.opacity(0.12 + 0.88 * frame.dot))
                 RoundedRectangle(cornerRadius: radius)
                     .strokeBorder(Color.brandGreen, style: StrokeStyle(lineWidth: 1.5, dash: [4, 3]))
                     .opacity(frame.sixthDash)
-                Image(systemName: "plus")
+                Image(systemName: sixthSymbol)
                     .font(.system(size: icon, weight: .semibold))
                     .foregroundStyle(Color.brandGreen)
                     .opacity(1 - frame.dot)
@@ -69,7 +86,13 @@ struct UnlockStage: View {
         } else if index < cutlings.count {
             let item = cutlings[index]
             ZStack {
+                #if os(macOS)
+                // The Mac mock's tiles are the window's own white surface, not a wash of the cutling's colour.
+                RoundedRectangle(cornerRadius: radius).fill(Color(nsColor: .controlBackgroundColor).opacity(1 - frame.dot))
+                RoundedRectangle(cornerRadius: radius).fill(item.tintColor.opacity(frame.dot))
+                #else
                 RoundedRectangle(cornerRadius: radius).fill(item.tintColor.opacity(0.12 + 0.88 * frame.dot))
+                #endif
                 Image(systemName: item.icon)
                     .font(.system(size: icon, weight: .medium))
                     .foregroundStyle(item.tintColor)

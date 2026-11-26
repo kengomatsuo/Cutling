@@ -73,13 +73,74 @@ final class UnlockUITests: XCTestCase {
             unlock.tap()
             sleep(3) // the demo purchase takes 1 s, then the 250 ms beat
             shot("\(tag)_\(ms)")
-            let title = app.staticTexts["It's All Yours"].firstMatch
+            let title = app.staticTexts["unlockDoneTitle"].firstMatch
             let thanks = app.staticTexts["Thank you for supporting Cutling."].firstMatch
             // Before t0 the done words are hidden from accessibility, so only elements that exist report a frame.
             func at(_ e: XCUIElement) -> String { e.exists ? "\(e.frame)" : "hidden" }
             NSLog("UNLOCKFRAME %@ button=%@ title=%@ subtitle=%@ close=%@", ms, at(unlock), at(title), at(thanks), at(app.buttons["notNowButton"].firstMatch))
             app.terminate()
         }
+    }
+
+    /// The unlock sheet in each language of `TEST_RUNNER_UNLOCK_LOCALES` (comma-separated locale folders, such as ja,de,ar):
+    /// the ask, then the end of the moment, one launch per language, for checking every locale's strings on the real sheet.
+    @MainActor
+    func testLocaleSheets() throws {
+        // Every locale folder Cutling ships, unless TEST_RUNNER_UNLOCK_LOCALES names a few (the Proof workflow runs them all).
+        let all = "ar-SA,ar,bg,bn-BD,bn,ca,cs,da,de-DE,de,el,en-AU,en-CA,en-GB,en-IN,en,es-ES,es-MX,es,et,fa,fi,fil,fr-CA,fr-FR,fr,gu-IN,gu,he,hi,hr,hu,id,it,ja,kn-IN,kn,ko,lt,lv,ml-IN,ml,mr-IN,mr,ms,nb,nl-NL,nl,or-IN,or,pa-IN,pa,pl,pt-BR,pt-PT,pt,ro,ru,sk,sl-SI,sl,sr,sv,sw,ta-IN,ta,te-IN,te,th,tr,uk,ur-PK,ur,vi,zh-Hans,zh-Hant"
+        let locales = (ProcessInfo.processInfo.environment["UNLOCK_LOCALES"] ?? all).split(separator: ",").map(String.init)
+        for locale in locales {
+            let language = locale.replacingOccurrences(of: "_", with: "-")
+            let app = XCUIApplication()
+            app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-UNLOCK_TEST", "-UnlockAsNewUser", "-UnlockDemoStore",
+                                    "-hasCompletedSetup", "YES", "-hasSeenInteractiveTutorial", "YES",
+                                    "-AppleLanguages", "(\(language))", "-AppleLocale", language.replacingOccurrences(of: "-", with: "_")]
+            app.launch()
+            guard app.descendants(matching: .any)["cutlingCard"].firstMatch.waitForExistence(timeout: 30) else {
+                NSLog("UNLOCKLOCALE %@ no cards", locale); app.terminate(); continue
+            }
+            let add = app.buttons["addCutlingButton"].firstMatch
+            guard add.waitForExistence(timeout: 10) else { NSLog("UNLOCKLOCALE %@ no + button", locale); app.terminate(); continue }
+            add.tap()
+            let text = app.descendants(matching: .any)["newTextCutling"].firstMatch
+            if text.waitForExistence(timeout: 5) { text.tap() }
+            let unlock = app.buttons["unlockButton"].firstMatch
+            guard unlock.waitForExistence(timeout: 10) else { NSLog("UNLOCKLOCALE %@ no sheet", locale); shot("\(locale)_nosheet"); app.terminate(); continue }
+            sleep(1)
+            shot("\(locale)_ask")
+            unlock.tap()
+            _ = app.staticTexts["unlockDoneTitle"].waitForExistence(timeout: 15)
+            sleep(3)
+            shot("\(locale)_end")
+            app.terminate()
+        }
+    }
+
+    /// The moment and the sheet's slide-in measured with no accessibility query while they play (a query stalls the app's
+    /// main thread), on a build's own simulator: `-UnlockFrameMeter` writes the frame gaps to /tmp, attached here.
+    @MainActor
+    func testCelebrationFrameMeter() throws {
+        for path in ["/tmp/unlock-frames.json", "/tmp/unlock-slide.json"] { try? FileManager.default.removeItem(atPath: path) }
+        let app = XCUIApplication()
+        app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-UNLOCK_TEST", "-UnlockAsNewUser", "-UnlockDemoStore",
+                                "-hasCompletedSetup", "YES", "-hasSeenInteractiveTutorial", "YES", "-UnlockFrameMeter"]
+        app.launch()
+        XCTAssertTrue(app.descendants(matching: .any)["cutlingCard"].firstMatch.waitForExistence(timeout: 30), "No cards")
+        openNewTextCutling(app)
+        sleep(3) // the slide-in plays and the meter writes, untouched
+        let unlock = app.buttons["unlockButton"].firstMatch
+        XCTAssertTrue(unlock.waitForExistence(timeout: 10), "The 6th cutling did not open the unlock screen")
+        unlock.tap()
+        sleep(6) // the moment plays untouched, then the meter writes
+        for path in ["/tmp/unlock-slide.json", "/tmp/unlock-frames.json"] {
+            let text = (try? String(contentsOfFile: path, encoding: .utf8)) ?? "missing"
+            NSLog("UNLOCKMETER %@ %@", path, text)
+            let attachment = XCTAttachment(string: text)
+            attachment.name = (path as NSString).lastPathComponent
+            attachment.lifetime = .keepAlways
+            add(attachment)
+        }
+        shot("meter_end")
     }
 
     /// Plays the moment for real, unfrozen, with `TEST_RUNNER_UNLOCK_ARGS` as extra launch arguments (`-UnlockFrameMeter` writes
@@ -98,13 +159,15 @@ final class UnlockUITests: XCTestCase {
         XCTAssertTrue(unlock.waitForExistence(timeout: 10), "The 6th cutling did not open the unlock screen")
         sleep(1)
         unlock.tap()
+        // UNLOCK_QUIET: no accessibility query while the moment plays, so the frame meter reads the app alone.
+        if env["UNLOCK_QUIET"] != nil { sleep(5) }
         if let tapAt = env["UNLOCK_TAP_AT"].flatMap(Double.init) {
             Thread.sleep(forTimeInterval: tapAt)
             app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.62)).tap()
             Thread.sleep(forTimeInterval: 0.6)
             shot("tapped")
         }
-        XCTAssertTrue(app.staticTexts["It's All Yours"].waitForExistence(timeout: 15), "No thank-you after buying")
+        XCTAssertTrue(app.staticTexts["unlockDoneTitle"].waitForExistence(timeout: 15), "No thank-you after buying")
         sleep(4)
         shot("played")
     }
@@ -126,7 +189,7 @@ final class UnlockUITests: XCTestCase {
         shot("02_unlock_screen")
 
         unlock.tap()
-        XCTAssertTrue(app.staticTexts["It's All Yours"].waitForExistence(timeout: 15), "No thank-you after buying")
+        XCTAssertTrue(app.staticTexts["unlockDoneTitle"].waitForExistence(timeout: 15), "No thank-you after buying")
         shot("03_unlocking")
         sleep(3) // the moment is 2.2 s
         shot("03_unlocked")

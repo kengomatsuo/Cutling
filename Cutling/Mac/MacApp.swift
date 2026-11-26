@@ -114,6 +114,22 @@ final class CutlingAppDelegate: NSObject, NSApplicationDelegate {
             if UserDefaults.standard.bool(forKey: "SNAPSHOT_DARK") {
                 NSApp.appearance = NSAppearance(named: .darkAqua)
             }
+            // Unlock screenshots: `-UnlockMacCutlings <n>` keeps n of the seeded cutlings, `-UnlockMacWindow` opens the window,
+            // `-UnlockMacBuy` buys in it (with `-UnlockDemoStore`); Settings opens with `-SNAPSHOT_SCREEN settings`.
+            let args = ProcessInfo.processInfo.arguments
+            if let at = args.firstIndex(of: "-UnlockMacCutlings"), args.indices.contains(at + 1), let n = Int(args[at + 1]) {
+                store.cutlings = Array(store.cutlings.prefix(n))
+            }
+            if args.contains("-UnlockMacWindow") {
+                Task { @MainActor in
+                    try? await Task.sleep(for: .seconds(1))
+                    MacUnlockWindow.shared.show()
+                    if args.contains("-UnlockMacBuy") {
+                        try? await Task.sleep(for: .seconds(1))
+                        await PurchaseManager.shared.purchase()
+                    }
+                }
+            }
             if UserDefaults.standard.string(forKey: "SNAPSHOT_SCREEN") != nil {
                 Task { @MainActor in
                     try? await Task.sleep(for: .seconds(1.5))

@@ -22,6 +22,8 @@ final class PurchaseManager: ObservableObject {
     @Published private(set) var product: Product?
     @Published private(set) var isPurchasing = false
     @Published private(set) var isRestoring = false
+    /// Unlocked because the app was acquired before it went free, not by buying the unlock: Settings thanks these people.
+    @Published private(set) var boughtEarly = false
     @Published var lastError: String?
 
     private var updates: Task<Void, Never>?
@@ -63,8 +65,9 @@ final class PurchaseManager: ObservableObject {
     #endif
 
     func refresh() async {
-        if await ownsUnlock() { return apply(true) }
+        if await ownsUnlock() { boughtEarly = false; return apply(true) }
         guard let early = await boughtBeforeFree() else { return } // offline: keep what is stored
+        boughtEarly = early
         apply(early)
     }
 

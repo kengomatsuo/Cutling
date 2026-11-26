@@ -17,6 +17,16 @@ final class UnlockHaptics {
     static let shared = UnlockHaptics()
     private var engine: CHHapticEngine?
     private var player: CHHapticAdvancedPatternPlayer?
+    /// The pattern files, read when the engine starts (the purchase tap) so t0's frame does not read and parse one.
+    private var patterns: [String: CHHapticPattern] = [:]
+
+    private func pattern(_ name: String) -> CHHapticPattern? {
+        if let cached = patterns[name] { return cached }
+        guard let url = Bundle.main.url(forResource: name, withExtension: "ahap"),
+              let loaded = try? CHHapticPattern(contentsOf: url) else { return nil }
+        patterns[name] = loaded
+        return loaded
+    }
 
     /// Starts the engine ahead of t0, so the pattern starts at t0 and not an engine start later.
     func prepare() {
@@ -28,14 +38,15 @@ final class UnlockHaptics {
         engine?.resetHandler = { [weak self] in Task { @MainActor in self?.engine = nil; self?.player = nil } }
         try? engine?.start()
         self.engine = engine
+        _ = pattern("UnlockCelebration")
+        _ = pattern("UnlockCelebrationReduceMotion")
     }
 
     /// Plays the pattern from now: the whole one, or with Reduce Motion the hit and its tail alone (the file waits 125 ms
     /// in itself, for the room to start fading in).
     func play(reduceMotion: Bool) {
         let name = reduceMotion ? "UnlockCelebrationReduceMotion" : "UnlockCelebration"
-        guard let engine, let url = Bundle.main.url(forResource: name, withExtension: "ahap"),
-              let pattern = try? CHHapticPattern(contentsOf: url) else { return }
+        guard let engine, let pattern = pattern(name) else { return }
         player = try? engine.makeAdvancedPlayer(with: pattern)
         try? player?.start(atTime: CHHapticTimeImmediate)
     }

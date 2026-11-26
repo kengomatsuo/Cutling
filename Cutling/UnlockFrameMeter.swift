@@ -20,6 +20,32 @@ final class UnlockFrameMeter: NSObject {
     private var gaps: [Double] = []
     private var draws: [Double] = []
 
+    private var slideLink: CADisplayLink?
+    private var slideLast: CFTimeInterval = 0
+    private var slideStart: CFTimeInterval = 0
+    private var slideGaps: [Double] = []
+
+    /// The sheet's slide-in: the gaps between frames for the first 1.2 s after the sheet appears, to /tmp/unlock-slide.json.
+    func slide() {
+        guard isOn, slideLink == nil else { return }
+        slideGaps = []; slideLast = 0; slideStart = 0
+        slideLink = CADisplayLink(target: self, selector: #selector(slideTick(_:)))
+        slideLink?.add(to: .main, forMode: .common)
+    }
+
+    @objc private func slideTick(_ link: CADisplayLink) {
+        if slideStart == 0 { slideStart = link.timestamp }
+        if slideLast > 0 { slideGaps.append((link.timestamp - slideLast) * 1000) }
+        slideLast = link.timestamp
+        guard link.timestamp - slideStart > 1.2 else { return }
+        link.invalidate(); slideLink = nil
+        let nominal = slideGaps.sorted()[slideGaps.count / 2]
+        let result: [String: Any] = ["gaps": slideGaps.map { ($0 * 10).rounded() / 10 }, "nominalMs": nominal, "max": slideGaps.max() ?? 0]
+        if let data = try? JSONSerialization.data(withJSONObject: result, options: [.prettyPrinted, .sortedKeys]) {
+            try? data.write(to: URL(fileURLWithPath: "/tmp/unlock-slide.json"))
+        }
+    }
+
     func begin() {
         guard isOn else { return }
         gaps = []; draws = []; last = 0

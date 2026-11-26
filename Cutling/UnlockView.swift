@@ -88,8 +88,12 @@ struct UnlockView: View {
         .frame(width: 440)
         #endif
         #if os(iOS)
-        // Compiles the room's shader now, off the main thread, so t0 never waits for it.
+        // Compiles the room's shader now, off the main thread, so t0 never waits for it. Measured in the simulator: waiting
+        // 600 ms first put a 100 ms main-thread gap right after the slide in all four runs; CutlingApp warms it at launch too.
         .task { await Task.detached { _ = UnlockMetal.shared }.value }
+        #endif
+        #if DEBUG && os(iOS)
+        .onAppear { UnlockFrameMeter.shared.slide() }
         #endif
         .task { await purchases.loadProduct() }
         // Every way to "unlocked while the sheet is open" (the purchase, a restore, an approval, the update stream) arrives
@@ -113,42 +117,14 @@ struct UnlockView: View {
 
     // MARK: Moment
 
-    /// What is drawn this frame: the frame of everything that moves, and how the room's slots are drawn.
-    private struct Shown {
-        var frame: UnlockMotion.Frame
-        /// Reduce Motion: the finished room, fading in over the ask.
-        var end: UnlockMotion.Frame?
-        var slotsAt: Double?
-        var settle = 0.0
-    }
-
-    private func shown(at date: Date) -> Shown {
+    private func shown(at date: Date) -> UnlockShown {
         var ask = UnlockMotion.Frame.ask
         if moment?.reduced ?? (reduceMotion || Self.prefersCrossFade) { ask.sixthRotation = 0 }
-        // The room's view is made during the beat before t0, drawing no slot yet, so its first frame is not t0's.
-        guard let moment, let room else { return Shown(frame: ask, slotsAt: room == nil ? nil : -1) }
-        var t = moment.ms(at: date)
+        var t = moment?.ms(at: date) ?? 0
         #if DEBUG
         if let frozen = Self.freezeMs { t = frozen }
         #endif
-        if moment.reduced {
-            let mix = UnlockMotion.reduceMix(at: t)
-            var end = room.frame(at: UnlockMotion.endMs)
-            end.roomOpacity = mix.in; end.titleOpacity = mix.in; end.subtitleOpacity = mix.in
-            end.titleDY = 0; end.subtitleDY = 0; end.buttonBuyLabel = 0; end.buttonDoneLabel = mix.in
-            var frame = ask
-            frame.exit = [Double](repeating: 1 - mix.out, count: 6)
-            frame.extras = 1 - mix.out
-            frame.buttonBuyLabel = 1 - mix.out
-            frame.buttonDoneLabel = mix.in
-            return Shown(frame: frame, end: end)
-        }
-        if let tap = moment.tapMs {
-            let m = UnlockMotion.clamp01((t - tap) / UnlockMotion.tapThroughMs)
-            return Shown(frame: room.frame(at: tap).blended(to: room.frame(at: UnlockMotion.endMs), m), slotsAt: tap, settle: m)
-        }
-        let now = min(t, UnlockMotion.endMs)
-        return Shown(frame: room.frame(at: now), slotsAt: now)
+        return UnlockShown.at(t, ask: ask, moment: moment, room: room)
     }
 
     private static var prefersCrossFade: Bool {
@@ -186,7 +162,9 @@ struct UnlockView: View {
         withTransaction(cut) { moment = UnlockMoment(start: Date(), reduced: reduced) }
         #if os(iOS)
         UnlockHaptics.shared.play(reduceMotion: reduced)
-        AccessibilityNotification.Announcement(String(localized: "Cutling is unlocked. Room for \(capacity).")).post()
+        // After t0's first frame has been drawn: the announcement is not part of the picture.
+        let announcement = String(localized: "Cutling is unlocked. Room for \(capacity).")
+        Task { try? await Task.sleep(for: .milliseconds(100)); AccessibilityNotification.Announcement(announcement).post() }
         #endif
         #if DEBUG && os(iOS)
         UnlockFrameMeter.shared.begin()
@@ -204,19 +182,17 @@ struct UnlockView: View {
 
     /// A tap on the sheet (not the X or the button) takes every element to its end in 150 ms.
     private func jumpToEnd() {
-        guard var current = moment, !current.reduced, current.tapMs == nil else { return }
-        let t = current.ms(at: Date())
-        guard t < UnlockMotion.endMs else { return }
-        current.tapMs = t
-        moment = current
+        guard let t = moment?.jumpToEnd(at: Date()) else { return }
         #if os(iOS)
         UnlockHaptics.shared.stop(hit: t < UnlockMotion.landMs)
+        #else
+        _ = t
         #endif
     }
 
     // MARK: Layout
 
-    private func sheet(_ s: Shown) -> some View {
+    private func sheet(_ s: UnlockShown) -> some View {
         let f = s.frame
         let done = moment != nil
         return VStack(alignment: .leading, spacing: 0) {
@@ -294,7 +270,7 @@ struct UnlockView: View {
 
     /// The person's tiles and the sixth, as a row in the ask. Their space is reserved here and the stage draws them, so the
     /// same views are the ask before t0 and the room's corner after.
-    private func hero(_ s: Shown) -> some View {
+    private func hero(_ s: UnlockShown) -> some View {
         let fiveWidth = UnlockMotion.heroTile * 5 + UnlockMotion.heroGap * 4
         let f = s.frame
         return VStack(alignment: .leading, spacing: 6) {
@@ -338,7 +314,7 @@ struct UnlockView: View {
 
     /// What the sheet says after the purchase, in the space the ask's words leave: the room's frame, the title and the
     /// subtitle. The room shows plenty of slots in full rows, never a count (owner, 2026-11-26). It sits over the ask, so it never changes the sheet's height.
-    private func doneLayer(_ s: Shown) -> some View {
+    private func doneLayer(_ s: UnlockShown) -> some View {
         let f = s.end ?? s.frame
         return VStack(alignment: .leading, spacing: 0) {
             closeButton.hidden().padding(.bottom, 18)
@@ -351,6 +327,7 @@ struct UnlockView: View {
                 Text("It's All Yours")
                     .font(.title.bold())
                     .accessibilityAddTraits(.isHeader)
+                    .accessibilityIdentifier("unlockDoneTitle")
                     .accessibilityFocused($titleFocused)
                     .opacity(f.titleOpacity)
                     .offset(y: f.titleDY)
@@ -426,24 +403,6 @@ struct UnlockView: View {
             .disabled(!live && (purchases.isPurchasing || unlocking))
             .accessibilityIdentifier("unlockButton")
         #endif
-    }
-}
-
-/// One celebration: when t0 was, whether it moves, and when a tap on the sheet jumped it to its end.
-struct UnlockMoment {
-    let start: Date
-    /// Reduce Motion or Prefer Cross-Fade Transitions: the ask fades out and the finished room fades in.
-    let reduced: Bool
-    var tapMs: Double?
-    /// Nothing moves any more, so the clock can stop drawing.
-    var settled = false
-
-    func ms(at date: Date) -> Double { date.timeIntervalSince(start) * 1000 }
-
-    func isOver(at date: Date) -> Bool {
-        let t = ms(at: date)
-        if reduced { return t >= UnlockMotion.reduceOutMs + UnlockMotion.reduceInMs }
-        return t >= (tapMs.map { $0 + UnlockMotion.tapThroughMs } ?? UnlockMotion.endMs)
     }
 }
 

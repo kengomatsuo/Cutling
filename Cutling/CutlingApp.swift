@@ -180,6 +180,15 @@ struct CutlingApp: App {
                 // Screenshot runs: the dark-mode frame
                 .preferredColorScheme(UserDefaults.standard.bool(forKey: "SNAPSHOT_DARK") ? .dark : nil)
                 #endif
+                #if os(iOS)
+                // Compiles the unlock room's shader in the background a while after launch, so the unlock sheet's slide-in
+                // and the celebration never share a core with it. Skipped for an unlocked copy, which never plays it.
+                .task(priority: .utility) {
+                    guard !PurchaseManager.shared.isUnlocked else { return }
+                    try? await Task.sleep(for: .seconds(2))
+                    await Task.detached(priority: .utility) { _ = UnlockMetal.shared }.value
+                }
+                #endif
                 .onAppear {
                     #if DEBUG
                     #if os(iOS)

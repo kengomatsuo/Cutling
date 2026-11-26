@@ -411,7 +411,7 @@ struct MacPickerView: View {
             MacPickerRow(cutling: cutling, compact: isHistory, tourActive: tourActive) {
                 copy(cutling)
             } onPromote: {
-                _ = store.promoteHistoryToSaved(cutling.id)
+                saveFromHistory(cutling)
             } onDelete: {
                 if isHistory {
                     store.deleteHistory(cutling.id)
@@ -439,12 +439,12 @@ struct MacPickerView: View {
                         }
                     }
                     Button("Duplicate") {
-                        store.duplicate(cutling)
+                        duplicate(cutling)
                     }
                 }
                 if isHistory {
                     Button("Save as Cutling") {
-                        _ = store.promoteHistoryToSaved(cutling.id)
+                        saveFromHistory(cutling)
                     }
                 }
                 Divider()
@@ -493,16 +493,12 @@ struct MacPickerView: View {
         HStack(spacing: 12) {
             Menu {
                 Button {
-                    AppActivationManager.shared.showWindow(source: surface) {
-                        openWindow(id: "addText")
-                    }
+                    openAddWindow("addText")
                 } label: {
                     Label("New Text Cutling", systemImage: "doc.text")
                 }
                 Button {
-                    AppActivationManager.shared.showWindow(source: surface) {
-                        openWindow(id: "addImage")
-                    }
+                    openAddWindow("addImage")
                 } label: {
                     Label("New Image Cutling", systemImage: "photo")
                 }
@@ -583,6 +579,38 @@ struct MacPickerView: View {
         .padding(.horizontal, 12)
         .padding(.vertical, 6)
         .background(.background.secondary)
+    }
+
+    // MARK: Free limit
+
+    /// At the free limit (Mac App Store build) the unlock window opens in place of a dead end, and `then` runs once the
+    /// person has unlocked; below it, `then` runs now.
+    private func unlockFirst(icon: String? = nil, then: @escaping () -> Void) {
+        if store.needsUnlock {
+            MacUnlockWindow.shared.show(MacUnlockWaiting(icon: icon, onUnlocked: then), surface: surface)
+        } else {
+            then()
+        }
+    }
+
+    /// The + menu: the add window opens after Continue when the unlock came first, so nothing typed is lost.
+    private func openAddWindow(_ id: String) {
+        let open = {
+            AppActivationManager.shared.showWindow(source: surface) { openWindow(id: id) }
+        }
+        if store.needsUnlock {
+            MacUnlockWindow.shared.show(MacUnlockWaiting(onContinue: open), surface: surface)
+        } else {
+            open()
+        }
+    }
+
+    private func duplicate(_ cutling: Cutling) {
+        unlockFirst(icon: cutling.icon) { store.duplicate(cutling) }
+    }
+
+    private func saveFromHistory(_ cutling: Cutling) {
+        unlockFirst(icon: cutling.icon) { _ = store.promoteHistoryToSaved(cutling.id) }
     }
 
     private func copy(_ cutling: Cutling, plainOnly: Bool = false) {

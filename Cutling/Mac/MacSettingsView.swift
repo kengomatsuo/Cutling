@@ -182,6 +182,11 @@ private struct GeneralSettingsTab: View {
 
     var body: some View {
         Form {
+            // The direct-download build is never gated, so it has no section.
+            #if !canImport(Sparkle)
+            MacUnlockSettingsSection()
+            #endif
+
             Section {
                 Toggle(isOn: $launchAtLogin) {
                     Label("Launch Cutling at login", systemImage: "power")

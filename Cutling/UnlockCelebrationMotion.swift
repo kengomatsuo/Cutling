@@ -257,3 +257,65 @@ enum UnlockMotion {
         (easeIn.value(at: clamp01(t / reduceOutMs)), easeOut.value(at: clamp01((t - reduceOutMs) / reduceInMs)))
     }
 }
+
+/// One celebration: when t0 was, whether it moves, and when a tap jumped it to its end. The iPhone sheet and the Mac
+/// window each hold one and draw `UnlockShown.at` from it, so both play the same moment.
+struct UnlockMoment {
+    let start: Date
+    /// Reduce Motion or Prefer Cross-Fade Transitions: the ask fades out and the finished room fades in.
+    let reduced: Bool
+    var tapMs: Double?
+    /// Nothing moves any more, so the clock can stop drawing.
+    var settled = false
+
+    func ms(at date: Date) -> Double { date.timeIntervalSince(start) * 1000 }
+
+    func isOver(at date: Date) -> Bool {
+        let t = ms(at: date)
+        if reduced { return t >= UnlockMotion.reduceOutMs + UnlockMotion.reduceInMs }
+        return t >= (tapMs.map { $0 + UnlockMotion.tapThroughMs } ?? UnlockMotion.endMs)
+    }
+
+    /// A tap on the sheet takes every element to its end in 150 ms. Returns the instant it jumped from, or nil when the
+    /// moment is reduced, already jumped or already over.
+    mutating func jumpToEnd(at date: Date) -> Double? {
+        guard !reduced, tapMs == nil else { return nil }
+        let t = ms(at: date)
+        guard t < UnlockMotion.endMs else { return nil }
+        tapMs = t
+        return t
+    }
+}
+
+/// What is drawn at one instant: the frame of everything that moves, and how the room's slots are drawn.
+struct UnlockShown {
+    var frame: UnlockMotion.Frame
+    /// Reduce Motion: the finished room, fading in over the ask.
+    var end: UnlockMotion.Frame?
+    var slotsAt: Double?
+    var settle = 0.0
+
+    /// `ask` is the platform's ask (its tile size, the sixth upright under Reduce Motion); `t` is ms after t0.
+    static func at(_ t: Double, ask: UnlockMotion.Frame, moment: UnlockMoment?, room: UnlockMotion.Room?) -> UnlockShown {
+        // The room's view is made during the beat before t0, drawing no slot yet, so its first frame is not t0's.
+        guard let moment, let room else { return UnlockShown(frame: ask, slotsAt: room == nil ? nil : -1) }
+        if moment.reduced {
+            let mix = UnlockMotion.reduceMix(at: t)
+            var end = room.frame(at: UnlockMotion.endMs)
+            end.roomOpacity = mix.in; end.titleOpacity = mix.in; end.subtitleOpacity = mix.in
+            end.titleDY = 0; end.subtitleDY = 0; end.buttonBuyLabel = 0; end.buttonDoneLabel = mix.in
+            var frame = ask
+            frame.exit = [Double](repeating: 1 - mix.out, count: 6)
+            frame.extras = 1 - mix.out
+            frame.buttonBuyLabel = 1 - mix.out
+            frame.buttonDoneLabel = mix.in
+            return UnlockShown(frame: frame, end: end)
+        }
+        if let tap = moment.tapMs {
+            let m = UnlockMotion.clamp01((t - tap) / UnlockMotion.tapThroughMs)
+            return UnlockShown(frame: room.frame(at: tap).blended(to: room.frame(at: UnlockMotion.endMs), m), slotsAt: tap, settle: m)
+        }
+        let now = min(t, UnlockMotion.endMs)
+        return UnlockShown(frame: room.frame(at: now), slotsAt: now)
+    }
+}

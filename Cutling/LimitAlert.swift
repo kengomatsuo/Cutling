@@ -16,6 +16,10 @@ struct LimitAlert: ViewModifier {
     /// from another path never inherits it.
     var draft: Binding<NewCutlingDraft?>?
     var open: ((NewCutlingDraft) -> Void)?
+    #if os(macOS)
+    /// Runs once the unlock window has unlocked (the Mac's add windows save what they hold).
+    var retry: (() -> Void)?
+    #endif
     @State private var showUnlock = false
     @State private var waiting: NewCutlingDraft?
     @State private var continued = false
@@ -25,7 +29,7 @@ struct LimitAlert: ViewModifier {
             .alert(
                 "Limit Reached",
                 isPresented: Binding(
-                    get: { message != nil && !showUnlock },
+                    get: { message != nil && !showUnlock && !handsOffToUnlock },
                     set: { if !$0 { message = nil } }
                 )
             ) {
@@ -43,10 +47,25 @@ struct LimitAlert: ViewModifier {
             .onChange(of: message) { _, new in
                 guard new != nil, CutlingStore.shared.needsUnlock else { return }
                 message = nil
+                #if os(macOS)
+                // The Mac asks in its own window, never a sheet.
+                MacUnlockWindow.shared.show(MacUnlockWaiting(onUnlocked: retry))
+                return
+                #else
                 waiting = draft?.wrappedValue
                 draft?.wrappedValue = nil
                 showUnlock = true
+                #endif
             }
+    }
+
+    /// The free limit, not a memory cap, stopped the add: the unlock ask follows, so the plain alert must not flash first.
+    private var handsOffToUnlock: Bool {
+        #if os(macOS)
+        CutlingStore.shared.needsUnlock
+        #else
+        false
+        #endif
     }
 }
 
@@ -56,10 +75,15 @@ extension View {
     }
 
     /// For editors that keep the alert as a flag and a text.
-    func limitAlert(isPresented: Binding<Bool>, message: String) -> some View {
-        modifier(LimitAlert(message: Binding(
+    func limitAlert(isPresented: Binding<Bool>, message: String, retry: (() -> Void)? = nil) -> some View {
+        let shown = Binding<String?>(
             get: { isPresented.wrappedValue ? message : nil },
             set: { if $0 == nil { isPresented.wrappedValue = false } }
-        )))
+        )
+        #if os(macOS)
+        return modifier(LimitAlert(message: shown, retry: retry))
+        #else
+        return modifier(LimitAlert(message: shown))
+        #endif
     }
 }

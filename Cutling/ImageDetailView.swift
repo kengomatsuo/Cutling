@@ -382,7 +382,7 @@ struct ImageDetailView: View {
             canPaste = hasClipboardImage
 
         }
-        .limitAlert(isPresented: $showLimitAlert, message: limitAlertMessage)
+        .limitAlert(isPresented: $showLimitAlert, message: limitAlertMessage, retry: saveCutling)
         .onChange(of: undoManager, initial: true) { _, newValue in
             undoHandler.undoManager = newValue
         }

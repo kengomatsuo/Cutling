@@ -43,22 +43,19 @@
             </BuildableReference>
             <SelectedTests>
                <Test
-                  Identifier = "PromoNamesFilmsUITests/test4Reply()">
+                  Identifier = "UnlockUITests/testSixthCutlingAsksToUnlockThenSaves()">
                </Test>
                <Test
-                  Identifier = "FormatVariablesUITests">
+                  Identifier = "UnlockUITests/testSheetSlidesIn()">
                </Test>
                <Test
-                  Identifier = "KeyboardMotionUITests/testTextPageOpensWithKeyboardInItsColours()">
+                  Identifier = "UnlockUITests/testCelebrationPlays()">
                </Test>
                <Test
-                  Identifier = "PreviewPillsUITests">
+                  Identifier = "UnlockUITests/testCelebrationFrameMeter()">
                </Test>
                <Test
-                  Identifier = "AccessibilityAuditUITests">
-               </Test>
-               <Test
-                  Identifier = "KeyboardSwitchCompareUITests">
+                  Identifier = "UnlockUITests/testLocaleSheets()">
                </Test>
             </SelectedTests>
          </TestableReference>

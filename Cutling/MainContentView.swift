@@ -1005,6 +1005,7 @@ struct MainContentView: View {
                 Image(systemName: "plus")
             }
             .accessibilityLabel(String(localized: "Add cutling"))
+            .accessibilityIdentifier("addCutlingButton")
             .tutorialFrame(.addButton)
             .disabled(!tutorial.allowsAddButton)
         } else {
@@ -1019,6 +1020,7 @@ struct MainContentView: View {
                     }
                 } label: {
                     Label("Text Cutling", systemImage: "doc.text")
+                        .accessibilityIdentifier("newTextCutling")
                 }
                 Button {
                     let canAddImage = store.canAdd(.image)
@@ -1036,6 +1038,7 @@ struct MainContentView: View {
             }
             .menuIndicator(.hidden)
             .accessibilityLabel(String(localized: "Add cutling"))
+            .accessibilityIdentifier("addCutlingButton")
             .tutorialFrame(.addButton)
             .disabled(!tutorial.allowsAddButton)
         }
@@ -1056,6 +1059,7 @@ struct MainContentView: View {
                 }
             } label: {
                 Label("Text Cutling", systemImage: "doc.text")
+                        .accessibilityIdentifier("newTextCutling")
             }
             Button {
                 let canAddImage = store.canAdd(.image)
