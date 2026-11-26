@@ -53,14 +53,15 @@ final class PurchaseManager: ObservableObject {
     /// The price as the customer's own App Store shows it, such as "$4.99" or "Rp 79.000".
     var displayPrice: String? {
         #if DEBUG
-        if product == nil, Self.demoStore { return "$4.99" }
+        if Self.demoStore { return "$4.99" }
         #endif
         return product?.displayPrice
     }
 
     #if DEBUG
-    /// `-UnlockDemoStore`: a debug build with no App Store product (simulator recordings, UI tests) shows the US price
-    /// and treats Unlock as an instant test purchase, without Apple's purchase sheet.
+    /// `-UnlockDemoStore`: a debug build (simulator recordings, UI tests, the Xcode Cloud Proof run, whose simulator does
+    /// load the real App Store product) shows the US price and treats Unlock as an instant test purchase, without Apple's
+    /// purchase sheet.
     static let demoStore = ProcessInfo.processInfo.arguments.contains("-UnlockDemoStore")
     #endif
 
@@ -101,9 +102,8 @@ final class PurchaseManager: ObservableObject {
     /// Runs the App Store purchase sheet. Returns true once the unlock is owned.
     @discardableResult
     func purchase() async -> Bool {
-        await loadProduct()
         #if DEBUG
-        if product == nil, Self.demoStore {
+        if Self.demoStore {
             isPurchasing = true
             try? await Task.sleep(for: .seconds(1))
             isPurchasing = false
@@ -111,6 +111,7 @@ final class PurchaseManager: ObservableObject {
             return true
         }
         #endif
+        await loadProduct()
         guard let product else {
             lastError = String(localized: "The App Store can't be reached right now. Try again in a moment.")
             return false

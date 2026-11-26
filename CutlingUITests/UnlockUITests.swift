@@ -84,11 +84,21 @@ final class UnlockUITests: XCTestCase {
 
     /// The unlock sheet in each language of `TEST_RUNNER_UNLOCK_LOCALES` (comma-separated locale folders, such as ja,de,ar):
     /// the ask, then the end of the moment, one launch per language, for checking every locale's strings on the real sheet.
+    /// Xcode Cloud allows one test 10 minutes, so the 76 locales run in six groups of 13.
+    @MainActor func testLocaleSheets1() throws { try localeSheets(group: 0) }
+    @MainActor func testLocaleSheets2() throws { try localeSheets(group: 1) }
+    @MainActor func testLocaleSheets3() throws { try localeSheets(group: 2) }
+    @MainActor func testLocaleSheets4() throws { try localeSheets(group: 3) }
+    @MainActor func testLocaleSheets5() throws { try localeSheets(group: 4) }
+    @MainActor func testLocaleSheets6() throws { try localeSheets(group: 5) }
+
     @MainActor
-    func testLocaleSheets() throws {
+    private func localeSheets(group: Int) throws {
         // Every locale folder Cutling ships, unless TEST_RUNNER_UNLOCK_LOCALES names a few (the Proof workflow runs them all).
         let all = "ar-SA,ar,bg,bn-BD,bn,ca,cs,da,de-DE,de,el,en-AU,en-CA,en-GB,en-IN,en,es-ES,es-MX,es,et,fa,fi,fil,fr-CA,fr-FR,fr,gu-IN,gu,he,hi,hr,hu,id,it,ja,kn-IN,kn,ko,lt,lv,ml-IN,ml,mr-IN,mr,ms,nb,nl-NL,nl,or-IN,or,pa-IN,pa,pl,pt-BR,pt-PT,pt,ro,ru,sk,sl-SI,sl,sr,sv,sw,ta-IN,ta,te-IN,te,th,tr,uk,ur-PK,ur,vi,zh-Hans,zh-Hant"
-        let locales = (ProcessInfo.processInfo.environment["UNLOCK_LOCALES"] ?? all).split(separator: ",").map(String.init)
+        let every = (ProcessInfo.processInfo.environment["UNLOCK_LOCALES"] ?? all).split(separator: ",").map(String.init)
+        let size = (every.count + 5) / 6
+        let locales = Array(every.dropFirst(group * size).prefix(size))
         for locale in locales {
             let language = locale.replacingOccurrences(of: "_", with: "-")
             let app = XCUIApplication()
