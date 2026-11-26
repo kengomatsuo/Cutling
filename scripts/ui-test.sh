@@ -1,6 +1,7 @@
 #!/bin/bash
-# Runs CutlingUITests classes or single tests (Class/test, several allowed) on the shared device queue's simulator, after
-# `scripts/keyboard-memory.sh build` has built the UI tests:
+# Runs CutlingUITests classes or single tests (Class/test, several allowed) on the shared device queue's simulator, from
+# test products built on Xcode Cloud, never on the Mac (docs/release-workflow.md: the Proof workflow's TEST_PRODUCTS, with
+# Tests/0/<name>.xctestrun and Binaries/0/Debug-iphonesimulator copied into $UI_TEST_BUILD/DerivedData/Build/Products/):
 #
 #   bun ~/.claude/scripts/device-queue/device-queue.ts submit ios-sim --form iphone --tree "$PWD" \
 #     --cap 30 --cmd 'scripts/ui-test.sh FillInUITests'
