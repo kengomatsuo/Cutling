@@ -233,6 +233,20 @@ extension CutlingStore {
     /// The 2.0 release film's seed (`-PROMO_RELEASE`), in `-PROMO_LANG en|ja`: six keys, one with a date that fills itself in
     /// and one written like a note, and the Name blank's recent values. `-PROMO_ROOM n` adds plain replies up to n text
     /// cutlings, for the take that shows the grid's own count.
+    /// `-UNLOCK_TEST`: a free copy that has filled its 5 cutlings, for the unlock film and its UI test.
+    func seedForUnlockFilm() {
+        let copy = ReleaseSeedCopy.forLanguage("en")
+        for filename in cutlings.compactMap(\.imageFilename) { deleteImageFile(named: filename) }
+        cutlings = [
+            Cutling(name: copy.home.name, value: copy.home.value, icon: "house.fill", sortOrder: 0, color: "blue"),
+            Cutling(name: copy.account.name, value: copy.account.value, icon: "banknote.fill", sortOrder: 1, color: "green"),
+            Cutling(name: copy.order.name, value: copy.order.value, icon: "shippingbox.fill", sortOrder: 2, color: "teal"),
+            Cutling(name: copy.delivery.name, value: copy.delivery.value, icon: "calendar", sortOrder: 3, color: "orange"),
+            Cutling(name: copy.thanks.name, value: copy.thanks.value, icon: "sparkles", sortOrder: 4, color: "pink"),
+        ]
+        save()
+    }
+
     func seedForReleaseFilm() {
         let language = UserDefaults.standard.string(forKey: "PROMO_LANG") ?? "en"
         let copy = ReleaseSeedCopy.forLanguage(language)

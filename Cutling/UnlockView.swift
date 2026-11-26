@@ -28,8 +28,8 @@ struct UnlockView: View {
             action: { Task { if await purchases.purchase() { dismiss() } } }
         ) {
             AppleSheetRows(rows: [
-                AppleSheetRow(symbol: "infinity", title: "Unlimited Cutlings",
-                              detail: "Addresses, account numbers, replies and images, as many as you need."),
+                AppleSheetRow(symbol: "square.stack.3d.up.fill", title: "Room for Thousands",
+                              detail: "Up to 5,000 text and 500 image cutlings: addresses, account numbers, replies and photos."),
                 AppleSheetRow(symbol: "laptopcomputer.and.iphone", title: "iPhone, iPad and Mac",
                               detail: "One purchase unlocks Cutling on every device signed in to your Apple Account."),
                 AppleSheetRow(symbol: "checkmark.seal", title: "Yours for Good",

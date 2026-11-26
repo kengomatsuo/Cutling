@@ -196,6 +196,9 @@ struct CutlingApp: App {
                     } else if ProcessInfo.processInfo.arguments.contains("-FILLIN_TEST") {
                         store.seedForFillInTests()
                         UserDefaults.standard.removeObject(forKey: "setupWelcomeSeen")
+                    } else if ProcessInfo.processInfo.arguments.contains("-UNLOCK_TEST") {
+                        store.seedForUnlockFilm()
+                        UserDefaults.standard.removeObject(forKey: "setupWelcomeSeen")
                     } else if ProcessInfo.processInfo.arguments.contains("-PROMO_NAMES") {
                         store.seedForNamesFilm()
                         UserDefaults.standard.removeObject(forKey: "setupWelcomeSeen")
@@ -544,7 +547,7 @@ struct CutlingApp: App {
             return
         }
         // UI test seeds start on the grid with no sheet over it, whatever the release ID.
-        let testSeeds: Set<String> = ["-FILLIN_TEST", "-FILLIN_MOCK", "-FORMAT_TEST", "-MEMORY_TEST", "-PROMO_MODE", "-PROMO_RELEASE", "-PROMO_NAMES", "-UITEST"]
+        let testSeeds: Set<String> = ["-FILLIN_TEST", "-FILLIN_MOCK", "-FORMAT_TEST", "-MEMORY_TEST", "-PROMO_MODE", "-PROMO_RELEASE", "-PROMO_NAMES", "-UNLOCK_TEST", "-UITEST"]
         if ProcessInfo.processInfo.arguments.contains(where: testSeeds.contains) {
             lastWhatsNewSeen = WhatsNewKind.releaseID
             return
