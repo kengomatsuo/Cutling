@@ -37,17 +37,10 @@ struct UnlockView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Button { dismiss() } label: {
-                Image(systemName: "xmark")
-                    .font(.system(size: 15, weight: .semibold))
-                    .foregroundStyle(.secondary)
-                    .frame(width: 32, height: 32)
-                    .background(.quaternary, in: Circle())
-            }
-            .buttonStyle(.plain)
-            .accessibilityLabel("Not Now")
-            .accessibilityIdentifier("notNowButton")
-            .padding(.bottom, 18)
+            closeButton
+                .accessibilityLabel("Not Now")
+                .accessibilityIdentifier("notNowButton")
+                .padding(.bottom, 18)
 
             UnlockHero(cutlings: Array(store.cutlings.prefix(Unlock.freeLimit)), unlocked: unlockedHere)
                 .padding(.bottom, 24)
@@ -108,6 +101,25 @@ struct UnlockView: View {
             Button("OK", role: .cancel) {}
         } message: {
             Text(purchases.lastError ?? "")
+        }
+    }
+
+    /// The system's own close button (iOS 26 and macOS 26), in Liquid Glass like every sheet's X; before that, the
+    /// same xmark in the grey circle iOS sheets used.
+    @ViewBuilder private var closeButton: some View {
+        if #available(iOS 26, macOS 26, *) {
+            Button(role: .close) { dismiss() }
+                .buttonStyle(.glass)
+                .buttonBorderShape(.circle)
+        } else {
+            Button { dismiss() } label: {
+                Image(systemName: "xmark")
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundStyle(.secondary)
+                    .frame(width: 30, height: 30)
+                    .background(.quaternary, in: Circle())
+            }
+            .buttonStyle(.plain)
         }
     }
 
