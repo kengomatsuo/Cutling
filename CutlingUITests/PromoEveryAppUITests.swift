@@ -348,6 +348,34 @@ final class PromoEveryAppUITests: XCTestCase {
         mark("g3 end")
     }
 
+    /// G4 on the iPad: Messages never settles on the store iPad, so the customer's question is answered in a shop's reply
+    /// box in Safari (cutling-promo takes-web/reply.html): the order update asks for the name, the name, the thank-you.
+    private func safariReply() {
+        let page = URL(string: "http://localhost:\(env["EVERY_PORT"] ?? "8767")/reply.html?lang=\(language)")!
+        let box = safari.textViews.firstMatch
+        for _ in 0..<4 {
+            XCUIDevice.shared.system.open(page)
+            _ = safari.wait(for: .runningForeground, timeout: 30)
+            sleep(4)
+            clearWelcome(safari)
+            if box.waitForExistence(timeout: 10) { break }
+        }
+        focus(box, in: safari, "reply box")
+        keyboard(cutling: true, in: safari)
+        shot("g4-ready", safari)
+        mark("g4 start")
+        sleep(2)
+        tapKey(words.order, label: "order update", in: safari)
+        Thread.sleep(forTimeInterval: 1.4)
+        if !filming { shot("g4-asks", safari) }
+        tapKey(words.name, label: "name", in: safari)
+        Thread.sleep(forTimeInterval: 1.4)
+        tapKey(words.thanks, label: "thank you", in: safari)
+        sleep(3)
+        shot("g4-done", safari)
+        mark("g4 end")
+    }
+
     /// G5: a refund form on a local page in Safari, the account number typed by one tap.
     private func safariRefund() {
         // The page opens through the system, as a link would: XCUIApplication.launch() fails the whole take when a
@@ -415,21 +443,26 @@ final class PromoEveryAppUITests: XCTestCase {
         for app in [messages, calendar, maps, safari] { app.terminate() }
     }
 
+    /// The takes to film, in order: EVERY_BEATS (a comma list of messages, reply, maps, calendar, refund, photo), else
+    /// the device's whole film. Messages on the store iPad never reports its event loop idle, so every query in it times
+    /// out (2026-11-23): the iPad answers in Safari's reply box instead, the keyboard switched on there.
+    private var beats: [String] {
+        if let list = env["EVERY_BEATS"], !list.isEmpty { return list.split(separator: ",").map(String.init) }
+        return device == "ipad" ? ["reply", "maps", "calendar", "refund"] : ["messages", "maps", "calendar", "refund", "photo"]
+    }
+
     private func runAll() {
-        // Messages on the store iPad never reports its event loop idle, so every query in it times out (2026-11-23);
-        // the iPad film is Maps, Calendar and Safari, the keyboard switched on in Maps.
-        if device == "ipad" {
-            mapsSearch()
-            calendarLocation()
-            safariRefund()
-            cleanUp()
-            return
+        for beat in beats {
+            switch beat {
+            case "messages": messagesToMaya()
+            case "reply": safariReply()
+            case "maps": mapsSearch()
+            case "calendar": calendarLocation()
+            case "refund": safariRefund()
+            case "photo": messagesPhoto()
+            default: XCTFail("Unknown beat \(beat)")
+            }
         }
-        messagesToMaya()
-        mapsSearch()
-        calendarLocation()
-        safariRefund()
-        messagesPhoto()
         cleanUp()
     }
 

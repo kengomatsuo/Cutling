@@ -6,7 +6,8 @@
 #     --cmd 'UI_TEST_BUILD=<dir> EVERY_WEB=<folder with refund.html> scripts/every-app-takes.sh en id ja'
 #
 # PromoEveryAppUITests/testEveryApp warms the flow, then asks for the camera through files; each language's film,
-# press log and screenshots land in $DEVICE_QUEUE_OUT/<device>-<lang>.*. EVERY_TEST=testProbe runs the unfilmed probe.
+# press log and screenshots land in $DEVICE_QUEUE_OUT/<device>-<lang>.*. EVERY_TEST=testProbe runs the unfilmed probe;
+# EVERY_BEATS=reply,maps films only those takes (PromoEveryAppUITests.beats). EVERY_WEB holds refund.html and reply.html.
 # Prints every 20 s, since the queue ends a job whose log stays quiet for a minute.
 set -u
 repo="$(cd "$(dirname "$0")/.." && pwd)"
@@ -100,7 +101,7 @@ for lang in "${langs[@]}"; do
   stem="$out/$form-$lang"
   rm -f "$stem".film "$stem".cut "$stem".rolling "$stem".stopped
   log="$stem.test.log"
-  TEST_RUNNER_EVERY_LANG="$lang" TEST_RUNNER_EVERY_DIR="$out" TEST_RUNNER_EVERY_PORT="$port" \
+  TEST_RUNNER_EVERY_LANG="$lang" TEST_RUNNER_EVERY_DIR="$out" TEST_RUNNER_EVERY_PORT="$port" TEST_RUNNER_EVERY_BEATS="${EVERY_BEATS:-}" \
     xcodebuild test-without-building -xctestrun "$xctestrun" -destination "id=$udid" -parallel-testing-enabled NO \
     -test-timeouts-enabled NO -only-testing:"CutlingUITests/PromoEveryAppUITests/$test" >"$log" 2>&1 &
   pid=$!; start=$SECONDS; last=$SECONDS
