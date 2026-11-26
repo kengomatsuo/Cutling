@@ -1,42 +1,194 @@
 {
-  "et": {
-    "S1": {"s": "%lld tasuta", "back": "5 free-of-charge", "why": "Two words under the bracket; the tiles themselves show what is free."},
-    "S2": {"s": "Salvestage rohkem", "back": "Save(you-formal) more", "why": "An invitation in the formal imperative the vocabulary uses for the person; fits every state, including nothing saved yet."},
-    "S3": {"s": "Olete kasutanud kõik %lld tasuta cutlingit. Need jäävad tasuta ja töötavad ka edaspidi.", "back": "(You) have used all 5 free cutling(partitive). They remain free and work also henceforth.", "why": "Item word lowercased in running text as the vocabulary sentence does; partitive singular after the numeral."},
-    "S4": {"s": "Esimesed %lld cutlingit on tasuta.", "back": "The-first 5 cutling(partitive) are free.", "why": "States the fact rather than 'you can save', and 'first' matches that these five stay free for good."},
-    "S5": {"s": "Olete kasutanud %1$lld tasuta cutlingit %2$lld-st.", "back": "(You) have used 3 free cutling(partitive) 5-from.", "why": "Elative with a hyphen after the digit (5-st, 'out of five') is how Estonian writes it on screen."},
-    "S6": {"s": "Ruumi %@ cutlingile", "back": "Room(partitive) 5 000 cutling(allative)", "why": "Noun line like the other bold rows; allative singular after the numeral reads 'room for'."},
-    "S7": {"s": "Salvestage kuni %@ teksti ja %lld pilti.", "back": "Save(you-formal) up-to 5 000 text(partitive) and 500 image(partitive).", "why": "Tekst and pilt are the vocabulary's own kind names, in partitive after the numbers."},
-    "S8": {"s": "iPhone, iPad ja Mac", "back": "iPhone, iPad and Mac", "why": "Estonian lists take no comma before 'ja'."},
-    "S9": {"s": "Üks ost kehtib kõigis teie seadmetes sama Apple'i kontoga.", "back": "One purchase is-valid in-all your devices same Apple's account-with.", "why": "'Apple'i konto' and lowercase 'teie' as in the vocabulary sentence; 'kehtib' is the word for a purchase or ticket being valid."},
-    "S10": {"s": "Ühekordne makse", "back": "One-time payment", "why": "The set phrase an Estonian reads on any receipt for a single payment."},
-    "S11": {"s": "Pole tellimust, reklaame ega registreerumist.", "back": "Isn't subscription, advertisements nor registering.", "why": "'ega' carries the negation through the list, the native way to say 'no X, Y or Z'."},
-    "S12": {"s": "Taasta ostud", "back": "Restore purchases", "why": "The wording Estonian iOS apps use for the App Store restore action; singular imperative like Apple's buttons."},
-    "S13": {"s": "Taastamine…", "back": "Restoring…", "why": "Verbal noun as Apple uses for progress labels, with the ellipsis character."},
-    "S14": {"s": "Ava kõik %@ eest", "back": "Unlock all 4,99 € for", "why": "'Avama' is the verb Estonian apps and games use for unlocking; 'eest' after the price is the plain 'for €x'. One-time is said in the row above."},
-    "S15": {"s": "Ava kõik", "back": "Unlock all", "why": "Same button without the price, so the words do not change when the price loads."},
-    "S16": {"s": "Mitte praegu", "back": "Not now", "why": "Apple's Estonian wording for putting something off, which is not a refusal."},
-    "S17": {"s": "Sule", "back": "Close", "why": "The verb iOS uses on Estonian close buttons."},
-    "S18": {"s": "Kõik on nüüd teie", "back": "Everything is now yours", "why": "Short, warm and a little proud; 'teie' alone as the possessive predicate."},
-    "S19": {"s": "Aitäh, et toetate Cutlingit ja inimest, kes seda üksinda teeb.", "back": "Thanks, that (you) support Cutling(partitive) and person(partitive), who it alone makes.", "why": "'Aitäh, et…' is the everyday Estonian thank-you; the one maker is named as a person, not a team."},
-    "S20": {"s": "Tere tulemast tagasi. Teie varasem ost on taastatud.", "back": "Welcome back. Your earlier purchase is restored.", "why": "The standard greeting, then the fact with the same 'taasta' root as the link."},
-    "S21": {"s": "Tasuta cutlinguid on %2$lld, neist on kasutatud %1$lld.", "back": "Free cutlings(partitive-plural) are 5, of-them are used 3.", "why": "Numbers stand where VoiceOver reads them in the nominative, so the speech keeps its case; positional forms because the order swaps."},
-    "S22": {"s": "Salvestatud cutlinguid: %lld. Kokku mahub %@.", "back": "Saved cutlings(partitive-plural): 5. In-total fits 5 000.", "why": "A count after a colon works for 1, 2, 5 and 21 without a plural form, and 'mahub kuni' keeps the big number nominative when spoken."},
-    "S23": {"s": "Täisversioon on kasutusel. Nüüd mahub %@ cutlingit.", "back": "Full-version is in-use. Now fits 5 000 cutling(partitive).", "why": "'Täisversioon' is the one name for the unlocked app across sheet, Siri and Mac; numeral plus partitive reads correctly aloud."},
-    "S24": {"s": "Ost jäi pooleli", "back": "Purchase stayed unfinished", "why": "Says what happened with no one at fault."},
-    "S25": {"s": "App Store'iga ei saa praegu ühendust. Proovige mõne aja pärast uuesti.", "back": "App Store-with not get now connection. Try(you-formal) some time after again.", "why": "Apostrophe before the case ending because 'Store' ends in a silent e; formal imperative for the retry."},
-    "S26": {"s": "App Store ei kinnitanud seda ostu.", "back": "App Store not confirmed this purchase(partitive).", "why": "Plain past tense, partitive object after the negation."},
-    "S27": {"s": "Selles seadmes sisse logitud Apple'i kontol pole varasemat Cutlingi ostu.", "back": "In-this device signed-in Apple's account-on isn't earlier Cutling's purchase.", "why": "'Sisse logima' and 'Apple'i konto' as in the vocabulary sentence."},
-    "S28": {"s": "Tasuta versioon mahutab %lld cutlingit. Ühe ostuga saate salvestada nii palju, kui soovite.", "back": "Free version holds 5 cutling(partitive). One purchase-with (you) can save as much, as (you) wish.", "why": "'Tasuta versioon' pairs with 'täisversioon'; the comma before 'kui' is required."},
-    "S29": {"s": "%1$lld/%2$lld tasuta", "back": "4/5 free", "why": "A compact number pair under the title, which already names the list."},
-    "K1": {"s": "%lld tasuta kohta on täis – avage kõik", "back": "5 free place(partitive) are full – unlock(you-formal) all", "why": "'Koht' is the slot, not the item; the en dash with spaces is the Estonian dash; 'avage kõik' matches the sheet's button. 35 characters."},
-    "M1": {"s": "Ava täisversioon", "back": "Unlock full-version", "why": "A verb-led command name like Estonian Mac window and menu titles (Ava…, Salvesta…)."},
-    "M2": {"s": "Ava täisversioon…", "back": "Unlock full-version…", "why": "The same command as the window, with the ellipsis because it opens a window."},
-    "M3": {"s": "Tasuta cutlingid", "back": "Free cutlings", "why": "A row label is a noun phrase; capitalized only because it starts the label."},
-    "M4": {"s": "%1$lld/%2$lld", "back": "3/5", "why": "The compact pair used in Estonian settings rows."},
-    "M5": {"s": "Täisversioon kasutusel", "back": "Full-version in-use", "why": "Status phrasing without a verb, as settings values are; 22 characters."},
-    "M6": {"s": "Üks ost avab täisversiooni iPhone'is, iPadis ja Macis.", "back": "One purchase unlocks full-version(genitive) iPhone-in, iPad-in and Mac-in.", "why": "Inessive endings on the device names, apostrophe only after the silent e of iPhone."},
-    "M7": {"s": "Täisversioon on kasutusel iPhone'is, iPadis ja Macis selle Apple'i kontoga.", "back": "Full-version is in-use iPhone-in, iPad-in and Mac-in this Apple's account-with.", "why": "Same status words as M5, so the bought state has one name."},
-    "M8": {"s": "Ostsite Cutlingi, kui see oli veel tasuline, seega jääb täisversioon teile. Aitäh.", "back": "(You) bought Cutling(genitive), when it was still paid, so stays full-version to-you. Thanks.", "why": "'Tasuline' (paid) avoids 'sai tasuta', which would read as 'got it for free'; thanks closes the line."}
+ "et": {
+  "S1": {
+   "s": "%lld tasuta",
+   "back": "5 free-of-charge",
+   "why": "Two words under the bracket; the tiles themselves show what is free."
+  },
+  "S2": {
+   "s": "Salvestage rohkem",
+   "back": "Save(you-formal) more",
+   "why": "An invitation in the formal imperative the vocabulary uses for the person; fits every state, including nothing saved yet."
+  },
+  "S3": {
+   "s": "Olete kasutanud kõik %lld tasuta cutlingit. Need jäävad tasuta ja töötavad ka edaspidi.",
+   "back": "(You) have used all 5 free cutling(partitive). They remain free and work also henceforth.",
+   "why": "Item word lowercased in running text as the vocabulary sentence does; partitive singular after the numeral."
+  },
+  "S4": {
+   "s": "Esimesed %lld cutlingit on tasuta.",
+   "back": "The-first 5 cutling(partitive) are free.",
+   "why": "States the fact rather than 'you can save', and 'first' matches that these five stay free for good."
+  },
+  "S5": {
+   "s": "Olete kasutanud %1$lld tasuta cutlingit %2$lld-st.",
+   "back": "(You) have used 3 free cutling(partitive) 5-from.",
+   "why": "Elative with a hyphen after the digit (5-st, 'out of five') is how Estonian writes it on screen."
+  },
+  "S6": {
+   "s": "Ruumi %@ cutlingile",
+   "back": "Room(partitive) 5 000 cutling(allative)",
+   "why": "Noun line like the other bold rows; allative singular after the numeral reads 'room for'."
+  },
+  "S7": {
+   "s": "Salvestage kuni %@ teksti ja %lld pilti.",
+   "back": "Save(you-formal) up-to 5 000 text(partitive) and 500 image(partitive).",
+   "why": "Tekst and pilt are the vocabulary's own kind names, in partitive after the numbers."
+  },
+  "S8": {
+   "s": "iPhone, iPad ja Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Estonian lists take no comma before 'ja'."
+  },
+  "S9": {
+   "s": "Üks ost kehtib kõigis teie seadmetes sama Apple'i kontoga.",
+   "back": "One purchase is-valid in-all your devices same Apple's account-with.",
+   "why": "'Apple'i konto' and lowercase 'teie' as in the vocabulary sentence; 'kehtib' is the word for a purchase or ticket being valid."
+  },
+  "S10": {
+   "s": "Ühekordne makse",
+   "back": "One-time payment",
+   "why": "The set phrase an Estonian reads on any receipt for a single payment."
+  },
+  "S11": {
+   "s": "Pole tellimust, reklaame ega registreerumist.",
+   "back": "Isn't subscription, advertisements nor registering.",
+   "why": "'ega' carries the negation through the list, the native way to say 'no X, Y or Z'."
+  },
+  "S12": {
+   "s": "Taasta ostud",
+   "back": "Restore purchases",
+   "why": "The wording Estonian iOS apps use for the App Store restore action; singular imperative like Apple's buttons."
+  },
+  "S13": {
+   "s": "Taastamine…",
+   "back": "Restoring…",
+   "why": "Verbal noun as Apple uses for progress labels, with the ellipsis character."
+  },
+  "S14": {
+   "s": "Ava kõik %@ eest",
+   "back": "Unlock all 4,99 € for",
+   "why": "'Avama' is the verb Estonian apps and games use for unlocking; 'eest' after the price is the plain 'for €x'. One-time is said in the row above."
+  },
+  "S15": {
+   "s": "Ava kõik",
+   "back": "Unlock all",
+   "why": "Same button without the price, so the words do not change when the price loads."
+  },
+  "S16": {
+   "s": "Mitte praegu",
+   "back": "Not now",
+   "why": "Apple's Estonian wording for putting something off, which is not a refusal."
+  },
+  "S17": {
+   "s": "Sule",
+   "back": "Close",
+   "why": "The verb iOS uses on Estonian close buttons."
+  },
+  "S18": {
+   "s": "Kõik on nüüd teie",
+   "back": "Everything is now yours",
+   "why": "Short, warm and a little proud; 'teie' alone as the possessive predicate."
+  },
+  "S19": {
+   "s": "Aitäh, et toetate Cutlingit ja inimest, kes seda üksinda teeb.",
+   "back": "Thanks, that (you) support Cutling(partitive) and person(partitive), who it alone makes.",
+   "why": "'Aitäh, et…' is the everyday Estonian thank-you; the one maker is named as a person, not a team."
+  },
+  "S20": {
+   "s": "Tere tulemast tagasi. Teie varasem ost on taastatud.",
+   "back": "Welcome back. Your earlier purchase is restored.",
+   "why": "The standard greeting, then the fact with the same 'taasta' root as the link."
+  },
+  "S21": {
+   "s": "Tasuta cutlinguid on %2$lld, neist on kasutatud %1$lld.",
+   "back": "Free cutlings(partitive-plural) are 5, of-them are used 3.",
+   "why": "Numbers stand where VoiceOver reads them in the nominative, so the speech keeps its case; positional forms because the order swaps."
+  },
+  "S22": {
+   "s": "Salvestatud cutlinguid: %lld. Kokku mahub %@.",
+   "back": "Saved cutlings(partitive-plural): 5. In-total fits 5 000.",
+   "why": "A count after a colon works for 1, 2, 5 and 21 without a plural form, and 'mahub kuni' keeps the big number nominative when spoken."
+  },
+  "S23": {
+   "s": "Täisversioon on kasutusel. Nüüd mahub %@ cutlingit.",
+   "back": "Full-version is in-use. Now fits 5 000 cutling(partitive).",
+   "why": "'Täisversioon' is the one name for the unlocked app across sheet, Siri and Mac; numeral plus partitive reads correctly aloud."
+  },
+  "S24": {
+   "s": "Ost jäi pooleli",
+   "back": "Purchase stayed unfinished",
+   "why": "Says what happened with no one at fault."
+  },
+  "S25": {
+   "s": "App Store'iga ei saa praegu ühendust. Proovige mõne aja pärast uuesti.",
+   "back": "App Store-with not get now connection. Try(you-formal) some time after again.",
+   "why": "Apostrophe before the case ending because 'Store' ends in a silent e; formal imperative for the retry."
+  },
+  "S26": {
+   "s": "App Store ei kinnitanud seda ostu.",
+   "back": "App Store not confirmed this purchase(partitive).",
+   "why": "Plain past tense, partitive object after the negation."
+  },
+  "S27": {
+   "s": "Selles seadmes sisse logitud Apple'i kontol pole varasemat Cutlingi ostu.",
+   "back": "In-this device signed-in Apple's account-on isn't earlier Cutling's purchase.",
+   "why": "'Sisse logima' and 'Apple'i konto' as in the vocabulary sentence."
+  },
+  "S28": {
+   "s": "Tasuta versioon mahutab %lld cutlingit. Ühe ostuga saate salvestada nii palju, kui soovite.",
+   "back": "Free version holds 5 cutling(partitive). One purchase-with (you) can save as much, as (you) wish.",
+   "why": "'Tasuta versioon' pairs with 'täisversioon'; the comma before 'kui' is required."
+  },
+  "S29": {
+   "s": "%1$lld/%2$lld tasuta",
+   "back": "4/5 free",
+   "why": "A compact number pair under the title, which already names the list."
+  },
+  "K1": {
+   "s": "%lld tasuta kohta on täis. Avage kõik",
+   "back": "5 free place(partitive) are full. Unlock(you-formal) all",
+   "why": "'Koht' is the slot, not the item; the en dash with spaces is the Estonian dash; 'avage kõik' matches the sheet's button. 35 characters. Orchestrator: the spaced dash became a full stop under the house no-dash copy rule; the sentence break is equally native."
+  },
+  "M1": {
+   "s": "Ava täisversioon",
+   "back": "Unlock full-version",
+   "why": "A verb-led command name like Estonian Mac window and menu titles (Ava…, Salvesta…)."
+  },
+  "M2": {
+   "s": "Ava täisversioon…",
+   "back": "Unlock full-version…",
+   "why": "The same command as the window, with the ellipsis because it opens a window."
+  },
+  "M3": {
+   "s": "Tasuta cutlingid",
+   "back": "Free cutlings",
+   "why": "A row label is a noun phrase; capitalized only because it starts the label."
+  },
+  "M4": {
+   "s": "%1$lld/%2$lld",
+   "back": "3/5",
+   "why": "The compact pair used in Estonian settings rows."
+  },
+  "M5": {
+   "s": "Täisversioon kasutusel",
+   "back": "Full-version in-use",
+   "why": "Status phrasing without a verb, as settings values are; 22 characters."
+  },
+  "M6": {
+   "s": "Üks ost avab täisversiooni iPhone'is, iPadis ja Macis.",
+   "back": "One purchase unlocks full-version(genitive) iPhone-in, iPad-in and Mac-in.",
+   "why": "Inessive endings on the device names, apostrophe only after the silent e of iPhone."
+  },
+  "M7": {
+   "s": "Täisversioon on kasutusel iPhone'is, iPadis ja Macis selle Apple'i kontoga.",
+   "back": "Full-version is in-use iPhone-in, iPad-in and Mac-in this Apple's account-with.",
+   "why": "Same status words as M5, so the bought state has one name."
+  },
+  "M8": {
+   "s": "Ostsite Cutlingi, kui see oli veel tasuline, seega jääb täisversioon teile. Aitäh.",
+   "back": "(You) bought Cutling(genitive), when it was still paid, so stays full-version to-you. Thanks.",
+   "why": "'Tasuline' (paid) avoids 'sai tasuta', which would read as 'got it for free'; thanks closes the line."
   }
+ }
 }
