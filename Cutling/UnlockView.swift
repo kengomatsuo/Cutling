@@ -14,7 +14,9 @@ import SwiftUI
 struct UnlockView: View {
     @ObservedObject private var purchases = PurchaseManager.shared
     @Environment(\.dismiss) private var dismiss
-    @State private var sheetHeight: CGFloat = 640
+    /// Starts near the measured height (about 505 pt on a 6.3-inch iPhone at the limit): a guess far off makes the
+    /// sheet rise to the guess and then drop to its content.
+    @State private var sheetHeight: CGFloat = 505
     @State private var unlockedHere = false
 
     private var store: CutlingStore { CutlingStore.shared }
@@ -93,6 +95,8 @@ struct UnlockView: View {
         #if os(iOS)
         .presentationDetents([.height(sheetHeight)])
         .presentationDragIndicator(.hidden)
+        // The cards' own colour, so the sheet reads as one more card and nothing behind it shows through the words.
+        .presentationBackground(Color(uiColor: .secondarySystemGroupedBackground))
         #else
         .frame(width: 440)
         #endif
