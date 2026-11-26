@@ -31,3 +31,6 @@
 "Insert" = "درج";
 "Cancel" = "لغو";
 "%@, %lld of %lld" = "%@، %lld از %lld";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"%lld free cutlings used. Tap to unlock." = "هر %lld جا پر شد؛ برای خرید بزنید";

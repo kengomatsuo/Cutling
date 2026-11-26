@@ -32,3 +32,6 @@
 "Cancel" = "Prekliči";
 "%@, %lld of %lld" = "%@, %lld od %lld";
 "Space" = "Presledek";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"%lld free cutlings used. Tap to unlock." = "Porabili ste vseh %lld. Tapnite za odklep.";

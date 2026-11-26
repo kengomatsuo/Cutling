@@ -1,0 +1,194 @@
+{
+ "sv": {
+  "S1": {
+   "s": "%lld gratis",
+   "back": "%lld free",
+   "why": "S1 marks the slots, so the plain adjective \"gratis\" is enough. It works as a label and fits the 12-character budget."
+  },
+  "S2": {
+   "s": "Spara allt du vill",
+   "back": "Save all you want",
+   "why": "An invitation in the imperative with du. It also reads right when nothing is saved yet, where \"Fortsätt spara\" would not."
+  },
+  "S3": {
+   "s": "Du har använt alla %lld gratis cutlings. De är fortsatt gratis och fungerar som vanligt.",
+   "back": "You have used all %lld free cutlings. They are continuedly free and work as usual.",
+   "why": "\"fortsatt gratis\" is the everyday Swedish way to say something stays free. Lowercase \"cutlings\" in a sentence, as in the vocabulary sentence."
+  },
+  "S4": {
+   "s": "%lld cutlings ingår gratis.",
+   "back": "%lld cutlings are-included free.",
+   "why": "\"ingår\" is how Swedish states what comes with something. Avoids a \"Du kan…\" sentence under an imperative title."
+  },
+  "S5": {
+   "s": "Du har använt %lld av dina %lld gratis cutlings.",
+   "back": "You have used %lld of your %lld free cutlings.",
+   "why": "Swedish keeps the same number order (used, then total), so plain %lld twice. Uses du/dina as in the vocabulary file."
+  },
+  "S6": {
+   "s": "Plats för %@ cutlings",
+   "back": "Room for %@ cutlings",
+   "why": "\"Plats för\" is the natural noun phrase for capacity. Fits one line with \"5 000\"."
+  },
+  "S7": {
+   "s": "Spara upp till %@ texter och %lld bilder.",
+   "back": "Save up to %@ texts and %lld images.",
+   "why": "Plural \"texter\" for text items. \"bilder\" comes from the vocabulary file."
+  },
+  "S8": {
+   "s": "iPhone, iPad och Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Swedish lists three things with \"och\" and no comma before it."
+  },
+  "S9": {
+   "s": "Ett köp gäller på alla dina enheter med samma Apple-konto.",
+   "back": "One purchase applies on all your devices with same Apple-account.",
+   "why": "\"Apple-konto\" and \"enheter\" come from the vocabulary sentence. \"gäller\" is the normal verb for what a purchase covers."
+  },
+  "S10": {
+   "s": "Betala en gång",
+   "back": "Pay one time",
+   "why": "Plain verb phrase. Nothing comes back each month."
+  },
+  "S11": {
+   "s": "Ingen prenumeration, ingen reklam och ingen registrering.",
+   "back": "No subscription, no advertising and no registration.",
+   "why": "\"registrering\" instead of \"konto\", so it does not clash with the Apple-konto in S9. \"och\" before the last item, with no comma."
+  },
+  "S12": {
+   "s": "Återställ köp",
+   "back": "Restore purchases",
+   "why": "The standard Swedish wording Swedish iOS apps use for the App Store restore action."
+  },
+  "S13": {
+   "s": "Återställer köp…",
+   "back": "Restoring purchases…",
+   "why": "Present tense of the same verb, ending with the ellipsis character."
+  },
+  "S14": {
+   "s": "Lås upp för %@",
+   "back": "Unlock for %@",
+   "why": "\"Lås upp\" is the Swedish App Store verb. \"för\" plus the price is how Swedish buttons state a price. \"Paying once\" is already said in S10."
+  },
+  "S15": {
+   "s": "Lås upp",
+   "back": "Unlock",
+   "why": "S14 with the price removed, so the button only gains the price when it loads."
+  },
+  "S16": {
+   "s": "Inte nu",
+   "back": "Not now",
+   "why": "The usual Swedish way to put something off politely. It postpones and does not refuse."
+  },
+  "S17": {
+   "s": "Stäng",
+   "back": "Close",
+   "why": "The verb iOS in Swedish uses on close buttons."
+  },
+  "S18": {
+   "s": "Nu är allt ditt",
+   "back": "Now is everything yours",
+   "why": "\"Nu\" comes first, which gives the line its pride and warmth. Singular \"ditt\" matches du."
+  },
+  "S19": {
+   "s": "Tack för köpet. Du stöttar Cutling och den enda personen bakom appen.",
+   "back": "Thanks for the-purchase. You support Cutling and the only person behind the-app.",
+   "why": "\"Tack för köpet\" is what a Swedish shop says. \"stöttar\" is warmer than \"stöder\"."
+  },
+  "S20": {
+   "s": "Välkommen tillbaka. Ditt tidigare köp är återställt.",
+   "back": "Welcome back. Your earlier purchase is restored.",
+   "why": "A greeting, then the fact. \"återställt\" repeats the verb from S12."
+  },
+  "S21": {
+   "s": "%lld av %lld gratis cutlings är använda.",
+   "back": "%lld of %lld free cutlings are used.",
+   "why": "VoiceOver reads it as a full clause. The plural agreement \"använda\" is right because the noun is the plural \"cutlings\"."
+  },
+  "S22": {
+   "s": "Antal cutlings: %lld. Nu finns det plats för %@.",
+   "back": "Number cutlings: %lld. Now exists it room for %@.",
+   "why": "\"Antal cutlings:\" keeps the noun out of agreement with the number, so 1, 2, 5 and 21 all read correctly."
+  },
+  "S23": {
+   "s": "Cutling är upplåst. Nu finns det plats för %@ cutlings.",
+   "back": "Cutling is unlocked. Now exists it room for %@ cutlings.",
+   "why": "\"upplåst\" is the past participle of \"låsa upp\", the same verb as on the button. Capital C means the app here, and lowercase \"cutlings\" means the items."
+  },
+  "S24": {
+   "s": "Köpet gick inte igenom",
+   "back": "The-purchase went not through",
+   "why": "The everyday idiom for a payment that did not complete. It blames no one."
+  },
+  "S25": {
+   "s": "App Store går inte att nå just nu. Försök igen om en stund.",
+   "back": "App Store goes not to reach just now. Try again in a while.",
+   "why": "\"går inte att nå\" is the natural impersonal form. \"om en stund\" means shortly, without urgency."
+  },
+  "S26": {
+   "s": "App Store bekräftade inte köpet.",
+   "back": "App Store confirmed not the-purchase.",
+   "why": "A plain past-tense fact."
+  },
+  "S27": {
+   "s": "Apple-kontot på den här enheten har inget tidigare köp av Cutling.",
+   "back": "The-Apple-account on this here device has no earlier purchase of Cutling.",
+   "why": "Makes the account the subject, which avoids a long relative clause and keeps the line under 80 characters. \"Apple-konto\" comes from the vocabulary file."
+  },
+  "S28": {
+   "s": "Gratisversionen rymmer %lld cutlings. Lås upp Cutling en gång, så kan du spara så många du vill.",
+   "back": "The-free-version holds %lld cutlings. Unlock Cutling one time, so can you save as many you want.",
+   "why": "\"rymmer\" is the verb for capacity. The \"…, så kan du…\" construction is how a Swede would say it aloud to Siri."
+  },
+  "S29": {
+   "s": "%lld av %lld gratis",
+   "back": "%lld of %lld free",
+   "why": "A compact label under the list title, in the same shape as S1."
+  },
+  "K1": {
+   "s": "Alla %lld gratisplatser använda. Lås upp",
+   "back": "All %lld free-slots used. Unlock",
+   "why": "The compound \"gratisplatser\" names the slots clearly in 37 characters. \"Lås upp\" names what the tap does."
+  },
+  "M1": {
+   "s": "Lås upp Cutling",
+   "back": "Unlock Cutling",
+   "why": "A verb-led window title, the way Swedish macOS names command windows."
+  },
+  "M2": {
+   "s": "Lås upp Cutling…",
+   "back": "Unlock Cutling…",
+   "why": "M1 with the ellipsis character, because the button opens a window."
+  },
+  "M3": {
+   "s": "Gratis cutlings",
+   "back": "Free cutlings",
+   "why": "A sentence-case row label, as Swedish macOS Settings writes them."
+  },
+  "M4": {
+   "s": "%lld av %lld",
+   "back": "%lld of %lld",
+   "why": "\"av\" is the Swedish compact pair, as in \"3 av 5\"."
+  },
+  "M5": {
+   "s": "Cutling är upplåst",
+   "back": "Cutling is unlocked",
+   "why": "The same participle as in S23."
+  },
+  "M6": {
+   "s": "Ett köp låser upp Cutling på iPhone, iPad och Mac.",
+   "back": "One purchase unlocks Cutling on iPhone, iPad and Mac.",
+   "why": "Same device list as S8. Present tense states a fact."
+  },
+  "M7": {
+   "s": "Upplåst på iPhone, iPad och Mac med det här Apple-kontot.",
+   "back": "Unlocked on iPhone, iPad and Mac with this here Apple-account.",
+   "why": "Swedish says \"det här\" for this one. \"Apple-kontot\" is the definite form of the vocabulary word."
+  },
+  "M8": {
+   "s": "Du köpte Cutling innan den blev gratis, så den förblir upplåst. Tack för att du var med från start.",
+   "back": "You bought Cutling before it became free, so it remains unlocked. Thanks for that you were with from start.",
+   "why": "\"den\" refers to the app (en app). \"var med från start\" is a warm Swedish way to thank an early supporter."
+  }
+ }
+}

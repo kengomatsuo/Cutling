@@ -32,3 +32,6 @@
 "Cancel" = "रद्द करें";
 "%@, %lld of %lld" = "%1$@, %3$lld में से %2$lld";
 "Space" = "स्पेस";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"%lld free cutlings used. Tap to unlock." = "%lld मुफ़्त जगहें भरीं, टैप करके अनलॉक करें";

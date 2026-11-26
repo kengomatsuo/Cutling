@@ -32,3 +32,6 @@
 "Cancel" = "Annuleer";
 "%@, %lld of %lld" = "%@, %lld van %lld";
 "Space" = "Spatie";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"%lld free cutlings used. Tap to unlock." = "Alle %lld gratis Cutlings op · Ontgrendel";

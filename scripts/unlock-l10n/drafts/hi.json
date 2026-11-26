@@ -1,0 +1,194 @@
+{
+ "hi": {
+  "S1": {
+   "s": "%lld मुफ़्त",
+   "back": "%lld free",
+   "why": "Under the bracket the five tiles already say 'items'; the number and 'free' (मुफ़्त, with nukta as Apple's Hindi writes it) are all the label needs."
+  },
+  "S2": {
+   "s": "और सहेजते रहें",
+   "back": "more keep-saving (please)",
+   "why": "An invitation in the आप imperative the vocabulary uses (करें); 'keep saving' carries on, with no word of limit or price."
+  },
+  "S3": {
+   "s": "आपने सभी %lld मुफ़्त कटलिंग सहेज लिए हैं। ये हमेशा मुफ़्त रहेंगे और काम करते रहेंगे।",
+   "back": "You-(erg) all 5 free Cutling save taken have. These always free will-stay and work doing will-keep.",
+   "why": "Item word कटलिंग from the vocabulary, treated as masculine (लिए); the second sentence makes the promise plainly with हमेशा."
+  },
+  "S4": {
+   "s": "आपके पहले %lld कटलिंग मुफ़्त हैं।",
+   "back": "Your first 5 Cutling free are.",
+   "why": "'Your first five are free' says the same as 'you can save five' without a 'you can…' sentence or a verb that would need the reader's gender."
+  },
+  "S5": {
+   "s": "%2$lld मुफ़्त कटलिंग में से %1$lld का इस्तेमाल हो चुका है।",
+   "back": "5 free Cutling in from 3 of use happened already is.",
+   "why": "Hindi says 'of 5, 3', so positional placeholders; the verb agrees with इस्तेमाल, not the count, so it holds for 1 to 4."
+  },
+  "S6": {
+   "s": "%@ कटलिंग की जगह",
+   "back": "5,000 Cutling of room",
+   "why": "जगह (room) is the everyday word for space a phone has; a noun phrase like a row heading."
+  },
+  "S7": {
+   "s": "%@ टेक्स्ट कटलिंग और %lld छवि कटलिंग तक सहेजें।",
+   "back": "5,000 text Cutling and 500 image Cutling up-to save.",
+   "why": "The two kinds use the vocabulary's own menu names, टेक्स्ट कटलिंग and छवि कटलिंग, so they are named as elsewhere in the app; one तक covers both."
+  },
+  "S8": {
+   "s": "iPhone, iPad और Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Apple's product names stay in Latin as Apple's Hindi pages print them; Hindi lists put a comma between the first two and और before the last, with no comma before और."
+  },
+  "S9": {
+   "s": "एक ही ख़रीदारी आपके Apple Account के हर डिवाइस पर चलती है।",
+   "back": "One only purchase your Apple Account of every device on works.",
+   "why": "Apple Account and डिवाइस as the vocabulary writes them; चलती agrees with ख़रीदारी (feminine)."
+  },
+  "S10": {
+   "s": "बस एक बार भुगतान",
+   "back": "just one time payment",
+   "why": "बस is how a speaker says 'just'; भुगतान is the word Indian payment screens use for paying."
+  },
+  "S11": {
+   "s": "न कोई सब्सक्रिप्शन, न विज्ञापन, न अकाउंट बनाने का झंझट।",
+   "back": "No any subscription, no advertising, no account making of hassle.",
+   "why": "The न… न… न… run is how Hindi lists things that are absent; झंझट (hassle) keeps it warm and spoken."
+  },
+  "S12": {
+   "s": "ख़रीदारी रीस्टोर करें",
+   "back": "Purchase restore do",
+   "why": "Indian iOS apps print रीस्टोर for Apple's Restore action; ख़रीदारी is the same word used for the purchase everywhere in this set."
+  },
+  "S13": {
+   "s": "ख़रीदारी रीस्टोर हो रही है…",
+   "back": "Purchase restore happening is…",
+   "why": "Keeps S12's words so the link reads as the same action under way; हो रही agrees with ख़रीदारी; ends on the ellipsis character."
+  },
+  "S14": {
+   "s": "एक बार %@ देकर अनलॉक करें",
+   "back": "One time ₹449 having-given unlock do",
+   "why": "'Unlock by paying once' with the price in the middle where Hindi puts the amount; देकर is the everyday 'by paying'."
+  },
+  "S15": {
+   "s": "अनलॉक करें",
+   "back": "Unlock do",
+   "why": "The same verb as S14 with no price."
+  },
+  "S16": {
+   "s": "अभी नहीं",
+   "back": "Now not",
+   "why": "'Not now' is the polite way to put a choice off in Hindi without refusing it."
+  },
+  "S17": {
+   "s": "बंद करें",
+   "back": "Close do",
+   "why": "Apple's Hindi label for a close button."
+  },
+  "S18": {
+   "s": "अब सब आपका है",
+   "back": "Now all yours is",
+   "why": "Said as a person would hand something over: everything is yours now, with nothing qualified."
+  },
+  "S19": {
+   "s": "शुक्रिया। आपकी ख़रीदारी से कटलिंग और इसे अकेले बनाने वाले को सहारा मिलता है।",
+   "back": "Thanks. Your purchase from Cutling and it alone making one to support gets.",
+   "why": "शुक्रिया is warmer than धन्यवाद; 'the one who makes it alone' names the single maker without a job title."
+  },
+  "S20": {
+   "s": "फिर से स्वागत है। आपकी पिछली ख़रीदारी वापस आ गई है।",
+   "back": "Again welcome is. Your earlier purchase back come has.",
+   "why": "The greeting for someone who has come back; आ गई agrees with ख़रीदारी."
+  },
+  "S21": {
+   "s": "%2$lld में से %1$lld मुफ़्त कटलिंग इस्तेमाल में",
+   "back": "5 in from 3 free Cutling use in",
+   "why": "For VoiceOver, a phrase with no verb, so nothing has to agree with a count of 1; positional order as Hindi says it."
+  },
+  "S22": {
+   "s": "%lld कटलिंग, अब %@ की जगह",
+   "back": "5 Cutling, now 5,000 of room",
+   "why": "कटलिंग has the same form for 1, 2, 5 and 21 in the direct case, and with no verb nothing changes with the number."
+  },
+  "S23": {
+   "s": "कटलिंग अनलॉक हो गया। अब %@ कटलिंग की जगह है।",
+   "back": "Cutling unlock became. Now 5,000 Cutling of room is.",
+   "why": "The app's name is masculine (हो गया); the room phrase repeats S6 so the same thing is said the same way."
+  },
+  "S24": {
+   "s": "ख़रीदारी पूरी नहीं हुई",
+   "back": "Purchase complete not happened",
+   "why": "An impersonal statement: nobody is blamed, the purchase just did not finish."
+  },
+  "S25": {
+   "s": "App Store से अभी कनेक्ट नहीं हो पा रहा है। थोड़ी देर बाद फिर कोशिश करें।",
+   "back": "App Store with now connect not happen able is. A-little while after again try do.",
+   "why": "Impersonal हो पा रहा है keeps the fault off the person; थोड़ी देर बाद is the spoken 'in a little while'."
+  },
+  "S26": {
+   "s": "App Store ने इस ख़रीदारी की पुष्टि नहीं की।",
+   "back": "App Store-(erg) this purchase of confirmation not did.",
+   "why": "पुष्टि is the word Indian banking and UPI screens use for confirming a payment."
+  },
+  "S27": {
+   "s": "इस डिवाइस पर साइन इन किए गए Apple Account में कटलिंग की कोई पिछली ख़रीदारी नहीं मिली।",
+   "back": "This device on sign in done Apple Account in Cutling of any earlier purchase not found.",
+   "why": "साइन इन किए गए is taken from the vocabulary's own Apple Account sentence."
+  },
+  "S28": {
+   "s": "मुफ़्त में %lld कटलिंग तक सहेजे जा सकते हैं। कटलिंग एक बार अनलॉक करें, फिर जितने चाहें उतने सहेजें।",
+   "back": "Free in 5 Cutling up-to saved be can. Cutling one time unlock do, then as-many want that-many save.",
+   "why": "Passive in the first sentence so it reads well from Siri; जितने चाहें उतने is the idiom for 'as many as you like'."
+  },
+  "S29": {
+   "s": "%2$lld में से %1$lld मुफ़्त",
+   "back": "5 in from 4 free",
+   "why": "The shortest natural form of '4 of 5 free', in Hindi's own order."
+  },
+  "K1": {
+   "s": "%lld मुफ़्त जगहें भरीं, टैप करके अनलॉक करें",
+   "back": "5 free spaces filled, tap having-done unlock do",
+   "why": "The slots are what filled up, not the items, so जगहें (as in S6), and भरीं rather than भर गईं keeps it inside 30 characters; टैप करके अनलॉक करें says the tap opens the unlock."
+  },
+  "M1": {
+   "s": "कटलिंग अनलॉक करें",
+   "back": "Cutling unlock do",
+   "why": "A verb-led command name in the करें form, as Mac menu items and window titles are in Hindi."
+  },
+  "M2": {
+   "s": "कटलिंग अनलॉक करें…",
+   "back": "Cutling unlock do…",
+   "why": "The same command as M1, with the ellipsis character because it opens a window."
+  },
+  "M3": {
+   "s": "मुफ़्त कटलिंग",
+   "back": "Free Cutling",
+   "why": "The row label names the thing; the count sits in M4."
+  },
+  "M4": {
+   "s": "%2$lld में से %1$lld",
+   "back": "5 in from 3",
+   "why": "Hindi's '3 of 5' order, ten characters, the same pair as S29 without the word मुफ़्त that M3 already shows."
+  },
+  "M5": {
+   "s": "कटलिंग अनलॉक है",
+   "back": "Cutling unlocked is",
+   "why": "A plain status, present tense, no celebration in Settings."
+  },
+  "M6": {
+   "s": "एक ही ख़रीदारी से कटलिंग iPhone, iPad और Mac पर अनलॉक हो जाता है।",
+   "back": "One only purchase from Cutling iPhone, iPad and Mac on unlock happens.",
+   "why": "The device list matches S8; हो जाता masculine for the app's name."
+  },
+  "M7": {
+   "s": "इस Apple Account से iPhone, iPad और Mac पर अनलॉक है।",
+   "back": "This Apple Account from iPhone, iPad and Mac on unlocked is.",
+   "why": "Short status line; Apple Account kept as the vocabulary writes it."
+  },
+  "M8": {
+   "s": "आपने कटलिंग तब ख़रीदा था जब यह मुफ़्त नहीं था, इसलिए यह अनलॉक ही रहेगा। साथ देने के लिए शुक्रिया।",
+   "back": "You-(erg) Cutling then bought had when it free not was, so it unlocked only will-stay. Support giving for thanks.",
+   "why": "तब… जब… is the natural way to say 'back when'; साथ देने के लिए शुक्रिया thanks them for standing by the app."
+  }
+ }
+}

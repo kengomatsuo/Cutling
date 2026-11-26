@@ -1,0 +1,578 @@
+{
+  "pt": {
+    "S1": {
+      "s": "%lld grátis",
+      "back": "5 free",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). \"grátis\" is the word a Brazilian uses for a free thing; the number carries the noun, the tiles show what it counts."
+    },
+    "S2": {
+      "s": "Continue salvando",
+      "back": "Continue saving",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). Brazilian gerund after continuar, an invitation in the você imperative; salvar is the BR verb for keeping something in an app."
+    },
+    "S3": {
+      "s": "Você já usou os %lld cutlings grátis. Eles seguem grátis e funcionando do mesmo jeito.",
+      "back": "You already used the 5 cutlings free. They go-on free and working of-the same way.",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). \"do mesmo jeito\" is how a Brazilian says nothing changes; lowercase cutlings as in the vocab sentence (\"seus cutlings\")."
+    },
+    "S4": {
+      "s": "Salve até %lld cutlings sem pagar nada.",
+      "back": "Save up-to 5 cutlings without paying nothing.",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). \"sem pagar nada\" is warm everyday BR; the BR double negative is standard, not slang."
+    },
+    "S5": {
+      "s": "Você já usou %lld de %lld cutlings grátis.",
+      "back": "You already used 3 of 5 cutlings free.",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). \"X de Y\" reads right for 1 as well as 3, so no plural branch; same order as English, so plain %lld."
+    },
+    "S6": {
+      "s": "Cabem %@ cutlings",
+      "back": "Fit 5,000 cutlings",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). \"cabem\" (they fit) is how Portuguese says there is room, and it stays inside 24 where \"Espaço para 5.000 cutlings\" runs to 26."
+    },
+    "S7": {
+      "s": "Salve até %@ cutlings de texto e %lld de imagem.",
+      "back": "Save up-to 5,000 cutlings of text and 500 of image.",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). Uses the vocab's \"Cutling de texto\" and \"Cutling de imagem\", the second noun left implied as a native would."
+    },
+    "S8": {
+      "s": "iPhone, iPad e Mac",
+      "back": "iPhone, iPad and Mac",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). Portuguese list: comma, then \"e\" with no comma before it."
+    },
+    "S9": {
+      "s": "Uma compra vale em todos os dispositivos da sua Conta Apple.",
+      "back": "One purchase is-valid on all the devices of your Apple Account.",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). \"vale\" is the BR word for a ticket or purchase that counts; \"dispositivos\" and \"Conta Apple\" from the vocab."
+    },
+    "S10": {
+      "s": "Pagamento único",
+      "back": "Payment single",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). The set phrase Brazilian shops print for a one-off charge, the opposite of mensalidade."
+    },
+    "S11": {
+      "s": "Sem assinatura, sem anúncios, sem cadastro.",
+      "back": "Without subscription, without ads, without sign-up.",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). BR words: assinatura (subscription), anúncios (ads), cadastro (signing up for an account)."
+    },
+    "S12": {
+      "s": "Restaurar Compras",
+      "back": "Restore Purchases",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). The exact label BR iOS apps use for the App Store action, in the title case Apple's Brazilian strings use for commands."
+    },
+    "S13": {
+      "s": "Restaurando…",
+      "back": "Restoring…",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). BR gerund for an action under way, with the ellipsis character."
+    },
+    "S14": {
+      "s": "Desbloquear de vez por %@",
+      "back": "Unlock for-good for R$ 24,90",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). Infinitive as on iOS buttons; \"de vez\" (once and for all) says one payment in two short words."
+    },
+    "S15": {
+      "s": "Desbloquear",
+      "back": "Unlock",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). The same button's verb, alone."
+    },
+    "S16": {
+      "s": "Agora Não",
+      "back": "Now Not",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). Apple's own BR label for putting something off (title case, as in system alerts): a later, not a refusal."
+    },
+    "S17": {
+      "s": "Fechar",
+      "back": "Close",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). The verb iOS uses on close buttons in pt-BR."
+    },
+    "S18": {
+      "s": "Agora é tudo seu",
+      "back": "Now is all yours",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). Everyday phrase for handing something over in full; tudo takes in the whole grid of room."
+    },
+    "S19": {
+      "s": "Obrigado pela compra. Você apoia o Cutling e a única pessoa por trás dele.",
+      "back": "Thanks for-the purchase. You support the Cutling and the only person behind of-it.",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). \"a pessoa por trás\" is the natural BR phrase and keeps the maker's gender out; Cutling takes the article as a named thing does."
+    },
+    "S20": {
+      "s": "Que bom ter você de volta. Sua compra foi restaurada.",
+      "back": "What good to-have you back. Your purchase was restored.",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). \"Que bom ter você de volta\" greets without a gendered Bem-vindo/Bem-vinda."
+    },
+    "S21": {
+      "s": "%lld de %lld cutlings grátis usados",
+      "back": "3 of 5 cutlings free used",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). Spoken counter; \"X de Y\" works for any number."
+    },
+    "S22": {
+      "s": "Cutlings salvos: %lld de %@.",
+      "back": "Cutlings saved: 5 of 5,000.",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). Label and count, so 1, 2, 5 and 21 all read correctly with no plural form; VoiceOver pauses at the colon."
+    },
+    "S23": {
+      "s": "Cutling desbloqueado. Agora cabem %@ cutlings.",
+      "back": "Cutling unlocked. Now fit 5,000 cutlings.",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). Echoes S6's \"cabem\" so the spoken and shown words match."
+    },
+    "S24": {
+      "s": "A compra não foi concluída",
+      "back": "The purchase not was completed",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). Passive, so nobody is blamed; Apple BR's wording for a purchase that did not go through."
+    },
+    "S25": {
+      "s": "Não foi possível conectar à App Store agora. Tente de novo em instantes.",
+      "back": "Not was possible to-connect to-the App Store now. Try again in instants.",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). \"a App Store\" is feminine in Apple BR, hence \"à\"; \"em instantes\" is the BR \"shortly\"."
+    },
+    "S26": {
+      "s": "A App Store não confirmou esta compra.",
+      "back": "The App Store not confirmed this purchase.",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). Plain fact, the App Store as the subject, so the person is not at fault."
+    },
+    "S27": {
+      "s": "Não há nenhuma compra do Cutling na Conta Apple usada neste dispositivo.",
+      "back": "Not there-is no purchase of-the Cutling in-the Apple Account used on-this device.",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). \"usada neste dispositivo\" is how BR says signed in here without the heavier \"com sessão iniciada\"."
+    },
+    "S28": {
+      "s": "A versão grátis tem espaço para %lld cutlings. Desbloqueie o Cutling uma vez e salve quantos quiser.",
+      "back": "The version free has space for 5 cutlings. Unlock the Cutling one time and save how-many you-want.",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). Você imperatives; \"quantos quiser\" is the native \"as many as you like\"."
+    },
+    "S29": {
+      "s": "%lld de %lld grátis",
+      "back": "4 of 5 free",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). Sits under the \"Cutlings\" title, so the noun is not repeated."
+    },
+    "K1": {
+      "s": "Os %lld grátis acabaram. Desbloqueie aqui",
+      "back": "The 5 free ran-out. Unlock here",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). \"acabaram\" (ran out) is the everyday verb; \"aqui\" points at the capsule, which is the thing tapped; 38 characters with 5."
+    },
+    "M1": {
+      "s": "Desbloquear Cutling",
+      "back": "Unlock Cutling",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). Mac command names in pt-BR drop the article (as in \"Ocultar Safari\")."
+    },
+    "M2": {
+      "s": "Desbloquear Cutling…",
+      "back": "Unlock Cutling…",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). Same command as M1, with the ellipsis because it opens a window."
+    },
+    "M3": {
+      "s": "Cutlings Grátis",
+      "back": "Cutlings Free",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). Row label in the title case of BR macOS Settings rows; the vocab plural Cutlings."
+    },
+    "M4": {
+      "s": "%lld de %lld",
+      "back": "3 of 5",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). Compact pair; \"de\" is what a Portuguese reader says between the two."
+    },
+    "M5": {
+      "s": "Desbloqueado",
+      "back": "Unlocked",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). One word as a status value; masculine to agree with Cutling, the section's name."
+    },
+    "M6": {
+      "s": "Uma compra desbloqueia o Cutling no iPhone, iPad e Mac.",
+      "back": "One purchase unlocks the Cutling on-the iPhone, iPad and Mac.",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). Same list as S8; Cutling takes the article in a sentence."
+    },
+    "M7": {
+      "s": "Desbloqueado no iPhone, iPad e Mac com esta Conta Apple.",
+      "back": "Unlocked on-the iPhone, iPad and Mac with this Apple Account.",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). Participle agrees with Cutling; \"Conta Apple\" from the vocab."
+    },
+    "M8": {
+      "s": "Você comprou o Cutling antes de ele ficar grátis, então continua desbloqueado. Obrigado pelo apoio.",
+      "back": "You bought the Cutling before of it to-become free, so stays unlocked. Thanks for-the support.",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). \"antes de ele ficar\" is the usual BR spoken and written form; \"então\" is the BR so; the second ele is dropped as Brazilians do in speech."
+    }
+  },
+  "pt-BR": {
+    "S1": {
+      "s": "%lld grátis",
+      "back": "5 free",
+      "why": "\"grátis\" is the word a Brazilian uses for a free thing; the number carries the noun, the tiles show what it counts."
+    },
+    "S2": {
+      "s": "Continue salvando",
+      "back": "Continue saving",
+      "why": "Brazilian gerund after continuar, an invitation in the você imperative; salvar is the BR verb for keeping something in an app."
+    },
+    "S3": {
+      "s": "Você já usou os %lld cutlings grátis. Eles seguem grátis e funcionando do mesmo jeito.",
+      "back": "You already used the 5 cutlings free. They go-on free and working of-the same way.",
+      "why": "\"do mesmo jeito\" is how a Brazilian says nothing changes; lowercase cutlings as in the vocab sentence (\"seus cutlings\")."
+    },
+    "S4": {
+      "s": "Salve até %lld cutlings sem pagar nada.",
+      "back": "Save up-to 5 cutlings without paying nothing.",
+      "why": "\"sem pagar nada\" is warm everyday BR; the BR double negative is standard, not slang."
+    },
+    "S5": {
+      "s": "Você já usou %lld de %lld cutlings grátis.",
+      "back": "You already used 3 of 5 cutlings free.",
+      "why": "\"X de Y\" reads right for 1 as well as 3, so no plural branch; same order as English, so plain %lld."
+    },
+    "S6": {
+      "s": "Cabem %@ cutlings",
+      "back": "Fit 5,000 cutlings",
+      "why": "\"cabem\" (they fit) is how Portuguese says there is room, and it stays inside 24 where \"Espaço para 5.000 cutlings\" runs to 26."
+    },
+    "S7": {
+      "s": "Salve até %@ cutlings de texto e %lld de imagem.",
+      "back": "Save up-to 5,000 cutlings of text and 500 of image.",
+      "why": "Uses the vocab's \"Cutling de texto\" and \"Cutling de imagem\", the second noun left implied as a native would."
+    },
+    "S8": {
+      "s": "iPhone, iPad e Mac",
+      "back": "iPhone, iPad and Mac",
+      "why": "Portuguese list: comma, then \"e\" with no comma before it."
+    },
+    "S9": {
+      "s": "Uma compra vale em todos os dispositivos da sua Conta Apple.",
+      "back": "One purchase is-valid on all the devices of your Apple Account.",
+      "why": "\"vale\" is the BR word for a ticket or purchase that counts; \"dispositivos\" and \"Conta Apple\" from the vocab."
+    },
+    "S10": {
+      "s": "Pagamento único",
+      "back": "Payment single",
+      "why": "The set phrase Brazilian shops print for a one-off charge, the opposite of mensalidade."
+    },
+    "S11": {
+      "s": "Sem assinatura, sem anúncios, sem cadastro.",
+      "back": "Without subscription, without ads, without sign-up.",
+      "why": "BR words: assinatura (subscription), anúncios (ads), cadastro (signing up for an account)."
+    },
+    "S12": {
+      "s": "Restaurar Compras",
+      "back": "Restore Purchases",
+      "why": "The exact label BR iOS apps use for the App Store action, in the title case Apple's Brazilian strings use for commands."
+    },
+    "S13": {
+      "s": "Restaurando…",
+      "back": "Restoring…",
+      "why": "BR gerund for an action under way, with the ellipsis character."
+    },
+    "S14": {
+      "s": "Desbloquear de vez por %@",
+      "back": "Unlock for-good for R$ 24,90",
+      "why": "Infinitive as on iOS buttons; \"de vez\" (once and for all) says one payment in two short words."
+    },
+    "S15": {
+      "s": "Desbloquear",
+      "back": "Unlock",
+      "why": "The same button's verb, alone."
+    },
+    "S16": {
+      "s": "Agora Não",
+      "back": "Now Not",
+      "why": "Apple's own BR label for putting something off (title case, as in system alerts): a later, not a refusal."
+    },
+    "S17": {
+      "s": "Fechar",
+      "back": "Close",
+      "why": "The verb iOS uses on close buttons in pt-BR."
+    },
+    "S18": {
+      "s": "Agora é tudo seu",
+      "back": "Now is all yours",
+      "why": "Everyday phrase for handing something over in full; tudo takes in the whole grid of room."
+    },
+    "S19": {
+      "s": "Obrigado pela compra. Você apoia o Cutling e a única pessoa por trás dele.",
+      "back": "Thanks for-the purchase. You support the Cutling and the only person behind of-it.",
+      "why": "\"a pessoa por trás\" is the natural BR phrase and keeps the maker's gender out; Cutling takes the article as a named thing does."
+    },
+    "S20": {
+      "s": "Que bom ter você de volta. Sua compra foi restaurada.",
+      "back": "What good to-have you back. Your purchase was restored.",
+      "why": "\"Que bom ter você de volta\" greets without a gendered Bem-vindo/Bem-vinda."
+    },
+    "S21": {
+      "s": "%lld de %lld cutlings grátis usados",
+      "back": "3 of 5 cutlings free used",
+      "why": "Spoken counter; \"X de Y\" works for any number."
+    },
+    "S22": {
+      "s": "Cutlings salvos: %lld de %@.",
+      "back": "Cutlings saved: 5 of 5,000.",
+      "why": "Label and count, so 1, 2, 5 and 21 all read correctly with no plural form; VoiceOver pauses at the colon."
+    },
+    "S23": {
+      "s": "Cutling desbloqueado. Agora cabem %@ cutlings.",
+      "back": "Cutling unlocked. Now fit 5,000 cutlings.",
+      "why": "Echoes S6's \"cabem\" so the spoken and shown words match."
+    },
+    "S24": {
+      "s": "A compra não foi concluída",
+      "back": "The purchase not was completed",
+      "why": "Passive, so nobody is blamed; Apple BR's wording for a purchase that did not go through."
+    },
+    "S25": {
+      "s": "Não foi possível conectar à App Store agora. Tente de novo em instantes.",
+      "back": "Not was possible to-connect to-the App Store now. Try again in instants.",
+      "why": "\"a App Store\" is feminine in Apple BR, hence \"à\"; \"em instantes\" is the BR \"shortly\"."
+    },
+    "S26": {
+      "s": "A App Store não confirmou esta compra.",
+      "back": "The App Store not confirmed this purchase.",
+      "why": "Plain fact, the App Store as the subject, so the person is not at fault."
+    },
+    "S27": {
+      "s": "Não há nenhuma compra do Cutling na Conta Apple usada neste dispositivo.",
+      "back": "Not there-is no purchase of-the Cutling in-the Apple Account used on-this device.",
+      "why": "\"usada neste dispositivo\" is how BR says signed in here without the heavier \"com sessão iniciada\"."
+    },
+    "S28": {
+      "s": "A versão grátis tem espaço para %lld cutlings. Desbloqueie o Cutling uma vez e salve quantos quiser.",
+      "back": "The version free has space for 5 cutlings. Unlock the Cutling one time and save how-many you-want.",
+      "why": "Você imperatives; \"quantos quiser\" is the native \"as many as you like\"."
+    },
+    "S29": {
+      "s": "%lld de %lld grátis",
+      "back": "4 of 5 free",
+      "why": "Sits under the \"Cutlings\" title, so the noun is not repeated."
+    },
+    "K1": {
+      "s": "Os %lld grátis acabaram. Desbloqueie aqui",
+      "back": "The 5 free ran-out. Unlock here",
+      "why": "\"acabaram\" (ran out) is the everyday verb; \"aqui\" points at the capsule, which is the thing tapped; 38 characters with 5."
+    },
+    "M1": {
+      "s": "Desbloquear Cutling",
+      "back": "Unlock Cutling",
+      "why": "Mac command names in pt-BR drop the article (as in \"Ocultar Safari\")."
+    },
+    "M2": {
+      "s": "Desbloquear Cutling…",
+      "back": "Unlock Cutling…",
+      "why": "Same command as M1, with the ellipsis because it opens a window."
+    },
+    "M3": {
+      "s": "Cutlings Grátis",
+      "back": "Cutlings Free",
+      "why": "Row label in the title case of BR macOS Settings rows; the vocab plural Cutlings."
+    },
+    "M4": {
+      "s": "%lld de %lld",
+      "back": "3 of 5",
+      "why": "Compact pair; \"de\" is what a Portuguese reader says between the two."
+    },
+    "M5": {
+      "s": "Desbloqueado",
+      "back": "Unlocked",
+      "why": "One word as a status value; masculine to agree with Cutling, the section's name."
+    },
+    "M6": {
+      "s": "Uma compra desbloqueia o Cutling no iPhone, iPad e Mac.",
+      "back": "One purchase unlocks the Cutling on-the iPhone, iPad and Mac.",
+      "why": "Same list as S8; Cutling takes the article in a sentence."
+    },
+    "M7": {
+      "s": "Desbloqueado no iPhone, iPad e Mac com esta Conta Apple.",
+      "back": "Unlocked on-the iPhone, iPad and Mac with this Apple Account.",
+      "why": "Participle agrees with Cutling; \"Conta Apple\" from the vocab."
+    },
+    "M8": {
+      "s": "Você comprou o Cutling antes de ele ficar grátis, então continua desbloqueado. Obrigado pelo apoio.",
+      "back": "You bought the Cutling before of it to-become free, so stays unlocked. Thanks for-the support.",
+      "why": "\"antes de ele ficar\" is the usual BR spoken and written form; \"então\" is the BR so; the second ele is dropped as Brazilians do in speech."
+    }
+  },
+  "pt-PT": {
+    "S1": {
+      "s": "%lld grátis",
+      "back": "5 free",
+      "why": "\"grátis\" is as common in Portugal as in Brazil for a free thing; the number carries the noun."
+    },
+    "S2": {
+      "s": "Continue a guardar",
+      "back": "Continue to save",
+      "why": "European Portuguese uses \"a\" + infinitive where Brazil uses the gerund; guardar, not salvar, is the PT verb for keeping something."
+    },
+    "S3": {
+      "s": "Já usou os %lld cutlings grátis. Continuam grátis e a funcionar como sempre.",
+      "back": "Already used the 5 cutlings free. Continue free and to work like always.",
+      "why": "PT drops the subject pronoun and uses \"a funcionar\"; lowercase cutlings as in the vocab sentence (\"os seus cutlings\")."
+    },
+    "S4": {
+      "s": "Pode guardar até %lld cutlings sem pagar nada.",
+      "back": "Can save up-to 5 cutlings without paying nothing.",
+      "why": "Third person with no pronoun is how PT apps address the reader politely, matching the vocab's \"Active\"."
+    },
+    "S5": {
+      "s": "Já usou %lld de %lld cutlings grátis.",
+      "back": "Already used 3 of 5 cutlings free.",
+      "why": "\"X de Y\" reads right for 1 too; same order as English, so plain %lld."
+    },
+    "S6": {
+      "s": "Cabem %@ cutlings",
+      "back": "Fit 5,000 cutlings",
+      "why": "\"cabem\" (they fit) is how Portuguese says there is room, and stays inside 24."
+    },
+    "S7": {
+      "s": "Guarde até %@ cutlings de texto e %lld de imagem.",
+      "back": "Save up-to 5,000 cutlings of text and 500 of image.",
+      "why": "Uses the vocab's \"Cutling de texto\" and \"Cutling de imagem\"; guardar as PT says it."
+    },
+    "S8": {
+      "s": "iPhone, iPad e Mac",
+      "back": "iPhone, iPad and Mac",
+      "why": "Portuguese list: comma, then \"e\" with no comma before it."
+    },
+    "S9": {
+      "s": "Uma compra serve para todos os dispositivos com a sua Conta Apple.",
+      "back": "One purchase serves for all the devices with the your Apple Account.",
+      "why": "\"serve para\" is the PT idiom for counts for; \"com a sua Conta Apple\" is the vocab's own wording, with the PT article before sua."
+    },
+    "S10": {
+      "s": "Pagamento único",
+      "back": "Payment single",
+      "why": "The set phrase for a one-off charge, the opposite of mensalidade; same in both regions."
+    },
+    "S11": {
+      "s": "Sem subscrição, sem publicidade, sem registo.",
+      "back": "Without subscription, without advertising, without registration.",
+      "why": "PT words: subscrição (Brazil says assinatura), publicidade, registo (Brazil says cadastro)."
+    },
+    "S12": {
+      "s": "Restaurar compras",
+      "back": "Restore purchases",
+      "why": "The App Store action as PT iOS apps label it, in the sentence case of Apple's European Portuguese."
+    },
+    "S13": {
+      "s": "A restaurar…",
+      "back": "To restore…",
+      "why": "PT progressive is \"a\" + infinitive, as iOS shows \"A carregar…\"; ellipsis character."
+    },
+    "S14": {
+      "s": "Desbloquear de vez por %@",
+      "back": "Unlock for-good for 4,99 €",
+      "why": "Infinitive as on iOS buttons; \"de vez\" says once and for all; the price arrives already in PT format."
+    },
+    "S15": {
+      "s": "Desbloquear",
+      "back": "Unlock",
+      "why": "The same button's verb, alone."
+    },
+    "S16": {
+      "s": "Agora não",
+      "back": "Now not",
+      "why": "Apple's PT label for putting something off, in sentence case: a later, not a refusal."
+    },
+    "S17": {
+      "s": "Fechar",
+      "back": "Close",
+      "why": "The verb iOS uses on close buttons in pt-PT."
+    },
+    "S18": {
+      "s": "Agora é tudo seu",
+      "back": "Now is all yours",
+      "why": "Same everyday phrase in Portugal; tudo takes in the whole grid of room."
+    },
+    "S19": {
+      "s": "Obrigado pela compra. Está a apoiar o Cutling e a única pessoa por trás dele.",
+      "back": "Thanks for-the purchase. Are to support the Cutling and the only person behind of-it.",
+      "why": "PT progressive \"está a apoiar\"; \"a pessoa por trás\" keeps the maker's gender out."
+    },
+    "S20": {
+      "s": "Olá de novo. A sua compra está de volta.",
+      "back": "Hello again. The your purchase is back.",
+      "why": "\"Olá de novo\" greets without a gendered Bem-vindo/Bem-vinda or tê-lo/tê-la."
+    },
+    "S21": {
+      "s": "%lld de %lld cutlings grátis usados",
+      "back": "3 of 5 cutlings free used",
+      "why": "Spoken counter; \"X de Y\" works for any number."
+    },
+    "S22": {
+      "s": "Cutlings guardados: %lld de %@.",
+      "back": "Cutlings saved: 5 of 5,000.",
+      "why": "Label and count, so 1, 2, 5 and 21 all read correctly with no plural form; guardados as PT says it."
+    },
+    "S23": {
+      "s": "Cutling desbloqueado. Agora cabem %@ cutlings.",
+      "back": "Cutling unlocked. Now fit 5,000 cutlings.",
+      "why": "Echoes S6's \"cabem\"; same in both regions."
+    },
+    "S24": {
+      "s": "A compra não foi concluída",
+      "back": "The purchase not was completed",
+      "why": "Passive, so nobody is blamed; same in both regions."
+    },
+    "S25": {
+      "s": "Não foi possível estabelecer ligação à App Store. Tente novamente daqui a pouco.",
+      "back": "Not was possible to-establish connection to-the App Store. Try again from-here in a-little.",
+      "why": "\"estabelecer ligação\" is Apple PT's wording (Brazil says conectar); \"daqui a pouco\" is the PT shortly."
+    },
+    "S26": {
+      "s": "A App Store não confirmou esta compra.",
+      "back": "The App Store not confirmed this purchase.",
+      "why": "Plain fact with the App Store as subject; same in both regions."
+    },
+    "S27": {
+      "s": "A Conta Apple com sessão iniciada neste dispositivo não tem compras do Cutling.",
+      "back": "The Apple Account with session started on-this device not has purchases of-the Cutling.",
+      "why": "\"com sessão iniciada\" is Apple PT's phrase for signed in; account first keeps it inside 80."
+    },
+    "S28": {
+      "s": "A versão grátis tem lugar para %lld cutlings. Desbloqueie o Cutling uma vez e guarde quantos quiser.",
+      "back": "The version free has place for 5 cutlings. Unlock the Cutling one time and save how-many you-want.",
+      "why": "\"tem lugar para\" is the PT room-for; guarde, not salve."
+    },
+    "S29": {
+      "s": "%lld de %lld grátis",
+      "back": "4 of 5 free",
+      "why": "Sits under the \"Cutlings\" title, so the noun is not repeated."
+    },
+    "K1": {
+      "s": "Os %lld grátis acabaram. Desbloqueie aqui",
+      "back": "The 5 free ran-out. Unlock here",
+      "why": "\"acabaram\" reads naturally in Portugal too; \"aqui\" points at the capsule; 38 characters with 5."
+    },
+    "M1": {
+      "s": "Desbloquear Cutling",
+      "back": "Unlock Cutling",
+      "why": "Mac command names in pt-PT drop the article (as in \"Ocultar Safari\")."
+    },
+    "M2": {
+      "s": "Desbloquear Cutling…",
+      "back": "Unlock Cutling…",
+      "why": "Same command as M1, with the ellipsis because it opens a window."
+    },
+    "M3": {
+      "s": "Cutlings grátis",
+      "back": "Cutlings free",
+      "why": "Sentence case as in PT macOS Definições rows; the vocab plural Cutlings."
+    },
+    "M4": {
+      "s": "%lld de %lld",
+      "back": "3 of 5",
+      "why": "Compact pair with \"de\"."
+    },
+    "M5": {
+      "s": "Desbloqueado",
+      "back": "Unlocked",
+      "why": "One word as a status value; masculine to agree with Cutling, the section's name."
+    },
+    "M6": {
+      "s": "Uma compra desbloqueia o Cutling no iPhone, iPad e Mac.",
+      "back": "One purchase unlocks the Cutling on-the iPhone, iPad and Mac.",
+      "why": "Same in both regions; Cutling takes the article in a sentence."
+    },
+    "M7": {
+      "s": "Desbloqueado no iPhone, iPad e Mac com esta Conta Apple.",
+      "back": "Unlocked on-the iPhone, iPad and Mac with this Apple Account.",
+      "why": "Same in both regions."
+    },
+    "M8": {
+      "s": "Comprou o Cutling antes de passar a ser grátis, por isso continua desbloqueado. Obrigado pelo apoio.",
+      "back": "Bought the Cutling before of to-pass to be free, for that continues unlocked. Thanks for-the support.",
+      "why": "\"passar a ser\" and \"por isso\" are the PT forms (Brazil writes ficar and então); no subject pronoun."
+    }
+  }
+}

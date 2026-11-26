@@ -1,0 +1,386 @@
+{
+ "ml": {
+  "S1": {
+   "s": "%lld സൗജന്യം",
+   "back": "5 free",
+   "why": "Shop-tag form: number then the noun സൗജന്യം; fits the 12-character label under the bracket."
+  },
+  "S2": {
+   "s": "ഇനിയും സൂക്ഷിക്കാം",
+   "back": "still-more [you] can-keep",
+   "why": "The -ആം modal is how Malayalam invites (you may, go ahead), so it reads as an offer, not a limit; സൂക്ഷിക്കുക (keep) is the plain verb for keeping things, used for saving throughout."
+  },
+  "S3": {
+   "s": "സൗജന്യമായ %lld കട്ട്‌ലിംഗുകളും ഉപയോഗിച്ചുകഴിഞ്ഞു. അവ എന്നും സൗജന്യമായിത്തന്നെ പ്രവർത്തിക്കും.",
+   "back": "free-being 5 cutlings-all used-finished. They always free-ly-indeed will-work.",
+   "why": "Number plus -ഉം means 'all five'; the second sentence promises they keep working and stay free; pronoun dropped as Malayalam does."
+  },
+  "S4": {
+   "s": "%lld കട്ട്‌ലിംഗുകൾ വരെ സൗജന്യമായി സൂക്ഷിക്കാം.",
+   "back": "5 cutlings up-to free-ly [you] can-keep.",
+   "why": "Vocabulary plural കട്ട്‌ലിംഗുകൾ; വരെ (up to) after the count is the natural cap phrasing."
+  },
+  "S5": {
+   "s": "%2$lld സൗജന്യ കട്ട്‌ലിംഗുകളിൽ %1$lld എണ്ണം ഉപയോഗിച്ചു.",
+   "back": "5 free cutlings-in 3 count used.",
+   "why": "Malayalam puts the whole before the part ('of 5, 3'), so the placeholders are positional; എണ്ണം (count) avoids a plural after the used number."
+  },
+  "S6": {
+   "s": "%@ കട്ട്‌ലിംഗുകൾക്ക് ഇടം",
+   "back": "5,000 cutlings-for space",
+   "why": "A noun phrase as a row heading; ഇടം (room, space) is the everyday word, not the technical സ്റ്റോറേജ്."
+  },
+  "S7": {
+   "s": "%@ വാചക കട്ട്‌ലിംഗുകളും %lld ചിത്രങ്ങളും വരെ സൂക്ഷിക്കാം.",
+   "back": "5,000 text cutlings-and 500 images-and up-to [you] can-keep.",
+   "why": "വാചക കട്ട്‌ലിംഗ് is the app's own menu name for a text item and ചിത്രങ്ങൾ its word for images; the X-ഉം Y-ഉം pair is how Malayalam joins two."
+  },
+  "S8": {
+   "s": "iPhone-ലും iPad-ലും Mac-ലും",
+   "back": "iPhone-on-and iPad-on-and Mac-on-and",
+   "why": "Malayalam lists by putting -ഉം on every item; the hyphen before the suffix follows the vocabulary's Apple Account-ലേക്ക് and Mac-നുള്ള."
+  },
+  "S9": {
+   "s": "ഒറ്റ വാങ്ങൽ നിങ്ങളുടെ Apple Account-ലെ എല്ലാ ഉപകരണങ്ങളിലും പ്രവർത്തിക്കും.",
+   "back": "One purchase your Apple Account-in all devices-on will-work.",
+   "why": "നിങ്ങളുടെ and ഉപകരണങ്ങൾ come from the vocabulary's sync sentence; Apple Account stays in Latin script as there."
+  },
+  "S10": {
+   "s": "ഒരിക്കൽ പണമടച്ചാൽ മതി",
+   "back": "once money-pay-if enough",
+   "why": "'Pay once and that is enough' is the spoken way to say nothing recurs, without the banking-form ഒറ്റത്തവണ പേയ്‌മെന്റ്."
+  },
+  "S11": {
+   "s": "സബ്‌സ്‌ക്രിപ്ഷനില്ല, പരസ്യങ്ങളില്ല, സൈൻ അപ്പും വേണ്ട.",
+   "back": "Subscription-none, ads-none, sign-up-also not-needed.",
+   "why": "Two -ഇല്ല endings then a 'not needed either' close the list naturally; സൈൻ അപ്പ് rather than 'account', because the person does use an Apple Account."
+  },
+  "S12": {
+   "s": "വാങ്ങലുകൾ പുനഃസ്ഥാപിക്കുക",
+   "back": "purchases restore-do",
+   "why": "The wording Malayalam app stores and apps use for Restore Purchases; dictionary-form imperative as the vocabulary's ഓണാക്കുക."
+  },
+  "S13": {
+   "s": "പുനഃസ്ഥാപിക്കുന്നു…",
+   "back": "restoring…",
+   "why": "Present continuous of the S12 verb, with the ellipsis character."
+  },
+  "S14": {
+   "s": "%@-ന് അൺലോക്ക് ചെയ്യുക",
+   "back": "[price]-for unlock do",
+   "why": "-ന് on the price means 'for ₹…'; അൺലോക്ക് ചെയ്യുക is the everyday Malayalam phone word; 'once' is already said by S10 just above."
+  },
+  "S15": {
+   "s": "അൺലോക്ക് ചെയ്യുക",
+   "back": "unlock do",
+   "why": "The S14 action without the price."
+  },
+  "S16": {
+   "s": "പിന്നീടാകാം",
+   "back": "later-can-be",
+   "why": "'It can be later': putting it off, softer than ഇപ്പോൾ വേണ്ട (not wanted now), which sounds like a refusal."
+  },
+  "S17": {
+   "s": "അടയ്ക്കുക",
+   "back": "close",
+   "why": "The plain verb for shutting a window or sheet, dictionary-form imperative."
+  },
+  "S18": {
+   "s": "എല്ലാം ഇനി നിങ്ങളുടേത്",
+   "back": "everything now yours",
+   "why": "Short and warm; ഇനി (from now on) carries the change, നിങ്ങളുടേത് keeps the vocabulary's polite you."
+  },
+  "S19": {
+   "s": "വാങ്ങിയതിന് നന്ദി. കട്ട്‌ലിംഗ് ഒറ്റയ്ക്ക് ഉണ്ടാക്കുന്ന ആൾക്ക് ഇത് വലിയ സഹായമാണ്.",
+   "back": "Bought-for thanks. Cutling alone making person-to this big help-is.",
+   "why": "Names the one maker plainly (ഒറ്റയ്ക്ക്, alone) instead of a corporate 'we'; ഉണ്ടാക്കുന്ന is the spoken verb for making."
+  },
+  "S20": {
+   "s": "വീണ്ടും സ്വാഗതം. നിങ്ങൾ മുമ്പ് വാങ്ങിയത് തിരികെ ലഭിച്ചു.",
+   "back": "Again welcome. You earlier bought-thing back received.",
+   "why": "വീണ്ടും സ്വാഗതം is the set Malayalam 'welcome back'."
+  },
+  "S21": {
+   "s": "%2$lld സൗജന്യ കട്ട്‌ലിംഗുകളിൽ %1$lld എണ്ണം ഉപയോഗിച്ചു",
+   "back": "5 free cutlings-in 3 count used",
+   "why": "Same sentence as S5 without the full stop, so VoiceOver and the screen agree."
+  },
+  "S22": {
+   "s": "%lld കട്ട്‌ലിംഗ് സൂക്ഷിച്ചിട്ടുണ്ട്. ആകെ %@ എണ്ണത്തിന് ഇടമുണ്ട്.",
+   "back": "5 cutling kept-has. Total 5,000 count-for room-is.",
+   "why": "A numeral takes the singular noun in Malayalam (അഞ്ച് പുസ്തകം), so one form works for 1, 2, 5 and 21."
+  },
+  "S23": {
+   "s": "കട്ട്‌ലിംഗ് അൺലോക്ക് ചെയ്തു. ഇനി %@ കട്ട്‌ലിംഗുകൾക്ക് ഇടമുണ്ട്.",
+   "back": "Cutling unlock did. Now 5,000 cutlings-for room-is.",
+   "why": "Here the first കട്ട്‌ലിംഗ് is the app's name and the second the item, as the vocabulary uses the one word for both."
+  },
+  "S24": {
+   "s": "വാങ്ങൽ പൂർത്തിയായില്ല",
+   "back": "purchase completed-not",
+   "why": "Negative of the vocabulary's done word പൂർത്തിയായി; states the fact, blames no one."
+  },
+  "S25": {
+   "s": "ഇപ്പോൾ App Store-മായി ബന്ധപ്പെടാനാകുന്നില്ല. അൽപ്പസമയം കഴിഞ്ഞ് വീണ്ടും ശ്രമിക്കുക.",
+   "back": "Now App Store-with connect-able-not. Little-time after again try.",
+   "why": "ബന്ധപ്പെടുക (get in touch, connect) is the usual verb for reaching a service; the retry is the way out."
+  },
+  "S26": {
+   "s": "App Store ഈ വാങ്ങൽ സ്ഥിരീകരിച്ചില്ല.",
+   "back": "App Store this purchase confirmed-not.",
+   "why": "Names the App Store as the one that did not confirm, so the person is not blamed."
+  },
+  "S27": {
+   "s": "ഈ ഉപകരണത്തിൽ സൈൻ ഇൻ ചെയ്ത Apple Account-ൽ മുമ്പ് കട്ട്‌ലിംഗ് വാങ്ങിയതായി കാണുന്നില്ല.",
+   "back": "This device-on sign in done Apple Account-in earlier Cutling bought-as see-not.",
+   "why": "'Does not show as bought' is softer than 'you never bought'; സൈൻ ഇൻ ചെയ്ത is the vocabulary's phrase."
+  },
+  "S28": {
+   "s": "സൗജന്യ പതിപ്പിൽ %lld കട്ട്‌ലിംഗുകൾ വരെ സൂക്ഷിക്കാം. കട്ട്‌ലിംഗ് ഒരിക്കൽ അൺലോക്ക് ചെയ്താൽ എത്ര വേണമെങ്കിലും സൂക്ഷിക്കാം.",
+   "back": "Free version-in 5 cutlings up-to can-keep. Cutling once unlock do-if how-many want-even can-keep.",
+   "why": "പതിപ്പ് is the usual word for an app version; എത്ര വേണമെങ്കിലും (as many as you want) follows the brief, which says 'as many as they like' here."
+  },
+  "S29": {
+   "s": "സൗജന്യം: %2$lld-ൽ %1$lld",
+   "back": "Free: 5-in 4",
+   "why": "A label and a 'of 5, 4' pair keeps it inside 18 characters under the list title; whole before part, so positional."
+  },
+  "K1": {
+   "s": "സൗജന്യമായ %lld-ഉം തീർന്നു. അൺലോക്ക് ചെയ്യാൻ ടാപ്പ് ചെയ്യുക",
+   "back": "Free-being 5-all ran-out. Unlock to-do tap do",
+   "why": "5-ഉം (all five) and തീർന്നു (ran out) are how a speaker says it; ടാപ്പ് ചെയ്യുക is the Malayalam phone word for tap; about 24 aksharas, inside 30."
+  },
+  "M1": {
+   "s": "കട്ട്‌ലിംഗ് അൺലോക്ക് ചെയ്യുക",
+   "back": "Cutling unlock do",
+   "why": "A command name in dictionary form; Malayalam puts the verb last, so object then verb."
+  },
+  "M2": {
+   "s": "കട്ട്‌ലിംഗ് അൺലോക്ക് ചെയ്യുക…",
+   "back": "Cutling unlock do…",
+   "why": "M1 with the ellipsis character because it opens a window."
+  },
+  "M3": {
+   "s": "സൗജന്യ കട്ട്‌ലിംഗുകൾ",
+   "back": "free cutlings",
+   "why": "Row label in the vocabulary's plural."
+  },
+  "M4": {
+   "s": "%2$lld-ൽ %1$lld",
+   "back": "5-in 3",
+   "why": "'3 of 5' said whole first, the compact Malayalam pair; positional placeholders."
+  },
+  "M5": {
+   "s": "അൺലോക്ക് ചെയ്തു",
+   "back": "unlock did",
+   "why": "Past tense as a status, the section already says Cutling."
+  },
+  "M6": {
+   "s": "ഒറ്റ വാങ്ങലിൽ iPhone-ലും iPad-ലും Mac-ലും കട്ട്‌ലിംഗ് അൺലോക്ക് ആകും.",
+   "back": "One purchase-in iPhone-on-and iPad-on-and Mac-on-and Cutling unlock becomes.",
+   "why": "Same device list as S8; അൺലോക്ക് ആകും (becomes unlocked) is the spoken intransitive."
+  },
+  "M7": {
+   "s": "ഈ Apple Account ഉപയോഗിക്കുന്ന iPhone-ലും iPad-ലും Mac-ലും അൺലോക്ക് ചെയ്തു.",
+   "back": "This Apple Account using iPhone-on-and iPad-on-and Mac-on-and unlock did.",
+   "why": "Relative clause first, as Malayalam builds it; same device list as S8 and M6."
+  },
+  "M8": {
+   "s": "കട്ട്‌ലിംഗ് സൗജന്യമാകുന്നതിന് മുമ്പേ നിങ്ങൾ ഇത് വാങ്ങി, അതുകൊണ്ട് എന്നും അൺലോക്ക് ആയിരിക്കും. ഒപ്പം നിന്നതിന് നന്ദി.",
+   "back": "Cutling free-becoming-before already you this bought, therefore always unlock will-be. With [us] stood-for thanks.",
+   "why": "ഒപ്പം നിന്നതിന് നന്ദി (thanks for standing with us) is how a person thanks an early supporter."
+  }
+ },
+ "ml-IN": {
+  "S1": {
+   "s": "%lld സൗജന്യം",
+   "back": "5 free",
+   "why": "Shop-tag form: number then the noun സൗജന്യം; fits the 12-character label under the bracket. Same in ml-IN: Malayalam is written alike across India, and prices and digits arrive formatted by the system."
+  },
+  "S2": {
+   "s": "ഇനിയും സൂക്ഷിക്കാം",
+   "back": "still-more [you] can-keep",
+   "why": "The -ആം modal is how Malayalam invites (you may, go ahead), so it reads as an offer, not a limit; സൂക്ഷിക്കുക (keep) is the plain verb for keeping things, used for saving throughout."
+  },
+  "S3": {
+   "s": "സൗജന്യമായ %lld കട്ട്‌ലിംഗുകളും ഉപയോഗിച്ചുകഴിഞ്ഞു. അവ എന്നും സൗജന്യമായിത്തന്നെ പ്രവർത്തിക്കും.",
+   "back": "free-being 5 cutlings-all used-finished. They always free-ly-indeed will-work.",
+   "why": "Number plus -ഉം means 'all five'; the second sentence promises they keep working and stay free; pronoun dropped as Malayalam does."
+  },
+  "S4": {
+   "s": "%lld കട്ട്‌ലിംഗുകൾ വരെ സൗജന്യമായി സൂക്ഷിക്കാം.",
+   "back": "5 cutlings up-to free-ly [you] can-keep.",
+   "why": "Vocabulary plural കട്ട്‌ലിംഗുകൾ; വരെ (up to) after the count is the natural cap phrasing."
+  },
+  "S5": {
+   "s": "%2$lld സൗജന്യ കട്ട്‌ലിംഗുകളിൽ %1$lld എണ്ണം ഉപയോഗിച്ചു.",
+   "back": "5 free cutlings-in 3 count used.",
+   "why": "Malayalam puts the whole before the part ('of 5, 3'), so the placeholders are positional; എണ്ണം (count) avoids a plural after the used number."
+  },
+  "S6": {
+   "s": "%@ കട്ട്‌ലിംഗുകൾക്ക് ഇടം",
+   "back": "5,000 cutlings-for space",
+   "why": "A noun phrase as a row heading; ഇടം (room, space) is the everyday word, not the technical സ്റ്റോറേജ്."
+  },
+  "S7": {
+   "s": "%@ വാചക കട്ട്‌ലിംഗുകളും %lld ചിത്രങ്ങളും വരെ സൂക്ഷിക്കാം.",
+   "back": "5,000 text cutlings-and 500 images-and up-to [you] can-keep.",
+   "why": "വാചക കട്ട്‌ലിംഗ് is the app's own menu name for a text item and ചിത്രങ്ങൾ its word for images; the X-ഉം Y-ഉം pair is how Malayalam joins two."
+  },
+  "S8": {
+   "s": "iPhone-ലും iPad-ലും Mac-ലും",
+   "back": "iPhone-on-and iPad-on-and Mac-on-and",
+   "why": "Malayalam lists by putting -ഉം on every item; the hyphen before the suffix follows the vocabulary's Apple Account-ലേക്ക് and Mac-നുള്ള."
+  },
+  "S9": {
+   "s": "ഒറ്റ വാങ്ങൽ നിങ്ങളുടെ Apple Account-ലെ എല്ലാ ഉപകരണങ്ങളിലും പ്രവർത്തിക്കും.",
+   "back": "One purchase your Apple Account-in all devices-on will-work.",
+   "why": "നിങ്ങളുടെ and ഉപകരണങ്ങൾ come from the vocabulary's sync sentence; Apple Account stays in Latin script as there."
+  },
+  "S10": {
+   "s": "ഒരിക്കൽ പണമടച്ചാൽ മതി",
+   "back": "once money-pay-if enough",
+   "why": "'Pay once and that is enough' is the spoken way to say nothing recurs, without the banking-form ഒറ്റത്തവണ പേയ്‌മെന്റ്."
+  },
+  "S11": {
+   "s": "സബ്‌സ്‌ക്രിപ്ഷനില്ല, പരസ്യങ്ങളില്ല, സൈൻ അപ്പും വേണ്ട.",
+   "back": "Subscription-none, ads-none, sign-up-also not-needed.",
+   "why": "Two -ഇല്ല endings then a 'not needed either' close the list naturally; സൈൻ അപ്പ് rather than 'account', because the person does use an Apple Account."
+  },
+  "S12": {
+   "s": "വാങ്ങലുകൾ പുനഃസ്ഥാപിക്കുക",
+   "back": "purchases restore-do",
+   "why": "The wording Malayalam app stores and apps use for Restore Purchases; dictionary-form imperative as the vocabulary's ഓണാക്കുക."
+  },
+  "S13": {
+   "s": "പുനഃസ്ഥാപിക്കുന്നു…",
+   "back": "restoring…",
+   "why": "Present continuous of the S12 verb, with the ellipsis character."
+  },
+  "S14": {
+   "s": "%@-ന് അൺലോക്ക് ചെയ്യുക",
+   "back": "[price]-for unlock do",
+   "why": "-ന് on the price means 'for ₹…'; അൺലോക്ക് ചെയ്യുക is the everyday Malayalam phone word; 'once' is already said by S10 just above."
+  },
+  "S15": {
+   "s": "അൺലോക്ക് ചെയ്യുക",
+   "back": "unlock do",
+   "why": "The S14 action without the price."
+  },
+  "S16": {
+   "s": "പിന്നീടാകാം",
+   "back": "later-can-be",
+   "why": "'It can be later': putting it off, softer than ഇപ്പോൾ വേണ്ട (not wanted now), which sounds like a refusal."
+  },
+  "S17": {
+   "s": "അടയ്ക്കുക",
+   "back": "close",
+   "why": "The plain verb for shutting a window or sheet, dictionary-form imperative."
+  },
+  "S18": {
+   "s": "എല്ലാം ഇനി നിങ്ങളുടേത്",
+   "back": "everything now yours",
+   "why": "Short and warm; ഇനി (from now on) carries the change, നിങ്ങളുടേത് keeps the vocabulary's polite you."
+  },
+  "S19": {
+   "s": "വാങ്ങിയതിന് നന്ദി. കട്ട്‌ലിംഗ് ഒറ്റയ്ക്ക് ഉണ്ടാക്കുന്ന ആൾക്ക് ഇത് വലിയ സഹായമാണ്.",
+   "back": "Bought-for thanks. Cutling alone making person-to this big help-is.",
+   "why": "Names the one maker plainly (ഒറ്റയ്ക്ക്, alone) instead of a corporate 'we'; ഉണ്ടാക്കുന്ന is the spoken verb for making."
+  },
+  "S20": {
+   "s": "വീണ്ടും സ്വാഗതം. നിങ്ങൾ മുമ്പ് വാങ്ങിയത് തിരികെ ലഭിച്ചു.",
+   "back": "Again welcome. You earlier bought-thing back received.",
+   "why": "വീണ്ടും സ്വാഗതം is the set Malayalam 'welcome back'."
+  },
+  "S21": {
+   "s": "%2$lld സൗജന്യ കട്ട്‌ലിംഗുകളിൽ %1$lld എണ്ണം ഉപയോഗിച്ചു",
+   "back": "5 free cutlings-in 3 count used",
+   "why": "Same sentence as S5 without the full stop, so VoiceOver and the screen agree."
+  },
+  "S22": {
+   "s": "%lld കട്ട്‌ലിംഗ് സൂക്ഷിച്ചിട്ടുണ്ട്. ആകെ %@ എണ്ണത്തിന് ഇടമുണ്ട്.",
+   "back": "5 cutling kept-has. Total 5,000 count-for room-is.",
+   "why": "A numeral takes the singular noun in Malayalam (അഞ്ച് പുസ്തകം), so one form works for 1, 2, 5 and 21."
+  },
+  "S23": {
+   "s": "കട്ട്‌ലിംഗ് അൺലോക്ക് ചെയ്തു. ഇനി %@ കട്ട്‌ലിംഗുകൾക്ക് ഇടമുണ്ട്.",
+   "back": "Cutling unlock did. Now 5,000 cutlings-for room-is.",
+   "why": "Here the first കട്ട്‌ലിംഗ് is the app's name and the second the item, as the vocabulary uses the one word for both."
+  },
+  "S24": {
+   "s": "വാങ്ങൽ പൂർത്തിയായില്ല",
+   "back": "purchase completed-not",
+   "why": "Negative of the vocabulary's done word പൂർത്തിയായി; states the fact, blames no one."
+  },
+  "S25": {
+   "s": "ഇപ്പോൾ App Store-മായി ബന്ധപ്പെടാനാകുന്നില്ല. അൽപ്പസമയം കഴിഞ്ഞ് വീണ്ടും ശ്രമിക്കുക.",
+   "back": "Now App Store-with connect-able-not. Little-time after again try.",
+   "why": "ബന്ധപ്പെടുക (get in touch, connect) is the usual verb for reaching a service; the retry is the way out."
+  },
+  "S26": {
+   "s": "App Store ഈ വാങ്ങൽ സ്ഥിരീകരിച്ചില്ല.",
+   "back": "App Store this purchase confirmed-not.",
+   "why": "Names the App Store as the one that did not confirm, so the person is not blamed."
+  },
+  "S27": {
+   "s": "ഈ ഉപകരണത്തിൽ സൈൻ ഇൻ ചെയ്ത Apple Account-ൽ മുമ്പ് കട്ട്‌ലിംഗ് വാങ്ങിയതായി കാണുന്നില്ല.",
+   "back": "This device-on sign in done Apple Account-in earlier Cutling bought-as see-not.",
+   "why": "'Does not show as bought' is softer than 'you never bought'; സൈൻ ഇൻ ചെയ്ത is the vocabulary's phrase."
+  },
+  "S28": {
+   "s": "സൗജന്യ പതിപ്പിൽ %lld കട്ട്‌ലിംഗുകൾ വരെ സൂക്ഷിക്കാം. കട്ട്‌ലിംഗ് ഒരിക്കൽ അൺലോക്ക് ചെയ്താൽ എത്ര വേണമെങ്കിലും സൂക്ഷിക്കാം.",
+   "back": "Free version-in 5 cutlings up-to can-keep. Cutling once unlock do-if how-many want-even can-keep.",
+   "why": "പതിപ്പ് is the usual word for an app version; എത്ര വേണമെങ്കിലും (as many as you want) follows the brief, which says 'as many as they like' here."
+  },
+  "S29": {
+   "s": "സൗജന്യം: %2$lld-ൽ %1$lld",
+   "back": "Free: 5-in 4",
+   "why": "A label and a 'of 5, 4' pair keeps it inside 18 characters under the list title; whole before part, so positional."
+  },
+  "K1": {
+   "s": "സൗജന്യമായ %lld-ഉം തീർന്നു. അൺലോക്ക് ചെയ്യാൻ ടാപ്പ് ചെയ്യുക",
+   "back": "Free-being 5-all ran-out. Unlock to-do tap do",
+   "why": "5-ഉം (all five) and തീർന്നു (ran out) are how a speaker says it; ടാപ്പ് ചെയ്യുക is the Malayalam phone word for tap; about 24 aksharas, inside 30."
+  },
+  "M1": {
+   "s": "കട്ട്‌ലിംഗ് അൺലോക്ക് ചെയ്യുക",
+   "back": "Cutling unlock do",
+   "why": "A command name in dictionary form; Malayalam puts the verb last, so object then verb."
+  },
+  "M2": {
+   "s": "കട്ട്‌ലിംഗ് അൺലോക്ക് ചെയ്യുക…",
+   "back": "Cutling unlock do…",
+   "why": "M1 with the ellipsis character because it opens a window."
+  },
+  "M3": {
+   "s": "സൗജന്യ കട്ട്‌ലിംഗുകൾ",
+   "back": "free cutlings",
+   "why": "Row label in the vocabulary's plural."
+  },
+  "M4": {
+   "s": "%2$lld-ൽ %1$lld",
+   "back": "5-in 3",
+   "why": "'3 of 5' said whole first, the compact Malayalam pair; positional placeholders."
+  },
+  "M5": {
+   "s": "അൺലോക്ക് ചെയ്തു",
+   "back": "unlock did",
+   "why": "Past tense as a status, the section already says Cutling."
+  },
+  "M6": {
+   "s": "ഒറ്റ വാങ്ങലിൽ iPhone-ലും iPad-ലും Mac-ലും കട്ട്‌ലിംഗ് അൺലോക്ക് ആകും.",
+   "back": "One purchase-in iPhone-on-and iPad-on-and Mac-on-and Cutling unlock becomes.",
+   "why": "Same device list as S8; അൺലോക്ക് ആകും (becomes unlocked) is the spoken intransitive."
+  },
+  "M7": {
+   "s": "ഈ Apple Account ഉപയോഗിക്കുന്ന iPhone-ലും iPad-ലും Mac-ലും അൺലോക്ക് ചെയ്തു.",
+   "back": "This Apple Account using iPhone-on-and iPad-on-and Mac-on-and unlock did.",
+   "why": "Relative clause first, as Malayalam builds it; same device list as S8 and M6."
+  },
+  "M8": {
+   "s": "കട്ട്‌ലിംഗ് സൗജന്യമാകുന്നതിന് മുമ്പേ നിങ്ങൾ ഇത് വാങ്ങി, അതുകൊണ്ട് എന്നും അൺലോക്ക് ആയിരിക്കും. ഒപ്പം നിന്നതിന് നന്ദി.",
+   "back": "Cutling free-becoming-before already you this bought, therefore always unlock will-be. With [us] stood-for thanks.",
+   "why": "ഒപ്പം നിന്നതിന് നന്ദി (thanks for standing with us) is how a person thanks an early supporter."
+  }
+ }
+}

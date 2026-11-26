@@ -32,3 +32,6 @@
 "Cancel" = "Abbrechen";
 "%@, %lld of %lld" = "%@, %lld von %lld";
 "Space" = "Leerzeichen";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"%lld free cutlings used. Tap to unlock." = "Alle %lld Plätze belegt · Freischalten";

@@ -1,0 +1,386 @@
+{
+  "de": {
+    "S1": {
+      "s": "%lld kostenlos",
+      "back": "5 free",
+      "why": "Number plus adjective is how a German label marks slots; 'kostenlos' is the one word for free used on every key, so the bracket and the subtitle agree."
+    },
+    "S2": {
+      "s": "Platz für mehr",
+      "back": "Room for more",
+      "why": "An invitation that points at the waiting dashed tile; no limit word like 'Limit' or 'voll', so it cannot read as a warning."
+    },
+    "S3": {
+      "s": "Du nutzt alle %lld kostenlosen Cutlings. Sie bleiben kostenlos und funktionieren weiter.",
+      "back": "You use all 5 free Cutlings. They stay free and work further.",
+      "why": "Present tense 'Du nutzt' is how a German says a quota is in use; after 'Du' the capital 'Sie' can only be 'they'; 'kostenlos' is repeated on purpose because staying free is the point."
+    },
+    "S4": {
+      "s": "%lld Cutlings speicherst du kostenlos.",
+      "back": "5 Cutlings save you free.",
+      "why": "German puts the number first to stress it; this word order is how a native would say it aloud, not 'Du kannst ... speichern'."
+    },
+    "S5": {
+      "s": "Du nutzt %lld von %lld kostenlosen Cutlings.",
+      "back": "You use 3 of 5 free Cutlings.",
+      "why": "Same frame as S3 so the three subtitles read as one voice; 'von' joins the pair and works for 1 too, so no plural form is needed; the numbers keep English order, so no positional forms."
+    },
+    "S6": {
+      "s": "Bis zu %@ Cutlings",
+      "back": "Up to 5.000 Cutlings",
+      "why": "A noun phrase like the other bold lines; 'Cutlings' is the vocabulary's plural, and the app gives the number already formatted as 5.000."
+    },
+    "S7": {
+      "s": "Du kannst %@ Texte und %lld Bilder speichern.",
+      "back": "You can 5.000 texts and 500 images save.",
+      "why": "'Texte' and 'Bilder' are the vocabulary's words for the two kinds; the verb goes last, which is German sentence order."
+    },
+    "S8": {
+      "s": "iPhone, iPad und Mac",
+      "back": "iPhone, iPad and Mac",
+      "why": "A German list of three takes no comma before 'und'."
+    },
+    "S9": {
+      "s": "Ein Kauf gilt für alle Geräte mit deinem Apple-Account.",
+      "back": "One purchase counts for all devices with your Apple-Account.",
+      "why": "'Geräte mit deinem Apple-Account' is the phrase the vocabulary's sync sentence already uses, hyphen included; 'gilt für' is how Germans say a ticket or licence covers something."
+    },
+    "S10": {
+      "s": "Einmal zahlen, fertig",
+      "back": "Once pay, done",
+      "why": "Spoken German for 'pay once and that is it'; lower-case 'fertig' here is the everyday 'done with', which is different from the Fertig button."
+    },
+    "S11": {
+      "s": "Kein Abo, keine Werbung, keine Registrierung.",
+      "back": "No subscription, no advertising, no registration.",
+      "why": "'Abo' is the everyday word for a subscription; 'Registrierung' is signing up, and it avoids 'Anmeldung', which also means logging in."
+    },
+    "S12": {
+      "s": "Käufe wiederherstellen",
+      "back": "Purchases restore",
+      "why": "The standard wording German iOS apps use for the App Store restore action."
+    },
+    "S13": {
+      "s": "Wird wiederhergestellt …",
+      "back": "Is being restored …",
+      "why": "A subjectless passive is how German UI shows a process; Apple's German puts a space before the ellipsis, as Duden does when it stands for left-out words."
+    },
+    "S14": {
+      "s": "Für einmalig %@ freischalten",
+      "back": "For one-time 4,99 € unlock",
+      "why": "'einmalig' in front of a price is how German shops print a one-off charge; 'freischalten' is the German verb for unlocking an app; with the price left out it is 26 characters."
+    },
+    "S15": {
+      "s": "Freischalten",
+      "back": "Unlock",
+      "why": "The same verb as S14 without the price; a German button is an infinitive."
+    },
+    "S16": {
+      "s": "Vielleicht später",
+      "back": "Maybe later",
+      "why": "The usual German way to put something off politely; it does not refuse."
+    },
+    "S17": {
+      "s": "Schließen",
+      "back": "Close",
+      "why": "The label iOS uses for its close buttons in German."
+    },
+    "S18": {
+      "s": "Ganz und gar deins",
+      "back": "Wholly and completely yours",
+      "why": "Warm and a little proud, and it says 'everything' without listing it; 'deins' keeps the du address."
+    },
+    "S19": {
+      "s": "Danke. Dein Kauf hilft Cutling und dem einen Menschen dahinter.",
+      "back": "Thanks. Your purchase helps Cutling and the one human behind-it.",
+      "why": "A short 'Danke.' first, the way a person says it; 'Mensch' has no gender, so it fits whoever builds the app."
+    },
+    "S20": {
+      "s": "Willkommen zurück. Dein Kauf ist wieder da.",
+      "back": "Welcome back. Your purchase is again there.",
+      "why": "'wieder da' is warmer than the technical 'wiederhergestellt', which the link already used."
+    },
+    "S21": {
+      "s": "%lld von %lld kostenlosen Cutlings genutzt",
+      "back": "3 of 5 free Cutlings used",
+      "why": "VoiceOver gets a short state, without a sentence frame; it uses the same words as S5."
+    },
+    "S22": {
+      "s": "%lld von %@ Plätzen belegt",
+      "back": "5 of 5.000 places occupied",
+      "why": "The count goes against 'Plätzen', so the line is grammatical for 1, 2, 5 and 21 with no plural form; 'Platz' is the room word from S2."
+    },
+    "S23": {
+      "s": "Cutling ist freigeschaltet. Platz für %@ Cutlings.",
+      "back": "Cutling is unlocked. Room for 5.000 Cutlings.",
+      "why": "The state first, then the room, in the words S2 and S6 already use."
+    },
+    "S24": {
+      "s": "Kauf nicht abgeschlossen",
+      "back": "Purchase not completed",
+      "why": "A participle title, the way German alerts name a state; it blames nobody."
+    },
+    "S25": {
+      "s": "Der App Store ist gerade nicht erreichbar. Versuch es gleich noch einmal.",
+      "back": "The App Store is right-now not reachable. Try it shortly once more.",
+      "why": "'nicht erreichbar' is the standard German phrase; 'Versuch es gleich noch einmal' is the du imperative for 'try again shortly'."
+    },
+    "S26": {
+      "s": "Der App Store hat diesen Kauf nicht bestätigt.",
+      "back": "The App Store has this purchase not confirmed.",
+      "why": "It names what happened and nothing else; the perfect tense is how a German reports a past event in speech."
+    },
+    "S27": {
+      "s": "Mit dem Apple-Account auf diesem Gerät wurde Cutling noch nicht gekauft.",
+      "back": "With the Apple-Account on this device was Cutling not yet bought.",
+      "why": "A passive puts the account in front and blames nobody; 'noch nicht' is softer than 'nie'."
+    },
+    "S28": {
+      "s": "Die kostenlose Version fasst %lld Cutlings. Einmal freigeschaltet, speichert Cutling beliebig viele.",
+      "back": "The free version holds 5 Cutlings. Once unlocked, saves Cutling any-number many.",
+      "why": "'fassen' is the German verb for how much a container holds; the leading 'Einmal freigeschaltet' carries both 'once' and 'unlocked' in two words; 'beliebig viele' is the everyday 'as many as you like'; 97 characters with the number."
+    },
+    "S29": {
+      "s": "Kostenlos: %lld von %lld",
+      "back": "Free: 4 of 5",
+      "why": "A label-and-value pair fits 18 characters; '4 von 5 kostenlos' on its own could be read as four slots left."
+    },
+    "K1": {
+      "s": "Alle %lld Plätze belegt · Freischalten",
+      "back": "All 5 places occupied · Unlock",
+      "why": "The string has one number, so 'alle' says full; 'Plätze' is the slot word from S22; a German verb on its own after the dot reads as a link; 'kostenlos' is dropped to fit 38 characters, and the person has just tried to save a sixth item, so the meaning is clear."
+    },
+    "M1": {
+      "s": "Cutling freischalten",
+      "back": "Cutling unlock",
+      "why": "A German Mac command title is object plus infinitive, like 'Software aktualisieren'."
+    },
+    "M2": {
+      "s": "Cutling freischalten …",
+      "back": "Cutling unlock …",
+      "why": "The same command as a button that opens a window; Apple's German menus and buttons put a space before the ellipsis."
+    },
+    "M3": {
+      "s": "Kostenlose Cutlings",
+      "back": "Free Cutlings",
+      "why": "A noun-phrase row label in the vocabulary's plural; its value comes from M4."
+    },
+    "M4": {
+      "s": "%lld von %lld",
+      "back": "3 of 5",
+      "why": "'von' is how German writes a pair compactly; '3/5' would read as a date or a fraction."
+    },
+    "M5": {
+      "s": "Freigeschaltet",
+      "back": "Unlocked",
+      "why": "The participle as a status, the way German settings show a state."
+    },
+    "M6": {
+      "s": "Ein Kauf schaltet Cutling auf iPhone, iPad und Mac frei.",
+      "back": "One purchase unlocks Cutling on iPhone, iPad and Mac free.",
+      "why": "The separable verb goes around the object as German does; the list uses S8."
+    },
+    "M7": {
+      "s": "Auf iPhone, iPad und Mac mit diesem Apple-Account freigeschaltet.",
+      "back": "On iPhone, iPad and Mac with this Apple-Account unlocked.",
+      "why": "A participle at the end makes a status line with no subject; 'Apple-Account' is the vocabulary's spelling."
+    },
+    "M8": {
+      "s": "Du hast Cutling gekauft, bevor es kostenlos wurde. Es bleibt freigeschaltet. Danke dafür.",
+      "back": "You have Cutling bought, before it free became. It stays unlocked. Thanks for-that.",
+      "why": "Three short plain facts and then the thanks; 'Danke dafür' ties the thanks to the purchase without gushing."
+    }
+  },
+  "de-DE": {
+    "S1": {
+      "s": "%lld kostenlos",
+      "back": "5 free",
+      "why": "Number plus adjective is how a German label marks slots; 'kostenlos' is the one word for free used on every key, so the bracket and the subtitle agree."
+    },
+    "S2": {
+      "s": "Platz für mehr",
+      "back": "Room for more",
+      "why": "An invitation that points at the waiting dashed tile; no limit word like 'Limit' or 'voll', so it cannot read as a warning."
+    },
+    "S3": {
+      "s": "Du nutzt alle %lld kostenlosen Cutlings. Sie bleiben kostenlos und funktionieren weiter.",
+      "back": "You use all 5 free Cutlings. They stay free and work further.",
+      "why": "Present tense 'Du nutzt' is how a German says a quota is in use; after 'Du' the capital 'Sie' can only be 'they'; 'kostenlos' is repeated on purpose because staying free is the point."
+    },
+    "S4": {
+      "s": "%lld Cutlings speicherst du kostenlos.",
+      "back": "5 Cutlings save you free.",
+      "why": "German puts the number first to stress it; this word order is how a native would say it aloud, not 'Du kannst ... speichern'."
+    },
+    "S5": {
+      "s": "Du nutzt %lld von %lld kostenlosen Cutlings.",
+      "back": "You use 3 of 5 free Cutlings.",
+      "why": "Same frame as S3 so the three subtitles read as one voice; 'von' joins the pair and works for 1 too, so no plural form is needed; the numbers keep English order, so no positional forms."
+    },
+    "S6": {
+      "s": "Bis zu %@ Cutlings",
+      "back": "Up to 5.000 Cutlings",
+      "why": "A noun phrase like the other bold lines; 'Cutlings' is the vocabulary's plural, and the app gives the number already formatted as 5.000."
+    },
+    "S7": {
+      "s": "Du kannst %@ Texte und %lld Bilder speichern.",
+      "back": "You can 5.000 texts and 500 images save.",
+      "why": "'Texte' and 'Bilder' are the vocabulary's words for the two kinds; the verb goes last, which is German sentence order."
+    },
+    "S8": {
+      "s": "iPhone, iPad und Mac",
+      "back": "iPhone, iPad and Mac",
+      "why": "A German list of three takes no comma before 'und'."
+    },
+    "S9": {
+      "s": "Ein Kauf gilt für alle Geräte mit deinem Apple-Account.",
+      "back": "One purchase counts for all devices with your Apple-Account.",
+      "why": "'Geräte mit deinem Apple-Account' is the phrase the vocabulary's sync sentence already uses, hyphen included; 'gilt für' is how Germans say a ticket or licence covers something."
+    },
+    "S10": {
+      "s": "Einmal zahlen, fertig",
+      "back": "Once pay, done",
+      "why": "Spoken German for 'pay once and that is it'; lower-case 'fertig' here is the everyday 'done with', which is different from the Fertig button."
+    },
+    "S11": {
+      "s": "Kein Abo, keine Werbung, keine Registrierung.",
+      "back": "No subscription, no advertising, no registration.",
+      "why": "'Abo' is the everyday word for a subscription; 'Registrierung' is signing up, and it avoids 'Anmeldung', which also means logging in."
+    },
+    "S12": {
+      "s": "Käufe wiederherstellen",
+      "back": "Purchases restore",
+      "why": "The standard wording German iOS apps use for the App Store restore action."
+    },
+    "S13": {
+      "s": "Wird wiederhergestellt …",
+      "back": "Is being restored …",
+      "why": "A subjectless passive is how German UI shows a process; Apple's German puts a space before the ellipsis, as Duden does when it stands for left-out words."
+    },
+    "S14": {
+      "s": "Für einmalig %@ freischalten",
+      "back": "For one-time 4,99 € unlock",
+      "why": "'einmalig' in front of a price is how German shops print a one-off charge; 'freischalten' is the German verb for unlocking an app; with the price left out it is 26 characters."
+    },
+    "S15": {
+      "s": "Freischalten",
+      "back": "Unlock",
+      "why": "The same verb as S14 without the price; a German button is an infinitive."
+    },
+    "S16": {
+      "s": "Vielleicht später",
+      "back": "Maybe later",
+      "why": "The usual German way to put something off politely; it does not refuse."
+    },
+    "S17": {
+      "s": "Schließen",
+      "back": "Close",
+      "why": "The label iOS uses for its close buttons in German."
+    },
+    "S18": {
+      "s": "Ganz und gar deins",
+      "back": "Wholly and completely yours",
+      "why": "Warm and a little proud, and it says 'everything' without listing it; 'deins' keeps the du address."
+    },
+    "S19": {
+      "s": "Danke. Dein Kauf hilft Cutling und dem einen Menschen dahinter.",
+      "back": "Thanks. Your purchase helps Cutling and the one human behind-it.",
+      "why": "A short 'Danke.' first, the way a person says it; 'Mensch' has no gender, so it fits whoever builds the app."
+    },
+    "S20": {
+      "s": "Willkommen zurück. Dein Kauf ist wieder da.",
+      "back": "Welcome back. Your purchase is again there.",
+      "why": "'wieder da' is warmer than the technical 'wiederhergestellt', which the link already used."
+    },
+    "S21": {
+      "s": "%lld von %lld kostenlosen Cutlings genutzt",
+      "back": "3 of 5 free Cutlings used",
+      "why": "VoiceOver gets a short state, without a sentence frame; it uses the same words as S5."
+    },
+    "S22": {
+      "s": "%lld von %@ Plätzen belegt",
+      "back": "5 of 5.000 places occupied",
+      "why": "The count goes against 'Plätzen', so the line is grammatical for 1, 2, 5 and 21 with no plural form; 'Platz' is the room word from S2."
+    },
+    "S23": {
+      "s": "Cutling ist freigeschaltet. Platz für %@ Cutlings.",
+      "back": "Cutling is unlocked. Room for 5.000 Cutlings.",
+      "why": "The state first, then the room, in the words S2 and S6 already use."
+    },
+    "S24": {
+      "s": "Kauf nicht abgeschlossen",
+      "back": "Purchase not completed",
+      "why": "A participle title, the way German alerts name a state; it blames nobody."
+    },
+    "S25": {
+      "s": "Der App Store ist gerade nicht erreichbar. Versuch es gleich noch einmal.",
+      "back": "The App Store is right-now not reachable. Try it shortly once more.",
+      "why": "'nicht erreichbar' is the standard German phrase; 'Versuch es gleich noch einmal' is the du imperative for 'try again shortly'."
+    },
+    "S26": {
+      "s": "Der App Store hat diesen Kauf nicht bestätigt.",
+      "back": "The App Store has this purchase not confirmed.",
+      "why": "It names what happened and nothing else; the perfect tense is how a German reports a past event in speech."
+    },
+    "S27": {
+      "s": "Mit dem Apple-Account auf diesem Gerät wurde Cutling noch nicht gekauft.",
+      "back": "With the Apple-Account on this device was Cutling not yet bought.",
+      "why": "A passive puts the account in front and blames nobody; 'noch nicht' is softer than 'nie'."
+    },
+    "S28": {
+      "s": "Die kostenlose Version fasst %lld Cutlings. Einmal freigeschaltet, speichert Cutling beliebig viele.",
+      "back": "The free version holds 5 Cutlings. Once unlocked, saves Cutling any-number many.",
+      "why": "'fassen' is the German verb for how much a container holds; the leading 'Einmal freigeschaltet' carries both 'once' and 'unlocked' in two words; 'beliebig viele' is the everyday 'as many as you like'; 97 characters with the number."
+    },
+    "S29": {
+      "s": "Kostenlos: %lld von %lld",
+      "back": "Free: 4 of 5",
+      "why": "A label-and-value pair fits 18 characters; '4 von 5 kostenlos' on its own could be read as four slots left."
+    },
+    "K1": {
+      "s": "Alle %lld Plätze belegt · Freischalten",
+      "back": "All 5 places occupied · Unlock",
+      "why": "The string has one number, so 'alle' says full; 'Plätze' is the slot word from S22; a German verb on its own after the dot reads as a link; 'kostenlos' is dropped to fit 38 characters, and the person has just tried to save a sixth item, so the meaning is clear."
+    },
+    "M1": {
+      "s": "Cutling freischalten",
+      "back": "Cutling unlock",
+      "why": "A German Mac command title is object plus infinitive, like 'Software aktualisieren'."
+    },
+    "M2": {
+      "s": "Cutling freischalten …",
+      "back": "Cutling unlock …",
+      "why": "The same command as a button that opens a window; Apple's German menus and buttons put a space before the ellipsis."
+    },
+    "M3": {
+      "s": "Kostenlose Cutlings",
+      "back": "Free Cutlings",
+      "why": "A noun-phrase row label in the vocabulary's plural; its value comes from M4."
+    },
+    "M4": {
+      "s": "%lld von %lld",
+      "back": "3 of 5",
+      "why": "'von' is how German writes a pair compactly; '3/5' would read as a date or a fraction."
+    },
+    "M5": {
+      "s": "Freigeschaltet",
+      "back": "Unlocked",
+      "why": "The participle as a status, the way German settings show a state."
+    },
+    "M6": {
+      "s": "Ein Kauf schaltet Cutling auf iPhone, iPad und Mac frei.",
+      "back": "One purchase unlocks Cutling on iPhone, iPad and Mac free.",
+      "why": "The separable verb goes around the object as German does; the list uses S8."
+    },
+    "M7": {
+      "s": "Auf iPhone, iPad und Mac mit diesem Apple-Account freigeschaltet.",
+      "back": "On iPhone, iPad and Mac with this Apple-Account unlocked.",
+      "why": "A participle at the end makes a status line with no subject; 'Apple-Account' is the vocabulary's spelling."
+    },
+    "M8": {
+      "s": "Du hast Cutling gekauft, bevor es kostenlos wurde. Es bleibt freigeschaltet. Danke dafür.",
+      "back": "You have Cutling bought, before it free became. It stays unlocked. Thanks for-that.",
+      "why": "Three short plain facts and then the thanks; 'Danke dafür' ties the thanks to the purchase without gushing."
+    }
+  }
+}

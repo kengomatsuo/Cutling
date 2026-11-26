@@ -32,3 +32,6 @@
 "Cancel" = "ยกเลิก";
 "%@, %lld of %lld" = "%@ ช่องที่ %lld จาก %lld";
 "Space" = "Space";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"%lld free cutlings used. Tap to unlock." = "ครบ %lld รายการฟรีแล้ว แตะเพื่อปลดล็อก";

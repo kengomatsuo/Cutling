@@ -1,0 +1,962 @@
+{
+ "en": {
+  "S1": {
+   "s": "%lld free",
+   "back": "5 free",
+   "why": "Two words fit 12 Latin under the bracket; the tiles above are the noun, so the label needs none."
+  },
+  "S2": {
+   "s": "Keep Saving Cutlings",
+   "back": "Keep Saving Cutlings",
+   "why": "An invitation to carry on doing what they just tried; 'Cutlings' from the vocab stops 'Keep Saving' reading as money off; title case like the app's 'Limit Reached'; 20 characters."
+  },
+  "S3": {
+   "s": "You’ve used all %lld free cutlings. They’ll stay free and keep working.",
+   "back": "You've used all 5 free cutlings. They'll stay free and keep working.",
+   "why": "Fact first, then the promise that nothing is taken away; lowercase 'cutlings' in a sentence, as the vocab's iCloud sentence writes it; 70 characters."
+  },
+  "S4": {
+   "s": "Save up to %lld cutlings for free.",
+   "back": "Save up to 5 cutlings for free.",
+   "why": "A plain offer with nothing used yet; 'for free' is how all five markets say it; 31 characters."
+  },
+  "S5": {
+   "s": "You’ve used %lld of your %lld free cutlings.",
+   "back": "You've used 3 of your 5 free cutlings.",
+   "why": "Noun agrees with the total, so it reads right when the first number is 1; English keeps the brief's order, so no positional forms."
+  },
+  "S6": {
+   "s": "Room for %@ Cutlings",
+   "back": "Room for 5,000 Cutlings",
+   "why": "Capital 'Cutlings' after a number, as the vocab's count string '%lld Cutlings' writes it; 23 characters with 5,000."
+  },
+  "S7": {
+   "s": "Save up to %@ text cutlings and %lld images.",
+   "back": "Save up to 5,000 text cutlings and 500 images.",
+   "why": "The vocab's two kinds, text cutlings and images, so the image cap is not called a new name; 46 characters."
+  },
+  "S8": {
+   "s": "iPhone, iPad, and Mac",
+   "back": "iPhone, iPad, and Mac",
+   "why": "serial comma, as Apple's US English writes three things; Canadian iOS English follows the US punctuation here."
+  },
+  "S9": {
+   "s": "One purchase covers every device signed in to your Apple Account.",
+   "back": "One purchase covers every device signed in to your Apple Account.",
+   "why": "Reuses the vocab's own phrase 'every device signed in to your Apple Account', so the account is named the way the app already names it."
+  },
+  "S10": {
+   "s": "Pay Once",
+   "back": "Pay Once",
+   "why": "Two words a person would say; 'once' carries 'nothing recurring' and the grey line under it lists the rest."
+  },
+  "S11": {
+   "s": "No subscription, no ads, no account to sign up for.",
+   "back": "No subscription, no ads, no account to sign up for.",
+   "why": "'Ads' is what people call advertising in all five markets; the three nos are the brief's three facts, not a pattern for effect; 51 characters."
+  },
+  "S12": {
+   "s": "Restore Purchases",
+   "back": "Restore Purchases",
+   "why": "The exact label English iOS apps use for the App Store restore action, the same in every English storefront."
+  },
+  "S13": {
+   "s": "Restoring…",
+   "back": "Restoring...",
+   "why": "Same verb as the link, with the ellipsis character."
+  },
+  "S14": {
+   "s": "Unlock Cutling for %@",
+   "back": "Unlock Cutling for $4.99",
+   "why": "Verb, what it unlocks, the price; 'once' is already said by the row above; 19 characters plus the price."
+  },
+  "S15": {
+   "s": "Unlock Cutling",
+   "back": "Unlock Cutling",
+   "why": "The same button without 'for %@'; 14 characters."
+  },
+  "S16": {
+   "s": "Not now",
+   "back": "Not now",
+   "why": "The iOS phrase for putting something off, not refusing it; a VoiceOver label, so sentence case and no period."
+  },
+  "S17": {
+   "s": "Close",
+   "back": "Close",
+   "why": "The plain verb iOS uses on its close buttons."
+  },
+  "S18": {
+   "s": "It’s All Yours",
+   "back": "It is all yours",
+   "why": "Warm and a little proud: everything, room included, now belongs to them; title case like S2; 14 characters."
+  },
+  "S19": {
+   "s": "Thank you for buying Cutling. It keeps the one person who makes it going.",
+   "back": "Thank you for buying Cutling. It supports the one person who makes it.",
+   "why": "'Keeps someone going' is how a person says 'supports' about a small maker; names the one maker without sounding like a plea; 73 characters, two lines."
+  },
+  "S20": {
+   "s": "Welcome back. Your earlier purchase is restored.",
+   "back": "Welcome back. Your earlier purchase is restored.",
+   "why": "Greets first, then the fact; 'restored' answers the 'Restore Purchases' link they tapped."
+  },
+  "S21": {
+   "s": "%lld of %lld free cutlings used",
+   "back": "3 of 5 free cutlings used",
+   "why": "Spoken label: count first, as VoiceOver users hear the number sooner; agrees with the total, so 1 of 5 reads right."
+  },
+  "S22": {
+   "s": "%lld saved, room for %@ cutlings",
+   "back": "5 saved, room for 5,000 cutlings",
+   "why": "No noun after the variable count, so 1, 2, 5 and 21 all read right; the noun sits after 5,000, which is always plural."
+  },
+  "S23": {
+   "s": "Cutling is unlocked, with room for %@ cutlings.",
+   "back": "Cutling is unlocked, with room for 5,000 cutlings.",
+   "why": "Announced once, so a full sentence: the change, then what it means."
+  },
+  "S24": {
+   "s": "Purchase Not Completed",
+   "back": "Purchase Not Completed",
+   "why": "States what happened with no blame and no 'failed'; title case like the vocab's alert title 'Limit Reached'; 22 characters."
+  },
+  "S25": {
+   "s": "Cutling can’t reach the App Store right now. Try again in a moment.",
+   "back": "Cutling can't reach the App Store right now. Try again in a moment.",
+   "why": "'Right now' and 'in a moment' are the North American phrasing for a temporary fault; the second sentence is the way out; 67 characters."
+  },
+  "S26": {
+   "s": "The App Store didn’t confirm this purchase.",
+   "back": "The App Store didn't confirm this purchase.",
+   "why": "Names who did not confirm, so the person is not blamed; one sentence, as no exit is known to be true; 43 characters."
+  },
+  "S27": {
+   "s": "No earlier Cutling purchase was found for the Apple Account on this device.",
+   "back": "No earlier Cutling purchase was found for the Apple Account on this device.",
+   "why": "Says what was checked, so the person can tell they may be signed in to another account; 75 characters."
+  },
+  "S28": {
+   "s": "Cutling’s free version holds %lld cutlings. Unlock it once to save as many as you like.",
+   "back": "Cutling's free version holds 5 cutlings. Unlock it once to save as many as you like.",
+   "why": "Read aloud by Siri, so two full sentences: the limit, then the way past it; 87 characters."
+  },
+  "S29": {
+   "s": "%lld of %lld used",
+   "back": "4 of 5 used",
+   "why": "The list title above already says Cutlings; 'free' made '4 of 5 free' read as four free ones, so it is left to the sheet; 11 characters."
+  },
+  "K1": {
+   "s": "%lld free cutlings used. Tap to unlock.",
+   "back": "5 free cutlings used. Tap to unlock.",
+   "why": "Shown as they try a sixth, so '5 free cutlings used' reads as all of them; 'All' would push it to 40 of 38; 36 characters."
+  },
+  "M1": {
+   "s": "Unlock Cutling",
+   "back": "Unlock Cutling",
+   "why": "Verb-led window title, like Mac command-named windows; matches the iPhone button S15."
+  },
+  "M2": {
+   "s": "Unlock Cutling…",
+   "back": "Unlock Cutling...",
+   "why": "The M1 command as a button, with the ellipsis character because it opens a window."
+  },
+  "M3": {
+   "s": "Free Cutlings",
+   "back": "Free Cutlings",
+   "why": "Row label in the vocab's capitalised form, as in the list title."
+  },
+  "M4": {
+   "s": "%lld of %lld",
+   "back": "3 of 5",
+   "why": "Compact pair a person says aloud; 6 characters."
+  },
+  "M5": {
+   "s": "Unlocked",
+   "back": "Unlocked",
+   "why": "The row sits in the Cutling section, so one word says it; 8 characters."
+  },
+  "M6": {
+   "s": "One purchase unlocks Cutling on iPhone, iPad, and Mac.",
+   "back": "One purchase unlocks Cutling on iPhone, iPad, and Mac.",
+   "why": "Same device list as S8 (serial comma); 52 to 53 characters."
+  },
+  "M7": {
+   "s": "Unlocked on every iPhone, iPad, and Mac signed in to your Apple Account.",
+   "back": "Unlocked on every iPhone, iPad, and Mac signed in to your Apple Account.",
+   "why": "The vocab's 'signed in to your Apple Account', with the same device list as S8; 70 to 71 characters."
+  },
+  "M8": {
+   "s": "You bought Cutling before it went free, so it stays unlocked. Thank you for being here early.",
+   "back": "You bought Cutling before it went free, so it stays unlocked. Thank you for being here early.",
+   "why": "Reason, result, thanks, in the order a person would say them; 'went free' is everyday speech; 94 characters."
+  }
+ },
+ "en-AU": {
+  "S1": {
+   "s": "%lld free",
+   "back": "5 free",
+   "why": "Two words fit 12 Latin under the bracket; the tiles above are the noun, so the label needs none."
+  },
+  "S2": {
+   "s": "Keep Saving Cutlings",
+   "back": "Keep Saving Cutlings",
+   "why": "An invitation to carry on doing what they just tried; 'Cutlings' from the vocab stops 'Keep Saving' reading as money off; title case like the app's 'Limit Reached'; 20 characters."
+  },
+  "S3": {
+   "s": "You’ve used all %lld free cutlings. They’ll stay free and keep working.",
+   "back": "You've used all 5 free cutlings. They'll stay free and keep working.",
+   "why": "Fact first, then the promise that nothing is taken away; lowercase 'cutlings' in a sentence, as the vocab's iCloud sentence writes it; 70 characters."
+  },
+  "S4": {
+   "s": "Save up to %lld cutlings for free.",
+   "back": "Save up to 5 cutlings for free.",
+   "why": "A plain offer with nothing used yet; 'for free' is how all five markets say it; 31 characters."
+  },
+  "S5": {
+   "s": "You’ve used %lld of your %lld free cutlings.",
+   "back": "You've used 3 of your 5 free cutlings.",
+   "why": "Noun agrees with the total, so it reads right when the first number is 1; English keeps the brief's order, so no positional forms."
+  },
+  "S6": {
+   "s": "Room for %@ Cutlings",
+   "back": "Room for 5,000 Cutlings",
+   "why": "Capital 'Cutlings' after a number, as the vocab's count string '%lld Cutlings' writes it; 23 characters with 5,000."
+  },
+  "S7": {
+   "s": "Save up to %@ text cutlings and %lld images.",
+   "back": "Save up to 5,000 text cutlings and 500 images.",
+   "why": "The vocab's two kinds, text cutlings and images, so the image cap is not called a new name; 46 characters."
+  },
+  "S8": {
+   "s": "iPhone, iPad and Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "no serial comma, as Apple writes three things in British-style English (UK, Australia, India)."
+  },
+  "S9": {
+   "s": "One purchase covers every device signed in to your Apple Account.",
+   "back": "One purchase covers every device signed in to your Apple Account.",
+   "why": "Reuses the vocab's own phrase 'every device signed in to your Apple Account', so the account is named the way the app already names it."
+  },
+  "S10": {
+   "s": "Pay Once",
+   "back": "Pay Once",
+   "why": "Two words a person would say; 'once' carries 'nothing recurring' and the grey line under it lists the rest."
+  },
+  "S11": {
+   "s": "No subscription, no ads, no account to sign up for.",
+   "back": "No subscription, no ads, no account to sign up for.",
+   "why": "'Ads' is what people call advertising in all five markets; the three nos are the brief's three facts, not a pattern for effect; 51 characters."
+  },
+  "S12": {
+   "s": "Restore Purchases",
+   "back": "Restore Purchases",
+   "why": "The exact label English iOS apps use for the App Store restore action, the same in every English storefront."
+  },
+  "S13": {
+   "s": "Restoring…",
+   "back": "Restoring...",
+   "why": "Same verb as the link, with the ellipsis character."
+  },
+  "S14": {
+   "s": "Unlock Cutling for %@",
+   "back": "Unlock Cutling for $4.99",
+   "why": "Verb, what it unlocks, the price; 'once' is already said by the row above; 19 characters plus the price."
+  },
+  "S15": {
+   "s": "Unlock Cutling",
+   "back": "Unlock Cutling",
+   "why": "The same button without 'for %@'; 14 characters."
+  },
+  "S16": {
+   "s": "Not now",
+   "back": "Not now",
+   "why": "The iOS phrase for putting something off, not refusing it; a VoiceOver label, so sentence case and no period."
+  },
+  "S17": {
+   "s": "Close",
+   "back": "Close",
+   "why": "The plain verb iOS uses on its close buttons."
+  },
+  "S18": {
+   "s": "It’s All Yours",
+   "back": "It is all yours",
+   "why": "Warm and a little proud: everything, room included, now belongs to them; title case like S2; 14 characters."
+  },
+  "S19": {
+   "s": "Thank you for buying Cutling. It keeps the one person who makes it going.",
+   "back": "Thank you for buying Cutling. It supports the one person who makes it.",
+   "why": "'Keeps someone going' is how a person says 'supports' about a small maker; names the one maker without sounding like a plea; 73 characters, two lines."
+  },
+  "S20": {
+   "s": "Welcome back. Your earlier purchase is restored.",
+   "back": "Welcome back. Your earlier purchase is restored.",
+   "why": "Greets first, then the fact; 'restored' answers the 'Restore Purchases' link they tapped."
+  },
+  "S21": {
+   "s": "%lld of %lld free cutlings used",
+   "back": "3 of 5 free cutlings used",
+   "why": "Spoken label: count first, as VoiceOver users hear the number sooner; agrees with the total, so 1 of 5 reads right."
+  },
+  "S22": {
+   "s": "%lld saved, room for %@ cutlings",
+   "back": "5 saved, room for 5,000 cutlings",
+   "why": "No noun after the variable count, so 1, 2, 5 and 21 all read right; the noun sits after 5,000, which is always plural."
+  },
+  "S23": {
+   "s": "Cutling is unlocked, with room for %@ cutlings.",
+   "back": "Cutling is unlocked, with room for 5,000 cutlings.",
+   "why": "Announced once, so a full sentence: the change, then what it means."
+  },
+  "S24": {
+   "s": "Purchase Not Completed",
+   "back": "Purchase Not Completed",
+   "why": "States what happened with no blame and no 'failed'; title case like the vocab's alert title 'Limit Reached'; 22 characters."
+  },
+  "S25": {
+   "s": "Cutling can’t reach the App Store at the moment. Try again shortly.",
+   "back": "Cutling can't reach the App Store at the moment. Try again shortly.",
+   "why": "'At the moment' and 'shortly' are the British-style English phrasing for a temporary fault; the second sentence is the way out; 67 characters."
+  },
+  "S26": {
+   "s": "The App Store didn’t confirm this purchase.",
+   "back": "The App Store didn't confirm this purchase.",
+   "why": "Names who did not confirm, so the person is not blamed; one sentence, as no exit is known to be true; 43 characters."
+  },
+  "S27": {
+   "s": "No earlier Cutling purchase was found for the Apple Account on this device.",
+   "back": "No earlier Cutling purchase was found for the Apple Account on this device.",
+   "why": "Says what was checked, so the person can tell they may be signed in to another account; 75 characters."
+  },
+  "S28": {
+   "s": "Cutling’s free version holds %lld cutlings. Unlock it once to save as many as you like.",
+   "back": "Cutling's free version holds 5 cutlings. Unlock it once to save as many as you like.",
+   "why": "Read aloud by Siri, so two full sentences: the limit, then the way past it; 87 characters."
+  },
+  "S29": {
+   "s": "%lld of %lld used",
+   "back": "4 of 5 used",
+   "why": "The list title above already says Cutlings; 'free' made '4 of 5 free' read as four free ones, so it is left to the sheet; 11 characters."
+  },
+  "K1": {
+   "s": "%lld free cutlings used. Tap to unlock.",
+   "back": "5 free cutlings used. Tap to unlock.",
+   "why": "Shown as they try a sixth, so '5 free cutlings used' reads as all of them; 'All' would push it to 40 of 38; 36 characters."
+  },
+  "M1": {
+   "s": "Unlock Cutling",
+   "back": "Unlock Cutling",
+   "why": "Verb-led window title, like Mac command-named windows; matches the iPhone button S15."
+  },
+  "M2": {
+   "s": "Unlock Cutling…",
+   "back": "Unlock Cutling...",
+   "why": "The M1 command as a button, with the ellipsis character because it opens a window."
+  },
+  "M3": {
+   "s": "Free Cutlings",
+   "back": "Free Cutlings",
+   "why": "Row label in the vocab's capitalised form, as in the list title."
+  },
+  "M4": {
+   "s": "%lld of %lld",
+   "back": "3 of 5",
+   "why": "Compact pair a person says aloud; 6 characters."
+  },
+  "M5": {
+   "s": "Unlocked",
+   "back": "Unlocked",
+   "why": "The row sits in the Cutling section, so one word says it; 8 characters."
+  },
+  "M6": {
+   "s": "One purchase unlocks Cutling on iPhone, iPad and Mac.",
+   "back": "One purchase unlocks Cutling on iPhone, iPad and Mac.",
+   "why": "Same device list as S8 (no serial comma); 52 to 53 characters."
+  },
+  "M7": {
+   "s": "Unlocked on every iPhone, iPad and Mac signed in to your Apple Account.",
+   "back": "Unlocked on every iPhone, iPad and Mac signed in to your Apple Account.",
+   "why": "The vocab's 'signed in to your Apple Account', with the same device list as S8; 70 to 71 characters."
+  },
+  "M8": {
+   "s": "You bought Cutling before it went free, so it stays unlocked. Thank you for being here early.",
+   "back": "You bought Cutling before it went free, so it stays unlocked. Thank you for being here early.",
+   "why": "Reason, result, thanks, in the order a person would say them; 'went free' is everyday speech; 94 characters."
+  }
+ },
+ "en-GB": {
+  "S1": {
+   "s": "%lld free",
+   "back": "5 free",
+   "why": "Two words fit 12 Latin under the bracket; the tiles above are the noun, so the label needs none."
+  },
+  "S2": {
+   "s": "Keep Saving Cutlings",
+   "back": "Keep Saving Cutlings",
+   "why": "An invitation to carry on doing what they just tried; 'Cutlings' from the vocab stops 'Keep Saving' reading as money off; title case like the app's 'Limit Reached'; 20 characters."
+  },
+  "S3": {
+   "s": "You’ve used all %lld free cutlings. They’ll stay free and keep working.",
+   "back": "You've used all 5 free cutlings. They'll stay free and keep working.",
+   "why": "Fact first, then the promise that nothing is taken away; lowercase 'cutlings' in a sentence, as the vocab's iCloud sentence writes it; 70 characters."
+  },
+  "S4": {
+   "s": "Save up to %lld cutlings for free.",
+   "back": "Save up to 5 cutlings for free.",
+   "why": "A plain offer with nothing used yet; 'for free' is how all five markets say it; 31 characters."
+  },
+  "S5": {
+   "s": "You’ve used %lld of your %lld free cutlings.",
+   "back": "You've used 3 of your 5 free cutlings.",
+   "why": "Noun agrees with the total, so it reads right when the first number is 1; English keeps the brief's order, so no positional forms."
+  },
+  "S6": {
+   "s": "Room for %@ Cutlings",
+   "back": "Room for 5,000 Cutlings",
+   "why": "Capital 'Cutlings' after a number, as the vocab's count string '%lld Cutlings' writes it; 23 characters with 5,000."
+  },
+  "S7": {
+   "s": "Save up to %@ text cutlings and %lld images.",
+   "back": "Save up to 5,000 text cutlings and 500 images.",
+   "why": "The vocab's two kinds, text cutlings and images, so the image cap is not called a new name; 46 characters."
+  },
+  "S8": {
+   "s": "iPhone, iPad and Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "no serial comma, as Apple writes three things in British-style English (UK, Australia, India)."
+  },
+  "S9": {
+   "s": "One purchase covers every device signed in to your Apple Account.",
+   "back": "One purchase covers every device signed in to your Apple Account.",
+   "why": "Reuses the vocab's own phrase 'every device signed in to your Apple Account', so the account is named the way the app already names it."
+  },
+  "S10": {
+   "s": "Pay Once",
+   "back": "Pay Once",
+   "why": "Two words a person would say; 'once' carries 'nothing recurring' and the grey line under it lists the rest."
+  },
+  "S11": {
+   "s": "No subscription, no ads, no account to sign up for.",
+   "back": "No subscription, no ads, no account to sign up for.",
+   "why": "'Ads' is what people call advertising in all five markets; the three nos are the brief's three facts, not a pattern for effect; 51 characters."
+  },
+  "S12": {
+   "s": "Restore Purchases",
+   "back": "Restore Purchases",
+   "why": "The exact label English iOS apps use for the App Store restore action, the same in every English storefront."
+  },
+  "S13": {
+   "s": "Restoring…",
+   "back": "Restoring...",
+   "why": "Same verb as the link, with the ellipsis character."
+  },
+  "S14": {
+   "s": "Unlock Cutling for %@",
+   "back": "Unlock Cutling for $4.99",
+   "why": "Verb, what it unlocks, the price; 'once' is already said by the row above; 19 characters plus the price."
+  },
+  "S15": {
+   "s": "Unlock Cutling",
+   "back": "Unlock Cutling",
+   "why": "The same button without 'for %@'; 14 characters."
+  },
+  "S16": {
+   "s": "Not now",
+   "back": "Not now",
+   "why": "The iOS phrase for putting something off, not refusing it; a VoiceOver label, so sentence case and no period."
+  },
+  "S17": {
+   "s": "Close",
+   "back": "Close",
+   "why": "The plain verb iOS uses on its close buttons."
+  },
+  "S18": {
+   "s": "It’s All Yours",
+   "back": "It is all yours",
+   "why": "Warm and a little proud: everything, room included, now belongs to them; title case like S2; 14 characters."
+  },
+  "S19": {
+   "s": "Thank you for buying Cutling. It keeps the one person who makes it going.",
+   "back": "Thank you for buying Cutling. It supports the one person who makes it.",
+   "why": "'Keeps someone going' is how a person says 'supports' about a small maker; names the one maker without sounding like a plea; 73 characters, two lines."
+  },
+  "S20": {
+   "s": "Welcome back. Your earlier purchase is restored.",
+   "back": "Welcome back. Your earlier purchase is restored.",
+   "why": "Greets first, then the fact; 'restored' answers the 'Restore Purchases' link they tapped."
+  },
+  "S21": {
+   "s": "%lld of %lld free cutlings used",
+   "back": "3 of 5 free cutlings used",
+   "why": "Spoken label: count first, as VoiceOver users hear the number sooner; agrees with the total, so 1 of 5 reads right."
+  },
+  "S22": {
+   "s": "%lld saved, room for %@ cutlings",
+   "back": "5 saved, room for 5,000 cutlings",
+   "why": "No noun after the variable count, so 1, 2, 5 and 21 all read right; the noun sits after 5,000, which is always plural."
+  },
+  "S23": {
+   "s": "Cutling is unlocked, with room for %@ cutlings.",
+   "back": "Cutling is unlocked, with room for 5,000 cutlings.",
+   "why": "Announced once, so a full sentence: the change, then what it means."
+  },
+  "S24": {
+   "s": "Purchase Not Completed",
+   "back": "Purchase Not Completed",
+   "why": "States what happened with no blame and no 'failed'; title case like the vocab's alert title 'Limit Reached'; 22 characters."
+  },
+  "S25": {
+   "s": "Cutling can’t reach the App Store at the moment. Try again shortly.",
+   "back": "Cutling can't reach the App Store at the moment. Try again shortly.",
+   "why": "'At the moment' and 'shortly' are the British-style English phrasing for a temporary fault; the second sentence is the way out; 67 characters."
+  },
+  "S26": {
+   "s": "The App Store didn’t confirm this purchase.",
+   "back": "The App Store didn't confirm this purchase.",
+   "why": "Names who did not confirm, so the person is not blamed; one sentence, as no exit is known to be true; 43 characters."
+  },
+  "S27": {
+   "s": "No earlier Cutling purchase was found for the Apple Account on this device.",
+   "back": "No earlier Cutling purchase was found for the Apple Account on this device.",
+   "why": "Says what was checked, so the person can tell they may be signed in to another account; 75 characters."
+  },
+  "S28": {
+   "s": "Cutling’s free version holds %lld cutlings. Unlock it once to save as many as you like.",
+   "back": "Cutling's free version holds 5 cutlings. Unlock it once to save as many as you like.",
+   "why": "Read aloud by Siri, so two full sentences: the limit, then the way past it; 87 characters."
+  },
+  "S29": {
+   "s": "%lld of %lld used",
+   "back": "4 of 5 used",
+   "why": "The list title above already says Cutlings; 'free' made '4 of 5 free' read as four free ones, so it is left to the sheet; 11 characters."
+  },
+  "K1": {
+   "s": "%lld free cutlings used. Tap to unlock.",
+   "back": "5 free cutlings used. Tap to unlock.",
+   "why": "Shown as they try a sixth, so '5 free cutlings used' reads as all of them; 'All' would push it to 40 of 38; 36 characters."
+  },
+  "M1": {
+   "s": "Unlock Cutling",
+   "back": "Unlock Cutling",
+   "why": "Verb-led window title, like Mac command-named windows; matches the iPhone button S15."
+  },
+  "M2": {
+   "s": "Unlock Cutling…",
+   "back": "Unlock Cutling...",
+   "why": "The M1 command as a button, with the ellipsis character because it opens a window."
+  },
+  "M3": {
+   "s": "Free Cutlings",
+   "back": "Free Cutlings",
+   "why": "Row label in the vocab's capitalised form, as in the list title."
+  },
+  "M4": {
+   "s": "%lld of %lld",
+   "back": "3 of 5",
+   "why": "Compact pair a person says aloud; 6 characters."
+  },
+  "M5": {
+   "s": "Unlocked",
+   "back": "Unlocked",
+   "why": "The row sits in the Cutling section, so one word says it; 8 characters."
+  },
+  "M6": {
+   "s": "One purchase unlocks Cutling on iPhone, iPad and Mac.",
+   "back": "One purchase unlocks Cutling on iPhone, iPad and Mac.",
+   "why": "Same device list as S8 (no serial comma); 52 to 53 characters."
+  },
+  "M7": {
+   "s": "Unlocked on every iPhone, iPad and Mac signed in to your Apple Account.",
+   "back": "Unlocked on every iPhone, iPad and Mac signed in to your Apple Account.",
+   "why": "The vocab's 'signed in to your Apple Account', with the same device list as S8; 70 to 71 characters."
+  },
+  "M8": {
+   "s": "You bought Cutling before it went free, so it stays unlocked. Thank you for being here early.",
+   "back": "You bought Cutling before it went free, so it stays unlocked. Thank you for being here early.",
+   "why": "Reason, result, thanks, in the order a person would say them; 'went free' is everyday speech; 94 characters."
+  }
+ },
+ "en-IN": {
+  "S1": {
+   "s": "%lld free",
+   "back": "5 free",
+   "why": "Two words fit 12 Latin under the bracket; the tiles above are the noun, so the label needs none."
+  },
+  "S2": {
+   "s": "Keep Saving Cutlings",
+   "back": "Keep Saving Cutlings",
+   "why": "An invitation to carry on doing what they just tried; 'Cutlings' from the vocab stops 'Keep Saving' reading as money off; title case like the app's 'Limit Reached'; 20 characters."
+  },
+  "S3": {
+   "s": "You’ve used all %lld free cutlings. They’ll stay free and keep working.",
+   "back": "You've used all 5 free cutlings. They'll stay free and keep working.",
+   "why": "Fact first, then the promise that nothing is taken away; lowercase 'cutlings' in a sentence, as the vocab's iCloud sentence writes it; 70 characters."
+  },
+  "S4": {
+   "s": "Save up to %lld cutlings for free.",
+   "back": "Save up to 5 cutlings for free.",
+   "why": "A plain offer with nothing used yet; 'for free' is how all five markets say it; 31 characters."
+  },
+  "S5": {
+   "s": "You’ve used %lld of your %lld free cutlings.",
+   "back": "You've used 3 of your 5 free cutlings.",
+   "why": "Noun agrees with the total, so it reads right when the first number is 1; English keeps the brief's order, so no positional forms."
+  },
+  "S6": {
+   "s": "Room for %@ Cutlings",
+   "back": "Room for 5,000 Cutlings",
+   "why": "Capital 'Cutlings' after a number, as the vocab's count string '%lld Cutlings' writes it; 23 characters with 5,000."
+  },
+  "S7": {
+   "s": "Save up to %@ text cutlings and %lld images.",
+   "back": "Save up to 5,000 text cutlings and 500 images.",
+   "why": "The vocab's two kinds, text cutlings and images, so the image cap is not called a new name; 46 characters."
+  },
+  "S8": {
+   "s": "iPhone, iPad and Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "no serial comma, as Apple writes three things in British-style English (UK, Australia, India)."
+  },
+  "S9": {
+   "s": "One purchase covers every device signed in to your Apple Account.",
+   "back": "One purchase covers every device signed in to your Apple Account.",
+   "why": "Reuses the vocab's own phrase 'every device signed in to your Apple Account', so the account is named the way the app already names it."
+  },
+  "S10": {
+   "s": "Pay Once",
+   "back": "Pay Once",
+   "why": "Two words a person would say; 'once' carries 'nothing recurring' and the grey line under it lists the rest."
+  },
+  "S11": {
+   "s": "No subscription, no ads, no account to sign up for.",
+   "back": "No subscription, no ads, no account to sign up for.",
+   "why": "'Ads' is what people call advertising in all five markets; the three nos are the brief's three facts, not a pattern for effect; 51 characters."
+  },
+  "S12": {
+   "s": "Restore Purchases",
+   "back": "Restore Purchases",
+   "why": "The exact label English iOS apps use for the App Store restore action, the same in every English storefront."
+  },
+  "S13": {
+   "s": "Restoring…",
+   "back": "Restoring...",
+   "why": "Same verb as the link, with the ellipsis character."
+  },
+  "S14": {
+   "s": "Unlock Cutling for %@",
+   "back": "Unlock Cutling for $4.99",
+   "why": "Verb, what it unlocks, the price; 'once' is already said by the row above; 19 characters plus the price."
+  },
+  "S15": {
+   "s": "Unlock Cutling",
+   "back": "Unlock Cutling",
+   "why": "The same button without 'for %@'; 14 characters."
+  },
+  "S16": {
+   "s": "Not now",
+   "back": "Not now",
+   "why": "The iOS phrase for putting something off, not refusing it; a VoiceOver label, so sentence case and no period."
+  },
+  "S17": {
+   "s": "Close",
+   "back": "Close",
+   "why": "The plain verb iOS uses on its close buttons."
+  },
+  "S18": {
+   "s": "It’s All Yours",
+   "back": "It is all yours",
+   "why": "Warm and a little proud: everything, room included, now belongs to them; title case like S2; 14 characters."
+  },
+  "S19": {
+   "s": "Thank you for buying Cutling. It keeps the one person who makes it going.",
+   "back": "Thank you for buying Cutling. It supports the one person who makes it.",
+   "why": "'Keeps someone going' is how a person says 'supports' about a small maker; names the one maker without sounding like a plea; 73 characters, two lines."
+  },
+  "S20": {
+   "s": "Welcome back. Your earlier purchase is restored.",
+   "back": "Welcome back. Your earlier purchase is restored.",
+   "why": "Greets first, then the fact; 'restored' answers the 'Restore Purchases' link they tapped."
+  },
+  "S21": {
+   "s": "%lld of %lld free cutlings used",
+   "back": "3 of 5 free cutlings used",
+   "why": "Spoken label: count first, as VoiceOver users hear the number sooner; agrees with the total, so 1 of 5 reads right."
+  },
+  "S22": {
+   "s": "%lld saved, room for %@ cutlings",
+   "back": "5 saved, room for 5,000 cutlings",
+   "why": "No noun after the variable count, so 1, 2, 5 and 21 all read right; the noun sits after 5,000, which is always plural."
+  },
+  "S23": {
+   "s": "Cutling is unlocked, with room for %@ cutlings.",
+   "back": "Cutling is unlocked, with room for 5,000 cutlings.",
+   "why": "Announced once, so a full sentence: the change, then what it means."
+  },
+  "S24": {
+   "s": "Purchase Not Completed",
+   "back": "Purchase Not Completed",
+   "why": "States what happened with no blame and no 'failed'; title case like the vocab's alert title 'Limit Reached'; 22 characters."
+  },
+  "S25": {
+   "s": "Cutling can’t reach the App Store at the moment. Try again shortly.",
+   "back": "Cutling can't reach the App Store at the moment. Try again shortly.",
+   "why": "'At the moment' and 'shortly' are the British-style English phrasing for a temporary fault; the second sentence is the way out; 67 characters."
+  },
+  "S26": {
+   "s": "The App Store didn’t confirm this purchase.",
+   "back": "The App Store didn't confirm this purchase.",
+   "why": "Names who did not confirm, so the person is not blamed; one sentence, as no exit is known to be true; 43 characters."
+  },
+  "S27": {
+   "s": "No earlier Cutling purchase was found for the Apple Account on this device.",
+   "back": "No earlier Cutling purchase was found for the Apple Account on this device.",
+   "why": "Says what was checked, so the person can tell they may be signed in to another account; 75 characters."
+  },
+  "S28": {
+   "s": "Cutling’s free version holds %lld cutlings. Unlock it once to save as many as you like.",
+   "back": "Cutling's free version holds 5 cutlings. Unlock it once to save as many as you like.",
+   "why": "Read aloud by Siri, so two full sentences: the limit, then the way past it; 87 characters."
+  },
+  "S29": {
+   "s": "%lld of %lld used",
+   "back": "4 of 5 used",
+   "why": "The list title above already says Cutlings; 'free' made '4 of 5 free' read as four free ones, so it is left to the sheet; 11 characters."
+  },
+  "K1": {
+   "s": "%lld free cutlings used. Tap to unlock.",
+   "back": "5 free cutlings used. Tap to unlock.",
+   "why": "Shown as they try a sixth, so '5 free cutlings used' reads as all of them; 'All' would push it to 40 of 38; 36 characters."
+  },
+  "M1": {
+   "s": "Unlock Cutling",
+   "back": "Unlock Cutling",
+   "why": "Verb-led window title, like Mac command-named windows; matches the iPhone button S15."
+  },
+  "M2": {
+   "s": "Unlock Cutling…",
+   "back": "Unlock Cutling...",
+   "why": "The M1 command as a button, with the ellipsis character because it opens a window."
+  },
+  "M3": {
+   "s": "Free Cutlings",
+   "back": "Free Cutlings",
+   "why": "Row label in the vocab's capitalised form, as in the list title."
+  },
+  "M4": {
+   "s": "%lld of %lld",
+   "back": "3 of 5",
+   "why": "Compact pair a person says aloud; 6 characters."
+  },
+  "M5": {
+   "s": "Unlocked",
+   "back": "Unlocked",
+   "why": "The row sits in the Cutling section, so one word says it; 8 characters."
+  },
+  "M6": {
+   "s": "One purchase unlocks Cutling on iPhone, iPad and Mac.",
+   "back": "One purchase unlocks Cutling on iPhone, iPad and Mac.",
+   "why": "Same device list as S8 (no serial comma); 52 to 53 characters."
+  },
+  "M7": {
+   "s": "Unlocked on every iPhone, iPad and Mac signed in to your Apple Account.",
+   "back": "Unlocked on every iPhone, iPad and Mac signed in to your Apple Account.",
+   "why": "The vocab's 'signed in to your Apple Account', with the same device list as S8; 70 to 71 characters."
+  },
+  "M8": {
+   "s": "You bought Cutling before it went free, so it stays unlocked. Thank you for being here early.",
+   "back": "You bought Cutling before it went free, so it stays unlocked. Thank you for being here early.",
+   "why": "Reason, result, thanks, in the order a person would say them; 'went free' is everyday speech; 94 characters."
+  }
+ },
+ "en-CA": {
+  "S1": {
+   "s": "%lld free",
+   "back": "5 free",
+   "why": "Two words fit 12 Latin under the bracket; the tiles above are the noun, so the label needs none."
+  },
+  "S2": {
+   "s": "Keep Saving Cutlings",
+   "back": "Keep Saving Cutlings",
+   "why": "An invitation to carry on doing what they just tried; 'Cutlings' from the vocab stops 'Keep Saving' reading as money off; title case like the app's 'Limit Reached'; 20 characters."
+  },
+  "S3": {
+   "s": "You’ve used all %lld free cutlings. They’ll stay free and keep working.",
+   "back": "You've used all 5 free cutlings. They'll stay free and keep working.",
+   "why": "Fact first, then the promise that nothing is taken away; lowercase 'cutlings' in a sentence, as the vocab's iCloud sentence writes it; 70 characters."
+  },
+  "S4": {
+   "s": "Save up to %lld cutlings for free.",
+   "back": "Save up to 5 cutlings for free.",
+   "why": "A plain offer with nothing used yet; 'for free' is how all five markets say it; 31 characters."
+  },
+  "S5": {
+   "s": "You’ve used %lld of your %lld free cutlings.",
+   "back": "You've used 3 of your 5 free cutlings.",
+   "why": "Noun agrees with the total, so it reads right when the first number is 1; English keeps the brief's order, so no positional forms."
+  },
+  "S6": {
+   "s": "Room for %@ Cutlings",
+   "back": "Room for 5,000 Cutlings",
+   "why": "Capital 'Cutlings' after a number, as the vocab's count string '%lld Cutlings' writes it; 23 characters with 5,000."
+  },
+  "S7": {
+   "s": "Save up to %@ text cutlings and %lld images.",
+   "back": "Save up to 5,000 text cutlings and 500 images.",
+   "why": "The vocab's two kinds, text cutlings and images, so the image cap is not called a new name; 46 characters."
+  },
+  "S8": {
+   "s": "iPhone, iPad, and Mac",
+   "back": "iPhone, iPad, and Mac",
+   "why": "serial comma, as Apple's US English writes three things; Canadian iOS English follows the US punctuation here."
+  },
+  "S9": {
+   "s": "One purchase covers every device signed in to your Apple Account.",
+   "back": "One purchase covers every device signed in to your Apple Account.",
+   "why": "Reuses the vocab's own phrase 'every device signed in to your Apple Account', so the account is named the way the app already names it."
+  },
+  "S10": {
+   "s": "Pay Once",
+   "back": "Pay Once",
+   "why": "Two words a person would say; 'once' carries 'nothing recurring' and the grey line under it lists the rest."
+  },
+  "S11": {
+   "s": "No subscription, no ads, no account to sign up for.",
+   "back": "No subscription, no ads, no account to sign up for.",
+   "why": "'Ads' is what people call advertising in all five markets; the three nos are the brief's three facts, not a pattern for effect; 51 characters."
+  },
+  "S12": {
+   "s": "Restore Purchases",
+   "back": "Restore Purchases",
+   "why": "The exact label English iOS apps use for the App Store restore action, the same in every English storefront."
+  },
+  "S13": {
+   "s": "Restoring…",
+   "back": "Restoring...",
+   "why": "Same verb as the link, with the ellipsis character."
+  },
+  "S14": {
+   "s": "Unlock Cutling for %@",
+   "back": "Unlock Cutling for $4.99",
+   "why": "Verb, what it unlocks, the price; 'once' is already said by the row above; 19 characters plus the price."
+  },
+  "S15": {
+   "s": "Unlock Cutling",
+   "back": "Unlock Cutling",
+   "why": "The same button without 'for %@'; 14 characters."
+  },
+  "S16": {
+   "s": "Not now",
+   "back": "Not now",
+   "why": "The iOS phrase for putting something off, not refusing it; a VoiceOver label, so sentence case and no period."
+  },
+  "S17": {
+   "s": "Close",
+   "back": "Close",
+   "why": "The plain verb iOS uses on its close buttons."
+  },
+  "S18": {
+   "s": "It’s All Yours",
+   "back": "It is all yours",
+   "why": "Warm and a little proud: everything, room included, now belongs to them; title case like S2; 14 characters."
+  },
+  "S19": {
+   "s": "Thank you for buying Cutling. It keeps the one person who makes it going.",
+   "back": "Thank you for buying Cutling. It supports the one person who makes it.",
+   "why": "'Keeps someone going' is how a person says 'supports' about a small maker; names the one maker without sounding like a plea; 73 characters, two lines."
+  },
+  "S20": {
+   "s": "Welcome back. Your earlier purchase is restored.",
+   "back": "Welcome back. Your earlier purchase is restored.",
+   "why": "Greets first, then the fact; 'restored' answers the 'Restore Purchases' link they tapped."
+  },
+  "S21": {
+   "s": "%lld of %lld free cutlings used",
+   "back": "3 of 5 free cutlings used",
+   "why": "Spoken label: count first, as VoiceOver users hear the number sooner; agrees with the total, so 1 of 5 reads right."
+  },
+  "S22": {
+   "s": "%lld saved, room for %@ cutlings",
+   "back": "5 saved, room for 5,000 cutlings",
+   "why": "No noun after the variable count, so 1, 2, 5 and 21 all read right; the noun sits after 5,000, which is always plural."
+  },
+  "S23": {
+   "s": "Cutling is unlocked, with room for %@ cutlings.",
+   "back": "Cutling is unlocked, with room for 5,000 cutlings.",
+   "why": "Announced once, so a full sentence: the change, then what it means."
+  },
+  "S24": {
+   "s": "Purchase Not Completed",
+   "back": "Purchase Not Completed",
+   "why": "States what happened with no blame and no 'failed'; title case like the vocab's alert title 'Limit Reached'; 22 characters."
+  },
+  "S25": {
+   "s": "Cutling can’t reach the App Store right now. Try again in a moment.",
+   "back": "Cutling can't reach the App Store right now. Try again in a moment.",
+   "why": "'Right now' and 'in a moment' are the North American phrasing for a temporary fault; the second sentence is the way out; 67 characters."
+  },
+  "S26": {
+   "s": "The App Store didn’t confirm this purchase.",
+   "back": "The App Store didn't confirm this purchase.",
+   "why": "Names who did not confirm, so the person is not blamed; one sentence, as no exit is known to be true; 43 characters."
+  },
+  "S27": {
+   "s": "No earlier Cutling purchase was found for the Apple Account on this device.",
+   "back": "No earlier Cutling purchase was found for the Apple Account on this device.",
+   "why": "Says what was checked, so the person can tell they may be signed in to another account; 75 characters."
+  },
+  "S28": {
+   "s": "Cutling’s free version holds %lld cutlings. Unlock it once to save as many as you like.",
+   "back": "Cutling's free version holds 5 cutlings. Unlock it once to save as many as you like.",
+   "why": "Read aloud by Siri, so two full sentences: the limit, then the way past it; 87 characters."
+  },
+  "S29": {
+   "s": "%lld of %lld used",
+   "back": "4 of 5 used",
+   "why": "The list title above already says Cutlings; 'free' made '4 of 5 free' read as four free ones, so it is left to the sheet; 11 characters."
+  },
+  "K1": {
+   "s": "%lld free cutlings used. Tap to unlock.",
+   "back": "5 free cutlings used. Tap to unlock.",
+   "why": "Shown as they try a sixth, so '5 free cutlings used' reads as all of them; 'All' would push it to 40 of 38; 36 characters."
+  },
+  "M1": {
+   "s": "Unlock Cutling",
+   "back": "Unlock Cutling",
+   "why": "Verb-led window title, like Mac command-named windows; matches the iPhone button S15."
+  },
+  "M2": {
+   "s": "Unlock Cutling…",
+   "back": "Unlock Cutling...",
+   "why": "The M1 command as a button, with the ellipsis character because it opens a window."
+  },
+  "M3": {
+   "s": "Free Cutlings",
+   "back": "Free Cutlings",
+   "why": "Row label in the vocab's capitalised form, as in the list title."
+  },
+  "M4": {
+   "s": "%lld of %lld",
+   "back": "3 of 5",
+   "why": "Compact pair a person says aloud; 6 characters."
+  },
+  "M5": {
+   "s": "Unlocked",
+   "back": "Unlocked",
+   "why": "The row sits in the Cutling section, so one word says it; 8 characters."
+  },
+  "M6": {
+   "s": "One purchase unlocks Cutling on iPhone, iPad, and Mac.",
+   "back": "One purchase unlocks Cutling on iPhone, iPad, and Mac.",
+   "why": "Same device list as S8 (serial comma); 52 to 53 characters."
+  },
+  "M7": {
+   "s": "Unlocked on every iPhone, iPad, and Mac signed in to your Apple Account.",
+   "back": "Unlocked on every iPhone, iPad, and Mac signed in to your Apple Account.",
+   "why": "The vocab's 'signed in to your Apple Account', with the same device list as S8; 70 to 71 characters."
+  },
+  "M8": {
+   "s": "You bought Cutling before it went free, so it stays unlocked. Thank you for being here early.",
+   "back": "You bought Cutling before it went free, so it stays unlocked. Thank you for being here early.",
+   "why": "Reason, result, thanks, in the order a person would say them; 'went free' is everyday speech; 94 characters."
+  }
+ }
+}

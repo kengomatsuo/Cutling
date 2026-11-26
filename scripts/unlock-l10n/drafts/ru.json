@@ -1,0 +1,194 @@
+{
+  "ru": {
+    "S1": {
+      "s": "%lld бесплатно",
+      "back": "5 for-free",
+      "why": "A price-tag phrase Russians read on promos (\"первые 5 бесплатно\"); an adverb needs no noun agreement with the number, and it fits 12 characters."
+    },
+    "S2": {
+      "s": "Сохраняйте и дальше",
+      "back": "Save-(you, formal, ongoing) and further",
+      "why": "Imperfective imperative in the vocab's formal вы, with «и дальше» carrying \"keep going\": an invitation, with no limit or price word in it."
+    },
+    "S3": {
+      "s": "Все %lld бесплатных мест заняты. Ваши Катлинги останутся бесплатными и продолжат работать.",
+      "back": "All 5 free places occupied. Your Catlings will-remain free and will-continue to-work.",
+      "why": "Slots are «места» (places), which take «заняты» naturally; the items keep the vocab name Катлинги; second sentence is the reassurance, 87 characters."
+    },
+    "S4": {
+      "s": "Бесплатно можно сохранить %lld Катлингов.",
+      "back": "For-free one-can save 5 Catlings.",
+      "why": "Impersonal «можно» is how Russian states an allowance without lecturing; genitive plural Катлингов agrees with 5, as in the vocab's «Катлингов: %lld»."
+    },
+    "S5": {
+      "s": "Занято %lld из %lld бесплатных мест.",
+      "back": "Occupied 3 of 5 free places.",
+      "why": "Neuter impersonal «Занято» works with any count; «мест» matches S3 so the slots have one name throughout."
+    },
+    "S6": {
+      "s": "До %@ Катлингов",
+      "back": "Up-to 5,000 Catlings",
+      "why": "Noun-phrase feature line, as the other two bold rows are; 5 000 takes genitive plural Катлингов; 15 characters plus the number."
+    },
+    "S7": {
+      "s": "До %@ текстовых Катлингов и %lld с изображениями.",
+      "back": "Up-to 5,000 text Catlings and 500 with images.",
+      "why": "Built from the vocab's «Текстовый Катлинг» and «Катлинг с изображением», so the two kinds keep their menu names; both numbers end in zero, so the plural forms hold."
+    },
+    "S8": {
+      "s": "iPhone, iPad и Mac",
+      "back": "iPhone, iPad and Mac",
+      "why": "Russian lists three with a comma then «и» and no comma before it; device names stay in Latin, as Apple writes them in Russian."
+    },
+    "S9": {
+      "s": "Одна покупка на всех устройствах с вашей учётной записью Apple.",
+      "back": "One purchase on all devices with your account record Apple.",
+      "why": "Verbless grey line, normal for Russian feature lists; «учётная запись Apple» and «на всех устройствах» are the vocab's own words, with ё as the vocab writes it."
+    },
+    "S10": {
+      "s": "Оплата раз и навсегда",
+      "back": "Payment once and forever",
+      "why": "«Раз и навсегда» is the everyday idiom for \"once and for good\", so a single payment with nothing recurring is said the way a Russian would say it; 21 characters."
+    },
+    "S11": {
+      "s": "Без подписки, рекламы и регистрации.",
+      "back": "Without subscription, advertising and registration.",
+      "why": "One «без» governing three genitives is the native way to list absences; «регистрация» is the word Russian apps use for signing up."
+    },
+    "S12": {
+      "s": "Восстановить покупки",
+      "back": "Restore purchases",
+      "why": "The exact wording Russian iOS apps use for the App Store restore action."
+    },
+    "S13": {
+      "s": "Восстановление…",
+      "back": "Restoring…",
+      "why": "Process noun with the single ellipsis character, as iOS shows work in progress in Russian."
+    },
+    "S14": {
+      "s": "Разблокировать за %@",
+      "back": "Unlock for $4.99",
+      "why": "«Разблокировать за <цена>» is the standard Russian purchase button; «за» before the price; 18 characters plus the price fits the narrowest iPhone, and S10 already says it is once."
+    },
+    "S15": {
+      "s": "Разблокировать",
+      "back": "Unlock",
+      "why": "The same infinitive as S14 without the price, as Russian buttons use the infinitive; exactly 14 characters."
+    },
+    "S16": {
+      "s": "Не сейчас",
+      "back": "Not now",
+      "why": "The phrase iOS itself uses in Russian for putting something off without refusing."
+    },
+    "S17": {
+      "s": "Закрыть",
+      "back": "Close",
+      "why": "The infinitive iOS uses in Russian for its close buttons."
+    },
+    "S18": {
+      "s": "Теперь всё ваше",
+      "back": "Now everything yours",
+      "why": "Short and proud with no exclamation mark; formal «ваше», with ё."
+    },
+    "S19": {
+      "s": "Спасибо за покупку. Вы поддержали Катлинг и человека, который делает его один.",
+      "back": "Thank-you for purchase. You supported Cutling and the-person who makes it alone.",
+      "why": "Perfective «поддержали» says the support has happened; «делает его один» names the one maker plainly, without the word «разработчик»."
+    },
+    "S20": {
+      "s": "С возвращением. Ваша покупка восстановлена.",
+      "back": "With return. Your purchase restored.",
+      "why": "«С возвращением» is the native welcome back; the second sentence uses the same root as S12, so the result matches the link."
+    },
+    "S21": {
+      "s": "Занято %lld из %lld бесплатных мест",
+      "back": "Occupied 3 of 5 free places",
+      "why": "Same wording as S5, so VoiceOver says what the subtitle shows; no full stop, as a spoken label."
+    },
+    "S22": {
+      "s": "Катлингов: %lld. Теперь места хватит на %@.",
+      "back": "Catlings: 5. Now room will-suffice for 5,000.",
+      "why": "The vocab's count form «Катлингов: %lld» reads correctly for 1, 2, 5 and 21 with no plural rules; «хватит на %@» needs no noun after the number."
+    },
+    "S23": {
+      "s": "Разблокировано. Теперь места хватит на %@ Катлингов.",
+      "back": "Unlocked. Now room will-suffice for 5,000 Catlings.",
+      "why": "Leaves out the app name so the app and its items, both «Катлинг» in this language, are not heard twice in one announcement; 5 000 takes the genitive plural."
+    },
+    "S24": {
+      "s": "Покупка не завершена",
+      "back": "Purchase not completed",
+      "why": "Passive short participle states what happened and blames no one; this is the usual Russian App Store alert wording."
+    },
+    "S25": {
+      "s": "Сейчас не удаётся подключиться к App Store. Попробуйте ещё раз чуть позже.",
+      "back": "Now not manages to-connect to App Store. Try once-more a-little later.",
+      "why": "«Не удаётся подключиться» is how Apple's Russian says it cannot connect; «чуть позже» is softer and more spoken than «позднее»."
+    },
+    "S26": {
+      "s": "App Store не подтвердил эту покупку.",
+      "back": "App Store not confirmed(masc.) this purchase.",
+      "why": "App Store takes masculine agreement, as Russian speakers treat it like «магазин»; one plain sentence, 36 characters."
+    },
+    "S27": {
+      "s": "С учётной записью Apple на этом устройстве Катлинг ранее не покупали.",
+      "back": "With account record Apple on this device Cutling earlier not bought(they).",
+      "why": "The indefinite-personal «не покупали» states the fact without saying \"you\" did anything wrong; «учётная запись Apple» from the vocab; 69 characters."
+    },
+    "S28": {
+      "s": "Бесплатная версия вмещает %lld Катлингов. Разблокируйте Катлинг один раз и сохраняйте сколько угодно.",
+      "back": "Free version holds 5 Catlings. Unlock Cutling one time and save as-many-as you-like.",
+      "why": "«Вмещает» (holds) suits a capacity; formal imperatives share one subject, so no comma before «и»; 98 characters."
+    },
+    "S29": {
+      "s": "%lld из %lld бесплатных",
+      "back": "4 of 5 free",
+      "why": "Sits under the list title «Катлинги», so «бесплатных» reads as \"free Catlings\" without repeating the word; 17 characters."
+    },
+    "K1": {
+      "s": "Все %lld мест заняты. Разблокировать",
+      "back": "All 5 places occupied. Unlock",
+      "why": "Fact, then the action the tap performs, in the button's own word from S15; «мест» as in S3; 32 characters, so it fits on one key row."
+    },
+    "M1": {
+      "s": "Разблокировать Катлинг",
+      "back": "Unlock Cutling",
+      "why": "Infinitive command name, the form Russian macOS uses for window and menu titles; app name as in the vocab's «Катлинг для Mac»."
+    },
+    "M2": {
+      "s": "Разблокировать Катлинг…",
+      "back": "Unlock Cutling…",
+      "why": "Same command as M1 with the ellipsis character, because it opens a window."
+    },
+    "M3": {
+      "s": "Бесплатные Катлинги",
+      "back": "Free Catlings",
+      "why": "A plain row label in nominative plural, with the item word from the vocab."
+    },
+    "M4": {
+      "s": "%lld из %lld",
+      "back": "3 of 5",
+      "why": "«из» is the native compact pair; Russian does not use a slash for counts in prose UI."
+    },
+    "M5": {
+      "s": "Катлинг разблокирован",
+      "back": "Cutling unlocked",
+      "why": "Masculine short participle agreeing with the app name; a status with no full stop."
+    },
+    "M6": {
+      "s": "Одна покупка разблокирует Катлинг на iPhone, iPad и Mac.",
+      "back": "One purchase unlocks Cutling on iPhone, iPad and Mac.",
+      "why": "Same «Одна покупка» opening as S9 and the same list as S8, so the Mac and iPhone sheets say the same thing."
+    },
+    "M7": {
+      "s": "Катлинг разблокирован на iPhone, iPad и Mac с этой учётной записью Apple.",
+      "back": "Cutling unlocked on iPhone, iPad and Mac with this account record Apple.",
+      "why": "Repeats M5's participle and adds where; «этой» points to the account signed in on this Mac; «учётная запись Apple» from the vocab."
+    },
+    "M8": {
+      "s": "Спасибо, что купили Катлинг, когда он был платным. Для вас он так и останется разблокированным.",
+      "back": "Thank-you, that (you) bought Cutling, when it was paid. For you it so and will-remain unlocked.",
+      "why": "Thanks first, as a Russian would put it; «так и останется» is the idiom for \"will stay that way\"; 95 characters."
+    }
+  }
+}

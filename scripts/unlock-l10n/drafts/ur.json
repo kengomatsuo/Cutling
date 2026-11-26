@@ -1,0 +1,386 @@
+{
+ "ur": {
+  "S1": {
+   "s": "%lld مفت",
+   "back": "5 free",
+   "why": "A bracket label wants the bare count and the adjective; Urdu needs no noun here because the tiles above are the noun. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S2": {
+   "s": "محفوظ کرتے رہیں",
+   "back": "save doing stay (keep saving)",
+   "why": "Continuous imperative 'karte rahein' is how an Urdu speaker says carry on; an invitation, with no word of limit or price. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S3": {
+   "s": "آپ نے اپنے %lld مفت کٹلنگ استعمال کر لیے ہیں۔ یہ ہمیشہ مفت رہیں گے اور کام کرتے رہیں گے۔",
+   "back": "you [erg] your-own 5 free Cutling use do taken have. these always free will-stay and work doing will-stay.",
+   "why": "The ergative 'ne' makes the verb agree with the items (masculine plural), not with the reader, so the line fits any reader's gender; second sentence reassures plainly. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S4": {
+   "s": "پہلے %lld کٹلنگ مفت ہیں۔",
+   "back": "first 5 Cutling free are.",
+   "why": "Stating the fact avoids 'aap kar sakte/sakti hain', which would force a gender on the reader; vocab count form '%lld کٹلنگ' kept. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S5": {
+   "s": "%2$lld میں سے %1$lld مفت کٹلنگ استعمال شدہ",
+   "back": "5 in from 3 free Cutling used",
+   "why": "Urdu says 'X mein se Y' (total first), so positional placeholders; 'istemal shuda' is an invariant adjective, so 1 used reads as right as 3 used. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S6": {
+   "s": "%@ کٹلنگ کی جگہ",
+   "back": "5,000 Cutling of room",
+   "why": "'Jagah' (room, space) is the everyday word; a noun phrase sits beside the icon like a label. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S7": {
+   "s": "%@ ٹیکسٹ کٹلنگ اور %lld تصاویر تک محفوظ کریں۔",
+   "back": "5,000 text Cutling and 500 images up-to save do.",
+   "why": "Uses the vocab's ٹیکسٹ for the text kind and تصاویر for images; 'tak' after the pair means up to both. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S8": {
+   "s": "iPhone، iPad اور Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Device names stay in Latin as the vocab writes Mac and Apple; Urdu comma ، and 'aur' before the last item. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S9": {
+   "s": "ایک ہی خریداری آپ کے Apple اکاؤنٹ کے ساتھ تینوں پر چلتی ہے۔",
+   "back": "one only purchase your Apple account of with three-all on runs.",
+   "why": "'Teenon' (all three) points back at the bold line; 'Apple اکاؤنٹ' as in the vocab; 'chalti hai' is how people say an app works on a device. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S10": {
+   "s": "ایک بار کی ادائیگی",
+   "back": "one time of payment",
+   "why": "The usual Urdu phrase for a one-time payment; short enough for one bold line. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S11": {
+   "s": "نہ سبسکرپشن، نہ اشتہار، نہ سائن اپ۔",
+   "back": "no subscription, no advertisement, no sign up.",
+   "why": "The 'na… na… na' run is native rhythm for listing what is absent; سبسکرپشن and سائن اپ are the words Urdu app users see. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S12": {
+   "s": "خریداریاں بحال کریں",
+   "back": "purchases restore do",
+   "why": "The standard Urdu wording for Restore Purchases in store-linked apps: plural noun, polite imperative. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S13": {
+   "s": "بحال کیا جا رہا ہے…",
+   "back": "restore done going is…",
+   "why": "Impersonal progressive, the usual in-progress phrasing; ends with the ellipsis character. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S14": {
+   "s": "%@ میں ان لاک کریں",
+   "back": "4.99 in unlock do",
+   "why": "'Mein' marks a price in Urdu ('500 mein'): a price with no 'har maah' (per month) reads as paid once, and S10 says once just above, so 'ek baar' was cut to fit the narrowest iPhone; ان لاک is the term Urdu app users know, where 'kholein' (open) would read as opening the app. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S15": {
+   "s": "ان لاک کریں",
+   "back": "unlock do",
+   "why": "Same verb as S14 with the price dropped. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S16": {
+   "s": "ابھی نہیں",
+   "back": "now-just not",
+   "why": "'Abhi nahin' is the polite 'not now': it puts the decision off and does not refuse. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S17": {
+   "s": "بند کریں",
+   "back": "close do",
+   "why": "The plain verb for shutting a window or sheet, polite imperative. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S18": {
+   "s": "اب سب آپ کا ہے",
+   "back": "now all yours is",
+   "why": "Warm and short, said the way a person hands something over; agreement is with 'sab', so no reader gender. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S19": {
+   "s": "خریدنے کا شکریہ۔ کٹلنگ ایک ہی شخص بناتا ہے، اور آپ نے اس کا ساتھ دیا ہے۔",
+   "back": "buying of thanks. Cutling one only person makes, and you [erg] his/its company given have.",
+   "why": "'Saath dena' (to stand by someone) carries support as a person feels it; 'is ka' covers both the app and its maker. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S20": {
+   "s": "پھر سے خوش آمدید۔ آپ کی پچھلی خریداری بحال ہو گئی ہے۔",
+   "back": "again welcome. your previous purchase restored become has.",
+   "why": "A returning-guest greeting, then the fact with the same verb as S12 (bahaal). Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S21": {
+   "s": "مفت کٹلنگ: %2$lld میں سے %1$lld استعمال شدہ",
+   "back": "free Cutling: 5 in from 3 used",
+   "why": "Spoken form of S5 with the subject first so VoiceOver gives context before numbers; invariant 'istemal shuda' fits any count. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S22": {
+   "s": "محفوظ کٹلنگ: %lld۔ اب %@ کی جگہ ہے۔",
+   "back": "saved Cutling: 5. now 5,000 of room is.",
+   "why": "Putting the count after a colon means no verb agrees with it, so it reads right for 1, 2, 5 and 21; the second verb agrees with 'jagah', not the number. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S23": {
+   "s": "ان لاک ہو گیا۔ اب %@ کٹلنگ کی جگہ ہے۔",
+   "back": "unlock became. now 5,000 Cutling of room is.",
+   "why": "App name left out because the item word is also کٹلنگ and saying it twice in one breath confuses; 'jagah' as in S6. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S24": {
+   "s": "خریداری مکمل نہیں ہوئی",
+   "back": "purchase complete not happened",
+   "why": "Intransitive 'nahin hui' states what happened with no actor to blame. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S25": {
+   "s": "ابھی App Store سے رابطہ نہیں ہو پا رہا۔ تھوڑی دیر بعد دوبارہ کوشش کریں۔",
+   "back": "now App Store with contact not being able happening. little while after again try do.",
+   "why": "'Rabta nahin ho pa raha' is how people say a connection cannot be made; 'thori der baad' gives the shortly. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S26": {
+   "s": "App Store نے اس خریداری کی تصدیق نہیں کی۔",
+   "back": "App Store [erg] this purchase of confirmation not did.",
+   "why": "Puts the App Store as the actor, so the person is not blamed. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S27": {
+   "s": "اس ڈیوائس پر جس Apple اکاؤنٹ میں سائن ان ہے، اس پر کٹلنگ کی کوئی پچھلی خریداری نہیں ملی۔",
+   "back": "this device on which Apple account in signed in is, that on Cutling of any previous purchase not found.",
+   "why": "Keeps the vocab's 'Apple اکاؤنٹ میں سائن ان' phrase; relative 'jis… us par' is native clause order. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S28": {
+   "s": "مفت ورژن میں %lld کٹلنگ کی جگہ ہے۔ کٹلنگ ایک بار ان لاک کریں، پھر جتنے چاہیں محفوظ کریں۔",
+   "back": "free version in 5 Cutling of room is. Cutling one time unlock do, then as-many want save do.",
+   "why": "'Muft version' keeps the app apart from the items, which share the word کٹلنگ; 'jitne chahein' (as many as you like) agrees with the items. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S29": {
+   "s": "%1$lld/%2$lld مفت",
+   "back": "4/5 free",
+   "why": "A compact fraction fits the 18-character slot under the list title, where Arabic script runs wide; under a list of items it reads as 4 of the 5 free ones. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "K1": {
+   "s": "%lld مفت کٹلنگ پورے، ان لاک کریں",
+   "back": "5 free Cutling full, unlock do",
+   "why": "'Poore' (filled up) says the quota is full without implying anything is gone; on a capsule the person taps, the imperative 'unlock karein' is the tap, and it fits 30 Arabic-script characters where a 'tap karein' clause ran to 34. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "M1": {
+   "s": "کٹلنگ ان لاک کریں",
+   "back": "Cutling unlock do",
+   "why": "A verb-led command as a Mac window title, with the app name written as the vocab does. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "M2": {
+   "s": "کٹلنگ ان لاک کریں…",
+   "back": "Cutling unlock do…",
+   "why": "Same command as M1, with the ellipsis character because it opens a window. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "M3": {
+   "s": "مفت کٹلنگ",
+   "back": "free Cutling",
+   "why": "A row label in two words; the value beside it carries the count. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "M4": {
+   "s": "%2$lld میں سے %1$lld",
+   "back": "5 in from 3",
+   "why": "'5 mein se 3' is how an Urdu speaker reads a used-of-total pair; positional placeholders keep the total first. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "M5": {
+   "s": "کٹلنگ ان لاک ہے",
+   "back": "Cutling unlocked is",
+   "why": "Plain status with the copula; app name is masculine so 'hai' needs no agreement choice. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "M6": {
+   "s": "ایک خریداری سے کٹلنگ iPhone، iPad اور Mac پر ان لاک ہو جاتا ہے۔",
+   "back": "one purchase from Cutling iPhone, iPad and Mac on unlock becomes.",
+   "why": "Habitual 'ho jata hai' states how it works; same device list as S8. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "M7": {
+   "s": "اس Apple اکاؤنٹ کے ساتھ iPhone، iPad اور Mac پر ان لاک ہے۔",
+   "back": "this Apple account of with iPhone, iPad and Mac on unlocked is.",
+   "why": "Mirrors M6 with the account named first, as the vocab writes 'Apple اکاؤنٹ'. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "M8": {
+   "s": "آپ نے کٹلنگ مفت ہونے سے پہلے خریدا تھا، سو یہ ان لاک ہی رہے گا۔ ساتھ دینے کا شکریہ۔",
+   "back": "you [erg] Cutling free becoming from before bought had, so this unlocked just will-stay. company giving of thanks.",
+   "why": "Ergative past agrees with the app, not the reader; 'saath dene ka shukriya' thanks an early supporter the way S19 does. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  }
+ },
+ "ur-PK": {
+  "S1": {
+   "s": "%lld مفت",
+   "back": "5 free",
+   "why": "A bracket label wants the bare count and the adjective; Urdu needs no noun here because the tiles above are the noun. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S2": {
+   "s": "محفوظ کرتے رہیں",
+   "back": "save doing stay (keep saving)",
+   "why": "Continuous imperative 'karte rahein' is how an Urdu speaker says carry on; an invitation, with no word of limit or price. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S3": {
+   "s": "آپ نے اپنے %lld مفت کٹلنگ استعمال کر لیے ہیں۔ یہ ہمیشہ مفت رہیں گے اور کام کرتے رہیں گے۔",
+   "back": "you [erg] your-own 5 free Cutling use do taken have. these always free will-stay and work doing will-stay.",
+   "why": "The ergative 'ne' makes the verb agree with the items (masculine plural), not with the reader, so the line fits any reader's gender; second sentence reassures plainly. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S4": {
+   "s": "پہلے %lld کٹلنگ مفت ہیں۔",
+   "back": "first 5 Cutling free are.",
+   "why": "Stating the fact avoids 'aap kar sakte/sakti hain', which would force a gender on the reader; vocab count form '%lld کٹلنگ' kept. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S5": {
+   "s": "%2$lld میں سے %1$lld مفت کٹلنگ استعمال شدہ",
+   "back": "5 in from 3 free Cutling used",
+   "why": "Urdu says 'X mein se Y' (total first), so positional placeholders; 'istemal shuda' is an invariant adjective, so 1 used reads as right as 3 used. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S6": {
+   "s": "%@ کٹلنگ کی جگہ",
+   "back": "5,000 Cutling of room",
+   "why": "'Jagah' (room, space) is the everyday word; a noun phrase sits beside the icon like a label. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S7": {
+   "s": "%@ ٹیکسٹ کٹلنگ اور %lld تصاویر تک محفوظ کریں۔",
+   "back": "5,000 text Cutling and 500 images up-to save do.",
+   "why": "Uses the vocab's ٹیکسٹ for the text kind and تصاویر for images; 'tak' after the pair means up to both. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S8": {
+   "s": "iPhone، iPad اور Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Device names stay in Latin as the vocab writes Mac and Apple; Urdu comma ، and 'aur' before the last item. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S9": {
+   "s": "ایک ہی خریداری آپ کے Apple اکاؤنٹ کے ساتھ تینوں پر چلتی ہے۔",
+   "back": "one only purchase your Apple account of with three-all on runs.",
+   "why": "'Teenon' (all three) points back at the bold line; 'Apple اکاؤنٹ' as in the vocab; 'chalti hai' is how people say an app works on a device. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S10": {
+   "s": "ایک بار کی ادائیگی",
+   "back": "one time of payment",
+   "why": "The usual Urdu phrase for a one-time payment; short enough for one bold line. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S11": {
+   "s": "نہ سبسکرپشن، نہ اشتہار، نہ سائن اپ۔",
+   "back": "no subscription, no advertisement, no sign up.",
+   "why": "The 'na… na… na' run is native rhythm for listing what is absent; سبسکرپشن and سائن اپ are the words Urdu app users see. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S12": {
+   "s": "خریداریاں بحال کریں",
+   "back": "purchases restore do",
+   "why": "The standard Urdu wording for Restore Purchases in store-linked apps: plural noun, polite imperative. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S13": {
+   "s": "بحال کیا جا رہا ہے…",
+   "back": "restore done going is…",
+   "why": "Impersonal progressive, the usual in-progress phrasing; ends with the ellipsis character. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S14": {
+   "s": "%@ میں ان لاک کریں",
+   "back": "4.99 in unlock do",
+   "why": "'Mein' marks a price in Urdu ('500 mein'): a price with no 'har maah' (per month) reads as paid once, and S10 says once just above, so 'ek baar' was cut to fit the narrowest iPhone; ان لاک is the term Urdu app users know, where 'kholein' (open) would read as opening the app. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S15": {
+   "s": "ان لاک کریں",
+   "back": "unlock do",
+   "why": "Same verb as S14 with the price dropped. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S16": {
+   "s": "ابھی نہیں",
+   "back": "now-just not",
+   "why": "'Abhi nahin' is the polite 'not now': it puts the decision off and does not refuse. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S17": {
+   "s": "بند کریں",
+   "back": "close do",
+   "why": "The plain verb for shutting a window or sheet, polite imperative. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S18": {
+   "s": "اب سب آپ کا ہے",
+   "back": "now all yours is",
+   "why": "Warm and short, said the way a person hands something over; agreement is with 'sab', so no reader gender. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S19": {
+   "s": "خریدنے کا شکریہ۔ کٹلنگ ایک ہی شخص بناتا ہے، اور آپ نے اس کا ساتھ دیا ہے۔",
+   "back": "buying of thanks. Cutling one only person makes, and you [erg] his/its company given have.",
+   "why": "'Saath dena' (to stand by someone) carries support as a person feels it; 'is ka' covers both the app and its maker. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S20": {
+   "s": "پھر سے خوش آمدید۔ آپ کی پچھلی خریداری بحال ہو گئی ہے۔",
+   "back": "again welcome. your previous purchase restored become has.",
+   "why": "A returning-guest greeting, then the fact with the same verb as S12 (bahaal). Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S21": {
+   "s": "مفت کٹلنگ: %2$lld میں سے %1$lld استعمال شدہ",
+   "back": "free Cutling: 5 in from 3 used",
+   "why": "Spoken form of S5 with the subject first so VoiceOver gives context before numbers; invariant 'istemal shuda' fits any count. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S22": {
+   "s": "محفوظ کٹلنگ: %lld۔ اب %@ کی جگہ ہے۔",
+   "back": "saved Cutling: 5. now 5,000 of room is.",
+   "why": "Putting the count after a colon means no verb agrees with it, so it reads right for 1, 2, 5 and 21; the second verb agrees with 'jagah', not the number. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S23": {
+   "s": "ان لاک ہو گیا۔ اب %@ کٹلنگ کی جگہ ہے۔",
+   "back": "unlock became. now 5,000 Cutling of room is.",
+   "why": "App name left out because the item word is also کٹلنگ and saying it twice in one breath confuses; 'jagah' as in S6. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S24": {
+   "s": "خریداری مکمل نہیں ہوئی",
+   "back": "purchase complete not happened",
+   "why": "Intransitive 'nahin hui' states what happened with no actor to blame. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S25": {
+   "s": "ابھی App Store سے رابطہ نہیں ہو پا رہا۔ تھوڑی دیر بعد دوبارہ کوشش کریں۔",
+   "back": "now App Store with contact not being able happening. little while after again try do.",
+   "why": "'Rabta nahin ho pa raha' is how people say a connection cannot be made; 'thori der baad' gives the shortly. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S26": {
+   "s": "App Store نے اس خریداری کی تصدیق نہیں کی۔",
+   "back": "App Store [erg] this purchase of confirmation not did.",
+   "why": "Puts the App Store as the actor, so the person is not blamed. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S27": {
+   "s": "اس ڈیوائس پر جس Apple اکاؤنٹ میں سائن ان ہے، اس پر کٹلنگ کی کوئی پچھلی خریداری نہیں ملی۔",
+   "back": "this device on which Apple account in signed in is, that on Cutling of any previous purchase not found.",
+   "why": "Keeps the vocab's 'Apple اکاؤنٹ میں سائن ان' phrase; relative 'jis… us par' is native clause order. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S28": {
+   "s": "مفت ورژن میں %lld کٹلنگ کی جگہ ہے۔ کٹلنگ ایک بار ان لاک کریں، پھر جتنے چاہیں محفوظ کریں۔",
+   "back": "free version in 5 Cutling of room is. Cutling one time unlock do, then as-many want save do.",
+   "why": "'Muft version' keeps the app apart from the items, which share the word کٹلنگ; 'jitne chahein' (as many as you like) agrees with the items. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "S29": {
+   "s": "%1$lld/%2$lld مفت",
+   "back": "4/5 free",
+   "why": "A compact fraction fits the 18-character slot under the list title, where Arabic script runs wide; under a list of items it reads as 4 of the 5 free ones. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "K1": {
+   "s": "%lld مفت کٹلنگ پورے، ان لاک کریں",
+   "back": "5 free Cutling full, unlock do",
+   "why": "'Poore' (filled up) says the quota is full without implying anything is gone; on a capsule the person taps, the imperative 'unlock karein' is the tap, and it fits 30 Arabic-script characters where a 'tap karein' clause ran to 34. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "M1": {
+   "s": "کٹلنگ ان لاک کریں",
+   "back": "Cutling unlock do",
+   "why": "A verb-led command as a Mac window title, with the app name written as the vocab does. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "M2": {
+   "s": "کٹلنگ ان لاک کریں…",
+   "back": "Cutling unlock do…",
+   "why": "Same command as M1, with the ellipsis character because it opens a window. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "M3": {
+   "s": "مفت کٹلنگ",
+   "back": "free Cutling",
+   "why": "A row label in two words; the value beside it carries the count. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "M4": {
+   "s": "%2$lld میں سے %1$lld",
+   "back": "5 in from 3",
+   "why": "'5 mein se 3' is how an Urdu speaker reads a used-of-total pair; positional placeholders keep the total first. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "M5": {
+   "s": "کٹلنگ ان لاک ہے",
+   "back": "Cutling unlocked is",
+   "why": "Plain status with the copula; app name is masculine so 'hai' needs no agreement choice. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "M6": {
+   "s": "ایک خریداری سے کٹلنگ iPhone، iPad اور Mac پر ان لاک ہو جاتا ہے۔",
+   "back": "one purchase from Cutling iPhone, iPad and Mac on unlock becomes.",
+   "why": "Habitual 'ho jata hai' states how it works; same device list as S8. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "M7": {
+   "s": "اس Apple اکاؤنٹ کے ساتھ iPhone، iPad اور Mac پر ان لاک ہے۔",
+   "back": "this Apple account of with iPhone, iPad and Mac on unlocked is.",
+   "why": "Mirrors M6 with the account named first, as the vocab writes 'Apple اکاؤنٹ'. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "M8": {
+   "s": "آپ نے کٹلنگ مفت ہونے سے پہلے خریدا تھا، سو یہ ان لاک ہی رہے گا۔ ساتھ دینے کا شکریہ۔",
+   "back": "you [erg] Cutling free becoming from before bought had, so this unlocked just will-stay. company giving of thanks.",
+   "why": "Ergative past agrees with the app, not the reader; 'saath dene ka shukriya' thanks an early supporter the way S19 does. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  }
+ }
+}

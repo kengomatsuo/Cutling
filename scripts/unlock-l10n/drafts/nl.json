@@ -1,0 +1,386 @@
+{
+  "nl": {
+    "S1": {
+      "s": "%lld gratis",
+      "back": "5 free",
+      "why": "Label under the five tiles; the bracket already says 'these', so the number and 'gratis' are enough."
+    },
+    "S2": {
+      "s": "Blijf bewaren",
+      "back": "Keep saving",
+      "why": "Imperative of 'blijven bewaren': an invitation to carry on, with no limit word; the app already uses 'Limiet bereikt' for a warning, so that word stays out."
+    },
+    "S3": {
+      "s": "Je hebt alle %lld gratis Cutlings gebruikt. Die blijven gratis en werken gewoon door.",
+      "back": "You have all 5 free Cutlings used. Those stay free and work just on.",
+      "why": "Informal 'je' as in the vocabulary; 'gewoon door' is how a Dutch speaker says nothing changes for them, and 'Cutlings' is the list's own word."
+    },
+    "S4": {
+      "s": "Je eerste %lld Cutlings zijn gratis.",
+      "back": "Your first 5 Cutlings are free.",
+      "why": "Stated as a fact about their own first items, which a Dutch reader hears as generous; no 'Je kunt' sentence explaining a control."
+    },
+    "S5": {
+      "s": "Je hebt %lld van je %lld gratis Cutlings gebruikt.",
+      "back": "You have 3 of your 5 free Cutlings used.",
+      "why": "Same number order as the brief, so plain %lld twice; reads correctly for 1 used as well, because the plural follows the total."
+    },
+    "S6": {
+      "s": "Plek voor %@ Cutlings",
+      "back": "Room for 5.000 Cutlings",
+      "why": "'Plek' is the everyday word for room; 'Ruimte voor' runs over the budget at 26 with the number."
+    },
+    "S7": {
+      "s": "Je kunt tot %@ teksten en %lld afbeeldingen bewaren.",
+      "back": "You can up to 5.000 texts and 500 images save.",
+      "why": "The kinds named with the vocabulary's Tekst and Afbeeldingen in the plural, verb at the end as Dutch puts it."
+    },
+    "S8": {
+      "s": "iPhone, iPad en Mac",
+      "back": "iPhone, iPad and Mac",
+      "why": "Dutch lists three with commas and 'en', no serial comma."
+    },
+    "S9": {
+      "s": "Eén aankoop geldt voor alle drie, via je Apple Account.",
+      "back": "One purchase counts for all three, via your Apple Account.",
+      "why": "'Geldt voor' is how Dutch says a purchase covers something; 'Apple Account' and 'je' as the vocabulary writes them."
+    },
+    "S10": {
+      "s": "Eén keer betalen",
+      "back": "One time pay",
+      "why": "Infinitive headline, the usual form for a Dutch feature line; says once without the shop word 'eenmalig', which the button carries."
+    },
+    "S11": {
+      "s": "Geen abonnement, geen advertenties, geen account nodig.",
+      "back": "No subscription, no advertisements, no account needed.",
+      "why": "The three absences the brief names, in the repeated 'geen' a Dutch speaker uses for exactly this list."
+    },
+    "S12": {
+      "s": "Herstel aankopen",
+      "back": "Restore purchases",
+      "why": "The wording Dutch iOS apps use for the StoreKit restore action, imperative like the vocabulary's 'Ga door'."
+    },
+    "S13": {
+      "s": "Herstellen…",
+      "back": "Restoring…",
+      "why": "Bare infinitive plus the ellipsis character, the Dutch iOS form for a running action."
+    },
+    "S14": {
+      "s": "Ontgrendel voor eenmalig %@",
+      "back": "Unlock for one-time € 4,99",
+      "why": "'voor eenmalig' before a price is the native Dutch shop phrase for a one-off payment; 25 characters plus the price."
+    },
+    "S15": {
+      "s": "Ontgrendel",
+      "back": "Unlock",
+      "why": "The same verb as S14 without the price, so the button does not change meaning when the price arrives."
+    },
+    "S16": {
+      "s": "Niet nu",
+      "back": "Not now",
+      "why": "Apple's own Dutch for putting a prompt off; it postpones and does not refuse."
+    },
+    "S17": {
+      "s": "Sluit",
+      "back": "Close",
+      "why": "The imperative Dutch iOS and macOS use on close buttons."
+    },
+    "S18": {
+      "s": "Helemaal van jou",
+      "back": "Entirely of you",
+      "why": "'Helemaal van jou' is warm and a little proud, and covers everything at once, the room included; stressed 'jou' because it ends the line."
+    },
+    "S19": {
+      "s": "Bedankt. Zo steun je Cutling en de maker, die het in z'n eentje bouwt.",
+      "back": "Thanks. So support you Cutling and the maker, who it in his own builds.",
+      "why": "'In z'n eentje' is the everyday way to say one person does it all alone; 'Bedankt' alone is clear right after the purchase and keeps it to two lines."
+    },
+    "S20": {
+      "s": "Welkom terug. Je eerdere aankoop is hersteld.",
+      "back": "Welcome back. Your earlier purchase is restored.",
+      "why": "'Hersteld' echoes the S12 link they just tapped, so the person sees their action worked."
+    },
+    "S21": {
+      "s": "%lld van %lld gratis Cutlings gebruikt",
+      "back": "3 of 5 free Cutlings used",
+      "why": "Spoken label, so the short participle form VoiceOver reads cleanly; no sentence needed."
+    },
+    "S22": {
+      "s": "Nu plek voor %2$@ Cutlings. Je hebt er %1$lld.",
+      "back": "Now room for 5.000 Cutlings. You have there 21.",
+      "why": "Positional forms because the room comes first in Dutch; the pronoun 'er' carries the count, so it reads right for 1, 2, 5 and 21 with no plural on the count."
+    },
+    "S23": {
+      "s": "Cutling is ontgrendeld. Plek voor %@ Cutlings.",
+      "back": "Cutling is unlocked. Room for 5.000 Cutlings.",
+      "why": "Announcement in two short spoken parts; 'Plek voor' repeats S6 so the room has one name."
+    },
+    "S24": {
+      "s": "Aankoop niet gelukt",
+      "back": "Purchase not succeeded",
+      "why": "'Niet gelukt' is the calm Dutch phrase with no fault in it; 'mislukt' sounds harder."
+    },
+    "S25": {
+      "s": "De App Store is nu niet bereikbaar. Probeer het straks opnieuw.",
+      "back": "The App Store is now not reachable. Try it shortly again.",
+      "why": "'Straks' is the Dutch word for in a little while; 'Probeer het opnieuw' is the standard Dutch iOS retry line."
+    },
+    "S26": {
+      "s": "De App Store heeft deze aankoop niet bevestigd.",
+      "back": "The App Store has this purchase not confirmed.",
+      "why": "A plain statement of what the store did, so the person is not blamed."
+    },
+    "S27": {
+      "s": "Er staat geen eerdere aankoop van Cutling op het Apple Account van dit apparaat.",
+      "back": "There stands no earlier purchase of Cutling on the Apple Account of this device.",
+      "why": "'Er staat geen ... op' is how Dutch says a record holds nothing; names the account on this device, as the brief asks."
+    },
+    "S28": {
+      "s": "De gratis versie bewaart %lld Cutlings. Ontgrendel Cutling eenmalig en bewaar er zoveel als je wilt.",
+      "back": "The free version keeps 5 Cutlings. Unlock Cutling once and keep of-them as many as you want.",
+      "why": "Two plain sentences Siri can speak; 'eenmalig' matches the button, 'er' refers back to Cutlings, 'je wilt' is the standard form."
+    },
+    "S29": {
+      "s": "%lld van %lld gratis",
+      "back": "4 of 5 free",
+      "why": "Sits under the 'Cutlings' title, so the noun is already on screen; 14 characters."
+    },
+    "K1": {
+      "s": "Alle %lld gratis Cutlings op · Ontgrendel",
+      "back": "All 5 free Cutlings used-up · Unlock",
+      "why": "Headline Dutch drops 'zijn'; 'op' means used up. The verb after the dot is the action the tap takes; 'Tik om te ontgrendelen' alone is 22 characters and would not fit 38."
+    },
+    "M1": {
+      "s": "Ontgrendel Cutling",
+      "back": "Unlock Cutling",
+      "why": "Imperative, the form Dutch macOS uses for command names such as 'Sluit venster'."
+    },
+    "M2": {
+      "s": "Ontgrendel Cutling…",
+      "back": "Unlock Cutling…",
+      "why": "M1 as a button, with the ellipsis character because it opens a window."
+    },
+    "M3": {
+      "s": "Gratis Cutlings",
+      "back": "Free Cutlings",
+      "why": "Row label as a noun phrase, the list's own word."
+    },
+    "M4": {
+      "s": "%lld van %lld",
+      "back": "3 of 5",
+      "why": "Dutch reads a used-of-total pair as 'van'; 7 characters."
+    },
+    "M5": {
+      "s": "Ontgrendeld",
+      "back": "Unlocked",
+      "why": "The row sits in the Cutling section, so the participle alone is the status, as Dutch Mac settings show states."
+    },
+    "M6": {
+      "s": "Met één aankoop ontgrendel je Cutling op iPhone, iPad en Mac.",
+      "back": "With one purchase unlock you Cutling on iPhone, iPad and Mac.",
+      "why": "Verb-second after 'Met één aankoop', the natural Dutch order; devices listed as in S8."
+    },
+    "M7": {
+      "s": "Ontgrendeld op iPhone, iPad en Mac met dit Apple Account.",
+      "back": "Unlocked on iPhone, iPad and Mac with this Apple Account.",
+      "why": "Participle fragment as a status line, as Mac settings captions read; 'Apple Account' as the vocabulary writes it."
+    },
+    "M8": {
+      "s": "Je kocht Cutling al voordat het gratis werd, dus het blijft ontgrendeld. Bedankt daarvoor.",
+      "back": "You bought Cutling already before it free became, so it stays unlocked. Thanks for-that.",
+      "why": "'Al' marks they were early; 'Bedankt daarvoor' thanks them for that purchase specifically, not in general."
+    }
+  },
+  "nl-NL": {
+    "S1": {
+      "s": "%lld gratis",
+      "back": "5 free",
+      "why": "Label under the five tiles; the bracket already says 'these', so the number and 'gratis' are enough. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S2": {
+      "s": "Blijf bewaren",
+      "back": "Keep saving",
+      "why": "Imperative of 'blijven bewaren': an invitation to carry on, with no limit word; the app already uses 'Limiet bereikt' for a warning, so that word stays out. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S3": {
+      "s": "Je hebt alle %lld gratis Cutlings gebruikt. Die blijven gratis en werken gewoon door.",
+      "back": "You have all 5 free Cutlings used. Those stay free and work just on.",
+      "why": "Informal 'je' as in the vocabulary; 'gewoon door' is how a Dutch speaker says nothing changes for them, and 'Cutlings' is the list's own word. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S4": {
+      "s": "Je eerste %lld Cutlings zijn gratis.",
+      "back": "Your first 5 Cutlings are free.",
+      "why": "Stated as a fact about their own first items, which a Dutch reader hears as generous; no 'Je kunt' sentence explaining a control. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S5": {
+      "s": "Je hebt %lld van je %lld gratis Cutlings gebruikt.",
+      "back": "You have 3 of your 5 free Cutlings used.",
+      "why": "Same number order as the brief, so plain %lld twice; reads correctly for 1 used as well, because the plural follows the total. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S6": {
+      "s": "Plek voor %@ Cutlings",
+      "back": "Room for 5.000 Cutlings",
+      "why": "'Plek' is the everyday word for room; 'Ruimte voor' runs over the budget at 26 with the number. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S7": {
+      "s": "Je kunt tot %@ teksten en %lld afbeeldingen bewaren.",
+      "back": "You can up to 5.000 texts and 500 images save.",
+      "why": "The kinds named with the vocabulary's Tekst and Afbeeldingen in the plural, verb at the end as Dutch puts it. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S8": {
+      "s": "iPhone, iPad en Mac",
+      "back": "iPhone, iPad and Mac",
+      "why": "Dutch lists three with commas and 'en', no serial comma. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S9": {
+      "s": "Eén aankoop geldt voor alle drie, via je Apple Account.",
+      "back": "One purchase counts for all three, via your Apple Account.",
+      "why": "'Geldt voor' is how Dutch says a purchase covers something; 'Apple Account' and 'je' as the vocabulary writes them. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S10": {
+      "s": "Eén keer betalen",
+      "back": "One time pay",
+      "why": "Infinitive headline, the usual form for a Dutch feature line; says once without the shop word 'eenmalig', which the button carries. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S11": {
+      "s": "Geen abonnement, geen advertenties, geen account nodig.",
+      "back": "No subscription, no advertisements, no account needed.",
+      "why": "The three absences the brief names, in the repeated 'geen' a Dutch speaker uses for exactly this list. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S12": {
+      "s": "Herstel aankopen",
+      "back": "Restore purchases",
+      "why": "The wording Dutch iOS apps use for the StoreKit restore action, imperative like the vocabulary's 'Ga door'. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S13": {
+      "s": "Herstellen…",
+      "back": "Restoring…",
+      "why": "Bare infinitive plus the ellipsis character, the Dutch iOS form for a running action. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S14": {
+      "s": "Ontgrendel voor eenmalig %@",
+      "back": "Unlock for one-time € 4,99",
+      "why": "'voor eenmalig' before a price is the native Dutch shop phrase for a one-off payment; 25 characters plus the price. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S15": {
+      "s": "Ontgrendel",
+      "back": "Unlock",
+      "why": "The same verb as S14 without the price, so the button does not change meaning when the price arrives. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S16": {
+      "s": "Niet nu",
+      "back": "Not now",
+      "why": "Apple's own Dutch for putting a prompt off; it postpones and does not refuse. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S17": {
+      "s": "Sluit",
+      "back": "Close",
+      "why": "The imperative Dutch iOS and macOS use on close buttons. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S18": {
+      "s": "Helemaal van jou",
+      "back": "Entirely of you",
+      "why": "'Helemaal van jou' is warm and a little proud, and covers everything at once, the room included; stressed 'jou' because it ends the line. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S19": {
+      "s": "Bedankt. Zo steun je Cutling en de maker, die het in z'n eentje bouwt.",
+      "back": "Thanks. So support you Cutling and the maker, who it in his own builds.",
+      "why": "'In z'n eentje' is the everyday way to say one person does it all alone; 'Bedankt' alone is clear right after the purchase and keeps it to two lines. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S20": {
+      "s": "Welkom terug. Je eerdere aankoop is hersteld.",
+      "back": "Welcome back. Your earlier purchase is restored.",
+      "why": "'Hersteld' echoes the S12 link they just tapped, so the person sees their action worked. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S21": {
+      "s": "%lld van %lld gratis Cutlings gebruikt",
+      "back": "3 of 5 free Cutlings used",
+      "why": "Spoken label, so the short participle form VoiceOver reads cleanly; no sentence needed. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S22": {
+      "s": "Nu plek voor %2$@ Cutlings. Je hebt er %1$lld.",
+      "back": "Now room for 5.000 Cutlings. You have there 21.",
+      "why": "Positional forms because the room comes first in Dutch; the pronoun 'er' carries the count, so it reads right for 1, 2, 5 and 21 with no plural on the count. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S23": {
+      "s": "Cutling is ontgrendeld. Plek voor %@ Cutlings.",
+      "back": "Cutling is unlocked. Room for 5.000 Cutlings.",
+      "why": "Announcement in two short spoken parts; 'Plek voor' repeats S6 so the room has one name. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S24": {
+      "s": "Aankoop niet gelukt",
+      "back": "Purchase not succeeded",
+      "why": "'Niet gelukt' is the calm Dutch phrase with no fault in it; 'mislukt' sounds harder. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S25": {
+      "s": "De App Store is nu niet bereikbaar. Probeer het straks opnieuw.",
+      "back": "The App Store is now not reachable. Try it shortly again.",
+      "why": "'Straks' is the Dutch word for in a little while; 'Probeer het opnieuw' is the standard Dutch iOS retry line. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S26": {
+      "s": "De App Store heeft deze aankoop niet bevestigd.",
+      "back": "The App Store has this purchase not confirmed.",
+      "why": "A plain statement of what the store did, so the person is not blamed. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S27": {
+      "s": "Er staat geen eerdere aankoop van Cutling op het Apple Account van dit apparaat.",
+      "back": "There stands no earlier purchase of Cutling on the Apple Account of this device.",
+      "why": "'Er staat geen ... op' is how Dutch says a record holds nothing; names the account on this device, as the brief asks. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S28": {
+      "s": "De gratis versie bewaart %lld Cutlings. Ontgrendel Cutling eenmalig en bewaar er zoveel als je wilt.",
+      "back": "The free version keeps 5 Cutlings. Unlock Cutling once and keep of-them as many as you want.",
+      "why": "Two plain sentences Siri can speak; 'eenmalig' matches the button, 'er' refers back to Cutlings, 'je wilt' is the standard form. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "S29": {
+      "s": "%lld van %lld gratis",
+      "back": "4 of 5 free",
+      "why": "Sits under the 'Cutlings' title, so the noun is already on screen; 14 characters. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "K1": {
+      "s": "Alle %lld gratis Cutlings op · Ontgrendel",
+      "back": "All 5 free Cutlings used-up · Unlock",
+      "why": "Headline Dutch drops 'zijn'; 'op' means used up. The verb after the dot is the action the tap takes; 'Tik om te ontgrendelen' alone is 22 characters and would not fit 38. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "M1": {
+      "s": "Ontgrendel Cutling",
+      "back": "Unlock Cutling",
+      "why": "Imperative, the form Dutch macOS uses for command names such as 'Sluit venster'. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "M2": {
+      "s": "Ontgrendel Cutling…",
+      "back": "Unlock Cutling…",
+      "why": "M1 as a button, with the ellipsis character because it opens a window. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "M3": {
+      "s": "Gratis Cutlings",
+      "back": "Free Cutlings",
+      "why": "Row label as a noun phrase, the list's own word. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "M4": {
+      "s": "%lld van %lld",
+      "back": "3 of 5",
+      "why": "Dutch reads a used-of-total pair as 'van'; 7 characters. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "M5": {
+      "s": "Ontgrendeld",
+      "back": "Unlocked",
+      "why": "The row sits in the Cutling section, so the participle alone is the status, as Dutch Mac settings show states. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "M6": {
+      "s": "Met één aankoop ontgrendel je Cutling op iPhone, iPad en Mac.",
+      "back": "With one purchase unlock you Cutling on iPhone, iPad and Mac.",
+      "why": "Verb-second after 'Met één aankoop', the natural Dutch order; devices listed as in S8. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "M7": {
+      "s": "Ontgrendeld op iPhone, iPad en Mac met dit Apple Account.",
+      "back": "Unlocked on iPhone, iPad and Mac with this Apple Account.",
+      "why": "Participle fragment as a status line, as Mac settings captions read; 'Apple Account' as the vocabulary writes it. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    },
+    "M8": {
+      "s": "Je kocht Cutling al voordat het gratis werd, dus het blijft ontgrendeld. Bedankt daarvoor.",
+      "back": "You bought Cutling already before it free became, so it stays unlocked. Thanks for-that.",
+      "why": "'Al' marks they were early; 'Bedankt daarvoor' thanks them for that purchase specifically, not in general. Same in nl-NL: the vocabulary files are identical and Netherlands Dutch is what the nl folder already writes."
+    }
+  }
+}

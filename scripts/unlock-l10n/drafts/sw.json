@@ -1,0 +1,194 @@
+{
+ "sw": {
+  "S1": {
+   "s": "%lld za bure",
+   "back": "5 of free",
+   "why": "Class-10 concord za agrees with the unspoken cutling, so the label says 'the free five' in 9 characters."
+  },
+  "S2": {
+   "s": "Endelea kuhifadhi",
+   "back": "Continue to-save",
+   "why": "An invitation to carry on, using kuhifadhi, the ordinary Swahili verb for saving; no limit word such as kikomo."
+  },
+  "S3": {
+   "s": "Umetumia cutling zote %lld za bure. Zitaendelea kuwa bure na kufanya kazi kama kawaida.",
+   "back": "You-have-used cutling all 5 of free. They-will-continue to-be free and to-do work as usual.",
+   "why": "Second-person singular as in the vocab; 'kama kawaida' (as usual) is how a speaker reassures that nothing changes."
+  },
+  "S4": {
+   "s": "Unaweza kuhifadhi cutling %lld bure.",
+   "back": "You-can to-save cutling 5 free.",
+   "why": "States the allowance plainly; numeral follows the noun, as in the vocab's 'Cutling %lld'."
+  },
+  "S5": {
+   "s": "Umetumia cutling %lld kati ya %lld za bure.",
+   "back": "You-have-used cutling 3 among of 5 of free.",
+   "why": "'X kati ya Y' is the native 'X of Y'; numbers keep English order, so no positional forms are needed."
+  },
+  "S6": {
+   "s": "Nafasi ya cutling %@",
+   "back": "Room of cutling 5,000",
+   "why": "A noun phrase like a row heading; nafasi (room, space) is the word the grid after purchase shows."
+  },
+  "S7": {
+   "s": "Hifadhi hadi cutling %@ za maandishi na %lld za picha.",
+   "back": "Save up-to cutling 5,000 of text and 500 of picture.",
+   "why": "Builds on the vocab's 'Cutling ya maandishi' and 'Cutling ya picha', so the two kinds keep their app names."
+  },
+  "S8": {
+   "s": "iPhone, iPad na Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Swahili lists with na before the last item and no comma before it."
+  },
+  "S9": {
+   "s": "Ununuzi mmoja unatosha kila kifaa kilichoingia kwa Apple Account yako.",
+   "back": "Purchase one suffices every device that-has-signed-in with Apple Account your.",
+   "why": "Reuses the vocab's own phrase 'kila kifaa kilichoingia kwa Apple Account yako', so the account sentence reads the same across the app."
+  },
+  "S10": {
+   "s": "Malipo ya mara moja",
+   "back": "Payment of time one",
+   "why": "'Malipo ya mara moja' is the set phrase for a one-time payment; as a noun phrase it cannot be misread as 'pay immediately'."
+  },
+  "S11": {
+   "s": "Hakuna usajili, matangazo wala kufungua akaunti.",
+   "back": "There-is-no subscription, advertisements nor to-open account.",
+   "why": "Usajili is the store word for subscription, so sign-up is said as kufungua akaunti to keep the two apart; wala is the native 'nor'."
+  },
+  "S12": {
+   "s": "Rejesha ununuzi",
+   "back": "Restore purchase",
+   "why": "The wording Swahili store and app UIs use for restoring purchases; sentence case, as Swahili does not title-case."
+  },
+  "S13": {
+   "s": "Inarejesha ununuzi…",
+   "back": "It-is-restoring purchase…",
+   "why": "Present progressive -na- with the single ellipsis character."
+  },
+  "S14": {
+   "s": "Fungua Cutling kwa %@",
+   "back": "Unlock Cutling for $4.99",
+   "why": "Kufungua is the Swahili unlock; 'mara moja' is left out of the button because there it also reads 'right away', and S10 directly above already says one-time."
+  },
+  "S15": {
+   "s": "Fungua Cutling",
+   "back": "Unlock Cutling",
+   "why": "Same command without the price, exactly 14 characters."
+  },
+  "S16": {
+   "s": "Si sasa",
+   "back": "Not now",
+   "why": "The everyday way to put something off without refusing it."
+  },
+  "S17": {
+   "s": "Funga",
+   "back": "Close",
+   "why": "The plain verb Swahili interfaces use on close buttons."
+  },
+  "S18": {
+   "s": "Sasa yote ni yako",
+   "back": "Now all is yours",
+   "why": "Short, warm and a little proud; 'yote' (all of it) takes in the room the grid shows."
+  },
+  "S19": {
+   "s": "Asante kwa kununua. Hii inasaidia Cutling na mtu pekee anayeitengeneza.",
+   "back": "Thanks for buying. This helps Cutling and person sole who-makes-it.",
+   "why": "'Mtu pekee' (the only person) says one maker without the vagueness of 'mtu mmoja' (a certain person)."
+  },
+  "S20": {
+   "s": "Karibu tena. Ununuzi wako wa awali umerejeshwa.",
+   "back": "Welcome again. Purchase your of before has-been-restored.",
+   "why": "'Karibu tena' is how a returning person is greeted; the verb matches S12 and S13 (rejesha)."
+  },
+  "S21": {
+   "s": "%lld kati ya cutling %lld za bure zimetumika",
+   "back": "3 among of cutling 5 of free have-been-used",
+   "why": "Describes the tile row for VoiceOver; zimetumika agrees with cutling in class 10."
+  },
+  "S22": {
+   "s": "Una cutling %lld. Sasa kuna nafasi ya cutling %@.",
+   "back": "You-have cutling 5. Now there-is room of cutling 5,000.",
+   "why": "The numeral as a digit after an invariant noun takes no agreement, so it reads correctly for 1, 2, 5 and 21."
+  },
+  "S23": {
+   "s": "Cutling imefunguliwa. Sasa kuna nafasi ya cutling %@.",
+   "back": "Cutling has-been-unlocked. Now there-is room of cutling 5,000.",
+   "why": "Class-9 subject prefix i- for the app name, and the same room phrase as S22."
+  },
+  "S24": {
+   "s": "Ununuzi haukukamilika",
+   "back": "Purchase did-not-complete",
+   "why": "Names what happened with the purchase as subject, so nobody is blamed."
+  },
+  "S25": {
+   "s": "App Store haipatikani kwa sasa. Jaribu tena baadaye kidogo.",
+   "back": "App Store is-not-reachable for now. Try again later a-little.",
+   "why": "'Baadaye kidogo' is the spoken 'in a bit'; the store name stays in English as Swahili users see it."
+  },
+  "S26": {
+   "s": "App Store haijathibitisha ununuzi huu.",
+   "back": "App Store has-not-confirmed purchase this.",
+   "why": "One factual sentence with the store as subject."
+  },
+  "S27": {
+   "s": "Apple Account ya kifaa hiki haina ununuzi wa awali wa Cutling.",
+   "back": "Apple Account of device this has-no purchase of before of Cutling.",
+   "why": "Puts the account first so the sentence is short and says where the search happened."
+  },
+  "S28": {
+   "s": "Toleo la bure linahifadhi cutling %lld. Ukifungua Cutling mara moja tu, utahifadhi kadri upendavyo.",
+   "back": "Version of free keeps cutling 5. If-you-unlock Cutling time one only, you-will-save as-much-as you-like.",
+   "why": "Conditional uki- carries 'once you unlock'; 'mara moja tu' (just once) cannot be read as 'right away' with tu; 'kadri upendavyo' is the native 'as many as you like'."
+  },
+  "S29": {
+   "s": "%lld kati ya %lld za bure",
+   "back": "4 among of 5 of free",
+   "why": "Same 'kati ya' pair as S5; 19 characters, one over the 18 budget, because 'za bure' is the shortest way to say free here."
+  },
+  "K1": {
+   "s": "Nafasi %lld za bure zimejaa. Gusa ufungue",
+   "back": "Slots 5 of free are-full. Tap you-unlock",
+   "why": "38 characters; nafasi (slots) as in S6, and 'gusa ufungue' (tap so you unlock) is a natural spoken command."
+  },
+  "M1": {
+   "s": "Fungua Cutling kamili",
+   "back": "Unlock Cutling full",
+   "why": "Kamili is added on the Mac because in the Window menu 'Fungua Cutling' alone could read 'Open Cutling'."
+  },
+  "M2": {
+   "s": "Fungua Cutling kamili…",
+   "back": "Unlock Cutling full…",
+   "why": "The same command as M1 with the ellipsis character, as it opens a window."
+  },
+  "M3": {
+   "s": "Cutling za bure",
+   "back": "Cutling of free",
+   "why": "Row label with the item word and class-10 za."
+  },
+  "M4": {
+   "s": "%lld/%lld",
+   "back": "3/5",
+   "why": "A compact pair, since 'kati ya' would take 11 characters against a budget of 10."
+  },
+  "M5": {
+   "s": "Cutling imefunguliwa",
+   "back": "Cutling has-been-unlocked",
+   "why": "The same status words as S23."
+  },
+  "M6": {
+   "s": "Ununuzi mmoja unafungua Cutling kwenye iPhone, iPad na Mac.",
+   "back": "Purchase one unlocks Cutling on iPhone, iPad and Mac.",
+   "why": "Same list form as S8."
+  },
+  "M7": {
+   "s": "Imefunguliwa kwenye iPhone, iPad na Mac kwa Apple Account hii.",
+   "back": "Has-been-unlocked on iPhone, iPad and Mac with Apple Account this.",
+   "why": "'Kwa Apple Account' follows the vocab's preposition for the account."
+  },
+  "M8": {
+   "s": "Ulinunua Cutling kabla haijawa bure, kwa hiyo itabaki imefunguliwa. Asante sana.",
+   "back": "You-bought Cutling before it-had-not-become free, so it-will-remain unlocked. Thanks much.",
+   "why": "'Kabla' with the negative perfect is the native 'before it became'; 'asante sana' is the plain warm thanks."
+  }
+ }
+}

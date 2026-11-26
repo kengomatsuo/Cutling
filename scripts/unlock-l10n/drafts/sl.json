@@ -1,0 +1,386 @@
+{
+ "sl": {
+  "S1": {
+   "s": "Brezplačno: %lld",
+   "back": "Free-of-charge: 5",
+   "why": "The vocabulary's own label-colon-number shape (Cutlingov: %lld) keeps the number free of case endings; 13 characters with 5, one over the budget, chosen over the colloquial Zastonj so the word matches S28 and M3."
+  },
+  "S2": {
+   "s": "Shranite še več",
+   "back": "Save still more",
+   "why": "An invitation in the vi imperative the vocabulary uses (Vklopite); no word about a limit."
+  },
+  "S3": {
+   "s": "Porabili ste vseh %lld brezplačnih cutlingov. Ostanejo brezplačni in delujejo kot doslej.",
+   "back": "Used-up you-have all 5 free cutlings. They-stay free and work as till-now.",
+   "why": "Genitive plural after vseh %lld is right for 5; kot doslej says nothing changes for them without a promise-sounding phrase."
+  },
+  "S4": {
+   "s": "Prvih %lld cutlingov shranite brezplačno.",
+   "back": "First 5 cutlings you-save free-of-charge.",
+   "why": "Reads as a plain offer and avoids the 'lahko' (you can) construction; genitive plural is right for 5."
+  },
+  "S5": {
+   "s": "Porabili ste %lld od %lld brezplačnih cutlingov.",
+   "back": "Used-up you-have 3 of 5 free cutlings.",
+   "why": "'od' takes the genitive plural whatever the first number is, so the sentence is right for 0 to 4 used; numbers keep English order, so no positional forms."
+  },
+  "S6": {
+   "s": "Do %@ cutlingov",
+   "back": "Up-to 5,000 cutlings",
+   "why": "'do' plus genitive plural fits one line at 18 characters; 'Prostor za' would run to 26."
+  },
+  "S7": {
+   "s": "Shranite lahko do %@ besedil in %lld slik.",
+   "back": "Save you-can up-to 5,000 texts and 500 images.",
+   "why": "besedilo and slike from the vocabulary, both genitive plural after do; placeholders in brief order."
+  },
+  "S8": {
+   "s": "iPhone, iPad in Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Slovenian lists with 'in' and no comma before it; names stay in the nominative."
+  },
+  "S9": {
+   "s": "En nakup velja za vse naprave, prijavljene v vaš Apple račun.",
+   "back": "One purchase applies for all devices, signed-in into your Apple account.",
+   "why": "Uses the vocabulary's phrase 'prijavljeni v vaš Apple račun' and its 'Apple račun'."
+  },
+  "S10": {
+   "s": "Plačate samo enkrat",
+   "back": "You-pay only once",
+   "why": "A verb with the person in it, vi form, 19 characters."
+  },
+  "S11": {
+   "s": "Brez naročnine, oglasov in registracije.",
+   "back": "Without subscription, adverts and registration.",
+   "why": "One 'brez' governing three genitives is how a Slovenian writes it; registracija is the everyday word for signing up, and avoids a second 'račun' next to Apple račun."
+  },
+  "S12": {
+   "s": "Obnovi nakupe",
+   "back": "Restore purchases",
+   "why": "The wording Slovenian iOS apps use for the App Store restore action; button and link form is the bare imperative, like the vocabulary's Nadaljuj."
+  },
+  "S13": {
+   "s": "Obnavljanje nakupov…",
+   "back": "Restoring of-purchases…",
+   "why": "The verbal noun for a running process, ending with the single ellipsis character."
+  },
+  "S14": {
+   "s": "Odkleni za %@",
+   "back": "Unlock for $4.99",
+   "why": "Bare imperative like Nadaljuj; 'once' stays in S10 directly above, because an adjective such as enkratnih would have to agree with whatever currency %@ brings."
+  },
+  "S15": {
+   "s": "Odkleni",
+   "back": "Unlock",
+   "why": "S14 without the price; Odkleni Cutling would be 15 characters against a 14 budget."
+  },
+  "S16": {
+   "s": "Morda pozneje",
+   "back": "Maybe later",
+   "why": "The ordinary way to put something off in Slovenian; pozneje is the standard form over colloquial kasneje."
+  },
+  "S17": {
+   "s": "Zapri",
+   "back": "Close",
+   "why": "The verb iOS uses on Slovenian close buttons."
+  },
+  "S18": {
+   "s": "Zdaj je vse vaše",
+   "back": "Now is all yours",
+   "why": "Short and warm, vi possessive; 'vse' covers the items and the room without listing them."
+  },
+  "S19": {
+   "s": "Hvala za nakup. Podprli ste Cutling in človeka, ki ga sam razvija.",
+   "back": "Thanks for purchase. Supported you-have Cutling and person, who it alone develops.",
+   "why": "'človeka' keeps the maker's gender open; 'sam' says one person makes it without the word 'edini'."
+  },
+  "S20": {
+   "s": "Dobrodošli nazaj. Vaš nakup je obnovljen.",
+   "back": "Welcome back. Your purchase is restored.",
+   "why": "Obnovljen ties to the Obnovi nakupe link they just tapped; vi plural greeting."
+  },
+  "S21": {
+   "s": "Porabili ste %lld od %lld brezplačnih cutlingov",
+   "back": "Used-up you-have 3 of 5 free cutlings",
+   "why": "Same sentence as S5, spoken, so the eye and ear get one wording; 'od' plus genitive plural works for any used count."
+  },
+  "S22": {
+   "s": "Shranjenih cutlingov: %lld. Prostora je za %@.",
+   "back": "Saved cutlings: 5. Room is for 5,000.",
+   "why": "Slovenian has four number forms (1, 2, 3-4, 5+), so the count goes after a colon as in the vocabulary's Cutlingov: %lld; right for 1, 2, 5 and 21."
+  },
+  "S23": {
+   "s": "Cutling je odklenjen. Prostora je za %@ cutlingov.",
+   "back": "Cutling is unlocked. Room is for 5,000 cutlings.",
+   "why": "Cutling as the app name, masculine; genitive plural is right after 5.000."
+  },
+  "S24": {
+   "s": "Nakup ni uspel",
+   "back": "Purchase not succeeded",
+   "why": "The calm standard phrase; it names what happened and blames no one."
+  },
+  "S25": {
+   "s": "Trgovina App Store trenutno ni dosegljiva. Poskusite znova malo pozneje.",
+   "back": "Store App Store currently not reachable. Try again a-little later.",
+   "why": "'Trgovina App Store' gives the name a feminine noun to agree with instead of declining App Store."
+  },
+  "S26": {
+   "s": "Trgovina App Store tega nakupa ni potrdila.",
+   "back": "Store App Store this purchase not confirmed.",
+   "why": "Same 'Trgovina App Store' frame as S25; states the fact, no blame."
+  },
+  "S27": {
+   "s": "Apple račun v tej napravi nima prejšnjega nakupa Cutlinga.",
+   "back": "Apple account in this device has-not earlier purchase of-Cutling.",
+   "why": "Apple račun from the vocabulary; the genitive Cutlinga is how Slovenian writes an app name as the object of a purchase."
+  },
+  "S28": {
+   "s": "Brezplačna različica hrani %lld cutlingov. Ko Cutling enkrat odklenete, shranite, kolikor želite.",
+   "back": "Free version holds 5 cutlings. When Cutling once you-unlock, you-save, as-much-as you-wish.",
+   "why": "Siri speaks in the app's vi form; genitive plural right for 5; 'enkrat' carries the one-time purchase."
+  },
+  "S29": {
+   "s": "Cutlingov: %lld od %lld",
+   "back": "Of-cutlings: 4 of 5",
+   "why": "The vocabulary's own count line (Cutlingov: %lld) with its cap added, so a free copy's subtitle is the same line, not a new one; 17 characters."
+  },
+  "K1": {
+   "s": "Porabili ste vseh %lld. Tapnite za odklep.",
+   "back": "Used-up you-have all 5. Tap for unlock.",
+   "why": "Same verb as S3; tapnite is the Slovenian iOS word for tap; 39 characters with 5, one over the 38 budget, kept because the clipped 'Vseh 5 porabljenih' reads as a scoreboard."
+  },
+  "M1": {
+   "s": "Odkleni Cutling",
+   "back": "Unlock Cutling",
+   "why": "Mac window and menu commands in Slovenian are the bare imperative (Odpri, Shrani)."
+  },
+  "M2": {
+   "s": "Odkleni Cutling…",
+   "back": "Unlock Cutling…",
+   "why": "M1 with the ellipsis character because it opens a window."
+  },
+  "M3": {
+   "s": "Brezplačni cutlingi",
+   "back": "Free cutlings",
+   "why": "Row label in the nominative plural, lower-case cutlingi as in the vocabulary's running text."
+  },
+  "M4": {
+   "s": "%lld od %lld",
+   "back": "3 of 5",
+   "why": "'3 od 5' is the compact pair Slovenians say and read; no noun, so no number forms."
+  },
+  "M5": {
+   "s": "Cutling je odklenjen",
+   "back": "Cutling is unlocked",
+   "why": "Full status in 20 characters, Cutling masculine."
+  },
+  "M6": {
+   "s": "Z enim nakupom odklenete Cutling na iPhonu, iPadu in Macu.",
+   "back": "With one purchase you-unlock Cutling on iPhone, iPad and Mac.",
+   "why": "Device names declined in the locative (iPhonu, iPadu, Macu) as Slovenian writers do; 'in' list, no serial comma."
+  },
+  "M7": {
+   "s": "Odklenjeno na iPhonu, iPadu in Macu s tem Apple računom.",
+   "back": "Unlocked on iPhone, iPad and Mac with this Apple account.",
+   "why": "Impersonal neuter 'Odklenjeno' suits a status line; Apple račun in the instrumental."
+  },
+  "M8": {
+   "s": "Cutling ste kupili, ko še ni bil brezplačen, zato ostane odklenjen. Hvala, ker ste bili med prvimi.",
+   "back": "Cutling you-have bought, when yet not was free, so stays unlocked. Thanks, because you-were among first.",
+   "why": "The thanks names what they did (bought early) instead of a stock 'hvala za zaupanje'."
+  }
+ },
+ "sl-SI": {
+  "S1": {
+   "s": "Brezplačno: %lld",
+   "back": "Free-of-charge: 5",
+   "why": "The vocabulary's own label-colon-number shape (Cutlingov: %lld) keeps the number free of case endings; 13 characters with 5, one over the budget, chosen over the colloquial Zastonj so the word matches S28 and M3. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S2": {
+   "s": "Shranite še več",
+   "back": "Save still more",
+   "why": "An invitation in the vi imperative the vocabulary uses (Vklopite); no word about a limit. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S3": {
+   "s": "Porabili ste vseh %lld brezplačnih cutlingov. Ostanejo brezplačni in delujejo kot doslej.",
+   "back": "Used-up you-have all 5 free cutlings. They-stay free and work as till-now.",
+   "why": "Genitive plural after vseh %lld is right for 5; kot doslej says nothing changes for them without a promise-sounding phrase. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S4": {
+   "s": "Prvih %lld cutlingov shranite brezplačno.",
+   "back": "First 5 cutlings you-save free-of-charge.",
+   "why": "Reads as a plain offer and avoids the 'lahko' (you can) construction; genitive plural is right for 5. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S5": {
+   "s": "Porabili ste %lld od %lld brezplačnih cutlingov.",
+   "back": "Used-up you-have 3 of 5 free cutlings.",
+   "why": "'od' takes the genitive plural whatever the first number is, so the sentence is right for 0 to 4 used; numbers keep English order, so no positional forms. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S6": {
+   "s": "Do %@ cutlingov",
+   "back": "Up-to 5,000 cutlings",
+   "why": "'do' plus genitive plural fits one line at 18 characters; 'Prostor za' would run to 26. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S7": {
+   "s": "Shranite lahko do %@ besedil in %lld slik.",
+   "back": "Save you-can up-to 5,000 texts and 500 images.",
+   "why": "besedilo and slike from the vocabulary, both genitive plural after do; placeholders in brief order. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S8": {
+   "s": "iPhone, iPad in Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Slovenian lists with 'in' and no comma before it; names stay in the nominative. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S9": {
+   "s": "En nakup velja za vse naprave, prijavljene v vaš Apple račun.",
+   "back": "One purchase applies for all devices, signed-in into your Apple account.",
+   "why": "Uses the vocabulary's phrase 'prijavljeni v vaš Apple račun' and its 'Apple račun'. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S10": {
+   "s": "Plačate samo enkrat",
+   "back": "You-pay only once",
+   "why": "A verb with the person in it, vi form, 19 characters. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S11": {
+   "s": "Brez naročnine, oglasov in registracije.",
+   "back": "Without subscription, adverts and registration.",
+   "why": "One 'brez' governing three genitives is how a Slovenian writes it; registracija is the everyday word for signing up, and avoids a second 'račun' next to Apple račun. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S12": {
+   "s": "Obnovi nakupe",
+   "back": "Restore purchases",
+   "why": "The wording Slovenian iOS apps use for the App Store restore action; button and link form is the bare imperative, like the vocabulary's Nadaljuj. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S13": {
+   "s": "Obnavljanje nakupov…",
+   "back": "Restoring of-purchases…",
+   "why": "The verbal noun for a running process, ending with the single ellipsis character. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S14": {
+   "s": "Odkleni za %@",
+   "back": "Unlock for $4.99",
+   "why": "Bare imperative like Nadaljuj; 'once' stays in S10 directly above, because an adjective such as enkratnih would have to agree with whatever currency %@ brings. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S15": {
+   "s": "Odkleni",
+   "back": "Unlock",
+   "why": "S14 without the price; Odkleni Cutling would be 15 characters against a 14 budget. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S16": {
+   "s": "Morda pozneje",
+   "back": "Maybe later",
+   "why": "The ordinary way to put something off in Slovenian; pozneje is the standard form over colloquial kasneje. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S17": {
+   "s": "Zapri",
+   "back": "Close",
+   "why": "The verb iOS uses on Slovenian close buttons. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S18": {
+   "s": "Zdaj je vse vaše",
+   "back": "Now is all yours",
+   "why": "Short and warm, vi possessive; 'vse' covers the items and the room without listing them. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S19": {
+   "s": "Hvala za nakup. Podprli ste Cutling in človeka, ki ga sam razvija.",
+   "back": "Thanks for purchase. Supported you-have Cutling and person, who it alone develops.",
+   "why": "'človeka' keeps the maker's gender open; 'sam' says one person makes it without the word 'edini'. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S20": {
+   "s": "Dobrodošli nazaj. Vaš nakup je obnovljen.",
+   "back": "Welcome back. Your purchase is restored.",
+   "why": "Obnovljen ties to the Obnovi nakupe link they just tapped; vi plural greeting. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S21": {
+   "s": "Porabili ste %lld od %lld brezplačnih cutlingov",
+   "back": "Used-up you-have 3 of 5 free cutlings",
+   "why": "Same sentence as S5, spoken, so the eye and ear get one wording; 'od' plus genitive plural works for any used count. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S22": {
+   "s": "Shranjenih cutlingov: %lld. Prostora je za %@.",
+   "back": "Saved cutlings: 5. Room is for 5,000.",
+   "why": "Slovenian has four number forms (1, 2, 3-4, 5+), so the count goes after a colon as in the vocabulary's Cutlingov: %lld; right for 1, 2, 5 and 21. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S23": {
+   "s": "Cutling je odklenjen. Prostora je za %@ cutlingov.",
+   "back": "Cutling is unlocked. Room is for 5,000 cutlings.",
+   "why": "Cutling as the app name, masculine; genitive plural is right after 5.000. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S24": {
+   "s": "Nakup ni uspel",
+   "back": "Purchase not succeeded",
+   "why": "The calm standard phrase; it names what happened and blames no one. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S25": {
+   "s": "Trgovina App Store trenutno ni dosegljiva. Poskusite znova malo pozneje.",
+   "back": "Store App Store currently not reachable. Try again a-little later.",
+   "why": "'Trgovina App Store' gives the name a feminine noun to agree with instead of declining App Store. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S26": {
+   "s": "Trgovina App Store tega nakupa ni potrdila.",
+   "back": "Store App Store this purchase not confirmed.",
+   "why": "Same 'Trgovina App Store' frame as S25; states the fact, no blame. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S27": {
+   "s": "Apple račun v tej napravi nima prejšnjega nakupa Cutlinga.",
+   "back": "Apple account in this device has-not earlier purchase of-Cutling.",
+   "why": "Apple račun from the vocabulary; the genitive Cutlinga is how Slovenian writes an app name as the object of a purchase. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S28": {
+   "s": "Brezplačna različica hrani %lld cutlingov. Ko Cutling enkrat odklenete, shranite, kolikor želite.",
+   "back": "Free version holds 5 cutlings. When Cutling once you-unlock, you-save, as-much-as you-wish.",
+   "why": "Siri speaks in the app's vi form; genitive plural right for 5; 'enkrat' carries the one-time purchase. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "S29": {
+   "s": "Cutlingov: %lld od %lld",
+   "back": "Of-cutlings: 4 of 5",
+   "why": "The vocabulary's own count line (Cutlingov: %lld) with its cap added, so a free copy's subtitle is the same line, not a new one; 17 characters. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "K1": {
+   "s": "Porabili ste vseh %lld. Tapnite za odklep.",
+   "back": "Used-up you-have all 5. Tap for unlock.",
+   "why": "Same verb as S3; tapnite is the Slovenian iOS word for tap; 39 characters with 5, one over the 38 budget, kept because the clipped 'Vseh 5 porabljenih' reads as a scoreboard. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "M1": {
+   "s": "Odkleni Cutling",
+   "back": "Unlock Cutling",
+   "why": "Mac window and menu commands in Slovenian are the bare imperative (Odpri, Shrani). Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "M2": {
+   "s": "Odkleni Cutling…",
+   "back": "Unlock Cutling…",
+   "why": "M1 with the ellipsis character because it opens a window. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "M3": {
+   "s": "Brezplačni cutlingi",
+   "back": "Free cutlings",
+   "why": "Row label in the nominative plural, lower-case cutlingi as in the vocabulary's running text. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "M4": {
+   "s": "%lld od %lld",
+   "back": "3 of 5",
+   "why": "'3 od 5' is the compact pair Slovenians say and read; no noun, so no number forms. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "M5": {
+   "s": "Cutling je odklenjen",
+   "back": "Cutling is unlocked",
+   "why": "Full status in 20 characters, Cutling masculine. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "M6": {
+   "s": "Z enim nakupom odklenete Cutling na iPhonu, iPadu in Macu.",
+   "back": "With one purchase you-unlock Cutling on iPhone, iPad and Mac.",
+   "why": "Device names declined in the locative (iPhonu, iPadu, Macu) as Slovenian writers do; 'in' list, no serial comma. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "M7": {
+   "s": "Odklenjeno na iPhonu, iPadu in Macu s tem Apple računom.",
+   "back": "Unlocked on iPhone, iPad and Mac with this Apple account.",
+   "why": "Impersonal neuter 'Odklenjeno' suits a status line; Apple račun in the instrumental. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "M8": {
+   "s": "Cutling ste kupili, ko še ni bil brezplačen, zato ostane odklenjen. Hvala, ker ste bili med prvimi.",
+   "back": "Cutling you-have bought, when yet not was free, so stays unlocked. Thanks, because you-were among first.",
+   "why": "The thanks names what they did (bought early) instead of a stock 'hvala za zaupanje'. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  }
+ }
+}

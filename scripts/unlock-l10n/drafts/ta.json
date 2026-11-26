@@ -1,0 +1,386 @@
+{
+ "ta": {
+  "S1": {
+   "s": "%lld இலவசம்",
+   "back": "5 free",
+   "why": "Bare noun under the bracket, the shortest native label; the slots read as 'the free ones'. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S2": {
+   "s": "தொடர்ந்து சேமிக்கலாம்",
+   "back": "continuously save-may (you can keep saving)",
+   "why": "The -லாம் permissive is how Tamil invites without commanding; no limit word, no sell. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S3": {
+   "s": "%lld இலவசக் கட்லிங்குகளையும் பயன்படுத்திவிட்டீர்கள். அவை எப்போதும் இலவசமாகவே இயங்கும்.",
+   "back": "5 free cutlings-ACC-all you-have-used-up. They always free-as-EMPH will-run.",
+   "why": "Numeral + noun + -ஐயும் is the native 'all five'; -விட்டீர்கள் marks done without blame; இயங்கும் is the verb Tamil uses for apps working. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S4": {
+   "s": "%lld கட்லிங்குகளை இலவசமாகச் சேமிக்கலாம்.",
+   "back": "5 cutlings-ACC free-ly save-may.",
+   "why": "Vocabulary plural கட்லிங்குகள்; same -லாம் invitation as the title. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S5": {
+   "s": "%2$lld இலவசக் கட்லிங்குகளில் %1$lld-ஐப் பயன்படுத்தியுள்ளீர்கள்.",
+   "back": "5 free cutlings-in 3-ACC you-have-used.",
+   "why": "Tamil puts the whole before the part, so positional placeholders put the total first; neutral perfect, not the used-up -விட்டீர்கள் of S3. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S6": {
+   "s": "%@ கட்லிங்குகளுக்கு இடம்",
+   "back": "5,000 cutlings-for room",
+   "why": "Verbless bold line; 'room' (இடம்) is the space image the grid after purchase shows, reused in S22, S23 and K1. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S7": {
+   "s": "உரை கட்லிங்குகள் %@ வரை, படங்கள் %lld வரை சேமிக்கலாம்.",
+   "back": "text cutlings 5,000 up-to, images 500 up-to save-may.",
+   "why": "Two 'X up to N' pairs side by side is the Tamil way to give two caps; உரை கட்லிங்கு and படங்கள் from the vocabulary file. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S8": {
+   "s": "iPhone, iPad மற்றும் Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Tamil list pattern for three: comma, then மற்றும் before the last; device names stay in Latin as Apple's Tamil writes them. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S9": {
+   "s": "உங்கள் Apple Account-இல் மூன்றிலும் கிடைக்கும். தனித்தனியே வாங்கத் தேவையில்லை.",
+   "back": "your Apple Account-on three-in-all will-be-available. separately to-buy no-need.",
+   "why": "Says 'one purchase' the way a Tamil seller would, as no need to buy per device, so S10's 'once' is not repeated; Apple Account-இல் follows the vocabulary's suffix style. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S10": {
+   "s": "ஒருமுறை கட்டினால் போதும்",
+   "back": "once if-pay enough",
+   "why": "'Pay once and that's enough' is everyday Tamil for a one-time price and implies nothing recurring. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S11": {
+   "s": "சந்தா, விளம்பரம், கணக்குப் பதிவு எதுவும் இல்லை.",
+   "back": "subscription, advertisement, account registration any not-is.",
+   "why": "List closed by எதுவும் இல்லை (none of these) is native; சந்தா is the Tamil word for subscription in Apple's own Tamil. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S12": {
+   "s": "வாங்கியவற்றை மீட்டமை",
+   "back": "purchased-things-ACC restore",
+   "why": "Built from Apple Tamil's வாங்கியவை (Purchased) and மீட்டமை (Restore), bare imperative as iOS buttons use; confirm against a Tamil-language iPhone. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S13": {
+   "s": "மீட்டமைக்கிறது…",
+   "back": "restoring…",
+   "why": "Present progressive of the S12 verb, with the ellipsis character. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S14": {
+   "s": "%@-க்கு அன்லாக் செய்யவும்",
+   "back": "$4.99-for unlock do-please",
+   "why": "Price + -க்கு is how Tamil prices an action; அன்லாக் because திற means open and K1 opens the app; -அவும் polite form matches the vocabulary's தொடரவும்; 'once' is carried by S10 right above to fit the narrow button. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S15": {
+   "s": "அன்லாக் செய்யவும்",
+   "back": "unlock do-please",
+   "why": "S14 without the price. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S16": {
+   "s": "பிறகு பார்க்கலாம்",
+   "back": "later let's-see",
+   "why": "What a Tamil speaker says to put something off kindly; it postpones and does not refuse. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S17": {
+   "s": "மூடு",
+   "back": "close",
+   "why": "The bare verb iOS Tamil uses on close buttons. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S18": {
+   "s": "இனி எல்லாம் உங்களுடையது",
+   "back": "from-now everything yours",
+   "why": "Warm and a little proud; இனி carries 'from now on', எல்லாம் takes in all the room. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S19": {
+   "s": "வாங்கியதற்கு நன்றி. கட்லிங்கைத் தனியாக உருவாக்கும் ஒருவருக்கு இது பெரிய உதவி.",
+   "back": "bought-for thanks. Cutling-ACC alone making one-person-to this big help.",
+   "why": "Thanks first, then the maker as a third person because the app speaks, not the developer; உதவி (help) is warmer than ஆதரவு (support). Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S20": {
+   "s": "மீண்டும் வந்ததில் மகிழ்ச்சி. நீங்கள் முன்பு வாங்கியது திரும்பக் கிடைத்துவிட்டது.",
+   "back": "again came-in happiness. you before bought-thing back has-been-got.",
+   "why": "Avoids மீண்டும் வருக, which is what shops print to mean 'visit again' on the way out. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S21": {
+   "s": "%2$lld இலவசக் கட்லிங்குகளில் %1$lld பயன்பாட்டில்",
+   "back": "5 free cutlings-in 3 in-use",
+   "why": "Verbless so no plural agreement can go wrong when the used count is 1; whole before part as in S5. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S22": {
+   "s": "சேமித்தவை: %lld. இனி %@ கட்லிங்குகள் வரை இடம் உண்டு.",
+   "back": "saved-ones: 5. from-now 5,000 cutlings up-to room is.",
+   "why": "A count after a label reads right for 1, 2, 5 and 21, where 'N கட்லிங்குகள்' would be wrong for 1. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S23": {
+   "s": "கட்லிங்கு அன்லாக் ஆகிவிட்டது. இனி %@ கட்லிங்குகளுக்கு இடம் உண்டு.",
+   "back": "Cutling unlock has-become. from-now 5,000 cutlings-for room is.",
+   "why": "App name as the vocabulary writes it; spoken completive ஆகிவிட்டது announces the moment. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S24": {
+   "s": "வாங்க முடியவில்லை",
+   "back": "to-buy could-not",
+   "why": "Impersonal inability, the calm Tamil way to say it did not go through, with no subject to blame. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S25": {
+   "s": "App Store-உடன் இப்போது இணைக்க முடியவில்லை. சிறிது நேரத்தில் மீண்டும் முயலவும்.",
+   "back": "App Store-with now connect could-not. little time-in again try-please.",
+   "why": "இணைக்க முடியவில்லை and மீண்டும் முயலவும் are the phrases Tamil iOS uses for a failed connection and Try Again. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S26": {
+   "s": "இந்தக் கட்டணத்தை App Store உறுதிசெய்யவில்லை.",
+   "back": "this payment-ACC App Store did-not-confirm.",
+   "why": "கட்டணம் (payment) is concrete where the noun வாங்குதல் reads translated. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S27": {
+   "s": "இந்தச் சாதனத்தில் உள்நுழைந்துள்ள Apple Account-இல், கட்லிங்கை முன்பு வாங்கியதாகப் பதிவு எதுவும் இல்லை.",
+   "back": "this device-on signed-in Apple Account-in, Cutling-ACC before bought-as record any not-is.",
+   "why": "'No record of having bought' is how Tamil states an absence calmly; உள்நுழைந்த is the vocabulary's word for signed in. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S28": {
+   "s": "இலவசப் பதிப்பில் %lld கட்லிங்குகள் மட்டுமே இருக்கும். ஒருமுறை அன்லாக் செய்தால், வேண்டிய அளவு சேமிக்கலாம்.",
+   "back": "free version-in 5 cutlings only will-be. once if-unlock, wanted amount save-may.",
+   "why": "Plain fact, then the conditional way out; வேண்டிய அளவு is everyday 'as much as you like'. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S29": {
+   "s": "இலவசம்: %2$lld-இல் %1$lld",
+   "back": "free: 5-in 4",
+   "why": "'5-இல் 4' is the Tamil 'four out of five', whole first; the colon pair fits the small subtitle and matches M3 and M4. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "K1": {
+   "s": "%lld இலவச இடங்களும் நிறைந்தன. அன்லாக் செய்யத் தட்டவும்",
+   "back": "5 free places-all filled. unlock to-do tap-please",
+   "why": "Seats-filled image (இடம், as in S6) is short and native; 'X செய்யத் தட்டவும்' is the standard Tamil tap prompt; about 29 graphemes, tight on the 30 budget. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "M1": {
+   "s": "கட்லிங்கை அன்லாக் செய்",
+   "back": "Cutling-ACC unlock do",
+   "why": "Bare imperative is how Tamil Mac menus name commands (மூடு, சேமி). Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "M2": {
+   "s": "கட்லிங்கை அன்லாக் செய்…",
+   "back": "Cutling-ACC unlock do…",
+   "why": "M1 as a button that opens a window, with the ellipsis character. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "M3": {
+   "s": "இலவசக் கட்லிங்குகள்",
+   "back": "free cutlings",
+   "why": "Row label in the vocabulary's plural. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "M4": {
+   "s": "%2$lld-இல் %1$lld",
+   "back": "5-in 3",
+   "why": "Tamil's own 'out of' pair, whole first, shorter than a slash would read. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "M5": {
+   "s": "அன்லாக் செய்யப்பட்டது",
+   "back": "unlock has-been-done",
+   "why": "Passive participle is how Tamil Settings show a state (as இயக்கப்பட்டது for On). Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "M6": {
+   "s": "ஒருமுறை வாங்கினால், iPhone, iPad, Mac ஆகிய மூன்றிலும் கட்லிங்கு அன்லாக் ஆகும்.",
+   "back": "once if-buy, iPhone, iPad, Mac such three-in-all Cutling unlock will-become.",
+   "why": "Inside a sentence Tamil gathers a list with ஆகிய and a count, which reads more native than மற்றும் here. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "M7": {
+   "s": "இந்த Apple Account-இல் உள்நுழைந்த iPhone, iPad, Mac ஆகியவற்றில் அன்லாக் செய்யப்பட்டுள்ளது.",
+   "back": "this Apple Account-in signed-in iPhone, iPad, Mac those-in unlock has-been-done.",
+   "why": "Reuses the vocabulary's 'Apple Account-இல் உள்நுழைந்த' phrase. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "M8": {
+   "s": "கட்லிங்கு இலவசமாவதற்கு முன்பே வாங்கிவிட்டீர்கள், அதனால் இது அன்லாக் செய்யப்பட்டபடியே இருக்கும். அன்றே நம்பியதற்கு நன்றி.",
+   "back": "Cutling free-becoming-before-EMPH you-bought, so this unlocked-as-is will-stay. that-day-EMPH believed-for thanks.",
+   "why": "The reason, then the thanks; 'thanks for believing in it back then' names why they are thanked. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  }
+ },
+ "ta-IN": {
+  "S1": {
+   "s": "%lld இலவசம்",
+   "back": "5 free",
+   "why": "Bare noun under the bracket, the shortest native label; the slots read as 'the free ones'. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S2": {
+   "s": "தொடர்ந்து சேமிக்கலாம்",
+   "back": "continuously save-may (you can keep saving)",
+   "why": "The -லாம் permissive is how Tamil invites without commanding; no limit word, no sell. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S3": {
+   "s": "%lld இலவசக் கட்லிங்குகளையும் பயன்படுத்திவிட்டீர்கள். அவை எப்போதும் இலவசமாகவே இயங்கும்.",
+   "back": "5 free cutlings-ACC-all you-have-used-up. They always free-as-EMPH will-run.",
+   "why": "Numeral + noun + -ஐயும் is the native 'all five'; -விட்டீர்கள் marks done without blame; இயங்கும் is the verb Tamil uses for apps working. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S4": {
+   "s": "%lld கட்லிங்குகளை இலவசமாகச் சேமிக்கலாம்.",
+   "back": "5 cutlings-ACC free-ly save-may.",
+   "why": "Vocabulary plural கட்லிங்குகள்; same -லாம் invitation as the title. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S5": {
+   "s": "%2$lld இலவசக் கட்லிங்குகளில் %1$lld-ஐப் பயன்படுத்தியுள்ளீர்கள்.",
+   "back": "5 free cutlings-in 3-ACC you-have-used.",
+   "why": "Tamil puts the whole before the part, so positional placeholders put the total first; neutral perfect, not the used-up -விட்டீர்கள் of S3. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S6": {
+   "s": "%@ கட்லிங்குகளுக்கு இடம்",
+   "back": "5,000 cutlings-for room",
+   "why": "Verbless bold line; 'room' (இடம்) is the space image the grid after purchase shows, reused in S22, S23 and K1. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S7": {
+   "s": "உரை கட்லிங்குகள் %@ வரை, படங்கள் %lld வரை சேமிக்கலாம்.",
+   "back": "text cutlings 5,000 up-to, images 500 up-to save-may.",
+   "why": "Two 'X up to N' pairs side by side is the Tamil way to give two caps; உரை கட்லிங்கு and படங்கள் from the vocabulary file. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S8": {
+   "s": "iPhone, iPad மற்றும் Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Tamil list pattern for three: comma, then மற்றும் before the last; device names stay in Latin as Apple's Tamil writes them. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S9": {
+   "s": "உங்கள் Apple Account-இல் மூன்றிலும் கிடைக்கும். தனித்தனியே வாங்கத் தேவையில்லை.",
+   "back": "your Apple Account-on three-in-all will-be-available. separately to-buy no-need.",
+   "why": "Says 'one purchase' the way a Tamil seller would, as no need to buy per device, so S10's 'once' is not repeated; Apple Account-இல் follows the vocabulary's suffix style. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S10": {
+   "s": "ஒருமுறை கட்டினால் போதும்",
+   "back": "once if-pay enough",
+   "why": "'Pay once and that's enough' is everyday Tamil for a one-time price and implies nothing recurring. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S11": {
+   "s": "சந்தா, விளம்பரம், கணக்குப் பதிவு எதுவும் இல்லை.",
+   "back": "subscription, advertisement, account registration any not-is.",
+   "why": "List closed by எதுவும் இல்லை (none of these) is native; சந்தா is the Tamil word for subscription in Apple's own Tamil. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S12": {
+   "s": "வாங்கியவற்றை மீட்டமை",
+   "back": "purchased-things-ACC restore",
+   "why": "Built from Apple Tamil's வாங்கியவை (Purchased) and மீட்டமை (Restore), bare imperative as iOS buttons use; confirm against a Tamil-language iPhone. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S13": {
+   "s": "மீட்டமைக்கிறது…",
+   "back": "restoring…",
+   "why": "Present progressive of the S12 verb, with the ellipsis character. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S14": {
+   "s": "%@-க்கு அன்லாக் செய்யவும்",
+   "back": "$4.99-for unlock do-please",
+   "why": "Price + -க்கு is how Tamil prices an action; அன்லாக் because திற means open and K1 opens the app; -அவும் polite form matches the vocabulary's தொடரவும்; 'once' is carried by S10 right above to fit the narrow button. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S15": {
+   "s": "அன்லாக் செய்யவும்",
+   "back": "unlock do-please",
+   "why": "S14 without the price. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S16": {
+   "s": "பிறகு பார்க்கலாம்",
+   "back": "later let's-see",
+   "why": "What a Tamil speaker says to put something off kindly; it postpones and does not refuse. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S17": {
+   "s": "மூடு",
+   "back": "close",
+   "why": "The bare verb iOS Tamil uses on close buttons. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S18": {
+   "s": "இனி எல்லாம் உங்களுடையது",
+   "back": "from-now everything yours",
+   "why": "Warm and a little proud; இனி carries 'from now on', எல்லாம் takes in all the room. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S19": {
+   "s": "வாங்கியதற்கு நன்றி. கட்லிங்கைத் தனியாக உருவாக்கும் ஒருவருக்கு இது பெரிய உதவி.",
+   "back": "bought-for thanks. Cutling-ACC alone making one-person-to this big help.",
+   "why": "Thanks first, then the maker as a third person because the app speaks, not the developer; உதவி (help) is warmer than ஆதரவு (support). Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S20": {
+   "s": "மீண்டும் வந்ததில் மகிழ்ச்சி. நீங்கள் முன்பு வாங்கியது திரும்பக் கிடைத்துவிட்டது.",
+   "back": "again came-in happiness. you before bought-thing back has-been-got.",
+   "why": "Avoids மீண்டும் வருக, which is what shops print to mean 'visit again' on the way out. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S21": {
+   "s": "%2$lld இலவசக் கட்லிங்குகளில் %1$lld பயன்பாட்டில்",
+   "back": "5 free cutlings-in 3 in-use",
+   "why": "Verbless so no plural agreement can go wrong when the used count is 1; whole before part as in S5. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S22": {
+   "s": "சேமித்தவை: %lld. இனி %@ கட்லிங்குகள் வரை இடம் உண்டு.",
+   "back": "saved-ones: 5. from-now 5,000 cutlings up-to room is.",
+   "why": "A count after a label reads right for 1, 2, 5 and 21, where 'N கட்லிங்குகள்' would be wrong for 1. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S23": {
+   "s": "கட்லிங்கு அன்லாக் ஆகிவிட்டது. இனி %@ கட்லிங்குகளுக்கு இடம் உண்டு.",
+   "back": "Cutling unlock has-become. from-now 5,000 cutlings-for room is.",
+   "why": "App name as the vocabulary writes it; spoken completive ஆகிவிட்டது announces the moment. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S24": {
+   "s": "வாங்க முடியவில்லை",
+   "back": "to-buy could-not",
+   "why": "Impersonal inability, the calm Tamil way to say it did not go through, with no subject to blame. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S25": {
+   "s": "App Store-உடன் இப்போது இணைக்க முடியவில்லை. சிறிது நேரத்தில் மீண்டும் முயலவும்.",
+   "back": "App Store-with now connect could-not. little time-in again try-please.",
+   "why": "இணைக்க முடியவில்லை and மீண்டும் முயலவும் are the phrases Tamil iOS uses for a failed connection and Try Again. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S26": {
+   "s": "இந்தக் கட்டணத்தை App Store உறுதிசெய்யவில்லை.",
+   "back": "this payment-ACC App Store did-not-confirm.",
+   "why": "கட்டணம் (payment) is concrete where the noun வாங்குதல் reads translated. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S27": {
+   "s": "இந்தச் சாதனத்தில் உள்நுழைந்துள்ள Apple Account-இல், கட்லிங்கை முன்பு வாங்கியதாகப் பதிவு எதுவும் இல்லை.",
+   "back": "this device-on signed-in Apple Account-in, Cutling-ACC before bought-as record any not-is.",
+   "why": "'No record of having bought' is how Tamil states an absence calmly; உள்நுழைந்த is the vocabulary's word for signed in. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S28": {
+   "s": "இலவசப் பதிப்பில் %lld கட்லிங்குகள் மட்டுமே இருக்கும். ஒருமுறை அன்லாக் செய்தால், வேண்டிய அளவு சேமிக்கலாம்.",
+   "back": "free version-in 5 cutlings only will-be. once if-unlock, wanted amount save-may.",
+   "why": "Plain fact, then the conditional way out; வேண்டிய அளவு is everyday 'as much as you like'. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "S29": {
+   "s": "இலவசம்: %2$lld-இல் %1$lld",
+   "back": "free: 5-in 4",
+   "why": "'5-இல் 4' is the Tamil 'four out of five', whole first; the colon pair fits the small subtitle and matches M3 and M4. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "K1": {
+   "s": "%lld இலவச இடங்களும் நிறைந்தன. அன்லாக் செய்யத் தட்டவும்",
+   "back": "5 free places-all filled. unlock to-do tap-please",
+   "why": "Seats-filled image (இடம், as in S6) is short and native; 'X செய்யத் தட்டவும்' is the standard Tamil tap prompt; about 29 graphemes, tight on the 30 budget. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "M1": {
+   "s": "கட்லிங்கை அன்லாக் செய்",
+   "back": "Cutling-ACC unlock do",
+   "why": "Bare imperative is how Tamil Mac menus name commands (மூடு, சேமி). Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "M2": {
+   "s": "கட்லிங்கை அன்லாக் செய்…",
+   "back": "Cutling-ACC unlock do…",
+   "why": "M1 as a button that opens a window, with the ellipsis character. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "M3": {
+   "s": "இலவசக் கட்லிங்குகள்",
+   "back": "free cutlings",
+   "why": "Row label in the vocabulary's plural. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "M4": {
+   "s": "%2$lld-இல் %1$lld",
+   "back": "5-in 3",
+   "why": "Tamil's own 'out of' pair, whole first, shorter than a slash would read. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "M5": {
+   "s": "அன்லாக் செய்யப்பட்டது",
+   "back": "unlock has-been-done",
+   "why": "Passive participle is how Tamil Settings show a state (as இயக்கப்பட்டது for On). Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "M6": {
+   "s": "ஒருமுறை வாங்கினால், iPhone, iPad, Mac ஆகிய மூன்றிலும் கட்லிங்கு அன்லாக் ஆகும்.",
+   "back": "once if-buy, iPhone, iPad, Mac such three-in-all Cutling unlock will-become.",
+   "why": "Inside a sentence Tamil gathers a list with ஆகிய and a count, which reads more native than மற்றும் here. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "M7": {
+   "s": "இந்த Apple Account-இல் உள்நுழைந்த iPhone, iPad, Mac ஆகியவற்றில் அன்லாக் செய்யப்பட்டுள்ளது.",
+   "back": "this Apple Account-in signed-in iPhone, iPad, Mac those-in unlock has-been-done.",
+   "why": "Reuses the vocabulary's 'Apple Account-இல் உள்நுழைந்த' phrase. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "M8": {
+   "s": "கட்லிங்கு இலவசமாவதற்கு முன்பே வாங்கிவிட்டீர்கள், அதனால் இது அன்லாக் செய்யப்பட்டபடியே இருக்கும். அன்றே நம்பியதற்கு நன்றி.",
+   "back": "Cutling free-becoming-before-EMPH you-bought, so this unlocked-as-is will-stay. that-day-EMPH believed-for thanks.",
+   "why": "The reason, then the thanks; 'thanks for believing in it back then' names why they are thanked. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  }
+ }
+}

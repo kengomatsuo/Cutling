@@ -32,3 +32,6 @@
 "Cancel" = "Zrušit";
 "%@, %lld of %lld" = "%@, %lld z %lld";
 "Space" = "Mezerník";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"%lld free cutlings used. Tap to unlock." = "Využito všech %lld zdarma · Odemknout";

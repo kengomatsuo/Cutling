@@ -1,0 +1,194 @@
+{
+  "tr": {
+    "S1": {
+      "s": "%lld ücretsiz",
+      "back": "5 free",
+      "why": "Under a bracket a bare count plus adjective is how a Turkish label reads; the tiles are the noun, so naming them again would only crowd 12 characters."
+    },
+    "S2": {
+      "s": "Saklamaya devam edin",
+      "back": "To-keeping continue (you, polite)",
+      "why": "An invitation in the siz imperative the vocab uses (sağlayın); \"saklamak\" (to keep, as in iOS \"Mesajları Sakla\") is the one saving verb used in every key; exactly 20 characters."
+    },
+    "S3": {
+      "s": "%lld ücretsiz Cutling’inizi kullandınız. Hepsi ücretsiz kalacak ve çalışmaya devam edecek.",
+      "back": "5 free Cutling-your-(acc.) you-used. All-of-them free will-stay and to-working continue will.",
+      "why": "Turkish keeps the noun singular after a numeral, so it holds for any count; future tense (kalacak, edecek) makes the reassurance a promise rather than a rule."
+    },
+    "S4": {
+      "s": "%lld Cutling’i ücretsiz saklayabilirsiniz.",
+      "back": "5 Cutling-(acc.) free you-can-keep.",
+      "why": "Plain siz statement; the suffix sits on Cutling, never on the number, so no vowel harmony depends on the value."
+    },
+    "S5": {
+      "s": "%2$lld ücretsiz Cutling’in %1$lld tanesini kullandınız.",
+      "back": "5 free Cutling-of 3 piece-of-it-(acc.) you-used.",
+      "why": "Turkish names the whole before the part, so the total comes first and positional placeholders are needed; \"tanesini\" carries the case ending so no suffix ever lands on a digit."
+    },
+    "S6": {
+      "s": "%@ Cutling’lik yer",
+      "back": "5,000 Cutling-worth room",
+      "why": "The -lik suffix (\"5.000 kişilik salon\") is the native way to size a space; short noun phrase like the other bold row lines."
+    },
+    "S7": {
+      "s": "%@ metin ve %lld görsel saklayabilirsiniz.",
+      "back": "5,000 text and 500 image you-can-keep.",
+      "why": "\"Metin\" and \"görsel\" from the vocab, singular after numerals; \"en fazla\" (at most) left out because at the moment of asking it reads as a cap, and the number already says it."
+    },
+    "S8": {
+      "s": "iPhone, iPad ve Mac",
+      "back": "iPhone, iPad and Mac",
+      "why": "Turkish lists with a comma and a single \"ve\" before the last item, no serial comma."
+    },
+    "S9": {
+      "s": "Tek satın alım, Apple Hesabınızla üçünde de geçerli.",
+      "back": "Single purchase, Apple Account-your-with three-of-them-in too valid.",
+      "why": "\"Apple Hesabınızla\" exactly as the vocab writes it; \"üçünde de\" points back at the three devices in the bold line instead of naming them twice."
+    },
+    "S10": {
+      "s": "Tek seferlik ödeme",
+      "back": "Single-time payment",
+      "why": "The fixed Turkish phrase for a one-off charge, the opposite of \"aylık\" (monthly); 18 characters."
+    },
+    "S11": {
+      "s": "Abonelik yok, reklam yok, üyelik yok.",
+      "back": "Subscription none, advertisement none, membership none.",
+      "why": "The repeated \"yok\" is how a Turkish speaker says it out loud; \"üyelik\" is the everyday word for signing up to a service."
+    },
+    "S12": {
+      "s": "Satın Alımları Geri Yükle",
+      "back": "Purchases Back Load",
+      "why": "The wording Turkish iOS apps use for the App Store restore action, title case like Apple's Turkish buttons; 25 characters, one over the 24 budget, and no shorter form is recognised for this action (flag for review)."
+    },
+    "S13": {
+      "s": "Geri yükleniyor…",
+      "back": "Back being-loaded…",
+      "why": "The progressive passive is how iOS Turkish shows work under way (Yükleniyor…), with the single ellipsis character."
+    },
+    "S14": {
+      "s": "Kilidi Aç · Tek Seferlik %@",
+      "back": "Lock Open · Single-Time 4.99 $",
+      "why": "Action, then the price marked with the S10 phrase so it reads as paid once; no suffix touches the price, so any currency format works; 25 characters plus the price (the smoother \"Tek Seferlik %@ ile Kilidi Aç\" ran to 27)."
+    },
+    "S15": {
+      "s": "Kilidi Aç",
+      "back": "Lock Open",
+      "why": "The standard iOS Turkish label for unlock, same verb as S14."
+    },
+    "S16": {
+      "s": "Şimdi değil",
+      "back": "Now not",
+      "why": "What iOS Turkish says when a person puts something off (Şimdi Değil); it leaves the door open instead of refusing."
+    },
+    "S17": {
+      "s": "Kapat",
+      "back": "Close",
+      "why": "The iOS Turkish label for a close button."
+    },
+    "S18": {
+      "s": "Artık hepsi sizin",
+      "back": "Now all-of-it yours",
+      "why": "Warm and plain; \"hepsi\" takes in the five tiles and the whole new grid at once; 17 characters."
+    },
+    "S19": {
+      "s": "Teşekkürler. Cutling’e ve onu tek başına yapan kişiye destek oldunuz.",
+      "back": "Thanks. Cutling-to and it alone making person-to support you-became.",
+      "why": "Thanks first, then what the money did, in the siz past tense; \"tek başına yapan kişi\" says one person makes it without a sob story."
+    },
+    "S20": {
+      "s": "Tekrar hoş geldiniz. Önceki satın alımınız geri yüklendi.",
+      "back": "Again welcome-you. Earlier purchase-your back was-loaded.",
+      "why": "\"Tekrar hoş geldiniz\" is the set Turkish welcome back; \"geri yüklendi\" repeats the S12 verb so the person sees the link did what it said."
+    },
+    "S21": {
+      "s": "%2$lld ücretsiz Cutling’in %1$lld tanesi kullanıldı",
+      "back": "5 free Cutling-of 3 piece-of-it was-used",
+      "why": "Same whole-then-part order as S5 with positional placeholders; passive here because VoiceOver describes the tiles' state."
+    },
+    "S22": {
+      "s": "%lld Cutling’iniz var. Artık %@ Cutling’lik yer var.",
+      "back": "5 Cutling-your exists. Now 5,000 Cutling-worth room exists.",
+      "why": "Turkish uses the singular after every numeral, so 1, 2, 5 and 21 all read correctly; S6's \"Cutling’lik yer\" reused so the room has one name."
+    },
+    "S23": {
+      "s": "Cutling’in kilidi açıldı. Artık %@ Cutling’lik yer var.",
+      "back": "Cutling-of lock-its was-opened. Now 5,000 Cutling-worth room exists.",
+      "why": "The app's name in the genitive marks this as the app being unlocked; second sentence repeats S22's room phrase."
+    },
+    "S24": {
+      "s": "Satın alma tamamlanamadı",
+      "back": "Purchasing could-not-be-completed",
+      "why": "Impersonal passive, so no one is blamed; \"satın alma\" names the act of buying, while \"satın alım\" (S9, S12) is the purchase a person owns."
+    },
+    "S25": {
+      "s": "App Store’a şu anda ulaşılamıyor. Biraz sonra tekrar deneyin.",
+      "back": "App Store-to this moment cannot-be-reached. A-little later again try-you.",
+      "why": "App Store keeps its English name with the Turkish suffix after an apostrophe (Store’a, from the spoken \"stor\"); \"biraz sonra\" is calmer than \"daha sonra\"."
+    },
+    "S26": {
+      "s": "App Store bu satın almayı onaylamadı.",
+      "back": "App Store this purchasing-(acc.) did-not-confirm.",
+      "why": "States what the store did, not what the person did; same \"satın alma\" as the alert title."
+    },
+    "S27": {
+      "s": "Bu cihazda giriş yaptığınız Apple Hesabında Cutling satın alımı bulunamadı.",
+      "back": "This device-on sign-in you-made Apple Account-in Cutling purchase could-not-be-found.",
+      "why": "\"Giriş yap\" and \"Apple Hesabı\" from the vocab sentence; \"bulunamadı\" is how Turkish reports an empty search; 75 characters."
+    },
+    "S28": {
+      "s": "Ücretsiz sürüm %lld Cutling saklar. Cutling’in kilidini bir kez açarak dilediğiniz kadar saklayın.",
+      "back": "Free version 5 Cutling keeps. Cutling-of lock-its one time by-opening wished-by-you as-much keep-you.",
+      "why": "Siri reads this aloud, so two whole sentences in the siz form, with the same \"sakla\" verb and \"kilidini aç\" as the sheet; 98 characters."
+    },
+    "S29": {
+      "s": "%lld/%lld ücretsiz",
+      "back": "4/5 free",
+      "why": "\"4/5\" is how Turkish screens show a used-of-total count; order matches English so no positional forms needed."
+    },
+    "K1": {
+      "s": "%lld ücretsiz yer doldu · Kilidi açın",
+      "back": "5 free room filled · Lock-the open-you",
+      "why": "\"Yer\" is the room S6 and S22 already name, and a slot fills where a Cutling cannot; \"Kilidi açın\" tells the person what tapping does; 37 characters."
+    },
+    "M1": {
+      "s": "Cutling’in Kilidini Aç",
+      "back": "Cutling-of Lock-its Open",
+      "why": "Verb-led command name in title case, as macOS Turkish names its windows and menu items; 22 characters."
+    },
+    "M2": {
+      "s": "Cutling’in Kilidini Aç…",
+      "back": "Cutling-of Lock-its Open…",
+      "why": "M1 with the ellipsis character because it opens a window."
+    },
+    "M3": {
+      "s": "Ücretsiz Cutling’ler",
+      "back": "Free Cutlings",
+      "why": "The vocab's plural list title with an adjective in front, so the row reads as a label and M4 supplies the count."
+    },
+    "M4": {
+      "s": "%lld/%lld",
+      "back": "3/5",
+      "why": "Same compact pair as S29."
+    },
+    "M5": {
+      "s": "Kilidi açık",
+      "back": "Lock-its open",
+      "why": "A state, not an event (açık, not açıldı); the possessive points at Cutling, whose section the row sits in."
+    },
+    "M6": {
+      "s": "Tek satın alımla Cutling’in kilidi iPhone, iPad ve Mac’te açılır.",
+      "back": "Single purchase-with Cutling-of lock-its iPhone, iPad and Mac-on opens.",
+      "why": "\"Tek satın alım\" as in S9; the locative goes on the last item only (Mac’te, from the spoken \"mek\"), as Turkish does with a list."
+    },
+    "M7": {
+      "s": "Bu Apple Hesabıyla iPhone, iPad ve Mac’te kilidi açık.",
+      "back": "This Apple Account-with iPhone, iPad and Mac-on lock-its open.",
+      "why": "Same list and state word as M5 and M6; \"Hesabıyla\" is the vocab's account word with its consonant softened before the suffix."
+    },
+    "M8": {
+      "s": "Cutling’i ücretsiz olmadan önce satın aldınız, bu yüzden kilidi hep açık kalacak. Teşekkürler.",
+      "back": "Cutling-(acc.) free becoming-before you-bought, this because-of lock-its always open will-stay. Thanks.",
+      "why": "Fact, consequence, thanks, in the siz past; \"hep açık kalacak\" promises it stays as it is; 95 characters."
+    }
+  }
+}

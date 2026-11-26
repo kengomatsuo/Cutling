@@ -1,0 +1,194 @@
+{
+  "lv": {
+    "S1": {
+      "s": "%lld bez maksas",
+      "back": "5 without charge",
+      "why": "\"bez maksas\" is the phrase Latvian stores print on free things and stands alone without a noun; \"bezmaksas\" would need one after it."
+    },
+    "S2": {
+      "s": "Turpiniet saglabāt",
+      "back": "Continue(you-polite) to-save",
+      "why": "An invitation in the polite jūs imperative, the form the vocabulary file uses; it asks the person to keep going and names no limit."
+    },
+    "S3": {
+      "s": "Visas %lld bezmaksas vietas ir aizņemtas. Jūsu Cutlings arī turpmāk strādās bez maksas.",
+      "back": "All 5 free places are taken. Your Cutlings also henceforth will-work without charge.",
+      "why": "\"vietas aizņemtas\" is how Latvian says seats are taken, so nothing sounds like an error; the second sentence makes \"free\" and \"keep working\" one promise. \"Cutlings\" is the vocabulary's indeclinable plural."
+    },
+    "S4": {
+      "s": "Pirmos %lld Cutlings varat saglabāt bez maksas.",
+      "back": "First 5 Cutlings you-can save without charge.",
+      "why": "The topic comes first and \"bez maksas\" last, where Latvian puts the new information; \"Pirmos\" is masculine accusative plural to agree with Cutlings."
+    },
+    "S5": {
+      "s": "Jūsu Cutlings aizņem %1$lld no %2$lld bezmaksas vietām.",
+      "back": "Your Cutlings take-up 3 of 5 free places.",
+      "why": "The present-tense verb \"aizņem\" has one form for singular and plural, so the line is right for 1 used as well as 4; \"no\" takes the dative plural \"vietām\"."
+    },
+    "S6": {
+      "s": "Vieta %@ Cutlings",
+      "back": "Room 5000 Cutlings",
+      "why": "A short noun headline, as Latvian row titles are; Cutlings is indeclinable, so the missing dative ending is not noticed."
+    },
+    "S7": {
+      "s": "Varat saglabāt līdz %@ tekstiem un %lld attēliem.",
+      "back": "You-can save up-to 5000 texts and 500 images.",
+      "why": "\"līdz\" takes the dative in the plural (tekstiem, attēliem); the item kinds are the vocabulary's own words Teksts and Attēli."
+    },
+    "S8": {
+      "s": "iPhone, iPad un Mac",
+      "back": "iPhone, iPad and Mac",
+      "why": "A Latvian list of three has one \"un\" and no comma before it; the product names keep Apple's spelling and the lowercase i."
+    },
+    "S9": {
+      "s": "Viens pirkums der visās ierīcēs ar jūsu Apple kontu.",
+      "back": "One purchase is-valid in-all devices with your Apple account.",
+      "why": "\"der\" is what Latvians say of a ticket or a code that is valid; \"Apple kontu\" is the vocabulary's form."
+    },
+    "S10": {
+      "s": "Maksājat vienreiz",
+      "back": "You-pay once",
+      "why": "A plain statement to the person in the jūs form, with a verb; \"vienreiz\" already rules out anything recurring."
+    },
+    "S11": {
+      "s": "Bez abonementa, reklāmām un reģistrēšanās.",
+      "back": "Without subscription, advertisements and registering.",
+      "why": "One \"bez\" governs all three, which is how a Latvian would list absences; \"reģistrēšanās\" is the everyday word for signing up for an account."
+    },
+    "S12": {
+      "s": "Atjaunot pirkumus",
+      "back": "Restore purchases",
+      "why": "The infinitive command form and the wording Latvian iOS apps use for the App Store restore action."
+    },
+    "S13": {
+      "s": "Atjauno pirkumus…",
+      "back": "Restores purchases…",
+      "why": "The present tense shows the work under way, the way Latvian progress labels read; it ends on the single ellipsis character."
+    },
+    "S14": {
+      "s": "Atbloķēt par %@",
+      "back": "Unlock for 4,99 €",
+      "why": "\"atbloķēt\" is the standard Latvian verb for unlock, in the infinitive as Latvian buttons are; \"par\" plus the price is the natural phrase, and \"pay once\" is already said by the row above."
+    },
+    "S15": {
+      "s": "Atbloķēt",
+      "back": "Unlock",
+      "why": "The same verb as S14 without the price, so the button keeps its word when the price arrives."
+    },
+    "S16": {
+      "s": "Varbūt vēlāk",
+      "back": "Maybe later",
+      "why": "What a Latvian says to put something off politely; \"Ne tagad\" sounds more like a refusal."
+    },
+    "S17": {
+      "s": "Aizvērt",
+      "back": "Close",
+      "why": "The infinitive Latvian close buttons use."
+    },
+    "S18": {
+      "s": "Tagad viss ir jūsu",
+      "back": "Now everything is yours",
+      "why": "Short and warm, with \"viss\" covering the whole app and the new room; \"jūsu\" keeps the polite address."
+    },
+    "S19": {
+      "s": "Paldies. Tā jūs atbalstāt Cutling un cilvēku, kas to veido viens pats.",
+      "back": "Thanks. That-way you support Cutling and the-person who it makes alone himself.",
+      "why": "\"viens pats\" says one person, alone, without the stiff \"vienīgais izstrādātājs\"; the masculine matches the app's maker. \"tā\" points back to the purchase just made."
+    },
+    "S20": {
+      "s": "Prieks jūs atkal redzēt. Jūsu pirkums ir atjaunots.",
+      "back": "Joy you again to-see. Your purchase is restored.",
+      "why": "\"Prieks jūs atkal redzēt\" is a native greeting for someone coming back; \"Laipni lūdzam atpakaļ\" reads as a translated hotel sign."
+    },
+    "S21": {
+      "s": "Aizņemtas bezmaksas vietas: %1$lld no %2$lld",
+      "back": "Taken free places: 3 of 5",
+      "why": "In a label and value the participle agrees with \"vietas\", not with the number, so VoiceOver says it correctly for any count."
+    },
+    "S22": {
+      "s": "Cutlings: %lld. Tagad varat saglabāt līdz %@.",
+      "back": "Cutlings: 5. Now you-can save up-to 5000.",
+      "why": "The vocabulary's list title used as a label before the number, so nothing has to agree with 1, 2, 5 or 21; the second sentence needs no noun."
+    },
+    "S23": {
+      "s": "Cutling ir atbloķēts. Tagad varat saglabāt līdz %@ Cutlings.",
+      "back": "Cutling is unlocked. Now you-can save up-to 5000 Cutlings.",
+      "why": "The app's name takes masculine agreement, as Latvian gives names that end in a consonant; Cutling is the app and Cutlings the items, as the vocabulary has them."
+    },
+    "S24": {
+      "s": "Pirkums netika pabeigts",
+      "back": "Purchase was-not completed",
+      "why": "Passive with no actor, so nobody is blamed; a title with no full stop."
+    },
+    "S25": {
+      "s": "Pašlaik nevar sazināties ar App Store. Mēģiniet vēlreiz pēc brīža.",
+      "back": "Currently cannot connect with App Store. Try(you-polite) again after a-moment.",
+      "why": "The impersonal \"nevar\" keeps the fault away from the person; \"pēc brīža\" is the ordinary way to say shortly."
+    },
+    "S26": {
+      "s": "App Store šo pirkumu neapstiprināja.",
+      "back": "App Store this purchase did-not-confirm.",
+      "why": "The App Store is the subject and the verb comes last, which is plain Latvian order for a stated fact."
+    },
+    "S27": {
+      "s": "Apple kontā, ar kuru esat pierakstījies šajā ierīcē, nav Cutling pirkuma.",
+      "back": "In-Apple account, with which you-are signed-in on-this device, there-is-no Cutling purchase.",
+      "why": "The relative clause \"ar kuru esat pierakstījies\" is the vocabulary's own wording for the account on a device, kept so the app names it one way."
+    },
+    "S28": {
+      "s": "Bezmaksas versijā ietilpst %lld Cutlings. Atbloķējot Cutling vienreiz, varēsiet saglabāt, cik gribat.",
+      "back": "In-free version fit 5 Cutlings. Unlocking Cutling once, you-will-be-able to-save as-many-as you-want.",
+      "why": "\"ietilpst\" says how much a thing holds, which suits Siri saying why a save stopped; \"cik gribat\" is warmer than \"cik vēlaties\" and still polite."
+    },
+    "S29": {
+      "s": "%1$lld no %2$lld bez maksas",
+      "back": "4 of 5 without charge",
+      "why": "A compact count, with the same \"bez maksas\" as S1, so the main screen and the sheet use the same words for free."
+    },
+    "K1": {
+      "s": "Visas %lld vietas aizņemtas. Atbloķēt",
+      "back": "All 5 places taken. Unlock",
+      "why": "A headline with \"ir\" dropped, the way Latvian compresses a short notice; the infinitive \"Atbloķēt\" names what tapping the capsule does, in the same verb as the button."
+    },
+    "M1": {
+      "s": "Atbloķēt Cutling",
+      "back": "Unlock Cutling",
+      "why": "A verb-led command in the infinitive, the form Latvian Mac menu items and window titles take."
+    },
+    "M2": {
+      "s": "Atbloķēt Cutling…",
+      "back": "Unlock Cutling…",
+      "why": "The same command as M1, with the ellipsis character because it opens a window."
+    },
+    "M3": {
+      "s": "Bezmaksas Cutlings",
+      "back": "Free Cutlings",
+      "why": "The vocabulary's item word with the attributive \"bezmaksas\", which here has its noun after it."
+    },
+    "M4": {
+      "s": "%1$lld no %2$lld",
+      "back": "3 of 5",
+      "why": "The number pair Latvians write, with \"no\" for of; no noun, so nothing has to agree."
+    },
+    "M5": {
+      "s": "Cutling atbloķēts",
+      "back": "Cutling unlocked",
+      "why": "A status with \"ir\" dropped, as Latvian settings statuses are written; masculine to agree with the name."
+    },
+    "M6": {
+      "s": "Viens pirkums atbloķē Cutling iPhone, iPad un Mac ierīcēs.",
+      "back": "One purchase unlocks Cutling on-iPhone, iPad and Mac devices.",
+      "why": "The indeclinable product names are carried by the locative \"ierīcēs\", the usual Latvian way to put brand names in a case."
+    },
+    "M7": {
+      "s": "Cutling ir atbloķēts iPhone, iPad un Mac ierīcēs ar šo Apple kontu.",
+      "back": "Cutling is unlocked on-iPhone, iPad and Mac devices with this Apple account.",
+      "why": "The same construction as M6 so the two lines read as before and after; \"šo\" points at the account shown in Settings."
+    },
+    "M8": {
+      "s": "Nopirkāt Cutling, pirms tas kļuva bezmaksas, tāpēc tas paliek atbloķēts. Paldies par to.",
+      "back": "You-bought Cutling before it became free, therefore it stays unlocked. Thanks for that.",
+      "why": "The past jūs form \"nopirkāt\" has no gender, so it fits every buyer; \"Paldies par to\" thanks them for that purchase in particular."
+    }
+  }
+}

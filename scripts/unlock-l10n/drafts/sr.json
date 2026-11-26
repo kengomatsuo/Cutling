@@ -1,0 +1,194 @@
+{
+  "sr": {
+    "S1": {
+      "s": "%lld бесплатних",
+      "back": "5 free-ones (genitive plural)",
+      "why": "Elliptical 'five free [cutlings]', the noun is the tiles above; genitive plural is the form after 5 (2 to 4 would take 'бесплатна')."
+    },
+    "S2": {
+      "s": "Наставите да чувате",
+      "back": "Continue to save",
+      "why": "An invitation in the formal imperative the vocabulary uses; no limit word, no price, just carry on."
+    },
+    "S3": {
+      "s": "Искористили сте свих %lld бесплатних катлинга. Они остају бесплатни и раде као и досад.",
+      "back": "Used-up have-you all 5 free cutlings. They stay free and work as and until-now.",
+      "why": "Past tense with formal 'сте'; 'као и досад' is the everyday way to say nothing changes for them; item word 'катлинг' lowercase in prose as in the vocabulary sentence."
+    },
+    "S4": {
+      "s": "Првих %lld катлинга чувате бесплатно.",
+      "back": "First 5 cutlings you-save for-free.",
+      "why": "States the offer as a plain fact about the person's first items instead of 'you can', which reads like a sign."
+    },
+    "S5": {
+      "s": "Искористили сте %1$lld од %2$lld бесплатних катлинга.",
+      "back": "Used-up have-you 3 of 5 free cutlings.",
+      "why": "Agreement hangs on the total after 'од', so the sentence stays correct for any used count; positional placeholders keep the order safe."
+    },
+    "S6": {
+      "s": "Места за %@ катлинга",
+      "back": "Room for 5.000 cutlings",
+      "why": "Short noun phrase for a bold row; genitive plural after a number ending in thousands."
+    },
+    "S7": {
+      "s": "Чувајте до %@ текстова и %lld слика.",
+      "back": "Save up-to 5.000 texts and 500 images.",
+      "why": "'текст' and 'слике' from the vocabulary (text kind, images), in the genitive plural the numbers require."
+    },
+    "S8": {
+      "s": "iPhone, iPad и Mac",
+      "back": "iPhone, iPad and Mac",
+      "why": "Serbian lists with 'и' before the last item and no comma before it; product names stay in Latin script as Apple writes them."
+    },
+    "S9": {
+      "s": "Једна куповина за све уређаје пријављене на ваш Apple налог.",
+      "back": "One purchase for all devices signed-in onto your Apple account.",
+      "why": "'пријављен на ваш Apple налог' is the vocabulary's own phrase for the account and devices; lowercase formal 'ваш' as the vocabulary writes it."
+    },
+    "S10": {
+      "s": "Плаћате само једном",
+      "back": "You-pay only once",
+      "why": "Present tense, formal 'you'; 'само једном' is what a person says about a one-off price."
+    },
+    "S11": {
+      "s": "Без претплате, без реклама и без регистрације.",
+      "back": "Without subscription, without ads and without registration.",
+      "why": "Repeating 'без' is how Serbian stresses an absence; 'регистрација' is the common word for signing up for an account."
+    },
+    "S12": {
+      "s": "Врати куповине",
+      "back": "Restore purchases",
+      "why": "The wording Serbian iOS apps use for the App Store restore action, in the 2nd-person-singular imperative Serbian buttons take (like 'Настави')."
+    },
+    "S13": {
+      "s": "Враћање куповина…",
+      "back": "Restoring of-purchases…",
+      "why": "Verbal noun for an action in progress, as iOS writes busy states in Serbian, ending in the single ellipsis character."
+    },
+    "S14": {
+      "s": "Откључај Катлинг за %@",
+      "back": "Unlock Cutling for 4,99 $",
+      "why": "Button imperative like 'Настави'; 'за' plus a price is the natural 'for this much'; the one-time part is said in S10, so the button stays one line."
+    },
+    "S15": {
+      "s": "Откључај",
+      "back": "Unlock",
+      "why": "Same verb as S14 so the button keeps its word when the price arrives."
+    },
+    "S16": {
+      "s": "Можда касније",
+      "back": "Maybe later",
+      "why": "Puts it off without saying no; the common polite phrase for closing an offer."
+    },
+    "S17": {
+      "s": "Затвори",
+      "back": "Close",
+      "why": "The label Serbian iOS gives its close buttons, imperative singular."
+    },
+    "S18": {
+      "s": "Сада је све ваше",
+      "back": "Now is all yours",
+      "why": "'све' covers the items and the new room at once; short, warm, a little proud, no exclamation."
+    },
+    "S19": {
+      "s": "Хвала вам. Овом куповином подржавате Катлинг и човека који га сам прави.",
+      "back": "Thank you. With-this purchase you-support Cutling and the-person who it alone makes.",
+      "why": "'човека који га сам прави' says plainly that one person makes the app; 'Катлинг' is the app's name, capitalised, distinct from the lowercase item word."
+    },
+    "S20": {
+      "s": "Лепо што сте опет ту. Ваша ранија куповина је враћена.",
+      "back": "Nice that you-are again here. Your earlier purchase is restored.",
+      "why": "'Лепо што сте опет ту' is how a Serbian greets someone back; the calque 'добро дошли назад' is avoided."
+    },
+    "S21": {
+      "s": "Искоришћено %1$lld од %2$lld бесплатних катлинга",
+      "back": "Used-up 3 of 5 free cutlings",
+      "why": "Impersonal neuter participle, which is correct for any used count; spoken, so no final period needed."
+    },
+    "S22": {
+      "s": "Сачувано катлинга: %lld. Места има за %@.",
+      "back": "Saved of-cutlings: 5. Room there-is for 5.000.",
+      "why": "Same label-colon-number form as the vocabulary's count ('Катлинга: %lld'), so 1, 2, 5 and 21 all read correctly without plural rules."
+    },
+    "S23": {
+      "s": "Катлинг је откључан. Места има за %@ катлинга.",
+      "back": "Cutling is unlocked. Room there-is for 5.000 cutlings.",
+      "why": "The app's name as subject, masculine participle; the number ends in thousands so genitive plural is right."
+    },
+    "S24": {
+      "s": "Куповина није завршена",
+      "back": "Purchase is-not completed",
+      "why": "States the fact without a subject to blame; alert titles carry no period."
+    },
+    "S25": {
+      "s": "App Store тренутно није доступан. Покушајте поново мало касније.",
+      "back": "App Store currently is-not available. Try again a-little later.",
+      "why": "'мало касније' says 'shortly' the way people say it; App Store stays in Latin script, masculine agreement."
+    },
+    "S26": {
+      "s": "App Store није потврдио ову куповину.",
+      "back": "App Store has-not confirmed this purchase.",
+      "why": "Names who did not confirm, which keeps the person out of it."
+    },
+    "S27": {
+      "s": "На Apple налогу пријављеном на овом уређају нема раније куповине Катлинга.",
+      "back": "On Apple account signed-in on this device there-is-no earlier purchase of-Cutling.",
+      "why": "Reuses the vocabulary's 'пријављен' for the account on the device; 'нема' plus genitive is the plain way to say nothing was found."
+    },
+    "S28": {
+      "s": "Бесплатна верзија чува %lld катлинга. Откључајте Катлинг једном и чувајте колико год желите.",
+      "back": "Free version keeps 5 cutlings. Unlock Cutling once and save how-much ever you-want.",
+      "why": "Two short sentences Siri can say; 'колико год желите' is the idiom for as many as you like."
+    },
+    "S29": {
+      "s": "%1$lld од %2$lld бесплатних",
+      "back": "4 of 5 free-ones",
+      "why": "Compact count under the title; the noun is the list title above it, adjective agrees with the total."
+    },
+    "K1": {
+      "s": "Свих %lld искоришћено. Откључајте Катлинг",
+      "back": "All 5 used-up. Unlock Cutling",
+      "why": "Clipped banner grammar fits one key row; the second part is what the tap does, with no final period as on a button."
+    },
+    "M1": {
+      "s": "Откључај Катлинг",
+      "back": "Unlock Cutling",
+      "why": "Verb-led command in the imperative Serbian Mac menus and windows use."
+    },
+    "M2": {
+      "s": "Откључај Катлинг…",
+      "back": "Unlock Cutling…",
+      "why": "Same command as M1, with the ellipsis character because it opens a window."
+    },
+    "M3": {
+      "s": "Бесплатни катлинзи",
+      "back": "Free cutlings",
+      "why": "Nominative plural 'катлинзи' from the vocabulary's list title, as a row label."
+    },
+    "M4": {
+      "s": "%1$lld од %2$lld",
+      "back": "3 of 5",
+      "why": "'од' is how Serbian reads a count of a total aloud; shorter than a slash would sound."
+    },
+    "M5": {
+      "s": "Откључано",
+      "back": "Unlocked (neuter)",
+      "why": "Neuter status adjective, the same form Serbian settings use for 'Укључено'; the section is already titled Cutling."
+    },
+    "M6": {
+      "s": "Једна куповина откључава Катлинг за iPhone, iPad и Mac.",
+      "back": "One purchase unlocks Cutling for iPhone, iPad and Mac.",
+      "why": "'за' takes the accusative, which leaves the Latin product names undeclined, as in the vocabulary's 'Катлинг за Mac'."
+    },
+    "M7": {
+      "s": "Откључано за iPhone, iPad и Mac на овом Apple налогу.",
+      "back": "Unlocked for iPhone, iPad and Mac on this Apple account.",
+      "why": "Same 'за' construction as M6 so the names stay undeclined; 'Apple налог' from the vocabulary."
+    },
+    "M8": {
+      "s": "Катлинг сте купили пре него што је постао бесплатан, па остаје откључан. Хвала вам.",
+      "back": "Cutling you-have bought before than that it became free, so it-stays unlocked. Thank you.",
+      "why": "Reason then result joined with 'па', the everyday connective; thanks closes as a separate short sentence."
+    }
+  }
+}

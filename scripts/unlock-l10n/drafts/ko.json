@@ -1,0 +1,194 @@
+{
+  "ko": {
+    "S1": {
+      "s": "무료 %lld개",
+      "back": "free 5 [counter]",
+      "why": "A bare noun phrase is how Korean labels a group; 개 is the counter the app already uses in “컷링 %lld개”."
+    },
+    "S2": {
+      "s": "마음껏 저장하기",
+      "back": "to-heart's-content saving",
+      "why": "A -기 noun title invites without commanding and without picking a speech level; 마음껏 reads warm in all three states, even when nothing is saved yet."
+    },
+    "S3": {
+      "s": "무료 컷링 %lld개를 모두 채웠습니다. 저장한 컷링은 계속 무료로 쓸 수 있습니다.",
+      "back": "free cutling 5 [counter] all filled. saved cutlings-as-for continuing free-as use can.",
+      "why": "채웠습니다 (filled) matches the five full tiles above; 계속 무료로 쓸 수 있습니다 says they stay free and keep working in one clause, in the app's 합니다체."
+    },
+    "S4": {
+      "s": "컷링 %lld개까지 무료로 저장할 수 있습니다.",
+      "back": "cutling 5 [counter] up-to free-as save can.",
+      "why": "까지 carries the “up to” a Korean reader expects with a free allowance; 컷링 is the vocabulary file's word for an item."
+    },
+    "S5": {
+      "s": "무료 컷링 %2$lld개 중 %1$lld개를 채웠습니다.",
+      "back": "free cutling 5 [counter] among 3 [counter] filled.",
+      "why": "Korean says the whole before the part (5개 중 3개), so the placeholders are positional; same verb as S3."
+    },
+    "S6": {
+      "s": "컷링 %@개까지",
+      "back": "cutling 5,000 [counter] up-to",
+      "why": "A noun-phrase row title, as Korean feature lists are written; ends on 까지 so the grey line below finishes the thought."
+    },
+    "S7": {
+      "s": "텍스트는 %@개, 이미지는 %lld개까지 저장됩니다.",
+      "back": "text-as-for 5,000 [counter], image-as-for 500 [counter] up-to are-saved.",
+      "why": "텍스트 and 이미지 are the app's own words, and 은/는 sets the two limits side by side; ends on 저장됩니다 so it does not repeat the 수 있습니다 of the subtitle above it."
+    },
+    "S8": {
+      "s": "iPhone, iPad 및 Mac",
+      "back": "iPhone, iPad and Mac",
+      "why": "및 is how Apple's Korean joins the last of three items; device names stay in Latin as Apple writes them."
+    },
+    "S9": {
+      "s": "한 번 구입하면 Apple 계정의 모든 기기에 적용됩니다.",
+      "back": "one time buy-if Apple account's all devices-to applies.",
+      "why": "Apple 계정 and 모든 기기 echo the app's existing iCloud sentence; 구입 is Apple Korea's word for an App Store purchase, used throughout."
+    },
+    "S10": {
+      "s": "한 번만 결제",
+      "back": "one time-only payment",
+      "why": "만 (only) carries “nothing recurring” without naming the subscription twice; 결제 is the word Koreans use for paying at checkout."
+    },
+    "S11": {
+      "s": "구독도, 광고도, 회원 가입도 없습니다.",
+      "back": "subscription-also, advertising-also, member sign-up-also not-exist.",
+      "why": "The repeated 도 is the native way to say “no this, no that, no the other”; 회원 가입 is the everyday term for creating an account."
+    },
+    "S12": {
+      "s": "구입 항목 복원",
+      "back": "purchase items restore",
+      "why": "The wording Apple's own Korean apps use for Restore Purchases, kept with 구입 to match the App Store's term."
+    },
+    "S13": {
+      "s": "구입 항목 복원 중…",
+      "back": "purchase items restore in-progress…",
+      "why": "Keeps S12's words so the link does not change shape while it works; 중 plus the single ellipsis character."
+    },
+    "S14": {
+      "s": "%@에 잠금 해제",
+      "back": "4.99-at unlock",
+      "why": "에 is the same after any price (원, $, ¥), unlike 로/으로 which would change with the price's last sound; 잠금 해제 is the iOS Korean verb for unlocking."
+    },
+    "S15": {
+      "s": "잠금 해제",
+      "back": "unlock",
+      "why": "S14 without its price, so the button keeps its words when the price arrives."
+    },
+    "S16": {
+      "s": "나중에 하기",
+      "back": "later doing",
+      "why": "The phrase Korean apps use on a dismiss that puts off rather than refuses."
+    },
+    "S17": {
+      "s": "닫기",
+      "back": "close",
+      "why": "iOS Korean's own label for close buttons."
+    },
+    "S18": {
+      "s": "이제 전부 내 것",
+      "back": "now all-of-it my thing",
+      "why": "A title in the person's own voice, as Korean copy often puts it (내 파일, 이제 내 차례): 이제 marks the moment, 전부 takes in the whole grid with the empty room, and 내 것 is ownership, with no count and no 합니다 ending to clash with 내."
+    },
+    "S19": {
+      "s": "구입해 주셔서 감사합니다. 컷링을 혼자 만드는 개발자에게 큰 힘이 됩니다.",
+      "back": "buying giving-honorific thank. cutling alone making developer-to big strength becomes.",
+      "why": "큰 힘이 됩니다 is how Koreans say a purchase supports someone; 혼자 만드는 개발자 names the one maker plainly."
+    },
+    "S20": {
+      "s": "다시 오신 것을 환영합니다. 이전 구입을 복원했습니다.",
+      "back": "again came-honorific thing welcome. previous purchase restored.",
+      "why": "The standard Korean welcome-back in 합니다체, then the plain fact; 복원 matches the S12 link the person just tapped."
+    },
+    "S21": {
+      "s": "무료 컷링 %2$lld개 중 %1$lld개 사용",
+      "back": "free cutling 5 [counter] among 3 [counter] used",
+      "why": "A VoiceOver label reads best as a short noun phrase; positional placeholders because Korean puts the total first."
+    },
+    "S22": {
+      "s": "컷링 %lld개. 이제 %@개까지 저장할 수 있습니다.",
+      "back": "cutling 5 [counter]. now 5,000 [counter] up-to save can.",
+      "why": "Opens with the app's own count string, 컷링 %lld개, which needs no plural in Korean and so is right for 1, 2, 5 and 21; 이제 marks the new room."
+    },
+    "S23": {
+      "s": "잠금 해제되었습니다. 이제 컷링을 %@개까지 저장할 수 있습니다.",
+      "back": "unlock became. now cutling 5,000 [counter] up-to save can.",
+      "why": "Two short spoken sentences, the change first and the room second, in 합니다체."
+    },
+    "S24": {
+      "s": "구입이 완료되지 않았습니다",
+      "back": "purchase-subject completed-not became",
+      "why": "The purchase is the subject, so nobody is blamed; no period, as Korean alert titles go."
+    },
+    "S25": {
+      "s": "지금은 App Store에 연결할 수 없습니다. 잠시 후 다시 시도하십시오.",
+      "back": "now-as-for App Store-to connect cannot. moment after again try-please.",
+      "why": "잠시 후 다시 시도하십시오 is Apple Korea's alert wording, and 하십시오 holds the 합니다체 level."
+    },
+    "S26": {
+      "s": "App Store에서 이 구입이 확인되지 않았습니다.",
+      "back": "App Store-at this purchase-subject confirmed-not became.",
+      "why": "Said as what happened to the purchase, not as the App Store refusing, so it stays calm."
+    },
+    "S27": {
+      "s": "이 기기에 로그인된 Apple 계정에 컷링 구입 내역이 없습니다.",
+      "back": "this device-on signed-in Apple account-in cutling purchase history not-exist.",
+      "why": "로그인된 Apple 계정 is the vocabulary file's phrase; 구입 내역 is the App Store's own word for purchase history."
+    },
+    "S28": {
+      "s": "무료 버전은 컷링 %lld개까지입니다. 앱을 한 번 잠금 해제하면 마음껏 저장할 수 있습니다.",
+      "back": "free version-as-for cutling 5 [counter] up-to-is. app once unlock-if to-heart's-content save can.",
+      "why": "앱 names the app in the second sentence so 컷링 means only the items; 마음껏 repeats S2's word."
+    },
+    "S29": {
+      "s": "무료 %lld/%lld개",
+      "back": "free 4/5 [counter]",
+      "why": "A slash pair with the counter is how Korean UI writes a compact used-of-total; same order as the source numbers, so no positional forms."
+    },
+    "K1": {
+      "s": "무료 %lld개 모두 사용 · 탭하여 잠금 해제",
+      "back": "free 5 [counter] all used · tap-by unlock",
+      "why": "Clipped noun phrases fit one key's height; 탭하여 is iOS Korean's verb for tap, and the middle dot is a native separator."
+    },
+    "M1": {
+      "s": "컷링 잠금 해제",
+      "back": "cutling unlock",
+      "why": "Korean Mac commands are object plus verbal noun, as in 설정 열기; 컷링 here is the app's name as the vocabulary file writes it."
+    },
+    "M2": {
+      "s": "컷링 잠금 해제…",
+      "back": "cutling unlock…",
+      "why": "M1 with the ellipsis character because the button opens a window."
+    },
+    "M3": {
+      "s": "무료 컷링",
+      "back": "free cutling",
+      "why": "A row label is a noun; its value M4 gives the count."
+    },
+    "M4": {
+      "s": "%lld/%lld개",
+      "back": "3/5 [counter]",
+      "why": "The same compact pair as S29, so the free count looks the same on Mac and iPhone."
+    },
+    "M5": {
+      "s": "잠금 해제됨",
+      "back": "unlock done",
+      "why": "The -됨 status ending Korean Settings uses for a state (켜짐, 연결됨)."
+    },
+    "M6": {
+      "s": "한 번 구입하면 iPhone, iPad 및 Mac에서 모두 잠금 해제됩니다.",
+      "back": "one time buy-if iPhone, iPad and Mac-on all unlock-become.",
+      "why": "Opens like S9 so the promise is worded the same on every device; the section heading already names 컷링."
+    },
+    "M7": {
+      "s": "이 Apple 계정의 iPhone, iPad 및 Mac에서 잠금 해제되었습니다.",
+      "back": "this Apple account's iPhone, iPad and Mac-on unlocked-became.",
+      "why": "Past tense states it is done; Apple 계정 and the 및 list match S8 and S9."
+    },
+    "M8": {
+      "s": "컷링이 무료가 되기 전에 구입하셨으므로 잠금 해제가 그대로 유지됩니다. 일찍부터 함께해 주셔서 감사합니다.",
+      "back": "cutling-subject free-to become before bought-honorific-so unlock-subject as-is kept. early-from together-being giving-honorific thank.",
+      "why": "함께해 주셔서 감사합니다 is how Korean services thank early supporters; the honorific -시- marks the person as the one who bought."
+    }
+  }
+}

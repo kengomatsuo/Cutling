@@ -1,0 +1,386 @@
+{
+ "bn": {
+  "S1": {
+   "s": "%lldটি ফ্রি",
+   "back": "5-piece free",
+   "why": "Counter label in two words; ফ্রি is the word Bengali phone users say and read for no-charge, বিনামূল্যে would be stiff on a tile caption."
+  },
+  "S2": {
+   "s": "আরও কাটলিং রাখুন",
+   "back": "More cutlings keep-please",
+   "why": "An invitation in the polite আপনি imperative with the vocab item word; রাখা (to keep) is the plain verb for saving and recurs through the sheet."
+  },
+  "S3": {
+   "s": "%lldটি ফ্রি কাটলিংই রাখা হয়ে গেছে। এগুলো ফ্রিই থাকবে, আর আগের মতোই কাজ করবে।",
+   "back": "5-piece free cutlings-all kept have-become-gone. These free-indeed will-stay, and before like-just work will-do.",
+   "why": "হয়ে গেছে says used up without blame; the emphatic -ই on ফ্রিই and মতোই carries the reassurance a speaker would stress."
+  },
+  "S4": {
+   "s": "প্রথম %lldটি কাটলিং ফ্রি।",
+   "back": "First 5-piece cutlings free.",
+   "why": "States the offer as a fact, the way a Bengali shop sign would, instead of a 'you can' sentence."
+  },
+  "S5": {
+   "s": "ফ্রি %2$lldটির মধ্যে %1$lldটি কাটলিং রাখা হয়েছে।",
+   "back": "Free 5-piece-of among 3-piece cutlings kept have-been.",
+   "why": "Bengali says the whole before the part (৫টির মধ্যে ৩টি), so the placeholders are positional and the free total comes first."
+  },
+  "S6": {
+   "s": "%@ কাটলিংয়ের জায়গা",
+   "back": "5,000 cutlings-of space",
+   "why": "A noun phrase for the bold row; no টি after a large formatted number, as Bengali writers drop the classifier on big round counts."
+  },
+  "S7": {
+   "s": "সর্বোচ্চ %@টি টেক্সট আর %lldটি ছবি রাখতে পারবেন।",
+   "back": "Maximum 5,000-piece text and 500-piece images keep can-you.",
+   "why": "টেক্সট and ছবি from the vocabulary file; আর is the spoken 'and' between two things, এবং would be bookish here."
+  },
+  "S8": {
+   "s": "iPhone, iPad ও Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Device names stay in Latin script as the vocabulary file writes Mac and Apple Account; ও is the everyday conjunction before the last of a list."
+  },
+  "S9": {
+   "s": "এক কেনাতেই আপনার Apple Account-এর সব ডিভাইসে চলবে।",
+   "back": "One purchase-in-itself your Apple Account-of all devices-on will-run.",
+   "why": "এক কেনাতেই (in one purchase alone) carries 'covers all' through the -ই ending; Apple Account-এর hyphenated the way the vocab writes Mac-এর."
+  },
+  "S10": {
+   "s": "দাম শুধু একবার",
+   "back": "Price only once",
+   "why": "A short noun phrase that sits beside S6 in the same shape; দাম (price) is what a buyer thinks about, not the bookish ক্রয়."
+  },
+  "S11": {
+   "s": "সাবস্ক্রিপশন নেই, বিজ্ঞাপন নেই, অ্যাকাউন্ট খুলতেও হবে না।",
+   "back": "Subscription isn't, advertisement isn't, account open-even must not.",
+   "why": "The repeated নেই is how a speaker lists what is absent; the third item turns to a verb because 'no sign-up' is something you do not have to do."
+  },
+  "S12": {
+   "s": "ক্রয় পুনরুদ্ধার করুন",
+   "back": "Purchase restore do-please",
+   "why": "The wording Bengali-localised iOS and Android apps use for the store's restore action; kept formal because it names a system action, not app voice."
+  },
+  "S13": {
+   "s": "পুনরুদ্ধার হচ্ছে…",
+   "back": "Restoring is-happening…",
+   "why": "Same noun as S12 in the progressive, ending with the single ellipsis character."
+  },
+  "S14": {
+   "s": "একবার %@ দিয়ে আনলক করুন",
+   "back": "Once 5-price giving unlock do-please",
+   "why": "দিয়ে (by giving) puts the price inside the action; আনলক is the loanword Bengali phone users already use for unlocking."
+  },
+  "S15": {
+   "s": "আনলক করুন",
+   "back": "Unlock do-please",
+   "why": "The S14 action without price."
+  },
+  "S16": {
+   "s": "পরে দেখব",
+   "back": "Later will-see-I",
+   "why": "The user's own 'maybe later', a deferral in the first person, polite and without any refusal in it."
+  },
+  "S17": {
+   "s": "বন্ধ করুন",
+   "back": "Close do-please",
+   "why": "The standard Bengali label for closing a sheet or window."
+  },
+  "S18": {
+   "s": "সবটুকু এখন আপনার",
+   "back": "All-of-it now yours",
+   "why": "সবটুকু means the whole amount, so it takes in the room as well as the features; warm without an exclamation mark."
+  },
+  "S19": {
+   "s": "ধন্যবাদ। আপনার এই কেনা কাটলিংয়ের পাশে দাঁড়াল, আর যিনি একা এটা বানান, তাঁরও।",
+   "back": "Thanks. Your this purchase Cutling-of beside stood, and who-one alone this makes, his-too.",
+   "why": "পাশে দাঁড়ানো (to stand beside) is the Bengali idiom for support; তাঁর is the honorific for the one maker."
+  },
+  "S20": {
+   "s": "আবার স্বাগতম। আপনার আগের কেনাটা ফিরে এসেছে।",
+   "back": "Again welcome. Your earlier purchase-the back has-come.",
+   "why": "আবার স্বাগতম is the usual welcome-back; ফিরে এসেছে says the purchase came back by itself, no effort on the person's side."
+  },
+  "S21": {
+   "s": "ফ্রি %2$lldটির মধ্যে %1$lldটি কাটলিং রাখা হয়েছে",
+   "back": "Free 5-piece-of among 3-piece cutlings kept have-been",
+   "why": "Same wording as S5 so the spoken and the written count agree; positional for the whole-before-part order."
+  },
+  "S22": {
+   "s": "%lldটি কাটলিং আছে, এখন জায়গা %@টির",
+   "back": "5-piece cutlings are, now space 5,000-piece-of",
+   "why": "Bengali nouns take no plural after a number, so one form reads right for 1, 2, 5 and 21."
+  },
+  "S23": {
+   "s": "আনলক হয়ে গেছে। এখন %@টি কাটলিং রাখার জায়গা আছে।",
+   "back": "Unlock become has-gone. Now 5,000-piece cutling keeping-of space is.",
+   "why": "হয়ে গেছে marks a change just completed, which is what the announcement reports."
+  },
+  "S24": {
+   "s": "কেনা সম্পূর্ণ হয়নি",
+   "back": "Purchase complete happened-not",
+   "why": "Impersonal verb with no subject, so nobody is blamed."
+  },
+  "S25": {
+   "s": "এখন App Store-এর সঙ্গে যোগাযোগ করা যাচ্ছে না। একটু পরে আবার চেষ্টা করুন।",
+   "back": "Now App Store-of with contact doing is-going not. A-little later again try do-please.",
+   "why": "সঙ্গে is the West Bengal standard; যাচ্ছে না puts it on the moment, not on the person."
+  },
+  "S26": {
+   "s": "App Store এই কেনাটা নিশ্চিত করেনি।",
+   "back": "App Store this purchase-the confirm did-not.",
+   "why": "Names who did not confirm, which is the fact, and stops there."
+  },
+  "S27": {
+   "s": "এই ডিভাইসে সাইন ইন করা Apple Account দিয়ে কাটলিং আগে কেনা হয়নি।",
+   "back": "This device-on sign in done Apple Account with Cutling before bought was-not.",
+   "why": "Reuses the vocab phrase সাইন ইন করা for the signed-in account; impersonal past so it reads as a finding, not a mistake."
+  },
+  "S28": {
+   "s": "ফ্রি সংস্করণে %lldটি কাটলিং রাখা যায়। একবার কাটলিং আনলক করলে যত খুশি রাখতে পারবেন।",
+   "back": "Free version-in 5-piece cutlings keep can-one. Once Cutling unlock if-do as-many pleased keep can-you.",
+   "why": "যত খুশি (as many as pleases you) is the spoken phrase; the first কাটলিং is the items, the second the app, as the vocab uses one word for both."
+  },
+  "S29": {
+   "s": "%lld/%lld ফ্রি কাটলিং",
+   "back": "4/5 free cutlings",
+   "why": "Builds on the vocab count subtitle %lld কাটলিং; the numbers stay in used/total order so no positional form is needed."
+  },
+  "K1": {
+   "s": "ফ্রি %lldটি শেষ। আনলক করতে ট্যাপ করুন",
+   "back": "Free 5-piece finished. Unlock to tap do-please",
+   "why": "শেষ (run out) is how people speak of a used-up allowance; ট্যাপ করুন is the touch verb Bengali apps use."
+  },
+  "M1": {
+   "s": "কাটলিং আনলক করুন",
+   "back": "Cutling unlock do-please",
+   "why": "Verb-led command name, the same shape as S15 with the app's name in it."
+  },
+  "M2": {
+   "s": "কাটলিং আনলক করুন…",
+   "back": "Cutling unlock do-please…",
+   "why": "M1 with the ellipsis character because it opens a window."
+  },
+  "M3": {
+   "s": "ফ্রি কাটলিং",
+   "back": "Free cutlings",
+   "why": "Row label: the item word from the vocab with ফ্রি, no plural marker needed."
+  },
+  "M4": {
+   "s": "%lld/%lld",
+   "back": "3/5",
+   "why": "Compact used/total pair, the same order as S29."
+  },
+  "M5": {
+   "s": "কাটলিং আনলক করা আছে",
+   "back": "Cutling unlock done is",
+   "why": "করা আছে describes a lasting state, which is what a Settings status shows."
+  },
+  "M6": {
+   "s": "একবার কিনলে iPhone, iPad ও Mac-এ কাটলিং আনলক হয়ে যায়।",
+   "back": "Once if-buy iPhone, iPad and Mac-on Cutling unlock becomes.",
+   "why": "Conditional কিনলে (if you buy) is the natural Bengali way to put cause and result in one short line."
+  },
+  "M7": {
+   "s": "এই Apple Account দিয়ে iPhone, iPad ও Mac-এ আনলক করা আছে।",
+   "back": "This Apple Account with iPhone, iPad and Mac-on unlock done is.",
+   "why": "দিয়ে (with) for the account avoids two -এ endings in a row."
+  },
+  "M8": {
+   "s": "কাটলিং ফ্রি হওয়ার আগেই আপনি কিনেছিলেন, তাই আনলকই থাকছে। পাশে থাকার জন্য ধন্যবাদ।",
+   "back": "Cutling free becoming-of before-even you had-bought, so unlocked-indeed is-staying. Beside staying-of for thanks.",
+   "why": "পাশে থাকা (staying beside) thanks an early buyer for standing by the app, matching the idiom in S19."
+  }
+ },
+ "bn-BD": {
+  "S1": {
+   "s": "%lldটি ফ্রি",
+   "back": "5-piece free",
+   "why": "Counter label in two words; ফ্রি is the word Bengali phone users say and read for no-charge, বিনামূল্যে would be stiff on a tile caption. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S2": {
+   "s": "আরও কাটলিং রাখুন",
+   "back": "More cutlings keep-please",
+   "why": "An invitation in the polite আপনি imperative with the vocab item word; রাখা (to keep) is the plain verb for saving and recurs through the sheet. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S3": {
+   "s": "%lldটি ফ্রি কাটলিংই রাখা হয়ে গেছে। এগুলো ফ্রিই থাকবে, আর আগের মতোই কাজ করবে।",
+   "back": "5-piece free cutlings-all kept have-become-gone. These free-indeed will-stay, and before like-just work will-do.",
+   "why": "হয়ে গেছে says used up without blame; the emphatic -ই on ফ্রিই and মতোই carries the reassurance a speaker would stress. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S4": {
+   "s": "প্রথম %lldটি কাটলিং ফ্রি।",
+   "back": "First 5-piece cutlings free.",
+   "why": "States the offer as a fact, the way a Bengali shop sign would, instead of a 'you can' sentence. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S5": {
+   "s": "ফ্রি %2$lldটির মধ্যে %1$lldটি কাটলিং রাখা হয়েছে।",
+   "back": "Free 5-piece-of among 3-piece cutlings kept have-been.",
+   "why": "Bengali says the whole before the part (৫টির মধ্যে ৩টি), so the placeholders are positional and the free total comes first. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S6": {
+   "s": "%@ কাটলিংয়ের জায়গা",
+   "back": "5,000 cutlings-of space",
+   "why": "A noun phrase for the bold row; no টি after a large formatted number, as Bengali writers drop the classifier on big round counts. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S7": {
+   "s": "সর্বোচ্চ %@টি টেক্সট আর %lldটি ছবি রাখতে পারবেন।",
+   "back": "Maximum 5,000-piece text and 500-piece images keep can-you.",
+   "why": "টেক্সট and ছবি from the vocabulary file; আর is the spoken 'and' between two things, এবং would be bookish here. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S8": {
+   "s": "iPhone, iPad ও Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Device names stay in Latin script as the vocabulary file writes Mac and Apple Account; ও is the everyday conjunction before the last of a list. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S9": {
+   "s": "এক কেনাতেই আপনার Apple Account-এর সব ডিভাইসে চলবে।",
+   "back": "One purchase-in-itself your Apple Account-of all devices-on will-run.",
+   "why": "এক কেনাতেই (in one purchase alone) carries 'covers all' through the -ই ending; Apple Account-এর hyphenated the way the vocab writes Mac-এর. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S10": {
+   "s": "দাম শুধু একবার",
+   "back": "Price only once",
+   "why": "A short noun phrase that sits beside S6 in the same shape; দাম (price) is what a buyer thinks about, not the bookish ক্রয়. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S11": {
+   "s": "সাবস্ক্রিপশন নেই, বিজ্ঞাপন নেই, অ্যাকাউন্ট খুলতেও হবে না।",
+   "back": "Subscription isn't, advertisement isn't, account open-even must not.",
+   "why": "The repeated নেই is how a speaker lists what is absent; the third item turns to a verb because 'no sign-up' is something you do not have to do. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S12": {
+   "s": "ক্রয় পুনরুদ্ধার করুন",
+   "back": "Purchase restore do-please",
+   "why": "The wording Bengali-localised iOS and Android apps use for the store's restore action; kept formal because it names a system action, not app voice. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S13": {
+   "s": "পুনরুদ্ধার হচ্ছে…",
+   "back": "Restoring is-happening…",
+   "why": "Same noun as S12 in the progressive, ending with the single ellipsis character. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S14": {
+   "s": "একবার %@ দিয়ে আনলক করুন",
+   "back": "Once 5-price giving unlock do-please",
+   "why": "দিয়ে (by giving) puts the price inside the action; আনলক is the loanword Bengali phone users already use for unlocking. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S15": {
+   "s": "আনলক করুন",
+   "back": "Unlock do-please",
+   "why": "The S14 action without price. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S16": {
+   "s": "পরে দেখব",
+   "back": "Later will-see-I",
+   "why": "The user's own 'maybe later', a deferral in the first person, polite and without any refusal in it. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S17": {
+   "s": "বন্ধ করুন",
+   "back": "Close do-please",
+   "why": "The standard Bengali label for closing a sheet or window. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S18": {
+   "s": "সবটুকু এখন আপনার",
+   "back": "All-of-it now yours",
+   "why": "সবটুকু means the whole amount, so it takes in the room as well as the features; warm without an exclamation mark. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S19": {
+   "s": "ধন্যবাদ। আপনার এই কেনা কাটলিংয়ের পাশে দাঁড়াল, আর যিনি একা এটা বানান, তাঁরও।",
+   "back": "Thanks. Your this purchase Cutling-of beside stood, and who-one alone this makes, his-too.",
+   "why": "পাশে দাঁড়ানো (to stand beside) is the Bengali idiom for support; তাঁর is the honorific for the one maker. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S20": {
+   "s": "আবার স্বাগতম। আপনার আগের কেনাটা ফিরে এসেছে।",
+   "back": "Again welcome. Your earlier purchase-the back has-come.",
+   "why": "আবার স্বাগতম is the usual welcome-back; ফিরে এসেছে says the purchase came back by itself, no effort on the person's side. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S21": {
+   "s": "ফ্রি %2$lldটির মধ্যে %1$lldটি কাটলিং রাখা হয়েছে",
+   "back": "Free 5-piece-of among 3-piece cutlings kept have-been",
+   "why": "Same wording as S5 so the spoken and the written count agree; positional for the whole-before-part order. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S22": {
+   "s": "%lldটি কাটলিং আছে, এখন জায়গা %@টির",
+   "back": "5-piece cutlings are, now space 5,000-piece-of",
+   "why": "Bengali nouns take no plural after a number, so one form reads right for 1, 2, 5 and 21. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S23": {
+   "s": "আনলক হয়ে গেছে। এখন %@টি কাটলিং রাখার জায়গা আছে।",
+   "back": "Unlock become has-gone. Now 5,000-piece cutling keeping-of space is.",
+   "why": "হয়ে গেছে marks a change just completed, which is what the announcement reports. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S24": {
+   "s": "কেনা সম্পূর্ণ হয়নি",
+   "back": "Purchase complete happened-not",
+   "why": "Impersonal verb with no subject, so nobody is blamed. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S25": {
+   "s": "এখন App Store-এর সাথে যোগাযোগ করা যাচ্ছে না। একটু পরে আবার চেষ্টা করুন।",
+   "back": "Now App Store-of with contact doing is-going not. A-little later again try do-please.",
+   "why": "সাথে is what Bangladeshi writing uses for 'with' where West Bengal writes সঙ্গে; the rest is shared standard চলিত Bengali."
+  },
+  "S26": {
+   "s": "App Store এই কেনাটা নিশ্চিত করেনি।",
+   "back": "App Store this purchase-the confirm did-not.",
+   "why": "Names who did not confirm, which is the fact, and stops there. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S27": {
+   "s": "এই ডিভাইসে সাইন ইন করা Apple Account দিয়ে কাটলিং আগে কেনা হয়নি।",
+   "back": "This device-on sign in done Apple Account with Cutling before bought was-not.",
+   "why": "Reuses the vocab phrase সাইন ইন করা for the signed-in account; impersonal past so it reads as a finding, not a mistake. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S28": {
+   "s": "ফ্রি সংস্করণে %lldটি কাটলিং রাখা যায়। একবার কাটলিং আনলক করলে যত খুশি রাখতে পারবেন।",
+   "back": "Free version-in 5-piece cutlings keep can-one. Once Cutling unlock if-do as-many pleased keep can-you.",
+   "why": "যত খুশি (as many as pleases you) is the spoken phrase; the first কাটলিং is the items, the second the app, as the vocab uses one word for both. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "S29": {
+   "s": "%lld/%lld ফ্রি কাটলিং",
+   "back": "4/5 free cutlings",
+   "why": "Builds on the vocab count subtitle %lld কাটলিং; the numbers stay in used/total order so no positional form is needed. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "K1": {
+   "s": "ফ্রি %lldটি শেষ। আনলক করতে ট্যাপ করুন",
+   "back": "Free 5-piece finished. Unlock to tap do-please",
+   "why": "শেষ (run out) is how people speak of a used-up allowance; ট্যাপ করুন is the touch verb Bengali apps use. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "M1": {
+   "s": "কাটলিং আনলক করুন",
+   "back": "Cutling unlock do-please",
+   "why": "Verb-led command name, the same shape as S15 with the app's name in it. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "M2": {
+   "s": "কাটলিং আনলক করুন…",
+   "back": "Cutling unlock do-please…",
+   "why": "M1 with the ellipsis character because it opens a window. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "M3": {
+   "s": "ফ্রি কাটলিং",
+   "back": "Free cutlings",
+   "why": "Row label: the item word from the vocab with ফ্রি, no plural marker needed. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "M4": {
+   "s": "%lld/%lld",
+   "back": "3/5",
+   "why": "Compact used/total pair, the same order as S29. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "M5": {
+   "s": "কাটলিং আনলক করা আছে",
+   "back": "Cutling unlock done is",
+   "why": "করা আছে describes a lasting state, which is what a Settings status shows. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "M6": {
+   "s": "একবার কিনলে iPhone, iPad ও Mac-এ কাটলিং আনলক হয়ে যায়।",
+   "back": "Once if-buy iPhone, iPad and Mac-on Cutling unlock becomes.",
+   "why": "Conditional কিনলে (if you buy) is the natural Bengali way to put cause and result in one short line. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "M7": {
+   "s": "এই Apple Account দিয়ে iPhone, iPad ও Mac-এ আনলক করা আছে।",
+   "back": "This Apple Account with iPhone, iPad and Mac-on unlock done is.",
+   "why": "দিয়ে (with) for the account avoids two -এ endings in a row. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "M8": {
+   "s": "কাটলিং ফ্রি হওয়ার আগেই আপনি কিনেছিলেন, তাই আনলকই থাকছে। পাশে থাকার জন্য ধন্যবাদ।",
+   "back": "Cutling free becoming-of before-even you had-bought, so unlocked-indeed is-staying. Beside staying-of for thanks.",
+   "why": "পাশে থাকা (staying beside) thanks an early buyer for standing by the app, matching the idiom in S19. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  }
+ }
+}

@@ -1,0 +1,194 @@
+{
+ "ca": {
+  "S1": {
+   "s": "%lld gratuïts",
+   "back": "%lld free-ones",
+   "why": "Masculine plural agreeing with cutlings (vocab: \"els teus cutlings\"); the noun is understood from the tiles, which keeps it inside 12."
+  },
+  "S2": {
+   "s": "Continua desant",
+   "back": "Continue saving",
+   "why": "Plain tu imperative, as iOS Catalan writes actions; desar is the Catalan word for saving, and the line invites rather than warns."
+  },
+  "S3": {
+   "s": "Ja has omplert els teus %lld cutlings gratuïts. Ho seran sempre i no deixaran de funcionar.",
+   "back": "Already you-have filled the your 5 cutlings free. It they-will-be always and not they-will-stop of working.",
+   "why": "The pronoun ho stands for \"gratuïts\", which is how a native says \"they stay free\" without repeating the word; lowercase cutlings in running text, as the vocab sentence does."
+  },
+  "S4": {
+   "s": "Tens %lld cutlings gratuïts per estrenar.",
+   "back": "You-have 5 cutlings free for to-use-for-the-first-time.",
+   "why": "\"Per estrenar\" is the everyday phrase for something new waiting to be used: warmer than \"pots desar\", same fact."
+  },
+  "S5": {
+   "s": "Has fet servir %lld dels %lld cutlings gratuïts.",
+   "back": "You-have made use 3 of-the 5 cutlings free.",
+   "why": "Catalan keeps used-then-total order, so plain %lld works; \"fer servir\" is the spoken verb for use."
+  },
+  "S6": {
+   "s": "Hi caben %@ cutlings",
+   "back": "There fit 5.000 cutlings",
+   "why": "\"Hi caben\" is how Catalan says there is room for that many; \"Lloc per a…\" ran to 25 against a budget of 24, and this is 20."
+  },
+  "S7": {
+   "s": "Fins a %@ cutlings de text i %lld d’imatge.",
+   "back": "Up to 5.000 cutlings of text and 500 of image.",
+   "why": "Uses the vocab's \"Cutling de text\" and \"Cutling d’imatge\"; the second noun is elided, as Catalan does in a pair."
+  },
+  "S8": {
+   "s": "iPhone, iPad i Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Catalan lists with \"i\" and no comma before it; no articles in a label line."
+  },
+  "S9": {
+   "s": "Una sola compra val per a tots tres, amb el teu compte d’Apple.",
+   "back": "One single purchase counts for to all three, with the your account of-Apple.",
+   "why": "\"Tots tres\" is the natural way to say all three; \"compte d’Apple\" exactly as the vocab writes it."
+  },
+  "S10": {
+   "s": "Un sol pagament",
+   "back": "One single payment",
+   "why": "Noun phrase that reads the same in Central, Valencian and Balearic speech; \"un cop\" or \"una volta\" would pick a dialect."
+  },
+  "S11": {
+   "s": "Sense subscripció, sense anuncis i sense registrar-te.",
+   "back": "Without subscription, without ads and without registering-yourself.",
+   "why": "Repeated \"sense\" is how Catalan stacks negatives; \"registrar-te\" avoids \"compte\", which already means the Apple Account on this sheet."
+  },
+  "S12": {
+   "s": "Restaura les compres",
+   "back": "Restore the purchases",
+   "why": "The wording Catalan iOS apps use for the App Store restore action, tu imperative."
+  },
+  "S13": {
+   "s": "Restaurant les compres…",
+   "back": "Restoring the purchases…",
+   "why": "Mirrors S12 so the link keeps its name while it works; the object keeps \"Restaurant\" from reading as the noun restaurant. Ellipsis character."
+  },
+  "S14": {
+   "s": "Desbloqueja Cutling per %@",
+   "back": "Unlock Cutling for 4,99 €",
+   "why": "\"Per\" is the Catalan preposition for a price; the once-only fact sits in S10 right above, so the button stays short."
+  },
+  "S15": {
+   "s": "Desbloqueja",
+   "back": "Unlock",
+   "why": "The same verb as S14, alone, 11 characters."
+  },
+  "S16": {
+   "s": "Ara no",
+   "back": "Now not",
+   "why": "What Catalan iOS says for putting something off: a postponement, not a refusal."
+  },
+  "S17": {
+   "s": "Tanca",
+   "back": "Close",
+   "why": "The tu imperative iOS Catalan uses on close buttons."
+  },
+  "S18": {
+   "s": "Ja és tot teu",
+   "back": "Already it-is all yours",
+   "why": "Short and a little proud; \"tot\" takes in the items and the whole grid of room."
+  },
+  "S19": {
+   "s": "Gràcies per la compra. Cutling el fa una sola persona, i així l’ajudes.",
+   "back": "Thanks for the purchase. Cutling it makes one single person, and so her you-help.",
+   "why": "Topic-first order (\"Cutling el fa…\") is how Catalan speaks; l’ajudes agrees with \"persona\", so no gender is guessed for the maker."
+  },
+  "S20": {
+   "s": "Hola de nou. La teva compra torna a ser aquí.",
+   "back": "Hello of new. The your purchase returns to be here.",
+   "why": "\"Hola de nou\" greets without a gendered \"benvingut/benvinguda\"; the restored purchase is the subject."
+  },
+  "S21": {
+   "s": "%lld de %lld cutlings gratuïts en ús",
+   "back": "3 of 5 cutlings free in use",
+   "why": "Compact for VoiceOver, which reads it right after the tiles; same order as S5."
+  },
+  "S22": {
+   "s": "Cutlings: %lld. Ara hi ha lloc per a %@.",
+   "back": "Cutlings: 5. Now there is room for to 5.000.",
+   "why": "Label then number, so it reads right for 1, 2, 5 and 21 with no plural agreement to break; \"Cutlings\" capitalised as in the list title."
+  },
+  "S23": {
+   "s": "Cutling desbloquejat. Ara hi ha lloc per a %@ cutlings.",
+   "back": "Cutling unlocked. Now there is room for to 5.000 cutlings.",
+   "why": "Announcement shape: state first, then the room; desbloquejat masculine for the app."
+  },
+  "S24": {
+   "s": "La compra no s’ha completat",
+   "back": "The purchase not itself-has completed",
+   "why": "Reflexive passive puts the fault on nobody; calm, no blame."
+  },
+  "S25": {
+   "s": "Ara mateix no es pot connectar amb l’App Store. Torna-ho a provar d’aquí a una estona.",
+   "back": "Right now not one can connect with the App Store. Again-it try from here to a while.",
+   "why": "\"Torna-ho a provar\" is the standard Catalan retry; \"d’aquí a una estona\" is how a person says shortly."
+  },
+  "S26": {
+   "s": "L’App Store no ha confirmat aquesta compra.",
+   "back": "The App Store not has confirmed this purchase.",
+   "why": "Plain fact, l’App Store with the article as Catalan uses it."
+  },
+  "S27": {
+   "s": "No hi ha cap compra de Cutling amb el compte d’Apple d’aquest dispositiu.",
+   "back": "Not there is any purchase of Cutling with the account of-Apple of-this device.",
+   "why": "\"No hi ha cap\" is the native negative existential; vocab \"compte d’Apple\"."
+  },
+  "S28": {
+   "s": "La versió gratuïta admet %lld cutlings. Desbloqueja Cutling una vegada i desa’n tants com vulguis.",
+   "back": "The version free admits 5 cutlings. Unlock Cutling one time and save-of-them as-many as you-want.",
+   "why": "\"Desa’n tants com vulguis\" uses the partitive en, the natural \"as many as you like\"; \"una vegada\" is dialect-neutral; 95 characters."
+  },
+  "S29": {
+   "s": "%lld de %lld gratuïts",
+   "back": "4 of 5 free-ones",
+   "why": "Fits 18; gratuïts agrees with the cutlings named in the title above it."
+  },
+  "K1": {
+   "s": "Ja tens els %lld gratuïts. Desbloqueja",
+   "back": "Already you-have the 5 free-ones. Unlock",
+   "why": "\"Ja tens els cinc\" is how a speaker says all five are taken; the bare imperative on a tappable capsule is the action; 35 characters."
+  },
+  "M1": {
+   "s": "Desbloqueja Cutling",
+   "back": "Unlock Cutling",
+   "why": "Verb-led command name, as Catalan macOS titles its windows."
+  },
+  "M2": {
+   "s": "Desbloqueja Cutling…",
+   "back": "Unlock Cutling…",
+   "why": "Same command as M1 with the ellipsis character, because it opens a window."
+  },
+  "M3": {
+   "s": "Cutlings gratuïts",
+   "back": "Cutlings free",
+   "why": "Row label in the list title's capitalised form."
+  },
+  "M4": {
+   "s": "%lld de %lld",
+   "back": "3 of 5",
+   "why": "\"de\" is the Catalan way to read a count pair; a slash would read as a date or fraction."
+  },
+  "M5": {
+   "s": "Cutling desbloquejat",
+   "back": "Cutling unlocked",
+   "why": "Participle as a status, masculine for the app."
+  },
+  "M6": {
+   "s": "Una sola compra desbloqueja Cutling a l’iPhone, a l’iPad i al Mac.",
+   "back": "One single purchase unlocks Cutling on the iPhone, on the iPad and on-the Mac.",
+   "why": "In a sentence Catalan puts the article and repeats the preposition before each device, as Apple's Catalan pages do."
+  },
+  "M7": {
+   "s": "Desbloquejat a l’iPhone, a l’iPad i al Mac amb aquest compte d’Apple.",
+   "back": "Unlocked on the iPhone, on the iPad and on-the Mac with this account of-Apple.",
+   "why": "Same device list as M6; vocab \"compte d’Apple\"."
+  },
+  "M8": {
+   "s": "Vas comprar Cutling quan encara era de pagament, així que es queda desbloquejat. Gràcies.",
+   "back": "You-went to-buy Cutling when still it-was of payment, so that itself stays unlocked. Thanks.",
+   "why": "\"De pagament\" is the everyday opposite of \"de franc\"; the thanks stands alone at the end, as a person would say it."
+  }
+ }
+}

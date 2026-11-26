@@ -32,3 +32,6 @@
 "Cancel" = "বাতিল";
 "%@, %lld of %lld" = "%1$@, %3$lldটির মধ্যে %2$lld";
 "Space" = "স্পেস";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"%lld free cutlings used. Tap to unlock." = "ফ্রি %lldটি শেষ। আনলক করতে ট্যাপ করুন";

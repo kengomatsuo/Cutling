@@ -1,0 +1,386 @@
+{
+ "pa": {
+  "S1": {
+   "s": "%lld ਮੁਫ਼ਤ",
+   "back": "5 free",
+   "why": "Two words under the bracket; ਮੁਫ਼ਤ is the everyday word for free, with the nukta as standard spelling writes it."
+  },
+  "S2": {
+   "s": "ਹੋਰ ਕਟਲਿੰਗ ਸਾਂਭੋ",
+   "back": "more cutlings save",
+   "why": "An invitation past the free five (ਹੋਰ, more), with no limit word; 16 characters with marks, 12 visible; ਸਾਂਭਣਾ is the native verb for keeping things safe, warmer than the loan ਸੇਵ or the stiff ਰੱਖਿਅਤ ਕਰੋ."
+  },
+  "S3": {
+   "s": "ਤੁਸੀਂ ਸਾਰੇ %lld ਮੁਫ਼ਤ ਕਟਲਿੰਗ ਵਰਤ ਲਏ ਹਨ। ਇਹ ਹਮੇਸ਼ਾ ਮੁਫ਼ਤ ਰਹਿਣਗੇ ਅਤੇ ਕੰਮ ਕਰਦੇ ਰਹਿਣਗੇ।",
+   "back": "you all 5 free cutlings used have. these always free will-stay and work doing will-stay.",
+   "why": "ਤੁਸੀਂ as the vocabulary's address; ਕਟਲਿੰਗ treated as masculine (the vocabulary's unchanged direct plural '%lld ਕਟਲਿੰਗ'), so ਸਾਰੇ, ਲਏ, ਰਹਿਣਗੇ agree."
+  },
+  "S4": {
+   "s": "%lld ਕਟਲਿੰਗ ਮੁਫ਼ਤ ਸਾਂਭ ਸਕਦੇ ਹੋ।",
+   "back": "5 cutlings free save can are.",
+   "why": "Subject ਤੁਸੀਂ dropped, as Punjabi does when the verb ending (ਸਕਦੇ ਹੋ) already names the person; same verb ਸਾਂਭ as S2."
+  },
+  "S5": {
+   "s": "ਤੁਸੀਂ %2$lld ਮੁਫ਼ਤ ਕਟਲਿੰਗਾਂ ਵਿੱਚੋਂ %1$lld ਵਰਤ ਲਏ ਹਨ।",
+   "back": "you 5 free cutlings out-of 3 used have.",
+   "why": "Punjabi says the whole before the part ('5 ਵਿੱਚੋਂ 3'), so the numbers are positional; ਕਟਲਿੰਗਾਂ is the oblique plural before ਵਿੱਚੋਂ, the form the vocabulary uses."
+  },
+  "S6": {
+   "s": "%@ ਕਟਲਿੰਗ ਲਈ ਥਾਂ",
+   "back": "5,000 cutlings for room",
+   "why": "ਥਾਂ (room, place) is the word a person uses for space on a shelf or in a bag; a noun phrase, like the other bold row lines."
+  },
+  "S7": {
+   "s": "%@ ਤੱਕ ਟੈਕਸਟ ਕਟਲਿੰਗ ਅਤੇ %lld ਤੱਕ ਤਸਵੀਰਾਂ ਸਾਂਭ ਸਕਦੇ ਹੋ।",
+   "back": "5,000 up-to text cutlings and 500 up-to images save can are.",
+   "why": "ਤੱਕ after each number so 'up to' clearly covers both; ਟੈਕਸਟ ਕਟਲਿੰਗ is the app's own menu name and ਤਸਵੀਰਾਂ its plural for images."
+  },
+  "S8": {
+   "s": "iPhone, iPad ਅਤੇ Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Apple device names stay in Latin as the vocabulary keeps Mac and Apple Account; ਅਤੇ is the written 'and' before the last of three, no comma before it."
+  },
+  "S9": {
+   "s": "ਇੱਕੋ ਖਰੀਦ ਤੁਹਾਡੇ Apple Account ਵਾਲੇ ਹਰ ਡਿਵਾਈਸ 'ਤੇ ਚੱਲਦੀ ਹੈ।",
+   "back": "one-same purchase your Apple Account having every device on runs is.",
+   "why": "ਇੱਕੋ means one and the same; ਡਿਵਾਈਸ and 'ਤੇ come from the vocabulary's iCloud sentence; ਖਰੀਦ is feminine, so ਚੱਲਦੀ."
+  },
+  "S10": {
+   "s": "ਇੱਕ ਵਾਰ ਦਾ ਭੁਗਤਾਨ",
+   "back": "one time of payment",
+   "why": "ਇੱਕ ਵਾਰ ਦਾ ਭੁਗਤਾਨ is how a Punjabi bill or shop says one-time payment; ਭੁਗਤਾਨ is the normal word for paying in apps."
+  },
+  "S11": {
+   "s": "ਨਾ ਸਬਸਕ੍ਰਿਪਸ਼ਨ, ਨਾ ਇਸ਼ਤਿਹਾਰ, ਨਾ ਸਾਈਨ ਅੱਪ।",
+   "back": "neither subscription, nor advertisement, nor sign up.",
+   "why": "The ਨਾ… ਨਾ… ਨਾ… run is how Punjabi lists things that are absent; ਸਬਸਕ੍ਰਿਪਸ਼ਨ and ਸਾਈਨ ਅੱਪ are the words people say (ਗਾਹਕੀ also means clientele), ਇਸ਼ਤਿਹਾਰ is the native word for ads."
+  },
+  "S12": {
+   "s": "ਖਰੀਦਾਂ ਰੀਸਟੋਰ ਕਰੋ",
+   "back": "purchases restore do",
+   "why": "The App Store action as Punjabi iOS apps label it: native ਖਰੀਦਾਂ (purchases) with Apple's loan ਰੀਸਟੋਰ; a reviewer with a Punjabi-language iPhone should confirm against StoreKit's own wording."
+  },
+  "S13": {
+   "s": "ਰੀਸਟੋਰ ਹੋ ਰਿਹਾ ਹੈ…",
+   "back": "restore happening is…",
+   "why": "The progressive status form Punjabi phone UI uses (as in ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ…), ending with the single ellipsis character."
+  },
+  "S14": {
+   "s": "ਇੱਕ ਵਾਰ %@ ਦੇ ਕੇ ਅਣਲਾਕ ਕਰੋ",
+   "back": "one time $4.99 having-given unlock do",
+   "why": "ਦੇ ਕੇ (by paying) is how a person says paying a price for something; ਅਣਲਾਕ is the Punjabi phone word for unlock, and ਇੱਕ ਵਾਰ carries 'once'."
+  },
+  "S15": {
+   "s": "ਅਣਲਾਕ ਕਰੋ",
+   "back": "unlock do",
+   "why": "The same command with the price removed."
+  },
+  "S16": {
+   "s": "ਫਿਰ ਕਦੇ",
+   "back": "again sometime",
+   "why": "ਫਿਰ ਕਦੇ (some other time) is the polite Punjabi way to put something off without saying no."
+  },
+  "S17": {
+   "s": "ਬੰਦ ਕਰੋ",
+   "back": "close do",
+   "why": "The plain verb Punjabi phone UI uses on close buttons."
+  },
+  "S18": {
+   "s": "ਹੁਣ ਸਭ ਕੁਝ ਤੁਹਾਡਾ",
+   "back": "now everything yours",
+   "why": "A short, proud title with no verb, as Punjabi headlines drop ਹੈ; ਸਭ ਕੁਝ covers the app in full and the grid shows the room."
+  },
+  "S19": {
+   "s": "ਖਰੀਦਣ ਲਈ ਧੰਨਵਾਦ। ਇਸ ਨਾਲ ਕਟਲਿੰਗ ਨੂੰ ਵੀ ਸਹਾਰਾ ਮਿਲਦਾ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਇਕੱਲੇ ਬਣਾਉਣ ਵਾਲੇ ਨੂੰ ਵੀ।",
+   "back": "buying for thanks. this with Cutling to also support gets is and it to alone making one to also.",
+   "why": "ਧੰਨਵਾਦ is the standard thanks; the ਵੀ… ਵੀ… pair names both the app and the one person who makes it alone (ਇਕੱਲੇ ਬਣਾਉਣ ਵਾਲਾ), warm and plain."
+  },
+  "S20": {
+   "s": "ਮੁੜ ਜੀ ਆਇਆਂ ਨੂੰ। ਤੁਹਾਡੀ ਪਿਛਲੀ ਖਰੀਦ ਵਾਪਸ ਆ ਗਈ ਹੈ।",
+   "back": "again welcome. your previous purchase back come has.",
+   "why": "ਜੀ ਆਇਆਂ ਨੂੰ is the Punjabi welcome and ਮੁੜ makes it welcome back; ਵਾਪਸ ਆ ਗਈ (has come back) is warmer than repeating ਰੀਸਟੋਰ, and ਖਰੀਦ is feminine."
+  },
+  "S21": {
+   "s": "%2$lld ਮੁਫ਼ਤ ਕਟਲਿੰਗਾਂ ਵਿੱਚੋਂ %1$lld ਵਰਤੇ ਗਏ",
+   "back": "5 free cutlings out-of 3 used went",
+   "why": "Spoken form of S5 with the whole before the part, positional numbers; ਵਰਤੇ ਗਏ is masculine plural, matching ਕਟਲਿੰਗ."
+  },
+  "S22": {
+   "s": "%lld ਕਟਲਿੰਗ, ਹੁਣ %@ ਲਈ ਥਾਂ ਹੈ।",
+   "back": "5 cutlings, now 5,000 for room is.",
+   "why": "Copies the vocabulary's count '%lld ਕਟਲਿੰਗ', which has no verb to agree, so it reads right for 1, 2, 5 and 21; ਥਾਂ ਹੈ is singular whatever the number."
+  },
+  "S23": {
+   "s": "ਕਟਲਿੰਗ ਹੁਣ ਅਣਲਾਕ ਹੈ। %@ ਕਟਲਿੰਗ ਲਈ ਥਾਂ ਹੈ।",
+   "back": "Cutling now unlocked is. 5,000 cutlings for room is.",
+   "why": "ਅਣਲਾਕ ਹੈ as a state needs no gender ending for the app's name; the second sentence reuses S6's room phrase."
+  },
+  "S24": {
+   "s": "ਖਰੀਦ ਪੂਰੀ ਨਹੀਂ ਹੋਈ",
+   "back": "purchase complete not happened",
+   "why": "States what happened to the purchase, with no actor and no blame; feminine agreement with ਖਰੀਦ."
+  },
+  "S25": {
+   "s": "ਇਸ ਵੇਲੇ App Store ਨਾਲ ਸੰਪਰਕ ਨਹੀਂ ਹੋ ਰਿਹਾ। ਥੋੜ੍ਹੀ ਦੇਰ ਬਾਅਦ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+   "back": "this time App Store with contact not happening. little while after again try do.",
+   "why": "ਇਸ ਵੇਲੇ (right now) and ਥੋੜ੍ਹੀ ਦੇਰ ਬਾਅਦ (in a little while) are spoken Punjabi; App Store stays in Latin like Apple Account."
+  },
+  "S26": {
+   "s": "App Store ਨੇ ਇਸ ਖਰੀਦ ਦੀ ਪੁਸ਼ਟੀ ਨਹੀਂ ਕੀਤੀ।",
+   "back": "App Store (erg) this purchase of confirmation not did.",
+   "why": "ਪੁਸ਼ਟੀ ਕਰਨਾ is the usual verb for confirming in banking and app text; feminine ਕੀਤੀ agrees with ਪੁਸ਼ਟੀ."
+  },
+  "S27": {
+   "s": "ਇਸ ਡਿਵਾਈਸ 'ਤੇ ਸਾਈਨ ਇਨ ਕੀਤੇ Apple Account ਨਾਲ ਕਟਲਿੰਗ ਦੀ ਕੋਈ ਪਿਛਲੀ ਖਰੀਦ ਨਹੀਂ ਮਿਲੀ।",
+   "back": "this device on sign in done Apple Account with Cutling of any previous purchase not found.",
+   "why": "'ਸਾਈਨ ਇਨ ਕੀਤੇ Apple Account' follows the vocabulary's own phrasing; ਨਹੀਂ ਮਿਲੀ (was not found) states the fact without blame."
+  },
+  "S28": {
+   "s": "ਮੁਫ਼ਤ ਵਰਜ਼ਨ ਵਿੱਚ %lld ਕਟਲਿੰਗ ਤੱਕ ਸਾਂਭ ਸਕਦੇ ਹੋ। ਕਟਲਿੰਗ ਇੱਕ ਵਾਰ ਅਣਲਾਕ ਕਰ ਲਓ, ਫਿਰ ਜਿੰਨੇ ਮਰਜ਼ੀ ਸਾਂਭੋ।",
+   "back": "free version in 5 cutlings up-to save can are. Cutling one time unlock do take, then as-many wish save.",
+   "why": "ਜਿੰਨੇ ਮਰਜ਼ੀ (as many as you like) is the idiom a speaker reaches for; ਵਰਜ਼ਨ names the free copy so the app name and the item word, both ਕਟਲਿੰਗ, do not collide."
+  },
+  "S29": {
+   "s": "%2$lld ਮੁਫ਼ਤ ਵਿੱਚੋਂ %1$lld ਵਰਤੇ",
+   "back": "5 free out-of 4 used",
+   "why": "Whole before part with positional numbers; ਵਰਤੇ alone, as a subtitle drops the auxiliary, and '5 ਮੁਫ਼ਤ ਵਿੱਚੋਂ' cannot be misread as '4 of 5 are free'."
+  },
+  "K1": {
+   "s": "ਸਾਰੇ %lld ਮੁਫ਼ਤ ਵਰਤੇ, ਅਣਲਾਕ ਲਈ ਟੈਪ ਕਰੋ",
+   "back": "all 5 free used, unlock for tap do",
+   "why": "Fact then the action in one line, with the auxiliary dropped as a banner does so it fits 30 (29 visible with the number filled in); ਮੁਫ਼ਤ stands for the free cutlings as it does in speech; ਟੈਪ ਕਰੋ is the word Punjabi phone UI uses for tap."
+  },
+  "M1": {
+   "s": "ਕਟਲਿੰਗ ਅਣਲਾਕ ਕਰੋ",
+   "back": "Cutling unlock do",
+   "why": "A Punjabi command puts the verb last, so the Mac command name is object then ਅਣਲਾਕ ਕਰੋ, the form of other Punjabi menu commands."
+  },
+  "M2": {
+   "s": "ਕਟਲਿੰਗ ਅਣਲਾਕ ਕਰੋ…",
+   "back": "Cutling unlock do…",
+   "why": "M1 with the ellipsis character because the button opens a window."
+  },
+  "M3": {
+   "s": "ਮੁਫ਼ਤ ਕਟਲਿੰਗ",
+   "back": "free cutlings",
+   "why": "A row label is a noun phrase; the item word from the vocabulary."
+  },
+  "M4": {
+   "s": "%1$lld/%2$lld",
+   "back": "3/5",
+   "why": "A compact pair reads the same in Punjabi; numbers stay positional."
+  },
+  "M5": {
+   "s": "ਕਟਲਿੰਗ ਅਣਲਾਕ ਹੈ",
+   "back": "Cutling unlocked is",
+   "why": "A state with ਹੈ, which carries no gender ending."
+  },
+  "M6": {
+   "s": "ਇੱਕੋ ਖਰੀਦ ਕਟਲਿੰਗ ਨੂੰ iPhone, iPad ਅਤੇ Mac 'ਤੇ ਅਣਲਾਕ ਕਰ ਦਿੰਦੀ ਹੈ।",
+   "back": "one-same purchase Cutling to iPhone, iPad and Mac on unlock do gives is.",
+   "why": "The purchase is the subject, so the verb agrees with feminine ਖਰੀਦ; the device list matches S8."
+  },
+  "M7": {
+   "s": "ਇਸ Apple Account ਨਾਲ iPhone, iPad ਅਤੇ Mac 'ਤੇ ਅਣਲਾਕ ਹੈ।",
+   "back": "this Apple Account with iPhone, iPad and Mac on unlocked is.",
+   "why": "No subject needed under the Cutling section; ਅਣਲਾਕ ਹੈ as in M5."
+  },
+  "M8": {
+   "s": "ਤੁਸੀਂ ਕਟਲਿੰਗ ਮੁਫ਼ਤ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ ਖਰੀਦਿਆ ਸੀ, ਇਸ ਲਈ ਇਹ ਹਮੇਸ਼ਾ ਅਣਲਾਕ ਹੈ। ਸਾਥ ਦੇਣ ਲਈ ਧੰਨਵਾਦ।",
+   "back": "you Cutling free becoming from before bought had, this for it always unlocked is. company giving for thanks.",
+   "why": "ਸਾਥ ਦੇਣ ਲਈ ਧੰਨਵਾਦ (thanks for standing with us) thanks an early buyer the way a person would; ਖਰੀਦਿਆ agrees with the object, as the Punjabi transitive past does."
+  }
+ },
+ "pa-IN": {
+  "S1": {
+   "s": "%lld ਮੁਫ਼ਤ",
+   "back": "5 free",
+   "why": "Two words under the bracket; ਮੁਫ਼ਤ is the everyday word for free, with the nukta as standard spelling writes it. Same string in pa and pa-IN: both folders are Gurmukhi Punjabi as written in Indian Punjab, and their vocabulary files are identical."
+  },
+  "S2": {
+   "s": "ਹੋਰ ਕਟਲਿੰਗ ਸਾਂਭੋ",
+   "back": "more cutlings save",
+   "why": "An invitation past the free five (ਹੋਰ, more), with no limit word; 16 characters with marks, 12 visible; ਸਾਂਭਣਾ is the native verb for keeping things safe, warmer than the loan ਸੇਵ or the stiff ਰੱਖਿਅਤ ਕਰੋ."
+  },
+  "S3": {
+   "s": "ਤੁਸੀਂ ਸਾਰੇ %lld ਮੁਫ਼ਤ ਕਟਲਿੰਗ ਵਰਤ ਲਏ ਹਨ। ਇਹ ਹਮੇਸ਼ਾ ਮੁਫ਼ਤ ਰਹਿਣਗੇ ਅਤੇ ਕੰਮ ਕਰਦੇ ਰਹਿਣਗੇ।",
+   "back": "you all 5 free cutlings used have. these always free will-stay and work doing will-stay.",
+   "why": "ਤੁਸੀਂ as the vocabulary's address; ਕਟਲਿੰਗ treated as masculine (the vocabulary's unchanged direct plural '%lld ਕਟਲਿੰਗ'), so ਸਾਰੇ, ਲਏ, ਰਹਿਣਗੇ agree."
+  },
+  "S4": {
+   "s": "%lld ਕਟਲਿੰਗ ਮੁਫ਼ਤ ਸਾਂਭ ਸਕਦੇ ਹੋ।",
+   "back": "5 cutlings free save can are.",
+   "why": "Subject ਤੁਸੀਂ dropped, as Punjabi does when the verb ending (ਸਕਦੇ ਹੋ) already names the person; same verb ਸਾਂਭ as S2."
+  },
+  "S5": {
+   "s": "ਤੁਸੀਂ %2$lld ਮੁਫ਼ਤ ਕਟਲਿੰਗਾਂ ਵਿੱਚੋਂ %1$lld ਵਰਤ ਲਏ ਹਨ।",
+   "back": "you 5 free cutlings out-of 3 used have.",
+   "why": "Punjabi says the whole before the part ('5 ਵਿੱਚੋਂ 3'), so the numbers are positional; ਕਟਲਿੰਗਾਂ is the oblique plural before ਵਿੱਚੋਂ, the form the vocabulary uses."
+  },
+  "S6": {
+   "s": "%@ ਕਟਲਿੰਗ ਲਈ ਥਾਂ",
+   "back": "5,000 cutlings for room",
+   "why": "ਥਾਂ (room, place) is the word a person uses for space on a shelf or in a bag; a noun phrase, like the other bold row lines."
+  },
+  "S7": {
+   "s": "%@ ਤੱਕ ਟੈਕਸਟ ਕਟਲਿੰਗ ਅਤੇ %lld ਤੱਕ ਤਸਵੀਰਾਂ ਸਾਂਭ ਸਕਦੇ ਹੋ।",
+   "back": "5,000 up-to text cutlings and 500 up-to images save can are.",
+   "why": "ਤੱਕ after each number so 'up to' clearly covers both; ਟੈਕਸਟ ਕਟਲਿੰਗ is the app's own menu name and ਤਸਵੀਰਾਂ its plural for images."
+  },
+  "S8": {
+   "s": "iPhone, iPad ਅਤੇ Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Apple device names stay in Latin as the vocabulary keeps Mac and Apple Account; ਅਤੇ is the written 'and' before the last of three, no comma before it."
+  },
+  "S9": {
+   "s": "ਇੱਕੋ ਖਰੀਦ ਤੁਹਾਡੇ Apple Account ਵਾਲੇ ਹਰ ਡਿਵਾਈਸ 'ਤੇ ਚੱਲਦੀ ਹੈ।",
+   "back": "one-same purchase your Apple Account having every device on runs is.",
+   "why": "ਇੱਕੋ means one and the same; ਡਿਵਾਈਸ and 'ਤੇ come from the vocabulary's iCloud sentence; ਖਰੀਦ is feminine, so ਚੱਲਦੀ."
+  },
+  "S10": {
+   "s": "ਇੱਕ ਵਾਰ ਦਾ ਭੁਗਤਾਨ",
+   "back": "one time of payment",
+   "why": "ਇੱਕ ਵਾਰ ਦਾ ਭੁਗਤਾਨ is how a Punjabi bill or shop says one-time payment; ਭੁਗਤਾਨ is the normal word for paying in apps."
+  },
+  "S11": {
+   "s": "ਨਾ ਸਬਸਕ੍ਰਿਪਸ਼ਨ, ਨਾ ਇਸ਼ਤਿਹਾਰ, ਨਾ ਸਾਈਨ ਅੱਪ।",
+   "back": "neither subscription, nor advertisement, nor sign up.",
+   "why": "The ਨਾ… ਨਾ… ਨਾ… run is how Punjabi lists things that are absent; ਸਬਸਕ੍ਰਿਪਸ਼ਨ and ਸਾਈਨ ਅੱਪ are the words people say (ਗਾਹਕੀ also means clientele), ਇਸ਼ਤਿਹਾਰ is the native word for ads."
+  },
+  "S12": {
+   "s": "ਖਰੀਦਾਂ ਰੀਸਟੋਰ ਕਰੋ",
+   "back": "purchases restore do",
+   "why": "The App Store action as Punjabi iOS apps label it: native ਖਰੀਦਾਂ (purchases) with Apple's loan ਰੀਸਟੋਰ; a reviewer with a Punjabi-language iPhone should confirm against StoreKit's own wording."
+  },
+  "S13": {
+   "s": "ਰੀਸਟੋਰ ਹੋ ਰਿਹਾ ਹੈ…",
+   "back": "restore happening is…",
+   "why": "The progressive status form Punjabi phone UI uses (as in ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ…), ending with the single ellipsis character."
+  },
+  "S14": {
+   "s": "ਇੱਕ ਵਾਰ %@ ਦੇ ਕੇ ਅਣਲਾਕ ਕਰੋ",
+   "back": "one time $4.99 having-given unlock do",
+   "why": "ਦੇ ਕੇ (by paying) is how a person says paying a price for something; ਅਣਲਾਕ is the Punjabi phone word for unlock, and ਇੱਕ ਵਾਰ carries 'once'."
+  },
+  "S15": {
+   "s": "ਅਣਲਾਕ ਕਰੋ",
+   "back": "unlock do",
+   "why": "The same command with the price removed."
+  },
+  "S16": {
+   "s": "ਫਿਰ ਕਦੇ",
+   "back": "again sometime",
+   "why": "ਫਿਰ ਕਦੇ (some other time) is the polite Punjabi way to put something off without saying no."
+  },
+  "S17": {
+   "s": "ਬੰਦ ਕਰੋ",
+   "back": "close do",
+   "why": "The plain verb Punjabi phone UI uses on close buttons."
+  },
+  "S18": {
+   "s": "ਹੁਣ ਸਭ ਕੁਝ ਤੁਹਾਡਾ",
+   "back": "now everything yours",
+   "why": "A short, proud title with no verb, as Punjabi headlines drop ਹੈ; ਸਭ ਕੁਝ covers the app in full and the grid shows the room."
+  },
+  "S19": {
+   "s": "ਖਰੀਦਣ ਲਈ ਧੰਨਵਾਦ। ਇਸ ਨਾਲ ਕਟਲਿੰਗ ਨੂੰ ਵੀ ਸਹਾਰਾ ਮਿਲਦਾ ਹੈ ਅਤੇ ਇਸ ਨੂੰ ਇਕੱਲੇ ਬਣਾਉਣ ਵਾਲੇ ਨੂੰ ਵੀ।",
+   "back": "buying for thanks. this with Cutling to also support gets is and it to alone making one to also.",
+   "why": "ਧੰਨਵਾਦ is the standard thanks; the ਵੀ… ਵੀ… pair names both the app and the one person who makes it alone (ਇਕੱਲੇ ਬਣਾਉਣ ਵਾਲਾ), warm and plain."
+  },
+  "S20": {
+   "s": "ਮੁੜ ਜੀ ਆਇਆਂ ਨੂੰ। ਤੁਹਾਡੀ ਪਿਛਲੀ ਖਰੀਦ ਵਾਪਸ ਆ ਗਈ ਹੈ।",
+   "back": "again welcome. your previous purchase back come has.",
+   "why": "ਜੀ ਆਇਆਂ ਨੂੰ is the Punjabi welcome and ਮੁੜ makes it welcome back; ਵਾਪਸ ਆ ਗਈ (has come back) is warmer than repeating ਰੀਸਟੋਰ, and ਖਰੀਦ is feminine."
+  },
+  "S21": {
+   "s": "%2$lld ਮੁਫ਼ਤ ਕਟਲਿੰਗਾਂ ਵਿੱਚੋਂ %1$lld ਵਰਤੇ ਗਏ",
+   "back": "5 free cutlings out-of 3 used went",
+   "why": "Spoken form of S5 with the whole before the part, positional numbers; ਵਰਤੇ ਗਏ is masculine plural, matching ਕਟਲਿੰਗ."
+  },
+  "S22": {
+   "s": "%lld ਕਟਲਿੰਗ, ਹੁਣ %@ ਲਈ ਥਾਂ ਹੈ।",
+   "back": "5 cutlings, now 5,000 for room is.",
+   "why": "Copies the vocabulary's count '%lld ਕਟਲਿੰਗ', which has no verb to agree, so it reads right for 1, 2, 5 and 21; ਥਾਂ ਹੈ is singular whatever the number."
+  },
+  "S23": {
+   "s": "ਕਟਲਿੰਗ ਹੁਣ ਅਣਲਾਕ ਹੈ। %@ ਕਟਲਿੰਗ ਲਈ ਥਾਂ ਹੈ।",
+   "back": "Cutling now unlocked is. 5,000 cutlings for room is.",
+   "why": "ਅਣਲਾਕ ਹੈ as a state needs no gender ending for the app's name; the second sentence reuses S6's room phrase."
+  },
+  "S24": {
+   "s": "ਖਰੀਦ ਪੂਰੀ ਨਹੀਂ ਹੋਈ",
+   "back": "purchase complete not happened",
+   "why": "States what happened to the purchase, with no actor and no blame; feminine agreement with ਖਰੀਦ."
+  },
+  "S25": {
+   "s": "ਇਸ ਵੇਲੇ App Store ਨਾਲ ਸੰਪਰਕ ਨਹੀਂ ਹੋ ਰਿਹਾ। ਥੋੜ੍ਹੀ ਦੇਰ ਬਾਅਦ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।",
+   "back": "this time App Store with contact not happening. little while after again try do.",
+   "why": "ਇਸ ਵੇਲੇ (right now) and ਥੋੜ੍ਹੀ ਦੇਰ ਬਾਅਦ (in a little while) are spoken Punjabi; App Store stays in Latin like Apple Account."
+  },
+  "S26": {
+   "s": "App Store ਨੇ ਇਸ ਖਰੀਦ ਦੀ ਪੁਸ਼ਟੀ ਨਹੀਂ ਕੀਤੀ।",
+   "back": "App Store (erg) this purchase of confirmation not did.",
+   "why": "ਪੁਸ਼ਟੀ ਕਰਨਾ is the usual verb for confirming in banking and app text; feminine ਕੀਤੀ agrees with ਪੁਸ਼ਟੀ."
+  },
+  "S27": {
+   "s": "ਇਸ ਡਿਵਾਈਸ 'ਤੇ ਸਾਈਨ ਇਨ ਕੀਤੇ Apple Account ਨਾਲ ਕਟਲਿੰਗ ਦੀ ਕੋਈ ਪਿਛਲੀ ਖਰੀਦ ਨਹੀਂ ਮਿਲੀ।",
+   "back": "this device on sign in done Apple Account with Cutling of any previous purchase not found.",
+   "why": "'ਸਾਈਨ ਇਨ ਕੀਤੇ Apple Account' follows the vocabulary's own phrasing; ਨਹੀਂ ਮਿਲੀ (was not found) states the fact without blame."
+  },
+  "S28": {
+   "s": "ਮੁਫ਼ਤ ਵਰਜ਼ਨ ਵਿੱਚ %lld ਕਟਲਿੰਗ ਤੱਕ ਸਾਂਭ ਸਕਦੇ ਹੋ। ਕਟਲਿੰਗ ਇੱਕ ਵਾਰ ਅਣਲਾਕ ਕਰ ਲਓ, ਫਿਰ ਜਿੰਨੇ ਮਰਜ਼ੀ ਸਾਂਭੋ।",
+   "back": "free version in 5 cutlings up-to save can are. Cutling one time unlock do take, then as-many wish save.",
+   "why": "ਜਿੰਨੇ ਮਰਜ਼ੀ (as many as you like) is the idiom a speaker reaches for; ਵਰਜ਼ਨ names the free copy so the app name and the item word, both ਕਟਲਿੰਗ, do not collide."
+  },
+  "S29": {
+   "s": "%2$lld ਮੁਫ਼ਤ ਵਿੱਚੋਂ %1$lld ਵਰਤੇ",
+   "back": "5 free out-of 4 used",
+   "why": "Whole before part with positional numbers; ਵਰਤੇ alone, as a subtitle drops the auxiliary, and '5 ਮੁਫ਼ਤ ਵਿੱਚੋਂ' cannot be misread as '4 of 5 are free'."
+  },
+  "K1": {
+   "s": "ਸਾਰੇ %lld ਮੁਫ਼ਤ ਵਰਤੇ, ਅਣਲਾਕ ਲਈ ਟੈਪ ਕਰੋ",
+   "back": "all 5 free used, unlock for tap do",
+   "why": "Fact then the action in one line, with the auxiliary dropped as a banner does so it fits 30 (29 visible with the number filled in); ਮੁਫ਼ਤ stands for the free cutlings as it does in speech; ਟੈਪ ਕਰੋ is the word Punjabi phone UI uses for tap."
+  },
+  "M1": {
+   "s": "ਕਟਲਿੰਗ ਅਣਲਾਕ ਕਰੋ",
+   "back": "Cutling unlock do",
+   "why": "A Punjabi command puts the verb last, so the Mac command name is object then ਅਣਲਾਕ ਕਰੋ, the form of other Punjabi menu commands."
+  },
+  "M2": {
+   "s": "ਕਟਲਿੰਗ ਅਣਲਾਕ ਕਰੋ…",
+   "back": "Cutling unlock do…",
+   "why": "M1 with the ellipsis character because the button opens a window."
+  },
+  "M3": {
+   "s": "ਮੁਫ਼ਤ ਕਟਲਿੰਗ",
+   "back": "free cutlings",
+   "why": "A row label is a noun phrase; the item word from the vocabulary."
+  },
+  "M4": {
+   "s": "%1$lld/%2$lld",
+   "back": "3/5",
+   "why": "A compact pair reads the same in Punjabi; numbers stay positional."
+  },
+  "M5": {
+   "s": "ਕਟਲਿੰਗ ਅਣਲਾਕ ਹੈ",
+   "back": "Cutling unlocked is",
+   "why": "A state with ਹੈ, which carries no gender ending."
+  },
+  "M6": {
+   "s": "ਇੱਕੋ ਖਰੀਦ ਕਟਲਿੰਗ ਨੂੰ iPhone, iPad ਅਤੇ Mac 'ਤੇ ਅਣਲਾਕ ਕਰ ਦਿੰਦੀ ਹੈ।",
+   "back": "one-same purchase Cutling to iPhone, iPad and Mac on unlock do gives is.",
+   "why": "The purchase is the subject, so the verb agrees with feminine ਖਰੀਦ; the device list matches S8."
+  },
+  "M7": {
+   "s": "ਇਸ Apple Account ਨਾਲ iPhone, iPad ਅਤੇ Mac 'ਤੇ ਅਣਲਾਕ ਹੈ।",
+   "back": "this Apple Account with iPhone, iPad and Mac on unlocked is.",
+   "why": "No subject needed under the Cutling section; ਅਣਲਾਕ ਹੈ as in M5."
+  },
+  "M8": {
+   "s": "ਤੁਸੀਂ ਕਟਲਿੰਗ ਮੁਫ਼ਤ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ ਖਰੀਦਿਆ ਸੀ, ਇਸ ਲਈ ਇਹ ਹਮੇਸ਼ਾ ਅਣਲਾਕ ਹੈ। ਸਾਥ ਦੇਣ ਲਈ ਧੰਨਵਾਦ।",
+   "back": "you Cutling free becoming from before bought had, this for it always unlocked is. company giving for thanks.",
+   "why": "ਸਾਥ ਦੇਣ ਲਈ ਧੰਨਵਾਦ (thanks for standing with us) thanks an early buyer the way a person would; ਖਰੀਦਿਆ agrees with the object, as the Punjabi transitive past does."
+  }
+ }
+}

@@ -1,0 +1,578 @@
+{
+ "fr": {
+  "S1": {
+   "s": "%lld gratuits",
+   "back": "%lld free [ones]",
+   "why": "The noun cutlings is left out, as a French label under a row of tiles does; gratuits agrees with the masculine plural cutlings. Written for every French reader outside France and Canada."
+  },
+  "S2": {
+   "s": "Ce n’est qu’un début",
+   "back": "This not is but a beginning",
+   "why": "Frames the five as a start, so it invites more without a warning; works whether 0 or 5 are saved. Exactly 20 characters. Written for every French reader outside France and Canada."
+  },
+  "S3": {
+   "s": "Tu as utilisé tes %lld cutlings gratuits. Ils marchent toujours et ne te coûteront rien.",
+   "back": "You have used your %lld cutlings free. They work still and not to-you will-cost nothing.",
+   "why": "Tu, as in the vocab file; marcher is the everyday verb for keeps working, and the future coûteront promises nothing will be charged later. 85 characters. Written for every French reader outside France and Canada."
+  },
+  "S4": {
+   "s": "Tes %lld premiers cutlings sont gratuits.",
+   "back": "Your %lld first cutlings are free.",
+   "why": "Tes premiers is how a French offer states a free allowance; avoids a 'tu peux' sentence. 39 characters. Written for every French reader outside France and Canada."
+  },
+  "S5": {
+   "s": "Tu as utilisé %1$lld de tes %2$lld cutlings gratuits.",
+   "back": "You have used %1$lld of your %2$lld cutlings free.",
+   "why": "Passé composé with avoir needs no agreement, so the line holds for 1 used as well as 4. Written for every French reader outside France and Canada."
+  },
+  "S6": {
+   "s": "Jusqu’à %@ cutlings",
+   "back": "Up-to %@ cutlings",
+   "why": "Cutlings is the vocab word; jusqu'à says the room without a dangling number. 22 characters with 5 000. Written for every French reader outside France and Canada."
+  },
+  "S7": {
+   "s": "De quoi garder %@ textes et %lld images.",
+   "back": "Of what to-keep %@ texts and %lld images.",
+   "why": "De quoi = enough to, a native ellipsis that avoids repeating jusqu'à from the bold line; textes and images are the vocab kinds. Written for every French reader outside France and Canada."
+  },
+  "S8": {
+   "s": "iPhone, iPad et Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "French joins three with et and no serial comma; device names stay as Apple writes them, no article. Written for every French reader outside France and Canada."
+  },
+  "S9": {
+   "s": "Ton achat te suit sur chaque appareil connecté à ton compte Apple.",
+   "back": "Your purchase you follows onto each device connected to your account Apple.",
+   "why": "Reuses the vocab phrase 'chaque appareil connecté à ton compte Apple' word for word; suivre gives the line a person's verb. 66 characters. Written for every French reader outside France and Canada."
+  },
+  "S10": {
+   "s": "Un seul paiement",
+   "back": "One single payment",
+   "why": "A noun phrase, like the other bold row lines; seul carries 'nothing recurring'. Written for every French reader outside France and Canada."
+  },
+  "S11": {
+   "s": "Pas d’abonnement, pas de publicité, pas de compte à créer.",
+   "back": "No of subscription, no of advertising, no of account to create.",
+   "why": "Pas de x, pas de y is how French lists absences out loud; publicité in full as the neutral form for every French reader outside France and Canada. 57 characters."
+  },
+  "S12": {
+   "s": "Restaurer les achats",
+   "back": "Restore the purchases",
+   "why": "The wording French iOS apps use for this App Store action. Written for every French reader outside France and Canada."
+  },
+  "S13": {
+   "s": "Restauration…",
+   "back": "Restoration…",
+   "why": "The noun plus the ellipsis character, as French iOS shows work under way (Chargement…). Written for every French reader outside France and Canada."
+  },
+  "S14": {
+   "s": "Débloquer pour %@",
+   "back": "To-unlock for %@",
+   "why": "Infinitive, the French button form; the single payment is already said in the row above, so the button stays short for prices like 79 000 Rp. Written for every French reader outside France and Canada."
+  },
+  "S15": {
+   "s": "Débloquer",
+   "back": "To-unlock",
+   "why": "The same infinitive without the price. Written for every French reader outside France and Canada."
+  },
+  "S16": {
+   "s": "Plus tard",
+   "back": "More late",
+   "why": "What a French speaker says to put something off; it declines nothing. Written for every French reader outside France and Canada."
+  },
+  "S17": {
+   "s": "Fermer",
+   "back": "To-close",
+   "why": "The label French iOS gives its close buttons. Written for every French reader outside France and Canada."
+  },
+  "S18": {
+   "s": "Tout est à toi",
+   "back": "All is to you",
+   "why": "Warm and a little proud, in tu; tout covers the items and all the new room. 14 characters. Written for every French reader outside France and Canada."
+  },
+  "S19": {
+   "s": "Merci. Ton achat fait vivre Cutling et la seule personne qui le crée.",
+   "back": "Thanks. Your purchase makes live Cutling and the only person who it creates.",
+   "why": "Faire vivre means both keeps the app going and earns someone a living, which is the point; la personne avoids naming a gender. Written for every French reader outside France and Canada."
+  },
+  "S20": {
+   "s": "Te revoilà. Ton achat est de retour.",
+   "back": "You here-again. Your purchase is of return.",
+   "why": "Te revoilà greets a returning person without a gendered adjective (content, contente); de retour is the everyday 'back'. Written for every French reader outside France and Canada."
+  },
+  "S21": {
+   "s": "Cutlings gratuits utilisés : %1$lld sur %2$lld",
+   "back": "Cutlings free used: %1$lld of %2$lld",
+   "why": "Label and value, so no noun or participle has to agree with the first number; VoiceOver reads it as 'cutlings gratuits utilisés, 3 sur 5'. No-break space before the colon. Written for every French reader outside France and Canada."
+  },
+  "S22": {
+   "s": "Cutlings : %lld. De la place pour %@.",
+   "back": "Cutlings: %lld. Of the room for %@.",
+   "why": "The count stands alone after the label, so it reads right for 1, 2, 5 and 21 with no plural form. Written for every French reader outside France and Canada."
+  },
+  "S23": {
+   "s": "Cutling est débloqué, avec de la place pour %@ cutlings.",
+   "back": "Cutling is unlocked, with of the room for %@ cutlings.",
+   "why": "Cutling, the app, is masculine (débloqué); the item count uses the vocab plural cutlings. Written for every French reader outside France and Canada."
+  },
+  "S24": {
+   "s": "L’achat n’a pas abouti",
+   "back": "The purchase not has not succeeded",
+   "why": "N'a pas abouti is the calm French phrase for a transaction that did not go through, with no subject to blame. 22 characters. Written for every French reader outside France and Canada."
+  },
+  "S25": {
+   "s": "Impossible de se connecter à l’App Store pour le moment. Réessaie dans un instant.",
+   "back": "Impossible to self connect to the App Store for the moment. Retry in an instant.",
+   "why": "Opens with the same words iOS uses for this App Store error; réessaie in tu. 81 characters. Written for every French reader outside France and Canada."
+  },
+  "S26": {
+   "s": "L’App Store n’a pas confirmé cet achat.",
+   "back": "The App Store not has not confirmed this purchase.",
+   "why": "States what happened and nothing more. 39 characters. Written for every French reader outside France and Canada."
+  },
+  "S27": {
+   "s": "Aucun achat de Cutling n’a été trouvé pour le compte Apple de cet appareil.",
+   "back": "No purchase of Cutling not has been found for the account Apple of this device.",
+   "why": "Aucun ... n'a été trouvé is the standard French result for a search that came back empty; compte Apple lowercase c as in the vocab. 75 characters. Written for every French reader outside France and Canada."
+  },
+  "S28": {
+   "s": "La version gratuite garde %lld cutlings. Débloque Cutling une fois pour en ajouter autant que tu veux.",
+   "back": "The version free keeps %lld cutlings. Unlock Cutling one time for of-them to-add as-many as you want.",
+   "why": "Two plain sentences Siri can say; en stands for cutlings so the noun is not repeated. 99 characters. Written for every French reader outside France and Canada."
+  },
+  "S29": {
+   "s": "%1$lld sur %2$lld gratuits",
+   "back": "%1$lld of %2$lld free [ones]",
+   "why": "Same ellipsis of cutlings as S1, under the list title Cutlings; gratuits agrees with the total. 16 characters. Written for every French reader outside France and Canada."
+  },
+  "K1": {
+   "s": "%lld gratuits utilisés. Débloque Cutling",
+   "back": "%lld free [ones] used. Unlock Cutling",
+   "why": "An imperative in tu reads as something to tap on a capsule; same 'gratuits' as S1 and S29. 37 characters. Written for every French reader outside France and Canada."
+  },
+  "M1": {
+   "s": "Débloquer Cutling",
+   "back": "To-unlock Cutling",
+   "why": "Infinitive, as French Mac window titles and menu commands are. Written for every French reader outside France and Canada."
+  },
+  "M2": {
+   "s": "Débloquer Cutling…",
+   "back": "To-unlock Cutling…",
+   "why": "The M1 command with the ellipsis character, as a Mac button that opens a window. Written for every French reader outside France and Canada."
+  },
+  "M3": {
+   "s": "Cutlings gratuits",
+   "back": "Cutlings free",
+   "why": "The vocab word plus the same gratuits used on the sheet. Written for every French reader outside France and Canada."
+  },
+  "M4": {
+   "s": "%1$lld sur %2$lld",
+   "back": "%1$lld of %2$lld",
+   "why": "Sur is how French reads a pair like 3 of 5; a slash would read as a fraction or a date. Written for every French reader outside France and Canada."
+  },
+  "M5": {
+   "s": "Cutling débloqué",
+   "back": "Cutling unlocked",
+   "why": "Verbless status, as a Settings row value reads. Written for every French reader outside France and Canada."
+  },
+  "M6": {
+   "s": "Un seul achat débloque Cutling sur iPhone, iPad et Mac.",
+   "back": "One single purchase unlocks Cutling on iPhone, iPad and Mac.",
+   "why": "Same three-device list as S8, with sur and no articles. Written for every French reader outside France and Canada."
+  },
+  "M7": {
+   "s": "Débloqué sur chaque iPhone, iPad et Mac connecté à ce compte Apple.",
+   "back": "Unlocked on each iPhone, iPad and Mac connected to this account Apple.",
+   "why": "Echoes the vocab phrase 'appareil connecté à ton compte Apple'; ce compte because Settings names the account in use. Written for every French reader outside France and Canada."
+  },
+  "M8": {
+   "s": "Tu as acheté Cutling avant qu’il soit gratuit : il reste débloqué. Merci d’être là depuis le début.",
+   "back": "You have bought Cutling before that it be free: it stays unlocked. Thanks for being there since the beginning.",
+   "why": "The colon gives the reason, as French uses it, with a no-break space before it; the thanks is for being there early, which is what these buyers did. Written for every French reader outside France and Canada."
+  }
+ },
+ "fr-CA": {
+  "S1": {
+   "s": "%lld gratuits",
+   "back": "%lld free [ones]",
+   "why": "The noun cutlings is left out, as a French label under a row of tiles does; gratuits agrees with the masculine plural cutlings. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S2": {
+   "s": "Ce n’est qu’un début",
+   "back": "This not is but a beginning",
+   "why": "Frames the five as a start, so it invites more without a warning; works whether 0 or 5 are saved. Exactly 20 characters. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S3": {
+   "s": "Tu as utilisé tes %lld cutlings gratuits. Ils marchent toujours et ne te coûteront rien.",
+   "back": "You have used your %lld cutlings free. They work still and not to-you will-cost nothing.",
+   "why": "Tu, as in the vocab file; marcher is the everyday verb for keeps working, and the future coûteront promises nothing will be charged later. 85 characters. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S4": {
+   "s": "Tes %lld premiers cutlings sont gratuits.",
+   "back": "Your %lld first cutlings are free.",
+   "why": "Tes premiers is how a French offer states a free allowance; avoids a 'tu peux' sentence. 39 characters. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S5": {
+   "s": "Tu as utilisé %1$lld de tes %2$lld cutlings gratuits.",
+   "back": "You have used %1$lld of your %2$lld cutlings free.",
+   "why": "Passé composé with avoir needs no agreement, so the line holds for 1 used as well as 4. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S6": {
+   "s": "Jusqu’à %@ cutlings",
+   "back": "Up-to %@ cutlings",
+   "why": "Cutlings is the vocab word; jusqu'à says the room without a dangling number. 22 characters with 5 000. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S7": {
+   "s": "De quoi garder %@ textes et %lld images.",
+   "back": "Of what to-keep %@ texts and %lld images.",
+   "why": "De quoi = enough to, a native ellipsis that avoids repeating jusqu'à from the bold line; textes and images are the vocab kinds. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S8": {
+   "s": "iPhone, iPad et Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "French joins three with et and no serial comma; device names stay as Apple writes them, no article. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S9": {
+   "s": "Ton achat te suit sur chaque appareil connecté à ton compte Apple.",
+   "back": "Your purchase you follows onto each device connected to your account Apple.",
+   "why": "Reuses the vocab phrase 'chaque appareil connecté à ton compte Apple' word for word; suivre gives the line a person's verb. 66 characters. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S10": {
+   "s": "Un seul paiement",
+   "back": "One single payment",
+   "why": "A noun phrase, like the other bold row lines; seul carries 'nothing recurring'. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S11": {
+   "s": "Pas d’abonnement, pas de publicité, pas de compte à créer.",
+   "back": "No of subscription, no of advertising, no of account to create.",
+   "why": "Pas de x, pas de y lists absences the way people say them; publicité in full, as Québec app copy prints it (pub reads as France casual). 57 characters."
+  },
+  "S12": {
+   "s": "Restaurer les achats",
+   "back": "Restore the purchases",
+   "why": "The wording French iOS apps use for this App Store action. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S13": {
+   "s": "Restauration…",
+   "back": "Restoration…",
+   "why": "The noun plus the ellipsis character, as French iOS shows work under way (Chargement…). Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S14": {
+   "s": "Débloquer pour %@",
+   "back": "To-unlock for %@",
+   "why": "Infinitive, the French button form; the single payment is already said in the row above, so the button stays short for prices like 79 000 Rp. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S15": {
+   "s": "Débloquer",
+   "back": "To-unlock",
+   "why": "The same infinitive without the price. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S16": {
+   "s": "Plus tard",
+   "back": "More late",
+   "why": "What a French speaker says to put something off; it declines nothing. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S17": {
+   "s": "Fermer",
+   "back": "To-close",
+   "why": "The label French iOS gives its close buttons. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S18": {
+   "s": "Tout est à toi",
+   "back": "All is to you",
+   "why": "Warm and a little proud, in tu; tout covers the items and all the new room. 14 characters. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S19": {
+   "s": "Merci. Ton achat fait vivre Cutling et la seule personne qui le crée.",
+   "back": "Thanks. Your purchase makes live Cutling and the only person who it creates.",
+   "why": "Faire vivre means both keeps the app going and earns someone a living, which is the point; la personne avoids naming a gender. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S20": {
+   "s": "Te revoilà. Ton achat est de retour.",
+   "back": "You here-again. Your purchase is of return.",
+   "why": "Te revoilà greets a returning person without a gendered adjective (content, contente); de retour is the everyday 'back'. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S21": {
+   "s": "Cutlings gratuits utilisés : %1$lld sur %2$lld",
+   "back": "Cutlings free used: %1$lld of %2$lld",
+   "why": "Label and value, so no noun or participle has to agree with the first number; VoiceOver reads it as 'cutlings gratuits utilisés, 3 sur 5'. No-break space before the colon. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S22": {
+   "s": "Cutlings : %lld. De la place pour %@.",
+   "back": "Cutlings: %lld. Of the room for %@.",
+   "why": "The count stands alone after the label, so it reads right for 1, 2, 5 and 21 with no plural form. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S23": {
+   "s": "Cutling est débloqué, avec de la place pour %@ cutlings.",
+   "back": "Cutling is unlocked, with of the room for %@ cutlings.",
+   "why": "Cutling, the app, is masculine (débloqué); the item count uses the vocab plural cutlings. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S24": {
+   "s": "L’achat n’a pas abouti",
+   "back": "The purchase not has not succeeded",
+   "why": "N'a pas abouti is the calm French phrase for a transaction that did not go through, with no subject to blame. 22 characters. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S25": {
+   "s": "Impossible de se connecter à l’App Store pour le moment. Réessaie dans un instant.",
+   "back": "Impossible to self connect to the App Store for the moment. Retry in an instant.",
+   "why": "Opens with the same words iOS uses for this App Store error; réessaie in tu. 81 characters. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S26": {
+   "s": "L’App Store n’a pas confirmé cet achat.",
+   "back": "The App Store not has not confirmed this purchase.",
+   "why": "States what happened and nothing more. 39 characters. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S27": {
+   "s": "Aucun achat de Cutling n’a été trouvé pour le compte Apple de cet appareil.",
+   "back": "No purchase of Cutling not has been found for the account Apple of this device.",
+   "why": "Aucun ... n'a été trouvé is the standard French result for a search that came back empty; compte Apple lowercase c as in the vocab. 75 characters. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S28": {
+   "s": "La version gratuite garde %lld cutlings. Débloque Cutling une fois pour en ajouter autant que tu veux.",
+   "back": "The version free keeps %lld cutlings. Unlock Cutling one time for of-them to-add as-many as you want.",
+   "why": "Two plain sentences Siri can say; en stands for cutlings so the noun is not repeated. 99 characters. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "S29": {
+   "s": "%1$lld sur %2$lld gratuits",
+   "back": "%1$lld of %2$lld free [ones]",
+   "why": "Same ellipsis of cutlings as S1, under the list title Cutlings; gratuits agrees with the total. 16 characters. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "K1": {
+   "s": "%lld gratuits utilisés. Débloque Cutling",
+   "back": "%lld free [ones] used. Unlock Cutling",
+   "why": "An imperative in tu reads as something to tap on a capsule; same 'gratuits' as S1 and S29. 37 characters. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "M1": {
+   "s": "Débloquer Cutling",
+   "back": "To-unlock Cutling",
+   "why": "Infinitive, as French Mac window titles and menu commands are. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "M2": {
+   "s": "Débloquer Cutling…",
+   "back": "To-unlock Cutling…",
+   "why": "The M1 command with the ellipsis character, as a Mac button that opens a window. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "M3": {
+   "s": "Cutlings gratuits",
+   "back": "Cutlings free",
+   "why": "The vocab word plus the same gratuits used on the sheet. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "M4": {
+   "s": "%1$lld sur %2$lld",
+   "back": "%1$lld of %2$lld",
+   "why": "Sur is how French reads a pair like 3 of 5; a slash would read as a fraction or a date. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "M5": {
+   "s": "Cutling débloqué",
+   "back": "Cutling unlocked",
+   "why": "Verbless status, as a Settings row value reads. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "M6": {
+   "s": "Un seul achat débloque Cutling sur iPhone, iPad et Mac.",
+   "back": "One single purchase unlocks Cutling on iPhone, iPad and Mac.",
+   "why": "Same three-device list as S8, with sur and no articles. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "M7": {
+   "s": "Débloqué sur chaque iPhone, iPad et Mac connecté à ce compte Apple.",
+   "back": "Unlocked on each iPhone, iPad and Mac connected to this account Apple.",
+   "why": "Echoes the vocab phrase 'appareil connecté à ton compte Apple'; ce compte because Settings names the account in use. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  },
+  "M8": {
+   "s": "Tu as acheté Cutling avant qu’il soit gratuit : il reste débloqué. Merci d’être là depuis le début.",
+   "back": "You have bought Cutling before that it be free: it stays unlocked. Thanks for being there since the beginning.",
+   "why": "The colon gives the reason, as French uses it, with a no-break space before it; the thanks is for being there early, which is what these buyers did. Same in Québec: no word differs, and no ? ! ; appears, so OQLF spacing changes nothing."
+  }
+ },
+ "fr-FR": {
+  "S1": {
+   "s": "%lld gratuits",
+   "back": "%lld free [ones]",
+   "why": "The noun cutlings is left out, as a French label under a row of tiles does; gratuits agrees with the masculine plural cutlings. Same as fr: France writes it the same way."
+  },
+  "S2": {
+   "s": "Ce n’est qu’un début",
+   "back": "This not is but a beginning",
+   "why": "Frames the five as a start, so it invites more without a warning; works whether 0 or 5 are saved. Exactly 20 characters. Same as fr: France writes it the same way."
+  },
+  "S3": {
+   "s": "Tu as utilisé tes %lld cutlings gratuits. Ils marchent toujours et ne te coûteront rien.",
+   "back": "You have used your %lld cutlings free. They work still and not to-you will-cost nothing.",
+   "why": "Tu, as in the vocab file; marcher is the everyday verb for keeps working, and the future coûteront promises nothing will be charged later. 85 characters. Same as fr: France writes it the same way."
+  },
+  "S4": {
+   "s": "Tes %lld premiers cutlings sont gratuits.",
+   "back": "Your %lld first cutlings are free.",
+   "why": "Tes premiers is how a French offer states a free allowance; avoids a 'tu peux' sentence. 39 characters. Same as fr: France writes it the same way."
+  },
+  "S5": {
+   "s": "Tu as utilisé %1$lld de tes %2$lld cutlings gratuits.",
+   "back": "You have used %1$lld of your %2$lld cutlings free.",
+   "why": "Passé composé with avoir needs no agreement, so the line holds for 1 used as well as 4. Same as fr: France writes it the same way."
+  },
+  "S6": {
+   "s": "Jusqu’à %@ cutlings",
+   "back": "Up-to %@ cutlings",
+   "why": "Cutlings is the vocab word; jusqu'à says the room without a dangling number. 22 characters with 5 000. Same as fr: France writes it the same way."
+  },
+  "S7": {
+   "s": "De quoi garder %@ textes et %lld images.",
+   "back": "Of what to-keep %@ texts and %lld images.",
+   "why": "De quoi = enough to, a native ellipsis that avoids repeating jusqu'à from the bold line; textes and images are the vocab kinds. Same as fr: France writes it the same way."
+  },
+  "S8": {
+   "s": "iPhone, iPad et Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "French joins three with et and no serial comma; device names stay as Apple writes them, no article. Same as fr: France writes it the same way."
+  },
+  "S9": {
+   "s": "Ton achat te suit sur chaque appareil connecté à ton compte Apple.",
+   "back": "Your purchase you follows onto each device connected to your account Apple.",
+   "why": "Reuses the vocab phrase 'chaque appareil connecté à ton compte Apple' word for word; suivre gives the line a person's verb. 66 characters. Same as fr: France writes it the same way."
+  },
+  "S10": {
+   "s": "Un seul paiement",
+   "back": "One single payment",
+   "why": "A noun phrase, like the other bold row lines; seul carries 'nothing recurring'. Same as fr: France writes it the same way."
+  },
+  "S11": {
+   "s": "Pas d’abonnement, pas de pub, pas de compte à créer.",
+   "back": "No of subscription, no of ad, no of account to create.",
+   "why": "Pub is the word people in France say and app pages there print; shorter and warmer than publicité. 52 characters."
+  },
+  "S12": {
+   "s": "Restaurer les achats",
+   "back": "Restore the purchases",
+   "why": "The wording French iOS apps use for this App Store action. Same as fr: France writes it the same way."
+  },
+  "S13": {
+   "s": "Restauration…",
+   "back": "Restoration…",
+   "why": "The noun plus the ellipsis character, as French iOS shows work under way (Chargement…). Same as fr: France writes it the same way."
+  },
+  "S14": {
+   "s": "Débloquer pour %@",
+   "back": "To-unlock for %@",
+   "why": "Infinitive, the French button form; the single payment is already said in the row above, so the button stays short for prices like 79 000 Rp. Same as fr: France writes it the same way."
+  },
+  "S15": {
+   "s": "Débloquer",
+   "back": "To-unlock",
+   "why": "The same infinitive without the price. Same as fr: France writes it the same way."
+  },
+  "S16": {
+   "s": "Plus tard",
+   "back": "More late",
+   "why": "What a French speaker says to put something off; it declines nothing. Same as fr: France writes it the same way."
+  },
+  "S17": {
+   "s": "Fermer",
+   "back": "To-close",
+   "why": "The label French iOS gives its close buttons. Same as fr: France writes it the same way."
+  },
+  "S18": {
+   "s": "Tout est à toi",
+   "back": "All is to you",
+   "why": "Warm and a little proud, in tu; tout covers the items and all the new room. 14 characters. Same as fr: France writes it the same way."
+  },
+  "S19": {
+   "s": "Merci. Ton achat fait vivre Cutling et la seule personne qui le crée.",
+   "back": "Thanks. Your purchase makes live Cutling and the only person who it creates.",
+   "why": "Faire vivre means both keeps the app going and earns someone a living, which is the point; la personne avoids naming a gender. Same as fr: France writes it the same way."
+  },
+  "S20": {
+   "s": "Te revoilà. Ton achat est de retour.",
+   "back": "You here-again. Your purchase is of return.",
+   "why": "Te revoilà greets a returning person without a gendered adjective (content, contente); de retour is the everyday 'back'. Same as fr: France writes it the same way."
+  },
+  "S21": {
+   "s": "Cutlings gratuits utilisés : %1$lld sur %2$lld",
+   "back": "Cutlings free used: %1$lld of %2$lld",
+   "why": "Label and value, so no noun or participle has to agree with the first number; VoiceOver reads it as 'cutlings gratuits utilisés, 3 sur 5'. No-break space before the colon. Same as fr: France writes it the same way."
+  },
+  "S22": {
+   "s": "Cutlings : %lld. De la place pour %@.",
+   "back": "Cutlings: %lld. Of the room for %@.",
+   "why": "The count stands alone after the label, so it reads right for 1, 2, 5 and 21 with no plural form. Same as fr: France writes it the same way."
+  },
+  "S23": {
+   "s": "Cutling est débloqué, avec de la place pour %@ cutlings.",
+   "back": "Cutling is unlocked, with of the room for %@ cutlings.",
+   "why": "Cutling, the app, is masculine (débloqué); the item count uses the vocab plural cutlings. Same as fr: France writes it the same way."
+  },
+  "S24": {
+   "s": "L’achat n’a pas abouti",
+   "back": "The purchase not has not succeeded",
+   "why": "N'a pas abouti is the calm French phrase for a transaction that did not go through, with no subject to blame. 22 characters. Same as fr: France writes it the same way."
+  },
+  "S25": {
+   "s": "Impossible de se connecter à l’App Store pour le moment. Réessaie dans un instant.",
+   "back": "Impossible to self connect to the App Store for the moment. Retry in an instant.",
+   "why": "Opens with the same words iOS uses for this App Store error; réessaie in tu. 81 characters. Same as fr: France writes it the same way."
+  },
+  "S26": {
+   "s": "L’App Store n’a pas confirmé cet achat.",
+   "back": "The App Store not has not confirmed this purchase.",
+   "why": "States what happened and nothing more. 39 characters. Same as fr: France writes it the same way."
+  },
+  "S27": {
+   "s": "Aucun achat de Cutling n’a été trouvé pour le compte Apple de cet appareil.",
+   "back": "No purchase of Cutling not has been found for the account Apple of this device.",
+   "why": "Aucun ... n'a été trouvé is the standard French result for a search that came back empty; compte Apple lowercase c as in the vocab. 75 characters. Same as fr: France writes it the same way."
+  },
+  "S28": {
+   "s": "La version gratuite garde %lld cutlings. Débloque Cutling une fois pour en ajouter autant que tu veux.",
+   "back": "The version free keeps %lld cutlings. Unlock Cutling one time for of-them to-add as-many as you want.",
+   "why": "Two plain sentences Siri can say; en stands for cutlings so the noun is not repeated. 99 characters. Same as fr: France writes it the same way."
+  },
+  "S29": {
+   "s": "%1$lld sur %2$lld gratuits",
+   "back": "%1$lld of %2$lld free [ones]",
+   "why": "Same ellipsis of cutlings as S1, under the list title Cutlings; gratuits agrees with the total. 16 characters. Same as fr: France writes it the same way."
+  },
+  "K1": {
+   "s": "%lld gratuits utilisés. Débloque Cutling",
+   "back": "%lld free [ones] used. Unlock Cutling",
+   "why": "An imperative in tu reads as something to tap on a capsule; same 'gratuits' as S1 and S29. 37 characters. Same as fr: France writes it the same way."
+  },
+  "M1": {
+   "s": "Débloquer Cutling",
+   "back": "To-unlock Cutling",
+   "why": "Infinitive, as French Mac window titles and menu commands are. Same as fr: France writes it the same way."
+  },
+  "M2": {
+   "s": "Débloquer Cutling…",
+   "back": "To-unlock Cutling…",
+   "why": "The M1 command with the ellipsis character, as a Mac button that opens a window. Same as fr: France writes it the same way."
+  },
+  "M3": {
+   "s": "Cutlings gratuits",
+   "back": "Cutlings free",
+   "why": "The vocab word plus the same gratuits used on the sheet. Same as fr: France writes it the same way."
+  },
+  "M4": {
+   "s": "%1$lld sur %2$lld",
+   "back": "%1$lld of %2$lld",
+   "why": "Sur is how French reads a pair like 3 of 5; a slash would read as a fraction or a date. Same as fr: France writes it the same way."
+  },
+  "M5": {
+   "s": "Cutling débloqué",
+   "back": "Cutling unlocked",
+   "why": "Verbless status, as a Settings row value reads. Same as fr: France writes it the same way."
+  },
+  "M6": {
+   "s": "Un seul achat débloque Cutling sur iPhone, iPad et Mac.",
+   "back": "One single purchase unlocks Cutling on iPhone, iPad and Mac.",
+   "why": "Same three-device list as S8, with sur and no articles. Same as fr: France writes it the same way."
+  },
+  "M7": {
+   "s": "Débloqué sur chaque iPhone, iPad et Mac connecté à ce compte Apple.",
+   "back": "Unlocked on each iPhone, iPad and Mac connected to this account Apple.",
+   "why": "Echoes the vocab phrase 'appareil connecté à ton compte Apple'; ce compte because Settings names the account in use. Same as fr: France writes it the same way."
+  },
+  "M8": {
+   "s": "Tu as acheté Cutling avant qu’il soit gratuit : il reste débloqué. Merci d’être là depuis le début.",
+   "back": "You have bought Cutling before that it be free: it stays unlocked. Thanks for being there since the beginning.",
+   "why": "The colon gives the reason, as French uses it, with a no-break space before it; the thanks is for being there early, which is what these buyers did. Same as fr: France writes it the same way."
+  }
+ }
+}

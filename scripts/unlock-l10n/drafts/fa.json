@@ -1,0 +1,194 @@
+{
+  "fa": {
+    "S1": {
+      "s": "%lld جای رایگان",
+      "back": "5 place-of free",
+      "why": "جا (slot, room) names the tiles as places, and the same word carries the room after unlocking in S6, S22 and S23."
+    },
+    "S2": {
+      "s": "بیشتر ذخیره کنید",
+      "back": "more save do (you, polite)",
+      "why": "A polite imperative read as an invitation, which works whether the person has saved five items or none; no question, no limit word."
+    },
+    "S3": {
+      "s": "هر %lld جای رایگان را پر کرده‌اید. کاتلینگ‌هایتان رایگان می‌مانند و مثل همیشه کار می‌کنند.",
+      "back": "every 5 place-of free (object) full you-have-made. Cutlings-your free stay and like always work do.",
+      "why": "Active and addressed to the person (پر کرده‌اید), then the reassurance in plain verbs; کاتلینگ‌هایتان is the vocabulary file's own possessive form."
+    },
+    "S4": {
+      "s": "%lld کاتلینگ اول رایگان است",
+      "back": "5 Cutling first free is",
+      "why": "Persian keeps the noun singular after a number; «the first five are free» is how a Persian speaker states an allowance, with no «you can»."
+    },
+    "S5": {
+      "s": "%1$lld از %2$lld جای رایگان پر شده است",
+      "back": "3 of 5 place-of free full become is",
+      "why": "«3 از 5» is the native count order; positional placeholders kept so the numbers cannot swap, and جا keeps the slot word from S1."
+    },
+    "S6": {
+      "s": "جا برای %@ کاتلینگ",
+      "back": "room for 5,000 Cutling",
+      "why": "A noun phrase for a bold row line, singular noun after the number, جا carried on from S1."
+    },
+    "S7": {
+      "s": "تا %@ متن و %lld تصویر جا می‌گیرد",
+      "back": "up-to 5,000 text and 500 image room takes",
+      "why": "متن and تصویر are the vocabulary file's words for the two kinds (singular after a number); «جا می‌گیرد» (fits) keeps the room idea instead of a second save verb."
+    },
+    "S8": {
+      "s": "iPhone، iPad و Mac",
+      "back": "iPhone, iPad and Mac",
+      "why": "Device names stay in Latin script as the vocabulary file writes Mac and Apple; Persian comma ، and و before the last item."
+    },
+    "S9": {
+      "s": "یک خرید برای هر سه کافی است، با همان حساب Apple شما.",
+      "back": "one purchase for every three enough is, with same account-of Apple your.",
+      "why": "«هر سه» (all three) points back at the bold line above; «حساب Apple شما» is the vocabulary file's phrase for the Apple Account."
+    },
+    "S10": {
+      "s": "یک بار می‌پردازید",
+      "back": "one time you-pay",
+      "why": "Plain present tense describing what happens, which reads calmer at the payment moment than an imperative."
+    },
+    "S11": {
+      "s": "بدون اشتراک، بدون تبلیغ و بدون ثبت‌نام",
+      "back": "without subscription, without advertisement and without sign-up",
+      "why": "Repeated بدون is how Persian app pages list what is absent; ثبت‌نام covers the account to sign up for in one word."
+    },
+    "S12": {
+      "s": "بازیابی خریدها",
+      "back": "restoring-of purchases",
+      "why": "The wording Persian-language iOS apps use for the App Store restore action."
+    },
+    "S13": {
+      "s": "در حال بازیابی…",
+      "back": "in state-of restoring…",
+      "why": "«در حال» is the native progress form for a status line; single ellipsis character."
+    },
+    "S14": {
+      "s": "خرید نسخه‌ی کامل با %@",
+      "back": "buying-of version-of full with $4.99",
+      "why": "«نسخه‌ی کامل» (full version) is the native Persian name for an unlocked app and is used for every unlock key; «با» + price is how a price follows an action in Persian; paying once is said by S10 just above."
+    },
+    "S15": {
+      "s": "خرید نسخه‌ی کامل",
+      "back": "buying-of version-of full",
+      "why": "S14 without the price, same words so the button does not change meaning when the price loads."
+    },
+    "S16": {
+      "s": "فعلاً نه",
+      "back": "for-now no",
+      "why": "The everyday polite way to put something off in Persian; it says later, not never."
+    },
+    "S17": {
+      "s": "بستن",
+      "back": "closing",
+      "why": "The verbal noun, which is how Persian labels a close button."
+    },
+    "S18": {
+      "s": "همه‌چیز مال شماست",
+      "back": "everything property-of you-is",
+      "why": "«مال شماست» (it is yours) is warm and a little proud, and «همه‌چیز» takes in all the room the grid just showed."
+    },
+    "S19": {
+      "s": "ممنون که خریدید. کاتلینگ را یک نفر می‌سازد و این خرید پشتش را گرم می‌کند.",
+      "back": "thanks that you-bought. Cutling (object) one person makes and this purchase his-back (object) warm makes.",
+      "why": "«پشت کسی را گرم کردن» is the native idiom for backing someone up; naming the one maker makes the thanks concrete."
+    },
+    "S20": {
+      "s": "خوش برگشتید. خرید قبلی‌تان دوباره سر جایش است.",
+      "back": "well you-came-back. purchase-of earlier-your again at its-place is.",
+      "why": "«خوش برگشتید» is the spoken welcome back; «سر جایش است» (back where it belongs) is the idiom for something restored."
+    },
+    "S21": {
+      "s": "%1$lld از %2$lld جای رایگان پر شده است",
+      "back": "3 of 5 place-of free full become is",
+      "why": "Same sentence as S5 so VoiceOver says what the subtitle shows; reads naturally aloud."
+    },
+    "S22": {
+      "s": "%lld کاتلینگ دارید و حالا جا برای %@ کاتلینگ هست.",
+      "back": "5 Cutling you-have and now room for 5,000 Cutling there-is.",
+      "why": "Persian nouns stay singular after any number, so one form reads right for 1, 2, 5 and 21."
+    },
+    "S23": {
+      "s": "نسخه‌ی کامل فعال شد. حالا جا برای %@ کاتلینگ دارید.",
+      "back": "version-of full active became. now room for 5,000 Cutling you-have.",
+      "why": "«فعال شد» is the short spoken confirmation; the second sentence carries the room, in the same words as S22."
+    },
+    "S24": {
+      "s": "خرید انجام نشد",
+      "back": "purchase done not-became",
+      "why": "An impersonal intransitive verb: nothing and nobody is blamed."
+    },
+    "S25": {
+      "s": "فعلاً App Store در دسترس نیست. کمی بعد دوباره امتحان کنید.",
+      "back": "for-now App Store in reach is-not. a-little later again try do.",
+      "why": "Starts with a Persian word so the right-to-left line is not led by Latin; «کمی بعد» says shortly without urgency."
+    },
+    "S26": {
+      "s": "این خرید را App Store تأیید نکرد.",
+      "back": "this purchase (object) App Store confirm did-not.",
+      "why": "Object first is natural Persian word order, keeps the line from opening in Latin, and avoids a translated passive with «توسط»."
+    },
+    "S27": {
+      "s": "روی حساب Apple این دستگاه، خریدی از کاتلینگ پیدا نشد.",
+      "back": "on account-of Apple this device, a-purchase of Cutling found not-became.",
+      "why": "«this device's Apple Account» names the signed-in account in four words; «پیدا نشد» (not found) is calm and blames no one."
+    },
+    "S28": {
+      "s": "نسخه‌ی رایگان %lld کاتلینگ جا دارد. با یک بار خرید نسخه‌ی کامل، هر چقدر بخواهید ذخیره کنید.",
+      "back": "version-of free 5 Cutling room has. with one time buying-of version-of full, every how-much you-want save do.",
+      "why": "«نسخه‌ی رایگان» pairs with «نسخه‌ی کامل» used everywhere else; «هر چقدر بخواهید» is the spoken «as many as you like»."
+    },
+    "S29": {
+      "s": "%1$lld از %2$lld رایگان",
+      "back": "4 of 5 free",
+      "why": "A compact count under the list title; the title above already says کاتلینگ‌ها, so the noun is left out."
+    },
+    "K1": {
+      "s": "هر %lld جا پر شد؛ برای خرید بزنید",
+      "back": "every 5 place full became; for buying tap",
+      "why": "Fits one key-high line: «free» is dropped since the five places are the free ones, and «بزنید» is the everyday Persian verb for tapping."
+    },
+    "M1": {
+      "s": "خرید نسخه‌ی کامل",
+      "back": "buying-of version-of full",
+      "why": "A verbal-noun command, like Persian Mac window titles, and the same words as the iPhone button."
+    },
+    "M2": {
+      "s": "خرید نسخه‌ی کامل…",
+      "back": "buying-of version-of full…",
+      "why": "M1 as a button, with the ellipsis character because it opens a window."
+    },
+    "M3": {
+      "s": "جاهای رایگان",
+      "back": "places-of free",
+      "why": "The plural of the S1 slot word, as a row label whose value is M4."
+    },
+    "M4": {
+      "s": "%1$lld از %2$lld",
+      "back": "3 of 5",
+      "why": "«از» rather than a slash, because a slash between digits reads backwards in a right-to-left row."
+    },
+    "M5": {
+      "s": "نسخه‌ی کامل فعال است",
+      "back": "version-of full active is",
+      "why": "The same unlock name as everywhere else, as a status."
+    },
+    "M6": {
+      "s": "با یک خرید، نسخه‌ی کامل روی iPhone، iPad و Mac فعال می‌شود.",
+      "back": "with one purchase, version-of full on iPhone, iPad and Mac active becomes.",
+      "why": "Device list written as in S8; «روی» is the preposition Persian uses for software on a device."
+    },
+    "M7": {
+      "s": "نسخه‌ی کامل روی iPhone، iPad و Mac با این حساب Apple فعال است.",
+      "back": "version-of full on iPhone, iPad and Mac with this account-of Apple active is.",
+      "why": "Same frame as M6 in the present, «با این حساب Apple» for this Apple Account."
+    },
+    "M8": {
+      "s": "کاتلینگ را پیش از آنکه رایگان شود خریدید، پس برایتان کامل می‌ماند. ممنون از همراهی‌تان.",
+      "back": "Cutling (object) before that free it-becomes you-bought, so for-you full stays. thanks for companionship-your.",
+      "why": "«ممنون از همراهی‌تان» (thanks for sticking with us) is the warm thanks Persian apps give long-time users; «کامل می‌ماند» keeps the full-version word."
+    }
+  }
+}

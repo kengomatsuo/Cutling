@@ -1,0 +1,194 @@
+{
+ "sk": {
+  "S1": {
+   "s": "%lld zadarmo",
+   "back": "5 free-of-charge",
+   "why": "Short label under the bracket; 'zadarmo' needs no agreement with a noun, so it stays grammatical whatever the count."
+  },
+  "S2": {
+   "s": "Ukladajte ďalej",
+   "back": "Save(you-formal) further",
+   "why": "An invitation to keep going in the vy form the vocab uses, not a limit message; 15 chars."
+  },
+  "S3": {
+   "s": "Využili ste všetkých %lld bezplatných cutlingov. Zostávajú zadarmo a fungujú ďalej.",
+   "back": "Used you-have all 5 free-of-charge cutlings(gen.pl). They-remain free and they-work further.",
+   "why": "Item word 'cutling' lowercase in prose as in the vocab; genitive plural fits the fixed 5; second sentence reassures without restating."
+  },
+  "S4": {
+   "s": "Prvých %lld cutlingov uložíte zadarmo.",
+   "back": "First 5 cutlings(gen.pl) you-will-save free.",
+   "why": "'Prvých' frames the free ones as a start rather than a cap; perfective future reads as a promise."
+  },
+  "S5": {
+   "s": "Využili ste %lld z %lld bezplatných cutlingov.",
+   "back": "Used you-have 3 of 5 free-of-charge cutlings(gen.pl).",
+   "why": "The 'X z Y' shape keeps the noun governed by the total, so the used count (0 to 5) never needs its own plural form; same verb as S3."
+  },
+  "S6": {
+   "s": "Až %@ cutlingov",
+   "back": "Up-to 5 000 cutlings(gen.pl)",
+   "why": "'Až' carries 'room for up to'; %@ is always 5 000 so genitive plural is right; 18 chars with the number."
+  },
+  "S7": {
+   "s": "Uložíte %@ textových a navyše %lld obrázkových cutlingov.",
+   "back": "You-will-save 5 000 text(adj) and on-top 500 image(adj) cutlings(gen.pl).",
+   "why": "Uses the vocab's Textový/Obrázkový Cutling as adjectives on one shared noun, so images keep the same item name; 'navyše' makes clear the 500 come in addition."
+  },
+  "S8": {
+   "s": "iPhone, iPad a Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Slovak lists three with no comma before 'a'."
+  },
+  "S9": {
+   "s": "Jeden nákup platí všade, kde ste prihlásení do svojho účtu Apple.",
+   "back": "One purchase is-valid everywhere, where you-are signed-in to your-own account Apple.",
+   "why": "Follows the vocab's 'prihlásenom do vášho účtu Apple' and Apple's Slovak 'účet Apple'; 'všade' points back at the three devices above."
+  },
+  "S10": {
+   "s": "Zaplatíte len raz",
+   "back": "You-will-pay only once",
+   "why": "Plain verb, perfective future; 17 chars."
+  },
+  "S11": {
+   "s": "Bez predplatného, reklám a registrácie.",
+   "back": "Without subscription, advertisements and registration.",
+   "why": "One 'bez' governing three genitives is how a Slovak writer lists absences; 'registrácia' is the everyday word for signing up."
+  },
+  "S12": {
+   "s": "Obnoviť nákupy",
+   "back": "Restore purchases",
+   "why": "The standard App Store action wording in Slovak iOS apps."
+  },
+  "S13": {
+   "s": "Obnovujú sa nákupy…",
+   "back": "Are-restoring themselves purchases…",
+   "why": "Reflexive progressive, same noun as S12, ellipsis character."
+  },
+  "S14": {
+   "s": "Odomknúť jednorazovo za %@",
+   "back": "Unlock one-time for 4,99 €",
+   "why": "Infinitive as Slovak buttons are written; 'jednorazovo' says pay once; 24 chars plus the price."
+  },
+  "S15": {
+   "s": "Odomknúť",
+   "back": "Unlock",
+   "why": "Same verb as S14 without the price; 8 chars."
+  },
+  "S16": {
+   "s": "Teraz nie",
+   "back": "Now not",
+   "why": "The wording iOS uses in Slovak for Not Now: putting it off, not refusing."
+  },
+  "S17": {
+   "s": "Zavrieť",
+   "back": "Close",
+   "why": "The verb Slovak iOS uses on close buttons."
+  },
+  "S18": {
+   "s": "Všetko je teraz vaše",
+   "back": "Everything is now yours(formal)",
+   "why": "Warm and simple, vy form; 'teraz' ties it to the grid filling the sheet; exactly 20 chars."
+  },
+  "S19": {
+   "s": "Vďaka za nákup. Podporili ste Cutling aj človeka, ktorý ho robí sám.",
+   "back": "Thanks for purchase. Supported you-have Cutling and-also the-person, who it makes alone.",
+   "why": "'Vďaka' avoids a 'we' that would contradict one maker; 'robí sám' is how a Slovak says one person builds it."
+  },
+  "S20": {
+   "s": "Vitajte späť. Váš nákup je obnovený.",
+   "back": "Welcome back. Your purchase is restored.",
+   "why": "Greeting first, then the fact; 'obnovený' matches the Obnoviť nákupy link."
+  },
+  "S21": {
+   "s": "Využité bezplatné cutlingy: %lld z %lld",
+   "back": "Used free-of-charge cutlings: 3 of 5",
+   "why": "A label and value pair reads cleanly in VoiceOver and avoids number agreement on the used count."
+  },
+  "S22": {
+   "s": "Cutlingov: %lld. Teraz máte miesto na %@.",
+   "back": "Cutlings(gen.pl): 5. Now you-have room for 5 000.",
+   "why": "Reuses the vocab's own count form 'Cutlingov: %lld', which is grammatical for 1, 2, 5 and 21; the room figure needs no noun after it."
+  },
+  "S23": {
+   "s": "Cutling je odomknutý. Máte miesto na %@ cutlingov.",
+   "back": "Cutling is unlocked. You-have room for 5 000 cutlings(gen.pl).",
+   "why": "App name masculine, so 'odomknutý'; %@ is always 5 000, so genitive plural."
+  },
+  "S24": {
+   "s": "Nákup sa nedokončil",
+   "back": "Purchase itself did-not-complete",
+   "why": "Reflexive puts the fault on no one; no period, as an alert title."
+  },
+  "S25": {
+   "s": "App Store je momentálne nedostupný. Skúste to o chvíľu znova.",
+   "back": "App Store is momentarily unavailable. Try it in a-moment again.",
+   "why": "App Store left undeclined as subject (masculine); 'o chvíľu' is the everyday 'shortly'."
+  },
+  "S26": {
+   "s": "App Store tento nákup nepotvrdil.",
+   "back": "App Store this purchase did-not-confirm.",
+   "why": "One plain fact, App Store as the subject so the person is not blamed."
+  },
+  "S27": {
+   "s": "Na účte Apple v tomto zariadení nie je žiadny nákup Cutlingu.",
+   "back": "On account Apple in this device not is any purchase of-Cutling.",
+   "why": "Neutral existence statement with no 'you did not buy'; the app name declines to genitive 'Cutlingu' as Slovak does with app names, capital C keeps it apart from the item."
+  },
+  "S28": {
+   "s": "Bezplatná verzia pojme %lld cutlingov. Keď Cutling raz odomknete, uložíte si ich, koľko len chcete.",
+   "back": "Free version holds 5 cutlings(gen.pl). When Cutling once you-unlock, you-will-save yourself them, how-many only you-want.",
+   "why": "'Pojme' is the natural verb for what a container holds; 'raz' carries one-time; 'koľko len chcete' is the idiom for as many as you like."
+  },
+  "S29": {
+   "s": "%lld z %lld zadarmo",
+   "back": "4 of 5 free",
+   "why": "Mirrors S1's 'zadarmo' so the two read as one system; 13 chars with digits."
+  },
+  "K1": {
+   "s": "Využili ste všetkých %lld. Odomknúť",
+   "back": "Used you-have all 5. Unlock",
+   "why": "Same verb as S3; the capsule is the control, so the infinitive 'Odomknúť' is its action, as Slovak buttons are written; 32 chars."
+  },
+  "M1": {
+   "s": "Odomknúť Cutling",
+   "back": "Unlock Cutling",
+   "why": "Verb-led infinitive window title, as Slovak macOS names command windows."
+  },
+  "M2": {
+   "s": "Odomknúť Cutling…",
+   "back": "Unlock Cutling…",
+   "why": "Same command as M1 with the ellipsis character because it opens a window."
+  },
+  "M3": {
+   "s": "Bezplatné cutlingy",
+   "back": "Free-of-charge cutlings",
+   "why": "Row label in sentence case with the vocab's item word, lowercase as in prose."
+  },
+  "M4": {
+   "s": "%lld z %lld",
+   "back": "3 of 5",
+   "why": "Compact pair; 'z' is how Slovak reads a count of a total."
+  },
+  "M5": {
+   "s": "Cutling je odomknutý",
+   "back": "Cutling is unlocked",
+   "why": "Masculine agreement with the name; no period on a status value."
+  },
+  "M6": {
+   "s": "Jeden nákup odomkne Cutling na iPhone, iPade a Macu.",
+   "back": "One purchase will-unlock Cutling on iPhone, iPad(loc) and Mac(loc).",
+   "why": "Device names in the locative as Apple's Slovak writes them: iPhone undeclined, iPade, Macu."
+  },
+  "M7": {
+   "s": "Platí na iPhone, iPade a Macu s týmto účtom Apple.",
+   "back": "Is-valid on iPhone, iPad(loc) and Mac(loc) with this account Apple.",
+   "why": "M5 above already says unlocked, so this line says where it holds instead of repeating it."
+  },
+  "M8": {
+   "s": "Cutling ste si kúpili, ešte keď nebol zadarmo, a tak vám zostáva odomknutý. Vďaka.",
+   "back": "Cutling you-have yourself bought, still when it-was-not free, and so to-you it-remains unlocked. Thanks.",
+   "why": "Spoken word order with the reason first; 'Vďaka' as in S19, no 'we'."
+  }
+ }
+}

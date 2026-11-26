@@ -1,0 +1,386 @@
+{
+ "or": {
+  "S1": {
+   "s": "%lld ମାଗଣା",
+   "back": "5 free",
+   "why": "Bare count plus ମାଗଣା, the everyday Odia word for free of cost; the bracket already points at the tiles. Same in or and or-IN: Odia is written one way and both vocab files are identical."
+  },
+  "S2": {
+   "s": "ସାଇତି ଚାଲନ୍ତୁ",
+   "back": "saving keep-going (please)",
+   "why": "ସାଇତିବା (to put away safely) is the native verb for keeping things; verb + ଚାଲନ୍ତୁ is how Odia says carry on doing, so it invites rather than warns."
+  },
+  "S3": {
+   "s": "ଆପଣ ମାଗଣା %lld କଟ୍‌ଲିଂ ସାଇତି ସାରିଛନ୍ତି। ସେଗୁଡ଼ିକ ମାଗଣା ହିଁ ରହିବ ଓ ଆଗପରି କାମ କରୁଥିବ।",
+   "back": "You free 5 cutling saved have-finished. Those free indeed will-stay and as-before work will-keep-doing.",
+   "why": "ଆପଣ with honorific perfect; ହିଁ stresses they stay free, ଆଗପରି (as before) says nothing changes; inanimate plural takes the singular verb as Odia does."
+  },
+  "S4": {
+   "s": "ଆପଣ ମାଗଣାରେ %lld କଟ୍‌ଲିଂ ସାଇତିପାରିବେ।",
+   "back": "You for-free 5 cutling can-save.",
+   "why": "Vocab count form %lld + item word, no classifier, as the list subtitle writes it."
+  },
+  "S5": {
+   "s": "ମାଗଣା %2$lld କଟ୍‌ଲିଂ ମଧ୍ୟରୁ %1$lldଟି ସାଇତା ହୋଇଛି।",
+   "back": "Free 5 cutling from-among 3-piece saved has-been.",
+   "why": "Odia names the whole before the part, so positional placeholders swap order; ଟି classifier on the bare second number, which has no noun after it."
+  },
+  "S6": {
+   "s": "%@ କଟ୍‌ଲିଂ ପାଇଁ ଜାଗା",
+   "back": "5,000 cutling for room",
+   "why": "ଜାଗା is the spoken word for room/space, warmer than the formal ସ୍ଥାନ."
+  },
+  "S7": {
+   "s": "%@ ଟେକ୍ସଟ ଓ %lld ଛବି ପର୍ଯ୍ୟନ୍ତ ସାଇତିପାରିବେ।",
+   "back": "5,000 text and 500 image up-to can-save.",
+   "why": "ଟେକ୍ସଟ and ଛବି exactly as the vocab names the two kinds; one ପର୍ଯ୍ୟନ୍ତ after the pair covers both limits."
+  },
+  "S8": {
+   "s": "iPhone, iPad ଓ Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Odia lists with commas and ଓ before the last item, no serial comma; device names stay Latin as in the vocab."
+  },
+  "S9": {
+   "s": "ଥରେ କିଣିଲେ ଆପଣଙ୍କ Apple Account ର ସବୁ ଡିଭାଇସରେ ଅନଲକ୍ ହୋଇଯିବ।",
+   "back": "Once if-bought your Apple Account 's all device-on unlocked will-become.",
+   "why": "Conditional କିଣିଲେ (if you buy) carries 'one purchase'; Apple Account in Latin with spaced case ending and ଡିଭାଇସ as the vocab writes them."
+  },
+  "S10": {
+   "s": "କେବଳ ଥରେ ଦେୟ",
+   "back": "only once payment",
+   "why": "ଦେୟ is the plain noun on Odia bills for an amount to pay; କେବଳ ଥରେ rules out repeats."
+  },
+  "S11": {
+   "s": "ସବସ୍କ୍ରିପସନ୍ ନାହିଁ, ବିଜ୍ଞାପନ ନାହିଁ, ସାଇନ୍ ଅପ୍ ନାହିଁ।",
+   "back": "Subscription not, advertisement not, sign up not.",
+   "why": "Repeated ନାହିଁ is how Odia rattles off absences; ସାଇନ୍ ଅପ୍ matches the vocab's transliterated ସାଇନ୍ ଇନ୍, ବିଜ୍ଞାପନ is the common word for ads."
+  },
+  "S12": {
+   "s": "କ୍ରୟ ପୁନଃସ୍ଥାପନ କରନ୍ତୁ",
+   "back": "purchase restore do (please)",
+   "why": "କ୍ରୟ (purchase, noun) + ପୁନଃସ୍ଥାପନ (restore) is the wording Odia app stores and phone UIs use for this action; a native reviewer should confirm against Apple's own Odia StoreKit string if one ships."
+  },
+  "S13": {
+   "s": "ପୁନଃସ୍ଥାପନ ହେଉଛି…",
+   "back": "restoring is-happening…",
+   "why": "Same noun as S12 in the present continuous, ending with the single ellipsis character."
+  },
+  "S14": {
+   "s": "ଥରେ %@ ଦେଇ ଅନଲକ୍ କରନ୍ତୁ",
+   "back": "once $4.99 giving unlock do (please)",
+   "why": "Odia says 'giving X, do Y' for paying a price; ଥରେ keeps the one-time promise on the button itself; ଅନଲକ୍ is the word Odia phone UIs already use."
+  },
+  "S15": {
+   "s": "ଅନଲକ୍ କରନ୍ତୁ",
+   "back": "unlock do (please)",
+   "why": "Same verb as S14 without the price."
+  },
+  "S16": {
+   "s": "ପରେ ଦେଖିବି",
+   "back": "later will-see (I)",
+   "why": "What an Odia speaker says to put something off politely; first person, because VoiceOver reads it as the user's own choice."
+  },
+  "S17": {
+   "s": "ବନ୍ଦ କରନ୍ତୁ",
+   "back": "close do (please)",
+   "why": "The standard Odia verb for closing a window or sheet."
+  },
+  "S18": {
+   "s": "ଏବେ ସବୁ ଆପଣଙ୍କର",
+   "back": "now all yours",
+   "why": "Short and a little proud; ସବୁ (all) covers the app and the room the grid is showing."
+  },
+  "S19": {
+   "s": "କିଣିଥିବାରୁ ଧନ୍ୟବାଦ। ଏଥିରେ କଟ୍‌ଲିଂ ଓ ଏହାକୁ ଏକା ହାତରେ ଗଢ଼ୁଥିବା ମଣିଷଟିକୁ ବହୁତ ସାହାଯ୍ୟ ମିଳେ।",
+   "back": "For-having-bought thanks. In-this Cutling and it single hand-with building person-the-one-to much help is-got.",
+   "why": "ଏକା ହାତରେ (single-handed) is the idiom for one person doing it all; ମଣିଷଟି is warm and humble, since the app speaks for its maker and would not honour him."
+  },
+  "S20": {
+   "s": "ଆପଣଙ୍କୁ ପୁଣି ଦେଖି ଭଲ ଲାଗିଲା। ଆଗରୁ କରିଥିବା କ୍ରୟ ଫେରିଆସିଛି।",
+   "back": "You again seeing good felt. Earlier made purchase has-come-back.",
+   "why": "Greets the way a person would, not the calque ପୁଣି ସ୍ୱାଗତ; କ୍ରୟ as in S12."
+  },
+  "S21": {
+   "s": "ମାଗଣା %2$lld କଟ୍‌ଲିଂ ମଧ୍ୟରୁ %1$lldଟି ସାଇତା ହୋଇଛି।",
+   "back": "Free 5 cutling from-among 3-piece saved has-been.",
+   "why": "Identical to S5 so the spoken and printed counts use one phrasing."
+  },
+  "S22": {
+   "s": "%lld କଟ୍‌ଲିଂ ସାଇତା ହୋଇଛି। ଏବେ %@ କଟ୍‌ଲିଂ ପାଇଁ ଜାଗା ଅଛି।",
+   "back": "5 cutling saved has-been. Now 5,000 cutling for room is.",
+   "why": "Odia nouns do not change after a number and the neuter verb ହୋଇଛି fits any count, so it reads right for 1, 2, 5 and 21."
+  },
+  "S23": {
+   "s": "କଟ୍‌ଲିଂ ଅନଲକ୍ ହୋଇଗଲା। ଏବେ %@ କଟ୍‌ଲିଂ ପାଇଁ ଜାଗା ଅଛି।",
+   "back": "Cutling unlocked became. Now 5,000 cutling for room is.",
+   "why": "Completive ହୋଇଗଲା marks the moment it happened; second half matches S22 and S6."
+  },
+  "S24": {
+   "s": "କ୍ରୟ ସମ୍ପୂର୍ଣ୍ଣ ହେଲା ନାହିଁ",
+   "back": "purchase complete became not",
+   "why": "Says what happened to the purchase with no subject to blame."
+  },
+  "S25": {
+   "s": "ଏବେ App Store ସହ ଯୋଗାଯୋଗ ହୋଇପାରୁ ନାହିଁ। ଟିକେ ପରେ ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ।",
+   "back": "Now App Store with contact can-happen not. A-little later again try do (please).",
+   "why": "ଯୋଗାଯୋଗ (contact/connection) puts the fault on the link; ଟିକେ ପରେ is the spoken 'shortly'."
+  },
+  "S26": {
+   "s": "App Store ଏହି କ୍ରୟକୁ ନିଶ୍ଚିତ କଲା ନାହିଁ।",
+   "back": "App Store this purchase-to confirmed did not.",
+   "why": "Plain past negative with App Store as the subject; App Store stays Latin as Apple's name."
+  },
+  "S27": {
+   "s": "ଏହି ଡିଭାଇସରେ ସାଇନ୍ ଇନ୍ ହୋଇଥିବା Apple Account ରେ କଟ୍‌ଲିଂର ପୂର୍ବ କ୍ରୟ ମିଳିଲା ନାହିଁ।",
+   "back": "This device-on sign in been Apple Account on Cutling's earlier purchase found not.",
+   "why": "Reuses the vocab's phrase for a signed-in device; genitive ର joins the Odia-script name directly."
+  },
+  "S28": {
+   "s": "ମାଗଣା ସଂସ୍କରଣରେ %lld କଟ୍‌ଲିଂ ସାଇତିହୁଏ। କଟ୍‌ଲିଂକୁ ଥରେ ଅନଲକ୍ କଲେ ଯେତେ ଇଚ୍ଛା ସେତେ ସାଇତିପାରିବେ।",
+   "back": "Free version-in 5 cutling can-be-saved. Cutling-to once unlock if-do, as-much wish that-much can-save.",
+   "why": "ସଂସ୍କରଣ (version) keeps the app name and the item word apart; ଯେତେ ଇଚ୍ଛା ସେତେ is the idiom for as many as you like."
+  },
+  "S29": {
+   "s": "%1$lld/%2$lld ମାଗଣା",
+   "back": "4/5 free",
+   "why": "The list title already names the items, so a number pair plus ମାଗଣା fits 18 Latin."
+  },
+  "K1": {
+   "s": "ମାଗଣା %lld ପୂରିଗଲା। ଅନଲକ୍ ପାଇଁ ଛୁଅଁନ୍ତୁ",
+   "back": "Free 5 filled-up. Unlock for touch (please)",
+   "why": "ପୂରିଗଲା (filled up) says the slots are full without suggesting loss; ଛୁଅଁନ୍ତୁ (touch) is the short native verb, kept to one capsule line."
+  },
+  "M1": {
+   "s": "କଟ୍‌ଲିଂ ଅନଲକ୍ କରନ୍ତୁ",
+   "back": "Cutling unlock do (please)",
+   "why": "Command form; Odia puts the verb last, so the command reads object + verb."
+  },
+  "M2": {
+   "s": "କଟ୍‌ଲିଂ ଅନଲକ୍ କରନ୍ତୁ…",
+   "back": "Cutling unlock do (please)…",
+   "why": "Same command as M1 with the ellipsis character because it opens a window."
+  },
+  "M3": {
+   "s": "ମାଗଣା କଟ୍‌ଲିଂଗୁଡ଼ିକ",
+   "back": "free cutlings",
+   "why": "Plural list word from the vocab, so the label cannot be read as an app called 'Free Cutling'."
+  },
+  "M4": {
+   "s": "%1$lld/%2$lld",
+   "back": "3/5",
+   "why": "Compact number pair, same order as S29."
+  },
+  "M5": {
+   "s": "କଟ୍‌ଲିଂ ଅନଲକ୍ ହୋଇଛି",
+   "back": "Cutling unlocked is",
+   "why": "Stative perfect: a settled status, not an event."
+  },
+  "M6": {
+   "s": "ଥରେ କିଣିଲେ iPhone, iPad ଓ Mac ରେ କଟ୍‌ଲିଂ ଅନଲକ୍ ହୋଇଯିବ।",
+   "back": "Once if-bought iPhone, iPad and Mac on Cutling unlocked will-become.",
+   "why": "Same conditional as S9 and the same list as S8; case ending spaced after Latin names as the vocab does."
+  },
+  "M7": {
+   "s": "ଏହି Apple Account ସହ iPhone, iPad ଓ Mac ରେ ଅନଲକ୍ ହୋଇଛି।",
+   "back": "This Apple Account with iPhone, iPad and Mac on unlocked is.",
+   "why": "ସହ (with) ties the unlock to the account and avoids two ରେ endings in a row."
+  },
+  "M8": {
+   "s": "କଟ୍‌ଲିଂ ମାଗଣା ହେବା ଆଗରୁ ଆପଣ ଏହାକୁ କିଣିଥିଲେ, ତେଣୁ ଏହା ଅନଲକ୍ ହିଁ ରହିବ। ଆଗରୁ ସାଥ ଦେଇଥିବାରୁ ଧନ୍ୟବାଦ।",
+   "back": "Cutling free becoming before you it had-bought, so it unlocked indeed will-stay. Early company having-given-for thanks.",
+   "why": "ସାଥ ଦେବା (to stand by someone) thanks an early buyer warmly; ହିଁ makes 'stays unlocked' a promise."
+  }
+ },
+ "or-IN": {
+  "S1": {
+   "s": "%lld ମାଗଣା",
+   "back": "5 free",
+   "why": "Bare count plus ମାଗଣା, the everyday Odia word for free of cost; the bracket already points at the tiles. Same in or and or-IN: Odia is written one way and both vocab files are identical."
+  },
+  "S2": {
+   "s": "ସାଇତି ଚାଲନ୍ତୁ",
+   "back": "saving keep-going (please)",
+   "why": "ସାଇତିବା (to put away safely) is the native verb for keeping things; verb + ଚାଲନ୍ତୁ is how Odia says carry on doing, so it invites rather than warns."
+  },
+  "S3": {
+   "s": "ଆପଣ ମାଗଣା %lld କଟ୍‌ଲିଂ ସାଇତି ସାରିଛନ୍ତି। ସେଗୁଡ଼ିକ ମାଗଣା ହିଁ ରହିବ ଓ ଆଗପରି କାମ କରୁଥିବ।",
+   "back": "You free 5 cutling saved have-finished. Those free indeed will-stay and as-before work will-keep-doing.",
+   "why": "ଆପଣ with honorific perfect; ହିଁ stresses they stay free, ଆଗପରି (as before) says nothing changes; inanimate plural takes the singular verb as Odia does."
+  },
+  "S4": {
+   "s": "ଆପଣ ମାଗଣାରେ %lld କଟ୍‌ଲିଂ ସାଇତିପାରିବେ।",
+   "back": "You for-free 5 cutling can-save.",
+   "why": "Vocab count form %lld + item word, no classifier, as the list subtitle writes it."
+  },
+  "S5": {
+   "s": "ମାଗଣା %2$lld କଟ୍‌ଲିଂ ମଧ୍ୟରୁ %1$lldଟି ସାଇତା ହୋଇଛି।",
+   "back": "Free 5 cutling from-among 3-piece saved has-been.",
+   "why": "Odia names the whole before the part, so positional placeholders swap order; ଟି classifier on the bare second number, which has no noun after it."
+  },
+  "S6": {
+   "s": "%@ କଟ୍‌ଲିଂ ପାଇଁ ଜାଗା",
+   "back": "5,000 cutling for room",
+   "why": "ଜାଗା is the spoken word for room/space, warmer than the formal ସ୍ଥାନ."
+  },
+  "S7": {
+   "s": "%@ ଟେକ୍ସଟ ଓ %lld ଛବି ପର୍ଯ୍ୟନ୍ତ ସାଇତିପାରିବେ।",
+   "back": "5,000 text and 500 image up-to can-save.",
+   "why": "ଟେକ୍ସଟ and ଛବି exactly as the vocab names the two kinds; one ପର୍ଯ୍ୟନ୍ତ after the pair covers both limits."
+  },
+  "S8": {
+   "s": "iPhone, iPad ଓ Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Odia lists with commas and ଓ before the last item, no serial comma; device names stay Latin as in the vocab."
+  },
+  "S9": {
+   "s": "ଥରେ କିଣିଲେ ଆପଣଙ୍କ Apple Account ର ସବୁ ଡିଭାଇସରେ ଅନଲକ୍ ହୋଇଯିବ।",
+   "back": "Once if-bought your Apple Account 's all device-on unlocked will-become.",
+   "why": "Conditional କିଣିଲେ (if you buy) carries 'one purchase'; Apple Account in Latin with spaced case ending and ଡିଭାଇସ as the vocab writes them."
+  },
+  "S10": {
+   "s": "କେବଳ ଥରେ ଦେୟ",
+   "back": "only once payment",
+   "why": "ଦେୟ is the plain noun on Odia bills for an amount to pay; କେବଳ ଥରେ rules out repeats."
+  },
+  "S11": {
+   "s": "ସବସ୍କ୍ରିପସନ୍ ନାହିଁ, ବିଜ୍ଞାପନ ନାହିଁ, ସାଇନ୍ ଅପ୍ ନାହିଁ।",
+   "back": "Subscription not, advertisement not, sign up not.",
+   "why": "Repeated ନାହିଁ is how Odia rattles off absences; ସାଇନ୍ ଅପ୍ matches the vocab's transliterated ସାଇନ୍ ଇନ୍, ବିଜ୍ଞାପନ is the common word for ads."
+  },
+  "S12": {
+   "s": "କ୍ରୟ ପୁନଃସ୍ଥାପନ କରନ୍ତୁ",
+   "back": "purchase restore do (please)",
+   "why": "କ୍ରୟ (purchase, noun) + ପୁନଃସ୍ଥାପନ (restore) is the wording Odia app stores and phone UIs use for this action; a native reviewer should confirm against Apple's own Odia StoreKit string if one ships."
+  },
+  "S13": {
+   "s": "ପୁନଃସ୍ଥାପନ ହେଉଛି…",
+   "back": "restoring is-happening…",
+   "why": "Same noun as S12 in the present continuous, ending with the single ellipsis character."
+  },
+  "S14": {
+   "s": "ଥରେ %@ ଦେଇ ଅନଲକ୍ କରନ୍ତୁ",
+   "back": "once $4.99 giving unlock do (please)",
+   "why": "Odia says 'giving X, do Y' for paying a price; ଥରେ keeps the one-time promise on the button itself; ଅନଲକ୍ is the word Odia phone UIs already use."
+  },
+  "S15": {
+   "s": "ଅନଲକ୍ କରନ୍ତୁ",
+   "back": "unlock do (please)",
+   "why": "Same verb as S14 without the price."
+  },
+  "S16": {
+   "s": "ପରେ ଦେଖିବି",
+   "back": "later will-see (I)",
+   "why": "What an Odia speaker says to put something off politely; first person, because VoiceOver reads it as the user's own choice."
+  },
+  "S17": {
+   "s": "ବନ୍ଦ କରନ୍ତୁ",
+   "back": "close do (please)",
+   "why": "The standard Odia verb for closing a window or sheet."
+  },
+  "S18": {
+   "s": "ଏବେ ସବୁ ଆପଣଙ୍କର",
+   "back": "now all yours",
+   "why": "Short and a little proud; ସବୁ (all) covers the app and the room the grid is showing."
+  },
+  "S19": {
+   "s": "କିଣିଥିବାରୁ ଧନ୍ୟବାଦ। ଏଥିରେ କଟ୍‌ଲିଂ ଓ ଏହାକୁ ଏକା ହାତରେ ଗଢ଼ୁଥିବା ମଣିଷଟିକୁ ବହୁତ ସାହାଯ୍ୟ ମିଳେ।",
+   "back": "For-having-bought thanks. In-this Cutling and it single hand-with building person-the-one-to much help is-got.",
+   "why": "ଏକା ହାତରେ (single-handed) is the idiom for one person doing it all; ମଣିଷଟି is warm and humble, since the app speaks for its maker and would not honour him."
+  },
+  "S20": {
+   "s": "ଆପଣଙ୍କୁ ପୁଣି ଦେଖି ଭଲ ଲାଗିଲା। ଆଗରୁ କରିଥିବା କ୍ରୟ ଫେରିଆସିଛି।",
+   "back": "You again seeing good felt. Earlier made purchase has-come-back.",
+   "why": "Greets the way a person would, not the calque ପୁଣି ସ୍ୱାଗତ; କ୍ରୟ as in S12."
+  },
+  "S21": {
+   "s": "ମାଗଣା %2$lld କଟ୍‌ଲିଂ ମଧ୍ୟରୁ %1$lldଟି ସାଇତା ହୋଇଛି।",
+   "back": "Free 5 cutling from-among 3-piece saved has-been.",
+   "why": "Identical to S5 so the spoken and printed counts use one phrasing."
+  },
+  "S22": {
+   "s": "%lld କଟ୍‌ଲିଂ ସାଇତା ହୋଇଛି। ଏବେ %@ କଟ୍‌ଲିଂ ପାଇଁ ଜାଗା ଅଛି।",
+   "back": "5 cutling saved has-been. Now 5,000 cutling for room is.",
+   "why": "Odia nouns do not change after a number and the neuter verb ହୋଇଛି fits any count, so it reads right for 1, 2, 5 and 21."
+  },
+  "S23": {
+   "s": "କଟ୍‌ଲିଂ ଅନଲକ୍ ହୋଇଗଲା। ଏବେ %@ କଟ୍‌ଲିଂ ପାଇଁ ଜାଗା ଅଛି।",
+   "back": "Cutling unlocked became. Now 5,000 cutling for room is.",
+   "why": "Completive ହୋଇଗଲା marks the moment it happened; second half matches S22 and S6."
+  },
+  "S24": {
+   "s": "କ୍ରୟ ସମ୍ପୂର୍ଣ୍ଣ ହେଲା ନାହିଁ",
+   "back": "purchase complete became not",
+   "why": "Says what happened to the purchase with no subject to blame."
+  },
+  "S25": {
+   "s": "ଏବେ App Store ସହ ଯୋଗାଯୋଗ ହୋଇପାରୁ ନାହିଁ। ଟିକେ ପରେ ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ।",
+   "back": "Now App Store with contact can-happen not. A-little later again try do (please).",
+   "why": "ଯୋଗାଯୋଗ (contact/connection) puts the fault on the link; ଟିକେ ପରେ is the spoken 'shortly'."
+  },
+  "S26": {
+   "s": "App Store ଏହି କ୍ରୟକୁ ନିଶ୍ଚିତ କଲା ନାହିଁ।",
+   "back": "App Store this purchase-to confirmed did not.",
+   "why": "Plain past negative with App Store as the subject; App Store stays Latin as Apple's name."
+  },
+  "S27": {
+   "s": "ଏହି ଡିଭାଇସରେ ସାଇନ୍ ଇନ୍ ହୋଇଥିବା Apple Account ରେ କଟ୍‌ଲିଂର ପୂର୍ବ କ୍ରୟ ମିଳିଲା ନାହିଁ।",
+   "back": "This device-on sign in been Apple Account on Cutling's earlier purchase found not.",
+   "why": "Reuses the vocab's phrase for a signed-in device; genitive ର joins the Odia-script name directly."
+  },
+  "S28": {
+   "s": "ମାଗଣା ସଂସ୍କରଣରେ %lld କଟ୍‌ଲିଂ ସାଇତିହୁଏ। କଟ୍‌ଲିଂକୁ ଥରେ ଅନଲକ୍ କଲେ ଯେତେ ଇଚ୍ଛା ସେତେ ସାଇତିପାରିବେ।",
+   "back": "Free version-in 5 cutling can-be-saved. Cutling-to once unlock if-do, as-much wish that-much can-save.",
+   "why": "ସଂସ୍କରଣ (version) keeps the app name and the item word apart; ଯେତେ ଇଚ୍ଛା ସେତେ is the idiom for as many as you like."
+  },
+  "S29": {
+   "s": "%1$lld/%2$lld ମାଗଣା",
+   "back": "4/5 free",
+   "why": "The list title already names the items, so a number pair plus ମାଗଣା fits 18 Latin."
+  },
+  "K1": {
+   "s": "ମାଗଣା %lld ପୂରିଗଲା। ଅନଲକ୍ ପାଇଁ ଛୁଅଁନ୍ତୁ",
+   "back": "Free 5 filled-up. Unlock for touch (please)",
+   "why": "ପୂରିଗଲା (filled up) says the slots are full without suggesting loss; ଛୁଅଁନ୍ତୁ (touch) is the short native verb, kept to one capsule line."
+  },
+  "M1": {
+   "s": "କଟ୍‌ଲିଂ ଅନଲକ୍ କରନ୍ତୁ",
+   "back": "Cutling unlock do (please)",
+   "why": "Command form; Odia puts the verb last, so the command reads object + verb."
+  },
+  "M2": {
+   "s": "କଟ୍‌ଲିଂ ଅନଲକ୍ କରନ୍ତୁ…",
+   "back": "Cutling unlock do (please)…",
+   "why": "Same command as M1 with the ellipsis character because it opens a window."
+  },
+  "M3": {
+   "s": "ମାଗଣା କଟ୍‌ଲିଂଗୁଡ଼ିକ",
+   "back": "free cutlings",
+   "why": "Plural list word from the vocab, so the label cannot be read as an app called 'Free Cutling'."
+  },
+  "M4": {
+   "s": "%1$lld/%2$lld",
+   "back": "3/5",
+   "why": "Compact number pair, same order as S29."
+  },
+  "M5": {
+   "s": "କଟ୍‌ଲିଂ ଅନଲକ୍ ହୋଇଛି",
+   "back": "Cutling unlocked is",
+   "why": "Stative perfect: a settled status, not an event."
+  },
+  "M6": {
+   "s": "ଥରେ କିଣିଲେ iPhone, iPad ଓ Mac ରେ କଟ୍‌ଲିଂ ଅନଲକ୍ ହୋଇଯିବ।",
+   "back": "Once if-bought iPhone, iPad and Mac on Cutling unlocked will-become.",
+   "why": "Same conditional as S9 and the same list as S8; case ending spaced after Latin names as the vocab does."
+  },
+  "M7": {
+   "s": "ଏହି Apple Account ସହ iPhone, iPad ଓ Mac ରେ ଅନଲକ୍ ହୋଇଛି।",
+   "back": "This Apple Account with iPhone, iPad and Mac on unlocked is.",
+   "why": "ସହ (with) ties the unlock to the account and avoids two ରେ endings in a row."
+  },
+  "M8": {
+   "s": "କଟ୍‌ଲିଂ ମାଗଣା ହେବା ଆଗରୁ ଆପଣ ଏହାକୁ କିଣିଥିଲେ, ତେଣୁ ଏହା ଅନଲକ୍ ହିଁ ରହିବ। ଆଗରୁ ସାଥ ଦେଇଥିବାରୁ ଧନ୍ୟବାଦ।",
+   "back": "Cutling free becoming before you it had-bought, so it unlocked indeed will-stay. Early company having-given-for thanks.",
+   "why": "ସାଥ ଦେବା (to stand by someone) thanks an early buyer warmly; ହିଁ makes 'stays unlocked' a promise."
+  }
+ }
+}

@@ -32,3 +32,6 @@
 "Cancel" = "Anulează";
 "%@, %lld of %lld" = "%@, %lld din %lld";
 "Space" = "Spațiu";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"%lld free cutlings used. Tap to unlock." = "Ai folosit cele %lld gratis. Deblochează";

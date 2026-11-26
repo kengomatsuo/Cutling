@@ -32,3 +32,6 @@
 "Cancel" = "Cancel";
 "%@, %lld of %lld" = "%@, %lld of %lld";
 "Space" = "Space";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"%lld free cutlings used. Tap to unlock." = "%lld free cutlings used. Tap to unlock.";

@@ -32,3 +32,6 @@
 "Cancel" = "إلغاء";
 "%@, %lld of %lld" = "%@، %lld من %lld";
 "Space" = "مسافة";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"%lld free cutlings used. Tap to unlock." = "حفظت %lld مجاناً، اضغط للمزيد";

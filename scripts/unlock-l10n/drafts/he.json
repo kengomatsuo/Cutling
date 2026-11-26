@@ -1,0 +1,194 @@
+{
+ "he": {
+  "S1": {
+   "s": "%lld בחינם",
+   "back": "5 for-free",
+   "why": "Short label like a price tag; 'בחינם' is the everyday word, and the digit before it makes the line read right-to-left."
+  },
+  "S2": {
+   "s": "רוצים לשמור עוד?",
+   "back": "want(pl) to-save more?",
+   "why": "A plain question in the plural address the vocabulary uses; invites, names no limit, sells nothing."
+  },
+  "S3": {
+   "s": "כל %lld הקאטלינגים החינמיים שלכם בשימוש. הם יישארו בחינם ויעבדו כמו תמיד.",
+   "back": "all 5 the-cutlings the-free yours in-use. they will-stay for-free and-will-work like always.",
+   "why": "'קאטלינגים' is the vocabulary's item word in plural; second sentence is the reassurance, in future tense because it promises."
+  },
+  "S4": {
+   "s": "אפשר לשמור %lld קאטלינגים בחינם.",
+   "back": "possible to-save 5 cutlings for-free.",
+   "why": "Impersonal 'אפשר' is how Israeli apps state an allowance; no 'you can' address needed."
+  },
+  "S5": {
+   "s": "%lld מתוך %lld הקאטלינגים החינמיים בשימוש.",
+   "back": "3 out-of 5 the-cutlings the-free in-use.",
+   "why": "'X מתוך Y' is the natural Hebrew count; number order matches, so plain %lld; the noun agrees with the total, so it works for 1 used too."
+  },
+  "S6": {
+   "s": "מקום ל־%@ קאטלינגים",
+   "back": "room for-5,000 cutlings",
+   "why": "Noun phrase as a bold row line; maqaf joins the prefix ל to the number."
+  },
+  "S7": {
+   "s": "אפשר לשמור עד %@ טקסטים ו־%lld תמונות.",
+   "back": "possible to-save up-to 5,000 texts and-500 images.",
+   "why": "'טקסט' and 'תמונות' are the vocabulary's kind words; 'טקסטים' is the normal spoken plural."
+  },
+  "S8": {
+   "s": "ב־iPhone, ב־iPad וב־Mac",
+   "back": "on-iPhone, on-iPad and-on-Mac",
+   "why": "Hebrew repeats the prefix on each item and joins the last with ו; starting with Hebrew keeps the line right-to-left so the three names stay in order."
+  },
+  "S9": {
+   "s": "רכישה אחת מספיקה לכל המכשירים שמחוברים לחשבון Apple שלכם.",
+   "back": "purchase one suffices for-all the-devices that-connected to-account Apple yours.",
+   "why": "'מחוברים לחשבון Apple שלכם' is the vocabulary's own phrasing; 'רכישה' is Apple's Hebrew word for a purchase."
+  },
+  "S10": {
+   "s": "משלמים פעם אחת",
+   "back": "pay(pl,present) time one",
+   "why": "Impersonal present plural, the way Israelis say how a thing works; nothing recurring is implied."
+  },
+  "S11": {
+   "s": "בלי מנוי, בלי פרסומות ובלי הרשמה.",
+   "back": "without subscription, without ads and-without sign-up.",
+   "why": "The repeated 'בלי' with ו on the last is the native list of absences; 'הרשמה' is what Israeli apps call signing up."
+  },
+  "S12": {
+   "s": "שחזור רכישות",
+   "back": "restoration-of purchases",
+   "why": "The wording Hebrew iOS apps use for Restore Purchases."
+  },
+  "S13": {
+   "s": "מתבצע שחזור…",
+   "back": "taking-place restoration…",
+   "why": "'מתבצע' plus noun is the standard Hebrew progress line; single ellipsis character."
+  },
+  "S14": {
+   "s": "שדרוג חד־פעמי ב־%@",
+   "back": "upgrade one-time for-$4.99",
+   "why": "A noun on the button as Hebrew iOS buttons do; 'שדרוג' (upgrade) is what Israeli apps call a paid unlock, and 'חד־פעמי' carries 'pay once'."
+  },
+  "S15": {
+   "s": "שדרוג חד־פעמי",
+   "back": "upgrade one-time",
+   "why": "S14 without the price, so the button keeps its words when the price arrives."
+  },
+  "S16": {
+   "s": "אולי מאוחר יותר",
+   "back": "maybe later",
+   "why": "The usual polite put-off in Hebrew; says not now, not no."
+  },
+  "S17": {
+   "s": "סגירה",
+   "back": "closing",
+   "why": "Hebrew iOS labels actions with the verbal noun; 'סגירה' is its Close."
+  },
+  "S18": {
+   "s": "עכשיו הכול שלכם",
+   "back": "now everything yours",
+   "why": "Short, warm and a little proud; 'הכול' covers all the room without counting it."
+  },
+  "S19": {
+   "s": "תודה על הרכישה. היא עוזרת לקאטלינג ולאדם היחיד שבונה אותו.",
+   "back": "thanks for the-purchase. it helps to-Cutling and-to-the-person the-only who-builds it.",
+   "why": "Cutling without the article is the app's name; 'האדם היחיד שבונה אותו' keeps the one maker personal, not a company."
+  },
+  "S20": {
+   "s": "ברוכים השבים. הרכישה הקודמת שלכם חזרה.",
+   "back": "blessed the-returners. the-purchase the-previous yours returned.",
+   "why": "'ברוכים השבים' is the idiomatic welcome back; 'חזרה' says it is back without system words."
+  },
+  "S21": {
+   "s": "%lld מתוך %lld קאטלינגים חינמיים בשימוש",
+   "back": "3 out-of 5 cutlings free in-use",
+   "why": "Same count shape as S5, for speech; the noun follows the total, so 0, 1 or 3 used all read correctly."
+  },
+  "S22": {
+   "s": "יש עכשיו מקום ל־%2$@ קאטלינגים, ומתוכם %1$lld בשימוש",
+   "back": "there-is now room for-5,000 cutlings, and-of-them 5 in-use",
+   "why": "Hebrew puts a bare count after 'ומתוכם', so 1, 2, 5 and 21 all read correctly with no plural form; the room comes first, hence positional placeholders."
+  },
+  "S23": {
+   "s": "הגרסה המלאה פעילה. יש מקום ל־%@ קאטלינגים.",
+   "back": "the-version the-full active. there-is room for-5,000 cutlings.",
+   "why": "'הגרסה המלאה' names the bought state everywhere, so the app's name and the item word, which are spelled the same, never meet in one line."
+  },
+  "S24": {
+   "s": "הרכישה לא הושלמה",
+   "back": "the-purchase not completed",
+   "why": "Calm statement of what happened; no subject to blame."
+  },
+  "S25": {
+   "s": "אין כרגע חיבור ל־App Store. נסו שוב בעוד כמה רגעים.",
+   "back": "there-isn't currently connection to-App-Store. try(pl) again in a-few moments.",
+   "why": "Opens in Hebrew so the alert lays out right-to-left; 'נסו' is the vocabulary's plural address."
+  },
+  "S26": {
+   "s": "לא התקבל אישור מ־App Store לרכישה הזו.",
+   "back": "not received confirmation from-App-Store for-the-purchase this.",
+   "why": "Passive 'לא התקבל' keeps the line calm and puts the store second, so the sentence opens in Hebrew."
+  },
+  "S27": {
+   "s": "לא נמצאה רכישה קודמת של קאטלינג בחשבון Apple שמחובר למכשיר הזה.",
+   "back": "not found purchase previous of Cutling in-account Apple that-connected to-the-device this.",
+   "why": "'שמחובר' follows the vocabulary's account phrasing; Cutling without article is the app."
+  },
+  "S28": {
+   "s": "בגרסה החינמית יש מקום ל־%lld קאטלינגים. אחרי שדרוג חד־פעמי אפשר לשמור כמה שרוצים.",
+   "back": "in-the-version the-free there-is room for-5 cutlings. after upgrade one-time possible to-save as-many-as wanted.",
+   "why": "'הגרסה החינמית' pairs with 'הגרסה המלאה'; 'שדרוג חד־פעמי' is the button's own words."
+  },
+  "S29": {
+   "s": "%lld מתוך %lld חינמיים",
+   "back": "4 out-of 5 free",
+   "why": "Compact count under the list title, which already says קאטלינג, so the noun is left out."
+  },
+  "K1": {
+   "s": "כל %lld החינמיים בשימוש. הקישו לשדרוג",
+   "back": "all 5 the-free in-use. tap(pl) for-upgrade",
+   "why": "One capsule line: 'החינמיים' stands for the items since space is short; 'הקישו' is the Hebrew iOS verb for tap."
+  },
+  "M1": {
+   "s": "שדרוג לגרסה המלאה",
+   "back": "upgrade to-the-version the-full",
+   "why": "Verbal noun first, as Hebrew Mac window and menu titles are written."
+  },
+  "M2": {
+   "s": "שדרוג לגרסה המלאה…",
+   "back": "upgrade to-the-version the-full…",
+   "why": "Same command as M1, with the ellipsis because it opens a window."
+  },
+  "M3": {
+   "s": "קאטלינגים חינמיים",
+   "back": "cutlings free",
+   "why": "Row label in the item word's plural."
+  },
+  "M4": {
+   "s": "%lld מתוך %lld",
+   "back": "3 out-of 5",
+   "why": "'מתוך' is how Hebrew reads a pair; a slash would read as a date or fraction."
+  },
+  "M5": {
+   "s": "הגרסה המלאה פעילה",
+   "back": "the-version the-full active",
+   "why": "Status in the same words VoiceOver announces at the unlock."
+  },
+  "M6": {
+   "s": "רכישה אחת לגרסה המלאה ב־iPhone, ב־iPad וב־Mac.",
+   "back": "purchase one for-the-version the-full on-iPhone, on-iPad and-on-Mac.",
+   "why": "Same three-device list as S8; opens in Hebrew."
+  },
+  "M7": {
+   "s": "הגרסה המלאה פעילה ב־iPhone, ב־iPad וב־Mac עם חשבון Apple הזה.",
+   "back": "the-version the-full active on-iPhone, on-iPad and-on-Mac with account Apple this.",
+   "why": "Reuses M5's status and S8's list."
+  },
+  "M8": {
+   "s": "קניתם את קאטלינג לפני שהפך לחינמי, ולכן הגרסה המלאה נשארת שלכם. תודה שהייתם כאן מההתחלה.",
+   "back": "bought(pl) ACC Cutling before that-became free, and-so the-version the-full stays yours. thanks that-you-were here from-the-start.",
+   "why": "Past plural address; the thanks is for coming early, which is what sets these buyers apart."
+  }
+ }
+}

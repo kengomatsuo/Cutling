@@ -32,3 +32,6 @@
 "Cancel" = "취소";
 "%@, %lld of %lld" = "%@, %lld번 빈칸, 총 %lld개";
 "Space" = "스페이스";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"%lld free cutlings used. Tap to unlock." = "무료 %lld개 모두 사용 · 탭하여 잠금 해제";

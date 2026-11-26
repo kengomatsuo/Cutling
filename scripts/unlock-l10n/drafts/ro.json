@@ -1,0 +1,194 @@
+{
+  "ro": {
+    "S1": {
+      "s": "%lld gratuite",
+      "back": "5 free[ones]",
+      "why": "Adjective alone in feminine-plural form agreeing with the implied cutling-uri; the tiles above are the noun."
+    },
+    "S2": {
+      "s": "Continuă să salvezi",
+      "back": "Continue to save-you",
+      "why": "An invitation in the informal tu the vocabulary uses; reads as carrying on, not as a limit."
+    },
+    "S3": {
+      "s": "Ai folosit toate cele %lld cutling-uri gratuite. Rămân gratuite și merg ca până acum.",
+      "back": "You-have used all the 5 cutlings free. Stay-they free and work-they as until now.",
+      "why": "Lowercase cutling-uri mid-sentence as in the vocabulary's sentence; „merg ca până acum” is how a Romanian says things keep working unchanged."
+    },
+    "S4": {
+      "s": "Primele %lld cutling-uri sunt gratuite.",
+      "back": "The-first 5 cutlings are free.",
+      "why": "States the fact instead of „you can”; no „de” because 5 takes the noun directly."
+    },
+    "S5": {
+      "s": "Ai folosit %lld din cele %lld cutling-uri gratuite.",
+      "back": "You-have used 3 of the 5 cutlings free.",
+      "why": "Numbers keep the brief's order, so no positional forms; „din cele” is the natural partitive."
+    },
+    "S6": {
+      "s": "%@ de cutling-uri",
+      "back": "5.000 of cutlings",
+      "why": "Numbers 20 and up take „de” before the noun, and 5.000 always does; the grey line under it says what fills that room."
+    },
+    "S7": {
+      "s": "Până la %@ de texte și %lld de imagini.",
+      "back": "Up to 5.000 of texts and 500 of images.",
+      "why": "„Text” and „Imagini” from the vocabulary; both counts take „de” as Romanian requires for 500 and 5.000."
+    },
+    "S8": {
+      "s": "iPhone, iPad și Mac",
+      "back": "iPhone, iPad and Mac",
+      "why": "Romanian lists three with „și” and no comma before it."
+    },
+    "S9": {
+      "s": "Achiziția e valabilă pe orice dispozitiv conectat la contul tău Apple.",
+      "back": "The-purchase is valid on any device connected to the-account your Apple.",
+      "why": "Reuses the vocabulary's „dispozitiv conectat la contul Apple”; „valabilă” is what Romanians say of a purchase or ticket that covers something."
+    },
+    "S10": {
+      "s": "O singură plată",
+      "back": "A single payment",
+      "why": "Short noun phrase for the bold line; „plată unică” sounds like an invoice, this sounds like a person."
+    },
+    "S11": {
+      "s": "Fără abonament, fără reclame, fără înregistrare.",
+      "back": "Without subscription, without ads, without registration.",
+      "why": "„Înregistrare” is the everyday word for signing up; the repeated „fără” is how the phrase is said aloud."
+    },
+    "S12": {
+      "s": "Restaurează achizițiile",
+      "back": "Restore the-purchases",
+      "why": "The wording Romanian iOS apps use for the App Store restore action, in tu imperative."
+    },
+    "S13": {
+      "s": "Se restaurează…",
+      "back": "Self restores…",
+      "why": "Impersonal reflexive for a process under way, with the ellipsis character."
+    },
+    "S14": {
+      "s": "Deblochează pentru %@",
+      "back": "Unlock for 4,99 $",
+      "why": "Tu imperative like the vocabulary's „Activează”; „pentru” + price is how a Romanian button states a cost."
+    },
+    "S15": {
+      "s": "Deblochează",
+      "back": "Unlock",
+      "why": "The same verb as S14 without the price."
+    },
+    "S16": {
+      "s": "Poate mai târziu",
+      "back": "Maybe more late",
+      "why": "What a Romanian says to put something off politely, without refusing."
+    },
+    "S17": {
+      "s": "Închide",
+      "back": "Close",
+      "why": "The label Romanian iOS gives its close buttons."
+    },
+    "S18": {
+      "s": "Totul e al tău",
+      "back": "All-the is the yours",
+      "why": "Warm and a little proud; „e” is the spoken form of „este”."
+    },
+    "S19": {
+      "s": "Mulțumesc. Cutling e făcut de un singur om, iar tu tocmai l-ai ajutat.",
+      "back": "Thank-I. Cutling is made by one single man, and you just him-have helped.",
+      "why": "First person singular because one person makes the app; the thanks is tied to a fact instead of a slogan."
+    },
+    "S20": {
+      "s": "Bine ai revenit. Achiziția ta e din nou activă.",
+      "back": "Well you-have returned. The-purchase your is again active.",
+      "why": "„Bine ai revenit” is the standard warm greeting for a returning user; „achiziția” matches S9."
+    },
+    "S21": {
+      "s": "Ai folosit %lld din %lld cutling-uri gratuite.",
+      "back": "You-have used 3 of 5 cutlings free.",
+      "why": "Spoken form of S5; works for any first number because the verb does not agree with it."
+    },
+    "S22": {
+      "s": "Cutling-uri salvate: %lld. Acum ai loc pentru %@.",
+      "back": "Cutlings saved: 5. Now you-have room for 5.000.",
+      "why": "Count after a label so 1, 2, 5 and 21 all read correctly (21 would otherwise need „de”); 5.000 ends the sentence, so no „de” either."
+    },
+    "S23": {
+      "s": "Cutling e deblocat. Ai loc pentru %@ de cutling-uri.",
+      "back": "Cutling is unlocked. You-have room for 5.000 of cutlings.",
+      "why": "Masculine-neuter „deblocat” for the app's name; „de” after 5.000."
+    },
+    "S24": {
+      "s": "Achiziția nu s-a finalizat",
+      "back": "The-purchase not self-has finalized",
+      "why": "The calm phrase Romanian shops use for an unfinished order; no subject to blame."
+    },
+    "S25": {
+      "s": "App Store nu răspunde momentan. Încearcă din nou puțin mai târziu.",
+      "back": "App Store not responds at-the-moment. Try again a-little more late.",
+      "why": "„Nu răspunde” instead of a passive „nu poate fi accesat”, which reads translated."
+    },
+    "S26": {
+      "s": "App Store nu a confirmat achiziția.",
+      "back": "App Store not has confirmed the-purchase.",
+      "why": "One plain sentence; the OK button is the way out."
+    },
+    "S27": {
+      "s": "Contul Apple de pe acest dispozitiv nu are nicio achiziție Cutling anterioară.",
+      "back": "The-account Apple from on this device not has no purchase Cutling earlier.",
+      "why": "Romanian double negative „nu … nicio”; „dispozitiv” and „contul Apple” from the vocabulary."
+    },
+    "S28": {
+      "s": "Versiunea gratuită păstrează %lld cutling-uri. Deblochează Cutling o dată și salvezi câte vrei.",
+      "back": "The-version free keeps 5 cutlings. Unlock Cutling one time and save-you how-many want-you.",
+      "why": "„Câte vrei” is the spoken way to say as many as you like; imperative then present is how Romanian states a consequence."
+    },
+    "S29": {
+      "s": "%lld din %lld gratuite",
+      "back": "4 of 5 free[ones]",
+      "why": "Sits under the „Cutling-uri” title, which supplies the noun; fits the 18-character budget."
+    },
+    "K1": {
+      "s": "Ai folosit cele %lld gratis. Deblochează",
+      "back": "You-have used the 5 free. Unlock",
+      "why": "„Gratis” is the spoken word and fits the 38-character capsule where „gratuite” would not; the verb tells the person what tapping does."
+    },
+    "M1": {
+      "s": "Deblochează Cutling",
+      "back": "Unlock Cutling",
+      "why": "Verb-led command name, as Romanian Mac window titles are."
+    },
+    "M2": {
+      "s": "Deblochează Cutling…",
+      "back": "Unlock Cutling…",
+      "why": "Same command as M1 with the ellipsis character because it opens a window."
+    },
+    "M3": {
+      "s": "Cutling-uri gratuite",
+      "back": "Cutlings free",
+      "why": "Capitalised „Cutling-uri” as in the vocabulary's list title, since it starts the row label."
+    },
+    "M4": {
+      "s": "%lld din %lld",
+      "back": "3 of 5",
+      "why": "„din” is the compact Romanian number pair; a slash reads technical."
+    },
+    "M5": {
+      "s": "Cutling e deblocat",
+      "back": "Cutling is unlocked",
+      "why": "Same phrase as S23 so the state has one name."
+    },
+    "M6": {
+      "s": "O singură achiziție deblochează Cutling pe iPhone, iPad și Mac.",
+      "back": "A single purchase unlocks Cutling on iPhone, iPad and Mac.",
+      "why": "„Achiziție” as in S9 and S24; device list as in S8."
+    },
+    "M7": {
+      "s": "Deblocat pe iPhone, iPad și Mac cu acest cont Apple.",
+      "back": "Unlocked on iPhone, iPad and Mac with this account Apple.",
+      "why": "„cont Apple” from the vocabulary; participle agrees with Cutling, the section's name."
+    },
+    "M8": {
+      "s": "Ai cumpărat Cutling înainte să devină gratuit, așa că rămâne deblocat. Mulțumesc.",
+      "back": "You-have bought Cutling before to become-it free, so that stays-it unlocked. Thank-I.",
+      "why": "„Așa că” is the spoken because-so; the thanks is first person singular like S19."
+    }
+  }
+}

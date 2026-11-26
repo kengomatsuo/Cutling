@@ -1,0 +1,194 @@
+{
+  "uk": {
+    "S1": {
+      "s": "%lld безплатно",
+      "back": "5 free-of-charge",
+      "why": "Adverb, so nothing has to agree with the number; «безплатно» chosen over «безкоштовно» and used in every key."
+    },
+    "S2": {
+      "s": "Зберігайте більше",
+      "back": "Save (you, polite) more",
+      "why": "An invitation in the polite imperative the vocab uses (Увімкніть), with no limit or warning word."
+    },
+    "S3": {
+      "s": "Ви використали всі %lld безплатних Катлінгів. Вони залишаться безплатними й працюватимуть.",
+      "back": "You used all 5 free Cutlings. They will-remain free and will-work.",
+      "why": "Future tense on the second sentence promises it. Genitive plural fits 5 and above; «й» between vowel and consonant for euphony."
+    },
+    "S4": {
+      "s": "Зберігайте до %lld Катлінгів безплатно.",
+      "back": "Save up-to 5 Cutlings free-of-charge.",
+      "why": "«до» takes the genitive plural for any count from 2 up, so the noun form holds."
+    },
+    "S5": {
+      "s": "Використано %lld з %lld безплатних Катлінгів.",
+      "back": "Used 3 of 5 free Cutlings.",
+      "why": "Impersonal «-но» form is how Ukrainian UI states a count and needs no agreement with the used number; numbers keep English order, so no positional forms."
+    },
+    "S6": {
+      "s": "%@ Катлінгів",
+      "back": "5 000 Cutlings",
+      "why": "A bare heading next to the stack icon; vocab item word in genitive plural after the thousand."
+    },
+    "S7": {
+      "s": "До %@ текстових Катлінгів і до %lld зображень.",
+      "back": "Up-to 5 000 text Cutlings and up-to 500 images.",
+      "why": "«текстових Катлінгів» from the vocab's «Текстовий Катлінг», «зображень» from «Зображення»; no verb, so it does not repeat the title's «Зберігайте»."
+    },
+    "S8": {
+      "s": "iPhone, iPad і Mac",
+      "back": "iPhone, iPad and Mac",
+      "why": "Ukrainian joins the last of three with «і»; «і» not «й» because it sits between two consonants."
+    },
+    "S9": {
+      "s": "Одна покупка діє на всіх пристроях з вашим обліковим записом Apple.",
+      "back": "One purchase acts on all devices with your account record Apple.",
+      "why": "«обліковий запис Apple» and «на всіх пристроях» as in the vocab's sync sentence; «діє» is what Ukrainians say of a licence that is valid."
+    },
+    "S10": {
+      "s": "Оплата один раз",
+      "back": "Payment one time",
+      "why": "Short noun heading beside the seal icon, the way a Ukrainian price page says it."
+    },
+    "S11": {
+      "s": "Без підписки, реклами й реєстрації.",
+      "back": "Without subscription, advertising and registration.",
+      "why": "One «Без» governs all three; «реєстрація» names the sign-up and keeps «обліковий запис» for the Apple Account alone."
+    },
+    "S12": {
+      "s": "Відновити покупки",
+      "back": "Restore purchases",
+      "why": "The wording Ukrainian iOS apps use for the App Store restore action."
+    },
+    "S13": {
+      "s": "Відновлення…",
+      "back": "Restoring…",
+      "why": "Verbal noun plus the ellipsis character, the way iOS shows a running action."
+    },
+    "S14": {
+      "s": "Розблокувати за %@",
+      "back": "Unlock for 4,99 $",
+      "why": "«за» plus price is the natural Ukrainian price phrase; the once-only part sits in S10 just above."
+    },
+    "S15": {
+      "s": "Розблокувати",
+      "back": "Unlock",
+      "why": "Infinitive, as Ukrainian iOS buttons are labelled."
+    },
+    "S16": {
+      "s": "Не зараз",
+      "back": "Not now",
+      "why": "The usual Ukrainian iOS way to put something off without saying no."
+    },
+    "S17": {
+      "s": "Закрити",
+      "back": "Close",
+      "why": "The plain verb on Ukrainian iOS close buttons."
+    },
+    "S18": {
+      "s": "Тепер усе ваше",
+      "back": "Now all yours",
+      "why": "Warm and short; «ваше» lowercase as in Apple's Ukrainian; «усе» after a consonant for euphony."
+    },
+    "S19": {
+      "s": "Дякуємо за покупку. Катлінг робить одна людина, і ви її підтримали.",
+      "back": "Thank-(we) for purchase. Cutling makes one person, and you her supported.",
+      "why": "Object-first order puts the one person last, where it carries weight; «Дякуємо» is the set phrase, not a literal «we»; «її» agrees with «людина» and says nothing of gender."
+    },
+    "S20": {
+      "s": "З поверненням. Вашу покупку відновлено.",
+      "back": "With return. Your purchase restored.",
+      "why": "«З поверненням» is how Ukrainians say welcome back; full stop, not exclamation, as the brief asks."
+    },
+    "S21": {
+      "s": "Використано %lld з %lld безплатних Катлінгів",
+      "back": "Used 3 of 5 free Cutlings",
+      "why": "Same wording as S5 so sight and VoiceOver agree; no full stop on a spoken label."
+    },
+    "S22": {
+      "s": "Катлінгів: %lld. Тепер є місце для %@.",
+      "back": "Cutlings: 5. Now is room for 5 000.",
+      "why": "The vocab's colon count form, which reads correctly for 1, 2, 5 and 21 with no plural agreement."
+    },
+    "S23": {
+      "s": "Катлінг розблоковано. Тепер можна зберігати до %@ Катлінгів.",
+      "back": "Cutling unlocked. Now possible to-save up-to 5 000 Cutlings.",
+      "why": "Singular «Катлінг розблоковано» means the app, matching M5; the plural genitive after «до» means the items, so the two senses stay apart."
+    },
+    "S24": {
+      "s": "Покупку не завершено",
+      "back": "Purchase not completed",
+      "why": "Impersonal «-но» form gives a calm statement with no one blamed."
+    },
+    "S25": {
+      "s": "Зараз App Store недоступний. Спробуйте трохи згодом.",
+      "back": "Now App Store unavailable. Try (you, polite) a-little later.",
+      "why": "App Store is masculine in Ukrainian (магазин), so «недоступний»; «трохи згодом» is the everyday phrase for shortly."
+    },
+    "S26": {
+      "s": "App Store не підтвердив цю покупку.",
+      "back": "App Store not confirmed this purchase.",
+      "why": "Plain past tense with App Store as subject, masculine agreement."
+    },
+    "S27": {
+      "s": "Катлінг раніше не купували з облікового запису Apple на цьому пристрої.",
+      "back": "Cutling earlier not bought(they) from account record Apple on this device.",
+      "why": "Indefinite-personal «купували» states the fact without pointing at the person; avoids the uncertain genitive of the app name."
+    },
+    "S28": {
+      "s": "Безплатна версія вміщує %lld Катлінгів. Розблокуйте Катлінг один раз і зберігайте скільки завгодно.",
+      "back": "Free version holds 5 Cutlings. Unlock (you, polite) Cutling one time and save as-much-as you-like.",
+      "why": "Polite imperative as elsewhere; the singular «Катлінг» names the app and the genitive plural names the items."
+    },
+    "S29": {
+      "s": "Безплатно: %lld з %lld",
+      "back": "Free: 4 of 5",
+      "why": "Mirrors the vocab's «Катлінгів: %lld» subtitle shape, label then numbers."
+    },
+    "K1": {
+      "s": "Усі %lld безплатних зайнято. Розблокувати",
+      "back": "All 5 free (ones) occupied. Unlock",
+      "why": "38 characters with 5; leaving out the noun after «безплатних» is ordinary in speech, and the infinitive reads as the capsule's tap action."
+    },
+    "M1": {
+      "s": "Розблокувати Катлінг",
+      "back": "Unlock Cutling",
+      "why": "Infinitive command name, as Ukrainian macOS titles its command windows."
+    },
+    "M2": {
+      "s": "Розблокувати Катлінг…",
+      "back": "Unlock Cutling…",
+      "why": "Same command as M1 with the ellipsis character because it opens a window."
+    },
+    "M3": {
+      "s": "Безплатні Катлінги",
+      "back": "Free Cutlings",
+      "why": "Nominative plural row label with the vocab item word."
+    },
+    "M4": {
+      "s": "%lld з %lld",
+      "back": "3 of 5",
+      "why": "Compact pair with «з», which reads naturally with any numbers."
+    },
+    "M5": {
+      "s": "Катлінг розблоковано",
+      "back": "Cutling unlocked",
+      "why": "Impersonal «-но» status, the same phrase VoiceOver speaks in S23."
+    },
+    "M6": {
+      "s": "Одна покупка розблоковує Катлінг на iPhone, iPad і Mac.",
+      "back": "One purchase unlocks Cutling on iPhone, iPad and Mac.",
+      "why": "Same «Одна покупка» opening as S9 and the same list as S8."
+    },
+    "M7": {
+      "s": "Розблоковано на iPhone, iPad і Mac з цим обліковим записом Apple.",
+      "back": "Unlocked on iPhone, iPad and Mac with this account record Apple.",
+      "why": "Impersonal status sentence; «обліковий запис Apple» as in the vocab."
+    },
+    "M8": {
+      "s": "Ви купили Катлінг, коли він ще був платним, тож він і далі розблокований. Дякуємо.",
+      "back": "You bought Cutling when it still was paid, so it and further unlocked. Thank-(we).",
+      "why": "Gives the reason first, then the short thanks Ukrainians end a note with; «він» agrees with the app name."
+    }
+  }
+}

@@ -32,3 +32,6 @@
 "Cancel" = "Mégse";
 "%@, %lld of %lld" = "%@, %lld. mező, összesen %lld";
 "Space" = "Szóköz";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"%lld free cutlings used. Tap to unlock." = "Az ingyenes %lld hely betelt. Feloldod?";

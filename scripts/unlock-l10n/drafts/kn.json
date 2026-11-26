@@ -1,0 +1,386 @@
+{
+ "kn": {
+  "S1": {
+   "s": "%lld ಉಚಿತ",
+   "back": "5 free",
+   "why": "Two words under the bracket; ಉಚಿತ is the everyday Kannada word for free of charge, and a bare number plus adjective reads as a slot label."
+  },
+  "S2": {
+   "s": "ಉಳಿಸುತ್ತಲೇ ಇರಿ",
+   "back": "saving-keep-on be (polite)",
+   "why": "ಉಳಿಸು is the save verb Kannada apps use (the Save button is ಉಳಿಸಿ); -ತ್ತಲೇ ಇರಿ is the spoken 'keep going' form, an invitation with no limit word in it; 14 code points, inside the 16 Indic budget."
+  },
+  "S3": {
+   "s": "ನಿಮ್ಮ %lld ಉಚಿತ ಕಟ್ಲಿಂಗ್‌ಗಳೂ ಬಳಕೆಯಾಗಿವೆ. ಅವು ಉಚಿತವಾಗಿಯೇ ಉಳಿಯುತ್ತವೆ ಮತ್ತು ಎಂದಿನಂತೆ ಕೆಲಸ ಮಾಡುತ್ತವೆ.",
+   "back": "your 5 free cuttlings-all used-have-become. they free-indeed remain and as-always work do.",
+   "why": "The clitic -ಊ on ಕಟ್ಲಿಂಗ್‌ಗಳೂ says 'all five' the way a Kannada speaker does; ಉಚಿತವಾಗಿಯೇ with emphatic -ಏ carries 'stay free'; plural verbs are right because the count is always 5 here."
+  },
+  "S4": {
+   "s": "%lld ಕಟ್ಲಿಂಗ್‌ಗಳನ್ನು ಉಚಿತವಾಗಿ ಉಳಿಸಬಹುದು.",
+   "back": "5 cuttlings-(object) free-ly save-can.",
+   "why": "Subject dropped, as Kannada does when the app speaks to the one person; ಉಳಿಸಬಹುದು is the plain 'you can save' with no pronoun needed."
+  },
+  "S5": {
+   "s": "%2$lld ಉಚಿತ ಕಟ್ಲಿಂಗ್‌ಗಳಲ್ಲಿ %1$lld ಬಳಸಿದ್ದೀರಿ.",
+   "back": "5 free cuttlings-in 3 used-you-have.",
+   "why": "Kannada says the whole before the part ('of 5, 3'), so the numbers swap and take positional placeholders; ಬಳಸಿದ್ದೀರಿ agrees with ನೀವು, not with the count, so it works for 1 to 4."
+  },
+  "S6": {
+   "s": "%@ ಕಟ್ಲಿಂಗ್‌ಗಳಿಗೆ ಜಾಗ",
+   "back": "5,000 cuttlings-for room",
+   "why": "ಜಾಗ is the warm spoken word for room; ಸ್ಥಳ would read like a form. A noun phrase suits a bold row line."
+  },
+  "S7": {
+   "s": "%@ ಪಠ್ಯ ಮತ್ತು %lld ಚಿತ್ರ ಕಟ್ಲಿಂಗ್‌ಗಳವರೆಗೆ ಉಳಿಸಬಹುದು.",
+   "back": "5,000 text and 500 image cuttlings-up-to save-can.",
+   "why": "ಪಠ್ಯ and ಚಿತ್ರ are used as modifiers exactly as in the vocabulary's ಪಠ್ಯ ಕಟ್ಲಿಂಗ್ and ಚಿತ್ರ ಕಟ್ಲಿಂಗ್, sharing one ಕಟ್ಲಿಂಗ್‌ಗಳವರೆಗೆ so the item word appears once."
+  },
+  "S8": {
+   "s": "iPhone, iPad ಮತ್ತು Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Kannada lists three with a comma between the first two and ಮತ್ತು before the last; Apple's device names stay in Latin as the vocabulary keeps Apple Account and Mac."
+  },
+  "S9": {
+   "s": "ನಿಮ್ಮ Apple Account ನಲ್ಲಿರುವ ಮೂರೂ ಸಾಧನಗಳಿಗೆ ಒಂದೇ ಖರೀದಿ.",
+   "back": "your Apple Account on-being all-three devices-for one-only purchase.",
+   "why": "ಮೂರೂ ('all three') points back to the bold line; ಒಂದೇ ಖರೀದಿ at the end is where Kannada puts the point; Latin name + space + suffix follows the vocabulary's 'Apple Account ಗೆ'."
+  },
+  "S10": {
+   "s": "ಒಮ್ಮೆ ಪಾವತಿಸಿದರೆ ಸಾಕು",
+   "back": "once pay-if enough",
+   "why": "'Paying once is enough' is how a Kannada speaker says one-time; it uses ಪಾವತಿ so it does not repeat S9's ಖರೀದಿ, and ಸಾಕು carries 'nothing more' without a negative."
+  },
+  "S11": {
+   "s": "ಚಂದಾದಾರಿಕೆ ಇಲ್ಲ, ಜಾಹೀರಾತುಗಳಿಲ್ಲ, ಸೈನ್ ಅಪ್ ಕೂಡ ಬೇಕಿಲ್ಲ.",
+   "back": "subscription none, advertisements-none, sign up also not-needed.",
+   "why": "The brief names three absences, so three clauses; the last changes verb to ಬೇಕಿಲ್ಲ ('not needed') because a sign-up is a step, not a thing; ಸೈನ್ ಅಪ್ matches the vocabulary's ಸೈನ್ ಇನ್."
+  },
+  "S12": {
+   "s": "ಖರೀದಿಗಳನ್ನು ಮರುಸ್ಥಾಪಿಸಿ",
+   "back": "purchases-(object) restore",
+   "why": "ಮರುಸ್ಥಾಪಿಸಿ is the restore verb Kannada iOS and Android use, and this is the common Restore Purchases wording in Kannada apps; the plural matches the App Store action's name."
+  },
+  "S13": {
+   "s": "ಮರುಸ್ಥಾಪಿಸಲಾಗುತ್ತಿದೆ…",
+   "back": "being-restored-is…",
+   "why": "The -ಲಾಗುತ್ತಿದೆ progressive is the standard Kannada in-progress label; ends with the single ellipsis character."
+  },
+  "S14": {
+   "s": "ಒಮ್ಮೆ %@ ಪಾವತಿಸಿ ಅನ್‌ಲಾಕ್ ಮಾಡಿ",
+   "back": "once $4.99 pay unlock do",
+   "why": "Two polite imperatives in a row is the natural Kannada 'pay and unlock'; ಒಮ್ಮೆ keeps the once; ಅನ್‌ಲಾಕ್ ಮಾಡಿ is the unlock verb Kannada phones use; about 17 characters plus the price."
+  },
+  "S15": {
+   "s": "ಅನ್‌ಲಾಕ್ ಮಾಡಿ",
+   "back": "unlock do",
+   "why": "The same verb without the price; 7 characters."
+  },
+  "S16": {
+   "s": "ಈಗ ಬೇಡ",
+   "back": "now not-wanted",
+   "why": "The established Kannada 'Not now'; ಈಗ makes it a postponement, not a refusal."
+  },
+  "S17": {
+   "s": "ಮುಚ್ಚಿ",
+   "back": "close",
+   "why": "The plain close verb Kannada system UI uses on close buttons."
+  },
+  "S18": {
+   "s": "ಈಗ ಎಲ್ಲವೂ ನಿಮ್ಮದೇ",
+   "back": "now everything yours-indeed",
+   "why": "The emphatic -ಏ on ನಿಮ್ಮದೇ gives the small pride of 'it's all yours'; about 12 characters, inside the 16 Indic budget."
+  },
+  "S19": {
+   "s": "ಖರೀದಿಸಿದ್ದಕ್ಕೆ ಧನ್ಯವಾದಗಳು. ಇದು ಕಟ್ಲಿಂಗ್‌ಗೂ ಅದನ್ನು ಒಬ್ಬರೇ ಮಾಡುತ್ತಿರುವವರಿಗೂ ಬೆಂಬಲ.",
+   "back": "having-bought-for thanks. this Cutling-to-also it alone making-one-to-also support.",
+   "why": "The paired -ಗೂ … -ಗೂ is Kannada's own 'both X and Y'; ಒಬ್ಬರೇ ('one person alone', respectful plural) names the single maker without an English loan like developer."
+  },
+  "S20": {
+   "s": "ಮರಳಿ ಸುಸ್ವಾಗತ. ನಿಮ್ಮ ಹಿಂದಿನ ಖರೀದಿ ಮರುಸ್ಥಾಪನೆಯಾಗಿದೆ.",
+   "back": "back welcome. your earlier purchase restoration-has-become.",
+   "why": "ಮರಳಿ ಸುಸ್ವಾಗತ is how Kannada apps greet a returning person; ಮರುಸ್ಥಾಪನೆ reuses the restore word from S12 so the link and the result match."
+  },
+  "S21": {
+   "s": "%2$lld ಉಚಿತ ಕಟ್ಲಿಂಗ್‌ಗಳಲ್ಲಿ %1$lld ಬಳಸಲಾಗಿದೆ",
+   "back": "5 free cuttlings-in 3 used-has-been",
+   "why": "Spoken description of the tiles, so the impersonal passive ಬಳಸಲಾಗಿದೆ, which takes the same ending for 1 or 4 used; positional placeholders for the whole-before-part order."
+  },
+  "S22": {
+   "s": "%lld ಕಟ್ಲಿಂಗ್ ಉಳಿಸಿದ್ದೀರಿ. ಈಗ %@ ವರೆಗೆ ಜಾಗವಿದೆ.",
+   "back": "5 cuttling saved-you-have. now 5,000 up-to room-is.",
+   "why": "After a numeral Kannada takes the singular noun (ಐದು ರೂಪಾಯಿ, ಎರಡು ದಿನ), so %lld ಕಟ್ಲಿಂಗ್ reads right for 1, 2, 5 and 21, and the verb agrees with ನೀವು, not the count."
+  },
+  "S23": {
+   "s": "ಕಟ್ಲಿಂಗ್ ಅನ್‌ಲಾಕ್ ಆಗಿದೆ. ಈಗ %@ ಕಟ್ಲಿಂಗ್‌ಗಳಿಗೆ ಜಾಗವಿದೆ.",
+   "back": "Cutling unlock has-become. now 5,000 cuttlings-for room-is.",
+   "why": "ಅನ್‌ಲಾಕ್ ಆಗಿದೆ is the stative 'is unlocked'; the app name and the item word are the same in this vocabulary, and the plural suffix on the second tells the ear which is which."
+  },
+  "S24": {
+   "s": "ಖರೀದಿ ಪೂರ್ಣಗೊಳ್ಳಲಿಲ್ಲ",
+   "back": "purchase complete-did-not-become",
+   "why": "An intransitive verb, so nobody is blamed: the purchase simply did not complete."
+  },
+  "S25": {
+   "s": "ಸದ್ಯಕ್ಕೆ App Store ಸಂಪರ್ಕ ಸಿಗುತ್ತಿಲ್ಲ. ಸ್ವಲ್ಪ ಹೊತ್ತು ಬಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+   "back": "for-now App Store connection not-getting. little while leaving again try.",
+   "why": "ಸಂಪರ್ಕ ಸಿಗುತ್ತಿಲ್ಲ is what Kannada speakers say of a phone line; ಸ್ವಲ್ಪ ಹೊತ್ತು ಬಿಟ್ಟು ('leave it a little while') is the spoken 'shortly'. App Store stays in Latin as Apple writes it."
+  },
+  "S26": {
+   "s": "App Store ಈ ಖರೀದಿಯನ್ನು ಖಚಿತಪಡಿಸಲಿಲ್ಲ.",
+   "back": "App Store this purchase-(object) confirm-did-not.",
+   "why": "Plain past negative with the App Store as subject, which is the fact; ಖಚಿತಪಡಿಸು is the usual confirm verb."
+  },
+  "S27": {
+   "s": "ಈ ಸಾಧನದಲ್ಲಿ ಸೈನ್ ಇನ್ ಮಾಡಿರುವ Apple Account ನಿಂದ ಕಟ್ಲಿಂಗ್ ಅನ್ನು ಹಿಂದೆ ಖರೀದಿಸಿಲ್ಲ.",
+   "back": "this device-on sign in done Apple Account from Cutling-(object) earlier bought-not.",
+   "why": "ಸೈನ್ ಇನ್ ಮಾಡಿರುವ is lifted from the vocabulary's Apple Account sentence; the verb ಖರೀದಿಸಿಲ್ಲ states the fact without telling the person they were wrong to tap."
+  },
+  "S28": {
+   "s": "ಉಚಿತ ಆವೃತ್ತಿಯಲ್ಲಿ %lld ಕಟ್ಲಿಂಗ್‌ಗಳಿಗೆ ಮಾತ್ರ ಜಾಗವಿದೆ. ಕಟ್ಲಿಂಗ್ ಅನ್ನು ಒಮ್ಮೆ ಅನ್‌ಲಾಕ್ ಮಾಡಿದರೆ ಬೇಕಾದಷ್ಟು ಉಳಿಸಬಹುದು.",
+   "back": "free version-in 5 cuttlings-for only room-is. Cutling-(object) once unlock do-if as-many-as-needed save-can.",
+   "why": "ಜಾಗ repeats S6's room word; ಬೇಕಾದಷ್ಟು ('as much as you need') is the native 'as many as you like', and the -ದರೆ conditional is how Kannada says 'once you do X, Y'."
+  },
+  "S29": {
+   "s": "%1$lld/%2$lld ಉಚಿತ ಬಳಸಲಾಗಿದೆ",
+   "back": "4/5 free used-has-been",
+   "why": "A slash pair reads as 'four of five' in Kannada as in English and keeps the line to about 17 characters; the impersonal passive needs no agreement with the count."
+  },
+  "K1": {
+   "s": "ಉಚಿತ %lld ಮುಗಿದಿವೆ, ಅನ್‌ಲಾಕ್ ಮಾಡಲು ಟ್ಯಾಪ್ ಮಾಡಿ",
+   "back": "free 5 finished-are, unlock to-do tap do",
+   "why": "ಮುಗಿದಿವೆ ('have run out') is the spoken way to say used up; ಟ್ಯಾಪ್ ಮಾಡಿ is the tap verb Kannada phone UI uses; about 27 characters with the number filled in, inside the 30 Indic budget."
+  },
+  "M1": {
+   "s": "ಕಟ್ಲಿಂಗ್ ಅನ್‌ಲಾಕ್ ಮಾಡಿ",
+   "back": "Cutling unlock do",
+   "why": "A Kannada command puts the verb last (object, then ಮಾಡಿ), the same polite imperative as the vocabulary's ಮುಂದುವರಿಸಿ and ಆನ್ ಮಾಡಿ; this is the command form a Mac window title takes in Kannada."
+  },
+  "M2": {
+   "s": "ಕಟ್ಲಿಂಗ್ ಅನ್‌ಲಾಕ್ ಮಾಡಿ…",
+   "back": "Cutling unlock do…",
+   "why": "The same command as M1 with the ellipsis character because it opens a window."
+  },
+  "M3": {
+   "s": "ಉಚಿತ ಕಟ್ಲಿಂಗ್‌ಗಳು",
+   "back": "free cuttlings",
+   "why": "The row label is the thing itself, using the vocabulary's plural ಕಟ್ಲಿಂಗ್‌ಗಳು."
+  },
+  "M4": {
+   "s": "%1$lld/%2$lld",
+   "back": "3/5",
+   "why": "A compact number pair needs no words next to the M3 label; the slash keeps used before total."
+  },
+  "M5": {
+   "s": "ಕಟ್ಲಿಂಗ್ ಅನ್‌ಲಾಕ್ ಆಗಿದೆ",
+   "back": "Cutling unlock has-become",
+   "why": "The stative ಆಗಿದೆ as in S23, so the status uses the same words on Mac and iPhone."
+  },
+  "M6": {
+   "s": "ಒಂದೇ ಖರೀದಿಯಿಂದ iPhone, iPad ಮತ್ತು Mac ನಲ್ಲಿ ಕಟ್ಲಿಂಗ್ ಅನ್‌ಲಾಕ್ ಆಗುತ್ತದೆ.",
+   "back": "one-only purchase-by iPhone, iPad and Mac on Cutling unlock becomes.",
+   "why": "Instrumental -ಇಂದ ('by one purchase') leads, as Kannada puts the cause first; the device list matches S8."
+  },
+  "M7": {
+   "s": "ಈ Apple Account ಮೂಲಕ iPhone, iPad ಮತ್ತು Mac ನಲ್ಲಿ ಅನ್‌ಲಾಕ್ ಆಗಿದೆ.",
+   "back": "this Apple Account through iPhone, iPad and Mac on unlock has-become.",
+   "why": "ಮೂಲಕ ('through') is how Kannada ties a status to an account; the subject is left out because the section is already Cutling's."
+  },
+  "M8": {
+   "s": "ಕಟ್ಲಿಂಗ್ ಉಚಿತವಾಗುವ ಮೊದಲೇ ನೀವು ಅದನ್ನು ಖರೀದಿಸಿದ್ದೀರಿ, ಹಾಗಾಗಿ ಅದು ಅನ್‌ಲಾಕ್ ಆಗಿಯೇ ಇರುತ್ತದೆ. ನಿಮ್ಮ ಬೆಂಬಲಕ್ಕೆ ಧನ್ಯವಾದಗಳು.",
+   "back": "Cutling free-becoming before-itself you it bought-have, so it unlock being-indeed stays. your support-for thanks.",
+   "why": "ಮೊದಲೇ ('even before') and ಹಾಗಾಗಿ ('so') are Kannada's own joints; ಆಗಿಯೇ ಇರುತ್ತದೆ with emphatic -ಏ says it stays unlocked for good; the thanks is for their support, which is what the early purchase was."
+  }
+ },
+ "kn-IN": {
+  "S1": {
+   "s": "%lld ಉಚಿತ",
+   "back": "5 free",
+   "why": "Two words under the bracket; ಉಚಿತ is the everyday Kannada word for free of charge, and a bare number plus adjective reads as a slot label. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S2": {
+   "s": "ಉಳಿಸುತ್ತಲೇ ಇರಿ",
+   "back": "saving-keep-on be (polite)",
+   "why": "ಉಳಿಸು is the save verb Kannada apps use (the Save button is ಉಳಿಸಿ); -ತ್ತಲೇ ಇರಿ is the spoken 'keep going' form, an invitation with no limit word in it; 14 code points, inside the 16 Indic budget. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S3": {
+   "s": "ನಿಮ್ಮ %lld ಉಚಿತ ಕಟ್ಲಿಂಗ್‌ಗಳೂ ಬಳಕೆಯಾಗಿವೆ. ಅವು ಉಚಿತವಾಗಿಯೇ ಉಳಿಯುತ್ತವೆ ಮತ್ತು ಎಂದಿನಂತೆ ಕೆಲಸ ಮಾಡುತ್ತವೆ.",
+   "back": "your 5 free cuttlings-all used-have-become. they free-indeed remain and as-always work do.",
+   "why": "The clitic -ಊ on ಕಟ್ಲಿಂಗ್‌ಗಳೂ says 'all five' the way a Kannada speaker does; ಉಚಿತವಾಗಿಯೇ with emphatic -ಏ carries 'stay free'; plural verbs are right because the count is always 5 here. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S4": {
+   "s": "%lld ಕಟ್ಲಿಂಗ್‌ಗಳನ್ನು ಉಚಿತವಾಗಿ ಉಳಿಸಬಹುದು.",
+   "back": "5 cuttlings-(object) free-ly save-can.",
+   "why": "Subject dropped, as Kannada does when the app speaks to the one person; ಉಳಿಸಬಹುದು is the plain 'you can save' with no pronoun needed. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S5": {
+   "s": "%2$lld ಉಚಿತ ಕಟ್ಲಿಂಗ್‌ಗಳಲ್ಲಿ %1$lld ಬಳಸಿದ್ದೀರಿ.",
+   "back": "5 free cuttlings-in 3 used-you-have.",
+   "why": "Kannada says the whole before the part ('of 5, 3'), so the numbers swap and take positional placeholders; ಬಳಸಿದ್ದೀರಿ agrees with ನೀವು, not with the count, so it works for 1 to 4. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S6": {
+   "s": "%@ ಕಟ್ಲಿಂಗ್‌ಗಳಿಗೆ ಜಾಗ",
+   "back": "5,000 cuttlings-for room",
+   "why": "ಜಾಗ is the warm spoken word for room; ಸ್ಥಳ would read like a form. A noun phrase suits a bold row line. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S7": {
+   "s": "%@ ಪಠ್ಯ ಮತ್ತು %lld ಚಿತ್ರ ಕಟ್ಲಿಂಗ್‌ಗಳವರೆಗೆ ಉಳಿಸಬಹುದು.",
+   "back": "5,000 text and 500 image cuttlings-up-to save-can.",
+   "why": "ಪಠ್ಯ and ಚಿತ್ರ are used as modifiers exactly as in the vocabulary's ಪಠ್ಯ ಕಟ್ಲಿಂಗ್ and ಚಿತ್ರ ಕಟ್ಲಿಂಗ್, sharing one ಕಟ್ಲಿಂಗ್‌ಗಳವರೆಗೆ so the item word appears once. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S8": {
+   "s": "iPhone, iPad ಮತ್ತು Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Kannada lists three with a comma between the first two and ಮತ್ತು before the last; Apple's device names stay in Latin as the vocabulary keeps Apple Account and Mac. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S9": {
+   "s": "ನಿಮ್ಮ Apple Account ನಲ್ಲಿರುವ ಮೂರೂ ಸಾಧನಗಳಿಗೆ ಒಂದೇ ಖರೀದಿ.",
+   "back": "your Apple Account on-being all-three devices-for one-only purchase.",
+   "why": "ಮೂರೂ ('all three') points back to the bold line; ಒಂದೇ ಖರೀದಿ at the end is where Kannada puts the point; Latin name + space + suffix follows the vocabulary's 'Apple Account ಗೆ'. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S10": {
+   "s": "ಒಮ್ಮೆ ಪಾವತಿಸಿದರೆ ಸಾಕು",
+   "back": "once pay-if enough",
+   "why": "'Paying once is enough' is how a Kannada speaker says one-time; it uses ಪಾವತಿ so it does not repeat S9's ಖರೀದಿ, and ಸಾಕು carries 'nothing more' without a negative. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S11": {
+   "s": "ಚಂದಾದಾರಿಕೆ ಇಲ್ಲ, ಜಾಹೀರಾತುಗಳಿಲ್ಲ, ಸೈನ್ ಅಪ್ ಕೂಡ ಬೇಕಿಲ್ಲ.",
+   "back": "subscription none, advertisements-none, sign up also not-needed.",
+   "why": "The brief names three absences, so three clauses; the last changes verb to ಬೇಕಿಲ್ಲ ('not needed') because a sign-up is a step, not a thing; ಸೈನ್ ಅಪ್ matches the vocabulary's ಸೈನ್ ಇನ್. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S12": {
+   "s": "ಖರೀದಿಗಳನ್ನು ಮರುಸ್ಥಾಪಿಸಿ",
+   "back": "purchases-(object) restore",
+   "why": "ಮರುಸ್ಥಾಪಿಸಿ is the restore verb Kannada iOS and Android use, and this is the common Restore Purchases wording in Kannada apps; the plural matches the App Store action's name. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S13": {
+   "s": "ಮರುಸ್ಥಾಪಿಸಲಾಗುತ್ತಿದೆ…",
+   "back": "being-restored-is…",
+   "why": "The -ಲಾಗುತ್ತಿದೆ progressive is the standard Kannada in-progress label; ends with the single ellipsis character. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S14": {
+   "s": "ಒಮ್ಮೆ %@ ಪಾವತಿಸಿ ಅನ್‌ಲಾಕ್ ಮಾಡಿ",
+   "back": "once $4.99 pay unlock do",
+   "why": "Two polite imperatives in a row is the natural Kannada 'pay and unlock'; ಒಮ್ಮೆ keeps the once; ಅನ್‌ಲಾಕ್ ಮಾಡಿ is the unlock verb Kannada phones use; about 17 characters plus the price. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S15": {
+   "s": "ಅನ್‌ಲಾಕ್ ಮಾಡಿ",
+   "back": "unlock do",
+   "why": "The same verb without the price; 7 characters. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S16": {
+   "s": "ಈಗ ಬೇಡ",
+   "back": "now not-wanted",
+   "why": "The established Kannada 'Not now'; ಈಗ makes it a postponement, not a refusal. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S17": {
+   "s": "ಮುಚ್ಚಿ",
+   "back": "close",
+   "why": "The plain close verb Kannada system UI uses on close buttons. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S18": {
+   "s": "ಈಗ ಎಲ್ಲವೂ ನಿಮ್ಮದೇ",
+   "back": "now everything yours-indeed",
+   "why": "The emphatic -ಏ on ನಿಮ್ಮದೇ gives the small pride of 'it's all yours'; about 12 characters, inside the 16 Indic budget. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S19": {
+   "s": "ಖರೀದಿಸಿದ್ದಕ್ಕೆ ಧನ್ಯವಾದಗಳು. ಇದು ಕಟ್ಲಿಂಗ್‌ಗೂ ಅದನ್ನು ಒಬ್ಬರೇ ಮಾಡುತ್ತಿರುವವರಿಗೂ ಬೆಂಬಲ.",
+   "back": "having-bought-for thanks. this Cutling-to-also it alone making-one-to-also support.",
+   "why": "The paired -ಗೂ … -ಗೂ is Kannada's own 'both X and Y'; ಒಬ್ಬರೇ ('one person alone', respectful plural) names the single maker without an English loan like developer. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S20": {
+   "s": "ಮರಳಿ ಸುಸ್ವಾಗತ. ನಿಮ್ಮ ಹಿಂದಿನ ಖರೀದಿ ಮರುಸ್ಥಾಪನೆಯಾಗಿದೆ.",
+   "back": "back welcome. your earlier purchase restoration-has-become.",
+   "why": "ಮರಳಿ ಸುಸ್ವಾಗತ is how Kannada apps greet a returning person; ಮರುಸ್ಥಾಪನೆ reuses the restore word from S12 so the link and the result match. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S21": {
+   "s": "%2$lld ಉಚಿತ ಕಟ್ಲಿಂಗ್‌ಗಳಲ್ಲಿ %1$lld ಬಳಸಲಾಗಿದೆ",
+   "back": "5 free cuttlings-in 3 used-has-been",
+   "why": "Spoken description of the tiles, so the impersonal passive ಬಳಸಲಾಗಿದೆ, which takes the same ending for 1 or 4 used; positional placeholders for the whole-before-part order. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S22": {
+   "s": "%lld ಕಟ್ಲಿಂಗ್ ಉಳಿಸಿದ್ದೀರಿ. ಈಗ %@ ವರೆಗೆ ಜಾಗವಿದೆ.",
+   "back": "5 cuttling saved-you-have. now 5,000 up-to room-is.",
+   "why": "After a numeral Kannada takes the singular noun (ಐದು ರೂಪಾಯಿ, ಎರಡು ದಿನ), so %lld ಕಟ್ಲಿಂಗ್ reads right for 1, 2, 5 and 21, and the verb agrees with ನೀವು, not the count. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S23": {
+   "s": "ಕಟ್ಲಿಂಗ್ ಅನ್‌ಲಾಕ್ ಆಗಿದೆ. ಈಗ %@ ಕಟ್ಲಿಂಗ್‌ಗಳಿಗೆ ಜಾಗವಿದೆ.",
+   "back": "Cutling unlock has-become. now 5,000 cuttlings-for room-is.",
+   "why": "ಅನ್‌ಲಾಕ್ ಆಗಿದೆ is the stative 'is unlocked'; the app name and the item word are the same in this vocabulary, and the plural suffix on the second tells the ear which is which. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S24": {
+   "s": "ಖರೀದಿ ಪೂರ್ಣಗೊಳ್ಳಲಿಲ್ಲ",
+   "back": "purchase complete-did-not-become",
+   "why": "An intransitive verb, so nobody is blamed: the purchase simply did not complete. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S25": {
+   "s": "ಸದ್ಯಕ್ಕೆ App Store ಸಂಪರ್ಕ ಸಿಗುತ್ತಿಲ್ಲ. ಸ್ವಲ್ಪ ಹೊತ್ತು ಬಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.",
+   "back": "for-now App Store connection not-getting. little while leaving again try.",
+   "why": "ಸಂಪರ್ಕ ಸಿಗುತ್ತಿಲ್ಲ is what Kannada speakers say of a phone line; ಸ್ವಲ್ಪ ಹೊತ್ತು ಬಿಟ್ಟು ('leave it a little while') is the spoken 'shortly'. App Store stays in Latin as Apple writes it. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S26": {
+   "s": "App Store ಈ ಖರೀದಿಯನ್ನು ಖಚಿತಪಡಿಸಲಿಲ್ಲ.",
+   "back": "App Store this purchase-(object) confirm-did-not.",
+   "why": "Plain past negative with the App Store as subject, which is the fact; ಖಚಿತಪಡಿಸು is the usual confirm verb. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S27": {
+   "s": "ಈ ಸಾಧನದಲ್ಲಿ ಸೈನ್ ಇನ್ ಮಾಡಿರುವ Apple Account ನಿಂದ ಕಟ್ಲಿಂಗ್ ಅನ್ನು ಹಿಂದೆ ಖರೀದಿಸಿಲ್ಲ.",
+   "back": "this device-on sign in done Apple Account from Cutling-(object) earlier bought-not.",
+   "why": "ಸೈನ್ ಇನ್ ಮಾಡಿರುವ is lifted from the vocabulary's Apple Account sentence; the verb ಖರೀದಿಸಿಲ್ಲ states the fact without telling the person they were wrong to tap. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S28": {
+   "s": "ಉಚಿತ ಆವೃತ್ತಿಯಲ್ಲಿ %lld ಕಟ್ಲಿಂಗ್‌ಗಳಿಗೆ ಮಾತ್ರ ಜಾಗವಿದೆ. ಕಟ್ಲಿಂಗ್ ಅನ್ನು ಒಮ್ಮೆ ಅನ್‌ಲಾಕ್ ಮಾಡಿದರೆ ಬೇಕಾದಷ್ಟು ಉಳಿಸಬಹುದು.",
+   "back": "free version-in 5 cuttlings-for only room-is. Cutling-(object) once unlock do-if as-many-as-needed save-can.",
+   "why": "ಜಾಗ repeats S6's room word; ಬೇಕಾದಷ್ಟು ('as much as you need') is the native 'as many as you like', and the -ದರೆ conditional is how Kannada says 'once you do X, Y'. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "S29": {
+   "s": "%1$lld/%2$lld ಉಚಿತ ಬಳಸಲಾಗಿದೆ",
+   "back": "4/5 free used-has-been",
+   "why": "A slash pair reads as 'four of five' in Kannada as in English and keeps the line to about 17 characters; the impersonal passive needs no agreement with the count. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "K1": {
+   "s": "ಉಚಿತ %lld ಮುಗಿದಿವೆ, ಅನ್‌ಲಾಕ್ ಮಾಡಲು ಟ್ಯಾಪ್ ಮಾಡಿ",
+   "back": "free 5 finished-are, unlock to-do tap do",
+   "why": "ಮುಗಿದಿವೆ ('have run out') is the spoken way to say used up; ಟ್ಯಾಪ್ ಮಾಡಿ is the tap verb Kannada phone UI uses; about 27 characters with the number filled in, inside the 30 Indic budget. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "M1": {
+   "s": "ಕಟ್ಲಿಂಗ್ ಅನ್‌ಲಾಕ್ ಮಾಡಿ",
+   "back": "Cutling unlock do",
+   "why": "A Kannada command puts the verb last (object, then ಮಾಡಿ), the same polite imperative as the vocabulary's ಮುಂದುವರಿಸಿ and ಆನ್ ಮಾಡಿ; this is the command form a Mac window title takes in Kannada. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "M2": {
+   "s": "ಕಟ್ಲಿಂಗ್ ಅನ್‌ಲಾಕ್ ಮಾಡಿ…",
+   "back": "Cutling unlock do…",
+   "why": "The same command as M1 with the ellipsis character because it opens a window. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "M3": {
+   "s": "ಉಚಿತ ಕಟ್ಲಿಂಗ್‌ಗಳು",
+   "back": "free cuttlings",
+   "why": "The row label is the thing itself, using the vocabulary's plural ಕಟ್ಲಿಂಗ್‌ಗಳು. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "M4": {
+   "s": "%1$lld/%2$lld",
+   "back": "3/5",
+   "why": "A compact number pair needs no words next to the M3 label; the slash keeps used before total. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "M5": {
+   "s": "ಕಟ್ಲಿಂಗ್ ಅನ್‌ಲಾಕ್ ಆಗಿದೆ",
+   "back": "Cutling unlock has-become",
+   "why": "The stative ಆಗಿದೆ as in S23, so the status uses the same words on Mac and iPhone. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "M6": {
+   "s": "ಒಂದೇ ಖರೀದಿಯಿಂದ iPhone, iPad ಮತ್ತು Mac ನಲ್ಲಿ ಕಟ್ಲಿಂಗ್ ಅನ್‌ಲಾಕ್ ಆಗುತ್ತದೆ.",
+   "back": "one-only purchase-by iPhone, iPad and Mac on Cutling unlock becomes.",
+   "why": "Instrumental -ಇಂದ ('by one purchase') leads, as Kannada puts the cause first; the device list matches S8. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "M7": {
+   "s": "ಈ Apple Account ಮೂಲಕ iPhone, iPad ಮತ್ತು Mac ನಲ್ಲಿ ಅನ್‌ಲಾಕ್ ಆಗಿದೆ.",
+   "back": "this Apple Account through iPhone, iPad and Mac on unlock has-become.",
+   "why": "ಮೂಲಕ ('through') is how Kannada ties a status to an account; the subject is left out because the section is already Cutling's. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "M8": {
+   "s": "ಕಟ್ಲಿಂಗ್ ಉಚಿತವಾಗುವ ಮೊದಲೇ ನೀವು ಅದನ್ನು ಖರೀದಿಸಿದ್ದೀರಿ, ಹಾಗಾಗಿ ಅದು ಅನ್‌ಲಾಕ್ ಆಗಿಯೇ ಇರುತ್ತದೆ. ನಿಮ್ಮ ಬೆಂಬಲಕ್ಕೆ ಧನ್ಯವಾದಗಳು.",
+   "back": "Cutling free-becoming before-itself you it bought-have, so it unlock being-indeed stays. your support-for thanks.",
+   "why": "ಮೊದಲೇ ('even before') and ಹಾಗಾಗಿ ('so') are Kannada's own joints; ಆಗಿಯೇ ಇರುತ್ತದೆ with emphatic -ಏ says it stays unlocked for good; the thanks is for their support, which is what the early purchase was. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  }
+ }
+}

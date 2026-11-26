@@ -32,3 +32,6 @@
 "Cancel" = "Hủy";
 "%@, %lld of %lld" = "%@, chỗ trống %lld trên %lld";
 "Space" = "Dấu cách";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"%lld free cutlings used. Tap to unlock." = "Đã hết %lld miễn phí, chạm để mở khóa";

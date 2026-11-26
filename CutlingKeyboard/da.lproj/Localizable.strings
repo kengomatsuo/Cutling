@@ -32,3 +32,6 @@
 "Cancel" = "Annuller";
 "%@, %lld of %lld" = "%@, %lld af %lld";
 "Space" = "Mellemrum";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"%lld free cutlings used. Tap to unlock." = "Alle %lld gratis er brugt. Tryk og lås op";

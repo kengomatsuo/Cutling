@@ -32,3 +32,6 @@
 "Cancel" = "Atšaukti";
 "%@, %lld of %lld" = "%@, %lld iš %lld";
 "Space" = "Tarpas";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"%lld free cutlings used. Tap to unlock." = "Visi %lld nemokami panaudoti. Atrakinkite";

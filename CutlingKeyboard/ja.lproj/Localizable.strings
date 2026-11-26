@@ -32,3 +32,6 @@
 "Cancel" = "キャンセル";
 "%@, %lld of %lld" = "%1$@、%3$lldか所中%2$lldか所目";
 "Space" = "空白";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"%lld free cutlings used. Tap to unlock." = "無料 %lld 個を使い切り。タップでアンロック";

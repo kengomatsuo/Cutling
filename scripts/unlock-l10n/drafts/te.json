@@ -1,0 +1,386 @@
+{
+ "te": {
+  "S1": {
+   "s": "%lld ఉచితం",
+   "back": "5 free",
+   "why": "Tag-style noun ఉచితం under the bracket; shortest native way to mark the slots as the free ones."
+  },
+  "S2": {
+   "s": "ఇంకెన్నో దాచుకోండి",
+   "back": "Many-more keep-for-yourself (please)",
+   "why": "An invitation in the polite మీరు imperative; దాచుకోవడం (keep for yourself) is warmer than the loan సేవ్ and is used for saving on every key."
+  },
+  "S3": {
+   "s": "మీ %lld ఉచిత కట్లింగ్‌లనూ వాడేశారు. అవి ఉచితంగానే ఉంటాయి, ఎప్పటిలాగే పనిచేస్తాయి.",
+   "back": "Your 5 free cuttlings-all you-used-up. They free-just will-stay, as-always will-work.",
+   "why": "-నూ gives 'all five', వాడేశారు is the spoken used-up form; the second sentence reassures without a 'but'."
+  },
+  "S4": {
+   "s": "%lld కట్లింగ్‌లు ఉచితంగా దాచుకోవచ్చు.",
+   "back": "5 cuttlings for-free you-can-keep.",
+   "why": "Permissive -వచ్చు says 'you can', pronoun dropped as Telugu does; vocab plural కట్లింగ్‌లు."
+  },
+  "S5": {
+   "s": "%2$lld ఉచిత కట్లింగ్‌లలో %1$lld వాడారు.",
+   "back": "5 free cuttlings-in 3 you-used.",
+   "why": "Telugu puts the whole before the part ('of 5 ... 3'), so positional placeholders swap the order."
+  },
+  "S6": {
+   "s": "%@ కట్లింగ్‌లకు చోటు",
+   "back": "5,000 cuttlings-for room",
+   "why": "Bare noun phrase for a bold row line; చోటు (room, space) is the everyday word."
+  },
+  "S7": {
+   "s": "టెక్స్ట్ కట్లింగ్‌లు %@ వరకు, చిత్రాలు %lld వరకు దాచుకోవచ్చు.",
+   "back": "Text cuttlings 5,000 up-to, images 500 up-to you-can-keep.",
+   "why": "టెక్స్ట్ and చిత్రాలు from the vocab; the two limits run in parallel with one shared verb at the end."
+  },
+  "S8": {
+   "s": "iPhone, iPad మరియు Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Telugu's written list pattern (comma, then మరియు before the last); the Latin names cannot take the -ఊ suffix."
+  },
+  "S9": {
+   "s": "మీ Apple Account తో ఒక్కసారి కొంటే, మూడింటిలోనూ పనిచేస్తుంది.",
+   "back": "Your Apple Account with once if-you-buy, three-in-all it-works.",
+   "why": "Conditional కొంటే carries 'one purchase'; మూడింటిలోనూ points back at the bold line; Apple Account spaced as in the vocab sentence."
+  },
+  "S10": {
+   "s": "ఒక్కసారి చెల్లిస్తే చాలు",
+   "back": "Once if-you-pay enough",
+   "why": "The idiom '... చాలు' (that is all it takes) says nothing recurs without a negative."
+  },
+  "S11": {
+   "s": "సబ్‌స్క్రిప్షన్ లేదు, ప్రకటనలు లేవు, సైన్ అప్ అక్కర్లేదు.",
+   "back": "Subscription is-not, ads are-not, sign up not-needed.",
+   "why": "Everyday loans సబ్‌స్క్రిప్షన్ and సైన్ అప్ (the vocab already uses సైన్ ఇన్); లేవు agrees with plural ప్రకటనలు; అక్కర్లేదు is spoken and warm."
+  },
+  "S12": {
+   "s": "కొనుగోళ్లను పునరుద్ధరించు",
+   "back": "Purchases restore",
+   "why": "The standard Telugu wording for Restore Purchases, in the bare imperative the vocab uses for buttons (కొనసాగించు)."
+  },
+  "S13": {
+   "s": "పునరుద్ధరిస్తోంది…",
+   "back": "Restoring…",
+   "why": "Present progressive of the same verb, ending with the ellipsis character."
+  },
+  "S14": {
+   "s": "%@ చెల్లించి అన్‌లాక్ చేయి",
+   "back": "$4.99 having-paid unlock do",
+   "why": "Conjunctive చెల్లించి ties the price to the action; button imperative చేయి matches the vocab's కొనసాగించు."
+  },
+  "S15": {
+   "s": "అన్‌లాక్ చేయి",
+   "back": "Unlock do",
+   "why": "The same action with the price clause removed."
+  },
+  "S16": {
+   "s": "ఇప్పుడు కాదు",
+   "back": "Now not",
+   "why": "The usual Telugu 'not now': postpones, does not refuse."
+  },
+  "S17": {
+   "s": "మూసివేయి",
+   "back": "Close",
+   "why": "Plain imperative for closing a sheet or window, in button form."
+  },
+  "S18": {
+   "s": "ఇక అంతా మీదే",
+   "back": "Now all yours-indeed",
+   "why": "Emphatic -ఏ on మీది gives the pride: all of it, the room included, is yours."
+  },
+  "S19": {
+   "s": "కొన్నందుకు ధన్యవాదాలు. కట్లింగ్‌కూ, దాన్ని ఒక్కరే తయారుచేసే వ్యక్తికీ మీరు అండగా నిలిచారు.",
+   "back": "For-having-bought thanks. Cutling-to-also, it alone-one making person-to-also you support stood.",
+   "why": "అండగా నిలవడం (to stand by someone) is the native idiom for support; ఒక్కరే names the single maker."
+  },
+  "S20": {
+   "s": "మళ్లీ స్వాగతం. మీరు ఇంతకుముందు చేసిన కొనుగోలు తిరిగి వచ్చేసింది.",
+   "back": "Again welcome. You earlier made purchase back has-come.",
+   "why": "మళ్లీ స్వాగతం is how Telugu greets a returner; completive వచ్చేసింది sounds relieved and warm."
+  },
+  "S21": {
+   "s": "%2$lld ఉచిత కట్లింగ్‌లలో %1$lld వాడారు",
+   "back": "5 free cuttlings-in 3 you-used",
+   "why": "Same sentence as S5 so the spoken and printed counts match; no full stop for VoiceOver."
+  },
+  "S22": {
+   "s": "మీ కట్లింగ్‌ల సంఖ్య %lld. ఇప్పుడు %@ వరకు చోటు ఉంది.",
+   "back": "Your cuttlings' count 5. Now 5,000 up-to room is.",
+   "why": "'Count: N' avoids singular/plural agreement, so it reads right for 1, 2, 5 and 21."
+  },
+  "S23": {
+   "s": "అన్‌లాక్ అయింది. ఇప్పుడు %@ కట్లింగ్‌లకు చోటు ఉంది.",
+   "back": "Unlock became. Now 5,000 cuttlings-for room is.",
+   "why": "Intransitive అయింది announces the state; the name is left out so it does not sit beside the item word."
+  },
+  "S24": {
+   "s": "కొనుగోలు పూర్తి కాలేదు",
+   "back": "Purchase complete did-not-become",
+   "why": "Intransitive, so nobody is the subject and nobody is blamed."
+  },
+  "S25": {
+   "s": "ప్రస్తుతం App Store అందుబాటులో లేదు. కాసేపాగి మళ్లీ ప్రయత్నించండి.",
+   "back": "Currently App Store available is-not. A-while-later again try.",
+   "why": "కాసేపాగి (after a little while) is the spoken 'shortly'; polite మీరు imperative ప్రయత్నించండి."
+  },
+  "S26": {
+   "s": "App Store ఈ కొనుగోలును నిర్ధారించలేదు.",
+   "back": "App Store this purchase confirmed-not.",
+   "why": "నిర్ధారించు is the usual verb for a confirmation; App Store kept in Latin like Apple Account."
+  },
+  "S27": {
+   "s": "ఈ పరికరంలో సైన్ ఇన్ చేసిన Apple Account లో కట్లింగ్ కొనుగోలు ఏదీ లేదు.",
+   "back": "This device-in sign in done Apple Account-in Cutling purchase any is-not.",
+   "why": "Reuses the vocab's 'Apple Account లో సైన్ ఇన్ చేసిన' phrasing and పరికరం for device."
+  },
+  "S28": {
+   "s": "ఉచిత వెర్షన్‌లో %lld కట్లింగ్‌లు మాత్రమే దాచుకోవచ్చు. కట్లింగ్ యాప్‌ను ఒక్కసారి అన్‌లాక్ చేస్తే, ఎన్నైనా దాచుకోవచ్చు.",
+   "back": "Free version-in 5 cuttlings only can-keep. Cutling app once if-unlock, any-number can-keep.",
+   "why": "'కట్లింగ్ యాప్‌ను' keeps the name from being read as one item (కట్లింగ్‌ను); ఎన్నైనా is 'as many as you like'."
+  },
+  "S29": {
+   "s": "%1$lld/%2$lld ఉచిత కట్లింగ్‌లు",
+   "back": "4/5 free cuttlings",
+   "why": "Compact pair in the same shape as the vocab's list subtitle '%lld కట్లింగ్‌లు' that it replaces."
+  },
+  "K1": {
+   "s": "%lld ఉచిత కట్లింగ్‌లూ వాడేశారు, నొక్కి అన్‌లాక్ చేయండి",
+   "back": "5 free cuttlings-all you-used-up, press-and unlock do (please)",
+   "why": "Same -ఊ 'all five' as S3; నొక్కి (press) is the everyday word for tap; polite imperative because it is a message, not a button."
+  },
+  "M1": {
+   "s": "కట్లింగ్‌ను అన్‌లాక్ చేయి",
+   "back": "Cutling-ACC unlock do",
+   "why": "Command name in the button imperative; with the app as its object in a title, it reads as the app, not one item."
+  },
+  "M2": {
+   "s": "కట్లింగ్‌ను అన్‌లాక్ చేయి…",
+   "back": "Cutling-ACC unlock do…",
+   "why": "Same command as M1, with the ellipsis character because it opens a window."
+  },
+  "M3": {
+   "s": "ఉచిత కట్లింగ్‌లు",
+   "back": "Free cuttlings",
+   "why": "Noun phrase row label with the vocab plural."
+  },
+  "M4": {
+   "s": "%1$lld/%2$lld",
+   "back": "3/5",
+   "why": "Bare number pair, the compact form Telugu apps show for a count of a total."
+  },
+  "M5": {
+   "s": "కట్లింగ్ అన్‌లాక్ అయింది",
+   "back": "Cutling unlock became",
+   "why": "Name as subject of intransitive అయింది, the same verb as S23."
+  },
+  "M6": {
+   "s": "ఒక్కసారి కొంటే iPhone, iPad మరియు Mac లో కట్లింగ్ అన్‌లాక్ అవుతుంది.",
+   "back": "Once if-buy iPhone, iPad and Mac-on Cutling unlock becomes.",
+   "why": "Same conditional కొంటే as S9 and the S8 list; లో spaced after Latin as in the vocab."
+  },
+  "M7": {
+   "s": "ఈ Apple Account తో iPhone, iPad మరియు Mac లో అన్‌లాక్ అయింది.",
+   "back": "This Apple Account with iPhone, iPad and Mac-on unlock became.",
+   "why": "Past intransitive matches M5; the name is already the section heading, so it is left out."
+  },
+  "M8": {
+   "s": "కట్లింగ్ ఉచితం కాకముందే మీరు కొన్నారు, కాబట్టి ఇది అన్‌లాక్‌గానే ఉంటుంది. ముందు నుంచీ తోడున్నందుకు ధన్యవాదాలు.",
+   "back": "Cutling free before-becoming you bought, so this unlocked-just will-stay. From-before with-us-being-for thanks.",
+   "why": "కాకముందే dates the purchase without a date; the thanks names what they did, standing by the app from the start."
+  }
+ },
+ "te-IN": {
+  "S1": {
+   "s": "%lld ఉచితం",
+   "back": "5 free",
+   "why": "Tag-style noun ఉచితం under the bracket; shortest native way to mark the slots as the free ones. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S2": {
+   "s": "ఇంకెన్నో దాచుకోండి",
+   "back": "Many-more keep-for-yourself (please)",
+   "why": "An invitation in the polite మీరు imperative; దాచుకోవడం (keep for yourself) is warmer than the loan సేవ్ and is used for saving on every key. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S3": {
+   "s": "మీ %lld ఉచిత కట్లింగ్‌లనూ వాడేశారు. అవి ఉచితంగానే ఉంటాయి, ఎప్పటిలాగే పనిచేస్తాయి.",
+   "back": "Your 5 free cuttlings-all you-used-up. They free-just will-stay, as-always will-work.",
+   "why": "-నూ gives 'all five', వాడేశారు is the spoken used-up form; the second sentence reassures without a 'but'. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S4": {
+   "s": "%lld కట్లింగ్‌లు ఉచితంగా దాచుకోవచ్చు.",
+   "back": "5 cuttlings for-free you-can-keep.",
+   "why": "Permissive -వచ్చు says 'you can', pronoun dropped as Telugu does; vocab plural కట్లింగ్‌లు. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S5": {
+   "s": "%2$lld ఉచిత కట్లింగ్‌లలో %1$lld వాడారు.",
+   "back": "5 free cuttlings-in 3 you-used.",
+   "why": "Telugu puts the whole before the part ('of 5 ... 3'), so positional placeholders swap the order. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S6": {
+   "s": "%@ కట్లింగ్‌లకు చోటు",
+   "back": "5,000 cuttlings-for room",
+   "why": "Bare noun phrase for a bold row line; చోటు (room, space) is the everyday word. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S7": {
+   "s": "టెక్స్ట్ కట్లింగ్‌లు %@ వరకు, చిత్రాలు %lld వరకు దాచుకోవచ్చు.",
+   "back": "Text cuttlings 5,000 up-to, images 500 up-to you-can-keep.",
+   "why": "టెక్స్ట్ and చిత్రాలు from the vocab; the two limits run in parallel with one shared verb at the end. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S8": {
+   "s": "iPhone, iPad మరియు Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Telugu's written list pattern (comma, then మరియు before the last); the Latin names cannot take the -ఊ suffix. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S9": {
+   "s": "మీ Apple Account తో ఒక్కసారి కొంటే, మూడింటిలోనూ పనిచేస్తుంది.",
+   "back": "Your Apple Account with once if-you-buy, three-in-all it-works.",
+   "why": "Conditional కొంటే carries 'one purchase'; మూడింటిలోనూ points back at the bold line; Apple Account spaced as in the vocab sentence. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S10": {
+   "s": "ఒక్కసారి చెల్లిస్తే చాలు",
+   "back": "Once if-you-pay enough",
+   "why": "The idiom '... చాలు' (that is all it takes) says nothing recurs without a negative. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S11": {
+   "s": "సబ్‌స్క్రిప్షన్ లేదు, ప్రకటనలు లేవు, సైన్ అప్ అక్కర్లేదు.",
+   "back": "Subscription is-not, ads are-not, sign up not-needed.",
+   "why": "Everyday loans సబ్‌స్క్రిప్షన్ and సైన్ అప్ (the vocab already uses సైన్ ఇన్); లేవు agrees with plural ప్రకటనలు; అక్కర్లేదు is spoken and warm. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S12": {
+   "s": "కొనుగోళ్లను పునరుద్ధరించు",
+   "back": "Purchases restore",
+   "why": "The standard Telugu wording for Restore Purchases, in the bare imperative the vocab uses for buttons (కొనసాగించు). Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S13": {
+   "s": "పునరుద్ధరిస్తోంది…",
+   "back": "Restoring…",
+   "why": "Present progressive of the same verb, ending with the ellipsis character. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S14": {
+   "s": "%@ చెల్లించి అన్‌లాక్ చేయి",
+   "back": "$4.99 having-paid unlock do",
+   "why": "Conjunctive చెల్లించి ties the price to the action; button imperative చేయి matches the vocab's కొనసాగించు. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S15": {
+   "s": "అన్‌లాక్ చేయి",
+   "back": "Unlock do",
+   "why": "The same action with the price clause removed. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S16": {
+   "s": "ఇప్పుడు కాదు",
+   "back": "Now not",
+   "why": "The usual Telugu 'not now': postpones, does not refuse. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S17": {
+   "s": "మూసివేయి",
+   "back": "Close",
+   "why": "Plain imperative for closing a sheet or window, in button form. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S18": {
+   "s": "ఇక అంతా మీదే",
+   "back": "Now all yours-indeed",
+   "why": "Emphatic -ఏ on మీది gives the pride: all of it, the room included, is yours. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S19": {
+   "s": "కొన్నందుకు ధన్యవాదాలు. కట్లింగ్‌కూ, దాన్ని ఒక్కరే తయారుచేసే వ్యక్తికీ మీరు అండగా నిలిచారు.",
+   "back": "For-having-bought thanks. Cutling-to-also, it alone-one making person-to-also you support stood.",
+   "why": "అండగా నిలవడం (to stand by someone) is the native idiom for support; ఒక్కరే names the single maker. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S20": {
+   "s": "మళ్లీ స్వాగతం. మీరు ఇంతకుముందు చేసిన కొనుగోలు తిరిగి వచ్చేసింది.",
+   "back": "Again welcome. You earlier made purchase back has-come.",
+   "why": "మళ్లీ స్వాగతం is how Telugu greets a returner; completive వచ్చేసింది sounds relieved and warm. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S21": {
+   "s": "%2$lld ఉచిత కట్లింగ్‌లలో %1$lld వాడారు",
+   "back": "5 free cuttlings-in 3 you-used",
+   "why": "Same sentence as S5 so the spoken and printed counts match; no full stop for VoiceOver. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S22": {
+   "s": "మీ కట్లింగ్‌ల సంఖ్య %lld. ఇప్పుడు %@ వరకు చోటు ఉంది.",
+   "back": "Your cuttlings' count 5. Now 5,000 up-to room is.",
+   "why": "'Count: N' avoids singular/plural agreement, so it reads right for 1, 2, 5 and 21. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S23": {
+   "s": "అన్‌లాక్ అయింది. ఇప్పుడు %@ కట్లింగ్‌లకు చోటు ఉంది.",
+   "back": "Unlock became. Now 5,000 cuttlings-for room is.",
+   "why": "Intransitive అయింది announces the state; the name is left out so it does not sit beside the item word. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S24": {
+   "s": "కొనుగోలు పూర్తి కాలేదు",
+   "back": "Purchase complete did-not-become",
+   "why": "Intransitive, so nobody is the subject and nobody is blamed. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S25": {
+   "s": "ప్రస్తుతం App Store అందుబాటులో లేదు. కాసేపాగి మళ్లీ ప్రయత్నించండి.",
+   "back": "Currently App Store available is-not. A-while-later again try.",
+   "why": "కాసేపాగి (after a little while) is the spoken 'shortly'; polite మీరు imperative ప్రయత్నించండి. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S26": {
+   "s": "App Store ఈ కొనుగోలును నిర్ధారించలేదు.",
+   "back": "App Store this purchase confirmed-not.",
+   "why": "నిర్ధారించు is the usual verb for a confirmation; App Store kept in Latin like Apple Account. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S27": {
+   "s": "ఈ పరికరంలో సైన్ ఇన్ చేసిన Apple Account లో కట్లింగ్ కొనుగోలు ఏదీ లేదు.",
+   "back": "This device-in sign in done Apple Account-in Cutling purchase any is-not.",
+   "why": "Reuses the vocab's 'Apple Account లో సైన్ ఇన్ చేసిన' phrasing and పరికరం for device. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S28": {
+   "s": "ఉచిత వెర్షన్‌లో %lld కట్లింగ్‌లు మాత్రమే దాచుకోవచ్చు. కట్లింగ్ యాప్‌ను ఒక్కసారి అన్‌లాక్ చేస్తే, ఎన్నైనా దాచుకోవచ్చు.",
+   "back": "Free version-in 5 cuttlings only can-keep. Cutling app once if-unlock, any-number can-keep.",
+   "why": "'కట్లింగ్ యాప్‌ను' keeps the name from being read as one item (కట్లింగ్‌ను); ఎన్నైనా is 'as many as you like'. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "S29": {
+   "s": "%1$lld/%2$lld ఉచిత కట్లింగ్‌లు",
+   "back": "4/5 free cuttlings",
+   "why": "Compact pair in the same shape as the vocab's list subtitle '%lld కట్లింగ్‌లు' that it replaces. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "K1": {
+   "s": "%lld ఉచిత కట్లింగ్‌లూ వాడేశారు, నొక్కి అన్‌లాక్ చేయండి",
+   "back": "5 free cuttlings-all you-used-up, press-and unlock do (please)",
+   "why": "Same -ఊ 'all five' as S3; నొక్కి (press) is the everyday word for tap; polite imperative because it is a message, not a button. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "M1": {
+   "s": "కట్లింగ్‌ను అన్‌లాక్ చేయి",
+   "back": "Cutling-ACC unlock do",
+   "why": "Command name in the button imperative; with the app as its object in a title, it reads as the app, not one item. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "M2": {
+   "s": "కట్లింగ్‌ను అన్‌లాక్ చేయి…",
+   "back": "Cutling-ACC unlock do…",
+   "why": "Same command as M1, with the ellipsis character because it opens a window. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "M3": {
+   "s": "ఉచిత కట్లింగ్‌లు",
+   "back": "Free cuttlings",
+   "why": "Noun phrase row label with the vocab plural. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "M4": {
+   "s": "%1$lld/%2$lld",
+   "back": "3/5",
+   "why": "Bare number pair, the compact form Telugu apps show for a count of a total. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "M5": {
+   "s": "కట్లింగ్ అన్‌లాక్ అయింది",
+   "back": "Cutling unlock became",
+   "why": "Name as subject of intransitive అయింది, the same verb as S23. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "M6": {
+   "s": "ఒక్కసారి కొంటే iPhone, iPad మరియు Mac లో కట్లింగ్ అన్‌లాక్ అవుతుంది.",
+   "back": "Once if-buy iPhone, iPad and Mac-on Cutling unlock becomes.",
+   "why": "Same conditional కొంటే as S9 and the S8 list; లో spaced after Latin as in the vocab. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "M7": {
+   "s": "ఈ Apple Account తో iPhone, iPad మరియు Mac లో అన్‌లాక్ అయింది.",
+   "back": "This Apple Account with iPhone, iPad and Mac-on unlock became.",
+   "why": "Past intransitive matches M5; the name is already the section heading, so it is left out. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "M8": {
+   "s": "కట్లింగ్ ఉచితం కాకముందే మీరు కొన్నారు, కాబట్టి ఇది అన్‌లాక్‌గానే ఉంటుంది. ముందు నుంచీ తోడున్నందుకు ధన్యవాదాలు.",
+   "back": "Cutling free before-becoming you bought, so this unlocked-just will-stay. From-before with-us-being-for thanks.",
+   "why": "కాకముందే dates the purchase without a date; the thanks names what they did, standing by the app from the start. Same as te: Telugu has one written standard and India is its only region."
+  }
+ }
+}

@@ -1,0 +1,578 @@
+{
+ "es": {
+  "S1": {
+   "s": "%lld gratis",
+   "back": "%lld free",
+   "why": "Short adjective after the count; 'gratis' is the word every free slot uses across the sheet."
+  },
+  "S2": {
+   "s": "Sigue guardando",
+   "back": "Keep saving",
+   "why": "An invitation in tú imperative, the way the vocabulary file already addresses the person; no limit word, no sales verb."
+  },
+  "S3": {
+   "s": "Tus %lld cutlings gratis ya están en uso. Nunca te costarán nada y seguirán funcionando.",
+   "back": "Your %lld cutlings free already are in use. Never to-you they-will-cost nothing and they-will-keep working.",
+   "why": "This folder may be read in Spain or across Latin America, so 'ya están en uso' avoids choosing between 'has usado' and 'usaste'."
+  },
+  "S4": {
+   "s": "Puedes guardar %lld cutlings gratis.",
+   "back": "You-can save %lld cutlings free.",
+   "why": "Plain statement of what is open to them; lowercase 'cutlings' in running text, as the vocab's iCloud sentence writes it."
+  },
+  "S5": {
+   "s": "Llevas %lld de %lld cutlings gratis.",
+   "back": "You-carry %lld of %lld cutlings free.",
+   "why": "'Llevas X de Y' is how both Spain and Mexico say progress so far; order matches the variables, so no positional forms needed."
+  },
+  "S6": {
+   "s": "Hasta %@ cutlings",
+   "back": "Up-to %@ cutlings",
+   "why": "Fits 24 with '5.000' or '5,000'; 'espacio para' would run over and needs the noun anyway."
+  },
+  "S7": {
+   "s": "Guarda hasta %@ textos y %lld imágenes.",
+   "back": "Save up-to %@ texts and %lld images.",
+   "why": "Uses the vocab's Texto and Imágenes as the two kinds; tú imperative."
+  },
+  "S8": {
+   "s": "iPhone, iPad y Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Spanish list: commas, 'y' before the last, no serial comma."
+  },
+  "S9": {
+   "s": "Una compra sirve para todos tus dispositivos con tu cuenta de Apple.",
+   "back": "One purchase serves for all your devices with your account of Apple.",
+   "why": "'cuenta de Apple' lowercase as the vocab writes it; 'sirve para' is neutral in every region."
+  },
+  "S10": {
+   "s": "Pagas una sola vez",
+   "back": "You-pay one single time",
+   "why": "'una sola vez' stresses once without the commercial 'pago único'; second person keeps the warmth."
+  },
+  "S11": {
+   "s": "Sin suscripción, sin anuncios y sin registrarte.",
+   "back": "Without subscription, without ads and without registering-yourself.",
+   "why": "Three real things, so three items; 'registrarte' is the everyday verb for creating an account."
+  },
+  "S12": {
+   "s": "Restaurar compras",
+   "back": "Restore purchases",
+   "why": "The exact label Spanish-language iOS apps use for the App Store restore action, in every region."
+  },
+  "S13": {
+   "s": "Restaurando compras…",
+   "back": "Restoring purchases…",
+   "why": "Gerund of S12 with the single ellipsis character."
+  },
+  "S14": {
+   "s": "Desbloquear por %@",
+   "back": "Unlock for %@",
+   "why": "Infinitive, as iOS Spanish buttons are; S10 already says once, so the capsule stays short beside a long price like '79.000 Rp'."
+  },
+  "S15": {
+   "s": "Desbloquear",
+   "back": "Unlock",
+   "why": "Same infinitive without the price, 11 characters."
+  },
+  "S16": {
+   "s": "Ahora no",
+   "back": "Now not",
+   "why": "What iOS Spanish dialogs say to put something off; it postpones without refusing."
+  },
+  "S17": {
+   "s": "Cerrar",
+   "back": "Close",
+   "why": "The verb iOS uses on close buttons in Spanish."
+  },
+  "S18": {
+   "s": "Todo esto es tuyo",
+   "back": "All this is yours",
+   "why": "'esto' points at the grid of room that just filled the sheet; warm, tú, no exclamation."
+  },
+  "S19": {
+   "s": "Gracias por tu compra. Apoyas a Cutling y a la única persona que lo hace.",
+   "back": "Thanks for your purchase. You-support to Cutling and to the only person who it makes.",
+   "why": "'la única persona que lo hace' says one maker plainly; Cutling stays a name and takes 'lo' (masculine)."
+  },
+  "S20": {
+   "s": "Hola de nuevo. Tu compra ya está restaurada.",
+   "back": "Hello again. Your purchase already is restored.",
+   "why": "Neutral greeting with no gender and no regional idiom."
+  },
+  "S21": {
+   "s": "%lld de %lld cutlings gratis en uso",
+   "back": "%lld of %lld cutlings free in use",
+   "why": "'en uso' avoids picking a past tense, so it is spoken the same in every region."
+  },
+  "S22": {
+   "s": "Ahora caben %2$@ cutlings y tienes %1$lld.",
+   "back": "Now fit %2$@ cutlings and you-have %1$lld.",
+   "why": "The bare number at the end works for 1, 2, 5 and 21 with no plural noun after it; positional forms because the room comes first."
+  },
+  "S23": {
+   "s": "Cutling desbloqueado. Ahora caben %@ cutlings.",
+   "back": "Cutling unlocked. Now fit %@ cutlings.",
+   "why": "Past participle agrees with the name Cutling (masculine); 'caben' is the natural verb for room."
+  },
+  "S24": {
+   "s": "No se pudo completar la compra",
+   "back": "Not itself could complete the purchase",
+   "why": "'No se pudo' is said the same in Spain and Latin America, so it suits the shared folder; 30 characters."
+  },
+  "S25": {
+   "s": "No se puede conectar con el App Store en este momento. Inténtalo de nuevo en un rato.",
+   "back": "Not itself can connect with the App Store in this moment. Try-it again in a while.",
+   "why": "'En este momento' and 'inténtalo de nuevo en un rato' read natural on both sides of the Atlantic."
+  },
+  "S26": {
+   "s": "El App Store no ha confirmado esta compra.",
+   "back": "The App Store not has confirmed this purchase.",
+   "why": "The perfect is standard in written Spanish everywhere for a result that still matters; S24 already uses 'no se pudo'."
+  },
+  "S27": {
+   "s": "La cuenta de Apple de este dispositivo no tiene compras anteriores de Cutling.",
+   "back": "The account of Apple of this device not has purchases earlier of Cutling.",
+   "why": "States the fact about the account, no blame; 'dispositivo' covers iPhone and iPad."
+  },
+  "S28": {
+   "s": "La versión gratis guarda %lld cutlings. Desbloquea Cutling una vez y guarda todos los que quieras.",
+   "back": "The version free saves %lld cutlings. Unlock Cutling one time and save all those that you-want.",
+   "why": "'gratis' after the noun, as everywhere else in the app; 'todos los que quieras' is the spoken 'as many as you like'."
+  },
+  "S29": {
+   "s": "%lld de %lld gratis",
+   "back": "%lld of %lld free",
+   "why": "Compact pair with 'gratis', 13 characters at 4 of 5."
+  },
+  "K1": {
+   "s": "Usaste tus %lld gratis. Desbloquea aquí",
+   "back": "You-used your %lld free. Unlock here",
+   "why": "The preterite is grammatical in every region and is the only form that fits 38; the perfect runs over."
+  },
+  "M1": {
+   "s": "Desbloquear Cutling",
+   "back": "Unlock Cutling",
+   "why": "Infinitive command name, as Spanish macOS titles its command windows."
+  },
+  "M2": {
+   "s": "Desbloquear Cutling…",
+   "back": "Unlock Cutling…",
+   "why": "M1 plus the ellipsis character because it opens a window."
+  },
+  "M3": {
+   "s": "Cutlings gratis",
+   "back": "Cutlings free",
+   "why": "Row label in the list title's capitalised form, with the app's 'gratis'."
+  },
+  "M4": {
+   "s": "%lld de %lld",
+   "back": "%lld of %lld",
+   "why": "How Spanish macOS writes a count pair; 6 characters."
+  },
+  "M5": {
+   "s": "Cutling desbloqueado",
+   "back": "Cutling unlocked",
+   "why": "Masculine participle agrees with the name Cutling."
+  },
+  "M6": {
+   "s": "Una sola compra desbloquea Cutling en iPhone, iPad y Mac.",
+   "back": "One single purchase unlocks Cutling on iPhone, iPad and Mac.",
+   "why": "Same list form as S8; 'una sola' carries 'once'."
+  },
+  "M7": {
+   "s": "Desbloqueado en iPhone, iPad y Mac con esta cuenta de Apple.",
+   "back": "Unlocked on iPhone, iPad and Mac with this account of Apple.",
+   "why": "Participle agrees with Cutling from the row above; vocab's 'cuenta de Apple'."
+  },
+  "M8": {
+   "s": "Compraste Cutling antes de que fuera gratis, así que sigue desbloqueado. Gracias por tu apoyo.",
+   "back": "You-bought Cutling before of that it-were free, so that it-stays unlocked. Thanks for your support.",
+   "why": "Preterite is right in Spain too for a purchase at a past date; 'fuera' is the common subjunctive everywhere."
+  }
+ },
+ "es-ES": {
+  "S1": {
+   "s": "%lld gratis",
+   "back": "%lld free",
+   "why": "Short adjective after the count; 'gratis' is the word every free slot uses across the sheet."
+  },
+  "S2": {
+   "s": "Sigue guardando",
+   "back": "Keep saving",
+   "why": "An invitation in tú imperative, the way the vocabulary file already addresses the person; no limit word, no sales verb."
+  },
+  "S3": {
+   "s": "Has usado tus %lld cutlings gratis. Nunca te costarán nada y seguirán funcionando.",
+   "back": "You-have used your %lld cutlings free. Never to-you they-will-cost nothing and they-will-keep working.",
+   "why": "Present perfect for a just-finished action, as Spain says it; 'nunca te costarán nada' says they stay free without repeating 'gratis'."
+  },
+  "S4": {
+   "s": "Puedes guardar %lld cutlings gratis.",
+   "back": "You-can save %lld cutlings free.",
+   "why": "Plain statement of what is open to them; lowercase 'cutlings' in running text, as the vocab's iCloud sentence writes it."
+  },
+  "S5": {
+   "s": "Llevas %lld de %lld cutlings gratis.",
+   "back": "You-carry %lld of %lld cutlings free.",
+   "why": "'Llevas X de Y' is how both Spain and Mexico say progress so far; order matches the variables, so no positional forms needed."
+  },
+  "S6": {
+   "s": "Hasta %@ cutlings",
+   "back": "Up-to %@ cutlings",
+   "why": "Fits 24 with '5.000' or '5,000'; 'espacio para' would run over and needs the noun anyway."
+  },
+  "S7": {
+   "s": "Guarda hasta %@ textos y %lld imágenes.",
+   "back": "Save up-to %@ texts and %lld images.",
+   "why": "Uses the vocab's Texto and Imágenes as the two kinds; tú imperative."
+  },
+  "S8": {
+   "s": "iPhone, iPad y Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Spanish list: commas, 'y' before the last, no serial comma."
+  },
+  "S9": {
+   "s": "Una compra sirve para todos tus dispositivos con tu cuenta de Apple.",
+   "back": "One purchase serves for all your devices with your account of Apple.",
+   "why": "'cuenta de Apple' lowercase as the vocab writes it; 'sirve para' is neutral in every region."
+  },
+  "S10": {
+   "s": "Pagas una sola vez",
+   "back": "You-pay one single time",
+   "why": "'una sola vez' stresses once without the commercial 'pago único'; second person keeps the warmth."
+  },
+  "S11": {
+   "s": "Sin suscripción, sin anuncios y sin registrarte.",
+   "back": "Without subscription, without ads and without registering-yourself.",
+   "why": "Three real things, so three items; 'registrarte' is the everyday verb for creating an account."
+  },
+  "S12": {
+   "s": "Restaurar compras",
+   "back": "Restore purchases",
+   "why": "The exact label Spanish-language iOS apps use for the App Store restore action, in every region."
+  },
+  "S13": {
+   "s": "Restaurando compras…",
+   "back": "Restoring purchases…",
+   "why": "Gerund of S12 with the single ellipsis character."
+  },
+  "S14": {
+   "s": "Desbloquear por %@",
+   "back": "Unlock for %@",
+   "why": "Infinitive, as iOS Spanish buttons are; S10 already says once, so the capsule stays short beside a long price like '79.000 Rp'."
+  },
+  "S15": {
+   "s": "Desbloquear",
+   "back": "Unlock",
+   "why": "Same infinitive without the price, 11 characters."
+  },
+  "S16": {
+   "s": "Ahora no",
+   "back": "Now not",
+   "why": "What iOS Spanish dialogs say to put something off; it postpones without refusing."
+  },
+  "S17": {
+   "s": "Cerrar",
+   "back": "Close",
+   "why": "The verb iOS uses on close buttons in Spanish."
+  },
+  "S18": {
+   "s": "Todo esto es tuyo",
+   "back": "All this is yours",
+   "why": "'esto' points at the grid of room that just filled the sheet; warm, tú, no exclamation."
+  },
+  "S19": {
+   "s": "Gracias por tu compra. Apoyas a Cutling y a la única persona que lo hace.",
+   "back": "Thanks for your purchase. You-support to Cutling and to the only person who it makes.",
+   "why": "'la única persona que lo hace' says one maker plainly; Cutling stays a name and takes 'lo' (masculine)."
+  },
+  "S20": {
+   "s": "Hola de nuevo. Tu compra ya está restaurada.",
+   "back": "Hello again. Your purchase already is restored.",
+   "why": "'Hola de nuevo' greets without a gendered 'bienvenido/a'; 'restaurada' echoes S12."
+  },
+  "S21": {
+   "s": "%lld de %lld cutlings gratis en uso",
+   "back": "%lld of %lld cutlings free in use",
+   "why": "'en uso' avoids picking a past tense, so it is spoken the same in every region."
+  },
+  "S22": {
+   "s": "Ahora caben %2$@ cutlings y tienes %1$lld.",
+   "back": "Now fit %2$@ cutlings and you-have %1$lld.",
+   "why": "The bare number at the end works for 1, 2, 5 and 21 with no plural noun after it; positional forms because the room comes first."
+  },
+  "S23": {
+   "s": "Cutling desbloqueado. Ahora caben %@ cutlings.",
+   "back": "Cutling unlocked. Now fit %@ cutlings.",
+   "why": "Past participle agrees with the name Cutling (masculine); 'caben' is the natural verb for room."
+  },
+  "S24": {
+   "s": "No se ha completado la compra",
+   "back": "Not itself has completed the purchase",
+   "why": "Present perfect, as Spain reports something that just happened; impersonal 'se', so nobody is blamed."
+  },
+  "S25": {
+   "s": "Ahora mismo no se puede conectar con el App Store. Vuelve a intentarlo en un momento.",
+   "back": "Right now not itself can connect with the App Store. Turn to try-it in a moment.",
+   "why": "'Ahora mismo' and 'vuelve a intentarlo' are Spain's everyday forms; 'el App Store' as Apple's Spanish writes it."
+  },
+  "S26": {
+   "s": "El App Store no ha confirmado esta compra.",
+   "back": "The App Store not has confirmed this purchase.",
+   "why": "Present perfect for the just-happened failure, Spain's norm."
+  },
+  "S27": {
+   "s": "La cuenta de Apple de este dispositivo no tiene compras anteriores de Cutling.",
+   "back": "The account of Apple of this device not has purchases earlier of Cutling.",
+   "why": "States the fact about the account, no blame; 'dispositivo' covers iPhone and iPad."
+  },
+  "S28": {
+   "s": "La versión gratis guarda %lld cutlings. Desbloquea Cutling una vez y guarda todos los que quieras.",
+   "back": "The version free saves %lld cutlings. Unlock Cutling one time and save all those that you-want.",
+   "why": "'gratis' after the noun, as everywhere else in the app; 'todos los que quieras' is the spoken 'as many as you like'."
+  },
+  "S29": {
+   "s": "%lld de %lld gratis",
+   "back": "%lld of %lld free",
+   "why": "Compact pair with 'gratis', 13 characters at 4 of 5."
+  },
+  "K1": {
+   "s": "Has usado tus %lld gratis. Toca para más",
+   "back": "You-have used your %lld free. Tap for more",
+   "why": "Fits 38 at '5'; 'Toca para más' carries the unlock without a sales verb, and the perfect tense is Spain's."
+  },
+  "M1": {
+   "s": "Desbloquear Cutling",
+   "back": "Unlock Cutling",
+   "why": "Infinitive command name, as Spanish macOS titles its command windows."
+  },
+  "M2": {
+   "s": "Desbloquear Cutling…",
+   "back": "Unlock Cutling…",
+   "why": "M1 plus the ellipsis character because it opens a window."
+  },
+  "M3": {
+   "s": "Cutlings gratis",
+   "back": "Cutlings free",
+   "why": "Row label in the list title's capitalised form, with the app's 'gratis'."
+  },
+  "M4": {
+   "s": "%lld de %lld",
+   "back": "%lld of %lld",
+   "why": "How Spanish macOS writes a count pair; 6 characters."
+  },
+  "M5": {
+   "s": "Cutling desbloqueado",
+   "back": "Cutling unlocked",
+   "why": "Masculine participle agrees with the name Cutling."
+  },
+  "M6": {
+   "s": "Una sola compra desbloquea Cutling en iPhone, iPad y Mac.",
+   "back": "One single purchase unlocks Cutling on iPhone, iPad and Mac.",
+   "why": "Same list form as S8; 'una sola' carries 'once'."
+  },
+  "M7": {
+   "s": "Desbloqueado en iPhone, iPad y Mac con esta cuenta de Apple.",
+   "back": "Unlocked on iPhone, iPad and Mac with this account of Apple.",
+   "why": "Participle agrees with Cutling from the row above; vocab's 'cuenta de Apple'."
+  },
+  "M8": {
+   "s": "Compraste Cutling antes de que fuera gratis, así que sigue desbloqueado. Gracias por tu apoyo.",
+   "back": "You-bought Cutling before of that it-were free, so that it-stays unlocked. Thanks for your support.",
+   "why": "Preterite is right in Spain too for a purchase at a past date; 'fuera' is the common subjunctive everywhere."
+  }
+ },
+ "es-MX": {
+  "S1": {
+   "s": "%lld gratis",
+   "back": "%lld free",
+   "why": "Short adjective after the count; 'gratis' is the word every free slot uses across the sheet."
+  },
+  "S2": {
+   "s": "Sigue guardando",
+   "back": "Keep saving",
+   "why": "An invitation in tú imperative, the way the vocabulary file already addresses the person; no limit word, no sales verb."
+  },
+  "S3": {
+   "s": "Ya usaste tus %lld cutlings gratis. Nunca te van a costar nada y siguen funcionando.",
+   "back": "Already you-used your %lld cutlings free. Never to-you they-go to cost nothing and they-keep working.",
+   "why": "Preterite and the 'van a' future are how Mexico says it; the perfect would read as Spain."
+  },
+  "S4": {
+   "s": "Puedes guardar %lld cutlings gratis.",
+   "back": "You-can save %lld cutlings free.",
+   "why": "Plain statement of what is open to them; lowercase 'cutlings' in running text, as the vocab's iCloud sentence writes it."
+  },
+  "S5": {
+   "s": "Llevas %lld de %lld cutlings gratis.",
+   "back": "You-carry %lld of %lld cutlings free.",
+   "why": "'Llevas X de Y' is how both Spain and Mexico say progress so far; order matches the variables, so no positional forms needed."
+  },
+  "S6": {
+   "s": "Hasta %@ cutlings",
+   "back": "Up-to %@ cutlings",
+   "why": "Fits 24 with '5.000' or '5,000'; 'espacio para' would run over and needs the noun anyway."
+  },
+  "S7": {
+   "s": "Guarda hasta %@ textos y %lld imágenes.",
+   "back": "Save up-to %@ texts and %lld images.",
+   "why": "Uses the vocab's Texto and Imágenes as the two kinds; tú imperative."
+  },
+  "S8": {
+   "s": "iPhone, iPad y Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Spanish list: commas, 'y' before the last, no serial comma."
+  },
+  "S9": {
+   "s": "Una compra sirve para todos tus dispositivos con tu cuenta de Apple.",
+   "back": "One purchase serves for all your devices with your account of Apple.",
+   "why": "'cuenta de Apple' lowercase as the vocab writes it; 'sirve para' is neutral in every region."
+  },
+  "S10": {
+   "s": "Pagas una sola vez",
+   "back": "You-pay one single time",
+   "why": "'una sola vez' stresses once without the commercial 'pago único'; second person keeps the warmth."
+  },
+  "S11": {
+   "s": "Sin suscripción, sin anuncios y sin registrarte.",
+   "back": "Without subscription, without ads and without registering-yourself.",
+   "why": "Three real things, so three items; 'registrarte' is the everyday verb for creating an account."
+  },
+  "S12": {
+   "s": "Restaurar compras",
+   "back": "Restore purchases",
+   "why": "The exact label Spanish-language iOS apps use for the App Store restore action, in every region."
+  },
+  "S13": {
+   "s": "Restaurando compras…",
+   "back": "Restoring purchases…",
+   "why": "Gerund of S12 with the single ellipsis character."
+  },
+  "S14": {
+   "s": "Desbloquear por %@",
+   "back": "Unlock for %@",
+   "why": "Infinitive, as iOS Spanish buttons are; S10 already says once, so the capsule stays short beside a long price like '79.000 Rp'."
+  },
+  "S15": {
+   "s": "Desbloquear",
+   "back": "Unlock",
+   "why": "Same infinitive without the price, 11 characters."
+  },
+  "S16": {
+   "s": "Ahora no",
+   "back": "Now not",
+   "why": "What iOS Spanish dialogs say to put something off; it postpones without refusing."
+  },
+  "S17": {
+   "s": "Cerrar",
+   "back": "Close",
+   "why": "The verb iOS uses on close buttons in Spanish."
+  },
+  "S18": {
+   "s": "Todo esto es tuyo",
+   "back": "All this is yours",
+   "why": "'esto' points at the grid of room that just filled the sheet; warm, tú, no exclamation."
+  },
+  "S19": {
+   "s": "Gracias por tu compra. Apoyas a Cutling y a la única persona que lo hace.",
+   "back": "Thanks for your purchase. You-support to Cutling and to the only person who it makes.",
+   "why": "'la única persona que lo hace' says one maker plainly; Cutling stays a name and takes 'lo' (masculine)."
+  },
+  "S20": {
+   "s": "Qué gusto verte de nuevo. Tu compra ya está restaurada.",
+   "back": "What pleasure to-see-you again. Your purchase already is restored.",
+   "why": "'Qué gusto verte' is the warm Mexican welcome back and has no gender."
+  },
+  "S21": {
+   "s": "%lld de %lld cutlings gratis en uso",
+   "back": "%lld of %lld cutlings free in use",
+   "why": "'en uso' avoids picking a past tense, so it is spoken the same in every region."
+  },
+  "S22": {
+   "s": "Ahora caben %2$@ cutlings y tienes %1$lld.",
+   "back": "Now fit %2$@ cutlings and you-have %1$lld.",
+   "why": "The bare number at the end works for 1, 2, 5 and 21 with no plural noun after it; positional forms because the room comes first."
+  },
+  "S23": {
+   "s": "Cutling desbloqueado. Ahora caben %@ cutlings.",
+   "back": "Cutling unlocked. Now fit %@ cutlings.",
+   "why": "Past participle agrees with the name Cutling (masculine); 'caben' is the natural verb for room."
+  },
+  "S24": {
+   "s": "No se completó la compra",
+   "back": "Not itself completed the purchase",
+   "why": "Preterite, as Mexico reports a just-failed action; impersonal 'se', no blame."
+  },
+  "S25": {
+   "s": "No se puede conectar con el App Store en este momento. Intenta de nuevo en unos minutos.",
+   "back": "Not itself can connect with the App Store in this moment. Try again in some minutes.",
+   "why": "'En este momento' and 'intenta de nuevo' are the Mexican app forms; 'ahora mismo' reads peninsular."
+  },
+  "S26": {
+   "s": "El App Store no confirmó esta compra.",
+   "back": "The App Store not confirmed this purchase.",
+   "why": "Preterite, Mexico's norm for a recent event."
+  },
+  "S27": {
+   "s": "La cuenta de Apple de este dispositivo no tiene compras anteriores de Cutling.",
+   "back": "The account of Apple of this device not has purchases earlier of Cutling.",
+   "why": "States the fact about the account, no blame; 'dispositivo' covers iPhone and iPad."
+  },
+  "S28": {
+   "s": "La versión gratis guarda %lld cutlings. Desbloquea Cutling una vez y guarda todos los que quieras.",
+   "back": "The version free saves %lld cutlings. Unlock Cutling one time and save all those that you-want.",
+   "why": "'gratis' after the noun, as everywhere else in the app; 'todos los que quieras' is the spoken 'as many as you like'."
+  },
+  "S29": {
+   "s": "%lld de %lld gratis",
+   "back": "%lld of %lld free",
+   "why": "Compact pair with 'gratis', 13 characters at 4 of 5."
+  },
+  "K1": {
+   "s": "Usaste tus %lld gratis. Desbloquea aquí",
+   "back": "You-used your %lld free. Unlock here",
+   "why": "Preterite as Mexico says it, and 'Desbloquea aquí' names the unlock and the tap in 36 characters."
+  },
+  "M1": {
+   "s": "Desbloquear Cutling",
+   "back": "Unlock Cutling",
+   "why": "Infinitive command name, as Spanish macOS titles its command windows."
+  },
+  "M2": {
+   "s": "Desbloquear Cutling…",
+   "back": "Unlock Cutling…",
+   "why": "M1 plus the ellipsis character because it opens a window."
+  },
+  "M3": {
+   "s": "Cutlings gratis",
+   "back": "Cutlings free",
+   "why": "Row label in the list title's capitalised form, with the app's 'gratis'."
+  },
+  "M4": {
+   "s": "%lld de %lld",
+   "back": "%lld of %lld",
+   "why": "How Spanish macOS writes a count pair; 6 characters."
+  },
+  "M5": {
+   "s": "Cutling desbloqueado",
+   "back": "Cutling unlocked",
+   "why": "Masculine participle agrees with the name Cutling."
+  },
+  "M6": {
+   "s": "Una sola compra desbloquea Cutling en iPhone, iPad y Mac.",
+   "back": "One single purchase unlocks Cutling on iPhone, iPad and Mac.",
+   "why": "Same list form as S8; 'una sola' carries 'once'."
+  },
+  "M7": {
+   "s": "Desbloqueado en iPhone, iPad y Mac con esta cuenta de Apple.",
+   "back": "Unlocked on iPhone, iPad and Mac with this account of Apple.",
+   "why": "Participle agrees with Cutling from the row above; vocab's 'cuenta de Apple'."
+  },
+  "M8": {
+   "s": "Compraste Cutling antes de que fuera gratis, así que sigue desbloqueado. Gracias por tu apoyo.",
+   "back": "You-bought Cutling before of that it-were free, so that it-stays unlocked. Thanks for your support.",
+   "why": "Preterite is right in Spain too for a purchase at a past date; 'fuera' is the common subjunctive everywhere."
+  }
+ }
+}

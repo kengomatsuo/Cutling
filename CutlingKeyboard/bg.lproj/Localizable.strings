@@ -32,3 +32,6 @@
 "Cancel" = "Отказ";
 "%@, %lld of %lld" = "%@, %lld от %lld";
 "Space" = "Интервал";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"%lld free cutlings used. Tap to unlock." = "Безплатните %lld са заети. Отключете";

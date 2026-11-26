@@ -1,0 +1,194 @@
+{
+  "fil": {
+    "S1": {
+      "s": "%lld libre",
+      "back": "5 free",
+      "why": "Short label under the bracket; 'libre' is the everyday Filipino word for free and reads as 'the free ones'."
+    },
+    "S2": {
+      "s": "Ituloy ang pag-save",
+      "back": "Continue the saving",
+      "why": "Imperative invitation to carry on; no limit or warning word, and fits 20 characters where 'Mag-save pa nang marami' would not."
+    },
+    "S3": {
+      "s": "Nagamit mo na ang lahat ng %lld libreng cutling. Mananatiling libre at gumagana ang mga ito.",
+      "back": "Used you already the all of 5 free cutling. Will-remain free and working the [plural] these.",
+      "why": "'Cutling' lowercase mid-sentence as the vocab's sync sentence writes it; 'ang mga ito' for things instead of the person-only 'sila'; 89 of 90."
+    },
+    "S4": {
+      "s": "Libre ang unang %lld cutling mo.",
+      "back": "Free the first 5 cutling of-yours.",
+      "why": "Says the first five cost nothing, which is also the promise they stay free; 'mo' keeps the vocab's informal-respectful address."
+    },
+    "S5": {
+      "s": "Nagamit mo na ang %lld sa %lld libreng cutling.",
+      "back": "Used you already the 3 of 5 free cutling.",
+      "why": "'3 sa 5' is how Filipino says 3 of 5; the numbers come in the same order as the brief, so no positional forms are needed."
+    },
+    "S6": {
+      "s": "Kasya ang %@ cutling",
+      "back": "Fit the 5,000 cutling",
+      "why": "'Kasya' (fits) is the native way to say there is room for, and keeps the line at 23 characters with 5,000."
+    },
+    "S7": {
+      "s": "Makakapag-save ka ng hanggang %@ text at %lld larawan.",
+      "back": "Can-save you of up-to 5,000 text and 500 image.",
+      "why": "'text' and 'larawan' are the vocab's words for the two kinds; no plural marker after a number, as Filipino counts."
+    },
+    "S8": {
+      "s": "iPhone, iPad at Mac",
+      "back": "iPhone, iPad and Mac",
+      "why": "Filipino lists three with a comma and 'at', no comma before 'at'."
+    },
+    "S9": {
+      "s": "Sakop ng iisang pagbili ang bawat device sa iyong Apple Account.",
+      "back": "Covered by single purchase the every device on your Apple Account.",
+      "why": "'device', 'bawat' and 'iyong Apple Account' come straight from the vocab's sync sentence; 'iisang' stresses one single purchase."
+    },
+    "S10": {
+      "s": "Isang bayad lang",
+      "back": "One payment only",
+      "why": "What a Filipino says for a one-off price; 'lang' reassures, it does not push."
+    },
+    "S11": {
+      "s": "Walang subscription, walang ads, walang sign-up.",
+      "back": "No subscription, no ads, no sign-up.",
+      "why": "The repeated 'walang' is the natural Filipino rhythm; the three loanwords are the words Filipino iPhone users actually use, matching the vocab's 'limit', 'device', 'naka-sign in'."
+    },
+    "S12": {
+      "s": "I-restore ang mga binili",
+      "back": "Restore the [plural] bought",
+      "why": "The Taglish verb form used for this App Store action in Filipino apps; 'binili' (things bought) for purchases; 24 of 24."
+    },
+    "S13": {
+      "s": "Nire-restore…",
+      "back": "Restoring…",
+      "why": "Progressive aspect by repeating the first syllable of the loan verb, the standard Filipino form; ends with the ellipsis character."
+    },
+    "S14": {
+      "s": "I-unlock, isang bayad na %@",
+      "back": "Unlock, one payment that-is $4.99",
+      "why": "Verb first, then the price as a single payment; 25 characters before the price, where 'I-unlock sa isang bayad na' would be 27."
+    },
+    "S15": {
+      "s": "I-unlock",
+      "back": "Unlock",
+      "why": "The same verb as S14 without the price."
+    },
+    "S16": {
+      "s": "Saka na lang",
+      "back": "Later already only",
+      "why": "The everyday Filipino way to put something off without saying no."
+    },
+    "S17": {
+      "s": "Isara",
+      "back": "Close",
+      "why": "The plain imperative for closing a window or sheet."
+    },
+    "S18": {
+      "s": "Iyo na ang lahat",
+      "back": "Yours already the all",
+      "why": "Warm and a little proud: everything, the room included, now belongs to the person."
+    },
+    "S19": {
+      "s": "Salamat sa pagbili. Tulong ito sa Cutling at sa nag-iisang gumagawa nito.",
+      "back": "Thanks for the buying. Help this to Cutling and to the sole maker of-it.",
+      "why": "'nag-iisang gumagawa' says plainly that one person makes the app; 'Cutling' capitalised here because it is the app."
+    },
+    "S20": {
+      "s": "Maligayang pagbabalik. Nandito na ulit ang dati mong binili.",
+      "back": "Happy return. Here already again the earlier your bought.",
+      "why": "'Maligayang pagbabalik' is the set Filipino welcome back; the second sentence avoids repeating the root 'balik'."
+    },
+    "S21": {
+      "s": "Nagamit na ang %lld sa %lld libreng cutling",
+      "back": "Used already the 3 of 5 free cutling",
+      "why": "Spoken form of S5 without 'mo', since VoiceOver describes the row."
+    },
+    "S22": {
+      "s": "May %lld cutling ka, at may puwang na para sa %@.",
+      "back": "Have 5 cutling you, and have space already for 5,000.",
+      "why": "Filipino nouns do not change for number, so '%lld cutling' reads right for 1, 2, 5 and 21."
+    },
+    "S23": {
+      "s": "Naka-unlock na ang Cutling. May puwang na para sa %@ cutling.",
+      "back": "Unlocked already the Cutling. Have space already for 5,000 cutling.",
+      "why": "'Naka-unlock' is the state form of the vocab-style loan verb; 'puwang' (space) as in S22."
+    },
+    "S24": {
+      "s": "Hindi natuloy ang pagbili",
+      "back": "Not went-through the purchase",
+      "why": "Says it did not go through without blaming anyone; 25 characters."
+    },
+    "S25": {
+      "s": "Hindi maabot ang App Store ngayon. Subukan ulit maya-maya.",
+      "back": "Not reachable the App Store now. Try again in-a-little-while.",
+      "why": "'maya-maya' means shortly, softer than 'mamaya' (later)."
+    },
+    "S26": {
+      "s": "Hindi kinumpirma ng App Store ang pagbiling ito.",
+      "back": "Not confirmed by App Store the purchase this.",
+      "why": "Puts the App Store as the actor, so the person is not blamed."
+    },
+    "S27": {
+      "s": "Walang nabiling Cutling sa Apple Account na naka-sign in sa device na ito.",
+      "back": "No bought Cutling on Apple Account that signed-in on device this.",
+      "why": "'naka-sign in' and 'device' from the vocab sentence; 'nabili' already means bought earlier, so no extra word for earlier; 74 of 80."
+    },
+    "S28": {
+      "s": "Hanggang %lld cutling sa libreng bersyon. I-unlock ang Cutling nang isang beses at mag-save kahit ilan.",
+      "back": "Up-to 5 cutling in free version. Unlock the Cutling one time and save however-many.",
+      "why": "Two plain sentences Siri can say; 'kahit ilan' is the natural 'as many as you like'; exactly 100 with 5."
+    },
+    "S29": {
+      "s": "%lld sa %lld libre",
+      "back": "4 of 5 free",
+      "why": "Sits where the vocab's '%lld Cutling' count sits; '4 sa 5 libre' reads as four of the five free ones; 12 of 18, where any form with 'nagamit' runs over."
+    },
+    "K1": {
+      "s": "Puno na ang %lld libre. I-unlock dito.",
+      "back": "Full already the 5 free. Unlock here.",
+      "why": "'Puno na' (full) says the slots are filled without suggesting the items were used up; 'dito' (here) tells the person to tap; 35 of 38."
+    },
+    "M1": {
+      "s": "I-unlock ang Cutling",
+      "back": "Unlock the Cutling",
+      "why": "Verb-led window title, as Filipino Mac menus name commands."
+    },
+    "M2": {
+      "s": "I-unlock ang Cutling…",
+      "back": "Unlock the Cutling…",
+      "why": "Same command as M1 with the ellipsis character because it opens a window."
+    },
+    "M3": {
+      "s": "Libreng cutling",
+      "back": "Free cutling",
+      "why": "Row label in sentence case like the vocab's 'Mga setting'; lowercase 'cutling' for the items."
+    },
+    "M4": {
+      "s": "%lld sa %lld",
+      "back": "3 of 5",
+      "why": "Compact pair in Filipino's own 'sa' form; 6 characters."
+    },
+    "M5": {
+      "s": "Naka-unlock",
+      "back": "Unlocked",
+      "why": "State form, same word as S23 and M7."
+    },
+    "M6": {
+      "s": "Isang pagbili lang para ma-unlock ang Cutling sa iPhone, iPad at Mac.",
+      "back": "One purchase only to unlock the Cutling on iPhone, iPad and Mac.",
+      "why": "Same list form as S8; 'ma-unlock' is the abilitative form after 'para'."
+    },
+    "M7": {
+      "s": "Naka-unlock sa iPhone, iPad at Mac gamit ang Apple Account na ito.",
+      "back": "Unlocked on iPhone, iPad and Mac using the Apple Account this.",
+      "why": "'gamit ang' (using) ties the unlock to this account as the vocab's sync sentence ties devices to it."
+    },
+    "M8": {
+      "s": "Binili mo ang Cutling bago ito naging libre, kaya mananatili itong naka-unlock. Maraming salamat.",
+      "back": "Bought you the Cutling before it became free, so will-remain it unlocked. Many thanks.",
+      "why": "Plain cause and result with 'kaya', then a warm thank-you; 97 of 100."
+    }
+  }
+}

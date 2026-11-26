@@ -1,0 +1,194 @@
+{
+ "zh-Hans": {
+  "S1": {
+   "s": "免费 %lld 个",
+   "back": "free 5 (measure-word)",
+   "why": "A tile-row tag: '免费 5 个' is how a Chinese app labels a free allowance; 6 CJK budget held."
+  },
+  "S2": {
+   "s": "想存更多剪切片段？",
+   "back": "want save more cut-clip-pieces?",
+   "why": "A soft question is the native way to invite without pushing; uses the vocab word 剪切片段; 9 CJK."
+  },
+  "S3": {
+   "s": "你已存满 %lld 个免费剪切片段。它们会一直免费，照常可用。",
+   "back": "you already saved-full 5 (mw) free cut-clip-pieces. they will always free, as-usual usable.",
+   "why": "存满 (filled up) names the state without blame; second sentence promises they stay free and keep working; 你 as Apple zh-Hans uses."
+  },
+  "S4": {
+   "s": "你可以免费保存 %lld 个剪切片段。",
+   "back": "you can free save 5 (mw) cut-clip-pieces.",
+   "why": "Plain statement of the allowance; 保存 is the save verb used throughout."
+  },
+  "S5": {
+   "s": "%2$lld 个免费剪切片段已用 %1$lld 个。",
+   "back": "5 (mw) free cut-clip-pieces already used 3 (mw).",
+   "why": "Chinese states the whole first, then how much is used ('5 个名额已用 3 个'), so positional %2$/%1$ reverse the order."
+  },
+  "S6": {
+   "s": "可存 %@ 个剪切片段",
+   "back": "can store 5,000 (mw) cut-clip-pieces",
+   "why": "Bold row line, no period, a label not a sentence; 7 CJK plus the number."
+  },
+  "S7": {
+   "s": "最多可存 %@ 条文本和 %lld 张图片。",
+   "back": "at-most can store 5,000 (mw-strip) text and 500 (mw-sheet) images.",
+   "why": "Vocab kinds 文本 and 图片 with their native measure words 条 and 张, joined by 和."
+  },
+  "S8": {
+   "s": "iPhone、iPad 和 Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Chinese lists three with the enumeration comma 、 before 和, as Apple's zh-Hans pages write it; Latin-CJK spacing as in the vocab."
+  },
+  "S9": {
+   "s": "购买一次，登录同一 Apple 账户的所有设备都能用。",
+   "back": "buy one time, logged-in same Apple account's all devices all can use.",
+   "why": "Apple 账户 and the 'devices signed in to the Apple Account' phrasing come from the vocab's iCloud sentence."
+  },
+  "S10": {
+   "s": "一次付费，永久使用",
+   "back": "one time pay, forever use",
+   "why": "A fixed phrase Chinese buyers know for a one-off purchase; says nothing recurs without the word subscription, which S11 carries."
+  },
+  "S11": {
+   "s": "没有订阅，没有广告，也不用注册账号。",
+   "back": "no subscription, no advertising, also not-need register account.",
+   "why": "Three spoken clauses with 也 on the last, warmer than a 无…无… slogan; 账号 is the sign-up account, a different thing from the Apple 账户."
+  },
+  "S12": {
+   "s": "恢复购买",
+   "back": "restore purchase",
+   "why": "The exact wording zh-Hans iOS apps use for the App Store restore action."
+  },
+  "S13": {
+   "s": "正在恢复…",
+   "back": "in-progress restoring…",
+   "why": "Progressive 正在 plus the single ellipsis character U+2026, as Apple's zh-Hans system strings write in-progress states."
+  },
+  "S14": {
+   "s": "%@ 永久解锁",
+   "back": "¥800 forever unlock",
+   "why": "'¥8 永久解锁' is the native paywall button for a one-off unlock; 4 CJK plus the price, no 立即 or other urgency."
+  },
+  "S15": {
+   "s": "永久解锁",
+   "back": "forever unlock",
+   "why": "The same action with the price dropped, so the button keeps its words when the price arrives."
+  },
+  "S16": {
+   "s": "稍后再说",
+   "back": "later again talk",
+   "why": "The standard Chinese 'not now': putting it off, never refusing."
+  },
+  "S17": {
+   "s": "关闭",
+   "back": "close",
+   "why": "The verb iOS zh-Hans puts on its close buttons."
+  },
+  "S18": {
+   "s": "现在全都归你了",
+   "back": "now all belongs-to you (completed)",
+   "why": "归你了 is warm and a little proud, and 全都 covers the items and all the new room; no exclamation mark."
+  },
+  "S19": {
+   "s": "谢谢你的购买。“剪切片段”由一个人独立开发，你的支持让它能继续做下去。",
+   "back": "thank you your purchase. 'Cut-clip-pieces' by one person independently developed, your support lets it able continue make onward.",
+   "why": "Names the one maker plainly; app name in “” as Apple zh-Hans prose does, which also keeps it apart from the item word."
+  },
+  "S20": {
+   "s": "欢迎回来，你之前的购买已恢复。",
+   "back": "welcome back, your before purchase already restored.",
+   "why": "欢迎回来 greets a returning buyer; 已恢复 echoes the 恢复购买 link they tapped."
+  },
+  "S21": {
+   "s": "%2$lld 个免费剪切片段已用 %1$lld 个",
+   "back": "5 (mw) free cut-clip-pieces already used 3 (mw)",
+   "why": "Spoken twin of S5 with the same positional order; no period for a VoiceOver label."
+  },
+  "S22": {
+   "s": "已有 %lld 个剪切片段，现在可存 %@ 个",
+   "back": "already have 5 (mw) cut-clip-pieces, now can store 5,000 (mw)",
+   "why": "Chinese nouns do not inflect, so '%lld 个' reads right for 1, 2, 5 and 21."
+  },
+  "S23": {
+   "s": "已解锁，现在可存 %@ 个剪切片段",
+   "back": "already unlocked, now can store 5,000 (mw) cut-clip-pieces",
+   "why": "Short announcement; subject dropped as Chinese does when the screen already shows what was unlocked."
+  },
+  "S24": {
+   "s": "购买未完成",
+   "back": "purchase not completed",
+   "why": "States the fact with no subject and no blame; 5 CJK."
+  },
+  "S25": {
+   "s": "暂时无法连接 App Store，请稍后再试。",
+   "back": "temporarily unable connect App Store, please later again try.",
+   "why": "暂时 says it is passing; 请稍后再试 is the stock zh-Hans retry line readers expect."
+  },
+  "S26": {
+   "s": "App Store 没有确认这笔购买。",
+   "back": "App Store did-not confirm this (mw-sum) purchase.",
+   "why": "笔 is the measure word for a payment; 没有 reads calmer than 未 in a sentence."
+  },
+  "S27": {
+   "s": "这台设备登录的 Apple 账户没有购买过“剪切片段”。",
+   "back": "this (mw) device logged-in Apple account has-not purchased-ever 'Cut-clip-pieces'.",
+   "why": "过 marks 'never at any time'; Apple 账户 from vocab; app name quoted as in Apple zh-Hans prose."
+  },
+  "S28": {
+   "s": "免费版可存 %lld 个剪切片段。解锁一次“剪切片段”，就能想存多少存多少。",
+   "back": "free version can store 5 (mw) cut-clip-pieces. unlock one time 'Cut-clip-pieces', then can want store how-many store how-many.",
+   "why": "想存多少存多少 is the native spoken way to say 'as many as you like', fit for Siri."
+  },
+  "S29": {
+   "s": "免费已用 %lld/%lld",
+   "back": "free already-used 4/5",
+   "why": "Compact subtitle under the list title; 4 CJK plus the pair, inside the 9 budget."
+  },
+  "K1": {
+   "s": "%lld 个免费剪切片段已存满，轻点解锁",
+   "back": "5 (mw) free cut-clip-pieces already saved-full, tap unlock",
+   "why": "存满 matches S3; 轻点 is Apple zh-Hans for tap; about 16 CJK on one line."
+  },
+  "M1": {
+   "s": "解锁剪切片段",
+   "back": "unlock Cut-clip-pieces",
+   "why": "Verb-led window title like Mac menu names 关于… and 退出…, which carry the app name without quotes."
+  },
+  "M2": {
+   "s": "解锁剪切片段…",
+   "back": "unlock Cut-clip-pieces…",
+   "why": "M1 as a button that opens a window, with the single ellipsis character as Mac zh-Hans menus write it."
+  },
+  "M3": {
+   "s": "免费剪切片段",
+   "back": "free cut-clip-pieces",
+   "why": "The row label is the thing itself, same phrase as on the iPhone sheet."
+  },
+  "M4": {
+   "s": "%lld/%lld",
+   "back": "3/5",
+   "why": "A bare number pair is how zh-Hans Settings show a used-of-total value; same order as English, so no positional forms."
+  },
+  "M5": {
+   "s": "已解锁",
+   "back": "already unlocked",
+   "why": "Status in three characters, the Settings row already names the app."
+  },
+  "M6": {
+   "s": "购买一次，iPhone、iPad 和 Mac 上的“剪切片段”都会解锁。",
+   "back": "buy one time, iPhone, iPad and Mac on's 'Cut-clip-pieces' all will unlock.",
+   "why": "Same 购买一次 opening as S9; device list as in S8."
+  },
+  "M7": {
+   "s": "已在登录此 Apple 账户的 iPhone、iPad 和 Mac 上解锁。",
+   "back": "already on logged-in this Apple account's iPhone, iPad and Mac on unlocked.",
+   "why": "此 fits a Settings footnote; Apple 账户 and the device list as elsewhere."
+  },
+  "M8": {
+   "s": "你在“剪切片段”改为免费下载之前就买下了它，所以它会一直保持解锁。谢谢你的支持。",
+   "back": "you at 'Cut-clip-pieces' changed-to free download before already bought it, so it will always keep unlocked. thank you your support.",
+   "why": "就 stresses they bought early; 谢谢你的支持 matches S19's thanks."
+  }
+ }
+}

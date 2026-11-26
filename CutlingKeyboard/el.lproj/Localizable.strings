@@ -32,3 +32,6 @@
 "Cancel" = "Ακύρωση";
 "%@, %lld of %lld" = "%@, %lld από %lld";
 "Space" = "Διάστημα";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"%lld free cutlings used. Tap to unlock." = "Τελείωσαν τα %lld δωρεάν. Ξεκλειδώστε εδώ";

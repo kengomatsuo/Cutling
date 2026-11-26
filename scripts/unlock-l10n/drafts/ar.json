@@ -1,0 +1,386 @@
+{
+  "ar": {
+    "S1": {
+      "s": "%lld مجاناً",
+      "back": "5 for-free",
+      "why": "Adverb مجاناً avoids making an adjective agree with the invariant loan كاتلينج; the tiles above already say what is counted."
+    },
+    "S2": {
+      "s": "احفظ المزيد",
+      "back": "save (you) the-more",
+      "why": "Plain imperative invitation, 11 letters; carries 'beyond the free ones' through المزيد without any limit or sales word."
+    },
+    "S3": {
+      "s": "حفظت %lld كاتلينج، وهو كل ما تتسع له النسخة المجانية. ستبقى لك مجاناً وتعمل كما هي.",
+      "back": "you-saved 5 Cutling, and-it all what holds for-it the-version the-free. they-will-remain for-you free and-work as they-are.",
+      "why": "Names the cap through النسخة المجانية (same phrase as S28) and reassures with ستبقى لك; كاتلينج after the number as the vocab writes counts."
+    },
+    "S4": {
+      "s": "احفظ حتى %lld كاتلينج مجاناً.",
+      "back": "save up-to 5 Cutling for-free.",
+      "why": "Imperative states the allowance without the 'you can' frame; number then invariant كاتلينج, as in the vocab's count string."
+    },
+    "S5": {
+      "s": "حفظت %lld من %lld كاتلينج مجاناً.",
+      "back": "you-saved 3 of 5 Cutling for-free.",
+      "why": "Same verb حفظ as S3 and S4; numbers stay in source order, so plain %lld needs no positional form."
+    },
+    "S6": {
+      "s": "مساحة لـ%@ كاتلينج",
+      "back": "space for-5,000 Cutling",
+      "why": "Bold line as a noun phrase; مساحة is the word used for room throughout (S22)."
+    },
+    "S7": {
+      "s": "احفظ حتى %@ كاتلينج نصي و%lld صورة.",
+      "back": "save up-to 5,000 Cutling textual and-500 image.",
+      "why": "كاتلينج نصي is the vocab's own name for a text item; صورة stays singular, which is correct Arabic after hundreds and thousands."
+    },
+    "S8": {
+      "s": "iPhone وiPad وMac",
+      "back": "iPhone and-iPad and-Mac",
+      "why": "Arabic lists repeat و before each item and attach it to the Latin name, as Apple's Arabic pages write it."
+    },
+    "S9": {
+      "s": "شراء واحد يشملها كلها بحساب Apple الخاص بك.",
+      "back": "purchase one covers-them all-of-them with-account Apple the-belonging to-you.",
+      "why": "حساب Apple الخاص بك is the vocab's exact phrase; يشملها كلها points back at the three devices in the bold line."
+    },
+    "S10": {
+      "s": "تدفع مرة واحدة",
+      "back": "you-pay time one",
+      "why": "Second person present tense, warmer than the noun دفعة واحدة, and says nothing recurs."
+    },
+    "S11": {
+      "s": "بلا اشتراك ولا إعلانات ولا إنشاء حساب.",
+      "back": "without subscription and-no advertisements and-no creating account.",
+      "why": "بلا … ولا … ولا is the native chain for three absences; إنشاء حساب keeps sign-up apart from the vocab's تسجيل الدخول (sign-in)."
+    },
+    "S12": {
+      "s": "استعادة المشتريات",
+      "back": "restoring the-purchases",
+      "why": "The wording Arabic iOS apps use for the App Store restore action; verbal noun like the app's other buttons (متابعة)."
+    },
+    "S13": {
+      "s": "جارٍ الاستعادة…",
+      "back": "ongoing the-restoring…",
+      "why": "جارٍ + verbal noun is the iOS Arabic in-progress form; ends with the ellipsis character."
+    },
+    "S14": {
+      "s": "شراء النسخة الكاملة بـ%@",
+      "back": "buying the-version the-full for-$4.99",
+      "why": "النسخة الكاملة is how Arabic apps name the unlocked app and avoids the clash between Cutling the app and كاتلينج the item; verbal noun as on the app's buttons; 21 letters plus the price."
+    },
+    "S15": {
+      "s": "شراء النسخة الكاملة",
+      "back": "buying the-version the-full",
+      "why": "S14 without the price, so the button does not change words when the price loads."
+    },
+    "S16": {
+      "s": "ليس الآن",
+      "back": "not now",
+      "why": "The iOS Arabic 'Not Now': putting it off, not refusing."
+    },
+    "S17": {
+      "s": "إغلاق",
+      "back": "closing",
+      "why": "The iOS Arabic label for close buttons, verbal noun."
+    },
+    "S18": {
+      "s": "كاتلينج كله لك",
+      "back": "Cutling all-of-it for-you",
+      "why": "Warm and short (13 letters); كله with the app as masculine, so it reads as the whole app and all its room."
+    },
+    "S19": {
+      "s": "شكراً لك. شراؤك يدعم كاتلينج ومن يطوّره وحده.",
+      "back": "thanks to-you. your-purchase supports Cutling and-who develops-it alone.",
+      "why": "من يطوّره وحده says 'the one person who makes it' the way a speaker would, without the stiff الشخص الوحيد الذي."
+    },
+    "S20": {
+      "s": "أهلاً بعودتك. عادت إليك النسخة الكاملة.",
+      "back": "welcome with-your-return. returned to-you the-version the-full.",
+      "why": "أهلاً بعودتك is the everyday Arabic greeting for a returning person; the verb عاد echoes it."
+    },
+    "S21": {
+      "s": "حفظت %lld من أصل %lld كاتلينج مجاناً",
+      "back": "you-saved 3 out-of origin 5 Cutling for-free",
+      "why": "Spoken version of S5; من أصل makes 'out of' unmistakable by ear."
+    },
+    "S22": {
+      "s": "لديك %lld كاتلينج، ومساحة تتسع لـ%@",
+      "back": "with-you 5 Cutling, and-space that-holds for-5,000",
+      "why": "The invariant loan كاتلينج after the number reads correctly for 1, 2, 5 and 21, so no Arabic plural forms are needed, as in the vocab's count string."
+    },
+    "S23": {
+      "s": "النسخة الكاملة مفعّلة. لديك مساحة لـ%@ كاتلينج",
+      "back": "the-version the-full activated. with-you space for-5,000 Cutling",
+      "why": "مفعّلة is the state word (the vocab uses فعّل for turning a feature on); the second sentence repeats S6's phrase."
+    },
+    "S24": {
+      "s": "لم يكتمل الشراء",
+      "back": "not completed the-purchase",
+      "why": "Calm statement of what happened with no actor, so nobody is blamed."
+    },
+    "S25": {
+      "s": "تعذّر الاتصال بمتجر App Store حالياً. حاول مرة أخرى بعد قليل.",
+      "back": "it-was-impossible the-connecting with-store App Store currently. try time another after a-little.",
+      "why": "تعذّر is the standard soft 'could not'; متجر App Store is how Arabic text names the store; masculine imperative matches the vocab's فعّل."
+    },
+    "S26": {
+      "s": "لم يؤكد متجر App Store هذا الشراء.",
+      "back": "not confirmed store App Store this the-purchase.",
+      "why": "States the fact only, with the same store name as S25."
+    },
+    "S27": {
+      "s": "لا يوجد شراء سابق لكاتلينج في حساب Apple المسجّل على هذا الجهاز.",
+      "back": "not exists purchase previous for-Cutling in account Apple the-registered on this the-device.",
+      "why": "Impersonal لا يوجد keeps the app from speaking as 'we'; لـ joins the name directly, as Arabic does with names."
+    },
+    "S28": {
+      "s": "تتسع النسخة المجانية لـ%lld كاتلينج، وبشراء النسخة الكاملة مرة واحدة تحفظ ما تشاء.",
+      "back": "holds the-version the-free for-5 Cutling, and-with-buying the-version the-full time one you-save what you-wish.",
+      "why": "Pairs النسخة المجانية with النسخة الكاملة, the same two names the sheet uses; one sentence joined by و, easy for Siri to say."
+    },
+    "S29": {
+      "s": "%lld من %lld مجاناً",
+      "back": "4 of 5 for-free",
+      "why": "Compact pair for a small subtitle, 13 characters with digits; مجاناً as in S1 and S5."
+    },
+    "K1": {
+      "s": "حفظت %lld مجاناً، اضغط للمزيد",
+      "back": "you-saved 5 for-free, press for-the-more",
+      "why": "About 26 letters to fit one key row; اضغط is the iOS Arabic word for tap, and للمزيد says the tap leads to more room."
+    },
+    "M1": {
+      "s": "شراء النسخة الكاملة",
+      "back": "buying the-version the-full",
+      "why": "Arabic Mac window titles and commands use the verbal noun; same words as S15 so the command has one name."
+    },
+    "M2": {
+      "s": "شراء النسخة الكاملة…",
+      "back": "buying the-version the-full…",
+      "why": "M1 as a button, with the ellipsis character because it opens a window."
+    },
+    "M3": {
+      "s": "كاتلينج مجاني",
+      "back": "Cutling free",
+      "why": "Follows the vocab's pattern كاتلينج نصي (masculine adjective after the loan)."
+    },
+    "M4": {
+      "s": "%lld من %lld",
+      "back": "3 of 5",
+      "why": "من reads correctly right to left; a slash would flip visually in RTL."
+    },
+    "M5": {
+      "s": "النسخة الكاملة مفعّلة",
+      "back": "the-version the-full activated",
+      "why": "Same state word as S23."
+    },
+    "M6": {
+      "s": "شراء واحد يمنحك النسخة الكاملة على iPhone وiPad وMac.",
+      "back": "purchase one gives-you the-version the-full on iPhone and-iPad and-Mac.",
+      "why": "يمنحك (gives you) is plain and warm; device list written as in S8."
+    },
+    "M7": {
+      "s": "تعمل النسخة الكاملة على iPhone وiPad وMac بحساب Apple هذا.",
+      "back": "works the-version the-full on iPhone and-iPad and-Mac with-account Apple this.",
+      "why": "Verb-first Arabic sentence; uses تعمل so it does not repeat مفعّلة from the row above it."
+    },
+    "M8": {
+      "s": "اشتريت كاتلينج قبل أن يصبح مجانياً، فتبقى النسخة الكاملة لك. شكراً لك.",
+      "back": "you-bought Cutling before that it-becomes free, so-remains the-version the-full for-you. thanks to-you.",
+      "why": "فـ gives the reason as Arabic joins cause and result; the thanks is its own short sentence."
+    }
+  },
+  "ar-SA": {
+    "S1": {
+      "s": "%lld مجاناً",
+      "back": "5 for-free",
+      "why": "Adverb مجاناً avoids making an adjective agree with the invariant loan كاتلينج; the tiles above already say what is counted. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S2": {
+      "s": "احفظ المزيد",
+      "back": "save (you) the-more",
+      "why": "Plain imperative invitation, 11 letters; carries 'beyond the free ones' through المزيد without any limit or sales word. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S3": {
+      "s": "حفظت %lld كاتلينج، وهو كل ما تتسع له النسخة المجانية. ستبقى لك مجاناً وتعمل كما هي.",
+      "back": "you-saved 5 Cutling, and-it all what holds for-it the-version the-free. they-will-remain for-you free and-work as they-are.",
+      "why": "Names the cap through النسخة المجانية (same phrase as S28) and reassures with ستبقى لك; كاتلينج after the number as the vocab writes counts. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S4": {
+      "s": "احفظ حتى %lld كاتلينج مجاناً.",
+      "back": "save up-to 5 Cutling for-free.",
+      "why": "Imperative states the allowance without the 'you can' frame; number then invariant كاتلينج, as in the vocab's count string. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S5": {
+      "s": "حفظت %lld من %lld كاتلينج مجاناً.",
+      "back": "you-saved 3 of 5 Cutling for-free.",
+      "why": "Same verb حفظ as S3 and S4; numbers stay in source order, so plain %lld needs no positional form. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S6": {
+      "s": "مساحة لـ%@ كاتلينج",
+      "back": "space for-5,000 Cutling",
+      "why": "Bold line as a noun phrase; مساحة is the word used for room throughout (S22). Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S7": {
+      "s": "احفظ حتى %@ كاتلينج نصي و%lld صورة.",
+      "back": "save up-to 5,000 Cutling textual and-500 image.",
+      "why": "كاتلينج نصي is the vocab's own name for a text item; صورة stays singular, which is correct Arabic after hundreds and thousands. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S8": {
+      "s": "iPhone وiPad وMac",
+      "back": "iPhone and-iPad and-Mac",
+      "why": "Arabic lists repeat و before each item and attach it to the Latin name, as Apple's Arabic pages write it. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S9": {
+      "s": "شراء واحد يشملها كلها بحساب Apple الخاص بك.",
+      "back": "purchase one covers-them all-of-them with-account Apple the-belonging to-you.",
+      "why": "حساب Apple الخاص بك is the vocab's exact phrase; يشملها كلها points back at the three devices in the bold line. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S10": {
+      "s": "تدفع مرة واحدة",
+      "back": "you-pay time one",
+      "why": "Second person present tense, warmer than the noun دفعة واحدة, and says nothing recurs. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S11": {
+      "s": "بلا اشتراك ولا إعلانات ولا إنشاء حساب.",
+      "back": "without subscription and-no advertisements and-no creating account.",
+      "why": "بلا … ولا … ولا is the native chain for three absences; إنشاء حساب keeps sign-up apart from the vocab's تسجيل الدخول (sign-in). Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S12": {
+      "s": "استعادة المشتريات",
+      "back": "restoring the-purchases",
+      "why": "The wording Arabic iOS apps use for the App Store restore action; verbal noun like the app's other buttons (متابعة). Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S13": {
+      "s": "جارٍ الاستعادة…",
+      "back": "ongoing the-restoring…",
+      "why": "جارٍ + verbal noun is the iOS Arabic in-progress form; ends with the ellipsis character. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S14": {
+      "s": "شراء النسخة الكاملة بـ%@",
+      "back": "buying the-version the-full for-$4.99",
+      "why": "النسخة الكاملة is how Arabic apps name the unlocked app and avoids the clash between Cutling the app and كاتلينج the item; verbal noun as on the app's buttons; 21 letters plus the price. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S15": {
+      "s": "شراء النسخة الكاملة",
+      "back": "buying the-version the-full",
+      "why": "S14 without the price, so the button does not change words when the price loads. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S16": {
+      "s": "ليس الآن",
+      "back": "not now",
+      "why": "The iOS Arabic 'Not Now': putting it off, not refusing. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S17": {
+      "s": "إغلاق",
+      "back": "closing",
+      "why": "The iOS Arabic label for close buttons, verbal noun. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S18": {
+      "s": "كاتلينج كله لك",
+      "back": "Cutling all-of-it for-you",
+      "why": "Warm and short (13 letters); كله with the app as masculine, so it reads as the whole app and all its room. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S19": {
+      "s": "شكراً لك. شراؤك يدعم كاتلينج ومن يطوّره وحده.",
+      "back": "thanks to-you. your-purchase supports Cutling and-who develops-it alone.",
+      "why": "من يطوّره وحده says 'the one person who makes it' the way a speaker would, without the stiff الشخص الوحيد الذي. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S20": {
+      "s": "أهلاً بعودتك. عادت إليك النسخة الكاملة.",
+      "back": "welcome with-your-return. returned to-you the-version the-full.",
+      "why": "أهلاً بعودتك is the everyday Arabic greeting for a returning person; the verb عاد echoes it. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S21": {
+      "s": "حفظت %lld من أصل %lld كاتلينج مجاناً",
+      "back": "you-saved 3 out-of origin 5 Cutling for-free",
+      "why": "Spoken version of S5; من أصل makes 'out of' unmistakable by ear. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S22": {
+      "s": "لديك %lld كاتلينج، ومساحة تتسع لـ%@",
+      "back": "with-you 5 Cutling, and-space that-holds for-5,000",
+      "why": "The invariant loan كاتلينج after the number reads correctly for 1, 2, 5 and 21, so no Arabic plural forms are needed, as in the vocab's count string. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S23": {
+      "s": "النسخة الكاملة مفعّلة. لديك مساحة لـ%@ كاتلينج",
+      "back": "the-version the-full activated. with-you space for-5,000 Cutling",
+      "why": "مفعّلة is the state word (the vocab uses فعّل for turning a feature on); the second sentence repeats S6's phrase. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S24": {
+      "s": "لم يكتمل الشراء",
+      "back": "not completed the-purchase",
+      "why": "Calm statement of what happened with no actor, so nobody is blamed. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S25": {
+      "s": "تعذّر الاتصال بمتجر App Store حالياً. حاول مرة أخرى بعد قليل.",
+      "back": "it-was-impossible the-connecting with-store App Store currently. try time another after a-little.",
+      "why": "تعذّر is the standard soft 'could not'; متجر App Store is how Arabic text names the store; masculine imperative matches the vocab's فعّل. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S26": {
+      "s": "لم يؤكد متجر App Store هذا الشراء.",
+      "back": "not confirmed store App Store this the-purchase.",
+      "why": "States the fact only, with the same store name as S25. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S27": {
+      "s": "لا يوجد شراء سابق لكاتلينج في حساب Apple المسجّل على هذا الجهاز.",
+      "back": "not exists purchase previous for-Cutling in account Apple the-registered on this the-device.",
+      "why": "Impersonal لا يوجد keeps the app from speaking as 'we'; لـ joins the name directly, as Arabic does with names. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S28": {
+      "s": "تتسع النسخة المجانية لـ%lld كاتلينج، وبشراء النسخة الكاملة مرة واحدة تحفظ ما تشاء.",
+      "back": "holds the-version the-free for-5 Cutling, and-with-buying the-version the-full time one you-save what you-wish.",
+      "why": "Pairs النسخة المجانية with النسخة الكاملة, the same two names the sheet uses; one sentence joined by و, easy for Siri to say. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "S29": {
+      "s": "%lld من %lld مجاناً",
+      "back": "4 of 5 for-free",
+      "why": "Compact pair for a small subtitle, 13 characters with digits; مجاناً as in S1 and S5. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "K1": {
+      "s": "حفظت %lld مجاناً، اضغط للمزيد",
+      "back": "you-saved 5 for-free, press for-the-more",
+      "why": "About 26 letters to fit one key row; اضغط is the iOS Arabic word for tap, and للمزيد says the tap leads to more room. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "M1": {
+      "s": "شراء النسخة الكاملة",
+      "back": "buying the-version the-full",
+      "why": "Arabic Mac window titles and commands use the verbal noun; same words as S15 so the command has one name. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "M2": {
+      "s": "شراء النسخة الكاملة…",
+      "back": "buying the-version the-full…",
+      "why": "M1 as a button, with the ellipsis character because it opens a window. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "M3": {
+      "s": "كاتلينج مجاني",
+      "back": "Cutling free",
+      "why": "Follows the vocab's pattern كاتلينج نصي (masculine adjective after the loan). Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "M4": {
+      "s": "%lld من %lld",
+      "back": "3 of 5",
+      "why": "من reads correctly right to left; a slash would flip visually in RTL. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "M5": {
+      "s": "النسخة الكاملة مفعّلة",
+      "back": "the-version the-full activated",
+      "why": "Same state word as S23. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "M6": {
+      "s": "شراء واحد يمنحك النسخة الكاملة على iPhone وiPad وMac.",
+      "back": "purchase one gives-you the-version the-full on iPhone and-iPad and-Mac.",
+      "why": "يمنحك (gives you) is plain and warm; device list written as in S8. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "M7": {
+      "s": "تعمل النسخة الكاملة على iPhone وiPad وMac بحساب Apple هذا.",
+      "back": "works the-version the-full on iPhone and-iPad and-Mac with-account Apple this.",
+      "why": "Verb-first Arabic sentence; uses تعمل so it does not repeat مفعّلة from the row above it. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    },
+    "M8": {
+      "s": "اشتريت كاتلينج قبل أن يصبح مجانياً، فتبقى النسخة الكاملة لك. شكراً لك.",
+      "back": "you-bought Cutling before that it-becomes free, so-remains the-version the-full for-you. thanks to-you.",
+      "why": "فـ gives the reason as Arabic joins cause and result; the thanks is its own short sentence. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy is written in the same Modern Standard Arabic; the price arrives formatted for the region."
+    }
+  }
+}

@@ -1,0 +1,194 @@
+{
+  "lt": {
+    "S1": {
+      "s": "%lld nemokami",
+      "back": "5 free [ones, masculine plural, agreeing with the unspoken Cutlingai]",
+      "why": "Adjective in nominative plural, which is the right case after 2 to 9; the noun is left out because the five tiles above say what is free."
+    },
+    "S2": {
+      "s": "Išsaugokite daugiau",
+      "back": "Save [polite imperative] more",
+      "why": "An invitation in the polite jūs imperative the vocabulary uses; no word for limit or warning, and 19 characters fits the 20 budget."
+    },
+    "S3": {
+      "s": "Panaudojote visus %lld nemokamus Cutlingus. Už juos mokėti nereikės, jie ir toliau veiks.",
+      "back": "You-used all 5 free Cutlings [accusative]. For them to-pay will-not-be-needed, they also further will-work.",
+      "why": "Accusative plural after visus 5 is correct for 2 to 9; the second sentence says plainly that those five stay free and keep working, in future tense so it reads as a promise."
+    },
+    "S4": {
+      "s": "Pirmuosius %lld Cutlingus išsaugosite nemokamai.",
+      "back": "The-first 5 Cutlings [accusative] you-will-save free-of-charge.",
+      "why": "Future tense tells a new user what they get without the \"you can\" sentence; accusative plural agrees with 5; 45 characters with the digit filled in."
+    },
+    "S5": {
+      "s": "Panaudota %1$lld iš %2$lld nemokamų Cutlingų.",
+      "back": "Used [impersonal neuter] 3 out-of 5 free Cutlings [genitive plural].",
+      "why": "The neuter participle panaudota needs no agreement with the used count, and iš takes the genitive plural Cutlingų for any total from 2 up."
+    },
+    "S6": {
+      "s": "Vieta %@ Cutlingų",
+      "back": "Room [of] 5 000 Cutlings [genitive plural]",
+      "why": "Capacity genitive as in \"salė 300 žmonių\"; a round thousand takes the genitive plural Cutlingų, the form the vocabulary's count string already uses."
+    },
+    "S7": {
+      "s": "Iki %@ teksto ir %lld vaizdo Cutlingų.",
+      "back": "Up-to 5 000 text and 500 image Cutlings [genitive plural].",
+      "why": "Builds on the vocabulary's own item names Teksto Cutlingas and Vaizdo Cutlingas, sharing one head noun; both round numbers take the genitive plural."
+    },
+    "S8": {
+      "s": "iPhone, iPad ir Mac",
+      "back": "iPhone, iPad and Mac",
+      "why": "Lithuanian lists three things with a comma and ir, no serial comma; device names stay unquoted, as Mac is in the vocabulary's \"Cutling, skirtas Mac\"."
+    },
+    "S9": {
+      "s": "Vienas pirkimas galioja visuose jūsų „Apple“ paskyros įrenginiuose.",
+      "back": "One purchase is-valid in-all your \"Apple\" account's devices.",
+      "why": "„Apple“ paskyra in Lithuanian quotes exactly as the vocabulary writes it; įrenginiuose carries the case so the brand names never need declining."
+    },
+    "S10": {
+      "s": "Mokate vieną kartą",
+      "back": "You-pay one time",
+      "why": "A plain statement in the jūs present tense; vienkartinis pirkimas would be accurate but reads like a receipt."
+    },
+    "S11": {
+      "s": "Be prenumeratos, reklamos ir registracijos.",
+      "back": "Without subscription, advertising and registration.",
+      "why": "Be with three genitives is how a Lithuanian lists what is absent; reklama in the singular is the usual collective word for ads, and registracija is the word people use for signing up."
+    },
+    "S12": {
+      "s": "Atkurti pirkinius",
+      "back": "To-restore purchases",
+      "why": "The infinitive command form Lithuanian iOS apps use for the App Store restore action; pirkiniai matches the App Store's own Pirkiniai."
+    },
+    "S13": {
+      "s": "Atkuriama…",
+      "back": "Being-restored [impersonal]…",
+      "why": "Impersonal present participle, the standard progress form (like Įkeliama…, Atsisiunčiama…), with the single ellipsis character."
+    },
+    "S14": {
+      "s": "Atrakinti Cutling už %@",
+      "back": "To-unlock Cutling for 4,99 €",
+      "why": "Infinitive button form; Cutling stays undeclined as in the vocabulary; už plus the price is how a Lithuanian names what a button costs. 21 characters plus the price."
+    },
+    "S15": {
+      "s": "Atrakinti",
+      "back": "To-unlock",
+      "why": "The same verb as S14 with nothing after it, 9 characters within the 14 budget."
+    },
+    "S16": {
+      "s": "Ne dabar",
+      "back": "Not now",
+      "why": "The usual polite way to put something off in Lithuanian; it does not say no."
+    },
+    "S17": {
+      "s": "Uždaryti",
+      "back": "To-close",
+      "why": "The infinitive Lithuanian iOS puts on close buttons."
+    },
+    "S18": {
+      "s": "Dabar viskas jūsų",
+      "back": "Now everything [is] yours",
+      "why": "Short and warm, no verb needed in Lithuanian; jūsų holds the polite address, and viskas covers the whole grid of new room."
+    },
+    "S19": {
+      "s": "Ačiū, kad įsigijote. Taip palaikote Cutling ir žmogų, kuris jį kuria vienas.",
+      "back": "Thanks, that you-acquired. Thus you-support Cutling and the-person, who it makes alone.",
+      "why": "Įsigyti is the polite everyday verb for buying; the second sentence names the one person behind the app without making it a plea."
+    },
+    "S20": {
+      "s": "Sveiki sugrįžę. Jūsų ankstesnis pirkinys atkurtas.",
+      "back": "Welcome having-returned [plural]. Your earlier purchase [is] restored.",
+      "why": "Sveiki sugrįžę is the fixed Lithuanian welcome back, plural for jūs; atkurtas repeats the verb from the S12 link, so the person sees it worked."
+    },
+    "S21": {
+      "s": "Panaudota %1$lld iš %2$lld nemokamų Cutlingų.",
+      "back": "Used [impersonal neuter] 3 out-of 5 free Cutlings [genitive plural].",
+      "why": "Same as S5 on purpose: VoiceOver says what the subtitle shows, and the impersonal participle reads cleanly aloud for any count."
+    },
+    "S22": {
+      "s": "Cutlingų: %lld. Dabar telpa iki %@.",
+      "back": "Of-Cutlings: 5. Now fits up-to 5 000.",
+      "why": "Genitive plural label with a colon is the Lithuanian count form that stays correct for 1, 2, 5 and 21 alike (no noun agrees with the number); telpa is the plain word for what fits."
+    },
+    "S23": {
+      "s": "Cutling atrakintas. Dabar telpa iki %@ Cutlingų.",
+      "back": "Cutling [is] unlocked. Now fits up-to 5 000 Cutlings [genitive plural].",
+      "why": "Masculine participle agrees with Cutling, which the vocabulary treats as masculine (skirtas Mac); the genitive plural is right after a round thousand."
+    },
+    "S24": {
+      "s": "Pirkimas neįvyko",
+      "back": "The-purchase did-not-happen",
+      "why": "States what happened without a subject to blame; calmer than nepavyko, which reads as a failure."
+    },
+    "S25": {
+      "s": "Šiuo metu nepavyksta pasiekti „App Store“. Netrukus pabandykite dar kartą.",
+      "back": "At-this time it-is-not-succeeding to-reach \"App Store\". Shortly try [polite] one more time.",
+      "why": "Impersonal nepavyksta puts the fault on the connection, not the person; „App Store“ is in quotes and left undeclined, as the vocabulary writes „Apple“."
+    },
+    "S26": {
+      "s": "„App Store“ nepatvirtino šio pirkimo.",
+      "back": "\"App Store\" did-not-confirm this purchase [genitive].",
+      "why": "A negated verb takes the genitive in Lithuanian, so šio pirkimo; one plain sentence."
+    },
+    "S27": {
+      "s": "Šiame įrenginyje naudojamoje „Apple“ paskyroje Cutling pirkinių nerasta.",
+      "back": "In-this device being-used \"Apple\" account Cutling purchases [genitive] not-found.",
+      "why": "Impersonal nerasta with the genitive is how Lithuanian reports that nothing exists; naudojamoje names the account signed in here without a long clause. 73 characters."
+    },
+    "S28": {
+      "s": "Nemokamoje versijoje telpa %lld Cutlingai. Atrakinę Cutling vieną kartą, išsaugosite kiek tik norite.",
+      "back": "In-the-free version fit 5 Cutlings [nominative plural]. Having-unlocked Cutling one time, you-will-save as-many just you-want.",
+      "why": "Nominative plural after 5 is correct; the participle atrakinę ties the one-time unlock to the result in one sentence, as a Lithuanian would say it to Siri's listener."
+    },
+    "S29": {
+      "s": "%1$lld iš %2$lld nemokamų",
+      "back": "4 out-of 5 free [genitive plural]",
+      "why": "Sits under the Cutlingai title, so the noun is left out; iš with the genitive plural works for any total from 2 up. 15 characters."
+    },
+    "K1": {
+      "s": "Visi %lld nemokami panaudoti. Atrakinkite",
+      "back": "All 5 free [ones] used. Unlock [polite imperative]",
+      "why": "Nominative plural participle agrees with the unspoken Cutlingai; the closing imperative is the tap target's call to act. 38 characters with the digit."
+    },
+    "M1": {
+      "s": "Atrakinti Cutling",
+      "back": "To-unlock Cutling",
+      "why": "Lithuanian Mac commands and window names are infinitives (Atidaryti, Išsaugoti); Cutling undeclined as in the vocabulary."
+    },
+    "M2": {
+      "s": "Atrakinti Cutling…",
+      "back": "To-unlock Cutling…",
+      "why": "The same command as M1 with the ellipsis character, because it opens a window."
+    },
+    "M3": {
+      "s": "Nemokami Cutlingai",
+      "back": "Free Cutlings",
+      "why": "Plain noun phrase with the vocabulary's plural Cutlingai as a settings label."
+    },
+    "M4": {
+      "s": "%1$lld iš %2$lld",
+      "back": "3 out-of 5",
+      "why": "The usual Lithuanian compact pair; iš reads more naturally than a slash in a settings value."
+    },
+    "M5": {
+      "s": "Cutling atrakintas",
+      "back": "Cutling [is] unlocked",
+      "why": "Masculine participle agrees with Cutling; a status, not a sentence, so no full stop."
+    },
+    "M6": {
+      "s": "Vienu pirkimu atrakinsite Cutling iPhone, iPad ir Mac įrenginiuose.",
+      "back": "With-one purchase you-will-unlock Cutling in iPhone, iPad and Mac devices.",
+      "why": "Instrumental vienu pirkimu says by what means in two words; įrenginiuose carries the locative so the brand names stay as written."
+    },
+    "M7": {
+      "s": "Cutling atrakintas iPhone, iPad ir Mac įrenginiuose su šia „Apple“ paskyra.",
+      "back": "Cutling [is] unlocked in iPhone, iPad and Mac devices with this \"Apple\" account.",
+      "why": "Mirrors M6 so the two lines read as before and after; „Apple“ paskyra as in the vocabulary, instrumental after su."
+    },
+    "M8": {
+      "s": "Įsigijote Cutling, kai jis dar buvo mokamas, todėl jums jis lieka atrakintas. Ačiū už palaikymą.",
+      "back": "You-acquired Cutling, when it still was paid-for, therefore for-you it stays unlocked. Thanks for support.",
+      "why": "Gives the reason first and the result second, the order a Lithuanian explains in; the thanks avoids a gendered adjective, which polite jūs would otherwise need."
+    }
+  }
+}

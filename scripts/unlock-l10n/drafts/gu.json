@@ -1,0 +1,386 @@
+{
+  "gu": {
+    "S1": {
+      "s": "%lld મફત",
+      "back": "5 free",
+      "why": "Number before the adjective, the way a Gujarati label counts; nothing else fits under a five-tile bracket. Same in gu and gu-IN: Gujarati is written one way, and the vocab files for both folders are identical."
+    },
+    "S2": {
+      "s": "વધુ સાચવતા રહો",
+      "back": "more saving keep-on",
+      "why": "Continuous 'keep on saving' (સાચવતા રહો) is an invitation, the way 'લખતા રહો' is said; no limit word, 14 characters."
+    },
+    "S3": {
+      "s": "તમારી %lld મફત જગ્યા ભરાઈ ગઈ છે. એમાં સાચવેલ કટલિંગ મફત જ રહેશે અને ચાલુ રહેશે.",
+      "back": "your 5 free places filled have-gone are. in-them saved cutling free only will-stay and running will-stay.",
+      "why": "Says the free places are full (matching the five filled tiles), then that what is in them stays free and keeps working; જગ્યા (fem.) and the invariant સાચવેલ, મફત, ચાલુ avoid guessing a gender for કટલિંગ."
+    },
+    "S4": {
+      "s": "તમે %lld કટલિંગ મફતમાં સાચવી શકો છો.",
+      "back": "you 5 cutling free-in save can are.",
+      "why": "Plain statement with તમે, as the vocab addresses the person; કટલિંગ is the vocab's word for an item and takes no plural ending after a number, as in '%lld કટલિંગ'."
+    },
+    "S5": {
+      "s": "%2$lld માંથી %1$lld મફત જગ્યા વપરાઈ ગઈ છે.",
+      "back": "5 out-of 3 free place used gone is.",
+      "why": "Gujarati says the total first ('5 માંથી 3'), so the placeholders are positional; feminine જગ્યા keeps the verb right for 1 to 4 used."
+    },
+    "S6": {
+      "s": "%@ કટલિંગ માટે જગ્યા",
+      "back": "5,000 cutling for room",
+      "why": "A noun phrase for a bold row line; જગ્યા is the same word for room used in S3 and S5."
+    },
+    "S7": {
+      "s": "%@ ટેક્સ્ટ અને %lld છબીઓ સુધી સાચવો.",
+      "back": "5,000 text and 500 images up-to save.",
+      "why": "Uses the vocab's ટેક્સ્ટ and છબીઓ; સુધી after the pair carries 'up to' for both numbers."
+    },
+    "S8": {
+      "s": "iPhone, iPad અને Mac",
+      "back": "iPhone, iPad and Mac",
+      "why": "Device names stay in Latin script as the vocab writes Mac; Gujarati joins three with a comma and અને, no comma before અને."
+    },
+    "S9": {
+      "s": "એક જ ખરીદી તમારા Apple Account માં સાઇન ઇન થયેલા દરેક ઉપકરણ પર ચાલે છે.",
+      "back": "one only purchase your Apple Account in sign in become each device on works.",
+      "why": "Reuses the vocab's own phrase 'તમારા Apple Account માં સાઇન ઇન થયેલા દરેક ઉપકરણ' so the account and devices have one name across the app."
+    },
+    "S10": {
+      "s": "એક જ વારની ચુકવણી",
+      "back": "one only time's payment",
+      "why": "'એક જ વાર' (just one time) is how a person stresses once; a noun phrase fits the bold row line."
+    },
+    "S11": {
+      "s": "સબ્સ્ક્રિપ્શન નહીં, જાહેરાત નહીં, સાઇન અપ નહીં.",
+      "back": "subscription no, advertisement no, sign up no.",
+      "why": "Three parallel 'X નહીં' is how this is said aloud in Gujarati; સબ્સ્ક્રિપ્શન and સાઇન અપ are the words Gujarati iPhone users see, સાઇન matching the vocab's સાઇન ઇન."
+    },
+    "S12": {
+      "s": "ખરીદીઓ પુનઃસ્થાપિત કરો",
+      "back": "purchases restore do",
+      "why": "The App Store action in Gujarati iOS wording (plural ખરીદીઓ, પુનઃસ્થાપિત કરો); not confirmed against a Gujarati device, see report."
+    },
+    "S13": {
+      "s": "પુનઃસ્થાપિત થઈ રહી છે…",
+      "back": "restored becoming is…",
+      "why": "Same verb as S12 in the progressive; feminine agreement with the unstated ખરીદીઓ; ends with the single ellipsis character."
+    },
+    "S14": {
+      "s": "%@ માં અનલૉક કરો",
+      "back": "$4.99 in unlock do",
+      "why": "Gujarati gives a price with માં ('₹399 માં ખરીદો'); અનલૉક કરો is the iOS Gujarati verb. The once-only point sits in S10 directly above, so the button stays one line on a narrow iPhone."
+    },
+    "S15": {
+      "s": "અનલૉક કરો",
+      "back": "unlock do",
+      "why": "The same command as S14 without the price."
+    },
+    "S16": {
+      "s": "હમણાં નહીં",
+      "back": "right-now not",
+      "why": "The iOS Gujarati 'Not Now': puts it off politely, does not refuse."
+    },
+    "S17": {
+      "s": "બંધ કરો",
+      "back": "close do",
+      "why": "The plain iOS Gujarati label for closing a sheet or window."
+    },
+    "S18": {
+      "s": "હવે બધું તમારું",
+      "back": "now everything yours",
+      "why": "A headline that drops છે, as Gujarati titles do; 'everything is yours now' carries the pride and the room without a boast."
+    },
+    "S19": {
+      "s": "ખરીદવા બદલ આભાર. આ કટલિંગને અને તેને એકલા હાથે બનાવનારને ટેકો આપે છે.",
+      "back": "buying for thanks. this cutling-to and it-to single hand maker-to support gives is.",
+      "why": "'એકલા હાથે બનાવનાર' (the one who makes it single-handed) is the native way to say one person builds it; ટેકો આપે is everyday 'supports'."
+    },
+    "S20": {
+      "s": "ફરી સ્વાગત છે. તમારી અગાઉની ખરીદી પાછી આવી ગઈ છે.",
+      "back": "again welcome is. your earlier purchase back come gone is.",
+      "why": "'ફરી સ્વાગત છે' is the usual welcome back; 'પાછી આવી ગઈ' says the purchase is back in plain words, not the technical restore verb."
+    },
+    "S21": {
+      "s": "%2$lld માંથી %1$lld મફત જગ્યા વપરાઈ",
+      "back": "5 out-of 3 free place used",
+      "why": "Same wording as S5 for VoiceOver, shortened for speech; positional for the total-first order."
+    },
+    "S22": {
+      "s": "%lld કટલિંગ સાચવેલ છે. હવે %@ માટે જગ્યા છે.",
+      "back": "5 cutling saved is. now 5,000 for room is.",
+      "why": "સાચવેલ is invariant and છે serves singular and plural, so it reads right for 1, 2, 5 and 21."
+    },
+    "S23": {
+      "s": "કટલિંગ હવે અનલૉક છે. %@ કટલિંગ માટે જગ્યા છે.",
+      "back": "Cutling now unlocked is. 5,000 cutling for room is.",
+      "why": "અનલૉક used as a predicate adjective needs no gender for the app; the app name and the item word are the same word in the vocab, so the number marks which is meant."
+    },
+    "S24": {
+      "s": "ખરીદી પૂરી ન થઈ",
+      "back": "purchase complete not became",
+      "why": "States what happened, no blame; feminine agreement with ખરીદી."
+    },
+    "S25": {
+      "s": "અત્યારે App Store સુધી પહોંચી શકાતું નથી. થોડી વારમાં ફરી પ્રયાસ કરો.",
+      "back": "right-now App Store up-to reach can-be not. little while-in again try do.",
+      "why": "Impersonal 'cannot be reached' puts the fault nowhere; ફરી પ્રયાસ કરો is the iOS Gujarati 'try again'."
+    },
+    "S26": {
+      "s": "App Store તરફથી આ ખરીદીની પુષ્ટિ મળી નથી.",
+      "back": "App Store from this purchase's confirmation received not.",
+      "why": "'Confirmation was not received from the App Store' avoids the awkward ergative 'App Store એ' and keeps the person out of the blame."
+    },
+    "S27": {
+      "s": "આ ઉપકરણ પર સાઇન ઇન કરેલા Apple Account માં કટલિંગની કોઈ અગાઉની ખરીદી મળી નથી.",
+      "back": "this device on sign in done Apple Account in cutling's any earlier purchase found not.",
+      "why": "Names the account by where it is signed in, with the vocab's ઉપકરણ and સાઇન ઇન; 'મળી નથી' (not found) is calm."
+    },
+    "S28": {
+      "s": "મફત સંસ્કરણમાં %lld કટલિંગ સચવાય છે. કટલિંગ એક વાર અનલૉક કરો, પછી જોઈએ તેટલું સાચવો.",
+      "back": "free version-in 5 cutling get-saved are. Cutling one time unlock do, then needed that-much save.",
+      "why": "સંસ્કરણ is the iOS Gujarati word for version; 'જોઈએ તેટલું' (as much as you need) is the spoken idiom and needs no gender."
+    },
+    "S29": {
+      "s": "%1$lld/%2$lld મફત કટલિંગ",
+      "back": "4/5 free cutling",
+      "why": "Replaces the vocab's '%lld કટલિંગ' count under the list title with a used/total pair in the same shape; fits 18."
+    },
+    "K1": {
+      "s": "%lld મફત જગ્યા ભરાઈ, અનલૉક કરવા ટૅપ કરો",
+      "back": "5 free place filled, unlock to-do tap do",
+      "why": "Clipped ભરાઈ (filled) suits a one-line capsule; ટૅપ કરો is the iOS Gujarati tap; 27 visible characters."
+    },
+    "M1": {
+      "s": "કટલિંગ અનલૉક કરો",
+      "back": "Cutling unlock do",
+      "why": "A Gujarati command puts the verb last; this is the imperative command form Mac menus use."
+    },
+    "M2": {
+      "s": "કટલિંગ અનલૉક કરો…",
+      "back": "Cutling unlock do…",
+      "why": "Same command as M1, with the ellipsis character because it opens a window."
+    },
+    "M3": {
+      "s": "મફત કટલિંગ",
+      "back": "free cutling",
+      "why": "Row label in the vocab's item word."
+    },
+    "M4": {
+      "s": "%1$lld/%2$lld",
+      "back": "3/5",
+      "why": "A compact used/total pair, the same shape as S29."
+    },
+    "M5": {
+      "s": "કટલિંગ અનલૉક છે",
+      "back": "Cutling unlocked is",
+      "why": "Status as a predicate adjective, same form as S23."
+    },
+    "M6": {
+      "s": "એક ખરીદીથી iPhone, iPad અને Mac પર કટલિંગ અનલૉક થાય છે.",
+      "back": "one purchase-by iPhone, iPad and Mac on Cutling unlock becomes is.",
+      "why": "Plain present tense; the device list as in S8."
+    },
+    "M7": {
+      "s": "આ Apple Account માં સાઇન ઇન થયેલા iPhone, iPad અને Mac પર અનલૉક છે.",
+      "back": "this Apple Account in sign in become iPhone, iPad and Mac on unlocked is.",
+      "why": "Built on the vocab's 'Apple Account માં સાઇન ઇન થયેલા' phrase."
+    },
+    "M8": {
+      "s": "કટલિંગ મફત થતાં પહેલાં તમે તેની ખરીદી કરી હતી, એટલે એ અનલૉક જ રહેશે. શરૂઆતથી સાથ આપવા બદલ આભાર.",
+      "back": "Cutling free becoming before you its purchase did had, so it unlocked only will-stay. beginning-from company give for thanks.",
+      "why": "'સાથ આપવા બદલ આભાર' (thanks for standing with us) is warmer than a bare thank-you for an early buyer; 'ખરીદી કરી હતી' avoids a gender for the app."
+    }
+  },
+  "gu-IN": {
+    "S1": {
+      "s": "%lld મફત",
+      "back": "5 free",
+      "why": "Number before the adjective, the way a Gujarati label counts; nothing else fits under a five-tile bracket. Same in gu and gu-IN: Gujarati is written one way, and the vocab files for both folders are identical."
+    },
+    "S2": {
+      "s": "વધુ સાચવતા રહો",
+      "back": "more saving keep-on",
+      "why": "Continuous 'keep on saving' (સાચવતા રહો) is an invitation, the way 'લખતા રહો' is said; no limit word, 14 characters."
+    },
+    "S3": {
+      "s": "તમારી %lld મફત જગ્યા ભરાઈ ગઈ છે. એમાં સાચવેલ કટલિંગ મફત જ રહેશે અને ચાલુ રહેશે.",
+      "back": "your 5 free places filled have-gone are. in-them saved cutling free only will-stay and running will-stay.",
+      "why": "Says the free places are full (matching the five filled tiles), then that what is in them stays free and keeps working; જગ્યા (fem.) and the invariant સાચવેલ, મફત, ચાલુ avoid guessing a gender for કટલિંગ."
+    },
+    "S4": {
+      "s": "તમે %lld કટલિંગ મફતમાં સાચવી શકો છો.",
+      "back": "you 5 cutling free-in save can are.",
+      "why": "Plain statement with તમે, as the vocab addresses the person; કટલિંગ is the vocab's word for an item and takes no plural ending after a number, as in '%lld કટલિંગ'."
+    },
+    "S5": {
+      "s": "%2$lld માંથી %1$lld મફત જગ્યા વપરાઈ ગઈ છે.",
+      "back": "5 out-of 3 free place used gone is.",
+      "why": "Gujarati says the total first ('5 માંથી 3'), so the placeholders are positional; feminine જગ્યા keeps the verb right for 1 to 4 used."
+    },
+    "S6": {
+      "s": "%@ કટલિંગ માટે જગ્યા",
+      "back": "5,000 cutling for room",
+      "why": "A noun phrase for a bold row line; જગ્યા is the same word for room used in S3 and S5."
+    },
+    "S7": {
+      "s": "%@ ટેક્સ્ટ અને %lld છબીઓ સુધી સાચવો.",
+      "back": "5,000 text and 500 images up-to save.",
+      "why": "Uses the vocab's ટેક્સ્ટ and છબીઓ; સુધી after the pair carries 'up to' for both numbers."
+    },
+    "S8": {
+      "s": "iPhone, iPad અને Mac",
+      "back": "iPhone, iPad and Mac",
+      "why": "Device names stay in Latin script as the vocab writes Mac; Gujarati joins three with a comma and અને, no comma before અને."
+    },
+    "S9": {
+      "s": "એક જ ખરીદી તમારા Apple Account માં સાઇન ઇન થયેલા દરેક ઉપકરણ પર ચાલે છે.",
+      "back": "one only purchase your Apple Account in sign in become each device on works.",
+      "why": "Reuses the vocab's own phrase 'તમારા Apple Account માં સાઇન ઇન થયેલા દરેક ઉપકરણ' so the account and devices have one name across the app."
+    },
+    "S10": {
+      "s": "એક જ વારની ચુકવણી",
+      "back": "one only time's payment",
+      "why": "'એક જ વાર' (just one time) is how a person stresses once; a noun phrase fits the bold row line."
+    },
+    "S11": {
+      "s": "સબ્સ્ક્રિપ્શન નહીં, જાહેરાત નહીં, સાઇન અપ નહીં.",
+      "back": "subscription no, advertisement no, sign up no.",
+      "why": "Three parallel 'X નહીં' is how this is said aloud in Gujarati; સબ્સ્ક્રિપ્શન and સાઇન અપ are the words Gujarati iPhone users see, સાઇન matching the vocab's સાઇન ઇન."
+    },
+    "S12": {
+      "s": "ખરીદીઓ પુનઃસ્થાપિત કરો",
+      "back": "purchases restore do",
+      "why": "The App Store action in Gujarati iOS wording (plural ખરીદીઓ, પુનઃસ્થાપિત કરો); not confirmed against a Gujarati device, see report."
+    },
+    "S13": {
+      "s": "પુનઃસ્થાપિત થઈ રહી છે…",
+      "back": "restored becoming is…",
+      "why": "Same verb as S12 in the progressive; feminine agreement with the unstated ખરીદીઓ; ends with the single ellipsis character."
+    },
+    "S14": {
+      "s": "%@ માં અનલૉક કરો",
+      "back": "$4.99 in unlock do",
+      "why": "Gujarati gives a price with માં ('₹399 માં ખરીદો'); અનલૉક કરો is the iOS Gujarati verb. The once-only point sits in S10 directly above, so the button stays one line on a narrow iPhone."
+    },
+    "S15": {
+      "s": "અનલૉક કરો",
+      "back": "unlock do",
+      "why": "The same command as S14 without the price."
+    },
+    "S16": {
+      "s": "હમણાં નહીં",
+      "back": "right-now not",
+      "why": "The iOS Gujarati 'Not Now': puts it off politely, does not refuse."
+    },
+    "S17": {
+      "s": "બંધ કરો",
+      "back": "close do",
+      "why": "The plain iOS Gujarati label for closing a sheet or window."
+    },
+    "S18": {
+      "s": "હવે બધું તમારું",
+      "back": "now everything yours",
+      "why": "A headline that drops છે, as Gujarati titles do; 'everything is yours now' carries the pride and the room without a boast."
+    },
+    "S19": {
+      "s": "ખરીદવા બદલ આભાર. આ કટલિંગને અને તેને એકલા હાથે બનાવનારને ટેકો આપે છે.",
+      "back": "buying for thanks. this cutling-to and it-to single hand maker-to support gives is.",
+      "why": "'એકલા હાથે બનાવનાર' (the one who makes it single-handed) is the native way to say one person builds it; ટેકો આપે is everyday 'supports'."
+    },
+    "S20": {
+      "s": "ફરી સ્વાગત છે. તમારી અગાઉની ખરીદી પાછી આવી ગઈ છે.",
+      "back": "again welcome is. your earlier purchase back come gone is.",
+      "why": "'ફરી સ્વાગત છે' is the usual welcome back; 'પાછી આવી ગઈ' says the purchase is back in plain words, not the technical restore verb."
+    },
+    "S21": {
+      "s": "%2$lld માંથી %1$lld મફત જગ્યા વપરાઈ",
+      "back": "5 out-of 3 free place used",
+      "why": "Same wording as S5 for VoiceOver, shortened for speech; positional for the total-first order."
+    },
+    "S22": {
+      "s": "%lld કટલિંગ સાચવેલ છે. હવે %@ માટે જગ્યા છે.",
+      "back": "5 cutling saved is. now 5,000 for room is.",
+      "why": "સાચવેલ is invariant and છે serves singular and plural, so it reads right for 1, 2, 5 and 21."
+    },
+    "S23": {
+      "s": "કટલિંગ હવે અનલૉક છે. %@ કટલિંગ માટે જગ્યા છે.",
+      "back": "Cutling now unlocked is. 5,000 cutling for room is.",
+      "why": "અનલૉક used as a predicate adjective needs no gender for the app; the app name and the item word are the same word in the vocab, so the number marks which is meant."
+    },
+    "S24": {
+      "s": "ખરીદી પૂરી ન થઈ",
+      "back": "purchase complete not became",
+      "why": "States what happened, no blame; feminine agreement with ખરીદી."
+    },
+    "S25": {
+      "s": "અત્યારે App Store સુધી પહોંચી શકાતું નથી. થોડી વારમાં ફરી પ્રયાસ કરો.",
+      "back": "right-now App Store up-to reach can-be not. little while-in again try do.",
+      "why": "Impersonal 'cannot be reached' puts the fault nowhere; ફરી પ્રયાસ કરો is the iOS Gujarati 'try again'."
+    },
+    "S26": {
+      "s": "App Store તરફથી આ ખરીદીની પુષ્ટિ મળી નથી.",
+      "back": "App Store from this purchase's confirmation received not.",
+      "why": "'Confirmation was not received from the App Store' avoids the awkward ergative 'App Store એ' and keeps the person out of the blame."
+    },
+    "S27": {
+      "s": "આ ઉપકરણ પર સાઇન ઇન કરેલા Apple Account માં કટલિંગની કોઈ અગાઉની ખરીદી મળી નથી.",
+      "back": "this device on sign in done Apple Account in cutling's any earlier purchase found not.",
+      "why": "Names the account by where it is signed in, with the vocab's ઉપકરણ and સાઇન ઇન; 'મળી નથી' (not found) is calm."
+    },
+    "S28": {
+      "s": "મફત સંસ્કરણમાં %lld કટલિંગ સચવાય છે. કટલિંગ એક વાર અનલૉક કરો, પછી જોઈએ તેટલું સાચવો.",
+      "back": "free version-in 5 cutling get-saved are. Cutling one time unlock do, then needed that-much save.",
+      "why": "સંસ્કરણ is the iOS Gujarati word for version; 'જોઈએ તેટલું' (as much as you need) is the spoken idiom and needs no gender."
+    },
+    "S29": {
+      "s": "%1$lld/%2$lld મફત કટલિંગ",
+      "back": "4/5 free cutling",
+      "why": "Replaces the vocab's '%lld કટલિંગ' count under the list title with a used/total pair in the same shape; fits 18."
+    },
+    "K1": {
+      "s": "%lld મફત જગ્યા ભરાઈ, અનલૉક કરવા ટૅપ કરો",
+      "back": "5 free place filled, unlock to-do tap do",
+      "why": "Clipped ભરાઈ (filled) suits a one-line capsule; ટૅપ કરો is the iOS Gujarati tap; 27 visible characters."
+    },
+    "M1": {
+      "s": "કટલિંગ અનલૉક કરો",
+      "back": "Cutling unlock do",
+      "why": "A Gujarati command puts the verb last; this is the imperative command form Mac menus use."
+    },
+    "M2": {
+      "s": "કટલિંગ અનલૉક કરો…",
+      "back": "Cutling unlock do…",
+      "why": "Same command as M1, with the ellipsis character because it opens a window."
+    },
+    "M3": {
+      "s": "મફત કટલિંગ",
+      "back": "free cutling",
+      "why": "Row label in the vocab's item word."
+    },
+    "M4": {
+      "s": "%1$lld/%2$lld",
+      "back": "3/5",
+      "why": "A compact used/total pair, the same shape as S29."
+    },
+    "M5": {
+      "s": "કટલિંગ અનલૉક છે",
+      "back": "Cutling unlocked is",
+      "why": "Status as a predicate adjective, same form as S23."
+    },
+    "M6": {
+      "s": "એક ખરીદીથી iPhone, iPad અને Mac પર કટલિંગ અનલૉક થાય છે.",
+      "back": "one purchase-by iPhone, iPad and Mac on Cutling unlock becomes is.",
+      "why": "Plain present tense; the device list as in S8."
+    },
+    "M7": {
+      "s": "આ Apple Account માં સાઇન ઇન થયેલા iPhone, iPad અને Mac પર અનલૉક છે.",
+      "back": "this Apple Account in sign in become iPhone, iPad and Mac on unlocked is.",
+      "why": "Built on the vocab's 'Apple Account માં સાઇન ઇન થયેલા' phrase."
+    },
+    "M8": {
+      "s": "કટલિંગ મફત થતાં પહેલાં તમે તેની ખરીદી કરી હતી, એટલે એ અનલૉક જ રહેશે. શરૂઆતથી સાથ આપવા બદલ આભાર.",
+      "back": "Cutling free becoming before you its purchase did had, so it unlocked only will-stay. beginning-from company give for thanks.",
+      "why": "'સાથ આપવા બદલ આભાર' (thanks for standing with us) is warmer than a bare thank-you for an early buyer; 'ખરીદી કરી હતી' avoids a gender for the app."
+    }
+  }
+}

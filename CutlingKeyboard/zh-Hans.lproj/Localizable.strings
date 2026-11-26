@@ -32,3 +32,6 @@
 "Cancel" = "取消";
 "%@, %lld of %lld" = "%@，第 %lld 项，共 %lld 项";
 "Space" = "空格键";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"%lld free cutlings used. Tap to unlock." = "%lld 个免费剪切片段已存满，轻点解锁";

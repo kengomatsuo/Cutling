@@ -1,0 +1,194 @@
+{
+  "id": {
+    "S1": {
+      "s": "%lld gratis",
+      "back": "5 free",
+      "why": "A bare count plus adjective is how an Indonesian label marks slots; no noun needed under the tiles."
+    },
+    "S2": {
+      "s": "Simpan lebih banyak",
+      "back": "Save more many",
+      "why": "An imperative invitation in the plain verb the app already uses for saving; reads as carrying on, not as a limit."
+    },
+    "S3": {
+      "s": "Jatah %lld cutling gratis Anda sudah terpakai. Semuanya tetap gratis dan bisa terus dipakai.",
+      "back": "Allowance 5 cutling free your already used. All-of-them stay free and can keep being-used.",
+      "why": "'Jatah' is the everyday word for a free allowance, so 'sudah terpakai' alone means all used; 'cutling' is the vocab item word, unpluralised after a number."
+    },
+    "S4": {
+      "s": "%lld cutling pertama Anda gratis.",
+      "back": "5 cutling first your free.",
+      "why": "States the offer as a fact instead of 'Anda bisa…', and avoids repeating the title's 'Simpan'."
+    },
+    "S5": {
+      "s": "%lld dari %lld cutling gratis sudah terpakai.",
+      "back": "3 of 5 cutling free already used.",
+      "why": "'X dari Y' is the native count pair; the number order matches, so plain %lld is enough."
+    },
+    "S6": {
+      "s": "Hingga %@ cutling",
+      "back": "Up-to 5.000 cutling",
+      "why": "Shortest native way to say the room on offer within 24 characters; 'Ruang untuk' ran one over."
+    },
+    "S7": {
+      "s": "Simpan sampai %@ cutling teks dan %lld cutling gambar.",
+      "back": "Save until 5.000 cutling text and 500 cutling image.",
+      "why": "Uses the vocab's own 'cutling teks' and 'cutling gambar'; 'sampai' varies from the bold line's 'hingga' the way a speaker would."
+    },
+    "S8": {
+      "s": "iPhone, iPad, dan Mac",
+      "back": "iPhone, iPad, and Mac",
+      "why": "PUEBI lists three items with a comma before 'dan'."
+    },
+    "S9": {
+      "s": "Satu pembelian berlaku di ketiganya, dengan Apple Account Anda.",
+      "back": "One purchase applies on the-three-of-them, with Apple Account your.",
+      "why": "'Berlaku' is how Indonesians say a purchase or ticket is valid somewhere; 'ketiganya' points back to the bold line; 'Apple Account' kept as the vocab writes it."
+    },
+    "S10": {
+      "s": "Bayar sekali saja",
+      "back": "Pay once only",
+      "why": "The phrase people say for a one-off payment; 'saja' makes it warm and final without selling."
+    },
+    "S11": {
+      "s": "Tanpa langganan, tanpa iklan, tanpa daftar akun.",
+      "back": "Without subscription, without ads, without register account.",
+      "why": "Repeating 'tanpa' is the native rhythm for a list of absences; 'daftar akun' is the verb people use, not the noun 'pendaftaran'."
+    },
+    "S12": {
+      "s": "Pulihkan Pembelian",
+      "back": "Restore Purchase",
+      "why": "The exact wording Indonesian iOS apps and StoreKit use for this App Store action, in its usual title case."
+    },
+    "S13": {
+      "s": "Memulihkan…",
+      "back": "Restoring…",
+      "why": "The active verb form of S12, with the ellipsis character."
+    },
+    "S14": {
+      "s": "Buka versi lengkap · %@",
+      "back": "Unlock version complete · Rp 79.000",
+      "why": "'Buka versi lengkap' is the Indonesian app phrase for unlocking; bare 'Buka Cutling' would read as 'open Cutling'. 'Seharga' would run one past 26, and 'Bayar sekali saja' sits directly above."
+    },
+    "S15": {
+      "s": "Buka versi lengkap",
+      "back": "Unlock version complete",
+      "why": "Same action as S14 without the price. It runs 18 characters, over the 14 budget, because shortening it brings back the 'open the app' reading; the button has room for S14's 26 plus the price."
+    },
+    "S16": {
+      "s": "Nanti saja",
+      "back": "Later only",
+      "why": "What an Indonesian says to put something off politely: 'maybe later', not 'no'."
+    },
+    "S17": {
+      "s": "Tutup",
+      "back": "Close",
+      "why": "iOS Indonesian's label for close buttons."
+    },
+    "S18": {
+      "s": "Semuanya milik Anda",
+      "back": "All-of-it belongs-to you",
+      "why": "Warm and a little proud in four words, using the vocab's 'Anda'; within 20 characters."
+    },
+    "S19": {
+      "s": "Terima kasih sudah membeli. Anda mendukung Cutling dan satu orang di baliknya.",
+      "back": "Thank you already buying. You support Cutling and one person behind-it.",
+      "why": "'Satu orang di baliknya' is the idiom for the one person behind something; it states a fact without pleading."
+    },
+    "S20": {
+      "s": "Selamat datang kembali. Pembelian Anda sudah dipulihkan.",
+      "back": "Welcome back. Purchase your already restored.",
+      "why": "The standard returning greeting, then 'dipulihkan' to echo S12 so the restore reads as done."
+    },
+    "S21": {
+      "s": "%lld dari %lld cutling gratis sudah terpakai",
+      "back": "3 of 5 cutling free already used",
+      "why": "Same wording as S5 so VoiceOver and screen agree; no closing period in a spoken label."
+    },
+    "S22": {
+      "s": "%lld cutling tersimpan. Kini ada ruang untuk %@.",
+      "back": "5 cutling saved. Now there-is room for 5.000.",
+      "why": "Indonesian has no plural after a number, so the same form works for 1, 2, 5 and 21."
+    },
+    "S23": {
+      "s": "Versi lengkap sudah aktif, dengan ruang untuk %@ cutling.",
+      "back": "Version complete already active, with room for 5.000 cutling.",
+      "why": "'Aktif' is the natural state word for something unlocked, paired with S14's 'versi lengkap' so the thing has one name."
+    },
+    "S24": {
+      "s": "Pembelian belum selesai",
+      "back": "Purchase not-yet finished",
+      "why": "'Belum' says it did not complete without blaming anyone and leaves room to try again."
+    },
+    "S25": {
+      "s": "App Store sedang tidak bisa dihubungi. Silakan coba beberapa saat lagi.",
+      "back": "App Store currently cannot be-contacted. Please try a-few moments more.",
+      "why": "'Sedang' marks it as temporary; 'beberapa saat lagi' is the usual 'shortly'; 'Silakan' fits the Anda register."
+    },
+    "S26": {
+      "s": "App Store tidak mengonfirmasi pembelian ini.",
+      "back": "App Store did-not confirm purchase this.",
+      "why": "Plain factual sentence with the App Store as the subject, active verb, KBBI spelling 'mengonfirmasi'."
+    },
+    "S27": {
+      "s": "Belum ada pembelian Cutling dengan Apple Account di perangkat ini.",
+      "back": "Not-yet there-is purchase Cutling with Apple Account on device this.",
+      "why": "'Belum ada' is the calm native 'there is none'; 'perangkat' matches the vocab's word for device."
+    },
+    "S28": {
+      "s": "Versi gratis menyimpan %lld cutling. Sekali bayar untuk versi lengkap, lalu simpan sesuka Anda.",
+      "back": "Version free saves 5 cutling. Once pay for version complete, then save as-you-like you.",
+      "why": "Two short spoken sentences pairing 'versi gratis' with 'versi lengkap'; 'sekali bayar' carries the one-time unlock and 'sesuka Anda' keeps it within 100 characters."
+    },
+    "S29": {
+      "s": "%lld dari %lld gratis",
+      "back": "4 of 5 free",
+      "why": "The compact count pair under the 'Cutling' title, so the item word is not repeated; within 18 characters."
+    },
+    "K1": {
+      "s": "%lld cutling gratis penuh. Buka Cutling",
+      "back": "5 cutling free full. Open Cutling",
+      "why": "'Penuh' is the word Indonesians use for full storage and fits the 38-character capsule; tapping really opens the app, so 'Buka Cutling' is literal, and 'Ketuk untuk…' would not fit."
+    },
+    "M1": {
+      "s": "Buka Versi Lengkap",
+      "back": "Unlock Version Complete",
+      "why": "A verb-led title in the title case of Indonesian macOS window and menu names, the same phrase as the iPhone button."
+    },
+    "M2": {
+      "s": "Buka Versi Lengkap…",
+      "back": "Unlock Version Complete…",
+      "why": "M1's command as a Mac button, with the ellipsis character because it opens a window."
+    },
+    "M3": {
+      "s": "Cutling gratis",
+      "back": "Cutling free",
+      "why": "The vocab's item word plus 'gratis' as a row label; the value carries the count."
+    },
+    "M4": {
+      "s": "%lld dari %lld",
+      "back": "3 of 5",
+      "why": "'X dari Y' is the native compact pair and stays within 10 characters."
+    },
+    "M5": {
+      "s": "Versi lengkap aktif",
+      "back": "Version complete active",
+      "why": "The status in the same words as S23, so the bought state has one name."
+    },
+    "M6": {
+      "s": "Satu pembelian membuka versi lengkap di iPhone, iPad, dan Mac.",
+      "back": "One purchase unlocks version complete on iPhone, iPad, and Mac.",
+      "why": "'Membuka versi lengkap' is the unlock phrase with its object, so it never reads as 'opens'; the list follows S8."
+    },
+    "M7": {
+      "s": "Versi lengkap aktif di iPhone, iPad, dan Mac dengan Apple Account ini.",
+      "back": "Version complete active on iPhone, iPad, and Mac with Apple Account this.",
+      "why": "Repeats M5's status word and S8's list; 'Apple Account' as the vocab writes it."
+    },
+    "M8": {
+      "s": "Anda membeli Cutling sebelum digratiskan, jadi versi lengkap tetap milik Anda. Terima kasih.",
+      "back": "You bought Cutling before made-free, so version complete stays belonging-to you. Thank you.",
+      "why": "'Digratiskan' is the everyday word for something being made free; 'tetap milik Anda' echoes S18 and the thanks comes last, plainly."
+    }
+  }
+}

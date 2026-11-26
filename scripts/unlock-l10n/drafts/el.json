@@ -1,0 +1,194 @@
+{
+ "el": {
+  "S1": {
+   "s": "%lld δωρεάν",
+   "back": "%lld free",
+   "why": "Like a shop tag (\"2+1 δωρεάν\"): the number plus δωρεάν, no noun, fits 12."
+  },
+  "S2": {
+   "s": "Αποθηκεύστε κι άλλα",
+   "back": "Save also others",
+   "why": "An invitation in the polite plural imperative the vocabulary uses; \"κι άλλα\" is the spoken \"more of them\", so it reads as carrying on, not as a limit."
+  },
+  "S3": {
+   "s": "Χρησιμοποιήσατε και τα %lld δωρεάν cutling. Μένουν δωρεάν και δουλεύουν όπως πάντα.",
+   "back": "You-used and the 5 free cutling. They-stay free and they-work as always.",
+   "why": "\"και τα πέντε\" is the Greek \"all five\"; cutling is the vocabulary's indeclinable item word, lowercase as in its iCloud sentence; δωρεάν is said twice on purpose because staying free is the point."
+  },
+  "S4": {
+   "s": "Τα πρώτα %lld cutling είναι δωρεάν.",
+   "back": "The first 5 cutling are free.",
+   "why": "States the allowance as a fact instead of \"Μπορείτε να…\" (you can), which a Greek screen would not open with."
+  },
+  "S5": {
+   "s": "Χρησιμοποιήσατε %lld από τα %lld δωρεάν cutling.",
+   "back": "You-used 3 of the 5 free cutling.",
+   "why": "Same verb as S3; Greek keeps used-then-total order, so plain %lld twice; works for 1 because cutling does not decline."
+  },
+  "S6": {
+   "s": "Χώρος για %@ cutling",
+   "back": "Room for 5.000 cutling",
+   "why": "A noun phrase like the other bold row lines; Greek formats 5.000 with a dot, which arrives in %@."
+  },
+  "S7": {
+   "s": "Αποθηκεύστε έως %@ κείμενα και %lld εικόνες.",
+   "back": "Save up-to 5.000 texts and 500 images.",
+   "why": "Uses the vocabulary's two kinds, Κείμενο and Εικόνες, in the plural, so the row does not invent \"cutling εικόνων\"."
+  },
+  "S8": {
+   "s": "iPhone, iPad και Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Greek joins the last of three with και and no comma before it."
+  },
+  "S9": {
+   "s": "Μία αγορά ισχύει σε κάθε συσκευή με τον λογαριασμό Apple σας.",
+   "back": "One purchase is-valid on every device with the account Apple your.",
+   "why": "\"λογαριασμό Apple σας\" and \"κάθε συσκευή\" are taken from the vocabulary's iCloud sentence; ισχύει is the plain word for a purchase that covers something."
+  },
+  "S10": {
+   "s": "Πληρώνετε μία φορά",
+   "back": "You-pay one time",
+   "why": "Plain present, polite plural; the everyday phrase, not the formal εφάπαξ, which the button carries instead."
+  },
+  "S11": {
+   "s": "Χωρίς συνδρομή, διαφημίσεις ή εγγραφή.",
+   "back": "Without subscription, advertisements or sign-up.",
+   "why": "Greek negates a list with one χωρίς and ή; εγγραφή (sign-up) keeps λογαριασμός for the Apple Account only."
+  },
+  "S12": {
+   "s": "Επαναφορά αγορών",
+   "back": "Restore of-purchases",
+   "why": "The wording Greek iOS apps print for the App Store restore action, sentence case."
+  },
+  "S13": {
+   "s": "Γίνεται επαναφορά…",
+   "back": "Is-happening restore…",
+   "why": "The usual Greek in-progress form for a short action label, ending with the ellipsis character U+2026."
+  },
+  "S14": {
+   "s": "Ξεκλείδωμα με %@ εφάπαξ",
+   "back": "Unlock with 4,99 € one-off",
+   "why": "A verbal noun, as Greek iOS buttons use; \"4,99 € εφάπαξ\" is how a Greek price tag says paid once. 21 characters before the price."
+  },
+  "S15": {
+   "s": "Ξεκλείδωμα",
+   "back": "Unlock",
+   "why": "The same verbal noun without the price."
+  },
+  "S16": {
+   "s": "Όχι τώρα",
+   "back": "Not now",
+   "why": "The phrase iOS in Greek uses for putting a prompt off without refusing it."
+  },
+  "S17": {
+   "s": "Κλείσιμο",
+   "back": "Closing",
+   "why": "The label Greek iOS gives its close buttons."
+  },
+  "S18": {
+   "s": "Όλα δικά σας πια",
+   "back": "All yours now",
+   "why": "\"πια\" carries the moment of change; spoken, warm, and covers the app and all the room at once."
+  },
+  "S19": {
+   "s": "Ευχαριστώ για την αγορά. Στηρίζει το Cutling και τον άνθρωπο που το φτιάχνει.",
+   "back": "I-thank for the purchase. It-supports the Cutling and the person who it makes.",
+   "why": "Singular ευχαριστώ, because one person makes the app and a plural \"we thank\" would claim a team; the singular \"τον άνθρωπο\" says it is one person without spelling it out."
+  },
+  "S20": {
+   "s": "Καλώς ξανάρθατε. Η αγορά σας επαναφέρθηκε.",
+   "back": "Well you-came-again. The purchase your was-restored.",
+   "why": "\"Καλώς ξανάρθατε\" is the native welcome back; επαναφέρθηκε matches the S12 action word."
+  },
+  "S21": {
+   "s": "%lld από %lld δωρεάν cutling σε χρήση",
+   "back": "3 of 5 free cutling in use",
+   "why": "A spoken label, so a phrase with no verb; σε χρήση reads cleanly after any number."
+  },
+  "S22": {
+   "s": "Έχετε %lld cutling, με χώρο για %@.",
+   "back": "You-have 5 cutling, with room for 5.000.",
+   "why": "cutling does not decline, so the same sentence is right for 1, 2, 5 and 21; χώρο repeats the S6 word."
+  },
+  "S23": {
+   "s": "Το Cutling ξεκλειδώθηκε. Χώρος για %@ cutling.",
+   "back": "The Cutling was-unlocked. Room for 5.000 cutling.",
+   "why": "Neuter article for the app as the vocabulary writes it (\"Το Cutling\"); the second sentence reuses S6 word for word."
+  },
+  "S24": {
+   "s": "Η αγορά δεν ολοκληρώθηκε",
+   "back": "The purchase not was-completed",
+   "why": "Passive with the purchase as subject, so no one is blamed; no full stop on an alert title."
+  },
+  "S25": {
+   "s": "Δεν υπάρχει σύνδεση με το App Store αυτή τη στιγμή. Δοκιμάστε ξανά σε λίγο.",
+   "back": "Not there-is connection with the App Store this the moment. Try again in a-little.",
+   "why": "Names the cause, then the way out; \"σε λίγο\" is the spoken shortly."
+  },
+  "S26": {
+   "s": "Το App Store δεν επιβεβαίωσε αυτή την αγορά.",
+   "back": "The App Store not confirmed this the purchase.",
+   "why": "One plain sentence with the App Store as subject, so the fault is not the person's."
+  },
+  "S27": {
+   "s": "Δεν βρέθηκε αγορά του Cutling στον λογαριασμό Apple αυτής της συσκευής.",
+   "back": "Not was-found purchase of-the Cutling in-the account Apple of-this the device.",
+   "why": "\"λογαριασμό Apple\" as in the vocabulary; \"βρέθηκε\" (was found) already says the app looked for an earlier one, so \"προηγούμενη\" is left out to stay inside 80."
+  },
+  "S28": {
+   "s": "Η δωρεάν έκδοση χωράει %lld cutling. Ξεκλειδώστε το Cutling μία φορά και αποθηκεύστε όσα θέλετε.",
+   "back": "The free version holds 5 cutling. Unlock the Cutling one time and save as-many-as you-want.",
+   "why": "χωράει is the spoken \"holds\" for room; the imperative pair says once-then-freely in the polite plural."
+  },
+  "S29": {
+   "s": "%lld από %lld δωρεάν",
+   "back": "4 of 5 free",
+   "why": "The compact pair a Greek subtitle uses; the item word is already the list title above it."
+  },
+  "K1": {
+   "s": "Τελείωσαν τα %lld δωρεάν. Ξεκλειδώστε εδώ",
+   "back": "They-ran-out the 5 free. Unlock here",
+   "why": "\"τελείωσαν τα δωρεάν\" is how Greek says a free allowance is used up (the items are not gone); \"εδώ\" tells the person to tap the capsule. 38 characters."
+  },
+  "M1": {
+   "s": "Ξεκλείδωμα του Cutling",
+   "back": "Unlocking of-the Cutling",
+   "why": "Greek Mac commands and window titles are verbal nouns (Άνοιγμα, Κλείσιμο), so this is the native shape of a verb-led command."
+  },
+  "M2": {
+   "s": "Ξεκλείδωμα του Cutling…",
+   "back": "Unlocking of-the Cutling…",
+   "why": "M1 with the ellipsis character because the button opens a window."
+  },
+  "M3": {
+   "s": "Δωρεάν cutling",
+   "back": "Free cutling",
+   "why": "The row label is the thing itself, with the vocabulary's item word."
+  },
+  "M4": {
+   "s": "%lld από %lld",
+   "back": "3 of 5",
+   "why": "Greek settings write a count pair with από, not a slash."
+  },
+  "M5": {
+   "s": "Ξεκλειδωμένο",
+   "back": "Unlocked",
+   "why": "Neuter, agreeing with \"το Cutling\" named in the section header."
+  },
+  "M6": {
+   "s": "Μία αγορά ξεκλειδώνει το Cutling σε iPhone, iPad και Mac.",
+   "back": "One purchase unlocks the Cutling on iPhone, iPad and Mac.",
+   "why": "Same device list as S8; the purchase is the subject, as in S9."
+  },
+  "M7": {
+   "s": "Ξεκλειδωμένο σε iPhone, iPad και Mac με αυτόν τον λογαριασμό Apple.",
+   "back": "Unlocked on iPhone, iPad and Mac with this the account Apple.",
+   "why": "Continues M5's neuter participle; \"λογαριασμό Apple\" as in the vocabulary."
+  },
+  "M8": {
+   "s": "Αγοράσατε το Cutling πριν γίνει δωρεάν, οπότε μένει ξεκλειδωμένο. Σας ευχαριστώ.",
+   "back": "You-bought the Cutling before it-becomes free, so it-stays unlocked. You I-thank.",
+   "why": "οπότε is the spoken \"so\"; singular ευχαριστώ for the same reason as S19, with σας for the polite form."
+  }
+ }
+}

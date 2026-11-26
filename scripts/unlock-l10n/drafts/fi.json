@@ -1,0 +1,194 @@
+{
+  "fi": {
+    "S1": {
+      "s": "%lld ilmaista",
+      "back": "5 free (ones)",
+      "why": "Numeral plus partitive, the way a Finnish label counts; 'ilmainen' is the everyday word for free and is used in every key."
+    },
+    "S2": {
+      "s": "Tallenna lisää",
+      "back": "Save more",
+      "why": "A short sinä imperative reads as an invitation in Finnish UI; 'Tilaa' was avoided everywhere because it is also the verb 'subscribe'."
+    },
+    "S3": {
+      "s": "Olet käyttänyt kaikki %lld ilmaista cutlingiasi. Ne pysyvät ilmaisina ja toimivat edelleen.",
+      "back": "You-have used all 5 free cutlings-your. They stay free-as and work still.",
+      "why": "Item word lowercased mid-sentence as the vocab file does; possessive suffix -si keeps it personal; 88 characters."
+    },
+    "S4": {
+      "s": "Ensimmäiset %lld cutlingia ovat ilmaisia.",
+      "back": "The-first 5 cutlings are free.",
+      "why": "States the fact rather than 'you can'; 'ensimmäiset' also tells that these first ones stay free."
+    },
+    "S5": {
+      "s": "Olet käyttänyt %1$lld/%2$lld ilmaisesta cutlingistasi.",
+      "back": "You-have used 3/5 of-free of-cutlings-your.",
+      "why": "3/5 is read aloud 'kolme viidestä', so the noun takes elative singular to agree; positional placeholders."
+    },
+    "S6": {
+      "s": "Tila %@ cutlingille",
+      "back": "Room for-5,000 cutlings",
+      "why": "Nominative headline; partitive 'Tilaa' would read first as the imperative 'Subscribe', which S11 promises there is none of."
+    },
+    "S7": {
+      "s": "Voit tallentaa jopa %@ teksticutlingia ja %lld kuvacutlingia.",
+      "back": "You-can save up-to 5,000 text-cutlings and 500 image-cutlings.",
+      "why": "Uses the vocab's own compound names Teksticutling and Kuvacutling so text and image items keep their one name; 'jopa' for up to, 'enintään' sounds like a limit."
+    },
+    "S8": {
+      "s": "iPhone, iPad ja Mac",
+      "back": "iPhone, iPad and Mac",
+      "why": "Finnish lists join the last item with 'ja' and no comma before it."
+    },
+    "S9": {
+      "s": "Yksi osto riittää kaikille Apple-tiliisi kirjautuneille laitteille.",
+      "back": "One purchase suffices for-all Apple-account-your signed-in devices.",
+      "why": "Echoes the vocab sentence 'Apple-tiliisi kirjautuneilla laitteilla' so the account and devices are named as the app already names them; 67 characters."
+    },
+    "S10": {
+      "s": "Maksat vain kerran",
+      "back": "You-pay only once",
+      "why": "Second person present, plain and warm; 'osto' and 'maksaa' are the only money words used across the set."
+    },
+    "S11": {
+      "s": "Ei tilausta, ei mainoksia, ei rekisteröitymistä.",
+      "back": "No subscription, no advertisements, no registering.",
+      "why": "The standard Finnish three-part negation for this promise; 'rekisteröityminen' is the usual word for signing up."
+    },
+    "S12": {
+      "s": "Palauta ostot",
+      "back": "Restore purchases",
+      "why": "The wording Finnish iOS apps use for the App Store restore action (ChatGPT's Finnish settings: Asetukset, Tili, Palauta ostot); fixes 'osto' as the one word for purchase."
+    },
+    "S13": {
+      "s": "Palautetaan…",
+      "back": "Restoring…",
+      "why": "Impersonal passive present, how Finnish UI shows work under way; single ellipsis character."
+    },
+    "S14": {
+      "s": "Avaa lukitus hintaan %@",
+      "back": "Open lock for-the-price %@",
+      "why": "'Avaa lukitus' is the Finnish unlock; 'hintaan' carries the price without putting a case ending on 4,99 €; 21 characters plus the price."
+    },
+    "S15": {
+      "s": "Avaa lukitus",
+      "back": "Open lock",
+      "why": "S14 without the price; 12 characters."
+    },
+    "S16": {
+      "s": "Ehkä myöhemmin",
+      "back": "Maybe later",
+      "why": "The polite Finnish putting-off phrase; 'Ei nyt' sounds like a refusal."
+    },
+    "S17": {
+      "s": "Sulje",
+      "back": "Close",
+      "why": "The verb iOS uses on Finnish close buttons."
+    },
+    "S18": {
+      "s": "Kaikki on nyt sinun",
+      "back": "Everything is now yours",
+      "why": "Warm and a little proud, and 'kaikki' includes the room the grid shows; 19 characters."
+    },
+    "S19": {
+      "s": "Kiitos ostostasi. Se tukee Cutlingia ja sen ainoaa tekijää.",
+      "back": "Thanks for-purchase-your. It supports Cutling and its only maker.",
+      "why": "Keeps 'osto' (elative + -si); 'ainoa tekijä' says one person makes it without English 'indie developer' phrasing; app name inflected as Finnish does names."
+    },
+    "S20": {
+      "s": "Tervetuloa takaisin. Aiempi ostosi on palautettu.",
+      "back": "Welcome back. Earlier purchase-your is restored.",
+      "why": "'palautettu' ties the greeting to the Palauta ostot link the person just tapped."
+    },
+    "S21": {
+      "s": "Ilmaisia cutlingeja %2$lld, niistä käytetty %1$lld.",
+      "back": "Free cutlings 5, of-them used 3.",
+      "why": "Numbers stand in nominative so VoiceOver never has to inflect a digit and the form holds for 1; total first, as a Finn would say it, so placeholders are positional."
+    },
+    "S22": {
+      "s": "Cutlingeja %lld. Niitä mahtuu nyt %@.",
+      "back": "Cutlings 5. Of-them fits now 5,000.",
+      "why": "Label-and-number form works for 1, 2, 5 and 21 without plural forms; 'mahtuu' keeps 5,000 in nominative for speech."
+    },
+    "S23": {
+      "s": "Cutlingin lukitus on avattu. Siihen mahtuu nyt %@ cutlingia.",
+      "back": "Cutling's lock is opened. Into-it fits now 5,000 cutlings.",
+      "why": "Genitive 'Cutlingin lukitus' is the natural unlocked announcement; numeral plus partitive is correct for 5,000."
+    },
+    "S24": {
+      "s": "Osto ei onnistunut",
+      "back": "Purchase did-not succeed",
+      "why": "Calm, names what happened, blames no one; 18 characters."
+    },
+    "S25": {
+      "s": "App Storeen ei saada juuri nyt yhteyttä. Yritä hetken kuluttua uudelleen.",
+      "back": "To-App-Store not get right now connection. Try in-a-moment's time again.",
+      "why": "Impersonal 'ei saada yhteyttä' is the idiomatic no-connection phrasing; 73 characters."
+    },
+    "S26": {
+      "s": "App Store ei vahvistanut tätä ostoa.",
+      "back": "App Store did-not confirm this purchase.",
+      "why": "Plain fact, 'osto' again; 36 characters."
+    },
+    "S27": {
+      "s": "Tämän laitteen Apple-tilillä ei ole aiempaa Cutling-ostoa.",
+      "back": "This device's Apple-account-on is-not earlier Cutling-purchase.",
+      "why": "'Cutling-osto' hyphenates the name in a compound as Finnish requires; 58 characters."
+    },
+    "S28": {
+      "s": "Ilmaisversioon mahtuu %lld cutlingia. Avaa Cutlingin lukitus kerran, niin voit tallentaa vapaasti.",
+      "back": "Into-free-version fits 5 cutlings. Open Cutling's lock once, so you-can save freely.",
+      "why": "'Ilmaisversio' is the usual Finnish name for a free version; the 'avaa…, niin…' pattern is how a Finn gives a condition aloud; 95 characters."
+    },
+    "S29": {
+      "s": "Ilmaisia käytetty %1$lld/%2$lld",
+      "back": "Free-ones used 4/5",
+      "why": "Label then value, as a grey subtitle reads; 21 characters, 3 over the 18 budget, because every shorter form dropped either 'free' or 'used'."
+    },
+    "K1": {
+      "s": "Ilmaiset %lld käytetty. Avaa lukitus",
+      "back": "The-free 5 used. Open lock",
+      "why": "Definite 'Ilmaiset 5' means all of them without an extra word; ends on the action the tap takes, no full stop on it; 36 characters."
+    },
+    "M1": {
+      "s": "Avaa Cutlingin lukitus",
+      "back": "Open Cutling's lock",
+      "why": "Verb-led command name as Finnish Mac window titles are; 22 characters."
+    },
+    "M2": {
+      "s": "Avaa Cutlingin lukitus…",
+      "back": "Open Cutling's lock…",
+      "why": "Same command as M1 with the ellipsis character because it opens a window."
+    },
+    "M3": {
+      "s": "Ilmaiset cutlingit",
+      "back": "Free cutlings",
+      "why": "Row label in nominative plural; item word lowercased after the first word as in the vocab sentence."
+    },
+    "M4": {
+      "s": "%1$lld/%2$lld",
+      "back": "3/5",
+      "why": "Compact number pair, no words needed next to the M3 label."
+    },
+    "M5": {
+      "s": "Lukitus avattu",
+      "back": "Lock opened",
+      "why": "The status phrase Finns know from their own phones; 'Cutling avattu' would read as 'Cutling opened'."
+    },
+    "M6": {
+      "s": "Yksi osto avaa Cutlingin lukituksen iPhonessa, iPadissa ja Macissa.",
+      "back": "One purchase opens Cutling's lock on-iPhone, on-iPad and on-Mac.",
+      "why": "Device names take the inessive -ssa/-ssä as Apple's Finnish does; 67 characters."
+    },
+    "M7": {
+      "s": "Lukitus avattu iPhonessa, iPadissa ja Macissa tällä Apple-tilillä.",
+      "back": "Lock opened on-iPhone, on-iPad and on-Mac with-this Apple-account.",
+      "why": "Repeats the M5 status words so the row and the line under it agree; 66 characters."
+    },
+    "M8": {
+      "s": "Ostit Cutlingin ennen kuin siitä tuli ilmainen, joten lukitus on avattu pysyvästi. Kiitos tuestasi.",
+      "back": "You-bought Cutling before it became free, so lock is opened permanently. Thanks for-support-your.",
+      "why": "'siitä tuli ilmainen' is how Finns say an app went free; thanks for support, not for the purchase, since the payment was long ago; 99 characters."
+    }
+  }
+}

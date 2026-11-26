@@ -32,3 +32,6 @@
 "Cancel" = "Cancel·la";
 "%@, %lld of %lld" = "%@, %lld de %lld";
 "Space" = "Espai";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"%lld free cutlings used. Tap to unlock." = "Ja tens els %lld gratuïts. Desbloqueja";

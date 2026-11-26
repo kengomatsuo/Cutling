@@ -1,0 +1,386 @@
+{
+ "mr": {
+  "S1": {
+   "s": "%lld मोफत",
+   "back": "5 free",
+   "why": "Everyday मोफत, not the formal विनामूल्य; a label needs only the count and the word. Same in mr-IN: Marathi is written the same way across India and both vocab files are identical."
+  },
+  "S2": {
+   "s": "जतन करत राहा",
+   "back": "save doing keep (keep saving)",
+   "why": "An invitation to carry on, polite imperative राहा for तुम्ही; no warning or limit word, 12 characters."
+  },
+  "S3": {
+   "s": "तुमच्या %lld मोफत जागा भरल्या आहेत. त्यांतले कटलिंग मोफतच राहतील आणि नेहमीसारखे चालतील.",
+   "back": "Your 5 free places filled have. Those-in-them cutlings free-only will-stay and as-always will-run.",
+   "why": "The tiles are slots, so used-up becomes 'places filled' (जागा, feminine); future tense keeps कटलिंग free of gender agreement."
+  },
+  "S4": {
+   "s": "तुम्ही %lld कटलिंग मोफत जतन करू शकता.",
+   "back": "You 5 cutlings free save can.",
+   "why": "Plain statement in तुम्ही with the vocab item word कटलिंग, which stays the same in the plural."
+  },
+  "S5": {
+   "s": "%2$lld पैकी %1$lld मोफत जागा भरल्या आहेत.",
+   "back": "5 out-of 3 free places filled have.",
+   "why": "Marathi says the total first ('5 पैकी 3'), so positional placeholders; same 'free places' as S3."
+  },
+  "S6": {
+   "s": "%@ कटलिंगसाठी जागा",
+   "back": "5,000 cutlings-for room",
+   "why": "Noun phrase like a heading; जागा is the same room word the free slots use."
+  },
+  "S7": {
+   "s": "%@ पर्यंत मजकूर कटलिंग आणि %lld पर्यंत चित्रे जतन करता येतील.",
+   "back": "5,000 up-to text cutlings and 500 up-to images save can-will.",
+   "why": "मजकूर कटलिंग and चित्रे straight from the vocab; impersonal 'करता येतील' avoids agreement and reads as a capability."
+  },
+  "S8": {
+   "s": "iPhone, iPad आणि Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Marathi lists with a comma and आणि before the last; device names stay Latin as the vocab writes Mac."
+  },
+  "S9": {
+   "s": "एकच खरेदी तिन्हींवर चालते, तुमच्या Apple Account मधून.",
+   "back": "One purchase all-three-on works, your Apple Account through.",
+   "why": "तिन्हींवर points back at S8 so the devices are not named twice; Apple Account kept Latin as in the vocab."
+  },
+  "S10": {
+   "s": "एकदाच पैसे भरायचे",
+   "back": "once-only money to-pay",
+   "why": "The spoken obligative भरायचे is how a Marathi speaker says 'you pay just once'; एकदाच carries the 'only once'."
+  },
+  "S11": {
+   "s": "सदस्यता नाही, जाहिराती नाहीत, खाते उघडायची गरज नाही.",
+   "back": "Subscription not, advertisements are-not, account to-open need not.",
+   "why": "Three plain negations; 'no need to open an account' is the native way to say no sign-up, and खाते is kept apart from Apple Account."
+  },
+  "S12": {
+   "s": "खरेदी पुनर्संचयित करा",
+   "back": "Purchase restore do",
+   "why": "iOS has no Marathi system UI, so this follows the wording Marathi store apps use for Restore Purchases."
+  },
+  "S13": {
+   "s": "पुनर्संचयित करत आहे…",
+   "back": "Restore doing is…",
+   "why": "Present continuous of the S12 verb, with the single ellipsis character."
+  },
+  "S14": {
+   "s": "एकदाच %@ मध्ये अनलॉक करा",
+   "back": "Once-only 4.99 in unlock do",
+   "why": "'मध्ये' after a price is the Marathi 'for'; एकदाच makes it clear the price is paid one time."
+  },
+  "S15": {
+   "s": "अनलॉक करा",
+   "back": "Unlock do",
+   "why": "The S14 action with no price; अनलॉक is the word Marathi phone users already see."
+  },
+  "S16": {
+   "s": "आत्ता नको",
+   "back": "Right-now not-wanted",
+   "why": "The everyday polite 'not now': putting it off, not a refusal."
+  },
+  "S17": {
+   "s": "बंद करा",
+   "back": "Close do",
+   "why": "The plain verb for shutting a window or sheet."
+  },
+  "S18": {
+   "s": "आता सारे तुमचेच",
+   "back": "Now all yours-only",
+   "why": "सारे with the emphatic -च gives the warm, slightly proud 'all of it is yours'; 15 characters."
+  },
+  "S19": {
+   "s": "खरेदीबद्दल धन्यवाद. यातून कटलिंग आणि ते एकट्याने बनवणाऱ्याला आधार मिळतो.",
+   "back": "Purchase-about thanks. This-from Cutling and it alone-by maker-to support gets.",
+   "why": "Thanks first, then what the money does; 'एकट्याने बनवणारा' names the one maker without a job title."
+  },
+  "S20": {
+   "s": "पुन्हा स्वागत आहे. तुमची आधीची खरेदी परत मिळाली.",
+   "back": "Again welcome is. Your earlier purchase back got.",
+   "why": "A returning person's greeting, then the fact; खरेदी is feminine so तुमची, आधीची, मिळाली agree."
+  },
+  "S21": {
+   "s": "%2$lld पैकी %1$lld मोफत जागा भरल्या आहेत",
+   "back": "5 out-of 3 free places filled have",
+   "why": "Same words as S5 so the voice matches the screen; no full stop for VoiceOver."
+  },
+  "S22": {
+   "s": "%lld कटलिंग, आता %@ साठी जागा",
+   "back": "5 cutlings, now 5,000 for room",
+   "why": "कटलिंग does not change for 1, 2, 5 or 21 and the phrase has no verb, so no plural form is needed."
+  },
+  "S23": {
+   "s": "कटलिंग अनलॉक झाले. आता %@ कटलिंगसाठी जागा आहे.",
+   "back": "Cutling unlocked became. Now 5,000 cutlings-for room is.",
+   "why": "The app name takes neuter singular झाले, as Marathi treats an app; second sentence reuses S6."
+  },
+  "S24": {
+   "s": "खरेदी पूर्ण झाली नाही",
+   "back": "Purchase complete became not",
+   "why": "States what happened with no actor, so nobody is blamed."
+  },
+  "S25": {
+   "s": "App Store शी आत्ता संपर्क होत नाही. थोड्या वेळाने पुन्हा प्रयत्न करा.",
+   "back": "App Store with right-now contact happening not. Little time-after again try do.",
+   "why": "Names the cause, then the way out; आत्ता keeps it temporary."
+  },
+  "S26": {
+   "s": "App Store ने ही खरेदी निश्चित केली नाही.",
+   "back": "App Store by this purchase confirmed did not.",
+   "why": "The App Store is the subject, so the fault sits there, not with the person."
+  },
+  "S27": {
+   "s": "या उपकरणावर साइन इन केलेल्या Apple Account मध्ये कटलिंगची आधीची खरेदी नाही.",
+   "back": "This device-on signed in Apple Account in Cutling's earlier purchase is-not.",
+   "why": "Reuses the vocab's 'उपकरणावर साइन इन केलेल्या' and 'Apple Account मध्ये' phrasing."
+  },
+  "S28": {
+   "s": "मोफत आवृत्तीत %lld कटलिंग जतन करता येतात. कटलिंग एकदा अनलॉक केल्यावर हवे तितके जतन करा.",
+   "back": "Free version-in 5 cutlings save can-be. Cutling once unlock after as-many-as wanted save do.",
+   "why": "'मोफत आवृत्ती' keeps the app name from colliding with the item word in the first sentence; हवे तितके is the native 'as many as you like'."
+  },
+  "S29": {
+   "s": "%2$lld पैकी %1$lld मोफत",
+   "back": "5 out-of 4 free",
+   "why": "Compact total-first count under the title कटलिंग, which supplies the noun."
+  },
+  "K1": {
+   "s": "%lld मोफत जागा भरल्या. अनलॉकसाठी टॅप करा",
+   "back": "5 free places filled. Unlock-for tap do",
+   "why": "Same 'free places filled' as S3; about 26 aksharas with the number, inside 30."
+  },
+  "M1": {
+   "s": "कटलिंग अनलॉक करा",
+   "back": "Cutling unlock do",
+   "why": "Verb-led command in the polite imperative, as Marathi menu commands read."
+  },
+  "M2": {
+   "s": "कटलिंग अनलॉक करा…",
+   "back": "Cutling unlock do…",
+   "why": "M1 with the ellipsis character because it opens a window."
+  },
+  "M3": {
+   "s": "मोफत जागा",
+   "back": "Free places",
+   "why": "The same 'free places' the sheet uses, as a row label."
+  },
+  "M4": {
+   "s": "%2$lld पैकी %1$lld",
+   "back": "5 out-of 3",
+   "why": "The compact Marathi number pair, total first, positional placeholders."
+  },
+  "M5": {
+   "s": "कटलिंग अनलॉक झाले",
+   "back": "Cutling unlocked became",
+   "why": "Same form as S23's first sentence."
+  },
+  "M6": {
+   "s": "एकाच खरेदीत iPhone, iPad आणि Mac वर कटलिंग अनलॉक होते.",
+   "back": "One-only purchase-in iPhone, iPad and Mac on Cutling unlocked becomes.",
+   "why": "S8's list reused; the habitual होते states a fact, not a pitch."
+  },
+  "M7": {
+   "s": "या Apple Account सह iPhone, iPad आणि Mac वर कटलिंग अनलॉक आहे.",
+   "back": "This Apple Account with iPhone, iPad and Mac on Cutling unlocked is.",
+   "why": "Present state with आहे; Apple Account stays Latin."
+  },
+  "M8": {
+   "s": "कटलिंग मोफत होण्याआधीच तुम्ही ते घेतले होते, म्हणून ते अनलॉकच राहील. साथ दिल्याबद्दल धन्यवाद.",
+   "back": "Cutling free becoming-before-already you it bought had, so it unlocked-only will-stay. Support given-for thanks.",
+   "why": "Pluperfect घेतले होते for the earlier purchase; 'साथ दिल्याबद्दल' thanks them for standing by the app."
+  }
+ },
+ "mr-IN": {
+  "S1": {
+   "s": "%lld मोफत",
+   "back": "5 free",
+   "why": "Everyday मोफत, not the formal विनामूल्य; a label needs only the count and the word. Same in mr-IN: Marathi is written the same way across India and both vocab files are identical."
+  },
+  "S2": {
+   "s": "जतन करत राहा",
+   "back": "save doing keep (keep saving)",
+   "why": "An invitation to carry on, polite imperative राहा for तुम्ही; no warning or limit word, 12 characters."
+  },
+  "S3": {
+   "s": "तुमच्या %lld मोफत जागा भरल्या आहेत. त्यांतले कटलिंग मोफतच राहतील आणि नेहमीसारखे चालतील.",
+   "back": "Your 5 free places filled have. Those-in-them cutlings free-only will-stay and as-always will-run.",
+   "why": "The tiles are slots, so used-up becomes 'places filled' (जागा, feminine); future tense keeps कटलिंग free of gender agreement."
+  },
+  "S4": {
+   "s": "तुम्ही %lld कटलिंग मोफत जतन करू शकता.",
+   "back": "You 5 cutlings free save can.",
+   "why": "Plain statement in तुम्ही with the vocab item word कटलिंग, which stays the same in the plural."
+  },
+  "S5": {
+   "s": "%2$lld पैकी %1$lld मोफत जागा भरल्या आहेत.",
+   "back": "5 out-of 3 free places filled have.",
+   "why": "Marathi says the total first ('5 पैकी 3'), so positional placeholders; same 'free places' as S3."
+  },
+  "S6": {
+   "s": "%@ कटलिंगसाठी जागा",
+   "back": "5,000 cutlings-for room",
+   "why": "Noun phrase like a heading; जागा is the same room word the free slots use."
+  },
+  "S7": {
+   "s": "%@ पर्यंत मजकूर कटलिंग आणि %lld पर्यंत चित्रे जतन करता येतील.",
+   "back": "5,000 up-to text cutlings and 500 up-to images save can-will.",
+   "why": "मजकूर कटलिंग and चित्रे straight from the vocab; impersonal 'करता येतील' avoids agreement and reads as a capability."
+  },
+  "S8": {
+   "s": "iPhone, iPad आणि Mac",
+   "back": "iPhone, iPad and Mac",
+   "why": "Marathi lists with a comma and आणि before the last; device names stay Latin as the vocab writes Mac."
+  },
+  "S9": {
+   "s": "एकच खरेदी तिन्हींवर चालते, तुमच्या Apple Account मधून.",
+   "back": "One purchase all-three-on works, your Apple Account through.",
+   "why": "तिन्हींवर points back at S8 so the devices are not named twice; Apple Account kept Latin as in the vocab."
+  },
+  "S10": {
+   "s": "एकदाच पैसे भरायचे",
+   "back": "once-only money to-pay",
+   "why": "The spoken obligative भरायचे is how a Marathi speaker says 'you pay just once'; एकदाच carries the 'only once'."
+  },
+  "S11": {
+   "s": "सदस्यता नाही, जाहिराती नाहीत, खाते उघडायची गरज नाही.",
+   "back": "Subscription not, advertisements are-not, account to-open need not.",
+   "why": "Three plain negations; 'no need to open an account' is the native way to say no sign-up, and खाते is kept apart from Apple Account."
+  },
+  "S12": {
+   "s": "खरेदी पुनर्संचयित करा",
+   "back": "Purchase restore do",
+   "why": "iOS has no Marathi system UI, so this follows the wording Marathi store apps use for Restore Purchases."
+  },
+  "S13": {
+   "s": "पुनर्संचयित करत आहे…",
+   "back": "Restore doing is…",
+   "why": "Present continuous of the S12 verb, with the single ellipsis character."
+  },
+  "S14": {
+   "s": "एकदाच %@ मध्ये अनलॉक करा",
+   "back": "Once-only 4.99 in unlock do",
+   "why": "'मध्ये' after a price is the Marathi 'for'; एकदाच makes it clear the price is paid one time."
+  },
+  "S15": {
+   "s": "अनलॉक करा",
+   "back": "Unlock do",
+   "why": "The S14 action with no price; अनलॉक is the word Marathi phone users already see."
+  },
+  "S16": {
+   "s": "आत्ता नको",
+   "back": "Right-now not-wanted",
+   "why": "The everyday polite 'not now': putting it off, not a refusal."
+  },
+  "S17": {
+   "s": "बंद करा",
+   "back": "Close do",
+   "why": "The plain verb for shutting a window or sheet."
+  },
+  "S18": {
+   "s": "आता सारे तुमचेच",
+   "back": "Now all yours-only",
+   "why": "सारे with the emphatic -च gives the warm, slightly proud 'all of it is yours'; 15 characters."
+  },
+  "S19": {
+   "s": "खरेदीबद्दल धन्यवाद. यातून कटलिंग आणि ते एकट्याने बनवणाऱ्याला आधार मिळतो.",
+   "back": "Purchase-about thanks. This-from Cutling and it alone-by maker-to support gets.",
+   "why": "Thanks first, then what the money does; 'एकट्याने बनवणारा' names the one maker without a job title."
+  },
+  "S20": {
+   "s": "पुन्हा स्वागत आहे. तुमची आधीची खरेदी परत मिळाली.",
+   "back": "Again welcome is. Your earlier purchase back got.",
+   "why": "A returning person's greeting, then the fact; खरेदी is feminine so तुमची, आधीची, मिळाली agree."
+  },
+  "S21": {
+   "s": "%2$lld पैकी %1$lld मोफत जागा भरल्या आहेत",
+   "back": "5 out-of 3 free places filled have",
+   "why": "Same words as S5 so the voice matches the screen; no full stop for VoiceOver."
+  },
+  "S22": {
+   "s": "%lld कटलिंग, आता %@ साठी जागा",
+   "back": "5 cutlings, now 5,000 for room",
+   "why": "कटलिंग does not change for 1, 2, 5 or 21 and the phrase has no verb, so no plural form is needed."
+  },
+  "S23": {
+   "s": "कटलिंग अनलॉक झाले. आता %@ कटलिंगसाठी जागा आहे.",
+   "back": "Cutling unlocked became. Now 5,000 cutlings-for room is.",
+   "why": "The app name takes neuter singular झाले, as Marathi treats an app; second sentence reuses S6."
+  },
+  "S24": {
+   "s": "खरेदी पूर्ण झाली नाही",
+   "back": "Purchase complete became not",
+   "why": "States what happened with no actor, so nobody is blamed."
+  },
+  "S25": {
+   "s": "App Store शी आत्ता संपर्क होत नाही. थोड्या वेळाने पुन्हा प्रयत्न करा.",
+   "back": "App Store with right-now contact happening not. Little time-after again try do.",
+   "why": "Names the cause, then the way out; आत्ता keeps it temporary."
+  },
+  "S26": {
+   "s": "App Store ने ही खरेदी निश्चित केली नाही.",
+   "back": "App Store by this purchase confirmed did not.",
+   "why": "The App Store is the subject, so the fault sits there, not with the person."
+  },
+  "S27": {
+   "s": "या उपकरणावर साइन इन केलेल्या Apple Account मध्ये कटलिंगची आधीची खरेदी नाही.",
+   "back": "This device-on signed in Apple Account in Cutling's earlier purchase is-not.",
+   "why": "Reuses the vocab's 'उपकरणावर साइन इन केलेल्या' and 'Apple Account मध्ये' phrasing."
+  },
+  "S28": {
+   "s": "मोफत आवृत्तीत %lld कटलिंग जतन करता येतात. कटलिंग एकदा अनलॉक केल्यावर हवे तितके जतन करा.",
+   "back": "Free version-in 5 cutlings save can-be. Cutling once unlock after as-many-as wanted save do.",
+   "why": "'मोफत आवृत्ती' keeps the app name from colliding with the item word in the first sentence; हवे तितके is the native 'as many as you like'."
+  },
+  "S29": {
+   "s": "%2$lld पैकी %1$lld मोफत",
+   "back": "5 out-of 4 free",
+   "why": "Compact total-first count under the title कटलिंग, which supplies the noun."
+  },
+  "K1": {
+   "s": "%lld मोफत जागा भरल्या. अनलॉकसाठी टॅप करा",
+   "back": "5 free places filled. Unlock-for tap do",
+   "why": "Same 'free places filled' as S3; about 26 aksharas with the number, inside 30."
+  },
+  "M1": {
+   "s": "कटलिंग अनलॉक करा",
+   "back": "Cutling unlock do",
+   "why": "Verb-led command in the polite imperative, as Marathi menu commands read."
+  },
+  "M2": {
+   "s": "कटलिंग अनलॉक करा…",
+   "back": "Cutling unlock do…",
+   "why": "M1 with the ellipsis character because it opens a window."
+  },
+  "M3": {
+   "s": "मोफत जागा",
+   "back": "Free places",
+   "why": "The same 'free places' the sheet uses, as a row label."
+  },
+  "M4": {
+   "s": "%2$lld पैकी %1$lld",
+   "back": "5 out-of 3",
+   "why": "The compact Marathi number pair, total first, positional placeholders."
+  },
+  "M5": {
+   "s": "कटलिंग अनलॉक झाले",
+   "back": "Cutling unlocked became",
+   "why": "Same form as S23's first sentence."
+  },
+  "M6": {
+   "s": "एकाच खरेदीत iPhone, iPad आणि Mac वर कटलिंग अनलॉक होते.",
+   "back": "One-only purchase-in iPhone, iPad and Mac on Cutling unlocked becomes.",
+   "why": "S8's list reused; the habitual होते states a fact, not a pitch."
+  },
+  "M7": {
+   "s": "या Apple Account सह iPhone, iPad आणि Mac वर कटलिंग अनलॉक आहे.",
+   "back": "This Apple Account with iPhone, iPad and Mac on Cutling unlocked is.",
+   "why": "Present state with आहे; Apple Account stays Latin."
+  },
+  "M8": {
+   "s": "कटलिंग मोफत होण्याआधीच तुम्ही ते घेतले होते, म्हणून ते अनलॉकच राहील. साथ दिल्याबद्दल धन्यवाद.",
+   "back": "Cutling free becoming-before-already you it bought had, so it unlocked-only will-stay. Support given-for thanks.",
+   "why": "Pluperfect घेतले होते for the earlier purchase; 'साथ दिल्याबद्दल' thanks them for standing by the app."
+  }
+ }
+}

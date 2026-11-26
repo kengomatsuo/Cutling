@@ -1,0 +1,194 @@
+{
+  "it": {
+    "S1": {
+      "s": "%lld gratis",
+      "back": "5 free",
+      "why": "Invariable 'gratis' as a short label (12 max); the slots need no noun, the tiles are right above."
+    },
+    "S2": {
+      "s": "Continua a salvare",
+      "back": "Continue to save",
+      "why": "An invitation to keep going, imperative in tu like the vocabulary's 'Attiva'; no limit or sales wording."
+    },
+    "S3": {
+      "s": "Hai usato tutti i %lld cutling gratuiti. Restano gratis e funzionano come sempre.",
+      "back": "You-have used all the 5 cutling free. They-stay free and they-work as always.",
+      "why": "Lowercase invariable 'cutling' as in the vocabulary sentence; 'funzionano come sempre' is how an Italian says nothing changes."
+    },
+    "S4": {
+      "s": "I primi %lld cutling sono gratis.",
+      "back": "The first 5 cutling are free.",
+      "why": "States the fact instead of 'Puoi salvare…', which reads like a manual; 'i primi' also hints that more can follow."
+    },
+    "S5": {
+      "s": "Hai usato %lld dei %lld cutling gratuiti.",
+      "back": "You-have used 3 of-the 5 cutling free.",
+      "why": "'X dei Y' reads right for any used count from 1 up; the numbers keep English order, so no positional forms are needed."
+    },
+    "S6": {
+      "s": "Spazio per %@ cutling",
+      "back": "Space for 5.000 cutling",
+      "why": "Noun phrase as a row heading, 24 characters with '5.000'; 'cutling' stays invariable in the plural."
+    },
+    "S7": {
+      "s": "Salva fino a %@ cutling di testo e %lld immagini.",
+      "back": "Save up to 5.000 cutling of text and 500 images.",
+      "why": "'Cutling di testo' and 'immagini' are the vocabulary's own names for the two kinds."
+    },
+    "S8": {
+      "s": "iPhone, iPad e Mac",
+      "back": "iPhone, iPad and Mac",
+      "why": "Italian joins the last of three with 'e' and no comma before it."
+    },
+    "S9": {
+      "s": "Un solo acquisto vale su tutti e tre, con il tuo account Apple.",
+      "back": "One single purchase is-valid on all and three, with the your account Apple.",
+      "why": "'Tutti e tre' ties it to the three devices above (bare 'tutti' would read as 'everyone'); 'account Apple' written as in the vocabulary."
+    },
+    "S10": {
+      "s": "Paghi una volta sola",
+      "back": "You-pay one time only",
+      "why": "Second person present, the way a shop assistant would say it; 'una volta sola' stresses once more than 'una volta'."
+    },
+    "S11": {
+      "s": "Niente abbonamento, niente pubblicità, niente registrazione.",
+      "back": "Nothing subscription, nothing advertising, nothing registration.",
+      "why": "The three things the brief names, each with colloquial 'niente'; 'registrazione' is the Italian word for signing up; 60 characters."
+    },
+    "S12": {
+      "s": "Ripristina acquisti",
+      "back": "Restore purchases",
+      "why": "The wording Italian iOS apps use for the App Store restore action."
+    },
+    "S13": {
+      "s": "Ripristino in corso…",
+      "back": "Restoring in progress…",
+      "why": "The usual Italian progress phrase, with the single ellipsis character."
+    },
+    "S14": {
+      "s": "Sblocca tutto a %@",
+      "back": "Unlock everything at 4,99 €",
+      "why": "'a' plus price is how an Italian shop states a price; 'tutto' matches S18, and S10 already says it is paid once."
+    },
+    "S15": {
+      "s": "Sblocca tutto",
+      "back": "Unlock everything",
+      "why": "The same button without the price, 13 characters."
+    },
+    "S16": {
+      "s": "Non ora",
+      "back": "Not now",
+      "why": "The iOS Italian wording for putting something off politely, without refusing."
+    },
+    "S17": {
+      "s": "Chiudi",
+      "back": "Close",
+      "why": "The plain iOS Italian label for close buttons."
+    },
+    "S18": {
+      "s": "Ora è tutto tuo",
+      "back": "Now is all yours",
+      "why": "Warm and short, tu form; 'tutto' takes in the room the grid has just shown."
+    },
+    "S19": {
+      "s": "Grazie: con il tuo acquisto sostieni Cutling e l’unica persona che ci lavora.",
+      "back": "Thanks: with the your purchase you-support Cutling and the only person who on-it works.",
+      "why": "Thanks first, then what the purchase does; 'l'unica persona che ci lavora' avoids a gendered 'da solo/da sola'."
+    },
+    "S20": {
+      "s": "Che piacere rivederti: il tuo acquisto è stato ripristinato.",
+      "back": "What pleasure to-see-you-again: the your purchase has been restored.",
+      "why": "'Rivederti' greets a returning buyer without the gendered 'Bentornato/Bentornata'; 'ripristinato' echoes S12."
+    },
+    "S21": {
+      "s": "Cutling gratuiti usati: %lld di %lld",
+      "back": "Cutling free used: 3 of 5",
+      "why": "Label then count, so VoiceOver reads it right for any count from 0 to 5; 'X di Y' is how Italian iOS reads a count out of a total."
+    },
+    "S22": {
+      "s": "Cutling salvati: %lld. Ora c’è spazio per %@.",
+      "back": "Cutling saved: 5. Now there-is space for 5.000.",
+      "why": "Label plus number agrees for 1, 2, 5 and 21 alike, with no singular or plural ending to get wrong."
+    },
+    "S23": {
+      "s": "Sbloccato. Ora hai spazio per %@ cutling.",
+      "back": "Unlocked. Now you-have space for 5.000 cutling.",
+      "why": "Leaves out the app's name so VoiceOver does not say 'Cutling' and 'cutling' back to back."
+    },
+    "S24": {
+      "s": "Acquisto non completato",
+      "back": "Purchase not completed",
+      "why": "A plain statement with no subject, so nobody is blamed."
+    },
+    "S25": {
+      "s": "Impossibile connettersi all’App Store in questo momento. Riprova tra poco.",
+      "back": "Impossible to-connect to-the App Store in this moment. Try-again in a-little.",
+      "why": "'Impossibile connettersi' is the usual Italian iOS phrasing; 'Riprova tra poco' gives the way out."
+    },
+    "S26": {
+      "s": "L’App Store non ha confermato questo acquisto.",
+      "back": "The App Store not has confirmed this purchase.",
+      "why": "The App Store is the subject, so the person is not blamed."
+    },
+    "S27": {
+      "s": "Non risultano acquisti di Cutling sull’account Apple di questo dispositivo.",
+      "back": "Not result purchases of Cutling on-the account Apple of this device.",
+      "why": "'Non risultano' is the natural Italian for 'nothing on record'; 'account Apple' and 'dispositivo' as in the vocabulary sentence."
+    },
+    "S28": {
+      "s": "Nella versione gratuita c’è posto per %lld cutling. Sblocca Cutling una volta e salvane quanti vuoi.",
+      "back": "In-the version free there-is room for 5 cutling. Unlock Cutling one time and save-of-them as-many-as you-want.",
+      "why": "Spoken as Siri would say it; 'salvane quanti vuoi' is the everyday way to say 'as many as you like'."
+    },
+    "S29": {
+      "s": "Gratis: %lld di %lld",
+      "back": "Free: 4 of 5",
+      "why": "A quota label fitting in 18 characters; it sits under the list title, so 'cutling' is implied."
+    },
+    "K1": {
+      "s": "Finiti i %lld gratis. Tocca per sbloccare",
+      "back": "Finished the 5 free. Tap to unlock",
+      "why": "Short and spoken, 38 characters; 'Tocca per…' is the usual Italian iOS call to tap."
+    },
+    "M1": {
+      "s": "Sblocca Cutling",
+      "back": "Unlock Cutling",
+      "why": "Leads with an imperative verb, like Italian Mac window and menu commands."
+    },
+    "M2": {
+      "s": "Sblocca Cutling…",
+      "back": "Unlock Cutling…",
+      "why": "The same command as M1, with the ellipsis character because it opens a window."
+    },
+    "M3": {
+      "s": "Cutling gratuiti",
+      "back": "Cutling free",
+      "why": "Row label using the vocabulary's word; its value M4 gives the count."
+    },
+    "M4": {
+      "s": "%lld di %lld",
+      "back": "3 of 5",
+      "why": "The compact 'X di Y' pair that Italian Apple software uses."
+    },
+    "M5": {
+      "s": "Cutling sbloccato",
+      "back": "Cutling unlocked",
+      "why": "Reads as a row status on its own; masculine agreement with the app's name."
+    },
+    "M6": {
+      "s": "Con un solo acquisto sblocchi Cutling su iPhone, iPad e Mac.",
+      "back": "With one single purchase you-unlock Cutling on iPhone, iPad and Mac.",
+      "why": "Same three-device list as S8; tu form."
+    },
+    "M7": {
+      "s": "Sbloccato su iPhone, iPad e Mac con questo account Apple.",
+      "back": "Unlocked on iPhone, iPad and Mac with this account Apple.",
+      "why": "Subject left out after the section title Cutling; 'account Apple' written as in the vocabulary."
+    },
+    "M8": {
+      "s": "Hai comprato Cutling prima che fosse gratis: resta sbloccato. Grazie di averci creduto.",
+      "back": "You-have bought Cutling before that it-were free: it-stays unlocked. Thanks of having-in-it believed.",
+      "why": "Subjunctive 'fosse' after 'prima che' as a native writes it; 'averci creduto' thanks an early buyer without gendered endings."
+    }
+  }
+}
