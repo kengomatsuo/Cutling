@@ -21,6 +21,10 @@ struct SaveImageToCutlingIntent: AppIntent {
     @Parameter(title: "Image", supportedContentTypes: [.image])
     var image: IntentFile
 
+    /// Starts in the background; at the free limit it continues in the app (iOS 26 and later).
+    @available(iOS 26.0, macOS 26.0, *)
+    static var supportedModes: IntentModes { [.background, .foreground(.dynamic)] }
+
     init() {}
 
     init(image: IntentFile) {
@@ -40,11 +44,6 @@ struct SaveImageToCutlingIntent: AppIntent {
             return .result(dialog: IntentDialog(stringLiteral: String(localized: "Already saved.")))
         }
 
-        let check = store.canAdd(.image)
-        guard check.allowed else {
-            return .result(dialog: IntentDialog(stringLiteral: check.reason ?? String(localized: "Cannot add more image cutlings.")))
-        }
-
         let id = UUID()
         let trimmedName = (image.filename as NSString).deletingPathExtension
         let name = trimmedName.isEmpty ? String(localized: "Shared Image") : trimmedName
@@ -56,6 +55,13 @@ struct SaveImageToCutlingIntent: AppIntent {
             icon: "photo",
             kind: .image
         )
+
+        guard store.canAdd(.image).allowed else {
+            if store.needsUnlock {
+                return .result(dialog: try await UnlockHandoff.ask(self, cutling: cutling, imageData: data))
+            }
+            return .result(dialog: IntentDialog(stringLiteral: store.canAdd(.image).reason ?? String(localized: "Cannot add more image cutlings.")))
+        }
 
         guard let filename = store.saveImageData(data, for: id) else {
             return .result(dialog: IntentDialog(stringLiteral: String(localized: "Failed to save image.")))

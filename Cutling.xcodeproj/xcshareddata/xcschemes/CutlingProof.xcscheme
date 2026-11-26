@@ -72,6 +72,18 @@
                <Test
                   Identifier = "UnlockUITests/testLocaleSheets6()">
                </Test>
+               <Test
+                  Identifier = "UnlockUITests/testDuplicateAtTheLimitAsksThenSavesTheCopy()">
+               </Test>
+               <Test
+                  Identifier = "UnlockUITests/testDuplicateAtTheLimitSavesNothingWhenTheSheetCloses()">
+               </Test>
+               <Test
+                  Identifier = "UnlockUITests/testRecoverFromRecentlyDeletedAtTheLimitAsksThenRestores()">
+               </Test>
+               <Test
+                  Identifier = "UnlockUITests/testTryMeDoesNotCountTowardTheFreeFive()">
+               </Test>
             </SelectedTests>
          </TestableReference>
       </Testables>

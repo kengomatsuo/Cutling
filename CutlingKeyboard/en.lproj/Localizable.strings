@@ -35,3 +35,7 @@
 
 /* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
 "%lld free cutlings used. Tap to unlock." = "%lld free cutlings used. Tap to unlock.";
+/* MARK: - Every way to add at the free limit (ASG249) */
+"Added · 1 free left" = "Added · 1 free left";
+"Added · %lld of %lld free" = "Added · %lld of %lld free";
+"%lld of %lld free · Unlock to save this" = "%lld of %lld free · Unlock to save this";

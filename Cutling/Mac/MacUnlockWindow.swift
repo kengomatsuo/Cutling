@@ -93,7 +93,7 @@ struct MacUnlockView: View {
     }()
     #endif
 
-    private var used: Int { min(store.cutlings.count, Unlock.freeLimit) }
+    private var used: Int { min(store.countedCount, Unlock.freeLimit) }
     private var hasSixth: Bool { used >= Unlock.freeLimit }
     private var landsSixth: Bool { hasSixth && !restored }
     private var capacity: String { CutlingStore.maxTextCutlings.formatted() }
@@ -265,7 +265,7 @@ struct MacUnlockView: View {
         }
         .zIndex(1)
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(store.cutlings.count) of \(Unlock.freeLimit) free cutlings used")
+        .accessibilityLabel("\(store.countedCount) of \(Unlock.freeLimit) free cutlings used")
         .accessibilityHidden(moment != nil)
     }
 
@@ -285,7 +285,7 @@ struct MacUnlockView: View {
     }
 
     private func stage(_ f: UnlockMotion.Frame, slotsAt: Double?, settle: Double) -> some View {
-        UnlockStage(cutlings: Array(store.cutlings.prefix(Unlock.freeLimit)), hasSixth: hasSixth, sixthLeaves: restored,
+        UnlockStage(cutlings: Array(store.countedCutlings.prefix(Unlock.freeLimit)), hasSixth: hasSixth, sixthLeaves: restored,
                     frame: f, room: room, slotsAt: slotsAt, settle: settle, roomSize: roomSize, trailingPadding: 0,
                     waitingIcon: waiting?.icon)
     }
@@ -457,7 +457,7 @@ struct MacUnlockSettingsSection: View {
     @ObservedObject private var purchases = PurchaseManager.shared
     @ObservedObject private var store = CutlingStore.shared
 
-    private var used: Int { min(store.cutlings.count, Unlock.freeLimit) }
+    private var used: Int { min(store.countedCount, Unlock.freeLimit) }
 
     var body: some View {
         Section {

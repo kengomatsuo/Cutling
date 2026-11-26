@@ -229,4 +229,88 @@ final class UnlockUITests: XCTestCase {
         shot("05_six_cutlings")
         XCTAssertGreaterThanOrEqual(app.descendants(matching: .any).matching(identifier: "cutlingCard").count, 6, "The 6th cutling was not saved")
     }
+
+    // MARK: - Every other way to add at the free limit (ASG249)
+
+    @MainActor
+    private func launchFree(_ extra: [String] = []) -> XCUIApplication {
+        let app = XCUIApplication()
+        app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-UNLOCK_TEST", "-UnlockAsNewUser", "-UnlockDemoStore",
+                                "-hasCompletedSetup", "YES", "-hasSeenInteractiveTutorial", "YES"] + extra
+        app.launch()
+        XCTAssertTrue(app.descendants(matching: .any)["cutlingCard"].firstMatch.waitForExistence(timeout: 30), "No cards")
+        sleep(2)
+        return app
+    }
+
+    /// Duplicate at 5 of 5 opens the unlock sheet with the copy waiting; unlocking saves the copy.
+    @MainActor
+    func testDuplicateAtTheLimitAsksThenSavesTheCopy() throws {
+        let app = launchFree()
+        let cards = app.descendants(matching: .any).matching(identifier: "cutlingCard")
+        app.descendants(matching: .any)["cutlingCard"].firstMatch.press(forDuration: 1.2)
+        let duplicate = app.buttons["Duplicate"].firstMatch
+        XCTAssertTrue(duplicate.waitForExistence(timeout: 10), "No Duplicate in the card menu")
+        duplicate.tap()
+        let unlock = app.buttons["unlockButton"].firstMatch
+        XCTAssertTrue(unlock.waitForExistence(timeout: 10), "Duplicate at 5 of 5 did not open the unlock screen")
+        XCTAssertEqual(cards.count, 5, "The copy was saved before the person unlocked")
+        unlock.tap()
+        XCTAssertTrue(app.staticTexts["unlockDoneTitle"].waitForExistence(timeout: 15), "No thank-you after buying")
+        sleep(3)
+        unlock.tap() // Done
+        XCTAssertTrue(unlock.waitForNonExistence(timeout: 10), "The unlock screen stayed after Done")
+        XCTAssertGreaterThanOrEqual(cards.count, 6, "The copy was not saved after unlocking")
+    }
+
+    /// Closing the sheet after Duplicate saves nothing and leaves the original alone.
+    @MainActor
+    func testDuplicateAtTheLimitSavesNothingWhenTheSheetCloses() throws {
+        let app = launchFree()
+        let cards = app.descendants(matching: .any).matching(identifier: "cutlingCard")
+        app.descendants(matching: .any)["cutlingCard"].firstMatch.press(forDuration: 1.2)
+        app.buttons["Duplicate"].firstMatch.tap()
+        XCTAssertTrue(app.buttons["unlockButton"].firstMatch.waitForExistence(timeout: 10), "No unlock screen")
+        app.buttons["notNowButton"].firstMatch.tap()
+        XCTAssertTrue(app.buttons["unlockButton"].firstMatch.waitForNonExistence(timeout: 10), "The sheet stayed after Not Now")
+        XCTAssertEqual(cards.count, 5, "Closing the sheet saved the copy")
+    }
+
+    /// Recover from Recently Deleted at 5 of 5 opens the unlock sheet; unlocking restores the cutling.
+    @MainActor
+    func testRecoverFromRecentlyDeletedAtTheLimitAsksThenRestores() throws {
+        let app = launchFree(["-UnlockWithDeleted"])
+        let cards = app.descendants(matching: .any).matching(identifier: "cutlingCard")
+        app.buttons["More options"].firstMatch.tap()
+        app.buttons["Recently Deleted"].firstMatch.tap()
+        let deleted = app.staticTexts["Gate code"].firstMatch
+        XCTAssertTrue(deleted.waitForExistence(timeout: 10), "The deleted cutling is not listed")
+        deleted.press(forDuration: 1.2)
+        let recover = app.buttons["Recover"].firstMatch
+        XCTAssertTrue(recover.waitForExistence(timeout: 10), "No Recover in the menu")
+        recover.tap()
+        let unlock = app.buttons["unlockButton"].firstMatch
+        XCTAssertTrue(unlock.waitForExistence(timeout: 10), "Recover at 5 of 5 did not open the unlock screen")
+        XCTAssertTrue(app.staticTexts["Gate code"].exists, "The cutling left Recently Deleted before the person unlocked")
+        unlock.tap()
+        XCTAssertTrue(app.staticTexts["unlockDoneTitle"].waitForExistence(timeout: 15), "No thank-you after buying")
+        sleep(3)
+        unlock.tap() // Done
+        XCTAssertTrue(unlock.waitForNonExistence(timeout: 10), "The unlock screen stayed after Done")
+        sleep(1)
+        app.navigationBars.buttons.firstMatch.tap() // back to the grid
+        XCTAssertTrue(app.descendants(matching: .any)["cutlingCard"].firstMatch.waitForExistence(timeout: 10), "No grid")
+        XCTAssertGreaterThanOrEqual(cards.count, 6, "The recovered cutling is not in the grid")
+    }
+
+    /// The starter "Try Me" is one of five on screen but does not count: with it and four of the person's own, + still
+    /// opens the editor instead of the unlock screen.
+    @MainActor
+    func testTryMeDoesNotCountTowardTheFreeFive() throws {
+        let app = launchFree(["-UnlockWithTryMe"])
+        openNewTextCutling(app)
+        let name = app.textFields.matching(NSPredicate(format: "label != 'Search cutlings' AND placeholderValue != 'Search cutlings'")).firstMatch
+        XCTAssertTrue(name.waitForExistence(timeout: 10), "The editor did not open with Try Me and four of the person's own")
+        XCTAssertFalse(app.buttons["unlockButton"].firstMatch.exists, "The unlock screen opened at 4 counted cutlings")
+    }
 }

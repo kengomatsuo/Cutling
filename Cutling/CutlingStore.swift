@@ -79,6 +79,68 @@ enum Unlock {
     }
 }
 
+// MARK: - Waiting items
+
+/// Items an extension or a Shortcut could not save at the free limit. They wait in the App Group's `Pending/` folder
+/// until the app's unlock sheet saves them, drops them when it closes, or 24 hours pass. A second arrival replaces
+/// the first. Design: docs/plans/unlock/cards.md U3.
+enum PendingCutlings {
+    private struct Manifest: Codable {
+        var createdAt: Date
+        /// The person pressed Unlock in the Share sheet: the app saves these whenever it finds itself unlocked, even if
+        /// no link opened it (the sheet could not open the app). The keyboard's clip is saved only by its own link.
+        var savesOnUnlock: Bool
+        var items: [Cutling]
+    }
+
+    nonisolated private static var directory: URL {
+        let root = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: appGroupID)
+            ?? FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        return root.appendingPathComponent("Pending", isDirectory: true)
+    }
+
+    nonisolated private static var manifestURL: URL { directory.appendingPathComponent("pending.json") }
+
+    /// Writes the items (an image cutling's bytes in `images`, by its id), replacing what waited before.
+    @discardableResult
+    nonisolated static func write(_ items: [Cutling], images: [UUID: Data] = [:], savesOnUnlock: Bool, now: Date = Date()) -> Bool {
+        clear()
+        do {
+            try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+            var stored = items
+            for index in stored.indices where stored[index].kind == .image {
+                guard let data = images[stored[index].id] else { continue }
+                let filename = stored[index].id.uuidString + ".png"
+                try data.write(to: directory.appendingPathComponent(filename))
+                stored[index].imageFilename = filename
+            }
+            let manifest = Manifest(createdAt: now, savesOnUnlock: savesOnUnlock, items: stored)
+            try JSONEncoder().encode(manifest).write(to: manifestURL, options: .atomic)
+            return true
+        } catch {
+            clear()
+            return false
+        }
+    }
+
+    /// What waits, or nil when nothing does or it is older than 24 hours (which is then deleted).
+    nonisolated static func read(now: Date = Date()) -> (items: [Cutling], savesOnUnlock: Bool)? {
+        guard let data = try? Data(contentsOf: manifestURL),
+              let manifest = try? JSONDecoder().decode(Manifest.self, from: data) else { return nil }
+        if FreeLimit.isStale(createdAt: manifest.createdAt, now: now) { clear(); return nil }
+        return (manifest.items, manifest.savesOnUnlock)
+    }
+
+    nonisolated static func imageData(for cutling: Cutling) -> Data? {
+        guard let filename = cutling.imageFilename else { return nil }
+        return try? Data(contentsOf: directory.appendingPathComponent(filename))
+    }
+
+    nonisolated static func clear() {
+        try? FileManager.default.removeItem(at: directory)
+    }
+}
+
 // MARK: - Cutling Limits
 
 /// The caps keep the keyboard extension under the memory iOS gives keyboards: 77 MB of
@@ -572,8 +634,53 @@ class CutlingStore: ObservableObject {
     }
     
     /// True when the free limit, not a memory cap, is what stops the next cutling.
-    var needsUnlock: Bool {
-        cutlings.count >= Unlock.freeLimit && !Unlock.isUnlocked
+    var needsUnlock: Bool { wouldNeedUnlock(adding: 1) }
+
+    /// True when saving `count` more at once would pass the free limit (the Share sheet's items wait together).
+    func wouldNeedUnlock(adding count: Int) -> Bool {
+        guard !Unlock.isUnlocked else { return false }
+        return FreeLimit.blocks(counted: countedCount, adding: count, limit: Unlock.freeLimit, unlocked: false)
+    }
+
+    /// The cutlings the free limit counts: the live list without the starter "Try Me" cutling, whose id the setup
+    /// flow records. Never a stored number; history and Recently Deleted are separate lists.
+    var countedCutlings: [Cutling] {
+        guard let starter = starterID else { return cutlings }
+        return cutlings.filter { $0.id != starter }
+    }
+
+    var countedCount: Int {
+        let starterPresent = starterID.map { id in cutlings.contains { $0.id == id } } ?? false
+        return FreeLimit.counted(total: cutlings.count, starterPresent: starterPresent)
+    }
+
+    nonisolated static let starterIDKey = "starterCutlingID"
+
+    private var starterID: UUID? { defaults.string(forKey: Self.starterIDKey).flatMap(UUID.init(uuidString:)) }
+
+    /// Called by the setup flow when it adds "Try Me", so it stops counting toward the free five.
+    func markStarter(_ id: UUID) { defaults.set(id.uuidString, forKey: Self.starterIDKey) }
+
+    /// Saves what the keyboard, Share sheet or a Shortcut left in `Pending/`, for an unlocked person. With
+    /// `onlyIfRequested` it leaves the keyboard's clip alone (that one is saved only by its own link).
+    @discardableResult
+    func savePending(onlyIfRequested: Bool = false) -> Int {
+        guard Unlock.isUnlocked, let pending = PendingCutlings.read(),
+              !onlyIfRequested || pending.savesOnUnlock else { return 0 }
+        let waiting = pending.items.map { ($0, PendingCutlings.imageData(for: $0)) }
+        PendingCutlings.clear()
+        var saved = 0
+        for (item, data) in waiting {
+            guard canAdd(item.kind).allowed else { continue }
+            var cutling = item
+            if item.kind == .image {
+                guard let data, let filename = saveImageData(data, for: item.id) else { continue }
+                cutling.imageFilename = filename
+            }
+            add(cutling)
+            saved += 1
+        }
+        return saved
     }
 
     /// Current counts for display purposes
@@ -651,7 +758,10 @@ class CutlingStore: ObservableObject {
 
     #if MAIN_APP
     /// Restore a soft-deleted cutling back to the active list.
-    func restore(_ deleted: DeletedCutling) {
+    @discardableResult
+    func restore(_ deleted: DeletedCutling) -> Bool {
+        // A restored cutling takes a slot like any other: delete, add, restore must not pass the free limit.
+        guard !needsUnlock else { return false }
         var cutling = deleted.cutling
         cutling.sortOrder = cutlings.count
         cutling.lastModifiedDate = Date()
@@ -661,6 +771,7 @@ class CutlingStore: ObservableObject {
         saveRecentlyDeleted()
         SpotlightIndexer.shared.index(cutling)
         if let sm = syncManager { Task { await sm.enqueueSave(cutling) } }
+        return true
     }
 
     /// Permanently delete a soft-deleted cutling (no recovery).

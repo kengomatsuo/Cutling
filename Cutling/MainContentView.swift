@@ -85,6 +85,8 @@ struct MainContentView: View {
     @State private var limitAlertMessage: String?
     /// The cutling the + menu was starting when the free limit stopped it; the unlock sheet's Continue opens it.
     @State private var unlockDraft: NewCutlingDraft?
+    /// A duplicate or a restore waiting for the unlock sheet (iPhone and iPad).
+    @State private var unlockWaiting: UnlockWaiting?
     @State private var dropNotice: DropNotice?
 
     // MARK: Search
@@ -313,6 +315,10 @@ struct MainContentView: View {
                     unlockDraft: $unlockDraft,
                     openDraft: { activeSheet = .newCutling($0) }
                 ))
+                #if os(iOS)
+                .environment(\.askToUnlock, { unlockWaiting = $0 })
+                .unlockSheet($unlockWaiting)
+                #endif
                 .modifier(ChangeHandlersModifier(
                     mode: mode,
                     lastAddedCutlingID: store.lastAddedCutlingID,
@@ -461,12 +467,12 @@ struct MainContentView: View {
                         .first ?? pasteboard.image?.pngData()
                     if let data = imageData {
                         if store.findDuplicateImage(data: data) == nil {
-                            activeSheet = .newCutling(NewCutlingDraft(kind: .image, name: String(localized: "Shared Image"), imageData: data))
+                            present(NewCutlingDraft(kind: .image, name: String(localized: "Shared Image"), imageData: data))
                         }
                     } else {
                         let clipboard = CutlingPasteboard.readText(allowHTML: true)
                         if let string = clipboard.plain, !string.isEmpty, store.findDuplicateText(value: string) == nil {
-                            activeSheet = .newCutling(textDraft(plain: string, markdown: clipboard.markdown))
+                            present(textDraft(plain: string, markdown: clipboard.markdown))
                         }
                     }
                 }
@@ -620,7 +626,7 @@ struct MainContentView: View {
         #if os(iOS)
         .navigationBarTitleDisplayMode(.large)
         #endif
-        .modifier(SubtitleModifier(count: store.cutlings.count))
+        .modifier(SubtitleModifier(count: store.cutlings.count, counted: store.countedCount))
         .searchable(text: $searchText, isPresented: $searchIsPresented, prompt: "Search cutlings")
         #if os(iOS)
         .toolbar(showBottomBar ? .visible : .hidden, for: .bottomBar)
@@ -1548,11 +1554,6 @@ struct MainContentView: View {
                 showDuplicateNotice()
                 return
             }
-            let check = store.canAdd(.text)
-            guard check.allowed else {
-                limitAlertMessage = check.reason ?? String(localized: "Cannot add text cutling")
-                return
-            }
             var draft = textDraft(plain: cutling.plainValue, markdown: cutling.textFormat == .rich ? cutling.value : nil)
             if draft.format == nil, cutling.textFormat == .code { draft.format = .code }
             draft.name = cutling.name
@@ -1560,7 +1561,7 @@ struct MainContentView: View {
             draft.color = cutling.color
             draft.inputTypeTriggers = cutling.inputTypeTriggers
             draft.expiresAt = cutling.expiresAt
-            activeSheet = .newCutling(draft)
+            present(draft)
         case .image:
             guard let data = imageData else {
                 dropNotice = DropNotice(
@@ -1573,12 +1574,7 @@ struct MainContentView: View {
                 showDuplicateNotice()
                 return
             }
-            let check = store.canAdd(.image)
-            guard check.allowed else {
-                limitAlertMessage = check.reason ?? String(localized: "Cannot add image cutling")
-                return
-            }
-            activeSheet = .newCutling(NewCutlingDraft(
+            present(NewCutlingDraft(
                 kind: .image,
                 name: cutling.name,
                 imageData: data,
@@ -1589,16 +1585,11 @@ struct MainContentView: View {
 
     @MainActor
     private func handleDroppedImage(data: Data) {
-        let check = store.canAdd(.image)
-        guard check.allowed else {
-            limitAlertMessage = check.reason ?? String(localized: "Cannot add image cutling")
-            return
-        }
         if store.findDuplicateImage(data: data) != nil {
             showDuplicateNotice()
             return
         }
-        activeSheet = .newCutling(NewCutlingDraft(
+        present(NewCutlingDraft(
             kind: .image,
             name: String(localized: "Shared Image"),
             imageData: data
@@ -1612,12 +1603,7 @@ struct MainContentView: View {
             showDuplicateNotice()
             return
         }
-        let check = store.canAdd(.text)
-        guard check.allowed else {
-            limitAlertMessage = check.reason ?? String(localized: "Cannot add text cutling")
-            return
-        }
-        activeSheet = .newCutling(NewCutlingDraft(
+        present(NewCutlingDraft(
             kind: .text,
             text: url.absoluteString
         ))
@@ -1630,16 +1616,26 @@ struct MainContentView: View {
             showDuplicateNotice()
             return
         }
-        let check = store.canAdd(.text)
-        guard check.allowed else {
-            limitAlertMessage = check.reason ?? String(localized: "Cannot add text cutling")
-            return
-        }
-        activeSheet = .newCutling(NewCutlingDraft(
+        present(NewCutlingDraft(
             kind: .text,
             text: finalText,
             wasTruncated: wasTruncated
         ))
+    }
+
+    /// Opens the editor for what the person dropped or pasted. At the free limit the unlock sheet opens first, and its
+    /// Continue brings the editor back with the item in it, so nothing they were adding is lost.
+    @MainActor
+    private func present(_ draft: NewCutlingDraft) {
+        let check = store.canAdd(draft.kind)
+        if check.allowed {
+            activeSheet = .newCutling(draft)
+            return
+        }
+        #if os(iOS)
+        unlockDraft = store.needsUnlock ? draft : nil
+        #endif
+        limitAlertMessage = check.reason ?? String(localized: "Cannot add more cutlings.")
     }
 
     /// A text draft that keeps formatting when it fits, else trimmed plain text.
@@ -1752,13 +1748,15 @@ struct PanGestureModifier: ViewModifier {
 
 private struct SubtitleModifier: ViewModifier {
     let count: Int
+    /// What the free limit counts (the starter "Try Me" cutling is left out).
+    let counted: Int
     @ObservedObject private var purchases = PurchaseManager.shared
 
     /// "4 of 5 free" on a free copy, so the unlock ask is never a surprise; "12 Cutlings" once unlocked.
     private var label: String {
         purchases.isUnlocked
             ? String(localized: "\(count) Cutlings")
-            : String(localized: "\(count) of \(Unlock.freeLimit) free")
+            : String(localized: "\(counted) of \(Unlock.freeLimit) free")
     }
 
     func body(content: Content) -> some View {

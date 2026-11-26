@@ -564,6 +564,13 @@ private struct RecentlyDeletedTab: View {
     @State private var confirmEmptyAll = false
     @State private var itemToHardDelete: DeletedCutling?
 
+    /// A restored cutling takes a slot like any other: at the free limit the unlock window opens first, and the restore
+    /// runs when it unlocks (the cutling stays here until then).
+    private func restore(_ deleted: DeletedCutling) {
+        guard store.needsUnlock else { store.restore(deleted); return }
+        MacUnlockWindow.shared.show(MacUnlockWaiting(icon: deleted.cutling.icon, onUnlocked: { store.restore(deleted) }))
+    }
+
     var body: some View {
         Form {
             if store.recentlyDeleted.isEmpty {
@@ -586,7 +593,7 @@ private struct RecentlyDeletedTab: View {
                     ForEach(store.recentlyDeleted) { deleted in
                         DeletedCutlingRow(
                             deleted: deleted,
-                            onRestore: { store.restore(deleted) },
+                            onRestore: { restore(deleted) },
                             onDelete: { itemToHardDelete = deleted }
                         )
                     }

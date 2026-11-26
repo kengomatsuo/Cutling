@@ -237,14 +237,29 @@ extension CutlingStore {
     func seedForUnlockFilm() {
         let copy = ReleaseSeedCopy.forLanguage("en")
         for filename in cutlings.compactMap(\.imageFilename) { deleteImageFile(named: filename) }
-        cutlings = [
+        var seeded = [
             Cutling(name: copy.home.name, value: copy.home.value, icon: "house.fill", sortOrder: 0, color: "blue"),
             Cutling(name: copy.account.name, value: copy.account.value, icon: "banknote.fill", sortOrder: 1, color: "green"),
             Cutling(name: copy.order.name, value: copy.order.value, icon: "shippingbox.fill", sortOrder: 2, color: "teal"),
             Cutling(name: copy.delivery.name, value: copy.delivery.value, icon: "calendar", sortOrder: 3, color: "orange"),
             Cutling(name: copy.thanks.name, value: copy.thanks.value, icon: "sparkles", sortOrder: 4, color: "pink"),
         ]
+        let arguments = ProcessInfo.processInfo.arguments
+        // `-UnlockWithTryMe`: the first of the five is the starter "Try Me", so only 4 count and one more still saves.
+        #if os(iOS)
+        if arguments.contains("-UnlockWithTryMe") {
+            let starter = Cutling(name: StarterCutling.name, value: StarterCutling.value, icon: "hand.wave.fill", sortOrder: 0)
+            markStarter(starter.id)
+            seeded[0] = starter
+        }
+        #endif
+        cutlings = seeded
         save()
+        // `-UnlockWithDeleted`: one cutling in Recently Deleted, for the restore at the limit.
+        if arguments.contains("-UnlockWithDeleted") {
+            recentlyDeleted = [DeletedCutling(cutling: Cutling(name: "Gate code", value: "2207#", icon: "key.fill", sortOrder: 0, color: "purple"), deletedAt: Date())]
+            saveRecentlyDeletedFromSync()
+        }
     }
 
     func seedForReleaseFilm() {

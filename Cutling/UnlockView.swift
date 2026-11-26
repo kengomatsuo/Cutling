@@ -17,6 +17,8 @@ import SwiftUI
 struct UnlockView: View {
     /// Runs after the sheet has left, when the button reads Continue (opened from +, so the new cutling's editor opens).
     var onContinue: (() -> Void)?
+    /// The item the person was saving, kept until they unlock (nil: opened from Settings).
+    var waiting: UnlockWaiting?
 
     @ObservedObject private var purchases = PurchaseManager.shared
     @Environment(\.dismiss) private var dismiss
@@ -37,6 +39,7 @@ struct UnlockView: View {
     @State private var roomSize = CGSize.zero
     @State private var restored = false
     @State private var wasUnlocked = PurchaseManager.shared.isUnlocked
+    @State private var savedWaiting = false
     @AccessibilityFocusState private var titleFocused: Bool
 
     private static let padding: CGFloat = 28
@@ -51,7 +54,7 @@ struct UnlockView: View {
     #endif
 
     private var store: CutlingStore { CutlingStore.shared }
-    private var used: Int { min(store.cutlings.count, Unlock.freeLimit) }
+    private var used: Int { min(store.countedCount, Unlock.freeLimit) }
     /// The sixth tile waits only when the five are full; below the limit the ask shows spare slots instead.
     private var hasSixth: Bool { used >= Unlock.freeLimit }
     private var landsSixth: Bool { hasSixth && !restored }
@@ -99,8 +102,13 @@ struct UnlockView: View {
         // Every way to "unlocked while the sheet is open" (the purchase, a restore, an approval, the update stream) arrives
         // here; the first one starts the moment and a second changes nothing.
         .task(id: purchases.isUnlocked) {
-            if purchases.isUnlocked, !wasUnlocked { try? await celebrate() }
+            if purchases.isUnlocked, !wasUnlocked {
+                saveWaiting()
+                try? await celebrate()
+            }
         }
+        // Closing without an unlock drops what waited (a Share or keyboard item in Pending/); an unlock already saved it.
+        .onDisappear { if !savedWaiting { waiting?.onDismissed?() } }
         #if os(iOS)
         .onChange(of: scenePhase) { _, phase in if phase != .active { UnlockHaptics.shared.stop(hit: false) } }
         .onDisappear { UnlockHaptics.shared.stop(hit: false) }
@@ -113,6 +121,14 @@ struct UnlockView: View {
         } message: {
             Text(purchases.lastError ?? "")
         }
+    }
+
+    /// Saves the waiting item the first time the unlock arrives; the purchase result, the update stream and a restore may
+    /// all say so, and the second changes nothing.
+    private func saveWaiting() {
+        guard !savedWaiting else { return }
+        savedWaiting = true
+        waiting?.onUnlocked?()
     }
 
     // MARK: Moment
@@ -303,13 +319,14 @@ struct UnlockView: View {
         }
         .zIndex(1)
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(store.cutlings.count) of \(Unlock.freeLimit) free cutlings used")
+        .accessibilityLabel("\(store.countedCount) of \(Unlock.freeLimit) free cutlings used")
         .accessibilityHidden(moment != nil)
     }
 
     private func stage(_ f: UnlockMotion.Frame, slotsAt: Double?, settle: Double) -> some View {
-        UnlockStage(cutlings: Array(store.cutlings.prefix(Unlock.freeLimit)), hasSixth: hasSixth, sixthLeaves: restored,
-                    frame: f, room: room, slotsAt: slotsAt, settle: settle, roomSize: roomSize, trailingPadding: Self.padding)
+        UnlockStage(cutlings: Array(store.countedCutlings.prefix(Unlock.freeLimit)), hasSixth: hasSixth, sixthLeaves: restored,
+                    frame: f, room: room, slotsAt: slotsAt, settle: settle, roomSize: roomSize, trailingPadding: Self.padding,
+                    waitingIcon: waiting?.icon)
     }
 
     /// What the sheet says after the purchase, in the space the ask's words leave: the room's frame, the title and the

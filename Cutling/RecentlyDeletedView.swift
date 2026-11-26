@@ -23,6 +23,8 @@ struct RecentlyDeletedView: View {
     @State private var showDeleteConfirmation = false
     @State private var showLeaveTutorialAlert = false
     @State private var disappearingIDs: Set<UUID> = []
+    /// A recover waiting for the unlock sheet: the cutling stays here until the person unlocks.
+    @State private var unlockWaiting: UnlockWaiting?
 
     private let cardShape = RoundedRectangle(cornerRadius: 24, style: .continuous)
 
@@ -101,6 +103,7 @@ struct RecentlyDeletedView: View {
         .background(.background)
         #endif
         .navigationTitle("Recently Deleted")
+        .unlockSheet($unlockWaiting)
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(tutorialLocksBack)
@@ -219,7 +222,7 @@ struct RecentlyDeletedView: View {
         #if os(iOS)
         .contextMenu {
             Button {
-                beginDisappear(item) { store.restore($0) }
+                recover(item)
             } label: {
                 Label("Recover", systemImage: "arrow.uturn.backward")
             }
@@ -258,6 +261,16 @@ struct RecentlyDeletedView: View {
         #endif
         .accessibilityElement(children: .combine)
         .accessibilityLabel("\(cutling.name), \(item.daysRemaining == 1 ? String(localized: "1 day left") : String(localized: "\(item.daysRemaining) days left"))")
+    }
+
+    /// A recovered cutling takes a slot like any other, so at the free limit the unlock sheet opens first and the
+    /// recover runs when it unlocks; closing the sheet leaves the cutling here.
+    private func recover(_ item: DeletedCutling) {
+        guard store.needsUnlock else {
+            beginDisappear(item) { store.restore($0) }
+            return
+        }
+        unlockWaiting = UnlockWaiting(icon: item.cutling.icon, onUnlocked: { beginDisappear(item) { store.restore($0) } })
     }
 
     // MARK: - State-driven disappearance

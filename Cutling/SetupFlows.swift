@@ -33,7 +33,10 @@ enum StarterCutling {
 
     @MainActor static func addIfEmpty(to store: CutlingStore) {
         guard store.cutlings.isEmpty else { return }
-        store.add(Cutling(name: name, value: value, icon: "hand.wave.fill"))
+        let starter = Cutling(name: name, value: value, icon: "hand.wave.fill")
+        // It is the app's, not the person's: it never counts toward the free five.
+        store.markStarter(starter.id)
+        store.add(starter)
     }
 }
 

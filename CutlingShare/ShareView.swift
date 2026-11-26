@@ -57,8 +57,14 @@ struct ShareView: View {
     @State private var errorMessage: String?
     @State private var showLimitAlert = false
     @State private var limitAlertMessage = ""
+    /// Unlock was pressed but the extension could not open the app: the item stays in `Pending/` and the notice says so.
+    @State private var handoffFailed = false
 
     private let store = CutlingStore.shared
+
+    /// The free limit, not a memory cap, stops this save: the items wait for the unlock sheet instead (all of them,
+    /// never some).
+    private var limitBlocks: Bool { store.wouldNeedUnlock(adding: max(1, items.count)) }
 
     private var saveDisabled: Bool {
         if items.isEmpty || isSaving { return true }
@@ -117,7 +123,9 @@ struct ShareView: View {
                     }
                 }
                 ToolbarItem(placement: .confirmationAction) {
-                    if #available(iOS 26, *) {
+                    if limitBlocks {
+                        limitButton
+                    } else if #available(iOS 26, *) {
                         Button {
                             save()
                         } label: {
@@ -157,12 +165,72 @@ struct ShareView: View {
         }
     }
 
+    // MARK: - Free limit
+
+    /// Where the checkmark was: Unlock hands the item to the app; once the app could not be opened it reads Done.
+    private var limitButton: some View {
+        Button {
+            if handoffFailed { dismiss() } else { handOffToUnlock() }
+        } label: {
+            if handoffFailed {
+                Text("Done")
+            } else {
+                Text("Unlock")
+                    .font(.system(size: 17, weight: .semibold))
+                    .padding(.horizontal, 6)
+            }
+        }
+        .buttonStyle(.borderedProminent)
+        .buttonBorderShape(.capsule)
+        .tint(Cutling.defaultTint)
+        .disabled(saveDisabled && !handoffFailed)
+        .accessibilityIdentifier("shareUnlockButton")
+    }
+
+    /// The row above the form that says why the checkmark is an Unlock button.
+    @ViewBuilder private var limitNotice: some View {
+        if limitBlocks {
+            Section {
+                HStack(spacing: 12) {
+                    Image(systemName: "square.stack.3d.up.fill")
+                        .font(.system(size: 21))
+                        .foregroundStyle(Cutling.defaultTint)
+                        .accessibilityHidden(true)
+                    if handoffFailed {
+                        Text("Kept for you. Open Cutling to unlock and save it.")
+                    } else {
+                        Text("You've used your \(Unlock.freeLimit) free cutlings. Unlock Cutling and this one is saved for you.")
+                    }
+                }
+                .font(.system(size: 13))
+                .accessibilityIdentifier("shareLimitNotice")
+            }
+        }
+    }
+
+    /// Writes the items, with the names as edited, to `Pending/`, then opens `cutling://unlock`; the app saves them
+    /// once the person unlocks. If the app cannot be opened they stay kept and the notice says so.
+    private func handOffToUnlock() {
+        let waiting = items.compactMap { makeCutling($0) }
+        guard !waiting.isEmpty else { dismiss(); return }
+        var images: [UUID: Data] = [:]
+        for made in waiting { images[made.cutling.id] = made.imageData }
+        guard PendingCutlings.write(waiting.map { $0.cutling }, images: images, savesOnUnlock: true),
+              let url = URL(string: "cutling://unlock") else { handoffFailed = true; return }
+        extensionContext.open(url) { opened in
+            DispatchQueue.main.async {
+                if opened { dismiss() } else { handoffFailed = true }
+            }
+        }
+    }
+
     // MARK: - Single Item Form
 
     @ViewBuilder
     private var singleItemFormContent: some View {
         let item = items[0]
         Form {
+            limitNotice
             Section("Name") {
                 switch item.content {
                 case .text, .url:
@@ -273,6 +341,7 @@ struct ShareView: View {
     @ViewBuilder
     private var multiItemFormContent: some View {
         Form {
+            limitNotice
             Section {
                 ForEach($items) { $item in
                     NavigationLink {
@@ -466,10 +535,55 @@ struct ShareView: View {
         return nil
     }
 
+    /// The cutling a shared item becomes, with the image's bytes for an image (its file is written when it is saved);
+    /// nil when it is skipped as too long or already saved.
+    private func makeCutling(_ item: SharedItem) -> (cutling: Cutling, imageData: Data?)? {
+        let expiresAt = item.autoDeleteEnabled ? item.deleteAt : nil
+        switch item.content {
+        case .text(let text):
+            if !item.fits(text) { return nil }
+            if store.findDuplicateText(value: item.visibleText(text)) != nil { return nil }
+            return (Cutling(
+                name: item.name,
+                value: text,
+                icon: item.icon,
+                kind: .text,
+                expiresAt: expiresAt,
+                color: Cutling.hexString(from: item.color),
+                inputTypeTriggers: item.inputTypeTriggers.isEmpty ? nil : Array(item.inputTypeTriggers),
+                userSetInputType: item.userSetInputType,
+                format: item.format
+            ), nil)
+
+        case .url(let url):
+            if store.findDuplicateText(value: url.absoluteString) != nil { return nil }
+            return (Cutling(
+                name: item.name,
+                value: url.absoluteString,
+                icon: item.icon,
+                kind: .text,
+                expiresAt: expiresAt,
+                color: Cutling.hexString(from: item.color)
+            ), nil)
+
+        case .image(let data):
+            if store.findDuplicateImage(data: data) != nil { return nil }
+            return (Cutling(
+                id: UUID(),
+                name: item.name,
+                value: "",
+                icon: "photo",
+                kind: .image,
+                imageFilename: nil,
+                expiresAt: expiresAt
+            ), data)
+        }
+    }
+
     // MARK: - Save
 
     private func save() {
-        guard !items.isEmpty else { return }
+        guard !items.isEmpty, !limitBlocks else { return }
         isSaving = true
 
         let textItemCount = items.filter {
@@ -510,55 +624,14 @@ struct ShareView: View {
         var addedIDs: [UUID] = []
 
         for item in items {
-            let expiresAt = item.autoDeleteEnabled ? item.deleteAt : nil
-
-            switch item.content {
-            case .text(let text):
-                if !item.fits(text) { continue }
-                if store.findDuplicateText(value: item.visibleText(text)) != nil { continue }
-                let cutling = Cutling(
-                    name: item.name,
-                    value: text,
-                    icon: item.icon,
-                    kind: .text,
-                    expiresAt: expiresAt,
-                    color: Cutling.hexString(from: item.color),
-                    inputTypeTriggers: item.inputTypeTriggers.isEmpty ? nil : Array(item.inputTypeTriggers),
-                    userSetInputType: item.userSetInputType,
-                    format: item.format
-                )
-                store.add(cutling)
-                addedIDs.append(cutling.id)
-
-            case .url(let url):
-                if store.findDuplicateText(value: url.absoluteString) != nil { continue }
-                let cutling = Cutling(
-                    name: item.name,
-                    value: url.absoluteString,
-                    icon: item.icon,
-                    kind: .text,
-                    expiresAt: expiresAt,
-                    color: Cutling.hexString(from: item.color)
-                )
-                store.add(cutling)
-                addedIDs.append(cutling.id)
-
-            case .image(let data):
-                if store.findDuplicateImage(data: data) != nil { continue }
-                let id = UUID()
-                guard let filename = store.saveImageData(data, for: id) else { continue }
-                let cutling = Cutling(
-                    id: id,
-                    name: item.name,
-                    value: "",
-                    icon: "photo",
-                    kind: .image,
-                    imageFilename: filename,
-                    expiresAt: expiresAt
-                )
-                store.add(cutling)
-                addedIDs.append(cutling.id)
+            guard let made = makeCutling(item) else { continue }
+            var cutling = made.cutling
+            if let data = made.imageData {
+                guard let filename = store.saveImageData(data, for: cutling.id) else { continue }
+                cutling.imageFilename = filename
             }
+            store.add(cutling)
+            addedIDs.append(cutling.id)
         }
 
         // If iCloud sync is on, block dismiss until the new cutlings reach the

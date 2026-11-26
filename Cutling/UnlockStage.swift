@@ -26,10 +26,8 @@ struct UnlockStage: View {
     let roomSize: CGSize
     let trailingPadding: CGFloat
 
-    #if os(macOS)
-    /// The Mac window's sixth tile shows the item that waits (its SF Symbol) instead of the +.
+    /// The sixth tile shows the item that waits (its SF Symbol) instead of the +.
     var waitingIcon: String?
-    #endif
 
     @Environment(\.layoutDirection) private var direction
     @Environment(\.colorScheme) private var scheme
@@ -54,11 +52,7 @@ struct UnlockStage: View {
     }
 
     private var sixthSymbol: String {
-        #if os(macOS)
         waitingIcon ?? "plus"
-        #else
-        "plus"
-        #endif
     }
 
     @ViewBuilder private func tile(_ index: Int) -> some View {

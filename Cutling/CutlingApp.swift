@@ -99,6 +99,8 @@ struct CutlingApp: App {
     @State private var showOnboarding = false
     @State private var limitAlertMessage: String?
     @State private var showUnlockFromLink = false
+    /// What the keyboard, Share sheet or a Shortcut left in `Pending/`, in the sheet's sixth tile.
+    @State private var linkWaiting: UnlockWaiting?
     @Environment(\.scenePhase) private var scenePhase
 
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
@@ -305,7 +307,7 @@ struct CutlingApp: App {
                         requestNewCutling(NewCutlingDraft(kind: .image))
                     case "unlock":
                         // The keyboard and the Share sheet can't run a purchase, so they open this link.
-                        if !PurchaseManager.shared.isUnlocked { showUnlockFromLink = true }
+                        openUnlockFromLink()
                     default:
                         break
                     }
@@ -320,6 +322,8 @@ struct CutlingApp: App {
                         }
                         handlePendingOpenCutling()
                         handlePendingCopyConfirmation()
+                        // A Share item the sheet could not hand over waits for the next unlock (and a stale one is dropped).
+                        store.savePending(onlyIfRequested: true)
                         #if os(iOS)
                         handlePendingShortcut()
                         handlePendingControlAction()
@@ -369,7 +373,7 @@ struct CutlingApp: App {
                 #endif
                 .limitAlert($limitAlertMessage)
                 .sheet(isPresented: $showUnlockFromLink) {
-                    UnlockView()
+                    UnlockView(waiting: linkWaiting)
                 }
         }
         #if os(macOS)
@@ -464,6 +468,22 @@ struct CutlingApp: App {
         }
     }
     #endif
+
+    // MARK: - Unlock link
+
+    /// `cutling://unlock`, from the keyboard's bar, the Share sheet or a Shortcut: an unlocked copy saves what waits;
+    /// otherwise the unlock sheet opens with it in the sixth tile, and closing the sheet drops it.
+    private func openUnlockFromLink() {
+        if PurchaseManager.shared.isUnlocked {
+            store.savePending()
+            return
+        }
+        let first = PendingCutlings.read()?.items.first
+        linkWaiting = first.map { item in
+            UnlockWaiting(icon: item.icon, onUnlocked: { store.savePending() }, onDismissed: { PendingCutlings.clear() })
+        }
+        showUnlockFromLink = true
+    }
 
     // MARK: - Sheet Management
 

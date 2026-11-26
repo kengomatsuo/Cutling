@@ -19,6 +19,10 @@ struct SaveTextToCutlingIntent: AppIntent {
     @Parameter(title: "Text", inputOptions: String.IntentInputOptions(multiline: true))
     var text: String
 
+    /// Starts in the background; at the free limit it continues in the app (iOS 26 and later).
+    @available(iOS 26.0, macOS 26.0, *)
+    static var supportedModes: IntentModes { [.background, .foreground(.dynamic)] }
+
     init() {}
 
     init(text: String) {
@@ -38,11 +42,6 @@ struct SaveTextToCutlingIntent: AppIntent {
             return .result(dialog: IntentDialog(stringLiteral: String(localized: "Already saved.")))
         }
 
-        let check = store.canAdd(.text)
-        guard check.allowed else {
-            return .result(dialog: IntentDialog(stringLiteral: check.reason ?? String(localized: "Cannot add more text cutlings.")))
-        }
-
         let suggestion = InputTypeCategory.suggest(from: trimmed)
         // Code keeps its indentation; only blank edge lines go.
         let isCode = TextFormat.looksLikeCode(text)
@@ -55,6 +54,12 @@ struct SaveTextToCutlingIntent: AppIntent {
             inputTypeTriggers: suggestion.triggers.isEmpty ? nil : Array(suggestion.triggers),
             format: isCode ? .code : nil
         )
+        guard store.canAdd(.text).allowed else {
+            if store.needsUnlock {
+                return .result(dialog: try await UnlockHandoff.ask(self, cutling: cutling, imageData: nil))
+            }
+            return .result(dialog: IntentDialog(stringLiteral: store.canAdd(.text).reason ?? String(localized: "Cannot add more text cutlings.")))
+        }
         store.add(cutling)
 
         return .result(dialog: IntentDialog(stringLiteral: String(localized: "Saved!")))

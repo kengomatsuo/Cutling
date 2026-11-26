@@ -66,6 +66,9 @@ final class KeyboardState: ObservableObject {
     @Published var fill: FillSession?
     /// The cutling whose text was just typed, for the Inserted mark on its key.
     @Published var applied: UUID?
+    /// The free limit stopped a clip: the suggestion bar shows the hand-off to the app's unlock sheet until the
+    /// keyboard hides or a cutling is typed.
+    @Published var handOff = false
 }
 
 // MARK: - Keyboard Sound
@@ -415,6 +418,12 @@ class KeyboardViewController: UIInputViewController {
         }
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        // The clip stays in Pending/ (the bar's link may have just opened the app); only the bar goes.
+        keyboardState.handOff = false
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         launchLog.log("viewDidAppear at \(msSinceProcessStart()) ms, height \(self.view.bounds.height)")
@@ -729,6 +738,7 @@ class KeyboardViewController: UIInputViewController {
     /// Shows the Inserted mark on the key whose text was just typed, for a moment.
     private func markApplied(_ id: UUID) {
         keyboardState.applied = id
+        keyboardState.handOff = false
         Task { @MainActor [keyboardState] in
             try? await Task.sleep(for: .seconds(1.2))
             if keyboardState.applied == id { keyboardState.applied = nil }
@@ -1131,16 +1141,17 @@ struct KeyboardView: View {
     @State private var existedID: UUID? = nil
     @State private var newlyAddedID: UUID? = nil
     @State private var showAddedToast = false
+    /// "Added!", or how many free saves are left once the free limit is near.
+    @State private var addedText = ""
     @State private var copiedStyledID: UUID? = nil
     @State private var showNoAccessToast = false
     @State private var showEmptyClipboardToast = false
     @State private var showLimitToast = false
-    /// The limit toast is the free limit's: tapping it opens the app's unlock screen.
-    @State private var limitToastUnlocks = false
     @State private var limitToastMessage = ""
     
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.verticalSizeClass) private var verticalSizeClass
+    @Environment(\.colorScheme) private var barScheme
     
     private var isLandscape: Bool {
         verticalSizeClass == .compact
@@ -1202,7 +1213,9 @@ struct KeyboardView: View {
     private var suggestionBar: some View {
         HStack(spacing: keySpacing) {
             Group {
-                if state.hasFullAccess {
+                if state.handOff {
+                    handOffBar
+                } else if state.hasFullAccess {
                     // Always-active clipboard button — checks clipboard at tap time
                     HStack(spacing: 6) {
                         Image(systemName: "doc.on.clipboard")
@@ -1234,7 +1247,7 @@ struct KeyboardView: View {
             }
             .overlay {
                 if showAddedToast {
-                    toastOverlay(icon: "checkmark", text: String(localized: "Added!", bundle: snapshotBundle))
+                    toastOverlay(icon: "checkmark", text: addedText)
                 }
                 if showNoAccessToast {
                     toastOverlay(icon: "lock.fill", text: String(localized: "Full Access Required", bundle: snapshotBundle))
@@ -1243,15 +1256,7 @@ struct KeyboardView: View {
                     toastOverlay(icon: "doc.on.clipboard", text: String(localized: "Clipboard Empty", bundle: snapshotBundle))
                 }
                 if showLimitToast {
-                    if limitToastUnlocks {
-                        Link(destination: URL(string: "cutling://unlock")!) {
-                            toastOverlay(icon: "lock.open", text: limitToastMessage)
-                        }
-                        .buttonStyle(.plain)
-                        .accessibilityIdentifier("keyboardUnlockToast")
-                    } else {
-                        toastOverlay(icon: "exclamationmark.triangle", text: limitToastMessage)
-                    }
+                    toastOverlay(icon: "exclamationmark.triangle", text: limitToastMessage)
                 }
             }
             .animation(.spring(duration: 0.35, bounce: 0.2), value: showAddedToast)
@@ -1259,16 +1264,46 @@ struct KeyboardView: View {
             .animation(.spring(duration: 0.35, bounce: 0.2), value: showEmptyClipboardToast)
             .animation(.spring(duration: 0.35, bounce: 0.2), value: showLimitToast)
 
-            Link(destination: URL(string: "cutling://open")!) {
-                Image(systemName: "arrow.up.forward.square")
-                    .font(.system(size: KeyStyle.buttonIconSize(for: horizontalSizeClass), weight: .medium))
-                    .foregroundStyle(.primary)
-                    .frame(width: keyHeight, height: keyHeight)
-                    .background(Color.keyHitTest)
-                    .contentShape(Circle())
+            if !state.handOff {
+                Link(destination: URL(string: "cutling://open")!) {
+                    Image(systemName: "arrow.up.forward.square")
+                        .font(.system(size: KeyStyle.buttonIconSize(for: horizontalSizeClass), weight: .medium))
+                        .foregroundStyle(.primary)
+                        .frame(width: keyHeight, height: keyHeight)
+                        .background(Color.keyHitTest)
+                        .contentShape(Circle())
+                }
+                .buttonStyle(.plain)
             }
-            .buttonStyle(.plain)
         }
+        .animation(.spring(duration: 0.35, bounce: 0.2), value: state.handOff)
+    }
+
+    /// The keyboard cannot buy: at the free limit the clip waits in Pending/ and this bar opens the app's unlock sheet.
+    /// It stays until the keyboard hides or a cutling is typed; no timer takes it away.
+    private var handOffBar: some View {
+        Link(destination: URL(string: "cutling://unlock")!) {
+            HStack(spacing: 6) {
+                Text("\(Unlock.freeLimit) of \(Unlock.freeLimit) free · Unlock to save this", bundle: snapshotBundle)
+                    .font(.system(size: 17, weight: .semibold))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.7)
+                Spacer(minLength: 0)
+                Image(systemName: "arrow.up.forward.square")
+                    .font(.system(size: 22, weight: .medium))
+            }
+            .foregroundStyle(barScheme == .dark ? Color(hex: 0x00be86) : Color(hex: 0x00875F))
+            .padding(.leading, 20)
+            .padding(.trailing, 12)
+            .frame(maxWidth: .infinity)
+            .frame(height: keyHeight)
+            .background(Color(hex: 0x00be86).opacity(0.12), in: Capsule())
+            .overlay(Capsule().strokeBorder(Color(hex: 0x00be86), lineWidth: 1.5))
+            .contentShape(Capsule())
+        }
+        .buttonStyle(.plain)
+        .transition(AsymmetricTransition(insertion: .scale(0.85).combined(with: .opacity), removal: .opacity))
+        .accessibilityIdentifier("keyboardUnlockBar")
     }
 
     private func toastOverlay(icon: String, text: String) -> some View {
@@ -1554,12 +1589,6 @@ struct KeyboardView: View {
             return
         }
 
-        // Check image limit
-        guard store.canAdd(.image).allowed else {
-            showLimitReached(for: .image)
-            return
-        }
-
         let id = UUID()
         let imageName = String(localized: "Image: \(timestampString())", bundle: snapshotBundle)
         var cutling = Cutling(
@@ -1571,6 +1600,12 @@ struct KeyboardView: View {
             imageFilename: nil
         )
 
+        // Check image limit
+        guard store.canAdd(.image).allowed else {
+            showLimitReached(for: .image, waiting: cutling, imageData: imageData)
+            return
+        }
+
         cutling.imageFilename = store.saveImageData(imageData, for: id)
         store.add(cutling)
         if let added = store.cutlings.first(where: { $0.id == id }) {
@@ -1578,7 +1613,7 @@ struct KeyboardView: View {
         }
         newlyAddedID = id
 
-        flashToast($showAddedToast)
+        flashAdded()
     }
 
     private func addTextFromClipboard(_ rawText: String) {
@@ -1589,12 +1624,6 @@ struct KeyboardView: View {
 
         if let existing = store.findDuplicateText(value: text) {
             showExisted(existing.id)
-            return
-        }
-
-        // Check text limit
-        guard store.canAdd(.text).allowed else {
-            showLimitReached(for: .text)
             return
         }
 
@@ -1616,13 +1645,19 @@ struct KeyboardView: View {
             format: format == .plain ? nil : format
         )
 
+        // Check text limit
+        guard store.canAdd(.text).allowed else {
+            showLimitReached(for: .text, waiting: cutling, imageData: nil)
+            return
+        }
+
         store.add(cutling)
         if let added = store.cutlings.first(where: { $0.id == cutling.id }) {
             KeyboardSyncHelper.upload(added, imagesDirectory: store.imagesDirectory)
         }
         newlyAddedID = cutling.id
 
-        flashToast($showAddedToast)
+        flashAdded()
     }
 
     private func timestampString() -> String {
@@ -1648,25 +1683,37 @@ struct KeyboardView: View {
         }
     }
 
-    private func showLimitReached(for kind: CutlingKind) {
+    /// The toast after a save: how many free saves are left for a free copy, plain "Added!" otherwise.
+    private func flashAdded() {
+        switch FreeLimit.saveNote(countedAfterSave: store.countedCount, limit: Unlock.freeLimit, unlocked: Unlock.isUnlocked) {
+        case .plain: addedText = String(localized: "Added!", bundle: snapshotBundle)
+        case .oneLeft: addedText = String(localized: "Added · 1 free left", bundle: snapshotBundle)
+        case .last: addedText = String(localized: "Added · \(Unlock.freeLimit) of \(Unlock.freeLimit) free", bundle: snapshotBundle)
+        }
+        flashToast($showAddedToast)
+    }
+
+    private func showLimitReached(for kind: CutlingKind, waiting: Cutling, imageData: Data?) {
+        if store.needsUnlock {
+            // The free limit: keep the clip for the app's unlock sheet and turn the bar into the hand-off.
+            UINotificationFeedbackGenerator().notificationOccurred(.warning)
+            PendingCutlings.write([waiting], images: imageData.map { [waiting.id: $0] } ?? [:], savesOnUnlock: false)
+            withAnimation(.spring(duration: 0.35, bounce: 0.2)) { state.handOff = true }
+            return
+        }
         UINotificationFeedbackGenerator().notificationOccurred(.error)
-        limitToastUnlocks = store.needsUnlock
-        if limitToastUnlocks {
-            limitToastMessage = String(localized: "\(Unlock.freeLimit) free cutlings used. Tap to unlock.", bundle: snapshotBundle)
-        } else {
         switch kind {
         case .image:
             limitToastMessage = String(localized: "Image Limit: \(CutlingStore.maxImageCutlings)", bundle: snapshotBundle)
         case .text:
             limitToastMessage = String(localized: "Text Limit: \(CutlingStore.maxTextCutlings)", bundle: snapshotBundle)
         }
-        }
 
         withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
             showLimitToast = true
         }
         Task {
-            try? await Task.sleep(for: .seconds(limitToastUnlocks ? 4.0 : 2.0))
+            try? await Task.sleep(for: .seconds(2.0))
             withAnimation(.easeOut(duration: 0.25)) {
                 showLimitToast = false
             }

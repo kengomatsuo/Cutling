@@ -7,6 +7,22 @@
 
 import SwiftUI
 
+/// What waits while the person unlocks, so nothing they were adding is lost at the free limit: the glyph in the sixth
+/// tile, what runs once the unlock arrives (saves the item), and what runs if the sheet closes without it. A duplicate
+/// or a restore keeps its original where it is until then; a Share or keyboard item waits in `Pending/`.
+struct UnlockWaiting: Identifiable {
+    let id = UUID()
+    var icon: String?
+    var onUnlocked: (() -> Void)?
+    var onDismissed: (() -> Void)?
+}
+
+extension EnvironmentValues {
+    /// Opens the unlock sheet with an item waiting, from a view that has no sheet of its own (a card's Duplicate).
+    /// Set by the screen that owns the sheet.
+    @Entry var askToUnlock: (UnlockWaiting) -> Void = { _ in }
+}
+
 /// The one way the app answers "can't add another cutling": when the free limit is what stops it, the unlock
 /// screen opens; when a memory cap stops it, the "Limit Reached" alert explains which.
 struct LimitAlert: ViewModifier {
@@ -87,3 +103,14 @@ extension View {
         #endif
     }
 }
+
+#if os(iOS)
+extension View {
+    /// Opens the unlock sheet with `waiting` in its sixth tile when it is set; closing clears it.
+    func unlockSheet(_ waiting: Binding<UnlockWaiting?>) -> some View {
+        sheet(item: waiting) { item in
+            UnlockView(waiting: item)
+        }
+    }
+}
+#endif

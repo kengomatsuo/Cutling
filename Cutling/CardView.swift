@@ -144,6 +144,7 @@ extension EnvironmentValues {
 struct CardView: View {
     @EnvironmentObject var store: CutlingStore
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.askToUnlock) private var askToUnlock
     #if os(iOS)
     @Environment(\.hostWindow) private var hostWindow
     @Environment(\.cardPreviewWidth) private var previewWidth
@@ -165,6 +166,18 @@ struct CardView: View {
     /// `.normal`. In `.ellipsisOnly` just the ⋯ button works; `.disabled`
     /// makes the whole card inert.
     private var cardInteractive: Bool { tutorialMode == .normal }
+
+    /// Duplicate at the free limit asks to unlock with the copy waiting; the original stays as it is until then.
+    private func duplicate() {
+        guard store.needsUnlock else { store.duplicate(item); return }
+        let original = item
+        let cutlings = store
+        #if os(macOS)
+        MacUnlockWindow.shared.show(MacUnlockWaiting(icon: original.icon, onUnlocked: { cutlings.duplicate(original) }))
+        #else
+        askToUnlock(UnlockWaiting(icon: original.icon, onUnlocked: { cutlings.duplicate(original) }))
+        #endif
+    }
     private var cardFullyDisabled: Bool { tutorialMode == .disabled }
 
     /// The ••• button's circle, 36 pt at the default text size, grows with the dots in it.
@@ -329,7 +342,7 @@ struct CardView: View {
 
             Button {
                 markContextMenuDiscovered()
-                store.duplicate(item)
+                duplicate()
             } label: {
                 Label("Duplicate", systemImage: "plus.square.on.square")
             }

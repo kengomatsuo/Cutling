@@ -29,6 +29,8 @@ struct KeyboardView: View {
     @State private var hasFullAccess = false
     @State private var showSetupGuide = false
     @State private var pendingReplacementCount = 0
+    /// The replacements the free limit stopped, waiting for the unlock sheet (they stay cached until saved).
+    @State private var unlockWaiting: UnlockWaiting?
     @AppStorage(CutlingPasteboard.alwaysPlainKey, store: UserDefaults(suiteName: "group.com.matsuokengo.Cutling"))
     private var alwaysPastePlainText = false
     @State private var hasCachedReplacements = false
@@ -177,6 +179,13 @@ struct KeyboardView: View {
                     Button {
                         store.importTextReplacements()
                         refreshTextReplacements()
+                        // What did not fit stays cached; the unlock sheet imports it.
+                        if store.needsUnlock, pendingReplacementCount > 0 {
+                            unlockWaiting = UnlockWaiting(icon: "character.cursor.ibeam", onUnlocked: {
+                                store.importTextReplacements()
+                                refreshTextReplacements()
+                            })
+                        }
                     } label: {
                         LabeledContent {
                             Text("\(pendingReplacementCount)")
@@ -308,6 +317,7 @@ struct KeyboardView: View {
             .navigationTitle("Keyboard")
             .accessibilityIdentifier("keyboardView")
             #if os(iOS)
+            .unlockSheet($unlockWaiting)
             .navigationBarTitleDisplayMode(.inline)
             #endif
             #if os(iOS)
