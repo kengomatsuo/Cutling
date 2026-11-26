@@ -65,7 +65,7 @@ struct UnlockView: View {
                     UnlockRow(symbol: "checkmark.seal.fill", title: "Pay Once",
                               detail: "No subscription, no ads, no account.")
                 }
-                .padding(.bottom, 24)
+                .padding(.bottom, 36) // owner, 2026-11-26: 24 sat the link too close to the last row
 
                 Button(purchases.isRestoring ? "Restoring…" : "Restore Purchases") {
                     Task { await purchases.restore(); if purchases.isUnlocked { unlockedHere = true } }
