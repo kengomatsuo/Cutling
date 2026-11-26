@@ -83,6 +83,8 @@ struct MainContentView: View {
     @State private var selectedItem: Cutling? = nil
     @State private var showRecentlyDeleted = false
     @State private var limitAlertMessage: String?
+    /// The cutling the + menu was starting when the free limit stopped it; the unlock sheet's Continue opens it.
+    @State private var unlockDraft: NewCutlingDraft?
     @State private var dropNotice: DropNotice?
 
     // MARK: Search
@@ -307,7 +309,9 @@ struct MainContentView: View {
                 ))
                 .modifier(AlertsModifier(
                     limitAlertMessage: $limitAlertMessage,
-                    dropNotice: $dropNotice
+                    dropNotice: $dropNotice,
+                    unlockDraft: $unlockDraft,
+                    openDraft: { activeSheet = .newCutling($0) }
                 ))
                 .modifier(ChangeHandlersModifier(
                     mode: mode,
@@ -994,6 +998,7 @@ struct MainContentView: View {
                 if canAddText.allowed {
                     activeSheet = .newCutling(NewCutlingDraft(kind: .text))
                 } else {
+                    unlockDraft = NewCutlingDraft(kind: .text)
                     limitAlertMessage = canAddText.reason ?? String(localized: "Cannot add text cutling")
                 }
             } label: {
@@ -1009,6 +1014,7 @@ struct MainContentView: View {
                     if canAddText.allowed {
                         activeSheet = .newCutling(NewCutlingDraft(kind: .text))
                     } else {
+                        unlockDraft = NewCutlingDraft(kind: .text)
                         limitAlertMessage = canAddText.reason ?? String(localized: "Cannot add text cutling")
                     }
                 } label: {
@@ -1019,6 +1025,7 @@ struct MainContentView: View {
                     if canAddImage.allowed {
                         activeSheet = .newCutling(NewCutlingDraft(kind: .image))
                     } else {
+                        unlockDraft = NewCutlingDraft(kind: .image)
                         limitAlertMessage = canAddImage.reason ?? String(localized: "Cannot add image cutling")
                     }
                 } label: {
@@ -1796,10 +1803,12 @@ struct DropNotice: Identifiable {
 struct AlertsModifier: ViewModifier {
     @Binding var limitAlertMessage: String?
     @Binding var dropNotice: DropNotice?
+    @Binding var unlockDraft: NewCutlingDraft?
+    let openDraft: (NewCutlingDraft) -> Void
 
     func body(content: Content) -> some View {
         content
-            .limitAlert($limitAlertMessage)
+            .limitAlert($limitAlertMessage, draft: $unlockDraft, open: openDraft)
             .alert(
                 dropNotice?.title ?? "",
                 isPresented: Binding(
