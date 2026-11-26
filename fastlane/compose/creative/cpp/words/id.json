@@ -1,0 +1,94 @@
+{
+ "main": {
+  "1": {
+   "h": "Jangan|ketik lagi.",
+   "s": "{n} tombol. Setiap kali."
+  },
+  "2": {
+   "h": "Ketuk|saja.",
+   "s": "Cutling bikin jadi satu ketukan."
+  },
+  "3": {
+   "h": "Beres.",
+   "s": "Langsung terketik. Tanpa salah ketik."
+  },
+  "4": {
+   "h": "Simpan|semua.",
+   "s": "Muat sampai 5.000."
+  },
+  "5": {
+   "h": "Tulis|sekali.",
+   "s": "Tebal, daftar, tautan, seperti catatan."
+  },
+  "6": {
+   "h": "Biarkan|kosong.",
+   "s": "Isi namanya saat menempel."
+  },
+  "7": {
+   "h": "Tanggal|terisi sendiri.",
+   "s": "Tanggal hari itu, saat ditempel."
+  },
+  "8": {
+   "h": "Semua|perangkat.",
+   "s": "iPhone, iPad, dan Mac, selalu sinkron.",
+   "f": "Bayar sekali. Tanpa akun, tanpa langganan."
+  }
+ },
+ "demo": {
+  "ask": "Kak, pesanan saya dikirim kapan?",
+  "note": [
+   "Selamat datang di studio!",
+   "Semua untuk kunjungan pertama:",
+   "Kode pintu 4815",
+   "Wi-Fi: studio-guest",
+   "Parkir di belakang toko roti"
+  ],
+  "note_hi": "4815"
+ },
+ "_bt": {
+  "main": "Don't type anymore. / {n} keys. Every time. / Just tap. / Cutling makes it one tap. / Sorted. / Typed straight away. No typos. / Save all. / Fits up to 5,000. / Write once. / Bold, list, link, like a note. / Leave it empty. / Fill the name when pasting. / The date fills itself. / That day's date, when pasted. / All devices. / iPhone, iPad and Mac, always synced. / Pay once. No account, no subscription.",
+  "pd_qr": "Your address, one button / Any form, one tap per column / Each data has its button / All your data in one place / Typed in any app / iPhone, iPad and Mac || Asked the same thing again? / Answer with one tap / Each name, the same reply / The date fills itself / All replies, one place / On iPhone, iPad and your Mac"
+ },
+ "keys_pd": {
+  "1": {
+   "h": "Alamatmu,|*satu tombol*"
+  },
+  "2": {
+   "h": "Formulir apa pun,|*sekali ketuk per kolom*"
+  },
+  "3": {
+   "h": "Tiap data|*punya tombolnya*"
+  },
+  "4": {
+   "h": "Semua datamu|*di satu tempat*"
+  },
+  "5": {
+   "h": "Terketik di|*aplikasi apa saja*"
+  },
+  "6": {
+   "h": "iPhone, iPad,|*dan Mac*",
+   "f": "Bayar sekali. Tanpa akun, tanpa langganan."
+  }
+ },
+ "night_qr": {
+  "1": {
+   "h": "Ditanya hal|*yang sama*|lagi?"
+  },
+  "2": {
+   "h": "Jawab|*sekali ketuk.*"
+  },
+  "3": {
+   "h": "*Tiap nama,*|balasan|yang sama."
+  },
+  "4": {
+   "h": "*Tanggalnya*|terisi|sendiri."
+  },
+  "5": {
+   "h": "Semua balasan,|*satu tempat.*"
+  },
+  "6": {
+   "h": "Di iPhone,|iPad, dan|*Mac-mu.*",
+   "f": "Bayar sekali. Tanpa akun, tanpa langganan."
+  }
+ }
+}

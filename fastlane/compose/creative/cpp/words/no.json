@@ -1,0 +1,94 @@
+{
+ "main": {
+  "1": {
+   "h": "Ikke|tast det.",
+   "s": "{n} tastetrykk. Hver gang."
+  },
+  "2": {
+   "h": "Trykk.",
+   "s": "Cutling gjør det til ett trykk."
+  },
+  "3": {
+   "h": "Ferdig.",
+   "s": "Skrevet for deg. Uten skrivefeil."
+  },
+  "4": {
+   "h": "Ta vare|på alt.",
+   "s": "Plass til 5 000."
+  },
+  "5": {
+   "h": "Skriv det|én gang.",
+   "s": "Fet, lister og lenker, som et notat."
+  },
+  "6": {
+   "h": "La navnet|stå åpent.",
+   "s": "Fyll inn navnet når du limer inn."
+  },
+  "7": {
+   "h": "Kan|datoen.",
+   "s": "Dagens dato, den dagen du limer inn."
+  },
+  "8": {
+   "h": "Alle|enheter.",
+   "s": "iPhone, iPad og Mac, synkronisert.",
+   "f": "Betal én gang. Ingen konto, ikke abonnement."
+  }
+ },
+ "demo": {
+  "ask": "Når sendes pakken min?",
+  "note": [
+   "Velkommen til studioet!",
+   "Alt til første besøk:",
+   "Dørkode 4815",
+   "Wi-Fi: studio-guest",
+   "Parkering bak bakeriet"
+  ],
+  "note_hi": "4815"
+ },
+ "_bt": {
+  "main": "Don't key it. / {n} keystrokes. Every time. / Press. / Cutling makes it one press. / Done. / Written for you. No typos. / Keep it all. / Room for 5,000. / Write it once. / Bold, lists and links, like a note. / Leave the name open. / Fill in the name when you paste. / Knows the date. / Today's date, the day you paste. / All devices. / iPhone, iPad and Mac, synced. / Pay once. No account, no subscription.",
+  "pd_qr": "Your address, one key / Any form, one press per field / Each detail its own key / All details in one place / Written into any app / iPhone, iPad and Mac || Asked the same again? / Answer with one press / Each name, same answer / The date fills itself / All answers in one place / On iPhone, iPad and your Mac"
+ },
+ "keys_pd": {
+  "1": {
+   "h": "Adressen din,|*én tast*"
+  },
+  "2": {
+   "h": "Ethvert skjema,|*ett trykk per felt*"
+  },
+  "3": {
+   "h": "Hver opplysning|*sin egen tast*"
+  },
+  "4": {
+   "h": "Alle opplysningene|*på ett sted*"
+  },
+  "5": {
+   "h": "Skrives inn i|*hvilken som helst app*"
+  },
+  "6": {
+   "h": "iPhone, iPad|*og Mac*",
+   "f": "Betal én gang. Ingen konto, ikke abonnement."
+  }
+ },
+ "night_qr": {
+  "1": {
+   "h": "Spurt om|*det samme*|igjen?"
+  },
+  "2": {
+   "h": "Svar|*med ett trykk.*"
+  },
+  "3": {
+   "h": "*Hvert navn,*|samme|svar."
+  },
+  "4": {
+   "h": "*Datoen*|fyller seg|inn selv."
+  },
+  "5": {
+   "h": "Alle svar|*på ett sted.*"
+  },
+  "6": {
+   "h": "På iPhone,|iPad og|*din Mac.*",
+   "f": "Betal én gang. Ingen konto, ikke abonnement."
+  }
+ }
+}

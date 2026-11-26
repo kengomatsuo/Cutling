@@ -1,0 +1,94 @@
+{
+ "main": {
+  "1": {
+   "h": "No ho|escriguis.",
+   "s": "{n} tecles. Cada vegada."
+  },
+  "2": {
+   "h": "Toca-ho.",
+   "s": "Amb Cutling, una sola tecla."
+  },
+  "3": {
+   "h": "Fet.",
+   "s": "Ja escrit, sense errades."
+  },
+  "4": {
+   "h": "Guarda-ho|tot.",
+   "s": "Hi caben 5.000 textos."
+  },
+  "5": {
+   "h": "Escriu-ho|un cop.",
+   "s": "Negreta, llistes i enllaços, com una nota."
+  },
+  "6": {
+   "h": "Deixa-hi|un buit.",
+   "s": "Omple el nom quan enganxes."
+  },
+  "7": {
+   "h": "Sap la|data.",
+   "s": "La data del dia que enganxes."
+  },
+  "8": {
+   "h": "Tots els|aparells.",
+   "s": "iPhone, iPad i Mac, sincronitzats.",
+   "f": "Pagues un cop. Sense compte ni subscripció."
+  }
+ },
+ "demo": {
+  "ask": "Quan m’envieu la comanda?",
+  "note": [
+   "Benvinguts a l’estudi!",
+   "Tot el que cal per a la primera visita:",
+   "Codi de la porta 4815",
+   "Wi-Fi: studio-guest",
+   "Aparcament darrere el forn"
+  ],
+  "note_hi": "4815"
+ },
+ "_bt": {
+  "main": "Don't type it. / {n} keys. Every time. / Tap it. / With Cutling, a single key. / Done. / Already written, no typos. / Keep it all. / 5,000 texts fit. / Write it once. / Bold, lists and links, like a note. / Leave a gap in it. / Fill the name when you paste. / Knows the date. / The date of the day you paste. / All the devices. / iPhone, iPad and Mac, synced. / You pay once. No account or subscription.",
+  "pd_qr": "Your address, one key / Any form, one tap per field / Each data, its key / All data in one place / Written in any app / iPhone, iPad and Mac || They always ask you the same question? / Answer it with a tap / Each name, the same answer / The date fills alone / All answers in one place / On iPhone, iPad and your Mac"
+ },
+ "keys_pd": {
+  "1": {
+   "h": "La teva adreça,|*una tecla*"
+  },
+  "2": {
+   "h": "Qualsevol formulari,|*un toc per camp*"
+  },
+  "3": {
+   "h": "Cada dada,|*la seva tecla*"
+  },
+  "4": {
+   "h": "Totes les dades|*en un sol lloc*"
+  },
+  "5": {
+   "h": "S’escriu a|*qualsevol app*"
+  },
+  "6": {
+   "h": "iPhone, iPad|*i Mac*",
+   "f": "Pagues un cop. Sense compte ni subscripció."
+  }
+ },
+ "night_qr": {
+  "1": {
+   "h": "Sempre et fan|*la mateixa|pregunta?*"
+  },
+  "2": {
+   "h": "Respon-la|*amb un toc.*"
+  },
+  "3": {
+   "h": "*Cada nom,*|la mateixa|resposta."
+  },
+  "4": {
+   "h": "*La data*|s’omple|sola."
+  },
+  "5": {
+   "h": "Totes les respostes,|*en un lloc.*"
+  },
+  "6": {
+   "h": "A l’iPhone,|l’iPad i|*el teu Mac.*",
+   "f": "Pagues un cop. Sense compte ni subscripció."
+  }
+ }
+}

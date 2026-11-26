@@ -1,0 +1,94 @@
+{
+ "main": {
+  "1": {
+   "h": "別再|手打了。",
+   "s": "每次{n}個字。"
+  },
+  "2": {
+   "h": "點一下|就好。",
+   "s": "Cutling 一點就輸入。"
+  },
+  "3": {
+   "h": "搞定。",
+   "s": "幫你輸入，零錯字。"
+  },
+  "4": {
+   "h": "全都|收好。",
+   "s": "可存 5,000 則。"
+  },
+  "5": {
+   "h": "只寫|一次。",
+   "s": "粗體、清單、連結，像備忘錄。"
+  },
+  "6": {
+   "h": "留個|空格。",
+   "s": "貼上時再填名字。"
+  },
+  "7": {
+   "h": "日期|自動填。",
+   "s": "貼上當天的日期。"
+  },
+  "8": {
+   "h": "所有|裝置。",
+   "s": "iPhone、iPad、Mac 同步。",
+   "f": "一次買斷。不用帳號，沒有訂閱。"
+  }
+ },
+ "demo": {
+  "ask": "請問我的訂單什麼時候出貨？",
+  "note": [
+   "歡迎來到工作室！",
+   "第一次來需要知道的：",
+   "大門密碼 4815",
+   "Wi-Fi：studio-guest",
+   "停車在麵包店後面"
+  ],
+  "note_hi": "4815"
+ },
+ "_bt": {
+  "main": "Stop typing by hand. / {n} characters each time. / Just tap once. / Cutling enters it with one tap. / Sorted. / Typed for you, zero typos. / Keep it all. / Stores 5,000. / Write only once. / Bold, lists, links, like a memo. / Leave a blank. / Fill the name when pasting. / Date fills itself. / The date of the paste day. / All devices. / iPhone, iPad, Mac synced. / Buy once. No account, no subscription.",
+  "pd_qr": "Your address, one key / Any form, tap once per box / Each data has a dedicated key / All data in one place / Can input in any app / iPhone, iPad and Mac || Asked the same question again? / Reply with just one tap / Names differ, the reply is the same one / The date fills automatically / All replies in one place / On iPhone, iPad and your Mac"
+ },
+ "keys_pd": {
+  "1": {
+   "h": "你的地址，|*一個鍵*"
+  },
+  "2": {
+   "h": "任何表單，|*一格點一下*"
+  },
+  "3": {
+   "h": "每項資料，|*都有專屬鍵*"
+  },
+  "4": {
+   "h": "所有資料|*集中一處*"
+  },
+  "5": {
+   "h": "任何 App|*都能輸入*"
+  },
+  "6": {
+   "h": "iPhone、iPad|*和 Mac*",
+   "f": "一次買斷。不用帳號，沒有訂閱。"
+  }
+ },
+ "night_qr": {
+  "1": {
+   "h": "又被問|*同一個問題？*"
+  },
+  "2": {
+   "h": "回覆|*只要點一下。*"
+  },
+  "3": {
+   "h": "*名字各不同，*|回覆|是同一則。"
+  },
+  "4": {
+   "h": "*日期*|自動|填好。"
+  },
+  "5": {
+   "h": "所有回覆|*集中一處。*"
+  },
+  "6": {
+   "h": "在 iPhone、|iPad 和|*你的 Mac 上。*",
+   "f": "一次買斷。不用帳號，沒有訂閱。"
+  }
+ }
+}

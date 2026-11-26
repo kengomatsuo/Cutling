@@ -1,0 +1,94 @@
+{
+ "main": {
+  "1": {
+   "h": "ไม่ต้อง|พิมพ์เอง",
+   "s": "พิมพ์ {n} ครั้ง ทุกรอบ"
+  },
+  "2": {
+   "h": "แตะ|ทีเดียว",
+   "s": "คัตลิงย่อเหลือแตะเดียว"
+  },
+  "3": {
+   "h": "เสร็จ",
+   "s": "พิมพ์ให้แล้ว ไม่มีพิมพ์ผิด"
+  },
+  "4": {
+   "h": "เก็บไว้|ให้หมด",
+   "s": "เก็บได้ 5,000 รายการ"
+  },
+  "5": {
+   "h": "เขียนแค่|ครั้งเดียว",
+   "s": "ตัวหนา รายการ ลิงก์ เหมือนโน้ต"
+  },
+  "6": {
+   "h": "เว้น|ช่องว่าง",
+   "s": "เติมชื่อตอนวาง"
+  },
+  "7": {
+   "h": "วันที่|ใส่ให้เอง",
+   "s": "เป็นวันที่ของวันที่วาง"
+  },
+  "8": {
+   "h": "ทุก|อุปกรณ์",
+   "s": "iPhone, iPad และ Mac ซิงก์กัน",
+   "f": "จ่ายครั้งเดียว ไม่ต้องมีบัญชี ไม่มีค่ารายเดือน"
+  }
+ },
+ "demo": {
+  "ask": "ร้านจะส่งของให้วันไหนคะ",
+  "note": [
+   "ยินดีต้อนรับสู่สตูดิโอ!",
+   "สิ่งที่ต้องรู้สำหรับครั้งแรก:",
+   "รหัสประตู 4815",
+   "Wi-Fi: studio-guest",
+   "ที่จอดรถหลังร้านเบเกอรี่"
+  ],
+  "note_hi": "4815"
+ },
+ "_bt": {
+  "main": "No need to type yourself. / Type {n} times, every round. / Tap once. / Cutling shrinks it to one tap. / Done. / Typed for you, no typos. / Keep it all. / Keeps 5,000 items. / Write only once. / Bold, list, link, like a note. / Leave a blank. / Fill the name when pasting. / The date, filled for you. / It's the date of the day you paste. / Every device. / iPhone, iPad and Mac, synced. / Pay once. No account, no monthly fee.",
+  "pd_qr": "Your address, one button / Any form, a tap per box / Each info has its own button / All info in one place / Types into any app / iPhone, iPad and Mac || Asked the same question again? / Answer with one tap / Each their own name, same answer / The date filled for you / All answers in one place / On iPhone, iPad and your Mac"
+ },
+ "keys_pd": {
+  "1": {
+   "h": "ที่อยู่ของคุณ|*ปุ่มเดียว*"
+  },
+  "2": {
+   "h": "ฟอร์มไหนก็ได้|*แตะช่องละครั้ง*"
+  },
+  "3": {
+   "h": "ข้อมูลแต่ละอย่าง|*มีปุ่มของตัวเอง*"
+  },
+  "4": {
+   "h": "ข้อมูลทั้งหมด|*อยู่ที่เดียว*"
+  },
+  "5": {
+   "h": "พิมพ์ลง|*แอปไหนก็ได้*"
+  },
+  "6": {
+   "h": "iPhone, iPad|*และ Mac*",
+   "f": "จ่ายครั้งเดียว ไม่ต้องมีบัญชี ไม่มีค่ารายเดือน"
+  }
+ },
+ "night_qr": {
+  "1": {
+   "h": "ถูกถาม|*คำถามเดิม*|อีกแล้ว?"
+  },
+  "2": {
+   "h": "ตอบ|*แตะเดียว*"
+  },
+  "3": {
+   "h": "*ชื่อใครชื่อมัน*|คำตอบ|เดียวกัน"
+  },
+  "4": {
+   "h": "*วันที่*|ใส่ให้|เอง"
+  },
+  "5": {
+   "h": "คำตอบทั้งหมด|*อยู่ที่เดียว*"
+  },
+  "6": {
+   "h": "บน iPhone|iPad และ|*Mac ของคุณ*",
+   "f": "จ่ายครั้งเดียว ไม่ต้องมีบัญชี ไม่มีค่ารายเดือน"
+  }
+ }
+}

@@ -1,0 +1,94 @@
+{
+ "main": {
+  "1": {
+   "h": "Älä|näpyttele.",
+   "s": "{n} näppäilyä. Joka kerta."
+  },
+  "2": {
+   "h": "Napauta.",
+   "s": "Cutling tekee siitä yhden."
+  },
+  "3": {
+   "h": "Valmis.",
+   "s": "Valmiina, ilman lyöntivirheitä."
+  },
+  "4": {
+   "h": "Kaikki|tallessa.",
+   "s": "Tilaa 5 000:lle."
+  },
+  "5": {
+   "h": "Kirjoita|kerran.",
+   "s": "Lihavointi, listat ja linkit kuin muistiossa."
+  },
+  "6": {
+   "h": "Jätä|aukko.",
+   "s": "Nimi täytetään liitettäessä."
+  },
+  "7": {
+   "h": "Tietää|päivän.",
+   "s": "Tämä päivä, liittämispäivänä."
+  },
+  "8": {
+   "h": "Kaikilla|laitteilla.",
+   "s": "iPhone, iPad ja Mac, synkassa.",
+   "f": "Maksat kerran. Ei tiliä, ei tilausta."
+  }
+ },
+ "demo": {
+  "ask": "Milloin tilaukseni lähtee?",
+  "note": [
+   "Tervetuloa studiolle!",
+   "Kaikki ensimmäistä käyntiä varten:",
+   "Ovikoodi 4815",
+   "Wi-Fi: studio-guest",
+   "Parkki leipomon takana"
+  ],
+  "note_hi": "4815"
+ },
+ "_bt": {
+  "main": "Don't tap away (type). / {n} keystrokes. Every time. / Tap. / Cutling makes it one. / Ready. / Ready, without typos. / Everything kept. / Room for 5,000. / Write once. / Bold, lists and links as in a memo. / Leave a gap. / The name is filled in when pasting. / Knows the day. / Today, on the day of pasting. / On all devices. / iPhone, iPad and Mac, in sync. / You pay once. No account, no subscription.",
+  "pd_qr": "Your address, one key / Any form, a tap per field / For each detail its own key / All your details in one place / Writes into anything / iPhone, iPad and Mac || The same question again? / Answer with one tap / Each their own name, same answer / The date fills itself / All answers in one place / On iPhone, iPad and your Mac"
+ },
+ "keys_pd": {
+  "1": {
+   "h": "Osoitteesi,|*yksi näppäin*"
+  },
+  "2": {
+   "h": "Mikä tahansa lomake,|*napautus per kenttä*"
+  },
+  "3": {
+   "h": "Jokaiselle tiedolle|*oma näppäin*"
+  },
+  "4": {
+   "h": "Kaikki tietosi|*yhdessä paikassa*"
+  },
+  "5": {
+   "h": "Kirjoittuu|*mihin tahansa*"
+  },
+  "6": {
+   "h": "iPhone, iPad|*ja Mac*",
+   "f": "Maksat kerran. Ei tiliä, ei tilausta."
+  }
+ },
+ "night_qr": {
+  "1": {
+   "h": "Taas sama|*kysymys?*"
+  },
+  "2": {
+   "h": "Vastaa|*yhdellä|napautuksella.*"
+  },
+  "3": {
+   "h": "*Jokaiselle oma nimi,*|sama|vastaus."
+  },
+  "4": {
+   "h": "*Päivämäärä*|täyttyy|itsestään."
+  },
+  "5": {
+   "h": "Kaikki vastaukset|*yhdessä paikassa.*"
+  },
+  "6": {
+   "h": "iPhonessa,|iPadissa ja|*Macissasi.*",
+   "f": "Maksat kerran. Ei tiliä, ei tilausta."
+  }
+ }
+}

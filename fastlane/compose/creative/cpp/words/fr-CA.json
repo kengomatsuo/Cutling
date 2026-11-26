@@ -1,0 +1,94 @@
+{
+ "main": {
+  "1": {
+   "h": "Ne le tape|plus.",
+   "s": "{n} touches. Chaque fois."
+  },
+  "2": {
+   "h": "Touche.",
+   "s": "Cutling en fait une seule touche."
+  },
+  "3": {
+   "h": "C’est fait.",
+   "s": "Tapé pour toi. Zéro faute."
+  },
+  "4": {
+   "h": "Garde|tout.",
+   "s": "De la place pour 5 000."
+  },
+  "5": {
+   "h": "Écris-le|une fois.",
+   "s": "Gras, listes et liens, comme une note."
+  },
+  "6": {
+   "h": "Laisse un|blanc.",
+   "s": "Le nom se remplit au collage."
+  },
+  "7": {
+   "h": "La date,|il la sait.",
+   "s": "Celle du jour où tu colles."
+  },
+  "8": {
+   "h": "Tous tes|appareils.",
+   "s": "iPhone, iPad et Mac, synchronisés.",
+   "f": "Payé une fois. Ni compte ni abonnement."
+  }
+ },
+ "demo": {
+  "ask": "Ma commande part quand?",
+  "note": [
+   "Bienvenue à l’atelier!",
+   "Tout pour ta première visite :",
+   "Code de la porte 4815",
+   "Wi-Fi : studio-guest",
+   "Stationnement derrière la boulangerie"
+  ],
+  "note_hi": "4815"
+ },
+ "_bt": {
+  "main": "Don't type it anymore. / {n} keys. Each time. / Touch. / Cutling makes it a single key. / It's done. / Typed for you. Zero mistakes. / Keep everything. / Room for 5,000. / Write it once. / Bold, lists and links, like a note. / Leave a blank. / The name fills in at paste. / The date, it knows it. / The day you paste. / All your devices. / iPhone, iPad and Mac, synced. / Paid once. No account or subscription.",
+  "pd_qr": "Your address, one key / Any form, one key per field / Each info, its key / All your info in the same place / Typed into any app / iPhone, iPad and Mac || Again the same question? / Answer with one touch / Each name, same answer / The date fills by itself / All your answers in one place / On iPhone, iPad and your Mac"
+ },
+ "keys_pd": {
+  "1": {
+   "h": "Ton adresse,|*une touche*"
+  },
+  "2": {
+   "h": "N’importe quel formulaire,|*une touche par champ*"
+  },
+  "3": {
+   "h": "Chaque info,|*sa touche*"
+  },
+  "4": {
+   "h": "Toutes tes infos|*au même endroit*"
+  },
+  "5": {
+   "h": "Tapé dans|*n’importe quelle app*"
+  },
+  "6": {
+   "h": "iPhone, iPad|*et Mac*",
+   "f": "Payé une fois. Ni compte ni abonnement."
+  }
+ },
+ "night_qr": {
+  "1": {
+   "h": "Encore|*la même|question?*"
+  },
+  "2": {
+   "h": "Réponds|*d’une touche.*"
+  },
+  "3": {
+   "h": "*Chaque nom,*|la même|réponse."
+  },
+  "4": {
+   "h": "*La date*|se remplit|toute seule."
+  },
+  "5": {
+   "h": "Toutes tes réponses,|*au même endroit.*"
+  },
+  "6": {
+   "h": "Sur iPhone,|iPad et|*ton Mac.*",
+   "f": "Payé une fois. Ni compte ni abonnement."
+  }
+ }
+}

@@ -1,0 +1,94 @@
+{
+ "main": {
+  "1": {
+   "h": "Đừng|gõ nữa.",
+   "s": "{n} phím. Lần nào cũng vậy."
+  },
+  "2": {
+   "h": "Chạm|một cái.",
+   "s": "Cutling gói lại thành một phím."
+  },
+  "3": {
+   "h": "Xong.",
+   "s": "Gõ sẵn cho bạn. Không sai chữ."
+  },
+  "4": {
+   "h": "Giữ|tất cả.",
+   "s": "Chứa được 5.000 mục."
+  },
+  "5": {
+   "h": "Viết|một lần.",
+   "s": "In đậm, danh sách, liên kết như ghi chú."
+  },
+  "6": {
+   "h": "Chừa|chỗ trống.",
+   "s": "Điền tên khi dán."
+  },
+  "7": {
+   "h": "Tự biết|ngày.",
+   "s": "Ngày hôm nay, đúng hôm bạn dán."
+  },
+  "8": {
+   "h": "Mọi|thiết bị.",
+   "s": "iPhone, iPad và Mac, đồng bộ.",
+   "f": "Trả một lần. Không tài khoản, không thuê bao."
+  }
+ },
+ "demo": {
+  "ask": "Shop ơi, khi nào gửi hàng cho mình?",
+  "note": [
+   "Chào mừng đến xưởng!",
+   "Mọi thứ cho lần đầu ghé:",
+   "Mã cửa 4815",
+   "Wi-Fi: studio-guest",
+   "Gửi xe sau tiệm bánh"
+  ],
+  "note_hi": "4815"
+ },
+ "_bt": {
+  "main": "Stop typing. / {n} keys. Every time. / One touch. / Cutling packs it into one key. / Done. / Typed for you. No misspellings. / Keep everything. / Holds 5,000 items. / Write once. / Bold, lists, links like a note. / Leave a blank spot. / Fill the name when pasting. / Knows the date itself. / Today's date, the very day you paste. / Every device. / iPhone, iPad and Mac, synced. / Pay once. No account, no subscription.",
+  "pd_qr": "Your address, one key / Every form, one touch per box / Each info, its own key / All info in one place / Typed into any app / iPhone, iPad and Mac || Asked the old question again? / Answer in one touch / Each person a name, the same answer / The date fills itself in / All answers in one place / On iPhone, iPad and your Mac"
+ },
+ "keys_pd": {
+  "1": {
+   "h": "Địa chỉ của bạn,|*một phím*"
+  },
+  "2": {
+   "h": "Mọi biểu mẫu,|*mỗi ô một chạm*"
+  },
+  "3": {
+   "h": "Mỗi thông tin,|*một phím riêng*"
+  },
+  "4": {
+   "h": "Mọi thông tin|*ở một chỗ*"
+  },
+  "5": {
+   "h": "Gõ vào|*bất kỳ ứng dụng nào*"
+  },
+  "6": {
+   "h": "iPhone, iPad|*và Mac*",
+   "f": "Trả một lần. Không tài khoản, không thuê bao."
+  }
+ },
+ "night_qr": {
+  "1": {
+   "h": "Lại bị hỏi|*câu cũ?*"
+  },
+  "2": {
+   "h": "Trả lời|*một chạm.*"
+  },
+  "3": {
+   "h": "*Mỗi người một tên,*|câu trả lời|như nhau."
+  },
+  "4": {
+   "h": "*Ngày tháng*|tự điền|vào."
+  },
+  "5": {
+   "h": "Mọi câu trả lời|*ở một chỗ.*"
+  },
+  "6": {
+   "h": "Trên iPhone,|iPad và|*Mac của bạn.*",
+   "f": "Trả một lần. Không tài khoản, không thuê bao."
+  }
+ }
+}

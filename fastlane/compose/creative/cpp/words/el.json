@@ -1,0 +1,94 @@
+{
+ "main": {
+  "1": {
+   "h": "Μην το|γράφεις.",
+   "s": "{n} πλήκτρα. Κάθε φορά."
+  },
+  "2": {
+   "h": "Πάτα το.",
+   "s": "Το Cutling το κάνει ένα πάτημα."
+  },
+  "3": {
+   "h": "Έτοιμο.",
+   "s": "Γραμμένο για σένα. Χωρίς λάθη."
+  },
+  "4": {
+   "h": "Κράτα τα|όλα.",
+   "s": "Χωράνε 5.000."
+  },
+  "5": {
+   "h": "Γράψ’ το|μία φορά.",
+   "s": "Έντονα, λίστες, σύνδεσμοι, σαν σημείωση."
+  },
+  "6": {
+   "h": "Άφησε|ένα κενό.",
+   "s": "Βάζεις το όνομα στην επικόλληση."
+  },
+  "7": {
+   "h": "Ξέρει την|ημερομηνία.",
+   "s": "Η σημερινή, όποια μέρα κι αν είναι."
+  },
+  "8": {
+   "h": "Σε κάθε|συσκευή.",
+   "s": "iPhone, iPad και Mac, συγχρονισμένα.",
+   "f": "Πληρώνεις μία φορά. Χωρίς λογαριασμό ή συνδρομή."
+  }
+ },
+ "demo": {
+  "ask": "Πότε φεύγει το δέμα μου;",
+  "note": [
+   "Καλώς ήρθες στο εργαστήρι!",
+   "Ό,τι χρειάζεσαι για την πρώτη σου επίσκεψη:",
+   "Κωδικός πόρτας 4815",
+   "Wi-Fi: studio-guest",
+   "Πάρκινγκ πίσω από τον φούρνο"
+  ],
+  "note_hi": "4815"
+ },
+ "_bt": {
+  "main": "Don't write it. / {n} keys. Every time. / Press it. / Cutling makes it one press. / Ready. / Written for you. No mistakes. / Keep them all. / 5,000 fit. / Write it one time. / Bold, lists, links, like a note. / Leave a gap. / You put the name in at paste. / Knows the date. / Today's, whatever day it is. / On every device. / iPhone, iPad and Mac, synced. / You pay once. No account or subscription.",
+  "pd_qr": "Your address, one key / Every form, one press per field / Each detail, its own key / All your details in one spot / Written in every app / iPhone, iPad and Mac || Again the same question? / Answer with one press / Each name, same answer / The date goes in by itself / All answers in one spot / On iPhone, iPad and your Mac"
+ },
+ "keys_pd": {
+  "1": {
+   "h": "Η διεύθυνσή σου,|*ένα πλήκτρο*"
+  },
+  "2": {
+   "h": "Κάθε φόρμα,|*ένα πάτημα ανά πεδίο*"
+  },
+  "3": {
+   "h": "Κάθε στοιχείο,|*δικό του πλήκτρο*"
+  },
+  "4": {
+   "h": "Όλα σου τα στοιχεία|*σε ένα σημείο*"
+  },
+  "5": {
+   "h": "Γράφονται σε|*κάθε εφαρμογή*"
+  },
+  "6": {
+   "h": "iPhone, iPad|*και Mac*",
+   "f": "Πληρώνεις μία φορά. Χωρίς λογαριασμό ή συνδρομή."
+  }
+ },
+ "night_qr": {
+  "1": {
+   "h": "Πάλι η ίδια|*ερώτηση;*"
+  },
+  "2": {
+   "h": "Απάντησε|*με ένα πάτημα.*"
+  },
+  "3": {
+   "h": "*Κάθε όνομα,*|ίδια|απάντηση."
+  },
+  "4": {
+   "h": "*Η ημερομηνία*|μπαίνει|μόνη της."
+  },
+  "5": {
+   "h": "Όλες οι απαντήσεις|*σε ένα σημείο.*"
+  },
+  "6": {
+   "h": "Σε iPhone,|iPad και|*στο Mac σου.*",
+   "f": "Πληρώνεις μία φορά. Χωρίς λογαριασμό ή συνδρομή."
+  }
+ }
+}

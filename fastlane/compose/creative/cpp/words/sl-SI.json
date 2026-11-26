@@ -1,0 +1,94 @@
+{
+ "main": {
+  "1": {
+   "h": "Ne|tipkajte.",
+   "s": "{n} tipk. Vsakič."
+  },
+  "2": {
+   "h": "Tapnite.",
+   "s": "Cutling iz tega naredi eno tipko."
+  },
+  "3": {
+   "h": "Končano.",
+   "s": "Natipkano namesto vas. Brez napak."
+  },
+  "4": {
+   "h": "Vse|pri roki.",
+   "s": "Prostor za 5000."
+  },
+  "5": {
+   "h": "Napišite|enkrat.",
+   "s": "Krepko, seznami, povezave, kot zapisek."
+  },
+  "6": {
+   "h": "Pustite|prazno mesto.",
+   "s": "Ime vnesete ob lepljenju."
+  },
+  "7": {
+   "h": "Pozna|datum.",
+   "s": "Današnji datum, na dan lepljenja."
+  },
+  "8": {
+   "h": "Na vseh|napravah.",
+   "s": "iPhone, iPad in Mac, usklajeni.",
+   "f": "Plačate enkrat. Brez računa in naročnine."
+  }
+ },
+ "demo": {
+  "ask": "Kdaj gre moje naročilo na pot?",
+  "note": [
+   "Dobrodošli v ateljeju!",
+   "Vse za prvi obisk:",
+   "Koda za vrata 4815",
+   "Wi-Fi: studio-guest",
+   "Parkiranje za pekarno"
+  ],
+  "note_hi": "4815"
+ },
+ "_bt": {
+  "main": "Don't type. / {n} keys. Each time. / Tap. / Cutling makes one key of it. / Finished. / Typed instead of you. No errors. / Everything at hand. / Room for 5000. / Write once. / Bold, lists, links, like a note. / Leave an empty spot. / You enter the name when pasting. / Knows the date. / Today's date, on the day of pasting. / On all devices. / iPhone, iPad and Mac, in step. / You pay once. No account or subscription.",
+  "pd_qr": "Your address, one key / Every form, a touch per field / Each detail, own key / All details in one place / Gets entered into every app / iPhone, iPad and Mac || Again the same question? / Answer with one touch / Each name, same answer / The date enters itself / All answers in one place / On iPhone, iPad and your Mac"
+ },
+ "keys_pd": {
+  "1": {
+   "h": "Vaš naslov,|*ena tipka*"
+  },
+  "2": {
+   "h": "Vsak obrazec,|*en dotik na polje*"
+  },
+  "3": {
+   "h": "Vsak podatek,|*svoja tipka*"
+  },
+  "4": {
+   "h": "Vsi podatki|*na enem mestu*"
+  },
+  "5": {
+   "h": "Vpiše se v|*vsako aplikacijo*"
+  },
+  "6": {
+   "h": "iPhone, iPad|*in Mac*",
+   "f": "Plačate enkrat. Brez računa in naročnine."
+  }
+ },
+ "night_qr": {
+  "1": {
+   "h": "Spet isto|*vprašanje?*"
+  },
+  "2": {
+   "h": "Odgovorite|*z enim dotikom.*"
+  },
+  "3": {
+   "h": "*Vsako ime,*|isti|odgovor."
+  },
+  "4": {
+   "h": "*Datum*|se vpiše|sam."
+  },
+  "5": {
+   "h": "Vsi odgovori|*na enem mestu.*"
+  },
+  "6": {
+   "h": "Na iPhonu,|iPadu in|*vašem Macu.*",
+   "f": "Plačate enkrat. Brez računa in naročnine."
+  }
+ }
+}

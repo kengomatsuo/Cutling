@@ -1,0 +1,94 @@
+{
+ "main": {
+  "1": {
+   "h": "Ne|gépeld.",
+   "s": "{n} leütés. Minden alkalommal."
+  },
+  "2": {
+   "h": "Koppints.",
+   "s": "A Cutling egyetlen gombbá teszi."
+  },
+  "3": {
+   "h": "Kész.",
+   "s": "Beírva helyetted, elütés nélkül."
+  },
+  "4": {
+   "h": "Minden|kéznél.",
+   "s": "Hely 5000 darabnak."
+  },
+  "5": {
+   "h": "Írd meg|egyszer.",
+   "s": "Félkövér, lista, link, mint egy jegyzet."
+  },
+  "6": {
+   "h": "Hagyj|üres helyet.",
+   "s": "A nevet beillesztéskor írod be."
+  },
+  "7": {
+   "h": "Tudja a|dátumot.",
+   "s": "A mai dátum, a beillesztés napján."
+  },
+  "8": {
+   "h": "Minden|eszközön.",
+   "s": "iPhone, iPad és Mac, szinkronban.",
+   "f": "Egyszer fizetsz. Nincs fiók, nincs előfizetés."
+  }
+ },
+ "demo": {
+  "ask": "Mikor adod postára a csomagom?",
+  "note": [
+   "Üdv a műhelyben!",
+   "Minden az első alkalomhoz:",
+   "Ajtókód 4815",
+   "Wi-Fi: studio-guest",
+   "Parkolás a pékség mögött"
+  ],
+  "note_hi": "4815"
+ },
+ "_bt": {
+  "main": "Don't type it. / {n} keystrokes. Every time. / Tap. / Cutling makes it a single button. / Done. / Typed for you, without typos. / Everything at hand. / Room for 5000 pieces. / Write it once. / Bold, list, link, like a note. / Leave an empty spot. / You enter the name when pasting. / Knows the date. / Today's date, on the day of pasting. / On every device. / iPhone, iPad and Mac, in sync. / You pay once. No account, no subscription.",
+  "pd_qr": "Your address, one button / Any form, a tap per field / Every data its own button / All your data in one place / Types it into any app / iPhone, iPad and Mac || Again the same question? / Answer with one tap / Everyone's name, same answer / The date goes in by itself / All answers in one place / On iPhone, iPad and your Mac"
+ },
+ "keys_pd": {
+  "1": {
+   "h": "A címed,|*egy gomb*"
+  },
+  "2": {
+   "h": "Bármilyen űrlap,|*mezőnként egy koppintás*"
+  },
+  "3": {
+   "h": "Minden adatnak|*saját gombja*"
+  },
+  "4": {
+   "h": "Minden adatod|*egy helyen*"
+  },
+  "5": {
+   "h": "Beírja|*bármelyik appba*"
+  },
+  "6": {
+   "h": "iPhone, iPad|*és Mac*",
+   "f": "Egyszer fizetsz. Nincs fiók, nincs előfizetés."
+  }
+ },
+ "night_qr": {
+  "1": {
+   "h": "Megint|*ugyanaz|a kérdés?*"
+  },
+  "2": {
+   "h": "Válaszolj|*egy koppintással.*"
+  },
+  "3": {
+   "h": "*Mindenkinek a neve,*|ugyanaz|a válasz."
+  },
+  "4": {
+   "h": "*A dátum*|magától|kerül be."
+  },
+  "5": {
+   "h": "Minden válasz|*egy helyen.*"
+  },
+  "6": {
+   "h": "iPhone-on,|iPaden és|*a Maceden.*",
+   "f": "Egyszer fizetsz. Nincs fiók, nincs előfizetés."
+  }
+ }
+}

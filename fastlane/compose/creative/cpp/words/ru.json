@@ -1,0 +1,94 @@
+{
+ "main": {
+  "1": {
+   "h": "Не|печатайте.",
+   "s": "{n} нажатий. Каждый раз."
+  },
+  "2": {
+   "h": "Нажмите.",
+   "s": "Катлинг сводит всё к одной клавише."
+  },
+  "3": {
+   "h": "Готово.",
+   "s": "Набрано за вас. Без опечаток."
+  },
+  "4": {
+   "h": "Всё|под рукой.",
+   "s": "Места на 5 000."
+  },
+  "5": {
+   "h": "Напишите|один раз.",
+   "s": "Жирный, списки, ссылки, как в заметке."
+  },
+  "6": {
+   "h": "Оставьте|пропуск.",
+   "s": "Имя впишете при вставке."
+  },
+  "7": {
+   "h": "Знает|дату.",
+   "s": "Сегодняшняя дата в день вставки."
+  },
+  "8": {
+   "h": "На всех|устройствах.",
+   "s": "iPhone, iPad и Mac, синхронно.",
+   "f": "Платите один раз. Без аккаунта и подписки."
+  }
+ },
+ "demo": {
+  "ask": "Когда отправите мой заказ?",
+  "note": [
+   "Добро пожаловать в студию!",
+   "Всё для первого визита:",
+   "Код двери 4815",
+   "Wi-Fi: studio-guest",
+   "Парковка за пекарней"
+  ],
+  "note_hi": "4815"
+ },
+ "_bt": {
+  "main": "Don't type. / {n} presses. Every time. / Press. / Cutling brings it all to one key. / Done. / Typed for you. No typos. / Everything at hand. / Room for 5,000. / Write it once. / Bold, lists, links, like in a note. / Leave a gap. / You enter the name when pasting. / Knows the date. / Today's date on the day of pasting. / On all devices. / iPhone, iPad and Mac, in sync. / You pay once. No account or subscription.",
+  "pd_qr": "Your address, one key / Any form: a touch per field / Each detail its own key / All data in one place / Entered in any app / iPhone, iPad and Mac || Again the same question? / Answer with one touch / Each his own name, one answer / The date substitutes itself / All answers in one place / On iPhone, iPad and your Mac"
+ },
+ "keys_pd": {
+  "1": {
+   "h": "Ваш адрес,|*одна клавиша*"
+  },
+  "2": {
+   "h": "Любая форма:|*касание на поле*"
+  },
+  "3": {
+   "h": "Каждой детали|*своя клавиша*"
+  },
+  "4": {
+   "h": "Все данные|*в одном месте*"
+  },
+  "5": {
+   "h": "Вводится|*в любом приложении*"
+  },
+  "6": {
+   "h": "iPhone, iPad|*и Mac*",
+   "f": "Платите один раз. Без аккаунта и подписки."
+  }
+ },
+ "night_qr": {
+  "1": {
+   "h": "Опять тот же|*вопрос?*"
+  },
+  "2": {
+   "h": "Ответьте|*одним касанием.*"
+  },
+  "3": {
+   "h": "*Каждому своё имя,*|ответ|один."
+  },
+  "4": {
+   "h": "*Дата*|подставится|сама."
+  },
+  "5": {
+   "h": "Все ответы|*в одном месте.*"
+  },
+  "6": {
+   "h": "На iPhone,|iPad и|*вашем Mac.*",
+   "f": "Платите один раз. Без аккаунта и подписки."
+  }
+ }
+}

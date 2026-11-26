@@ -44,3 +44,6 @@ fastlane/asc_api_key.json
 # Rendered pages and frames of the store frame build; the published frames are fastlane/frames
 fastlane/compose/creative/v2/out/
 __pycache__/
+
+# The custom page and main page renders (2 GB); fastlane/frames and the upload set hold what ships
+fastlane/compose/creative/cpp/out/

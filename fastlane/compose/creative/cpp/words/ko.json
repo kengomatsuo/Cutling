@@ -1,0 +1,94 @@
+{
+ "main": {
+  "1": {
+   "h": "직접|치지 마세요.",
+   "s": "매번 {n}자."
+  },
+  "2": {
+   "h": "탭|한 번.",
+   "s": "컷링이 한 번에 입력해요."
+  },
+  "3": {
+   "h": "끝.",
+   "s": "오타 없이 입력 완료."
+  },
+  "4": {
+   "h": "전부|보관하세요.",
+   "s": "5,000개까지 저장돼요."
+  },
+  "5": {
+   "h": "한 번만|쓰세요.",
+   "s": "굵게, 목록, 링크까지 메모처럼."
+  },
+  "6": {
+   "h": "빈칸을|남기세요.",
+   "s": "붙여 넣을 때 이름만 채우면 돼요."
+  },
+  "7": {
+   "h": "날짜는|알아서.",
+   "s": "붙여 넣는 날의 날짜로."
+  },
+  "8": {
+   "h": "모든|기기에서.",
+   "s": "iPhone, iPad, Mac 동기화.",
+   "f": "한 번 구매. 계정도 구독도 없어요."
+  }
+ },
+ "demo": {
+  "ask": "주문한 상품 언제 출발하나요?",
+  "note": [
+   "스튜디오에 오신 걸 환영해요!",
+   "첫 방문에 필요한 것:",
+   "현관 비밀번호 4815",
+   "Wi-Fi: studio-guest",
+   "주차는 빵집 뒤편"
+  ],
+  "note_hi": "4815"
+ },
+ "_bt": {
+  "main": "Don't type it yourself. / {n} characters every time. / One tap. / Cutling enters it at once. / Done. / Entered with no typos. / Keep it all. / Saves up to 5,000. / Write it only once. / Bold, lists, even links, like a memo. / Leave a blank. / Just fill the name when pasting. / Dates take care of themselves. / As the date of the day you paste. / On every device. / iPhone, iPad, Mac synced. / Buy once. No account, no subscription.",
+  "pd_qr": "Address with one key / Any form, one tap per box / A key for each info / All info in one place / Input in any app / iPhone, iPad and Mac || Same question again? / Reply with one tap / Name per person, one reply / The date fills itself / All replies in one place / On iPhone, iPad and my Mac"
+ },
+ "keys_pd": {
+  "1": {
+   "h": "주소는|*키 하나로*"
+  },
+  "2": {
+   "h": "어떤 양식이든|*칸마다 탭 한 번*"
+  },
+  "3": {
+   "h": "정보마다|*나만의 키*"
+  },
+  "4": {
+   "h": "모든 정보를|*한곳에*"
+  },
+  "5": {
+   "h": "어느 앱에서나|*입력*"
+  },
+  "6": {
+   "h": "iPhone, iPad|*그리고 Mac*",
+   "f": "한 번 구매. 계정도 구독도 없어요."
+  }
+ },
+ "night_qr": {
+  "1": {
+   "h": "또|*같은 질문?*"
+  },
+  "2": {
+   "h": "답장은|*탭 한 번으로.*"
+  },
+  "3": {
+   "h": "*이름은 사람마다,*|답장은|하나로."
+  },
+  "4": {
+   "h": "*날짜는*|알아서|채워져요."
+  },
+  "5": {
+   "h": "모든 답장을|*한곳에.*"
+  },
+  "6": {
+   "h": "iPhone, iPad|그리고|*내 Mac에서.*",
+   "f": "한 번 구매. 계정도 구독도 없어요."
+  }
+ }
+}

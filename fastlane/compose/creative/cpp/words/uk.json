@@ -1,0 +1,94 @@
+{
+ "main": {
+  "1": {
+   "h": "Не|друкуйте.",
+   "s": "{n} натискань. Щоразу."
+  },
+  "2": {
+   "h": "Торкніться.",
+   "s": "Катлінг робить з цього одну клавішу."
+  },
+  "3": {
+   "h": "Готово.",
+   "s": "Набрано за вас. Без помилок."
+  },
+  "4": {
+   "h": "Усе|під рукою.",
+   "s": "Місця на 5 000."
+  },
+  "5": {
+   "h": "Напишіть|раз.",
+   "s": "Жирний, списки, посилання, як нотатка."
+  },
+  "6": {
+   "h": "Лишіть|пропуск.",
+   "s": "Ім’я впишете під час вставлення."
+  },
+  "7": {
+   "h": "Знає|дату.",
+   "s": "Сьогоднішня дата в день вставлення."
+  },
+  "8": {
+   "h": "На всіх|пристроях.",
+   "s": "iPhone, iPad і Mac, синхронно.",
+   "f": "Платите раз. Без акаунта й підписки."
+  }
+ },
+ "demo": {
+  "ask": "Коли відправите мою посилку?",
+  "note": [
+   "Ласкаво просимо до студії!",
+   "Усе для першого візиту:",
+   "Код дверей 4815",
+   "Wi-Fi: studio-guest",
+   "Паркування за пекарнею"
+  ],
+  "note_hi": "4815"
+ },
+ "_bt": {
+  "main": "Don't type. / {n} presses. Every time. / Touch. / Cutling makes one key of it. / Done. / Typed for you. No errors. / Everything at hand. / Room for 5,000. / Write once. / Bold, lists, links, like a note. / Leave a gap. / You enter the name while pasting. / Knows the date. / Today's date on the day of pasting. / On all devices. / iPhone, iPad and Mac, in sync. / You pay once. No account or subscription.",
+  "pd_qr": "Your address, one key / Any form: a touch per field / Each detail, its key / All data in one place / Entered in any program / iPhone, iPad and Mac || Again the same question? / Answer with one touch / Each his own name, one answer / The date substitutes itself / All answers in one place / On iPhone, iPad and your Mac"
+ },
+ "keys_pd": {
+  "1": {
+   "h": "Ваша адреса,|*одна клавіша*"
+  },
+  "2": {
+   "h": "Будь-яка форма:|*дотик на поле*"
+  },
+  "3": {
+   "h": "Кожна деталь,|*своя клавіша*"
+  },
+  "4": {
+   "h": "Усі дані|*в одному місці*"
+  },
+  "5": {
+   "h": "Вводиться|*в будь-якій програмі*"
+  },
+  "6": {
+   "h": "iPhone, iPad|*і Mac*",
+   "f": "Платите раз. Без акаунта й підписки."
+  }
+ },
+ "night_qr": {
+  "1": {
+   "h": "Знову те саме|*питання?*"
+  },
+  "2": {
+   "h": "Відповідайте|*одним дотиком.*"
+  },
+  "3": {
+   "h": "*Кожному своє ім’я,*|відповідь|одна."
+  },
+  "4": {
+   "h": "*Дата*|підставиться|сама."
+  },
+  "5": {
+   "h": "Усі відповіді|*в одному місці.*"
+  },
+  "6": {
+   "h": "На iPhone,|iPad і|*вашому Mac.*",
+   "f": "Платите раз. Без акаунта й підписки."
+  }
+ }
+}

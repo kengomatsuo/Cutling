@@ -1,0 +1,94 @@
+{
+ "main": {
+  "1": {
+   "h": "Elle|yazma.",
+   "s": "{n} tuş. Her seferinde."
+  },
+  "2": {
+   "h": "Dokun.",
+   "s": "Cutling tek tuşa indirir."
+  },
+  "3": {
+   "h": "Tamam.",
+   "s": "Senin yerine yazıldı. Hatasız."
+  },
+  "4": {
+   "h": "Hepsini|sakla.",
+   "s": "5.000 tanesine yer var."
+  },
+  "5": {
+   "h": "Bir kez|yaz.",
+   "s": "Kalın, liste ve bağlantı, not gibi."
+  },
+  "6": {
+   "h": "Boşluk|bırak.",
+   "s": "İsmi yapıştırırken doldur."
+  },
+  "7": {
+   "h": "Tarihi|bilir.",
+   "s": "Yapıştırdığın günün tarihi."
+  },
+  "8": {
+   "h": "Her|cihazda.",
+   "s": "iPhone, iPad ve Mac, eşzamanlı.",
+   "f": "Bir kez öde. Hesap yok, abonelik yok."
+  }
+ },
+ "demo": {
+  "ask": "Siparişim ne zaman yola çıkar?",
+  "note": [
+   "Atölyeye hoş geldin!",
+   "İlk ziyaretin için her şey:",
+   "Kapı kodu 4815",
+   "Wi-Fi: studio-guest",
+   "Otopark fırının arkasında"
+  ],
+  "note_hi": "4815"
+ },
+ "_bt": {
+  "main": "Don't write by hand. / {n} keys. Every time. / Touch. / Cutling brings it down to one key. / OK (done). / Written instead of you. Flawless. / Keep them all. / Room for 5,000 of them. / Write once. / Bold, list and link, like a note. / Leave a gap. / Fill the name while pasting. / Knows the date. / The date of the day you paste. / On every device. / iPhone, iPad and Mac, in sync. / Pay once. No account, no subscription.",
+  "pd_qr": "Your address, one key / Every form, a touch per field / Each info, its own key / All your info in one place / Written into every app / iPhone, iPad and Mac || The same question again? / Reply with one touch / Each their own name, same reply / The date fills by itself / All replies in one place / On iPhone, iPad and your Mac"
+ },
+ "keys_pd": {
+  "1": {
+   "h": "Adresin,|*tek tuş*"
+  },
+  "2": {
+   "h": "Her form,|*alan başına bir dokunuş*"
+  },
+  "3": {
+   "h": "Her bilgi,|*kendi tuşu*"
+  },
+  "4": {
+   "h": "Tüm bilgilerin|*tek yerde*"
+  },
+  "5": {
+   "h": "Her uygulamaya|*yazılır*"
+  },
+  "6": {
+   "h": "iPhone, iPad|*ve Mac*",
+   "f": "Bir kez öde. Hesap yok, abonelik yok."
+  }
+ },
+ "night_qr": {
+  "1": {
+   "h": "Yine aynı|*soru mu?*"
+  },
+  "2": {
+   "h": "Yanıtla|*tek dokunuşla.*"
+  },
+  "3": {
+   "h": "*Herkese kendi adı,*|yanıt|aynı."
+  },
+  "4": {
+   "h": "*Tarih*|kendiliğinden|dolar."
+  },
+  "5": {
+   "h": "Tüm yanıtlar|*tek yerde.*"
+  },
+  "6": {
+   "h": "iPhone’da,|iPad’de ve|*Mac’inde.*",
+   "f": "Bir kez öde. Hesap yok, abonelik yok."
+  }
+ }
+}

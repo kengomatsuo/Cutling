@@ -1,0 +1,94 @@
+{
+ "main": {
+  "1": {
+   "h": "Skriv inte|själv.",
+   "s": "{n} tangenter. Varje gång."
+  },
+  "2": {
+   "h": "Tryck.",
+   "s": "Cutling gör det till ett tryck."
+  },
+  "3": {
+   "h": "Klart.",
+   "s": "Skrivet åt dig. Inga stavfel."
+  },
+  "4": {
+   "h": "Spara|allt.",
+   "s": "Plats för 5 000."
+  },
+  "5": {
+   "h": "Skriv det|en gång.",
+   "s": "Fetstil, listor och länkar, som en anteckning."
+  },
+  "6": {
+   "h": "Lämna|en lucka.",
+   "s": "Fyll i namnet när du klistrar in."
+  },
+  "7": {
+   "h": "Kan|datumet.",
+   "s": "Dagens datum, den dag du klistrar in."
+  },
+  "8": {
+   "h": "Alla|enheter.",
+   "s": "iPhone, iPad och Mac, synkade.",
+   "f": "Betala en gång. Inget konto, ingen prenumeration."
+  }
+ },
+ "demo": {
+  "ask": "När skickas mitt paket?",
+  "note": [
+   "Välkommen till ateljén!",
+   "Allt inför ditt första besök:",
+   "Portkod 4815",
+   "Wi-Fi: studio-guest",
+   "Parkering bakom bageriet"
+  ],
+  "note_hi": "4815"
+ },
+ "_bt": {
+  "main": "Don't write it yourself. / {n} keys. Every time. / Press. / Cutling makes it one press. / Done. / Written for you. No typos. / Save everything. / Room for 5,000. / Write it once. / Bold, lists and links, like a note. / Leave a gap. / Fill in the name when you paste. / Knows the date. / Today's date, the day you paste. / All devices. / iPhone, iPad and Mac, synced. / Pay once. No account, no subscription.",
+  "pd_qr": "Your address, one key / Every form, one press per field / Each detail its own key / All details in one place / Written into any app / iPhone, iPad and Mac || The same question again? / Answer with one press / Each name, same answer / The date fills itself / All answers in one place / On iPhone, iPad and your Mac"
+ },
+ "keys_pd": {
+  "1": {
+   "h": "Din adress,|*en tangent*"
+  },
+  "2": {
+   "h": "Varje formulär,|*ett tryck per fält*"
+  },
+  "3": {
+   "h": "Varje uppgift,|*en egen tangent*"
+  },
+  "4": {
+   "h": "Alla uppgifter|*på ett ställe*"
+  },
+  "5": {
+   "h": "Skrivs in i|*vilken app som helst*"
+  },
+  "6": {
+   "h": "iPhone, iPad|*och Mac*",
+   "f": "Betala en gång. Inget konto, ingen prenumeration."
+  }
+ },
+ "night_qr": {
+  "1": {
+   "h": "Samma|*fråga*|igen?"
+  },
+  "2": {
+   "h": "Svara|*med ett tryck.*"
+  },
+  "3": {
+   "h": "*Varje namn,*|samma|svar."
+  },
+  "4": {
+   "h": "*Datumet*|fylls i|av sig självt."
+  },
+  "5": {
+   "h": "Alla svar|*på ett ställe.*"
+  },
+  "6": {
+   "h": "På iPhone,|iPad och|*din Mac.*",
+   "f": "Betala en gång. Inget konto, ingen prenumeration."
+  }
+ }
+}

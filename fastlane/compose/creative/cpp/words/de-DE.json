@@ -1,0 +1,94 @@
+{
+ "main": {
+  "1": {
+   "h": "Nicht|tippen.",
+   "s": "{n} Tasten. Jedes Mal."
+  },
+  "2": {
+   "h": "Antippen.",
+   "s": "Cutling macht eine Taste daraus."
+  },
+  "3": {
+   "h": "Fertig.",
+   "s": "Für dich getippt. Ohne Tippfehler."
+  },
+  "4": {
+   "h": "Alles|griffbereit.",
+   "s": "Platz für 5.000 Cutlings."
+  },
+  "5": {
+   "h": "Einmal|schreiben.",
+   "s": "Fett, Listen, Links, wie eine Notiz."
+  },
+  "6": {
+   "h": "Lücke|lassen.",
+   "s": "Den Namen setzt du beim Einfügen ein."
+  },
+  "7": {
+   "h": "Kennt das|Datum.",
+   "s": "Das Datum vom Tag des Einfügens."
+  },
+  "8": {
+   "h": "Auf jedem|Gerät.",
+   "s": "iPhone, iPad und Mac, synchron.",
+   "f": "Einmal zahlen. Kein Konto, kein Abo."
+  }
+ },
+ "demo": {
+  "ask": "Wann geht mein Paket raus?",
+  "note": [
+   "Willkommen im Atelier!",
+   "Alles für deinen ersten Besuch:",
+   "Türcode 4815",
+   "WLAN: studio-guest",
+   "Parken hinter der Bäckerei"
+  ],
+  "note_hi": "4815"
+ },
+ "_bt": {
+  "main": "Don't type. / {n} keys. Every time. / Tap it (touch it). / Cutling makes one key out of it. / Done. / Typed for you. No typos. / Everything at hand. / Room for 5,000 Cutlings. / Write once. / Bold, lists, links, like a note. / Leave a gap. / You put the name in when pasting. / Knows the date. / The date of the day you paste. / On every device. / iPhone, iPad and Mac, in sync. / Pay once. No account, no subscription.",
+  "pd_qr": "Your address, one key / Every form, one tap per field / Every detail, its own key / All data in one place / Typed in every app / iPhone, iPad and Mac || Again the same question? / Answer with one tap / Each name, same answer / The date inserts itself / All answers in one place / On iPhone, iPad and your Mac"
+ },
+ "keys_pd": {
+  "1": {
+   "h": "Deine Adresse,|*eine Taste*"
+  },
+  "2": {
+   "h": "Jedes Formular,|*ein Tipp pro Feld*"
+  },
+  "3": {
+   "h": "Jede Angabe,|*eine eigene Taste*"
+  },
+  "4": {
+   "h": "Alle Daten|*an einem Ort*"
+  },
+  "5": {
+   "h": "Getippt in|*jeder App*"
+  },
+  "6": {
+   "h": "iPhone, iPad|*und Mac*",
+   "f": "Einmal zahlen. Kein Konto, kein Abo."
+  }
+ },
+ "night_qr": {
+  "1": {
+   "h": "Schon wieder|*dieselbe|Frage?*"
+  },
+  "2": {
+   "h": "Antworte|*mit einem Tipp.*"
+  },
+  "3": {
+   "h": "*Jeder Name,*|dieselbe|Antwort."
+  },
+  "4": {
+   "h": "*Das Datum*|setzt sich|selbst ein."
+  },
+  "5": {
+   "h": "Alle Antworten|*an einem Ort.*"
+  },
+  "6": {
+   "h": "Auf iPhone,|iPad und|*deinem Mac.*",
+   "f": "Einmal zahlen. Kein Konto, kein Abo."
+  }
+ }
+}

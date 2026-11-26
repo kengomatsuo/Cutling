@@ -1,0 +1,94 @@
+{
+ "main": {
+  "1": {
+   "h": "别再|手打了。",
+   "s": "每次{n}个字。"
+  },
+  "2": {
+   "h": "点一下|就好。",
+   "s": "Cutling 一点就输入。"
+  },
+  "3": {
+   "h": "搞定。",
+   "s": "替你输入，零错字。"
+  },
+  "4": {
+   "h": "全都|收好。",
+   "s": "可存 5,000 条。"
+  },
+  "5": {
+   "h": "只写|一次。",
+   "s": "粗体、列表、链接，像备忘录。"
+  },
+  "6": {
+   "h": "留个|空。",
+   "s": "粘贴时再填名字。"
+  },
+  "7": {
+   "h": "日期|自动填。",
+   "s": "粘贴当天的日期。"
+  },
+  "8": {
+   "h": "所有|设备。",
+   "s": "iPhone、iPad、Mac 同步。",
+   "f": "一次买断。无需账户，没有订阅。"
+  }
+ },
+ "demo": {
+  "ask": "请问我的订单什么时候发货？",
+  "note": [
+   "欢迎来到工作室！",
+   "第一次来需要知道的：",
+   "门禁密码 4815",
+   "Wi-Fi：studio-guest",
+   "停车在面包店后面"
+  ],
+  "note_hi": "4815"
+ },
+ "_bt": {
+  "main": "Stop typing by hand. / {n} characters each time. / Just tap once. / Cutling enters it with one tap. / Sorted. / Typed for you, zero typos. / Keep it all. / Stores 5,000. / Write only once. / Bold, lists, links, like a memo. / Leave a blank. / Fill the name when pasting. / Date fills itself. / The date of the paste day. / All devices. / iPhone, iPad, Mac synced. / Buy once. No account, no subscription.",
+  "pd_qr": "Your address, one key / Any form, tap once per box / Each info has a dedicated key / All info in one place / Can input in any app / iPhone, iPad and Mac || Asked the same question again? / Reply with one tap / Names differ, the reply is the same one / The date fills automatically / All replies in one place / On iPhone, iPad and your Mac"
+ },
+ "keys_pd": {
+  "1": {
+   "h": "你的地址，|*一个键*"
+  },
+  "2": {
+   "h": "任何表单，|*一格点一下*"
+  },
+  "3": {
+   "h": "每项信息，|*都有专属键*"
+  },
+  "4": {
+   "h": "所有信息|*集中一处*"
+  },
+  "5": {
+   "h": "任何 App|*都能输入*"
+  },
+  "6": {
+   "h": "iPhone、iPad|*和 Mac*",
+   "f": "一次买断。无需账户，没有订阅。"
+  }
+ },
+ "night_qr": {
+  "1": {
+   "h": "又被问|*同一个问题？*"
+  },
+  "2": {
+   "h": "回复|*只需一点。*"
+  },
+  "3": {
+   "h": "*名字各不同，*|回复|是同一条。"
+  },
+  "4": {
+   "h": "*日期*|自动|填好。"
+  },
+  "5": {
+   "h": "所有回复|*集中一处。*"
+  },
+  "6": {
+   "h": "在 iPhone、|iPad 和|*你的 Mac 上。*",
+   "f": "一次买断。无需账户，没有订阅。"
+  }
+ }
+}
