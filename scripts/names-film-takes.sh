@@ -5,6 +5,7 @@
 #   bun ~/.claude/scripts/device-queue/device-queue.ts submit ios-sim --form iphone --tree "$PWD" --cap 60 \
 #     --cmd 'UI_TEST_BUILD=<dir> NAMES_APPEARANCE=light scripts/names-film-takes.sh ja test1Typed test2Picked test3Taps'
 #
+# NAMES_TODAY=2026-12-01 makes the date stamps of test4Reply (the 2.0 film) read that day.
 # The first argument is the language (en or ja), the rest are the tests (default: all three). Each test's screen recording
 # ($DEVICE_QUEUE_OUT/<lang>-<test>.mov), the wall clock its recording started (.t0, seconds) and its log with the MARK lines
 # (.log) land in $DEVICE_QUEUE_OUT, shots in $DEVICE_QUEUE_OUT/shots/<test>. The contacts are the ones every-app-takes.sh saved
@@ -65,7 +66,7 @@ for test in "${tests[@]}"; do
   python3 -c 'import time; print("%.3f" % time.time())' >"$stem.t0"
   python3 "$(dirname "$0")/names-type-helper.py" "$sd/type-request-$lang.json" "$sd/type-done-$lang" "$udid" >"$stem.keys.log" 2>&1 &
   helper=$!
-  TEST_RUNNER_NAMES_LANG="$lang" TEST_RUNNER_NAMES_DIR="$sd" \
+  TEST_RUNNER_NAMES_LANG="$lang" TEST_RUNNER_NAMES_DIR="$sd" TEST_RUNNER_NAMES_TODAY="${NAMES_TODAY:-}" \
     xcodebuild test-without-building -xctestrun "$xctestrun" -destination "id=$udid" -parallel-testing-enabled NO \
     -test-timeouts-enabled NO -only-testing:"CutlingUITests/PromoNamesFilmsUITests/$test" >"$stem.log" 2>&1 &
   pid=$!; start=$SECONDS

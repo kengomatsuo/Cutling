@@ -7,12 +7,14 @@ done file; this touches them with axe, one every `slot` seconds from a fixed sta
 and prints a `MARK <wall clock> key <label> at <x>,<y>` line for each, as the test's own typing did."""
 import json, os, subprocess, sys, time
 req, done, udid = sys.argv[1:4]
-while not os.path.exists(req): time.sleep(0.05)
-time.sleep(0.2)
-plan = json.load(open(req)); os.remove(req)
-start = time.time() + 0.3
-for i, k in enumerate(plan["keys"]):
-    time.sleep(max(0, start + i * plan["slot"] - time.time()))
-    print(f"MARK {time.time():.6f} key {k['label']} at {int(k['x'])},{int(k['y'])}", flush=True)
-    subprocess.run(["axe", "tap", "-x", str(k["x"]), "-y", str(k["y"]), "--udid", udid], capture_output=True)
-open(done, "w").write("done")
+# One request after another until the job ends: a take that types several names asks once per name.
+while True:
+    while not os.path.exists(req): time.sleep(0.05)
+    time.sleep(0.2)
+    plan = json.load(open(req)); os.remove(req)
+    start = time.time() + 0.3
+    for i, k in enumerate(plan["keys"]):
+        time.sleep(max(0, start + i * plan["slot"] - time.time()))
+        print(f"MARK {time.time():.6f} key {k['label']} at {int(k['x'])},{int(k['y'])}", flush=True)
+        subprocess.run(["axe", "tap", "-x", str(k["x"]), "-y", str(k["y"]), "--udid", udid], capture_output=True)
+    open(done, "w").write("done")

@@ -5,7 +5,8 @@
 //  The seed of the Five names and Five taps films (`-PROMO_NAMES`, `-PROMO_LANG en|ja`): a small shop's six replies, and
 //  the names the Name blank has been used with before. `-PROMO_NAMES_KIND taps` seeds the restaurant's replies of
 //  Five taps instead; `-PROMO_NAMES_HISTORY a,b,c` is the Name blank's saved values, newest first, none when absent,
-//  so the fill-in asks for the first name. Words: undirect docs/plans/app-store-growth/social/cutling-ja/copy-ja.json,
+//  so the fill-in asks for the first name. `-PROMO_NAMES_KIND reply` is the 2.0 film's shop: its order reply holds a name, a
+//  choice, a counter (next number 248), the weekday and the date, and `-PROMO_TODAY yyyy-MM-dd` is the day they read. Words: undirect docs/plans/app-store-growth/social/cutling-ja/copy-ja.json,
 //  posts 3_five_names and 4_five_taps.
 //
 //  Copyright (c) 2026 Kenneth Johannes Fang. All rights reserved.
@@ -18,8 +19,15 @@ private struct PromoNamesCopy {
     let blank: String
     let names: [Reply]
     let taps: [Reply]
+    /// The 2.0 film's order reply: one line that holds five variables.
+    var reply: Reply { language == "ja" ? names[0] : ("Order update", "Hi {\u{2060}Name}, thanks for choosing {\u{2060}Plan: Basic | Pro}! Order #{\u{2060}counter}, {\u{2060}day}, {\u{2060}date:MMMM d}.", "shippingbox.fill", "teal") }
+    var language = "en"
 
-    static func forLanguage(_ language: String) -> PromoNamesCopy { language == "ja" ? japanese : english }
+    static func forLanguage(_ language: String) -> PromoNamesCopy {
+        var copy = language == "ja" ? japanese : english
+        copy.language = language
+        return copy
+    }
 
     private static let english = PromoNamesCopy(
         blank: "Name",
@@ -67,7 +75,8 @@ extension CutlingStore {
         let defaults = UserDefaults.standard
         let copy = PromoNamesCopy.forLanguage(defaults.string(forKey: "PROMO_LANG") ?? "en")
         for filename in cutlings.compactMap(\.imageFilename) { deleteImageFile(named: filename) }
-        let replies = defaults.string(forKey: "PROMO_NAMES_KIND") == "taps" ? copy.taps : copy.names
+        let kind = defaults.string(forKey: "PROMO_NAMES_KIND")
+        let replies = kind == "taps" ? copy.taps : kind == "reply" ? [copy.reply] + copy.names.dropFirst() : copy.names
         cutlings = replies.enumerated().map { index, reply in
             Cutling(name: reply.name, value: reply.value, icon: reply.icon, sortOrder: index, color: reply.color)
         }
@@ -77,5 +86,8 @@ extension CutlingStore {
         if history.isEmpty { group?.removeObject(forKey: FillInMemory.defaultsKey) }
         else { group?.set([Placeholders.Field.key(copy.blank): history], forKey: FillInMemory.defaultsKey) }
         group?.removeObject(forKey: "keyboardFillSession")
+        if kind == "reply" { group?.set(["": 248], forKey: FillInCounters.defaultsKey) }
+        // `-PROMO_TODAY yyyy-MM-dd`: the day the film's post goes out, which the date stamps type (FillInClock).
+        if let today = defaults.string(forKey: "PROMO_TODAY") { group?.set(today, forKey: "promoToday") } else { group?.removeObject(forKey: "promoToday") }
     }
 }

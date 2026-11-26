@@ -59,6 +59,8 @@ final class PromoNamesFilmsUITests: XCTestCase {
         let app = XCUIApplication()
         app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-PROMO_NAMES", "-PROMO_NAMES_KIND", kind,
                                 "-PROMO_NAMES_HISTORY", history, "-hasSeenInteractiveTutorial", "YES", "-hasCompletedSetup", "YES"]
+        // NAMES_TODAY=yyyy-MM-dd: the day the film's post goes out, which a date stamp types (FillInClock, debug builds).
+        if let today = env["NAMES_TODAY"], !today.isEmpty { app.launchArguments += ["-PROMO_TODAY", today] }
         if language != "en" { app.launchArguments += ["-PROMO_LANG", language, "-AppleLanguages", "(\(language))", "-AppleLocale", words.locale] }
         app.launch()
         XCTAssertTrue(app.descendants(matching: .any)["cutlingCard"].firstMatch.waitForExistence(timeout: 30), "No cards")
@@ -96,6 +98,14 @@ final class PromoNamesFilmsUITests: XCTestCase {
             edit.phoneNumbers = contact.phoneNumbers.filter { digits($0.value) != want }
             if gets { edit.phoneNumbers.append(CNLabeledValue(label: CNLabelPhoneNumberMobile, value: CNPhoneNumber(stringValue: Self.threadNumber))) }
             request.update(edit)
+        }
+        if !given, language == "en" {
+            // A customer the simulator has no card for yet gets one, first name only, as the others are saved.
+            let card = CNMutableContact()
+            card.givenName = customer
+            card.phoneNumbers = [CNLabeledValue(label: CNLabelPhoneNumberMobile, value: CNPhoneNumber(stringValue: Self.threadNumber))]
+            request.add(card, toContainerWithIdentifier: nil)
+            given = true
         }
         XCTAssertTrue(given, "No contact for \(customer)")
         try store.execute(request)
@@ -238,6 +248,7 @@ final class PromoNamesFilmsUITests: XCTestCase {
             let dir = env["NAMES_DIR"] ?? NSTemporaryDirectory()
             let request = "\(dir)/type-request-\(language).json", done = "\(dir)/type-done-\(language)"
             try? FileManager.default.removeItem(atPath: done)
+            try? FileManager.default.removeItem(atPath: request)
             let keys: [[String: Any]] = name.map { letter in
                 let frame = messages.keys.matching(NSPredicate(format: "label ==[c] %@", String(letter))).firstMatch.frame
                 return ["label": String(letter), "x": frame.midX, "y": frame.midY]
@@ -358,5 +369,41 @@ final class PromoNamesFilmsUITests: XCTestCase {
         sleep(1)
         mark("end")
         clearDraft()
+    }
+
+    /// The 2.0 film: four customers one after another. Each name is typed on the system keyboard, the order reply takes it for
+    /// its first blank and asks Basic or Pro, and the typed reply carries the counter (248 and on), the weekday and the date.
+    func test4Reply() throws {
+        seed(kind: "reply", history: "")
+        messages.launch()
+        sleep(2)
+        for (index, customer) in ["Maya", "Tom", "Aiko", "Budi"].enumerated() {
+            let plan = index % 2 == 0 ? "Pro" : "Basic"
+            try thread(customer)
+            ownKeyboard()
+            sleep(1)
+            mark("ready \(customer)")
+            typeName(customer)
+            mark("typed \(customer)")
+            sleep(1)
+            cutlingUp(showing: words.order)
+            sleep(2)
+            press("reply \(customer)", frame(words.order))
+            sleep(2)
+            let choice = frame(plan)
+            shot("asks-\(customer)")
+            mark("asks \(customer)")
+            sleep(1)
+            press("plan \(customer) \(plan)", choice)
+            sleep(1)
+            if cutlingKeyFrame(words.order, in: messages) == nil { confirm(); sleep(1) }
+            shot("filled-\(customer)")
+            mark("filled \(customer)")
+            sleep(3)
+            send(customer)
+            sleep(1)
+            mark("end \(customer)")
+            clearDraft()
+        }
     }
 }
