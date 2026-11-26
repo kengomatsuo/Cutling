@@ -21,6 +21,7 @@ final class PurchaseManager: ObservableObject {
     @Published private(set) var isUnlocked = Unlock.isUnlocked
     @Published private(set) var product: Product?
     @Published private(set) var isPurchasing = false
+    @Published private(set) var isRestoring = false
     @Published var lastError: String?
 
     private var updates: Task<Void, Never>?
@@ -136,8 +137,8 @@ final class PurchaseManager: ObservableObject {
 
     /// Restore Purchases: asks the App Store for this Apple Account's purchases again.
     func restore() async {
-        isPurchasing = true
-        defer { isPurchasing = false }
+        isRestoring = true
+        defer { isRestoring = false }
         try? await AppStore.sync()
         await refresh()
         if !isUnlocked {

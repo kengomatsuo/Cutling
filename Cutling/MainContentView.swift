@@ -1741,16 +1741,24 @@ struct PanGestureModifier: ViewModifier {
 
 private struct SubtitleModifier: ViewModifier {
     let count: Int
+    @ObservedObject private var purchases = PurchaseManager.shared
+
+    /// "4 of 5 free" on a free copy, so the unlock ask is never a surprise; "12 Cutlings" once unlocked.
+    private var label: String {
+        purchases.isUnlocked
+            ? String(localized: "\(count) Cutlings")
+            : String(localized: "\(count) of \(Unlock.freeLimit) free")
+    }
 
     func body(content: Content) -> some View {
         #if os(macOS)
         content
-            .navigationSubtitle("\(count) Cutlings")
+            .navigationSubtitle(label)
         #endif
         #if os(iOS)
         if #available(iOS 26, *) {
             content
-                .navigationSubtitle("\(count) Cutlings")
+                .navigationSubtitle(label)
         } else {
             content
         }

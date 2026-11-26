@@ -48,13 +48,16 @@ final class UnlockUITests: XCTestCase {
         openNewTextCutling(app)
         let unlock = app.buttons["unlockButton"].firstMatch
         XCTAssertTrue(unlock.waitForExistence(timeout: 10), "The 6th cutling did not open the unlock screen")
-        sleep(3)
+        sleep(5) // long enough to read in the preview film
         shot("02_unlock_screen")
 
         unlock.tap()
-        XCTAssertTrue(unlock.waitForNonExistence(timeout: 15), "The unlock screen stayed after buying")
-        sleep(2)
+        XCTAssertTrue(app.staticTexts["Cutling Is Unlocked"].waitForExistence(timeout: 15), "No thank-you after buying")
+        sleep(3)
         shot("03_unlocked")
+        unlock.tap() // Done
+        XCTAssertTrue(unlock.waitForNonExistence(timeout: 10), "The unlock screen stayed after Done")
+        sleep(1)
 
         openNewTextCutling(app)
         let name = app.textFields.matching(NSPredicate(format: "label != 'Search cutlings' AND placeholderValue != 'Search cutlings'")).firstMatch

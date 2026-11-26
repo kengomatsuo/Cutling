@@ -61,9 +61,9 @@ enum Unlock {
         #if canImport(Sparkle)
         return true // the direct-download Mac build has no App Store purchase to check
         #else
-        if let known = UserDefaults(suiteName: appGroupID)?.object(forKey: defaultsKey) as? Bool { return known }
-        // Not worked out yet (first launch, offline): before the free day every copy was bought.
-        return Date() < freeSince
+        // Not worked out yet (first launch offline, a past buyer on a new device): saving is allowed, and the main
+        // app checks again once the App Store answers. A wrong guess favours the person.
+        return UserDefaults(suiteName: appGroupID)?.object(forKey: defaultsKey) as? Bool ?? true
         #endif
     }
 
