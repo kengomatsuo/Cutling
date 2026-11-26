@@ -87,8 +87,9 @@ for lang in "${langs[@]}"; do
   # Safari starts each language with no tabs: earlier runs left a stack of them, one a "can't open page" tab, and the
   # iPad's ja take never reached its page (2026-11-23).
   xcrun simctl terminate "$udid" com.apple.mobilesafari >/dev/null 2>&1 || true
-  sdata="$(xcrun simctl get_app_container "$udid" com.apple.mobilesafari data 2>/dev/null)"
-  [ -n "$sdata" ] && rm -f "$sdata"/Library/Safari/SafariTabs.db* 2>/dev/null
+  # The tabs live in the simulator's own Library/Safari (SafariTabs.db, BrowserState.db), not in Safari's app
+  # container: other jobs' tabs ("ChatGPT", 127.0.0.1) showed in the iPad's tab bar on film (2026-11-27).
+  rm -f "$data"/Library/Safari/SafariTabs.db* "$data"/Library/Safari/BrowserState.db* 2>/dev/null
   # The system in the take's language and region (the status bar's 9:41, the globe list, the edit menu), as
   # directions.md asks; SpringBoard restarts to read it, and finish puts the simulator's own setting back.
   case "$lang" in id) region=id_ID ;; ja) region=ja_JP ;; *) region=en_US ;; esac

@@ -50,8 +50,8 @@ if [ "$keyboards" != "$want_keyboard$extra$kb" ]; then
 fi
 # Safari opens its test pages in a fresh tab stack: tabs left by film jobs (one a can't-open-page tab) kept pages from loading.
 xcrun simctl terminate "$DEVICE_QUEUE_UDID" com.apple.mobilesafari >/dev/null 2>&1
-sdata="$(xcrun simctl get_app_container "$DEVICE_QUEUE_UDID" com.apple.mobilesafari data 2>/dev/null)"
-[ -n "$sdata" ] && rm -f "$sdata"/Library/Safari/SafariTabs.db* 2>/dev/null
+# The tabs live in the simulator's own Library/Safari, not in Safari's app container.
+rm -f "$HOME/Library/Developer/CoreSimulator/Devices/$DEVICE_QUEUE_UDID/data/Library/Safari/"{SafariTabs,BrowserState}.db* 2>/dev/null
 # LongInsertUITests opens scripts/fixtures/long-insert.html from the Mac on port 8765; its server runs for this job only.
 server=""
 case " $* " in *LongInsertUITests*)
