@@ -382,11 +382,7 @@ struct ImageDetailView: View {
             canPaste = hasClipboardImage
 
         }
-        .alert("Limit Reached", isPresented: $showLimitAlert) {
-            Button("OK", role: .cancel) {}
-        } message: {
-            Text(limitAlertMessage)
-        }
+        .limitAlert(isPresented: $showLimitAlert, message: limitAlertMessage)
         .onChange(of: undoManager, initial: true) { _, newValue in
             undoHandler.undoManager = newValue
         }

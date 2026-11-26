@@ -1791,17 +1791,7 @@ struct AlertsModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .alert(
-                "Limit Reached",
-                isPresented: Binding(
-                    get: { limitAlertMessage != nil },
-                    set: { if !$0 { limitAlertMessage = nil } }
-                )
-            ) {
-                Button("OK", role: .cancel) {}
-            } message: {
-                Text(limitAlertMessage ?? "")
-            }
+            .limitAlert($limitAlertMessage)
             .alert(
                 dropNotice?.title ?? "",
                 isPresented: Binding(

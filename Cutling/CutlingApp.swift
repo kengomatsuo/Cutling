@@ -98,6 +98,7 @@ struct CutlingApp: App {
     @State private var activeSheet: ActiveSheet?
     @State private var showOnboarding = false
     @State private var limitAlertMessage: String?
+    @State private var showUnlockFromLink = false
     @Environment(\.scenePhase) private var scenePhase
 
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
@@ -148,6 +149,7 @@ struct CutlingApp: App {
         }
         #endif
         try? Tips.configure()
+        PurchaseManager.shared.start()
         #if os(iOS)
         BGTaskScheduler.shared.register(
             forTaskWithIdentifier: Self.bgSyncTaskID,
@@ -278,6 +280,9 @@ struct CutlingApp: App {
                         requestNewCutling(NewCutlingDraft(kind: .text))
                     case "addImage":
                         requestNewCutling(NewCutlingDraft(kind: .image))
+                    case "unlock":
+                        // The keyboard and the Share sheet can't run a purchase, so they open this link.
+                        if !PurchaseManager.shared.isUnlocked { showUnlockFromLink = true }
                     default:
                         break
                     }
@@ -339,16 +344,9 @@ struct CutlingApp: App {
                     WhatsNewSheet(kind: whatsNewKind)
                 }
                 #endif
-                .alert(
-                    "Limit Reached",
-                    isPresented: Binding(
-                        get: { limitAlertMessage != nil },
-                        set: { if !$0 { limitAlertMessage = nil } }
-                    )
-                ) {
-                    Button("OK", role: .cancel) {}
-                } message: {
-                    Text(limitAlertMessage ?? "")
+                .limitAlert($limitAlertMessage)
+                .sheet(isPresented: $showUnlockFromLink) {
+                    UnlockView()
                 }
         }
         #if os(macOS)

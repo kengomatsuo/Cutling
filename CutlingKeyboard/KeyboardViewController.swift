@@ -1135,6 +1135,8 @@ struct KeyboardView: View {
     @State private var showNoAccessToast = false
     @State private var showEmptyClipboardToast = false
     @State private var showLimitToast = false
+    /// The limit toast is the free limit's: tapping it opens the app's unlock screen.
+    @State private var limitToastUnlocks = false
     @State private var limitToastMessage = ""
     
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
@@ -1241,7 +1243,15 @@ struct KeyboardView: View {
                     toastOverlay(icon: "doc.on.clipboard", text: String(localized: "Clipboard Empty", bundle: snapshotBundle))
                 }
                 if showLimitToast {
-                    toastOverlay(icon: "exclamationmark.triangle", text: limitToastMessage)
+                    if limitToastUnlocks {
+                        Link(destination: URL(string: "cutling://unlock")!) {
+                            toastOverlay(icon: "lock.open", text: limitToastMessage)
+                        }
+                        .buttonStyle(.plain)
+                        .accessibilityIdentifier("keyboardUnlockToast")
+                    } else {
+                        toastOverlay(icon: "exclamationmark.triangle", text: limitToastMessage)
+                    }
                 }
             }
             .animation(.spring(duration: 0.35, bounce: 0.2), value: showAddedToast)
@@ -1640,18 +1650,23 @@ struct KeyboardView: View {
 
     private func showLimitReached(for kind: CutlingKind) {
         UINotificationFeedbackGenerator().notificationOccurred(.error)
+        limitToastUnlocks = store.needsUnlock
+        if limitToastUnlocks {
+            limitToastMessage = String(localized: "\(Unlock.freeLimit) free cutlings used. Tap to unlock.", bundle: snapshotBundle)
+        } else {
         switch kind {
         case .image:
             limitToastMessage = String(localized: "Image Limit: \(CutlingStore.maxImageCutlings)", bundle: snapshotBundle)
         case .text:
             limitToastMessage = String(localized: "Text Limit: \(CutlingStore.maxTextCutlings)", bundle: snapshotBundle)
         }
+        }
 
         withAnimation(.spring(duration: 0.35, bounce: 0.2)) {
             showLimitToast = true
         }
         Task {
-            try? await Task.sleep(for: .seconds(2.0))
+            try? await Task.sleep(for: .seconds(limitToastUnlocks ? 4.0 : 2.0))
             withAnimation(.easeOut(duration: 0.25)) {
                 showLimitToast = false
             }

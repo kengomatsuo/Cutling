@@ -94,6 +94,7 @@ final class CutlingAppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         let store = CutlingStore.shared
         store.load()
+        PurchaseManager.shared.start()
 
         #if DEBUG
         // Screenshot runs: throwaway store, no sync, hotkey or clipboard capture

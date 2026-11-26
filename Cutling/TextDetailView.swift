@@ -509,11 +509,7 @@ struct TextDetailView: View {
         .sheet(isPresented: $showIconPicker, onDismiss: { userDidPickIcon = true }) {
             IconPickerView(selectedIcon: undoHandler.binding($icon, actionName: String(localized: "Change Icon")))
         }
-        .alert("Limit Reached", isPresented: $showLimitAlert) {
-            Button("OK", role: .cancel) {}
-        } message: {
-            Text(limitAlertMessage)
-        }
+        .limitAlert(isPresented: $showLimitAlert, message: limitAlertMessage)
         .onAppear {
             checkClipboard()
             canPaste = hasClipboardText

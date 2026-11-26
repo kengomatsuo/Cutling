@@ -22,7 +22,7 @@ import AppKit
 import SwiftUI
 #endif
 
-let appGroupID = "group.com.matsuokengo.Cutling"
+nonisolated let appGroupID = "group.com.matsuokengo.Cutling"
 
 /// A list the store keeps as a JSON file in the App Group container. iOS refuses an app's
 /// UserDefaults past about 4 MB, and 1,000 full-length text cutlings in CJK or emoji reach
@@ -38,6 +38,44 @@ private enum StoredList: String {
         case .recentlyDeleted: "recentlyDeletedCutlings"
         case .history: "cutlingHistory"
         }
+    }
+}
+
+// MARK: - Free Limit
+
+/// Cutling is free to download from `freeSince`, holds `freeLimit` cutlings for free, and a one-time purchase
+/// (`productID`) unlocks the rest. Every copy acquired before `freeSince` was bought at full price, so it stays
+/// unlocked. The main app works out the answer (PurchaseManager) and keeps it in the App Group's defaults, where
+/// the extensions, which cannot run StoreKit purchases, read it.
+enum Unlock {
+    nonisolated static let freeLimit = 5
+    nonisolated static let productID = "com.matsuokengo.Cutling.unlock"
+    /// The day the App Store price becomes free: App Store Connect's price schedule must change on this same day,
+    /// or a buyer who paid between the two would be asked to pay again.
+    nonisolated static let freeSince = Date(timeIntervalSince1970: 1_796_860_800) // 2026-12-10T00:00:00Z
+    nonisolated static let defaultsKey = "unlocked"
+    nonisolated static let changedNotification = "com.matsuokengo.Cutling.unlockChanged"
+
+    /// True when this copy may hold more than `freeLimit` cutlings.
+    nonisolated static var isUnlocked: Bool {
+        #if canImport(Sparkle)
+        return true // the direct-download Mac build has no App Store purchase to check
+        #else
+        if let known = UserDefaults(suiteName: appGroupID)?.object(forKey: defaultsKey) as? Bool { return known }
+        // Not worked out yet (first launch, offline): before the free day every copy was bought.
+        return Date() < freeSince
+        #endif
+    }
+
+    /// Records the main app's answer and tells the other processes.
+    nonisolated static func record(_ unlocked: Bool) {
+        let defaults = UserDefaults(suiteName: appGroupID)
+        guard defaults?.object(forKey: defaultsKey) as? Bool != unlocked else { return }
+        defaults?.set(unlocked, forKey: defaultsKey)
+        CFNotificationCenterPostNotification(
+            CFNotificationCenterGetDarwinNotifyCenter(),
+            CFNotificationName(changedNotification as CFString), nil, nil, true
+        )
     }
 }
 
@@ -508,7 +546,11 @@ class CutlingStore: ObservableObject {
         let totalCount = cutlings.count
         let imageCount = cutlings.filter { $0.kind == .image }.count
         let textCount = cutlings.filter { $0.kind == .text }.count
-        
+
+        if needsUnlock {
+            return (false, String(localized: "Free Cutling holds \(Unlock.freeLimit) cutlings. Unlock Cutling once to save as many as you like."))
+        }
+
         // Check total limit first
         if totalCount >= Self.maxTotalCutlings {
             return (false, String(localized: "You've reached the maximum of \(Self.maxTotalCutlings) total cutlings. Delete some to add more."))
@@ -529,6 +571,11 @@ class CutlingStore: ObservableObject {
         return (true, nil)
     }
     
+    /// True when the free limit, not a memory cap, is what stops the next cutling.
+    var needsUnlock: Bool {
+        cutlings.count >= Unlock.freeLimit && !Unlock.isUnlocked
+    }
+
     /// Current counts for display purposes
     var imageCutlingsCount: Int {
         cutlings.filter { $0.kind == .image }.count
