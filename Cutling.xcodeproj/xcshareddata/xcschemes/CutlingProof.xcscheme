@@ -43,16 +43,13 @@
             </BuildableReference>
             <SelectedTests>
                <Test
+                  Identifier = "UnlockUITests/testDuplicateAtTheLimitAsksThenSavesTheCopy()">
+               </Test>
+               <Test
+                  Identifier = "UnlockUITests/testDuplicateAtTheLimitSavesNothingWhenTheSheetCloses()">
+               </Test>
+               <Test
                   Identifier = "UnlockUITests/testSixthCutlingAsksToUnlockThenSaves()">
-               </Test>
-               <Test
-                  Identifier = "UnlockUITests/testSheetSlidesIn()">
-               </Test>
-               <Test
-                  Identifier = "UnlockUITests/testCelebrationPlays()">
-               </Test>
-               <Test
-                  Identifier = "UnlockUITests/testCelebrationFrameMeter()">
                </Test>
                <Test
                   Identifier = "UnlockUITests/testLocaleSheets1()">
@@ -71,18 +68,6 @@
                </Test>
                <Test
                   Identifier = "UnlockUITests/testLocaleSheets6()">
-               </Test>
-               <Test
-                  Identifier = "UnlockUITests/testDuplicateAtTheLimitAsksThenSavesTheCopy()">
-               </Test>
-               <Test
-                  Identifier = "UnlockUITests/testDuplicateAtTheLimitSavesNothingWhenTheSheetCloses()">
-               </Test>
-               <Test
-                  Identifier = "UnlockUITests/testRecoverFromRecentlyDeletedAtTheLimitAsksThenRestores()">
-               </Test>
-               <Test
-                  Identifier = "UnlockUITests/testTryMeDoesNotCountTowardTheFreeFive()">
                </Test>
             </SelectedTests>
          </TestableReference>

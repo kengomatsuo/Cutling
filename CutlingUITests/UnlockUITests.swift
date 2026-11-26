@@ -227,7 +227,8 @@ final class UnlockUITests: XCTestCase {
         if save.waitForExistence(timeout: 5) { save.tap() }
         sleep(3)
         shot("05_six_cutlings")
-        XCTAssertGreaterThanOrEqual(app.descendants(matching: .any).matching(identifier: "cutlingCard").count, 6, "The 6th cutling was not saved")
+        // The card's identifier matches several elements per card, so the new card is checked by its own name.
+        XCTAssertTrue(app.staticTexts["Wi-Fi password"].waitForExistence(timeout: 5), "The 6th cutling was not saved")
     }
 
     // MARK: - Every other way to add at the free limit (ASG249)
@@ -247,20 +248,23 @@ final class UnlockUITests: XCTestCase {
     @MainActor
     func testDuplicateAtTheLimitAsksThenSavesTheCopy() throws {
         let app = launchFree()
+        // The identifier matches a few elements per card, so counts are compared with the count before Duplicate.
         let cards = app.descendants(matching: .any).matching(identifier: "cutlingCard")
+        let before = cards.count
         app.descendants(matching: .any)["cutlingCard"].firstMatch.press(forDuration: 1.2)
         let duplicate = app.buttons["Duplicate"].firstMatch
         XCTAssertTrue(duplicate.waitForExistence(timeout: 10), "No Duplicate in the card menu")
         duplicate.tap()
         let unlock = app.buttons["unlockButton"].firstMatch
         XCTAssertTrue(unlock.waitForExistence(timeout: 10), "Duplicate at 5 of 5 did not open the unlock screen")
-        XCTAssertEqual(cards.count, 5, "The copy was saved before the person unlocked")
+        XCTAssertEqual(cards.count, before, "The copy was saved before the person unlocked")
         unlock.tap()
         XCTAssertTrue(app.staticTexts["unlockDoneTitle"].waitForExistence(timeout: 15), "No thank-you after buying")
         sleep(3)
         unlock.tap() // Done
         XCTAssertTrue(unlock.waitForNonExistence(timeout: 10), "The unlock screen stayed after Done")
-        XCTAssertGreaterThanOrEqual(cards.count, 6, "The copy was not saved after unlocking")
+        sleep(1)
+        XCTAssertGreaterThan(cards.count, before, "The copy was not saved after unlocking")
     }
 
     /// Closing the sheet after Duplicate saves nothing and leaves the original alone.
@@ -268,12 +272,14 @@ final class UnlockUITests: XCTestCase {
     func testDuplicateAtTheLimitSavesNothingWhenTheSheetCloses() throws {
         let app = launchFree()
         let cards = app.descendants(matching: .any).matching(identifier: "cutlingCard")
+        let before = cards.count
         app.descendants(matching: .any)["cutlingCard"].firstMatch.press(forDuration: 1.2)
         app.buttons["Duplicate"].firstMatch.tap()
         XCTAssertTrue(app.buttons["unlockButton"].firstMatch.waitForExistence(timeout: 10), "No unlock screen")
         app.buttons["notNowButton"].firstMatch.tap()
         XCTAssertTrue(app.buttons["unlockButton"].firstMatch.waitForNonExistence(timeout: 10), "The sheet stayed after Not Now")
-        XCTAssertEqual(cards.count, 5, "Closing the sheet saved the copy")
+        sleep(1)
+        XCTAssertEqual(cards.count, before, "Closing the sheet saved the copy")
     }
 
     /// Recover from Recently Deleted at 5 of 5 opens the unlock sheet; unlocking restores the cutling.
