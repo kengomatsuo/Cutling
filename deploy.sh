@@ -335,7 +335,11 @@ case "${1:-help}" in
     fi
     ;;
   frame)
+    # iPhone and iPad: Don't type it (creative/cpp, page "main"); Mac and iPhone Duo: direction C (creative/v2)
     python3 fastlane/compose/creative/v2/build.py --store C --publish
+    python3 fastlane/compose/creative/v2/build.py --publish-duo
+    python3 fastlane/compose/creative/cpp/build.py main --all
+    python3 fastlane/compose/creative/cpp/build.py publish main --all
     ;;
   frame_cpp)
     # CoreText captions: frameit's ImageMagick has no shaping for Arabic, Indic, Thai

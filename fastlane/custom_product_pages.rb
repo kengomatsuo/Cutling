@@ -1,6 +1,7 @@
 # custom_product_pages.rb — create or update Cutling's custom product pages.
 #
-# Usage: ruby fastlane/custom_product_pages.rb docs/aso/cpp.json [--readback]
+# Usage: ruby fastlane/custom_product_pages.rb docs/aso/cpp.json
+#        ruby fastlane/custom_product_pages.rb --readback [spec.json ...]   (every page; with specs, each image vs disk)
 #
 # cpp.json: {"pages": [{"name", "deepLink", "keywords": {"<locale>": ["term", ...]},
 #            "locales": {"<locale>": {"promo", "screenshots": {"APP_IPHONE_67": [paths], ...}}}}]}
@@ -68,24 +69,46 @@ rescue => e
   []
 end
 
-def readback
+# With spec files, each editable version's set is checked against them: "disk 6/6" counts the uploaded screenshots
+# whose checksum equals the spec's file at the same position, so a stale, missing or misordered image shows as a
+# shortfall; "processing n" counts images Apple has not finished taking in.
+def readback(specs = [])
+  want = {}
+  specs.each do |f|
+    JSON.parse(File.read(f, encoding: "UTF-8"))["pages"].each do |p|
+      p["locales"].each do |locale, l|
+        (l["screenshots"] || {}).each { |type, paths| want[[p["name"], locale, type]] = paths.map { |x| Digest::MD5.file(x).hexdigest } }
+      end
+    end
+  end
   all("v1/apps/#{APP_ID}/appCustomProductPages").each do |page|
     a = page["attributes"]
     puts "PAGE #{a['name']} visible=#{a['visible']} url=#{a['url']}"
     all("v1/appCustomProductPages/#{page['id']}/appCustomProductPageVersions").each do |v|
-      puts "  version state=#{v.dig('attributes', 'state')} deepLink=#{v.dig('attributes', 'deepLink')}"
+      state = v.dig("attributes", "state")
+      puts "  version #{v.dig('attributes', 'version')} state=#{state} deepLink=#{v.dig('attributes', 'deepLink')}"
       all("v1/appCustomProductPageVersions/#{v['id']}/appCustomProductPageLocalizations").each do |l|
-        sets = all("v1/appCustomProductPageLocalizations/#{l['id']}/appScreenshotSets")
-        counts = sets.map { |s| "#{s.dig('attributes', 'screenshotDisplayType')}=#{all("v1/appScreenshotSets/#{s['id']}/appScreenshots").size}" }
+        locale = l.dig("attributes", "locale")
+        counts = all("v1/appCustomProductPageLocalizations/#{l['id']}/appScreenshotSets").map do |s|
+          type = s.dig("attributes", "screenshotDisplayType")
+          shots = all("v1/appScreenshotSets/#{s['id']}/appScreenshots")
+          note = ""
+          if state == "PREPARE_FOR_SUBMISSION" && (sums = want[[a["name"], locale, type]])
+            same = shots.each_with_index.count { |x, i| x.dig("attributes", "sourceFileChecksum") == sums[i] }
+            busy = shots.count { |x| x.dig("attributes", "assetDeliveryState", "state") != "COMPLETE" }
+            note = " (disk #{same}/#{sums.size}#{busy.positive? ? ", processing #{busy}" : ''})"
+          end
+          "#{type}=#{shots.size}#{note}"
+        end
         kws = (all("v1/appCustomProductPageLocalizations/#{l['id']}/searchKeywords") rescue []).size
-        puts "    #{l.dig('attributes', 'locale')} promo=#{(l.dig('attributes', 'promotionalText') || '').size}ch keywords=#{kws} #{counts.join(' ')}"
+        puts "    #{locale} promo=#{(l.dig('attributes', 'promotionalText') || '').size}ch keywords=#{kws} #{counts.join(' ')}"
       end
     end
   end
 end
 
 if ARGV.include?("--readback")
-  readback
+  readback(ARGV.select { |x| x.end_with?(".json") })
   exit
 end
 

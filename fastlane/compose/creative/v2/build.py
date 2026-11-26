@@ -430,17 +430,20 @@ def main():
             publish(loc)
 
 
-# The direction on the store pages. Its frames are copied to fastlane/frames/<locale>/<device>-NN.png, the one folder
-# the upload lanes (Fastfile upload_screenshots, upload_screenshots_mac) and fastlane/readback.rb read.
+# The direction on the store pages for the devices this build owns. Its frames are copied to
+# fastlane/frames/<locale>/<device>-NN.png, the one folder the upload lanes (Fastfile upload_screenshots,
+# upload_screenshots_mac) and fastlane/readback.rb read. iPhone and iPad show Don't type it, which ../cpp/build.py
+# publishes into the same folder, so this publish leaves their files alone; the iPhone Duo's are publish_duo's.
 STORE_DIRECTION = "C"
+STORE_DEVICES = ("mac",)
 
 def publish(loc):
     import shutil
     dst = REPO / "fastlane/frames" / loc
     dst.mkdir(parents=True, exist_ok=True)
-    for old in dst.glob("*.png"):
-        old.unlink()
-    for dev in ("iphone", "ipad", "mac", *DUO):
+    for dev in STORE_DEVICES:
+        for old in dst.glob(f"{dev}-[0-9][0-9].png"):
+            old.unlink()
         for f in sorted((HERE / "out" / loc / STORE_DIRECTION / dev).glob("[0-9][0-9].png")):
             shutil.copy(f, dst / f"{dev}-{f.name}")
 
