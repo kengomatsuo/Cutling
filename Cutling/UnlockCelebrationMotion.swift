@@ -92,7 +92,7 @@ enum UnlockMotion {
         var buttonFill = 0.0, buttonBuyLabel = 0.0, buttonDoneLabel = 0.0
         /// Opacity of the ask's title, subtitle, three rows and Restore Purchases, in that order.
         var exit = [Double](repeating: 0, count: 6)
-        var roomOpacity = 0.0, roomScale = 1.0, count = 0
+        var roomOpacity = 0.0
         var titleOpacity = 0.0, titleDY = 0.0, subtitleOpacity = 0.0, subtitleDY = 0.0
 
         var tileSize: Double { pitch * tileRatio }
@@ -102,7 +102,7 @@ enum UnlockMotion {
             pitch: heroTile + heroGap, tileRatio: heroTile / (heroTile + heroGap), zoom: 0, dot: 0,
             sixthRotation: 5, sixthScale: 1, sixthDash: 1, sixthLift: 1, sixthWash: 0, extras: 1,
             buttonFill: 0, buttonBuyLabel: 1, buttonDoneLabel: 0, exit: [Double](repeating: 1, count: 6),
-            roomOpacity: 0, roomScale: 1, count: 0, titleOpacity: 0, titleDY: wordsRise, subtitleOpacity: 0, subtitleDY: wordsRise)
+            roomOpacity: 0, titleOpacity: 0, titleDY: wordsRise, subtitleOpacity: 0, subtitleDY: wordsRise)
 
         /// This frame moving to `end` by `m` (0 to 1): a tap on the sheet takes every element to its end value.
         func blended(to end: Frame, _ m: Double) -> Frame {
@@ -114,8 +114,7 @@ enum UnlockMotion {
                 extras: l(extras, end.extras),
                 buttonFill: l(buttonFill, end.buttonFill), buttonBuyLabel: l(buttonBuyLabel, end.buttonBuyLabel), buttonDoneLabel: l(buttonDoneLabel, end.buttonDoneLabel),
                 exit: zip(exit, end.exit).map { l($0, $1) },
-                roomOpacity: l(roomOpacity, end.roomOpacity), roomScale: l(roomScale, end.roomScale),
-                count: Int(l(Double(count), Double(end.count)).rounded()),
+                roomOpacity: l(roomOpacity, end.roomOpacity),
                 titleOpacity: l(titleOpacity, end.titleOpacity), titleDY: l(titleDY, end.titleDY),
                 subtitleOpacity: l(subtitleOpacity, end.subtitleOpacity), subtitleDY: l(subtitleDY, end.subtitleDY))
         }
@@ -144,6 +143,9 @@ enum UnlockMotion {
     /// Where the room's slots are and when each appears, laid out once for the room's frame (`width` x `height` pt).
     struct Room {
         let cols: Int, rows: Int, lastRow: Int
+        /// Rows drawn: the grid's last row only when it is full, so the room never ends on a short row (owner, 2026-11-26:
+        /// it shows that there is plenty of room, not an exact count). The layout and timing still use every row.
+        let drawnRows: Int
         let p0: Double, p1: Double, k0: Double
         let heroCells: Int
         /// Milliseconds after t0 at which slot `j * cols + i` appears; -1 for the hero's own cells.
@@ -159,6 +161,7 @@ enum UnlockMotion {
             cols = Int((Double(capacity) * width / height).squareRoot().rounded())
             rows = Int((Double(capacity) / Double(cols)).rounded(.up))
             lastRow = capacity - (rows - 1) * cols
+            drawnRows = lastRow < cols ? rows - 1 : rows
             p0 = heroTile + heroGap
             k0 = heroTile / p0
             p1 = min(width / (Double(cols - 1) + tileRatioEnd), height / (Double(rows - 1) + tileRatioEnd))
@@ -186,8 +189,8 @@ enum UnlockMotion {
             var reveal = [Float](repeating: -1, count: capacity)
             var list: [(Float, Int32)] = []
             list.reserveCapacity(capacity)
-            for j in 0..<rows {
-                for i in 0..<(j == rows - 1 ? lastRow : cols) where !(j == 0 && i < heroCells) {
+            for j in 0..<drawnRows {
+                for i in 0..<cols where !(j == 0 && i < heroCells) {
                     let d = hypot(Double(i) - oi, Double(j))
                     var lo = 0, hi = steps
                     while lo < hi { let mid = (lo + hi) / 2; if reach[mid] >= d { hi = mid } else { lo = mid + 1 } }
@@ -240,8 +243,6 @@ enum UnlockMotion {
             f.buttonBuyLabel = 1 - fade(easeOut, tc, over: buttonMs / 2)
             f.buttonDoneLabel = fade(easeOut, tc - buttonMs / 2, over: buttonMs / 2)
             f.roomOpacity = fade(easeOut, t - Double(orderMs.first ?? 0), over: roomFadeMs)
-            f.roomScale = 1 + bump(t - landMs, riseMs: 90, peak: 0.08)
-            f.count = t < 0 ? heroCells : count(at: t)
             let rise = [wordsStartMs, wordsStartMs + wordsStaggerMs].map { start in
                 (opacity: fade(easeOut, t - start, over: wordsFadeMs), dy: t < start ? wordsRise : spring(wordSpring, t - start, wordsRise, 0))
             }

@@ -35,6 +35,22 @@ final class UnlockUITests: XCTestCase {
         if text.waitForExistence(timeout: 5) { text.tap() }
     }
 
+    /// The unlock sheet opening with every animation ten times slower (`-SlowAnimations`), so run.mp4 holds the slide's
+    /// in-between frames even when the recorder drops some.
+    @MainActor
+    func testSheetSlidesIn() throws {
+        let app = XCUIApplication()
+        app.launchArguments += ["-lastWhatsNewSeen", WhatsNewSkip.releaseID, "-UNLOCK_TEST", "-UnlockAsNewUser", "-UnlockDemoStore",
+                                "-hasCompletedSetup", "YES", "-hasSeenInteractiveTutorial", "YES", "-SlowAnimations"]
+        app.launch()
+        XCTAssertTrue(app.descendants(matching: .any)["cutlingCard"].firstMatch.waitForExistence(timeout: 30), "No cards")
+        sleep(2)
+        openNewTextCutling(app)
+        XCTAssertTrue(app.buttons["unlockButton"].firstMatch.waitForExistence(timeout: 30), "The 6th cutling did not open the unlock screen")
+        sleep(3)
+        shot("slow_open")
+    }
+
     /// The celebration stopped at instants after t0 (debug build, `-UnlockFreezeMs`), one launch each, for comparing with
     /// the design's contact sheet. `TEST_RUNNER_UNLOCK_FRAMES=-1,0,840` picks the instants (-1: before t0, the button in
     /// flight) and `TEST_RUNNER_UNLOCK_ARGS` adds launch arguments (`-UnlockReduceMotion`, a Dynamic Type size, a language).

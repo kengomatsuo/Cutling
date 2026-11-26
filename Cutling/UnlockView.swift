@@ -23,9 +23,13 @@ struct UnlockView: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.colorScheme) private var scheme
-    /// Starts near the measured height (about 505 pt on a 6.3-inch iPhone at the limit): a guess far off makes the
-    /// sheet rise to the guess and then drop to its content.
-    @State private var sheetHeight: CGFloat = 505
+    /// Start near the measured heights (about 505 pt in all on a 6.3-inch iPhone at the limit): a guess far off makes
+    /// the sheet rise to the guess and then drop to its content.
+    @State private var contentHeight: CGFloat = 449
+    @State private var buttonHeight: CGFloat = 56
+    /// The detent is the ask's own height plus the button; the system caps it at the screen, and the ask then scrolls.
+    /// The moment never changes it, because the ask's views stay in the layout.
+    private var sheetHeight: CGFloat { contentHeight + buttonHeight }
     /// The purchase went through and t0 has not come: the button keeps its purchase-in-flight look.
     @State private var unlocking = false
     @State private var moment: UnlockMoment?
@@ -68,14 +72,6 @@ struct UnlockView: View {
     }
 
     private var doneTitle: LocalizedStringKey { onContinue == nil ? "Done" : "Continue" }
-
-    private var brandText: Color {
-        #if os(iOS)
-        Color(uiColor: UIColor { $0.userInterfaceStyle == .dark ? UIColor(Color.brandGreen) : UIColor(red: 0, green: 135 / 255, blue: 95 / 255, alpha: 1) })
-        #else
-        Color.brandGreen
-        #endif
-    }
 
     private var capacity: String { CutlingStore.maxTextCutlings.formatted() }
 
@@ -224,6 +220,9 @@ struct UnlockView: View {
         let f = s.frame
         let done = moment != nil
         return VStack(alignment: .leading, spacing: 0) {
+            // The ask scrolls only when it is taller than the screen (the largest text sizes) and does not bounce when
+            // it fits; the button stays below it, always reachable.
+            ScrollView {
             VStack(alignment: .leading, spacing: 0) {
                 closeButton.hidden().padding(.bottom, 18)
                 hero(s).padding(.bottom, 24)
@@ -278,16 +277,19 @@ struct UnlockView: View {
                     .accessibilityLabel("Not Now")
                     .accessibilityIdentifier("notNowButton")
             }
+            .padding(.horizontal, Self.padding)
+            .padding(.top, 20)
+            .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { contentHeight = $0 }
+            }
+            .scrollBounceBehavior(.basedOnSize)
 
             primaryButton(f)
+                .padding(.horizontal, Self.padding)
+                .padding(.bottom, 12)
+                .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { buttonHeight = $0 }
         }
-        .padding(.horizontal, Self.padding)
-        .padding(.top, 20)
-        .padding(.bottom, 12)
         .contentShape(Rectangle())
         .onTapGesture { jumpToEnd() }
-        // The detent is the ask's height; the moment never changes it.
-        .onGeometryChange(for: CGFloat.self) { $0.size.height } action: { sheetHeight = $0 }
     }
 
     /// The person's tiles and the sixth, as a row in the ask. Their space is reserved here and the stage draws them, so the
@@ -334,8 +336,8 @@ struct UnlockView: View {
                     frame: f, room: room, slotsAt: slotsAt, settle: settle, roomSize: roomSize, trailingPadding: Self.padding)
     }
 
-    /// What the sheet says after the purchase, in the space the ask's words leave: the room's frame, its count, the title
-    /// and the subtitle. It sits over the ask, so it never changes the sheet's height.
+    /// What the sheet says after the purchase, in the space the ask's words leave: the room's frame, the title and the
+    /// subtitle. The room shows plenty of slots in full rows, never a count (owner, 2026-11-26). It sits over the ask, so it never changes the sheet's height.
     private func doneLayer(_ s: Shown) -> some View {
         let f = s.end ?? s.frame
         return VStack(alignment: .leading, spacing: 0) {
@@ -345,14 +347,6 @@ struct UnlockView: View {
                 .onGeometryChange(for: CGSize.self) { $0.size } action: { roomSize = $0 }
                 .accessibilityElement(children: .ignore)
                 .accessibilityLabel("\(store.cutlings.count) cutlings saved. Room for \(capacity).")
-            Text("Room for \(f.count.formatted())")
-                .font(.headline)
-                .monospacedDigit()
-                .foregroundStyle(brandText)
-                .scaleEffect(f.roomScale, anchor: .leading)
-                .opacity(f.roomOpacity)
-                .padding(.top, 10)
-                .accessibilityHidden(true)
             VStack(alignment: .leading, spacing: 4) {
                 Text("It's All Yours")
                     .font(.title.bold())
@@ -367,7 +361,7 @@ struct UnlockView: View {
                     .opacity(f.subtitleOpacity)
                     .offset(y: f.subtitleDY)
             }
-            .padding(.top, 24)
+            .padding(.top, 28)
             .padding(.bottom, 28)
         }
         .accessibilityHidden(moment == nil)

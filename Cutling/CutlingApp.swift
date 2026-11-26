@@ -182,6 +182,17 @@ struct CutlingApp: App {
                 #endif
                 .onAppear {
                     #if DEBUG
+                    #if os(iOS)
+                    // `-SlowAnimations`: every Core Animation runs ten times slower (the Simulator's Slow Animations),
+                    // so a UI test can screenshot a presentation's in-between frames.
+                    if ProcessInfo.processInfo.arguments.contains("-SlowAnimations") {
+                        DispatchQueue.main.async {
+                            for case let scene as UIWindowScene in UIApplication.shared.connectedScenes {
+                                scene.windows.forEach { $0.layer.speed = 0.1 }
+                            }
+                        }
+                    }
+                    #endif
                     // Only a screenshot run sets the keyboard's language; any other run clears what one left behind,
                     // or a later test finds the keyboard in that run's language (a Traditional Chinese "Next" key).
                     if !ProcessInfo.processInfo.arguments.contains("-SNAPSHOT_MODE") {
