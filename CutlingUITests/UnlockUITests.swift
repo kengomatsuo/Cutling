@@ -75,7 +75,9 @@ final class UnlockUITests: XCTestCase {
             shot("\(tag)_\(ms)")
             let title = app.staticTexts["It's All Yours"].firstMatch
             let thanks = app.staticTexts["Thank you for supporting Cutling."].firstMatch
-            NSLog("UNLOCKFRAME %@ button=%@ title=%@ subtitle=%@ close=%@", ms, "\(unlock.frame)", "\(title.frame)", "\(thanks.frame)", "\(app.buttons["notNowButton"].firstMatch.frame)")
+            // Before t0 the done words are hidden from accessibility, so only elements that exist report a frame.
+            func at(_ e: XCUIElement) -> String { e.exists ? "\(e.frame)" : "hidden" }
+            NSLog("UNLOCKFRAME %@ button=%@ title=%@ subtitle=%@ close=%@", ms, at(unlock), at(title), at(thanks), at(app.buttons["notNowButton"].firstMatch))
             app.terminate()
         }
     }
