@@ -1,0 +1,1130 @@
+{
+ "pages": [
+  {
+   "name": "Personal details",
+   "deepLink": "cutling://addText",
+   "keywords": {
+    "bn-BD": [
+     "autofill"
+    ],
+    "bn-IN": [
+     "autofill"
+    ],
+    "da": [
+     "adresse"
+    ],
+    "de-DE": [
+     "adresse"
+    ],
+    "en-AU": [
+     "iban",
+     "email",
+     "address",
+     "bank"
+    ],
+    "en-CA": [
+     "autofill"
+    ],
+    "en-GB": [
+     "autofill"
+    ],
+    "en-IN": [
+     "autofill"
+    ],
+    "en-US": [
+     "autofill"
+    ],
+    "id": [
+     "alamat"
+    ],
+    "it": [
+     "indirizzo"
+    ],
+    "ko": [
+     "자동입력"
+    ],
+    "ms": [
+     "alamat"
+    ],
+    "no": [
+     "adresse"
+    ],
+    "ro": [
+     "adresă"
+    ],
+    "sk": [
+     "adresa"
+    ],
+    "ta-IN": [
+     "address",
+     "iban",
+     "email"
+    ],
+    "ur-PK": [
+     "autofill"
+    ],
+    "vi": [
+     "địa"
+    ],
+    "zh-Hans": [
+     "自动填充"
+    ],
+    "zh-Hant": [
+     "自動填寫"
+    ]
+   },
+   "locales": {
+    "ar-SA": {
+     "promo": "عنوانك ورقم هويتك وبيانات حسابك محفوظة وجاهزة. عبّئ أي نموذج في ثوانٍ بلمسة من لوحة المفاتيح.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ar-SA/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ar-SA/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ar-SA/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ar-SA/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ar-SA/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ar-SA/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ar-SA/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ar-SA/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ar-SA/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ar-SA/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ar-SA/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ar-SA/ipad/06.png"
+      ]
+     }
+    },
+    "bn-BD": {
+     "promo": "ঠিকানা, আইডি নম্বর আর ব্যাংক তথ্য একবার সেভ করুন। যেকোনো ফর্মে কীবোর্ড থেকে এক ট্যাপেই বসিয়ে দ্রুত পূরণ করুন।",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/bn-BD/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/bn-BD/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/bn-BD/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/bn-BD/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/bn-BD/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/bn-BD/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/bn-BD/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/bn-BD/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/bn-BD/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/bn-BD/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/bn-BD/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/bn-BD/ipad/06.png"
+      ]
+     }
+    },
+    "ca": {
+     "promo": "Omple adreces, DNI i dades bancàries en un moment: les tens desades al teclat i les insereixes amb un toc.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ca/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ca/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ca/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ca/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ca/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ca/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ca/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ca/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ca/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ca/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ca/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ca/ipad/06.png"
+      ]
+     }
+    },
+    "cs": {
+     "promo": "Adresu, číslo dokladu i bankovní údaje už nemusíte psát znovu. Uložte je a vkládejte z klávesnice jedním klepnutím.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/cs/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/cs/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/cs/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/cs/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/cs/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/cs/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/cs/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/cs/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/cs/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/cs/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/cs/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/cs/ipad/06.png"
+      ]
+     }
+    },
+    "da": {
+     "promo": "Gem din adresse, dit kontonummer og dit CPR-nummer, og udfyld felterne med ét tryk fra tastaturet i stedet for at skrive dem igen.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/da/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/da/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/da/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/da/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/da/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/da/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/da/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/da/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/da/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/da/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/da/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/da/ipad/06.png"
+      ]
+     }
+    },
+    "de-DE": {
+     "promo": "Adresse, IBAN und Ausweisnummer musst du nicht mehr jedes Mal tippen. Speichere sie einmal und füge sie per Tipp in jedes Formularfeld ein.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/de-DE/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/de-DE/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/de-DE/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/de-DE/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/de-DE/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/de-DE/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/de-DE/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/de-DE/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/de-DE/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/de-DE/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/de-DE/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/de-DE/ipad/06.png"
+      ]
+     }
+    },
+    "el": {
+     "promo": "Η διεύθυνση, η ταυτότητα και ο λογαριασμός σου περιμένουν στο πληκτρολόγιο. Συμπλήρωσε τα στοιχεία σου σε οποιαδήποτε φόρμα με ένα πάτημα.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/el/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/el/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/el/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/el/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/el/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/el/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/el/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/el/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/el/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/el/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/el/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/el/ipad/06.png"
+      ]
+     }
+    },
+    "en-AU": {
+     "promo": "Stop retyping your address, IBAN, booking numbers and ID. Save them once and fill in any form with one tap from the Cutling keyboard.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-AU/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-AU/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-AU/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-AU/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-AU/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-AU/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-AU/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-AU/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-AU/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-AU/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-AU/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-AU/ipad/06.png"
+      ]
+     }
+    },
+    "en-CA": {
+     "promo": "Stop retyping your address, IBAN, booking numbers and ID. Save them once and fill in any form with one tap from the Cutling keyboard.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-CA/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-CA/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-CA/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-CA/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-CA/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-CA/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-CA/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-CA/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-CA/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-CA/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-CA/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-CA/ipad/06.png"
+      ]
+     }
+    },
+    "en-GB": {
+     "promo": "Stop retyping your address, IBAN, booking numbers and ID. Save them once and fill in any form with one tap from the Cutling keyboard.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-GB/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-GB/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-GB/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-GB/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-GB/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-GB/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-GB/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-GB/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-GB/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-GB/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-GB/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-GB/ipad/06.png"
+      ]
+     }
+    },
+    "en-US": {
+     "promo": "Stop retyping your address, IBAN, booking numbers and ID. Save them once and fill in any form with one tap from the Cutling keyboard.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-US/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-US/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-US/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-US/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-US/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-US/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-US/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-US/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-US/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-US/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-US/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/en-US/ipad/06.png"
+      ]
+     }
+    },
+    "es-ES": {
+     "promo": "Tu dirección, tu IBAN o tu DNI a un toque. Guarda tus datos y autorrellénalos en cualquier app desde el teclado, sin volver a teclearlos.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-ES/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-ES/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-ES/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-ES/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-ES/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-ES/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-ES/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-ES/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-ES/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-ES/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-ES/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-ES/ipad/06.png"
+      ]
+     }
+    },
+    "es-MX": {
+     "promo": "Tu dirección, tu CLABE o tu CURP a un toque. Guarda tus datos y llénalos en cualquier app desde el teclado, sin volver a escribirlos.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-MX/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-MX/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-MX/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-MX/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-MX/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-MX/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-MX/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-MX/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-MX/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-MX/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-MX/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/es-MX/ipad/06.png"
+      ]
+     }
+    },
+    "fi": {
+     "promo": "Osoite, henkilötunnus ja tilinumero eivät tarvitse enää kirjoittamista. Täytä lomakkeet sekunneissa napauttamalla tallennettu tieto näppäimistöstä.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fi/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fi/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fi/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fi/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fi/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fi/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fi/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fi/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fi/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fi/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fi/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fi/ipad/06.png"
+      ]
+     }
+    },
+    "fr-CA": {
+     "promo": "Adresse, numéros de compte, pièce d'identité : enregistre-les une fois, puis insère-les d'un tap depuis le clavier au lieu de les retaper à chaque formulaire.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-CA/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-CA/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-CA/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-CA/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-CA/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-CA/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-CA/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-CA/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-CA/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-CA/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-CA/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-CA/ipad/06.png"
+      ]
+     }
+    },
+    "fr-FR": {
+     "promo": "Adresse, numéros de compte, pièce d'identité : enregistrez-les une fois, puis insérez-les d'un toucher depuis le clavier au lieu de les retaper à chaque formulaire.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-FR/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-FR/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-FR/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-FR/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-FR/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-FR/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-FR/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-FR/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-FR/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-FR/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-FR/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/fr-FR/ipad/06.png"
+      ]
+     }
+    },
+    "gu-IN": {
+     "promo": "સરનામું, આઈડી નંબર અને બેંક વિગતો ફોર્મમાં વારંવાર ભરવી પડતી નથી. એક વાર સેવ કરો અને કીબોર્ડમાંથી એક ટેપમાં ભરો.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/gu-IN/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/gu-IN/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/gu-IN/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/gu-IN/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/gu-IN/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/gu-IN/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/gu-IN/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/gu-IN/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/gu-IN/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/gu-IN/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/gu-IN/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/gu-IN/ipad/06.png"
+      ]
+     }
+    },
+    "he": {
+     "promo": "כתובת, תעודת זהות, פרטי בנק: כותבים פעם אחת, ומילוי הפרטים בכל טופס לוקח אחר כך נגיעה אחת מהמקלדת.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/he/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/he/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/he/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/he/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/he/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/he/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/he/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/he/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/he/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/he/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/he/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/he/ipad/06.png"
+      ]
+     }
+    },
+    "hi": {
+     "promo": "पता, आईडी नंबर और बैंक डिटेल्स बार-बार टाइप न करें। एक बार सेव करें और फ़ॉर्म में कीबोर्ड से एक टैप में भरें।",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hi/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hi/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hi/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hi/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hi/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hi/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hi/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hi/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hi/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hi/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hi/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hi/ipad/06.png"
+      ]
+     }
+    },
+    "hr": {
+     "promo": "Adresu, OIB, IBAN i ostale osobne podatke spremi jednom. Kad zatrebaju, popuniš ih jednim dodirom umjesto tipkanja.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hr/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hr/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hr/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hr/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hr/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hr/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hr/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hr/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hr/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hr/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hr/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hr/ipad/06.png"
+      ]
+     }
+    },
+    "hu": {
+     "promo": "A címed, a bankszámlaszámod és az igazolványszámod mentve van, és egy érintéssel a mezőben terem. Nem kell többé fejből vagy a tárcából begépelned.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hu/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hu/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hu/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hu/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hu/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hu/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hu/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hu/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hu/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hu/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hu/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/hu/ipad/06.png"
+      ]
+     }
+    },
+    "id": {
+     "promo": "Alamat, nomor KTP, rekening bank: simpan sekali, lalu isi formulir mana pun dengan satu ketukan dari keyboard. Tanpa akun, tanpa iklan.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/id/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/id/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/id/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/id/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/id/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/id/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/id/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/id/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/id/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/id/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/id/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/id/ipad/06.png"
+      ]
+     }
+    },
+    "it": {
+     "promo": "Indirizzo, IBAN, documenti: salvali una volta e inseriscili dove servono con un tocco, per una compilazione automatica dei moduli su qualsiasi app.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/it/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/it/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/it/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/it/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/it/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/it/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/it/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/it/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/it/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/it/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/it/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/it/ipad/06.png"
+      ]
+     }
+    },
+    "ja": {
+     "promo": "住所、口座情報、メールアドレスなど、何度も打つ個人情報を保存しておけます。入力欄でキーボードを切り替えるだけで、すぐに入力できます。",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ja/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ja/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ja/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ja/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ja/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ja/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ja/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ja/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ja/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ja/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ja/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ja/ipad/06.png"
+      ]
+     }
+    },
+    "kn-IN": {
+     "promo": "ವಿಳಾಸ, ಐಡಿ ಸಂಖ್ಯೆ, ಬ್ಯಾಂಕ್ ವಿವರಗಳನ್ನು ಒಮ್ಮೆ ಉಳಿಸಿ. ಫಾರ್ಮ್‌ಗಳಲ್ಲಿ ಮತ್ತೆ ಟೈಪ್ ಮಾಡದೆ ಒಂದು ಟ್ಯಾಪ್‌ನಲ್ಲಿ ತುಂಬಿಸಿ.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/kn-IN/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/kn-IN/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/kn-IN/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/kn-IN/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/kn-IN/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/kn-IN/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/kn-IN/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/kn-IN/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/kn-IN/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/kn-IN/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/kn-IN/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/kn-IN/ipad/06.png"
+      ]
+     }
+    },
+    "ko": {
+     "promo": "집 주소, 계좌번호, 신분증 번호를 저장해 두세요. 입력란이 나오면 키보드에서 탭 한 번으로 채울 수 있어요.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ko/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ko/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ko/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ko/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ko/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ko/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ko/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ko/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ko/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ko/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ko/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ko/ipad/06.png"
+      ]
+     }
+    },
+    "ml-IN": {
+     "promo": "വിലാസം, ഐഡി നമ്പർ, ബാങ്ക് വിവരങ്ങൾ എന്നിവ ഇനി വീണ്ടും വീണ്ടും ടൈപ്പ് ചെയ്യേണ്ട. ഫോമിൽ ഒറ്റ ടാപ്പിൽ നിറയ്ക്കൂ.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ml-IN/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ml-IN/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ml-IN/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ml-IN/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ml-IN/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ml-IN/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ml-IN/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ml-IN/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ml-IN/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ml-IN/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ml-IN/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ml-IN/ipad/06.png"
+      ]
+     }
+    },
+    "mr-IN": {
+     "promo": "पत्ता, आयडी नंबर आणि बँक तपशील एकदा सेव्ह करा. फॉर्ममध्ये एका टॅपमध्ये भरा, प्रत्येक वेळी टाइप करायची गरज नाही.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/mr-IN/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/mr-IN/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/mr-IN/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/mr-IN/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/mr-IN/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/mr-IN/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/mr-IN/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/mr-IN/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/mr-IN/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/mr-IN/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/mr-IN/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/mr-IN/ipad/06.png"
+      ]
+     }
+    },
+    "ms": {
+     "promo": "Isi alamat, nombor kad pengenalan dan butiran bank dengan pantas. Simpan sekali, kemudian tampal dari papan kekunci tanpa menaip semula.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ms/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ms/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ms/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ms/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ms/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ms/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ms/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ms/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ms/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ms/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ms/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ms/ipad/06.png"
+      ]
+     }
+    },
+    "nl-NL": {
+     "promo": "Je adres, ID-nummer en bankgegevens staan klaar op je toetsenbord. Tik, en het veld is ingevuld. Geen account, geen advertenties.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/nl-NL/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/nl-NL/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/nl-NL/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/nl-NL/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/nl-NL/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/nl-NL/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/nl-NL/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/nl-NL/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/nl-NL/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/nl-NL/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/nl-NL/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/nl-NL/ipad/06.png"
+      ]
+     }
+    },
+    "no": {
+     "promo": "Slipp å skrive adressen, kontonummeret og fødselsnummeret på nytt hver gang. Lagre dem én gang og fyll ut med ett trykk.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/no/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/no/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/no/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/no/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/no/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/no/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/no/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/no/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/no/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/no/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/no/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/no/ipad/06.png"
+      ]
+     }
+    },
+    "or-IN": {
+     "promo": "ଠିକଣା, ଆଇଡି ନମ୍ବର ଓ ବ୍ୟାଙ୍କ ବିବରଣୀ ଥରେ ସେଭ୍ କରନ୍ତୁ, ଫର୍ମ ଓ ଆପ୍‌ରେ ଗୋଟିଏ ଟ୍ୟାପରେ ଭରନ୍ତୁ।",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/or-IN/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/or-IN/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/or-IN/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/or-IN/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/or-IN/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/or-IN/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/or-IN/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/or-IN/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/or-IN/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/or-IN/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/or-IN/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/or-IN/ipad/06.png"
+      ]
+     }
+    },
+    "pa-IN": {
+     "promo": "ਪਤਾ, ਆਈਡੀ ਅਤੇ ਬੈਂਕ ਵੇਰਵੇ ਹਰ ਫਾਰਮ ਵਿੱਚ ਦੁਬਾਰਾ ਨਾ ਲਿਖੋ। ਇੱਕ ਵਾਰ ਸੇਵ ਕਰੋ ਤੇ ਕੀਬੋਰਡ ਤੋਂ ਇੱਕ ਟੈਪ ਨਾਲ ਭਰੋ।",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pa-IN/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pa-IN/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pa-IN/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pa-IN/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pa-IN/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pa-IN/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pa-IN/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pa-IN/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pa-IN/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pa-IN/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pa-IN/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pa-IN/ipad/06.png"
+      ]
+     }
+    },
+    "pl": {
+     "promo": "Adres, numer konta, dane do faktury: wpisz raz i nie pisz więcej. Wypełnianie formularzy z klawiatury Cutling zajmuje jedno stuknięcie.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pl/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pl/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pl/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pl/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pl/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pl/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pl/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pl/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pl/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pl/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pl/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pl/ipad/06.png"
+      ]
+     }
+    },
+    "pt-BR": {
+     "promo": "Preenchimento automático dos seus dados: endereço, documentos e conta bancária ficam salvos e entram em qualquer formulário com um toque.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-BR/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-BR/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-BR/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-BR/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-BR/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-BR/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-BR/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-BR/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-BR/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-BR/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-BR/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-BR/ipad/06.png"
+      ]
+     }
+    },
+    "pt-PT": {
+     "promo": "Preenchimento automático dos seus dados: morada, documentos e conta bancária ficam guardados e entram em qualquer formulário com um toque.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-PT/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-PT/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-PT/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-PT/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-PT/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-PT/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-PT/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-PT/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-PT/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-PT/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-PT/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/pt-PT/ipad/06.png"
+      ]
+     }
+    },
+    "ro": {
+     "promo": "Adresa, IBAN-ul, numărul de act: scrie-le o singură dată în Cutling și completează-le apoi oriunde cu o atingere, fără să le mai tastezi de fiecare dată.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ro/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ro/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ro/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ro/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ro/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ro/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ro/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ro/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ro/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ro/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ro/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ro/ipad/06.png"
+      ]
+     }
+    },
+    "ru": {
+     "promo": "Адрес, номера документов и банковские реквизиты не нужно набирать каждый раз. Сохраните их один раз и вставляйте с клавиатуры в любую форму одним касанием.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ru/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ru/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ru/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ru/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ru/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ru/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ru/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ru/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ru/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ru/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ru/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ru/ipad/06.png"
+      ]
+     }
+    },
+    "sk": {
+     "promo": "Adresu, čísla dokladov a údaje k účtu máte uložené. Pri vypĺňaní formulára ich z klávesnice vložíte jedným ťuknutím.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sk/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sk/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sk/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sk/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sk/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sk/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sk/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sk/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sk/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sk/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sk/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sk/ipad/06.png"
+      ]
+     }
+    },
+    "sl-SI": {
+     "promo": "Naslov, številka računa in osebni podatki so shranjeni enkrat. Pri naslednjem obrazcu jih s tipkovnice vnesete z enim dotikom, brez ponovnega tipkanja.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sl-SI/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sl-SI/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sl-SI/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sl-SI/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sl-SI/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sl-SI/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sl-SI/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sl-SI/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sl-SI/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sl-SI/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sl-SI/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sl-SI/ipad/06.png"
+      ]
+     }
+    },
+    "sv": {
+     "promo": "Adress, personnummer och bankuppgifter ligger redo på tangentbordet. Fyll i formulär på ett par sekunder utan att leta i anteckningar eller mejl.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sv/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sv/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sv/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sv/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sv/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sv/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sv/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sv/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sv/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sv/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sv/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/sv/ipad/06.png"
+      ]
+     }
+    },
+    "ta-IN": {
+     "promo": "முகவரி, அடையாள எண், வங்கி விவரங்கள் போன்றவற்றை ஒவ்வொரு முறையும் தட்டச்சு செய்ய வேண்டாம். ஒருமுறை சேமித்தால் கீபோர்டிலிருந்து ஒட்டலாம்.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ta-IN/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ta-IN/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ta-IN/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ta-IN/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ta-IN/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ta-IN/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ta-IN/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ta-IN/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ta-IN/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ta-IN/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ta-IN/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ta-IN/ipad/06.png"
+      ]
+     }
+    },
+    "te-IN": {
+     "promo": "చిరునామా, ఐడీ, బ్యాంక్ ఖాతా వివరాలను ఒకసారి సేవ్ చేయండి. ఏ ఫారమ్‌లోనైనా ఒక్క ట్యాప్‌తో నింపండి.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/te-IN/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/te-IN/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/te-IN/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/te-IN/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/te-IN/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/te-IN/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/te-IN/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/te-IN/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/te-IN/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/te-IN/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/te-IN/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/te-IN/ipad/06.png"
+      ]
+     }
+    },
+    "th": {
+     "promo": "กรอกที่อยู่ เลขบัญชี และข้อมูลส่วนตัวได้เร็วขึ้น เซฟไว้ครั้งเดียว แล้วแตะจากคีย์บอร์ดเพื่อวางลงในแอปไหนก็ได้",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/th/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/th/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/th/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/th/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/th/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/th/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/th/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/th/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/th/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/th/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/th/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/th/ipad/06.png"
+      ]
+     }
+    },
+    "tr": {
+     "promo": "Adresini, kimlik ve banka bilgilerini bir kez kaydet. Formlarda ve mesajlarda klavyeden tek dokunuşla doldur.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/tr/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/tr/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/tr/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/tr/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/tr/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/tr/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/tr/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/tr/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/tr/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/tr/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/tr/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/tr/ipad/06.png"
+      ]
+     }
+    },
+    "uk": {
+     "promo": "Адреса, номер рахунку, паспортні дані: збережіть один раз і вставляйте в будь-яку форму одним дотиком, не набираючи знову.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/uk/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/uk/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/uk/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/uk/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/uk/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/uk/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/uk/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/uk/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/uk/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/uk/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/uk/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/uk/ipad/06.png"
+      ]
+     }
+    },
+    "ur-PK": {
+     "promo": "پتہ، شناختی نمبر اور بینک تفصیلات ہر بار ٹائپ نہ کریں۔ ایک بار محفوظ کریں اور کی بورڈ سے ایک ٹیپ میں بھر دیں۔",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ur-PK/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ur-PK/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ur-PK/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ur-PK/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ur-PK/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ur-PK/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ur-PK/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ur-PK/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ur-PK/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ur-PK/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ur-PK/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/ur-PK/ipad/06.png"
+      ]
+     }
+    },
+    "vi": {
+     "promo": "Địa chỉ, số tài khoản, số CCCD luôn nằm sẵn trên bàn phím. Chạm một lần là điền xong, bạn không phải gõ lại từng ký tự.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/vi/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/vi/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/vi/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/vi/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/vi/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/vi/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/vi/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/vi/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/vi/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/vi/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/vi/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/vi/ipad/06.png"
+      ]
+     }
+    },
+    "zh-Hans": {
+     "promo": "地址、证件号、银行账号只存一次，填表时从键盘一点即入，不用再翻备忘录，也不用一遍遍重打。",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hans/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hans/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hans/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hans/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hans/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hans/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hans/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hans/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hans/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hans/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hans/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hans/ipad/06.png"
+      ]
+     }
+    },
+    "zh-Hant": {
+     "promo": "地址、證件號碼、銀行帳號只要存一次，填表時從鍵盤點一下就帶入，不用再翻備忘錄，也不用一遍遍重打。",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hant/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hant/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hant/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hant/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hant/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hant/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hant/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hant/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hant/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hant/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hant/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/personal-details/zh-Hant/ipad/06.png"
+      ]
+     }
+    }
+   }
+  }
+ ]
+}

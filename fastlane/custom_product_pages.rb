@@ -113,7 +113,8 @@ spec["pages"].each do |p|
   puts "page #{p['name']} #{page['id']}"
 
   versions = all("v1/appCustomProductPages/#{page['id']}/appCustomProductPageVersions")
-  version = versions.find { |v| v.dig("attributes", "state") == "PREPARE_FOR_SUBMISSION" }
+  # A page added for review but not yet sent (READY_FOR_REVIEW) is still edited in place; an approved one gets a new version
+  version = versions.find { |v| %w[PREPARE_FOR_SUBMISSION READY_FOR_REVIEW].include?(v.dig("attributes", "state")) }
   version ||= post("appCustomProductPageVersions", { deepLink: p["deepLink"] },
                    { appCustomProductPage: rel("appCustomProductPages", page["id"]) })
   C.patch("v1/appCustomProductPageVersions/#{version['id']}",

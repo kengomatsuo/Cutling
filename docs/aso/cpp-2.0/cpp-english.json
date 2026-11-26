@@ -1,0 +1,325 @@
+{
+ "pages": [
+  {
+   "name": "Text expander",
+   "deepLink": "cutling://addText",
+   "keywords": {
+    "en-US": [
+     "expander",
+     "autotext",
+     "shortcuts"
+    ],
+    "en-GB": [
+     "expander",
+     "autotext",
+     "shortcuts"
+    ],
+    "en-AU": [
+     "snippet",
+     "typing"
+    ],
+    "en-CA": [
+     "expander",
+     "autotext",
+     "shortcuts"
+    ]
+   },
+   "locales": {
+    "en-US": {
+     "promo": "Skip the shortcut codes. Save a snippet once, then tap it in the Cutling keyboard to insert the whole text in any app.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-US/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-US/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-US/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-US/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-US/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-US/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-US/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-US/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-US/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-US/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-US/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-US/ipad/06.png"
+      ]
+     }
+    },
+    "en-GB": {
+     "promo": "Skip the shortcut codes. Save a snippet once, then tap it in the Cutling keyboard to insert the whole text in any app.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-GB/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-GB/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-GB/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-GB/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-GB/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-GB/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-GB/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-GB/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-GB/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-GB/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-GB/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-GB/ipad/06.png"
+      ]
+     }
+    },
+    "en-AU": {
+     "promo": "Skip the shortcut codes. Save a snippet once, then tap it in the Cutling keyboard to insert the whole text in any app.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-AU/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-AU/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-AU/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-AU/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-AU/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-AU/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-AU/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-AU/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-AU/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-AU/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-AU/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-AU/ipad/06.png"
+      ]
+     }
+    },
+    "en-CA": {
+     "promo": "Skip the shortcut codes. Save a snippet once, then tap it in the Cutling keyboard to insert the whole text in any app.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-CA/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-CA/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-CA/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-CA/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-CA/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-CA/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-CA/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-CA/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-CA/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-CA/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-CA/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/text-expander/en-CA/ipad/06.png"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "name": "Clipboard history",
+   "deepLink": "cutling://addText",
+   "keywords": {
+    "en-US": [
+     "history",
+     "copy",
+     "manager"
+    ],
+    "en-GB": [
+     "history",
+     "manager"
+    ],
+    "en-CA": [
+     "history",
+     "copy",
+     "manager"
+    ]
+   },
+   "locales": {
+    "en-US": {
+     "promo": "Keep the text you copy. Save it with the keyboard's Add from Clipboard button, then paste it again in any app whenever you need it.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-US/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-US/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-US/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-US/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-US/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-US/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-US/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-US/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-US/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-US/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-US/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-US/ipad/06.png"
+      ]
+     }
+    },
+    "en-GB": {
+     "promo": "Keep the text you copy. Save it with the keyboard's Add from Clipboard button, then paste it again in any app whenever you need it.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-GB/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-GB/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-GB/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-GB/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-GB/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-GB/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-GB/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-GB/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-GB/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-GB/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-GB/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-GB/ipad/06.png"
+      ]
+     }
+    },
+    "en-AU": {
+     "promo": "Keep the text you copy. Save it with the keyboard's Add from Clipboard button, then paste it again in any app whenever you need it.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-AU/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-AU/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-AU/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-AU/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-AU/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-AU/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-AU/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-AU/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-AU/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-AU/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-AU/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-AU/ipad/06.png"
+      ]
+     }
+    },
+    "en-CA": {
+     "promo": "Keep the text you copy. Save it with the keyboard's Add from Clipboard button, then paste it again in any app whenever you need it.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-CA/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-CA/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-CA/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-CA/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-CA/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-CA/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-CA/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-CA/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-CA/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-CA/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-CA/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/clipboard-history/en-CA/ipad/06.png"
+      ]
+     }
+    }
+   }
+  },
+  {
+   "name": "Notes you paste",
+   "deepLink": "cutling://addText",
+   "keywords": {
+    "en-US": [
+     "notes"
+    ],
+    "en-GB": [
+     "notes"
+    ],
+    "en-AU": [
+     "notepad"
+    ],
+    "en-CA": [
+     "notes"
+    ]
+   },
+   "locales": {
+    "en-US": {
+     "promo": "Keep the addresses, account numbers and notes you paste most in one place, one tap away in the Cutling keyboard.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-US/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-US/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-US/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-US/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-US/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-US/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-US/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-US/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-US/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-US/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-US/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-US/ipad/06.png"
+      ]
+     }
+    },
+    "en-GB": {
+     "promo": "Keep the addresses, account numbers and notes you paste most in one place, one tap away in the Cutling keyboard.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-GB/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-GB/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-GB/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-GB/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-GB/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-GB/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-GB/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-GB/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-GB/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-GB/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-GB/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-GB/ipad/06.png"
+      ]
+     }
+    },
+    "en-AU": {
+     "promo": "Keep the addresses, account numbers and notes you paste most in one place, one tap away in the Cutling keyboard.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-AU/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-AU/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-AU/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-AU/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-AU/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-AU/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-AU/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-AU/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-AU/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-AU/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-AU/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-AU/ipad/06.png"
+      ]
+     }
+    },
+    "en-CA": {
+     "promo": "Keep the addresses, account numbers and notes you paste most in one place, one tap away in the Cutling keyboard.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-CA/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-CA/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-CA/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-CA/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-CA/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-CA/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-CA/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-CA/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-CA/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-CA/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-CA/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/notes-you-paste/en-CA/ipad/06.png"
+      ]
+     }
+    }
+   }
+  }
+ ]
+}

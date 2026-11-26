@@ -1,0 +1,1229 @@
+{
+ "pages": [
+  {
+   "name": "Quick replies",
+   "deepLink": "cutling://addText",
+   "keywords": {
+    "ar-SA": [
+     "قوالب"
+    ],
+    "bg": [
+     "шаблон"
+    ],
+    "bn-BD": [
+     "template",
+     "phrases"
+    ],
+    "bn-IN": [
+     "template",
+     "phrases"
+    ],
+    "ca": [
+     "respostes"
+    ],
+    "cs": [
+     "odpovědi",
+     "šablony"
+    ],
+    "da": [
+     "svar",
+     "skabeloner"
+    ],
+    "de-DE": [
+     "schnellantworten",
+     "vorlagen"
+    ],
+    "en-AU": [
+     "template",
+     "signature",
+     "quickpaste"
+    ],
+    "en-CA": [
+     "canned",
+     "response",
+     "quick",
+     "phrase"
+    ],
+    "en-GB": [
+     "canned",
+     "response",
+     "quick",
+     "reply",
+     "replacement"
+    ],
+    "en-IN": [
+     "canned",
+     "response",
+     "quick",
+     "reply",
+     "phrase"
+    ],
+    "en-US": [
+     "canned",
+     "response",
+     "quick",
+     "replacement"
+    ],
+    "es-ES": [
+     "respuestas",
+     "plantillas"
+    ],
+    "es-MX": [
+     "respuestas",
+     "plantillas"
+    ],
+    "et": [
+     "mallid"
+    ],
+    "fi": [
+     "pikavastaukset"
+    ],
+    "fil": [
+     "template"
+    ],
+    "fr-CA": [
+     "réponses",
+     "modèles"
+    ],
+    "fr-FR": [
+     "réponses",
+     "modèles"
+    ],
+    "id": [
+     "template"
+    ],
+    "it": [
+     "messaggi"
+    ],
+    "ja": [
+     "返信",
+     "テンプレ"
+    ],
+    "kn-IN": [
+     "replacement"
+    ],
+    "ko": [
+     "정형문",
+     "상용구",
+     "답장"
+    ],
+    "lt": [
+     "šablonai"
+    ],
+    "ml-IN": [
+     "quick",
+     "messages",
+     "replies"
+    ],
+    "mr-IN": [
+     "quick",
+     "reply",
+     "canned",
+     "responses"
+    ],
+    "ms": [
+     "templat"
+    ],
+    "no": [
+     "hurtigsvar"
+    ],
+    "pl": [
+     "odpowiedzi",
+     "szablony"
+    ],
+    "ru": [
+     "шаблоны"
+    ],
+    "sr": [
+     "шаблон"
+    ],
+    "sv": [
+     "mallar"
+    ],
+    "ta-IN": [
+     "signature"
+    ],
+    "th": [
+     "ตอบกลับด่วน",
+     "แม่แบบ"
+    ],
+    "tr": [
+     "yanıt",
+     "şablon"
+    ],
+    "uk": [
+     "відповіді"
+    ],
+    "ur-PK": [
+     "quick",
+     "reply"
+    ],
+    "vi": [
+     "trả"
+    ],
+    "zh-Hans": [
+     "快捷短语",
+     "常用文字",
+     "模板"
+    ],
+    "zh-Hant": [
+     "常用文字",
+     "快捷短語",
+     "範本"
+    ]
+   },
+   "locales": {
+    "ar-SA": {
+     "promo": "احفظ ردودك السريعة المتكررة والصقها في أي محادثة بلمسة واحدة من لوحة المفاتيح، بدل كتابتها كل مرة.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ar-SA/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ar-SA/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ar-SA/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ar-SA/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ar-SA/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ar-SA/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ar-SA/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ar-SA/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ar-SA/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ar-SA/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ar-SA/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ar-SA/ipad/06.png"
+      ]
+     }
+    },
+    "bn-BD": {
+     "promo": "বারবার পাঠানো উত্তরগুলো একবার সেভ করে রাখুন। কুইক রিপ্লাই হিসেবে কীবোর্ড থেকে এক ট্যাপেই যেকোনো চ্যাটে বসান।",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/bn-BD/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/bn-BD/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/bn-BD/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/bn-BD/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/bn-BD/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/bn-BD/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/bn-BD/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/bn-BD/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/bn-BD/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/bn-BD/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/bn-BD/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/bn-BD/ipad/06.png"
+      ]
+     }
+    },
+    "ca": {
+     "promo": "Desa les respostes ràpides que envies cada dia i enganxa-les amb un toc des del teclat, a missatges, correu o qualsevol altra app.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ca/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ca/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ca/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ca/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ca/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ca/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ca/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ca/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ca/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ca/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ca/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ca/ipad/06.png"
+      ]
+     }
+    },
+    "cs": {
+     "promo": "Hotové odpovědi na zprávy a e-maily si uložte jednou. Pak je z klávesnice vložíte jedním klepnutím, ať píšete kdekoli.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/cs/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/cs/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/cs/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/cs/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/cs/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/cs/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/cs/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/cs/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/cs/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/cs/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/cs/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/cs/ipad/06.png"
+      ]
+     }
+    },
+    "da": {
+     "promo": "Gem dine faste svar og skabeloner, og send dem fra tastaturet med ét tryk. Virker i alle apps, uden konto og uden reklamer.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/da/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/da/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/da/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/da/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/da/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/da/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/da/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/da/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/da/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/da/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/da/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/da/ipad/06.png"
+      ]
+     }
+    },
+    "de-DE": {
+     "promo": "Deine Schnellantworten und Textbausteine liegen auf der Tastatur bereit. Ein Tipp, und die fertige Antwort steht in jeder App im Textfeld.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/de-DE/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/de-DE/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/de-DE/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/de-DE/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/de-DE/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/de-DE/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/de-DE/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/de-DE/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/de-DE/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/de-DE/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/de-DE/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/de-DE/ipad/06.png"
+      ]
+     }
+    },
+    "el": {
+     "promo": "Κράτα τις έτοιμες απαντήσεις σου σε ένα μέρος και στείλε τες σε οποιαδήποτε εφαρμογή με ένα πάτημα, χωρίς να πληκτρολογείς ξανά το ίδιο κείμενο.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/el/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/el/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/el/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/el/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/el/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/el/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/el/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/el/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/el/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/el/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/el/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/el/ipad/06.png"
+      ]
+     }
+    },
+    "en-AU": {
+     "promo": "Answer the same questions faster. Save your canned responses and quick replies once, then paste them into chats, email and support tickets from the keyboard.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-AU/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-AU/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-AU/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-AU/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-AU/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-AU/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-AU/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-AU/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-AU/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-AU/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-AU/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-AU/ipad/06.png"
+      ]
+     }
+    },
+    "en-CA": {
+     "promo": "Answer the same questions faster. Save your canned responses and quick replies once, then paste them into chats, email and support tickets from the keyboard.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-CA/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-CA/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-CA/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-CA/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-CA/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-CA/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-CA/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-CA/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-CA/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-CA/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-CA/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-CA/ipad/06.png"
+      ]
+     }
+    },
+    "en-GB": {
+     "promo": "Answer the same questions faster. Save your canned responses and quick replies once, then paste them into chats, email and support tickets from the keyboard.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-GB/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-GB/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-GB/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-GB/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-GB/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-GB/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-GB/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-GB/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-GB/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-GB/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-GB/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-GB/ipad/06.png"
+      ]
+     }
+    },
+    "en-US": {
+     "promo": "Answer the same questions faster. Save your canned responses and quick replies once, then paste them into chats, email and support tickets from the keyboard.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-US/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-US/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-US/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-US/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-US/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-US/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-US/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-US/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-US/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-US/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-US/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/en-US/ipad/06.png"
+      ]
+     }
+    },
+    "es-ES": {
+     "promo": "Guarda tus respuestas rápidas de siempre y pégalas en cualquier chat o correo con un toque desde el teclado. Sin cuenta, sin anuncios.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-ES/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-ES/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-ES/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-ES/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-ES/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-ES/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-ES/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-ES/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-ES/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-ES/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-ES/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-ES/ipad/06.png"
+      ]
+     }
+    },
+    "es-MX": {
+     "promo": "Guarda tus respuestas rápidas de siempre y pégalas en cualquier chat o correo con un toque desde el teclado. Sin cuenta, sin anuncios.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-MX/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-MX/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-MX/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-MX/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-MX/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-MX/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-MX/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-MX/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-MX/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-MX/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-MX/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/es-MX/ipad/06.png"
+      ]
+     }
+    },
+    "fi": {
+     "promo": "Tallenna pikavastaukset ja usein käyttämäsi viestipohjat kerran ja lähetä ne mistä tahansa sovelluksesta yhdellä napautuksella näppäimistöstä.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fi/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fi/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fi/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fi/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fi/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fi/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fi/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fi/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fi/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fi/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fi/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fi/ipad/06.png"
+      ]
+     }
+    },
+    "fr-CA": {
+     "promo": "Garde tes réponses rapides, tes signatures et tes messages types au même endroit, puis envoie-les d'un tap depuis le clavier, dans n'importe quelle app.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-CA/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-CA/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-CA/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-CA/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-CA/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-CA/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-CA/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-CA/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-CA/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-CA/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-CA/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-CA/ipad/06.png"
+      ]
+     }
+    },
+    "fr-FR": {
+     "promo": "Gardez vos réponses rapides, vos signatures et vos messages types au même endroit, puis envoyez-les d'un toucher depuis le clavier, dans n'importe quelle app.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-FR/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-FR/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-FR/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-FR/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-FR/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-FR/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-FR/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-FR/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-FR/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-FR/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-FR/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/fr-FR/ipad/06.png"
+      ]
+     }
+    },
+    "gu-IN": {
+     "promo": "વારંવાર મોકલાતા જવાબો એક વાર સેવ કરો. કીબોર્ડમાં એક ટેપ કરતાં જ તૈયાર જવાબ કોઈ પણ ચેટ કે ઇમેઇલમાં લખાઈ જશે.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/gu-IN/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/gu-IN/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/gu-IN/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/gu-IN/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/gu-IN/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/gu-IN/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/gu-IN/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/gu-IN/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/gu-IN/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/gu-IN/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/gu-IN/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/gu-IN/ipad/06.png"
+      ]
+     }
+    },
+    "he": {
+     "promo": "שמרו את התשובות המהירות שאתם שולחים כל יום, והדביקו אותן מהמקלדת בנגיעה אחת בכל אפליקציית הודעות או מייל.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/he/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/he/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/he/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/he/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/he/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/he/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/he/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/he/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/he/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/he/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/he/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/he/ipad/06.png"
+      ]
+     }
+    },
+    "hi": {
+     "promo": "अक्सर भेजे जाने वाले जवाब एक बार लिखकर सेव कर लें। फिर किसी भी चैट या ईमेल में कीबोर्ड से एक टैप में भेजें।",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hi/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hi/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hi/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hi/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hi/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hi/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hi/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hi/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hi/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hi/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hi/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hi/ipad/06.png"
+      ]
+     }
+    },
+    "hr": {
+     "promo": "Spremi brze odgovore koje stalno ponovno tipkaš i šalji ih jednim dodirom s tipkovnice, u poruci, mailu ili chatu.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hr/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hr/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hr/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hr/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hr/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hr/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hr/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hr/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hr/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hr/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hr/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hr/ipad/06.png"
+      ]
+     }
+    },
+    "hu": {
+     "promo": "Mentsd el a gyakran küldött válaszaidat, és küldd el őket bármelyik alkalmazásban egyetlen érintéssel, a Cutling billentyűzetről. Nem kell többet újragépelned.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hu/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hu/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hu/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hu/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hu/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hu/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hu/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hu/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hu/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hu/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hu/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/hu/ipad/06.png"
+      ]
+     }
+    },
+    "id": {
+     "promo": "Simpan balasan cepat yang sering kamu kirim, lalu tempel ke chat atau email apa pun dengan satu ketukan dari keyboard. Tidak perlu mengetik ulang.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/id/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/id/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/id/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/id/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/id/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/id/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/id/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/id/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/id/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/id/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/id/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/id/ipad/06.png"
+      ]
+     }
+    },
+    "it": {
+     "promo": "Salva le risposte rapide che scrivi ogni giorno e inseriscile in qualsiasi chat o email con un tocco dalla tastiera, senza riscrivere nulla.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/it/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/it/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/it/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/it/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/it/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/it/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/it/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/it/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/it/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/it/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/it/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/it/ipad/06.png"
+      ]
+     }
+    },
+    "ja": {
+     "promo": "何度も送る返信を定型文として保存しておけば、キーボードからワンタップで入力できます。メッセージでもメールでも、打ち直す手間がなくなります。",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ja/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ja/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ja/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ja/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ja/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ja/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ja/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ja/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ja/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ja/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ja/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ja/ipad/06.png"
+      ]
+     }
+    },
+    "kn-IN": {
+     "promo": "ಪದೇ ಪದೇ ಕಳುಹಿಸುವ ತ್ವರಿತ ಉತ್ತರಗಳನ್ನು ಒಮ್ಮೆ ಉಳಿಸಿ. ಕೀಬೋರ್ಡ್‌ನಲ್ಲಿ ಒಂದು ಟ್ಯಾಪ್ ಮಾಡಿದರೆ ಯಾವುದೇ ಆ್ಯಪ್‌ನಲ್ಲಿ ಉತ್ತರ ತಯಾರು.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/kn-IN/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/kn-IN/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/kn-IN/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/kn-IN/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/kn-IN/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/kn-IN/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/kn-IN/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/kn-IN/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/kn-IN/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/kn-IN/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/kn-IN/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/kn-IN/ipad/06.png"
+      ]
+     }
+    },
+    "ko": {
+     "promo": "자주 보내는 답장을 저장해 두고, 키보드에서 탭 한 번으로 보내세요. 빠른 답장을 매번 다시 치지 않아도 돼요.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ko/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ko/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ko/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ko/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ko/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ko/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ko/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ko/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ko/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ko/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ko/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ko/ipad/06.png"
+      ]
+     }
+    },
+    "ml-IN": {
+     "promo": "പതിവായി അയയ്ക്കുന്ന മറുപടികൾ ഒരിക്കൽ സേവ് ചെയ്യൂ. ഏത് ആപ്പിലെ ചാറ്റിലും കീബോർഡിൽ നിന്ന് ഒരു ടാപ്പിൽ അയയ്ക്കാം.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ml-IN/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ml-IN/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ml-IN/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ml-IN/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ml-IN/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ml-IN/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ml-IN/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ml-IN/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ml-IN/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ml-IN/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ml-IN/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ml-IN/ipad/06.png"
+      ]
+     }
+    },
+    "mr-IN": {
+     "promo": "नेहमी पाठवता ते रेडीमेड रिप्लाय एकदा सेव्ह करा. मेसेजमध्ये कीबोर्डवरून एका टॅपमध्ये पाठवा, पुन्हा पुन्हा टाइप करायची गरज नाही.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/mr-IN/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/mr-IN/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/mr-IN/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/mr-IN/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/mr-IN/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/mr-IN/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/mr-IN/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/mr-IN/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/mr-IN/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/mr-IN/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/mr-IN/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/mr-IN/ipad/06.png"
+      ]
+     }
+    },
+    "ms": {
+     "promo": "Simpan balasan pantas yang anda taip berulang kali, daripada ucapan sehingga jawapan standard, dan hantar dengan satu ketikan dari papan kekunci di mana-mana app.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ms/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ms/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ms/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ms/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ms/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ms/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ms/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ms/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ms/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ms/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ms/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ms/ipad/06.png"
+      ]
+     }
+    },
+    "nl-NL": {
+     "promo": "Bewaar je snelle antwoorden en standaardantwoorden op één plek en plak ze met één tik in elke app. Geen account, geen advertenties.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/nl-NL/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/nl-NL/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/nl-NL/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/nl-NL/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/nl-NL/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/nl-NL/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/nl-NL/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/nl-NL/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/nl-NL/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/nl-NL/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/nl-NL/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/nl-NL/ipad/06.png"
+      ]
+     }
+    },
+    "no": {
+     "promo": "Samle hurtigsvarene dine på ett sted og send dem med ett trykk fra tastaturet, i meldinger, e-post og alle andre apper.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/no/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/no/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/no/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/no/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/no/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/no/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/no/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/no/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/no/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/no/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/no/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/no/ipad/06.png"
+      ]
+     }
+    },
+    "or-IN": {
+     "promo": "ବାରମ୍ବାର ଦେଉଥିବା ଉତ୍ତର ଥରେ ଲେଖି ସେଭ୍ କରନ୍ତୁ, ତାପରେ କୀବୋର୍ଡରୁ ଗୋଟିଏ ଟ୍ୟାପରେ ଯେକୌଣସି ଚାଟ୍ ବା ମେଲରେ ପେଷ୍ଟ କରନ୍ତୁ।",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/or-IN/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/or-IN/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/or-IN/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/or-IN/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/or-IN/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/or-IN/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/or-IN/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/or-IN/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/or-IN/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/or-IN/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/or-IN/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/or-IN/ipad/06.png"
+      ]
+     }
+    },
+    "pa-IN": {
+     "promo": "ਜਿਹੜੇ ਜਵਾਬ ਤੁਸੀਂ ਰੋਜ਼ ਭੇਜਦੇ ਹੋ, ਉਹ ਇੱਕ ਵਾਰ ਸੇਵ ਕਰੋ। ਫਿਰ ਕੀਬੋਰਡ ਤੋਂ ਇੱਕ ਟੈਪ ਨਾਲ ਕਿਸੇ ਵੀ ਚੈਟ ਜਾਂ ਈਮੇਲ ਵਿੱਚ ਪੇਸਟ ਕਰੋ।",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pa-IN/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pa-IN/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pa-IN/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pa-IN/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pa-IN/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pa-IN/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pa-IN/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pa-IN/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pa-IN/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pa-IN/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pa-IN/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pa-IN/ipad/06.png"
+      ]
+     }
+    },
+    "pl": {
+     "promo": "Szybkie odpowiedzi, które piszesz co dzień, zapisz raz. Potem wklejaj je jednym stuknięciem z klawiatury w każdej aplikacji, bez konta i bez reklam.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pl/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pl/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pl/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pl/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pl/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pl/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pl/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pl/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pl/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pl/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pl/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pl/ipad/06.png"
+      ]
+     }
+    },
+    "pt-BR": {
+     "promo": "Suas respostas rápidas e mensagens prontas sempre à mão. Salve uma vez e mande em qualquer app com um toque, direto do teclado.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-BR/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-BR/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-BR/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-BR/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-BR/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-BR/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-BR/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-BR/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-BR/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-BR/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-BR/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-BR/ipad/06.png"
+      ]
+     }
+    },
+    "pt-PT": {
+     "promo": "As suas respostas rápidas e mensagens prontas sempre à mão. Guarde uma vez e envie em qualquer app com um toque, diretamente no teclado.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-PT/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-PT/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-PT/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-PT/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-PT/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-PT/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-PT/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-PT/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-PT/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-PT/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-PT/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/pt-PT/ipad/06.png"
+      ]
+     }
+    },
+    "ro": {
+     "promo": "Salvează răspunsurile pe care le trimiți des și lipește-le în orice conversație cu o atingere, direct de pe tastatură. Fără cont, fără reclame.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ro/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ro/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ro/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ro/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ro/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ro/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ro/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ro/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ro/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ro/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ro/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ro/ipad/06.png"
+      ]
+     }
+    },
+    "ru": {
+     "promo": "Быстрые ответы и шаблоны сообщений всегда под рукой. Сохраните фразы, которые вы пишете снова и снова, и вставляйте их с клавиатуры одним касанием.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ru/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ru/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ru/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ru/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ru/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ru/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ru/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ru/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ru/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ru/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ru/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ru/ipad/06.png"
+      ]
+     }
+    },
+    "sk": {
+     "promo": "Odpovede, ktoré píšete dookola, si uložte raz. Z klávesnice ich vložíte do správy jedným ťuknutím, v ktorejkoľvek aplikácii.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sk/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sk/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sk/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sk/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sk/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sk/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sk/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sk/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sk/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sk/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sk/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sk/ipad/06.png"
+      ]
+     }
+    },
+    "sl-SI": {
+     "promo": "Hitri odgovori, ki jih pišete znova in znova, so shranjeni in pripravljeni. Na tipkovnici tapnete odgovor in se vstavi v pogovor, brez računa in brez oglasov.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sl-SI/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sl-SI/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sl-SI/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sl-SI/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sl-SI/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sl-SI/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sl-SI/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sl-SI/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sl-SI/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sl-SI/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sl-SI/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sl-SI/ipad/06.png"
+      ]
+     }
+    },
+    "sv": {
+     "promo": "Spara dina snabbsvar och mallar på ett ställe och skicka dem med ett tryck från tangentbordet, i vilken app som helst. Slipp skriva samma svar igen.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sv/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sv/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sv/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sv/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sv/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sv/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sv/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sv/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sv/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sv/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sv/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/sv/ipad/06.png"
+      ]
+     }
+    },
+    "ta-IN": {
+     "promo": "அடிக்கடி அனுப்பும் பதில்களை ஒருமுறை எழுதி வைத்தால் போதும். கீபோர்டில் ஒரு தட்டல், எந்த ஆப்பிலும் செய்தி தயார்.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ta-IN/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ta-IN/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ta-IN/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ta-IN/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ta-IN/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ta-IN/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ta-IN/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ta-IN/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ta-IN/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ta-IN/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ta-IN/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ta-IN/ipad/06.png"
+      ]
+     }
+    },
+    "te-IN": {
+     "promo": "తరచూ పంపే జవాబులను క్విక్ రిప్లైలుగా సేవ్ చేయండి. కీబోర్డ్ నుంచి ఒక్క ట్యాప్‌తో ఏ చాట్‌లోనైనా పంపండి.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/te-IN/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/te-IN/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/te-IN/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/te-IN/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/te-IN/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/te-IN/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/te-IN/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/te-IN/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/te-IN/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/te-IN/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/te-IN/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/te-IN/ipad/06.png"
+      ]
+     }
+    },
+    "th": {
+     "promo": "เก็บข้อความตอบกลับสำเร็จรูปที่ใช้บ่อยไว้ในคีย์บอร์ดเดียว แตะครั้งเดียวก็ส่งได้ทุกแอป ไม่ต้องพิมพ์ประโยคเดิมซ้ำอีก",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/th/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/th/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/th/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/th/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/th/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/th/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/th/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/th/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/th/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/th/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/th/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/th/ipad/06.png"
+      ]
+     }
+    },
+    "tr": {
+     "promo": "Sık yazdığın cevapları, şablonları ve mesajları kaydet. Klavyeden tek dokunuşla yapıştır, aynı cümleyi bir daha yazma.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/tr/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/tr/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/tr/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/tr/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/tr/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/tr/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/tr/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/tr/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/tr/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/tr/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/tr/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/tr/ipad/06.png"
+      ]
+     }
+    },
+    "uk": {
+     "promo": "Готові відповіді завжди під рукою: збережіть шаблони повідомлень один раз і вставляйте їх у будь-якому чаті або листі одним дотиком із клавіатури.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/uk/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/uk/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/uk/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/uk/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/uk/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/uk/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/uk/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/uk/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/uk/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/uk/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/uk/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/uk/ipad/06.png"
+      ]
+     }
+    },
+    "ur-PK": {
+     "promo": "اکثر بھیجے جانے والے جوابات ایک بار محفوظ کریں، پھر کی بورڈ سے ایک ٹیپ میں کسی بھی چیٹ یا ای میل میں چسپاں کریں۔",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ur-PK/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ur-PK/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ur-PK/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ur-PK/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ur-PK/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ur-PK/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ur-PK/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ur-PK/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ur-PK/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ur-PK/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ur-PK/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/ur-PK/ipad/06.png"
+      ]
+     }
+    },
+    "vi": {
+     "promo": "Soạn sẵn các tin nhắn mẫu bạn gửi đi gửi lại, rồi chèn vào mọi cuộc trò chuyện chỉ với một chạm trên bàn phím. Không cần tài khoản.",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/vi/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/vi/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/vi/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/vi/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/vi/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/vi/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/vi/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/vi/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/vi/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/vi/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/vi/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/vi/ipad/06.png"
+      ]
+     }
+    },
+    "zh-Hans": {
+     "promo": "把常用的回复存成快捷短语，聊天、邮件、客服留言里从键盘一点就发出去。地址和账号也能一起放在这里。",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hans/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hans/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hans/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hans/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hans/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hans/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hans/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hans/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hans/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hans/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hans/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hans/ipad/06.png"
+      ]
+     }
+    },
+    "zh-Hant": {
+     "promo": "把常用的回覆存成快捷短語，聊天、寄信、回覆客服時從鍵盤點一下就送出。地址和帳號也能一起放在這裡。",
+     "screenshots": {
+      "APP_IPHONE_67": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hant/iphone/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hant/iphone/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hant/iphone/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hant/iphone/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hant/iphone/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hant/iphone/06.png"
+      ],
+      "APP_IPAD_PRO_3GEN_129": [
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hant/ipad/01.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hant/ipad/02.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hant/ipad/03.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hant/ipad/04.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hant/ipad/05.png",
+       "/Users/hafang/Repositories/Cutling/fastlane/compose/creative/cpp/out/quick-replies/zh-Hant/ipad/06.png"
+      ]
+     }
+    }
+   }
+  }
+ ]
+}
