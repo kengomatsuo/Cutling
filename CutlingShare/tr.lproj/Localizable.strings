@@ -47,3 +47,8 @@
 "Limit Reached" = "Sınıra Ulaşıldı";
 "Cannot add more text cutlings." = "Daha fazla metin cutling eklenemiyor.";
 "Cannot add more image cutlings." = "Daha fazla görsel cutling eklenemiyor.";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"Unlock" = "Kilidi Aç";
+"You've used your %lld free cutlings. Unlock Cutling and this one is saved for you." = "%lld ücretsiz Cutling’inizi kullandınız. Cutling’in kilidini açtığınızda bu da saklanır.";
+"Kept for you. Open Cutling to unlock and save it." = "Bu Cutling sizi bekliyor. Kilidi Cutling’den açtığınızda saklanır.";

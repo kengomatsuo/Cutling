@@ -35,3 +35,6 @@
 
 /* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
 "%lld free cutlings used. Tap to unlock." = "ครบ %lld รายการฟรีแล้ว แตะเพื่อปลดล็อก";
+"Added · 1 free left" = "เก็บแล้ว เหลือฟรีอีกรายการเดียว";
+"Added · %lld of %lld free" = "เก็บแล้ว ครบ %lld จาก %lld รายการฟรี";
+"%lld of %lld free · Unlock to save this" = "ฟรีครบ %lld จาก %lld แตะปลดล็อกเพื่อเก็บไว้";

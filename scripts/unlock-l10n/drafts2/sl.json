@@ -1,0 +1,86 @@
+{
+ "sl": {
+  "N1": {
+   "s": "Porabili ste vseh %lld brezplačnih cutlingov. Če nadaljujete v Cutlingu in ga odklenete, se shrani tudi ta.",
+   "back": "Used-up you-have all 5 free cutlings. If you-continue in Cutling and it you-unlock, itself saves also this-one.",
+   "why": "First sentence is S3's word for word, so Siri says what the sheet says; 'Če nadaljujete' answers the system's own continue choice, and 'tudi ta' names the item they asked to save."
+  },
+  "N2": {
+   "s": "Porabili ste vseh %lld brezplačnih cutlingov. Odprite in odklenite Cutling, da shranite več.",
+   "back": "Used-up you-have all 5 free cutlings. Open and unlock Cutling, so-that you-save more.",
+   "why": "Same opening as N1 and S3; two imperatives share one object, which keeps it at 89 with 5 where 'Odprite Cutling in ga odklenite' ran to 92."
+  },
+  "N3": {
+   "s": "Shranjeno. Še en in bo polno.",
+   "back": "Saved. Still one and will-be full.",
+   "why": "'Še en in bo polno' is how Slovenians say one more fits (a lift, a car park); en agrees with the unspoken masculine cutling; 29 characters."
+  },
+  "N4": {
+   "s": "Shranjeno. Polno: %lld od %lld.",
+   "back": "Saved. Full: 5 of 5.",
+   "why": "Picks up the 'polno' of N3, so the step from four to five reads as one story; the pair keeps the batch's '%lld od %lld' (S29, M4) and its noun-free count needs no plural forms."
+  },
+  "N5": {
+   "s": "Polno: %lld od %lld. Odklenite, da se shrani.",
+   "back": "Full: 5 of 5. Unlock, so-that itself saves.",
+   "why": "Same status as N4 so the bar names the state the person just saw; 'da se shrani' says the item saves on unlocking without a 'we'; 39 characters."
+  },
+  "N6": {
+   "s": "Odkleni",
+   "back": "Unlock",
+   "why": "The bare imperative of S15 and M1, as Slovenian iOS buttons are written (Nadaljuj, Končano)."
+  },
+  "N7": {
+   "s": "Porabili ste vseh %lld brezplačnih cutlingov. Ko Cutling odklenete, se shrani tudi ta.",
+   "back": "Used-up you-have all 5 free cutlings. When Cutling you-unlock, itself saves also this-one.",
+   "why": "S3's opening again; 'Ko Cutling odklenete' is S28's word order, and 'tudi ta' points at the item in the form just below."
+  },
+  "N8": {
+   "s": "Ta cutling vas čaka. Odprite in odklenite Cutling, da se shrani.",
+   "back": "This cutling you is-waiting-for. Open and unlock Cutling, so-that itself saves.",
+   "why": "'vas čaka' is what a parcel at the post office does in Slovenian: kept, not yet saved, so it never claims a save that has not happened; second sentence matches N2."
+  }
+ },
+ "sl-SI": {
+  "N1": {
+   "s": "Porabili ste vseh %lld brezplačnih cutlingov. Če nadaljujete v Cutlingu in ga odklenete, se shrani tudi ta.",
+   "back": "Used-up you-have all 5 free cutlings. If you-continue in Cutling and it you-unlock, itself saves also this-one.",
+   "why": "First sentence is S3's word for word, so Siri says what the sheet says; 'Če nadaljujete' answers the system's own continue choice, and 'tudi ta' names the item they asked to save. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "N2": {
+   "s": "Porabili ste vseh %lld brezplačnih cutlingov. Odprite in odklenite Cutling, da shranite več.",
+   "back": "Used-up you-have all 5 free cutlings. Open and unlock Cutling, so-that you-save more.",
+   "why": "Same opening as N1 and S3; two imperatives share one object, which keeps it at 89 with 5 where 'Odprite Cutling in ga odklenite' ran to 92. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "N3": {
+   "s": "Shranjeno. Še en in bo polno.",
+   "back": "Saved. Still one and will-be full.",
+   "why": "'Še en in bo polno' is how Slovenians say one more fits (a lift, a car park); en agrees with the unspoken masculine cutling; 29 characters. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "N4": {
+   "s": "Shranjeno. Polno: %lld od %lld.",
+   "back": "Saved. Full: 5 of 5.",
+   "why": "Picks up the 'polno' of N3, so the step from four to five reads as one story; the pair keeps the batch's '%lld od %lld' (S29, M4) and its noun-free count needs no plural forms. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "N5": {
+   "s": "Polno: %lld od %lld. Odklenite, da se shrani.",
+   "back": "Full: 5 of 5. Unlock, so-that itself saves.",
+   "why": "Same status as N4 so the bar names the state the person just saw; 'da se shrani' says the item saves on unlocking without a 'we'; 39 characters. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "N6": {
+   "s": "Odkleni",
+   "back": "Unlock",
+   "why": "The bare imperative of S15 and M1, as Slovenian iOS buttons are written (Nadaljuj, Končano). Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "N7": {
+   "s": "Porabili ste vseh %lld brezplačnih cutlingov. Ko Cutling odklenete, se shrani tudi ta.",
+   "back": "Used-up you-have all 5 free cutlings. When Cutling you-unlock, itself saves also this-one.",
+   "why": "S3's opening again; 'Ko Cutling odklenete' is S28's word order, and 'tudi ta' points at the item in the form just below. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  },
+  "N8": {
+   "s": "Ta cutling vas čaka. Odprite in odklenite Cutling, da se shrani.",
+   "back": "This cutling you is-waiting-for. Open and unlock Cutling, so-that itself saves.",
+   "why": "'vas čaka' is what a parcel at the post office does in Slovenian: kept, not yet saved, so it never claims a save that has not happened; second sentence matches N2. Same in sl and sl-SI: Slovenian is written one way, in Slovenia; the two folders get the same string."
+  }
+ }
+}

@@ -47,3 +47,8 @@
 "Limit Reached" = "Лимитът е достигнат";
 "Cannot add more text cutlings." = "Не могат да се добавят повече текстови Кътлинги.";
 "Cannot add more image cutlings." = "Не могат да се добавят повече графични Кътлинги.";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"Unlock" = "Отключи";
+"You've used your %lld free cutlings. Unlock Cutling and this one is saved for you." = "Използвахте всичките %lld безплатни Кътлинга. Отключете Кътлинг и този ще се запази.";
+"Kept for you. Open Cutling to unlock and save it." = "Този Кътлинг ви чака. Отворете приложението, отключете го и той ще се запази.";

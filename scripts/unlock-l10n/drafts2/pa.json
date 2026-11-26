@@ -1,0 +1,86 @@
+{
+ "pa": {
+  "N1": {
+   "s": "ਤੁਸੀਂ ਸਾਰੇ %lld ਮੁਫ਼ਤ ਕਟਲਿੰਗ ਵਰਤ ਲਏ ਹਨ। ਕਟਲਿੰਗ ਵਿੱਚ ਜਾ ਕੇ ਅਣਲਾਕ ਕਰੋ, ਇਹ ਵੀ ਨਾਲ ਹੀ ਸਾਂਭਿਆ ਜਾਵੇਗਾ।",
+   "back": "you all 5 free cutlings used have. Cutling in having-gone unlock do, this also along-with right saved will-be.",
+   "why": "The first sentence is S3's word for word, so the limit reads the same everywhere; ਜਾ ਕੇ (go in and) fits the system's offer to carry on in the app, and ਨਾਲ ਹੀ promises this very item comes along."
+  },
+  "N2": {
+   "s": "ਤੁਸੀਂ ਸਾਰੇ %lld ਮੁਫ਼ਤ ਕਟਲਿੰਗ ਵਰਤ ਲਏ ਹਨ। ਹੋਰ ਸਾਂਭਣ ਲਈ ਕਟਲਿੰਗ ਖੋਲ੍ਹ ਕੇ ਅਣਲਾਕ ਕਰੋ।",
+   "back": "you all 5 free cutlings used have. more saving for Cutling having-opened unlock do.",
+   "why": "Same first sentence as N1 and S3; here the app cannot be opened for them, so it says ਖੋਲ੍ਹ ਕੇ (open it and) and promises only more room (ਹੋਰ, as in S2), not this item."
+  },
+  "N3": {
+   "s": "ਸਾਂਭ ਲਿਆ, ਇੱਕ ਮੁਫ਼ਤ ਥਾਂ ਬਾਕੀ",
+   "back": "saved took, one free place left",
+   "why": "ਸਾਂਭ ਲਿਆ is masculine to agree with ਕਟਲਿੰਗ; ਥਾਂ is S6's word for room, so the five free places and the 5,000 after unlocking are the same idea; no auxiliary and no full stop, like K1 (23 visible characters)."
+  },
+  "N4": {
+   "s": "ਸਾਂਭ ਲਿਆ, %1$lld/%2$lld ਮੁਫ਼ਤ ਥਾਵਾਂ ਭਰੀਆਂ",
+   "back": "saved took, 5/5 free places filled",
+   "why": "The compact pair from M4; ਭਰੀਆਂ (filled) is feminine plural to agree with ਥਾਵਾਂ, the standard plural of ਥਾਂ, and says full in a word so 5/5 cannot be read as five free left (26 visible characters)."
+  },
+  "N5": {
+   "s": "%1$lld/%2$lld ਥਾਵਾਂ ਭਰੀਆਂ, ਅਣਲਾਕ ਕਰ ਕੇ ਇਹ ਸਾਂਭੋ",
+   "back": "5/5 places filled, unlock having-done this save",
+   "why": "N4's words with ਮੁਫ਼ਤ dropped to fit 32 visible characters exactly, since ਅਣਲਾਕ already tells which places; ਕਰ ਕੇ is written apart as the conjunctive (ਕਰਕੇ joined means because), and ਇਹ tells them the item they were saving is still there."
+  },
+  "N6": {
+   "s": "ਅਣਲਾਕ ਕਰੋ",
+   "back": "unlock do",
+   "why": "S15's button, the same command; 8 visible characters."
+  },
+  "N7": {
+   "s": "ਤੁਸੀਂ ਸਾਰੇ %lld ਮੁਫ਼ਤ ਕਟਲਿੰਗ ਵਰਤ ਲਏ ਹਨ। ਕਟਲਿੰਗ ਅਣਲਾਕ ਕਰਦੇ ਹੀ ਇਹ ਵੀ ਸਾਂਭਿਆ ਜਾਵੇਗਾ।",
+   "back": "you all 5 free cutlings used have. Cutling unlock doing right-away this also saved will-be.",
+   "why": "S3's sentence again, then ਕਰਦੇ ਹੀ (the moment you unlock), the everyday way to say one thing follows straight from another; ਕਟਲਿੰਗ ਅਣਲਾਕ is M1's command, so it reads as the app's name."
+  },
+  "N8": {
+   "s": "ਇਹ ਤੁਹਾਡੇ ਲਈ ਰੱਖਿਆ ਹੋਇਆ ਹੈ। ਕਟਲਿੰਗ ਖੋਲ੍ਹ ਕੇ ਅਣਲਾਕ ਕਰੋ, ਫਿਰ ਇਹ ਸਾਂਭਿਆ ਜਾਵੇਗਾ।",
+   "back": "this your for kept been is. Cutling having-opened unlock do, then this saved will-be.",
+   "why": "ਤੁਹਾਡੇ ਲਈ ਰੱਖਿਆ ਹੋਇਆ ਹੈ is what a shopkeeper says about something put aside for you; ਰੱਖਣਾ (keep) for now and ਸਾਂਭਣਾ (save) for after unlocking keeps the two states apart, with ਫਿਰ for the order."
+  }
+ },
+ "pa-IN": {
+  "N1": {
+   "s": "ਤੁਸੀਂ ਸਾਰੇ %lld ਮੁਫ਼ਤ ਕਟਲਿੰਗ ਵਰਤ ਲਏ ਹਨ। ਕਟਲਿੰਗ ਵਿੱਚ ਜਾ ਕੇ ਅਣਲਾਕ ਕਰੋ, ਇਹ ਵੀ ਨਾਲ ਹੀ ਸਾਂਭਿਆ ਜਾਵੇਗਾ।",
+   "back": "you all 5 free cutlings used have. Cutling in having-gone unlock do, this also along-with right saved will-be.",
+   "why": "The first sentence is S3's word for word, so the limit reads the same everywhere; ਜਾ ਕੇ (go in and) fits the system's offer to carry on in the app, and ਨਾਲ ਹੀ promises this very item comes along. Same string in pa and pa-IN: both folders are Gurmukhi Punjabi as written in Indian Punjab, with identical vocabulary files, as in the first batch."
+  },
+  "N2": {
+   "s": "ਤੁਸੀਂ ਸਾਰੇ %lld ਮੁਫ਼ਤ ਕਟਲਿੰਗ ਵਰਤ ਲਏ ਹਨ। ਹੋਰ ਸਾਂਭਣ ਲਈ ਕਟਲਿੰਗ ਖੋਲ੍ਹ ਕੇ ਅਣਲਾਕ ਕਰੋ।",
+   "back": "you all 5 free cutlings used have. more saving for Cutling having-opened unlock do.",
+   "why": "Same first sentence as N1 and S3; here the app cannot be opened for them, so it says ਖੋਲ੍ਹ ਕੇ (open it and) and promises only more room (ਹੋਰ, as in S2), not this item."
+  },
+  "N3": {
+   "s": "ਸਾਂਭ ਲਿਆ, ਇੱਕ ਮੁਫ਼ਤ ਥਾਂ ਬਾਕੀ",
+   "back": "saved took, one free place left",
+   "why": "ਸਾਂਭ ਲਿਆ is masculine to agree with ਕਟਲਿੰਗ; ਥਾਂ is S6's word for room, so the five free places and the 5,000 after unlocking are the same idea; no auxiliary and no full stop, like K1 (23 visible characters)."
+  },
+  "N4": {
+   "s": "ਸਾਂਭ ਲਿਆ, %1$lld/%2$lld ਮੁਫ਼ਤ ਥਾਵਾਂ ਭਰੀਆਂ",
+   "back": "saved took, 5/5 free places filled",
+   "why": "The compact pair from M4; ਭਰੀਆਂ (filled) is feminine plural to agree with ਥਾਵਾਂ, the standard plural of ਥਾਂ, and says full in a word so 5/5 cannot be read as five free left (26 visible characters)."
+  },
+  "N5": {
+   "s": "%1$lld/%2$lld ਥਾਵਾਂ ਭਰੀਆਂ, ਅਣਲਾਕ ਕਰ ਕੇ ਇਹ ਸਾਂਭੋ",
+   "back": "5/5 places filled, unlock having-done this save",
+   "why": "N4's words with ਮੁਫ਼ਤ dropped to fit 32 visible characters exactly, since ਅਣਲਾਕ already tells which places; ਕਰ ਕੇ is written apart as the conjunctive (ਕਰਕੇ joined means because), and ਇਹ tells them the item they were saving is still there."
+  },
+  "N6": {
+   "s": "ਅਣਲਾਕ ਕਰੋ",
+   "back": "unlock do",
+   "why": "S15's button, the same command; 8 visible characters."
+  },
+  "N7": {
+   "s": "ਤੁਸੀਂ ਸਾਰੇ %lld ਮੁਫ਼ਤ ਕਟਲਿੰਗ ਵਰਤ ਲਏ ਹਨ। ਕਟਲਿੰਗ ਅਣਲਾਕ ਕਰਦੇ ਹੀ ਇਹ ਵੀ ਸਾਂਭਿਆ ਜਾਵੇਗਾ।",
+   "back": "you all 5 free cutlings used have. Cutling unlock doing right-away this also saved will-be.",
+   "why": "S3's sentence again, then ਕਰਦੇ ਹੀ (the moment you unlock), the everyday way to say one thing follows straight from another; ਕਟਲਿੰਗ ਅਣਲਾਕ is M1's command, so it reads as the app's name."
+  },
+  "N8": {
+   "s": "ਇਹ ਤੁਹਾਡੇ ਲਈ ਰੱਖਿਆ ਹੋਇਆ ਹੈ। ਕਟਲਿੰਗ ਖੋਲ੍ਹ ਕੇ ਅਣਲਾਕ ਕਰੋ, ਫਿਰ ਇਹ ਸਾਂਭਿਆ ਜਾਵੇਗਾ।",
+   "back": "this your for kept been is. Cutling having-opened unlock do, then this saved will-be.",
+   "why": "ਤੁਹਾਡੇ ਲਈ ਰੱਖਿਆ ਹੋਇਆ ਹੈ is what a shopkeeper says about something put aside for you; ਰੱਖਣਾ (keep) for now and ਸਾਂਭਣਾ (save) for after unlocking keeps the two states apart, with ਫਿਰ for the order."
+  }
+ }
+}

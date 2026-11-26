@@ -1,0 +1,44 @@
+{
+  "fa": {
+    "N1": {
+      "s": "هر %lld جای رایگان را پر کرده‌اید. در کاتلینگ ادامه دهید؛ با خرید نسخه‌ی کامل، این یکی هم ذخیره می‌شود.",
+      "back": "every 5 place-of free (object) full you-have-made. in Cutling continue give; with buying-of version-of full, this one too saved becomes.",
+      "why": "Opens with S3's own words for the used-up places; «ادامه دهید» is the vocabulary file's continue word, and «این یکی هم» (this one too) names the item without repeating کاتلینگ beside the app's name."
+    },
+    "N2": {
+      "s": "هر %lld جای رایگان را پر کرده‌اید. برای ذخیره‌ی بیشتر، نسخه‌ی کامل را در کاتلینگ بخرید.",
+      "back": "every 5 place-of free (object) full you-have-made. for saving-of more, version-of full (object) in Cutling buy.",
+      "why": "Same first sentence as N1; «در کاتلینگ بخرید» (buy in Cutling) says where to go in two words, so the line stays near 90 characters."
+    },
+    "N3": {
+      "s": "ذخیره شد؛ یک جای رایگان مانده",
+      "back": "saved became; one place-of free remained",
+      "why": "Short impersonal «ذخیره شد» is how Persian apps confirm a save; «مانده» without «است» is the natural clipped form for a one-line capsule."
+    },
+    "N4": {
+      "s": "ذخیره شد؛ %1$lld از %2$lld جا پر شد",
+      "back": "saved became; 5 of 5 place full became",
+      "why": "«5 از 5» is the count order from S5; «free» is dropped as in K1 so the line fits a key-high capsule, and «پر شد» says the places are now full without a limit word."
+    },
+    "N5": {
+      "s": "%1$lld از %2$lld پر؛ با خرید ذخیره می‌شود",
+      "back": "5 of 5 full; with buying saved it-becomes",
+      "why": "Stated as what will happen, not a buy imperative, so the bar reassures that the item waits; the item is the understood subject, which Persian leaves out naturally, and the line stays near 32 characters."
+    },
+    "N6": {
+      "s": "خرید",
+      "back": "buying",
+      "why": "The verbal noun, as Persian labels buttons (S17 «بستن»), and the same verb as every unlock button in the first batch; a short word in the slot where «ذخیره» usually sits."
+    },
+    "N7": {
+      "s": "هر %lld جای رایگان را پر کرده‌اید. با خرید نسخه‌ی کامل، این یکی هم برایتان ذخیره می‌شود.",
+      "back": "every 5 place-of free (object) full you-have-made. with buying-of version-of full, this one too for-you saved becomes.",
+      "why": "N1's sentence without the continue step, since the Share form has its own button; «برایتان» (for you) carries the brief's «for them»."
+    },
+    "N8": {
+      "s": "این یکی منتظر شماست. کاتلینگ را باز کنید و نسخه‌ی کامل را بخرید تا ذخیره شود.",
+      "back": "this one waiting-of you-is. Cutling (object) open do and version-of full (object) buy so-that saved it-becomes.",
+      "why": "The item is the subject («منتظر شماست», it is waiting for you), so nobody does the keeping: no «we», and no translated passive «نگه داشته شد»; «این یکی» is N7's word for the item, then the two steps in the order they happen."
+    }
+  }
+}

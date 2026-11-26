@@ -1,0 +1,128 @@
+{
+  "pt": {
+    "N1": {
+      "s": "Você já usou os %lld cutlings grátis. Continue no Cutling para desbloquear e este cutling fica salvo.",
+      "back": "You already used the 5 cutlings free. Continue in-the Cutling to unlock and this cutling stays saved.",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). Opens with S3's exact sentence so the limit always sounds the same; \"Continue no Cutling\" matches the system's continue choice, and \"este cutling\" names the item because Siri's prompt does not show it."
+    },
+    "N2": {
+      "s": "Você já usou os %lld cutlings grátis. Abra o Cutling para desbloquear e salvar mais.",
+      "back": "You already used the 5 cutlings free. Open the Cutling to unlock and save more.",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). Same first sentence as N1; \"Abra o Cutling\" works on an older iPhone and on the Mac alike, since nothing here can open the app for the person."
+    },
+    "N3": {
+      "s": "Salvo. Cabe mais um grátis",
+      "back": "Saved. Fits more one free",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). \"cabe mais um\" is what a Brazilian says when there is room for one more (a car, a table), and it echoes S6's \"Cabem\"; Salvo agrees with cutling; 26 characters."
+    },
+    "N4": {
+      "s": "Salvo. %lld de %lld grátis usados",
+      "back": "Saved. 5 of 5 free used",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). The count is S21's own wording, so 5 de 5 shows the free places are full without a warning word; plain %lld because the order matches; 27 characters."
+    },
+    "N5": {
+      "s": "%lld de %lld grátis. Desbloqueie e salve este",
+      "back": "5 of 5 free. Unlock and save this",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). S29's compact count, then the promise as two você imperatives; \"salve este\" tells them the one they were saving is not lost; 39 characters."
+    },
+    "N6": {
+      "s": "Desbloquear",
+      "back": "Unlock",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). S15's button verb, in the infinitive iOS buttons use; 11 characters, one over the 10, kept because \"Liberar\" would give the same action a second name."
+    },
+    "N7": {
+      "s": "Você já usou os %lld cutlings grátis. Desbloqueie o Cutling e este fica salvo.",
+      "back": "You already used the 5 cutlings free. Unlock the Cutling and this stays saved.",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). Same first sentence as N1 and N2; \"este\" alone is enough here because the form below shows the item."
+    },
+    "N8": {
+      "s": "Este cutling fica esperando por você. Abra o Cutling e desbloqueie para salvar.",
+      "back": "This cutling stays waiting for you. Open the Cutling and unlock to save.",
+      "why": "Same as pt-BR: this folder's vocabulary is the Brazilian one (Ajustes, Ative, seus). \"fica esperando por você\" says it is held without a we the app never uses elsewhere, and matches the dashed tile waiting on the unlock sheet; 79 characters."
+    }
+  },
+  "pt-BR": {
+    "N1": {
+      "s": "Você já usou os %lld cutlings grátis. Continue no Cutling para desbloquear e este cutling fica salvo.",
+      "back": "You already used the 5 cutlings free. Continue in-the Cutling to unlock and this cutling stays saved.",
+      "why": "Opens with S3's exact sentence so the limit always sounds the same; \"Continue no Cutling\" matches the system's continue choice, and \"este cutling\" names the item because Siri's prompt does not show it."
+    },
+    "N2": {
+      "s": "Você já usou os %lld cutlings grátis. Abra o Cutling para desbloquear e salvar mais.",
+      "back": "You already used the 5 cutlings free. Open the Cutling to unlock and save more.",
+      "why": "Same first sentence as N1; \"Abra o Cutling\" works on an older iPhone and on the Mac alike, since nothing here can open the app for the person."
+    },
+    "N3": {
+      "s": "Salvo. Cabe mais um grátis",
+      "back": "Saved. Fits more one free",
+      "why": "\"cabe mais um\" is what a Brazilian says when there is room for one more (a car, a table), and it echoes S6's \"Cabem\"; Salvo agrees with cutling; 26 characters."
+    },
+    "N4": {
+      "s": "Salvo. %lld de %lld grátis usados",
+      "back": "Saved. 5 of 5 free used",
+      "why": "The count is S21's own wording, so 5 de 5 shows the free places are full without a warning word; plain %lld because the order matches; 27 characters."
+    },
+    "N5": {
+      "s": "%lld de %lld grátis. Desbloqueie e salve este",
+      "back": "5 of 5 free. Unlock and save this",
+      "why": "S29's compact count, then the promise as two você imperatives; \"salve este\" tells them the one they were saving is not lost; 39 characters."
+    },
+    "N6": {
+      "s": "Desbloquear",
+      "back": "Unlock",
+      "why": "S15's button verb, in the infinitive iOS buttons use; 11 characters, one over the 10, kept because \"Liberar\" would give the same action a second name."
+    },
+    "N7": {
+      "s": "Você já usou os %lld cutlings grátis. Desbloqueie o Cutling e este fica salvo.",
+      "back": "You already used the 5 cutlings free. Unlock the Cutling and this stays saved.",
+      "why": "Same first sentence as N1 and N2; \"este\" alone is enough here because the form below shows the item."
+    },
+    "N8": {
+      "s": "Este cutling fica esperando por você. Abra o Cutling e desbloqueie para salvar.",
+      "back": "This cutling stays waiting for you. Open the Cutling and unlock to save.",
+      "why": "\"fica esperando por você\" says it is held without a we the app never uses elsewhere, and matches the dashed tile waiting on the unlock sheet; 79 characters."
+    }
+  },
+  "pt-PT": {
+    "N1": {
+      "s": "Já usou os %lld cutlings grátis. Continue no Cutling para desbloquear e este cutling fica guardado.",
+      "back": "Already used the 5 cutlings free. Continue in-the Cutling to unlock and this cutling stays saved.",
+      "why": "Opens with S3's sentence with no subject pronoun, as the PT batch addresses the reader; guardado, not salvo, as PT says it; \"este cutling\" because Siri's prompt does not show the item."
+    },
+    "N2": {
+      "s": "Já usou os %lld cutlings grátis. Abra o Cutling para desbloquear e guardar mais.",
+      "back": "Already used the 5 cutlings free. Open the Cutling to unlock and save more.",
+      "why": "Same first sentence as N1; \"Abra o Cutling\" works on an older iPhone and on the Mac; guardar as in S7."
+    },
+    "N3": {
+      "s": "Guardado. Cabe mais um grátis",
+      "back": "Saved. Fits more one free",
+      "why": "\"cabe mais um\" is as everyday in Portugal as in Brazil for room for one more, and echoes S6; Guardado agrees with cutling; 29 characters."
+    },
+    "N4": {
+      "s": "Guardado. %lld de %lld grátis usados",
+      "back": "Saved. 5 of 5 free used",
+      "why": "S21's count wording, so 5 de 5 says the free places are full; 30 characters, at the budget."
+    },
+    "N5": {
+      "s": "%lld de %lld grátis. Desbloqueie e guarde-o",
+      "back": "5 of 5 free. Unlock and save-it",
+      "why": "S29's count, then the promise; enclitic \"guarde-o\" is the natural PT way to say save it and tells them the item is not lost; 37 characters."
+    },
+    "N6": {
+      "s": "Desbloquear",
+      "back": "Unlock",
+      "why": "S15's button verb, same in both regions; 11 characters, one over the 10, kept so the action has one name everywhere."
+    },
+    "N7": {
+      "s": "Já usou os %lld cutlings grátis. Desbloqueie o Cutling e este fica guardado.",
+      "back": "Already used the 5 cutlings free. Unlock the Cutling and this stays saved.",
+      "why": "Same first sentence as N1 and N2; \"este\" alone because the form below shows the item."
+    },
+    "N8": {
+      "s": "Este cutling fica à sua espera. Abra o Cutling e desbloqueie para o guardar.",
+      "back": "This cutling stays at-the your wait. Open the Cutling and unlock to it save.",
+      "why": "\"à sua espera\" is the PT idiom for waiting for you and carries no gender; \"para o guardar\" puts the pronoun before the infinitive as PT writes it."
+    }
+  }
+}

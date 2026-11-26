@@ -47,3 +47,8 @@
 "Limit Reached" = "Osiągnięto limit";
 "Cannot add more text cutlings." = "Nie można dodać więcej cutlingów tekstowych.";
 "Cannot add more image cutlings." = "Nie można dodać więcej cutlingów obrazkowych.";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"Unlock" = "Odblokuj";
+"You've used your %lld free cutlings. Unlock Cutling and this one is saved for you." = "Masz już komplet %lld darmowych cutlingów. Ten zapisze się, gdy odblokujesz Cutling.";
+"Kept for you. Open Cutling to unlock and save it." = "Ten cutling poczeka. Zapisze się, gdy otworzysz Cutling i go odblokujesz.";

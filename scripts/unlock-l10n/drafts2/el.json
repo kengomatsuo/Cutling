@@ -1,0 +1,44 @@
+{
+ "el": {
+  "N1": {
+   "s": "Τελείωσαν τα %lld δωρεάν cutling. Συνεχίστε στο Cutling για να το ξεκλειδώσετε, και θα αποθηκευτεί κι αυτό.",
+   "back": "They-ran-out the 5 free cutling. Continue in-the Cutling for to it you-unlock, and will be-saved also this.",
+   "why": "Opens with K1's \"τελείωσαν τα δωρεάν\", the Greek way to say a free allowance is used up; Συνεχίστε echoes the vocabulary's Συνέχεια on the system button, and \"κι αυτό\" points at the item Siri is holding."
+  },
+  "N2": {
+   "s": "Τελείωσαν τα %lld δωρεάν cutling. Για κι άλλα, ανοίξτε το Cutling και ξεκλειδώστε το.",
+   "back": "They-ran-out the 5 free cutling. For also others, open the Cutling and unlock it.",
+   "why": "Same opening as N1; \"κι άλλα\" is S2's word for saving more, and the order (open, then unlock) follows what the person will do on a Mac or older iOS."
+  },
+  "N3": {
+   "s": "Αποθηκεύτηκε. Μένει ένα δωρεάν",
+   "back": "It-was-saved. Remains one free",
+   "why": "\"Μένει ένα\" is the spoken \"one left\"; the item word is dropped as K1 does on the same capsule, and neuter ένα agrees with cutling. 30 characters."
+  },
+  "N4": {
+   "s": "Αποθηκεύτηκε. %lld από %lld δωρεάν",
+   "back": "It-was-saved. 5 of 5 free",
+   "why": "Reuses S29's \"4 από 5 δωρεάν\" pair, so \"5 από 5\" says the free ones are now full without a second verb; used then total, so plain %lld twice."
+  },
+  "N5": {
+   "s": "%lld από %lld. Ξεκλειδώστε για να αποθηκευτεί",
+   "back": "5 of 5. Unlock for to be-saved",
+   "why": "The pair from N4, which the person saw a save earlier, carries \"full\"; the rest is the action and its result, with the item as the unspoken subject of αποθηκευτεί. 39 characters, so δωρεάν was the word to drop."
+  },
+  "N6": {
+   "s": "Ξεκλείδωμα",
+   "back": "Unlocking",
+   "why": "The verbal noun Greek iOS buttons use, the same word as S15. 10 characters."
+  },
+  "N7": {
+   "s": "Τελείωσαν τα %lld δωρεάν cutling. Ξεκλειδώστε το Cutling και θα αποθηκευτεί κι αυτό.",
+   "back": "They-ran-out the 5 free cutling. Unlock the Cutling and will be-saved also this.",
+   "why": "Same opening as N1 and N2; the item is on the form below, so \"κι αυτό\" needs no noun."
+  },
+  "N8": {
+   "s": "Κρατήθηκε για εσάς. Ξεκλειδώστε το Cutling στην εφαρμογή και θα αποθηκευτεί.",
+   "back": "It-was-kept for you. Unlock the Cutling in-the app and it-will be-saved.",
+   "why": "Κρατήθηκε is the word a Greek shop uses for something set aside for you; \"στην εφαρμογή\" says to open Cutling without a second imperative."
+  }
+ }
+}

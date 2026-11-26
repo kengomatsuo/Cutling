@@ -1,0 +1,44 @@
+{
+  "ru": {
+    "N1": {
+      "s": "Все %lld бесплатных мест заняты. Продолжите в приложении: после разблокировки этот Катлинг сохранится.",
+      "back": "All 5 free places occupied. Continue-(you, formal) in the-app: after unlocking this Catling will-save-itself.",
+      "why": "Opens with the slot wording of S3; «Продолжите в приложении» echoes the iOS «Продолжить в приложении» action, and saying «приложение» keeps «этот Катлинг» meaning only the item; 99 characters."
+    },
+    "N2": {
+      "s": "Все %lld бесплатных мест заняты. Чтобы сохранять дальше, откройте и разблокируйте Катлинг.",
+      "back": "All 5 free places occupied. In-order-to save further, open and unlock Cutling.",
+      "why": "No item is named here, so the app can be called Катлинг, which a Shortcut reply on the Mac needs; two formal imperatives share one object, and «сохранять дальше» carries over S2's «и дальше»; 87 characters."
+    },
+    "N3": {
+      "s": "Сохранено. Осталось одно место",
+      "back": "Saved. Remained one place",
+      "why": "Neuter impersonal «Сохранено», as iOS confirms a save in Russian; «место» is the keyboard's slot word from K1, and «одно» spelled out reads warmer than a digit; exactly 30 characters, no final stop, like K1."
+    },
+    "N4": {
+      "s": "Сохранено. Занято %lld из %lld мест",
+      "back": "Saved. Occupied 5 of 5 places",
+      "why": "Same «Сохранено» opening as N3, then S5's count form «Занято … из …»; 5 of 5 tells the person they are full with no limit word; 29 characters."
+    },
+    "N5": {
+      "s": "Занято %lld из %lld. Разблокировать и сохранить",
+      "back": "Occupied 5 of 5. To-unlock and to-save",
+      "why": "Fact, then the tap's action in the infinitive, as K1 does; «и сохранить» tells them the item they were saving is kept; «мест» dropped because the bar sits on the keyboard where N4 just said it; 41 characters, one over the Latin budget."
+    },
+    "N6": {
+      "s": "Открыть",
+      "back": "Open",
+      "why": "Russian says «открыть» for unlocking content (открыть доступ, открыть уровень), and the tap does open Cutling to unlock; «Разблокировать» is 14 letters and does not fit 10, and «Купить» would promise a purchase the button does not make."
+    },
+    "N7": {
+      "s": "Все %lld бесплатных мест заняты. Разблокируйте приложение, и этот Катлинг сохранится.",
+      "back": "All 5 free places occupied. Unlock-(you, formal) the-app, and this Catling will-save-itself.",
+      "why": "Imperative plus «и» plus a future result is how Russian says do this and that follows; «приложение» for the app so «этот Катлинг» is only the item on the form, as in N1; 82 characters."
+    },
+    "N8": {
+      "s": "Этот Катлинг отложен и сохранится, когда вы откроете и разблокируете приложение.",
+      "back": "This Catling put-aside and will-save-itself, when you will-open and will-unlock the-app.",
+      "why": "«Отложен» is the shop word for an item held for a customer, so it is kept without promising it is saved yet; «Этот» marks the item, so the line cannot be read as the app being postponed; one sentence, exactly 80 characters."
+    }
+  }
+}

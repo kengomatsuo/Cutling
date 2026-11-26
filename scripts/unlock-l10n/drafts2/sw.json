@@ -1,0 +1,44 @@
+{
+ "sw": {
+  "N1": {
+   "s": "Umetumia cutling zote %lld za bure. Endelea kwenye Cutling ufungue toleo kamili, na cutling hii itahifadhiwa.",
+   "back": "You-have-used cutling all 5 of free. Continue in Cutling you-unlock version full, and cutling this will-be-saved.",
+   "why": "Opens with S3's own words; Endelea is the vocab's continue word, matching the system's continue-in-app choice, and 'toleo kamili' (full version) pairs with S28's 'toleo la bure' so fungua cannot read as 'open'."
+  },
+  "N2": {
+   "s": "Umetumia cutling zote %lld za bure. Fungua toleo kamili kwenye Cutling uhifadhi zaidi.",
+   "back": "You-have-used cutling all 5 of free. Unlock version full in Cutling you-save more.",
+   "why": "Same first sentence as N1; the bare subjunctive uhifadhi after the command carries 'so you can save more' without ili, which keeps it under 90."
+  },
+  "N3": {
+   "s": "Imehifadhiwa. Bado nafasi moja",
+   "back": "It-has-been-saved. Still slot one",
+   "why": "'Bado moja' is the spoken 'one more left'; nafasi is the slot word from S6 and K1, and 'za bure' is dropped to fit 30, since the capsule only ever shows on a free copy."
+  },
+  "N4": {
+   "s": "Imehifadhiwa. %lld/%lld zimejaa",
+   "back": "It-has-been-saved. 5/5 they-are-full",
+   "why": "The compact pair from M4 with zimejaa, K1's word for full; the class-10 zi- takes nafasi as its subject, and 'kati ya' would run past 30."
+  },
+  "N5": {
+   "s": "Nafasi %lld/%lld zimejaa. Fungua ili uihifadhi",
+   "back": "Slots 5/5 are-full. Unlock so-that you-save-it",
+   "why": "Starts like K1 (Nafasi … zimejaa); the object marker -i- in uihifadhi points to the item being saved, so the line promises it is kept; 40 characters."
+  },
+  "N6": {
+   "s": "Fungua",
+   "back": "Unlock",
+   "why": "The verb from S14 and S15, alone as a button; it sits where Hifadhi usually is, so the swap reads as unlock, not open."
+  },
+  "N7": {
+   "s": "Umetumia cutling zote %lld za bure. Ukifungua Cutling, hii itahifadhiwa.",
+   "back": "You-have-used cutling all 5 of free. If-you-unlock Cutling, this will-be-saved.",
+   "why": "Conditional uki- as in S28's 'Ukifungua Cutling'; 'hii' stands for the item shown in the form below, so cutling is not said twice."
+  },
+  "N8": {
+   "s": "Imewekwa kando kwa ajili yako. Nenda kwenye Cutling ufungue, na itahifadhiwa.",
+   "back": "It-has-been-put aside for sake your. Go to Cutling you-unlock, and it-will-be-saved.",
+   "why": "'Imewekwa kando' (set aside) says kept without imehifadhiwa, which would claim it is already saved; 'nenda kwenye' does the opening so fungua is left to mean unlock."
+  }
+ }
+}

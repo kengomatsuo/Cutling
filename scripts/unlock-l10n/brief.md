@@ -12,7 +12,7 @@ download. A free copy holds 5 items. One in-app purchase, paid once, lets it hol
 images, on every iPhone, iPad and Mac signed in to the same Apple Account. There is no subscription, no advertising and
 no sign-up. The person's first five items never stop working and nothing is taken away from them.
 
-Who speaks: the app, plainly, to the one person using it, in the form of address the vocabulary file already uses for
+Who speaks: the app, plainly, to the one person using it (the app never says "we": one person makes it), in the form of address the vocabulary file already uses for
 that person. Short and warm. No exclamation marks, no sales pressure, no urgency. This is the moment the app asks for
 money, so it must read as if a person from that market wrote it for this screen. The app's name, Cutling, stays a
 name; write it the way the vocabulary file does.
@@ -105,3 +105,19 @@ Cutling section at the top of its Settings.
 For every key: the string, a literal back-translation into English word for word (not a polished one), and one line on
 the choice made (register, grammar, a word picked from the vocabulary file, a plural form). For a language with several
 locale folders, one string per folder where the regions write it differently, and say why.
+
+## Second batch: when a cutling is added from outside the app
+
+These come from the keyboard, the Share sheet and Shortcuts, when a free copy already holds its 5 items. The writer
+returns them in a second file, `drafts2/<language>.json`, in the same shape.
+
+| Key | Role | What it must do | Variables | Budget |
+|---|---|---|---|---|
+| N1 | the system's prompt when a Shortcut or Siri tries to save an item at the limit, on iOS 26 and later; the person can choose to continue in the app | the free items are all used; continuing in Cutling lets them unlock and this item gets saved | %lld = 5 | 110 Latin |
+| N2 | the reply from that Shortcut on older iOS and on the Mac, where it cannot continue in the app | the free items are all used; opening Cutling is where they unlock to save more | %lld = 5 | 90 Latin |
+| N3 | the keyboard's short message, a capsule one key tall, after saving the fourth item from the keyboard | it was saved, and one free place is left | none | one line: 30 Latin, 15 CJK |
+| N4 | the same capsule after saving the fifth item | it was saved, and this fills the free places | first %lld = 5 (used), second %lld = 5 (free total) | one line: 30 Latin, 15 CJK |
+| N5 | a bar across the keyboard, one row tall, that stays when the person tries to save a sixth item; tapping it opens Cutling to unlock, and the item they were saving is kept | the free places are full; unlocking saves this item | first %lld = 5, second %lld = 5 | one line: 40 Latin, 20 CJK, 32 Indic, Thai or Arabic script |
+| N6 | the small green capsule button at the top right of the Share sheet's form, where the save button usually is, when the person is at the limit | unlock (a short button verb) | none | 10 Latin, 5 CJK |
+| N7 | a notice row at the top of that Share form | the free items are all used; unlocking Cutling saves this one for them | %lld = 5 | two lines: 90 Latin, 45 CJK |
+| N8 | the same notice when the app could not be opened from the Share sheet | the item has been kept for them; opening Cutling and unlocking will save it | none | two lines: 80 Latin, 40 CJK |

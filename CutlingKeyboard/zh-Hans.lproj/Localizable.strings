@@ -35,3 +35,6 @@
 
 /* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
 "%lld free cutlings used. Tap to unlock." = "%lld 个免费剪切片段已存满，轻点解锁";
+"Added · 1 free left" = "已保存，还能免费再存一个";
+"Added · %lld of %lld free" = "已保存，免费 %lld/%lld 已存满";
+"%lld of %lld free · Unlock to save this" = "免费 %lld/%lld 已存满，轻点解锁就能存下这个";

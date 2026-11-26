@@ -1,0 +1,44 @@
+{
+  "lv": {
+    "N1": {
+      "s": "Visas %lld bezmaksas vietas ir aizņemtas. Atbloķējiet Cutling lietotnē, un šis Cutling tiks saglabāts.",
+      "back": "All 5 free places are taken. Unlock(you-polite) Cutling in-the-app, and this Cutling will-be saved.",
+      "why": "Opens with S3's own sentence; \"lietotnē\" says the unlocking happens in the app the prompt's button continues to, and \"šis Cutling\" can only mean the item, since the app cannot be \"this\"."
+    },
+    "N2": {
+      "s": "Visas %lld bezmaksas vietas ir aizņemtas. Atveriet Cutling, lai atbloķētu vairāk vietas.",
+      "back": "All 5 free places are taken. Open(you-polite) Cutling, in-order-to unlock more room.",
+      "why": "Here nothing can continue in the app, so the instruction is to open it; \"vairāk vietas\" (more room, genitive singular) carries \"save more\" in two words and keeps the line under 90."
+    },
+    "N3": {
+      "s": "Saglabāts. Palika viena vieta",
+      "back": "Saved. Remained one place",
+      "why": "\"Saglabāts\" is masculine to agree with Cutling, as in S23; \"palika viena vieta\" is how Latvians say only one seat is left, and like K1 the capsule drops \"bezmaksas\" to fit."
+    },
+    "N4": {
+      "s": "Saglabāts. Aizņemtas %1$lld no %2$lld",
+      "back": "Saved. Taken 5 of 5",
+      "why": "The participle agrees with the places named on the capsule before, and \"aizņemtas … no\" is S21's wording, so 5 of 5 reads as full without the word itself."
+    },
+    "N5": {
+      "s": "Aizņemtas %1$lld no %2$lld. Atbloķēt un saglabāt",
+      "back": "Taken 5 of 5. To-unlock and to-save",
+      "why": "Starts like N4 so the bar follows on from the last capsule; the infinitives name what a tap does, as K1's \"Atbloķēt\" does, and \"un saglabāt\" says the waiting item gets saved."
+    },
+    "N6": {
+      "s": "Atbloķēt",
+      "back": "To-unlock",
+      "why": "The infinitive Latvian buttons take, and the same word as S15, so the Share sheet and the unlock sheet name the action alike."
+    },
+    "N7": {
+      "s": "Visas %lld bezmaksas vietas ir aizņemtas. Atbloķējiet Cutling, un šis tiks saglabāts.",
+      "back": "All 5 free places are taken. Unlock(you-polite) Cutling, and this will-be saved.",
+      "why": "An imperative then \"un\" plus the future is how Latvian says do this and that follows; \"šis\" alone points at the item shown in the form under the notice, in the masculine of Cutling."
+    },
+    "N8": {
+      "s": "Šis ir atlikts malā un tiks saglabāts, kad atvērsiet un atbloķēsiet Cutling.",
+      "back": "This is put aside and will-be saved, when you-will-open and you-will-unlock Cutling.",
+      "why": "\"atlikts malā\" is set aside and kept for you, so it never claims the item is saved yet; the future \"kad atvērsiet\" puts opening and unlocking as the next step, not a demand."
+    }
+  }
+}

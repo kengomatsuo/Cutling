@@ -1,0 +1,44 @@
+{
+  "ko": {
+    "N1": {
+      "s": "무료 컷링 %lld개를 모두 채웠습니다. 앱에서 이어서 잠금 해제하면 이 컷링도 저장됩니다.",
+      "back": "free cutling 5 [counter]-object all filled. app-in continuing unlock-if this cutling-also gets-saved.",
+      "why": "Opens with S3's own sentence so the limit is worded the same everywhere; 이어서 points at the system's continue-in-app choice without quoting its button, 앱 names the app as S28 does so 컷링 means only the item, and 도 says this one joins the five."
+    },
+    "N2": {
+      "s": "무료 컷링 %lld개를 모두 채웠습니다. 컷링 앱을 열어 잠금 해제하면 더 저장할 수 있습니다.",
+      "back": "free cutling 5 [counter]-object all filled. cutling app-object opening unlock-if more save can.",
+      "why": "Same opening as N1; here the app does not open by itself, so 컷링 앱 names which app to open, and the second clause states what follows instead of ordering the person to do it."
+    },
+    "N3": {
+      "s": "저장됨 · 무료 1개 남음",
+      "back": "saved · free 1 [counter] remaining",
+      "why": "Clipped -됨/-음 status forms with K1's middle dot fit one key's height; 무료 %lld개 is K1's own phrase, so the capsule reads as the same voice that will speak at the limit."
+    },
+    "N4": {
+      "s": "저장됨 · 무료 %lld/%lld개",
+      "back": "saved · free 5/5 [counter]",
+      "why": "The compact pair is S29's counter, so 5/5 shows the free places are full without a second verb; used before total, as in S29, so no positional forms."
+    },
+    "N5": {
+      "s": "무료 %lld/%lld개 · 잠금 해제하고 저장",
+      "back": "free 5/5 [counter] · unlock-and save",
+      "why": "The full counter on the left, then a verbal-noun command (like 설정 열기) naming what a tap does: unlock, and the waiting item is saved; same order as S29, so no positional forms."
+    },
+    "N6": {
+      "s": "잠금 해제",
+      "back": "unlock",
+      "why": "S15's button word, the iOS Korean verb for unlocking, in five characters with its space."
+    },
+    "N7": {
+      "s": "무료 컷링 %lld개를 모두 채웠습니다. 잠금 해제하면 이 컷링도 저장됩니다.",
+      "back": "free cutling 5 [counter]-object all filled. unlock-if this cutling-also gets-saved.",
+      "why": "N1's two sentences without 앱에서 이어서, because the 잠금 해제 button sits right beside this row in the form; Cutling is left unnamed because 컷링을 잠금 해제 would read as unlocking the item."
+    },
+    "N8": {
+      "s": "이 컷링은 보관해 두었습니다. 컷링 앱을 열어 잠금 해제하면 저장됩니다.",
+      "back": "this cutling-as-for keep-aside put-did. cutling app-object opening unlock-if gets-saved.",
+      "why": "보관해 두었습니다 (set aside and kept) is held apart from 저장 (saved), which only happens after unlocking; 컷링 앱 tells which app to open, as in N2, and 은 marks the item as the topic the person is worried about."
+    }
+  }
+}

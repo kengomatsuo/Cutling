@@ -1,0 +1,86 @@
+{
+ "bn": {
+  "N1": {
+   "s": "%lldটি ফ্রি কাটলিংই রাখা হয়ে গেছে। কাটলিংয়ে গিয়ে আনলক করলে এটাও রাখা হবে।",
+   "back": "5-piece free cutlings-all kept have-become-gone. Cutling-in going unlock if-do this-too kept will-be.",
+   "why": "The first sentence is S3's word for word so the used-up fact always sounds the same; কাটলিংয়ে গিয়ে (going into Cutling) matches the continue-in-app choice the system offers, and এটাও points at the item Siri was asked to save."
+  },
+  "N2": {
+   "s": "%lldটি ফ্রি কাটলিংই রাখা হয়ে গেছে। আরও রাখতে কাটলিং খুলে আনলক করুন।",
+   "back": "5-piece free cutlings-all kept have-become-gone. More to-keep Cutling opening unlock do-please.",
+   "why": "Same opening as N1; here nothing can continue, so it ends on a polite আপনি imperative, and আরও রাখতে echoes S2's আরও কাটলিং রাখুন."
+  },
+  "N3": {
+   "s": "রাখা হয়েছে। আর একটি ফ্রি বাকি",
+   "back": "Kept has-been. More one-piece free remaining",
+   "why": "বাকি (left over) is what people say of what remains of an allowance; ফ্রি stands alone as in K1, and no closing dari, as in K1's capsule."
+  },
+  "N4": {
+   "s": "রাখা হয়েছে। ফ্রি %lld/%lld পূর্ণ",
+   "back": "Kept has-been. Free 5/5 full",
+   "why": "Uses S29's used/total pair so no positional form is needed; পূর্ণ is the word Bengali phones show for full storage, and N5 repeats it."
+  },
+  "N5": {
+   "s": "ফ্রি %lld/%lld পূর্ণ। আনলক করলে এটাও রাখা হবে",
+   "back": "Free 5/5 full. Unlock if-do this-too kept will-be",
+   "why": "Same state words as N4; the conditional করলে puts cause and result in one breath, and এটাও tells the person the item in hand is not lost."
+  },
+  "N6": {
+   "s": "আনলক",
+   "back": "Unlock",
+   "why": "Bengali iOS navigation-bar buttons are bare words like সম্পন্ন, so the করুন of S15 is dropped for the slot where the save button sits."
+  },
+  "N7": {
+   "s": "%lldটি ফ্রি কাটলিংই রাখা হয়ে গেছে। কাটলিং আনলক করলে এটাও রাখা হবে।",
+   "back": "5-piece free cutlings-all kept have-become-gone. Cutling unlock if-do this-too kept will-be.",
+   "why": "S3's opening again, then S28's কাটলিং আনলক করলে with the item word first and the app name second, as the vocabulary uses one word for both."
+  },
+  "N8": {
+   "s": "এটা আপনার জন্য তোলা রইল। কাটলিং খুলে আনলক করলেই রাখা হয়ে যাবে।",
+   "back": "This your for set-aside remained. Cutling opening unlock if-do-just kept become will-go.",
+   "why": "তোলা রইল is the household idiom for something put aside for someone, kept apart from রাখা, which is the saving verb everywhere else; the -ই on করলেই says that one step is all it takes."
+  }
+ },
+ "bn-BD": {
+  "N1": {
+   "s": "%lldটি ফ্রি কাটলিংই রাখা হয়ে গেছে। কাটলিংয়ে গিয়ে আনলক করলে এটাও রাখা হবে।",
+   "back": "5-piece free cutlings-all kept have-become-gone. Cutling-in going unlock if-do this-too kept will-be.",
+   "why": "The first sentence is S3's word for word so the used-up fact always sounds the same; কাটলিংয়ে গিয়ে (going into Cutling) matches the continue-in-app choice the system offers, and এটাও points at the item Siri was asked to save. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "N2": {
+   "s": "%lldটি ফ্রি কাটলিংই রাখা হয়ে গেছে। আরও রাখতে কাটলিং খুলে আনলক করুন।",
+   "back": "5-piece free cutlings-all kept have-become-gone. More to-keep Cutling opening unlock do-please.",
+   "why": "Same opening as N1; here nothing can continue, so it ends on a polite আপনি imperative, and আরও রাখতে echoes S2's আরও কাটলিং রাখুন. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "N3": {
+   "s": "রাখা হয়েছে। আর একটি ফ্রি বাকি",
+   "back": "Kept has-been. More one-piece free remaining",
+   "why": "বাকি (left over) is what people say of what remains of an allowance; ফ্রি stands alone as in K1, and no closing dari, as in K1's capsule. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "N4": {
+   "s": "রাখা হয়েছে। ফ্রি %lld/%lld পূর্ণ",
+   "back": "Kept has-been. Free 5/5 full",
+   "why": "Uses S29's used/total pair so no positional form is needed; পূর্ণ is the word Bengali phones show for full storage, and N5 repeats it. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "N5": {
+   "s": "ফ্রি %lld/%lld পূর্ণ। আনলক করলে এটাও রাখা হবে",
+   "back": "Free 5/5 full. Unlock if-do this-too kept will-be",
+   "why": "Same state words as N4; the conditional করলে puts cause and result in one breath, and এটাও tells the person the item in hand is not lost. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "N6": {
+   "s": "আনলক",
+   "back": "Unlock",
+   "why": "Bengali iOS navigation-bar buttons are bare words like সম্পন্ন, so the করুন of S15 is dropped for the slot where the save button sits. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "N7": {
+   "s": "%lldটি ফ্রি কাটলিংই রাখা হয়ে গেছে। কাটলিং আনলক করলে এটাও রাখা হবে।",
+   "back": "5-piece free cutlings-all kept have-become-gone. Cutling unlock if-do this-too kept will-be.",
+   "why": "S3's opening again, then S28's কাটলিং আনলক করলে with the item word first and the app name second, as the vocabulary uses one word for both. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  },
+  "N8": {
+   "s": "এটা আপনার জন্য তোলা রইল। কাটলিং খুলে আনলক করলেই রাখা হয়ে যাবে।",
+   "back": "This your for set-aside remained. Cutling opening unlock if-do-just kept become will-go.",
+   "why": "তোলা রইল is the household idiom for something put aside for someone, kept apart from রাখা, which is the saving verb everywhere else; the -ই on করলেই says that one step is all it takes. Same in Bangladesh: standard চলিত Bengali with no regional word here."
+  }
+ }
+}

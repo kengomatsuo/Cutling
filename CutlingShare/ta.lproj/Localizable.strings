@@ -47,3 +47,8 @@
 "Limit Reached" = "வரம்பை அடைந்தது";
 "Cannot add more text cutlings." = "மேலும் உரை கட்லிங்குகள் சேர்க்க இயலாது.";
 "Cannot add more image cutlings." = "மேலும் படம் கட்லிங்குகள் சேர்க்க இயலாது.";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"Unlock" = "அன்லாக் செய்";
+"You've used your %lld free cutlings. Unlock Cutling and this one is saved for you." = "%lld இலவசக் கட்லிங்குகளையும் பயன்படுத்திவிட்டீர்கள். கட்லிங்கை அன்லாக் செய்தால், இதுவும் சேமிக்கப்படும்.";
+"Kept for you. Open Cutling to unlock and save it." = "இது பத்திரமாக வைக்கப்பட்டுள்ளது. கட்லிங்கைத் திறந்து அன்லாக் செய்ததும் சேமிக்கப்படும்.";

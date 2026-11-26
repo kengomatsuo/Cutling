@@ -35,3 +35,6 @@
 
 /* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
 "%lld free cutlings used. Tap to unlock." = "Az ingyenes %lld hely betelt. Feloldod?";
+"Added · 1 free left" = "Elmentve. Még 1 ingyenes hely.";
+"Added · %lld of %lld free" = "Elmentve. %1$lld/%2$lld ingyenes hely.";
+"%lld of %lld free · Unlock to save this" = "%1$lld/%2$lld betelt. Oldd fel, és ez is bekerül.";

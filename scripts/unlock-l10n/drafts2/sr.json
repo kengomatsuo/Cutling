@@ -1,0 +1,44 @@
+{
+  "sr": {
+    "N1": {
+      "s": "Искористили сте свих %lld бесплатних катлинга. Наставите у Катлингу и откључајте га, па ће и овај бити сачуван.",
+      "back": "Used-up have-you all 5 free cutlings. Continue in Cutling and unlock it, so will also this-one be saved.",
+      "why": "Opens with the first batch's S3 sentence so the same fact keeps its words; 'Наставите у Катлингу' matches the system's continue-in-app choice, and 'па ће и овај' says the pending item is saved without a 'we'."
+    },
+    "N2": {
+      "s": "Искористили сте свих %lld бесплатних катлинга. Отворите Катлинг, откључајте га и чувајте још.",
+      "back": "Used-up have-you all 5 free cutlings. Open Cutling, unlock it and save more.",
+      "why": "Here the app cannot open itself, so the second sentence is three plain formal imperatives in the order the person does them; 'чувајте' is the vocabulary's save verb."
+    },
+    "N3": {
+      "s": "Сачувано. Остаје једно место",
+      "back": "Saved. Remains one place",
+      "why": "Impersonal neuter 'Сачувано' is how a Serbian toast confirms a save; 'место' is the first batch's word for room (S6), and with no paid places yet the one left is the free one; no final period, as in K1."
+    },
+    "N4": {
+      "s": "Сачувано. Заузето %1$lld од %2$lld места",
+      "back": "Saved. Taken 5 of 5 places",
+      "why": "Clipped neuter participle like S21's 'Искоришћено'; 'заузето место' is what Serbian says of a taken seat or slot, so it reads as full, not as an error; 'места' after 'од' is genitive and right for any total."
+    },
+    "N5": {
+      "s": "Заузето %1$lld од %2$lld. Откључајте да се сачува",
+      "back": "Taken 5 of 5. Unlock so-that it-gets-saved",
+      "why": "Picks up N4's 'Заузето' so the bar reads as the next step; 'да се сачува' (reflexive passive) tells the person the item they were saving is held and will be saved, in 39 characters."
+    },
+    "N6": {
+      "s": "Откључај",
+      "back": "Unlock",
+      "why": "The same button verb as S15, in the singular imperative Serbian buttons take, so the Share sheet and the unlock sheet say one word."
+    },
+    "N7": {
+      "s": "Искористили сте свих %lld бесплатних катлинга. Откључајте Катлинг и овај ће бити сачуван.",
+      "back": "Used-up have-you all 5 free cutlings. Unlock Cutling and this-one will be saved.",
+      "why": "Same first sentence as N1 and S3; the second is a plain 'do this and that happens', with 'овај' for the cutling the person is sharing right now."
+    },
+    "N8": {
+      "s": "Ваш нови катлинг чека. Отворите Катлинг и откључајте га, па ће бити сачуван.",
+      "back": "Your new cutling waits. Open Cutling and unlock it, so will be saved.",
+      "why": "'чека' says it is kept for them warmly, without 'сачуван' twice, which would make it sound already saved; lowercase 'катлинг' for the item and capital 'Катлинг' for the app, as in the first batch."
+    }
+  }
+}

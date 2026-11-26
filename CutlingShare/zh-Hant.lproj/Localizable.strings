@@ -47,3 +47,8 @@
 "Limit Reached" = "已達上限";
 "Cannot add more text cutlings." = "無法再新增更多文字剪切片段。";
 "Cannot add more image cutlings." = "無法再新增更多圖片剪切片段。";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"Unlock" = "解鎖";
+"You've used your %lld free cutlings. Unlock Cutling and this one is saved for you." = "%lld 個免費剪切片段已存滿。解鎖完整版，就會幫你把這個存成剪切片段。";
+"Kept for you. Open Cutling to unlock and save it." = "已先幫你留著這個。打開剪切片段 App 解鎖完整版，就會把它存好。";

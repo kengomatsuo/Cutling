@@ -1,0 +1,86 @@
+{
+ "ml": {
+  "N1": {
+   "s": "സൗജന്യമായ %lld കട്ട്‌ലിംഗുകളും ഉപയോഗിച്ചുകഴിഞ്ഞു. കട്ട്‌ലിംഗ് ആപ്പിൽ തുടർന്ന് അൺലോക്ക് ചെയ്താൽ ഇതും സൂക്ഷിക്കും.",
+   "back": "Free-being 5 cutlings-all used-finished. Cutling app-in continuing unlock do-if this-too [it] will-keep.",
+   "why": "Opens with S3's exact sentence; തുടർന്ന് picks up the vocabulary's continue word തുടരുക that the system button carries; ആപ്പിൽ keeps the app name from reading as 'in a cutling'; the plain future സൂക്ഷിക്കും says the item is saved for them, without the translated passive സൂക്ഷിക്കപ്പെടും."
+  },
+  "N2": {
+   "s": "സൗജന്യമായ %lld കട്ട്‌ലിംഗുകളും ഉപയോഗിച്ചുകഴിഞ്ഞു. കട്ട്‌ലിംഗ് ആപ്പ് തുറന്ന് അൺലോക്ക് ചെയ്താൽ ഇനിയും സൂക്ഷിക്കാം.",
+   "back": "Free-being 5 cutlings-all used-finished. Cutling app opened-having unlock do-if still-more [you] can-keep.",
+   "why": "Same opening as S3 and N1; it cannot continue in the app, so it says open the app then unlock (the -ന്ന് chain is how Malayalam strings two steps), and ends on S2's own invitation ഇനിയും സൂക്ഷിക്കാം."
+  },
+  "N3": {
+   "s": "സൂക്ഷിച്ചു. ഇനി ഒരു സൗജന്യ ഇടം ബാക്കി",
+   "back": "Kept. Now one free room remaining",
+   "why": "Past tense alone as the status, like M5; ഇടം is the batch's word for room (S6, S22) and ബാക്കി the everyday 'left over'; 14 aksharas, no full stop at the end of a capsule."
+  },
+  "N4": {
+   "s": "സൂക്ഷിച്ചു. സൗജന്യ ഇടം നിറഞ്ഞു, %2$lld-ൽ %1$lld",
+   "back": "Kept. Free room filled, 5-in 5",
+   "why": "Same shape as N3 so the two capsules read as a pair; നിറഞ്ഞു (filled up) is said of a full shelf or bus; the tally is M4's whole-before-part pair, so the placeholders are positional."
+  },
+  "N5": {
+   "s": "സൗജന്യ ഇടം നിറഞ്ഞു, %2$lld-ൽ %1$lld. അൺലോക്ക് ചെയ്താൽ ഇതും സൂക്ഷിക്കും",
+   "back": "Free room filled, 5-in 5. Unlock do-if this-too [it] will-keep",
+   "why": "Starts where N4 ended, then the if-clause gives the way out; ഇതും (this one too) tells them the item they were saving is not lost; about 21 aksharas, inside 32."
+  },
+  "N6": {
+   "s": "അൺലോക്ക്",
+   "back": "Unlock",
+   "why": "The bare loan stands as a button verb in Malayalam phone UI the way ഷെയർ does; the full അൺലോക്ക് ചെയ്യുക of S15 would not fit a 10-character capsule."
+  },
+  "N7": {
+   "s": "സൗജന്യമായ %lld കട്ട്‌ലിംഗുകളും ഉപയോഗിച്ചുകഴിഞ്ഞു. കട്ട്‌ലിംഗ് അൺലോക്ക് ചെയ്താൽ ഇതും സൂക്ഷിക്കും.",
+   "back": "Free-being 5 cutlings-all used-finished. Cutling unlock do-if this-too [it] will-keep.",
+   "why": "S3's sentence, then the same close as N1 and N5 so one thing keeps one wording; the app name as object of അൺലോക്ക് follows M1."
+  },
+  "N8": {
+   "s": "ഇത് നിങ്ങൾക്കായി മാറ്റിവെച്ചിട്ടുണ്ട്. കട്ട്‌ലിംഗ് ആപ്പ് തുറന്ന് അൺലോക്ക് ചെയ്താൽ അത് സൂക്ഷിക്കും.",
+   "back": "This you-for set-aside-has. Cutling app opened-having unlock do-if that [it] will-keep.",
+   "why": "മാറ്റിവെച്ചിട്ടുണ്ട് is what a shopkeeper says when he has put something aside for you; it keeps 'held' apart from സൂക്ഷിക്കുക, which this app uses for saving; the open-then-unlock chain is N2's."
+  }
+ },
+ "ml-IN": {
+  "N1": {
+   "s": "സൗജന്യമായ %lld കട്ട്‌ലിംഗുകളും ഉപയോഗിച്ചുകഴിഞ്ഞു. കട്ട്‌ലിംഗ് ആപ്പിൽ തുടർന്ന് അൺലോക്ക് ചെയ്താൽ ഇതും സൂക്ഷിക്കും.",
+   "back": "Free-being 5 cutlings-all used-finished. Cutling app-in continuing unlock do-if this-too [it] will-keep.",
+   "why": "Opens with S3's exact sentence; തുടർന്ന് picks up the vocabulary's continue word തുടരുക that the system button carries; ആപ്പിൽ keeps the app name from reading as 'in a cutling'; the plain future സൂക്ഷിക്കും says the item is saved for them, without the translated passive സൂക്ഷിക്കപ്പെടും. Same in ml-IN: Malayalam is written alike across India, and numbers arrive formatted by the system."
+  },
+  "N2": {
+   "s": "സൗജന്യമായ %lld കട്ട്‌ലിംഗുകളും ഉപയോഗിച്ചുകഴിഞ്ഞു. കട്ട്‌ലിംഗ് ആപ്പ് തുറന്ന് അൺലോക്ക് ചെയ്താൽ ഇനിയും സൂക്ഷിക്കാം.",
+   "back": "Free-being 5 cutlings-all used-finished. Cutling app opened-having unlock do-if still-more [you] can-keep.",
+   "why": "Same opening as S3 and N1; it cannot continue in the app, so it says open the app then unlock (the -ന്ന് chain is how Malayalam strings two steps), and ends on S2's own invitation ഇനിയും സൂക്ഷിക്കാം. Same in ml-IN: Malayalam is written alike across India, and numbers arrive formatted by the system."
+  },
+  "N3": {
+   "s": "സൂക്ഷിച്ചു. ഇനി ഒരു സൗജന്യ ഇടം ബാക്കി",
+   "back": "Kept. Now one free room remaining",
+   "why": "Past tense alone as the status, like M5; ഇടം is the batch's word for room (S6, S22) and ബാക്കി the everyday 'left over'; 14 aksharas, no full stop at the end of a capsule. Same in ml-IN: Malayalam is written alike across India, and numbers arrive formatted by the system."
+  },
+  "N4": {
+   "s": "സൂക്ഷിച്ചു. സൗജന്യ ഇടം നിറഞ്ഞു, %2$lld-ൽ %1$lld",
+   "back": "Kept. Free room filled, 5-in 5",
+   "why": "Same shape as N3 so the two capsules read as a pair; നിറഞ്ഞു (filled up) is said of a full shelf or bus; the tally is M4's whole-before-part pair, so the placeholders are positional. Same in ml-IN: Malayalam is written alike across India, and numbers arrive formatted by the system."
+  },
+  "N5": {
+   "s": "സൗജന്യ ഇടം നിറഞ്ഞു, %2$lld-ൽ %1$lld. അൺലോക്ക് ചെയ്താൽ ഇതും സൂക്ഷിക്കും",
+   "back": "Free room filled, 5-in 5. Unlock do-if this-too [it] will-keep",
+   "why": "Starts where N4 ended, then the if-clause gives the way out; ഇതും (this one too) tells them the item they were saving is not lost; about 21 aksharas, inside 32. Same in ml-IN: Malayalam is written alike across India, and numbers arrive formatted by the system."
+  },
+  "N6": {
+   "s": "അൺലോക്ക്",
+   "back": "Unlock",
+   "why": "The bare loan stands as a button verb in Malayalam phone UI the way ഷെയർ does; the full അൺലോക്ക് ചെയ്യുക of S15 would not fit a 10-character capsule. Same in ml-IN: Malayalam is written alike across India, and numbers arrive formatted by the system."
+  },
+  "N7": {
+   "s": "സൗജന്യമായ %lld കട്ട്‌ലിംഗുകളും ഉപയോഗിച്ചുകഴിഞ്ഞു. കട്ട്‌ലിംഗ് അൺലോക്ക് ചെയ്താൽ ഇതും സൂക്ഷിക്കും.",
+   "back": "Free-being 5 cutlings-all used-finished. Cutling unlock do-if this-too [it] will-keep.",
+   "why": "S3's sentence, then the same close as N1 and N5 so one thing keeps one wording; the app name as object of അൺലോക്ക് follows M1. Same in ml-IN: Malayalam is written alike across India, and numbers arrive formatted by the system."
+  },
+  "N8": {
+   "s": "ഇത് നിങ്ങൾക്കായി മാറ്റിവെച്ചിട്ടുണ്ട്. കട്ട്‌ലിംഗ് ആപ്പ് തുറന്ന് അൺലോക്ക് ചെയ്താൽ അത് സൂക്ഷിക്കും.",
+   "back": "This you-for set-aside-has. Cutling app opened-having unlock do-if that [it] will-keep.",
+   "why": "മാറ്റിവെച്ചിട്ടുണ്ട് is what a shopkeeper says when he has put something aside for you; it keeps 'held' apart from സൂക്ഷിക്കുക, which this app uses for saving; the open-then-unlock chain is N2's. Same in ml-IN: Malayalam is written alike across India, and numbers arrive formatted by the system."
+  }
+ }
+}

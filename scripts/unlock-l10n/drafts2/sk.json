@@ -1,0 +1,44 @@
+{
+ "sk": {
+  "N1": {
+   "s": "Využili ste všetkých %lld bezplatných cutlingov. Pokračujte v Cutlingu a po odomknutí sa tento cutling uloží.",
+   "back": "Used you-have all 5 free-of-charge cutlings(gen.pl). Continue(you-formal) in Cutling(loc) and after unlocking itself this cutling will-save.",
+   "why": "Opens with S3's exact sentence so the limit always sounds the same; 'Pokračujte' names the system's continue choice, and the reflexive 'sa uloží' promises the save without a 'we'."
+  },
+  "N2": {
+   "s": "Využili ste všetkých %lld bezplatných cutlingov. Ďalšie uložíte po odomknutí v Cutlingu.",
+   "back": "Used you-have all 5 free-of-charge cutlings(gen.pl). Further-ones you-will-save after unlocking in Cutling(loc).",
+   "why": "Same first sentence as N1 and S3; 'v Cutlingu' points to the app without an imperative the Mac or older iOS cannot act on; 'Ďalšie' agrees with the plural cutlingy; 85 chars."
+  },
+  "N3": {
+   "s": "Uložené. Ešte jeden zadarmo",
+   "back": "Saved. Still one free-of-charge",
+   "why": "'Uložené' is the status word Slovak iOS shows after a save; masculine 'jeden' agrees with cutling without naming it, and 'zadarmo' echoes S1 and S29; 27 chars."
+  },
+  "N4": {
+   "s": "Uložené. Využili ste %lld z %lld",
+   "back": "Saved. Used you-have 5 of 5",
+   "why": "Same 'Uložené' as N3, then S5's 'Využili ste X z Y', so 5 of 5 reads as full without a word like limit; the 'z' shape needs no plural agreement; 26 chars."
+  },
+  "N5": {
+   "s": "Využili ste %lld z %lld. Odomknúť a uložiť",
+   "back": "Used you-have 5 of 5. Unlock and save",
+   "why": "Carries N4's pair on, then the bar's action as an infinitive the way Slovak buttons and K1 are written; 'a uložiť' says the item being saved is not lost; 36 chars."
+  },
+  "N6": {
+   "s": "Odomknúť",
+   "back": "Unlock",
+   "why": "Same infinitive as S15 and M1, where the Share sheet usually puts its save verb; 8 chars."
+  },
+  "N7": {
+   "s": "Využili ste všetkých %lld bezplatných cutlingov. Keď Cutling odomknete, tento sa uloží.",
+   "back": "Used you-have all 5 free-of-charge cutlings(gen.pl). When Cutling you-unlock, this-one itself will-save.",
+   "why": "Same first sentence as S3 and N1; 'tento' points at the cutling in the form below, and the reflexive keeps one maker from speaking as 'we'; 84 chars."
+  },
+  "N8": {
+   "s": "Tento cutling na vás počká. Uloží sa, keď otvoríte Cutling a odomknete ho.",
+   "back": "This cutling for you will-wait. It-will-save itself, when you-open Cutling and you-unlock it.",
+   "why": "'Na vás počká' is how a Slovak says something is kept for you, and it matches the waiting sixth tile in the sheet; 'ho' takes the nearest masculine, Cutling; 74 chars."
+  }
+ }
+}

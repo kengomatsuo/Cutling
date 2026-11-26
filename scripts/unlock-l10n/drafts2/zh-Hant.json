@@ -1,0 +1,12 @@
+{
+  "zh-Hant": {
+    "N1": {"s": "%lld 個免費剪切片段已存滿。繼續到剪切片段 App 解鎖完整版，就會把這個存起來。", "back": "5 [cl.] free cut-clips already saved-full. continue to Cut-clips App unlock full-version, then will take this save-up.", "why": "繼續 picks up the system's continue choice; 存滿 and 完整版 as in K1 and S14; the app is named 剪切片段 App, the vocab's name plus App, because from a Shortcut 這個 App would mean nothing."},
+    "N2": {"s": "%lld 個免費剪切片段已存滿。打開剪切片段 App 解鎖完整版，就能存更多。", "back": "5 [cl.] free cut-clips already saved-full. open Cut-clips App unlock full-version, then can save more.", "why": "Same opening as N1; 打開 is the App Store's own Open word in Taiwan and Hong Kong, and 存更多 echoes the sheet's title S2."},
+    "N3": {"s": "已存好，還能免費存 1 個", "back": "already saved-done, still can free save 1 [cl.]", "why": "Colloquial 存好 for a capsule that flashes by; saying what is still possible instead of 'one place left' keeps it friendly. 9 CJK."},
+    "N4": {"s": "已存好，免費剪切片段 %1$lld/%2$lld 已滿", "back": "already saved-done, free cut-clips 5/5 already full", "why": "The 免費剪切片段 4/5 label from S29 grown to 5/5, so the count the person saw under the list title is the one that fills; 11 CJK plus the pair."},
+    "N5": {"s": "免費 %1$lld/%2$lld 已滿，點一下解鎖並存下這個", "back": "free 5/5 already full, tap once unlock and save-down this", "why": "N4's 已滿 and K1's 點一下 解鎖; 剪切片段 is dropped from the label so 存下這個, the promise that the item is kept, fits in 20 CJK."},
+    "N6": {"s": "解鎖", "back": "unlock", "why": "The bare button verb, the same 解鎖 as every unlock string; 2 CJK where 儲存 usually sits."},
+    "N7": {"s": "%lld 個免費剪切片段已存滿。解鎖完整版，就會幫你把這個存成剪切片段。", "back": "5 [cl.] free cut-clips already saved-full. unlock full-version, then will for-you take this save-as cut-clip.", "why": "What is being shared is not yet a 剪切片段, so 存成剪切片段 (save as one) says what happens to it; no app name needed, since the form is Cutling's own."},
+    "N8": {"s": "已先幫你留著這個。打開剪切片段 App 解鎖完整版，就會把它存好。", "back": "already first for-you keep this. open Cut-clips App unlock full-version, then will take it save-done.", "why": "先幫你留著 is how a person says 'I've held it for you for now', so the kept item comes first and calms the moment; 打開剪切片段 App as in N2."}
+  }
+}

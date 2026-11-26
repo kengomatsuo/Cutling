@@ -1,0 +1,44 @@
+{
+ "he": {
+  "N1": {
+   "s": "כל %lld הקאטלינגים החינמיים בשימוש. אפשר להמשיך באפליקציה ולשדרג, והקאטלינג הזה יישמר.",
+   "back": "all 5 the-cutlings the-free in-use. possible to-continue in-the-app and-to-upgrade, and-the-cutling the-this will-be-saved.",
+   "why": "Opens with S3's own words; 'אפשר' offers the way on without pushing, and 'באפליקציה' names the app so it never meets the item word, which is spelled the same."
+  },
+  "N2": {
+   "s": "כל %lld הקאטלינגים החינמיים בשימוש. כדי לשמור עוד, אפשר לשדרג באפליקציה.",
+   "back": "all 5 the-cutlings the-free in-use. in-order to-save more, possible to-upgrade in-the-app.",
+   "why": "Same opening as N1 so Siri says the limit the same way everywhere; here the only way on is the app, so the line says where, not 'continue'."
+  },
+  "N3": {
+   "s": "נשמר. נשאר עוד אחד בחינם",
+   "back": "saved(m). remains(m) another one for-free",
+   "why": "Masculine 'נשמר' agrees with קאטלינג; 'נשאר עוד אחד בחינם' is how an Israeli says one is left, with S1's 'בחינם'."
+  },
+  "N4": {
+   "s": "נשמר. %lld מתוך %lld חינמיים",
+   "back": "saved(m). 5 out-of 5 free(pl)",
+   "why": "The compact pair from S29, so the keyboard and the list title count the same way; 5 of 5 says they are full without a limit word."
+  },
+  "N5": {
+   "s": "%lld מתוך %lld חינמיים. הקישו לשדרוג וזה יישמר",
+   "back": "5 out-of 5 free(pl). tap(pl) for-upgrade and-this will-be-saved",
+   "why": "S29's count, then K1's 'הקישו לשדרוג', with 'וזה יישמר' promising the item being saved; numbers run in the same order, so plain %lld."
+  },
+  "N6": {
+   "s": "שדרוג",
+   "back": "upgrade",
+   "why": "A verbal noun on the button, as Hebrew iOS writes שמירה where this button usually stands; the batch's own word for unlocking."
+  },
+  "N7": {
+   "s": "כל %lld הקאטלינגים החינמיים בשימוש. אחרי שדרוג, גם הקאטלינג הזה יישמר.",
+   "back": "all 5 the-cutlings the-free in-use. after upgrade, also the-cutling the-this will-be-saved.",
+   "why": "S3's opening again; 'גם' puts this one beside the five already kept, and 'אחרי שדרוג' follows S28."
+  },
+  "N8": {
+   "s": "הקאטלינג הזה מחכה לכם. פתחו את האפליקציה ושדרגו, והוא יישמר.",
+   "back": "the-cutling the-this waits for-you(pl). open(pl) ACC the-app and-upgrade(pl), and-it will-be-saved.",
+   "why": "'מחכה לכם' says it was kept without a second verb from the root of 'save'; plural imperatives like the vocabulary's 'הפעילו', and 'האפליקציה' keeps the name and the item word apart."
+  }
+ }
+}

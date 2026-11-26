@@ -47,3 +47,8 @@
 "Limit Reached" = "Dosegnuto ograničenje";
 "Cannot add more text cutlings." = "Nije moguće dodati više tekstualnih cutlinga.";
 "Cannot add more image cutlings." = "Nije moguće dodati više slikovnih cutlinga.";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"Unlock" = "Otključaj";
+"You've used your %lld free cutlings. Unlock Cutling and this one is saved for you." = "Iskoristili ste svih %lld besplatnih cutlinga. Otključajte Cutling i ovaj će se spremiti.";
+"Kept for you. Open Cutling to unlock and save it." = "Ovaj cutling vas čeka. Spremit će se kad otvorite i otključate Cutling.";

@@ -76,6 +76,21 @@ def main() -> None:
                     print(f"missing {target.relative_to(repo)}")
                     continue
                 total += write(target, entries, keep, dry)
+    # Second batch: keys2.json gives each key its target (Cutling, CutlingKeyboard or CutlingShare) and its code key.
+    keys2 = json.loads((repo / "scripts/unlock-l10n/keys2.json").read_text())
+    for draft in sorted((repo / "scripts/unlock-l10n/drafts2").glob("*.json")):
+        for folder, strings in json.loads(draft.read_text(encoding="utf-8")).items():
+            by_target: dict[str, dict[str, str]] = {}
+            for i, v in strings.items():
+                if i in keys2:
+                    target, key = keys2[i]
+                    by_target.setdefault(target, {})[key] = v["s"]
+            for target, entries in by_target.items():
+                path = repo / f"{target}/{folder}.lproj/Localizable.strings"
+                if not path.exists():
+                    print(f"missing {path.relative_to(repo)}")
+                    continue
+                total += write(path, entries, set(), dry)
     missing = sorted(p.parent.name[:-6] for p in (repo / "Cutling").glob("*.lproj/Localizable.strings"))
     print(f"{'would change' if dry else 'changed'} {total} entries; locale folders without a draft: {[m for m in missing if m not in seen]}")
 

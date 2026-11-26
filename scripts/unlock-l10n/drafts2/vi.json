@@ -1,0 +1,12 @@
+{
+  "vi": {
+    "N1": {"s": "Bạn đã dùng hết %lld cutling miễn phí. Tiếp tục trong Cutling để mở khóa và lưu cutling này.", "back": "You have used up 5 cutling free. Continue in Cutling to unlock and save cutling this.", "why": "Opens with the same 'dùng hết … cutling miễn phí' as S3; 'Tiếp tục' is the vocabulary's continue word, matching the choice the system offers, and 'lưu cutling này' says this very item gets saved."},
+    "N2": {"s": "Bạn đã dùng hết %lld cutling miễn phí. Vào Cutling để mở khóa và lưu thêm.", "back": "You have used up 5 cutling free. Go-into Cutling to unlock and save more.", "why": "Same first sentence as N1 so the two Shortcut replies agree; 'vào' is how Vietnamese speakers say opening an app, and it avoids 'Mở Cutling để mở khóa' with 'mở' twice."},
+    "N3": {"s": "Đã lưu, còn một chỗ miễn phí", "back": "Already saved, remain one place free", "why": "'chỗ' is the word S6 uses for room; 'còn một' (one left) is the everyday count, and the comma join follows K1's capsule."},
+    "N4": {"s": "Đã lưu, đã dùng %lld/%lld miễn phí", "back": "Already saved, already used 5/5 free", "why": "Two finished actions each take 'đã', as Vietnamese says it; the '%lld/%lld miễn phí' pair is S29's form, so the keyboard and the list subtitle read the same."},
+    "N5": {"s": "Hết %lld/%lld miễn phí, mở khóa để lưu cái này", "back": "Out-of 5/5 free, unlock to save thing this", "why": "'cái này' (this one) is the spoken way to point at the thing being saved and keeps the bar at 40; 'hết' echoes K1's 'Đã hết' with the subject dropped, as a status bar would."},
+    "N6": {"s": "Mở khóa", "back": "Unlock", "why": "The same bare verb as S15, the button word Vietnamese apps use for an unlock."},
+    "N7": {"s": "Bạn đã dùng hết %lld cutling miễn phí. Mở khóa Cutling để lưu cutling này.", "back": "You have used up 5 cutling free. Unlock Cutling to save cutling this.", "why": "Same first sentence as N1 and N2; 'Mở khóa Cutling' is M1's command, capital for the app and lower case for the item, as the vocabulary separates them."},
+    "N8": {"s": "Cutling này vẫn được giữ cho bạn. Vào Cutling và mở khóa để lưu.", "back": "Cutling this still got kept for you. Go-into Cutling and unlock to save.", "why": "'vẫn được giữ' (still kept) tells the person first that nothing was lost; 'Vào Cutling' repeats N2's wording for opening the app."}
+  }
+}

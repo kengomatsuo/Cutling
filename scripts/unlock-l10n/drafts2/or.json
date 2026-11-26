@@ -1,0 +1,86 @@
+{
+ "or": {
+  "N1": {
+   "s": "ଆପଣ ମାଗଣା %lld କଟ୍‌ଲିଂ ସାଇତି ସାରିଛନ୍ତି। କଟ୍‌ଲିଂରେ ଜାରି ରଖନ୍ତୁ, ସେଠି ଅନଲକ୍ କଲେ ଏହା ଆପେ ସାଇତା ହୋଇଯିବ।",
+   "back": "You free 5 cutling saved have-finished. Cutling-in continue keep (please), there unlock if-do this by-itself saved will-become.",
+   "why": "First sentence is S3's own phrase for all five used; ଜାରି ରଖନ୍ତୁ is the vocab's continue word, so it names the choice the system offers, and ଆପେ (on its own) tells them the item needs no second try. Same in or and or-IN: both vocab files are identical and Odia is written one way."
+  },
+  "N2": {
+   "s": "ଆପଣ ମାଗଣା %lld କଟ୍‌ଲିଂ ସାଇତି ସାରିଛନ୍ତି। ଆହୁରି ସାଇତିବାକୁ କଟ୍‌ଲିଂ ଖୋଲି ଅନଲକ୍ କରନ୍ତୁ।",
+   "back": "You free 5 cutling saved have-finished. More to-save Cutling having-opened unlock do (please).",
+   "why": "Same opening as N1; here nothing can continue, so a plain instruction, open then unlock, with ଆହୁରି ସାଇତିବାକୁ (to save more) in front as Odia puts the purpose first."
+  },
+  "N3": {
+   "s": "ସାଇତା ହେଲା। ଆଉ ଗୋଟିଏ ମାଗଣା ଜାଗା ବାକି",
+   "back": "Saved became. More one free place left",
+   "why": "ସାଇତା ହେଲା is the short past of the S5 verb; ଜାଗା as in S6; one is spelled ଗୋଟିଏ, not a digit, as Odia writes a lone one; no final daṇḍa, like K1's capsule."
+  },
+  "N4": {
+   "s": "ସାଇତା ହେଲା। ମାଗଣା %1$lld/%2$lld ପୂରିଗଲା",
+   "back": "Saved became. Free 5/5 filled-up",
+   "why": "The number pair is S29's form; ପୂରିଗଲା (filled up) is K1's word, so it reads as full, never as lost."
+  },
+  "N5": {
+   "s": "ମାଗଣା %1$lld/%2$lld ପୂରିଗଲା। ଅନଲକ୍ କଲେ ଏହା ସାଇତା ହେବ",
+   "back": "Free 5/5 filled-up. Unlock if-do this saved will-be",
+   "why": "Opens like N4 and K1; conditional କଲେ (if you do) says unlocking is what saves it; ହେବ, not ହୋଇଯିବ, keeps it at 31 of 32 clusters."
+  },
+  "N6": {
+   "s": "ଅନଲକ୍ କରନ୍ତୁ",
+   "back": "Unlock do (please)",
+   "why": "S15's button word, so every unlock button says the same thing; 8 clusters. If the capsule truncates, bare ଅନଲକ୍ is the fallback."
+  },
+  "N7": {
+   "s": "ଆପଣ ମାଗଣା %lld କଟ୍‌ଲିଂ ସାଇତି ସାରିଛନ୍ତି। କଟ୍‌ଲିଂ ଅନଲକ୍ କଲେ ଏହା ଆପେ ସାଇତା ହୋଇଯିବ।",
+   "back": "You free 5 cutling saved have-finished. Cutling unlock if-do this by-itself saved will-become.",
+   "why": "N1 without the continue clause; ଆପେ carries the 'for them' without a calqued ଆପଣଙ୍କ ପାଇଁ, and କଟ୍‌ଲିଂ ଅନଲକ୍ is M1's wording for the app."
+  },
+  "N8": {
+   "s": "ଏହାକୁ ଆପଣଙ୍କ ପାଇଁ ଅଲଗା କରି ରଖାଯାଇଛି। କଟ୍‌ଲିଂ ଖୋଲି ଅନଲକ୍ କଲେ ଏହା ସାଇତା ହୋଇଯିବ।",
+   "back": "This-to you for separate having-made has-been-kept. Cutling having-opened unlock if-do this saved will-become.",
+   "why": "ଅଲଗା କରି ରଖାଯାଇଛି (kept aside) is held apart from ସାଇତା (saved), so they know it waits but is not in the list yet; ଆପଣଙ୍କ ପାଇଁ is natural with 'kept for you'."
+  }
+ },
+ "or-IN": {
+  "N1": {
+   "s": "ଆପଣ ମାଗଣା %lld କଟ୍‌ଲିଂ ସାଇତି ସାରିଛନ୍ତି। କଟ୍‌ଲିଂରେ ଜାରି ରଖନ୍ତୁ, ସେଠି ଅନଲକ୍ କଲେ ଏହା ଆପେ ସାଇତା ହୋଇଯିବ।",
+   "back": "You free 5 cutling saved have-finished. Cutling-in continue keep (please), there unlock if-do this by-itself saved will-become.",
+   "why": "First sentence is S3's own phrase for all five used; ଜାରି ରଖନ୍ତୁ is the vocab's continue word, so it names the choice the system offers, and ଆପେ (on its own) tells them the item needs no second try. Same in or and or-IN: both vocab files are identical and Odia is written one way."
+  },
+  "N2": {
+   "s": "ଆପଣ ମାଗଣା %lld କଟ୍‌ଲିଂ ସାଇତି ସାରିଛନ୍ତି। ଆହୁରି ସାଇତିବାକୁ କଟ୍‌ଲିଂ ଖୋଲି ଅନଲକ୍ କରନ୍ତୁ।",
+   "back": "You free 5 cutling saved have-finished. More to-save Cutling having-opened unlock do (please).",
+   "why": "Same opening as N1; here nothing can continue, so a plain instruction, open then unlock, with ଆହୁରି ସାଇତିବାକୁ (to save more) in front as Odia puts the purpose first."
+  },
+  "N3": {
+   "s": "ସାଇତା ହେଲା। ଆଉ ଗୋଟିଏ ମାଗଣା ଜାଗା ବାକି",
+   "back": "Saved became. More one free place left",
+   "why": "ସାଇତା ହେଲା is the short past of the S5 verb; ଜାଗା as in S6; one is spelled ଗୋଟିଏ, not a digit, as Odia writes a lone one; no final daṇḍa, like K1's capsule."
+  },
+  "N4": {
+   "s": "ସାଇତା ହେଲା। ମାଗଣା %1$lld/%2$lld ପୂରିଗଲା",
+   "back": "Saved became. Free 5/5 filled-up",
+   "why": "The number pair is S29's form; ପୂରିଗଲା (filled up) is K1's word, so it reads as full, never as lost."
+  },
+  "N5": {
+   "s": "ମାଗଣା %1$lld/%2$lld ପୂରିଗଲା। ଅନଲକ୍ କଲେ ଏହା ସାଇତା ହେବ",
+   "back": "Free 5/5 filled-up. Unlock if-do this saved will-be",
+   "why": "Opens like N4 and K1; conditional କଲେ (if you do) says unlocking is what saves it; ହେବ, not ହୋଇଯିବ, keeps it at 31 of 32 clusters."
+  },
+  "N6": {
+   "s": "ଅନଲକ୍ କରନ୍ତୁ",
+   "back": "Unlock do (please)",
+   "why": "S15's button word, so every unlock button says the same thing; 8 clusters. If the capsule truncates, bare ଅନଲକ୍ is the fallback."
+  },
+  "N7": {
+   "s": "ଆପଣ ମାଗଣା %lld କଟ୍‌ଲିଂ ସାଇତି ସାରିଛନ୍ତି। କଟ୍‌ଲିଂ ଅନଲକ୍ କଲେ ଏହା ଆପେ ସାଇତା ହୋଇଯିବ।",
+   "back": "You free 5 cutling saved have-finished. Cutling unlock if-do this by-itself saved will-become.",
+   "why": "N1 without the continue clause; ଆପେ carries the 'for them' without a calqued ଆପଣଙ୍କ ପାଇଁ, and କଟ୍‌ଲିଂ ଅନଲକ୍ is M1's wording for the app."
+  },
+  "N8": {
+   "s": "ଏହାକୁ ଆପଣଙ୍କ ପାଇଁ ଅଲଗା କରି ରଖାଯାଇଛି। କଟ୍‌ଲିଂ ଖୋଲି ଅନଲକ୍ କଲେ ଏହା ସାଇତା ହୋଇଯିବ।",
+   "back": "This-to you for separate having-made has-been-kept. Cutling having-opened unlock if-do this saved will-become.",
+   "why": "ଅଲଗା କରି ରଖାଯାଇଛି (kept aside) is held apart from ସାଇତା (saved), so they know it waits but is not in the list yet; ଆପଣଙ୍କ ପାଇଁ is natural with 'kept for you'."
+  }
+ }
+}

@@ -1,0 +1,44 @@
+{
+ "zh-Hans": {
+  "N1": {
+   "s": "%lld 个免费剪切片段已存满。到“剪切片段”里继续，解锁后就会帮你存下这一个。",
+   "back": "5 (mw) free cut-clip-pieces already saved-full. go-to 'Cut-clip-pieces' inside continue, unlock after then will help you save-down this one (mw).",
+   "why": "Opens with the same 已存满 as K1 and S3; 到…里继续 picks up the system's continue choice, and 帮你存下这一个 promises this item without a second 剪切片段, so Siri can say it in one breath."
+  },
+  "N2": {
+   "s": "%lld 个免费剪切片段已存满。打开“剪切片段”解锁，就能接着存。",
+   "back": "5 (mw) free cut-clip-pieces already saved-full. open 'Cut-clip-pieces' unlock, then can keep-on save.",
+   "why": "Same first sentence as N1 so both Shortcut replies sound alike; 接着存 is the spoken 'keep saving', and it does not promise this item is held, because here it is not."
+  },
+  "N3": {
+   "s": "已保存，还能免费再存一个",
+   "back": "already saved, still can free again save one (mw)",
+   "why": "还能…再存一个 says one place is left as a person would say it; 一个 in characters because a lone 'one' in running Chinese is written that way; 11 CJK, no period in a capsule."
+  },
+  "N4": {
+   "s": "已保存，免费 %lld/%lld 已存满",
+   "back": "already saved, free 5/5 already saved-full",
+   "why": "Compact pair in the S29 style with 存满 from K1; numbers run in the same order as the M4 pair, so no positional forms; 8 CJK plus the pair."
+  },
+  "N5": {
+   "s": "免费 %lld/%lld 已存满，轻点解锁就能存下这个",
+   "back": "free 5/5 already saved-full, tap unlock then can save-down this (mw)",
+   "why": "Continues N4's 免费 5/5 已存满 so the keyboard's three messages read as one voice; 轻点 is Apple zh-Hans for tap, as in K1; 存下这个 tells them the item they are saving is not lost; 15 CJK plus the pair."
+  },
+  "N6": {
+   "s": "解锁",
+   "back": "unlock",
+   "why": "The bare verb, as zh-Hans buttons in the save slot are one verb (保存, 完成); same 解锁 as S14 and M1; 2 CJK."
+  },
+  "N7": {
+   "s": "%lld 个免费剪切片段已存满。解锁“剪切片段”后，就会帮你存下这一个。",
+   "back": "5 (mw) free cut-clip-pieces already saved-full. unlock 'Cut-clip-pieces' after, then will help you save-down this one (mw).",
+   "why": "Same promise in the same words as N1, so the Share sheet and Siri agree; the app name in “” keeps it apart from the item word, as in S19; 26 CJK, two lines."
+  },
+  "N8": {
+   "s": "这个剪切片段已帮你先留着。打开“剪切片段”解锁，它就会存好。",
+   "back": "this (mw) cut-clip-piece already for-you first kept. open 'Cut-clip-pieces' unlock, it then will saved-done.",
+   "why": "先留着 says 'held for now' and so carries the reassurance first; 它就会存好 closes on the item, not the purchase; 25 CJK."
+  }
+ }
+}

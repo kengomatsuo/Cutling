@@ -1,0 +1,44 @@
+{
+  "lt": {
+    "N1": {
+      "s": "Panaudojote visus %lld nemokamus Cutlingus. Tęskite programoje. Atrakinę Cutling, išsaugosite ir šį.",
+      "back": "You-used all 5 free Cutlings [accusative]. Continue [polite imperative] in-the-app. Having-unlocked Cutling, you-will-save also this-one.",
+      "why": "Opens with S3's own sentence so Siri says what the sheet says; the short middle sentence matches the system's continue button, and the atrakinę participle is S28's way of tying the one unlock to the result. 97 characters."
+    },
+    "N2": {
+      "s": "Panaudojote visus %lld nemokamus Cutlingus. Atrakinkite Cutling programoje ir tilps daugiau.",
+      "back": "You-used all 5 free Cutlings [accusative]. Unlock [polite imperative] Cutling in-the-app and will-fit more.",
+      "why": "Imperative plus ir plus future (like Paspauskite ir pamatysite) is how a Lithuanian promises a result; programoje says the unlock happens in the app, which is all this Shortcut can offer, and tilps keeps the telpa verb from S22, S23 and S28. 89 characters."
+    },
+    "N3": {
+      "s": "Išsaugota. Liko 1 nemokamas",
+      "back": "Saved [impersonal]. Is-left 1 free [one, masculine singular, agreeing with the unspoken Cutlingas]",
+      "why": "Išsaugota is the stock iOS confirmation word; 1 takes the nominative singular, and the noun is left out as in S1, because the keyboard already shows what was saved. A digit keeps it at 27 within 30."
+    },
+    "N4": {
+      "s": "Išsaugota. Panaudota %1$lld iš %2$lld",
+      "back": "Saved [impersonal]. Used [impersonal neuter] 5 out-of 5",
+      "why": "Reuses S5's Panaudota … iš … so the count reads the same on keyboard and sheet; the neuter participle needs no agreement with either number, and 5 iš 5 says the free places are full without a word for limit. 27 characters."
+    },
+    "N5": {
+      "s": "Panaudota %1$lld iš %2$lld. Atrakinti ir išsaugoti",
+      "back": "Used [impersonal neuter] 5 out-of 5. To-unlock and to-save",
+      "why": "The same count as N4, then the tap action in the infinitive Lithuanian iOS puts on buttons (as S14 and S15); išsaugoti tells the person the item they were saving gets saved, without a sentence about it being kept. 40 characters exactly."
+    },
+    "N6": {
+      "s": "Atrakinti",
+      "back": "To-unlock",
+      "why": "The same infinitive button verb as S15, 9 characters within 10."
+    },
+    "N7": {
+      "s": "Panaudojote visus %lld nemokamus Cutlingus. Atrakinę Cutling, išsaugosite ir šį.",
+      "back": "You-used all 5 free Cutlings [accusative]. Having-unlocked Cutling, you-will-save also this-one.",
+      "why": "N1 without the continue step, since the Share form has its own Atrakinti button; šį points at the item filled in below the notice, and ir šį (this one too) reads as one more beside the five. 77 characters."
+    },
+    "N8": {
+      "s": "Šis Cutlingas jūsų palauks. Atidarę ir atrakinę Cutling, jį išsaugosite.",
+      "back": "This Cutling [nominative] for-you will-wait. Having-opened and having-unlocked Cutling, it you-will-save.",
+      "why": "Palaukti with the genitive jūsų is the warm everyday way to say something is kept for someone, and it avoids an impersonal we; the second sentence repeats N7's participle shape with the opening step added. 72 characters."
+    }
+  }
+}

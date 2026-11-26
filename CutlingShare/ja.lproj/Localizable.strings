@@ -47,3 +47,8 @@
 "Limit Reached" = "上限に達しました";
 "Cannot add more text cutlings." = "これ以上テキストカットリングを追加できません。";
 "Cannot add more image cutlings." = "これ以上画像カットリングを追加できません。";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"Unlock" = "アンロック";
+"You've used your %lld free cutlings. Unlock Cutling and this one is saved for you." = "無料の %lld 個を使い切りました。アンロックすると、このカットリングも保存されます。";
+"Kept for you. Open Cutling to unlock and save it." = "このカットリングは残してあります。アプリを開いてアンロックすると保存されます。";

@@ -35,3 +35,6 @@
 
 /* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
 "%lld free cutlings used. Tap to unlock." = "Все %lld мест заняты. Разблокировать";
+"Added · 1 free left" = "Сохранено. Осталось одно место";
+"Added · %lld of %lld free" = "Сохранено. Занято %lld из %lld мест";
+"%lld of %lld free · Unlock to save this" = "Занято %lld из %lld. Разблокировать и сохранить";

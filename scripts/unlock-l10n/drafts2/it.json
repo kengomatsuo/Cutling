@@ -1,0 +1,44 @@
+{
+  "it": {
+    "N1": {
+      "s": "Hai usato tutti i %lld cutling gratuiti. Continua in Cutling per sbloccarlo e salvare anche questo.",
+      "back": "You-have used all the 5 cutling free. Continue in Cutling for to-unlock-it and to-save also this-one.",
+      "why": "Opens with S3's own words; 'anche questo' says the new one gets saved on top of the five, without naming it a second time."
+    },
+    "N2": {
+      "s": "Hai usato tutti i %lld cutling gratuiti. Apri Cutling e sbloccalo per salvarne altri.",
+      "back": "You-have used all the 5 cutling free. Open Cutling and unlock-it for to-save-of-them others.",
+      "why": "Same opening as N1; 'salvarne altri' is the everyday way to say 'save more of them', like S28's 'salvane quanti vuoi'."
+    },
+    "N3": {
+      "s": "Salvato. Ne resta uno gratis",
+      "back": "Saved. Of-them remains one free",
+      "why": "Past participle alone as the confirmation; 'ne resta uno' is how an Italian says one is left, masculine to agree with 'cutling'; no final period, like K1; 28 characters."
+    },
+    "N4": {
+      "s": "Salvato. Gratis: %lld di %lld",
+      "back": "Saved. Free: 5 of 5",
+      "why": "The quota as S29 writes it, so '5 di 5' shows the free places are full without a sentence about it; numbers keep their order, so no positional forms."
+    },
+    "N5": {
+      "s": "Gratis: %lld di %lld. Sblocca per salvarlo",
+      "back": "Free: 5 of 5. Unlock for to-save-it",
+      "why": "Same quota words as N4 just before it; 'per salvarlo' makes unlocking the way this item gets saved; 36 characters."
+    },
+    "N6": {
+      "s": "Sblocca",
+      "back": "Unlock",
+      "why": "The imperative verb used in S15 and M1, alone as a button; 7 characters."
+    },
+    "N7": {
+      "s": "Hai usato tutti i %lld cutling gratuiti. Sblocca Cutling per salvare anche questo.",
+      "back": "You-have used all the 5 cutling free. Unlock Cutling for to-save also this-one.",
+      "why": "Same opening as N1 and N2; the person can unlock right here, so the second sentence is a direct imperative."
+    },
+    "N8": {
+      "s": "Questo cutling ti aspetta: verrà salvato quando apri Cutling e lo sblocchi.",
+      "back": "This cutling you awaits: it-will-be saved when you-open Cutling and it you-unlock.",
+      "why": "'Ti aspetta' is how an Italian says something is kept for you, warmly and without the app saying 'we'; the colon leads to how it gets saved; 77 characters."
+    }
+  }
+}

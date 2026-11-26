@@ -47,3 +47,8 @@
 "Limit Reached" = "Kikomo Kimefikiwa";
 "Cannot add more text cutlings." = "Haiwezi kuongeza cutlings zaidi za maandishi.";
 "Cannot add more image cutlings." = "Haiwezi kuongeza cutlings zaidi za picha.";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"Unlock" = "Fungua";
+"You've used your %lld free cutlings. Unlock Cutling and this one is saved for you." = "Umetumia cutling zote %lld za bure. Ukifungua Cutling, hii itahifadhiwa.";
+"Kept for you. Open Cutling to unlock and save it." = "Imewekwa kando kwa ajili yako. Nenda kwenye Cutling ufungue, na itahifadhiwa.";

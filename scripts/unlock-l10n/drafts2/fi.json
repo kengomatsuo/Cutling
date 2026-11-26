@@ -1,0 +1,44 @@
+{
+  "fi": {
+    "N1": {
+      "s": "Kaikki %lld ilmaista cutlingiasi on käytetty. Jatka Cutlingissa ja avaa lukitus, niin tämä tallentuu.",
+      "back": "All 5 free cutlings-your is used. Continue in-Cutling and open lock, so this gets-saved.",
+      "why": "'Jatka' is the vocab's continue word, so it points at the system's continue button. 'tallentuu' says the item saves itself once unlocked. 98 characters with 5 filled in."
+    },
+    "N2": {
+      "s": "Kaikki %lld ilmaista cutlingiasi on käytetty. Avaa lukitus Cutlingissa ja tallenna lisää.",
+      "back": "All 5 free cutlings-your is used. Open lock in-Cutling and save more.",
+      "why": "Same first sentence as N1 and N7, so the three limit messages match. 'tallenna lisää' repeats the S2 title the person will see once they're in the app. 86 characters."
+    },
+    "N3": {
+      "s": "Tallessa. Vielä yksi ilmainen",
+      "back": "In-safekeeping. Still one free",
+      "why": "'Tallessa' is the short, warm Finnish 'saved', and 'vielä yksi' is how a Finn says one more is left. No full stop at the end of a capsule. 29 characters."
+    },
+    "N4": {
+      "s": "Tallessa. Ilmaisia käytetty %1$lld/%2$lld",
+      "back": "In-safekeeping. Free-ones used 5/5",
+      "why": "The second half is the S29 subtitle word for word, so the keyboard and the main list count the same way, and 5/5 shows they are full without saying 'limit'. 31 characters, 1 over budget."
+    },
+    "N5": {
+      "s": "%1$lld/%2$lld täynnä. Avaa lukitus ja tallenna tämä",
+      "back": "5/5 full. Open lock and save this",
+      "why": "'täynnä' says the places are full with no blame. 'tallenna tämä' tells the person the item they were saving is still there. 41 characters, 1 over, because every shorter form dropped either 'full' or 'this'."
+    },
+    "N6": {
+      "s": "Avaa lukitus",
+      "back": "Open lock",
+      "why": "The same unlock words as S15 and K1. 12 characters, 2 over the budget of 10: a bare 'Avaa' reads as 'Open' in the Save button's place, and 'Osta' (buy) is a sales word."
+    },
+    "N7": {
+      "s": "Kaikki %lld ilmaista cutlingiasi on käytetty. Avaa Cutlingin lukitus, niin tämä tallentuu.",
+      "back": "All 5 free cutlings-your is used. Open Cutling's lock, so this gets-saved.",
+      "why": "Opens like N1 and N2, and 'Avaa Cutlingin lukitus' is the M1 command. 'niin tämä tallentuu' promises this item is saved without any extra step. 87 characters."
+    },
+    "N8": {
+      "s": "Tämä cutling jäi odottamaan. Avaa lukitus Cutlingissa, niin se tallentuu.",
+      "back": "This cutling stayed to-wait. Open lock in-Cutling, so it gets-saved.",
+      "why": "'jäi odottamaan' says the item is being held but not saved yet, which keeps it apart from the 'Tallessa' (saved) in N3 and N4. The second clause matches N2. 73 characters."
+    }
+  }
+}

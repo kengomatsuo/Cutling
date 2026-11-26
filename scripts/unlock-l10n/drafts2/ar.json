@@ -1,0 +1,86 @@
+{
+  "ar": {
+    "N1": {
+      "s": "تتسع النسخة المجانية لـ%lld كاتلينج، وقد امتلأت. تابع في التطبيق لشراء النسخة الكاملة، ثم يُحفظ هذا الكاتلينج.",
+      "back": "holds the-version the-free for-5 Cutling, and-has it-filled. continue (you) in the-app for-buying the-version the-full, then is-saved this the-Cutling.",
+      "why": "Opens with S28's own clause, since Siri may read it aloud; تابع matches the vocab's متابعة, and التطبيق stands in for the app so the line does not say كاتلينج for the app and the item at once; 106 characters."
+    },
+    "N2": {
+      "s": "تتسع النسخة المجانية لـ%lld كاتلينج، وقد امتلأت. افتح كاتلينج لتحفظ المزيد بالنسخة الكاملة.",
+      "back": "holds the-version the-free for-5 Cutling, and-has it-filled. open (you) Cutling so-you-save the-more with-the-version the-full.",
+      "why": "Same first sentence as N1; here the reply shows inside Shortcuts, so the app is named, and احفظ المزيد repeats S2's title; 88 characters."
+    },
+    "N3": {
+      "s": "حُفظ، وبقي لك واحد مجاني",
+      "back": "was-saved, and-remained for-you one free",
+      "why": "Passive حُفظ is the short 'saved' a keyboard says; واحد and مجاني are masculine to agree with كاتلينج; 23 letters, in K1's length."
+    },
+    "N4": {
+      "s": "حُفظ، وهذا %lld من %lld مجاناً",
+      "back": "was-saved, and-this 5 of 5 for-free",
+      "why": "Same opening as N3, then S29's pair %lld من %lld مجاناً; هذا points at the new one as the fifth of five; both numbers stay in reading order, so plain %lld is enough."
+    },
+    "N5": {
+      "s": "%lld من %lld. احفظه بالنسخة الكاملة",
+      "back": "5 of 5. save-it (you) with-the-version the-full",
+      "why": "29 letters for the 32 budget, so مجاناً is dropped: N4 has just said 5 of 5 free; احفظه tells them this item gets saved and النسخة الكاملة is the batch's word for unlocking."
+    },
+    "N6": {
+      "s": "شراء",
+      "back": "buying",
+      "why": "The short form of S15 and M1 (شراء النسخة الكاملة), a verbal noun like the Share form's own حفظ that it replaces; the notice row next to it names what is bought."
+    },
+    "N7": {
+      "s": "تتسع النسخة المجانية لـ%lld كاتلينج، وقد امتلأت. بشراء النسخة الكاملة يُحفظ ما شاركته.",
+      "back": "holds the-version the-free for-5 Cutling, and-has it-filled. with-buying the-version the-full is-saved what you-shared-it.",
+      "why": "First sentence as in N1 and N2; ما شاركته names the item by what the person just did in the Share sheet, and بشراء النسخة الكاملة is S28's phrase; 82 characters."
+    },
+    "N8": {
+      "s": "ما شاركته بانتظارك. افتح كاتلينج، وبشراء النسخة الكاملة يُحفظ.",
+      "back": "what you-shared-it in-waiting-for-you. open (you) Cutling, and-with-buying the-version the-full it-is-saved.",
+      "why": "بانتظارك says it was kept without using حفظ, which here means saved, and without a 'we'; the app is named because the form sits inside another app; 61 characters."
+    }
+  },
+  "ar-SA": {
+    "N1": {
+      "s": "تتسع النسخة المجانية لـ%lld كاتلينج، وقد امتلأت. تابع في التطبيق لشراء النسخة الكاملة، ثم يُحفظ هذا الكاتلينج.",
+      "back": "holds the-version the-free for-5 Cutling, and-has it-filled. continue (you) in the-app for-buying the-version the-full, then is-saved this the-Cutling.",
+      "why": "Opens with S28's own clause, since Siri may read it aloud; تابع matches the vocab's متابعة, and التطبيق stands in for the app so the line does not say كاتلينج for the app and the item at once; 106 characters. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy uses the same Modern Standard Arabic, as in the first batch."
+    },
+    "N2": {
+      "s": "تتسع النسخة المجانية لـ%lld كاتلينج، وقد امتلأت. افتح كاتلينج لتحفظ المزيد بالنسخة الكاملة.",
+      "back": "holds the-version the-free for-5 Cutling, and-has it-filled. open (you) Cutling so-you-save the-more with-the-version the-full.",
+      "why": "Same first sentence as N1; here the reply shows inside Shortcuts, so the app is named, and احفظ المزيد repeats S2's title; 88 characters. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy uses the same Modern Standard Arabic, as in the first batch."
+    },
+    "N3": {
+      "s": "حُفظ، وبقي لك واحد مجاني",
+      "back": "was-saved, and-remained for-you one free",
+      "why": "Passive حُفظ is the short 'saved' a keyboard says; واحد and مجاني are masculine to agree with كاتلينج; 23 letters, in K1's length. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy uses the same Modern Standard Arabic, as in the first batch."
+    },
+    "N4": {
+      "s": "حُفظ، وهذا %lld من %lld مجاناً",
+      "back": "was-saved, and-this 5 of 5 for-free",
+      "why": "Same opening as N3, then S29's pair %lld من %lld مجاناً; هذا points at the new one as the fifth of five; both numbers stay in reading order, so plain %lld is enough. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy uses the same Modern Standard Arabic, as in the first batch."
+    },
+    "N5": {
+      "s": "%lld من %lld. احفظه بالنسخة الكاملة",
+      "back": "5 of 5. save-it (you) with-the-version the-full",
+      "why": "29 letters for the 32 budget, so مجاناً is dropped: N4 has just said 5 of 5 free; احفظه tells them this item gets saved and النسخة الكاملة is the batch's word for unlocking. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy uses the same Modern Standard Arabic, as in the first batch."
+    },
+    "N6": {
+      "s": "شراء",
+      "back": "buying",
+      "why": "The short form of S15 and M1 (شراء النسخة الكاملة), a verbal noun like the Share form's own حفظ that it replaces; the notice row next to it names what is bought. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy uses the same Modern Standard Arabic, as in the first batch."
+    },
+    "N7": {
+      "s": "تتسع النسخة المجانية لـ%lld كاتلينج، وقد امتلأت. بشراء النسخة الكاملة يُحفظ ما شاركته.",
+      "back": "holds the-version the-free for-5 Cutling, and-has it-filled. with-buying the-version the-full is-saved what you-shared-it.",
+      "why": "First sentence as in N1 and N2; ما شاركته names the item by what the person just did in the Share sheet, and بشراء النسخة الكاملة is S28's phrase; 82 characters. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy uses the same Modern Standard Arabic, as in the first batch."
+    },
+    "N8": {
+      "s": "ما شاركته بانتظارك. افتح كاتلينج، وبشراء النسخة الكاملة يُحفظ.",
+      "back": "what you-shared-it in-waiting-for-you. open (you) Cutling, and-with-buying the-version the-full it-is-saved.",
+      "why": "بانتظارك says it was kept without using حفظ, which here means saved, and without a 'we'; the app is named because the form sits inside another app; 61 characters. Same as ar: the vocab files for ar and ar-SA are identical and Saudi UI copy uses the same Modern Standard Arabic, as in the first batch."
+    }
+  }
+}

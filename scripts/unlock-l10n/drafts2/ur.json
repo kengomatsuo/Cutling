@@ -1,0 +1,86 @@
+{
+ "ur": {
+  "N1": {
+   "s": "آپ کے %lld مفت کٹلنگ پورے ہو گئے۔ کٹلنگ میں جاری رکھیں، ان لاک ہوتے ہی یہ محفوظ ہو جائے گا۔",
+   "back": "your 5 free Cutling full became. Cutling in continue keep, unlock becoming-as-soon-as this saved become will.",
+   "why": "'Poore ho gaye' takes K1's word for full and agrees with the masculine plural items, not the reader; 'Cutling mein jaari rakhein' uses the vocab's continue word, so the line points at the system's continue button, and 'unlock hote hi' (the moment it is unlocked) promises this item without hurrying anyone; 600 pt at 17 pt Nastaliq against about 820 for 110 Latin. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "N2": {
+   "s": "آپ کے %lld مفت کٹلنگ پورے ہو گئے۔ مزید کے لیے کٹلنگ کھول کر ان لاک کریں۔",
+   "back": "your 5 free Cutling full became. more of for Cutling open-having unlock do.",
+   "why": "Same first sentence as N1 so Siri says the same thing on every system; here the app cannot open, so 'khol kar unlock karein' (open it, then unlock) tells the person where to go, and 'mazeed ke liye' (for more) promises nothing about this item, which is not kept on this path. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "N3": {
+   "s": "محفوظ ہو گیا، ایک مفت جگہ باقی",
+   "back": "saved became, one free place remaining",
+   "why": "'Mehfooz ho gaya' is how Urdu says a thing just got saved; 'jagah' is the room word from S6, and 'baqi' (remaining) states one is left with no warning in it; no full stop on a capsule, as K1; 179 pt against 214 for 30 Latin. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "N4": {
+   "s": "محفوظ ہو گیا، %1$lld/%2$lld مفت",
+   "back": "saved became, 5/5 free",
+   "why": "The count is S29's '4/5 مفت' from under the list title, now at 5/5, so the person reads the free places as filled in the form they already know; the digit pair stays a left-to-right run inside the Urdu line, and positional placeholders keep used before total. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "N5": {
+   "s": "%1$lld/%2$lld مفت پورے، ان لاک کر کے محفوظ کریں",
+   "back": "5/5 free full, unlock having-done save do",
+   "why": "Opens like K1 ('… مفت … پورے') so the keyboard says full the same way twice; 'unlock kar ke mehfooz karein' (unlock and save) is the tap and its result in one imperative, and the polite '-ein' form carries no gender; 273 pt against 292 for 40 Latin. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "N6": {
+   "s": "ان لاک کریں",
+   "back": "unlock do",
+   "why": "S15's button word, so the Share form and the unlock sheet name the act alike; the polite imperative is what Urdu puts on a button where 'محفوظ کریں' (save) usually sits, and it measures 82 pt, the width of a ten-letter Latin label. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "N7": {
+   "s": "آپ کے %lld مفت کٹلنگ پورے ہو گئے۔ ان لاک کریں تو یہ بھی محفوظ ہو جائے گا۔",
+   "back": "your 5 free Cutling full became. unlock do then this too saved become will.",
+   "why": "Same first sentence as N1 and N2; the 'karein to' conditional (do it, then) is the native way to say what an act brings, and 'yeh bhi' (this one too) adds it to the five already kept; the app name is left out because this form is already Cutling's own. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "N8": {
+   "s": "یہ سنبھال کر رکھا گیا ہے۔ کٹلنگ کھول کر ان لاک کریں تو یہ محفوظ ہو جائے گا۔",
+   "back": "this looked-after-having kept gone is. Cutling open-having unlock do then this saved become will.",
+   "why": "'Sambhaal kar rakha gaya hai' (has been put away carefully) is the warm word for kept and stays apart from 'mehfooz' (saved), which the second sentence keeps for the save that unlocking brings; the impersonal passive needs no 'we', which the app never says in Urdu. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  }
+ },
+ "ur-PK": {
+  "N1": {
+   "s": "آپ کے %lld مفت کٹلنگ پورے ہو گئے۔ کٹلنگ میں جاری رکھیں، ان لاک ہوتے ہی یہ محفوظ ہو جائے گا۔",
+   "back": "your 5 free Cutling full became. Cutling in continue keep, unlock becoming-as-soon-as this saved become will.",
+   "why": "'Poore ho gaye' takes K1's word for full and agrees with the masculine plural items, not the reader; 'Cutling mein jaari rakhein' uses the vocab's continue word, so the line points at the system's continue button, and 'unlock hote hi' (the moment it is unlocked) promises this item without hurrying anyone; 600 pt at 17 pt Nastaliq against about 820 for 110 Latin. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "N2": {
+   "s": "آپ کے %lld مفت کٹلنگ پورے ہو گئے۔ مزید کے لیے کٹلنگ کھول کر ان لاک کریں۔",
+   "back": "your 5 free Cutling full became. more of for Cutling open-having unlock do.",
+   "why": "Same first sentence as N1 so Siri says the same thing on every system; here the app cannot open, so 'khol kar unlock karein' (open it, then unlock) tells the person where to go, and 'mazeed ke liye' (for more) promises nothing about this item, which is not kept on this path. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "N3": {
+   "s": "محفوظ ہو گیا، ایک مفت جگہ باقی",
+   "back": "saved became, one free place remaining",
+   "why": "'Mehfooz ho gaya' is how Urdu says a thing just got saved; 'jagah' is the room word from S6, and 'baqi' (remaining) states one is left with no warning in it; no full stop on a capsule, as K1; 179 pt against 214 for 30 Latin. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "N4": {
+   "s": "محفوظ ہو گیا، %1$lld/%2$lld مفت",
+   "back": "saved became, 5/5 free",
+   "why": "The count is S29's '4/5 مفت' from under the list title, now at 5/5, so the person reads the free places as filled in the form they already know; the digit pair stays a left-to-right run inside the Urdu line, and positional placeholders keep used before total. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "N5": {
+   "s": "%1$lld/%2$lld مفت پورے، ان لاک کر کے محفوظ کریں",
+   "back": "5/5 free full, unlock having-done save do",
+   "why": "Opens like K1 ('… مفت … پورے') so the keyboard says full the same way twice; 'unlock kar ke mehfooz karein' (unlock and save) is the tap and its result in one imperative, and the polite '-ein' form carries no gender; 273 pt against 292 for 40 Latin. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "N6": {
+   "s": "ان لاک کریں",
+   "back": "unlock do",
+   "why": "S15's button word, so the Share form and the unlock sheet name the act alike; the polite imperative is what Urdu puts on a button where 'محفوظ کریں' (save) usually sits, and it measures 82 pt, the width of a ten-letter Latin label. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "N7": {
+   "s": "آپ کے %lld مفت کٹلنگ پورے ہو گئے۔ ان لاک کریں تو یہ بھی محفوظ ہو جائے گا۔",
+   "back": "your 5 free Cutling full became. unlock do then this too saved become will.",
+   "why": "Same first sentence as N1 and N2; the 'karein to' conditional (do it, then) is the native way to say what an act brings, and 'yeh bhi' (this one too) adds it to the five already kept; the app name is left out because this form is already Cutling's own. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  },
+  "N8": {
+   "s": "یہ سنبھال کر رکھا گیا ہے۔ کٹلنگ کھول کر ان لاک کریں تو یہ محفوظ ہو جائے گا۔",
+   "back": "this looked-after-having kept gone is. Cutling open-having unlock do then this saved become will.",
+   "why": "'Sambhaal kar rakha gaya hai' (has been put away carefully) is the warm word for kept and stays apart from 'mehfooz' (saved), which the second sentence keeps for the save that unlocking brings; the impersonal passive needs no 'we', which the app never says in Urdu. Same string in ur and ur-PK: Pakistani and Indian Urdu write these words alike, and digits arrive already formatted by the system."
+  }
+ }
+}

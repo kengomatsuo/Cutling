@@ -1,0 +1,212 @@
+{
+ "en": {
+  "N1": {
+   "s": "You’ve used all %lld free cutlings. Continue in Cutling to unlock it, and this one will be saved.",
+   "back": "You’ve used all 5 free cutlings. Continue in Cutling to unlock it, and this one will be saved.",
+   "why": "The fact in S3's words, then the one step the system's prompt offers; 'Continue' is the vocab's continue word, and 'this one will be saved' promises the item is not lost; 94 characters. Identical across en, en-AU, en-GB, en-IN and en-CA: none of the eight strings has a word, spelling or comma rule that the regions write differently."
+  },
+  "N2": {
+   "s": "You’ve used all %lld free cutlings. Open Cutling and unlock it to save more.",
+   "back": "You’ve used all 5 free cutlings. Open Cutling and unlock it to save more.",
+   "why": "Same opening as N1 so Siri says the limit the same way everywhere; here the app cannot open itself, so the person is told to open it; 73 characters."
+  },
+  "N3": {
+   "s": "Saved. One free cutling left.",
+   "back": "Saved. One free cutling left.",
+   "why": "Confirms the save first, then the count in plain speech; 'One' as a word, since no number is filled in; 29 characters."
+  },
+  "N4": {
+   "s": "Saved. %lld of %lld free used.",
+   "back": "Saved. 5 of 5 free used.",
+   "why": "The '%lld of %lld … used' pair from S21 and S29, so the keyboard counts the same way as the app; 'cutlings' would push it to 33 of 30, and N3 just named them; 24 characters."
+  },
+  "N5": {
+   "s": "%lld of %lld free used. Unlock to save this.",
+   "back": "5 of 5 free used. Unlock to save this.",
+   "why": "Same count as N4, so the bar picks up where the capsule left off; 'Unlock to save this' says both that tapping unlocks and that the item they typed is waiting; 38 characters."
+  },
+  "N6": {
+   "s": "Unlock",
+   "back": "Unlock",
+   "why": "The button verb from 'Unlock Cutling' (S15, M1), cut to one word where the Save button usually sits; 6 characters."
+  },
+  "N7": {
+   "s": "You’ve used all %lld free cutlings. Unlock Cutling, and this one will be saved.",
+   "back": "You’ve used all 5 free cutlings. Unlock Cutling, and this one will be saved.",
+   "why": "Same shape as N1 so a person who meets both reads one promise; 'Unlock Cutling' matches the sheet's button; 76 characters."
+  },
+  "N8": {
+   "s": "This one’s been kept for you. Open Cutling and unlock to save it.",
+   "back": "This one’s been kept for you. Open Cutling and unlock to save it.",
+   "why": "Reassurance first, because the person just tapped Unlock and nothing opened; then the step left to them, with 'unlock' used bare as in 'Tap to unlock'; 65 characters."
+  }
+ },
+ "en-AU": {
+  "N1": {
+   "s": "You’ve used all %lld free cutlings. Continue in Cutling to unlock it, and this one will be saved.",
+   "back": "You’ve used all 5 free cutlings. Continue in Cutling to unlock it, and this one will be saved.",
+   "why": "The fact in S3's words, then the one step the system's prompt offers; 'Continue' is the vocab's continue word, and 'this one will be saved' promises the item is not lost; 94 characters. Identical across en, en-AU, en-GB, en-IN and en-CA: none of the eight strings has a word, spelling or comma rule that the regions write differently."
+  },
+  "N2": {
+   "s": "You’ve used all %lld free cutlings. Open Cutling and unlock it to save more.",
+   "back": "You’ve used all 5 free cutlings. Open Cutling and unlock it to save more.",
+   "why": "Same opening as N1 so Siri says the limit the same way everywhere; here the app cannot open itself, so the person is told to open it; 73 characters."
+  },
+  "N3": {
+   "s": "Saved. One free cutling left.",
+   "back": "Saved. One free cutling left.",
+   "why": "Confirms the save first, then the count in plain speech; 'One' as a word, since no number is filled in; 29 characters."
+  },
+  "N4": {
+   "s": "Saved. %lld of %lld free used.",
+   "back": "Saved. 5 of 5 free used.",
+   "why": "The '%lld of %lld … used' pair from S21 and S29, so the keyboard counts the same way as the app; 'cutlings' would push it to 33 of 30, and N3 just named them; 24 characters."
+  },
+  "N5": {
+   "s": "%lld of %lld free used. Unlock to save this.",
+   "back": "5 of 5 free used. Unlock to save this.",
+   "why": "Same count as N4, so the bar picks up where the capsule left off; 'Unlock to save this' says both that tapping unlocks and that the item they typed is waiting; 38 characters."
+  },
+  "N6": {
+   "s": "Unlock",
+   "back": "Unlock",
+   "why": "The button verb from 'Unlock Cutling' (S15, M1), cut to one word where the Save button usually sits; 6 characters."
+  },
+  "N7": {
+   "s": "You’ve used all %lld free cutlings. Unlock Cutling, and this one will be saved.",
+   "back": "You’ve used all 5 free cutlings. Unlock Cutling, and this one will be saved.",
+   "why": "Same shape as N1 so a person who meets both reads one promise; 'Unlock Cutling' matches the sheet's button; 76 characters."
+  },
+  "N8": {
+   "s": "This one’s been kept for you. Open Cutling and unlock to save it.",
+   "back": "This one’s been kept for you. Open Cutling and unlock to save it.",
+   "why": "Reassurance first, because the person just tapped Unlock and nothing opened; then the step left to them, with 'unlock' used bare as in 'Tap to unlock'; 65 characters."
+  }
+ },
+ "en-GB": {
+  "N1": {
+   "s": "You’ve used all %lld free cutlings. Continue in Cutling to unlock it, and this one will be saved.",
+   "back": "You’ve used all 5 free cutlings. Continue in Cutling to unlock it, and this one will be saved.",
+   "why": "The fact in S3's words, then the one step the system's prompt offers; 'Continue' is the vocab's continue word, and 'this one will be saved' promises the item is not lost; 94 characters. Identical across en, en-AU, en-GB, en-IN and en-CA: none of the eight strings has a word, spelling or comma rule that the regions write differently."
+  },
+  "N2": {
+   "s": "You’ve used all %lld free cutlings. Open Cutling and unlock it to save more.",
+   "back": "You’ve used all 5 free cutlings. Open Cutling and unlock it to save more.",
+   "why": "Same opening as N1 so Siri says the limit the same way everywhere; here the app cannot open itself, so the person is told to open it; 73 characters."
+  },
+  "N3": {
+   "s": "Saved. One free cutling left.",
+   "back": "Saved. One free cutling left.",
+   "why": "Confirms the save first, then the count in plain speech; 'One' as a word, since no number is filled in; 29 characters."
+  },
+  "N4": {
+   "s": "Saved. %lld of %lld free used.",
+   "back": "Saved. 5 of 5 free used.",
+   "why": "The '%lld of %lld … used' pair from S21 and S29, so the keyboard counts the same way as the app; 'cutlings' would push it to 33 of 30, and N3 just named them; 24 characters."
+  },
+  "N5": {
+   "s": "%lld of %lld free used. Unlock to save this.",
+   "back": "5 of 5 free used. Unlock to save this.",
+   "why": "Same count as N4, so the bar picks up where the capsule left off; 'Unlock to save this' says both that tapping unlocks and that the item they typed is waiting; 38 characters."
+  },
+  "N6": {
+   "s": "Unlock",
+   "back": "Unlock",
+   "why": "The button verb from 'Unlock Cutling' (S15, M1), cut to one word where the Save button usually sits; 6 characters."
+  },
+  "N7": {
+   "s": "You’ve used all %lld free cutlings. Unlock Cutling, and this one will be saved.",
+   "back": "You’ve used all 5 free cutlings. Unlock Cutling, and this one will be saved.",
+   "why": "Same shape as N1 so a person who meets both reads one promise; 'Unlock Cutling' matches the sheet's button; 76 characters."
+  },
+  "N8": {
+   "s": "This one’s been kept for you. Open Cutling and unlock to save it.",
+   "back": "This one’s been kept for you. Open Cutling and unlock to save it.",
+   "why": "Reassurance first, because the person just tapped Unlock and nothing opened; then the step left to them, with 'unlock' used bare as in 'Tap to unlock'; 65 characters."
+  }
+ },
+ "en-IN": {
+  "N1": {
+   "s": "You’ve used all %lld free cutlings. Continue in Cutling to unlock it, and this one will be saved.",
+   "back": "You’ve used all 5 free cutlings. Continue in Cutling to unlock it, and this one will be saved.",
+   "why": "The fact in S3's words, then the one step the system's prompt offers; 'Continue' is the vocab's continue word, and 'this one will be saved' promises the item is not lost; 94 characters. Identical across en, en-AU, en-GB, en-IN and en-CA: none of the eight strings has a word, spelling or comma rule that the regions write differently."
+  },
+  "N2": {
+   "s": "You’ve used all %lld free cutlings. Open Cutling and unlock it to save more.",
+   "back": "You’ve used all 5 free cutlings. Open Cutling and unlock it to save more.",
+   "why": "Same opening as N1 so Siri says the limit the same way everywhere; here the app cannot open itself, so the person is told to open it; 73 characters."
+  },
+  "N3": {
+   "s": "Saved. One free cutling left.",
+   "back": "Saved. One free cutling left.",
+   "why": "Confirms the save first, then the count in plain speech; 'One' as a word, since no number is filled in; 29 characters."
+  },
+  "N4": {
+   "s": "Saved. %lld of %lld free used.",
+   "back": "Saved. 5 of 5 free used.",
+   "why": "The '%lld of %lld … used' pair from S21 and S29, so the keyboard counts the same way as the app; 'cutlings' would push it to 33 of 30, and N3 just named them; 24 characters."
+  },
+  "N5": {
+   "s": "%lld of %lld free used. Unlock to save this.",
+   "back": "5 of 5 free used. Unlock to save this.",
+   "why": "Same count as N4, so the bar picks up where the capsule left off; 'Unlock to save this' says both that tapping unlocks and that the item they typed is waiting; 38 characters."
+  },
+  "N6": {
+   "s": "Unlock",
+   "back": "Unlock",
+   "why": "The button verb from 'Unlock Cutling' (S15, M1), cut to one word where the Save button usually sits; 6 characters."
+  },
+  "N7": {
+   "s": "You’ve used all %lld free cutlings. Unlock Cutling, and this one will be saved.",
+   "back": "You’ve used all 5 free cutlings. Unlock Cutling, and this one will be saved.",
+   "why": "Same shape as N1 so a person who meets both reads one promise; 'Unlock Cutling' matches the sheet's button; 76 characters."
+  },
+  "N8": {
+   "s": "This one’s been kept for you. Open Cutling and unlock to save it.",
+   "back": "This one’s been kept for you. Open Cutling and unlock to save it.",
+   "why": "Reassurance first, because the person just tapped Unlock and nothing opened; then the step left to them, with 'unlock' used bare as in 'Tap to unlock'; 65 characters."
+  }
+ },
+ "en-CA": {
+  "N1": {
+   "s": "You’ve used all %lld free cutlings. Continue in Cutling to unlock it, and this one will be saved.",
+   "back": "You’ve used all 5 free cutlings. Continue in Cutling to unlock it, and this one will be saved.",
+   "why": "The fact in S3's words, then the one step the system's prompt offers; 'Continue' is the vocab's continue word, and 'this one will be saved' promises the item is not lost; 94 characters. Identical across en, en-AU, en-GB, en-IN and en-CA: none of the eight strings has a word, spelling or comma rule that the regions write differently."
+  },
+  "N2": {
+   "s": "You’ve used all %lld free cutlings. Open Cutling and unlock it to save more.",
+   "back": "You’ve used all 5 free cutlings. Open Cutling and unlock it to save more.",
+   "why": "Same opening as N1 so Siri says the limit the same way everywhere; here the app cannot open itself, so the person is told to open it; 73 characters."
+  },
+  "N3": {
+   "s": "Saved. One free cutling left.",
+   "back": "Saved. One free cutling left.",
+   "why": "Confirms the save first, then the count in plain speech; 'One' as a word, since no number is filled in; 29 characters."
+  },
+  "N4": {
+   "s": "Saved. %lld of %lld free used.",
+   "back": "Saved. 5 of 5 free used.",
+   "why": "The '%lld of %lld … used' pair from S21 and S29, so the keyboard counts the same way as the app; 'cutlings' would push it to 33 of 30, and N3 just named them; 24 characters."
+  },
+  "N5": {
+   "s": "%lld of %lld free used. Unlock to save this.",
+   "back": "5 of 5 free used. Unlock to save this.",
+   "why": "Same count as N4, so the bar picks up where the capsule left off; 'Unlock to save this' says both that tapping unlocks and that the item they typed is waiting; 38 characters."
+  },
+  "N6": {
+   "s": "Unlock",
+   "back": "Unlock",
+   "why": "The button verb from 'Unlock Cutling' (S15, M1), cut to one word where the Save button usually sits; 6 characters."
+  },
+  "N7": {
+   "s": "You’ve used all %lld free cutlings. Unlock Cutling, and this one will be saved.",
+   "back": "You’ve used all 5 free cutlings. Unlock Cutling, and this one will be saved.",
+   "why": "Same shape as N1 so a person who meets both reads one promise; 'Unlock Cutling' matches the sheet's button; 76 characters."
+  },
+  "N8": {
+   "s": "This one’s been kept for you. Open Cutling and unlock to save it.",
+   "back": "This one’s been kept for you. Open Cutling and unlock to save it.",
+   "why": "Reassurance first, because the person just tapped Unlock and nothing opened; then the step left to them, with 'unlock' used bare as in 'Tap to unlock'; 65 characters."
+  }
+ }
+}

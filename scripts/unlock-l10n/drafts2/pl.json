@@ -1,0 +1,44 @@
+{
+  "pl": {
+    "N1": {
+      "s": "Masz już komplet %lld darmowych cutlingów. Ten zapisze się, gdy przejdziesz do aplikacji i ją odblokujesz.",
+      "back": "You-have already full-set of-5 free cutlings. This-one will-save itself, when you-go-over to application and it you-will-unlock.",
+      "why": "Opens with S3's 'Masz już komplet' so the limit reads the same everywhere; 'Ten zapisze się' promises the item saves itself after unlocking, and 'ją' points at the app, so the name is not repeated or declined."
+    },
+    "N2": {
+      "s": "Masz już komplet %lld darmowych cutlingów. Otwórz Cutling i odblokuj go, by zapisać więcej.",
+      "back": "You-have already full-set of-5 free cutlings. Open Cutling and unlock it, so-as to-save more.",
+      "why": "Same first sentence as N1; here nothing can continue in the app, so the second is a plain ty-form instruction, with the name in the inanimate accusative (same as nominative) and no promise that this item was kept."
+    },
+    "N3": {
+      "s": "Zapisano. Został jeden darmowy",
+      "back": "Saved-impersonal. Remained one free",
+      "why": "Impersonal 'Zapisano' has no gender; 'Został jeden darmowy' is how a Pole says one is left, with 'cutling' understood as in K1; no closing period, like K1's capsule; exactly 30."
+    },
+    "N4": {
+      "s": "Zapisano. Masz komplet: %lld z %lld",
+      "back": "Saved-impersonal. You-have full-set: 5 of 5",
+      "why": "'Komplet' is the word S3 uses for all five used, and the count pair matches S5 and S29; 29 characters."
+    },
+    "N5": {
+      "s": "Masz %lld z %lld. Odblokuj, a ten się zapisze",
+      "back": "You-have 5 of 5. Unlock, and this-one itself will-save",
+      "why": "The count says full without a limit word; 'a ten się zapisze' tells the person the text they were saving is not lost; 39 of 40."
+    },
+    "N6": {
+      "s": "Odblokuj",
+      "back": "Unlock",
+      "why": "The same button verb as S15, sitting where 'Zapisz' would be."
+    },
+    "N7": {
+      "s": "Masz już komplet %lld darmowych cutlingów. Ten zapisze się, gdy odblokujesz Cutling.",
+      "back": "You-have already full-set of-5 free cutlings. This-one will-save itself, when you-unlock Cutling.",
+      "why": "'Ten' opens the second sentence so it plainly means the item in the form, not the app named at its end; same shape as N1 so Shortcut and Share say one thing."
+    },
+    "N8": {
+      "s": "Ten cutling poczeka. Zapisze się, gdy otworzysz Cutling i go odblokujesz.",
+      "back": "This cutling will-wait. It-will-save itself, when you-open Cutling and it you-will-unlock.",
+      "why": "'poczeka' says it was kept the way a person would, with no 'we' and no passive; the subject of 'Zapisze się' carries over from the first sentence, so 'go' can only be the app."
+    }
+  }
+}

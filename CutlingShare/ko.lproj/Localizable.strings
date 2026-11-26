@@ -47,3 +47,8 @@
 "Limit Reached" = "한도 도달";
 "Cannot add more text cutlings." = "더 이상 텍스트 컷링을 추가할 수 없습니다.";
 "Cannot add more image cutlings." = "더 이상 이미지 컷링을 추가할 수 없습니다.";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"Unlock" = "잠금 해제";
+"You've used your %lld free cutlings. Unlock Cutling and this one is saved for you." = "무료 컷링 %lld개를 모두 채웠습니다. 잠금 해제하면 이 컷링도 저장됩니다.";
+"Kept for you. Open Cutling to unlock and save it." = "이 컷링은 보관해 두었습니다. 컷링 앱을 열어 잠금 해제하면 저장됩니다.";

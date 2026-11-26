@@ -1,0 +1,86 @@
+{
+ "kn": {
+  "N1": {
+   "s": "ನಿಮ್ಮ %lld ಉಚಿತ ಕಟ್ಲಿಂಗ್‌ಗಳೂ ಬಳಕೆಯಾಗಿವೆ. ಕಟ್ಲಿಂಗ್‌ನಲ್ಲಿ ಮುಂದುವರಿಸಿ ಅನ್‌ಲಾಕ್ ಮಾಡಿದರೆ ಇದನ್ನೂ ಉಳಿಸಲಾಗುತ್ತದೆ.",
+   "back": "your 5 free cuttlings-all used-have-become. Cutling-in continuing unlock do-if this-too saved-will-be.",
+   "why": "The first sentence is S3's word for word, so the limit sounds the same everywhere; ಮುಂದುವರಿಸಿ is the vocabulary's continue word, the one on the system button, used here as the joining participle; ಇದನ್ನೂ ('this one too') puts the new item beside the five, and ಉಳಿಸಲಾಗುತ್ತದೆ is the future of the ಉಳಿಸಲಾಗಿದೆ the keyboard shows once a save works."
+  },
+  "N2": {
+   "s": "ನಿಮ್ಮ %lld ಉಚಿತ ಕಟ್ಲಿಂಗ್‌ಗಳೂ ಬಳಕೆಯಾಗಿವೆ. ಇನ್ನಷ್ಟು ಉಳಿಸಲು ಕಟ್ಲಿಂಗ್ ತೆರೆದು ಅನ್‌ಲಾಕ್ ಮಾಡಿ.",
+   "back": "your 5 free cuttlings-all used-have-become. more to-save Cutling opening unlock do.",
+   "why": "The same first sentence as N1; here nothing can continue in the app, so the second is a plain request that puts the reason first (ಇನ್ನಷ್ಟು ಉಳಿಸಲು, 'to save more') and chains open-then-unlock with ತೆರೆದು, the way Kannada strings two actions."
+  },
+  "N3": {
+   "s": "ಉಳಿಸಲಾಗಿದೆ, ಇನ್ನೊಂದು ಉಚಿತ ಜಾಗವಿದೆ",
+   "back": "saved-has-been, one-more free room-is",
+   "why": "ಉಳಿಸಲಾಗಿದೆ is the standard Kannada 'Saved'; ಇನ್ನೊಂದು ('one more') says what is still open, so nothing reads as a warning; ಜಾಗ is the room word from S6 and S22; about 20 aksharas."
+  },
+  "N4": {
+   "s": "ಉಳಿಸಲಾಗಿದೆ, %1$lld/%2$lld ಉಚಿತ ಜಾಗ ತುಂಬಿತು",
+   "back": "saved-has-been, 5/5 free room filled-up",
+   "why": "The simple past ತುಂಬಿತು says it just filled up with this save, where N5's ತುಂಬಿದೆ is the lasting state; the slash pair matches S29 and M4; about 22 aksharas."
+  },
+  "N5": {
+   "s": "%1$lld/%2$lld ಉಚಿತ ಜಾಗ ತುಂಬಿದೆ, ಅನ್‌ಲಾಕ್ ಮಾಡಿ ಇದನ್ನೂ ಉಳಿಸಿ",
+   "back": "5/5 free room full-is, unlock doing this-too save",
+   "why": "The bar is tapped, so it ends on two chained polite imperatives, 'unlock and save this one too', which also tells the person the item is still there; about 30 aksharas, inside the 32 Indic budget."
+  },
+  "N6": {
+   "s": "ಅನ್‌ಲಾಕ್",
+   "back": "unlock",
+   "why": "Kannada button labels drop ಮಾಡಿ when space is short, as ಸೈನ್ ಇನ್ stands alone on sign-in buttons; three aksharas fit the save button's place, and the word is the same ಅನ್ಲಾಕ್ as S15."
+  },
+  "N7": {
+   "s": "ನಿಮ್ಮ %lld ಉಚಿತ ಕಟ್ಲಿಂಗ್‌ಗಳೂ ಬಳಕೆಯಾಗಿವೆ. ಕಟ್ಲಿಂಗ್ ಅನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಿದರೆ ಇದನ್ನೂ ಉಳಿಸಲಾಗುತ್ತದೆ.",
+   "back": "your 5 free cuttlings-all used-have-become. Cutling-(object) unlock do-if this-too saved-will-be.",
+   "why": "The same two halves as N1 without the continue step, since the green button is right there; ಕಟ್ಲಿಂಗ್ ಅನ್ನು ಅನ್ಲಾಕ್ ಮಾಡಿದರೆ is S28's wording, so Siri and the Share sheet say it alike."
+  },
+  "N8": {
+   "s": "ಇದನ್ನು ನಿಮಗಾಗಿ ಎತ್ತಿಡಲಾಗಿದೆ. ಕಟ್ಲಿಂಗ್ ತೆರೆದು ಅನ್‌ಲಾಕ್ ಮಾಡಿದಾಗ ಇದನ್ನು ಉಳಿಸಲಾಗುತ್ತದೆ.",
+   "back": "this-(object) you-for set-aside-has-been. Cutling opening unlock do-when this-(object) saved-will-be.",
+   "why": "ಎತ್ತಿಡು is what a shopkeeper does with something kept back for you, so the item is safe before anything is asked; ಮಾಡಿದಾಗ ('when you') fits a later visit better than the 'if' of N1 and N7, and ಉಳಿಸಲಾಗುತ್ತದೆ, not ಉಳಿಯುತ್ತದೆ, so it cannot read as 'it will only stay if'."
+  }
+ },
+ "kn-IN": {
+  "N1": {
+   "s": "ನಿಮ್ಮ %lld ಉಚಿತ ಕಟ್ಲಿಂಗ್‌ಗಳೂ ಬಳಕೆಯಾಗಿವೆ. ಕಟ್ಲಿಂಗ್‌ನಲ್ಲಿ ಮುಂದುವರಿಸಿ ಅನ್‌ಲಾಕ್ ಮಾಡಿದರೆ ಇದನ್ನೂ ಉಳಿಸಲಾಗುತ್ತದೆ.",
+   "back": "your 5 free cuttlings-all used-have-become. Cutling-in continuing unlock do-if this-too saved-will-be.",
+   "why": "The first sentence is S3's word for word, so the limit sounds the same everywhere; ಮುಂದುವರಿಸಿ is the vocabulary's continue word, the one on the system button, used here as the joining participle; ಇದನ್ನೂ ('this one too') puts the new item beside the five, and ಉಳಿಸಲಾಗುತ್ತದೆ is the future of the ಉಳಿಸಲಾಗಿದೆ the keyboard shows once a save works. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "N2": {
+   "s": "ನಿಮ್ಮ %lld ಉಚಿತ ಕಟ್ಲಿಂಗ್‌ಗಳೂ ಬಳಕೆಯಾಗಿವೆ. ಇನ್ನಷ್ಟು ಉಳಿಸಲು ಕಟ್ಲಿಂಗ್ ತೆರೆದು ಅನ್‌ಲಾಕ್ ಮಾಡಿ.",
+   "back": "your 5 free cuttlings-all used-have-become. more to-save Cutling opening unlock do.",
+   "why": "The same first sentence as N1; here nothing can continue in the app, so the second is a plain request that puts the reason first (ಇನ್ನಷ್ಟು ಉಳಿಸಲು, 'to save more') and chains open-then-unlock with ತೆರೆದು, the way Kannada strings two actions. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "N3": {
+   "s": "ಉಳಿಸಲಾಗಿದೆ, ಇನ್ನೊಂದು ಉಚಿತ ಜಾಗವಿದೆ",
+   "back": "saved-has-been, one-more free room-is",
+   "why": "ಉಳಿಸಲಾಗಿದೆ is the standard Kannada 'Saved'; ಇನ್ನೊಂದು ('one more') says what is still open, so nothing reads as a warning; ಜಾಗ is the room word from S6 and S22; about 20 aksharas. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "N4": {
+   "s": "ಉಳಿಸಲಾಗಿದೆ, %1$lld/%2$lld ಉಚಿತ ಜಾಗ ತುಂಬಿತು",
+   "back": "saved-has-been, 5/5 free room filled-up",
+   "why": "The simple past ತುಂಬಿತು says it just filled up with this save, where N5's ತುಂಬಿದೆ is the lasting state; the slash pair matches S29 and M4; about 22 aksharas. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "N5": {
+   "s": "%1$lld/%2$lld ಉಚಿತ ಜಾಗ ತುಂಬಿದೆ, ಅನ್‌ಲಾಕ್ ಮಾಡಿ ಇದನ್ನೂ ಉಳಿಸಿ",
+   "back": "5/5 free room full-is, unlock doing this-too save",
+   "why": "The bar is tapped, so it ends on two chained polite imperatives, 'unlock and save this one too', which also tells the person the item is still there; about 30 aksharas, inside the 32 Indic budget. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "N6": {
+   "s": "ಅನ್‌ಲಾಕ್",
+   "back": "unlock",
+   "why": "Kannada button labels drop ಮಾಡಿ when space is short, as ಸೈನ್ ಇನ್ stands alone on sign-in buttons; three aksharas fit the save button's place, and the word is the same ಅನ್ಲಾಕ್ as S15. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "N7": {
+   "s": "ನಿಮ್ಮ %lld ಉಚಿತ ಕಟ್ಲಿಂಗ್‌ಗಳೂ ಬಳಕೆಯಾಗಿವೆ. ಕಟ್ಲಿಂಗ್ ಅನ್ನು ಅನ್‌ಲಾಕ್ ಮಾಡಿದರೆ ಇದನ್ನೂ ಉಳಿಸಲಾಗುತ್ತದೆ.",
+   "back": "your 5 free cuttlings-all used-have-become. Cutling-(object) unlock do-if this-too saved-will-be.",
+   "why": "The same two halves as N1 without the continue step, since the green button is right there; ಕಟ್ಲಿಂಗ್ ಅನ್ನು ಅನ್ಲಾಕ್ ಮಾಡಿದರೆ is S28's wording, so Siri and the Share sheet say it alike. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  },
+  "N8": {
+   "s": "ಇದನ್ನು ನಿಮಗಾಗಿ ಎತ್ತಿಡಲಾಗಿದೆ. ಕಟ್ಲಿಂಗ್ ತೆರೆದು ಅನ್‌ಲಾಕ್ ಮಾಡಿದಾಗ ಇದನ್ನು ಉಳಿಸಲಾಗುತ್ತದೆ.",
+   "back": "this-(object) you-for set-aside-has-been. Cutling opening unlock do-when this-(object) saved-will-be.",
+   "why": "ಎತ್ತಿಡು is what a shopkeeper does with something kept back for you, so the item is safe before anything is asked; ಮಾಡಿದಾಗ ('when you') fits a later visit better than the 'if' of N1 and N7, and ಉಳಿಸಲಾಗುತ್ತದೆ, not ಉಳಿಯುತ್ತದೆ, so it cannot read as 'it will only stay if'. Same as kn: Kannada is written only in India and the two vocabulary files are identical, so the region changes nothing."
+  }
+ }
+}

@@ -1,0 +1,86 @@
+{
+ "te": {
+  "N1": {
+   "s": "మీ %lld ఉచిత కట్లింగ్‌లనూ వాడేశారు. కట్లింగ్ యాప్‌లో కొనసాగించి అన్‌లాక్ చేయగానే, ఇదీ వాటిలో చేరుతుంది.",
+   "back": "Your 5 free cuttlings-all you-used-up. Cutling app-in having-continued unlock as-soon-as-you-do, this-too them-among will-join.",
+   "why": "Opens with S3's own sentence so the limit reads the same everywhere; కొనసాగించి echoes the system's Continue button (vocab కొనసాగించు), and 'this too joins them' says the item gets saved without the loan సేవ్ or a passive."
+  },
+  "N2": {
+   "s": "మీ %lld ఉచిత కట్లింగ్‌లనూ వాడేశారు. ఇంకా దాచుకోవాలంటే, కట్లింగ్ యాప్ తెరిచి అన్‌లాక్ చేయండి.",
+   "back": "Your 5 free cuttlings-all you-used-up. More if-you-want-to-keep, Cutling app having-opened unlock do (please).",
+   "why": "Same first sentence as N1; -ఆలంటే (if you want to) frames saving more as the person's wish, and the polite మీరు imperative names the one place it happens, the app."
+  },
+  "N3": {
+   "s": "దాచుకున్నారు, ఇంకొక్కటే ఉచితం",
+   "back": "You-kept, one-more-only free",
+   "why": "దాచుకోవడం is the batch's verb for saving; ఇంకొక్కటే (just one more) is how a Telugu speaker counts what is left, short enough for one key's height."
+  },
+  "N4": {
+   "s": "దాచుకున్నారు, ఉచిత చోటు %1$lld/%2$lld నిండింది",
+   "back": "You-kept, free room 5/5 filled",
+   "why": "చోటు is the batch's word for room (S6, S22); the 5/5 pair is S29's compact form, and నిండింది (filled up, like a full bus) states it without a warning tone."
+  },
+  "N5": {
+   "s": "ఉచిత చోటు %1$lld/%2$lld నిండింది, అన్‌లాక్ చేసి ఇదీ దాచుకోండి",
+   "back": "Free room 5/5 filled, unlock having-done this-too keep (please)",
+   "why": "Starts with N4's words so the bar follows the capsule; the polite imperative on a tappable bar invites the tap, as S2's దాచుకోండి does, and ఇదీ (this one too) says the item waits."
+  },
+  "N6": {
+   "s": "అన్‌లాక్ చేయి",
+   "back": "Unlock do",
+   "why": "S15's button word, in the bare imperative the vocab uses for buttons, so the Share form and the sheet share one action."
+  },
+  "N7": {
+   "s": "మీ %lld ఉచిత కట్లింగ్‌లనూ వాడేశారు. అన్‌లాక్ చేయగానే, ఇదీ వాటిలో చేరుతుంది.",
+   "back": "Your 5 free cuttlings-all you-used-up. Unlock as-soon-as-you-do, this-too them-among will-join.",
+   "why": "N1 without the app's name: the form is already Cutling's and its button says అన్‌లాక్ చేయి; వాటిలో points back at the five, so కట్లింగ్ is not said three times."
+  },
+  "N8": {
+   "s": "ఇది మీ కోసం భద్రంగా ఉంది. కట్లింగ్ యాప్ తెరిచి అన్‌లాక్ చేయగానే, మీ కట్లింగ్‌లలో చేరుతుంది.",
+   "back": "This you for safely is. Cutling app having-opened unlock as-soon-as-you-do, your cuttlings-among it-will-join.",
+   "why": "భద్రంగా ఉంది (is safe) reassures first that nothing was lost; the second sentence drops the repeated subject as Telugu does and reuses N2's 'open the app and unlock'."
+  }
+ },
+ "te-IN": {
+  "N1": {
+   "s": "మీ %lld ఉచిత కట్లింగ్‌లనూ వాడేశారు. కట్లింగ్ యాప్‌లో కొనసాగించి అన్‌లాక్ చేయగానే, ఇదీ వాటిలో చేరుతుంది.",
+   "back": "Your 5 free cuttlings-all you-used-up. Cutling app-in having-continued unlock as-soon-as-you-do, this-too them-among will-join.",
+   "why": "Opens with S3's own sentence so the limit reads the same everywhere; కొనసాగించి echoes the system's Continue button (vocab కొనసాగించు), and 'this too joins them' says the item gets saved without the loan సేవ్ or a passive. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "N2": {
+   "s": "మీ %lld ఉచిత కట్లింగ్‌లనూ వాడేశారు. ఇంకా దాచుకోవాలంటే, కట్లింగ్ యాప్ తెరిచి అన్‌లాక్ చేయండి.",
+   "back": "Your 5 free cuttlings-all you-used-up. More if-you-want-to-keep, Cutling app having-opened unlock do (please).",
+   "why": "Same first sentence as N1; -ఆలంటే (if you want to) frames saving more as the person's wish, and the polite మీరు imperative names the one place it happens, the app. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "N3": {
+   "s": "దాచుకున్నారు, ఇంకొక్కటే ఉచితం",
+   "back": "You-kept, one-more-only free",
+   "why": "దాచుకోవడం is the batch's verb for saving; ఇంకొక్కటే (just one more) is how a Telugu speaker counts what is left, short enough for one key's height. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "N4": {
+   "s": "దాచుకున్నారు, ఉచిత చోటు %1$lld/%2$lld నిండింది",
+   "back": "You-kept, free room 5/5 filled",
+   "why": "చోటు is the batch's word for room (S6, S22); the 5/5 pair is S29's compact form, and నిండింది (filled up, like a full bus) states it without a warning tone. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "N5": {
+   "s": "ఉచిత చోటు %1$lld/%2$lld నిండింది, అన్‌లాక్ చేసి ఇదీ దాచుకోండి",
+   "back": "Free room 5/5 filled, unlock having-done this-too keep (please)",
+   "why": "Starts with N4's words so the bar follows the capsule; the polite imperative on a tappable bar invites the tap, as S2's దాచుకోండి does, and ఇదీ (this one too) says the item waits. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "N6": {
+   "s": "అన్‌లాక్ చేయి",
+   "back": "Unlock do",
+   "why": "S15's button word, in the bare imperative the vocab uses for buttons, so the Share form and the sheet share one action. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "N7": {
+   "s": "మీ %lld ఉచిత కట్లింగ్‌లనూ వాడేశారు. అన్‌లాక్ చేయగానే, ఇదీ వాటిలో చేరుతుంది.",
+   "back": "Your 5 free cuttlings-all you-used-up. Unlock as-soon-as-you-do, this-too them-among will-join.",
+   "why": "N1 without the app's name: the form is already Cutling's and its button says అన్‌లాక్ చేయి; వాటిలో points back at the five, so కట్లింగ్ is not said three times. Same as te: Telugu has one written standard and India is its only region."
+  },
+  "N8": {
+   "s": "ఇది మీ కోసం భద్రంగా ఉంది. కట్లింగ్ యాప్ తెరిచి అన్‌లాక్ చేయగానే, మీ కట్లింగ్‌లలో చేరుతుంది.",
+   "back": "This you for safely is. Cutling app having-opened unlock as-soon-as-you-do, your cuttlings-among it-will-join.",
+   "why": "భద్రంగా ఉంది (is safe) reassures first that nothing was lost; the second sentence drops the repeated subject as Telugu does and reuses N2's 'open the app and unlock'. Same as te: Telugu has one written standard and India is its only region."
+  }
+ }
+}

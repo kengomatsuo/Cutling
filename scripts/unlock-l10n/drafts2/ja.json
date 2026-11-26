@@ -1,0 +1,44 @@
+{
+ "ja": {
+  "N1": {
+   "s": "無料の %lld 個を使い切りました。アプリで続けてアンロックすると、このカットリングも保存されます。",
+   "back": "free-of %lld pieces (obj) used-up. app-in continue-and unlock-if, this cutling also gets-saved.",
+   "why": "Opens with the first batch's 使い切りました; 続きはアプリで is a phrase Japanese readers know, and it matches the system's continue choice. The dialog already shows the app's name, so アプリ leaves カットリング to mean the item, and も says this one is saved along with the unlock. 48 characters as shown."
+  },
+  "N2": {
+   "s": "無料の %lld 個を使い切りました。もっと保存するには、カットリングを開いてアンロックしてください。",
+   "back": "free-of %lld pieces (obj) used-up. more to-save (topic), Cutling (obj) open-and unlock please.",
+   "why": "This reply is read in Shortcuts or on the Mac, outside the app, so the app is named; the sentence has no item noun, so カットリング can only be the app. 〜するには、〜してください is the plain Japanese way to give the step. 48 characters as shown."
+  },
+  "N3": {
+   "s": "保存しました。無料はあと1個",
+   "back": "saved. free (topic) remaining 1 piece",
+   "why": "A polite past for the save, then a noun-ending fragment like K1's for the capsule; あと1個 is how Japanese counts what is left. No space before 個 because the digit is literal, not a placeholder. 14 CJK."
+  },
+  "N4": {
+   "s": "保存しました。無料 %lld/%lld 個",
+   "back": "saved. free %lld/%lld pieces",
+   "why": "The same used/total pair as S29, so 5/5 shows the free places are full without the word 上限; used first, total second, the same order, so no positional forms are needed. 15 characters as shown, within 15."
+  },
+  "N5": {
+   "s": "無料 %lld/%lld 個。アンロックして保存",
+   "back": "free %lld/%lld pieces. unlock-and save",
+   "why": "The bar can be tapped, so it ends on a command, in the object-less verb form Japanese buttons use; 保存 says the item they were adding gets saved. The 5/5 pair matches N4 and S29. 18 characters as shown, within 20."
+  },
+  "N6": {
+   "s": "アンロック",
+   "back": "unlock",
+   "why": "The same word as S15 and every other unlock string; 5 katakana, inside the 5 CJK budget."
+  },
+  "N7": {
+   "s": "無料の %lld 個を使い切りました。アンロックすると、このカットリングも保存されます。",
+   "back": "free-of %lld pieces (obj) used-up. unlock-if, this cutling also gets-saved.",
+   "why": "Same sentence as N1 without the continue step, because the Share form is already Cutling's own; the app name is left out so カットリング means only the item. 41 characters as shown, within 45."
+  },
+  "N8": {
+   "s": "このカットリングは残してあります。アプリを開いてアンロックすると保存されます。",
+   "back": "this cutling (topic) left-kept is. app (obj) open-and unlock-if gets-saved.",
+   "why": "〜てあります says it was set aside on purpose, which reassures before the step; アプリ rather than the name again, as in N1, so カットリング is the item. 39 characters, within 40."
+  }
+ }
+}

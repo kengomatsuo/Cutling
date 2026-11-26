@@ -1,0 +1,44 @@
+{
+  "fil": {
+    "N1": {
+      "s": "Nagamit mo na ang lahat ng %lld libreng cutling. Ituloy sa Cutling at i-unlock para ma-save ang bagong cutling.",
+      "back": "Used you already the all of 5 free cutling. Continue in Cutling and unlock so-that be-saved the new cutling.",
+      "why": "First sentence is S3's, word for word; the second has N8's shape (go to Cutling, unlock, so it is saved), with 'Ituloy' because the person is carrying on what they started; 'bagong cutling' names the item; 108 of 110."
+    },
+    "N2": {
+      "s": "Nagamit mo na ang lahat ng %lld libreng cutling. I-unlock sa Cutling para makapag-save pa.",
+      "back": "Used you already the all of 5 free cutling. Unlock in Cutling so-that can-save more.",
+      "why": "Same opening as N1; 'sa Cutling' says where the unlock happens, since this reply cannot open it; 'makapag-save' is S7's verb; 'pa' (more) is the everyday word for carrying on; 87 of 90."
+    },
+    "N3": {
+      "s": "Na-save. May isa pang libre.",
+      "back": "Saved. There-is one more free.",
+      "why": "'May isa pang libre' says one free one is still there, which sounds like room left, where 'isa na lang' (only one left) would sound like a countdown; 28 of 30."
+    },
+    "N4": {
+      "s": "Na-save. Puno na, %lld sa %lld.",
+      "back": "Saved. Full already, 5 of 5.",
+      "why": "'Puno na' is K1's word for the free places being filled, and '5 sa 5' is how S5 and M4 say a count; both numbers stay in brief order; 25 of 30 with 5 and 5."
+    },
+    "N5": {
+      "s": "Puno na, %lld sa %lld. I-unlock para ma-save.",
+      "back": "Full already, 5 of 5. Unlock so-that be-saved.",
+      "why": "Opens with N4's exact words so the bar reads as the next step; 'ma-save' is object-focus with the object left out, as Filipino does when the thing is in hand, so it means 'so it gets saved'; 39 of 40."
+    },
+    "N6": {
+      "s": "I-unlock",
+      "back": "Unlock",
+      "why": "The same button verb as S15, sitting where 'I-save' usually is; 8 of 10."
+    },
+    "N7": {
+      "s": "Nagamit mo na ang lahat ng %lld libreng cutling. I-unlock ang Cutling para ma-save ito.",
+      "back": "Used you already the all of 5 free cutling. Unlock the Cutling so-that be-saved this.",
+      "why": "S3's opening again; 'ito' points at the item shown on the form below; 'I-unlock ang Cutling' is M1's command; 84 of 90."
+    },
+    "N8": {
+      "s": "Itinabi muna ito para sa iyo. Buksan ang Cutling at i-unlock para ma-save.",
+      "back": "Set-aside for-now this for you. Open the Cutling and unlock so-that be-saved.",
+      "why": "'Itinabi' (set aside) is what a person does with something they will hand over later, and 'muna' says it is waiting; 'para sa iyo' is the vocab's 'iyong' address; 74 of 80."
+    }
+  }
+}

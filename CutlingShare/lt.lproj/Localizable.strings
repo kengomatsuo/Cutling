@@ -47,3 +47,8 @@
 "Limit Reached" = "Pasiekta riba";
 "Cannot add more text cutlings." = "Negalima pridėti daugiau tekstinių cutlings.";
 "Cannot add more image cutlings." = "Negalima pridėti daugiau vaizdinių cutlings.";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"Unlock" = "Atrakinti";
+"You've used your %lld free cutlings. Unlock Cutling and this one is saved for you." = "Panaudojote visus %lld nemokamus Cutlingus. Atrakinę Cutling, išsaugosite ir šį.";
+"Kept for you. Open Cutling to unlock and save it." = "Šis Cutlingas jūsų palauks. Atidarę ir atrakinę Cutling, jį išsaugosite.";

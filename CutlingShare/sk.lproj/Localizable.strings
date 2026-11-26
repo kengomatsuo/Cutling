@@ -47,3 +47,8 @@
 "Limit Reached" = "Limit dosiahnutý";
 "Cannot add more text cutlings." = "Nemožno pridať ďalšie textové cutlingy.";
 "Cannot add more image cutlings." = "Nemožno pridať ďalšie obrázkové cutlingy.";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"Unlock" = "Odomknúť";
+"You've used your %lld free cutlings. Unlock Cutling and this one is saved for you." = "Využili ste všetkých %lld bezplatných cutlingov. Keď Cutling odomknete, tento sa uloží.";
+"Kept for you. Open Cutling to unlock and save it." = "Tento cutling na vás počká. Uloží sa, keď otvoríte Cutling a odomknete ho.";

@@ -1,0 +1,86 @@
+{
+  "gu": {
+    "N1": {
+      "s": "તમારી %lld મફત જગ્યા ભરાઈ ગઈ છે. કટલિંગમાં ચાલુ રાખો તો અનલૉક કરીને આ કટલિંગ પણ સાચવી શકશો.",
+      "back": "your 5 free place filled gone is. Cutling-in continue keep then unlock having-done this cutling also save will-be-able.",
+      "why": "Opens with S3's own 'મફત જગ્યા ભરાઈ ગઈ છે'; 'ચાલુ રાખો' is the vocab's continue word, so the sentence names the button the system shows beside it, and the 'X તો Y' condition is how a speaker says continue and you can save it. Same in gu and gu-IN: Gujarati is written one way, and both folders' vocab files are identical."
+    },
+    "N2": {
+      "s": "તમારી %lld મફત જગ્યા ભરાઈ ગઈ છે. વધુ સાચવવા કટલિંગ ખોલીને અનલૉક કરો.",
+      "back": "your 5 free place filled gone is. more to-save Cutling having-opened unlock do.",
+      "why": "Here the app cannot open itself, so the person is told to open it ('ખોલીને'); 'વધુ સાચવ-' repeats S2's title so the reply and the sheet they will see share their words. Same in gu and gu-IN: Gujarati is written one way, and both folders' vocab files are identical."
+    },
+    "N3": {
+      "s": "સચવાઈ ગયું, એક મફત જગ્યા બાકી",
+      "back": "got-saved gone, one free place remaining",
+      "why": "'સચવાઈ ગયું' is the spoken 'it's saved', neuter like the vocab's 'થઈ ગયું', so no gender is guessed for કટલિંગ; 'બાકી' without છે is the clipped capsule form K1 uses. 29 characters. Same in gu and gu-IN: Gujarati is written one way, and both folders' vocab files are identical."
+    },
+    "N4": {
+      "s": "સચવાઈ ગયું, %1$lld/%2$lld મફત જગ્યા ભરાઈ",
+      "back": "got-saved gone, 5/5 free place filled",
+      "why": "Same opening as N3 so the two capsules read as one voice; the used/total pair takes S29's '%1$lld/%2$lld' shape and 'ભરાઈ' is K1's word for full. Shows 'સચવાઈ ગયું, 5/5 મફત જગ્યા ભરાઈ', 30 characters. Same in gu and gu-IN: Gujarati is written one way, and both folders' vocab files are identical."
+    },
+    "N5": {
+      "s": "%1$lld/%2$lld મફત જગ્યા ભરાઈ, અનલૉક કરી આ સાચવો",
+      "back": "5/5 free place filled, unlock having-done this save",
+      "why": "K1's 'મફત જગ્યા ભરાઈ' with N4's pair; 'અનલૉક કરી આ સાચવો' (unlock and save this) tells the person the item in hand is waiting, without a tap instruction the bar's own look already gives. About 30 aksharas, inside 32. Same in gu and gu-IN: Gujarati is written one way, and both folders' vocab files are identical."
+    },
+    "N6": {
+      "s": "અનલૉક કરો",
+      "back": "unlock do",
+      "why": "S15's button word, so the Share sheet and the unlock sheet say the same verb; 'X કરો' is how Gujarati iOS buttons are labelled ('રદ કરો'), and it renders narrower than 10 Latin letters. Same in gu and gu-IN: Gujarati is written one way, and both folders' vocab files are identical."
+    },
+    "N7": {
+      "s": "તમારી %lld મફત જગ્યા ભરાઈ ગઈ છે. કટલિંગ અનલૉક કરો તો આ પણ સચવાઈ જશે.",
+      "back": "your 5 free place filled gone is. Cutling unlock do then this also got-saved will-go.",
+      "why": "'આ' points at the item shown in the form below, which avoids 'કટલિંગ' twice in one line meaning the app and the item; 'પણ' (this one too) says the item is not lost. Same in gu and gu-IN: Gujarati is written one way, and both folders' vocab files are identical."
+    },
+    "N8": {
+      "s": "આ તમારા માટે રાખી મૂક્યું છે. કટલિંગ ખોલીને અનલૉક કરો, એટલે એ સચવાઈ જશે.",
+      "back": "this your for keep put-away is. Cutling having-opened unlock do, so it got-saved will-go.",
+      "why": "'રાખી મૂક્યું છે' is the everyday 'put it away for you', which keeps 'સચવાઈ જશે' (will be saved) for what unlocking does; the pronoun 'આ' takes neuter agreement, so no gender is guessed for કટલિંગ. Same in gu and gu-IN: Gujarati is written one way, and both folders' vocab files are identical."
+    }
+  },
+  "gu-IN": {
+    "N1": {
+      "s": "તમારી %lld મફત જગ્યા ભરાઈ ગઈ છે. કટલિંગમાં ચાલુ રાખો તો અનલૉક કરીને આ કટલિંગ પણ સાચવી શકશો.",
+      "back": "your 5 free place filled gone is. Cutling-in continue keep then unlock having-done this cutling also save will-be-able.",
+      "why": "Opens with S3's own 'મફત જગ્યા ભરાઈ ગઈ છે'; 'ચાલુ રાખો' is the vocab's continue word, so the sentence names the button the system shows beside it, and the 'X તો Y' condition is how a speaker says continue and you can save it. Same in gu and gu-IN: Gujarati is written one way, and both folders' vocab files are identical."
+    },
+    "N2": {
+      "s": "તમારી %lld મફત જગ્યા ભરાઈ ગઈ છે. વધુ સાચવવા કટલિંગ ખોલીને અનલૉક કરો.",
+      "back": "your 5 free place filled gone is. more to-save Cutling having-opened unlock do.",
+      "why": "Here the app cannot open itself, so the person is told to open it ('ખોલીને'); 'વધુ સાચવ-' repeats S2's title so the reply and the sheet they will see share their words. Same in gu and gu-IN: Gujarati is written one way, and both folders' vocab files are identical."
+    },
+    "N3": {
+      "s": "સચવાઈ ગયું, એક મફત જગ્યા બાકી",
+      "back": "got-saved gone, one free place remaining",
+      "why": "'સચવાઈ ગયું' is the spoken 'it's saved', neuter like the vocab's 'થઈ ગયું', so no gender is guessed for કટલિંગ; 'બાકી' without છે is the clipped capsule form K1 uses. 29 characters. Same in gu and gu-IN: Gujarati is written one way, and both folders' vocab files are identical."
+    },
+    "N4": {
+      "s": "સચવાઈ ગયું, %1$lld/%2$lld મફત જગ્યા ભરાઈ",
+      "back": "got-saved gone, 5/5 free place filled",
+      "why": "Same opening as N3 so the two capsules read as one voice; the used/total pair takes S29's '%1$lld/%2$lld' shape and 'ભરાઈ' is K1's word for full. Shows 'સચવાઈ ગયું, 5/5 મફત જગ્યા ભરાઈ', 30 characters. Same in gu and gu-IN: Gujarati is written one way, and both folders' vocab files are identical."
+    },
+    "N5": {
+      "s": "%1$lld/%2$lld મફત જગ્યા ભરાઈ, અનલૉક કરી આ સાચવો",
+      "back": "5/5 free place filled, unlock having-done this save",
+      "why": "K1's 'મફત જગ્યા ભરાઈ' with N4's pair; 'અનલૉક કરી આ સાચવો' (unlock and save this) tells the person the item in hand is waiting, without a tap instruction the bar's own look already gives. About 30 aksharas, inside 32. Same in gu and gu-IN: Gujarati is written one way, and both folders' vocab files are identical."
+    },
+    "N6": {
+      "s": "અનલૉક કરો",
+      "back": "unlock do",
+      "why": "S15's button word, so the Share sheet and the unlock sheet say the same verb; 'X કરો' is how Gujarati iOS buttons are labelled ('રદ કરો'), and it renders narrower than 10 Latin letters. Same in gu and gu-IN: Gujarati is written one way, and both folders' vocab files are identical."
+    },
+    "N7": {
+      "s": "તમારી %lld મફત જગ્યા ભરાઈ ગઈ છે. કટલિંગ અનલૉક કરો તો આ પણ સચવાઈ જશે.",
+      "back": "your 5 free place filled gone is. Cutling unlock do then this also got-saved will-go.",
+      "why": "'આ' points at the item shown in the form below, which avoids 'કટલિંગ' twice in one line meaning the app and the item; 'પણ' (this one too) says the item is not lost. Same in gu and gu-IN: Gujarati is written one way, and both folders' vocab files are identical."
+    },
+    "N8": {
+      "s": "આ તમારા માટે રાખી મૂક્યું છે. કટલિંગ ખોલીને અનલૉક કરો, એટલે એ સચવાઈ જશે.",
+      "back": "this your for keep put-away is. Cutling having-opened unlock do, so it got-saved will-go.",
+      "why": "'રાખી મૂક્યું છે' is the everyday 'put it away for you', which keeps 'સચવાઈ જશે' (will be saved) for what unlocking does; the pronoun 'આ' takes neuter agreement, so no gender is guessed for કટલિંગ. Same in gu and gu-IN: Gujarati is written one way, and both folders' vocab files are identical."
+    }
+  }
+}

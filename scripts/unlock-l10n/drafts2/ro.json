@@ -1,0 +1,44 @@
+{
+  "ro": {
+    "N1": {
+      "s": "Ai folosit cele %lld cutling-uri gratuite. Continuă în Cutling, deblochează-l și se salvează și acesta.",
+      "back": "You-have used the 5 cutlings free. Continue in Cutling, unlock-it and self saves also this-one.",
+      "why": "Same order as S28, an imperative then what follows from it; „Continuă în” echoes the system's continue-in-app choice, and „și acesta” sets this item beside the five."
+    },
+    "N2": {
+      "s": "Ai folosit cele %lld cutling-uri gratuite. Deschide Cutling și deblochează mai multe.",
+      "back": "You-have used the 5 cutlings free. Open Cutling and unlock more.",
+      "why": "Same first sentence as N1 and N7 so the state has one wording; nothing can continue in the app here, so it says where to go, and „mai multe” agrees with the neuter plural cutling-uri."
+    },
+    "N3": {
+      "s": "Salvat. Mai ai un loc gratis.",
+      "back": "Saved. More you-have one place free.",
+      "why": "„Mai ai” is how a Romanian says something is still left; „gratis” is the keyboard's word, as in K1."
+    },
+    "N4": {
+      "s": "Salvat. %lld din %lld gratis",
+      "back": "Saved. 5 of 5 free",
+      "why": "The count pair from S29 in the keyboard's „gratis”; 5 din 5 says the free places are full without a second sentence."
+    },
+    "N5": {
+      "s": "%lld din %lld gratis. Deblochează și-l salvezi",
+      "back": "5 of 5 free. Unlock and-it you-save",
+      "why": "Same count pair as N4, then the verb for the tap; „și-l” is the spoken contraction that fits the 40-character bar, and the item is the „-l”."
+    },
+    "N6": {
+      "s": "Deblochează",
+      "back": "Unlock",
+      "why": "The same verb as S15 so one action keeps one word; 11 characters, one over the budget, because the imperative has no shorter form."
+    },
+    "N7": {
+      "s": "Ai folosit cele %lld cutling-uri gratuite. Deblochează Cutling și se salvează și acesta.",
+      "back": "You-have used the 5 cutlings free. Unlock Cutling and self saves also this-one.",
+      "why": "The item is on screen in the form above, so „acesta” points at it; same shape as N1 so the two places say the same thing."
+    },
+    "N8": {
+      "s": "Am păstrat ce voiai să salvezi. Deschide Cutling, deblochează-l și se salvează.",
+      "back": "I-have kept what you-wanted to save. Open Cutling, unlock-it and self saves.",
+      "why": "First person singular as in S19 and M8; „ce voiai să salvezi” names the item without stacking „cutling-ul” beside Cutling."
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+ "mr": {
+  "N1": {
+   "s": "तुमच्या %lld मोफत जागा भरल्या आहेत. कटलिंगमध्ये पुढे चला, तिथे अनलॉक केले की हे कटलिंगही जतन होईल.",
+   "back": "Your 5 free places filled have. Cutling-in forward go, there unlock done that this cutling-too saved will-become.",
+   "why": "Opens with the first batch's 'मोफत जागा भरल्या आहेत'; 'पुढे चला' is the vocab's continue word, so it matches the button the system offers; -ही says this one joins the five. Same in mr-IN: both vocab files are identical and Marathi is written alike across India."
+  },
+  "N2": {
+   "s": "तुमच्या %lld मोफत जागा भरल्या आहेत. आणखी जतन करायला कटलिंग उघडून अनलॉक करा.",
+   "back": "Your 5 free places filled have. More to-save Cutling opening unlock do.",
+   "why": "No continue here, so the way out is the plain instruction 'open and unlock' in the polite imperative; 'आणखी जतन करायला' puts the reason first, as Marathi does. Same in mr-IN: both vocab files are identical and Marathi is written alike across India."
+  },
+  "N3": {
+   "s": "जतन झाले. एक मोफत जागा उरली",
+   "back": "Saved became. One free place remained.",
+   "why": "Impersonal 'जतन झाले' confirms without an actor; उरली agrees with feminine जागा; no closing stop, like K1's capsule; plain एक, not एकच, so it carries no alarm. Same in mr-IN: both vocab files are identical and Marathi is written alike across India."
+  },
+  "N4": {
+   "s": "जतन झाले. %2$lld पैकी %1$lld मोफत जागा भरल्या",
+   "back": "Saved became. 5 out-of 5 free places filled.",
+   "why": "Same confirmation as N3, then S5's total-first count, so positional placeholders; it states the fact, the bar in N5 carries the unlock. Same in mr-IN: both vocab files are identical and Marathi is written alike across India."
+  },
+  "N5": {
+   "s": "%2$lld पैकी %1$lld मोफत जागा भरल्या. अनलॉक करून हे जतन करा",
+   "back": "5 out-of 5 free places filled. Unlock doing this save do.",
+   "why": "The bar is tapped, so the second half is an imperative ('unlock and save this'), which also tells the person the item is waiting; हे is the item they just tried to save. Same in mr-IN: both vocab files are identical and Marathi is written alike across India."
+  },
+  "N6": {
+   "s": "अनलॉक करा",
+   "back": "Unlock do",
+   "why": "The same button words as S15, so the Share sheet's button matches the sheet's. Same in mr-IN: both vocab files are identical and Marathi is written alike across India."
+  },
+  "N7": {
+   "s": "तुमच्या %lld मोफत जागा भरल्या आहेत. कटलिंग अनलॉक केले की हेही जतन होईल.",
+   "back": "Your 5 free places filled have. Cutling unlock done that this-too saved will-become.",
+   "why": "The item is on the form under this row, so हेही ('this too') names it without writing कटलिंग twice for the app and the item; 'केले की' is the spoken 'once you do'. Same in mr-IN: both vocab files are identical and Marathi is written alike across India."
+  },
+  "N8": {
+   "s": "हे तुमच्यासाठी राखून ठेवले आहे. कटलिंग उघडून अनलॉक केले की ते जतन होईल.",
+   "back": "This you-for kept-aside placed is. Cutling opening unlock done that it saved will-become.",
+   "why": "'राखून ठेवले' is held back for someone, not yet saved, which keeps it apart from जतन; the second sentence is N7's 'केले की' with 'उघडून' added. Same in mr-IN: both vocab files are identical and Marathi is written alike across India."
+  }
+ },
+ "mr-IN": {
+  "N1": {
+   "s": "तुमच्या %lld मोफत जागा भरल्या आहेत. कटलिंगमध्ये पुढे चला, तिथे अनलॉक केले की हे कटलिंगही जतन होईल.",
+   "back": "Your 5 free places filled have. Cutling-in forward go, there unlock done that this cutling-too saved will-become.",
+   "why": "Opens with the first batch's 'मोफत जागा भरल्या आहेत'; 'पुढे चला' is the vocab's continue word, so it matches the button the system offers; -ही says this one joins the five. Same in mr-IN: both vocab files are identical and Marathi is written alike across India."
+  },
+  "N2": {
+   "s": "तुमच्या %lld मोफत जागा भरल्या आहेत. आणखी जतन करायला कटलिंग उघडून अनलॉक करा.",
+   "back": "Your 5 free places filled have. More to-save Cutling opening unlock do.",
+   "why": "No continue here, so the way out is the plain instruction 'open and unlock' in the polite imperative; 'आणखी जतन करायला' puts the reason first, as Marathi does. Same in mr-IN: both vocab files are identical and Marathi is written alike across India."
+  },
+  "N3": {
+   "s": "जतन झाले. एक मोफत जागा उरली",
+   "back": "Saved became. One free place remained.",
+   "why": "Impersonal 'जतन झाले' confirms without an actor; उरली agrees with feminine जागा; no closing stop, like K1's capsule; plain एक, not एकच, so it carries no alarm. Same in mr-IN: both vocab files are identical and Marathi is written alike across India."
+  },
+  "N4": {
+   "s": "जतन झाले. %2$lld पैकी %1$lld मोफत जागा भरल्या",
+   "back": "Saved became. 5 out-of 5 free places filled.",
+   "why": "Same confirmation as N3, then S5's total-first count, so positional placeholders; it states the fact, the bar in N5 carries the unlock. Same in mr-IN: both vocab files are identical and Marathi is written alike across India."
+  },
+  "N5": {
+   "s": "%2$lld पैकी %1$lld मोफत जागा भरल्या. अनलॉक करून हे जतन करा",
+   "back": "5 out-of 5 free places filled. Unlock doing this save do.",
+   "why": "The bar is tapped, so the second half is an imperative ('unlock and save this'), which also tells the person the item is waiting; हे is the item they just tried to save. Same in mr-IN: both vocab files are identical and Marathi is written alike across India."
+  },
+  "N6": {
+   "s": "अनलॉक करा",
+   "back": "Unlock do",
+   "why": "The same button words as S15, so the Share sheet's button matches the sheet's. Same in mr-IN: both vocab files are identical and Marathi is written alike across India."
+  },
+  "N7": {
+   "s": "तुमच्या %lld मोफत जागा भरल्या आहेत. कटलिंग अनलॉक केले की हेही जतन होईल.",
+   "back": "Your 5 free places filled have. Cutling unlock done that this-too saved will-become.",
+   "why": "The item is on the form under this row, so हेही ('this too') names it without writing कटलिंग twice for the app and the item; 'केले की' is the spoken 'once you do'. Same in mr-IN: both vocab files are identical and Marathi is written alike across India."
+  },
+  "N8": {
+   "s": "हे तुमच्यासाठी राखून ठेवले आहे. कटलिंग उघडून अनलॉक केले की ते जतन होईल.",
+   "back": "This you-for kept-aside placed is. Cutling opening unlock done that it saved will-become.",
+   "why": "'राखून ठेवले' is held back for someone, not yet saved, which keeps it apart from जतन; the second sentence is N7's 'केले की' with 'उघडून' added. Same in mr-IN: both vocab files are identical and Marathi is written alike across India."
+  }
+ }
+}

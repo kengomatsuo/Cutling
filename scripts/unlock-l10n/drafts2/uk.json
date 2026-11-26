@@ -1,0 +1,44 @@
+{
+  "uk": {
+    "N1": {
+      "s": "Усі %lld безплатних місць зайнято. Продовжте в програмі, щоб розблокувати її й зберегти цей Катлінг.",
+      "back": "All 5 free-of-charge places occupied. Continue (you, polite) in program, in-order-to unlock her and save this Cutling.",
+      "why": "«програма» is the word iOS itself uses for an app, and being feminine («її») it can't be confused with «цей Катлінг», the item, in the same sentence. 97 characters."
+    },
+    "N2": {
+      "s": "Усі %lld безплатних місць зайнято. Щоб зберігати більше, відкрийте й розблокуйте Катлінг.",
+      "back": "All 5 free-of-charge places occupied. In-order-to save more, open (you, polite) and unlock Cutling.",
+      "why": "The same opening as N1 and N7. «зберігати більше» repeats S2's «Зберігайте більше», and two verbs share the app name as one object. 86 characters."
+    },
+    "N3": {
+      "s": "Збережено. Лишилося одне місце",
+      "back": "Saved. Remained one place",
+      "why": "The impersonal «-но» form needs no agreement, and «лишилося» is the everyday short form. «місце» is the slot word used again in N1, N2, N5 and N7. Exactly 30 characters."
+    },
+    "N4": {
+      "s": "Збережено. Безплатно: %lld з %lld",
+      "back": "Saved. Free-of-charge: 5 of 5",
+      "why": "The second half is S29 word for word, so the keyboard and the main screen show the same count. The numbers keep their order, so no positional forms are needed. 27 characters."
+    },
+    "N5": {
+      "s": "Зайнято %lld з %lld. Розблокувати й зберегти",
+      "back": "Occupied 5 of 5. Unlock and save",
+      "why": "«Зайнято» as in K1 and the openers above. The infinitive pair reads as what the tap does, like K1's «Розблокувати», and «зберегти» says the item in hand is not lost. 38 characters."
+    },
+    "N6": {
+      "s": "Розблокувати",
+      "back": "Unlock",
+      "why": "The same infinitive as S15 and M1, which is how Ukrainian iOS labels buttons. It has 12 letters against a 10 budget, but every shorter verb (Купити, Придбати, Відімкнути) means something else or promises a charge that this button does not make."
+    },
+    "N7": {
+      "s": "Усі %lld безплатних місць зайнято. Розблокуйте програму, і цей Катлінг збережеться.",
+      "back": "All 5 free-of-charge places occupied. Unlock (you, polite) program, and this Cutling will-save-itself.",
+      "why": "The opening and «програма» are the same as in N1. The reflexive future «збережеться» says the app saves the item with no further step from the person. 80 characters."
+    },
+    "N8": {
+      "s": "Цей Катлінг чекає на вас. Відкрийте й розблокуйте програму, і він збережеться.",
+      "back": "This Cutling waits for you. Open (you, polite) and unlock program, and it will-save-itself.",
+      "why": "«чекає на вас» is how Ukrainians are told a parcel is held for them, so the item is kept and the app needs no «ми». «Цей» stops «Катлінг» reading as the app (as in M5), and the ending matches N7. 78 characters."
+    }
+  }
+}

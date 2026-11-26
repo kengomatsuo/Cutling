@@ -1,0 +1,86 @@
+{
+  "nl": {
+    "N1": {
+      "s": "Je %lld gratis Cutlings zijn op. Ga door in Cutling en ontgrendel, dan wordt de nieuwe alsnog bewaard.",
+      "back": "Your 5 free Cutlings are used-up. Go on in Cutling and unlock, then becomes the new-one still saved.",
+      "why": "'Zijn op' is the K1 word for used up; 'Ga door' is the vocabulary's continue button, so the line matches the button iOS shows; 'alsnog' tells them the item they asked for is not lost; 'de nieuwe' because Siri has nothing on screen to point at."
+    },
+    "N2": {
+      "s": "Je %lld gratis Cutlings zijn op. Open Cutling en ontgrendel om verder te bewaren.",
+      "back": "Your 5 free Cutlings are used-up. Open Cutling and unlock to further to save.",
+      "why": "Same opening as N1 so the limit has one wording; here the app cannot take over, so the person is sent to open it, and 'verder bewaren' echoes S2 'Blijf bewaren'."
+    },
+    "N3": {
+      "s": "Bewaard · nog één gratis plek",
+      "back": "Saved · still one free place",
+      "why": "Capsule in the K1 shape with the middle dot; 'plek' is S6's word for room, 'nog één' with accents says one is left; 29 characters."
+    },
+    "N4": {
+      "s": "Bewaard · %lld van %lld gratis",
+      "back": "Saved · 5 of 5 free",
+      "why": "The used-of-total pair from S29 and M4, so '5 van 5' reads as full without a word that sounds like a warning; 24 characters."
+    },
+    "N5": {
+      "s": "%lld van %lld gratis · Ontgrendel en bewaar",
+      "back": "5 of 5 free · Unlock and save",
+      "why": "The same pair as N4 so the keyboard counts one way; the verbs after the dot are what the tap does, and 'bewaar' tells them this item is still coming; 37 characters."
+    },
+    "N6": {
+      "s": "Ontgrendel",
+      "back": "Unlock",
+      "why": "S15's button verb, imperative like every Dutch iOS button; exactly 10 characters."
+    },
+    "N7": {
+      "s": "Je %lld gratis Cutlings zijn op. Ontgrendel Cutling, dan wordt deze alsnog bewaard.",
+      "back": "Your 5 free Cutlings are used-up. Unlock Cutling, then becomes this-one still saved.",
+      "why": "N1's opening and 'alsnog bewaard'; 'deze' points at the item the form already shows under the notice."
+    },
+    "N8": {
+      "s": "Je Cutling staat klaar. Open Cutling en ontgrendel, dan wordt hij bewaard.",
+      "back": "Your Cutling stands ready. Open Cutling and unlock, then becomes he saved.",
+      "why": "'Staat klaar' says the item is held and waiting without using 'bewaard', which is kept for the real save; 'je Cutling' marks the item as theirs so it does not read as the app; 'hij' for a de-word, as Dutch speaks."
+    }
+  },
+  "nl-NL": {
+    "N1": {
+      "s": "Je %lld gratis Cutlings zijn op. Ga door in Cutling en ontgrendel, dan wordt de nieuwe alsnog bewaard.",
+      "back": "Your 5 free Cutlings are used-up. Go on in Cutling and unlock, then becomes the new-one still saved.",
+      "why": "'Zijn op' is the K1 word for used up; 'Ga door' is the vocabulary's continue button, so the line matches the button iOS shows; 'alsnog' tells them the item they asked for is not lost; 'de nieuwe' because Siri has nothing on screen to point at. Same in nl-NL: the vocabulary files are identical and the nl folder already writes Netherlands Dutch."
+    },
+    "N2": {
+      "s": "Je %lld gratis Cutlings zijn op. Open Cutling en ontgrendel om verder te bewaren.",
+      "back": "Your 5 free Cutlings are used-up. Open Cutling and unlock to further to save.",
+      "why": "Same opening as N1 so the limit has one wording; here the app cannot take over, so the person is sent to open it, and 'verder bewaren' echoes S2 'Blijf bewaren'. Same in nl-NL: the vocabulary files are identical and the nl folder already writes Netherlands Dutch."
+    },
+    "N3": {
+      "s": "Bewaard · nog één gratis plek",
+      "back": "Saved · still one free place",
+      "why": "Capsule in the K1 shape with the middle dot; 'plek' is S6's word for room, 'nog één' with accents says one is left; 29 characters. Same in nl-NL: the vocabulary files are identical and the nl folder already writes Netherlands Dutch."
+    },
+    "N4": {
+      "s": "Bewaard · %lld van %lld gratis",
+      "back": "Saved · 5 of 5 free",
+      "why": "The used-of-total pair from S29 and M4, so '5 van 5' reads as full without a word that sounds like a warning; 24 characters. Same in nl-NL: the vocabulary files are identical and the nl folder already writes Netherlands Dutch."
+    },
+    "N5": {
+      "s": "%lld van %lld gratis · Ontgrendel en bewaar",
+      "back": "5 of 5 free · Unlock and save",
+      "why": "The same pair as N4 so the keyboard counts one way; the verbs after the dot are what the tap does, and 'bewaar' tells them this item is still coming; 37 characters. Same in nl-NL: the vocabulary files are identical and the nl folder already writes Netherlands Dutch."
+    },
+    "N6": {
+      "s": "Ontgrendel",
+      "back": "Unlock",
+      "why": "S15's button verb, imperative like every Dutch iOS button; exactly 10 characters. Same in nl-NL: the vocabulary files are identical and the nl folder already writes Netherlands Dutch."
+    },
+    "N7": {
+      "s": "Je %lld gratis Cutlings zijn op. Ontgrendel Cutling, dan wordt deze alsnog bewaard.",
+      "back": "Your 5 free Cutlings are used-up. Unlock Cutling, then becomes this-one still saved.",
+      "why": "N1's opening and 'alsnog bewaard'; 'deze' points at the item the form already shows under the notice. Same in nl-NL: the vocabulary files are identical and the nl folder already writes Netherlands Dutch."
+    },
+    "N8": {
+      "s": "Je Cutling staat klaar. Open Cutling en ontgrendel, dan wordt hij bewaard.",
+      "back": "Your Cutling stands ready. Open Cutling and unlock, then becomes he saved.",
+      "why": "'Staat klaar' says the item is held and waiting without using 'bewaard', which is kept for the real save; 'je Cutling' marks the item as theirs so it does not read as the app; 'hij' for a de-word, as Dutch speaks. Same in nl-NL: the vocabulary files are identical and the nl folder already writes Netherlands Dutch."
+    }
+  }
+}

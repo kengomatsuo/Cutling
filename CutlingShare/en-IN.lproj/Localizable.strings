@@ -47,3 +47,8 @@
 "Limit Reached" = "Limit Reached";
 "Cannot add more text cutlings." = "Cannot add more text cutlings.";
 "Cannot add more image cutlings." = "Cannot add more image cutlings.";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"Unlock" = "Unlock";
+"You've used your %lld free cutlings. Unlock Cutling and this one is saved for you." = "You’ve used all %lld free cutlings. Unlock Cutling, and this one will be saved.";
+"Kept for you. Open Cutling to unlock and save it." = "This one’s been kept for you. Open Cutling and unlock to save it.";

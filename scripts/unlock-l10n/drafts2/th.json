@@ -1,0 +1,44 @@
+{
+  "th": {
+    "N1": {
+      "s": "เก็บคัตลิงฟรีครบ %lld รายการแล้ว ไปต่อในคัตลิงเพื่อปลดล็อก แล้วจะเก็บรายการนี้ไว้ให้",
+      "back": "kept cutling free complete 5 items already go-on in Cutling to unlock then will keep item this keep-aside for-you",
+      "why": "Opens with S3's own ครบ…แล้ว clause so the limit reads the same everywhere; ไปต่อใน matches the system's continue-in-app choice, and ไว้ให้ promises the item is saved for them."
+    },
+    "N2": {
+      "s": "เก็บคัตลิงฟรีครบ %lld รายการแล้ว เปิดคัตลิงเพื่อปลดล็อก แล้วเก็บต่อได้เลย",
+      "back": "kept cutling free complete 5 items already open Cutling to unlock then keep continue can at-once",
+      "why": "Here the Shortcut cannot hand over, so the way out is เปิด (open) the app; เก็บต่อได้ reuses S2's carry-on-saving words and promises nothing about this item."
+    },
+    "N3": {
+      "s": "เก็บแล้ว เหลือฟรีอีกรายการเดียว",
+      "back": "kept already left free another item single",
+      "why": "เก็บแล้ว is the done-state of the one saving verb; รายการเดียว (just one item) says one is left the way a Thai speaker would, with no digit to read."
+    },
+    "N4": {
+      "s": "เก็บแล้ว ครบ %lld จาก %lld รายการฟรี",
+      "back": "kept already complete 5 from 5 items free",
+      "why": "Same opening as N3, then S5's X จาก Y count with ครบ to say the free places are now filled; variable order matches, so plain %lld is safe."
+    },
+    "N5": {
+      "s": "ฟรีครบ %lld จาก %lld แตะปลดล็อกเพื่อเก็บไว้",
+      "back": "free complete 5 from 5 tap unlock to keep-aside",
+      "why": "Cut to fit one keyboard row (about 31 Thai cells with the numbers in); เก็บไว้ tells them the item is held and gets saved once they unlock, and แตะ follows K1's tap prompt."
+    },
+    "N6": {
+      "s": "ปลดล็อก",
+      "back": "unlock",
+      "why": "The same verb as every unlock string from S14 on; one word fits where the save button sits."
+    },
+    "N7": {
+      "s": "เก็บคัตลิงฟรีครบ %lld รายการแล้ว ปลดล็อกคัตลิงเพื่อเก็บรายการนี้ไว้ให้",
+      "back": "kept cutling free complete 5 items already unlock Cutling to keep item this keep-aside for-you",
+      "why": "Same limit clause as N1 and S3; the second sentence says what the green ปลดล็อก button beside it does, ending on ไว้ให้ so the item is clearly theirs."
+    },
+    "N8": {
+      "s": "พักรายการนี้ไว้ให้แล้ว เปิดคัตลิงและปลดล็อก แล้วจะเก็บให้ทันที",
+      "back": "set-aside item this keep for-you already open Cutling and unlock then will keep for-you immediately",
+      "why": "พัก…ไว้ (set aside) says the item is held but not yet in the list, so it does not clash with เก็บ, which here means saved; no reason is given for the app not opening, only the way out."
+    }
+  }
+}

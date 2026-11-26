@@ -1,0 +1,44 @@
+{
+ "sv": {
+  "N1": {
+   "s": "Du har använt alla %lld gratis cutlings. Fortsätt i Cutling och lås upp, så sparas den här cutlingen.",
+   "back": "You have used all %lld free cutlings. Continue in Cutling and unlock, so is-saved this here cutling-the.",
+   "why": "Opens with the same sentence as S3 so the limit always sounds the same. \"Fortsätt i Cutling\" names the step Siri offers, and the \"…, så sparas…\" construction says the item gets saved without promising anything."
+  },
+  "N2": {
+   "s": "Du har använt alla %lld gratis cutlings. Öppna Cutling och lås upp för att spara fler.",
+   "back": "You have used all %lld free cutlings. Open Cutling and unlock for to save more.",
+   "why": "The same first sentence as N1. Here the app cannot be opened for the person, so it says where to go: \"Öppna Cutling\", then \"lås upp\", the verb on the unlock button."
+  },
+  "N3": {
+   "s": "Sparad. En gratisplats kvar",
+   "back": "Saved. One free-slot left",
+   "why": "\"Sparad\" agrees with \"en cutling\". \"gratisplats\" is the singular of K1's \"gratisplatser\", so the keyboard keeps one word for a slot. No closing period, the same capsule style as K1."
+  },
+  "N4": {
+   "s": "Sparad. %lld av %lld använda",
+   "back": "Saved. %lld of %lld used",
+   "why": "Reads as the next step after N3. \"av\" is the pair from S29 and M4, and \"5 av 5\" already says it is full, which keeps the line at 22 characters. Same number order as English, so plain %lld twice."
+  },
+  "N5": {
+   "s": "%lld av %lld använda. Lås upp, så sparas den",
+   "back": "%lld of %lld used. Unlock, so is-saved it",
+   "why": "Picks up N4's \"5 av 5 använda\". \"den\" is the item the person just tried to save, which they can see, and \"…, så sparas den\" tells them it is not lost. 38 characters."
+  },
+  "N6": {
+   "s": "Lås upp",
+   "back": "Unlock",
+   "why": "The same verb as S15 and M1. It is a plain imperative, as Swedish iOS writes the button at the top right of a form."
+  },
+  "N7": {
+   "s": "Du har använt alla %lld gratis cutlings. Lås upp Cutling, så sparas den här åt dig.",
+   "back": "You have used all %lld free cutlings. Unlock Cutling, so is-saved this here for you.",
+   "why": "The item sits on the form right under the notice, so \"den här\" points at it. \"åt dig\" is the everyday way to say something is done for you. 80 characters."
+  },
+  "N8": {
+   "s": "Den här cutlingen väntar på dig. Öppna Cutling och lås upp, så sparas den.",
+   "back": "This here cutling-the waits for you. Open Cutling and unlock, so is-saved it.",
+   "why": "\"väntar på dig\" tells the person it was kept, warmly and without technical words. Lowercase \"cutlingen\" is the item and capital \"Cutling\" is the app, as in S23."
+  }
+ }
+}

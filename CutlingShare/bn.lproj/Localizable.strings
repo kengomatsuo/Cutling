@@ -47,3 +47,8 @@
 "Limit Reached" = "সীমা পূর্ণ";
 "Cannot add more text cutlings." = "আর টেক্সট কাটলিং যোগ করা যাচ্ছে না।";
 "Cannot add more image cutlings." = "আর ছবি কাটলিং যোগ করা যাচ্ছে না।";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"Unlock" = "আনলক";
+"You've used your %lld free cutlings. Unlock Cutling and this one is saved for you." = "%lldটি ফ্রি কাটলিংই রাখা হয়ে গেছে। কাটলিং আনলক করলে এটাও রাখা হবে।";
+"Kept for you. Open Cutling to unlock and save it." = "এটা আপনার জন্য তোলা রইল। কাটলিং খুলে আনলক করলেই রাখা হয়ে যাবে।";

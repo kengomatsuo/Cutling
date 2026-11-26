@@ -1,0 +1,12 @@
+{
+  "cs": {
+    "N1": {"s": "Využili jste všech %lld cutlingů zdarma. Pokračujte v Cutlingu, odemkněte ho a tento cutling se uloží.", "back": "Used-up you-have all 5 cutlings free. Continue-(you, formal) in Cutling, unlock it and this cutling itself will-save.", "why": "Opens with S3's exact sentence; the imperative chain names the one path the system prompt offers, and 'tento cutling se uloží' tells the person the item they asked Siri for is not lost."},
+    "N2": {"s": "Využili jste všech %lld cutlingů zdarma. Další si uložíte, až Cutling otevřete a odemknete.", "back": "Used-up you-have all 5 cutlings free. Further-ones yourself you-will-save, when Cutling you-open and you-unlock.", "why": "Here nothing can continue in the app, so 'až … otevřete a odemknete' says where and when without a command the reply cannot carry out; 'si uložíte' is S4's verb."},
+    "N3": {"s": "Uloženo · Zbývá jeden zdarma", "back": "Saved · Remains one free", "why": "Keyboard capsule in K1's shape (two segments, middle dot); 'jeden' agrees with the unspoken cutling, and the word reads warmer than a digit; 28 characters."},
+    "N4": {"s": "Uloženo · Využito %lld z %lld zdarma", "back": "Saved · Used 5 of 5 free", "why": "The second segment is S21's impersonal 'Využito … z …', so 5 of 5 says the free ones are filled without a limit word; exactly 30 characters."},
+    "N5": {"s": "%lld z %lld zdarma · Odemknout a uložit", "back": "5 of 5 free · Unlock and save", "why": "State first in S29's form, then the two infinitives a tap does, as K1 ends on 'Odemknout'; 'uložit' promises the item in hand is kept; 33 of 40 characters."},
+    "N6": {"s": "Odemknout", "back": "Unlock", "why": "Same infinitive button verb as S15, sitting where the Share form's save button usually is; 9 characters."},
+    "N7": {"s": "Využili jste všech %lld cutlingů zdarma. Odemkněte Cutling a uloží se i tento.", "back": "Used-up you-have all 5 cutlings free. Unlock-(you, formal) Cutling and will-save itself also this-one.", "why": "The item is on the form above, so 'i tento' points at it and says it joins the five already kept; 75 characters."},
+    "N8": {"s": "Tento cutling na vás počká. Až Cutling otevřete a odemknete, uloží se.", "back": "This cutling for you will-wait. When Cutling you-open and you-unlock, it-will-save itself.", "why": "'počká na vás' is how a Czech speaker says something is put aside for you, and it skips the failure the person does not need to hear; same 'až … otevřete a odemknete' as N2; 70 characters."}
+  }
+}

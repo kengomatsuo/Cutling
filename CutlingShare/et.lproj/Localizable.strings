@@ -47,3 +47,8 @@
 "Limit Reached" = "Limiit saavutatud";
 "Cannot add more text cutlings." = "Rohkem teksti cutlings ei saa lisada.";
 "Cannot add more image cutlings." = "Rohkem pildi cutlings ei saa lisada.";
+
+/* MARK: - Free limit and unlock (scripts/unlock-l10n, written blind per locale) */
+"Unlock" = "Ava kõik";
+"You've used your %lld free cutlings. Unlock Cutling and this one is saved for you." = "Kõik %lld tasuta cutlingit on kasutatud. Avage kõik, siis salvestub ka see.";
+"Kept for you. Open Cutling to unlock and save it." = "See cutling on teie jaoks hoiul. Avage Cutlingis täisversioon ja see salvestub.";

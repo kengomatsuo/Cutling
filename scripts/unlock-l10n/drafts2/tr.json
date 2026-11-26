@@ -1,0 +1,44 @@
+{
+  "tr": {
+    "N1": {
+      "s": "%lld ücretsiz Cutling’inizi kullandınız. Cutling’de devam edip kilidi açtığınızda bu da saklanır.",
+      "back": "5 free Cutling-your-(acc.) you-used. Cutling-in continuing lock-the when-you-open this too is-kept.",
+      "why": "First sentence is S3's word for word so the limit always has the same name; \"bu da\" (this one too) points at the item Siri was saving, and \"-tığınızda\" (when you) keeps it an outcome, not a condition; 94 characters."
+    },
+    "N2": {
+      "s": "%lld ücretsiz Cutling’inizi kullandınız. Daha fazla saklamak için kilidi Cutling’den açın.",
+      "back": "5 free Cutling-your-(acc.) you-used. More to-keep for lock-the Cutling-from open-you.",
+      "why": "The ablative \"Cutling’den açın\" is how Turkish says do it from inside an app (as in \"Ayarlar’dan açın\"), which avoids the clumsy \"Cutling’i açıp kilidini açın\" with two opens; 87 characters."
+    },
+    "N3": {
+      "s": "Saklandı, 1 ücretsiz yer kaldı",
+      "back": "Was-kept, 1 free room remained",
+      "why": "Two short facts joined by a comma as a Turkish speaker would say them; \"ücretsiz yer\" is K1's slot word; no placeholder exists, so the digit is fixed; exactly 30 characters."
+    },
+    "N4": {
+      "s": "Saklandı · %lld/%lld ücretsiz",
+      "back": "Was-kept · 5/5 free",
+      "why": "After the dot comes S29's own label, so the keyboard shows the same \"5/5 ücretsiz\" the main screen shows and 5/5 says full without a verb; \"ücretsiz yer dolu\" ran to 31; 23 characters."
+    },
+    "N5": {
+      "s": "%lld/%lld dolu · Kilidi açın, bu da saklansın",
+      "back": "5/5 full · Lock-the open-you, this too let-it-be-kept",
+      "why": "Ends on the imperative \"Kilidi açın\" like K1 so the bar reads as something to tap, and \"bu da saklansın\" says the item waits; \"ücretsiz yer\" dropped because N4 named it one save earlier and 40 would not hold it; 39 characters."
+    },
+    "N6": {
+      "s": "Kilidi Aç",
+      "back": "Lock Open",
+      "why": "The same title-case button verb as S15, so the Share sheet and the unlock sheet use one word; 9 characters."
+    },
+    "N7": {
+      "s": "%lld ücretsiz Cutling’inizi kullandınız. Cutling’in kilidini açtığınızda bu da saklanır.",
+      "back": "5 free Cutling-your-(acc.) you-used. Cutling-of lock-its when-you-open this too is-kept.",
+      "why": "S3's first sentence again, then S28's \"Cutling’in kilidini\" because this row sits inside another app and has to name whose lock; same \"bu da saklanır\" ending as N1; 85 characters."
+    },
+    "N8": {
+      "s": "Bu Cutling sizi bekliyor. Kilidi Cutling’den açtığınızda saklanır.",
+      "back": "This Cutling you-(acc.) is-waiting. Lock-the Cutling-from when-you-open it-is-kept.",
+      "why": "\"Sizi bekliyor\" (it is waiting for you) is the warm everyday way to say something is held, and matches the dashed tile waiting on the unlock sheet; \"Cutling’den\" repeats N2's open-from-the-app phrase; 66 characters."
+    }
+  }
+}

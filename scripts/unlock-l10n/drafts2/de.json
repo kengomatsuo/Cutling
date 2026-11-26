@@ -1,0 +1,86 @@
+{
+  "de": {
+    "N1": {
+      "s": "Du nutzt alle %lld kostenlosen Cutlings. Schalte Cutling in der App frei, dann ist das neue gespeichert.",
+      "back": "You use all 5 free Cutlings. Switch Cutling in the app free, then is the new-one saved.",
+      "why": "Opens with the S3 frame so the limit always sounds the same; 'in der App' carries the continue-in-app step; 'das neue' points back to 'Cutlings' and avoids a second 'Cutling' right after the app's name."
+    },
+    "N2": {
+      "s": "Du nutzt alle %lld kostenlosen Cutlings. Für mehr Platz schalte Cutling in der App frei.",
+      "back": "You use all 5 free Cutlings. For more room switch Cutling in the app free.",
+      "why": "Same opening as N1; 'Für mehr Platz' picks up S2's 'Platz für mehr', and putting the goal before the imperative is ordinary spoken German, as in 'Für mehr Infos tippe hier'."
+    },
+    "N3": {
+      "s": "Gespeichert · ein Platz frei",
+      "back": "Saved · one place free",
+      "why": "The status word first, then the dot, as in K1; 'Platz frei' means vacant, as on a car park sign, so it does not clash with 'kostenlos'; 'ein' spelled out reads warmer than a digit; 28 characters."
+    },
+    "N4": {
+      "s": "Gespeichert · %lld von %lld belegt",
+      "back": "Saved · 5 of 5 occupied",
+      "why": "'%lld von %lld' and 'belegt' are M4's pair and S22's word, so the full state looks the same everywhere; no alarm word, it just reports; 28 characters."
+    },
+    "N5": {
+      "s": "%lld von %lld · Zum Speichern freischalten",
+      "back": "5 of 5 · For-the saving unlock",
+      "why": "The pair was just shown with 'belegt' in N4, so here it stands alone to make room; 'Zum Speichern freischalten' says that unlocking saves this item and reads as a tap target; 36 characters."
+    },
+    "N6": {
+      "s": "Freischalten",
+      "back": "Unlock",
+      "why": "S15's button word, so the action keeps one name; it is 12 characters, 2 over the budget, and no shorter word means this: 'Entsperren' is unlocking the phone's screen and 'Kaufen' would promise a purchase the button does not make."
+    },
+    "N7": {
+      "s": "Du nutzt alle %lld kostenlosen Cutlings. Schalte Cutling frei, dann ist das neue gespeichert.",
+      "back": "You use all 5 free Cutlings. Switch Cutling free, then is the new-one saved.",
+      "why": "N1's sentence without 'in der App', because the green button beside it opens the app; same words for the same promise; 90 characters."
+    },
+    "N8": {
+      "s": "Für dich zurückgelegt. Schalte Cutling in der App frei, dann ist es gespeichert.",
+      "back": "For you put-back. Switch Cutling in the app free, then is it saved.",
+      "why": "'Für dich zurückgelegt' is what a German shop says when it holds an item for you, so 'kept' sounds warm, not technical; it avoids 'aufgehoben', which also means cancelled; the second sentence is N1's."
+    }
+  },
+  "de-DE": {
+    "N1": {
+      "s": "Du nutzt alle %lld kostenlosen Cutlings. Schalte Cutling in der App frei, dann ist das neue gespeichert.",
+      "back": "You use all 5 free Cutlings. Switch Cutling in the app free, then is the new-one saved.",
+      "why": "Opens with the S3 frame so the limit always sounds the same; 'in der App' carries the continue-in-app step; 'das neue' points back to 'Cutlings' and avoids a second 'Cutling' right after the app's name. Same in de-DE: Germany writes this no differently from general German."
+    },
+    "N2": {
+      "s": "Du nutzt alle %lld kostenlosen Cutlings. Für mehr Platz schalte Cutling in der App frei.",
+      "back": "You use all 5 free Cutlings. For more room switch Cutling in the app free.",
+      "why": "Same opening as N1; 'Für mehr Platz' picks up S2's 'Platz für mehr', and putting the goal before the imperative is ordinary spoken German, as in 'Für mehr Infos tippe hier'. Same in de-DE: Germany writes this no differently from general German."
+    },
+    "N3": {
+      "s": "Gespeichert · ein Platz frei",
+      "back": "Saved · one place free",
+      "why": "The status word first, then the dot, as in K1; 'Platz frei' means vacant, as on a car park sign, so it does not clash with 'kostenlos'; 'ein' spelled out reads warmer than a digit; 28 characters. Same in de-DE: Germany writes this no differently from general German."
+    },
+    "N4": {
+      "s": "Gespeichert · %lld von %lld belegt",
+      "back": "Saved · 5 of 5 occupied",
+      "why": "'%lld von %lld' and 'belegt' are M4's pair and S22's word, so the full state looks the same everywhere; no alarm word, it just reports; 28 characters. Same in de-DE: Germany writes this no differently from general German."
+    },
+    "N5": {
+      "s": "%lld von %lld · Zum Speichern freischalten",
+      "back": "5 of 5 · For-the saving unlock",
+      "why": "The pair was just shown with 'belegt' in N4, so here it stands alone to make room; 'Zum Speichern freischalten' says that unlocking saves this item and reads as a tap target; 36 characters. Same in de-DE: Germany writes this no differently from general German."
+    },
+    "N6": {
+      "s": "Freischalten",
+      "back": "Unlock",
+      "why": "S15's button word, so the action keeps one name; it is 12 characters, 2 over the budget, and no shorter word means this: 'Entsperren' is unlocking the phone's screen and 'Kaufen' would promise a purchase the button does not make. Same in de-DE: Germany writes this no differently from general German."
+    },
+    "N7": {
+      "s": "Du nutzt alle %lld kostenlosen Cutlings. Schalte Cutling frei, dann ist das neue gespeichert.",
+      "back": "You use all 5 free Cutlings. Switch Cutling free, then is the new-one saved.",
+      "why": "N1's sentence without 'in der App', because the green button beside it opens the app; same words for the same promise; 90 characters. Same in de-DE: Germany writes this no differently from general German."
+    },
+    "N8": {
+      "s": "Für dich zurückgelegt. Schalte Cutling in der App frei, dann ist es gespeichert.",
+      "back": "For you put-back. Switch Cutling in the app free, then is it saved.",
+      "why": "'Für dich zurückgelegt' is what a German shop says when it holds an item for you, so 'kept' sounds warm, not technical; it avoids 'aufgehoben', which also means cancelled; the second sentence is N1's. Same in de-DE: Germany writes this no differently from general German."
+    }
+  }
+}

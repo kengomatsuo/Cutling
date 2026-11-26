@@ -1,0 +1,44 @@
+{
+  "id": {
+    "N1": {
+      "s": "Jatah %lld cutling gratis sudah terpakai. Lanjutkan ke Cutling, buka versi lengkap, dan cutling ini tersimpan.",
+      "back": "Allowance 5 cutling free already used. Continue to Cutling, unlock version complete, and cutling this saved.",
+      "why": "Opens with S3's 'Jatah … sudah terpakai' (without 'Anda', to fit 110) and uses the vocab's 'Lanjutkan' so the prompt matches the system's continue button; the three steps are what the person actually does, in order."
+    },
+    "N2": {
+      "s": "Jatah %lld cutling gratis sudah terpakai. Buka versi lengkap di Cutling untuk menyimpan lagi.",
+      "back": "Allowance 5 cutling free already used. Unlock version complete in Cutling for saving again.",
+      "why": "Same first sentence as N1; 'di Cutling' sends the person to the app because this Shortcut cannot take them there, and 'menyimpan lagi' is how a speaker says being able to save again, exactly 90."
+    },
+    "N3": {
+      "s": "Tersimpan, tinggal 1 gratis",
+      "back": "Saved, remaining 1 free",
+      "why": "'Tinggal' is the everyday word for what is left; '1 gratis' follows S1's count-plus-'gratis' pattern, and the comma keeps the capsule one breath."
+    },
+    "N4": {
+      "s": "Tersimpan, %lld dari %lld gratis",
+      "back": "Saved, 5 of 5 free",
+      "why": "Same opening as N3, then S29's count pair word for word; '5 dari 5' shows the free places are filled without a second verb, within 30."
+    },
+    "N5": {
+      "s": "%lld dari %lld terisi. Simpan di versi lengkap",
+      "back": "5 of 5 filled. Save in version complete",
+      "why": "'Terisi' is what Indonesians say of filled places or seats and sits after 'X dari Y' where 'penuh' would not; 'Simpan di versi lengkap' says that tapping saves this item by unlocking, exactly 40."
+    },
+    "N6": {
+      "s": "Buka kunci",
+      "back": "Open lock",
+      "why": "The iOS verb for unlocking, and the only phrase that fits 10; bare 'Buka' would read as 'open', and the notice row above names 'versi lengkap'."
+    },
+    "N7": {
+      "s": "Jatah %lld cutling gratis sudah terpakai. Buka versi lengkap agar cutling ini tersimpan.",
+      "back": "Allowance 5 cutling free already used. Unlock version complete so-that cutling this saved.",
+      "why": "N1's first sentence again so the limit has one wording; 'agar … tersimpan' ties the unlock to saving the item on this form, and 'cutling ini' points at it."
+    },
+    "N8": {
+      "s": "Yang ini disisihkan untuk Anda. Buka versi lengkap di Cutling agar tersimpan.",
+      "back": "The one this set-aside for you. Unlock version complete in Cutling so-that saved.",
+      "why": "'Disisihkan untuk Anda' is how a shop says it is holding something for you; 'Yang ini' avoids starting a sentence with a capitalised 'Cutling' that would read as the app's name."
+    }
+  }
+}

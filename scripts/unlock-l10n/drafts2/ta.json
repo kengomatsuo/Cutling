@@ -1,0 +1,86 @@
+{
+ "ta": {
+  "N1": {
+   "s": "%lld இலவசக் கட்லிங்குகளையும் பயன்படுத்திவிட்டீர்கள். கட்லிங்கில் தொடர்ந்து அன்லாக் செய்தால், இதுவும் சேமிக்கப்படும்.",
+   "back": "5 free cutlings-ACC-all you-have-used-up. Cutling-in continuing if-unlock-do, this-too will-be-saved.",
+   "why": "Opens with S3's own sentence so the limit reads the same everywhere; தொடர் is the vocabulary's continue verb, matching the system's continue button, and இதுவும் (this too) says the item joins the five. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "N2": {
+   "s": "%lld இலவசக் கட்லிங்குகளையும் பயன்படுத்திவிட்டீர்கள். மேலும் சேமிக்க, கட்லிங்கைத் திறந்து அன்லாக் செய்யவும்.",
+   "back": "5 free cutlings-ACC-all you-have-used-up. more to-save, Cutling-ACC opening unlock do-please.",
+   "why": "Same first sentence as N1; purpose clause first, then 'open and unlock' as one polite -அவும் request, the form of S15; கட்லிங்கை with the accusative marks the app, not an item. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "N3": {
+   "s": "சேமிக்கப்பட்டது. இன்னும் ஓர் இடம் இலவசம்",
+   "back": "has-been-saved. still one place free",
+   "why": "சேமிக்கப்பட்டது is Tamil iOS's Saved; 'one more place is free' counts what is left, not what is gone, and echoes S1's இலவசம்; about 23 graphemes. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "N4": {
+   "s": "சேமிக்கப்பட்டது. %2$lld இலவச இடங்களில் %1$lld நிறைந்தன",
+   "back": "has-been-saved. 5 free places-in 5 filled",
+   "why": "Whole before part with positional placeholders, the form of S5 and S21; நிறைந்தன (filled) is K1's verb for the free places, plural to agree with the count; about 26 graphemes. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "N5": {
+   "s": "%2$lld இலவச இடங்களில் %1$lld நிறைந்தன. அன்லாக் செய்தால் சேமிக்கப்படும்",
+   "back": "5 free places-in 5 filled. if-unlock-do will-be-saved",
+   "why": "N4's state phrase repeated so the bar reads as the same fact; the saved item is the unstated subject of சேமிக்கப்படும், which Tamil allows; about 33 graphemes, one over 32, and dropping இலவச is the cut if it clips. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "N6": {
+   "s": "அன்லாக் செய்",
+   "back": "unlock do",
+   "why": "Bare imperative, the form Tamil iOS puts in the spot where the Save button (சேமி) sits, and M1's verb; 6 graphemes. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "N7": {
+   "s": "%lld இலவசக் கட்லிங்குகளையும் பயன்படுத்திவிட்டீர்கள். கட்லிங்கை அன்லாக் செய்தால், இதுவும் சேமிக்கப்படும்.",
+   "back": "5 free cutlings-ACC-all you-have-used-up. Cutling-ACC if-unlock-do, this-too will-be-saved.",
+   "why": "Same two sentences as N1, minus 'continuing', because the Share form's button is the unlock step itself; S3's first sentence again so the limit has one wording. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "N8": {
+   "s": "இது பத்திரமாக வைக்கப்பட்டுள்ளது. கட்லிங்கைத் திறந்து அன்லாக் செய்ததும் சேமிக்கப்படும்.",
+   "back": "this safely has-been-kept. Cutling-ACC opening unlock as-soon-as-done will-be-saved.",
+   "why": "பத்திரமாக (safely) is the word a Tamil speaker uses for something kept with care; passive keeps the app from saying 'we', as batch one does; செய்ததும் (as soon as) says the save waits only on the unlock. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  }
+ },
+ "ta-IN": {
+  "N1": {
+   "s": "%lld இலவசக் கட்லிங்குகளையும் பயன்படுத்திவிட்டீர்கள். கட்லிங்கில் தொடர்ந்து அன்லாக் செய்தால், இதுவும் சேமிக்கப்படும்.",
+   "back": "5 free cutlings-ACC-all you-have-used-up. Cutling-in continuing if-unlock-do, this-too will-be-saved.",
+   "why": "Opens with S3's own sentence so the limit reads the same everywhere; தொடர் is the vocabulary's continue verb, matching the system's continue button, and இதுவும் (this too) says the item joins the five. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "N2": {
+   "s": "%lld இலவசக் கட்லிங்குகளையும் பயன்படுத்திவிட்டீர்கள். மேலும் சேமிக்க, கட்லிங்கைத் திறந்து அன்லாக் செய்யவும்.",
+   "back": "5 free cutlings-ACC-all you-have-used-up. more to-save, Cutling-ACC opening unlock do-please.",
+   "why": "Same first sentence as N1; purpose clause first, then 'open and unlock' as one polite -அவும் request, the form of S15; கட்லிங்கை with the accusative marks the app, not an item. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "N3": {
+   "s": "சேமிக்கப்பட்டது. இன்னும் ஓர் இடம் இலவசம்",
+   "back": "has-been-saved. still one place free",
+   "why": "சேமிக்கப்பட்டது is Tamil iOS's Saved; 'one more place is free' counts what is left, not what is gone, and echoes S1's இலவசம்; about 23 graphemes. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "N4": {
+   "s": "சேமிக்கப்பட்டது. %2$lld இலவச இடங்களில் %1$lld நிறைந்தன",
+   "back": "has-been-saved. 5 free places-in 5 filled",
+   "why": "Whole before part with positional placeholders, the form of S5 and S21; நிறைந்தன (filled) is K1's verb for the free places, plural to agree with the count; about 26 graphemes. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "N5": {
+   "s": "%2$lld இலவச இடங்களில் %1$lld நிறைந்தன. அன்லாக் செய்தால் சேமிக்கப்படும்",
+   "back": "5 free places-in 5 filled. if-unlock-do will-be-saved",
+   "why": "N4's state phrase repeated so the bar reads as the same fact; the saved item is the unstated subject of சேமிக்கப்படும், which Tamil allows; about 33 graphemes, one over 32, and dropping இலவச is the cut if it clips. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "N6": {
+   "s": "அன்லாக் செய்",
+   "back": "unlock do",
+   "why": "Bare imperative, the form Tamil iOS puts in the spot where the Save button (சேமி) sits, and M1's verb; 6 graphemes. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "N7": {
+   "s": "%lld இலவசக் கட்லிங்குகளையும் பயன்படுத்திவிட்டீர்கள். கட்லிங்கை அன்லாக் செய்தால், இதுவும் சேமிக்கப்படும்.",
+   "back": "5 free cutlings-ACC-all you-have-used-up. Cutling-ACC if-unlock-do, this-too will-be-saved.",
+   "why": "Same two sentences as N1, minus 'continuing', because the Share form's button is the unlock step itself; S3's first sentence again so the limit has one wording. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  },
+  "N8": {
+   "s": "இது பத்திரமாக வைக்கப்பட்டுள்ளது. கட்லிங்கைத் திறந்து அன்லாக் செய்ததும் சேமிக்கப்படும்.",
+   "back": "this safely has-been-kept. Cutling-ACC opening unlock as-soon-as-done will-be-saved.",
+   "why": "பத்திரமாக (safely) is the word a Tamil speaker uses for something kept with care; passive keeps the app from saying 'we', as batch one does; செய்ததும் (as soon as) says the save waits only on the unlock. Same in ta and ta-IN: Apple ships one Tamil and the two vocabulary files are identical."
+  }
+ }
+}

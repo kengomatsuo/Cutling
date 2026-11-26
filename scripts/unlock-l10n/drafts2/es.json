@@ -1,0 +1,128 @@
+{
+ "es": {
+  "N1": {
+   "s": "Tus %lld cutlings gratis ya están en uso. Continúa en Cutling, desbloquéalo y este quedará guardado.",
+   "back": "Your %lld cutlings free already are in use. Continue in Cutling, unlock-it and this-one will-remain saved.",
+   "why": "S3's 'ya están en uso' avoids choosing Spain's perfect or Mexico's preterite; 'Continúa en Cutling' echoes the system's continue button."
+  },
+  "N2": {
+   "s": "Tus %lld cutlings gratis ya están en uso. Abre Cutling y desbloquéalo para guardar más.",
+   "back": "Your %lld cutlings free already are in use. Open Cutling and unlock-it for to-save more.",
+   "why": "Same opening as N1 so Siri says the limit one way; 'Abre' because this reply cannot hand over to the app."
+  },
+  "N3": {
+   "s": "Guardado. Te queda uno gratis",
+   "back": "Saved. To-you remains one free",
+   "why": "Masculine participle agrees with cutling; 'te queda uno' is how a speaker says one is left, with no 'solo' to press, 29 characters."
+  },
+  "N4": {
+   "s": "Guardado. Llevas %lld de %lld gratis",
+   "back": "Saved. You-carry %lld of %lld free",
+   "why": "Reuses S5's 'Llevas X de Y' and S29's 'gratis', so 5 of 5 reads as full without a limit word; 30 characters at 5 of 5."
+  },
+  "N5": {
+   "s": "%lld de %lld gratis. Desbloquea para guardarlo",
+   "back": "%lld of %lld free. Unlock to save-it",
+   "why": "S29's pair says the slots are full; 'guardarlo' points at the item they were just saving; exactly 40 characters at 5 of 5."
+  },
+  "N6": {
+   "s": "Desbloquear",
+   "back": "Unlock",
+   "why": "S15's infinitive, as Spanish iOS labels its bar buttons; 11 characters, one over the 10 budget, because no shorter verb means unlock."
+  },
+  "N7": {
+   "s": "Tus %lld cutlings gratis ya están en uso. Desbloquea Cutling y este quedará guardado.",
+   "back": "Your %lld cutlings free already are in use. Unlock Cutling and this-one will-remain saved.",
+   "why": "'este' points at the item shown in the form below; 'quedará guardado' says the app saves it for them, as in N1."
+  },
+  "N8": {
+   "s": "Tu cutling te espera. Abre Cutling, desbloquéalo y quedará guardado.",
+   "back": "Your cutling you awaits. Open Cutling, unlock-it and it-will-remain saved.",
+   "why": "'te espera' says it is held without the word 'guardar', which is kept for the save that unlocking brings; same tail as N1 and N7."
+  }
+ },
+ "es-ES": {
+  "N1": {
+   "s": "Ya has usado tus %lld cutlings gratis. Continúa en Cutling, desbloquéalo y este quedará guardado.",
+   "back": "Already you-have used your %lld cutlings free. Continue in Cutling, unlock-it and this-one will-remain saved.",
+   "why": "Present perfect, as Spain says something just finished and as its S3 does; 'Continúa en Cutling' echoes the system's continue button."
+  },
+  "N2": {
+   "s": "Ya has usado tus %lld cutlings gratis. Abre Cutling y desbloquéalo para guardar más.",
+   "back": "Already you-have used your %lld cutlings free. Open Cutling and unlock-it for to-save more.",
+   "why": "Same opening as N1; 'Abre' because this reply cannot hand over to the app."
+  },
+  "N3": {
+   "s": "Guardado. Te queda uno gratis",
+   "back": "Saved. To-you remains one free",
+   "why": "Masculine participle agrees with cutling; 'te queda uno' is how a speaker says one is left, with no 'solo' to press, 29 characters."
+  },
+  "N4": {
+   "s": "Guardado. Llevas %lld de %lld gratis",
+   "back": "Saved. You-carry %lld of %lld free",
+   "why": "Reuses S5's 'Llevas X de Y' and S29's 'gratis', so 5 of 5 reads as full without a limit word; 30 characters at 5 of 5."
+  },
+  "N5": {
+   "s": "%lld de %lld gratis. Desbloquea para guardarlo",
+   "back": "%lld of %lld free. Unlock to save-it",
+   "why": "S29's pair says the slots are full; 'guardarlo' points at the item they were just saving; exactly 40 characters at 5 of 5."
+  },
+  "N6": {
+   "s": "Desbloquear",
+   "back": "Unlock",
+   "why": "S15's infinitive, as Spanish iOS labels its bar buttons; 11 characters, one over the 10 budget, because no shorter verb means unlock."
+  },
+  "N7": {
+   "s": "Ya has usado tus %lld cutlings gratis. Desbloquea Cutling y este quedará guardado.",
+   "back": "Already you-have used your %lld cutlings free. Unlock Cutling and this-one will-remain saved.",
+   "why": "Spain's perfect; 'este' points at the item shown in the form below; 'quedará guardado' matches N1."
+  },
+  "N8": {
+   "s": "Tu cutling te espera. Abre Cutling, desbloquéalo y quedará guardado.",
+   "back": "Your cutling you awaits. Open Cutling, unlock-it and it-will-remain saved.",
+   "why": "'te espera' says it is held without the word 'guardar', which is kept for the save that unlocking brings; same tail as N1 and N7."
+  }
+ },
+ "es-MX": {
+  "N1": {
+   "s": "Ya usaste tus %lld cutlings gratis. Continúa en Cutling, desbloquéalo y este queda guardado.",
+   "back": "Already you-used your %lld cutlings free. Continue in Cutling, unlock-it and this-one remains saved.",
+   "why": "Preterite as Mexico says it and as its S3 does; the present 'queda' for what follows is how Mexico speaks a promise, where 'quedará' reads written."
+  },
+  "N2": {
+   "s": "Ya usaste tus %lld cutlings gratis. Abre Cutling y desbloquéalo para guardar más.",
+   "back": "Already you-used your %lld cutlings free. Open Cutling and unlock-it for to-save more.",
+   "why": "Same opening as N1; 'Abre' because this reply cannot hand over to the app."
+  },
+  "N3": {
+   "s": "Guardado. Te queda uno gratis",
+   "back": "Saved. To-you remains one free",
+   "why": "Masculine participle agrees with cutling; 'te queda uno' is how a speaker says one is left, with no 'solo' to press, 29 characters."
+  },
+  "N4": {
+   "s": "Guardado. Llevas %lld de %lld gratis",
+   "back": "Saved. You-carry %lld of %lld free",
+   "why": "Reuses S5's 'Llevas X de Y' and S29's 'gratis', so 5 of 5 reads as full without a limit word; 30 characters at 5 of 5."
+  },
+  "N5": {
+   "s": "%lld de %lld gratis. Desbloquea para guardarlo",
+   "back": "%lld of %lld free. Unlock to save-it",
+   "why": "S29's pair says the slots are full; 'guardarlo' points at the item they were just saving; exactly 40 characters at 5 of 5."
+  },
+  "N6": {
+   "s": "Desbloquear",
+   "back": "Unlock",
+   "why": "S15's infinitive, as Spanish iOS labels its bar buttons; 11 characters, one over the 10 budget, because no shorter verb means unlock."
+  },
+  "N7": {
+   "s": "Ya usaste tus %lld cutlings gratis. Desbloquea Cutling y este queda guardado.",
+   "back": "Already you-used your %lld cutlings free. Unlock Cutling and this-one remains saved.",
+   "why": "Mexico's preterite and spoken present, as in N1; 'este' points at the item shown in the form below."
+  },
+  "N8": {
+   "s": "Tu cutling te espera. Abre Cutling, desbloquéalo y queda guardado.",
+   "back": "Your cutling you awaits. Open Cutling, unlock-it and it-remains saved.",
+   "why": "'te espera' says it is held without 'guardar', which is kept for the save; Mexico's spoken present 'queda', as in N1 and N7."
+  }
+ }
+}

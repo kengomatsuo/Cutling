@@ -1,0 +1,44 @@
+{
+ "ca": {
+  "N1": {
+   "s": "Ja has omplert els %lld cutlings gratuïts. Continua a Cutling per desbloquejar-lo i el nou quedarà desat.",
+   "back": "Already you-have filled the 5 cutlings free. Continue in Cutling for to-unlock-it and the new-one will-remain saved.",
+   "why": "Opens with S3's verb for all used (omplir), without S3's possessive so N2 fits; Siri may speak this with nothing on screen, so \"el nou\" (the new one) names the item where \"aquest\" would point at nothing."
+  },
+  "N2": {
+   "s": "Ja has omplert els %lld cutlings gratuïts. Obre Cutling i desbloqueja’l per desar-ne més.",
+   "back": "Already you-have filled the 5 cutlings free. Open Cutling and unlock-it for to-save-of-them more.",
+   "why": "Same opening as N1; the partitive in \"desar-ne més\" is how a speaker says save more of them, and ’l can only mean Cutling."
+  },
+  "N3": {
+   "s": "Desat. En queda un de gratuït",
+   "back": "Saved. Of-them remains one of free",
+   "why": "\"En queda un de gratuït\" is the spoken partitive for one left; Desat is masculine for the cutling; 29 characters, no closing period, as a capsule takes it."
+  },
+  "N4": {
+   "s": "Desat. Ja tens %lld de %lld gratuïts",
+   "back": "Saved. Already you-have 5 of 5 free-ones",
+   "why": "\"Ja tens\" as in K1 and \"de\" as in S29, so the full count reads the same everywhere; 30 characters with single-digit numbers."
+  },
+  "N5": {
+   "s": "%lld de %lld gratuïts. Desbloqueja i es desarà",
+   "back": "5 of 5 free-ones. Unlock and itself it-will-save",
+   "why": "The S29 count says the places are full; \"i es desarà\" says the item saves itself after unlocking, where \"desa’l\" would hand the person a second job; exactly 40."
+  },
+  "N6": {
+   "s": "Desbloqueja",
+   "back": "Unlock",
+   "why": "The verb S15, M1 and K1 use, so the button and the notice above it say the same thing; 11 characters against 10, but Catalan has no shorter verb for unlock and the l and j are narrow, so it should set in about the width of 10."
+  },
+  "N7": {
+   "s": "Ja has omplert els %lld cutlings gratuïts. Desbloqueja Cutling i aquest quedarà desat.",
+   "back": "Already you-have filled the 5 cutlings free. Unlock Cutling and this-one will-remain saved.",
+   "why": "Same opening as N1 and N2; on the Share form the item is right there under the notice, so \"aquest\" points at it, and \"quedarà desat\" matches N1."
+  },
+  "N8": {
+   "s": "Aquest cutling t’espera. Es desarà quan obris i desbloquegis Cutling.",
+   "back": "This cutling you-waits-for. Itself it-will-save when you-open and you-unlock Cutling.",
+   "why": "\"T’espera\" says it was kept warmly without a second save verb next to desar; the two subjunctive verbs share one object, so no clitic can be read as the cutling instead of the app."
+  }
+ }
+}

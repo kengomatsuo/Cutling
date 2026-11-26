@@ -1,0 +1,44 @@
+{
+ "et": {
+  "N1": {
+   "s": "Kõik %lld tasuta cutlingit on kasutatud. Jätkake Cutlingis ja avage täisversioon, siis salvestub ka see.",
+   "back": "All 5 free cutling(partitive) are used. Continue(you-formal) Cutling-in and unlock(you-formal) full-version, then saves-itself also this.",
+   "why": "'Jätka' is the vocabulary's continue word, matching the system's continue button; 'täisversioon' is the unlocked app's one name (S23, M1); 'ka see' says this one joins the five. 101 characters."
+  },
+  "N2": {
+   "s": "Kõik %lld tasuta cutlingit on kasutatud. Et rohkem salvestada, avage Cutlingis täisversioon.",
+   "back": "All 5 free cutling(partitive) are used. In-order-to more to-save, unlock(you-formal) Cutling-in full-version.",
+   "why": "Same first sentence as N1 so Siri says the limit one way; an 'et' clause in front gives the purpose with a verb instead of 'salvestamiseks'. 89 characters."
+  },
+  "N3": {
+   "s": "Salvestatud. Jäi üks vaba koht",
+   "back": "Saved. Remained one vacant place",
+   "why": "'Koht' is the slot as in K1; 'vaba koht' (an open place, as on a booking) fits 30 characters where 'tasuta koht' would not, and verb-first 'Jäi üks…' is how Estonian says what is left. No final period, like K1. 30 characters."
+  },
+  "N4": {
+   "s": "%1$lld/%2$lld salvestatud. Kohad on täis",
+   "back": "5/5 saved. Places are full",
+   "why": "'5/5 salvestatud' reads as five of five saved, so it says both that this one went in and the count; 'kohad on täis' is the plain booking phrase and picks up N3's 'koht'. 30 characters."
+  },
+  "N5": {
+   "s": "%1$lld/%2$lld täis. Avage kõik ja see salvestub",
+   "back": "5/5 full. Unlock(you-formal) all and this saves-itself",
+   "why": "'Avage kõik' is K1's call and the sheet's button; 'salvestub' (gets saved on its own) is everyday Estonian UI and tells the person the item is not lost. 37 characters."
+  },
+  "N6": {
+   "s": "Ava kõik",
+   "back": "Unlock all",
+   "why": "The sheet's own button without the price (S15), singular imperative as Apple's buttons are, so the action has one name in every place. 8 characters."
+  },
+  "N7": {
+   "s": "Kõik %lld tasuta cutlingit on kasutatud. Avage kõik, siis salvestub ka see.",
+   "back": "All 5 free cutling(partitive) are used. Unlock(you-formal) all, then saves-itself also this.",
+   "why": "Names the 'Ava kõik' button beside it rather than 'täisversioon', so the notice and the button say the same verb; same closing clause as N1. 72 characters."
+  },
+  "N8": {
+   "s": "See cutling on teie jaoks hoiul. Avage Cutlingis täisversioon ja see salvestub.",
+   "back": "This cutling is you(formal) for in-safekeeping. Unlock(you-formal) Cutling-in full-version and it saves-itself.",
+   "why": "'Hoiul' is the word for something held safe for someone, without an app 'we'; Cutling is named because the button here could not open it, and 'see' points back to the cutling, the sentence's topic. 79 characters."
+  }
+ }
+}

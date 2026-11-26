@@ -1,0 +1,44 @@
+{
+ "hi": {
+  "N1": {
+   "s": "आपने सभी %lld मुफ़्त कटलिंग सहेज लिए हैं। कटलिंग में जारी रखें, अनलॉक करते ही यह नया कटलिंग भी सहेज लिया जाएगा।",
+   "back": "You-(erg) all 5 free Cutling save taken have. Cutling in continue keep, unlock doing as-soon-as this new Cutling also save taken will-be.",
+   "why": "The first sentence is S3's own, so the limit is said the same way everywhere. जारी रखें is the vocabulary's continue word, which matches the system's continue choice. 'नया कटलिंग' keeps the item apart from the app's name in the same sentence, and करते ही ('the moment you unlock') says the save follows the unlock without listing steps."
+  },
+  "N2": {
+   "s": "आपने सभी %lld मुफ़्त कटलिंग सहेज लिए हैं। और सहेजने के लिए कटलिंग खोलकर अनलॉक करें।",
+   "back": "You-(erg) all 5 free Cutling save taken have. More saving for Cutling having-opened unlock do.",
+   "why": "Same first sentence as N1. Here the app can't continue on its own, so the second sentence is one plain instruction. 'और सहेजने' echoes S2's 'और सहेजते रहें', and खोलकर अनलॉक करें ('open and unlock') is how a speaker joins two steps."
+  },
+  "N3": {
+   "s": "सहेजा गया, एक मुफ़्त जगह बाक़ी",
+   "back": "Saved went, one free space remaining",
+   "why": "The passive सहेजा गया needs no subject or gender for the reader. जगह is the slot word from S6 and K1. There is no है and no period, as in K1's capsule, and no बस ('only'), so nothing reads as a countdown. बाक़ी has the nukta to match मुफ़्त and ख़रीदारी."
+  },
+  "N4": {
+   "s": "सहेजा गया, %1$lld/%2$lld मुफ़्त जगहें भरीं",
+   "back": "Saved went, 5/5 free spaces filled",
+   "why": "Opens like N3, so the two capsules read as a pair. भरीं is K1's own short verb. In the keyboard's capsules the pair is written 5/5, which reads as 'full' at a glance; S29's '5 में से 5' sounds like counting when both numbers are the same, and N5 needs the shorter form to fit anyway. Positional placeholders keep used before total."
+  },
+  "N5": {
+   "s": "%1$lld/%2$lld मुफ़्त जगहें भरीं, अनलॉक करके इसे सहेजें",
+   "back": "5/5 free spaces filled, unlock having-done this save",
+   "why": "The same 5/5 and भरीं as N4, 30 clusters with the numbers in, inside the 32 budget. 'अनलॉक करके इसे सहेजें' is what the tap does, and इसे ('this') points to the item they were saving, so it doesn't sound lost."
+  },
+  "N6": {
+   "s": "अनलॉक करें",
+   "back": "Unlock do",
+   "why": "The same button verb as S15, in the करें form that सहेजें usually takes in this spot. Seven clusters."
+  },
+  "N7": {
+   "s": "आपने सभी %lld मुफ़्त कटलिंग सहेज लिए हैं। कटलिंग अनलॉक करते ही यह भी सहेज लिया जाएगा।",
+   "back": "You-(erg) all 5 free Cutling save taken have. Cutling unlock doing as-soon-as this also save taken will-be.",
+   "why": "Same first sentence as N1 and N2, and N1's करते ही turn. The item being shared sits right under this row, so 'यह भी' ('this one too') is enough. Masculine सहेज लिया जाएगा, as कटलिंग is treated in the first batch."
+  },
+  "N8": {
+   "s": "यह आपके लिए संभालकर रखा गया है। कटलिंग खोलकर अनलॉक करते ही यह सहेज लिया जाएगा।",
+   "back": "This you for carefully kept gone is. Cutling having-opened unlock doing as-soon-as this save taken will-be.",
+   "why": "संभालकर रखा ('kept safe for you') is the warm everyday phrase for holding something for someone, and it says nothing about why the app didn't open. The second sentence uses N2's खोलकर and N7's करते ही, so the share strings speak with one voice."
+  }
+ }
+}
