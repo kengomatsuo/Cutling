@@ -451,6 +451,8 @@ class KeyboardViewController: UIInputViewController {
     }
 
     private var heightConstraint: NSLayoutConstraint?
+    /// The keys' own height, kept while iOS holds the input view shorter (see installKeyboardView).
+    private var hostHeightConstraint: NSLayoutConstraint?
 
     /// The height for the current size class and orientation; before the host's traits arrive,
     /// read from the device and the screen.
@@ -473,6 +475,7 @@ class KeyboardViewController: UIInputViewController {
     private func updateHeight() {
         let height = currentHeight
         if let constraint = heightConstraint, constraint.constant != height { constraint.constant = height }
+        if let constraint = hostHeightConstraint, constraint.constant != height { constraint.constant = height }
     }
 
     private func installKeyboardView() {
@@ -559,12 +562,24 @@ class KeyboardViewController: UIInputViewController {
             view.addSubview(hc.view)
             hc.didMove(toParent: self)
 
+            // The keys keep their own height and sit on the bottom edge; only their top yields. On a cold switch iOS
+            // holds the input view at its default 245 pt before taking Cutling's height, and a view stretched to
+            // the input view's bounds laid the keys out at 245 pt and then moved every one of them as it grew. Pinned
+            // to the bottom, the keys stand where they end from the first frame and the growing view uncovers the
+            // bar above them, as Divvun's keyboard does (github.com/divvun/giellakbd-ios, Apache-2.0,
+            // Keyboard/Controllers/KeyboardViewController.swift, setupKeyboardContainer and initHeightConstraint).
+            let hostHeight = hc.view.heightAnchor.constraint(equalToConstant: currentHeight)
+            hostHeight.priority = UILayoutPriority(999)
+            let hostTop = hc.view.topAnchor.constraint(equalTo: view.topAnchor)
+            hostTop.priority = .defaultHigh
             NSLayoutConstraint.activate([
                 hc.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                 hc.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                hc.view.topAnchor.constraint(equalTo: view.topAnchor),
                 hc.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                hostTop,
+                hostHeight,
             ])
+            hostHeightConstraint = hostHeight
 
             hostingController = hc
             
