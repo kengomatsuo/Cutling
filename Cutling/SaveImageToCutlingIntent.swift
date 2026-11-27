@@ -18,7 +18,8 @@ struct SaveImageToCutlingIntent: AppIntent {
     static var title: LocalizedStringResource = "Save Image"
     static var description = IntentDescription("Save an image as a new cutling.")
 
-    @Parameter(title: "Image", supportedContentTypes: [.image])
+    /// iOS 17 has only the type-identifier form; iOS 18 calls it deprecated but reads it the same.
+    @Parameter(title: "Image", supportedTypeIdentifiers: ["public.image"])
     var image: IntentFile
 
     /// Starts in the background; at the free limit it continues in the app (iOS 26 and later).

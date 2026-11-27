@@ -141,7 +141,7 @@ final class SpotlightIndexer {
             item.expirationDate = expiresAt
         }
 
-        if #available(iOS 17.4, macOS 15.0, *) {
+        if #available(iOS 18, macOS 15.0, *) {
             let entity = CutlingAppEntity(id: cutling.id, name: cutling.name)
             let priority = (cutling.kind == .image) ? 10 : 1
             attributes.associateAppEntity(entity, priority: priority)
