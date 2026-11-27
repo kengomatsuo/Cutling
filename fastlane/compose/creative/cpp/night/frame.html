@@ -1,0 +1,124 @@
+<!doctype html><meta charset="utf-8">
+<!-- cpp/night (ASG250): d3/frame.html for one picture across a set: the spec is written into the page (SPEC), every
+     glow is drawn, screens and card art come by absolute URL, cards may carry their own HTML, and ?x= shifts the page
+     so each frame is saved as its own clip of the same picture.
+     Direction 3 "Night flight", any frame or strip from ?spec=<json>: devices lying tilted in the dark showing a
+     real screen, regions of that screen lifted off it with glow (real pixels, not redrawn), cards, and trails
+     of light between named anchors. -->
+<style>
+@font-face{font-family:Rounded;src:url(file:///System/Library/Fonts/SFNSRounded.ttf);font-weight:100 1000}
+:root{--mint:#5CF2C0;--sf:-apple-system,"SF Pro Display",system-ui,sans-serif}
+html,body{margin:0;overflow:hidden}
+body{position:relative;font-family:var(--sf)}
+h1{position:absolute;margin:0;font:800 196px/1.03 Rounded,var(--sf);letter-spacing:-3px;color:#fff;white-space:nowrap}
+h1 em{font-style:normal;color:var(--mint)}
+.fine{position:absolute;font:700 74px/1 Rounded,var(--sf);color:rgba(255,255,255,.72);white-space:nowrap;letter-spacing:-.5px}
+#scene{position:absolute;inset:0;perspective:7000px}
+.plane{position:absolute;transform-style:preserve-3d}.plane>*{position:absolute}
+.grid{left:-2300px;top:-1900px;width:6000px;height:6800px;transform:translateZ(-80px);opacity:.2;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='700' height='250'><rect x='18' y='18' width='664' height='214' rx='48' fill='none' stroke='%235CF2C0' stroke-width='5'/></svg>");
+  -webkit-mask-image:radial-gradient(closest-side,#000 10%,transparent 78%);mask-image:radial-gradient(closest-side,#000 10%,transparent 78%)}
+.under{transform:translateZ(-78px);filter:blur(120px)}
+.side{left:0;top:0;width:100%;height:100%}
+.face{left:0;top:0;width:100%;height:100%;background:#070908;box-shadow:inset 0 0 0 5px #5d6b67,inset 0 0 0 9px #101413}
+.face img{position:absolute}
+.slot{background:#C5C9D0;transform:translateZ(1px)}
+.shade{background:rgba(0,0,0,.34);filter:blur(36px)}
+.ghost{background:#fff;opacity:.1}
+.lift{background-repeat:no-repeat}
+.m{position:absolute;width:1px;height:1px}.mR{left:100%;top:50%}.mL{left:0;top:50%}.mT{left:62%;top:0}.mB{left:78%;top:100%}.mC{left:50%;top:50%}
+svg{position:absolute;left:0;top:0;pointer-events:none}
+.card{position:absolute;background:#fff;border-radius:64px;color:#000;box-sizing:border-box}
+.card .lab{position:absolute;left:0;top:-128px;font:700 64px/1 Rounded,var(--sf);color:#fff;white-space:nowrap;letter-spacing:-.5px;background:rgba(2,14,10,.82);padding:20px 34px 22px 28px;border-radius:999px}
+.card .lab::before{content:"";display:inline-block;width:30px;height:30px;border-radius:50%;background:var(--c);margin-right:22px;vertical-align:6px;box-shadow:0 0 30px var(--c)}
+.card p{margin:0;font:400 70px/90px var(--sf);letter-spacing:-.6px;white-space:nowrap}
+.card p s{text-decoration:none;color:#8A8A8E}
+.card.text{padding:44px 60px}
+.card.field{border-radius:92px;padding:32px 190px 32px 58px}
+.card.field u{position:absolute;right:26px;bottom:26px;width:150px;height:104px;border-radius:52px;background:#0088FF}
+.card.field u img{position:absolute;left:47px;top:22px;height:60px}
+.card.bubble{background:#0A84FF;color:#fff;border-radius:70px;padding:40px 60px}
+.card.bubble p{white-space:normal}
+.card.key{border-radius:calc(var(--w)*.0694);width:var(--w);height:calc(var(--w)*.3035)}
+.card.key img{position:absolute;left:calc(var(--w)*.05);top:calc(var(--w)*.054);width:calc(var(--w)*.082);height:calc(var(--w)*.07);object-fit:contain}
+.card.key b{position:absolute;left:calc(var(--w)*.152);top:calc(var(--w)*.052);font:650 calc(var(--w)*.073)/1 var(--sf);letter-spacing:-.02em;white-space:nowrap}
+.card.key i{position:absolute;left:calc(var(--w)*.052);top:calc(var(--w)*.1706);font:400 calc(var(--w)*.0612)/1 var(--sf);font-style:normal;letter-spacing:-.01em;color:#8A8A8E;white-space:nowrap}
+.card.mac{overflow:hidden;border-radius:44px}.card.mac img{display:block;width:100%}
+.chip{position:absolute;font:700 64px/1 Rounded,var(--sf);color:#fff;white-space:nowrap;letter-spacing:-.5px}
+.chip::before{content:"";display:inline-block;width:30px;height:30px;border-radius:50%;background:var(--c);margin-right:22px;vertical-align:6px;box-shadow:0 0 30px var(--c)}
+.caret{display:inline-block;width:6px;height:1.05em;background:#3D8BFF;vertical-align:-.16em;margin-left:3px;border-radius:3px}
+</style>
+<body>
+<div id="scene"></div>
+<svg id="trails" fill="none"></svg>
+<script>/*SPEC*/</script>
+<script>
+const spec = window.SPEC, B = document.body, scene = document.getElementById("scene");
+B.style.transform = `translateX(${-(+new URLSearchParams(location.search).get("x") || 0)}px)`; B.style.transformOrigin = "0 0";
+B.style.width = spec.W + "px"; B.style.height = spec.H + "px"; document.documentElement.style.height = spec.H + "px";
+// one quiet mint glow under the device; the owner found several colours on black too much
+B.style.background = spec.glows.map(g => `radial-gradient(${g[2]}px ${g[3]}px at ${g[0]}px ${g[1]}px,rgba(46,230,167,.2),transparent 70%)`).concat("linear-gradient(180deg,#020B09 0%,#041A14 55%,#052219 100%)").join(",");
+scene.style.perspectiveOrigin = spec.origin;
+const DEV = {  // the body's size, its corner, where the screen sits in it and how many body pixels one capture pixel is
+  phone: { w: 1400, h: 3040, r: 214, sx: 30, sy: 64, s: 1340 / 1320, sr: 180, W: 1320, H: 2868 },
+  pad: { w: 2160, h: 2848, r: 112, sx: 48, sy: 48, s: 1, sr: 64, W: 2064, H: 2752 } };
+const rgb = () => "92,242,192";   // every glow is the one mint; a piece's own colour (spec `c`) is no longer drawn
+for (const d of spec.devices) {
+  const D = DEV[d.kind], p = document.createElement("div"); p.className = "plane";
+  // a device given `zoom` is laid out at its drawn size, so its whole face lies inside the page and is painted;
+  // one given `scale` keeps its full-size box, which Chrome leaves half painted where the box runs far off the page
+  const zm = d.zoom || 1;
+  // each device carries its own perspective, so one far along the page looks as one at the start does
+  p.style.cssText = `zoom:${zm};left:${d.left / zm}px;top:${d.top / zm}px;width:${D.w}px;height:${D.h}px;transform:perspective(${7000 / zm}px) rotateX(${d.rx}deg) rotateZ(${d.rz}deg) scale(${d.scale || 1})`;
+  let h = (d.grid ? `<div class="grid"></div>` : "") + `<div class="under" style="left:-120px;top:-120px;width:${D.w + 240}px;height:${D.h + 240}px;border-radius:330px;background:rgba(46,230,167,.3)"></div>`;
+  for (let k = 11; k >= 1; k--) h += `<div class="side" style="border-radius:${D.r}px;transform:translateZ(${-k * 6}px);background:${k > 9 ? "#0c1210" : "#27332f"}"></div>`;
+  const src = d.src;
+  h += `<div class="face" style="border-radius:${D.r}px"><img src="${src}" style="left:${D.sx}px;top:${D.sy}px;width:${D.W * D.s}px;border-radius:${D.sr}px"></div>`;
+  for (const l of d.lifts || []) {
+    const box = `left:${D.sx + l.x * D.s}px;top:${D.sy + l.y * D.s}px;width:${l.w * D.s}px;height:${l.h * D.s}px;border-radius:${(l.r ?? 44) * D.s}px;`, c = rgb(l.c);
+    h += `<div class="slot" style="${box}"></div><div class="shade" style="${box}transform:translateZ(3px) translate(${l.z / zm * .18}px,${l.z / zm * .26}px)"></div>`;
+    for (const f of [.33, .66]) h += `<div class="ghost" style="${box}transform:translateZ(${l.z / zm * f}px);box-shadow:0 0 30px rgba(${c},.2)"></div>`;
+    h += `<div class="lift" id="${l.id}" style="${box}background-image:url(${src});background-size:${D.W * D.s}px ${D.H * D.s}px;background-position:${-l.x * D.s}px ${-l.y * D.s}px;transform:translateZ(${l.z / zm}px) scale(${l.k ?? 1.08});box-shadow:0 0 0 2px rgba(${c},.45),0 0 46px rgba(${c},.28),0 30px 60px rgba(0,0,0,.3)"><span class="m mR"></span><span class="m mL"></span><span class="m mT"></span><span class="m mB"></span><span class="m mC"></span></div>`;
+  }
+  p.innerHTML = h; scene.appendChild(p);
+}
+for (const hd of spec.heads) { const e = document.createElement("h1"); e.innerHTML = hd.html; e.dataset.w = hd.w;
+  e.style.cssText = `${hd.right != null ? "right:" + hd.right : "left:" + hd.left}px;top:${hd.top ?? 170}px;font-size:${spec.h1size}px;${hd.right != null ? "text-align:right;" : ""}${spec.lh ? "line-height:" + spec.lh + ";" : ""}`; B.appendChild(e);
+  if (hd.fine) { const f = document.createElement("div"); f.className = "fine"; f.textContent = hd.fine; f.style.cssText = `${hd.right != null ? "right:" + hd.right : "left:" + hd.left}px;font-size:${spec.h1size * .38}px`; f.dataset.after = "1"; B.appendChild(f); e._fine = f; } }
+addEventListener("load", async () => { await document.fonts.ready;
+  for (const e of document.querySelectorAll("h1")) { let fs = parseFloat(e.style.fontSize); while (e.scrollWidth > +e.dataset.w + 1 && fs > 60) { fs *= .97; e.style.fontSize = fs + "px"; }
+    if (e._fine) { const g = e._fine; g.style.top = (e.offsetTop + e.offsetHeight + 30) + "px"; let s = parseFloat(g.style.fontSize);
+      while (g.scrollWidth > +e.dataset.w + 1 && s > 30) { s *= .97; g.style.fontSize = s + "px"; } } } });
+for (const c of spec.cards || []) {
+  const e = document.createElement("div"); e.id = c.id; e.className = "card " + c.type; const g = rgb(c.c);
+  const cz = spec.cz || 1;   // cards are drawn cz times larger on the iPad's wider page; their places stay in page pixels
+  e.style.cssText = `--c:#5CF2C0;--w:${c.w}px;left:${c.left / cz}px;top:${c.top / cz}px;${c.w ? `width:${c.w}px;` : ""}transform:rotate(${c.rot || 0}deg);box-shadow:0 0 0 2px rgba(${g},.3),0 40px 80px rgba(0,0,0,.55)`;
+  const lab = c.label ? `<span class="lab">${c.label}</span>` : "";
+  if (c.inner) e.innerHTML = lab + c.inner;
+  else if (c.type === "key") e.innerHTML = lab + `<img src="../assets/sym/c/${c.icon}.png"><b>${c.title}</b><i>${c.preview}</i>`;
+  else if (c.type === "mac") { e.innerHTML = lab + `<img src="../assets/raw/mac-history.png">`; e.style.height = (1028 - c.cut) * c.w / 720 + "px"; e.style.overflow = "visible"; e.innerHTML = lab + `<div style="overflow:hidden;border-radius:44px;height:100%"><img src="../assets/raw/mac-history.png"></div>`; }
+  else e.innerHTML = lab + `<p>${c.html}</p>` + (c.type === "field" ? `<u><img src="../assets/sym/c/arrow.up-white.png"></u>` : "");
+  if (spec.cz) e.style.zoom = spec.cz;
+  B.appendChild(e);
+}
+for (const c of spec.chips || []) { const e = document.createElement("div"); e.className = "chip"; e.textContent = c.text; e.style.cssText = `--c:#5CF2C0;left:${c.left}px;top:${c.top}px;transform:rotate(${c.rot || 0}deg)`; B.appendChild(e); }
+// a trail of light between two anchors: "liftId:mR" is a marker on a lifted piece, "cardId:L" a side of a card
+const svg = document.getElementById("trails"), NS = "http://www.w3.org/2000/svg";
+svg.setAttribute("width", spec.W); svg.setAttribute("height", spec.H); svg.setAttribute("viewBox", `0 0 ${spec.W} ${spec.H}`);
+const mk = (n, a) => { const e = document.createElementNS(NS, n); for (const k in a) e.setAttribute(k, a[k]); svg.appendChild(e); return e; };
+mk("defs", {}).innerHTML = '<filter id="glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="12"/></filter>';
+const SX = +new URLSearchParams(location.search).get("x") || 0;   // rects are read on the shifted page
+const anchor = (a) => { const [id, w] = a.split(":"), e = document.getElementById(id);
+  if (w.length > 1) { const r = e.querySelector("." + w).getBoundingClientRect(); return [r.left + SX, r.top]; }
+  const r0 = e.getBoundingClientRect(), r = { left: r0.left + SX, right: r0.right + SX, top: r0.top, bottom: r0.bottom, width: r0.width, height: r0.height }; return { L: [r.left + 4, r.top + r.height / 2], R: [r.right - 4, r.top + r.height / 2], T: [r.left + r.width / 2, r.top + 4], B: [r.left + r.width / 2, r.bottom - 4] }[w]; };
+for (const l of spec.links || []) {
+  const [x0, y0] = anchor(l.a), [x1, y1] = anchor(l.b), b = l.bend;
+  const d = `M${x0} ${y0} C ${x0 + b[0]} ${y0 + b[1]}, ${x1 + b[2]} ${y1 + b[3]}, ${x1} ${y1}`;
+  // one quiet line: a hairline in pale mint with a faint halo
+  mk("path", { d, stroke: "#5CF2C0", "stroke-width": 20, "stroke-linecap": "round", opacity: .16, filter: "url(#glow)" });
+  mk("path", { d, stroke: "#D9FFF0", "stroke-width": 5, "stroke-linecap": "round", opacity: .85 });
+  mk("circle", { cx: x1, cy: y1, r: 26, fill: "#5CF2C0", opacity: .22 }); mk("circle", { cx: x1, cy: y1, r: 12, fill: "#fff" }); mk("circle", { cx: x0, cy: y0, r: 8, fill: "#fff" });
+}
+</script>
+<script>window.READY_WAIT = 6000;</script>
+<script src="READY"></script>

@@ -47,3 +47,9 @@ __pycache__/
 
 # The custom page and main page renders (2 GB); fastlane/frames and the upload set hold what ships
 fastlane/compose/creative/cpp/out/
+# Keys path traces (422 MB, rebuilt by `keys.py trace <set> --remote` on the Windows PC) and their logs
+fastlane/compose/creative/cpp/keys/renders/
+fastlane/compose/creative/cpp/keys/previews/
+fastlane/compose/creative/cpp/keys/*.log
+fastlane/compose/creative/cpp/keys/.*-done
+fastlane/compose/creative/cpp/keys/trace.progress

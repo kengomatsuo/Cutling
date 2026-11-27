@@ -5,12 +5,17 @@ build from ASG148's candidates (`../sets`, `../d1..d3`), not a new design; and m
 
 | Page | Candidate | Languages | Frames | State |
 |---|---|---|---|---|
-| main (store page, ASG252) | Don't type it (poster, d2) | 50 | 8 iPhone + 8 iPad | en-US done; 49 rendering, words written |
-| Personal details | Keys (d1), `keys.py` | 50 | 6 + 6 | traced on the PC; en-US composited; words written for all 50 |
-| Notes you paste | Keys (d1) | en-US, en-GB, en-AU, en-CA | 6 + 6 | traced on the PC; compositing next |
-| Quick replies | Night flight (d3), `night.py`, words around answering the same question again | 50 | 6 + 6 | en-US rendered; words written for all 50 |
-| Clipboard history | Night flight (d3) | 4 English | 6 + 6 | en-US rendered |
-| Text expander | Don't type it (`poster.build_te`), its own words | 4 English | 6 + 6 | en-US rendered |
+| main (store page, ASG252) | Don't type it (poster, d2) | 50 | 8 iPhone + 8 iPad | **done, published to fastlane/frames, all 50** |
+| Personal details | Keys (d1), `keys.py` | 50 | 6 + 6 | **done** |
+| Notes you paste | Keys (d1) | en-US, en-GB, en-AU, en-CA | 6 + 6 | **done** |
+| Quick replies | Night flight (d3), `night.py`, words around answering the same question again | 50 | 6 + 6 | **done** |
+| Clipboard history | Night flight (d3) | 4 English | 6 + 6 | **done** |
+| Text expander | Don't type it (`poster.build_te`), its own words | 4 English | 6 + 6 | **done** |
+
+Contact sheets: `out/<page>/sheet-iphone.png` and `sheet-ipad.png` (one row per language, frames edge to edge; a
+right-to-left language's row is in store order, frame 1 on the right). Custom page frames are not copied anywhere:
+the uploading session takes them from `out/<page>/<locale>/{iphone,ipad}/NN.png`. Every frame was checked at
+1320 x 2868 or 2064 x 2752.
 
 Build: `python3 build.py <page> [locales|--all]`, `python3 build.py sheet <page>`. Frames:
 `out/<page>/<locale>/{iphone,ipad}/NN.png`, with the page they are cut from (`pano.html`) beside them.
@@ -78,3 +83,42 @@ Build: `python3 build.py <page> [locales|--all]`, `python3 build.py sheet <page>
 - 2026-11-27: pt-PT, ro, ru, sk, sl-SI
 - 2026-11-27: sv, ta-IN, te-IN, th, tr
 - 2026-11-27: uk, ur-PK, vi, zh-Hans, zh-Hant; ja again (its iPad headlines now join without a space). All 50 published.
+- 2026-11-27: Keys right-to-left fixed: each traced frame is mirrored in place (frame 1 stays frame 1); before, the
+  frames were also reversed, which broke every seam. Mirrored, the Mac keys read ⌘ ⇧ V from the right.
+- 2026-11-27: `fallbacks.py` lists every capture a page borrows from en-US (out/fallbacks.md). The main page, Personal
+  details and Quick replies borrow none; the three English-only pages borrow the 2.0 captures in en-GB, en-AU, en-CA.
+- 2026-11-27: Night flight headlines whose mint phrase runs across a line break (12 languages) showed the asterisks;
+  `heading()` now closes and reopens the phrase at each break, and those languages were rendered again.
+- 2026-11-27: Urdu headlines in Keys and Night flight are set at 78 to 80 percent: Nastaliq's line height ran them
+  into the devices.
+- 2026-11-27: every page rendered in every localization; 300 + 300 frames each for Personal details and Quick replies, 24 + 24 for each English page, 400 + 400 for the main page; all at App Store size. Fallbacks: out/fallbacks.md.
+
+## Banners (ASG253): App Store header and search banners, one per page and language
+
+Build: `python3 banners.py <page> [locales|--all]`, `python3 banners.py preview <page>`, `python3 banners.py sheet <page>`.
+Files: `out/banners/<page>/<locale>.png`, 5244 x 2950 PNG24, no alpha (checked by the build after every run).
+
+- **One composition per look, each from its page's frames 1 and 2, centred on Apple's safe area (x 1921-3323,
+  y 660-1622).** The headline starts at y 870, under the iPhone header's status bar (about y 530-840); the hero object
+  fills the safe area under it and may run past its lower edge; the rest is backdrop that any surface may cut.
+  - Don't type it (main, Text expander): ink headline on mint, the one key with the tap ring; the address as loose keys
+    (main) or the struck-out shortcut codes (Text expander) on the left, the key stack on the right, the phone with the
+    typed text rising from the bottom.
+  - Keys (Personal details, Notes you paste): its own path trace (`keys.py` sets `pd-banner`, `np-banner`, traced once
+    on the PC at 5244 x 2950 with 1x face passes), the page's first key under the headline, four keys and two phones
+    around it, ⌘ ⇧ V at the bottom.
+  - Night flight (Quick replies, Clipboard history): the fill-in keyboard or the new Cabin Wi-Fi key under the headline,
+    tilted phones left and right, trails out to the replies or the pasted copies.
+- **Words are the page's frame 1 and 2 headlines**, already written for every language; no new lines.
+- **Crops on the previews are estimates except the safe area**: no Apple template is on disk. The iPhone header is
+  drawn as x 1494-3750, y 530-2420 (the status bar's 310 px at iPhone's 393 pt width), the search card as a centred
+  3:2, x 1182-4062, y 515-2435.
+- 2026-11-27: main page banners take frames 1 and 2's headlines each on one line ("Don't type it." / "Tap it."), so
+  no language stacks three or four lines in the safe area. Keys banners: the headline also shrinks to its height
+  (data-h 300), so its white second line ends above the key face; first pass ran into it in most languages.
+- Previews: `out/banners/<page>/preview-en-US.png`. Sheets: `out/banners/<page>/sheet.png`.
+- 2026-11-27: main banner key rows break at 7 keys, inside a word too (`poster.letter_keys(..., hard=True)`, banners
+  only; the store frames are unchanged): addresses with no spaces (ja, zh) and long words ran under the headline.
+- 2026-11-27: **all six pages' banners final** and handed over: main 50, personal-details 50, quick-replies 50,
+  text-expander 4, notes-you-paste 4, clipboard-history 4; each checked 5244 x 2950, PNG24, no alpha, and each from
+  its last render. Previews and sheets rebuilt from the final files.

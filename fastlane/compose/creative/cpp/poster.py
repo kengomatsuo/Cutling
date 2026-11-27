@@ -98,13 +98,9 @@ def ring(P, x, y, d, z=30):
     return f'<div class="ring" style="--d:{d}px;width:{d}px;height:{d}px;{P.pos(x, y, z=z)}"></div>'
 
 
-def letter_keys(P, i, text, x0, y0, per_row, pitch=152, row=204, size=1.0):
-    """The address as the loose keys it costs to type, one per character and one for the return, set by hand."""
-    seed = 7
-    def rnd():
-        nonlocal seed
-        seed = (seed * 16807) % 2147483647
-        return seed / 2147483647
+def key_rows(text, per_row, hard=False):
+    """The address broken into rows of keys at spaces; a row ends with "\n" where the address has a line break.
+    With hard, a word longer than a row (an address with no spaces) is cut at the row's length."""
     rows = []
     for part in text.split("\n"):
         cur = ""
@@ -116,6 +112,38 @@ def letter_keys(P, i, text, x0, y0, per_row, pitch=152, row=204, size=1.0):
                 cur += word
         rows.append(cur + "\n")
     rows[-1] = rows[-1].rstrip("\n")
+    if hard:   # a space at a row's end stays on it instead of starting a row of its own
+        cut = []
+        for r in rows:
+            while len(r.rstrip()) > per_row:
+                cut.append(r[:per_row]); r = r[per_row:]
+            cut.append(r)
+        rows = cut
+    return rows
+
+
+def fit_keys(text, w, h, pitch, row, size_max):
+    """(per_row, size) that sets the whole address inside a w x h box with keys as large as fit, up to size_max.
+    Each row length is scored by its key size, less a sixth when it cuts a word and a quarter for each cut piece of one
+    or two letters ("Stockho" / "lm"), so the keys stay large and words break only where they must."""
+    def score(per):
+        rows, soft = key_rows(text, per, hard=True), key_rows(text, per)
+        cols = max(len(r) for r in rows)   # a trailing space or "\n" (the return) is a key too
+        s = min(size_max, w / ((cols - 1) * pitch + 140), h / ((len(rows) - 1) * row + 172))
+        tails = sum(1 for r in rows if r not in soft and len(r.strip()) <= 2)
+        return s * (1 if rows == soft else 5 / 6) * .75 ** tails, per, s
+    _, per, s = max(score(per) for per in range(4, 16))
+    return per, s
+
+
+def letter_keys(P, i, text, x0, y0, per_row, pitch=152, row=204, size=1.0, hard=False):
+    """The address as the loose keys it costs to type, one per character and one for the return, set by hand."""
+    seed = 7
+    def rnd():
+        nonlocal seed
+        seed = (seed * 16807) % 2147483647
+        return seed / 2147483647
+    rows = key_rows(text, per_row, hard)
     out, n = [], 0
     for j, r in enumerate(rows):
         for c, ch in enumerate(r):
