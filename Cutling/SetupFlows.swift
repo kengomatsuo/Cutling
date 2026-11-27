@@ -103,7 +103,7 @@ struct FullAccessSheet: View {
             topPadding: setupPageTopPadding
         ) { dismiss() }
         .navigationBarTitleDisplayMode(.inline)
-        .toolbarVisibility(.visible, for: .navigationBar)
+        .toolbar(.visible, for: .navigationBar)
         }
     }
 }
@@ -180,7 +180,7 @@ struct SetupGuide: View {
             }
             // One bar on every page, so every title starts at the same height.
             .navigationBarTitleDisplayMode(.inline)
-            .toolbarVisibility(.visible, for: .navigationBar)
+            .toolbar(.visible, for: .navigationBar)
             .navigationDestination(for: Page.self) { page in
                 Group {
                     switch page {
@@ -192,7 +192,7 @@ struct SetupGuide: View {
                     }
                 }
                 .navigationBarTitleDisplayMode(.inline)
-                .toolbarVisibility(.visible, for: .navigationBar)
+                .toolbar(.visible, for: .navigationBar)
             }
         }
         .interactiveDismissDisabled()

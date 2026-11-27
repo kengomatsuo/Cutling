@@ -84,11 +84,7 @@ struct AppleSheetPage<Content: View, Footer: View>: View {
 
     var body: some View {
         namedScroll
-        .onScrollGeometryChange(for: Bool.self) { geo in
-            geo.contentOffset.y + geo.containerSize.height >= geo.contentSize.height - 1
-        } action: { _, atEnd in
-            if atEnd, requiresReadingToEnd, !readToEnd { readToEnd = true }
-        }
+        .modifier(ReadToEndTracker(required: requiresReadingToEnd, readToEnd: $readToEnd))
         .safeAreaInset(edge: .bottom) {
             VStack(spacing: 12) {
                 footer
@@ -111,6 +107,25 @@ extension AppleSheetPage where Footer == EmptyView {
         self.init(title: title, subtitle: subtitle, topPadding: topPadding, buttonTitle: buttonTitle,
                   buttonEnabled: buttonEnabled, buttonID: buttonID, requiresReadingToEnd: requiresReadingToEnd,
                   scrollID: scrollID, action: action, content: content, footer: { EmptyView() })
+    }
+}
+
+/// Marks a page read once its scroll reaches the end. iOS 17 has no scroll geometry to watch, so there a page that asks
+/// for reading to the end counts as read from the start and its button never waits.
+private struct ReadToEndTracker: ViewModifier {
+    let required: Bool
+    @Binding var readToEnd: Bool
+
+    func body(content: Content) -> some View {
+        if #available(iOS 18, *) {
+            content.onScrollGeometryChange(for: Bool.self) { geo in
+                geo.contentOffset.y + geo.containerSize.height >= geo.contentSize.height - 1
+            } action: { _, atEnd in
+                if atEnd, required, !readToEnd { readToEnd = true }
+            }
+        } else {
+            content.onAppear { if required { readToEnd = true } }
+        }
     }
 }
 

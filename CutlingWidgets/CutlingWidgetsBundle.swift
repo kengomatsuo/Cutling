@@ -11,9 +11,12 @@ import SwiftUI
 
 @main
 struct CutlingWidgetsBundle: WidgetBundle {
+    /// Control Center controls arrived in iOS 18; on iOS 17 the extension offers none.
     var body: some Widget {
-        AddFromClipboardControl()
-        NewTextCutlingControl()
-        NewImageCutlingControl()
+        if #available(iOS 18.0, *) {
+            AddFromClipboardControl()
+            NewTextCutlingControl()
+            NewImageCutlingControl()
+        }
     }
 }

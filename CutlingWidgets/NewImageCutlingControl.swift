@@ -8,6 +8,7 @@
 import SwiftUI
 import WidgetKit
 
+@available(iOS 18.0, *)
 struct NewImageCutlingControl: ControlWidget {
     static let kind = "com.matsuokengo.Cutling.newImageCutling"
 

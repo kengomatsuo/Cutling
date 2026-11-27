@@ -102,6 +102,8 @@ struct MainContentView: View {
     @State private var panGesture: UIPanGestureRecognizer?
     @State private var selectionProperties: SelectionProperties = .init()
     @State private var scrollProperties: ScrollProperties = .init()
+    /// A scroll the grid owes on iOS 17, which has no ScrollPosition; a ScrollViewReader carries it out.
+    @State private var legacyScroll: LegacyScroll?
     #endif
     #if os(macOS)
     @State private var selectedCutlingIDs: Set<UUID> = []
@@ -222,13 +224,25 @@ struct MainContentView: View {
 
     /// Mirrors ScrollProperties from the reference.
     private struct ScrollProperties {
-        var position: ScrollPosition = .init()
+        /// The grid's ScrollPosition, held untyped so this struct builds for iOS 17, which has no ScrollPosition.
+        private var positionStorage: Any?
+        @available(iOS 18, *)
+        var position: ScrollPosition {
+            get { positionStorage as? ScrollPosition ?? ScrollPosition() }
+            set { positionStorage = newValue }
+        }
         var currentScrollOffset: CGFloat = 0
         var manualScrollOffset: CGFloat = 0
         var timer: Timer?
         var direction: ScrollDirection = .none
         /// Pixels per tick — updated continuously as finger moves within edge zone.
         var speed: CGFloat = 0
+    }
+
+    /// A card to centre, or the end of the grid when `card` is nil; `token` makes each request a change.
+    private struct LegacyScroll: Equatable {
+        let card: UUID?
+        let token = UUID()
     }
 
     nonisolated private enum ScrollDirection {
@@ -395,7 +409,7 @@ struct MainContentView: View {
                             ImageDetailView(item: item, presentedAsSheet: false)
                         }
                     }
-                    .navigationTransition(.zoom(sourceID: item.id, in: zoomNamespace))
+                    .zoomTransition(sourceID: item.id, in: zoomNamespace)
                 }
                 .sheet(item: $activeSheet) { sheet in
                     switch sheet {
@@ -425,10 +439,10 @@ struct MainContentView: View {
                                 )
                             }
                         }
-                        .navigationTransition(.zoom(sourceID: addButtonZoomID, in: zoomNamespace))
+                        .zoomTransition(sourceID: addButtonZoomID, in: zoomNamespace)
                     case .keyboardManager:
                         KeyboardView()
-                            .navigationTransition(.zoom(sourceID: keyboardButtonZoomID, in: zoomNamespace))
+                            .zoomTransition(sourceID: keyboardButtonZoomID, in: zoomNamespace)
                     case .keyboardSetup:
                         KeyboardSetupView()
                     }
@@ -511,7 +525,7 @@ struct MainContentView: View {
                     try? await Task.sleep(for: .seconds(0.5))
                     guard tutorial.step == step else { return }
                     withAnimation(.easeInOut(duration: 0.3)) {
-                        scrollProperties.position.scrollTo(id: id, anchor: .center)
+                        scrollGrid(toCard: id)
                     }
                 }
             case .recoverIntro:
@@ -859,6 +873,26 @@ struct MainContentView: View {
     // MARK: - Grid Scroll View
 
     private var gridScrollView: some View {
+        #if os(iOS)
+        ScrollViewReader { proxy in
+            scrollDriven(gridScrollContent)
+                .onChange(of: legacyScroll) { _, request in
+                    guard let request else { return }
+                    withAnimation(.easeInOut(duration: 0.3)) {
+                        if let card = request.card {
+                            proxy.scrollTo(card, anchor: .center)
+                        } else if let last = filtered.last?.id {
+                            proxy.scrollTo(last, anchor: .bottom)
+                        }
+                    }
+                }
+        }
+        #else
+        gridScrollContent
+        #endif
+    }
+
+    private var gridScrollContent: some View {
         ScrollView {
             #if os(iOS)
             gridTipBanner
@@ -917,7 +951,7 @@ struct MainContentView: View {
                         ))
                         .id(item.id)
                         #if os(iOS)
-                        .matchedTransitionSource(id: item.id, in: zoomNamespace)
+                        .zoomSource(id: item.id, in: zoomNamespace)
                         #endif
                         .onGeometryChange(for: CGRect.self) {
                             $0.frame(in: .global)
@@ -941,35 +975,59 @@ struct MainContentView: View {
         .environment(\.hostWindow, hostWindow)
         .background(HostWindowReader(host: hostWindow))
         #endif
-        #if os(iOS)
-        .scrollPosition($scrollProperties.position)
-        .onScrollGeometryChange(for: CGFloat.self, of: {
-            $0.contentOffset.y + $0.contentInsets.top
-        }, action: { _, newValue in
-            scrollProperties.currentScrollOffset = newValue
-        })
-        .onChange(of: scrollProperties.direction) { _, newValue in
-            if newValue != .none {
-                guard scrollProperties.timer == nil else { return }
-                scrollProperties.manualScrollOffset = scrollProperties.currentScrollOffset
-
-                scrollProperties.timer = Timer.scheduledTimer(withTimeInterval: 0.005, repeats: true) { _ in
-                    let speed = scrollProperties.speed
-                    if case .up = scrollProperties.direction {
-                        scrollProperties.manualScrollOffset -= speed
-                    }
-                    if case .down = scrollProperties.direction {
-                        scrollProperties.manualScrollOffset += speed
-                    }
-                    scrollProperties.position.scrollTo(y: scrollProperties.manualScrollOffset)
-                }
-                scrollProperties.timer?.fire()
-            } else {
-                resetScrollTimer()
-            }
-        }
-        #endif
     }
+
+    #if os(iOS)
+    /// The grid's iOS 18 scroll position: requests to scroll to a card or the end, and the edge auto-scroll of a
+    /// drag-select (which needs iOS 18's gesture recognizer, so iOS 17 has neither).
+    @ViewBuilder
+    private func scrollDriven(_ content: some View) -> some View {
+        if #available(iOS 18, *) {
+            content
+                .scrollPosition($scrollProperties.position)
+                .onScrollGeometryChange(for: CGFloat.self, of: {
+                    $0.contentOffset.y + $0.contentInsets.top
+                }, action: { _, newValue in
+                    scrollProperties.currentScrollOffset = newValue
+                })
+                .onChange(of: scrollProperties.direction) { _, newValue in
+                    if newValue != .none {
+                        guard scrollProperties.timer == nil else { return }
+                        scrollProperties.manualScrollOffset = scrollProperties.currentScrollOffset
+
+                        scrollProperties.timer = Timer.scheduledTimer(withTimeInterval: 0.005, repeats: true) { _ in
+                            let speed = scrollProperties.speed
+                            if case .up = scrollProperties.direction {
+                                scrollProperties.manualScrollOffset -= speed
+                            }
+                            if case .down = scrollProperties.direction {
+                                scrollProperties.manualScrollOffset += speed
+                            }
+                            scrollProperties.position.scrollTo(y: scrollProperties.manualScrollOffset)
+                        }
+                        scrollProperties.timer?.fire()
+                    } else {
+                        resetScrollTimer()
+                    }
+                }
+        } else {
+            content
+        }
+    }
+
+    /// Scrolls the grid to a card, centred, or to its end when `card` is nil.
+    private func scrollGrid(toCard card: UUID?) {
+        if #available(iOS 18, *) {
+            if let card {
+                scrollProperties.position.scrollTo(id: card, anchor: .center)
+            } else {
+                scrollProperties.position.scrollTo(edge: .bottom)
+            }
+        } else {
+            legacyScroll = LegacyScroll(card: card)
+        }
+    }
+    #endif
 
     #if os(iOS)
     /// Inline TipKit banner shown above the grid. Mode-driven so we never
@@ -1502,7 +1560,7 @@ struct MainContentView: View {
     private func scrollToBottom() {
         #if os(iOS)
         withAccessibleAnimation(.spring(duration: 0.5, bounce: 0.3)) {
-            scrollProperties.position.scrollTo(edge: .bottom)
+            scrollGrid(toCard: nil)
         }
         #endif
         #if os(macOS)
@@ -1689,6 +1747,33 @@ enum DroppedItem: Transferable {
         })
     }
 }
+
+// MARK: - Zoom Transition
+
+#if os(iOS)
+extension View {
+    /// Zooms a pushed or presented view out of the view marked `zoomSource` with the same id (iOS 18); iOS 17 keeps
+    /// the standard push and sheet.
+    @ViewBuilder
+    func zoomTransition(sourceID: some Hashable, in namespace: Namespace.ID) -> some View {
+        if #available(iOS 18, *) {
+            navigationTransition(.zoom(sourceID: sourceID, in: namespace))
+        } else {
+            self
+        }
+    }
+
+    /// The view a `zoomTransition` with the same id zooms out of (iOS 18).
+    @ViewBuilder
+    func zoomSource(id: some Hashable, in namespace: Namespace.ID) -> some View {
+        if #available(iOS 18, *) {
+            matchedTransitionSource(id: id, in: namespace)
+        } else {
+            self
+        }
+    }
+}
+#endif
 
 // MARK: - Pan Gesture Recognizer
 
