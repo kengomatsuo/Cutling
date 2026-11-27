@@ -707,7 +707,7 @@ extension FormattedTextEditor: UIViewRepresentable {
             }
             if let strike = attributes[.strikethroughStyle] as? Int, strike != 0 { active.insert(.strikethrough) }
             if let underline = attributes[.underlineStyle] as? Int, underline != 0 { active.insert(.underline) }
-            if attributes[.textHighlightStyle] != nil { active.insert(.highlight) }
+            if TextHighlight.isOn(attributes) { active.insert(.highlight) }
             if attributes[.link] != nil { active.insert(.link) }
             if let item = listItem(containing: view.selectedRange.location, in: view.textStorage) { active.insert(.list(item.kind)) }
             if styles.active != active { styles.active = active }
@@ -724,10 +724,7 @@ extension FormattedTextEditor: UIViewRepresentable {
             case .underline:
                 change(view) { $0[.underlineStyle] = turnOn ? NSUnderlineStyle.single.rawValue : nil }
             case .highlight:
-                change(view) {
-                    $0[.textHighlightStyle] = turnOn ? NSAttributedString.TextHighlightStyle.default : nil
-                    $0[.textHighlightColorScheme] = turnOn ? NSAttributedString.TextHighlightColorScheme.purple : nil
-                }
+                change(view) { TextHighlight.set(turnOn, in: &$0) }
             case .strikethrough:
                 change(view) { $0[.strikethroughStyle] = turnOn ? NSUnderlineStyle.single.rawValue : nil }
             case .monospace:

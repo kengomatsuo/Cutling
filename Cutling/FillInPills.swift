@@ -45,7 +45,7 @@ struct PillLook: Equatable {
         underline = (attributes[.underlineStyle] as? Int ?? 0) != 0
         strikethrough = (attributes[.strikethroughStyle] as? Int ?? 0) != 0
         #if os(iOS)
-        highlight = attributes[.textHighlightStyle] != nil
+        highlight = TextHighlight.isOn(attributes)
         #else
         highlight = attributes[.backgroundColor] != nil
         #endif

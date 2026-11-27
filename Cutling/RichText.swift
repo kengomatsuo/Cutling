@@ -19,6 +19,31 @@ import UIKit
 import AppKit
 #endif
 
+/// Notes' text highlight, which iOS 18 and macOS 15 write as a highlight style and colour scheme. iOS 17 has neither,
+/// so there a highlight is a light purple background, which every reader here also takes as a highlight.
+enum TextHighlight {
+    nonisolated static func isOn(_ attributes: [NSAttributedString.Key: Any]) -> Bool {
+        if #available(iOS 18, macOS 15, *) {
+            return attributes[.textHighlightStyle] != nil
+        }
+        return attributes[.backgroundColor] != nil
+    }
+
+    /// Turns the highlight on or off in `attributes`, as Notes' first colour, purple.
+    nonisolated static func set(_ on: Bool, in attributes: inout [NSAttributedString.Key: Any]) {
+        if #available(iOS 18, macOS 15, *) {
+            attributes[.textHighlightStyle] = on ? NSAttributedString.TextHighlightStyle.default : nil
+            attributes[.textHighlightColorScheme] = on ? NSAttributedString.TextHighlightColorScheme.purple : nil
+        } else {
+            #if canImport(UIKit)
+            attributes[.backgroundColor] = on ? UIColor.systemPurple.withAlphaComponent(0.25) : nil
+            #elseif canImport(AppKit)
+            attributes[.backgroundColor] = on ? NSColor.systemPurple.withAlphaComponent(0.25) : nil
+            #endif
+        }
+    }
+}
+
 enum TextFormat: String, Codable, CaseIterable, Sendable {
     case plain, rich, code
 
@@ -260,7 +285,7 @@ enum RichText {
         }
         // A link is drawn underlined by most hosts already, and web pages underline every one.
         if style.link == nil, let underline = attrs[.underlineStyle] as? Int, underline != 0 { style.underline = true }
-        style.highlight = attrs[.textHighlightStyle] != nil || isHighlight(attrs[.backgroundColor])
+        style.highlight = TextHighlight.isOn(attrs) || isHighlight(attrs[.backgroundColor])
         return style
     }
 
@@ -352,8 +377,7 @@ enum RichText {
             if run[CutlingHighlightAttribute.self] == true {
                 // Notes' own highlight in its first colour, purple: Notes and Pages keep it as a highlight, and WebKit
                 // (Mail and web pages on iOS read the RTF) draws it as Notes' copy does, tinted text on a light tint.
-                attrs[.textHighlightStyle] = NSAttributedString.TextHighlightStyle.default
-                attrs[.textHighlightColorScheme] = NSAttributedString.TextHighlightColorScheme.purple
+                TextHighlight.set(true, in: &attrs)
             }
             if let link = run.link { attrs[.link] = link }
             out.append(NSAttributedString(string: text, attributes: attrs))
