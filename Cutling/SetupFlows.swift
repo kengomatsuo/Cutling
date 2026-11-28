@@ -146,7 +146,8 @@ private func typedACutling(_ text: String, store: CutlingStore) -> Bool {
 // MARK: - A: three short pages
 
 struct SetupGuide: View {
-    @Environment(\.dismiss) private var dismiss
+    /// Read through a box: on iOS 17 a pushed page changes the dismiss action and a body that read it never settled.
+    @State private var dismiss = StableDismiss()
     @Environment(\.scenePhase) private var scenePhase
     @EnvironmentObject private var store: CutlingStore
     @State private var status = KeyboardStatus()
@@ -160,7 +161,9 @@ struct SetupGuide: View {
     /// Add, Try It, then the guide's own closing pages, which the owner keeps.
     enum Page: Hashable { case add, tryIt, whatYouCanDo, icloud, done }
 
-    var body: some View {
+    var body: some View { page.readsDismiss(into: dismiss) }
+
+    @ViewBuilder private var page: some View {
         NavigationStack(path: $path) {
             AppleSheet(
                 title: "Welcome to Cutling",

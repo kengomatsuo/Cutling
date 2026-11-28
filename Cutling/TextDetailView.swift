@@ -17,7 +17,8 @@ import TipKit
 // MARK: - Item Detail
 
 struct TextDetailView: View {
-    @Environment(\.dismiss) var dismiss
+    /// Read through a box: on iOS 17 a pushed page changes the dismiss action and a body that read it never settled.
+    @State private var dismiss = StableDismiss()
     @Environment(\.undoManager) var undoManager
     @Environment(\.scenePhase) var scenePhase
     @EnvironmentObject var store: CutlingStore
@@ -146,7 +147,9 @@ struct TextDetailView: View {
 
     var isEditing: Bool { existingItem != nil }
 
-    var body: some View {
+    var body: some View { page.readsDismiss(into: dismiss) }
+
+    @ViewBuilder private var page: some View {
         #if os(macOS)
         if presentedAsSheet {
             NavigationStack {

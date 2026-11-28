@@ -49,7 +49,8 @@ extension View {
 // MARK: - Picker
 
 struct FillInPicker: View {
-    @Environment(\.dismiss) private var dismiss
+    /// Read through a box: on iOS 17 a pushed page changes the dismiss action and a body that read it never settled.
+    @State private var dismiss = StableDismiss()
     let onInsert: (String) -> Void
     @State private var query = ""
     @State private var pushed: FillInEdit?
@@ -63,7 +64,9 @@ struct FillInPicker: View {
         return kinds.filter { $0.name.localizedCaseInsensitiveContains(text) || $0.group.title.localizedCaseInsensitiveContains(text) }
     }
 
-    var body: some View {
+    var body: some View { page.readsDismiss(into: dismiss) }
+
+    @ViewBuilder private var page: some View {
         NavigationStack {
             List {
                 ForEach(FillInKind.Group.allCases, id: \.self) { group in

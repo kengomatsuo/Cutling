@@ -18,7 +18,8 @@ import TipKit
 private let websiteBaseURL = "https://cutling.matsuokengo.com"
 
 struct KeyboardView: View {
-    @Environment(\.dismiss) var dismiss
+    /// Read through a box: on iOS 17 a pushed page changes the dismiss action and a body that read it never settled.
+    @State private var dismiss = StableDismiss()
     @EnvironmentObject var store: CutlingStore
     @AppStorage("iCloudSyncEnabled") private var iCloudSyncEnabled = false
     /// Sticky dismissal for the Siri phrase tip — AppIntents doesn't remember
@@ -73,7 +74,9 @@ struct KeyboardView: View {
         return URL(string: "\(websiteBaseURL)\(prefix)/\(path)/")!
     }
 
-    var body: some View {
+    var body: some View { page.readsDismiss(into: dismiss) }
+
+    @ViewBuilder private var page: some View {
         NavigationStack {
             Form {
                 #if os(iOS)
