@@ -225,11 +225,16 @@ extension XCTestCase {
         // As a person does it: hold the globe and, in the same touch, slide up its list and let go on Cutling. The list
         // grows up from the globe in Settings' order, Cutling last, so its row is the first one above the globe; each
         // try lets go one row higher until the Cutling keyboard is up.
+        // iOS 17's list keeps its one-handed row between the globe and the keyboards, with rows about 49 pt apart: a
+        // finger let go on that row leaves the list open and switches nothing, and a tap on the globe there only goes
+        // back to the keyboard used last.
+        let iOS17 = ProcessInfo.processInfo.operatingSystemVersion.majorVersion < 18
         for row in 1...10 where !cutlingKeyboardIsUp(in: app, showing: name) {
             let globe = keyboardGlobe(in: app)
             guard globe.waitForExistence(timeout: 5) else { break }
             let start = globe.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5))
-            start.press(forDuration: 1.0, thenDragTo: start.withOffset(CGVector(dx: 70, dy: -44 * CGFloat(row))),
+            let rise: CGFloat = iOS17 ? 119 + 49 * CGFloat(row - 1) : 44 * CGFloat(row)
+            start.press(forDuration: 1.0, thenDragTo: start.withOffset(CGVector(dx: 70, dy: -rise)),
                         withVelocity: .slow, thenHoldForDuration: hold)
             sleep(2)
         }
