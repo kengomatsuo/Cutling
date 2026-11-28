@@ -45,6 +45,19 @@ extension XCTestCase {
         settings.terminate()
     }
 
+    /// A simulator with no Apple Account signed in can raise the system's "Sign in with Apple ID" alert over any app, and it
+    /// takes the keyboard; a person cancels it, and so does every tap it blocks.
+    @MainActor
+    func cancelsSystemSignIn() {
+        addUIInterruptionMonitor(withDescription: "Sign in with Apple ID") { alert in
+            let cancel = alert.buttons["Cancel"]
+            guard alert.label.localizedCaseInsensitiveContains("Apple ID") || alert.staticTexts["Sign in with Apple ID"].exists,
+                  cancel.exists else { return false }
+            cancel.tap()
+            return true
+        }
+    }
+
     /// The part of a Settings switch row that takes a tap: iOS 27 nests the control inside the labelled switch, iOS 17
     /// reports the labelled switch alone.
     @MainActor

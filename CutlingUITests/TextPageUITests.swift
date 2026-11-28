@@ -16,6 +16,7 @@ final class TextPageUITests: XCTestCase {
 
     override func setUpWithError() throws {
         continueAfterFailure = false
+        MainActor.assumeIsolated { cancelsSystemSignIn() } // XCTest runs setUp on the main thread
     }
 
     override func tearDown() {

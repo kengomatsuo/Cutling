@@ -16,6 +16,7 @@ final class FormattingUITests: XCTestCase {
 
     override func setUpWithError() throws {
         continueAfterFailure = false
+        MainActor.assumeIsolated { cancelsSystemSignIn() } // XCTest runs setUp on the main thread
     }
 
     private func shot(_ name: String) {

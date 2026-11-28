@@ -21,6 +21,7 @@ final class OnboardingCaptureUITests: XCTestCase {
 
     override func setUpWithError() throws {
         continueAfterFailure = true
+        MainActor.assumeIsolated { cancelsSystemSignIn() } // XCTest runs setUp on the main thread
     }
 
     @MainActor private func shot(_ name: String) {
@@ -55,7 +56,10 @@ final class OnboardingCaptureUITests: XCTestCase {
 
         tapContinue(app)
         // A simulator whose Settings still lists the Cutling keyboard goes straight to Try It, as the guide should.
-        let keyboardAlreadyAdded = app.textFields["keyboardTestField"].firstMatch.waitForExistence(timeout: 3)
+        let field = app.textFields["keyboardTestField"].firstMatch
+        let openSettings = app.buttons["openSettingsButton"].firstMatch
+        for _ in 0..<15 where !field.exists && !openSettings.exists { sleep(1) }
+        let keyboardAlreadyAdded = field.exists
         shot(keyboardAlreadyAdded ? "setup_try_it_keyboard_already_added" : "setup_enable")
         if !keyboardAlreadyAdded { addKeyboardFromGuide(app) }
         try walkTryItAndRest(app)
