@@ -83,7 +83,8 @@ extension XCTestCase {
         // The guide reopens on its last page: step back to the first, then forward to the test page.
         let field = app.textFields["keyboardTestField"].firstMatch
         for _ in 0..<6 where !field.exists {
-            let back = app.navigationBars.buttons.firstMatch
+            // The guide's own Back: on iOS 17 the Keyboard sheet's bar behind the guide comes first in the tree.
+            let back = app.navigationBars.buttons.matching(NSPredicate(format: "identifier == 'BackButton' OR label == 'Back'")).firstMatch
             guard back.exists else { break }
             back.tap()
             sleep(1)

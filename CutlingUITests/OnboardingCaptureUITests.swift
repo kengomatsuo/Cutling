@@ -54,9 +54,15 @@ final class OnboardingCaptureUITests: XCTestCase {
         shot("setup_welcome")
 
         tapContinue(app)
-        shot("setup_enable")
+        // A simulator whose Settings still lists the Cutling keyboard goes straight to Try It, as the guide should.
+        let keyboardAlreadyAdded = app.textFields["keyboardTestField"].firstMatch.waitForExistence(timeout: 3)
+        shot(keyboardAlreadyAdded ? "setup_try_it_keyboard_already_added" : "setup_enable")
+        if !keyboardAlreadyAdded { addKeyboardFromGuide(app) }
+        try walkTryItAndRest(app)
+    }
 
-        // The guide's own button, as a buyer would press it.
+    /// Add the Keyboard: the guide's own button, as a buyer would press it, Settings, and back.
+    @MainActor private func addKeyboardFromGuide(_ app: XCUIApplication) {
         let openSettings = app.buttons["openSettingsButton"].firstMatch
         XCTAssertTrue(openSettings.waitForExistence(timeout: 5))
         openSettings.tap()
@@ -100,24 +106,35 @@ final class OnboardingCaptureUITests: XCTestCase {
         sleep(3)
         shot("setup_enable_after_settings")
         tapContinue(app)
+    }
+
+    /// Try It with the Cutling keyboard, then the guide's remaining pages and the first tutorial steps.
+    @MainActor private func walkTryItAndRest(_ app: XCUIApplication) throws {
         shot("setup_test_page")
 
         let field = app.textFields["keyboardTestField"].firstMatch
-        if field.waitForExistence(timeout: 5) {
-            field.tap()
-            _ = app.keyboards.firstMatch.waitForExistence(timeout: 20)
+        XCTAssertTrue(field.waitForExistence(timeout: 5), "Try It has no test field")
+        field.tap()
+        _ = app.keyboards.firstMatch.waitForExistence(timeout: 20)
+        sleep(2)
+        shot("setup_test_system_keyboard")
+        switchToCutlingKeyboard(in: app, showing: "Try Me")
+        sleep(2)
+        shot("setup_test_cutling_keyboard")
+        XCTAssertTrue(cutlingKeyboardIsUp(in: app, showing: "Try Me"), "The Cutling keyboard did not come up (keys: \(app.keys.count))")
+        // Its Try Me key types into the field, as the page asks.
+        if let key = cutlingKeyFrame("Try Me", in: app) {
+            screenPoint(key.midX, key.midY, in: app).tap()
             sleep(2)
-            shot("setup_test_system_keyboard")
-            switchToCutlingKeyboard(in: app)
-            sleep(2)
-            shot("setup_test_cutling_keyboard")
-            // Full Access is reported by the keyboard itself once it has run.
-            sleep(3)
-            shot("setup_test_status")
-            // Close the keyboard by tapping the page's header.
-            app.staticTexts["Test Your Keyboard"].firstMatch.tap()
-            sleep(1)
         }
+        let typed = (field.value as? String) ?? ""
+        XCTAssertFalse(typed.isEmpty || typed == field.placeholderValue, "Try Me typed nothing")
+        // Full Access is reported by the keyboard itself once it has run.
+        sleep(3)
+        shot("setup_test_status")
+        // Close the keyboard by tapping the page's title.
+        app.staticTexts["Try It"].firstMatch.tap()
+        sleep(1)
         tapContinue(app)
         shot("setup_what_you_can_do_top")
         let page = app.descendants(matching: .any).matching(identifier: "howToUsePage").firstMatch
