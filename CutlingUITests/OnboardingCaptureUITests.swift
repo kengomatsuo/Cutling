@@ -57,7 +57,7 @@ final class OnboardingCaptureUITests: XCTestCase {
         shot("setup_enable")
 
         // The guide's own button, as a buyer would press it.
-        let openSettings = app.buttons["Open Cutling Settings"].firstMatch
+        let openSettings = app.buttons["openSettingsButton"].firstMatch
         XCTAssertTrue(openSettings.waitForExistence(timeout: 5))
         openSettings.tap()
         let settings = XCUIApplication(bundleIdentifier: "com.apple.Preferences")
@@ -75,13 +75,13 @@ final class OnboardingCaptureUITests: XCTestCase {
             shot("settings_keyboards_page")
             let cutlingSwitch = settings.switches.matching(NSPredicate(format: "label CONTAINS[c] 'Cutling'")).firstMatch
             if cutlingSwitch.waitForExistence(timeout: 3), cutlingSwitch.value as? String == "0" {
-                cutlingSwitch.switches.firstMatch.tap()
+                settingsSwitch(cutlingSwitch).tap()
                 sleep(1)
                 shot("settings_keyboard_on")
             }
             let fullAccess = settings.switches.matching(NSPredicate(format: "label CONTAINS[c] 'Full Access'")).firstMatch
             if fullAccess.waitForExistence(timeout: 3), fullAccess.value as? String == "0" {
-                fullAccess.switches.firstMatch.tap()
+                settingsSwitch(fullAccess).tap()
                 sleep(1)
                 shot("settings_full_access_alert")
                 let allow = settings.alerts.buttons["Allow"].firstMatch

@@ -38,11 +38,19 @@ extension XCTestCase {
         cutling.tap()
         let fullAccess = settings.switches.matching(NSPredicate(format: "label CONTAINS[c] 'Allow Full Access'")).firstMatch
         if fullAccess.waitForExistence(timeout: 3), fullAccess.value as? String == "0" {
-            fullAccess.switches.firstMatch.tap()
+            settingsSwitch(fullAccess).tap()
             let allow = settings.alerts.buttons["Allow"].firstMatch
             if allow.waitForExistence(timeout: 3) { allow.tap() }
         }
         settings.terminate()
+    }
+
+    /// The part of a Settings switch row that takes a tap: iOS 27 nests the control inside the labelled switch, iOS 17
+    /// reports the labelled switch alone.
+    @MainActor
+    func settingsSwitch(_ row: XCUIElement) -> XCUIElement {
+        let inner = row.switches.firstMatch
+        return inner.exists ? inner : row
     }
 
     /// Opens the setup guide's keyboard test field and focuses it.

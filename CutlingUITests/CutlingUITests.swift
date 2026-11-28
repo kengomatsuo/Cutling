@@ -400,7 +400,7 @@ final class CutlingUITests: XCTestCase {
             log("S0: Full Access switch value=\(val) (0=off, 1=on)")
             if val == "0" {
                 log("S0: Toggling Full Access on")
-                fullAccessSwitch.switches.firstMatch.tap()
+                settingsSwitch(fullAccessSwitch).tap()
                 sleep(2)
 
                 let allowButton = settings.alerts.buttons["Allow"].firstMatch

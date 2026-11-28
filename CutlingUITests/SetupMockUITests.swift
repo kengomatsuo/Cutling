@@ -57,13 +57,13 @@ class SetupMockTestCase: XCTestCase {
         sleep(2)
         let cutling = settings.switches.matching(NSPredicate(format: "label CONTAINS[c] 'Cutling'")).firstMatch
         if cutling.waitForExistence(timeout: 5), cutling.value as? String == "0" {
-            cutling.switches.firstMatch.tap()
+            settingsSwitch(cutling).tap()
             sleep(1)
         }
         shot("\(prefix)_settings_keyboards")
         let fullAccess = settings.switches.matching(NSPredicate(format: "label CONTAINS[c] 'Full Access'")).firstMatch
         if fullAccess.waitForExistence(timeout: 3), fullAccess.value as? String == "0" {
-            fullAccess.switches.firstMatch.tap()
+            settingsSwitch(fullAccess).tap()
             sleep(1)
             shot("\(prefix)_settings_full_access_alert")
             let allow = settings.alerts.buttons["Allow"].firstMatch

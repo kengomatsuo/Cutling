@@ -72,7 +72,7 @@ final class PromoTakesUITests: XCTestCase {
         sleep(1)
         let fullAccess = settings.switches.matching(NSPredicate(format: "label CONTAINS[c] 'Allow Full Access'")).firstMatch
         if fullAccess.waitForExistence(timeout: 3), fullAccess.value as? String == "0" {
-            fullAccess.switches.firstMatch.tap()
+            settingsSwitch(fullAccess).tap()
             sleep(2)
             for allow in [settings.alerts.buttons["Allow"].firstMatch, settings.sheets.buttons["Allow"].firstMatch, settings.buttons["Allow Full Access"].firstMatch]
             where allow.waitForExistence(timeout: 2) {

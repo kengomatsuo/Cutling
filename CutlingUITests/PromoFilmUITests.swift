@@ -478,10 +478,10 @@ final class PromoFilmUITests: XCTestCase {
         runSettingsRoute()
         Thread.sleep(forTimeInterval: 1.5)
         let warmFullAccess = fullAccessSwitch()
-        if warmFullAccess.waitForExistence(timeout: 6), (warmFullAccess.value as? String) == "1" { warmFullAccess.switches.firstMatch.tap() }
+        if warmFullAccess.waitForExistence(timeout: 6), (warmFullAccess.value as? String) == "1" { settingsSwitch(warmFullAccess).tap() }
         Thread.sleep(forTimeInterval: 1.2)
         let warmToggle = cutlingKeyboardSwitch()
-        if warmToggle.waitForExistence(timeout: 6), (warmToggle.value as? String) == "1" { warmToggle.switches.firstMatch.tap() }
+        if warmToggle.waitForExistence(timeout: 6), (warmToggle.value as? String) == "1" { settingsSwitch(warmToggle).tap() }
         Thread.sleep(forTimeInterval: 1.2)
         settings.navigationBars[labels.keyboards].buttons.firstMatch.tap()
         Thread.sleep(forTimeInterval: 1.2)
