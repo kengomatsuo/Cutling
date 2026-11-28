@@ -6,7 +6,7 @@ Cutling is a SwiftUI-first iOS/macOS clipboard manager with **no third-party dep
 
 ## Build
 
-Open `Cutling.xcodeproj` (Xcode 16+, `fileSystemSynchronizedGroups`). Minimum deployment iOS 18.0 / macOS 14.0. `CutlingUITests` (XCUITest + fastlane snapshot) automates screenshots; no unit test suite exists.
+Open `Cutling.xcodeproj` (Xcode 16+, `fileSystemSynchronizedGroups`). Minimum deployment iOS 17.0 / macOS 14.0: the minimum is the oldest iOS the app and keyboard actually run on, proved by `scripts/walk-oldest-ios.sh` on that iOS's simulator through the device queue before a build ships. `CutlingUITests` (XCUITest + fastlane snapshot) automates screenshots; no unit test suite exists.
 
 Always use `./deploy.sh <command>` (bump, build, binary, snap, frame, screenshots, metadata, metadata_mac, upload, all, release_notes, release_notes_mac, web, dist, mas), never `fastlane` directly. Commands: [docs/deploy-commands.md](docs/deploy-commands.md). Release steps: [docs/release-workflow.md](docs/release-workflow.md).
 
