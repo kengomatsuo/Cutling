@@ -16,7 +16,7 @@ final class FormattingUITests: XCTestCase {
 
     override func setUpWithError() throws {
         continueAfterFailure = false
-        MainActor.assumeIsolated { cancelsSystemSignIn() } // XCTest runs setUp on the main thread
+        MainActor.assumeIsolated { dismissesSystemPrompts() } // XCTest runs setUp on the main thread
     }
 
     private func shot(_ name: String) {
@@ -114,11 +114,7 @@ final class FormattingUITests: XCTestCase {
         }
 
         // Pasting three times can trigger the App Store rating prompt.
-        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
-        for notNow in [app.buttons["Not Now"], springboard.buttons["Not Now"]] where notNow.waitForExistence(timeout: 2) {
-            notNow.tap()
-            sleep(1)
-        }
+        dismissRatingPrompt(in: app, waiting: 2)
 
         // The grid's one-time More options tip sits over the cards the editor is opened from.
         let tipClose = app.buttons["Close"].firstMatch
@@ -168,6 +164,8 @@ final class FormattingUITests: XCTestCase {
         let edit = app.buttons.matching(NSPredicate(format: "identifier == 'editButton' OR label == 'Edit'")).firstMatch
         // A loaded Mac can drop a long press before the menu opens; press again until it does.
         for _ in 0..<3 where !edit.exists {
+            // The rating prompt can arrive after the check for it and sit over the cards.
+            dismissRatingPrompt(in: app)
             card.press(forDuration: 1.6)
             _ = edit.waitForExistence(timeout: 8)
         }

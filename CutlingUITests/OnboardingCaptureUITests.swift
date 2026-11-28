@@ -21,7 +21,7 @@ final class OnboardingCaptureUITests: XCTestCase {
 
     override func setUpWithError() throws {
         continueAfterFailure = true
-        MainActor.assumeIsolated { cancelsSystemSignIn() } // XCTest runs setUp on the main thread
+        MainActor.assumeIsolated { dismissesSystemPrompts() } // XCTest runs setUp on the main thread
     }
 
     @MainActor private func shot(_ name: String) {

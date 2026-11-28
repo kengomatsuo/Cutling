@@ -59,16 +59,29 @@ extension XCTestCase {
                                                              XCUIElement.ElementType.textView.rawValue)).firstMatch
     }
 
-    /// A simulator with no Apple Account signed in can raise the system's "Sign in with Apple ID" alert over any app, and it
-    /// takes the keyboard; a person cancels it, and so does every tap it blocks.
+    /// System prompts that cover the app at moments the test does not choose: the "Sign in with Apple ID" alert a simulator
+    /// with no Apple Account raises over any app (it takes the keyboard), and the App Store's rating prompt, which comes a
+    /// few seconds after the third paste. A person cancels the first and says Not Now to the second; so does every tap
+    /// either one blocks.
     @MainActor
-    func cancelsSystemSignIn() {
-        addUIInterruptionMonitor(withDescription: "Sign in with Apple ID") { alert in
-            let cancel = alert.buttons["Cancel"]
-            guard alert.label.localizedCaseInsensitiveContains("Apple ID") || alert.staticTexts["Sign in with Apple ID"].exists,
-                  cancel.exists else { return false }
-            cancel.tap()
-            return true
+    func dismissesSystemPrompts() {
+        addUIInterruptionMonitor(withDescription: "System prompt") { alert in
+            for name in ["Cancel", "Not Now"] where alert.buttons[name].exists {
+                alert.buttons[name].tap()
+                return true
+            }
+            return false
+        }
+    }
+
+    /// The App Store's rating prompt, answered Not Now if it is up, in the app or above it.
+    @MainActor
+    func dismissRatingPrompt(in app: XCUIApplication, waiting seconds: TimeInterval = 0) {
+        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        for notNow in [app.buttons["Not Now"], springboard.buttons["Not Now"]]
+        where seconds > 0 ? notNow.waitForExistence(timeout: seconds) : notNow.exists {
+            notNow.tap()
+            sleep(1)
         }
     }
 
