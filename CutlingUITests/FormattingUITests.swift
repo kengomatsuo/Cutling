@@ -108,7 +108,7 @@ final class FormattingUITests: XCTestCase {
         let keyboardSheet = app.descendants(matching: .any).matching(identifier: "keyboardView").firstMatch
         for _ in 0..<8 where keyboardSheet.exists {
             let back = app.buttons["BackButton"].firstMatch
-            let close = app.buttons["xmark"].firstMatch
+            let close = sheetCloseButton(in: app)
             if back.exists { back.tap() } else if close.exists { close.tap() } else { app.navigationBars.buttons.firstMatch.tap() }
             sleep(1)
         }

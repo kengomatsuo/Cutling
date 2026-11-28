@@ -45,6 +45,12 @@ extension XCTestCase {
         settings.terminate()
     }
 
+    /// A sheet's own close button in its top bar: the xmark on iOS 26 and later, Done before.
+    @MainActor
+    func sheetCloseButton(in app: XCUIApplication) -> XCUIElement {
+        app.navigationBars.buttons.matching(NSPredicate(format: "identifier == 'xmark' OR label IN {'Close', 'Done'}")).firstMatch
+    }
+
     /// The setup guide's Try It field: a text field on iOS 27, a text view on iOS 17, where a vertical TextField is one.
     @MainActor
     func keyboardTestField(in app: XCUIApplication) -> XCUIElement {
