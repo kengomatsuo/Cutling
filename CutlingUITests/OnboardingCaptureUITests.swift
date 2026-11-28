@@ -56,7 +56,7 @@ final class OnboardingCaptureUITests: XCTestCase {
 
         tapContinue(app)
         // A simulator whose Settings still lists the Cutling keyboard goes straight to Try It, as the guide should.
-        let field = app.textFields["keyboardTestField"].firstMatch
+        let field = keyboardTestField(in: app)
         let openSettings = app.buttons["openSettingsButton"].firstMatch
         for _ in 0..<15 where !field.exists && !openSettings.exists { sleep(1) }
         let keyboardAlreadyAdded = field.exists
@@ -116,7 +116,7 @@ final class OnboardingCaptureUITests: XCTestCase {
     @MainActor private func walkTryItAndRest(_ app: XCUIApplication) throws {
         shot("setup_test_page")
 
-        let field = app.textFields["keyboardTestField"].firstMatch
+        let field = keyboardTestField(in: app)
         XCTAssertTrue(field.waitForExistence(timeout: 5), "Try It has no test field")
         field.tap()
         _ = app.keyboards.firstMatch.waitForExistence(timeout: 20)

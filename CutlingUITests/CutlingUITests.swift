@@ -146,7 +146,7 @@ final class CutlingUITests: XCTestCase {
         }
 
         log("S4: Looking for keyboardTestField")
-        let testField = app.textFields["keyboardTestField"].firstMatch
+        let testField = keyboardTestField(in: app)
         let fieldExists = testField.waitForExistence(timeout: 3)
         log("S4: keyboardTestField exists=\(fieldExists)")
         if fieldExists {

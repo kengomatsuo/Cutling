@@ -45,6 +45,14 @@ extension XCTestCase {
         settings.terminate()
     }
 
+    /// The setup guide's Try It field: a text field on iOS 27, a text view on iOS 17, where a vertical TextField is one.
+    @MainActor
+    func keyboardTestField(in app: XCUIApplication) -> XCUIElement {
+        app.descendants(matching: .any).matching(NSPredicate(format: "identifier == 'keyboardTestField' AND (elementType == %d OR elementType == %d)",
+                                                             XCUIElement.ElementType.textField.rawValue,
+                                                             XCUIElement.ElementType.textView.rawValue)).firstMatch
+    }
+
     /// A simulator with no Apple Account signed in can raise the system's "Sign in with Apple ID" alert over any app, and it
     /// takes the keyboard; a person cancels it, and so does every tap it blocks.
     @MainActor
@@ -94,7 +102,7 @@ extension XCTestCase {
             }
         }
         // The guide reopens on its last page: step back to the first, then forward to the test page.
-        let field = app.textFields["keyboardTestField"].firstMatch
+        let field = keyboardTestField(in: app)
         for _ in 0..<6 where !field.exists {
             // The guide's own Back: on iOS 17 the Keyboard sheet's bar behind the guide comes first in the tree.
             let back = app.navigationBars.buttons.matching(NSPredicate(format: "identifier == 'BackButton' OR label == 'Back'")).firstMatch
